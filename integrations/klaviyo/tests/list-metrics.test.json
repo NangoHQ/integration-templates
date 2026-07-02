@@ -1,0 +1,1126 @@
+{
+  "input": {},
+  "output": {
+    "metrics": [
+      {
+        "id": "RGVjNe",
+        "type": "metric",
+        "name": "Bounced Email",
+        "created": "2026-07-01T22:07:57+00:00",
+        "updated": "2026-07-01T22:07:57+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "RKxzZ7",
+        "type": "metric",
+        "name": "Relayed Text Message",
+        "created": "2026-07-01T22:08:02+00:00",
+        "updated": "2026-07-01T22:08:02+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "RQaQkv",
+        "type": "metric",
+        "name": "Clicked Text Message",
+        "created": "2026-07-01T22:08:02+00:00",
+        "updated": "2026-07-01T22:08:02+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "RicghZ",
+        "type": "metric",
+        "name": "Unsubscribed from Email Marketing",
+        "created": "2026-07-02T05:15:52+00:00",
+        "updated": "2026-07-02T05:15:52+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "SQtSXs",
+        "type": "metric",
+        "name": "Subscribed to Email Marketing",
+        "created": "2026-07-02T04:27:16+00:00",
+        "updated": "2026-07-02T04:27:16+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "SWXr3u",
+        "type": "metric",
+        "name": "Received Email",
+        "created": "2026-07-01T22:07:57+00:00",
+        "updated": "2026-07-01T22:07:57+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "SZzFem",
+        "type": "metric",
+        "name": "Subscribed to Text Messaging Marketing",
+        "created": "2026-07-01T22:08:02+00:00",
+        "updated": "2026-07-01T22:08:02+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "SjWnqR",
+        "type": "metric",
+        "name": "Clicked Email",
+        "created": "2026-07-01T22:07:57+00:00",
+        "updated": "2026-07-01T22:07:57+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "SnHm3B",
+        "type": "metric",
+        "name": "Subscribed to List",
+        "created": "2026-07-02T04:27:13+00:00",
+        "updated": "2026-07-02T04:27:13+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "SnyCBJ",
+        "type": "metric",
+        "name": "Sent Text Message",
+        "created": "2026-07-01T22:08:02+00:00",
+        "updated": "2026-07-01T22:08:02+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "TCAHQY",
+        "type": "metric",
+        "name": "Failed to Deliver Text Message",
+        "created": "2026-07-01T22:08:02+00:00",
+        "updated": "2026-07-01T22:08:02+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "Tsirvm",
+        "type": "metric",
+        "name": "Nango Seed Viewed Product",
+        "created": "2026-07-02T04:26:03+00:00",
+        "updated": "2026-07-02T04:26:03+00:00",
+        "integration": {
+          "name": "API",
+          "category": "API"
+        }
+      },
+      {
+        "id": "TvmdiH",
+        "type": "metric",
+        "name": "Dropped Email",
+        "created": "2026-07-01T22:07:57+00:00",
+        "updated": "2026-07-01T22:07:57+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "TzYtE7",
+        "type": "metric",
+        "name": "Skipped Send",
+        "created": "2026-07-01T22:07:57+00:00",
+        "updated": "2026-07-01T22:07:57+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "U8nfVk",
+        "type": "metric",
+        "name": "Clicked email to unsubscribe",
+        "created": "2026-07-01T22:07:57+00:00",
+        "updated": "2026-07-01T22:07:57+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "UGkwJB",
+        "type": "metric",
+        "name": "Nango Seed Placed Order",
+        "created": "2026-07-02T04:26:02+00:00",
+        "updated": "2026-07-02T04:26:02+00:00",
+        "integration": {
+          "name": "API",
+          "category": "API"
+        }
+      },
+      {
+        "id": "UT43iX",
+        "type": "metric",
+        "name": "Unsubscribed from List",
+        "created": "2026-07-02T05:15:53+00:00",
+        "updated": "2026-07-02T05:15:53+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "UaYw8d",
+        "type": "metric",
+        "name": "Received Automated Response Text Message",
+        "created": "2026-07-01T22:08:02+00:00",
+        "updated": "2026-07-01T22:08:02+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "V9SixX",
+        "type": "metric",
+        "name": "Merged Profile",
+        "created": "2026-07-02T04:48:43+00:00",
+        "updated": "2026-07-02T04:48:43+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "VUN9rP",
+        "type": "metric",
+        "name": "Marked Email as Spam",
+        "created": "2026-07-01T22:07:57+00:00",
+        "updated": "2026-07-01T22:07:57+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "VZrpMd",
+        "type": "metric",
+        "name": "Active on Site",
+        "created": "2026-07-01T22:07:57+00:00",
+        "updated": "2026-07-01T22:07:57+00:00",
+        "integration": {
+          "name": "API",
+          "category": "API"
+        }
+      },
+      {
+        "id": "Vkpm25",
+        "type": "metric",
+        "name": "Opened Text",
+        "created": "2026-07-01T22:08:02+00:00",
+        "updated": "2026-07-01T22:08:02+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "WxPc4s",
+        "type": "metric",
+        "name": "Opened Email",
+        "created": "2026-07-01T22:07:57+00:00",
+        "updated": "2026-07-01T22:07:57+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "WzhEtt",
+        "type": "metric",
+        "name": "Nango Test Event",
+        "created": "2026-07-02T04:52:59+00:00",
+        "updated": "2026-07-02T04:52:59+00:00",
+        "integration": {
+          "name": "API",
+          "category": "API"
+        }
+      },
+      {
+        "id": "XKQh9b",
+        "type": "metric",
+        "name": "Failed to Deliver Automated Response Text Message",
+        "created": "2026-07-01T22:08:02+00:00",
+        "updated": "2026-07-01T22:08:02+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "XQtxuz",
+        "type": "metric",
+        "name": "Received Text Message",
+        "created": "2026-07-01T22:08:02+00:00",
+        "updated": "2026-07-01T22:08:02+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "XdsuRW",
+        "type": "metric",
+        "name": "Unsubscribed from Text Messaging Marketing",
+        "created": "2026-07-01T22:08:02+00:00",
+        "updated": "2026-07-01T22:08:02+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      },
+      {
+        "id": "XyULiM",
+        "type": "metric",
+        "name": "Manually Suppressed from Email Marketing",
+        "created": "2026-07-01T22:09:00+00:00",
+        "updated": "2026-07-01T22:09:00+00:00",
+        "integration": {
+          "name": "Klaviyo",
+          "category": "Internal"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/metrics": {
+        "response": {
+          "data": [
+            {
+              "type": "metric",
+              "id": "RGVjNe",
+              "attributes": {
+                "name": "Bounced Email",
+                "created": "2026-07-01T22:07:57+00:00",
+                "updated": "2026-07-01T22:07:57+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/RGVjNe/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/RGVjNe/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/RGVjNe/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "RKxzZ7",
+              "attributes": {
+                "name": "Relayed Text Message",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:08:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/RKxzZ7/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/RKxzZ7/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/RKxzZ7/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "RQaQkv",
+              "attributes": {
+                "name": "Clicked Text Message",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:08:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/RQaQkv/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/RQaQkv/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/RQaQkv/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "RicghZ",
+              "attributes": {
+                "name": "Unsubscribed from Email Marketing",
+                "created": "2026-07-02T05:15:52+00:00",
+                "updated": "2026-07-02T05:15:52+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/RicghZ/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/RicghZ/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/RicghZ/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "SQtSXs",
+              "attributes": {
+                "name": "Subscribed to Email Marketing",
+                "created": "2026-07-02T04:27:16+00:00",
+                "updated": "2026-07-02T04:27:16+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/SQtSXs/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/SQtSXs/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/SQtSXs/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "SWXr3u",
+              "attributes": {
+                "name": "Received Email",
+                "created": "2026-07-01T22:07:57+00:00",
+                "updated": "2026-07-01T22:07:57+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/SWXr3u/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/SWXr3u/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/SWXr3u/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "SZzFem",
+              "attributes": {
+                "name": "Subscribed to Text Messaging Marketing",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:08:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/SZzFem/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/SZzFem/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/SZzFem/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "SjWnqR",
+              "attributes": {
+                "name": "Clicked Email",
+                "created": "2026-07-01T22:07:57+00:00",
+                "updated": "2026-07-01T22:07:57+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/SjWnqR/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/SjWnqR/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/SjWnqR/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "SnHm3B",
+              "attributes": {
+                "name": "Subscribed to List",
+                "created": "2026-07-02T04:27:13+00:00",
+                "updated": "2026-07-02T04:27:13+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/SnHm3B/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/SnHm3B/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/SnHm3B/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "SnyCBJ",
+              "attributes": {
+                "name": "Sent Text Message",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:08:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/SnyCBJ/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/SnyCBJ/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/SnyCBJ/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "TCAHQY",
+              "attributes": {
+                "name": "Failed to Deliver Text Message",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:08:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/TCAHQY/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/TCAHQY/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/TCAHQY/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "Tsirvm",
+              "attributes": {
+                "name": "Nango Seed Viewed Product",
+                "created": "2026-07-02T04:26:03+00:00",
+                "updated": "2026-07-02T04:26:03+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "7FtS4J",
+                  "key": "api",
+                  "name": "API",
+                  "category": "API"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/Tsirvm/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/Tsirvm/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/Tsirvm/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "TvmdiH",
+              "attributes": {
+                "name": "Dropped Email",
+                "created": "2026-07-01T22:07:57+00:00",
+                "updated": "2026-07-01T22:07:57+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/TvmdiH/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/TvmdiH/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/TvmdiH/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "TzYtE7",
+              "attributes": {
+                "name": "Skipped Send",
+                "created": "2026-07-01T22:07:57+00:00",
+                "updated": "2026-07-01T22:07:57+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/TzYtE7/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/TzYtE7/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/TzYtE7/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "U8nfVk",
+              "attributes": {
+                "name": "Clicked email to unsubscribe",
+                "created": "2026-07-01T22:07:57+00:00",
+                "updated": "2026-07-01T22:07:57+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/U8nfVk/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/U8nfVk/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/U8nfVk/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "UGkwJB",
+              "attributes": {
+                "name": "Nango Seed Placed Order",
+                "created": "2026-07-02T04:26:02+00:00",
+                "updated": "2026-07-02T04:26:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "7FtS4J",
+                  "key": "api",
+                  "name": "API",
+                  "category": "API"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/UGkwJB/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/UGkwJB/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/UGkwJB/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "UT43iX",
+              "attributes": {
+                "name": "Unsubscribed from List",
+                "created": "2026-07-02T05:15:53+00:00",
+                "updated": "2026-07-02T05:15:53+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/UT43iX/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/UT43iX/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/UT43iX/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "UaYw8d",
+              "attributes": {
+                "name": "Received Automated Response Text Message",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:08:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/UaYw8d/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/UaYw8d/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/UaYw8d/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "V9SixX",
+              "attributes": {
+                "name": "Merged Profile",
+                "created": "2026-07-02T04:48:43+00:00",
+                "updated": "2026-07-02T04:48:43+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/V9SixX/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/V9SixX/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/V9SixX/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "VUN9rP",
+              "attributes": {
+                "name": "Marked Email as Spam",
+                "created": "2026-07-01T22:07:57+00:00",
+                "updated": "2026-07-01T22:07:57+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/VUN9rP/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/VUN9rP/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/VUN9rP/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "VZrpMd",
+              "attributes": {
+                "name": "Active on Site",
+                "created": "2026-07-01T22:07:57+00:00",
+                "updated": "2026-07-01T22:07:57+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "7FtS4J",
+                  "key": "api",
+                  "name": "API",
+                  "category": "API"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/VZrpMd/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/VZrpMd/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/VZrpMd/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "Vkpm25",
+              "attributes": {
+                "name": "Opened Text",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:08:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/Vkpm25/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/Vkpm25/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/Vkpm25/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "WxPc4s",
+              "attributes": {
+                "name": "Opened Email",
+                "created": "2026-07-01T22:07:57+00:00",
+                "updated": "2026-07-01T22:07:57+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/WxPc4s/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/WxPc4s/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/WxPc4s/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "WzhEtt",
+              "attributes": {
+                "name": "Nango Test Event",
+                "created": "2026-07-02T04:52:59+00:00",
+                "updated": "2026-07-02T04:52:59+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "7FtS4J",
+                  "key": "api",
+                  "name": "API",
+                  "category": "API"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/WzhEtt/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/WzhEtt/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/WzhEtt/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "XKQh9b",
+              "attributes": {
+                "name": "Failed to Deliver Automated Response Text Message",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:08:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/XKQh9b/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/XKQh9b/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/XKQh9b/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "XQtxuz",
+              "attributes": {
+                "name": "Received Text Message",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:08:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/XQtxuz/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/XQtxuz/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/XQtxuz/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "XdsuRW",
+              "attributes": {
+                "name": "Unsubscribed from Text Messaging Marketing",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:08:02+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/XdsuRW/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/XdsuRW/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/XdsuRW/"
+              }
+            },
+            {
+              "type": "metric",
+              "id": "XyULiM",
+              "attributes": {
+                "name": "Manually Suppressed from Email Marketing",
+                "created": "2026-07-01T22:09:00+00:00",
+                "updated": "2026-07-01T22:09:00+00:00",
+                "integration": {
+                  "object": "integration",
+                  "id": "0rG4eQ",
+                  "key": "klaviyo",
+                  "name": "Klaviyo",
+                  "category": "Internal"
+                }
+              },
+              "relationships": {
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/metrics/XyULiM/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/metrics/XyULiM/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/metrics/XyULiM/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/metrics",
+            "next": null,
+            "prev": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 05:16:04 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1782969421",
+          "cf-ray": "a14b2d1d7b718bee-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; report-uri /csp/",
+          "ratelimit-limit": "10, 10;w=1, 150;w=60",
+          "ratelimit-remaining": "9",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "88",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "8411511a-1e62-47f3-9911-e6e35b0d2e91"
+        },
+        "hash": "f1ac80de7553223a6dcfd23d8df843b343693b14",
+        "request": {
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      }
+    }
+  }
+}

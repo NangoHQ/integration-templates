@@ -69,6 +69,7 @@ const action = createAction({
             id: flow.id,
             ...(flow.attributes.name != null && { name: flow.attributes.name }),
             ...(flow.attributes.status != null && { status: flow.attributes.status }),
+            ...(flow.attributes.archived != null && { archived: flow.attributes.archived }),
             ...(flow.attributes.created != null && { created: flow.attributes.created }),
             ...(flow.attributes.updated != null && { updated: flow.attributes.updated }),
             ...(flow.attributes.trigger_type != null && { trigger_type: flow.attributes.trigger_type })
