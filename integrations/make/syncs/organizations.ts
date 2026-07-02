@@ -62,7 +62,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'pg[offset]',
-                offset_calculation_method: 'per-page',
+                offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'pg[limit]',
                 limit: 1000,
                 response_path: 'organizations'

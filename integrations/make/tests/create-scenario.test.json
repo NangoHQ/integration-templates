@@ -1,0 +1,178 @@
+{
+  "input": {
+    "teamId": 2066772,
+    "blueprint": {
+      "flow": [
+        {
+          "id": 1,
+          "mapper": {},
+          "module": "util:SetVariable2",
+          "version": 1,
+          "metadata": {
+            "designer": {
+              "x": 0,
+              "y": 0
+            }
+          },
+          "parameters": {}
+        }
+      ],
+      "name": "Test Scenario Created",
+      "metadata": {
+        "zone": "eu1.make.com",
+        "instant": false,
+        "version": 1,
+        "designer": {
+          "orphans": []
+        },
+        "scenario": {
+          "dlq": false,
+          "dataloss": false,
+          "maxErrors": 3,
+          "autoCommit": true,
+          "roundtrips": 1,
+          "sequential": false,
+          "confidential": false,
+          "autoCommitTriggerLast": true
+        }
+      }
+    },
+    "scheduling": {
+      "type": "indefinitely",
+      "interval": 900
+    }
+  },
+  "output": {
+    "scenario": {
+      "id": 6413399,
+      "name": "Test Scenario Created",
+      "teamId": 2066772,
+      "hookId": null,
+      "description": "",
+      "folderId": null,
+      "isinvalid": false,
+      "isActive": false,
+      "islocked": false,
+      "isPaused": false,
+      "usedPackages": [
+        "util"
+      ],
+      "lastEdit": "2026-07-02T09:31:42.707Z",
+      "scheduling": {
+        "type": "indefinitely",
+        "interval": 900
+      },
+      "created": "2026-07-02T09:31:42.707Z",
+      "type": "scenario",
+      "devices": [],
+      "deviceId": null,
+      "deviceScope": null,
+      "concept": false,
+      "slots": null,
+      "islinked": false,
+      "iswaiting": false,
+      "dlqCount": 0,
+      "allDlqCount": 0,
+      "createdByUser": {
+        "id": 8535506,
+        "name": "Nango Developer",
+        "email": "api@nango.dev"
+      },
+      "updatedByUser": {
+        "id": 8535506,
+        "name": "Nango Developer",
+        "email": "api@nango.dev"
+      },
+      "nextExec": null,
+      "chainingRole": "none",
+      "isShared": false
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/scenarios": {
+        "response": {
+          "scenario": {
+            "id": 6413399,
+            "name": "Test Scenario Created",
+            "teamId": 2066772,
+            "hookId": null,
+            "devices": [],
+            "deviceId": null,
+            "deviceScope": null,
+            "concept": false,
+            "description": "",
+            "folderId": null,
+            "slots": null,
+            "isinvalid": false,
+            "islinked": false,
+            "islocked": false,
+            "isPaused": false,
+            "usedPackages": [
+              "util"
+            ],
+            "lastEdit": "2026-07-02T09:31:42.707Z",
+            "scheduling": {
+              "type": "indefinitely",
+              "interval": 900
+            },
+            "iswaiting": false,
+            "dlqCount": 0,
+            "allDlqCount": 0,
+            "createdByUser": {
+              "id": 8535506,
+              "name": "Nango Developer",
+              "email": "api@nango.dev"
+            },
+            "updatedByUser": {
+              "id": 8535506,
+              "name": "Nango Developer",
+              "email": "api@nango.dev"
+            },
+            "nextExec": null,
+            "created": "2026-07-02T09:31:42.707Z",
+            "chainingRole": "none",
+            "type": "scenario",
+            "isShared": false,
+            "isActive": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 09:31:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "3",
+          "x-ratelimit-reset": "1782984731",
+          "server": "cloudflare",
+          "x-request-id": "2337ebbc98c804a4afe78a1d88362bca",
+          "authtype": "token",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "accept-encoding",
+          "set-cookie": "__cf_bm=gc7TwamM7pKaBec0AY0IKbuZ.oSWGWgbQBHI5jMF6U0-1782984702.1150453-1.0.1.1-mCtueznqOK_ACvAe0sEAAx4WblFPejKBikacPY04gC5GVp98XXbkrgYTHyylW_YOwDRlxbGYdHSN1BQZYLjKTwh.pE2yrNjfMWvi.vO2zDDU2ihExk3GnOJJu6IrrznE; HttpOnly; SameSite=None; Secure; Path=/; Domain=eu1.make.com; Expires=Thu, 02 Jul 2026 10:01:42 GMT",
+          "cf-ray": "a14ca3943bbb87cd-PDX"
+        },
+        "hash": "434227f5a9536f4eb3d5cc1d6ccdd335855715ea",
+        "request": {
+          "data": {
+            "teamId": 2066772,
+            "blueprint": "{\"flow\":[{\"id\":1,\"mapper\":{},\"module\":\"util:SetVariable2\",\"version\":1,\"metadata\":{\"designer\":{\"x\":0,\"y\":0}},\"parameters\":{}}],\"name\":\"Test Scenario Created\",\"metadata\":{\"zone\":\"eu1.make.com\",\"instant\":false,\"version\":1,\"designer\":{\"orphans\":[]},\"scenario\":{\"dlq\":false,\"dataloss\":false,\"maxErrors\":3,\"autoCommit\":true,\"roundtrips\":1,\"sequential\":false,\"confidential\":false,\"autoCommitTriggerLast\":true}}}",
+            "scheduling": "{\"type\":\"indefinitely\",\"interval\":900}"
+          }
+        }
+      }
+    }
+  }
+}

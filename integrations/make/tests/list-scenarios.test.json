@@ -1,0 +1,1101 @@
+{
+  "input": {
+    "teamId": 2066772
+  },
+  "output": {
+    "scenarios": [
+      {
+        "id": 6413021,
+        "name": "Seed Scenario One",
+        "teamId": 2066772,
+        "hookId": null,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "description": "",
+        "folderId": null,
+        "isinvalid": false,
+        "islinked": true,
+        "isActive": true,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+          "util"
+        ],
+        "lastEdit": "2026-07-02T09:06:49.050Z",
+        "scheduling": {
+          "type": "indefinitely",
+          "interval": 900
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "createdByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "nextExec": "2026-07-02T09:30:25.256Z",
+        "created": "2026-07-02T09:06:49.050Z",
+        "type": "scenario",
+        "concept": false,
+        "slots": null,
+        "allDlqCount": 0,
+        "chainingRole": "none",
+        "isShared": false,
+        "operations": 7,
+        "centicredits": 700,
+        "transfer": 0,
+        "usedModules": [
+          {
+            "moduleName": "SetVariable2",
+            "packageName": "util"
+          }
+        ]
+      },
+      {
+        "id": 6413022,
+        "name": "Seed Scenario Two",
+        "teamId": 2066772,
+        "hookId": null,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "description": "",
+        "folderId": null,
+        "isinvalid": false,
+        "islinked": true,
+        "isActive": true,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+          "builtin"
+        ],
+        "lastEdit": "2026-07-02T09:06:49.471Z",
+        "scheduling": {
+          "type": "indefinitely",
+          "interval": 900
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "createdByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "nextExec": "2026-07-02T09:52:35.389Z",
+        "created": "2026-07-02T09:06:49.471Z",
+        "type": "scenario",
+        "concept": false,
+        "slots": null,
+        "allDlqCount": 0,
+        "chainingRole": "none",
+        "isShared": false,
+        "operations": 11,
+        "centicredits": 1100,
+        "transfer": 0,
+        "usedModules": [
+          {
+            "moduleName": "BasicFeeder",
+            "packageName": "builtin"
+          }
+        ]
+      },
+      {
+        "id": 6413257,
+        "name": "Cloned Seed Scenario Two",
+        "teamId": 2066772,
+        "hookId": null,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "description": "",
+        "folderId": null,
+        "isinvalid": false,
+        "islinked": false,
+        "isActive": false,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+          "builtin"
+        ],
+        "lastEdit": "2026-07-02T09:22:37.594Z",
+        "scheduling": {
+          "type": "indefinitely",
+          "interval": 900
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "createdByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedByUser": null,
+        "nextExec": null,
+        "created": "2026-07-02T09:22:37.594Z",
+        "type": "scenario",
+        "concept": false,
+        "slots": null,
+        "allDlqCount": 0,
+        "chainingRole": "none",
+        "isShared": false,
+        "operations": 0,
+        "centicredits": 0,
+        "transfer": 0,
+        "usedModules": [
+          {
+            "moduleName": "BasicFeeder",
+            "packageName": "builtin"
+          }
+        ]
+      },
+      {
+        "id": 6413265,
+        "name": "Cloned Seed Scenario Two",
+        "teamId": 2066772,
+        "hookId": null,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "description": "",
+        "folderId": null,
+        "isinvalid": false,
+        "islinked": false,
+        "isActive": false,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+          "builtin"
+        ],
+        "lastEdit": "2026-07-02T09:23:09.336Z",
+        "scheduling": {
+          "type": "indefinitely",
+          "interval": 900
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "createdByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedByUser": null,
+        "nextExec": null,
+        "created": "2026-07-02T09:23:09.336Z",
+        "type": "scenario",
+        "concept": false,
+        "slots": null,
+        "allDlqCount": 0,
+        "chainingRole": "none",
+        "isShared": false,
+        "operations": 0,
+        "centicredits": 0,
+        "transfer": 0,
+        "usedModules": [
+          {
+            "moduleName": "BasicFeeder",
+            "packageName": "builtin"
+          }
+        ]
+      },
+      {
+        "id": 6413266,
+        "name": "Cloned Seed Scenario Two",
+        "teamId": 2066772,
+        "hookId": null,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "description": "",
+        "folderId": null,
+        "isinvalid": false,
+        "islinked": false,
+        "isActive": false,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+          "builtin"
+        ],
+        "lastEdit": "2026-07-02T09:23:15.585Z",
+        "scheduling": {
+          "type": "indefinitely",
+          "interval": 900
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "createdByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedByUser": null,
+        "nextExec": null,
+        "created": "2026-07-02T09:23:15.585Z",
+        "type": "scenario",
+        "concept": false,
+        "slots": null,
+        "allDlqCount": 0,
+        "chainingRole": "none",
+        "isShared": false,
+        "operations": 0,
+        "centicredits": 0,
+        "transfer": 0,
+        "usedModules": [
+          {
+            "moduleName": "BasicFeeder",
+            "packageName": "builtin"
+          }
+        ]
+      },
+      {
+        "id": 6413024,
+        "name": "Seed Scenario Delete Target 1",
+        "teamId": 2066772,
+        "hookId": null,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "description": "",
+        "folderId": null,
+        "isinvalid": false,
+        "islinked": false,
+        "isActive": false,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+          "util"
+        ],
+        "lastEdit": "2026-07-02T09:06:50.544Z",
+        "scheduling": {
+          "type": "indefinitely",
+          "interval": 900
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "createdByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "nextExec": null,
+        "created": "2026-07-02T09:06:50.544Z",
+        "type": "scenario",
+        "concept": false,
+        "slots": null,
+        "allDlqCount": 0,
+        "chainingRole": "none",
+        "isShared": false,
+        "operations": 0,
+        "centicredits": 0,
+        "transfer": 0,
+        "usedModules": [
+          {
+            "moduleName": "SetVariable",
+            "packageName": "util"
+          }
+        ]
+      },
+      {
+        "id": 6413042,
+        "name": "Seed Scenario Delete Target 2",
+        "teamId": 2066772,
+        "hookId": null,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "description": "",
+        "folderId": null,
+        "isinvalid": false,
+        "islinked": false,
+        "isActive": false,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+          "builtin"
+        ],
+        "lastEdit": "2026-07-02T09:07:45.225Z",
+        "scheduling": {
+          "type": "indefinitely",
+          "interval": 900
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "createdByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "nextExec": null,
+        "created": "2026-07-02T09:07:45.225Z",
+        "type": "scenario",
+        "concept": false,
+        "slots": null,
+        "allDlqCount": 0,
+        "chainingRole": "none",
+        "isShared": false,
+        "operations": 0,
+        "centicredits": 0,
+        "transfer": 0,
+        "usedModules": [
+          {
+            "moduleName": "BasicFeeder",
+            "packageName": "builtin"
+          }
+        ]
+      },
+      {
+        "id": 6413074,
+        "name": "Seed Scenario Webhook",
+        "teamId": 2066772,
+        "hookId": 3329421,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "description": "",
+        "folderId": null,
+        "isinvalid": false,
+        "islinked": false,
+        "isActive": false,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+          "gateway",
+          "util"
+        ],
+        "lastEdit": "2026-07-02T09:09:27.916Z",
+        "scheduling": {
+          "type": "immediately"
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "createdByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "nextExec": null,
+        "created": "2026-07-02T09:09:27.916Z",
+        "type": "scenario",
+        "concept": false,
+        "slots": null,
+        "allDlqCount": 0,
+        "chainingRole": "none",
+        "isShared": false,
+        "operations": 0,
+        "centicredits": 0,
+        "transfer": 0,
+        "usedModules": [
+          {
+            "moduleName": "CustomWebHook",
+            "packageName": "gateway"
+          },
+          {
+            "moduleName": "SetVariable2",
+            "packageName": "util"
+          }
+        ]
+      },
+      {
+        "id": 6413255,
+        "name": "Temp Scenario For Delete Test",
+        "teamId": 2066772,
+        "hookId": null,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "description": "",
+        "folderId": null,
+        "isinvalid": false,
+        "islinked": false,
+        "isActive": false,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+          "util"
+        ],
+        "lastEdit": "2026-07-02T09:22:32.571Z",
+        "scheduling": {
+          "type": "indefinitely",
+          "interval": 900
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "createdByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedByUser": null,
+        "nextExec": null,
+        "created": "2026-07-02T09:22:32.571Z",
+        "type": "scenario",
+        "concept": false,
+        "slots": null,
+        "allDlqCount": 0,
+        "chainingRole": "none",
+        "isShared": false,
+        "operations": 0,
+        "centicredits": 0,
+        "transfer": 0,
+        "usedModules": [
+          {
+            "moduleName": "SetVariable2",
+            "packageName": "util"
+          }
+        ]
+      },
+      {
+        "id": 6413372,
+        "name": "Test Scenario Created",
+        "teamId": 2066772,
+        "hookId": null,
+        "devices": [],
+        "deviceId": null,
+        "deviceScope": null,
+        "description": "",
+        "folderId": null,
+        "isinvalid": false,
+        "islinked": false,
+        "isActive": false,
+        "islocked": false,
+        "isPaused": false,
+        "usedPackages": [
+          "util"
+        ],
+        "lastEdit": "2026-07-02T09:30:32.841Z",
+        "scheduling": {
+          "type": "indefinitely",
+          "interval": 900
+        },
+        "iswaiting": false,
+        "dlqCount": 0,
+        "createdByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "updatedByUser": {
+          "id": 8535506,
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "nextExec": null,
+        "created": "2026-07-02T09:30:32.841Z",
+        "type": "scenario",
+        "concept": false,
+        "slots": null,
+        "allDlqCount": 0,
+        "chainingRole": "none",
+        "isShared": false,
+        "operations": 0,
+        "centicredits": 0,
+        "transfer": 0,
+        "usedModules": [
+          {
+            "moduleName": "SetVariable2",
+            "packageName": "util"
+          }
+        ]
+      }
+    ],
+    "pg": {
+      "sortBy": "proprietal",
+      "sortDir": "desc",
+      "limit": 500,
+      "offset": 0
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/scenarios": {
+        "response": {
+          "scenarios": [
+            {
+              "id": 6413021,
+              "name": "Seed Scenario One",
+              "teamId": 2066772,
+              "hookId": null,
+              "devices": [],
+              "deviceId": null,
+              "deviceScope": null,
+              "concept": false,
+              "description": "",
+              "folderId": null,
+              "slots": null,
+              "isinvalid": false,
+              "islinked": true,
+              "islocked": false,
+              "isPaused": false,
+              "usedPackages": [
+                "util"
+              ],
+              "lastEdit": "2026-07-02T09:06:49.050Z",
+              "scheduling": {
+                "type": "indefinitely",
+                "interval": 900
+              },
+              "iswaiting": false,
+              "dlqCount": 0,
+              "allDlqCount": 0,
+              "createdByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "nextExec": "2026-07-02T09:30:25.256Z",
+              "created": "2026-07-02T09:06:49.050Z",
+              "chainingRole": "none",
+              "type": "scenario",
+              "isShared": false,
+              "operations": 7,
+              "centicredits": 700,
+              "transfer": 0,
+              "usedModules": [
+                {
+                  "moduleName": "SetVariable2",
+                  "packageName": "util"
+                }
+              ],
+              "isActive": true
+            },
+            {
+              "id": 6413022,
+              "name": "Seed Scenario Two",
+              "teamId": 2066772,
+              "hookId": null,
+              "devices": [],
+              "deviceId": null,
+              "deviceScope": null,
+              "concept": false,
+              "description": "",
+              "folderId": null,
+              "slots": null,
+              "isinvalid": false,
+              "islinked": true,
+              "islocked": false,
+              "isPaused": false,
+              "usedPackages": [
+                "builtin"
+              ],
+              "lastEdit": "2026-07-02T09:06:49.471Z",
+              "scheduling": {
+                "type": "indefinitely",
+                "interval": 900
+              },
+              "iswaiting": false,
+              "dlqCount": 0,
+              "allDlqCount": 0,
+              "createdByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "nextExec": "2026-07-02T09:52:35.389Z",
+              "created": "2026-07-02T09:06:49.471Z",
+              "chainingRole": "none",
+              "type": "scenario",
+              "isShared": false,
+              "operations": 11,
+              "centicredits": 1100,
+              "transfer": 0,
+              "usedModules": [
+                {
+                  "moduleName": "BasicFeeder",
+                  "packageName": "builtin"
+                }
+              ],
+              "isActive": true
+            },
+            {
+              "id": 6413257,
+              "name": "Cloned Seed Scenario Two",
+              "teamId": 2066772,
+              "hookId": null,
+              "devices": [],
+              "deviceId": null,
+              "deviceScope": null,
+              "concept": false,
+              "description": "",
+              "folderId": null,
+              "slots": null,
+              "isinvalid": false,
+              "islinked": false,
+              "islocked": false,
+              "isPaused": false,
+              "usedPackages": [
+                "builtin"
+              ],
+              "lastEdit": "2026-07-02T09:22:37.594Z",
+              "scheduling": {
+                "type": "indefinitely",
+                "interval": 900
+              },
+              "iswaiting": false,
+              "dlqCount": 0,
+              "allDlqCount": 0,
+              "createdByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedByUser": null,
+              "nextExec": null,
+              "created": "2026-07-02T09:22:37.594Z",
+              "chainingRole": "none",
+              "type": "scenario",
+              "isShared": false,
+              "operations": 0,
+              "centicredits": 0,
+              "transfer": 0,
+              "usedModules": [
+                {
+                  "moduleName": "BasicFeeder",
+                  "packageName": "builtin"
+                }
+              ],
+              "isActive": false
+            },
+            {
+              "id": 6413265,
+              "name": "Cloned Seed Scenario Two",
+              "teamId": 2066772,
+              "hookId": null,
+              "devices": [],
+              "deviceId": null,
+              "deviceScope": null,
+              "concept": false,
+              "description": "",
+              "folderId": null,
+              "slots": null,
+              "isinvalid": false,
+              "islinked": false,
+              "islocked": false,
+              "isPaused": false,
+              "usedPackages": [
+                "builtin"
+              ],
+              "lastEdit": "2026-07-02T09:23:09.336Z",
+              "scheduling": {
+                "type": "indefinitely",
+                "interval": 900
+              },
+              "iswaiting": false,
+              "dlqCount": 0,
+              "allDlqCount": 0,
+              "createdByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedByUser": null,
+              "nextExec": null,
+              "created": "2026-07-02T09:23:09.336Z",
+              "chainingRole": "none",
+              "type": "scenario",
+              "isShared": false,
+              "operations": 0,
+              "centicredits": 0,
+              "transfer": 0,
+              "usedModules": [
+                {
+                  "moduleName": "BasicFeeder",
+                  "packageName": "builtin"
+                }
+              ],
+              "isActive": false
+            },
+            {
+              "id": 6413266,
+              "name": "Cloned Seed Scenario Two",
+              "teamId": 2066772,
+              "hookId": null,
+              "devices": [],
+              "deviceId": null,
+              "deviceScope": null,
+              "concept": false,
+              "description": "",
+              "folderId": null,
+              "slots": null,
+              "isinvalid": false,
+              "islinked": false,
+              "islocked": false,
+              "isPaused": false,
+              "usedPackages": [
+                "builtin"
+              ],
+              "lastEdit": "2026-07-02T09:23:15.585Z",
+              "scheduling": {
+                "type": "indefinitely",
+                "interval": 900
+              },
+              "iswaiting": false,
+              "dlqCount": 0,
+              "allDlqCount": 0,
+              "createdByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedByUser": null,
+              "nextExec": null,
+              "created": "2026-07-02T09:23:15.585Z",
+              "chainingRole": "none",
+              "type": "scenario",
+              "isShared": false,
+              "operations": 0,
+              "centicredits": 0,
+              "transfer": 0,
+              "usedModules": [
+                {
+                  "moduleName": "BasicFeeder",
+                  "packageName": "builtin"
+                }
+              ],
+              "isActive": false
+            },
+            {
+              "id": 6413024,
+              "name": "Seed Scenario Delete Target 1",
+              "teamId": 2066772,
+              "hookId": null,
+              "devices": [],
+              "deviceId": null,
+              "deviceScope": null,
+              "concept": false,
+              "description": "",
+              "folderId": null,
+              "slots": null,
+              "isinvalid": false,
+              "islinked": false,
+              "islocked": false,
+              "isPaused": false,
+              "usedPackages": [
+                "util"
+              ],
+              "lastEdit": "2026-07-02T09:06:50.544Z",
+              "scheduling": {
+                "type": "indefinitely",
+                "interval": 900
+              },
+              "iswaiting": false,
+              "dlqCount": 0,
+              "allDlqCount": 0,
+              "createdByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "nextExec": null,
+              "created": "2026-07-02T09:06:50.544Z",
+              "chainingRole": "none",
+              "type": "scenario",
+              "isShared": false,
+              "operations": 0,
+              "centicredits": 0,
+              "transfer": 0,
+              "usedModules": [
+                {
+                  "moduleName": "SetVariable",
+                  "packageName": "util"
+                }
+              ],
+              "isActive": false
+            },
+            {
+              "id": 6413042,
+              "name": "Seed Scenario Delete Target 2",
+              "teamId": 2066772,
+              "hookId": null,
+              "devices": [],
+              "deviceId": null,
+              "deviceScope": null,
+              "concept": false,
+              "description": "",
+              "folderId": null,
+              "slots": null,
+              "isinvalid": false,
+              "islinked": false,
+              "islocked": false,
+              "isPaused": false,
+              "usedPackages": [
+                "builtin"
+              ],
+              "lastEdit": "2026-07-02T09:07:45.225Z",
+              "scheduling": {
+                "type": "indefinitely",
+                "interval": 900
+              },
+              "iswaiting": false,
+              "dlqCount": 0,
+              "allDlqCount": 0,
+              "createdByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "nextExec": null,
+              "created": "2026-07-02T09:07:45.225Z",
+              "chainingRole": "none",
+              "type": "scenario",
+              "isShared": false,
+              "operations": 0,
+              "centicredits": 0,
+              "transfer": 0,
+              "usedModules": [
+                {
+                  "moduleName": "BasicFeeder",
+                  "packageName": "builtin"
+                }
+              ],
+              "isActive": false
+            },
+            {
+              "id": 6413074,
+              "name": "Seed Scenario Webhook",
+              "teamId": 2066772,
+              "hookId": 3329421,
+              "devices": [],
+              "deviceId": null,
+              "deviceScope": null,
+              "concept": false,
+              "description": "",
+              "folderId": null,
+              "slots": null,
+              "isinvalid": false,
+              "islinked": false,
+              "islocked": false,
+              "isPaused": false,
+              "usedPackages": [
+                "gateway",
+                "util"
+              ],
+              "lastEdit": "2026-07-02T09:09:27.916Z",
+              "scheduling": {
+                "type": "immediately"
+              },
+              "iswaiting": false,
+              "dlqCount": 0,
+              "allDlqCount": 0,
+              "createdByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "nextExec": null,
+              "created": "2026-07-02T09:09:27.916Z",
+              "chainingRole": "none",
+              "type": "scenario",
+              "isShared": false,
+              "operations": 0,
+              "centicredits": 0,
+              "transfer": 0,
+              "usedModules": [
+                {
+                  "moduleName": "CustomWebHook",
+                  "packageName": "gateway"
+                },
+                {
+                  "moduleName": "SetVariable2",
+                  "packageName": "util"
+                }
+              ],
+              "isActive": false
+            },
+            {
+              "id": 6413255,
+              "name": "Temp Scenario For Delete Test",
+              "teamId": 2066772,
+              "hookId": null,
+              "devices": [],
+              "deviceId": null,
+              "deviceScope": null,
+              "concept": false,
+              "description": "",
+              "folderId": null,
+              "slots": null,
+              "isinvalid": false,
+              "islinked": false,
+              "islocked": false,
+              "isPaused": false,
+              "usedPackages": [
+                "util"
+              ],
+              "lastEdit": "2026-07-02T09:22:32.571Z",
+              "scheduling": {
+                "type": "indefinitely",
+                "interval": 900
+              },
+              "iswaiting": false,
+              "dlqCount": 0,
+              "allDlqCount": 0,
+              "createdByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedByUser": null,
+              "nextExec": null,
+              "created": "2026-07-02T09:22:32.571Z",
+              "chainingRole": "none",
+              "type": "scenario",
+              "isShared": false,
+              "operations": 0,
+              "centicredits": 0,
+              "transfer": 0,
+              "usedModules": [
+                {
+                  "moduleName": "SetVariable2",
+                  "packageName": "util"
+                }
+              ],
+              "isActive": false
+            },
+            {
+              "id": 6413372,
+              "name": "Test Scenario Created",
+              "teamId": 2066772,
+              "hookId": null,
+              "devices": [],
+              "deviceId": null,
+              "deviceScope": null,
+              "concept": false,
+              "description": "",
+              "folderId": null,
+              "slots": null,
+              "isinvalid": false,
+              "islinked": false,
+              "islocked": false,
+              "isPaused": false,
+              "usedPackages": [
+                "util"
+              ],
+              "lastEdit": "2026-07-02T09:30:32.841Z",
+              "scheduling": {
+                "type": "indefinitely",
+                "interval": 900
+              },
+              "iswaiting": false,
+              "dlqCount": 0,
+              "allDlqCount": 0,
+              "createdByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "updatedByUser": {
+                "id": 8535506,
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "nextExec": null,
+              "created": "2026-07-02T09:30:32.841Z",
+              "chainingRole": "none",
+              "type": "scenario",
+              "isShared": false,
+              "operations": 0,
+              "centicredits": 0,
+              "transfer": 0,
+              "usedModules": [
+                {
+                  "moduleName": "SetVariable2",
+                  "packageName": "util"
+                }
+              ],
+              "isActive": false
+            }
+          ],
+          "pg": {
+            "sortBy": "proprietal",
+            "limit": 500,
+            "sortDir": "desc",
+            "offset": 0,
+            "returnTotalCount": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 09:30:45 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "5",
+          "x-ratelimit-reset": "1782984671",
+          "server": "cloudflare",
+          "x-request-id": "dea4a476e498a4eb40b301313df4d79a",
+          "authtype": "token",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "accept-encoding",
+          "set-cookie": "__cf_bm=vOeskmsKu3WT0l5tqkzHG4LlViIV.Mlkw_oOrvBCxpo-1782984644.9057674-1.0.1.1-VOX2taA3wXreE2VGhwu6m9a1RhLu.YnWtZIoUiKoZBPEtuVEFhPaECShNU3LhnovkIDYQf1DEFq2rj5v3BN9cLDg1TACYyPtE06c6x0GyAgGJTYUMC5q4HWM55_tcEy8; HttpOnly; SameSite=None; Secure; Path=/; Domain=eu1.make.com; Expires=Thu, 02 Jul 2026 10:00:45 GMT",
+          "cf-ray": "a14ca22eae8d884d-PDX"
+        },
+        "hash": "6f24dc2805f11ef3c7d75beb96e7eddcaecdb082",
+        "request": {
+          "params": {
+            "teamId": "2066772"
+          }
+        }
+      }
+    }
+  }
+}

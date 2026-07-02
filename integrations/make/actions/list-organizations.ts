@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (offset) from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of results per page.')
+    limit: z.number().int().positive().optional().describe('Maximum number of results per page.')
 });
 
 const OrganizationSchema = z
@@ -46,7 +46,7 @@ const action = createAction({
         let offset: number | undefined;
         if (input.cursor !== undefined) {
             offset = Number(input.cursor);
-            if (!Number.isInteger(offset) || offset < 0) {
+            if (input.cursor.trim().length === 0 || !Number.isInteger(offset) || offset < 0) {
                 throw new nango.ActionError({
                     type: 'invalid_cursor',
                     message: 'cursor must be a valid non-negative integer offset string'

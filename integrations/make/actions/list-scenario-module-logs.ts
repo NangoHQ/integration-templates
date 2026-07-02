@@ -71,7 +71,7 @@ const action = createAction({
         const params: Record<string, string | number> = {};
         if (input.cursor !== undefined) {
             const offset = Number(input.cursor);
-            if (!Number.isInteger(offset) || offset < 0) {
+            if (input.cursor.trim().length === 0 || !Number.isInteger(offset) || offset < 0) {
                 throw new nango.ActionError({
                     type: 'invalid_cursor',
                     message: 'cursor must be a valid non-negative integer offset string'

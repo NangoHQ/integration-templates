@@ -58,10 +58,13 @@ const sync = createSync({
         const parsedMetadata = MetadataSchema.safeParse(metadata);
         let teamIds: number[];
 
-        if (parsedMetadata.success && parsedMetadata.data.teamId !== undefined) {
-            const teamId = Number(parsedMetadata.data.teamId);
+        const rawTeamId = parsedMetadata.success ? parsedMetadata.data.teamId : undefined;
+        const hasTeamId = rawTeamId !== undefined && String(rawTeamId).trim().length > 0;
+
+        if (hasTeamId) {
+            const teamId = Number(rawTeamId);
             if (!Number.isFinite(teamId)) {
-                throw new Error(`metadata.teamId must be a valid numeric team ID, got: ${String(parsedMetadata.data.teamId)}`);
+                throw new Error(`metadata.teamId must be a valid numeric team ID, got: ${String(rawTeamId)}`);
             }
             teamIds = [teamId];
         } else {
@@ -74,7 +77,7 @@ const sync = createSync({
                     type: 'offset',
                     offset_name_in_request: 'pg[offset]',
                     offset_start_value: 0,
-                    offset_calculation_method: 'per-page',
+                    offset_calculation_method: 'by-response-size',
                     limit_name_in_request: 'pg[limit]',
                     limit: 50,
                     response_path: 'organizations'
@@ -103,7 +106,7 @@ const sync = createSync({
                         type: 'offset',
                         offset_name_in_request: 'pg[offset]',
                         offset_start_value: 0,
-                        offset_calculation_method: 'per-page',
+                        offset_calculation_method: 'by-response-size',
                         limit_name_in_request: 'pg[limit]',
                         limit: 50,
                         response_path: 'teams'
@@ -136,7 +139,7 @@ const sync = createSync({
                     type: 'offset',
                     offset_name_in_request: 'pg[offset]',
                     offset_start_value: 0,
-                    offset_calculation_method: 'per-page',
+                    offset_calculation_method: 'by-response-size',
                     limit_name_in_request: 'pg[limit]',
                     limit: 50,
                     response_path: 'scenarios'
@@ -163,7 +166,7 @@ const sync = createSync({
                     type: 'offset',
                     offset_name_in_request: 'pg[offset]',
                     offset_start_value: 0,
-                    offset_calculation_method: 'per-page',
+                    offset_calculation_method: 'by-response-size',
                     limit_name_in_request: 'pg[limit]',
                     limit: 50,
                     response_path: 'dlqs'

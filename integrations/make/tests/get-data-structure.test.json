@@ -1,0 +1,78 @@
+{
+  "input": {
+    "dataStructureId": 477315
+  },
+  "output": {
+    "dataStructure": {
+      "id": 477315,
+      "name": "seed-structure-renamed",
+      "teamId": 2066772,
+      "spec": [
+        {
+          "name": "title",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "required": false
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/data-structures/477315": {
+        "response": {
+          "dataStructure": {
+            "id": 477315,
+            "name": "seed-structure-renamed",
+            "teamId": 2066772,
+            "spec": [
+              {
+                "name": "title",
+                "type": "text",
+                "required": true
+              },
+              {
+                "name": "value",
+                "type": "number",
+                "required": false
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 09:28:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "23",
+          "x-ratelimit-reset": "1782984549",
+          "server": "cloudflare",
+          "x-request-id": "e4661da2d2ee317262f5537e0ff94430",
+          "authtype": "token",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "accept-encoding",
+          "set-cookie": "__cf_bm=5HhXAc3tPXpr97b2iF3t0dK1LTw9OOEpOiyAnfeKeyk-1782984496.1020608-1.0.1.1-Gnwmc4nPhhGwmG82FBc_dutGW21X8z3aysK7teQT5ZLguNAkMW5UrXMbwhIPSmlFmuej_.yEf57ZDfYZflDNnmLJdcOvdcBXo1hx9VplVOr3nq7IjMupXGy.5eHIQ83z; HttpOnly; SameSite=None; Secure; Path=/; Domain=eu1.make.com; Expires=Thu, 02 Jul 2026 09:58:16 GMT",
+          "cf-ray": "a14c9e8ca944fefd-PDX"
+        },
+        "hash": "457b667f7205c5fa6c44f523477e95f4d066fb1b",
+        "request": {}
+      }
+    }
+  }
+}

@@ -111,7 +111,7 @@ const sync = createSync({
                         type: 'offset',
                         offset_name_in_request: 'pg[offset]',
                         offset_start_value: 0,
-                        offset_calculation_method: 'per-page',
+                        offset_calculation_method: 'by-response-size',
                         limit_name_in_request: 'pg[limit]',
                         limit: 50,
                         response_path: 'scenarios'
@@ -144,7 +144,7 @@ const sync = createSync({
                             type: 'offset',
                             offset_name_in_request: 'pg[offset]',
                             offset_start_value: 0,
-                            offset_calculation_method: 'per-page',
+                            offset_calculation_method: 'by-response-size',
                             limit_name_in_request: 'pg[limit]',
                             limit: 50,
                             response_path: 'scenarioLogs'
