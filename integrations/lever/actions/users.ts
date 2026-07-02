@@ -1,26 +1,54 @@
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
-import { GetUsers } from '../models.js';
 import { z } from 'zod';
+
+const UserSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    username: z.string(),
+    email: z.string(),
+    accessRole: z.string(),
+    photo: z.string().nullable(),
+    createdAt: z.number(),
+    deactivatedAt: z.string().nullable(),
+    externalDirectoryId: z.string().nullable(),
+    linkedContactIds: z.string().array().nullable(),
+    jobTitle: z.string().nullable(),
+    managerId: z.string().nullable()
+});
+
+const GetUsersSchema = z.object({
+    users: UserSchema.array()
+});
+
+type GetUsers = z.infer<typeof GetUsersSchema>;
 
 const action = createAction({
     description: 'Lists all the users in your Lever account. Only active users are included by default.',
-    version: '1.0.1',
+    version: '2.0.0',
 
     input: z.void(),
-    output: GetUsers,
+    output: GetUsersSchema,
 
     exec: async (nango): Promise<GetUsers> => {
         const config: ProxyConfiguration = {
             // https://hire.lever.co/developer/documentation#list-all-users
-            endpoint: `/v1/users`,
+            endpoint: '/v1/users',
             retries: 3
         };
 
         const resp = await nango.get(config);
 
+        const parsed = z.object({ data: UserSchema.array() }).safeParse(resp.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                message: 'Invalid response from Lever API',
+                details: parsed.error.issues
+            });
+        }
+
         return {
-            users: resp.data.data
+            users: parsed.data.data
         };
     }
 });

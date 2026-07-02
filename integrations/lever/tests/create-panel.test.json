@@ -1,0 +1,129 @@
+{
+  "input": {
+    "opportunityId": "6408dc54-7015-4e5b-8d60-23afff2b1efc",
+    "performAs": "be129d9b-50da-4485-9377-0d83e981f30b",
+    "timezone": "America/Los_Angeles",
+    "interviews": [
+      {
+        "subject": "Technical Interview",
+        "note": "Panel created via Nango dryrun",
+        "interviewers": [
+          {
+            "id": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef"
+          }
+        ],
+        "date": 1783260000000,
+        "duration": 60
+      }
+    ]
+  },
+  "output": {
+    "id": "3bd7bf2d-6e8a-4e83-a76b-79a6c9b82be9",
+    "timezone": "America/Los_Angeles",
+    "interviews": [
+      {
+        "id": "7fbc6032-1005-48ab-9b00-0a9967d36f1a",
+        "subject": "Technical Interview",
+        "note": "Panel created via Nango dryrun",
+        "interviewers": [
+          {
+            "id": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+            "email": "taylor@nango.dev",
+            "name": "Taylor Conlin"
+          }
+        ],
+        "date": 1783260000000,
+        "duration": 60
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/opportunities/6408dc54-7015-4e5b-8d60-23afff2b1efc/panels": {
+        "response": {
+          "data": {
+            "id": "3bd7bf2d-6e8a-4e83-a76b-79a6c9b82be9",
+            "applications": [],
+            "canceledAt": null,
+            "createdAt": 1782975257727,
+            "end": 1783263600000,
+            "externallyManaged": true,
+            "externalUrl": null,
+            "feedbackReminder": "daily",
+            "interviews": [
+              {
+                "id": "7fbc6032-1005-48ab-9b00-0a9967d36f1a",
+                "date": 1783260000000,
+                "duration": 60,
+                "feedbackReminder": "daily",
+                "feedbackTemplate": "no-feedback",
+                "interviewers": [
+                  {
+                    "id": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+                    "email": "taylor@nango.dev",
+                    "name": "Taylor Conlin",
+                    "responseStatus": "needsAction",
+                    "feedbackTemplate": "no-feedback"
+                  }
+                ],
+                "location": null,
+                "note": "Panel created via Nango dryrun",
+                "subject": "Technical Interview"
+              }
+            ],
+            "note": null,
+            "stage": "lead-reached-out",
+            "start": 1783260000000,
+            "timezone": "America/Los_Angeles",
+            "user": "be129d9b-50da-4485-9377-0d83e981f30b"
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:54:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4522",
+          "x-ratelimit-reset": "1782975267",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "686bfed08c89d0617cbe5b3b45fd0a95ea262d9e",
+        "request": {
+          "params": {
+            "perform_as": "be129d9b-50da-4485-9377-0d83e981f30b"
+          },
+          "data": {
+            "timezone": "America/Los_Angeles",
+            "interviews": [
+              {
+                "subject": "Technical Interview",
+                "note": "Panel created via Nango dryrun",
+                "interviewers": [
+                  {
+                    "id": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef"
+                  }
+                ],
+                "date": 1783260000000,
+                "duration": 60
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

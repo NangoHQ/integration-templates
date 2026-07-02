@@ -1,26 +1,41 @@
-import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse } from '../models.js';
 import { z } from 'zod';
+import { createAction } from 'nango';
+
+const ArchiveReasonSchema = z.object({
+    id: z.string(),
+    text: z.string(),
+    status: z.string(),
+    type: z.string()
+});
+
+const ProviderResponseSchema = z.object({
+    data: z.array(ArchiveReasonSchema)
+});
+
+const OutputSchema = z.object({
+    success: z.boolean(),
+    response: z.array(ArchiveReasonSchema)
+});
 
 const action = createAction({
     description: 'Get all archived reasons',
-    version: '1.0.1',
+    version: '2.0.0',
 
     input: z.void(),
-    output: SuccessResponse,
+    output: OutputSchema,
 
-    exec: async (nango): Promise<SuccessResponse> => {
-        const config: ProxyConfiguration = {
-            // https://hire.lever.co/developer/documentation#list-all-stages
-            endpoint: `/v1/archive_reasons`,
+    exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.get({
+            // https://hire.lever.co/developer/documentation#list-all-archive-reasons
+            endpoint: '/v1/archive_reasons',
             retries: 3
-        };
+        });
 
-        const resp = await nango.get(config);
+        const providerResponse = ProviderResponseSchema.parse(response.data);
+
         return {
-            response: resp.data.data,
-            success: true
+            success: true,
+            response: providerResponse.data
         };
     }
 });

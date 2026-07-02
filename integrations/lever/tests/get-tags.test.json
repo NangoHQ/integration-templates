@@ -1,0 +1,467 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "text": "Account Executive",
+        "count": 56
+      },
+      {
+        "text": "Account Management",
+        "count": 1
+      },
+      {
+        "text": "Account Manager",
+        "count": 34
+      },
+      {
+        "text": "Analyst",
+        "count": 25
+      },
+      {
+        "text": "Android",
+        "count": 1
+      },
+      {
+        "text": "another tag",
+        "count": 2
+      },
+      {
+        "text": "Athens",
+        "count": 6
+      },
+      {
+        "text": "Backend Engineer",
+        "count": 26
+      },
+      {
+        "text": "Business Development",
+        "count": 24
+      },
+      {
+        "text": "Customer Success",
+        "count": 37
+      },
+      {
+        "text": "Customer Success Manager",
+        "count": 3
+      },
+      {
+        "text": "Design",
+        "count": 28
+      },
+      {
+        "text": "Engineering",
+        "count": 61
+      },
+      {
+        "text": "Finance",
+        "count": 25
+      },
+      {
+        "text": "Financial Analyst",
+        "count": 25
+      },
+      {
+        "text": "French",
+        "count": 1
+      },
+      {
+        "text": "Front-end Developer",
+        "count": 24
+      },
+      {
+        "text": "Full-time",
+        "count": 9
+      },
+      {
+        "text": "Full-Time",
+        "count": 617
+      },
+      {
+        "text": "Human Resources",
+        "count": 145
+      },
+      {
+        "text": "Intern",
+        "count": 6
+      },
+      {
+        "text": "iOS",
+        "count": 1
+      },
+      {
+        "text": "IT",
+        "count": 25
+      },
+      {
+        "text": "Japanese",
+        "count": 1
+      },
+      {
+        "text": "Javascript",
+        "count": 1
+      },
+      {
+        "text": "Junior",
+        "count": 1
+      },
+      {
+        "text": "Marketing",
+        "count": 66
+      },
+      {
+        "text": "Marketing Analyst",
+        "count": 31
+      },
+      {
+        "text": "Nango Seed",
+        "count": 2
+      },
+      {
+        "text": "Nango Seed Posting 1 - Updated",
+        "count": 5
+      },
+      {
+        "text": "nango-test-tag",
+        "count": 1
+      },
+      {
+        "text": "New York",
+        "count": 58
+      },
+      {
+        "text": "Operations",
+        "count": 59
+      },
+      {
+        "text": "Partnerships",
+        "count": 32
+      },
+      {
+        "text": "Product",
+        "count": 53
+      },
+      {
+        "text": "Product Marketing",
+        "count": 31
+      },
+      {
+        "text": "Project Management",
+        "count": 30
+      },
+      {
+        "text": "Recruiting",
+        "count": 91
+      },
+      {
+        "text": "Research & Development",
+        "count": 142
+      },
+      {
+        "text": "Resume",
+        "count": 23
+      },
+      {
+        "text": "SaaS",
+        "count": 1
+      },
+      {
+        "text": "Sales",
+        "count": 166
+      },
+      {
+        "text": "Sales Engineer",
+        "count": 56
+      },
+      {
+        "text": "San Francisco",
+        "count": 559
+      },
+      {
+        "text": "San Francisco, CA",
+        "count": 6
+      },
+      {
+        "text": "Security",
+        "count": 25
+      },
+      {
+        "text": "Senior",
+        "count": 1
+      },
+      {
+        "text": "Spanish",
+        "count": 1
+      },
+      {
+        "text": "tag me",
+        "count": 1
+      },
+      {
+        "text": "Talent Pool",
+        "count": 1
+      },
+      {
+        "text": "Test job",
+        "count": 6
+      },
+      {
+        "text": "Top Talent",
+        "count": 1
+      },
+      {
+        "text": "UX Designer",
+        "count": 55
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/tags": {
+        "response": {
+          "data": [
+            {
+              "count": 56,
+              "text": "Account Executive"
+            },
+            {
+              "count": 1,
+              "text": "Account Management"
+            },
+            {
+              "count": 34,
+              "text": "Account Manager"
+            },
+            {
+              "count": 25,
+              "text": "Analyst"
+            },
+            {
+              "count": 1,
+              "text": "Android"
+            },
+            {
+              "count": 2,
+              "text": "another tag"
+            },
+            {
+              "count": 6,
+              "text": "Athens"
+            },
+            {
+              "count": 26,
+              "text": "Backend Engineer"
+            },
+            {
+              "count": 24,
+              "text": "Business Development"
+            },
+            {
+              "count": 37,
+              "text": "Customer Success"
+            },
+            {
+              "count": 3,
+              "text": "Customer Success Manager"
+            },
+            {
+              "count": 28,
+              "text": "Design"
+            },
+            {
+              "count": 61,
+              "text": "Engineering"
+            },
+            {
+              "count": 25,
+              "text": "Finance"
+            },
+            {
+              "count": 25,
+              "text": "Financial Analyst"
+            },
+            {
+              "count": 1,
+              "text": "French"
+            },
+            {
+              "count": 24,
+              "text": "Front-end Developer"
+            },
+            {
+              "count": 9,
+              "text": "Full-time"
+            },
+            {
+              "count": 617,
+              "text": "Full-Time"
+            },
+            {
+              "count": 145,
+              "text": "Human Resources"
+            },
+            {
+              "count": 6,
+              "text": "Intern"
+            },
+            {
+              "count": 1,
+              "text": "iOS"
+            },
+            {
+              "count": 25,
+              "text": "IT"
+            },
+            {
+              "count": 1,
+              "text": "Japanese"
+            },
+            {
+              "count": 1,
+              "text": "Javascript"
+            },
+            {
+              "count": 1,
+              "text": "Junior"
+            },
+            {
+              "count": 66,
+              "text": "Marketing"
+            },
+            {
+              "count": 31,
+              "text": "Marketing Analyst"
+            },
+            {
+              "count": 2,
+              "text": "Nango Seed"
+            },
+            {
+              "count": 5,
+              "text": "Nango Seed Posting 1 - Updated"
+            },
+            {
+              "count": 1,
+              "text": "nango-test-tag"
+            },
+            {
+              "count": 58,
+              "text": "New York"
+            },
+            {
+              "count": 59,
+              "text": "Operations"
+            },
+            {
+              "count": 32,
+              "text": "Partnerships"
+            },
+            {
+              "count": 53,
+              "text": "Product"
+            },
+            {
+              "count": 31,
+              "text": "Product Marketing"
+            },
+            {
+              "count": 30,
+              "text": "Project Management"
+            },
+            {
+              "count": 91,
+              "text": "Recruiting"
+            },
+            {
+              "count": 142,
+              "text": "Research & Development"
+            },
+            {
+              "count": 23,
+              "text": "Resume"
+            },
+            {
+              "count": 1,
+              "text": "SaaS"
+            },
+            {
+              "count": 166,
+              "text": "Sales"
+            },
+            {
+              "count": 56,
+              "text": "Sales Engineer"
+            },
+            {
+              "count": 559,
+              "text": "San Francisco"
+            },
+            {
+              "count": 6,
+              "text": "San Francisco, CA"
+            },
+            {
+              "count": 25,
+              "text": "Security"
+            },
+            {
+              "count": 1,
+              "text": "Senior"
+            },
+            {
+              "count": 1,
+              "text": "Spanish"
+            },
+            {
+              "count": 1,
+              "text": "tag me"
+            },
+            {
+              "count": 1,
+              "text": "Talent Pool"
+            },
+            {
+              "count": 6,
+              "text": "Test job"
+            },
+            {
+              "count": 1,
+              "text": "Top Talent"
+            },
+            {
+              "count": 55,
+              "text": "UX Designer"
+            }
+          ],
+          "hasNext": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:54:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1782975328",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "938461410b3f73d2eef05a3f6238ca87ffd2ebe7",
+        "request": {}
+      }
+    }
+  }
+}

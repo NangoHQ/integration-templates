@@ -1,0 +1,205 @@
+{
+  "input": {
+    "perform_as": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+    "name": "Nango Test Candidate",
+    "headline": "Test Headline",
+    "emails": [
+      "test@nango.dev"
+    ],
+    "phones": [
+      {
+        "value": "(555) 123-4567",
+        "type": "mobile"
+      }
+    ],
+    "postings": [
+      "75ff237f-c221-4c26-8b23-faf395f5ea1c"
+    ],
+    "origin": "sourced",
+    "sources": [
+      "LinkedIn"
+    ],
+    "tags": [
+      "Test"
+    ]
+  },
+  "output": {
+    "id": "90bb80d6-db1b-4ba8-9d4f-8bcb25b6c017",
+    "name": "Nango Test Candidate",
+    "headline": "Test Headline",
+    "contact": "1419004b-c860-4c8f-a46a-4a5a9cccdee6",
+    "emails": [
+      "test@nango.dev"
+    ],
+    "phones": [
+      {
+        "value": "(555) 123-4567",
+        "type": "mobile"
+      }
+    ],
+    "confidentiality": "non-confidential",
+    "location": "",
+    "links": [],
+    "archived": null,
+    "createdAt": 1782975358767,
+    "updatedAt": 1782975358772,
+    "lastInteractionAt": 1782975358769,
+    "lastAdvancedAt": 1782975358767,
+    "snoozedUntil": null,
+    "stage": "lead-new",
+    "stageChanges": [
+      {
+        "toStageId": "lead-new",
+        "toStageIndex": 0,
+        "updatedAt": 1782975358767,
+        "userId": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef"
+      }
+    ],
+    "owner": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+    "tags": [
+      "Test",
+      "Nango Seed Posting 1 - Updated",
+      "Research & Development",
+      "Engineering",
+      "San Francisco, CA",
+      "Full-time"
+    ],
+    "sources": [
+      "LinkedIn"
+    ],
+    "origin": "sourced",
+    "sourcedBy": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+    "applications": [
+      "75b839b7-4173-4473-89ec-abdd4c6f7194"
+    ],
+    "followers": [
+      "32bc4d3b-1aa6-4e2b-92d0-2e575047001e"
+    ],
+    "urls": {
+      "list": "https://hire.lever.co/candidates",
+      "show": "https://hire.lever.co/candidates/90bb80d6-db1b-4ba8-9d4f-8bcb25b6c017"
+    },
+    "dataProtection": null,
+    "isAnonymized": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/opportunities": {
+        "response": {
+          "deduped": true,
+          "data": {
+            "id": "90bb80d6-db1b-4ba8-9d4f-8bcb25b6c017",
+            "name": "Nango Test Candidate",
+            "contact": "1419004b-c860-4c8f-a46a-4a5a9cccdee6",
+            "headline": "Test Headline",
+            "stage": "lead-new",
+            "confidentiality": "non-confidential",
+            "location": "",
+            "phones": [
+              {
+                "type": "mobile",
+                "value": "(555) 123-4567"
+              }
+            ],
+            "emails": [
+              "test@nango.dev"
+            ],
+            "links": [],
+            "archived": null,
+            "tags": [
+              "Test",
+              "Nango Seed Posting 1 - Updated",
+              "Research & Development",
+              "Engineering",
+              "San Francisco, CA",
+              "Full-time"
+            ],
+            "sources": [
+              "LinkedIn"
+            ],
+            "stageChanges": [
+              {
+                "toStageId": "lead-new",
+                "toStageIndex": 0,
+                "updatedAt": 1782975358767,
+                "userId": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef"
+              }
+            ],
+            "origin": "sourced",
+            "sourcedBy": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+            "owner": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+            "followers": [
+              "32bc4d3b-1aa6-4e2b-92d0-2e575047001e"
+            ],
+            "applications": [
+              "75b839b7-4173-4473-89ec-abdd4c6f7194"
+            ],
+            "createdAt": 1782975358767,
+            "updatedAt": 1782975358772,
+            "lastInteractionAt": 1782975358769,
+            "lastAdvancedAt": 1782975358767,
+            "snoozedUntil": null,
+            "urls": {
+              "list": "https://hire.lever.co/candidates",
+              "show": "https://hire.lever.co/candidates/90bb80d6-db1b-4ba8-9d4f-8bcb25b6c017"
+            },
+            "isAnonymized": false,
+            "dataProtection": null
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:55:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4750",
+          "x-ratelimit-reset": "1782975389",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "a5190d160cd994c6b5751f1fc56532f10b1d0d8c",
+        "request": {
+          "params": {
+            "perform_as": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef"
+          },
+          "data": {
+            "name": "Nango Test Candidate",
+            "headline": "Test Headline",
+            "phones": [
+              {
+                "value": "(555) 123-4567",
+                "type": "mobile"
+              }
+            ],
+            "emails": [
+              "test@nango.dev"
+            ],
+            "tags": [
+              "Test"
+            ],
+            "sources": [
+              "LinkedIn"
+            ],
+            "origin": "sourced",
+            "postings": [
+              "75ff237f-c221-4c26-8b23-faf395f5ea1c"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

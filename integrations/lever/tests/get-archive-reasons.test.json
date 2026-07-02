@@ -1,0 +1,188 @@
+{
+  "input": null,
+  "output": {
+    "success": true,
+    "response": [
+      {
+        "id": "08168d73-d2aa-4f11-898b-2d1c57f1662a",
+        "text": "Position filled",
+        "status": "active",
+        "type": "non-hired"
+      },
+      {
+        "id": "22a7cc8d-4379-4cb6-8001-62567fa247b4",
+        "text": "Comp",
+        "status": "active",
+        "type": "non-hired"
+      },
+      {
+        "id": "4921cae1-5e4e-4576-a685-04ae868a9f73",
+        "text": "Better for another role",
+        "status": "active",
+        "type": "non-hired"
+      },
+      {
+        "id": "8d35c3df-1732-443e-a072-aaae1e496880",
+        "text": "Future hire",
+        "status": "active",
+        "type": "non-hired"
+      },
+      {
+        "id": "4105fb10-1f79-44ec-b873-33886dc01348",
+        "text": "Under- qualified",
+        "status": "active",
+        "type": "non-hired"
+      },
+      {
+        "id": "82cc825e-90ad-4f22-a449-0b73955bac9c",
+        "text": "No Response - OLD",
+        "status": "inactive",
+        "type": "non-hired"
+      },
+      {
+        "id": "c97322d4-a7f3-4008-948c-4f8e9c58d372",
+        "text": "Timing",
+        "status": "active",
+        "type": "non-hired"
+      },
+      {
+        "id": "6039b390-1ce0-4edf-901c-b71dcf7894e1",
+        "text": "Withdrew",
+        "status": "active",
+        "type": "non-hired"
+      },
+      {
+        "id": "a700d50e-dfe4-40bb-9069-a64f2d4f70f5",
+        "text": "Offer declined",
+        "status": "active",
+        "type": "non-hired"
+      },
+      {
+        "id": "d35867b1-f661-4ec2-b477-b3e6524cc8b6",
+        "text": "Position closed",
+        "status": "active",
+        "type": "non-hired"
+      },
+      {
+        "id": "0092d31b-502b-4f0d-b4da-3827e1a2991f",
+        "text": "Hired",
+        "status": "active",
+        "type": "hired"
+      },
+      {
+        "id": "8e0f977c-a482-44bb-b3f2-2a3d0eb4173b",
+        "text": "No Response",
+        "status": "active",
+        "type": "non-hired"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/archive_reasons": {
+        "response": {
+          "data": [
+            {
+              "id": "08168d73-d2aa-4f11-898b-2d1c57f1662a",
+              "text": "Position filled",
+              "status": "active",
+              "type": "non-hired"
+            },
+            {
+              "id": "22a7cc8d-4379-4cb6-8001-62567fa247b4",
+              "text": "Comp",
+              "status": "active",
+              "type": "non-hired"
+            },
+            {
+              "id": "4921cae1-5e4e-4576-a685-04ae868a9f73",
+              "text": "Better for another role",
+              "status": "active",
+              "type": "non-hired"
+            },
+            {
+              "id": "8d35c3df-1732-443e-a072-aaae1e496880",
+              "text": "Future hire",
+              "status": "active",
+              "type": "non-hired"
+            },
+            {
+              "id": "4105fb10-1f79-44ec-b873-33886dc01348",
+              "text": "Under- qualified",
+              "status": "active",
+              "type": "non-hired"
+            },
+            {
+              "id": "82cc825e-90ad-4f22-a449-0b73955bac9c",
+              "text": "No Response - OLD",
+              "status": "inactive",
+              "type": "non-hired"
+            },
+            {
+              "id": "c97322d4-a7f3-4008-948c-4f8e9c58d372",
+              "text": "Timing",
+              "status": "active",
+              "type": "non-hired"
+            },
+            {
+              "id": "6039b390-1ce0-4edf-901c-b71dcf7894e1",
+              "text": "Withdrew",
+              "status": "active",
+              "type": "non-hired"
+            },
+            {
+              "id": "a700d50e-dfe4-40bb-9069-a64f2d4f70f5",
+              "text": "Offer declined",
+              "status": "active",
+              "type": "non-hired"
+            },
+            {
+              "id": "d35867b1-f661-4ec2-b477-b3e6524cc8b6",
+              "text": "Position closed",
+              "status": "active",
+              "type": "non-hired"
+            },
+            {
+              "id": "0092d31b-502b-4f0d-b4da-3827e1a2991f",
+              "text": "Hired",
+              "status": "active",
+              "type": "hired"
+            },
+            {
+              "id": "8e0f977c-a482-44bb-b3f2-2a3d0eb4173b",
+              "text": "No Response",
+              "status": "active",
+              "type": "non-hired"
+            }
+          ],
+          "hasNext": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:44:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4571",
+          "x-ratelimit-reset": "1782974662",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "1b7de6417d61d92b5feaa860232003e10e8e2af7",
+        "request": {}
+      }
+    }
+  }
+}

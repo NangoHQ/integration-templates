@@ -1,0 +1,120 @@
+{
+  "input": {
+    "opportunityId": "6408dc54-7015-4e5b-8d60-23afff2b1efc",
+    "baseTemplateId": "1c0d54d3-1aeb-4989-b616-d0a6025444e8",
+    "performAs": "be129d9b-50da-4485-9377-0d83e981f30b"
+  },
+  "output": {
+    "id": "e0863d1c-3256-46e2-a8eb-6069fb61268b",
+    "baseTemplateId": "1c0d54d3-1aeb-4989-b616-d0a6025444e8",
+    "type": "interview",
+    "text": "Nango Seed Feedback Template 1 (updated)",
+    "instructions": "",
+    "user": "be129d9b-50da-4485-9377-0d83e981f30b",
+    "createdAt": 1782974327197,
+    "completedAt": 1782974327197,
+    "fields": [
+      {
+        "id": "06085f68-9b42-44fc-aea4-d5f9b70c0561",
+        "type": "score-system",
+        "text": "Overall rating",
+        "description": "",
+        "required": false,
+        "prompt": "Select one",
+        "options": [
+          {
+            "text": "4 - Strong Hire"
+          },
+          {
+            "text": "3 - Hire"
+          },
+          {
+            "text": "2 - No Hire"
+          },
+          {
+            "text": "1 - Strong No Hire"
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/opportunities/6408dc54-7015-4e5b-8d60-23afff2b1efc/feedback": {
+        "response": {
+          "data": {
+            "id": "e0863d1c-3256-46e2-a8eb-6069fb61268b",
+            "type": "interview",
+            "text": "Nango Seed Feedback Template 1 (updated)",
+            "instructions": "",
+            "fields": [
+              {
+                "description": "",
+                "required": false,
+                "text": "Overall rating",
+                "type": "score-system",
+                "id": "06085f68-9b42-44fc-aea4-d5f9b70c0561",
+                "prompt": "Select one",
+                "options": [
+                  {
+                    "text": "4 - Strong Hire"
+                  },
+                  {
+                    "text": "3 - Hire"
+                  },
+                  {
+                    "text": "2 - No Hire"
+                  },
+                  {
+                    "text": "1 - Strong No Hire"
+                  }
+                ],
+                "value": null
+              }
+            ],
+            "baseTemplateId": "1c0d54d3-1aeb-4989-b616-d0a6025444e8",
+            "interview": null,
+            "panel": null,
+            "user": "be129d9b-50da-4485-9377-0d83e981f30b",
+            "createdAt": 1782974327197,
+            "completedAt": 1782974327197,
+            "updatedAt": null,
+            "deletedAt": null
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:38:47 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4735",
+          "x-ratelimit-reset": "1782974362",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "8304af823301b8d0a0106325faeb5a7aa5966a03",
+        "request": {
+          "params": {
+            "perform_as": "be129d9b-50da-4485-9377-0d83e981f30b"
+          },
+          "data": {
+            "baseTemplateId": "1c0d54d3-1aeb-4989-b616-d0a6025444e8"
+          }
+        }
+      }
+    }
+  }
+}

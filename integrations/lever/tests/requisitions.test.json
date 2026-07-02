@@ -1,0 +1,2199 @@
+{
+  "nango": {
+    "batchSave": {
+      "Requisition": [
+        {
+          "id": "fb563fa7-7a1b-4226-b906-8d2d78491fe5",
+          "requisitionCode": "9900004",
+          "name": "Account Executive",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564513832308,
+          "updatedAt": 1564513910312,
+          "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 2,
+          "headcountTotal": "unlimited",
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Account Executive",
+          "department": "Sales",
+          "internalNotes": "Junior and Senior needed",
+          "postings": [
+            "686e4f02-824a-4e35-9865-7fad03e6b31d",
+            "c669d418-d180-48ea-b78a-2047ff98a735"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 50000,
+            "max": 150000
+          },
+          "approval": {
+            "id": "a5d482a0-c9e0-4d50-ad33-06342d67e641",
+            "status": "approved",
+            "startedAt": 1564513834069,
+            "approvedAt": 1564513855413,
+            "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+            "createdBy": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+            "steps": [
+              {
+                "completed": true,
+                "status": "approved",
+                "outOfBandOnly": false,
+                "approvalsRequired": 1,
+                "approvers": [
+                  {
+                    "id": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+                    "user": "Requisition hiring manager",
+                    "isDynamic": true,
+                    "approved": true,
+                    "approvedAt": 1564513855413,
+                    "type": "dynamic"
+                  }
+                ],
+                "id": "30c38e5b-006b-4e8b-94c4-d4d435cf435b"
+              }
+            ]
+          },
+          "customFields": {}
+        },
+        {
+          "id": "f12a2f8f-544b-45fe-b8b2-f052b44ee99f",
+          "requisitionCode": "9900021",
+          "name": "Partnership Manager ",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "rejected",
+          "createdAt": 1564616995675,
+          "updatedAt": 1564616995675,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "89f2a882-6600-41eb-b889-87d51f08e393",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 0,
+          "headcountTotal": 10,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Partnerships",
+          "department": "Marketing",
+          "internalNotes": "",
+          "postings": [
+            "1709dce5-013e-4578-8817-078a36065529"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 80000,
+            "max": 140000
+          },
+          "approval": {
+            "id": "fca0f13a-065e-4c51-a2c1-07ddaa35ddfa",
+            "status": "denied",
+            "startedAt": 1564616997703,
+            "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+            "createdBy": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+            "steps": [
+              {
+                "completed": true,
+                "status": "denied",
+                "outOfBandOnly": false,
+                "approvalsRequired": 1,
+                "approvers": [
+                  {
+                    "id": "89f2a882-6600-41eb-b889-87d51f08e393",
+                    "user": "Requisition hiring manager",
+                    "isDynamic": true,
+                    "approved": false,
+                    "approvedAt": 1564617166125,
+                    "type": "dynamic"
+                  }
+                ],
+                "id": "3f4bac18-480b-4923-9d42-f2b50fd92220"
+              }
+            ]
+          },
+          "customFields": {}
+        },
+        {
+          "id": "f0b8f177-920d-4c0b-a719-7762ff3febad",
+          "requisitionCode": "NANGO-DRYRUN-TEST",
+          "name": "Test Requisition for Dryrun",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1782974436604,
+          "updatedAt": 1782974436604,
+          "headcountHired": 0,
+          "headcountTotal": 1,
+          "internalNotes": "",
+          "postings": [],
+          "offerIds": [],
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "efe24b6d-65fe-459f-9aa0-40109b118303",
+          "requisitionCode": "9900008",
+          "name": "Partnership Manager",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "closed",
+          "createdAt": 1564515276003,
+          "updatedAt": 1564515276003,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "89f2a882-6600-41eb-b889-87d51f08e393",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 2,
+          "headcountTotal": 2,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Partnerships",
+          "department": "Marketing",
+          "internalNotes": "",
+          "postings": [
+            "1709dce5-013e-4578-8817-078a36065529"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 80000,
+            "max": 140000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {},
+          "closedAt": 1564616677268
+        },
+        {
+          "id": "ef26e931-5717-4ca3-8397-e011ccc452f3",
+          "requisitionCode": "9900001",
+          "name": "Sales Engineers ",
+          "backfill": true,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564071408043,
+          "updatedAt": 1564615831292,
+          "creator": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+          "hiringManager": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+          "owner": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+          "headcountHired": 2,
+          "headcountTotal": 5,
+          "employmentStatus": "Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Sales Engineering",
+          "department": "Sales",
+          "internalNotes": "5 Sales Engineers for the Massachusetts region",
+          "postings": [
+            "6d4f89a2-6376-4a07-98ae-88eb8126a8d8",
+            "00d1dea4-427b-4221-b879-d598fe4b998a"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 90000,
+            "max": 110000
+          },
+          "approval": {
+            "id": "d7d86d16-16c6-4ec7-b893-eb14db02c622",
+            "status": "approved",
+            "startedAt": 1564071411348,
+            "approvedAt": 1564071412791,
+            "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+            "createdBy": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+            "steps": [
+              {
+                "completed": true,
+                "status": "approved",
+                "outOfBandOnly": false,
+                "approvalsRequired": 1,
+                "approvers": [
+                  {
+                    "id": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+                    "user": {
+                      "userId": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+                      "email": "aperez@nango.dev"
+                    },
+                    "isDynamic": false,
+                    "approved": true,
+                    "approvedAt": 1564071412786,
+                    "type": "static"
+                  }
+                ],
+                "id": "ec8eeddb-5b1d-46b3-a5d7-26b3298e7699"
+              }
+            ]
+          },
+          "customFields": {}
+        },
+        {
+          "id": "d270d276-b5ed-4647-bdc3-b1ecdd286086",
+          "requisitionCode": "9900022",
+          "name": "BackEnd Engineer",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "onHold",
+          "createdAt": 1564617039427,
+          "updatedAt": 1564617090158,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "owner": "89f2a882-6600-41eb-b889-87d51f08e393",
+          "headcountHired": 0,
+          "headcountTotal": 3,
+          "employmentStatus": "Part-Time",
+          "location": "Amsterdam",
+          "team": "Engineering",
+          "department": "Research & Development",
+          "internalNotes": "",
+          "postings": [],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 70000,
+            "max": 150000
+          },
+          "approval": {
+            "id": "30c36596-7806-4a5a-a6d9-8f92b3bcf7cc",
+            "status": "approved",
+            "startedAt": 1564617058165,
+            "approvedAt": 1564617066201,
+            "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+            "createdBy": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+            "steps": [
+              {
+                "completed": true,
+                "status": "approved",
+                "outOfBandOnly": false,
+                "approvalsRequired": 1,
+                "approvers": [
+                  {
+                    "id": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+                    "user": "Requisition hiring manager",
+                    "isDynamic": true,
+                    "approved": true,
+                    "approvedAt": 1564617066195,
+                    "type": "dynamic"
+                  }
+                ],
+                "id": "97357b10-8ab4-4500-88a2-9ff3d6311f88"
+              }
+            ]
+          },
+          "customFields": {}
+        },
+        {
+          "id": "cf3f25ab-a3ca-4cc0-ace9-1f1586496e89",
+          "requisitionCode": "9900013",
+          "name": "Director of IT & Security",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "closed",
+          "createdAt": 1564615795133,
+          "updatedAt": 1564615795133,
+          "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "hiringManager": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 1,
+          "headcountTotal": 1,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "IT",
+          "department": "Security & IT",
+          "internalNotes": "timeline for hire is 6 months",
+          "postings": [
+            "5a64208a-1ea7-424f-9155-160637a72a02"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 100000,
+            "max": 200000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {},
+          "closedAt": 1564616576207
+        },
+        {
+          "id": "cea95264-763b-47a5-892d-e2d29f7d63aa",
+          "requisitionCode": "9900016",
+          "name": "BDR",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564616166923,
+          "updatedAt": 1564616166923,
+          "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 1,
+          "headcountTotal": "unlimited",
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Business Development",
+          "department": "Sales",
+          "internalNotes": "Entry Level",
+          "postings": [
+            "21330de8-51f5-4e24-b074-46a1adc64ff3"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 30000,
+            "max": 60000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "c0a2ac79-ddf0-4f66-a263-3c6623638964",
+          "requisitionCode": "9900010",
+          "name": "Senior Software Engineer",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564526196065,
+          "updatedAt": 1564616213734,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+          "owner": "35b8fc0f-701e-4ebf-92d9-dee26191f33b",
+          "headcountHired": 1,
+          "headcountTotal": 2,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "Austin, TX",
+          "team": "Engineering",
+          "department": "Research & Development",
+          "internalNotes": "",
+          "postings": [
+            "0ac8e0cc-c51e-42fa-b1cb-551bdec476a4",
+            "74e7afd7-1368-46de-9a1c-3a0d47344a3e"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 80000,
+            "max": 150000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "be6c285f-3b92-4ac2-a226-7c9ade011510",
+          "requisitionCode": "9900005",
+          "name": "Financial Analyst",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564514833688,
+          "updatedAt": 1564514849361,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "owner": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+          "headcountHired": 1,
+          "headcountTotal": 2,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Analyst",
+          "department": "Finance",
+          "internalNotes": "",
+          "postings": [
+            "5843ec1f-5e4c-42f2-a011-0250d2b63df3"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 80000,
+            "max": 95000
+          },
+          "approval": {
+            "id": "1da24dfd-8ac3-4e27-987c-eff6dbdf2f10",
+            "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+            "createdBy": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+            "steps": [
+              {
+                "completed": false,
+                "status": null,
+                "outOfBandOnly": false,
+                "approvalsRequired": 1,
+                "approvers": [
+                  {
+                    "id": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+                    "user": "Requisition hiring manager",
+                    "isDynamic": true,
+                    "type": "dynamic"
+                  }
+                ]
+              }
+            ]
+          },
+          "customFields": {}
+        },
+        {
+          "id": "af39064c-eb9c-4256-850f-d758a0225637",
+          "requisitionCode": "9900023",
+          "name": "Partnership Manager",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564617043337,
+          "updatedAt": 1564617043337,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "89f2a882-6600-41eb-b889-87d51f08e393",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 0,
+          "headcountTotal": 10,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Partnerships",
+          "department": "Marketing",
+          "internalNotes": "",
+          "postings": [
+            "1709dce5-013e-4578-8817-078a36065529"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 80000,
+            "max": 140000
+          },
+          "approval": {
+            "id": "81e6dcf2-1eeb-4565-8012-7576ee215b4e",
+            "status": "approved",
+            "startedAt": 1564617046523,
+            "approvedAt": 1564617154122,
+            "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+            "createdBy": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+            "steps": [
+              {
+                "completed": true,
+                "status": "approved",
+                "outOfBandOnly": false,
+                "approvalsRequired": 1,
+                "approvers": [
+                  {
+                    "id": "89f2a882-6600-41eb-b889-87d51f08e393",
+                    "user": "Requisition hiring manager",
+                    "isDynamic": true,
+                    "approved": true,
+                    "approvedAt": 1564617154114,
+                    "type": "dynamic"
+                  }
+                ],
+                "id": "490dee3b-e28e-464e-9481-3d1d93696c6d"
+              }
+            ]
+          },
+          "customFields": {}
+        },
+        {
+          "id": "a96877e2-2267-4401-8d19-3724080c0f1f",
+          "requisitionCode": "9900017",
+          "name": "Recruiting Manager",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564616254989,
+          "updatedAt": 1564616254989,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "35b8fc0f-701e-4ebf-92d9-dee26191f33b",
+          "owner": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "headcountHired": 1,
+          "headcountTotal": 2,
+          "employmentStatus": "Contract",
+          "location": "San Francisco, CA",
+          "team": "Recruiting",
+          "department": "People",
+          "internalNotes": "",
+          "postings": [
+            "afb4cd1a-e5a7-4c70-9367-8d9bbc2973bc",
+            "8f6098cc-c52d-4fd6-a300-bbf14b0ce40c"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 55000,
+            "max": 65000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "77a01400-01cd-410a-a227-6b5ba6b1966c",
+          "requisitionCode": "9900002",
+          "name": "UX Developers ",
+          "backfill": true,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564071576306,
+          "updatedAt": 1564499926464,
+          "creator": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+          "hiringManager": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+          "owner": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+          "headcountHired": 0,
+          "headcountTotal": 8,
+          "employmentStatus": "Full-Time",
+          "location": "Sarasota, FL",
+          "team": "Product",
+          "department": "Research & Development",
+          "internalNotes": "4 UX developers for the new product",
+          "postings": [
+            "3feb4c7c-36a9-494f-aa27-fbfdff1e8b04"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 80000,
+            "max": 110000
+          },
+          "approval": {
+            "id": "1e14ecd9-70db-435f-bb38-8bbba89433b4",
+            "status": "approved",
+            "startedAt": 1564071580372,
+            "approvedAt": 1564071582799,
+            "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+            "createdBy": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+            "steps": [
+              {
+                "completed": true,
+                "status": "approved",
+                "outOfBandOnly": false,
+                "approvalsRequired": 1,
+                "approvers": [
+                  {
+                    "id": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+                    "user": {
+                      "userId": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+                      "email": "aperez@nango.dev"
+                    },
+                    "isDynamic": false,
+                    "approved": true,
+                    "approvedAt": 1564071582793,
+                    "type": "static"
+                  }
+                ],
+                "id": "d41e94f3-69a0-4eb4-98a9-d08d4c879ab7"
+              }
+            ]
+          },
+          "customFields": {}
+        },
+        {
+          "id": "659c6f99-f4db-4305-922f-1e0be679debd",
+          "requisitionCode": "9900014",
+          "name": "VP of Human Resources",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564615900650,
+          "updatedAt": 1564615900650,
+          "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "hiringManager": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 0,
+          "headcountTotal": 1,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Human Resources",
+          "department": "People",
+          "internalNotes": "90 day timeline",
+          "postings": [
+            "513d232d-2bfa-4120-a6d2-bf5fccbe0598"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 100000,
+            "max": 250000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "51e374d0-c86b-482d-a9b3-654e4ca69d82",
+          "requisitionCode": "9900018",
+          "name": "Recruiter",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564616309743,
+          "updatedAt": 1564616309743,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "35b8fc0f-701e-4ebf-92d9-dee26191f33b",
+          "owner": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "headcountHired": 0,
+          "headcountTotal": "unlimited",
+          "employmentStatus": "Contract",
+          "location": "San Francisco, CA",
+          "team": "Recruiting",
+          "department": "People",
+          "internalNotes": "Technical and General recruiters",
+          "postings": [
+            "afb4cd1a-e5a7-4c70-9367-8d9bbc2973bc",
+            "8f6098cc-c52d-4fd6-a300-bbf14b0ce40c"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 55000,
+            "max": 150000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "402d0eb5-8472-4df1-9c0d-d2ed1486c251",
+          "requisitionCode": "9900020",
+          "name": "Designer",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564616440378,
+          "updatedAt": 1564616440378,
+          "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 2,
+          "headcountTotal": 5,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Design",
+          "department": "Research & Development",
+          "internalNotes": "",
+          "postings": [
+            "024e479e-d9f2-4e16-b678-4365695a1766"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 80000,
+            "max": 120000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "3a25c851-7e7f-487b-bc0e-12902cdbfccb",
+          "requisitionCode": "9900009",
+          "name": "Marketing Analyst",
+          "backfill": true,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564525064004,
+          "updatedAt": 1564525071610,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "35b8fc0f-701e-4ebf-92d9-dee26191f33b",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 0,
+          "headcountTotal": 1,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "Boston, MA",
+          "team": "Brand",
+          "department": "Marketing",
+          "internalNotes": "",
+          "postings": [
+            "b43d96ff-c1ee-413f-a52e-feab333b4830"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 80000,
+            "max": 150000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "34ac96df-1dfa-474b-8678-20e008081845",
+          "requisitionCode": "9900012",
+          "name": "Project Manager",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564615696895,
+          "updatedAt": 1564615708626,
+          "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 1,
+          "headcountTotal": 10,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Project Management",
+          "department": "Operations",
+          "internalNotes": "Senior level preferred ",
+          "postings": [
+            "615f1b59-72ee-44b1-9fca-e557f1d28acc"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 75000,
+            "max": 100000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "335fac43-9ff1-4448-9c72-a5cdee6e03db",
+          "requisitionCode": "9900007",
+          "name": "HR BP",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "closed",
+          "createdAt": 1564514938967,
+          "updatedAt": 1564515363775,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "owner": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+          "headcountHired": 3,
+          "headcountTotal": 3,
+          "employmentStatus": "Non-Exempt Full Time",
+          "location": "San Francisco, CA",
+          "team": "Human Resources",
+          "department": "People",
+          "internalNotes": "",
+          "postings": [
+            "06ded8c2-2a04-4c8c-a297-c74e190e5452"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 80000,
+            "max": 95000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {},
+          "closedAt": 1564616656730
+        },
+        {
+          "id": "3343c13d-f295-4b30-9282-bc4bf4d2d75b",
+          "requisitionCode": "9900003",
+          "name": "Account Manager",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564511192525,
+          "updatedAt": 1564617234188,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "owner": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "headcountHired": 2,
+          "headcountTotal": 10,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Account Management",
+          "department": "Customer Success",
+          "internalNotes": "",
+          "postings": [
+            "5056deaf-f6a3-4b78-a2b7-f517db673212"
+          ],
+          "offerIds": [
+            "b24b4ea5-3ca6-4b8f-86c0-d4361d6d05ea",
+            "12996391-8e4f-468f-ba00-2a29b4fc4fee"
+          ],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 70000,
+            "max": 120000
+          },
+          "approval": {
+            "id": "f5282544-e348-4fb1-a043-53cf298a40e8",
+            "status": "approved",
+            "startedAt": 1564511196181,
+            "approvedAt": 1564513864337,
+            "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+            "createdBy": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+            "steps": [
+              {
+                "completed": true,
+                "status": "approved",
+                "outOfBandOnly": false,
+                "approvalsRequired": 1,
+                "approvers": [
+                  {
+                    "id": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+                    "user": "Requisition hiring manager",
+                    "isDynamic": true,
+                    "approved": true,
+                    "approvedAt": 1564513864328,
+                    "type": "dynamic"
+                  }
+                ],
+                "id": "5d83ff94-e687-4447-8261-ada0c3414162"
+              }
+            ]
+          },
+          "customFields": {}
+        },
+        {
+          "id": "23e261f3-32f5-4e94-b2ee-fc0daf4acf25",
+          "requisitionCode": "9900006",
+          "name": "Recruiting Coordinator",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564514887501,
+          "updatedAt": 1564514887501,
+          "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "hiringManager": "35b8fc0f-701e-4ebf-92d9-dee26191f33b",
+          "owner": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "headcountHired": 0,
+          "headcountTotal": 2,
+          "employmentStatus": "Contract",
+          "location": "Boston, MA",
+          "team": "Recruiting",
+          "department": "People",
+          "internalNotes": "",
+          "postings": [
+            "afb4cd1a-e5a7-4c70-9367-8d9bbc2973bc"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 55000,
+            "max": 65000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "2342e187-99ec-4087-b90b-0ea69fc5b467",
+          "requisitionCode": "9900015",
+          "name": "Sales Operations Specialist",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564616052950,
+          "updatedAt": 1564616052950,
+          "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 2,
+          "headcountTotal": 10,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Operations",
+          "department": "Sales",
+          "internalNotes": "Recent graduates/entry level",
+          "postings": [
+            "b33f8e59-f625-4fab-90af-45a76b4ba960"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 50000,
+            "max": 100000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        },
+        {
+          "id": "1c89d96d-b485-41c8-9b8d-35fe1ea8f757",
+          "requisitionCode": "9900024",
+          "name": "Director of IT & Security ",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "pending",
+          "createdAt": 1564617065325,
+          "updatedAt": 1564617065325,
+          "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "hiringManager": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 0,
+          "headcountTotal": 5,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "IT",
+          "department": "Security & IT",
+          "internalNotes": "timeline for hire is 6 months",
+          "postings": [
+            "5a64208a-1ea7-424f-9155-160637a72a02"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 100000,
+            "max": 200000
+          },
+          "approval": {
+            "id": "e984fa14-4b0e-47fb-9d86-c731301c6a11",
+            "status": "inprogress",
+            "startedAt": 1564617066565,
+            "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+            "createdBy": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+            "steps": [
+              {
+                "completed": false,
+                "status": "inprogress",
+                "outOfBandOnly": false,
+                "approvalsRequired": 1,
+                "approvers": [
+                  {
+                    "id": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+                    "user": "Requisition hiring manager",
+                    "isDynamic": true,
+                    "type": "dynamic"
+                  }
+                ],
+                "id": "ed8a5159-f04d-4305-a441-e83dbce5a9ec"
+              }
+            ]
+          },
+          "customFields": {}
+        },
+        {
+          "id": "1a34d3e4-09e6-46d4-96db-1d1b6f51bd4e",
+          "requisitionCode": "9900019",
+          "name": "Product Manager ",
+          "backfill": false,
+          "confidentiality": "non-confidential",
+          "status": "open",
+          "createdAt": 1564616353629,
+          "updatedAt": 1564616353629,
+          "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+          "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+          "headcountHired": 2,
+          "headcountTotal": 10,
+          "employmentStatus": "Exempt Full-Time",
+          "location": "San Francisco, CA",
+          "team": "Project Management",
+          "department": "Operations",
+          "internalNotes": "Senior level preferred ",
+          "postings": [
+            "1368e425-2acf-42b9-9e5a-e73186d42d92"
+          ],
+          "offerIds": [],
+          "compensationBand": {
+            "currency": "USD",
+            "interval": "per-year-salary",
+            "min": 75000,
+            "max": 100000
+          },
+          "approval": {
+            "steps": []
+          },
+          "customFields": {}
+        }
+      ]
+    },
+    "batchDelete": {
+      "Requisition": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/requisitions": {
+        "response": {
+          "data": [
+            {
+              "id": "fb563fa7-7a1b-4226-b906-8d2d78491fe5",
+              "createdAt": 1564513832308,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Account Executive",
+              "requisitionCode": "9900004",
+              "headcountTotal": "unlimited",
+              "headcountHired": 2,
+              "headcountInfinite": true,
+              "backfill": false,
+              "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "internalNotes": "Junior and Senior needed",
+              "compensationBand": {
+                "min": 50000,
+                "max": 150000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": [
+                  {
+                    "completed": true,
+                    "status": "approved",
+                    "outOfBandOnly": false,
+                    "approvalsRequired": 1,
+                    "approvers": [
+                      {
+                        "id": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+                        "user": "Requisition hiring manager",
+                        "isDynamic": true,
+                        "approved": true,
+                        "approvedAt": 1564513855413,
+                        "type": "dynamic"
+                      }
+                    ],
+                    "id": "30c38e5b-006b-4e8b-94c4-d4d435cf435b"
+                  }
+                ],
+                "id": "a5d482a0-c9e0-4d50-ad33-06342d67e641",
+                "status": "approved",
+                "startedAt": 1564513834069,
+                "approvedAt": 1564513855413,
+                "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+                "createdBy": "6e6931c2-a7d7-4c68-9e24-d3950ae47180"
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Account Executive",
+              "department": "Sales",
+              "postings": [
+                "686e4f02-824a-4e35-9865-7fad03e6b31d",
+                "c669d418-d180-48ea-b78a-2047ff98a735"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564513910312,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "f12a2f8f-544b-45fe-b8b2-f052b44ee99f",
+              "createdAt": 1564616995675,
+              "confidentiality": "non-confidential",
+              "status": "rejected",
+              "name": "Partnership Manager ",
+              "requisitionCode": "9900021",
+              "headcountTotal": 10,
+              "headcountHired": 0,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "89f2a882-6600-41eb-b889-87d51f08e393",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 80000,
+                "max": 140000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": [
+                  {
+                    "completed": true,
+                    "status": "denied",
+                    "outOfBandOnly": false,
+                    "approvalsRequired": 1,
+                    "approvers": [
+                      {
+                        "id": "89f2a882-6600-41eb-b889-87d51f08e393",
+                        "user": "Requisition hiring manager",
+                        "isDynamic": true,
+                        "approved": false,
+                        "approvedAt": 1564617166125,
+                        "type": "dynamic"
+                      }
+                    ],
+                    "id": "3f4bac18-480b-4923-9d42-f2b50fd92220"
+                  }
+                ],
+                "id": "fca0f13a-065e-4c51-a2c1-07ddaa35ddfa",
+                "status": "denied",
+                "startedAt": 1564616997703,
+                "approvedAt": null,
+                "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+                "createdBy": "6e6931c2-a7d7-4c68-9e24-d3950ae47180"
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Partnerships",
+              "department": "Marketing",
+              "postings": [
+                "1709dce5-013e-4578-8817-078a36065529"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564616995675,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "f0b8f177-920d-4c0b-a719-7762ff3febad",
+              "createdAt": 1782974436604,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Test Requisition for Dryrun",
+              "requisitionCode": "NANGO-DRYRUN-TEST",
+              "headcountTotal": 1,
+              "headcountHired": 0,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": null,
+              "owner": null,
+              "hiringManager": null,
+              "internalNotes": "",
+              "compensationBand": null,
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": null,
+              "location": null,
+              "team": null,
+              "department": null,
+              "postings": [],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1782974436604,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "efe24b6d-65fe-459f-9aa0-40109b118303",
+              "createdAt": 1564515276003,
+              "confidentiality": "non-confidential",
+              "status": "closed",
+              "name": "Partnership Manager",
+              "requisitionCode": "9900008",
+              "headcountTotal": 2,
+              "headcountHired": 2,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "89f2a882-6600-41eb-b889-87d51f08e393",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 80000,
+                "max": 140000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Partnerships",
+              "department": "Marketing",
+              "postings": [
+                "1709dce5-013e-4578-8817-078a36065529"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564515276003,
+              "customFields": {},
+              "closedAt": 1564616677268
+            },
+            {
+              "id": "ef26e931-5717-4ca3-8397-e011ccc452f3",
+              "createdAt": 1564071408043,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Sales Engineers ",
+              "requisitionCode": "9900001",
+              "headcountTotal": 5,
+              "headcountHired": 2,
+              "headcountInfinite": false,
+              "backfill": true,
+              "creator": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+              "owner": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+              "hiringManager": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+              "internalNotes": "5 Sales Engineers for the Massachusetts region",
+              "compensationBand": {
+                "min": 90000,
+                "max": 110000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": [
+                  {
+                    "completed": true,
+                    "status": "approved",
+                    "outOfBandOnly": false,
+                    "approvalsRequired": 1,
+                    "approvers": [
+                      {
+                        "id": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+                        "user": {
+                          "userId": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+                          "email": "aperez@nango.dev"
+                        },
+                        "isDynamic": false,
+                        "approved": true,
+                        "approvedAt": 1564071412786,
+                        "type": "static"
+                      }
+                    ],
+                    "id": "ec8eeddb-5b1d-46b3-a5d7-26b3298e7699"
+                  }
+                ],
+                "id": "d7d86d16-16c6-4ec7-b893-eb14db02c622",
+                "status": "approved",
+                "startedAt": 1564071411348,
+                "approvedAt": 1564071412791,
+                "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+                "createdBy": "b59ae96c-c132-4a91-9c5c-dccd88fc2794"
+              },
+              "employmentStatus": "Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Sales Engineering",
+              "department": "Sales",
+              "postings": [
+                "6d4f89a2-6376-4a07-98ae-88eb8126a8d8",
+                "00d1dea4-427b-4221-b879-d598fe4b998a"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564615831292,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "d270d276-b5ed-4647-bdc3-b1ecdd286086",
+              "createdAt": 1564617039427,
+              "confidentiality": "non-confidential",
+              "status": "onHold",
+              "name": "BackEnd Engineer",
+              "requisitionCode": "9900022",
+              "headcountTotal": 3,
+              "headcountHired": 0,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "89f2a882-6600-41eb-b889-87d51f08e393",
+              "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 70000,
+                "max": 150000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": [
+                  {
+                    "completed": true,
+                    "status": "approved",
+                    "outOfBandOnly": false,
+                    "approvalsRequired": 1,
+                    "approvers": [
+                      {
+                        "id": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+                        "user": "Requisition hiring manager",
+                        "isDynamic": true,
+                        "approved": true,
+                        "approvedAt": 1564617066195,
+                        "type": "dynamic"
+                      }
+                    ],
+                    "id": "97357b10-8ab4-4500-88a2-9ff3d6311f88"
+                  }
+                ],
+                "id": "30c36596-7806-4a5a-a6d9-8f92b3bcf7cc",
+                "status": "approved",
+                "startedAt": 1564617058165,
+                "approvedAt": 1564617066201,
+                "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+                "createdBy": "b6816cb5-cf05-433c-b07f-2ca3eea60f54"
+              },
+              "employmentStatus": "Part-Time",
+              "location": "Amsterdam",
+              "team": "Engineering",
+              "department": "Research & Development",
+              "postings": [],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564617090158,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "cf3f25ab-a3ca-4cc0-ace9-1f1586496e89",
+              "createdAt": 1564615795133,
+              "confidentiality": "non-confidential",
+              "status": "closed",
+              "name": "Director of IT & Security",
+              "requisitionCode": "9900013",
+              "headcountTotal": 1,
+              "headcountHired": 1,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+              "internalNotes": "timeline for hire is 6 months",
+              "compensationBand": {
+                "min": 100000,
+                "max": 200000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "IT",
+              "department": "Security & IT",
+              "postings": [
+                "5a64208a-1ea7-424f-9155-160637a72a02"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564615795133,
+              "customFields": {},
+              "closedAt": 1564616576207
+            },
+            {
+              "id": "cea95264-763b-47a5-892d-e2d29f7d63aa",
+              "createdAt": 1564616166923,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "BDR",
+              "requisitionCode": "9900016",
+              "headcountTotal": "unlimited",
+              "headcountHired": 1,
+              "headcountInfinite": true,
+              "backfill": false,
+              "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "internalNotes": "Entry Level",
+              "compensationBand": {
+                "min": 30000,
+                "max": 60000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Business Development",
+              "department": "Sales",
+              "postings": [
+                "21330de8-51f5-4e24-b074-46a1adc64ff3"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564616166923,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "c0a2ac79-ddf0-4f66-a263-3c6623638964",
+              "createdAt": 1564526196065,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Senior Software Engineer",
+              "requisitionCode": "9900010",
+              "headcountTotal": 2,
+              "headcountHired": 1,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "35b8fc0f-701e-4ebf-92d9-dee26191f33b",
+              "hiringManager": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 80000,
+                "max": 150000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "Austin, TX",
+              "team": "Engineering",
+              "department": "Research & Development",
+              "postings": [
+                "0ac8e0cc-c51e-42fa-b1cb-551bdec476a4",
+                "74e7afd7-1368-46de-9a1c-3a0d47344a3e"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564616213734,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "be6c285f-3b92-4ac2-a226-7c9ade011510",
+              "createdAt": 1564514833688,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Financial Analyst",
+              "requisitionCode": "9900005",
+              "headcountTotal": 2,
+              "headcountHired": 1,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+              "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 80000,
+                "max": 95000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": [
+                  {
+                    "completed": false,
+                    "status": null,
+                    "outOfBandOnly": false,
+                    "approvalsRequired": 1,
+                    "approvers": [
+                      {
+                        "id": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+                        "user": "Requisition hiring manager",
+                        "isDynamic": true,
+                        "type": "dynamic"
+                      }
+                    ]
+                  }
+                ],
+                "id": "1da24dfd-8ac3-4e27-987c-eff6dbdf2f10",
+                "status": null,
+                "approvedAt": null,
+                "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+                "createdBy": "b6816cb5-cf05-433c-b07f-2ca3eea60f54"
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Analyst",
+              "department": "Finance",
+              "postings": [
+                "5843ec1f-5e4c-42f2-a011-0250d2b63df3"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564514849361,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "af39064c-eb9c-4256-850f-d758a0225637",
+              "createdAt": 1564617043337,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Partnership Manager",
+              "requisitionCode": "9900023",
+              "headcountTotal": 10,
+              "headcountHired": 0,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "89f2a882-6600-41eb-b889-87d51f08e393",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 80000,
+                "max": 140000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": [
+                  {
+                    "completed": true,
+                    "status": "approved",
+                    "outOfBandOnly": false,
+                    "approvalsRequired": 1,
+                    "approvers": [
+                      {
+                        "id": "89f2a882-6600-41eb-b889-87d51f08e393",
+                        "user": "Requisition hiring manager",
+                        "isDynamic": true,
+                        "approved": true,
+                        "approvedAt": 1564617154114,
+                        "type": "dynamic"
+                      }
+                    ],
+                    "id": "490dee3b-e28e-464e-9481-3d1d93696c6d"
+                  }
+                ],
+                "id": "81e6dcf2-1eeb-4565-8012-7576ee215b4e",
+                "status": "approved",
+                "startedAt": 1564617046523,
+                "approvedAt": 1564617154122,
+                "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+                "createdBy": "6e6931c2-a7d7-4c68-9e24-d3950ae47180"
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Partnerships",
+              "department": "Marketing",
+              "postings": [
+                "1709dce5-013e-4578-8817-078a36065529"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564617043337,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "a96877e2-2267-4401-8d19-3724080c0f1f",
+              "createdAt": 1564616254989,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Recruiting Manager",
+              "requisitionCode": "9900017",
+              "headcountTotal": 2,
+              "headcountHired": 1,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "hiringManager": "35b8fc0f-701e-4ebf-92d9-dee26191f33b",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 55000,
+                "max": 65000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Contract",
+              "location": "San Francisco, CA",
+              "team": "Recruiting",
+              "department": "People",
+              "postings": [
+                "afb4cd1a-e5a7-4c70-9367-8d9bbc2973bc",
+                "8f6098cc-c52d-4fd6-a300-bbf14b0ce40c"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564616254989,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "77a01400-01cd-410a-a227-6b5ba6b1966c",
+              "createdAt": 1564071576306,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "UX Developers ",
+              "requisitionCode": "9900002",
+              "headcountTotal": 8,
+              "headcountHired": 0,
+              "headcountInfinite": false,
+              "backfill": true,
+              "creator": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+              "owner": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+              "hiringManager": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+              "internalNotes": "4 UX developers for the new product",
+              "compensationBand": {
+                "min": 80000,
+                "max": 110000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": [
+                  {
+                    "completed": true,
+                    "status": "approved",
+                    "outOfBandOnly": false,
+                    "approvalsRequired": 1,
+                    "approvers": [
+                      {
+                        "id": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+                        "user": {
+                          "userId": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+                          "email": "aperez@nango.dev"
+                        },
+                        "isDynamic": false,
+                        "approved": true,
+                        "approvedAt": 1564071582793,
+                        "type": "static"
+                      }
+                    ],
+                    "id": "d41e94f3-69a0-4eb4-98a9-d08d4c879ab7"
+                  }
+                ],
+                "id": "1e14ecd9-70db-435f-bb38-8bbba89433b4",
+                "status": "approved",
+                "startedAt": 1564071580372,
+                "approvedAt": 1564071582799,
+                "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+                "createdBy": "b59ae96c-c132-4a91-9c5c-dccd88fc2794"
+              },
+              "employmentStatus": "Full-Time",
+              "location": "Sarasota, FL",
+              "team": "Product",
+              "department": "Research & Development",
+              "postings": [
+                "3feb4c7c-36a9-494f-aa27-fbfdff1e8b04"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564499926464,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "659c6f99-f4db-4305-922f-1e0be679debd",
+              "createdAt": 1564615900650,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "VP of Human Resources",
+              "requisitionCode": "9900014",
+              "headcountTotal": 1,
+              "headcountHired": 0,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+              "internalNotes": "90 day timeline",
+              "compensationBand": {
+                "min": 100000,
+                "max": 250000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Human Resources",
+              "department": "People",
+              "postings": [
+                "513d232d-2bfa-4120-a6d2-bf5fccbe0598"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564615900650,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "51e374d0-c86b-482d-a9b3-654e4ca69d82",
+              "createdAt": 1564616309743,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Recruiter",
+              "requisitionCode": "9900018",
+              "headcountTotal": "unlimited",
+              "headcountHired": 0,
+              "headcountInfinite": true,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "hiringManager": "35b8fc0f-701e-4ebf-92d9-dee26191f33b",
+              "internalNotes": "Technical and General recruiters",
+              "compensationBand": {
+                "min": 55000,
+                "max": 150000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Contract",
+              "location": "San Francisco, CA",
+              "team": "Recruiting",
+              "department": "People",
+              "postings": [
+                "afb4cd1a-e5a7-4c70-9367-8d9bbc2973bc",
+                "8f6098cc-c52d-4fd6-a300-bbf14b0ce40c"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564616309743,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "402d0eb5-8472-4df1-9c0d-d2ed1486c251",
+              "createdAt": 1564616440378,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Designer",
+              "requisitionCode": "9900020",
+              "headcountTotal": 5,
+              "headcountHired": 2,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 80000,
+                "max": 120000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Design",
+              "department": "Research & Development",
+              "postings": [
+                "024e479e-d9f2-4e16-b678-4365695a1766"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564616440378,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "3a25c851-7e7f-487b-bc0e-12902cdbfccb",
+              "createdAt": 1564525064004,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Marketing Analyst",
+              "requisitionCode": "9900009",
+              "headcountTotal": 1,
+              "headcountHired": 0,
+              "headcountInfinite": false,
+              "backfill": true,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "35b8fc0f-701e-4ebf-92d9-dee26191f33b",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 80000,
+                "max": 150000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "Boston, MA",
+              "team": "Brand",
+              "department": "Marketing",
+              "postings": [
+                "b43d96ff-c1ee-413f-a52e-feab333b4830"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564525071610,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "34ac96df-1dfa-474b-8678-20e008081845",
+              "createdAt": 1564615696895,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Project Manager",
+              "requisitionCode": "9900012",
+              "headcountTotal": 10,
+              "headcountHired": 1,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "internalNotes": "Senior level preferred ",
+              "compensationBand": {
+                "min": 75000,
+                "max": 100000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Project Management",
+              "department": "Operations",
+              "postings": [
+                "615f1b59-72ee-44b1-9fca-e557f1d28acc"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564615708626,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "335fac43-9ff1-4448-9c72-a5cdee6e03db",
+              "createdAt": 1564514938967,
+              "confidentiality": "non-confidential",
+              "status": "closed",
+              "name": "HR BP",
+              "requisitionCode": "9900007",
+              "headcountTotal": 3,
+              "headcountHired": 3,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "b59ae96c-c132-4a91-9c5c-dccd88fc2794",
+              "hiringManager": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 80000,
+                "max": 95000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Non-Exempt Full Time",
+              "location": "San Francisco, CA",
+              "team": "Human Resources",
+              "department": "People",
+              "postings": [
+                "06ded8c2-2a04-4c8c-a297-c74e190e5452"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564515363775,
+              "customFields": {},
+              "closedAt": 1564616656730
+            },
+            {
+              "id": "3343c13d-f295-4b30-9282-bc4bf4d2d75b",
+              "createdAt": 1564511192525,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Account Manager",
+              "requisitionCode": "9900003",
+              "headcountTotal": 10,
+              "headcountHired": 2,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "hiringManager": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 70000,
+                "max": 120000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": [
+                  {
+                    "completed": true,
+                    "status": "approved",
+                    "outOfBandOnly": false,
+                    "approvalsRequired": 1,
+                    "approvers": [
+                      {
+                        "id": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+                        "user": "Requisition hiring manager",
+                        "isDynamic": true,
+                        "approved": true,
+                        "approvedAt": 1564513864328,
+                        "type": "dynamic"
+                      }
+                    ],
+                    "id": "5d83ff94-e687-4447-8261-ada0c3414162"
+                  }
+                ],
+                "id": "f5282544-e348-4fb1-a043-53cf298a40e8",
+                "status": "approved",
+                "startedAt": 1564511196181,
+                "approvedAt": 1564513864337,
+                "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+                "createdBy": "b6816cb5-cf05-433c-b07f-2ca3eea60f54"
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Account Management",
+              "department": "Customer Success",
+              "postings": [
+                "5056deaf-f6a3-4b78-a2b7-f517db673212"
+              ],
+              "offerIds": [
+                "b24b4ea5-3ca6-4b8f-86c0-d4361d6d05ea",
+                "12996391-8e4f-468f-ba00-2a29b4fc4fee"
+              ],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564617234188,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "23e261f3-32f5-4e94-b2ee-fc0daf4acf25",
+              "createdAt": 1564514887501,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Recruiting Coordinator",
+              "requisitionCode": "9900006",
+              "headcountTotal": 2,
+              "headcountHired": 0,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "owner": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "hiringManager": "35b8fc0f-701e-4ebf-92d9-dee26191f33b",
+              "internalNotes": "",
+              "compensationBand": {
+                "min": 55000,
+                "max": 65000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Contract",
+              "location": "Boston, MA",
+              "team": "Recruiting",
+              "department": "People",
+              "postings": [
+                "afb4cd1a-e5a7-4c70-9367-8d9bbc2973bc"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564514887501,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "2342e187-99ec-4087-b90b-0ea69fc5b467",
+              "createdAt": 1564616052950,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Sales Operations Specialist",
+              "requisitionCode": "9900015",
+              "headcountTotal": 10,
+              "headcountHired": 2,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "internalNotes": "Recent graduates/entry level",
+              "compensationBand": {
+                "min": 50000,
+                "max": 100000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Operations",
+              "department": "Sales",
+              "postings": [
+                "b33f8e59-f625-4fab-90af-45a76b4ba960"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564616052950,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "1c89d96d-b485-41c8-9b8d-35fe1ea8f757",
+              "createdAt": 1564617065325,
+              "confidentiality": "non-confidential",
+              "status": "pending",
+              "name": "Director of IT & Security ",
+              "requisitionCode": "9900024",
+              "headcountTotal": 5,
+              "headcountHired": 0,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+              "internalNotes": "timeline for hire is 6 months",
+              "compensationBand": {
+                "min": 100000,
+                "max": 200000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": [
+                  {
+                    "completed": false,
+                    "status": "inprogress",
+                    "outOfBandOnly": false,
+                    "approvalsRequired": 1,
+                    "approvers": [
+                      {
+                        "id": "54ec9d8b-d219-45ed-ab39-b66615de301c",
+                        "user": "Requisition hiring manager",
+                        "isDynamic": true,
+                        "type": "dynamic"
+                      }
+                    ],
+                    "id": "ed8a5159-f04d-4305-a441-e83dbce5a9ec"
+                  }
+                ],
+                "id": "e984fa14-4b0e-47fb-9d86-c731301c6a11",
+                "status": "inprogress",
+                "startedAt": 1564617066565,
+                "approvedAt": null,
+                "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+                "createdBy": "6e6931c2-a7d7-4c68-9e24-d3950ae47180"
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "IT",
+              "department": "Security & IT",
+              "postings": [
+                "5a64208a-1ea7-424f-9155-160637a72a02"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564617065325,
+              "customFields": {},
+              "closedAt": null
+            },
+            {
+              "id": "1a34d3e4-09e6-46d4-96db-1d1b6f51bd4e",
+              "createdAt": 1564616353629,
+              "confidentiality": "non-confidential",
+              "status": "open",
+              "name": "Product Manager ",
+              "requisitionCode": "9900019",
+              "headcountTotal": 10,
+              "headcountHired": 2,
+              "headcountInfinite": false,
+              "backfill": false,
+              "creator": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "owner": "6e6931c2-a7d7-4c68-9e24-d3950ae47180",
+              "hiringManager": "b6816cb5-cf05-433c-b07f-2ca3eea60f54",
+              "internalNotes": "Senior level preferred ",
+              "compensationBand": {
+                "min": 75000,
+                "max": 100000,
+                "currency": "USD",
+                "interval": "per-year-salary"
+              },
+              "approval": {
+                "steps": []
+              },
+              "employmentStatus": "Exempt Full-Time",
+              "location": "San Francisco, CA",
+              "team": "Project Management",
+              "department": "Operations",
+              "postings": [
+                "1368e425-2acf-42b9-9e5a-e73186d42d92"
+              ],
+              "offerIds": [],
+              "timeToFillStartAt": null,
+              "timeToFillEndAt": null,
+              "updatedAt": 1564616353629,
+              "customFields": {},
+              "closedAt": null
+            }
+          ],
+          "hasNext": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:41:34 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4855",
+          "x-ratelimit-reset": "1782974542",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "40847a9e04de4e7a2b3ba9cdfa4d7f3b5322814f",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

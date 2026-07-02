@@ -1,0 +1,1955 @@
+{
+  "nango": {
+    "batchSave": {
+      "FeedbackTemplate": [
+        {
+          "id": "0251a01c-0f81-4988-b9ec-02edc7607925",
+          "text": "General On-site Interview",
+          "group": {
+            "id": "f7cbf1cd-5d4f-477b-8751-3fe515b4226f",
+            "name": "On-site Interviews"
+          },
+          "instructions": "Sample questions to ask: \n- Describe a time you faced a challenge. How did you overcome it?\n- Tell me about a situation you \"went against the norm.\" What was the result?\n- What is something you want to work on personally? Professionally?",
+          "fields": [
+            {
+              "id": "4761572c-6496-4ac4-b608-3a0b6b12a548",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            },
+            {
+              "id": "b633b697-9b77-4a33-9da7-79c08a4327a2",
+              "type": "scorecard",
+              "description": "",
+              "required": false,
+              "text": "",
+              "scores": [
+                {
+                  "text": "Adaptability",
+                  "description": "Will this person work well in a fast paced environment?"
+                },
+                {
+                  "text": "Prior Success",
+                  "description": "How did they perform in their previous roles?"
+                },
+                {
+                  "text": "Work Ethic",
+                  "description": "Are they going to help lead the team to set a high bar?"
+                },
+                {
+                  "text": "Organization",
+                  "description": "Will they help structure and build our team in a thoughtful manner?"
+                }
+              ]
+            },
+            {
+              "id": "9ed3a47e-aa41-49e9-bbe0-7cf9a75345bd",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "Other thoughts?"
+            }
+          ]
+        },
+        {
+          "id": "ae6be373-0e9a-4578-863c-bbb79a30bd5a",
+          "text": "HM Phone Screen",
+          "group": {
+            "id": "dd6d2e83-691d-412e-9f3d-78959e1ec66c",
+            "name": "Phone Screens"
+          },
+          "createdAt": 1564073857966,
+          "instructions": "This is an initial call for the Hiring Manager to discover more about the candidate, understand what they are looking for in their next role and if there is a mutual fit.\n\nSample questions to ask: \n- Describe a time you faced a challenge. How did you overcome it?\n- Tell me about a situation you \"went against the norm.\" What was the result?\n- What is something you want to work on personally? Professionally?",
+          "fields": [
+            {
+              "id": "4761572c-6496-4ac4-b608-3a0b6b12a548",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            },
+            {
+              "id": "b633b697-9b77-4a33-9da7-79c08a4327a2",
+              "type": "scorecard",
+              "description": "",
+              "required": false,
+              "text": "",
+              "scores": [
+                {
+                  "text": "Adaptability",
+                  "description": "Will this person work well in a fast paced environment?"
+                },
+                {
+                  "text": "Prior Success",
+                  "description": "How did they perform in their previous roles?"
+                },
+                {
+                  "text": "Work Ethic",
+                  "description": "Are they going to help lead the team to set a high bar?"
+                },
+                {
+                  "text": "Organization",
+                  "description": "Will they help structure and build our team in a thoughtful manner?"
+                }
+              ]
+            },
+            {
+              "id": "9ed3a47e-aa41-49e9-bbe0-7cf9a75345bd",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "Other thoughts?"
+            }
+          ]
+        },
+        {
+          "id": "9bd82343-920a-4ca2-b642-633841a38325",
+          "text": "Leadership Interview",
+          "group": {
+            "id": "f7cbf1cd-5d4f-477b-8751-3fe515b4226f",
+            "name": "On-site Interviews"
+          },
+          "createdAt": 1564075069771,
+          "instructions": "The goal of this interview is to gauge a candidate's ability to lead and empower their team.  We aren't looking for a 'manager' we are looking for a 'leader.'  Please use the questions below to identify leadership style and how they mentor teams. ",
+          "fields": [
+            {
+              "id": "1e872788-d19c-41a2-847b-4d61c044f6ff",
+              "type": "scorecard",
+              "description": "",
+              "required": false,
+              "text": "Please evaluate on these attributes",
+              "scores": [
+                {
+                  "text": "Communication",
+                  "description": "Has a point of view on clear communication; self-awareness of their own communication style."
+                },
+                {
+                  "text": "Decision making",
+                  "description": "Decision making\nProvides examples of difficult decisions, can balance decision stakeholders."
+                },
+                {
+                  "text": "Positive attitude",
+                  "description": "Can inspire and motivate people under them."
+                },
+                {
+                  "text": "Delegation",
+                  "description": "Can demonstrate solid understanding of delegating responsibilities."
+                },
+                {
+                  "text": "Hiring ability",
+                  "description": "Can explain their ideal candidate and hiring process."
+                }
+              ]
+            },
+            {
+              "id": "e41b2f1d-215e-4bfe-9965-08dfd59a20bb",
+              "type": "multiple-select",
+              "description": "",
+              "required": false,
+              "text": "Years in Leadership",
+              "options": [
+                {
+                  "text": "1-2 Years"
+                },
+                {
+                  "text": "2-5 Years"
+                },
+                {
+                  "text": "5-10 Years"
+                },
+                {
+                  "text": "10+ Years"
+                }
+              ]
+            },
+            {
+              "id": "f180fdad-d796-4af6-9752-97deb89e56ed",
+              "type": "multiple-choice",
+              "description": "",
+              "required": false,
+              "text": "Previous management experience level",
+              "options": [
+                {
+                  "text": "Has managed a division, with people managers under them"
+                },
+                {
+                  "text": "Has managed a large team, with 10+ under them"
+                },
+                {
+                  "text": "Has managed a team, with fewer than 10 under them"
+                },
+                {
+                  "text": "Has never managed before, but has demonstrated mentorship"
+                },
+                {
+                  "text": "No experience"
+                }
+              ]
+            },
+            {
+              "id": "18d18a33-9d55-4f8e-a314-2f816246567a",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "Tell me about a time when you disagreed with a manager?"
+            },
+            {
+              "id": "d838c1d0-a784-4ac6-89f6-2dcce54e2f32",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "99823574-69cb-412c-b3e2-497469406120",
+          "text": "Lunch Interview",
+          "group": {
+            "id": "f7cbf1cd-5d4f-477b-8751-3fe515b4226f",
+            "name": "On-site Interviews"
+          },
+          "createdAt": 1564513089136,
+          "instructions": "Take this time to make the candidate feel welcome at our office.  Help them settle in and relax, interviews can be nerve racking and we want them to enjoy their time here.  \n\nSample questions: \n- How do you like the lunch today?\n- How was your weekend?",
+          "fields": [
+            {
+              "id": "eccde44d-3b0e-44aa-93f5-8f98b55e6ef1",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            },
+            {
+              "id": "0a439a16-0c7c-4c30-9cad-2a572580c334",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "Comments"
+            }
+          ]
+        },
+        {
+          "id": "0a7f0252-25a7-4c44-850f-831b55cbcfae",
+          "text": "Nango Dryrun Feedback Template",
+          "createdAt": 1782974108809,
+          "updatedAt": 1782974108809,
+          "instructions": "",
+          "fields": [
+            {
+              "id": "a6c74208-8a3f-4514-b1b1-75087e93403b",
+              "type": "multiple-select",
+              "description": "Select one or more.",
+              "required": false,
+              "text": "Which languages are you comfortable with?",
+              "options": [
+                {
+                  "text": "javascript"
+                },
+                {
+                  "text": "node"
+                }
+              ]
+            },
+            {
+              "id": "75e5062e-e155-4668-afdd-5ed784187da0",
+              "type": "score-system",
+              "description": "",
+              "required": true,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2084e5b8-2774-4f88-88ca-3c0ca6c713f7",
+          "text": "Nango Dryrun Feedback Template",
+          "createdAt": 1782974067344,
+          "updatedAt": 1782974067344,
+          "instructions": "",
+          "fields": [
+            {
+              "id": "b810a981-d142-4525-ac5b-8036a5d6bbb1",
+              "type": "multiple-select",
+              "description": "Select one or more.",
+              "required": false,
+              "text": "Which languages are you comfortable with?",
+              "options": [
+                {
+                  "text": "javascript"
+                },
+                {
+                  "text": "node"
+                }
+              ]
+            },
+            {
+              "id": "2ba08d58-43df-4515-9934-68be31505faf",
+              "type": "score-system",
+              "description": "",
+              "required": true,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "20f2c92d-dcf6-40c1-a813-e1cfbb79e9fc",
+          "text": "Nango Dryrun Feedback Template",
+          "createdAt": 1782974123444,
+          "updatedAt": 1782974123444,
+          "instructions": "",
+          "fields": [
+            {
+              "id": "ece2d920-1391-4356-9492-947b8bc0217b",
+              "type": "multiple-select",
+              "description": "Select one or more.",
+              "required": false,
+              "text": "Which languages are you comfortable with?",
+              "options": [
+                {
+                  "text": "javascript"
+                },
+                {
+                  "text": "node"
+                }
+              ]
+            },
+            {
+              "id": "e7316b98-62c5-493d-ba14-0a60076cb7ed",
+              "type": "score-system",
+              "description": "",
+              "required": true,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "1c0d54d3-1aeb-4989-b616-d0a6025444e8",
+          "text": "Nango Seed Feedback Template 1 (updated)",
+          "createdAt": 1782972913837,
+          "updatedAt": 1782973338595,
+          "instructions": "",
+          "fields": [
+            {
+              "id": "06085f68-9b42-44fc-aea4-d5f9b70c0561",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Overall rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "002b25f0-991d-42f1-bb2c-afcb62afbc0c",
+          "text": "Nango Seed Feedback Template 2",
+          "createdAt": 1782972968522,
+          "updatedAt": 1782972968522,
+          "instructions": "",
+          "fields": [
+            {
+              "id": "6dbec25a-de8a-43a1-8264-75cefcd2f8c7",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Overall rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            },
+            {
+              "id": "4fc232e0-b891-42c9-87e5-d8739b79f112",
+              "type": "textarea",
+              "description": " ",
+              "required": false,
+              "text": "Comments"
+            }
+          ]
+        },
+        {
+          "id": "ddc321ff-7546-4b45-a047-9184816cf531",
+          "text": "Presentation Interview",
+          "group": {
+            "id": "f7cbf1cd-5d4f-477b-8751-3fe515b4226f",
+            "name": "On-site Interviews"
+          },
+          "createdAt": 1564603045899,
+          "instructions": "The purpose of this interview is to gauge the candidate's presentation skills by conducting a mock meeting. \n\nSample questions: \n- How do you think your presentation went?\n- What do you think you could have done better?",
+          "fields": [
+            {
+              "id": "c2321df0-3920-4c26-b852-24ecfe175be0",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            },
+            {
+              "id": "7994f479-6195-4ed2-a1a7-509505752b46",
+              "type": "scorecard",
+              "description": "",
+              "required": false,
+              "text": "Presentation Style",
+              "scores": [
+                {
+                  "text": "Communication Style",
+                  "description": "Was this person easily able to connect with you?"
+                },
+                {
+                  "text": "Empathy",
+                  "description": "Did they try to understand your point of view and find a common ground?"
+                },
+                {
+                  "text": "Meeting Management",
+                  "description": "Did they run an effective meeting?"
+                },
+                {
+                  "text": "Problem Solving",
+                  "description": "Was their solution compelling?"
+                }
+              ]
+            },
+            {
+              "id": "d91fa0c1-eb07-4047-b387-fd92bd2ea1da",
+              "type": "multiple-select",
+              "description": "",
+              "required": false,
+              "text": "Topics hit on presentation",
+              "options": [
+                {
+                  "text": "Set Up"
+                },
+                {
+                  "text": "Challenge"
+                },
+                {
+                  "text": "Approach"
+                },
+                {
+                  "text": "Solution"
+                },
+                {
+                  "text": "Conclusion"
+                }
+              ]
+            },
+            {
+              "id": "bb93e60b-2f54-4d26-b397-5869c951943e",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "General thoughts"
+            }
+          ]
+        },
+        {
+          "id": "f6c4db1f-777e-4015-ad13-60c6badf057b",
+          "text": "Recruiter Screen",
+          "group": {
+            "id": "dd6d2e83-691d-412e-9f3d-78959e1ec66c",
+            "name": "Phone Screens"
+          },
+          "createdAt": 1564070791426,
+          "instructions": "This is an initial call to discover more about the candidate, understand what they are looking for in their next role and if there is a mutual fit.\n\nSample questions to ask: \n- How did you get into your line of work?\n- What are the top 3 things you are looking for in a company? In your next role?\n- When do you want to make a switch?\n",
+          "fields": [
+            {
+              "id": "8142b215-3ceb-4c78-b409-59a6f607ebd6",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "Background Summary"
+            },
+            {
+              "id": "61f1d63e-c9f2-46cf-85fb-fc3c263c24f2",
+              "type": "score",
+              "description": "",
+              "required": false,
+              "text": "How well does their background align with the role?"
+            },
+            {
+              "id": "0a112d8f-1375-4c4e-97f1-1d91794adb0d",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "What are they looking for in their next role?"
+            },
+            {
+              "id": "e341c3be-fb62-4746-9720-b19b7fb947c3",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "Desired Compensation & Timeline"
+            },
+            {
+              "id": "be891b53-1442-41be-9c78-3a3d44bbb963",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "11c0f197-3d8b-4626-bc00-1d8535286643",
+          "text": "Reference check",
+          "group": {
+            "id": "32d0ec29-03f5-45c2-b5e0-67463f5052e0",
+            "name": "Reference Checks"
+          },
+          "createdAt": 1563576635306,
+          "instructions": "Use this form to capture feedback from reference checks. \n\nSample questions: \n- What was this person's strength?\n- What was this person's weakness?\n- Would you hire this person again?",
+          "fields": [
+            {
+              "id": "fec1d673-3d9f-4e89-9734-17e9cd503298",
+              "type": "text",
+              "description": "",
+              "required": false,
+              "text": "Name"
+            },
+            {
+              "id": "920d4c37-b492-4ce6-bbc1-1038e24d5166",
+              "type": "dropdown",
+              "description": "",
+              "required": false,
+              "text": "Relationship",
+              "prompt": "",
+              "options": [
+                {
+                  "text": "Client"
+                },
+                {
+                  "text": "Colleague"
+                },
+                {
+                  "text": "Direct Report"
+                },
+                {
+                  "text": "Manager"
+                },
+                {
+                  "text": "Professor"
+                },
+                {
+                  "text": "Other"
+                }
+              ]
+            },
+            {
+              "id": "11809be0-451d-4b61-aeda-6aef8398dc19",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "Feedback"
+            },
+            {
+              "id": "3569345a-46b0-4cb7-831b-95e024707688",
+              "type": "yes-no",
+              "description": "",
+              "required": false,
+              "text": "Would you hire/work with this person again?"
+            },
+            {
+              "id": "ceaaba54-468c-415a-8e17-a35833033bb6",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Overall recommendation",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Yes"
+                },
+                {
+                  "text": "3 - Yes"
+                },
+                {
+                  "text": "2 - No"
+                },
+                {
+                  "text": "1 - Strong No"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "48c18093-6fd2-4d7a-99b7-2fce226d0767",
+          "text": "Technical Interview",
+          "group": {
+            "id": "93b74445-6809-4c9f-b61e-96ac4cbcacba",
+            "name": "Tech Interviews"
+          },
+          "instructions": "The purpose of this interview is to identify proficiencies in problem solving and programming.\n",
+          "fields": [
+            {
+              "id": "2398fa23-7be6-4e32-ace9-99cf17a7f49f",
+              "type": "scorecard",
+              "description": "",
+              "required": false,
+              "text": "Scorecard",
+              "scores": [
+                {
+                  "text": "Programming Languages",
+                  "description": "Is the candidate familiar with the necessary programming languages for this role?"
+                },
+                {
+                  "text": "Troubleshooting",
+                  "description": "How does the candidate describe troubleshooting bugs?"
+                },
+                {
+                  "text": "Technical Communication",
+                  "description": "How well can the candidate present and explain technical details to a non-technical audience?"
+                },
+                {
+                  "text": "Quality",
+                  "description": "How does the candidate ensure that his or her programs run smoothly and quickly?"
+                },
+                {
+                  "text": "Design",
+                  "description": "How familiar is the candidate with design patterns?"
+                }
+              ]
+            },
+            {
+              "id": "7f4cc5f3-39ce-42cf-891d-e9be0a0e0043",
+              "type": "code",
+              "description": "Fix the bug in this code.",
+              "required": false,
+              "text": "Coding challenge"
+            },
+            {
+              "id": "43909552-fda7-47f4-a2dc-4f4d6db6d5ba",
+              "type": "yes-no",
+              "description": "",
+              "required": false,
+              "text": "Do they have an innovative approach to problem solving?"
+            },
+            {
+              "id": "c2fdfc97-e2ca-4253-b8a6-9b92ff24cabf",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Overall Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bd18fbf4-644f-4c55-8b05-b61e2fc89270",
+          "text": "Technical Phone Screen",
+          "group": {
+            "id": "93b74445-6809-4c9f-b61e-96ac4cbcacba",
+            "name": "Tech Interviews"
+          },
+          "instructions": "This is an initial call to discover more if the candidate has the necessary technical skills for the job.\n\nSample questions to ask: \n- How did you get into your line of work?\n- Tell me about a time where you worked with [relevant programming language]\n",
+          "fields": [
+            {
+              "id": "8142b215-3ceb-4c78-b409-59a6f607ebd6",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "Technical Skills Summary"
+            },
+            {
+              "id": "61f1d63e-c9f2-46cf-85fb-fc3c263c24f2",
+              "type": "score",
+              "description": "",
+              "required": false,
+              "text": "How well does their background align with the role?"
+            },
+            {
+              "id": "be891b53-1442-41be-9c78-3a3d44bbb963",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ec542f84-c40f-4ef5-b352-9f5f6ac684e1",
+          "text": "Values Fit Interview",
+          "group": {
+            "id": "f7cbf1cd-5d4f-477b-8751-3fe515b4226f",
+            "name": "On-site Interviews"
+          },
+          "createdAt": 1564074945327,
+          "instructions": "Will this candidate align with our values and internal culture?",
+          "fields": [
+            {
+              "id": "89f06a56-a189-48f2-8c62-f6405ab94e5b",
+              "type": "score-system",
+              "description": "",
+              "required": false,
+              "text": "Rating",
+              "prompt": "Select one",
+              "options": [
+                {
+                  "text": "4 - Strong Hire"
+                },
+                {
+                  "text": "3 - Hire"
+                },
+                {
+                  "text": "2 - No Hire"
+                },
+                {
+                  "text": "1 - Strong No Hire"
+                }
+              ]
+            },
+            {
+              "id": "fa416f28-d534-4edc-a8f4-bde93eb53faa",
+              "type": "scorecard",
+              "description": "",
+              "required": false,
+              "text": "Criteria to Evaluate",
+              "scores": [
+                {
+                  "text": "Teamwork",
+                  "description": "Will this candidate work will with a team?"
+                },
+                {
+                  "text": "Work Ethic",
+                  "description": "Is this candidate a hardworker?"
+                },
+                {
+                  "text": "Attitude",
+                  "description": "Will this candidate bring a positive attitude?"
+                }
+              ]
+            },
+            {
+              "id": "e7c6595f-913b-4848-a2b8-e727624c9b1b",
+              "type": "textarea",
+              "description": "",
+              "required": false,
+              "text": "What do you hope to achieve moving forward?"
+            },
+            {
+              "id": "6df309a5-4026-466e-ade9-c75d95ce2117",
+              "type": "dropdown",
+              "description": "",
+              "required": false,
+              "text": "What are you looking for in your new workplace?",
+              "prompt": "Please pick one",
+              "options": [
+                {
+                  "text": "Diversity and Inclusion"
+                },
+                {
+                  "text": "Being Challenged"
+                },
+                {
+                  "text": "Flexibility"
+                },
+                {
+                  "text": "Stability"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "FeedbackTemplate": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/feedback_templates": {
+        "response": {
+          "data": [
+            {
+              "id": "0251a01c-0f81-4988-b9ec-02edc7607925",
+              "text": "General On-site Interview",
+              "group": {
+                "id": "f7cbf1cd-5d4f-477b-8751-3fe515b4226f",
+                "name": "On-site Interviews"
+              },
+              "instructions": "Sample questions to ask: \n- Describe a time you faced a challenge. How did you overcome it?\n- Tell me about a situation you \"went against the norm.\" What was the result?\n- What is something you want to work on personally? Professionally?",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "4761572c-6496-4ac4-b608-3a0b6b12a548",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "",
+                  "type": "scorecard",
+                  "id": "b633b697-9b77-4a33-9da7-79c08a4327a2",
+                  "scores": [
+                    {
+                      "text": "Adaptability",
+                      "description": "Will this person work well in a fast paced environment?"
+                    },
+                    {
+                      "text": "Prior Success",
+                      "description": "How did they perform in their previous roles?"
+                    },
+                    {
+                      "text": "Work Ethic",
+                      "description": "Are they going to help lead the team to set a high bar?"
+                    },
+                    {
+                      "text": "Organization",
+                      "description": "Will they help structure and build our team in a thoughtful manner?"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Other thoughts?",
+                  "type": "textarea",
+                  "id": "9ed3a47e-aa41-49e9-bbe0-7cf9a75345bd"
+                }
+              ],
+              "createdAt": null,
+              "stage": null,
+              "updatedAt": null
+            },
+            {
+              "id": "ae6be373-0e9a-4578-863c-bbb79a30bd5a",
+              "text": "HM Phone Screen",
+              "group": {
+                "id": "dd6d2e83-691d-412e-9f3d-78959e1ec66c",
+                "name": "Phone Screens"
+              },
+              "instructions": "This is an initial call for the Hiring Manager to discover more about the candidate, understand what they are looking for in their next role and if there is a mutual fit.\n\nSample questions to ask: \n- Describe a time you faced a challenge. How did you overcome it?\n- Tell me about a situation you \"went against the norm.\" What was the result?\n- What is something you want to work on personally? Professionally?",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "4761572c-6496-4ac4-b608-3a0b6b12a548",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "",
+                  "type": "scorecard",
+                  "id": "b633b697-9b77-4a33-9da7-79c08a4327a2",
+                  "scores": [
+                    {
+                      "text": "Adaptability",
+                      "description": "Will this person work well in a fast paced environment?"
+                    },
+                    {
+                      "text": "Prior Success",
+                      "description": "How did they perform in their previous roles?"
+                    },
+                    {
+                      "text": "Work Ethic",
+                      "description": "Are they going to help lead the team to set a high bar?"
+                    },
+                    {
+                      "text": "Organization",
+                      "description": "Will they help structure and build our team in a thoughtful manner?"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Other thoughts?",
+                  "type": "textarea",
+                  "id": "9ed3a47e-aa41-49e9-bbe0-7cf9a75345bd"
+                }
+              ],
+              "createdAt": 1564073857966,
+              "stage": null,
+              "updatedAt": null
+            },
+            {
+              "id": "9bd82343-920a-4ca2-b642-633841a38325",
+              "text": "Leadership Interview",
+              "group": {
+                "id": "f7cbf1cd-5d4f-477b-8751-3fe515b4226f",
+                "name": "On-site Interviews"
+              },
+              "instructions": "The goal of this interview is to gauge a candidate's ability to lead and empower their team.  We aren't looking for a 'manager' we are looking for a 'leader.'  Please use the questions below to identify leadership style and how they mentor teams. ",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Please evaluate on these attributes",
+                  "type": "scorecard",
+                  "id": "1e872788-d19c-41a2-847b-4d61c044f6ff",
+                  "scores": [
+                    {
+                      "text": "Communication",
+                      "description": "Has a point of view on clear communication; self-awareness of their own communication style."
+                    },
+                    {
+                      "text": "Decision making",
+                      "description": "Decision making\nProvides examples of difficult decisions, can balance decision stakeholders."
+                    },
+                    {
+                      "text": "Positive attitude",
+                      "description": "Can inspire and motivate people under them."
+                    },
+                    {
+                      "text": "Delegation",
+                      "description": "Can demonstrate solid understanding of delegating responsibilities."
+                    },
+                    {
+                      "text": "Hiring ability",
+                      "description": "Can explain their ideal candidate and hiring process."
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Years in Leadership",
+                  "type": "multiple-select",
+                  "id": "e41b2f1d-215e-4bfe-9965-08dfd59a20bb",
+                  "options": [
+                    {
+                      "text": "1-2 Years"
+                    },
+                    {
+                      "text": "2-5 Years"
+                    },
+                    {
+                      "text": "5-10 Years"
+                    },
+                    {
+                      "text": "10+ Years"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Previous management experience level",
+                  "type": "multiple-choice",
+                  "id": "f180fdad-d796-4af6-9752-97deb89e56ed",
+                  "options": [
+                    {
+                      "text": "Has managed a division, with people managers under them"
+                    },
+                    {
+                      "text": "Has managed a large team, with 10+ under them"
+                    },
+                    {
+                      "text": "Has managed a team, with fewer than 10 under them"
+                    },
+                    {
+                      "text": "Has never managed before, but has demonstrated mentorship"
+                    },
+                    {
+                      "text": "No experience"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Tell me about a time when you disagreed with a manager?",
+                  "type": "textarea",
+                  "id": "18d18a33-9d55-4f8e-a314-2f816246567a"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "d838c1d0-a784-4ac6-89f6-2dcce54e2f32",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": 1564075069771,
+              "stage": null,
+              "updatedAt": null
+            },
+            {
+              "id": "99823574-69cb-412c-b3e2-497469406120",
+              "text": "Lunch Interview",
+              "group": {
+                "id": "f7cbf1cd-5d4f-477b-8751-3fe515b4226f",
+                "name": "On-site Interviews"
+              },
+              "instructions": "Take this time to make the candidate feel welcome at our office.  Help them settle in and relax, interviews can be nerve racking and we want them to enjoy their time here.  \n\nSample questions: \n- How do you like the lunch today?\n- How was your weekend?",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "eccde44d-3b0e-44aa-93f5-8f98b55e6ef1",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Comments",
+                  "type": "textarea",
+                  "id": "0a439a16-0c7c-4c30-9cad-2a572580c334"
+                }
+              ],
+              "createdAt": 1564513089136,
+              "stage": null,
+              "updatedAt": null
+            },
+            {
+              "id": "0a7f0252-25a7-4c44-850f-831b55cbcfae",
+              "text": "Nango Dryrun Feedback Template",
+              "group": null,
+              "instructions": "",
+              "fields": [
+                {
+                  "description": "Select one or more.",
+                  "required": false,
+                  "text": "Which languages are you comfortable with?",
+                  "type": "multiple-select",
+                  "id": "a6c74208-8a3f-4514-b1b1-75087e93403b",
+                  "options": [
+                    {
+                      "text": "javascript"
+                    },
+                    {
+                      "text": "node"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": true,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "75e5062e-e155-4668-afdd-5ed784187da0",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": 1782974108809,
+              "stage": null,
+              "updatedAt": 1782974108809
+            },
+            {
+              "id": "2084e5b8-2774-4f88-88ca-3c0ca6c713f7",
+              "text": "Nango Dryrun Feedback Template",
+              "group": null,
+              "instructions": "",
+              "fields": [
+                {
+                  "description": "Select one or more.",
+                  "required": false,
+                  "text": "Which languages are you comfortable with?",
+                  "type": "multiple-select",
+                  "id": "b810a981-d142-4525-ac5b-8036a5d6bbb1",
+                  "options": [
+                    {
+                      "text": "javascript"
+                    },
+                    {
+                      "text": "node"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": true,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "2ba08d58-43df-4515-9934-68be31505faf",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": 1782974067344,
+              "stage": null,
+              "updatedAt": 1782974067344
+            },
+            {
+              "id": "20f2c92d-dcf6-40c1-a813-e1cfbb79e9fc",
+              "text": "Nango Dryrun Feedback Template",
+              "group": null,
+              "instructions": "",
+              "fields": [
+                {
+                  "description": "Select one or more.",
+                  "required": false,
+                  "text": "Which languages are you comfortable with?",
+                  "type": "multiple-select",
+                  "id": "ece2d920-1391-4356-9492-947b8bc0217b",
+                  "options": [
+                    {
+                      "text": "javascript"
+                    },
+                    {
+                      "text": "node"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": true,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "e7316b98-62c5-493d-ba14-0a60076cb7ed",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": 1782974123444,
+              "stage": null,
+              "updatedAt": 1782974123444
+            },
+            {
+              "id": "1c0d54d3-1aeb-4989-b616-d0a6025444e8",
+              "text": "Nango Seed Feedback Template 1 (updated)",
+              "group": null,
+              "instructions": "",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Overall rating",
+                  "type": "score-system",
+                  "id": "06085f68-9b42-44fc-aea4-d5f9b70c0561",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": 1782972913837,
+              "stage": null,
+              "updatedAt": 1782973338595
+            },
+            {
+              "id": "002b25f0-991d-42f1-bb2c-afcb62afbc0c",
+              "text": "Nango Seed Feedback Template 2",
+              "group": null,
+              "instructions": "",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Overall rating",
+                  "type": "score-system",
+                  "id": "6dbec25a-de8a-43a1-8264-75cefcd2f8c7",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                },
+                {
+                  "description": " ",
+                  "required": false,
+                  "text": "Comments",
+                  "type": "textarea",
+                  "id": "4fc232e0-b891-42c9-87e5-d8739b79f112"
+                }
+              ],
+              "createdAt": 1782972968522,
+              "stage": null,
+              "updatedAt": 1782972968522
+            },
+            {
+              "id": "ddc321ff-7546-4b45-a047-9184816cf531",
+              "text": "Presentation Interview",
+              "group": {
+                "id": "f7cbf1cd-5d4f-477b-8751-3fe515b4226f",
+                "name": "On-site Interviews"
+              },
+              "instructions": "The purpose of this interview is to gauge the candidate's presentation skills by conducting a mock meeting. \n\nSample questions: \n- How do you think your presentation went?\n- What do you think you could have done better?",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "c2321df0-3920-4c26-b852-24ecfe175be0",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Presentation Style",
+                  "type": "scorecard",
+                  "id": "7994f479-6195-4ed2-a1a7-509505752b46",
+                  "scores": [
+                    {
+                      "text": "Communication Style",
+                      "description": "Was this person easily able to connect with you?"
+                    },
+                    {
+                      "text": "Empathy",
+                      "description": "Did they try to understand your point of view and find a common ground?"
+                    },
+                    {
+                      "text": "Meeting Management",
+                      "description": "Did they run an effective meeting?"
+                    },
+                    {
+                      "text": "Problem Solving",
+                      "description": "Was their solution compelling?"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Topics hit on presentation",
+                  "type": "multiple-select",
+                  "id": "d91fa0c1-eb07-4047-b387-fd92bd2ea1da",
+                  "options": [
+                    {
+                      "text": "Set Up"
+                    },
+                    {
+                      "text": "Challenge"
+                    },
+                    {
+                      "text": "Approach"
+                    },
+                    {
+                      "text": "Solution"
+                    },
+                    {
+                      "text": "Conclusion"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "General thoughts",
+                  "type": "textarea",
+                  "id": "bb93e60b-2f54-4d26-b397-5869c951943e"
+                }
+              ],
+              "createdAt": 1564603045899,
+              "stage": null,
+              "updatedAt": null
+            },
+            {
+              "id": "f6c4db1f-777e-4015-ad13-60c6badf057b",
+              "text": "Recruiter Screen",
+              "group": {
+                "id": "dd6d2e83-691d-412e-9f3d-78959e1ec66c",
+                "name": "Phone Screens"
+              },
+              "instructions": "This is an initial call to discover more about the candidate, understand what they are looking for in their next role and if there is a mutual fit.\n\nSample questions to ask: \n- How did you get into your line of work?\n- What are the top 3 things you are looking for in a company? In your next role?\n- When do you want to make a switch?\n",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Background Summary",
+                  "type": "textarea",
+                  "id": "8142b215-3ceb-4c78-b409-59a6f607ebd6"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "How well does their background align with the role?",
+                  "type": "score",
+                  "id": "61f1d63e-c9f2-46cf-85fb-fc3c263c24f2"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "What are they looking for in their next role?",
+                  "type": "textarea",
+                  "id": "0a112d8f-1375-4c4e-97f1-1d91794adb0d"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Desired Compensation & Timeline",
+                  "type": "textarea",
+                  "id": "e341c3be-fb62-4746-9720-b19b7fb947c3"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "be891b53-1442-41be-9c78-3a3d44bbb963",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": 1564070791426,
+              "stage": null,
+              "updatedAt": null
+            },
+            {
+              "id": "11c0f197-3d8b-4626-bc00-1d8535286643",
+              "text": "Reference check",
+              "group": {
+                "id": "32d0ec29-03f5-45c2-b5e0-67463f5052e0",
+                "name": "Reference Checks"
+              },
+              "instructions": "Use this form to capture feedback from reference checks. \n\nSample questions: \n- What was this person's strength?\n- What was this person's weakness?\n- Would you hire this person again?",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Name",
+                  "type": "text",
+                  "id": "fec1d673-3d9f-4e89-9734-17e9cd503298"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Relationship",
+                  "type": "dropdown",
+                  "id": "920d4c37-b492-4ce6-bbc1-1038e24d5166",
+                  "prompt": "",
+                  "options": [
+                    {
+                      "text": "Client"
+                    },
+                    {
+                      "text": "Colleague"
+                    },
+                    {
+                      "text": "Direct Report"
+                    },
+                    {
+                      "text": "Manager"
+                    },
+                    {
+                      "text": "Professor"
+                    },
+                    {
+                      "text": "Other"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Feedback",
+                  "type": "textarea",
+                  "id": "11809be0-451d-4b61-aeda-6aef8398dc19"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Would you hire/work with this person again?",
+                  "type": "yes-no",
+                  "id": "3569345a-46b0-4cb7-831b-95e024707688"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Overall recommendation",
+                  "type": "score-system",
+                  "id": "ceaaba54-468c-415a-8e17-a35833033bb6",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Yes"
+                    },
+                    {
+                      "text": "3 - Yes"
+                    },
+                    {
+                      "text": "2 - No"
+                    },
+                    {
+                      "text": "1 - Strong No"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": 1563576635306,
+              "stage": null,
+              "updatedAt": null
+            },
+            {
+              "id": "48c18093-6fd2-4d7a-99b7-2fce226d0767",
+              "text": "Technical Interview",
+              "group": {
+                "id": "93b74445-6809-4c9f-b61e-96ac4cbcacba",
+                "name": "Tech Interviews"
+              },
+              "instructions": "The purpose of this interview is to identify proficiencies in problem solving and programming.\n",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Scorecard",
+                  "type": "scorecard",
+                  "id": "2398fa23-7be6-4e32-ace9-99cf17a7f49f",
+                  "scores": [
+                    {
+                      "text": "Programming Languages",
+                      "description": "Is the candidate familiar with the necessary programming languages for this role?"
+                    },
+                    {
+                      "text": "Troubleshooting",
+                      "description": "How does the candidate describe troubleshooting bugs?"
+                    },
+                    {
+                      "text": "Technical Communication",
+                      "description": "How well can the candidate present and explain technical details to a non-technical audience?"
+                    },
+                    {
+                      "text": "Quality",
+                      "description": "How does the candidate ensure that his or her programs run smoothly and quickly?"
+                    },
+                    {
+                      "text": "Design",
+                      "description": "How familiar is the candidate with design patterns?"
+                    }
+                  ]
+                },
+                {
+                  "description": "Fix the bug in this code.",
+                  "required": false,
+                  "text": "Coding challenge",
+                  "type": "code",
+                  "id": "7f4cc5f3-39ce-42cf-891d-e9be0a0e0043"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Do they have an innovative approach to problem solving?",
+                  "type": "yes-no",
+                  "id": "43909552-fda7-47f4-a2dc-4f4d6db6d5ba"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Overall Rating",
+                  "type": "score-system",
+                  "id": "c2fdfc97-e2ca-4253-b8a6-9b92ff24cabf",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": null,
+              "stage": null,
+              "updatedAt": null
+            },
+            {
+              "id": "bd18fbf4-644f-4c55-8b05-b61e2fc89270",
+              "text": "Technical Phone Screen",
+              "group": {
+                "id": "93b74445-6809-4c9f-b61e-96ac4cbcacba",
+                "name": "Tech Interviews"
+              },
+              "instructions": "This is an initial call to discover more if the candidate has the necessary technical skills for the job.\n\nSample questions to ask: \n- How did you get into your line of work?\n- Tell me about a time where you worked with [relevant programming language]\n",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Technical Skills Summary",
+                  "type": "textarea",
+                  "id": "8142b215-3ceb-4c78-b409-59a6f607ebd6"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "How well does their background align with the role?",
+                  "type": "score",
+                  "id": "61f1d63e-c9f2-46cf-85fb-fc3c263c24f2"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "be891b53-1442-41be-9c78-3a3d44bbb963",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": null,
+              "stage": null,
+              "updatedAt": null
+            },
+            {
+              "id": "ec542f84-c40f-4ef5-b352-9f5f6ac684e1",
+              "text": "Values Fit Interview",
+              "group": {
+                "id": "f7cbf1cd-5d4f-477b-8751-3fe515b4226f",
+                "name": "On-site Interviews"
+              },
+              "instructions": "Will this candidate align with our values and internal culture?",
+              "fields": [
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Rating",
+                  "type": "score-system",
+                  "id": "89f06a56-a189-48f2-8c62-f6405ab94e5b",
+                  "prompt": "Select one",
+                  "options": [
+                    {
+                      "text": "4 - Strong Hire"
+                    },
+                    {
+                      "text": "3 - Hire"
+                    },
+                    {
+                      "text": "2 - No Hire"
+                    },
+                    {
+                      "text": "1 - Strong No Hire"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "Criteria to Evaluate",
+                  "type": "scorecard",
+                  "id": "fa416f28-d534-4edc-a8f4-bde93eb53faa",
+                  "scores": [
+                    {
+                      "text": "Teamwork",
+                      "description": "Will this candidate work will with a team?"
+                    },
+                    {
+                      "text": "Work Ethic",
+                      "description": "Is this candidate a hardworker?"
+                    },
+                    {
+                      "text": "Attitude",
+                      "description": "Will this candidate bring a positive attitude?"
+                    }
+                  ]
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "What do you hope to achieve moving forward?",
+                  "type": "textarea",
+                  "id": "e7c6595f-913b-4848-a2b8-e727624c9b1b"
+                },
+                {
+                  "description": "",
+                  "required": false,
+                  "text": "What are you looking for in your new workplace?",
+                  "type": "dropdown",
+                  "id": "6df309a5-4026-466e-ade9-c75d95ce2117",
+                  "prompt": "Please pick one",
+                  "options": [
+                    {
+                      "text": "Diversity and Inclusion"
+                    },
+                    {
+                      "text": "Being Challenged"
+                    },
+                    {
+                      "text": "Flexibility"
+                    },
+                    {
+                      "text": "Stability"
+                    }
+                  ]
+                }
+              ],
+              "createdAt": 1564074945327,
+              "stage": null,
+              "updatedAt": null
+            }
+          ],
+          "hasNext": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:35:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4850",
+          "x-ratelimit-reset": "1782974177",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "4b28b112ea4995c670326e2b2abe4e68ef9ee5cb",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}
