@@ -20706,14 +20706,15 @@ export interface ActionOutput_basecamp_fetchtodolists {
 
 export interface Brand {
   id: string;
-  name?: string | undefined;
-  page_title?: string | undefined;
-  meta_keywords?: string[] | undefined;
-  meta_description?: string | undefined;
-  image_url?: string | undefined;
-  search_keywords?: string | undefined;
-  custom_url?: {  url?: string | undefined;
-  is_customized?: boolean | undefined;};
+  brandId: string;
+  brandName?: string | undefined;
+  brandCompany?: string | undefined;
+  defaultBrandLanguage?: string | undefined;
+  brandLanguages?: string[] | undefined;
+  isSendingDefault?: boolean | undefined;
+  isSigningDefault?: boolean | undefined;
+  isOrganizationBrand?: string | undefined;
+  isOverridingCompanyName?: boolean | undefined;
 };
 
 export interface Category {
@@ -20841,105 +20842,6 @@ export interface Customer {
   meta_data?: ({  id?: number | undefined;
   key?: string | undefined;
   value?: unknown | undefined;})[];
-};
-
-export interface Order {
-  id: string;
-  parent_id?: string | undefined;
-  number?: string | undefined;
-  order_key?: string | undefined;
-  created_via?: string | undefined;
-  version?: string | undefined;
-  status?: string | undefined;
-  currency?: string | undefined;
-  date_created?: string | undefined;
-  date_created_gmt?: string | undefined;
-  date_modified?: string | undefined;
-  date_modified_gmt?: string | undefined;
-  discount_total?: string | undefined;
-  discount_tax?: string | undefined;
-  shipping_total?: string | undefined;
-  shipping_tax?: string | undefined;
-  cart_tax?: string | undefined;
-  total?: string | undefined;
-  total_tax?: string | undefined;
-  prices_include_tax?: boolean | undefined;
-  customer_id?: string | undefined;
-  customer_ip_address?: string | undefined;
-  customer_user_agent?: string | undefined;
-  customer_note?: string | undefined;
-  billing?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;};
-  shipping?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;};
-  payment_method?: string | undefined;
-  payment_method_title?: string | undefined;
-  transaction_id?: string | undefined;
-  date_paid?: string | undefined;
-  date_paid_gmt?: string | undefined;
-  date_completed?: string | undefined;
-  date_completed_gmt?: string | undefined;
-  cart_hash?: string | undefined;
-  meta_data?: unknown[] | undefined;
-  line_items?: unknown[] | undefined;
-  tax_lines?: unknown[] | undefined;
-  shipping_lines?: unknown[] | undefined;
-  fee_lines?: unknown[] | undefined;
-  coupon_lines?: unknown[] | undefined;
-  refunds?: unknown[] | undefined;
-};
-
-export interface Product {
-  id: string;
-  Product_Name?: string | undefined;
-  Product_Code?: string | undefined;
-  Product_Category?: string | undefined;
-  Unit_Price?: number | undefined;
-  Taxable?: boolean | undefined;
-  Description?: string | undefined;
-  Manufacturer?: string | undefined;
-  Usage_Unit?: string | undefined;
-  Qty_in_Stock?: number | undefined;
-  Qty_Ordered?: number | undefined;
-  Qty_in_Demand?: number | undefined;
-  Reorder_Level?: number | undefined;
-  Commission_Rate?: number | undefined;
-  Sales_Start_Date?: string | undefined;
-  Sales_End_Date?: string | undefined;
-  Support_Start_Date?: string | undefined;
-  Support_Expiry_Date?: string | undefined;
-  Handler?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Owner?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Created_By?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Modified_By?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Created_Time?: string | undefined;
-  Modified_Time?: string | undefined;
-  "$approved"?: boolean | undefined;
-  "$editable"?: boolean | undefined;
 };
 
 export interface Subscriber {
@@ -27995,44 +27897,6 @@ export interface CreditNote {
   currency_code?: string | undefined;
   created_time?: string | undefined;
   last_modified_time?: string | undefined;
-};
-
-export interface Customer {
-  id: string;
-  email: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  role?: string | undefined;
-  username?: string | undefined;
-  date_created?: string | undefined;
-  date_created_gmt?: string | undefined;
-  date_modified?: string | undefined;
-  date_modified_gmt?: string | undefined;
-  billing?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;};
-  shipping?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;};
-  is_paying_customer?: boolean | undefined;
-  avatar_url?: string | undefined;
-  meta_data?: ({  id?: number | undefined;
-  key?: string | undefined;
-  value?: unknown | undefined;})[];
 };
 
 export interface Invoice {
@@ -37017,19 +36881,6 @@ export interface ActionInput_discourse_updatetopicstatus {
 export interface ActionOutput_discourse_updatetopicstatus {
   success: string;
   result: string;
-};
-
-export interface Brand {
-  id: string;
-  brandId: string;
-  brandName?: string | undefined;
-  brandCompany?: string | undefined;
-  defaultBrandLanguage?: string | undefined;
-  brandLanguages?: string[] | undefined;
-  isSendingDefault?: boolean | undefined;
-  isSigningDefault?: boolean | undefined;
-  isOrganizationBrand?: string | undefined;
-  isOverridingCompanyName?: boolean | undefined;
 };
 
 export interface ConnectConfiguration {
@@ -65277,38 +65128,39 @@ export interface SyncMetadata_lattice_users {
 
 export interface LeverOpportunity {
   id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;
+  name?: string | undefined;
+  headline?: string | undefined;
+  contact?: string | undefined;
+  emails?: string[] | undefined;
+  phones?: ({  value?: string | undefined;
+  type?: string | undefined;})[];
+  confidentiality?: string | undefined;
+  location?: string | undefined;
+  links?: string[] | undefined;
+  archived?: {  reason?: string | undefined;
+  archivedAt?: number | undefined;};
+  createdAt?: number | undefined;
+  updatedAt?: number | undefined;
+  lastInteractionAt?: number | undefined;
+  lastAdvancedAt?: number | undefined;
+  snoozedUntil?: number | undefined;
+  archivedAt?: number | undefined;
+  archiveReason?: string | undefined;
+  stage?: string | undefined;
+  stageChanges?: ({  [key: string]: unknown | undefined;})[];
+  owner?: string | undefined;
+  tags?: string[] | undefined;
+  sources?: string[] | undefined;
+  origin?: string | undefined;
+  sourcedBy?: string | undefined;
+  applications?: string[] | undefined;
+  resume?: string | undefined;
+  followers?: string[] | undefined;
+  urls?: {  list?: string | undefined;
+  show?: string | undefined;};
+  dataProtection?: {  [key: string]: unknown | undefined;};
+  isAnonymized?: boolean | undefined;
+  opportunityLocation?: string | undefined;
 };
 
 export interface SyncMetadata_lever_opportunities {
@@ -65320,25 +65172,25 @@ export interface LeverOpportunityApplication {
   candidateId: string;
   createdAt: number;
   type: string;
-  posting: string;
-  postingHiringManager: string;
-  postingOwner: string;
-  user: string;
-  name: string;
-  email: string;
-  phone: {  type: string;
-  value: string;};
-  requisitionForHire: {  id: string;
+  posting?: string | undefined;
+  postingHiringManager?: string | undefined;
+  postingOwner?: string | undefined;
+  user?: string | undefined;
+  name?: string | undefined;
+  email?: string | undefined;
+  phone?: {  type?: string | undefined;
+  value?: string | undefined;};
+  requisitionForHire?: {  id: string;
   requisitionCode: string;
-  hiringManagerOnHire: string;};
-  ownerId: string;
-  hiringManager: string;
-  company: string;
-  links: string[];
-  comments: string;
-  customQuestions: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
+  hiringManagerOnHire?: string | undefined;};
+  ownerId?: string | undefined;
+  hiringManager?: string | undefined;
+  company?: string | undefined;
+  links?: string[] | undefined;
+  comments?: string | undefined;
+  customQuestions?: unknown[] | undefined;
+  archived?: {  reason: string;
+  archivedAt: number;} | undefined;
 };
 
 export interface SyncMetadata_lever_opportunitiesapplications {
@@ -65347,20 +65199,17 @@ export interface SyncMetadata_lever_opportunitiesapplications {
 export interface LeverOpportunityFeedback {
   id: string;
   type: string;
-  text: string;
-  instructions: string;
-  fields: string[];
-  baseTemplateId: string;
-  interview: string;
-  panel: string;
-  user: string;
-  createdAt: number;
-  completedAt: number;
-  updatedAt: number;
-  deletedAt: number;
-};
-
-export interface SyncMetadata_lever_opportunitiesfeedbacks {
+  text?: string | undefined;
+  instructions?: string | undefined;
+  fields?: unknown[] | undefined;
+  baseTemplateId?: string | undefined;
+  interview?: string | undefined;
+  panel?: string | undefined;
+  user?: string | undefined;
+  createdAt?: number | undefined;
+  completedAt?: number | undefined;
+  updatedAt?: number | undefined;
+  deletedAt?: number | undefined;
 };
 
 export interface LeverOpportunityInterview {
@@ -65368,7 +65217,10 @@ export interface LeverOpportunityInterview {
   panel: string;
   subject: string;
   note: string;
-  interviewers: string[];
+  interviewers: ({  email: string;
+  id: string;
+  name: string;
+  feedbackTemplate: string;})[];
   timezone: string;
   createdAt: number;
   date: number;
@@ -65381,7 +65233,7 @@ export interface LeverOpportunityInterview {
   stage: string;
   canceledAt: number;
   postings: string[];
-  gcalEventUrl: string;
+  gcalEventUrl?: string | undefined;
 };
 
 export interface SyncMetadata_lever_opportunitiesinterviews {
@@ -65389,13 +65241,13 @@ export interface SyncMetadata_lever_opportunitiesinterviews {
 
 export interface LeverOpportunityNote {
   id: string;
-  text: string;
-  fields: string[];
-  user: string;
-  secret: boolean;
-  completedAt: number;
-  createdAt: number;
-  deletedAt: number;
+  text?: string | undefined;
+  fields?: unknown[] | undefined;
+  user?: string | undefined;
+  secret?: boolean | undefined;
+  completedAt?: number | undefined;
+  createdAt?: number | undefined;
+  deletedAt?: number | undefined;
 };
 
 export interface SyncMetadata_lever_opportunitiesnotes {
@@ -65406,7 +65258,9 @@ export interface LeverOpportunityOffer {
   createdAt: number;
   status: string;
   creator: string;
-  fields: string[];
+  fields: ({  text: string;
+  identifier: string;
+  value: string | number;})[];
   sentDocument: {  fileName: string;
   uploadedAt: number;
   downloadUrl: string;};
@@ -65419,43 +65273,43 @@ export interface SyncMetadata_lever_opportunitiesoffers {
 };
 
 export interface LeverPosting {
-  perform_as?: string | undefined;
   id: string;
-  text: string;
-  createdAt: number;
-  updatedAt: number;
-  user: string;
-  owner: string;
-  hiringManager: string;
-  confidentiality: string;
-  categories: {  team: string;
-  department: string;
-  location: string;
-  allLocations: string[];
-  commitment: string;
-  level: string;};
-  content: {  description: string;
-  descriptionHtml: string;
-  lists: string[];
-  closing: string;
-  closingHtml: string;};
-  country: string;
-  followers: string[];
-  tags: string[];
-  state: string;
-  distributionChannels: string[];
-  reqCode: string;
-  requisitionCodes: string[];
-  salaryDescription: string;
-  salaryDescriptionHtml: string;
-  salaryRange: {  max: number;
-  min: number;
-  currency: string;
-  interval: string;};
-  urls: {  list: string;
-  show: string;
-  apply: string;};
-  workplaceType: string;
+  text?: string | undefined;
+  createdAt?: number | undefined;
+  updatedAt?: number | undefined;
+  user?: string | undefined;
+  owner?: string | undefined;
+  hiringManager?: string | undefined;
+  confidentiality?: string | undefined;
+  categories?: {  team?: string | undefined;
+  department?: string | undefined;
+  location?: string | undefined;
+  allLocations?: string[] | undefined;
+  commitment?: string | undefined;
+  level?: string | undefined;};
+  content?: {  description?: string | undefined;
+  descriptionHtml?: string | undefined;
+  lists?: ({  text?: string | undefined;
+  content?: string | undefined;})[];
+  closing?: string | undefined;
+  closingHtml?: string | undefined;};
+  country?: string | undefined;
+  followers?: string[] | undefined;
+  tags?: string[] | undefined;
+  state?: string | undefined;
+  distributionChannels?: string[] | undefined;
+  reqCode?: string | undefined;
+  requisitionCodes?: string[] | undefined;
+  salaryDescription?: string | undefined;
+  salaryDescriptionHtml?: string | undefined;
+  salaryRange?: {  max?: number | undefined;
+  min?: number | undefined;
+  currency?: string | undefined;
+  interval?: string | undefined;};
+  urls?: {  list?: string | undefined;
+  show?: string | undefined;
+  apply?: string | undefined;};
+  workplaceType?: string | undefined;
 };
 
 export interface SyncMetadata_lever_postings {
@@ -65463,11 +65317,11 @@ export interface SyncMetadata_lever_postings {
 
 export interface LeverPostingApply {
   id: string;
-  text: string;
-  customQuestions: string[];
-  eeoQuestions: string[];
-  personalInformation: string[];
-  urls: string[];
+  text?: string | undefined;
+  customQuestions?: unknown[] | undefined;
+  eeoQuestions?: unknown | undefined;
+  personalInformation?: unknown[] | undefined;
+  urls?: unknown[] | undefined;
 };
 
 export interface SyncMetadata_lever_postingsquestions {
@@ -65478,303 +65332,303 @@ export interface LeverStage {
   text: string;
 };
 
-export interface SyncMetadata_lever_stages {
-};
-
 export interface ActionInput_lever_applyposting {
+  /**
+   * Posting ID. Example: "abc123"
+   */
   postId: string;
-  send_confirmation_email?: boolean | undefined;
-  personalInformation: ({  name: string;
-  value: string;})[];
-  eeoResponses: {};
-  urls: ({  name: string;
-  value: string;})[];
-  CustomQuestions: ({  id: string;
-  fields: ({  value: string;})[];})[];
+  personalInformation?: ({  name: string;
+  value?: unknown | undefined;})[];
+  customQuestions?: unknown[] | undefined;
+  eeoResponses?: {  [key: string]: unknown | undefined;};
+  urls?: ({  name: string;
+  value: string;})[] | undefined;
   ipAddress?: string | undefined;
+  timezone?: string | undefined;
+  userAgent?: string | undefined;
+  acceptLanguage?: string | undefined;
+  referer?: string | undefined;
   source?: string | undefined;
-  consent?: {  marketing: {  provided: boolean;
-  compliancePolicyId: string;};
-  store: {  provided: boolean;
-  compliancePolicyId: string;};} | undefined;
-  diversitySurvey?: {  surveyId: string;
-  candidateSelectedLocation: string;
-  responses: ({  questionId: string;
-  questionText: string;
-  questionType: string;
-  answer: string;})[];} | undefined;
+  consent?: {  marketing: boolean;} | undefined;
+  diversitySurvey?: {  [key: string]: unknown | undefined;};
   origin?: string | undefined;
+  send_confirmation_email?: boolean | undefined;
 };
 
 export interface ActionOutput_lever_applyposting {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+  applicationId: string;
 };
 
 export interface ActionInput_lever_createnote {
+  /**
+   * Opportunity ID to attach the note to. Example: "6408dc54-7015-4e5b-8d60-23afff2b1efc"
+   */
   opportunityId: string;
-  perform_as: string;
-  note_id: string;
+  /**
+   * Content of the note.
+   */
   value: string;
-  secret: boolean;
-  score: number;
-  notifyFollowers: boolean;
-  createdAt: number;
+  /**
+   * Lever user ID to attribute the note to.
+   */
+  perform_as?: string | undefined;
+  /**
+   * Existing note ID to update instead of creating a new note.
+   */
+  note_id?: string | undefined;
+  /**
+   * Whether the note is secret.
+   */
+  secret?: boolean | undefined;
+  /**
+   * Score value for the note.
+   */
+  score?: number | undefined;
+  /**
+   * Whether to notify followers of the note.
+   */
+  notifyFollowers?: boolean | undefined;
+  /**
+   * Timestamp when the note was created.
+   */
+  createdAt?: number | undefined;
 };
 
 export interface ActionOutput_lever_createnote {
   id: string;
-  text: string;
-  fields: string[];
-  user: string;
-  secret: boolean;
-  completedAt: number;
-  createdAt: number;
-  deletedAt: number;
+  text?: string | undefined;
+  fields?: unknown[] | undefined;
+  user?: string | undefined;
+  secret?: boolean | undefined;
+  completedAt?: number | undefined;
+  createdAt?: number | undefined;
+  deletedAt?: number | undefined;
 };
 
 export interface ActionInput_lever_createopportunity {
+  /**
+   * Lever user ID to attribute this change to. Example: "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef"
+   */
   perform_as: string;
-  parse: boolean;
-  perform_as_posting_owner: boolean;
-  name: string;
-  headline: string;
-  stage: string;
-  location: string;
-  phones: ({  value: string;
-  type: string;})[];
-  emails: string;
-  links: string[];
-  tags: string[];
-  sources: string[];
-  origin: string;
-  owner: string;
-  followers: string[];
-  postings: string[];
-  createdAt: number;
-  archived: {  archivedAt: number;
-  reason: string;};
-  contact: string[];
+  parse?: boolean | undefined;
+  perform_as_posting_owner?: boolean | undefined;
+  name?: string | undefined;
+  headline?: string | undefined;
+  stage?: string | undefined;
+  location?: string | undefined;
+  phones?: ({  value: string;
+  type: string;})[] | undefined;
+  emails?: string[] | undefined;
+  links?: string[] | undefined;
+  tags?: string[] | undefined;
+  sources?: string[] | undefined;
+  origin?: string | undefined;
+  owner?: string | undefined;
+  followers?: string[] | undefined;
+  postings?: string[] | undefined;
+  createdAt?: number | undefined;
+  archived?: {  archivedAt: number;
+  reason: string;} | undefined;
+  contact?: string | undefined;
 };
 
 export interface ActionOutput_lever_createopportunity {
   id: string;
   name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
+  headline?: string | undefined;
+  contact?: string | undefined;
+  emails?: string[] | undefined;
+  phones?: ({  value: string;
+  type: string;})[] | undefined;
+  confidentiality?: string | undefined;
+  location?: string | undefined;
+  links?: string[] | undefined;
+  archived?: {  reason: string;
+  archivedAt: number;} | undefined;
   createdAt: number;
   updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;
+  lastInteractionAt?: number | undefined;
+  lastAdvancedAt?: number | undefined;
+  snoozedUntil?: number | undefined;
+  archivedAt?: number | undefined;
+  archiveReason?: string | undefined;
+  stage?: string | undefined;
+  stageChanges?: ({  0: string;
+  1: {  toStageId: string;
+  toStageIndex: number;
+  updatedAt: number;
+  userId: string;};})[] | undefined;
+  owner?: string | undefined;
+  tags?: string[] | undefined;
+  sources?: string[] | undefined;
+  origin?: string | undefined;
+  sourcedBy?: string | undefined;
+  applications?: string[] | undefined;
+  resume?: string | undefined;
+  followers?: string[] | undefined;
+  urls?: {  list?: string | undefined;
+  show?: string | undefined;};
+  dataProtection?: {  [key: string]: unknown | undefined;};
+  isAnonymized?: boolean | undefined;
+  opportunityLocation?: string | undefined;
 };
 
 export type ActionInput_lever_getarchivereasons = void
 
 export interface ActionOutput_lever_getarchivereasons {
   success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+  response: ({  id: string;
+  text: string;
+  status: string;
+  type: string;})[];
 };
 
 export interface ActionInput_lever_getposting {
+  /**
+   * Posting ID. Example: "f2f01e16-27f8-4711-a728-7d49499795a0"
+   */
   id: string;
 };
 
 export interface ActionOutput_lever_getposting {
   success: boolean;
-  opportunityId?: string | undefined;
   response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+  text?: string | undefined;
+  createdAt?: number | undefined;
+  updatedAt?: number | undefined;
+  user?: string | undefined;
+  owner?: string | undefined;
+  hiringManager?: string | undefined;
+  confidentiality?: string | undefined;
+  categories?: {  team?: string | undefined;
+  department?: string | undefined;
+  location?: string | undefined;
+  allLocations?: string[] | undefined;
+  commitment?: string | undefined;
+  level?: string | undefined;};
+  content?: {  description?: string | undefined;
+  descriptionHtml?: string | undefined;
+  lists?: ({  text: string;
+  content: string;})[] | undefined;
+  closing?: string | undefined;
+  closingHtml?: string | undefined;};
+  country?: string | undefined;
+  followers?: string[] | undefined;
+  tags?: string[] | undefined;
+  state?: string | undefined;
+  distributionChannels?: string[] | undefined;
+  reqCode?: string | undefined;
+  requisitionCodes?: string[] | undefined;
+  salaryDescription?: string | undefined;
+  salaryDescriptionHtml?: string | undefined;
+  salaryRange?: {  max?: number | undefined;
+  min?: number | undefined;
+  currency?: string | undefined;
+  interval?: string | undefined;};
+  urls?: {  list?: string | undefined;
+  show?: string | undefined;
+  apply?: string | undefined;};
+  workplaceType?: string | undefined;};
 };
 
-export type ActionInput_lever_getpostings = void
+export interface ActionInput_lever_getpostings {
+};
 
 export interface ActionOutput_lever_getpostings {
   success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+  response: ({  id: string;
+  text: string;
+  createdAt?: number | undefined;
+  updatedAt?: number | undefined;
+  user?: string | undefined;
+  owner?: string | undefined;
+  hiringManager?: string | undefined;
+  confidentiality?: string | undefined;
+  categories?: {  team?: string | undefined;
+  department?: string | undefined;
+  location?: string | undefined;
+  allLocations?: string[] | undefined;
+  commitment?: string | undefined;
+  level?: string | undefined;};
+  content?: {  description?: string | undefined;
+  descriptionHtml?: string | undefined;
+  lists?: ({  text: string;
+  content: string;})[] | undefined;
+  closing?: string | undefined;
+  closingHtml?: string | undefined;};
+  country?: string | undefined;
+  followers?: string[] | undefined;
+  tags?: string[] | undefined;
+  state?: string | undefined;
+  distributionChannels?: string[] | undefined;
+  reqCode?: string | undefined;
+  requisitionCodes?: string[] | undefined;
+  salaryDescription?: string | undefined;
+  salaryDescriptionHtml?: string | undefined;
+  salaryRange?: {  max?: number | undefined;
+  min?: number | undefined;
+  currency?: string | undefined;
+  interval?: string | undefined;};
+  urls?: {  list?: string | undefined;
+  show?: string | undefined;
+  apply?: string | undefined;};
+  workplaceType?: string | undefined;})[];
 };
 
-export type ActionInput_lever_getstages = void
+export interface ActionInput_lever_getstages {
+};
 
 export interface ActionOutput_lever_getstages {
   stages: ({  id: string;
   text: string;})[];
 };
 
-export interface ActionInput_lever_updateopportunity {
+export interface ActionInput_lever_updateopportunityarchived {
+  /**
+   * Opportunity ID. Example: "6408dc54-7015-4e5b-8d60-23afff2b1efc"
+   */
   opportunityId: string;
-  perform_as?: string | undefined;
-  delete?: boolean | undefined;
-  links: string[];
-  sources: string[];
-  stage?: string | undefined;
-  tags: string[];
-  reason?: string | undefined;
+  /**
+   * Archive reason ID. Example: "c97322d4-a7f3-4008-948c-4f8e9c58d372"
+   */
+  reason: string;
+  /**
+   * Whether to remove pending interviews when archiving.
+   */
   cleanInterviews?: boolean | undefined;
+  /**
+   * Requisition ID to hire the candidate against.
+   */
   requisitionId?: string | undefined;
+  /**
+   * Lever user ID to perform this action on behalf of.
+   */
+  perform_as?: string | undefined;
 };
 
-export interface ActionOutput_lever_updateopportunity {
-  data: {  id?: string | undefined;
+export interface ActionOutput_lever_updateopportunityarchived {
+  success: boolean;
+  opportunityId: string;
+  response?: unknown | undefined;
+};
+
+export interface ActionInput_lever_updateopportunitylinks {
+  perform_as?: string | undefined;
+  links: string[];
+  opportunityId: string;
+  delete: boolean;
+};
+
+export interface ActionOutput_lever_updateopportunitylinks {
+  success: boolean;
+  opportunityId?: string | undefined;
+  response: {  id?: string | undefined;
   name?: string | undefined;
   headline?: string | undefined;
   contact?: string | undefined;
   emails?: string[] | undefined;
-  phones?: string[] | undefined;
+  phones?: ({  type: string;
+  value: string;})[] | undefined;
   confidentiality?: string | undefined;
   location?: string | undefined;
   links?: string[] | undefined;
@@ -65808,229 +65662,135 @@ export interface ActionOutput_lever_updateopportunity {
   opportunityLocation?: string | undefined;};
 };
 
-export interface ActionInput_lever_updateopportunityarchived {
-  perform_as?: string | undefined;
-  reason: string;
-  requisitionId?: string | undefined;
-  opportunityId: string;
-  cleanInterviews?: boolean | undefined;
-};
-
-export interface ActionOutput_lever_updateopportunityarchived {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
-export interface ActionInput_lever_updateopportunitylinks {
-  perform_as?: string | undefined;
-  links: string[];
-  opportunityId: string;
-  delete: boolean;
-};
-
-export interface ActionOutput_lever_updateopportunitylinks {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
-};
-
 export interface ActionInput_lever_updateopportunitysources {
+  /**
+   * Opportunity ID. Example: "6408dc54-7015-4e5b-8d60-23afff2b1efc"
+   */
   opportunityId: string;
-  perform_as?: string | undefined;
+  /**
+   * Array of source names to add or remove. Example: ["Facebook"]
+   */
   sources: string[];
-  delete: boolean;
+  /**
+   * When true, removes the given sources instead of adding them.
+   */
+  delete?: boolean | undefined;
+  /**
+   * Lever user ID to perform this action as. Required for most mutating endpoints.
+   */
+  perform_as?: string | undefined;
 };
 
 export interface ActionOutput_lever_updateopportunitysources {
   success: boolean;
   opportunityId?: string | undefined;
   response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+  name?: string | undefined;
+  headline?: string | undefined;
+  contact?: string | undefined;
+  emails?: string[] | undefined;
+  phones?: string[] | undefined;
+  confidentiality?: string | undefined;
+  location?: string | undefined;
+  links?: string[] | undefined;
+  archived?: {  reason?: string | undefined;
+  archivedAt?: number | undefined;};
+  createdAt?: number | undefined;
+  updatedAt?: number | undefined;
+  lastInteractionAt?: number | undefined;
+  lastAdvancedAt?: number | undefined;
+  snoozedUntil?: number | undefined;
+  archivedAt?: number | undefined;
+  archiveReason?: string | undefined;
+  stage?: string | undefined;
+  stageChanges?: unknown[] | undefined;
+  owner?: string | undefined;
+  tags?: string[] | undefined;
+  sources?: string[] | undefined;
+  origin?: string | undefined;
+  sourcedBy?: string | undefined;
+  applications?: string[] | undefined;
+  resume?: string | undefined;
+  followers?: string[] | undefined;
+  urls?: {  list?: string | undefined;
+  show?: string | undefined;};
+  dataProtection?: unknown | undefined;
+  isAnonymized?: boolean | undefined;
+  opportunityLocation?: string | undefined;};
 };
 
 export interface ActionInput_lever_updateopportunitystage {
-  perform_as?: string | undefined;
-  stage: string;
+  /**
+   * Opportunity ID. Example: "6408dc54-7015-4e5b-8d60-23afff2b1efc"
+   */
   opportunityId: string;
+  /**
+   * Stage ID to update to.
+   */
+  stage: string;
+  /**
+   * Lever user ID to perform this action as. Required for most mutating endpoints.
+   */
+  perform_as?: string | undefined;
 };
 
 export interface ActionOutput_lever_updateopportunitystage {
   success: boolean;
   opportunityId?: string | undefined;
   response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+  name?: string | undefined;
+  headline?: string | undefined;
+  contact?: string | undefined;
+  emails?: string[] | undefined;
+  phones?: string[] | undefined;
+  confidentiality?: string | undefined;
+  location?: string | undefined;
+  links?: string[] | undefined;
+  archived?: {  reason?: string | undefined;
+  archivedAt?: number | undefined;};
+  createdAt?: number | undefined;
+  updatedAt?: number | undefined;
+  lastInteractionAt?: number | undefined;
+  lastAdvancedAt?: number | undefined;
+  snoozedUntil?: number | undefined;
+  archivedAt?: number | undefined;
+  archiveReason?: string | undefined;
+  stage?: string | undefined;
+  stageChanges?: unknown[] | undefined;
+  owner?: string | undefined;
+  tags?: string[] | undefined;
+  sources?: string[] | undefined;
+  origin?: string | undefined;
+  sourcedBy?: string | undefined;
+  applications?: string[] | undefined;
+  resume?: string | undefined;
+  followers?: string[] | undefined;
+  urls?: {  list?: string | undefined;
+  show?: string | undefined;};
+  dataProtection?: unknown | undefined;
+  isAnonymized?: boolean | undefined;
+  opportunityLocation?: string | undefined;};
 };
 
 export interface ActionInput_lever_updateopportunitytags {
+  /**
+   * The ID of the opportunity to update. Example: "6408dc54-7015-4e5b-8d60-23afff2b1efc"
+   */
   opportunityId: string;
-  perform_as?: string | undefined;
+  /**
+   * Array of tag names to add to the opportunity. Example: ["Engineering", "Referral"]
+   */
   tags: string[];
-  delete: boolean;
+  /**
+   * The ID of the user to attribute this change to. Example: "be129d9b-50da-4485-9377-0d83e981f30b"
+   */
+  perform_as: string;
 };
 
 export interface ActionOutput_lever_updateopportunitytags {
-  success: boolean;
-  opportunityId?: string | undefined;
-  response: {  id: string;
-  name: string;
-  headline: string;
-  contact: string;
-  emails: string[];
-  phones: string[];
-  confidentiality: string;
-  location: string;
-  links: string[];
-  archived: {  reason: string;
-  archivedAt: number;};
-  createdAt: number;
-  updatedAt: number;
-  lastInteractionAt: number;
-  lastAdvancedAt: number;
-  snoozedUntil: number;
-  archivedAt: number;
-  archiveReason: string;
-  stage: string;
-  stageChanges: string[];
-  owner: string;
-  tags: string[];
-  sources: string[];
-  origin: string;
-  sourcedBy: string;
-  applications: string[];
-  resume: string;
-  followers: string[];
-  urls: {  list: string;
-  show: string;};
-  dataProtection: {};
-  isAnonymized: boolean;
-  opportunityLocation: string;};
+  id: string;
+  name?: string | undefined;
+  tags?: string[] | undefined;
 };
 
 export type ActionInput_lever_users = void
@@ -66041,13 +65801,13 @@ export interface ActionOutput_lever_users {
   username: string;
   email: string;
   accessRole: string;
-  photo: string | null;
+  photo: string;
   createdAt: number;
-  deactivatedAt: string | null;
-  externalDirectoryId: string | null;
-  linkedContactIds: string[] | null;
-  jobTitle: string | null;
-  managerId: string | null;})[];
+  deactivatedAt: string;
+  externalDirectoryId: string;
+  linkedContactIds: string[];
+  jobTitle: string;
+  managerId: string;})[];
 };
 
 export interface Cycle {
