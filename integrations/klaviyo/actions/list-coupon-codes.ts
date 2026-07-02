@@ -45,9 +45,9 @@ const CouponRelDataSchema = z
 
 const AttributesSchema = z
     .object({
-        unique_code: z.string().optional(),
-        status: z.string().optional(),
-        expires_at: z.string().optional()
+        unique_code: z.string().nullable().optional(),
+        status: z.string().nullable().optional(),
+        expires_at: z.string().nullable().optional()
     })
     .optional();
 
@@ -68,10 +68,10 @@ const action = createAction({
 
         const filterParts = [];
         if (input.coupon_id) {
-            filterParts.push(`equals(coupon.id,'${input.coupon_id}')`);
+            filterParts.push(`equals(coupon.id,'${input.coupon_id.replace(/'/g, "\\'")}')`);
         }
         if (input.profile_id) {
-            filterParts.push(`equals(profile.id,'${input.profile_id}')`);
+            filterParts.push(`equals(profile.id,'${input.profile_id.replace(/'/g, "\\'")}')`);
         }
         const filter = filterParts.join(',');
 

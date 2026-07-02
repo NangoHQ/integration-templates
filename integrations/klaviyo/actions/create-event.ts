@@ -19,6 +19,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['events:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {
@@ -56,7 +57,8 @@ const action = createAction({
                 revision: '2026-04-15'
             },
             data: requestBody,
-            retries: 3
+            // Retries are only safe when unique_id is set — otherwise a retried request creates a duplicate event.
+            retries: input.unique_id !== undefined ? 3 : 0
         });
 
         return {

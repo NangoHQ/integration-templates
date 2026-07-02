@@ -75,7 +75,16 @@ const action = createAction({
             };
         });
 
-        const nextCursor = raw.links?.next;
+        const nextLink = raw.links?.next;
+        let nextCursor: string | undefined;
+        if (nextLink) {
+            // @allowTryCatch URL parsing may fail on malformed pagination links
+            try {
+                nextCursor = new URL(nextLink).searchParams.get('page[cursor]') ?? undefined;
+            } catch {
+                nextCursor = undefined;
+            }
+        }
 
         return {
             items,

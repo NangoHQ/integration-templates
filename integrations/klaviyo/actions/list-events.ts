@@ -53,7 +53,7 @@ const action = createAction({
             filters.push(`greater-than(datetime,"${input.datetime}")`);
         }
         if (filters.length > 0) {
-            params['filter'] = filters;
+            params['filter'] = filters.join(',');
         }
 
         if (input.include !== undefined && input.include.length > 0) {

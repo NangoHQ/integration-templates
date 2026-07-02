@@ -38,6 +38,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['flows:read'],
 
     exec: async (nango, input) => {
         // https://developers.klaviyo.com/en/reference/get_flows

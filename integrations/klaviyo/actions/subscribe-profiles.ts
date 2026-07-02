@@ -19,9 +19,8 @@ const SubscriptionsSchema = z.object({
 });
 
 const ProfileInputSchema = z.object({
-    email: z.string().optional(),
-    phone_number: z.string().optional(),
-    external_id: z.string().optional(),
+    email: z.string().optional().describe('Profile email address. Example: "user@example.com"'),
+    phone_number: z.string().optional().describe('Profile phone number in E.164 format. Example: "+15005550006"'),
     subscriptions: SubscriptionsSchema.optional()
 });
 
@@ -40,13 +39,14 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['lists:write', 'profiles:write', 'subscriptions:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         for (const profile of input.profiles) {
-            if (!profile.email && !profile.phone_number && !profile.external_id) {
+            if (!profile.email && !profile.phone_number) {
                 throw new nango.ActionError({
                     type: 'invalid_input',
-                    message: 'Each profile must have at least one of email, phone_number, or external_id.'
+                    message: 'Each profile must have at least one of email or phone_number.'
                 });
             }
         }
@@ -58,9 +58,6 @@ const action = createAction({
             }
             if (profile.phone_number !== undefined) {
                 attributes['phone_number'] = profile.phone_number;
-            }
-            if (profile.external_id !== undefined) {
-                attributes['external_id'] = profile.external_id;
             }
             if (profile.subscriptions !== undefined) {
                 attributes['subscriptions'] = profile.subscriptions;

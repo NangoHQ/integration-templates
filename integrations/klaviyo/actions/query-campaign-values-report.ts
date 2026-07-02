@@ -49,6 +49,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['campaigns:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const payload: Record<string, unknown> = {
@@ -61,9 +62,9 @@ const action = createAction({
                     ...(input.conversion_metric_id !== undefined && {
                         conversion_metric_id: input.conversion_metric_id
                     }),
-                    ...(input.statistics !== undefined && { statistics: input.statistics })
-                },
-                ...(input.filter !== undefined && { filter: input.filter })
+                    ...(input.statistics !== undefined && { statistics: input.statistics }),
+                    ...(input.filter !== undefined && { filter: input.filter })
+                }
             }
         };
 

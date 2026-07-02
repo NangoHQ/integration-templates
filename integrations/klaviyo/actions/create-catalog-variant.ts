@@ -7,10 +7,10 @@ const InputSchema = z.object({
     title: z.string().describe('Title of the variant. Example: "Small Red Shirt"'),
     description: z.string().describe('Description of the variant. Required even though optional on parent items. Example: "A small red cotton shirt."'),
     url: z.string().describe('URL for the variant. Required even though optional on parent items. Example: "https://example.com/products/red-shirt"'),
-    sku: z.string().optional().describe('Stock keeping unit. Example: "SKU-123-RED-S"'),
-    price: z.number().optional().describe('Price of the variant. Example: 29.99'),
+    sku: z.string().describe('Stock keeping unit. Example: "SKU-123-RED-S"'),
+    price: z.number().describe('Price of the variant. Example: 29.99'),
     inventory_policy: z.number().optional().describe('Inventory policy value. Example: 0'),
-    inventory_quantity: z.number().optional().describe('Available inventory quantity. Example: 100'),
+    inventory_quantity: z.number().describe('Available inventory quantity. Example: 100'),
     published: z.boolean().optional().describe('Whether the variant is published. Example: true')
 });
 
@@ -74,6 +74,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['catalogs:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody = {
@@ -86,10 +87,10 @@ const action = createAction({
                     title: input.title,
                     description: input.description,
                     url: input.url,
-                    ...(input.sku !== undefined && { sku: input.sku }),
-                    ...(input.price !== undefined && { price: input.price }),
+                    sku: input.sku,
+                    price: input.price,
                     ...(input.inventory_policy !== undefined && { inventory_policy: input.inventory_policy }),
-                    ...(input.inventory_quantity !== undefined && { inventory_quantity: input.inventory_quantity }),
+                    inventory_quantity: input.inventory_quantity,
                     ...(input.published !== undefined && { published: input.published })
                 },
                 relationships: {

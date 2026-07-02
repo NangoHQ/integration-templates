@@ -116,7 +116,7 @@ const sync = createSync({
             };
 
             if (updatedAfter) {
-                params['filter'] = `greater-than(datetime,${updatedAfter})`;
+                params['filter'] = `greater-or-equal(datetime,${updatedAfter})`;
             }
 
             if (pageCursor) {

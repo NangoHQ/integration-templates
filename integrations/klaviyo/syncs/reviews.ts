@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ReviewStatusSchema = z.object({
@@ -68,17 +68,6 @@ const ReviewResourceSchema = z.object({
         .optional()
 });
 
-const ReviewListResponseSchema = z.object({
-    data: z.array(ReviewResourceSchema),
-    links: z
-        .object({
-            self: z.string(),
-            prev: z.string().nullable().optional(),
-            next: z.string().nullable().optional()
-        })
-        .optional()
-});
-
 const ReviewSchema = z.object({
     id: z.string(),
     email: z.string().optional(),
@@ -120,22 +109,27 @@ const sync = createSync({
         // moderated, so full-refresh delete tracking is required.
         await nango.trackDeletesStart('Review');
 
-        let cursor: string | undefined;
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.klaviyo.com/en/reference/get_reviews
+            endpoint: '/api/reviews',
+            headers: { revision: '2026-04-15' },
+            paginate: {
+                type: 'link',
+                link_path_in_response_body: 'links.next',
+                response_path: 'data',
+                limit_name_in_request: 'page[size]',
+                limit: 100
+            },
+            retries: 3
+        };
 
-        while (true) {
-            const response = await nango.get({
-                // https://developers.klaviyo.com/en/reference/get_reviews
-                endpoint: '/api/reviews',
-                headers: { revision: '2026-04-15' },
-                params: {
-                    'page[size]': '2',
-                    ...(cursor && { 'page[cursor]': cursor })
-                },
-                retries: 3
-            });
+        for await (const page of nango.paginate(proxyConfig)) {
+            if (!Array.isArray(page)) {
+                throw new Error('Expected paginated page to be an array of reviews');
+            }
 
-            const parsed = ReviewListResponseSchema.parse(response.data);
-            const reviews = parsed.data.map((resource) => {
+            const parsedPage = z.array(ReviewResourceSchema).parse(page);
+            const reviews = parsedPage.map((resource) => {
                 const attrs = resource.attributes;
                 const statusObj = attrs.status;
                 const statusValue = statusObj?.value;
@@ -178,14 +172,6 @@ const sync = createSync({
             if (reviews.length > 0) {
                 await nango.batchSave(reviews, 'Review');
             }
-
-            const nextLink = parsed.links?.next;
-            if (!nextLink) {
-                break;
-            }
-
-            const nextUrl = new URL(nextLink, 'https://a.klaviyo.com');
-            cursor = nextUrl.searchParams.get('page[cursor]') ?? undefined;
         }
 
         await nango.trackDeletesEnd('Review');

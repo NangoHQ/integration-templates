@@ -69,7 +69,7 @@ const sync = createSync({
                 ['page[size]']: '50'
             };
             if (updatedAfter) {
-                params['filter'] = `greater-than(updated,${updatedAfter})`;
+                params['filter'] = `greater-or-equal(updated,${updatedAfter})`;
             }
             if (cursor) {
                 params['page[cursor]'] = cursor;
@@ -159,12 +159,10 @@ const sync = createSync({
             });
         }
 
-        if (maxUpdated) {
-            await nango.saveCheckpoint({
-                updated_after: maxUpdated,
-                cursor: ''
-            });
-        }
+        await nango.saveCheckpoint({
+            updated_after: maxUpdated || updatedAfter || '',
+            cursor: ''
+        });
     }
 });
 

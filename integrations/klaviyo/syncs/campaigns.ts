@@ -55,7 +55,7 @@ const sync = createSync({
 
         for (const channel of ['email', 'sms']) {
             const filter = updatedAfter
-                ? `and(equals(messages.channel,'${channel}'),greater-than(updated_at,'${updatedAfter}'))`
+                ? `and(equals(messages.channel,'${channel}'),greater-or-equal(updated_at,'${updatedAfter}'))`
                 : `equals(messages.channel,'${channel}')`;
 
             const proxyConfig: ProxyConfiguration = {

@@ -89,10 +89,12 @@ const action = createAction({
                         send_options: {
                             use_smart_sending: input.use_smart_sending !== undefined ? input.use_smart_sending : true
                         },
-                        tracking_options: {
-                            is_tracking_opens: input.is_tracking_opens !== undefined ? input.is_tracking_opens : true,
-                            is_tracking_clicks: input.is_tracking_clicks !== undefined ? input.is_tracking_clicks : true
-                        },
+                        ...(input.channel === 'email' && {
+                            tracking_options: {
+                                is_tracking_opens: input.is_tracking_opens !== undefined ? input.is_tracking_opens : true,
+                                is_tracking_clicks: input.is_tracking_clicks !== undefined ? input.is_tracking_clicks : true
+                            }
+                        }),
                         'campaign-messages': {
                             data: [
                                 {
@@ -100,7 +102,7 @@ const action = createAction({
                                     attributes: {
                                         definition: {
                                             channel: input.channel,
-                                            ...(input.message_label !== undefined && { label: input.message_label })
+                                            ...(input.channel === 'email' && input.message_label !== undefined && { label: input.message_label })
                                         }
                                     }
                                 }

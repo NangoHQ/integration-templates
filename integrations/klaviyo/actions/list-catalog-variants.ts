@@ -94,13 +94,13 @@ function extractCursor(nextUrl: string | null | undefined): string | undefined {
 function buildFilter(input: z.infer<typeof InputSchema>): string | undefined {
     const filters: string[] = [];
     if (input.item_id !== undefined) {
-        filters.push(`equals(item.id,"${input.item_id}")`);
+        filters.push(`equals(item.id,${JSON.stringify(input.item_id)})`);
     }
     if (input.sku !== undefined) {
-        filters.push(`equals(sku,"${input.sku}")`);
+        filters.push(`equals(sku,${JSON.stringify(input.sku)})`);
     }
     if (input.title !== undefined) {
-        filters.push(`contains(title,"${input.title}")`);
+        filters.push(`contains(title,${JSON.stringify(input.title)})`);
     }
     if (input.published !== undefined) {
         filters.push(`equals(published,${input.published})`);

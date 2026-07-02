@@ -17,7 +17,7 @@ const action = createAction({
     scopes: ['catalogs:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.delete({
+        await nango.delete({
             // https://developers.klaviyo.com/en/reference/delete_catalog_variant
             endpoint: `/api/catalog-variants/${encodeURIComponent(input.id)}`,
             headers: {
@@ -25,14 +25,6 @@ const action = createAction({
             },
             retries: 3
         });
-
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Catalog variant not found',
-                id: input.id
-            });
-        }
 
         return {
             id: input.id

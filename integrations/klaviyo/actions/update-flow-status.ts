@@ -13,6 +13,7 @@ const ProviderFlowSchema = z.object({
         attributes: z.object({
             name: z.string().optional(),
             status: z.string().optional(),
+            archived: z.boolean().optional(),
             created: z.string().optional(),
             updated: z.string().optional(),
             trigger_type: z.string().optional()
@@ -24,6 +25,7 @@ const OutputSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
     status: z.string().optional(),
+    archived: z.boolean().optional(),
     created: z.string().optional(),
     updated: z.string().optional(),
     trigger_type: z.string().optional()
@@ -47,9 +49,7 @@ const action = createAction({
                 data: {
                     type: 'flow',
                     id: input.flow_id,
-                    attributes: {
-                        status: input.status
-                    }
+                    attributes: input.status === 'archived' ? { archived: true } : { status: input.status }
                 }
             },
             retries: 3

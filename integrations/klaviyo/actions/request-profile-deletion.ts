@@ -22,7 +22,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['data-privacy:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.klaviyo.com/en/reference/create_data_privacy_deletion_job
@@ -49,16 +49,25 @@ const action = createAction({
             retries: 3
         });
 
+        // Klaviyo returns an empty body on success for this endpoint; there is no job id to report.
+        if (typeof response.data === 'string' && response.data.trim() === '') {
+            return {
+                id: '',
+                email: input.email
+            };
+        }
+
         let parsedData: unknown = response.data;
-        if (typeof response.data === 'string' && response.data.trim().startsWith('{')) {
+        if (typeof response.data === 'string') {
             // @allowTryCatch The Klaviyo proxy occasionally returns JSON bodies as strings rather than parsed objects.
             try {
                 parsedData = JSON.parse(response.data);
             } catch {
-                parsedData = { data: { id: '', type: 'data-privacy-deletion-job' } };
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Klaviyo returned an unparseable response body for the deletion request.'
+                });
             }
-        } else if (typeof response.data === 'string') {
-            parsedData = { data: { id: '', type: 'data-privacy-deletion-job' } };
         }
 
         const providerResponse = ProviderResponseSchema.parse(parsedData);

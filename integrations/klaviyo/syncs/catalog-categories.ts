@@ -43,9 +43,8 @@ const sync = createSync({
                 'page[size]': 100
             },
             paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'page[cursor]',
-                cursor_path_in_response: 'links.next',
+                type: 'link',
+                link_path_in_response_body: 'links.next',
                 response_path: 'data',
                 limit_name_in_request: 'page[size]',
                 limit: 100

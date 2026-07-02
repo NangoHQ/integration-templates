@@ -8,7 +8,7 @@ const InputSchema = z.object({
 
 const FormAttributesSchema = z
     .object({
-        ab_test: z.string().optional().nullable(),
+        ab_test: z.boolean().optional().nullable(),
         created_at: z.string().optional().nullable(),
         name: z.string().optional().nullable(),
         status: z.string().optional().nullable(),

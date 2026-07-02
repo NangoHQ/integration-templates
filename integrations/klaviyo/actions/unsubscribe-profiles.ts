@@ -27,6 +27,15 @@ const action = createAction({
     scopes: ['lists:write', 'profiles:write', 'subscriptions:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        for (const profile of input.profiles) {
+            if (!profile.email && !profile.phone_number) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'Each profile must have at least one of email or phone_number.'
+                });
+            }
+        }
+
         const body = {
             data: {
                 type: 'profile-subscription-bulk-delete-job',

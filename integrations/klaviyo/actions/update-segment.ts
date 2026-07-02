@@ -53,16 +53,26 @@ const action = createAction({
     scopes: ['segments:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.is_active === false && (input.name !== undefined || input.definition !== undefined || input.is_starred !== undefined)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'is_active must be the only attribute set when deactivating a segment.'
+            });
+        }
+
         const requestBody = {
             data: {
                 type: 'segment',
                 id: input.id,
-                attributes: {
-                    ...(input.name !== undefined && { name: input.name }),
-                    ...(input.definition !== undefined && { definition: input.definition }),
-                    ...(input.is_starred !== undefined && { is_starred: input.is_starred }),
-                    ...(input.is_active !== undefined && { is_active: input.is_active })
-                }
+                attributes:
+                    input.is_active === false
+                        ? { is_active: false }
+                        : {
+                              ...(input.name !== undefined && { name: input.name }),
+                              ...(input.definition !== undefined && { definition: input.definition }),
+                              ...(input.is_starred !== undefined && { is_starred: input.is_starred }),
+                              ...(input.is_active !== undefined && { is_active: input.is_active })
+                          }
             }
         };
 

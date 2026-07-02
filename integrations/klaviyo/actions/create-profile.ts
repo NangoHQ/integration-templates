@@ -76,8 +76,16 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['profiles:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!input.email && !input.phone_number && !input.external_id) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one of email, phone_number, or external_id is required.'
+            });
+        }
+
         const requestBody = {
             data: {
                 type: 'profile',

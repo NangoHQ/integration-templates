@@ -4,9 +4,9 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     external_id: z.string().describe("Catalog item external_id. Example: 'nango-test-item-1'"),
     title: z.string().describe("Catalog item title. Example: 'Nango Test Item'"),
-    description: z.string().optional().describe('Catalog item description.'),
+    description: z.string().describe('Catalog item description.'),
     price: z.number().optional().describe('Catalog item price.'),
-    url: z.string().optional().describe('Catalog item URL.'),
+    url: z.string().describe('Catalog item URL.'),
     catalog_type: z.string().optional().describe("Catalog type. Defaults to '$default'."),
     integration_type: z.string().optional().describe("Integration type. Defaults to '$custom'.")
 });
@@ -59,9 +59,9 @@ const action = createAction({
                     title: input.title,
                     catalog_type: catalogType,
                     integration_type: integrationType,
-                    ...(input.description !== undefined && { description: input.description }),
+                    description: input.description,
                     ...(input.price !== undefined && { price: input.price }),
-                    ...(input.url !== undefined && { url: input.url })
+                    url: input.url
                 }
             }
         };

@@ -66,6 +66,15 @@ const action = createAction({
     scopes: ['profiles:write', 'lists:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        for (const profile of input.profiles) {
+            if (!profile.email && !profile.phone_number && !profile.external_id) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'Each profile must have at least one of email, phone_number, or external_id.'
+                });
+            }
+        }
+
         const profilesPayload = input.profiles.map((profile) => {
             const attributes: Record<string, unknown> = {};
             for (const [key, value] of Object.entries(profile)) {

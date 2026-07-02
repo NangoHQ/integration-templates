@@ -10,7 +10,7 @@ const ProviderResponseSchema = z.object({
     data: z.object({
         type: z.string(),
         id: z.string(),
-        attributes: z.object({}).passthrough()
+        attributes: z.object({}).passthrough().optional()
     })
 });
 
@@ -55,7 +55,7 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
-        const attributes = providerResponse.data.attributes;
+        const attributes = providerResponse.data.attributes ?? {};
 
         return {
             id: providerResponse.data.id,

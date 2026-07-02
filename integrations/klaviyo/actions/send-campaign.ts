@@ -53,7 +53,7 @@ const action = createAction({
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            campaign_id: providerResponse.data.id,
+            campaign_id: input.campaign_id,
             status: providerResponse.data.attributes.status,
             send_job_type: providerResponse.data.type
         };

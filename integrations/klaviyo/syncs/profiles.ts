@@ -48,6 +48,11 @@ const KlaviyoListResponseSchema = z.object({
         .optional()
 });
 
+function shiftBackOneMillisecond(isoTimestamp: string): string {
+    const shifted = new Date(new Date(isoTimestamp).getTime() - 1);
+    return shifted.toISOString();
+}
+
 function extractCursor(nextUrl: string): string | undefined {
     // @allowTryCatch URL parsing may fail on malformed links from the provider
     try {
@@ -98,7 +103,9 @@ const sync = createSync({
             };
 
             if (updatedAfter) {
-                params['filter'] = `greater-than(updated,${updatedAfter})`;
+                // The profiles API only supports strict greater-than on 'updated' (no greater-or-equal),
+                // so shift the boundary back 1ms to avoid missing records with the exact checkpoint timestamp.
+                params['filter'] = `greater-than(updated,${shiftBackOneMillisecond(updatedAfter)})`;
             }
 
             if (cursor) {
@@ -135,15 +142,13 @@ const sync = createSync({
 
             const nextUrl = validated.data.links?.next;
             if (!nextUrl) {
-                if (profiles.length > 0) {
-                    const lastProfile = profiles[profiles.length - 1];
-                    if (lastProfile && lastProfile.updated) {
-                        const nextState: z.infer<typeof CheckpointStateSchema> = {
-                            updated_after: lastProfile.updated
-                        };
-                        await nango.saveCheckpoint({ state: JSON.stringify(nextState) });
-                    }
+                const lastProfile = profiles.length > 0 ? profiles[profiles.length - 1] : undefined;
+                const newUpdatedAfter = lastProfile?.updated ?? updatedAfter;
+                const nextState: z.infer<typeof CheckpointStateSchema> = {};
+                if (newUpdatedAfter) {
+                    nextState.updated_after = newUpdatedAfter;
                 }
+                await nango.saveCheckpoint({ state: JSON.stringify(nextState) });
                 break;
             }
 

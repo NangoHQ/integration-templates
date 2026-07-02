@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     listId: z.string().describe('The ID of the list to add profiles to. Example: "XW53Ha"'),
-    profileIds: z.array(z.string()).min(1).describe('Array of profile IDs to add to the list. Example: ["01KWFX4MZPQDSD3YG79C83CBDV"]')
+    profileIds: z.array(z.string()).min(1).max(1000).describe('Array of profile IDs to add to the list. Maximum 1000. Example: ["01KWFX4MZPQDSD3YG79C83CBDV"]')
 });
 
 const OutputSchema = z.object({
@@ -15,6 +15,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['lists:write', 'profiles:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.klaviyo.com/en/reference/create_list_relationships
