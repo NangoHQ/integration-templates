@@ -699,10 +699,10 @@ export interface Note {
 
 export interface Tag {
   id: string;
-  name: string;
-  type: string;
-  created_at?: number | undefined;
-  updated_at?: number | undefined;
+  name?: string | undefined;
+  tag_group_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
 };
 
 export interface ActionInput_active_campaign_addcontacttolist {
@@ -20706,14 +20706,15 @@ export interface ActionOutput_basecamp_fetchtodolists {
 
 export interface Brand {
   id: string;
-  name?: string | undefined;
-  page_title?: string | undefined;
-  meta_keywords?: string[] | undefined;
-  meta_description?: string | undefined;
-  image_url?: string | undefined;
-  search_keywords?: string | undefined;
-  custom_url?: {  url?: string | undefined;
-  is_customized?: boolean | undefined;};
+  brandId: string;
+  brandName?: string | undefined;
+  brandCompany?: string | undefined;
+  defaultBrandLanguage?: string | undefined;
+  brandLanguages?: string[] | undefined;
+  isSendingDefault?: boolean | undefined;
+  isSigningDefault?: boolean | undefined;
+  isOrganizationBrand?: string | undefined;
+  isOverridingCompanyName?: boolean | undefined;
 };
 
 export interface Category {
@@ -20841,105 +20842,6 @@ export interface Customer {
   meta_data?: ({  id?: number | undefined;
   key?: string | undefined;
   value?: unknown | undefined;})[];
-};
-
-export interface Order {
-  id: string;
-  parent_id?: string | undefined;
-  number?: string | undefined;
-  order_key?: string | undefined;
-  created_via?: string | undefined;
-  version?: string | undefined;
-  status?: string | undefined;
-  currency?: string | undefined;
-  date_created?: string | undefined;
-  date_created_gmt?: string | undefined;
-  date_modified?: string | undefined;
-  date_modified_gmt?: string | undefined;
-  discount_total?: string | undefined;
-  discount_tax?: string | undefined;
-  shipping_total?: string | undefined;
-  shipping_tax?: string | undefined;
-  cart_tax?: string | undefined;
-  total?: string | undefined;
-  total_tax?: string | undefined;
-  prices_include_tax?: boolean | undefined;
-  customer_id?: string | undefined;
-  customer_ip_address?: string | undefined;
-  customer_user_agent?: string | undefined;
-  customer_note?: string | undefined;
-  billing?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;};
-  shipping?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;};
-  payment_method?: string | undefined;
-  payment_method_title?: string | undefined;
-  transaction_id?: string | undefined;
-  date_paid?: string | undefined;
-  date_paid_gmt?: string | undefined;
-  date_completed?: string | undefined;
-  date_completed_gmt?: string | undefined;
-  cart_hash?: string | undefined;
-  meta_data?: unknown[] | undefined;
-  line_items?: unknown[] | undefined;
-  tax_lines?: unknown[] | undefined;
-  shipping_lines?: unknown[] | undefined;
-  fee_lines?: unknown[] | undefined;
-  coupon_lines?: unknown[] | undefined;
-  refunds?: unknown[] | undefined;
-};
-
-export interface Product {
-  id: string;
-  Product_Name?: string | undefined;
-  Product_Code?: string | undefined;
-  Product_Category?: string | undefined;
-  Unit_Price?: number | undefined;
-  Taxable?: boolean | undefined;
-  Description?: string | undefined;
-  Manufacturer?: string | undefined;
-  Usage_Unit?: string | undefined;
-  Qty_in_Stock?: number | undefined;
-  Qty_Ordered?: number | undefined;
-  Qty_in_Demand?: number | undefined;
-  Reorder_Level?: number | undefined;
-  Commission_Rate?: number | undefined;
-  Sales_Start_Date?: string | undefined;
-  Sales_End_Date?: string | undefined;
-  Support_Start_Date?: string | undefined;
-  Support_Expiry_Date?: string | undefined;
-  Handler?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Owner?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Created_By?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Modified_By?: {  name?: string | undefined;
-  id?: string | undefined;
-  email?: string | undefined;};
-  Created_Time?: string | undefined;
-  Modified_Time?: string | undefined;
-  "$approved"?: boolean | undefined;
-  "$editable"?: boolean | undefined;
 };
 
 export interface Subscriber {
@@ -27995,44 +27897,6 @@ export interface CreditNote {
   currency_code?: string | undefined;
   created_time?: string | undefined;
   last_modified_time?: string | undefined;
-};
-
-export interface Customer {
-  id: string;
-  email: string;
-  first_name?: string | undefined;
-  last_name?: string | undefined;
-  role?: string | undefined;
-  username?: string | undefined;
-  date_created?: string | undefined;
-  date_created_gmt?: string | undefined;
-  date_modified?: string | undefined;
-  date_modified_gmt?: string | undefined;
-  billing?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;
-  email?: string | undefined;
-  phone?: string | undefined;};
-  shipping?: {  first_name?: string | undefined;
-  last_name?: string | undefined;
-  company?: string | undefined;
-  address_1?: string | undefined;
-  address_2?: string | undefined;
-  city?: string | undefined;
-  state?: string | undefined;
-  postcode?: string | undefined;
-  country?: string | undefined;};
-  is_paying_customer?: boolean | undefined;
-  avatar_url?: string | undefined;
-  meta_data?: ({  id?: number | undefined;
-  key?: string | undefined;
-  value?: unknown | undefined;})[];
 };
 
 export interface Invoice {
@@ -37019,19 +36883,6 @@ export interface ActionOutput_discourse_updatetopicstatus {
   result: string;
 };
 
-export interface Brand {
-  id: string;
-  brandId: string;
-  brandName?: string | undefined;
-  brandCompany?: string | undefined;
-  defaultBrandLanguage?: string | undefined;
-  brandLanguages?: string[] | undefined;
-  isSendingDefault?: boolean | undefined;
-  isSigningDefault?: boolean | undefined;
-  isOrganizationBrand?: string | undefined;
-  isOverridingCompanyName?: boolean | undefined;
-};
-
 export interface ConnectConfiguration {
   /**
    * The DocuSign-generated ID for the Connect configuration
@@ -37117,10 +36968,11 @@ export interface SigningGroup {
 export interface Template {
   id: string;
   name?: string | undefined;
-  description?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  uri?: string | undefined;
+  editor_type?: string | undefined;
+  html?: string | undefined;
+  text?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
 };
 
 export interface SyncMetadata_docusign_templates {
@@ -65230,6 +65082,1702 @@ export interface ActionInput_keeper_scim_deleteuser {
 
 export interface ActionOutput_keeper_scim_deleteuser {
   success: boolean;
+};
+
+export interface CatalogCategory {
+  id: string;
+  external_id?: string | undefined;
+  name?: string | undefined;
+  updated?: string | undefined;
+};
+
+export interface CatalogItem {
+  id: string;
+  external_id?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  price?: number | undefined;
+  url?: string | undefined;
+  image_full_url?: string | undefined;
+  image_thumbnail_url?: string | undefined;
+  published?: boolean | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+};
+
+export interface CouponCode {
+  id: string;
+  unique_code?: string | undefined;
+  status?: string | undefined;
+  expires_at?: string | undefined;
+  coupon_id?: string | undefined;
+};
+
+export interface Flow {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  trigger_type?: string | undefined;
+  flow_type?: string | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface Image {
+  id: string;
+  name?: string | undefined;
+  image_url?: string | undefined;
+  format?: string | undefined;
+  size?: number | undefined;
+  hidden?: boolean | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface Metric {
+  id: string;
+  name?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  integration?: {  name?: string | undefined;
+  category?: string | undefined;
+  id?: string | undefined;};
+};
+
+export interface Profile {
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+};
+
+export interface Review {
+  id: string;
+  email?: string | undefined;
+  status?: string | undefined;
+  verified: boolean;
+  review_type: string;
+  created: string;
+  updated: string;
+  images?: string[] | undefined;
+  product_url?: string | undefined;
+  product_name?: string | undefined;
+  product_image_url?: string | undefined;
+  product_external_id?: string | undefined;
+  rating?: number | undefined;
+  author?: string | undefined;
+  content?: string | undefined;
+  title?: string | undefined;
+  smart_quote?: string | undefined;
+  public_reply_content?: string | undefined;
+  public_reply_author?: string | undefined;
+  public_reply_updated?: string | undefined;
+  item_id?: string | undefined;
+  event_ids?: string[] | undefined;
+};
+
+export interface ActionInput_klaviyo_addprofilestolist {
+  /**
+   * The ID of the list to add profiles to. Example: "XW53Ha"
+   */
+  listId: string;
+  /**
+   * Array of profile IDs to add to the list. Maximum 1000. Example: ["01KWFX4MZPQDSD3YG79C83CBDV"]
+   */
+  profileIds: string[];
+};
+
+export interface ActionOutput_klaviyo_addprofilestolist {
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_assigntemplatetocampaignmessage {
+  /**
+   * The campaign message ID. Example: "01KWGH6P9Z1E8CN49A9DGDRMBW"
+   */
+  campaign_message_id: string;
+  /**
+   * The reusable template ID. Example: "WmRV7f"
+   */
+  template_id: string;
+};
+
+export interface ActionOutput_klaviyo_assigntemplatetocampaignmessage {
+  campaign_message_id: string;
+  assigned_template_id: string;
+};
+
+export interface ActionInput_klaviyo_bulkimportprofiles {
+  /**
+   * Array of profile attributes to bulk import.
+   */
+  profiles: ({  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  title?: string | undefined;
+  organization?: string | undefined;
+  image?: string | undefined;
+  location?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  region?: string | undefined;
+  zip?: string | undefined;
+  timezone?: string | undefined;
+  latitude?: number | undefined;
+  longitude?: number | undefined;};})[];
+  /**
+   * Optional list ID to add imported profiles to. Example: "XW53Ha"
+   */
+  list_id?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_bulkimportprofiles {
+  job_id: string;
+  status: string;
+  completed_at?: string | undefined;
+  failed_count?: number | undefined;
+  completed_count?: number | undefined;
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_klaviyo_createcampaign {
+  /**
+   * Campaign name. Example: "Summer Sale 2026"
+   */
+  name: string;
+  /**
+   * List or segment IDs to include in the audience. Example: ["XW53Ha"]
+   */
+  audience_ids: string[];
+  /**
+   * Message channel. Example: "email"
+   */
+  channel: 'email' | 'sms';
+  /**
+   * Label for the campaign message. Example: "Main message"
+   */
+  message_label?: string | undefined;
+  /**
+   * ISO 8601 send datetime. If omitted, defaults to ~6 months in the future. Example: "2027-01-15T12:00:00+00:00"
+   */
+  send_time?: string | undefined;
+  /**
+   * Whether to use smart sending. Defaults to true.
+   */
+  use_smart_sending?: boolean | undefined;
+  /**
+   * Whether to track opens. Defaults to true.
+   */
+  is_tracking_opens?: boolean | undefined;
+  /**
+   * Whether to track clicks. Defaults to true.
+   */
+  is_tracking_clicks?: boolean | undefined;
+};
+
+export interface ActionOutput_klaviyo_createcampaign {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createcatalogcategory {
+  /**
+   * Unique external ID for the category. Example: "nango-test-category-1"
+   */
+  external_id: string;
+  /**
+   * Display name of the category. Example: "Nango Test Category"
+   */
+  name: string;
+  /**
+   * Catalog type. Defaults to "$default".
+   */
+  catalog_type?: string | undefined;
+  /**
+   * Integration type. Defaults to "$custom".
+   */
+  integration_type?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createcatalogcategory {
+  /**
+   * Klaviyo catalog category ID. Example: "$custom:::$default:::nango-test-category-1"
+   */
+  id: string;
+  external_id: string;
+  name: string;
+  catalog_type?: string | undefined;
+  integration_type?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createcatalogitem {
+  /**
+   * Catalog item external_id. Example: 'nango-test-item-1'
+   */
+  external_id: string;
+  /**
+   * Catalog item title. Example: 'Nango Test Item'
+   */
+  title: string;
+  /**
+   * Catalog item description.
+   */
+  description: string;
+  /**
+   * Catalog item price.
+   */
+  price?: number | undefined;
+  /**
+   * Catalog item URL.
+   */
+  url: string;
+  /**
+   * Catalog type. Defaults to '$default'.
+   */
+  catalog_type?: string | undefined;
+  /**
+   * Integration type. Defaults to '$custom'.
+   */
+  integration_type?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createcatalogitem {
+  id: string;
+  external_id: string;
+  title: string;
+  description?: string | undefined;
+  price?: number | undefined;
+  url?: string | undefined;
+  catalog_type: string;
+  integration_type: string;
+};
+
+export interface ActionInput_klaviyo_createcatalogvariant {
+  /**
+   * Parent catalog item ID. Example: "$custom:::$default:::item-123"
+   */
+  item_id: string;
+  /**
+   * Unique external ID for the variant. Example: "variant-123"
+   */
+  external_id: string;
+  /**
+   * Title of the variant. Example: "Small Red Shirt"
+   */
+  title: string;
+  /**
+   * Description of the variant. Required even though optional on parent items. Example: "A small red cotton shirt."
+   */
+  description: string;
+  /**
+   * URL for the variant. Required even though optional on parent items. Example: "https://example.com/products/red-shirt"
+   */
+  url: string;
+  /**
+   * Stock keeping unit. Example: "SKU-123-RED-S"
+   */
+  sku: string;
+  /**
+   * Price of the variant. Example: 29.99
+   */
+  price: number;
+  /**
+   * Inventory policy value. Example: 0
+   */
+  inventory_policy?: number | undefined;
+  /**
+   * Available inventory quantity. Example: 100
+   */
+  inventory_quantity: number;
+  /**
+   * Whether the variant is published. Example: true
+   */
+  published?: boolean | undefined;
+};
+
+export interface ActionOutput_klaviyo_createcatalogvariant {
+  id: string;
+  type?: string | undefined;
+  external_id?: string | undefined;
+  catalog_type?: string | undefined;
+  integration_type?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  sku?: string | undefined;
+  url?: string | undefined;
+  price?: number | undefined;
+  inventory_policy?: number | undefined;
+  inventory_quantity?: number | undefined;
+  published?: boolean | undefined;
+  item_id?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createcouponcode {
+  /**
+   * Coupon ID. Example: "nango_seed_coupon_1"
+   */
+  coupon_id: string;
+  /**
+   * Unique coupon code to create. Example: "NANGOTESTCODE1"
+   */
+  unique_code: string;
+};
+
+export interface ActionOutput_klaviyo_createcouponcode {
+  id: string;
+  coupon_id: string;
+  unique_code: string;
+  expires_at?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createcoupon {
+  /**
+   * Unique coupon identifier. Example: "nango_seed_coupon_1"
+   */
+  external_id: string;
+  /**
+   * Human-readable description of the coupon.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createcoupon {
+  id: string;
+  external_id: string;
+  description?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createevent {
+  /**
+   * The name of the metric to associate with this event. Example: "Placed Order"
+   */
+  metric_name: string;
+  /**
+   * The email address of the profile to associate with this event. Example: "user@example.com"
+   */
+  profile_email: string;
+  /**
+   * Additional properties for the event. Example: { order_id: "123" }
+   */
+  properties?: {  [key: string]: unknown | undefined;};
+  /**
+   * ISO8601 timestamp for the event. Example: "2024-01-15T10:00:00Z"
+   */
+  time?: string | undefined;
+  /**
+   * Numeric value for the event. Example: 99.99
+   */
+  value?: number | undefined;
+  /**
+   * Unique identifier for idempotent retries. Example: "event-123-abc"
+   */
+  unique_id?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createevent {
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_createimage {
+  /**
+   * URL of the image to import. Example: "https://example.com/image.png"
+   */
+  import_from_url: string;
+  /**
+   * Name for the imported image. Example: "My Image"
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createimage {
+  id: string;
+  name?: string | undefined;
+  image_url?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createlist {
+  /**
+   * Name of the list to create. Example: "My New List"
+   */
+  name: string;
+};
+
+export interface ActionOutput_klaviyo_createlist {
+  id: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;
+  opt_in_process?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createprofile {
+  /**
+   * Email address of the profile. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the profile. Example: "+1234567890"
+   */
+  phone_number?: string | undefined;
+  /**
+   * First name of the profile. Example: "John"
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the profile. Example: "Doe"
+   */
+  last_name?: string | undefined;
+  /**
+   * External ID of the profile. Example: "user-123"
+   */
+  external_id?: string | undefined;
+  /**
+   * Custom properties for the profile.
+   */
+  properties?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_klaviyo_createprofile {
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  external_id?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createsegment {
+  /**
+   * Segment name. Example: "New Subscribers"
+   */
+  name: string;
+  /**
+   * Segment condition definition. Example: { condition_groups: [{ conditions: [{ type: "profile-property", property: "email", filter: { type: "existence", operator: "is-set" } }] }] }
+   */
+  definition: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_klaviyo_createsegment {
+  id: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createtaggroup {
+  /**
+   * Name of the tag group. Example: 'Campaign Tags'
+   */
+  name: string;
+  /**
+   * Whether a tagged resource can only carry one tag from this group at a time. Defaults to false.
+   */
+  exclusive?: boolean | undefined;
+};
+
+export interface ActionOutput_klaviyo_createtaggroup {
+  /**
+   * The unique identifier of the tag group.
+   */
+  id: string;
+  /**
+   * The name of the tag group.
+   */
+  name: string;
+  /**
+   * Whether the tag group is exclusive.
+   */
+  exclusive: boolean;
+};
+
+export interface ActionInput_klaviyo_createtag {
+  /**
+   * Tag name. Example: "new-tag"
+   */
+  name: string;
+  /**
+   * Optional tag group ID to file the tag under. Omit to use the default tag group.
+   */
+  tag_group_id?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createtag {
+  id: string;
+  name: string;
+};
+
+export interface ActionInput_klaviyo_createtemplate {
+  /**
+   * Template name. Example: "Welcome Email"
+   */
+  name: string;
+  /**
+   * Raw HTML content for the template. Example: "<html><body>Hello</body></html>"
+   */
+  html: string;
+};
+
+export interface ActionOutput_klaviyo_createtemplate {
+  /**
+   * Template ID. Example: "WmRV7f"
+   */
+  id: string;
+  /**
+   * Template name.
+   */
+  name: string;
+  /**
+   * Editor type used to create the template. Example: "CODE"
+   */
+  editor_type: string;
+  /**
+   * Raw HTML content of the template.
+   */
+  html: string;
+  /**
+   * ISO 8601 creation timestamp.
+   */
+  created_at?: string | undefined;
+  /**
+   * ISO 8601 update timestamp.
+   */
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_deletecampaign {
+  /**
+   * Campaign ID. Example: "01KWGH6P9PERJ0AHGNBJQMH55G"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecampaign {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_deletecatalogcategory {
+  /**
+   * The unique identifier of the catalog category. Example: "$custom:::$default:::nango-seed-category-1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecatalogcategory {
+  success: boolean;
+  id?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_deletecatalogitem {
+  /**
+   * Catalog item ID. Example: "$custom:::$default:::nango-seed-item-1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecatalogitem {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_klaviyo_deletecatalogvariant {
+  /**
+   * Catalog variant ID. Example: "$custom:::$default:::nango_seed_variant_1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecatalogvariant {
+  id: string;
+};
+
+export interface ActionInput_klaviyo_deletecouponcode {
+  /**
+   * The unique ID of the coupon code to delete. Example: "nango_seed_coupon_1-NANGOSEED1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecouponcode {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_klaviyo_deletecoupon {
+  /**
+   * Coupon ID. Example: "nango_seed_coupon_1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecoupon {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_deleteflow {
+  /**
+   * ID of the Flow to delete. Example: XVTP5Q
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deleteflow {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_deletelist {
+  /**
+   * The list ID to delete. Example: "XeqJK9"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletelist {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_deletesegment {
+  /**
+   * Segment ID. Example: "SRSEt8"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletesegment {
+  id: string;
+};
+
+export interface ActionInput_klaviyo_deletetaggroup {
+  /**
+   * Tag group ID. Example: "a2172fc4-968e-49e8-8ced-ea0bb242acba"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletetaggroup {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_klaviyo_deletetag {
+  /**
+   * The tag ID to delete. Example: "aa27b1b8-9198-47da-86bf-3f6196d4c074"
+   */
+  tag_id: string;
+};
+
+export interface ActionOutput_klaviyo_deletetag {
+  id: string;
+};
+
+export interface ActionInput_klaviyo_deletetemplate {
+  /**
+   * Template ID. Example: "WmRV7f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletetemplate {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_klaviyo_getcampaign {
+  /**
+   * Campaign ID. Example: "01KWGH6P9PERJ0AHGNBJQMH55G"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_getcampaign {
+  id: string;
+  type: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  channel?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  scheduled_at?: string | undefined;
+  attributes?: {  [key: string]: unknown | undefined;};
+  relationships?: {  [key: string]: unknown | undefined;};
+  messages?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_klaviyo_getimage {
+  /**
+   * The ID of the image. Example: "343296489"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_getimage {
+  id: string;
+  type: string;
+  format?: string | undefined;
+  hidden?: boolean | undefined;
+  image_url?: string | undefined;
+  name?: string | undefined;
+  size?: number | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_getlist {
+  /**
+   * Primary key that uniquely identifies this list. Example: "XW53Ha"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_getlist {
+  id: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;
+  opt_in_process?: string | undefined;
+  profile_count?: number | undefined;
+};
+
+export interface ActionInput_klaviyo_getprofile {
+  /**
+   * Profile ID. Example: "01KWFX4MZPQDSD3YG79C83CBDV"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_getprofile {
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  title?: string | undefined;
+  organization?: string | undefined;
+  image?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  last_event_date?: string | undefined;
+  location?: {  [key: string]: unknown | undefined;};
+  properties?: {  [key: string]: unknown | undefined;};
+  subscriptions?: {  [key: string]: unknown | undefined;};
+  predictive_analytics?: {  [key: string]: unknown | undefined;};
+  anonymous?: boolean | undefined;
+};
+
+export interface ActionInput_klaviyo_getsegment {
+  /**
+   * Segment ID. Example: "SRSEt8"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_getsegment {
+  id: string;
+  name?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  is_active: boolean;
+  is_processing: boolean;
+  is_starred: boolean;
+  profile_count?: number | undefined;
+};
+
+export interface ActionInput_klaviyo_gettemplate {
+  /**
+   * The ID of the template. Example: "WmRV7f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_gettemplate {
+  id: string;
+  name: string;
+  editor_type: string;
+  html: string;
+  text?: string | undefined;
+  amp?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  definition?: unknown | undefined;
+};
+
+export interface ActionInput_klaviyo_listcampaigns {
+  /**
+   * Campaign channel filter. Defaults to 'email'.
+   */
+  channel?: 'email' | 'sms' | 'mobile_push' | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Defaults to 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcampaigns {
+  items: ({  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  archived?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  scheduled_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listcatalogcategories {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcatalogcategories {
+  categories: ({  id: string;
+  external_id?: string | undefined;
+  name?: string | undefined;
+  updated?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listcatalogitems {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter query string. Example: equals(published,true)
+   */
+  filter?: string | undefined;
+  /**
+   * Sort order. Example: created or -created
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page. Default: 100, Min: 1, Max: 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcatalogitems {
+  items: ({  id: string;
+  external_id?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  url?: string | undefined;
+  published?: boolean | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listcatalogvariants {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by the parent catalog item ID. Example: "$custom:::$default:::nango-seed-item-1"
+   */
+  item_id?: string | undefined;
+  /**
+   * Filter by SKU (exact match).
+   */
+  sku?: string | undefined;
+  /**
+   * Filter by title (contains).
+   */
+  title?: string | undefined;
+  /**
+   * Filter by published status (exact match).
+   */
+  published?: boolean | undefined;
+  /**
+   * Number of results per page. Default: 100. Min: 1. Max: 100.
+   */
+  page_size?: number | undefined;
+  /**
+   * Sort order. Use "created" for ascending or "-created" for descending.
+   */
+  sort?: 'created' | '-created' | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcatalogvariants {
+  items: ({  id: string;
+  external_id?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  sku?: string | undefined;
+  inventory_policy?: number | undefined;
+  inventory_quantity?: number | undefined;
+  price?: number | undefined;
+  url?: string | undefined;
+  image_full_url?: string | undefined;
+  image_thumbnail_url?: string | undefined;
+  images?: string[] | undefined;
+  custom_metadata?: {  [key: string]: unknown | undefined;};
+  published?: boolean | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  item_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listcouponcodes {
+  /**
+   * Coupon ID to filter by. Example: "nango_seed_coupon_1"
+   */
+  coupon_id?: string | undefined;
+  /**
+   * Profile ID to filter by. Example: "01KWFX4MZPQDSD3YG79C83CBDV"
+   */
+  profile_id?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 100, Max: 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcouponcodes {
+  items: ({  id: string;
+  unique_code?: string | undefined;
+  status?: string | undefined;
+  expires_at?: string | undefined;
+  coupon_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listcoupons {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcoupons {
+  coupons: ({  id: string;
+  type: string;
+  attributes: {};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listevents {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by metric ID. Example: "abc123"
+   */
+  metric_id?: string | undefined;
+  /**
+   * Filter by profile ID. Example: "01KWFX4MZPQDSD3YG79C83CBDV"
+   */
+  profile_id?: string | undefined;
+  /**
+   * Filter by datetime. Example: "2024-01-01T00:00:00Z"
+   */
+  datetime?: string | undefined;
+  /**
+   * Relationships to include in the response.
+   */
+  include?: ({  0: 'metric';
+  1: 'profile';})[] | undefined;
+};
+
+export interface ActionOutput_klaviyo_listevents {
+  data?: unknown[] | undefined;
+  included?: unknown[] | undefined;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listflows {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listflows {
+  flows: ({  id: string;
+  type: string;
+  attributes?: {  name?: string | undefined;
+  status?: string | undefined;
+  trigger_type?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;};
+  links?: {  self?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listforms {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Defaults to 20.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listforms {
+  items: ({  type: string;
+  id: string;
+  attributes?: {  ab_test?: boolean | undefined;
+  created_at?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  updated_at?: string | undefined;};
+  relationships?: {  [key: string]: unknown | undefined;};
+  links?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listimages {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listimages {
+  items: ({  id: string;
+  name?: string | undefined;
+  image_url?: string | undefined;
+  format?: string | undefined;
+  size?: number | undefined;
+  hidden?: boolean | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listlists {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listlists {
+  items: ({  id: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;
+  opt_in_process?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listmetrics {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listmetrics {
+  metrics: ({  id: string;
+  type: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;
+  integration?: {  name?: string | undefined;
+  category?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listprofiles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter query string. Example: equals(email,'john.doe@nangotest.dev')
+   */
+  filter?: string | undefined;
+  /**
+   * Number of results per page. Default is provider-specific.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listprofiles {
+  items: ({  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  anonymous_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  organization?: string | undefined;
+  title?: string | undefined;
+  image?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  last_event_date?: string | undefined;
+  location?: {  [key: string]: unknown | undefined;};
+  properties?: {  [key: string]: unknown | undefined;};
+  predictive_analytics?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listreviews {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 20, Max: 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listreviews {
+  items: ({  id: string;
+  email?: string | undefined;
+  status?: string | undefined;
+  rejection_reason?: string | undefined;
+  rejection_explanation?: string | undefined;
+  verified: boolean;
+  review_type: string;
+  created: string;
+  updated: string;
+  images: string[];
+  product?: {  url: string;
+  name: string;
+  image_url?: string | undefined;
+  external_id?: string | undefined;};
+  rating?: number | undefined;
+  author?: string | undefined;
+  content?: string | undefined;
+  title?: string | undefined;
+  smart_quote?: string | undefined;
+  public_reply?: {  content: string;
+  author: string;
+  updated: string;} | undefined;
+  event_ids?: string[] | undefined;
+  item_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listsegments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listsegments {
+  items: ({  id: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listtaggroups {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listtaggroups {
+  items: ({  id: string;
+  name: string;
+  default: boolean;
+  exclusive: boolean;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listtags {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listtags {
+  items: ({  id: string;
+  name: string;
+  tag_group_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listtemplates {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listtemplates {
+  items: ({  id: string;
+  name?: string | undefined;
+  editor_type?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listwebhooks {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listwebhooks {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  endpoint_url: string;
+  enabled: boolean;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  webhook_topics?: string[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_mergeprofiles {
+  /**
+   * The ID of the profile to merge into the destination. Example: "01KWFX59SDCSCCSF0WVS9D5DFT"
+   */
+  source_id: string;
+  /**
+   * The ID of the profile to keep after the merge. Example: "01KWFX5B2R2JJMQTH7J23ZZ0S1"
+   */
+  destination_id: string;
+};
+
+export interface ActionOutput_klaviyo_mergeprofiles {
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_querycampaignvaluesreport {
+  /**
+   * Timeframe key for the report. Example: "last_30_days"
+   */
+  timeframe_key?: string | undefined;
+  /**
+   * Metric ID to use for conversion attribution. Example: "abc123"
+   */
+  conversion_metric_id?: string | undefined;
+  /**
+   * List of statistics to include. Example: ["opens", "clicks", "delivered"]
+   */
+  statistics?: string[] | undefined;
+  /**
+   * Klaviyo filter expression. Example: "equals(campaign_channel,'email')"
+   */
+  filter?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_querycampaignvaluesreport {
+  type: string;
+  id?: string | undefined;
+  attributes: {  timeframe?: {  key?: string | undefined;
+  start?: string | undefined;
+  end?: string | undefined;};
+  statistics?: {  [key: string]: unknown | undefined;};
+  groupings?: {  [key: string]: unknown | undefined;};
+  results?: ({  [key: string]: unknown | undefined;})[];};
+  relationships?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_klaviyo_querymetricaggregates {
+  /**
+   * The ID of the metric to query aggregates for. Example: "UGkwJB"
+   */
+  metric_id: string;
+  /**
+   * The measurements to return. Example: ["count", "sum_value"]
+   */
+  measurements: string[];
+  /**
+   * The time bucket size. Example: "day"
+   */
+  interval: string;
+  /**
+   * The timezone for the query. Defaults to UTC. Example: "UTC"
+   */
+  timezone?: string | undefined;
+  /**
+   * Filters to apply. Example: ["greater-or-equal(datetime,2026-01-01T00:00:00Z)", "less-than(datetime,2026-07-03T00:00:00Z)"]
+   */
+  filter?: string[] | undefined;
+  /**
+   * Dimensions to group by.
+   */
+  by?: string[] | undefined;
+  /**
+   * Fields to return in the response.
+   */
+  return_fields?: string[] | undefined;
+  /**
+   * Number of results per page.
+   */
+  page_size?: number | undefined;
+  /**
+   * Sort order.
+   */
+  sort?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_querymetricaggregates {
+  id: string;
+  type: 'metric-aggregate';
+  metric_id: string;
+  measurements: string[];
+  interval: string;
+  timezone?: string | undefined;
+  filter?: string[] | undefined;
+  by?: string[] | undefined;
+  return_fields?: string[] | undefined;
+  dates: string[];
+  data?: ({  dimensions: string[];
+  measurements: {  [key: string]: number[];};})[] | undefined;
+  links?: {  self?: string | undefined;
+  next?: string | undefined;
+  prev?: string | undefined;};
+};
+
+export interface ActionInput_klaviyo_removeprofilesfromlist {
+  /**
+   * The list ID. Example: "XW53Ha"
+   */
+  list_id: string;
+  /**
+   * Profile IDs to remove from the list. Maximum 1000 per call.
+   */
+  profile_ids: string[];
+};
+
+export interface ActionOutput_klaviyo_removeprofilesfromlist {
+  list_id: string;
+  removed_profile_ids: string[];
+};
+
+export interface ActionInput_klaviyo_requestprofiledeletion {
+  /**
+   * Email address of the profile to delete. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_klaviyo_requestprofiledeletion {
+  id: string;
+  email: string;
+};
+
+export interface ActionInput_klaviyo_sendcampaign {
+  /**
+   * The ID of the campaign to send. Example: "01KWGH6P9PERJ0AHGNBJQMH55G"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_klaviyo_sendcampaign {
+  campaign_id: string;
+  status: string;
+  send_job_type: string;
+};
+
+export interface ActionInput_klaviyo_subscribeprofiles {
+  /**
+   * The ID of the list to subscribe profiles to. Example: "XW53Ha"
+   */
+  list_id: string;
+  /**
+   * Array of profiles to subscribe.
+   */
+  profiles: ({  /**
+   * Profile email address. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Profile phone number in E.164 format. Example: "+15005550006"
+   */
+  phone_number?: string | undefined;
+  subscriptions?: {  email?: {  marketing?: {  consent: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'NEVER_SUBSCRIBED' | 'SUBSCRIBED_PENDING_DOUBLE_OPTIN';} | undefined;};
+  sms?: {  marketing?: {  consent: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'NEVER_SUBSCRIBED' | 'SUBSCRIBED_PENDING_DOUBLE_OPTIN';} | undefined;};};})[];
+};
+
+export interface ActionOutput_klaviyo_subscribeprofiles {
+  success: boolean;
+  list_id: string;
+};
+
+export interface ActionInput_klaviyo_unsubscribeprofiles {
+  /**
+   * The list ID to remove profiles from. Example: "XW53Ha"
+   */
+  list_id: string;
+  /**
+   * The profiles to unsubscribe. Either email or phone_number is required per profile. Maximum 100 profiles.
+   */
+  profiles: ({  /**
+   * Profile email address. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Profile phone number in E.164 format. Example: "+15005550006"
+   */
+  phone_number?: string | undefined;})[];
+};
+
+export interface ActionOutput_klaviyo_unsubscribeprofiles {
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_updatecampaign {
+  /**
+   * The campaign ID to update. Example: "01KWGH6P9PERJ0AHGNBJQMH55G"
+   */
+  id: string;
+  /**
+   * The campaign name. Set to null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * The audiences to include and/or exclude. Set to null to clear.
+   */
+  audiences?: {  included?: string[] | undefined;
+  excluded?: string[] | undefined;};
+  /**
+   * The send strategy for the campaign. Set to null to clear.
+   */
+  send_strategy?: {  method: 'static';
+  datetime: string;
+  options?: {  is_local: boolean;
+  send_past_recipients_immediately?: boolean | undefined;};} | {  method: 'immediate';} | {  method: 'throttled';
+  datetime: string;
+  throttle_percentage: number;} | {  method: 'smart_send_time';
+  date: string;} | {  method: 'ab_test_campaign';};
+  /**
+   * Options to use when sending the campaign. Set to null to clear.
+   */
+  send_options?: {  use_smart_sending?: boolean | undefined;};
+  /**
+   * The tracking options associated with the campaign. Set to null to clear.
+   */
+  tracking_options?: {  add_tracking_params?: boolean | undefined;
+  custom_tracking_params?: ({  type: 'dynamic' | 'static';
+  value: string;
+  name: string;})[] | undefined;
+  is_tracking_clicks?: boolean | undefined;
+  is_tracking_opens?: boolean | undefined;} | {  add_tracking_params?: boolean | undefined;
+  custom_tracking_params?: ({  type: 'dynamic' | 'static';
+  value: string;
+  name: string;})[] | undefined;};
+};
+
+export interface ActionOutput_klaviyo_updatecampaign {
+  id: string;
+  name: string;
+  status: string;
+  archived: boolean;
+  audiences?: {  included: string[];
+  excluded?: string[] | undefined;};
+  send_strategy?: unknown | undefined;
+  send_options?: unknown | undefined;
+  tracking_options?: unknown | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  scheduled_at?: string | undefined;
+  send_time?: string | undefined;
+  campaign_message_ids?: string[] | undefined;
+  tag_ids?: string[] | undefined;
+};
+
+export interface ActionInput_klaviyo_updateflowstatus {
+  /**
+   * Flow ID. Example: "01ABC123"
+   */
+  flow_id: string;
+  /**
+   * Target status for the flow.
+   */
+  status: 'draft' | 'manual' | 'live' | 'archived';
+};
+
+export interface ActionOutput_klaviyo_updateflowstatus {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  archived?: boolean | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  trigger_type?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_updatelist {
+  /**
+   * The ID of the list to update. Example: "UgA2kN"
+   */
+  id: string;
+  /**
+   * The new name for the list. Example: "Updated List Name"
+   */
+  name: string;
+};
+
+export interface ActionOutput_klaviyo_updatelist {
+  id: string;
+  name?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_updateprofile {
+  /**
+   * Profile ID. Example: "01KWFX4MZPQDSD3YG79C83CBDV"
+   */
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  title?: string | undefined;
+  organization?: string | undefined;
+  image?: string | undefined;
+  location?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  region?: string | undefined;
+  zip?: string | undefined;
+  timezone?: string | undefined;
+  ip?: string | undefined;};
+  properties?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_klaviyo_updateprofile {
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  title?: string | undefined;
+  organization?: string | undefined;
+  image?: string | undefined;
+  location?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  region?: string | undefined;
+  zip?: string | undefined;
+  timezone?: string | undefined;
+  ip?: string | undefined;};
+  properties?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_klaviyo_updatesegment {
+  /**
+   * Segment ID. Example: "SRSEt8"
+   */
+  id: string;
+  /**
+   * The name of the segment.
+   */
+  name?: string | undefined;
+  /**
+   * The segment definition containing condition groups.
+   */
+  definition?: {  condition_groups?: ({  [key: string]: unknown | undefined;})[];};
+  /**
+   * Whether the segment is starred.
+   */
+  is_starred?: boolean | undefined;
+  /**
+   * Set to false to deactivate the segment. Must be the only attribute when deactivating.
+   */
+  is_active?: boolean | undefined;
+};
+
+export interface ActionOutput_klaviyo_updatesegment {
+  id: string;
+  type: string;
+  name?: string | undefined;
+  definition?: {  condition_groups?: ({  [key: string]: unknown | undefined;})[];};
+  created?: string | undefined;
+  updated?: string | undefined;
+  is_active: boolean;
+  is_processing: boolean;
+  is_starred: boolean;
+};
+
+export interface ActionInput_klaviyo_updatetag {
+  /**
+   * Tag ID. Example: "aa27b1b8-9198-47da-86bf-3f6196d4c074"
+   */
+  id: string;
+  /**
+   * New name for the tag. Example: "updated-tag-name"
+   */
+  name: string;
+};
+
+export interface ActionOutput_klaviyo_updatetag {
+  id: string;
+  name: string;
+};
+
+export interface ActionInput_klaviyo_updatetemplate {
+  /**
+   * The ID of the template. Example: "VJQSuC"
+   */
+  id: string;
+  /**
+   * The name of the template
+   */
+  name?: string | undefined;
+  /**
+   * The HTML contents of the template
+   */
+  html?: string | undefined;
+  /**
+   * The plaintext of the template
+   */
+  text?: string | undefined;
+  /**
+   * The AMP version of the template
+   */
+  amp?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_updatetemplate {
+  id: string;
+  name: string;
+  editor_type: string;
+  html: string;
+  text?: string | undefined;
+  amp?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
 };
 
 export interface KustomerConversation {
