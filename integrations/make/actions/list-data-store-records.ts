@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     dataStoreId: z.number().describe('Data store ID. Example: 141641'),
-    limit: z.number().optional().describe('Page size. Default: 10'),
+    limit: z.number().int().positive().optional().describe('Page size. Default: 10'),
     cursor: z.string().optional().describe('Pagination offset from the previous response. Omit for the first page.')
 });
 

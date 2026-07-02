@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     teamId: z.number().describe('Team ID. Example: 2066772'),
     cursor: z.string().optional().describe('Pagination cursor (offset). Omit for the first page.'),
-    limit: z.number().optional().describe('Max results per page. Defaults to 150.')
+    limit: z.number().int().positive().optional().describe('Max results per page. Defaults to 150.')
 });
 
 const DataStructureSchema = z
@@ -44,10 +44,10 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 150;
         const offset = input.cursor ? Number(input.cursor) : 0;
-        if (input.cursor && Number.isNaN(offset)) {
+        if (input.cursor !== undefined && (input.cursor.trim().length === 0 || !Number.isInteger(offset) || offset < 0)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a valid numeric offset string'
+                message: 'cursor must be a valid non-negative integer offset string'
             });
         }
 

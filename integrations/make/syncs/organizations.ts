@@ -54,8 +54,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /organizations does not support updated_since, modified_after,
         // or any resumable cursor. It returns a full snapshot with no incremental filters.
-        await nango.trackDeletesStart('Organization');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developers.make.com/api-documentation/api-reference/organizations.md
             endpoint: '/organizations',
@@ -70,13 +68,19 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate<unknown>(proxyConfig)) {
-            const parsed = z.array(ProviderOrganizationSchema).safeParse(page);
-            if (!parsed.success) {
-                throw new Error(`Failed to parse organizations page: ${parsed.error.message}`);
-            }
+        const pageIterator = nango.paginate<unknown>(proxyConfig)[Symbol.asyncIterator]();
+        const firstResult = await pageIterator.next();
+        const firstParsed = firstResult.done ? undefined : z.array(ProviderOrganizationSchema).safeParse(firstResult.value);
+        if (firstParsed && !firstParsed.success) {
+            throw new Error(`Failed to parse organizations page: ${firstParsed.error.message}`);
+        }
 
-            const organizations = parsed.data.map((org) => ({
+        // Only open delete tracking once the first page is confirmed valid, so a failed
+        // run never leaves tracking started without a matching trackDeletesEnd.
+        await nango.trackDeletesStart('Organization');
+
+        const mapOrganizations = (parsed: z.infer<typeof ProviderOrganizationSchema>[]) =>
+            parsed.map((org) => ({
                 id: String(org.id),
                 name: org.name,
                 ...(org.createdAt !== undefined && { createdAt: org.createdAt }),
@@ -96,6 +100,20 @@ const sync = createSync({
                 ...(org.tfaEnforced !== undefined && { tfaEnforced: org.tfaEnforced })
             }));
 
+        if (firstParsed && firstParsed.success) {
+            const organizations = mapOrganizations(firstParsed.data);
+            if (organizations.length > 0) {
+                await nango.batchSave(organizations, 'Organization');
+            }
+        }
+
+        for (let result = await pageIterator.next(); !result.done; result = await pageIterator.next()) {
+            const parsed = z.array(ProviderOrganizationSchema).safeParse(result.value);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse organizations page: ${parsed.error.message}`);
+            }
+
+            const organizations = mapOrganizations(parsed.data);
             if (organizations.length > 0) {
                 await nango.batchSave(organizations, 'Organization');
             }

@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     scenarioId: z.number().describe('The ID of the scenario to list incomplete executions for. Example: 6413021'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of results to return per page. Defaults to 25.')
+    limit: z.number().int().positive().optional().describe('Maximum number of results to return per page. Defaults to 25.')
 });
 
 const DlqSchema = z.object({
@@ -41,10 +41,10 @@ const action = createAction({
         const limit = input.limit ?? 25;
         const offset = input.cursor ? Number(input.cursor) : 0;
 
-        if (Number.isNaN(offset)) {
+        if (input.cursor !== undefined && (input.cursor.trim().length === 0 || !Number.isInteger(offset) || offset < 0)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'Invalid pagination cursor. Must be a numeric offset.'
+                message: 'Invalid pagination cursor. Must be a non-negative integer offset.'
             });
         }
 

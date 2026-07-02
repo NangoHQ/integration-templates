@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     hookId: z.number().describe('The ID of the webhook. Example: 3329421'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of results per page.')
+    limit: z.number().int().positive().optional().describe('Maximum number of results per page.')
 });
 
 const ProviderIncomingSchema = z.object({

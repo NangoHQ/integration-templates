@@ -39,8 +39,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Team');
-
         const orgProxyConfig: ProxyConfiguration = {
             // https://developers.make.com/api-documentation/
             endpoint: '/organizations',
@@ -55,56 +53,64 @@ const sync = createSync({
             retries: 3
         };
 
+        const organizations: Array<z.infer<typeof OrganizationItemSchema>> = [];
         for await (const orgPage of nango.paginate<unknown>(orgProxyConfig)) {
             for (const rawOrg of orgPage) {
                 const orgResult = OrganizationItemSchema.safeParse(rawOrg);
                 if (!orgResult.success) {
                     throw new Error(`Invalid organization item: ${orgResult.error.message}`);
                 }
-                const org = orgResult.data;
+                organizations.push(orgResult.data);
+            }
+        }
 
-                const teamProxyConfig: ProxyConfiguration = {
-                    // https://developers.make.com/api-documentation/
-                    endpoint: '/teams',
-                    params: {
-                        organizationId: org.id
-                    },
-                    paginate: {
-                        type: 'offset',
-                        offset_name_in_request: 'pg[offset]',
-                        offset_calculation_method: 'by-response-size',
-                        limit_name_in_request: 'pg[limit]',
-                        limit: 100,
-                        response_path: 'teams'
-                    },
-                    retries: 3
-                };
+        // Only open delete tracking once every organization has been enumerated and
+        // validated, so a failed run never leaves tracking started without a matching
+        // trackDeletesEnd.
+        await nango.trackDeletesStart('Team');
 
-                for await (const teamPage of nango.paginate<unknown>(teamProxyConfig)) {
-                    const teams = [];
-                    for (const rawTeam of teamPage) {
-                        const teamResult = TeamItemSchema.safeParse(rawTeam);
-                        if (!teamResult.success) {
-                            throw new Error(`Invalid team item: ${teamResult.error.message}`);
-                        }
-                        const team = teamResult.data;
+        for (const org of organizations) {
+            const teamProxyConfig: ProxyConfiguration = {
+                // https://developers.make.com/api-documentation/
+                endpoint: '/teams',
+                params: {
+                    organizationId: org.id
+                },
+                paginate: {
+                    type: 'offset',
+                    offset_name_in_request: 'pg[offset]',
+                    offset_calculation_method: 'by-response-size',
+                    limit_name_in_request: 'pg[limit]',
+                    limit: 100,
+                    response_path: 'teams'
+                },
+                retries: 3
+            };
 
-                        teams.push({
-                            id: String(team.id),
-                            name: team.name,
-                            organizationId: String(org.id),
-                            operationsLimit: team.operationsLimit,
-                            transferLimit: team.transferLimit !== undefined ? String(team.transferLimit) : undefined,
-                            consumedOperations: team.consumedOperations,
-                            consumedTransfer: team.consumedTransfer !== undefined ? String(team.consumedTransfer) : undefined,
-                            isPaused: team.isPaused,
-                            consumedCenticredits: team.consumedCenticredits
-                        });
+            for await (const teamPage of nango.paginate<unknown>(teamProxyConfig)) {
+                const teams = [];
+                for (const rawTeam of teamPage) {
+                    const teamResult = TeamItemSchema.safeParse(rawTeam);
+                    if (!teamResult.success) {
+                        throw new Error(`Invalid team item: ${teamResult.error.message}`);
                     }
+                    const team = teamResult.data;
 
-                    if (teams.length > 0) {
-                        await nango.batchSave(teams, 'Team');
-                    }
+                    teams.push({
+                        id: String(team.id),
+                        name: team.name,
+                        organizationId: String(org.id),
+                        operationsLimit: team.operationsLimit,
+                        transferLimit: team.transferLimit !== undefined ? String(team.transferLimit) : undefined,
+                        consumedOperations: team.consumedOperations,
+                        consumedTransfer: team.consumedTransfer !== undefined ? String(team.consumedTransfer) : undefined,
+                        isPaused: team.isPaused,
+                        consumedCenticredits: team.consumedCenticredits
+                    });
+                }
+
+                if (teams.length > 0) {
+                    await nango.batchSave(teams, 'Team');
                 }
             }
         }
