@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dataStoreId: z.string().describe('Data store ID. Example: "141641"'),
+    dataStoreId: z.number().describe('Data store ID. Example: 141641'),
     limit: z.number().optional().describe('Page size. Default: 10'),
     cursor: z.string().optional().describe('Pagination offset from the previous response. Omit for the first page.')
 });
@@ -44,9 +44,16 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['datastores:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const offset = input.cursor ? Number(input.cursor) : 0;
+        if (!Number.isInteger(offset) || offset < 0) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a valid non-negative integer offset string'
+            });
+        }
         const limit = input.limit ?? 10;
 
         // https://developers.make.com/api-documentation/

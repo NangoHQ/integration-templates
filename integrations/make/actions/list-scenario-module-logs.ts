@@ -41,10 +41,10 @@ const PgSchema = z
     .passthrough();
 
 const InputSchema = z.object({
-    scenarioId: z.number().describe('The ID of the scenario. Example: 6413021'),
-    moduleId: z.number().describe('The unique ID of the scenario module (flow node id from the blueprint). Example: 1'),
+    scenarioId: z.number().int().positive().describe('The ID of the scenario. Example: 6413021'),
+    moduleId: z.number().int().positive().describe('The unique ID of the scenario module (flow node id from the blueprint). Example: 1'),
     cursor: z.string().optional().describe('Pagination cursor (offset) from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('The maximum number of entities to return.')
+    limit: z.number().int().positive().optional().describe('The maximum number of entities to return.')
 });
 
 const OutputSchema = z
@@ -70,7 +70,14 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};
         if (input.cursor !== undefined) {
-            params['pg[offset]'] = parseInt(input.cursor, 10);
+            const offset = Number(input.cursor);
+            if (!Number.isInteger(offset) || offset < 0) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a valid non-negative integer offset string'
+                });
+            }
+            params['pg[offset]'] = offset;
         }
         if (input.limit !== undefined) {
             params['pg[limit]'] = input.limit;

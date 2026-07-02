@@ -15,9 +15,11 @@ const ProviderResponseSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    id: z.number(),
-    islinked: z.boolean(),
-    isActive: z.boolean()
+    scenario: z.object({
+        id: z.number(),
+        islinked: z.boolean(),
+        isActive: z.boolean()
+    })
 });
 
 const action = createAction({
@@ -25,6 +27,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['scenarios:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
@@ -38,9 +41,11 @@ const action = createAction({
         const providerData = ProviderResponseSchema.parse(response.data);
 
         return {
-            id: providerData.scenario.id,
-            islinked: providerData.scenario.islinked,
-            isActive: providerData.scenario.isActive
+            scenario: {
+                id: providerData.scenario.id,
+                islinked: providerData.scenario.islinked,
+                isActive: providerData.scenario.isActive
+            }
         };
     }
 });

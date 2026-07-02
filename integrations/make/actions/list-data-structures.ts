@@ -64,7 +64,9 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        const nextCursor = providerResponse.dataStructures.length === limit ? String(offset + limit) : undefined;
+        const pageOffset = providerResponse.pg.offset;
+        const pageLimit = providerResponse.pg.limit;
+        const nextCursor = providerResponse.dataStructures.length >= pageLimit ? String(pageOffset + pageLimit) : undefined;
 
         return {
             dataStructures: providerResponse.dataStructures,

@@ -50,11 +50,22 @@ const action = createAction({
     scopes: ['hooks:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let offset: number | undefined;
+        if (input.cursor !== undefined) {
+            offset = parseInt(input.cursor, 10);
+            if (!Number.isInteger(offset) || offset < 0 || String(offset) !== input.cursor.trim()) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a valid non-negative integer offset string'
+                });
+            }
+        }
+
         // https://developers.make.com/api-documentation/
         const response = await nango.get({
-            endpoint: `hooks/${encodeURIComponent(String(input.hookId))}/incomings`,
+            endpoint: `/hooks/${encodeURIComponent(String(input.hookId))}/incomings`,
             params: {
-                ...(input.cursor !== undefined && { 'pg[offset]': input.cursor }),
+                ...(offset !== undefined && { 'pg[offset]': offset }),
                 ...(input.limit !== undefined && { 'pg[limit]': String(input.limit) })
             },
             retries: 3

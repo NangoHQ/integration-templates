@@ -91,14 +91,14 @@ const action = createAction({
     scopes: ['scenarios:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (!input.teamId && !input.organizationId) {
+        if (input.teamId === undefined && input.organizationId === undefined) {
             throw new nango.ActionError({
                 type: 'missing_required_param',
                 message: 'Either teamId or organizationId is required.'
             });
         }
 
-        if (input.teamId && input.organizationId) {
+        if (input.teamId !== undefined && input.organizationId !== undefined) {
             throw new nango.ActionError({
                 type: 'invalid_params',
                 message: 'teamId and organizationId cannot be used together.'

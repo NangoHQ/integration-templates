@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const OrganizationSchema = z.object({
@@ -42,10 +42,6 @@ const ProviderOrganizationSchema = z.object({
     tfaEnforced: z.boolean().optional()
 });
 
-const ProviderResponseSchema = z.object({
-    organizations: z.array(ProviderOrganizationSchema)
-});
-
 const sync = createSync({
     description: "Sync organizations the API token's user belongs to.",
     version: '1.0.0',
@@ -60,39 +56,49 @@ const sync = createSync({
         // or any resumable cursor. It returns a full snapshot with no incremental filters.
         await nango.trackDeletesStart('Organization');
 
-        // https://developers.make.com/api-documentation/api-reference/organizations.md
-        const response = await nango.get({
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.make.com/api-documentation/api-reference/organizations.md
             endpoint: '/organizations',
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'pg[offset]',
+                offset_calculation_method: 'per-page',
+                limit_name_in_request: 'pg[limit]',
+                limit: 1000,
+                response_path: 'organizations'
+            },
             retries: 3
-        });
+        };
 
-        const parsed = ProviderResponseSchema.safeParse(response.data);
-        if (!parsed.success) {
-            throw new Error(`Failed to parse organizations response: ${parsed.error.message}`);
-        }
+        for await (const page of nango.paginate<unknown>(proxyConfig)) {
+            const parsed = z.array(ProviderOrganizationSchema).safeParse(page);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse organizations page: ${parsed.error.message}`);
+            }
 
-        const organizations = parsed.data.organizations.map((org) => ({
-            id: String(org.id),
-            name: org.name,
-            ...(org.createdAt !== undefined && { createdAt: org.createdAt }),
-            ...(org.serviceName !== undefined && { serviceName: org.serviceName }),
-            ...(org.nextReset !== undefined && { nextReset: org.nextReset }),
-            ...(org.lastReset !== undefined && { lastReset: org.lastReset }),
-            ...(org.isPaused !== undefined && { isPaused: org.isPaused }),
-            ...(org.countryId !== undefined && { countryId: org.countryId }),
-            ...(org.timezoneId !== undefined && { timezoneId: org.timezoneId }),
-            ...(org.deleted !== undefined && { deleted: org.deleted }),
-            ...(org.zone !== undefined && { zone: org.zone }),
-            ...(org.teams !== undefined && { teams: org.teams }),
-            ...(org.productName !== undefined && { productName: org.productName }),
-            ...(org.ssoType != null && { ssoType: org.ssoType }),
-            ...(org.scenarios !== undefined && { scenarios: org.scenarios }),
-            ...(org.activeScenarios !== undefined && { activeScenarios: org.activeScenarios }),
-            ...(org.tfaEnforced !== undefined && { tfaEnforced: org.tfaEnforced })
-        }));
+            const organizations = parsed.data.map((org) => ({
+                id: String(org.id),
+                name: org.name,
+                ...(org.createdAt !== undefined && { createdAt: org.createdAt }),
+                ...(org.serviceName !== undefined && { serviceName: org.serviceName }),
+                ...(org.nextReset !== undefined && { nextReset: org.nextReset }),
+                ...(org.lastReset !== undefined && { lastReset: org.lastReset }),
+                ...(org.isPaused !== undefined && { isPaused: org.isPaused }),
+                ...(org.countryId !== undefined && { countryId: org.countryId }),
+                ...(org.timezoneId !== undefined && { timezoneId: org.timezoneId }),
+                ...(org.deleted !== undefined && { deleted: org.deleted }),
+                ...(org.zone !== undefined && { zone: org.zone }),
+                ...(org.teams !== undefined && { teams: org.teams }),
+                ...(org.productName !== undefined && { productName: org.productName }),
+                ...(org.ssoType != null && { ssoType: org.ssoType }),
+                ...(org.scenarios !== undefined && { scenarios: org.scenarios }),
+                ...(org.activeScenarios !== undefined && { activeScenarios: org.activeScenarios }),
+                ...(org.tfaEnforced !== undefined && { tfaEnforced: org.tfaEnforced })
+            }));
 
-        if (organizations.length > 0) {
-            await nango.batchSave(organizations, 'Organization');
+            if (organizations.length > 0) {
+                await nango.batchSave(organizations, 'Organization');
+            }
         }
 
         await nango.trackDeletesEnd('Organization');

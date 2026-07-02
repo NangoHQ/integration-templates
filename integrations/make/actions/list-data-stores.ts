@@ -36,12 +36,23 @@ const action = createAction({
     scopes: ['datastores:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let offset: number | undefined;
+        if (input.cursor !== undefined) {
+            offset = Number(input.cursor);
+            if (!Number.isInteger(offset) || offset < 0) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a valid non-negative integer offset string'
+                });
+            }
+        }
+
         const response = await nango.get({
             // https://developers.make.com/api-documentation/
             endpoint: '/data-stores',
             params: {
                 teamId: input.teamId,
-                ...(input.cursor !== undefined && { 'pg[offset]': Number(input.cursor) })
+                ...(offset !== undefined && { 'pg[offset]': offset })
             },
             retries: 3
         });

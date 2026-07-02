@@ -2,7 +2,7 @@ import { createAction } from 'nango';
 import { z } from 'zod';
 
 const InputSchema = z.object({
-    hookId: z.string().describe('The unique ID of the hook to enable')
+    hookId: z.number().describe('The unique ID of the hook to enable. Example: 3329422')
 });
 
 const OutputSchema = z.object({
@@ -14,6 +14,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['hooks:write'],
     exec: async (nango, input) => {
         const hookId = input.hookId;
 

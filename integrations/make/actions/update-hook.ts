@@ -28,6 +28,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['hooks:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.make.com/api-documentation
@@ -39,10 +40,25 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = z.object({ hook: HookSchema }).parse(response.data);
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Hook not found or update failed.',
+                hookId: input.hookId
+            });
+        }
+
+        const parsed = z.object({ hook: HookSchema }).safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'The Make API returned an unexpected response shape when updating the hook.',
+                details: parsed.error.issues
+            });
+        }
 
         return {
-            hook: parsed.hook
+            hook: parsed.data.hook
         };
     }
 });

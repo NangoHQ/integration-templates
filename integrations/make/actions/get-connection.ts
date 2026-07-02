@@ -43,14 +43,17 @@ const OutputSchema = z.object({
     connection: ConnectionSchema
 });
 
-export default createAction({
+const action = createAction({
     description: 'Retrieve details of a single connection',
+    version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    exec: async (nango, input) => {
+    scopes: ['connections:read'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const nangoConnection = await nango.getConnection();
         const environmentUrl = nangoConnection.connection_config?.['environmentUrl'];
-        if (typeof environmentUrl !== 'string') {
+        if (typeof environmentUrl !== 'string' || environmentUrl.length === 0) {
             throw new nango.ActionError({ message: 'Missing environmentUrl in connection config' });
         }
 
@@ -69,3 +72,6 @@ export default createAction({
         return parsed.data;
     }
 });
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

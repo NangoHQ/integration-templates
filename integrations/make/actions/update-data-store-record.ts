@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     dataStoreId: z.number().describe('The ID of the data store. Example: 141641'),
-    dataStoreKeyRecord: z.string().describe('The key of the data store record. Example: seed-record-1'),
+    dataStoreKeyRecord: z.string().min(1).describe('The key of the data store record. Example: seed-record-1'),
     data: z.record(z.string(), z.unknown()).describe('Partial data object to update. Unspecified fields are left unchanged.')
 });
 

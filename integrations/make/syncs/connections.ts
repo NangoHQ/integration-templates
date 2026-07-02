@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
@@ -29,10 +29,6 @@ const ProviderConnectionSchema = z.object({
     uid: z.string().nullable().optional(),
     connectedSystemId: z.string().nullable().optional(),
     organizationId: z.number().optional()
-});
-
-const ProviderResponseSchema = z.object({
-    connections: z.array(ProviderConnectionSchema)
 });
 
 const ConnectionSchema = z.object({
@@ -85,43 +81,53 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Connection');
 
-        // https://developers.make.com/api-documentation/
-        const response = await nango.get({
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.make.com/api-documentation/
             endpoint: '/connections',
             params: {
                 teamId: String(teamId)
             },
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'pg[offset]',
+                offset_calculation_method: 'per-page',
+                limit_name_in_request: 'pg[limit]',
+                limit: 1000,
+                response_path: 'connections'
+            },
             retries: 3
-        });
+        };
 
-        const parsed = ProviderResponseSchema.safeParse(response.data);
-        if (!parsed.success) {
-            throw new Error(`Failed to parse connections response: ${parsed.error.message}`);
-        }
+        for await (const page of nango.paginate<unknown>(proxyConfig)) {
+            const parsed = z.array(ProviderConnectionSchema).safeParse(page);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse connections page: ${parsed.error.message}`);
+            }
 
-        const connections = parsed.data.connections.map((connection) => ({
-            id: String(connection.id),
-            name: connection.name,
-            ...(connection.accountName !== undefined && connection.accountName !== null && { accountName: connection.accountName }),
-            ...(connection.accountLabel !== undefined && connection.accountLabel !== null && { accountLabel: connection.accountLabel }),
-            ...(connection.packageName !== undefined && connection.packageName !== null && { packageName: connection.packageName }),
-            ...(connection.expire !== undefined && connection.expire !== null && { expire: connection.expire }),
-            ...(connection.metadata?.value !== undefined && connection.metadata.value !== null && { metadataValue: connection.metadata.value }),
-            ...(connection.metadata?.type !== undefined && connection.metadata.type !== null && { metadataType: connection.metadata.type }),
-            ...(connection.teamId !== undefined && { teamId: connection.teamId }),
-            ...(connection.theme !== undefined && connection.theme !== null && { theme: connection.theme }),
-            ...(connection.upgradeable !== undefined && { upgradeable: connection.upgradeable }),
-            ...(connection.scopesCnt !== undefined && { scopesCnt: connection.scopesCnt }),
-            ...(connection.scoped !== undefined && { scoped: connection.scoped }),
-            ...(connection.accountType !== undefined && connection.accountType !== null && { accountType: connection.accountType }),
-            ...(connection.editable !== undefined && { editable: connection.editable }),
-            ...(connection.uid !== undefined && connection.uid !== null && { uid: connection.uid }),
-            ...(connection.connectedSystemId !== undefined && connection.connectedSystemId !== null && { connectedSystemId: connection.connectedSystemId }),
-            ...(connection.organizationId !== undefined && { organizationId: connection.organizationId })
-        }));
+            const connections = parsed.data.map((connection) => ({
+                id: String(connection.id),
+                name: connection.name,
+                ...(connection.accountName !== undefined && connection.accountName !== null && { accountName: connection.accountName }),
+                ...(connection.accountLabel !== undefined && connection.accountLabel !== null && { accountLabel: connection.accountLabel }),
+                ...(connection.packageName !== undefined && connection.packageName !== null && { packageName: connection.packageName }),
+                ...(connection.expire !== undefined && connection.expire !== null && { expire: connection.expire }),
+                ...(connection.metadata?.value !== undefined && connection.metadata.value !== null && { metadataValue: connection.metadata.value }),
+                ...(connection.metadata?.type !== undefined && connection.metadata.type !== null && { metadataType: connection.metadata.type }),
+                ...(connection.teamId !== undefined && { teamId: connection.teamId }),
+                ...(connection.theme !== undefined && connection.theme !== null && { theme: connection.theme }),
+                ...(connection.upgradeable !== undefined && { upgradeable: connection.upgradeable }),
+                ...(connection.scopesCnt !== undefined && { scopesCnt: connection.scopesCnt }),
+                ...(connection.scoped !== undefined && { scoped: connection.scoped }),
+                ...(connection.accountType !== undefined && connection.accountType !== null && { accountType: connection.accountType }),
+                ...(connection.editable !== undefined && { editable: connection.editable }),
+                ...(connection.uid !== undefined && connection.uid !== null && { uid: connection.uid }),
+                ...(connection.connectedSystemId !== undefined && connection.connectedSystemId !== null && { connectedSystemId: connection.connectedSystemId }),
+                ...(connection.organizationId !== undefined && { organizationId: connection.organizationId })
+            }));
 
-        if (connections.length > 0) {
-            await nango.batchSave(connections, 'Connection');
+            if (connections.length > 0) {
+                await nango.batchSave(connections, 'Connection');
+            }
         }
 
         await nango.trackDeletesEnd('Connection');

@@ -66,12 +66,13 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        const dlqs = (providerResponse.dlqs || []).flatMap((item) => {
+        const rawPage = providerResponse.dlqs || [];
+        const dlqs = rawPage.flatMap((item) => {
             const result = DlqSchema.safeParse(item);
             return result.success ? [result.data] : [];
         });
 
-        const next_cursor = dlqs.length === limit ? String(offset + limit) : undefined;
+        const next_cursor = rawPage.length === limit ? String(offset + limit) : undefined;
 
         return {
             items: dlqs,

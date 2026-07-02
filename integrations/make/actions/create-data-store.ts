@@ -5,7 +5,7 @@ const InputSchema = z.object({
     name: z.string().describe('Name of the data store. Example: "My Data Store"'),
     teamId: z.number().describe('Team ID. Example: 2066772'),
     datastructureId: z.number().describe('Data structure ID. Example: 477315'),
-    maxSizeMB: z.number().optional().describe('Maximum size in MB. Example: 1')
+    maxSizeMB: z.number().int().describe('Maximum size in MB. Example: 1')
 });
 
 const ProviderDataStoreSchema = z.object({
@@ -29,7 +29,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['datastores:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -39,7 +39,7 @@ const action = createAction({
                 name: input.name,
                 teamId: input.teamId,
                 datastructureId: input.datastructureId,
-                ...(input.maxSizeMB !== undefined && { maxSizeMB: input.maxSizeMB })
+                maxSizeMB: input.maxSizeMB
             },
             retries: 3
         });

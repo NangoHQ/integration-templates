@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    scenarioId: z.number().describe('The ID of the scenario. Example: 6413021'),
+    scenarioId: z.number().int().positive().describe('The ID of the scenario. Example: 6413021'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('The maximum number of log entries to return.')
+    limit: z.number().int().positive().optional().describe('The maximum number of log entries to return.')
 });
 
 const ScenarioLogSchema = z.object({
@@ -17,7 +17,7 @@ const ScenarioLogSchema = z.object({
     teamId: z.number().optional(),
     id: z.union([z.number(), z.string()]),
     type: z.string(),
-    authorId: z.union([z.number(), z.null()]).optional(),
+    authorId: z.number().nullable().optional(),
     authorName: z.string().nullable().optional(),
     instant: z.boolean().optional(),
     timestamp: z.string().optional(),

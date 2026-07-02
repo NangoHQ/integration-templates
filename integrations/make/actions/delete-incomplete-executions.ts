@@ -24,6 +24,16 @@ const action = createAction({
     scopes: ['dlqs:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const ids = input.ids;
+        const hasIds = ids !== undefined && ids.length > 0;
+
+        if (input.all === true && hasIds) {
+            throw new nango.ActionError({
+                type: 'invalid_params',
+                message: 'ids and all cannot be used together.'
+            });
+        }
+
         if (input.all === true) {
             if (input.confirmed !== true) {
                 throw new nango.ActionError({
@@ -33,8 +43,7 @@ const action = createAction({
             }
         }
 
-        const ids = input.ids;
-        if (input.all !== true && (ids === undefined || ids.length === 0)) {
+        if (input.all !== true && !hasIds) {
             throw new nango.ActionError({
                 type: 'missing_target',
                 message: 'Provide either ids or all=true.'

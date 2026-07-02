@@ -65,11 +65,11 @@ const action = createAction({
     scopes: ['hooks:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (isNaN(offset)) {
+        const offset = input.cursor ? Number(input.cursor) : 0;
+        if (!Number.isInteger(offset) || offset < 0) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a valid integer offset string'
+                message: 'cursor must be a valid non-negative integer offset string'
             });
         }
 

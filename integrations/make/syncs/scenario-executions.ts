@@ -56,7 +56,7 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         const rawImtId = checkpoint?.['last_imt_id'];
-        const lastImtId = typeof rawImtId === 'string' ? rawImtId : undefined;
+        const lastImtId = typeof rawImtId === 'string' && Number.isFinite(Number(rawImtId)) ? rawImtId : undefined;
 
         // https://developers.make.com/api-documentation/
         const orgResponse = await nango.get({

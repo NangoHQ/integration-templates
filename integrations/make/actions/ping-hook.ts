@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    hookId: z.number().describe('The ID of the hook to ping. Example: 3329421')
+    hookId: z.number().int().positive().describe('The ID of the hook to ping. Example: 3329421')
 });
 
 const DataStructureItemSchema = z.object({

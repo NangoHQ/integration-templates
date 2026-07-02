@@ -15,7 +15,7 @@ const ProviderDataStoreSchema = z.object({
     size: z.string(),
     maxSize: z.string(),
     teamId: z.number(),
-    datastructureId: z.number().nullable()
+    datastructureId: z.number().nullable().optional()
 });
 
 const PatchResponseSchema = z.object({

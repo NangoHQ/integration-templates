@@ -81,8 +81,6 @@ const sync = createSync({
 
         // Blocker: provider only exposes /scenarios with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor.
-        await nango.trackDeletesStart('Scenario');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developers.make.com/api-documentation/
             endpoint: '/scenarios',
@@ -100,12 +98,18 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            if (!Array.isArray(page)) {
-                throw new Error('Unexpected scenarios page format');
-            }
+        const pageIterator = nango.paginate(proxyConfig)[Symbol.asyncIterator]();
+        const firstResult = await pageIterator.next();
+        if (!firstResult.done && !Array.isArray(firstResult.value)) {
+            throw new Error('Unexpected scenarios page format');
+        }
 
-            const scenarios = page.map((record) => {
+        // Only open delete tracking once the first page is confirmed valid, so a failed
+        // run never leaves tracking started without a matching trackDeletesEnd.
+        await nango.trackDeletesStart('Scenario');
+
+        const mapScenarios = (page: unknown[]) =>
+            page.map((record) => {
                 const parsed = MakeScenarioSchema.safeParse(record);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse scenario: ${parsed.error.message}`);
@@ -137,6 +141,19 @@ const sync = createSync({
                 };
             });
 
+        if (!firstResult.done) {
+            const scenarios = mapScenarios(firstResult.value);
+            if (scenarios.length > 0) {
+                await nango.batchSave(scenarios, 'Scenario');
+            }
+        }
+
+        for (let result = await pageIterator.next(); !result.done; result = await pageIterator.next()) {
+            if (!Array.isArray(result.value)) {
+                throw new Error('Unexpected scenarios page format');
+            }
+
+            const scenarios = mapScenarios(result.value);
             if (scenarios.length > 0) {
                 await nango.batchSave(scenarios, 'Scenario');
             }

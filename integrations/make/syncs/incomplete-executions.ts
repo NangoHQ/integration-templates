@@ -56,13 +56,15 @@ const sync = createSync({
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
         const parsedMetadata = MetadataSchema.safeParse(metadata);
-        let teamId: number | undefined;
+        let teamIds: number[];
 
-        if (parsedMetadata.success && parsedMetadata.data.teamId) {
-            teamId = Number(parsedMetadata.data.teamId);
-        }
-
-        if (teamId === undefined) {
+        if (parsedMetadata.success && parsedMetadata.data.teamId !== undefined) {
+            const teamId = Number(parsedMetadata.data.teamId);
+            if (!Number.isFinite(teamId)) {
+                throw new Error(`metadata.teamId must be a valid numeric team ID, got: ${String(parsedMetadata.data.teamId)}`);
+            }
+            teamIds = [teamId];
+        } else {
             const organizations = [];
 
             // https://developers.make.com/api-documentation/api-reference/organizations
@@ -85,54 +87,66 @@ const sync = createSync({
                 }
             }
 
-            const firstOrg = organizations[0];
-            if (!firstOrg) {
+            if (organizations.length === 0) {
                 throw new Error('No organizations found for this connection');
             }
 
-            const orgId = firstOrg.id;
+            const teams: Array<z.infer<typeof TeamSchema>> = [];
+            for (const org of organizations) {
+                // https://developers.make.com/api-documentation/api-reference/teams
+                for await (const page of nango.paginate({
+                    endpoint: '/teams',
+                    params: {
+                        organizationId: String(org.id)
+                    },
+                    paginate: {
+                        type: 'offset',
+                        offset_name_in_request: 'pg[offset]',
+                        offset_start_value: 0,
+                        offset_calculation_method: 'per-page',
+                        limit_name_in_request: 'pg[limit]',
+                        limit: 50,
+                        response_path: 'teams'
+                    },
+                    retries: 3
+                })) {
+                    for (const rawTeam of page) {
+                        teams.push(TeamSchema.parse(rawTeam));
+                    }
+                }
+            }
 
-            // https://developers.make.com/api-documentation/api-reference/teams
-            const teamResponse = await nango.get({
-                endpoint: '/teams',
-                params: {
-                    organizationId: String(orgId)
-                },
-                retries: 3
-            });
-
-            const parsedTeams = z.array(TeamSchema).parse(teamResponse.data.teams);
-
-            const firstTeam = parsedTeams[0];
-            if (!firstTeam) {
+            if (teams.length === 0) {
                 throw new Error('No teams found for this connection');
             }
 
-            teamId = firstTeam.id;
+            teamIds = teams.map((team) => team.id);
         }
 
         const scenarios = [];
 
-        // https://developers.make.com/api-documentation/api-reference/scenarios
-        for await (const page of nango.paginate({
-            endpoint: '/scenarios',
-            params: {
-                teamId: String(teamId)
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'pg[offset]',
-                offset_start_value: 0,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'pg[limit]',
-                limit: 50,
-                response_path: 'scenarios'
-            },
-            retries: 3
-        })) {
-            for (const rawScenario of page) {
-                const scenario = ScenarioSchema.parse(rawScenario);
-                scenarios.push(scenario);
+        for (const teamId of teamIds) {
+            // https://developers.make.com/api-documentation/api-reference/scenarios
+            for await (const page of nango.paginate({
+                endpoint: '/scenarios',
+                params: {
+                    teamId: String(teamId)
+                },
+                paginate: {
+                    type: 'offset',
+                    offset_name_in_request: 'pg[offset]',
+                    offset_start_value: 0,
+                    offset_calculation_method: 'per-page',
+                    limit_name_in_request: 'pg[limit]',
+                    limit: 50,
+                    response_path: 'scenarios'
+                },
+                retries: 3
+            })) {
+                for (const rawScenario of page) {
+                    const scenario = ScenarioSchema.parse(rawScenario);
+                    scenarios.push(scenario);
+                }
             }
         }
 

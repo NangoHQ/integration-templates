@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const DataStoreRecordSchema = z.object({
@@ -12,24 +12,12 @@ const OrganizationSchema = z.object({
     id: z.number()
 });
 
-const OrganizationsResponseSchema = z.object({
-    organizations: z.array(OrganizationSchema)
-});
-
 const TeamSchema = z.object({
     id: z.number()
 });
 
-const TeamsResponseSchema = z.object({
-    teams: z.array(TeamSchema)
-});
-
 const DataStoreSchema = z.object({
     id: z.number()
-});
-
-const DataStoresResponseSchema = z.object({
-    dataStores: z.array(DataStoreSchema)
 });
 
 const DataStoreRecordItemSchema = z.object({
@@ -51,55 +39,82 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // https://developers.make.com/api-documentation/
-        const orgsResponse = await nango.get({
+        const orgProxyConfig: ProxyConfiguration = {
+            // https://developers.make.com/api-documentation/
             endpoint: '/organizations',
             params: {
                 'cols[1]': 'id'
             },
-            retries: 3
-        });
-
-        const orgs = OrganizationsResponseSchema.parse(orgsResponse.data);
-        const firstOrg = orgs.organizations[0];
-        if (!firstOrg) {
-            throw new Error('No organizations found');
-        }
-
-        const organizationId = firstOrg.id;
-
-        // https://developers.make.com/api-documentation/
-        const teamsResponse = await nango.get({
-            endpoint: '/teams',
-            params: {
-                organizationId: organizationId,
-                'cols[1]': 'id'
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'pg[offset]',
+                offset_calculation_method: 'per-page',
+                limit_name_in_request: 'pg[limit]',
+                limit: 1000,
+                response_path: 'organizations'
             },
             retries: 3
-        });
+        };
 
-        const teams = TeamsResponseSchema.parse(teamsResponse.data);
-        if (teams.teams.length === 0) {
+        const teams: Array<z.infer<typeof TeamSchema>> = [];
+        for await (const orgPage of nango.paginate<unknown>(orgProxyConfig)) {
+            const orgs = z.array(OrganizationSchema).parse(orgPage);
+
+            for (const org of orgs) {
+                const teamProxyConfig: ProxyConfiguration = {
+                    // https://developers.make.com/api-documentation/
+                    endpoint: '/teams',
+                    params: {
+                        organizationId: org.id,
+                        'cols[1]': 'id'
+                    },
+                    paginate: {
+                        type: 'offset',
+                        offset_name_in_request: 'pg[offset]',
+                        offset_calculation_method: 'per-page',
+                        limit_name_in_request: 'pg[limit]',
+                        limit: 1000,
+                        response_path: 'teams'
+                    },
+                    retries: 3
+                };
+
+                for await (const teamPage of nango.paginate<unknown>(teamProxyConfig)) {
+                    teams.push(...z.array(TeamSchema).parse(teamPage));
+                }
+            }
+        }
+
+        if (teams.length === 0) {
             throw new Error('No teams found');
         }
 
         await nango.trackDeletesStart('DataStoreRecord');
 
-        for (const team of teams.teams) {
-            // https://developers.make.com/api-documentation/
-            const dataStoresResponse = await nango.get({
+        for (const team of teams) {
+            const dataStores: Array<z.infer<typeof DataStoreSchema>> = [];
+            const dataStoreProxyConfig: ProxyConfiguration = {
+                // https://developers.make.com/api-documentation/
                 endpoint: '/data-stores',
                 params: {
                     teamId: team.id,
-                    'cols[1]': 'id',
-                    'pg[limit]': 100
+                    'cols[1]': 'id'
+                },
+                paginate: {
+                    type: 'offset',
+                    offset_name_in_request: 'pg[offset]',
+                    limit_name_in_request: 'pg[limit]',
+                    limit: 100,
+                    response_path: 'dataStores'
                 },
                 retries: 3
-            });
+            };
 
-            const dataStores = DataStoresResponseSchema.parse(dataStoresResponse.data);
+            for await (const dataStorePage of nango.paginate<unknown>(dataStoreProxyConfig)) {
+                dataStores.push(...z.array(DataStoreSchema).parse(dataStorePage));
+            }
 
-            for (const dataStore of dataStores.dataStores) {
+            for (const dataStore of dataStores) {
                 const limit = 10;
                 let offset = 0;
                 let hasMore = true;

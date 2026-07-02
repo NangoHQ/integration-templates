@@ -29,18 +29,6 @@ const ProviderDataStoreSchema = z.object({
     teamId: z.number().optional()
 });
 
-const OrganizationsResponseSchema = z
-    .object({
-        organizations: z.array(OrganizationSchema)
-    })
-    .passthrough();
-
-const TeamsResponseSchema = z
-    .object({
-        teams: z.array(TeamSchema)
-    })
-    .passthrough();
-
 const sync = createSync({
     description: 'Sync data store metadata (not records) for a team.',
     version: '1.0.0',
@@ -51,40 +39,54 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // https://developers.make.com/api-documentation/
-        const orgsResponse = await nango.get({
+        const orgProxyConfig: ProxyConfiguration = {
+            // https://developers.make.com/api-documentation/
             endpoint: '/organizations',
-            params: {
-                'pg[limit]': 1000
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'pg[offset]',
+                offset_calculation_method: 'per-page',
+                limit_name_in_request: 'pg[limit]',
+                limit: 1000,
+                response_path: 'organizations'
             },
             retries: 3
-        });
-
-        const orgsResult = OrganizationsResponseSchema.safeParse(orgsResponse.data);
-        if (!orgsResult.success) {
-            throw new Error(`Failed to parse organizations response: ${orgsResult.error.message}`);
-        }
-
-        const organizations = orgsResult.data.organizations;
+        };
 
         const teams: Array<z.infer<typeof TeamSchema>> = [];
-        for (const org of organizations) {
-            // https://developers.make.com/api-documentation/
-            const teamsResponse = await nango.get({
-                endpoint: '/teams',
-                params: {
-                    organizationId: String(org.id),
-                    'pg[limit]': 1000
-                },
-                retries: 3
-            });
-
-            const teamsResult = TeamsResponseSchema.safeParse(teamsResponse.data);
-            if (!teamsResult.success) {
-                throw new Error(`Failed to parse teams response: ${teamsResult.error.message}`);
+        for await (const orgPage of nango.paginate<unknown>(orgProxyConfig)) {
+            const orgsResult = z.array(OrganizationSchema).safeParse(orgPage);
+            if (!orgsResult.success) {
+                throw new Error(`Failed to parse organizations page: ${orgsResult.error.message}`);
             }
 
-            teams.push(...teamsResult.data.teams);
+            for (const org of orgsResult.data) {
+                const teamProxyConfig: ProxyConfiguration = {
+                    // https://developers.make.com/api-documentation/
+                    endpoint: '/teams',
+                    params: {
+                        organizationId: String(org.id)
+                    },
+                    paginate: {
+                        type: 'offset',
+                        offset_name_in_request: 'pg[offset]',
+                        offset_calculation_method: 'per-page',
+                        limit_name_in_request: 'pg[limit]',
+                        limit: 1000,
+                        response_path: 'teams'
+                    },
+                    retries: 3
+                };
+
+                for await (const teamPage of nango.paginate<unknown>(teamProxyConfig)) {
+                    const teamsResult = z.array(TeamSchema).safeParse(teamPage);
+                    if (!teamsResult.success) {
+                        throw new Error(`Failed to parse teams page: ${teamsResult.error.message}`);
+                    }
+
+                    teams.push(...teamsResult.data);
+                }
+            }
         }
 
         await nango.trackDeletesStart('DataStore');
