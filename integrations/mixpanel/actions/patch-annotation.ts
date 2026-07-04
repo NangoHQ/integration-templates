@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_id: z.number().describe('Your project id (eg: 12345)'),
-    annotation_id: z.number().describe('The id of the annotation'),
+    project_id: z.string().describe('Your project id. Example: "4040293"'),
+    annotation_id: z.string().describe('The id of the annotation. Example: "2004052"'),
     description: z.string().optional().describe('The text that will be shown when looking at the annotation'),
     tags: z.array(z.number()).optional().describe('The ids of the tags to be added to the annotation')
 });
@@ -55,7 +55,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.patch({
             // https://developer.mixpanel.com/reference/patch-annotation-1
-            endpoint: `/api/app/projects/${encodeURIComponent(String(input.project_id))}/annotations/${encodeURIComponent(String(input.annotation_id))}`,
+            endpoint: `/api/app/projects/${encodeURIComponent(input.project_id)}/annotations/${encodeURIComponent(input.annotation_id)}`,
             data: {
                 ...(input.description !== undefined && { description: input.description }),
                 ...(input.tags !== undefined && { tags: input.tags })

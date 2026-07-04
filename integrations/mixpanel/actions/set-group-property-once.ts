@@ -1,6 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function resolveIngestionHost(region: string | undefined | null): string {
+    const normalized = region?.trim().toLowerCase();
+
+    if (normalized === 'eu' || normalized === 'api-eu') {
+        return 'https://api-eu.mixpanel.com';
+    }
+
+    if (normalized === 'in' || normalized === 'api-in') {
+        return 'https://api-in.mixpanel.com';
+    }
+
+    return 'https://api.mixpanel.com';
+}
+
 const InputSchema = z.object({
     token: z.string().describe('The Mixpanel project token. Example: "abc123..."'),
     group_key: z.string().describe('The group key. Example: "company"'),
@@ -26,8 +40,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const regionPrefix = input.region === 'eu' ? 'api-eu' : input.region === 'in' ? 'api-in' : 'api';
-        const baseUrl = `https://${regionPrefix}.mixpanel.com`;
+        const baseUrl = resolveIngestionHost(input.region);
 
         const response = await nango.post({
             // https://developer.mixpanel.com/reference/group-set-property-once

@@ -59,22 +59,30 @@ const action = createAction({
                 .parse(meResponse.data);
 
             const orgsMap = meData.results?.organizations;
-            if (!orgsMap || Object.keys(orgsMap).length === 0) {
+            const orgs = orgsMap ? Object.values(orgsMap) : [];
+            if (orgs.length === 0) {
                 throw new nango.ActionError({
                     type: 'missing_organization',
                     message: 'No organizations found for this service account. Please provide organization_id explicitly.'
                 });
             }
 
-            const firstOrg = Object.values(orgsMap)[0];
-            if (!firstOrg) {
+            if (orgs.length > 1) {
+                throw new nango.ActionError({
+                    type: 'missing_organization',
+                    message: 'Multiple organizations found for this service account. Please provide organization_id explicitly.'
+                });
+            }
+
+            const [onlyOrg] = orgs;
+            if (!onlyOrg) {
                 throw new nango.ActionError({
                     type: 'missing_organization',
                     message: 'No organizations found for this service account. Please provide organization_id explicitly.'
                 });
             }
 
-            organizationId = firstOrg.id;
+            organizationId = onlyOrg.id;
         }
 
         // https://developer.mixpanel.com/reference/add-service-accounts-to-projects

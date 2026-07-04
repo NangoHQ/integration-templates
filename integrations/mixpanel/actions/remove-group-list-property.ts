@@ -6,7 +6,10 @@ const InputSchema = z.object({
     group_key: z.string().describe('Group key. Example: "company"'),
     group_id: z.string().describe('Group ID. Example: "mixpanel"'),
     property_name: z.string().describe('Name of the list property to remove values from.'),
-    values: z.array(z.unknown()).describe('Values to remove from the list property.')
+    values: z
+        .array(z.union([z.string(), z.number()]))
+        .min(1)
+        .describe('Values to remove from the list property. Example: ["feature-a", "feature-b"]')
 });
 
 const ProviderResponseSchema = z.object({
@@ -25,16 +28,14 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const body = [
-            {
-                $token: input.token,
-                $group_key: input.group_key,
-                $group_id: input.group_id,
-                $remove: {
-                    [input.property_name]: input.values
-                }
+        const body = input.values.map((value) => ({
+            $token: input.token,
+            $group_key: input.group_key,
+            $group_id: input.group_id,
+            $remove: {
+                [input.property_name]: value
             }
-        ];
+        }));
 
         // https://developer.mixpanel.com/reference/group-remove-from-list-property
         const response = await nango.post({

@@ -57,6 +57,13 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
+        if (providerResponse.status !== 1) {
+            throw new nango.ActionError({
+                type: 'mixpanel_error',
+                message: providerResponse.error || 'Failed to set profile property once'
+            });
+        }
+
         return {
             status: providerResponse.status,
             ...(providerResponse.error != null && { error: providerResponse.error })

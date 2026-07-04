@@ -206,7 +206,12 @@ const sync = createSync({
                 const rawEvent = validation.data;
                 const properties = rawEvent.properties;
                 const time = typeof properties['time'] === 'number' ? properties['time'] : undefined;
-                const distinctId = typeof properties['$distinct_id'] === 'string' ? properties['$distinct_id'] : undefined;
+                const distinctId =
+                    typeof properties['distinct_id'] === 'string'
+                        ? properties['distinct_id']
+                        : typeof properties['$distinct_id'] === 'string'
+                          ? properties['$distinct_id']
+                          : undefined;
                 const insertId = typeof properties['$insert_id'] === 'string' ? properties['$insert_id'] : undefined;
 
                 if (time === undefined) {

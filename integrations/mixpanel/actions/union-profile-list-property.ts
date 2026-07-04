@@ -1,5 +1,40 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { NangoAction } from 'nango';
+
+const TokenConnectionSchema = z.object({
+    credentials: z.object({
+        password: z.string()
+    })
+});
+
+const TokenMetadataSchema = z.object({
+    project_token: z.string().optional(),
+    token: z.string().optional()
+});
+
+async function resolveProjectToken(nango: NangoAction, explicitToken?: string | null): Promise<string> {
+    if (explicitToken) {
+        return explicitToken;
+    }
+
+    const parsedConnection = TokenConnectionSchema.safeParse(await nango.getConnection());
+    if (parsedConnection.success && parsedConnection.data.credentials.password) {
+        return parsedConnection.data.credentials.password;
+    }
+
+    const parsedMetadata = TokenMetadataSchema.safeParse(await nango.getMetadata());
+    const metadataToken = parsedMetadata.success ? (parsedMetadata.data.project_token ?? parsedMetadata.data.token) : undefined;
+    if (metadataToken) {
+        return metadataToken;
+    }
+
+    throw new nango.ActionError({
+        type: 'missing_token',
+        message:
+            'Could not resolve a Mixpanel project token. Provide it as input, set "project_token" in connection metadata, or ensure the connection credentials include a password.'
+    });
+}
 
 const UnionValueSchema = z.union([z.string(), z.number()]);
 
@@ -55,9 +90,11 @@ const action = createAction({
             params['verbose'] = input.verbose;
         }
 
+        const token = await resolveProjectToken(nango);
+
         const body = [
             {
-                $token: 'nango',
+                $token: token,
                 $distinct_id: input.distinctId,
                 $union: input.union
             }
@@ -72,24 +109,28 @@ const action = createAction({
             retries: 3
         });
 
+        let status: number | undefined;
+        let error: string | undefined;
+
         if (typeof response.data === 'number') {
-            return {
-                status: response.data
-            };
+            status = response.data;
+        } else if (typeof response.data === 'object' && response.data !== null) {
+            const data = response.data;
+            status = typeof data === 'object' && 'status' in data && typeof data.status === 'number' ? data.status : 0;
+            error = typeof data === 'object' && 'error' in data && typeof data.error === 'string' ? data.error : undefined;
         }
 
-        if (typeof response.data === 'object' && response.data !== null) {
-            const data = response.data;
-            const status = typeof data === 'object' && 'status' in data && typeof data.status === 'number' ? data.status : 0;
-            const error = typeof data === 'object' && 'error' in data && typeof data.error === 'string' ? data.error : undefined;
-            return {
-                status,
-                ...(error !== undefined && { error })
-            };
+        if (status !== 1) {
+            throw new nango.ActionError({
+                type: 'mixpanel_error',
+                message: error || 'Mixpanel profile union failed',
+                status: status ?? 0
+            });
         }
 
         return {
-            status: 0
+            status,
+            ...(error !== undefined && { error })
         };
     }
 });

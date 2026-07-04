@@ -12,8 +12,8 @@ const LookupTableSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    code: z.number(),
-    status: z.string(),
+    code: z.number().optional(),
+    status: z.string().optional(),
     results: z
         .array(
             z.object({
@@ -22,6 +22,7 @@ const ProviderResponseSchema = z.object({
             })
         )
         .nullable()
+        .optional()
 });
 
 const sync = createSync({

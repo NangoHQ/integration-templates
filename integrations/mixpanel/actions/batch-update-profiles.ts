@@ -1,6 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function resolveIngestionHost(region: string | undefined | null): string {
+    const normalized = region?.trim().toLowerCase();
+
+    if (normalized === 'eu' || normalized === 'api-eu') {
+        return 'https://api-eu.mixpanel.com';
+    }
+
+    if (normalized === 'in' || normalized === 'api-in') {
+        return 'https://api-in.mixpanel.com';
+    }
+
+    return 'https://api.mixpanel.com';
+}
+
 const ProfileUpdateSchema = z.object({
     $distinct_id: z.string().describe('The distinct_id of the user profile to update.'),
     $token: z.string().optional().describe('Project token. Will be injected if omitted and projectToken is provided at the top level.'),
@@ -29,16 +43,6 @@ const OutputSchema = z.object({
     failed_records: z.array(z.record(z.string(), z.unknown())).optional().describe('Per-record validation errors when strict=1.')
 });
 
-function getBaseUrl(region: string | undefined): string {
-    if (region === 'eu') {
-        return 'https://api-eu.mixpanel.com';
-    }
-    if (region === 'in') {
-        return 'https://api-in.mixpanel.com';
-    }
-    return 'https://api.mixpanel.com';
-}
-
 const action = createAction({
     description: 'Batch update user profiles.',
     version: '1.0.0',
@@ -47,7 +51,7 @@ const action = createAction({
     scopes: ['profile:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const baseUrl = getBaseUrl(input.region);
+        const baseUrl = resolveIngestionHost(input.region);
 
         const payload = input.updates.map((update) => {
             const enriched: Record<string, unknown> = { ...update };
@@ -80,6 +84,12 @@ const action = createAction({
         if (typeof response.data === 'number') {
             return {
                 status: response.data
+            };
+        }
+
+        if (typeof response.data === 'string' && (response.data.trim() === '1' || response.data.trim() === '0')) {
+            return {
+                status: response.data.trim() === '1' ? 1 : 0
             };
         }
 

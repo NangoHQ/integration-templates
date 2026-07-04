@@ -5,9 +5,9 @@ const InputSchema = z.object({
     token: z.string().describe('Mixpanel project token. Example: "4040293"'),
     distinct_id: z.string().describe('Unique identifier for the user profile. Example: "user-123"'),
     properties: z.record(z.string(), z.unknown()).describe('Profile properties to set'),
-    ip: z.number().min(0).max(1).optional().describe('If 0, Mixpanel will not perform geolocation parsing using the request IP. Defaults to 1.'),
-    strict: z.number().min(0).max(1).optional().describe('If 1, Mixpanel will validate records and return per-record error messages. Defaults to 0.'),
-    verbose: z.number().min(0).max(1).optional().describe('If 1, Mixpanel will respond with a JSON object describing success or failure. Defaults to 0.')
+    ip: z.number().int().min(0).max(1).optional().describe('If 0, Mixpanel will not perform geolocation parsing using the request IP. Defaults to 1.'),
+    strict: z.number().int().min(0).max(1).optional().describe('If 1, Mixpanel will validate records and return per-record error messages. Defaults to 0.'),
+    verbose: z.number().int().min(0).max(1).optional().describe('If 1, Mixpanel will respond with a JSON object describing success or failure. Defaults to 0.')
 });
 
 const ProviderResponseSchema = z.union([

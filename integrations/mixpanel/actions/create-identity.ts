@@ -5,7 +5,10 @@ const InputSchema = z.object({
     identified_id: z.string().describe('A distinct_id to merge with the anon_id. Example: "user@example.com"'),
     anon_id: z
         .string()
-        .describe('A distinct_id to merge with the identified_id. Must be UUID v4 format and not already merged to an identified_id. Example: "anon-123"'),
+        .uuidv4()
+        .describe(
+            'A distinct_id to merge with the identified_id. Must be UUID v4 format and not already merged to an identified_id. Example: "e6f4a9de-1c2b-4d3e-9f6a-7b8c9d0e1f2a"'
+        ),
     distinct_id: z
         .string()
         .optional()

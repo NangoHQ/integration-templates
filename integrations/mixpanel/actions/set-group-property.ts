@@ -1,5 +1,54 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { NangoAction } from 'nango';
+
+function resolveIngestionHost(region: string | undefined | null): string {
+    const normalized = region?.trim().toLowerCase();
+
+    if (normalized === 'eu' || normalized === 'api-eu') {
+        return 'https://api-eu.mixpanel.com';
+    }
+
+    if (normalized === 'in' || normalized === 'api-in') {
+        return 'https://api-in.mixpanel.com';
+    }
+
+    return 'https://api.mixpanel.com';
+}
+
+const TokenConnectionSchema = z.object({
+    credentials: z.object({
+        password: z.string()
+    })
+});
+
+const TokenMetadataSchema = z.object({
+    project_token: z.string().optional(),
+    token: z.string().optional()
+});
+
+async function resolveProjectToken(nango: NangoAction, explicitToken?: string | null): Promise<string> {
+    if (explicitToken) {
+        return explicitToken;
+    }
+
+    const parsedConnection = TokenConnectionSchema.safeParse(await nango.getConnection());
+    if (parsedConnection.success && parsedConnection.data.credentials.password) {
+        return parsedConnection.data.credentials.password;
+    }
+
+    const parsedMetadata = TokenMetadataSchema.safeParse(await nango.getMetadata());
+    const metadataToken = parsedMetadata.success ? (parsedMetadata.data.project_token ?? parsedMetadata.data.token) : undefined;
+    if (metadataToken) {
+        return metadataToken;
+    }
+
+    throw new nango.ActionError({
+        type: 'missing_token',
+        message:
+            'Could not resolve a Mixpanel project token. Provide it as input, set "project_token" in connection metadata, or ensure the connection credentials include a password.'
+    });
+}
 
 const InputSchema = z.object({
     group_key: z.string().describe('The group key. Example: "company_id"'),
@@ -25,17 +74,6 @@ const ConnectionSchema = z.object({
         .optional()
 });
 
-function resolveIngestionHost(connection: z.infer<typeof ConnectionSchema>): string {
-    const region = connection.metadata?.region;
-    if (region === 'eu') {
-        return 'https://api-eu.mixpanel.com';
-    }
-    if (region === 'in') {
-        return 'https://api-in.mixpanel.com';
-    }
-    return 'https://api.mixpanel.com';
-}
-
 const action = createAction({
     description: 'Set or update group profile properties.',
     version: '1.0.0',
@@ -46,7 +84,8 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
         const parsedConnection = ConnectionSchema.parse(connection);
-        const host = resolveIngestionHost(parsedConnection);
+        const host = resolveIngestionHost(parsedConnection.metadata?.region);
+        const token = await resolveProjectToken(nango);
 
         const response = await nango.post({
             // https://developer.mixpanel.com/reference/group-set-property
@@ -57,7 +96,7 @@ const action = createAction({
             },
             data: [
                 {
-                    $token: 'service-account',
+                    $token: token,
                     $group_key: input.group_key,
                     $group_id: input.group_id,
                     $set: input.properties

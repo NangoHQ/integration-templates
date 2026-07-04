@@ -1,5 +1,40 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { NangoAction } from 'nango';
+
+const TokenConnectionSchema = z.object({
+    credentials: z.object({
+        password: z.string()
+    })
+});
+
+const TokenMetadataSchema = z.object({
+    project_token: z.string().optional(),
+    token: z.string().optional()
+});
+
+async function resolveProjectToken(nango: NangoAction, explicitToken?: string | null): Promise<string> {
+    if (explicitToken) {
+        return explicitToken;
+    }
+
+    const parsedConnection = TokenConnectionSchema.safeParse(await nango.getConnection());
+    if (parsedConnection.success && parsedConnection.data.credentials.password) {
+        return parsedConnection.data.credentials.password;
+    }
+
+    const parsedMetadata = TokenMetadataSchema.safeParse(await nango.getMetadata());
+    const metadataToken = parsedMetadata.success ? (parsedMetadata.data.project_token ?? parsedMetadata.data.token) : undefined;
+    if (metadataToken) {
+        return metadataToken;
+    }
+
+    throw new nango.ActionError({
+        type: 'missing_token',
+        message:
+            'Could not resolve a Mixpanel project token. Provide it as input, set "project_token" in connection metadata, or ensure the connection credentials include a password.'
+    });
+}
 
 const PropertiesSchema = z
     .object({
@@ -42,9 +77,8 @@ const action = createAction({
             ...(insert_id !== undefined && { $insert_id: insert_id })
         };
 
-        if (typeof apiProperties['token'] !== 'string' || apiProperties['token'].length === 0) {
-            apiProperties['token'] = 'nango';
-        }
+        const existingToken = typeof apiProperties['token'] === 'string' && apiProperties['token'].length > 0 ? apiProperties['token'] : undefined;
+        apiProperties['token'] = await resolveProjectToken(nango, existingToken);
 
         const response = await nango.post({
             // https://developer.mixpanel.com/reference/track-event

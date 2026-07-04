@@ -181,7 +181,7 @@ const action = createAction({
             })
             .filter((item): item is NonNullable<typeof item> => item !== null);
 
-        const hasMore = items.length >= provider.page_size && provider.total > items.length;
+        const hasMore = provider.results.length >= provider.page_size && provider.total > items.length;
         let nextCursor: string | undefined;
 
         if (hasMore) {

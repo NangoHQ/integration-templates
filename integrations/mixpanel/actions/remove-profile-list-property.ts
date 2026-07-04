@@ -1,6 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function resolveIngestionHost(region: string | undefined | null): string {
+    const normalized = region?.trim().toLowerCase();
+
+    if (normalized === 'eu' || normalized === 'api-eu') {
+        return 'https://api-eu.mixpanel.com';
+    }
+
+    if (normalized === 'in' || normalized === 'api-in') {
+        return 'https://api-in.mixpanel.com';
+    }
+
+    return 'https://api.mixpanel.com';
+}
+
 const InputSchema = z.object({
     distinct_id: z.string().describe('The distinct_id of the user profile. Example: "user-123"'),
     property_name: z.string().describe('The name of the list property to modify. Example: "interests"'),
@@ -26,14 +40,15 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let baseUrl: string;
-        if (input.region === 'eu') {
-            baseUrl = 'https://api-eu.mixpanel.com';
-        } else if (input.region === 'in') {
-            baseUrl = 'https://api-in.mixpanel.com';
-        } else {
-            baseUrl = 'https://api.mixpanel.com';
-        }
+        const baseUrl = resolveIngestionHost(input.region);
+
+        const body = input.values.map((value) => ({
+            $token: input.project_token,
+            $distinct_id: input.distinct_id,
+            $remove: {
+                [input.property_name]: value
+            }
+        }));
 
         const response = await nango.post({
             // https://developer.mixpanel.com/reference/profile-remove-from-list-property
@@ -43,15 +58,7 @@ const action = createAction({
                 ip: 0,
                 verbose: 1
             },
-            data: [
-                {
-                    $token: input.project_token,
-                    $distinct_id: input.distinct_id,
-                    $remove: {
-                        [input.property_name]: input.values
-                    }
-                }
-            ],
+            data: body,
             retries: 10
         });
 

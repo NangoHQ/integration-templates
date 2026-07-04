@@ -7,7 +7,7 @@ const InputSchema = z.object({
     from_date: z.string().describe('Start date in yyyy-mm-dd format (inclusive). Example: 2024-01-01'),
     to_date: z.string().describe('End date in yyyy-mm-dd format (inclusive). Example: 2024-01-31'),
     workspace_id: z.number().optional().describe('Workspace ID if applicable. Example: 4536550'),
-    limit: z.number().optional().describe('Maximum number of events to return. Defaults to 100.')
+    limit: z.number().int().positive().optional().describe('Maximum number of events to return. Defaults to 100.')
 });
 
 const ProviderEventSchema = z.object({

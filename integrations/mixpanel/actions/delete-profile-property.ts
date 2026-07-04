@@ -1,6 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function resolveIngestionHost(region: string | undefined | null): string {
+    const normalized = region?.trim().toLowerCase();
+
+    if (normalized === 'eu' || normalized === 'api-eu') {
+        return 'https://api-eu.mixpanel.com';
+    }
+
+    if (normalized === 'in' || normalized === 'api-in') {
+        return 'https://api-in.mixpanel.com';
+    }
+
+    return 'https://api.mixpanel.com';
+}
+
 const InputSchema = z.object({
     distinct_id: z.string().describe('The distinct_id of the user profile to modify. Example: "13793"'),
     properties: z.array(z.string()).min(1).describe('List of profile property names to remove. Example: ["plan", "company"]'),
@@ -32,16 +46,6 @@ function extractRegionFromMetadata(raw: unknown): string | undefined {
     }
 
     return undefined;
-}
-
-function resolveIngestionHost(region: string | undefined): string {
-    if (region === 'eu') {
-        return 'https://api-eu.mixpanel.com';
-    }
-    if (region === 'in') {
-        return 'https://api-in.mixpanel.com';
-    }
-    return 'https://api.mixpanel.com';
 }
 
 const action = createAction({

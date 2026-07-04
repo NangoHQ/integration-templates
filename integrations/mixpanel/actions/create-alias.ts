@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { NangoAction } from 'nango';
 
 const InputSchema = z.object({
     alias: z.string().describe('The new alias to map to the distinct_id. Example: "user-123-alias"'),
@@ -18,13 +19,39 @@ const OutputSchema = z.object({
     distinct_id: z.string()
 });
 
-const ConnectionSchema = z.object({
+const TokenConnectionSchema = z.object({
     credentials: z.object({
-        type: z.literal('BASIC'),
-        username: z.string(),
         password: z.string()
     })
 });
+
+const TokenMetadataSchema = z.object({
+    project_token: z.string().optional(),
+    token: z.string().optional()
+});
+
+async function resolveProjectToken(nango: NangoAction, explicitToken?: string | null): Promise<string> {
+    if (explicitToken) {
+        return explicitToken;
+    }
+
+    const parsedConnection = TokenConnectionSchema.safeParse(await nango.getConnection());
+    if (parsedConnection.success && parsedConnection.data.credentials.password) {
+        return parsedConnection.data.credentials.password;
+    }
+
+    const parsedMetadata = TokenMetadataSchema.safeParse(await nango.getMetadata());
+    const metadataToken = parsedMetadata.success ? (parsedMetadata.data.project_token ?? parsedMetadata.data.token) : undefined;
+    if (metadataToken) {
+        return metadataToken;
+    }
+
+    throw new nango.ActionError({
+        type: 'missing_token',
+        message:
+            'Could not resolve a Mixpanel project token. Provide it as input, set "project_token" in connection metadata, or ensure the connection credentials include a password.'
+    });
+}
 
 const action = createAction({
     description: 'Create an alias.',
@@ -33,12 +60,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let token = input.token;
-        if (!token) {
-            const connection = await nango.getConnection();
-            const parsedConnection = ConnectionSchema.safeParse(connection);
-            token = parsedConnection.success ? parsedConnection.data.credentials.password : '';
-        }
+        const token = await resolveProjectToken(nango, input.token);
 
         const response = await nango.post({
             // https://developer.mixpanel.com/reference/identity-create-alias

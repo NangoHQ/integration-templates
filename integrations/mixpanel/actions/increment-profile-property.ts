@@ -82,6 +82,13 @@ const action = createAction({
 
         if (typeof rawData === 'string') {
             const status = rawData.trim() === '1' ? 1 : 0;
+            if (status !== 1) {
+                throw new nango.ActionError({
+                    type: 'mixpanel_error',
+                    message: 'Profile increment failed',
+                    num_good_events: 0
+                });
+            }
             return {
                 status,
                 num_good_events: status

@@ -96,14 +96,10 @@ const sync = createSync({
             )
         ].sort();
 
-        if (projectIds.length === 0) {
-            return;
-        }
+        await nango.trackDeletesStart('ProjectServiceAccount');
 
         const checkpointIndex = checkpoint.next_project_id ? projectIds.indexOf(checkpoint.next_project_id) : 0;
         const startIndex = checkpointIndex >= 0 ? checkpointIndex : 0;
-
-        await nango.trackDeletesStart('ProjectServiceAccount');
 
         for (let index = startIndex; index < projectIds.length; index++) {
             const projectId = projectIds[index];

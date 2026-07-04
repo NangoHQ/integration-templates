@@ -86,8 +86,6 @@ const sync = createSync({
             throw new Error('Unable to determine Mixpanel project ID. Set project_id in connection metadata.');
         }
 
-        await nango.trackDeletesStart('LexiconSchema');
-
         // https://developer.mixpanel.com/reference/list-all-schemas-for-project
         let response;
         // @allowTryCatch: gracefully exit when the service account lacks project access
@@ -106,6 +104,8 @@ const sync = createSync({
         if (response && typeof response === 'object' && 'status' in response && response.status === 403) {
             return;
         }
+
+        await nango.trackDeletesStart('LexiconSchema');
 
         const parsed = ProviderListSchemasResponseSchema.safeParse(response.data);
         if (!parsed.success) {

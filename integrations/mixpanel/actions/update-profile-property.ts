@@ -10,7 +10,7 @@ const InputSchema = z.object({
 const ProviderResponseSchema = z.object({
     status: z.number(),
     error: z.string().nullable().optional(),
-    errors: z.record(z.string(), z.string()).optional(),
+    errors: z.record(z.string(), z.unknown()).nullable().optional(),
     num_good_events: z.number().optional()
 });
 

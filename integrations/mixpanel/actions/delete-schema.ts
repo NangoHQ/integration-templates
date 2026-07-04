@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    projectId: z.number().describe('Your project id. Example: 4040293'),
+    projectId: z.number().int().positive().describe('Your project id. Example: 4040293'),
     entityType: z.enum(['event', 'profile']).describe('The entity type. Example: event'),
-    name: z.string().describe('The entity name. Example: nango_seed_event')
+    name: z.string().min(1).describe('The entity name. Example: nango_seed_event')
 });
 
 const OutputSchema = z.object({

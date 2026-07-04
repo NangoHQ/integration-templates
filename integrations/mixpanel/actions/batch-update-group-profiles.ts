@@ -1,6 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function resolveIngestionHost(region: string | undefined | null): string {
+    const normalized = region?.trim().toLowerCase();
+
+    if (normalized === 'eu' || normalized === 'api-eu') {
+        return 'https://api-eu.mixpanel.com';
+    }
+
+    if (normalized === 'in' || normalized === 'api-in') {
+        return 'https://api-in.mixpanel.com';
+    }
+
+    return 'https://api.mixpanel.com';
+}
+
 const GroupUpdateSchema = z
     .object({
         token: z.string().describe('Project token. Example: "YOUR_PROJECT_TOKEN"').optional(),
@@ -12,7 +26,7 @@ const GroupUpdateSchema = z
         union: z.record(z.string(), z.array(z.unknown())).describe('Properties to union with a list').optional(),
         remove: z.record(z.string(), z.array(z.unknown())).describe('Properties to remove values from a list').optional(),
         unset: z.array(z.string()).describe('Properties to remove from the profile').optional(),
-        delete: z.boolean().describe('Delete the group profile').optional()
+        delete: z.union([z.string(), z.null()]).describe('Delete the group profile. Pass null to delete.').optional()
     })
     .refine(
         (data) => {
@@ -33,9 +47,9 @@ const GroupUpdateSchema = z
 
 const InputSchema = z.object({
     updates: z.array(GroupUpdateSchema).describe('Array of group profile update objects'),
-    ip: z.number().describe('Set to 0 to disable geolocation parsing using the request IP').optional(),
-    strict: z.number().describe('Set to 1 to return validation errors for invalid updates').optional(),
-    verbose: z.number().describe('Set to 1 for a verbose JSON response').optional()
+    ip: z.number().int().min(0).max(1).describe('Set to 0 to disable geolocation parsing using the request IP').optional(),
+    strict: z.number().int().min(0).max(1).describe('Set to 1 to return validation errors for invalid updates').optional(),
+    verbose: z.number().int().min(0).max(1).describe('Set to 1 for a verbose JSON response').optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -62,8 +76,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadataResult = MetadataSchema.safeParse(await nango.getMetadata());
-        const region = metadataResult.success ? (metadataResult.data.region ?? 'api') : 'api';
-        const baseUrl = `https://${region}.mixpanel.com`;
+        const baseUrl = resolveIngestionHost(metadataResult.success ? metadataResult.data.region : undefined);
 
         const body = input.updates.map((update) => {
             const result: Record<string, unknown> = {
@@ -103,6 +116,12 @@ const action = createAction({
             },
             retries: 3
         });
+
+        if (typeof response.data === 'number') {
+            return {
+                status: response.data
+            };
+        }
 
         if (typeof response.data === 'string') {
             const parsed = Number(response.data);

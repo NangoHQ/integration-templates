@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     project_id: z.string().describe('Mixpanel project ID. Example: "4040293"'),
-    limit: z.number().optional().describe('Maximum number of tags to return. Default: 100'),
+    limit: z.number().int().positive().optional().describe('Maximum number of tags to return. Default: 100'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
@@ -48,9 +48,9 @@ const action = createAction({
 
         const allTags = providerResponse.data.results;
         const limit = input.limit ?? 100;
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const offset = input.cursor ? Number(input.cursor) : 0;
 
-        if (Number.isNaN(offset) || offset < 0) {
+        if (!Number.isInteger(offset) || offset < 0) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'Cursor must be a non-negative integer string.'

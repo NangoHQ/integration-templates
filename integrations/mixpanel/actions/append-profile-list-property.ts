@@ -1,6 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function resolveIngestionHost(region: string | undefined | null): string {
+    const normalized = region?.trim().toLowerCase();
+
+    if (normalized === 'eu' || normalized === 'api-eu') {
+        return 'https://api-eu.mixpanel.com';
+    }
+
+    if (normalized === 'in' || normalized === 'api-in') {
+        return 'https://api-in.mixpanel.com';
+    }
+
+    return 'https://api.mixpanel.com';
+}
+
 const InputSchema = z.object({
     distinct_id: z.string().describe('User distinct ID. Example: "13793"'),
     property: z.string().describe('Property name to append to. Example: "favorite_colors"'),
@@ -23,8 +37,7 @@ const OutputSchema = z.object({
 const MetadataSchema = z.object({
     region: z.string().optional(),
     project_token: z.string().optional(),
-    token: z.string().optional(),
-    project_id: z.string().optional()
+    token: z.string().optional()
 });
 
 const action = createAction({
@@ -36,10 +49,9 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
-        const region = metadata.region || 'api';
-        const baseUrl = `https://${region}.mixpanel.com`;
+        const baseUrl = resolveIngestionHost(metadata.region);
 
-        const token = metadata.project_token || metadata.token || metadata.project_id || null;
+        const token = metadata.project_token || metadata.token || null;
 
         if (!token) {
             throw new nango.ActionError({

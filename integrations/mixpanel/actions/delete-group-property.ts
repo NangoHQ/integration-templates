@@ -1,6 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function resolveIngestionHost(region: string | undefined | null): string {
+    const normalized = region?.trim().toLowerCase();
+
+    if (normalized === 'eu' || normalized === 'api-eu') {
+        return 'https://api-eu.mixpanel.com';
+    }
+
+    if (normalized === 'in' || normalized === 'api-in') {
+        return 'https://api-in.mixpanel.com';
+    }
+
+    return 'https://api.mixpanel.com';
+}
+
 const InputSchema = z.object({
     group_key: z.string().describe('Group key. Example: "company"'),
     group_id: z.string().describe('Group ID. Example: "acme"'),
@@ -37,8 +51,7 @@ const action = createAction({
             });
         }
 
-        const region = input.region || metadata?.region || 'api';
-        const baseUrl = `https://${region}.mixpanel.com`;
+        const baseUrl = resolveIngestionHost(input.region || metadata?.region);
 
         const response = await nango.post({
             // https://developer.mixpanel.com/reference/group-delete-property
@@ -78,9 +91,11 @@ const action = createAction({
             };
         }
 
-        return {
-            success: true
-        };
+        throw new nango.ActionError({
+            type: 'unexpected_response',
+            message: 'Received an unexpected response format from Mixpanel.',
+            response: response.data
+        });
     }
 });
 

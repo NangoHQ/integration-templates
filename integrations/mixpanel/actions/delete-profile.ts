@@ -1,13 +1,26 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function resolveIngestionHost(region: string | undefined | null): string {
+    const normalized = region?.trim().toLowerCase();
+
+    if (normalized === 'eu' || normalized === 'api-eu') {
+        return 'https://api-eu.mixpanel.com';
+    }
+
+    if (normalized === 'in' || normalized === 'api-in') {
+        return 'https://api-in.mixpanel.com';
+    }
+
+    return 'https://api.mixpanel.com';
+}
+
 const InputSchema = z.object({
     distinct_id: z.string().describe('The distinct_id of the profile to delete. Example: "13793"'),
     project_token: z.string().describe('The Mixpanel project token. Example: "YOUR_PROJECT_TOKEN"'),
     ignore_alias: z.boolean().optional().describe('If true, prevents deleting the original profile when the distinct_id is an alias.'),
     region: z
-        .string()
-        .regex(/^[a-z0-9-]+$/, { message: 'Region must contain only lowercase letters, numbers, and hyphens.' })
+        .enum(['api', 'api-eu', 'api-in'])
         .optional()
         .describe('The Mixpanel data residency region. Defaults to "api" (US). Use "api-eu" for EU or "api-in" for India.')
 });
@@ -29,8 +42,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const region = input.region || 'api';
-        const baseUrl = `https://${region}.mixpanel.com`;
+        const baseUrl = resolveIngestionHost(input.region);
 
         const payload: Record<string, unknown> = {
             $token: input.project_token,
@@ -49,7 +61,7 @@ const action = createAction({
                 verbose: 1
             },
             data: [payload],
-            retries: 0, // eslint-disable-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 3,
             baseUrlOverride: baseUrl
         });
 
