@@ -59550,6 +59550,283 @@ export interface ActionOutput_google_drive_uploaddocument {
   webContentLink?: string | undefined;
 };
 
+export interface CachedContent {
+  id: string;
+  name: string;
+  displayName?: string | undefined;
+  model?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expireTime?: string | undefined;
+  usageMetadata?: {  totalTokenCount?: number | undefined;
+  textCount?: number | undefined;
+  imageCount?: number | undefined;
+  videoDurationSeconds?: number | undefined;};
+};
+
+export interface ActionInput_google_gemini_batchembedcontents {
+  /**
+   * The embedding model to use. Defaults to "gemini-embedding-001".
+   */
+  model?: string | undefined;
+  /**
+   * Array of embed requests.
+   */
+  requests: ({  /**
+   * Model name. Must match the outer model. Defaults to the outer model.
+   */
+  model?: string | undefined;
+  /**
+   * Text content to embed.
+   */
+  content: string;
+  /**
+   * Optional task type for the embedding.
+   */
+  taskType?: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY' | 'SEMANTIC_SIMILARITY' | 'CLASSIFICATION' | 'CLUSTERING' | 'CODE_RETRIEVAL_QUERY' | undefined;})[];
+};
+
+export interface ActionOutput_google_gemini_batchembedcontents {
+  /**
+   * The embeddings for each request, in the same order as provided in the batch request.
+   */
+  embeddings: ({  values?: number[] | undefined;})[];
+};
+
+export interface ActionInput_google_gemini_counttokens {
+  /**
+   * Model name. Example: "gemini-2.5-flash"
+   */
+  model?: string | undefined;
+  /**
+   * Input contents to tokenize.
+   */
+  contents: ({  role?: string | undefined;
+  parts: ({  text?: string | undefined;
+  inlineData?: {  mimeType: string;
+  data: string;} | undefined;
+  fileData?: {  mimeType: string;
+  fileUri: string;} | undefined;})[];})[];
+  /**
+   * Optional system instruction content.
+   */
+  systemInstruction?: {  role?: string | undefined;
+  parts: ({  text?: string | undefined;
+  inlineData?: {  mimeType: string;
+  data: string;} | undefined;
+  fileData?: {  mimeType: string;
+  fileUri: string;} | undefined;})[];};
+};
+
+export interface ActionOutput_google_gemini_counttokens {
+  /**
+   * Total number of tokens in the input.
+   */
+  totalTokens: number;
+  promptTokensDetails?: ({  modality?: string | undefined;
+  tokenCount?: number | undefined;})[];
+};
+
+export interface ActionInput_google_gemini_deletefile {
+  /**
+   * File name. Example: "files/abc123"
+   */
+  name: string;
+};
+
+export interface ActionOutput_google_gemini_deletefile {
+};
+
+export interface ActionInput_google_gemini_embedcontent {
+  /**
+   * The text content to embed.
+   */
+  content: string;
+  /**
+   * The embedding model name. Defaults to gemini-embedding-001.
+   */
+  model?: string | undefined;
+  /**
+   * The task type for which the embeddings will be used.
+   */
+  taskType?: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY' | 'SEMANTIC_SIMILARITY' | 'CLASSIFICATION' | 'CLUSTERING' | 'CODE_RETRIEVAL_QUERY' | undefined;
+  /**
+   * An optional title for the text. Only applicable when taskType is RETRIEVAL_DOCUMENT.
+   */
+  title?: string | undefined;
+  /**
+   * Reduced dimension for the output embedding. If set, excessive values are truncated from the end.
+   */
+  outputDimensionality?: number | undefined;
+};
+
+export interface ActionOutput_google_gemini_embedcontent {
+  /**
+   * The embedding vector values.
+   */
+  values: number[];
+  truncated?: boolean | undefined;
+  promptTokenCount?: number | undefined;
+  totalTokenCount?: number | undefined;
+};
+
+export interface ActionInput_google_gemini_generatecontent {
+  model?: string | undefined;
+  contents: ({  role?: string | undefined;
+  parts: ({  text?: string | undefined;})[];})[];
+  systemInstruction?: {  role?: string | undefined;
+  parts: ({  text?: string | undefined;})[];};
+  generationConfig?: {  maxOutputTokens?: number | undefined;
+  temperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+  stopSequences?: string[] | undefined;
+  responseMimeType?: string | undefined;};
+  tools?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_google_gemini_generatecontent {
+  candidates?: ({  content?: {  role?: string | undefined;
+  parts?: ({  text?: string | undefined;})[];};
+  finishReason?: string | undefined;
+  index?: number | undefined;
+  safetyRatings?: ({  [key: string]: unknown | undefined;})[];
+  citationMetadata?: {  [key: string]: unknown | undefined;};
+  groundingMetadata?: {  [key: string]: unknown | undefined;};})[];
+  promptFeedback?: {  blockReason?: string | undefined;
+  safetyRatings?: ({  [key: string]: unknown | undefined;})[];};
+  usageMetadata?: {  promptTokenCount?: number | undefined;
+  cachedContentTokenCount?: number | undefined;
+  candidatesTokenCount?: number | undefined;
+  totalTokenCount?: number | undefined;};
+};
+
+export interface ActionInput_google_gemini_getfile {
+  /**
+   * The name of the file to retrieve. Example: "files/abc123"
+   */
+  name: string;
+};
+
+export interface ActionOutput_google_gemini_getfile {
+  name: string;
+  displayName?: string | undefined;
+  mimeType?: string | undefined;
+  sizeBytes?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expirationTime?: string | undefined;
+  sha256Hash?: string | undefined;
+  uri?: string | undefined;
+  downloadUri?: string | undefined;
+  state?: string | undefined;
+  source?: string | undefined;
+  error?: {} | undefined;
+  videoMetadata?: {} | undefined;
+};
+
+export interface ActionInput_google_gemini_getmodel {
+  /**
+   * Model name. Example: "gemini-2.5-flash" or "models/gemini-2.5-flash"
+   */
+  model: string;
+};
+
+export interface ActionOutput_google_gemini_getmodel {
+  name: string;
+  baseModelId?: string | undefined;
+  version?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  inputTokenLimit?: number | undefined;
+  outputTokenLimit?: number | undefined;
+  supportedGenerationMethods?: string[] | undefined;
+  temperature?: number | undefined;
+  maxTemperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+};
+
+export interface ActionInput_google_gemini_listcachedcontents {
+  /**
+   * The maximum number of cached contents to return. Maximum is 1000.
+   */
+  pageSize?: number | undefined;
+  /**
+   * A page token from a previous cachedContents.list call to retrieve the subsequent page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listcachedcontents {
+  items: ({  name: string;
+  displayName?: string | undefined;
+  model?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expireTime?: string | undefined;
+  ttl?: string | undefined;})[];
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_google_gemini_listfiles {
+  /**
+   * Maximum number of files to return per page. Defaults to 10, maximum is 100.
+   */
+  pageSize?: number | undefined;
+  /**
+   * Pagination token from a previous list-files call. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listfiles {
+  items: ({  name: string;
+  displayName?: string | undefined;
+  mimeType?: string | undefined;
+  sizeBytes?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expirationTime?: string | undefined;
+  sha256Hash?: string | undefined;
+  uri?: string | undefined;
+  downloadUri?: string | undefined;
+  state?: string | undefined;
+  source?: string | undefined;
+  error?: {} | undefined;
+  videoMetadata?: {} | undefined;})[];
+  /**
+   * Token to retrieve the next page of results.
+   */
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_google_gemini_listmodels {
+  /**
+   * Maximum number of models to return per page. Example: 10
+   */
+  pageSize?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listmodels {
+  items: ({  name: string;
+  version?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  inputTokenLimit?: number | undefined;
+  outputTokenLimit?: number | undefined;
+  supportedGenerationMethods?: string[] | undefined;
+  temperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+  maxTemperature?: number | undefined;})[];
+  next_page_token?: string | undefined;
+};
+
 export interface Filter {
   id: string;
   from?: string | undefined;

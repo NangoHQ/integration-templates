@@ -1968,6 +1968,20 @@ import './google-drive/actions/update-permission.js';
 import './google-drive/actions/update-shared-drive.js';
 import './google-drive/actions/upload-document.js';
 
+// -- Integration: google-gemini
+import './google-gemini/syncs/cached-contents.js';
+import './google-gemini/syncs/models.js';
+import './google-gemini/actions/batch-embed-contents.js';
+import './google-gemini/actions/count-tokens.js';
+import './google-gemini/actions/delete-file.js';
+import './google-gemini/actions/embed-content.js';
+import './google-gemini/actions/generate-content.js';
+import './google-gemini/actions/get-file.js';
+import './google-gemini/actions/get-model.js';
+import './google-gemini/actions/list-cached-contents.js';
+import './google-gemini/actions/list-files.js';
+import './google-gemini/actions/list-models.js';
+
 // -- Integration: google-mail
 import './google-mail/syncs/filters.js';
 import './google-mail/syncs/labels.js';
