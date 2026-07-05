@@ -1,0 +1,256 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "ZyQ04o",
+      "businessId": 14719708
+    },
+    "batchSave": {
+      "Expense": [
+        {
+          "id": "2420465",
+          "amount": {
+            "amount": "10.00",
+            "code": "USD"
+          },
+          "date": "2026-06-29",
+          "updated": "2026-06-29 12:50:21",
+          "staffid": 1,
+          "categoryid": 13151903,
+          "vis_state": 0,
+          "notes": "Updated via Nango action",
+          "status": 0
+        },
+        {
+          "id": "2420475",
+          "amount": {
+            "amount": "25.00",
+            "code": "USD"
+          },
+          "date": "2026-06-29",
+          "updated": "2026-06-29 12:52:30",
+          "staffid": 1,
+          "categoryid": 13151927,
+          "vis_state": 0,
+          "notes": "Dryrun test expense",
+          "status": 0
+        },
+        {
+          "id": "2420479",
+          "amount": {
+            "amount": "25.00",
+            "code": "USD"
+          },
+          "date": "2026-06-29",
+          "updated": "2026-06-29 12:52:30",
+          "staffid": 1,
+          "categoryid": 13151927,
+          "vis_state": 0,
+          "notes": "Dryrun test expense",
+          "status": 0
+        }
+      ]
+    },
+    "batchDelete": {
+      "Expense": []
+    }
+  },
+  "api": {
+    "get": {
+      "/accounting/account/ZyQ04o/expenses/expenses": {
+        "response": {
+          "response": {
+            "result": {
+              "expenses": [
+                {
+                  "account_name": "",
+                  "accountid": null,
+                  "accounting_systemid": "ZyQ04o",
+                  "amount": {
+                    "amount": "10.00",
+                    "code": "USD"
+                  },
+                  "background_jobid": null,
+                  "bank_name": "",
+                  "bill_matches": [],
+                  "billable": false,
+                  "categoryid": 13151903,
+                  "clientid": 0,
+                  "compounded_tax": false,
+                  "converse_projectid": null,
+                  "date": "2026-06-29",
+                  "expenseid": 2420465,
+                  "ext_accountid": null,
+                  "ext_invoiceid": 0,
+                  "ext_systemid": 0,
+                  "from_bulk_import": false,
+                  "has_receipt": false,
+                  "id": 2420465,
+                  "include_receipt": false,
+                  "invoiceid": null,
+                  "is_cogs": false,
+                  "isduplicate": false,
+                  "markup_percent": "0",
+                  "modern_projectid": null,
+                  "notes": "Updated via Nango action",
+                  "potential_bill_payment": false,
+                  "profileid": null,
+                  "projectid": 0,
+                  "staffid": 1,
+                  "status": 0,
+                  "taxAmount1": null,
+                  "taxAmount2": null,
+                  "taxName1": null,
+                  "taxName2": null,
+                  "taxPercent1": null,
+                  "taxPercent2": null,
+                  "transactionid": null,
+                  "updated": "2026-06-29 12:50:21",
+                  "vendor": null,
+                  "version": "2026-06-29 12:50:21.518324",
+                  "vis_state": 0
+                },
+                {
+                  "account_name": "",
+                  "accountid": null,
+                  "accounting_systemid": "ZyQ04o",
+                  "amount": {
+                    "amount": "25.00",
+                    "code": "USD"
+                  },
+                  "background_jobid": null,
+                  "bank_name": "",
+                  "bill_matches": [],
+                  "billable": false,
+                  "categoryid": 13151927,
+                  "clientid": 0,
+                  "compounded_tax": false,
+                  "converse_projectid": null,
+                  "date": "2026-06-29",
+                  "expenseid": 2420475,
+                  "ext_accountid": null,
+                  "ext_invoiceid": 0,
+                  "ext_systemid": 0,
+                  "from_bulk_import": false,
+                  "has_receipt": false,
+                  "id": 2420475,
+                  "include_receipt": false,
+                  "invoiceid": null,
+                  "is_cogs": false,
+                  "isduplicate": true,
+                  "markup_percent": "0",
+                  "modern_projectid": null,
+                  "notes": "Dryrun test expense",
+                  "potential_bill_payment": false,
+                  "profileid": null,
+                  "projectid": 0,
+                  "staffid": 1,
+                  "status": 0,
+                  "taxAmount1": null,
+                  "taxAmount2": null,
+                  "taxName1": null,
+                  "taxName2": null,
+                  "taxPercent1": null,
+                  "taxPercent2": null,
+                  "transactionid": null,
+                  "updated": "2026-06-29 12:52:30",
+                  "vendor": null,
+                  "version": "2026-06-29 12:52:30.727825",
+                  "vis_state": 0
+                },
+                {
+                  "account_name": "",
+                  "accountid": null,
+                  "accounting_systemid": "ZyQ04o",
+                  "amount": {
+                    "amount": "25.00",
+                    "code": "USD"
+                  },
+                  "background_jobid": null,
+                  "bank_name": "",
+                  "bill_matches": [],
+                  "billable": false,
+                  "categoryid": 13151927,
+                  "clientid": 0,
+                  "compounded_tax": false,
+                  "converse_projectid": null,
+                  "date": "2026-06-29",
+                  "expenseid": 2420479,
+                  "ext_accountid": null,
+                  "ext_invoiceid": 0,
+                  "ext_systemid": 0,
+                  "from_bulk_import": false,
+                  "has_receipt": false,
+                  "id": 2420479,
+                  "include_receipt": false,
+                  "invoiceid": null,
+                  "is_cogs": false,
+                  "isduplicate": true,
+                  "markup_percent": "0",
+                  "modern_projectid": null,
+                  "notes": "Dryrun test expense",
+                  "potential_bill_payment": false,
+                  "profileid": null,
+                  "projectid": 0,
+                  "staffid": 1,
+                  "status": 0,
+                  "taxAmount1": null,
+                  "taxAmount2": null,
+                  "taxName1": null,
+                  "taxName2": null,
+                  "taxPercent1": null,
+                  "taxPercent2": null,
+                  "transactionid": null,
+                  "updated": "2026-06-29 12:52:30",
+                  "vendor": null,
+                  "version": "2026-06-29 12:52:30.783369",
+                  "vis_state": 0
+                }
+              ],
+              "page": 1,
+              "pages": 1,
+              "per_page": 100,
+              "total": 3
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 29 Jun 2026 17:04:42 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556926; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "595",
+          "x-ratelimit-reset": "1782752741",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-api-version": "2023-02-20",
+          "permissions-policy": "browsing-topics=()",
+          "content-security-policy": "default-src 'self'; object-src 'none'",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "retry-after": "58",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "7442f55050856f8a27c666b0b3ab19c67316e379",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100",
+            "sort": "updated:asc"
+          }
+        }
+      }
+    }
+  }
+}

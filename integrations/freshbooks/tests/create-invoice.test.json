@@ -1,0 +1,214 @@
+{
+  "input": {
+    "customerid": 567521,
+    "create_date": "2024-01-15",
+    "currency_code": "USD",
+    "lines": [
+      {
+        "type": 0,
+        "name": "Consulting Services",
+        "qty": 1,
+        "unit_cost": {
+          "amount": "1500.00",
+          "code": "USD"
+        }
+      }
+    ]
+  },
+  "output": {
+    "id": 454063,
+    "invoiceid": 454063,
+    "customerid": 567521,
+    "status": 1,
+    "display_status": "draft",
+    "create_date": "2024-01-15",
+    "currency_code": "USD",
+    "amount": {
+      "amount": "1500.00",
+      "code": "USD"
+    },
+    "outstanding": {
+      "amount": "1500.00",
+      "code": "USD"
+    },
+    "paid": {
+      "amount": "0.00",
+      "code": "USD"
+    },
+    "invoice_number": "0000008",
+    "notes": "",
+    "terms": null,
+    "due_date": "2024-01-15",
+    "description": "",
+    "discount_value": "0",
+    "vis_state": 0
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "ZyQ04o"
+    }
+  },
+  "api": {
+    "post": {
+      "/accounting/account/ZyQ04o/invoices/invoices": {
+        "response": {
+          "response": {
+            "result": {
+              "invoice": {
+                "accountid": "ZyQ04o",
+                "accounting_systemid": "ZyQ04o",
+                "address": "",
+                "amount": {
+                  "amount": "1500.00",
+                  "code": "USD"
+                },
+                "attach_pdf_to_email": false,
+                "auto_bill": false,
+                "autobill_status": null,
+                "basecampid": 0,
+                "city": "",
+                "code": "",
+                "country": "",
+                "create_date": "2024-01-15",
+                "created_at": "2026-06-29 12:52:44",
+                "currency_code": "USD",
+                "current_organization": "Nango Test Co",
+                "customerid": 567521,
+                "date_paid": null,
+                "deposit_amount": null,
+                "deposit_percentage": null,
+                "deposit_status": "none",
+                "description": "",
+                "discount": {
+                  "amount": {
+                    "amount": "0.00",
+                    "code": "USD"
+                  },
+                  "rate": "0",
+                  "type": "percent"
+                },
+                "discount_description": null,
+                "discount_total": {
+                  "amount": "0.00",
+                  "code": "USD"
+                },
+                "discount_value": "0",
+                "display_status": "draft",
+                "dispute_status": null,
+                "due_date": "2024-01-15",
+                "due_offset_days": 0,
+                "estimateid": 0,
+                "ext_archive": 0,
+                "fname": "Alice",
+                "fulfillment_date": null,
+                "generation_date": null,
+                "gmail": false,
+                "id": 454063,
+                "invoice_number": "0000008",
+                "invoiceid": 454063,
+                "language": "en",
+                "last_order_status": null,
+                "lname": "Nango",
+                "lock_status": "unlocked",
+                "net_paid_amount": {
+                  "amount": "0.00",
+                  "code": "USD"
+                },
+                "notes": "",
+                "organization": "Nango Test Co",
+                "outstanding": {
+                  "amount": "1500.00",
+                  "code": "USD"
+                },
+                "ownerid": 1,
+                "paid": {
+                  "amount": "0.00",
+                  "code": "USD"
+                },
+                "parent": 0,
+                "payment_details": "",
+                "payment_status": "unpaid",
+                "po_number": null,
+                "province": "",
+                "return_uri": null,
+                "sender_address": {
+                  "city": "",
+                  "code": "",
+                  "country": "Kenya",
+                  "province": "",
+                  "street": "",
+                  "street2": ""
+                },
+                "sentid": 1,
+                "series": "",
+                "show_attachments": true,
+                "status": 1,
+                "street": "",
+                "street2": "",
+                "template": "clean-grouped",
+                "terms": null,
+                "updated": "2026-06-29 12:52:44",
+                "uuid": "71400f12-2a8d-4795-a718-c38b031ddde2",
+                "v3_status": "draft",
+                "vat_name": "",
+                "vat_number": "",
+                "version": "2026-06-29 12:52:44.256995",
+                "vis_state": 0
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 29 Jun 2026 16:52:44 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556926; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "250",
+          "x-ratelimit-remaining": "245",
+          "x-ratelimit-reset": "1782751969",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-api-version": "2023-02-20",
+          "permissions-policy": "browsing-topics=()",
+          "content-security-policy": "default-src 'self'; object-src 'none'",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "retry-after": "4",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "e994e6d98cbd9796c76d0f04b81ff8efb6820a23",
+        "request": {
+          "data": {
+            "invoice": {
+              "customerid": 567521,
+              "lines": [
+                {
+                  "type": 0,
+                  "name": "Consulting Services",
+                  "qty": 1,
+                  "unit_cost": {
+                    "amount": "1500.00",
+                    "code": "USD"
+                  }
+                }
+              ],
+              "create_date": "2024-01-15",
+              "currency_code": "USD"
+            }
+          }
+        }
+      }
+    }
+  }
+}
