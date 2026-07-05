@@ -1,0 +1,530 @@
+{
+  "input": {
+    "title": "Nango Test Project 2",
+    "client_id": 567521
+  },
+  "output": {
+    "id": 13312432,
+    "title": "Nango Test Project 2",
+    "client_id": 567521,
+    "project_type": "hourly_rate",
+    "internal": false,
+    "active": true,
+    "complete": false,
+    "created_at": "2026-06-29T16:50:50",
+    "updated_at": "2026-06-29T16:50:50",
+    "billing_method": "project_rate"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "businessId": "14719708"
+    }
+  },
+  "api": {
+    "get": {
+      "/auth/api/v1/users/me": {
+        "response": {
+          "response": {
+            "id": 14468508,
+            "identity_id": 14468508,
+            "identity_uuid": "42c0d779-1dea-4532-a6d0-afc746ea250f",
+            "first_name": "Nango",
+            "last_name": "Developer",
+            "email": "api@nango.dev",
+            "language": "en",
+            "confirmed_at": null,
+            "created_at": "2026-06-29T12:31:51Z",
+            "unconfirmed_email": null,
+            "setup_complete": true,
+            "phone_numbers": [
+              {
+                "title": "",
+                "phone_number": null
+              }
+            ],
+            "addresses": [
+              null
+            ],
+            "profession": null,
+            "links": {
+              "me": "/service/auth/api/v1/users?id=14468508",
+              "roles": "/service/auth/api/v1/users/role/14468508"
+            },
+            "profile": {
+              "setup_complete": true,
+              "first_name": "Nango",
+              "last_name": "Developer",
+              "phone_number": null,
+              "address": null,
+              "profession": null,
+              "professions": [],
+              "has_password": false,
+              "is_email_confirmed": true,
+              "timezone": "Africa/Nairobi",
+              "time_format": 0
+            },
+            "permissions": {
+              "ZyQ04o": {
+                "staff.limit": -1,
+                "client.limit": -1,
+                "retainers.limit": -1,
+                "attachments.access": true,
+                "bacs_fee_cap.limit": 400,
+                "emails_page.access": true,
+                "sepa_fee_cap.limit": 1000,
+                "rich_proposals.access": true,
+                "accounts_payable.access": true,
+                "accountant_partner.limit": 10,
+                "retainers_feature.access": true,
+                "business_accountant.limit": 10,
+                "documents_ocr_plan.access": true,
+                "advanced_accounting.access": true,
+                "proposals_candidate.access": true,
+                "project_profitability.access": true,
+                "documents_ocr_bill_plan.access": true,
+                "project_service_estimates.access": true,
+                "documents_ocr_complete_plan.access": true,
+                "estimate_convert_to_project.access": true,
+                "flexcoa_advanced_accounting.access": true,
+                "manual_journal_entries_feature.access": true,
+                "BetaHeliosAsyncExpenses.access": true,
+                "beta_mobile_create_expense_subcategory.access": true,
+                "ios_beta_zendesk_widget.access": true,
+                "mobile_receipt_rebilling.access": true,
+                "helios_pushnotifications.beta.access": true,
+                "ios_beta_payment_schedules.access": true,
+                "helios_rebill_time.access": true,
+                "helios_dashboard.access": true,
+                "helios_late_fee_reminder.beta.access": true,
+                "helios_bulk_actions_invoices.beta.access": true,
+                "helios_virtual_terminal.beta.access": true,
+                "helios_expense_rebilling.beta.access": true,
+                "helios_company_taxes.beta.access": true,
+                "helios_invoice_archive.beta.access": true,
+                "helios_sync_throttle.beta.access": true,
+                "helios_push_resource_to_use_execute.beta.access": true,
+                "bank_rec_smart_match.access": true,
+                "helios_remote_search.beta.access": true,
+                "helios_virtual_terminal_tutorial.beta.access": true,
+                "stripe_advanced_payments.access": true,
+                "helios_virtual_terminal_advertising.beta.access": true,
+                "helios_stripe_virtual_terminal.beta.access": true,
+                "stripe_payments_intent.access": true,
+                "cardapp_new_payment_methods.access": true,
+                "stripe_ach.access": true,
+                "rounded_time_tracking.access": true,
+                "time_entry_billed_amount.access": true,
+                "paypal_gateway.access": true,
+                "partial_payments.access": true,
+                "payment_links.access": true,
+                "bacs_direct_debit.access": true,
+                "sepa_direct_debit.access": true,
+                "andromeda_mileage_tracker.dev.access": true,
+                "sepa_direct_debit_mandate.access": true,
+                "bacs_direct_debit_mandate.access": true,
+                "core_data_from_es.access": true,
+                "refunds.access": true,
+                "recurring_paypal.access": true,
+                "save_emails.access": true,
+                "project_line_items.access": true,
+                "ted_report_refactor.access": true,
+                "flexible_chart_of_accounts.access": true,
+                "acss_direct_debit.access": true,
+                "recurring_revenue_monarch_updates.access": true,
+                "project_widget_updates.access": true,
+                "documents_ocr.access": true,
+                "time_zone_enhancement.access": true,
+                "enhanced_project_client_typeahead.access": true,
+                "solvvy_support_chat.access": true,
+                "paypal_tiered_pricing.access": true,
+                "helios_manual_mileage_tracking.access": true,
+                "sales_managed_receipt.access": true,
+                "display_credits_plan_summary.access": true,
+                "metapane_payment_methods_improvement.access": true,
+                "andromeda_manual_mileage_tracking.access": true,
+                "team_members.access": true,
+                "mtd_enhancements.access": true,
+                "es_migrations.access": true,
+                "team_utilization_report.access": true,
+                "embedded_payroll.access": true,
+                "no_seat_employee.access": true,
+                "accountant_partner_invite_creation.access": true,
+                "limit_add_businesses.access": true,
+                "latest_released_api_version.access": true,
+                "modern_friendbuy.access": true,
+                "retained_earnings.access": true,
+                "opus_my_team_page.access": true,
+                "audit_log.access": true,
+                "embedded_payroll_journal_entries.access": true,
+                "payroll_notifications.access": true,
+                "historical_payroll.access": true,
+                "audit_log_backend.access": true,
+                "audit_log_expense.access": true,
+                "braintree_payment_flow.access": true,
+                "online_payments_settings_opus.access": true,
+                "fast_ach_payroll.access": true,
+                "default_tax_level3_data.access": true,
+                "embedded_contractor_payroll_journal_entries.access": true,
+                "payroll_wire_transfer.access": true,
+                "earned_fast_ach.access": true,
+                "anchor_pay_date_enhancements.access": true,
+                "payroll_contractor_submission_blockers.access": true,
+                "upgrades_to_zuora.access": true,
+                "affirm_bnpl.access": true,
+                "payroll_employee_benefits.access": true,
+                "payroll_off_cycle.access": true,
+                "stripe_payment_element_for_credit_card.access": true,
+                "payroll_import_time_tracking.access": true,
+                "proj_lending.access": true,
+                "payroll_bill_on_submit.access": true,
+                "accounting_reports_v2_revenue_by_client_summary.access": true,
+                "payroll_self_migration.access": true,
+                "react_reports_page.access": true,
+                "show_stripe_pmme_above_checkout.access": true,
+                "inline_items_service_selection_invoice_mobile.access": true,
+                "cancellation_banner.access": true,
+                "payroll_employee_deductions.access": true,
+                "premium_contractor_role.access": true,
+                "launchpad_cards_version.access": true,
+                "launchpad_cards_version_with_personalization.access": true,
+                "use_zuora.access": true,
+                "provision_plaid_for_saltedge.access": true,
+                "flexcoa_beta_rollout.access": true
+              }
+            },
+            "groups": [
+              {
+                "id": 40513149,
+                "group_id": 28299484,
+                "role": "owner",
+                "identity_id": 14468508,
+                "identity_uuid": "42c0d779-1dea-4532-a6d0-afc746ea250f",
+                "business_id": 14719708,
+                "active": true
+              },
+              {
+                "id": 40514444,
+                "group_id": 28300139,
+                "role": "owner",
+                "identity_id": 14468508,
+                "identity_uuid": "42c0d779-1dea-4532-a6d0-afc746ea250f",
+                "business_id": 14719708,
+                "active": true
+              },
+              {
+                "id": 40514445,
+                "group_id": 28300140,
+                "role": "owner",
+                "identity_id": 14468508,
+                "identity_uuid": "42c0d779-1dea-4532-a6d0-afc746ea250f",
+                "business_id": 14719708,
+                "active": true
+              },
+              {
+                "id": 40514447,
+                "group_id": 28300141,
+                "role": "owner",
+                "identity_id": 14468508,
+                "identity_uuid": "42c0d779-1dea-4532-a6d0-afc746ea250f",
+                "business_id": 14719708,
+                "active": true
+              },
+              {
+                "id": 40514448,
+                "group_id": 28300142,
+                "role": "owner",
+                "identity_id": 14468508,
+                "identity_uuid": "42c0d779-1dea-4532-a6d0-afc746ea250f",
+                "business_id": 14719708,
+                "active": true
+              },
+              {
+                "id": 40514457,
+                "group_id": 28300145,
+                "role": "owner",
+                "identity_id": 14468508,
+                "identity_uuid": "42c0d779-1dea-4532-a6d0-afc746ea250f",
+                "business_id": 14719708,
+                "active": true
+              }
+            ],
+            "subscription_statuses": {
+              "ZyQ04o": "active_trial"
+            },
+            "business_statuses": {
+              "ZyQ04o": "active_trial"
+            },
+            "integrations": {},
+            "business_memberships": [
+              {
+                "id": 40513149,
+                "role": "owner",
+                "unacknowledged_change": false,
+                "fasttrack_token": "eyJhbGciOiJIUzI1NiJ9.eyJmYXN0dHJhY2tfaWRlbnRpdHlfaWQiOiIxNDQ2ODUwOCIsImZhc3R0cmFja19zeXN0ZW1faWQiOiIxMDQyMzQyNyIsImZhc3R0cmFja19idXNpbmVzc19pZCI6IjE0NzE5NzA4IiwiY3JlYXRlZF9hdCI6IjIwMjYtMDYtMjlUMTY6NTA6NDkrMDA6MDAifQ.lM0080KoK3z-NdVhCaSdC3l-MiYZKYzT0dpGwt5A-dI",
+                "business": {
+                  "id": 14719708,
+                  "business_uuid": "81389021-6410-402e-bb28-817ba36cea64",
+                  "name": "Nango's Company",
+                  "account_id": "ZyQ04o",
+                  "number_format": null,
+                  "date_format": "yyyy-mm-dd",
+                  "first_day_of_week": 0,
+                  "active": true,
+                  "timezone": "Africa/Nairobi",
+                  "status": "active_trial",
+                  "advanced_accounting_enabled": false,
+                  "industry": null,
+                  "billing_country_code": "USA",
+                  "business_type": null,
+                  "address": {
+                    "id": 16317082,
+                    "street": "",
+                    "street2": "",
+                    "city": "",
+                    "province": "",
+                    "country": "Kenya",
+                    "postal_code": ""
+                  },
+                  "phone_number": {
+                    "id": 5844482,
+                    "phone_number": "+254720089691"
+                  },
+                  "business_clients": []
+                }
+              }
+            ],
+            "identity_origin": "magnum",
+            "timezone": "Africa/Nairobi",
+            "otp_required_for_login": true,
+            "otp_delivery_method": "email",
+            "roles": [
+              {
+                "id": 15615614,
+                "role": "admin",
+                "systemid": 10423427,
+                "userid": 1,
+                "created_at": "2026-06-29T12:31:58Z",
+                "links": {
+                  "destroy": "/service/auth/api/v1/users/role/15615614"
+                },
+                "accountid": "ZyQ04o"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 29 Jun 2026 16:50:50 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556926; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "575",
+          "x-ratelimit-reset": "1782751852",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "etag": "W/\"832066695fa8d195e1344dd197fc346f\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "214506c7-3b9e-436a-ac5e-5d5ef4976523",
+          "x-runtime": "0.083496",
+          "x-api-version": "2023-02-20",
+          "permissions-policy": "browsing-topics=()",
+          "content-security-policy": "default-src 'self'; object-src 'none'",
+          "retry-after": "2",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "88313af19cae89ae5b25aab2ce371826829a1177",
+        "request": {}
+      }
+    },
+    "post": {
+      "/projects/business/14719708/project": {
+        "response": {
+          "project": {
+            "id": 13312432,
+            "title": "Nango Test Project 2",
+            "description": null,
+            "due_date": null,
+            "client_id": 567521,
+            "internal": false,
+            "budget": null,
+            "fixed_price": null,
+            "rate": null,
+            "billing_method": "project_rate",
+            "project_type": "hourly_rate",
+            "project_manager_id": null,
+            "active": true,
+            "complete": false,
+            "sample": false,
+            "created_at": "2026-06-29T16:50:50",
+            "updated_at": "2026-06-29T16:50:50",
+            "logged_duration": null,
+            "services": [],
+            "billed_amount": "0.00",
+            "billed_status": "unbilled",
+            "retainer_id": null,
+            "expense_markup": "0",
+            "service_estimate_type": "total_hours",
+            "group": {
+              "id": 28300146,
+              "members": [
+                {
+                  "id": 40514458,
+                  "identity_id": 14468508,
+                  "role": "owner",
+                  "first_name": "Nango",
+                  "last_name": "Developer",
+                  "email": "api@nango.dev",
+                  "company": "Nango's Company",
+                  "active": true
+                }
+              ],
+              "pending_invitations": null
+            }
+          },
+          "abilities": [
+            {
+              "name": "can_edit",
+              "value": true
+            },
+            {
+              "name": "can_archive",
+              "value": true
+            },
+            {
+              "name": "can_generate_invoice",
+              "value": true
+            },
+            {
+              "name": "can_delete",
+              "value": true
+            },
+            {
+              "name": "can_invite_team_member",
+              "value": true
+            },
+            {
+              "name": "can_manage_services",
+              "value": true
+            },
+            {
+              "name": "can_view_team_time",
+              "value": true
+            },
+            {
+              "name": "can_edit_hourly_budget",
+              "value": true
+            },
+            {
+              "name": "can_edit_client",
+              "value": true
+            },
+            {
+              "name": "can_edit_project_manager",
+              "value": true
+            },
+            {
+              "name": "can_view_invoices_tab",
+              "value": true
+            },
+            {
+              "name": "can_view_fixed_price",
+              "value": true
+            },
+            {
+              "name": "can_edit_fixed_price",
+              "value": true
+            },
+            {
+              "name": "can_edit_end_date",
+              "value": true
+            },
+            {
+              "name": "can_edit_flat_rate",
+              "value": true
+            },
+            {
+              "name": "can_edit_project_type",
+              "value": true
+            },
+            {
+              "name": "can_edit_service_estimate_type",
+              "value": true
+            },
+            {
+              "name": "can_edit_title",
+              "value": true
+            },
+            {
+              "name": "can_view_review_tab",
+              "value": true
+            },
+            {
+              "name": "can_view_discuss_tab",
+              "value": true
+            },
+            {
+              "name": "can_track_time",
+              "value": true
+            },
+            {
+              "name": "can_create_comment",
+              "value": true
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 29 Jun 2026 16:50:50 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556926; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "574",
+          "x-ratelimit-reset": "1782751852",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-version": "2606.32.0",
+          "x-api-version": "2023-02-20",
+          "permissions-policy": "browsing-topics=()",
+          "content-security-policy": "default-src 'self'; object-src 'none'",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "retry-after": "1",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "09ebb5df93a0280df250a39e72055087f25b9ce4",
+        "request": {
+          "data": {
+            "project": {
+              "title": "Nango Test Project 2",
+              "client_id": 567521
+            }
+          }
+        }
+      }
+    }
+  }
+}
