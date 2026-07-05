@@ -3031,31 +3031,6 @@ export interface Certificate {
 
 export interface Client {
   id: string;
-  client_id?: string | undefined;
-  tenant?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  global?: boolean | undefined;
-  app_type?: string | undefined;
-  logo_uri?: string | undefined;
-  is_first_party?: boolean | undefined;
-  oidc_conformant?: boolean | undefined;
-  callbacks?: string[] | undefined;
-  allowed_origins?: string[] | undefined;
-  web_origins?: string[] | undefined;
-  allowed_logout_urls?: string[] | undefined;
-  grant_types?: string[] | undefined;
-  is_token_endpoint_ip_header_trusted?: boolean | undefined;
-  initiate_login_uri?: string | undefined;
-  organization_usage?: string | undefined;
-  organization_require_behavior?: string | undefined;
-  require_pushed_authorization_requests?: boolean | undefined;
-  require_proof_of_possession?: boolean | undefined;
-  sso_disabled?: boolean | undefined;
-  cross_origin_authentication?: boolean | undefined;
-  custom_login_page_on?: boolean | undefined;
-  custom_login_page?: string | undefined;
-  client_metadata?: {  [key: string]: string;} | undefined;
 };
 
 export interface Form {
@@ -29784,15 +29759,19 @@ export interface SyncMetadata_clickup_spaces {
 
 export interface TimeEntry {
   id: string;
-  start: string;
-  end: string;
-  duration: string;
-  description?: string | undefined;
-  user_id?: number | undefined;
-  user_username?: string | undefined;
-  user_email?: string | undefined;
-  task_id?: string | undefined;
-  task_name?: string | undefined;
+  note?: string | undefined;
+  duration?: number | undefined;
+  project_id?: number | undefined;
+  client_id?: number | undefined;
+  identity_id?: number | undefined;
+  is_logged?: boolean | undefined;
+  started_at?: string | undefined;
+  active?: boolean | undefined;
+  billable?: boolean | undefined;
+  billed?: boolean | undefined;
+  internal?: boolean | undefined;
+  timer_id?: number | undefined;
+  timer_is_running?: boolean | undefined;
 };
 
 export interface SyncMetadata_clickup_timeentries {
@@ -45373,6 +45352,1538 @@ export interface ActionOutput_fireflies_uploadaudio {
   message?: string | undefined;
 };
 
+export interface SyncMetadata_freshbooks_clients {
+  accountId: string;
+};
+
+export interface Estimate {
+  id: string;
+  estimate_number: string;
+  status: string;
+  customer_id: string;
+  customer_name: string;
+  date: string;
+  expiry_date?: string | undefined;
+  reference_number?: string | undefined;
+  total: number;
+  sub_total?: number | undefined;
+  tax_total?: number | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  created_time: string;
+  last_modified_time: string;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  billing_address?: {  [key: string]: unknown | undefined;};
+  shipping_address?: {  [key: string]: unknown | undefined;};
+  line_items?: ({  [key: string]: unknown | undefined;})[];
+  custom_fields?: ({  [key: string]: unknown | undefined;})[];
+  tags?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface SyncMetadata_freshbooks_estimates {
+  accountId: string;
+};
+
+export interface Expense {
+  id: string;
+  expense_id: string;
+  date?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  bcy_total?: number | undefined;
+  total?: number | undefined;
+  is_billable?: boolean | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  status?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface SyncMetadata_freshbooks_expenses {
+  accountId: string;
+};
+
+export interface SyncMetadata_freshbooks_invoices {
+  accountId: string;
+};
+
+export interface SyncMetadata_freshbooks_payments {
+  accountId: string;
+};
+
+export interface SyncMetadata_freshbooks_projects {
+  businessId: string | number;
+};
+
+export interface SyncMetadata_freshbooks_timeentries {
+  businessId: string | number;
+};
+
+export interface ActionInput_freshbooks_createclient {
+  /**
+   * First name. Example: "Alice"
+   */
+  fname: string;
+  /**
+   * Last name. Example: "Nango"
+   */
+  lname: string;
+  /**
+   * Email address. Example: "alice@example.com"
+   */
+  email: string;
+  /**
+   * Company or organization name. Example: "Builder LLC"
+   */
+  organization?: string | undefined;
+  /**
+   * Phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * Primary address street.
+   */
+  p_street?: string | undefined;
+  /**
+   * Primary address city.
+   */
+  p_city?: string | undefined;
+  /**
+   * Primary address province or state.
+   */
+  p_province?: string | undefined;
+  /**
+   * Primary address country.
+   */
+  p_country?: string | undefined;
+  /**
+   * Primary address postal code.
+   */
+  p_code?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_createclient {
+  /**
+   * Client ID. Example: "567521"
+   */
+  id: string;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  email?: string | undefined;
+  organization?: string | undefined;
+  phone?: string | undefined;
+  p_street?: string | undefined;
+  p_city?: string | undefined;
+  p_province?: string | undefined;
+  p_country?: string | undefined;
+  p_code?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_createestimate {
+  /**
+   * Customer ID. Example: 567521
+   */
+  customerid: number;
+  /**
+   * Creation date in YYYY-MM-DD format. Example: "2026-06-29"
+   */
+  create_date: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currency_code: string;
+  /**
+   * Line items for the estimate
+   */
+  lines: ({  /**
+   * Line item type. Example: 0 for Item
+   */
+  type: number;
+  /**
+   * Line item name. Example: "Test Estimate Line"
+   */
+  name: string;
+  /**
+   * Quantity. Example: 1
+   */
+  qty: number;
+  unit_cost: {  /**
+   * Unit cost amount. Example: "100.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  code: string;};})[];
+};
+
+export interface ActionOutput_freshbooks_createestimate {
+  /**
+   * Estimate ID. Example: 123456
+   */
+  id: number;
+  customerid?: number | undefined;
+  create_date?: string | undefined;
+  currency_code?: string | undefined;
+  lines?: ({  type?: number | undefined;
+  name?: string | undefined;
+  qty?: number | undefined;
+  unit_cost?: {  amount?: string | undefined;
+  code?: string | undefined;};})[];
+};
+
+export interface ActionInput_freshbooks_createexpense {
+  /**
+   * Staff member ID. Defaults to 1 (account owner).
+   */
+  staffid?: number | undefined;
+  /**
+   * Expense category ID. If omitted, the first available category is fetched and used.
+   */
+  categoryid?: number | undefined;
+  amount: {  /**
+   * Monetary amount as a string. Example: "150.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  code: string;};
+  /**
+   * Expense date in YYYY-MM-DD format. Example: "2026-06-29"
+   */
+  date: string;
+  /**
+   * Optional notes for the expense.
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_createexpense {
+  id: string;
+  staffid?: number | undefined;
+  categoryid?: number | undefined;
+  amount?: {  amount?: string | undefined;
+  code?: string | undefined;};
+  date?: string | undefined;
+  notes?: string | undefined;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_createinvoice {
+  /**
+   * Customer ID. Example: 567521
+   */
+  customerid: number;
+  /**
+   * Invoice creation date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  create_date?: string | undefined;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currency_code?: string | undefined;
+  /**
+   * Invoice line items
+   */
+  lines: ({  /**
+   * Line type. 0 for item, 1 for unbilled expense. Example: 0
+   */
+  type?: number | undefined;
+  /**
+   * Line item name. Example: "Consulting Services"
+   */
+  name: string;
+  /**
+   * Quantity. Example: 1
+   */
+  qty: number;
+  unit_cost: {  /**
+   * Unit cost amount. Example: "1500.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  code: string;};})[];
+};
+
+export interface ActionOutput_freshbooks_createinvoice {
+  id: number;
+  invoiceid: number;
+  customerid: number;
+  status: number;
+  display_status: string;
+  create_date: string;
+  currency_code: string;
+  amount: {  amount: string;
+  code: string;};
+  outstanding: {  amount: string;
+  code: string;};
+  paid: {  amount: string;
+  code: string;};
+  lines?: ({  type?: number | null | undefined;
+  name: string;
+  qty: number | string;
+  unit_cost?: {  amount: string;
+  code: string;} | undefined;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  description?: string | undefined;
+  expenseid?: number | null | undefined;})[];
+  invoice_number?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  due_date?: string | undefined;
+  description?: string | undefined;
+  discount_value?: string | number | undefined;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_createpayment {
+  /**
+   * Invoice ID to apply the payment to. Example: 453877
+   */
+  invoiceid: number;
+  amount: {  /**
+   * Payment amount. Example: "100.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  code: string;};
+  /**
+   * Payment date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  date: string;
+  /**
+   * Payment type. Example: "Cash"
+   */
+  type: 'Cash' | 'Check' | 'Credit' | 'VISA' | 'MC' | 'AMEX' | 'Discover' | 'Interac' | 'Diners' | 'JCB' | 'PayPal' | 'Stripe' | 'Square' | 'Eway' | 'TwoCheckout' | 'ACH' | 'NoCharge' | 'Other';
+};
+
+export interface ActionOutput_freshbooks_createpayment {
+  id: number;
+  invoiceid?: number | undefined;
+  amount?: {  amount?: string | undefined;
+  code?: string | undefined;};
+  date?: string | undefined;
+  type?: string | undefined;
+  clientid?: number | undefined;
+  vis_state?: number | undefined;
+  updated?: string | undefined;
+  note?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_createproject {
+  /**
+   * Project title. Example: "Website Redesign"
+   */
+  title: string;
+  /**
+   * Client ID to bill for the project. Example: 567521
+   */
+  client_id: number;
+  /**
+   * Project description.
+   */
+  description?: string | undefined;
+  /**
+   * Projected completion date. Example: "2026-07-31"
+   */
+  due_date?: string | undefined;
+  /**
+   * Type of project billing.
+   */
+  project_type?: 'fixed_price' | 'hourly_rate' | undefined;
+  /**
+   * Flat-rate amount charged to the client. Example: "500.00"
+   */
+  fixed_price?: string | undefined;
+  /**
+   * Budget for the project.
+   */
+  budget?: number | undefined;
+  /**
+   * Hourly rate of the project. Example: "75.00"
+   */
+  rate?: string | undefined;
+  /**
+   * Whether the project is internal to the company.
+   */
+  internal?: boolean | undefined;
+  /**
+   * Whether the project is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * Whether the project is completed.
+   */
+  complete?: boolean | undefined;
+};
+
+export interface ActionOutput_freshbooks_createproject {
+  id: number;
+  title: string;
+  client_id: number;
+  description?: string | undefined;
+  due_date?: string | undefined;
+  project_type?: string | undefined;
+  fixed_price?: string | undefined;
+  budget?: number | undefined;
+  rate?: string | undefined;
+  internal?: boolean | undefined;
+  active?: boolean | undefined;
+  complete?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  logged_duration?: number | undefined;
+  billing_method?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_createtimeentry {
+  /**
+   * Whether the time entry is logged.
+   */
+  is_logged: boolean;
+  /**
+   * ISO 8601 timestamp when the work started. Example: "2024-01-01T10:00:00Z"
+   */
+  started_at: string;
+  /**
+   * Duration of the time entry in seconds. Example: 3600
+   */
+  duration: number;
+  /**
+   * Client ID associated with the time entry. Example: 567521
+   */
+  client_id: number | string;
+  /**
+   * Identity ID of the teammate logging the time.
+   */
+  identity_id?: number | string | undefined;
+  /**
+   * Project ID associated with the time entry.
+   */
+  project_id?: number | string | undefined;
+  /**
+   * Service ID associated with the time entry.
+   */
+  service_id?: number | string | undefined;
+  /**
+   * Task ID associated with the time entry.
+   */
+  task_id?: number | string | undefined;
+  /**
+   * Note describing the work.
+   */
+  note?: string | undefined;
+  /**
+   * Whether the entry can be added to an invoice.
+   */
+  billable?: boolean | undefined;
+  /**
+   * Whether the entry has already been billed.
+   */
+  billed?: boolean | undefined;
+  /**
+   * Whether the time entry is internal (not assigned to a client).
+   */
+  internal?: boolean | undefined;
+};
+
+export interface ActionOutput_freshbooks_createtimeentry {
+  id: number | string;
+  identity_id?: number | string | undefined;
+  is_logged: boolean;
+  started_at: string;
+  created_at?: string | undefined;
+  client_id?: number | string | undefined;
+  project_id?: number | string | undefined;
+  task_id?: number | string | undefined;
+  service_id?: number | string | undefined;
+  note?: string | undefined;
+  active?: boolean | undefined;
+  billable?: boolean | undefined;
+  billed?: boolean | undefined;
+  internal?: boolean | undefined;
+  duration?: number | undefined;
+  timer?: unknown | undefined;
+};
+
+export interface ActionInput_freshbooks_deleteclient {
+  /**
+   * Client ID. Example: "567521"
+   */
+  clientId: string;
+};
+
+export interface ActionOutput_freshbooks_deleteclient {
+  id: string | number;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_deleteestimate {
+  /**
+   * FreshBooks estimate ID to archive. Example: "567521"
+   */
+  estimateId: string;
+};
+
+export interface ActionOutput_freshbooks_deleteestimate {
+  /**
+   * Estimate ID
+   */
+  id: string;
+  /**
+   * Visibility state: 0 = active, 1 = archived
+   */
+  vis_state: number;
+  estimate_number?: string | undefined;
+  customerid?: string | undefined;
+  status?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_deleteexpense {
+  /**
+   * Expense ID. Example: "2420459"
+   */
+  id: string;
+};
+
+export interface ActionOutput_freshbooks_deleteexpense {
+  id: string;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_deleteinvoice {
+  /**
+   * Invoice ID to archive. Example: 453877
+   */
+  invoiceId: number;
+};
+
+export interface ActionOutput_freshbooks_deleteinvoice {
+  id: string;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_deletepayment {
+  /**
+   * Payment ID to archive. Example: "312041"
+   */
+  id: string;
+};
+
+export interface ActionOutput_freshbooks_deletepayment {
+  id: string;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_deleteproject {
+  /**
+   * The project ID to delete. Example: "123"
+   */
+  projectId: string;
+};
+
+export interface ActionOutput_freshbooks_deleteproject {
+  success: boolean;
+  projectId: string;
+};
+
+export interface ActionInput_freshbooks_deletetimeentry {
+  /**
+   * The ID of the time entry to delete. Example: "123456"
+   */
+  timeEntryId: string;
+};
+
+export interface ActionOutput_freshbooks_deletetimeentry {
+  /**
+   * The ID of the deleted time entry.
+   */
+  id: string;
+  /**
+   * Whether the deletion was successful.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_freshbooks_getaccountid {
+};
+
+export interface ActionOutput_freshbooks_getaccountid {
+  /**
+   * Alphanumeric account identifier for /accounting/ endpoints. Example: "ZyQ04o"
+   */
+  accountId: string;
+  /**
+   * Numeric business identifier for /projects/ and /timetracking/ endpoints. Example: 14719708
+   */
+  businessId: number;
+};
+
+export interface ActionInput_freshbooks_getclient {
+  /**
+   * FreshBooks client ID. Example: "567521"
+   */
+  clientId: string;
+};
+
+export interface ActionOutput_freshbooks_getclient {
+  id: number;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  organization?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  note?: string | undefined;
+  language?: string | undefined;
+  currency_code?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_getexpense {
+  /**
+   * Expense ID. Example: "2420475"
+   */
+  id: string;
+};
+
+export interface ActionOutput_freshbooks_getexpense {
+  id: number;
+  expenseid: number;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  date?: string | undefined;
+  notes?: string | undefined;
+  staffid?: number | undefined;
+  categoryid?: number | undefined;
+  clientid?: number | undefined;
+  vis_state?: number | undefined;
+  status?: number | undefined;
+  updated?: string | undefined;
+  vendor?: string | undefined;
+  projectid?: number | undefined;
+  billable?: boolean | undefined;
+  is_cogs?: boolean | undefined;
+  isduplicate?: boolean | undefined;
+  transactionid?: number | undefined;
+  invoiceid?: number | undefined;
+  ext_invoiceid?: number | undefined;
+  ext_systemid?: number | undefined;
+  modern_projectid?: number | undefined;
+  converse_projectid?: number | undefined;
+  background_jobid?: number | undefined;
+  ext_accountid?: number | undefined;
+  profileid?: number | undefined;
+  accountid?: number | undefined;
+  accounting_systemid?: string | undefined;
+  taxAmount1?: string | undefined;
+  taxAmount2?: string | undefined;
+  taxName1?: string | undefined;
+  taxName2?: string | undefined;
+  taxPercent1?: string | undefined;
+  taxPercent2?: string | undefined;
+  markup_percent?: string | undefined;
+  version?: string | undefined;
+  from_bulk_import?: boolean | undefined;
+  has_receipt?: boolean | undefined;
+  include_receipt?: boolean | undefined;
+  potential_bill_payment?: boolean | undefined;
+  compounded_tax?: boolean | undefined;
+  bank_name?: string | undefined;
+  account_name?: string | undefined;
+  bill_matches?: unknown[] | undefined;
+};
+
+export interface ActionInput_freshbooks_getinvoice {
+  /**
+   * Invoice ID. Example: "453877"
+   */
+  invoiceId: string;
+};
+
+export interface ActionOutput_freshbooks_getinvoice {
+  invoiceid: number;
+  id: number;
+  customerid: number;
+  invoice_number: string;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  outstanding?: {  amount: string;
+  code: string;} | undefined;
+  paid?: {  amount: string;
+  code: string;} | undefined;
+  status?: number | undefined;
+  v3_status?: string | undefined;
+  create_date?: string | undefined;
+  due_date?: string | undefined;
+  updated?: string | undefined;
+  currency_code?: string | undefined;
+  notes?: string | undefined;
+  description?: string | undefined;
+  terms?: string | undefined;
+  po_number?: string | undefined;
+  discount_value?: string | undefined;
+  discount_total?: {  amount: string;
+  code: string;} | undefined;
+  deposit_status?: string | undefined;
+  display_status?: string | undefined;
+  payment_status?: string | undefined;
+  organization?: string | undefined;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  address?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  code?: string | undefined;
+  street?: string | undefined;
+  street2?: string | undefined;
+  vat_name?: string | undefined;
+  vat_number?: string | undefined;
+  ownerid?: number | undefined;
+  auto_bill?: boolean | undefined;
+  sentid?: number | undefined;
+  show_attachments?: boolean | undefined;
+  template?: string | undefined;
+  language?: string | undefined;
+  vis_state?: number | undefined;
+  uuid?: string | undefined;
+  created_at?: string | undefined;
+  date_paid?: string | undefined;
+  lines?: unknown[] | undefined;
+  presentation?: unknown | undefined;
+};
+
+export interface ActionInput_freshbooks_getpayment {
+  /**
+   * Payment ID. Example: "312041"
+   */
+  paymentId: string;
+};
+
+export interface ActionOutput_freshbooks_getpayment {
+  id: number;
+  accounting_systemid: string;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  bulk_paymentid?: number | undefined;
+  clientid: number;
+  creditid?: number | undefined;
+  date: string;
+  from_credit: boolean;
+  gateway?: string | undefined;
+  invoiceid: number;
+  logid: number;
+  note?: string | undefined;
+  orderid?: number | undefined;
+  overpaymentid?: number | undefined;
+  send_client_notification?: boolean | undefined;
+  transactionid?: number | undefined;
+  type: string;
+  updated: string;
+  vis_state: number;
+};
+
+export interface ActionInput_freshbooks_getproject {
+  /**
+   * Project ID. Example: 13312426
+   */
+  projectId: string | number;
+};
+
+export interface ActionOutput_freshbooks_getproject {
+  id: number;
+  title: string;
+  description?: string | undefined;
+  due_date?: string | undefined;
+  client_id?: number | undefined;
+  internal: boolean;
+  budget?: number | undefined;
+  billing_method: string;
+  project_type: string;
+  project_manager_id?: number | undefined;
+  active: boolean;
+  complete: boolean;
+  sample: boolean;
+  created_at: string;
+  updated_at: string;
+  logged_duration?: number | undefined;
+  services: unknown[];
+  billed_amount: string;
+  billed_status: string;
+  retainer_id?: number | undefined;
+  expense_markup: string;
+  service_estimate_type: string;
+  fixed_price?: string | undefined;
+  rate?: string | undefined;
+  group?: {  id: number;
+  members: ({  id: number;
+  identity_id: number;
+  role: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  company: string;
+  active: boolean;})[];
+  pending_invitations: unknown[];} | undefined;
+};
+
+export interface ActionInput_freshbooks_gettimeentry {
+  /**
+   * Time entry ID. Example: "343714461"
+   */
+  time_entry_id: string;
+};
+
+export interface ActionOutput_freshbooks_gettimeentry {
+  id: number;
+  identity_id: number;
+  is_logged: boolean;
+  local_started_at: string;
+  local_timezone: string;
+  started_at: string;
+  created_at: string;
+  client_id?: number | undefined;
+  project_id?: number | undefined;
+  pending_client?: unknown | undefined;
+  pending_project?: unknown | undefined;
+  pending_task?: unknown | undefined;
+  task_id?: number | undefined;
+  service_id?: number | undefined;
+  note?: string | undefined;
+  active: boolean;
+  billable: boolean;
+  billed: boolean;
+  internal: boolean;
+  retainer_id?: number | undefined;
+  duration: number;
+  timer?: unknown | undefined;
+};
+
+export interface ActionInput_freshbooks_listclients {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Max 100. Defaults to 100.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_listclients {
+  items: ({})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_listestimates {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * ISO 8601 timestamp to filter estimates updated since. Example: "2024-01-01T00:00:00Z"
+   */
+  updated_since?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_listestimates {
+  estimates: ({})[];
+  page: number;
+  pages: number;
+  total: number;
+  per_page: number;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_listexpenses {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Max 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by start date (YYYY-MM-DD).
+   */
+  date_from?: string | undefined;
+  /**
+   * Filter by end date (YYYY-MM-DD).
+   */
+  date_to?: string | undefined;
+  /**
+   * Filter by updated since timestamp (YYYY-MM-DDTHH:MM:SS).
+   */
+  updated_since?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_listexpenses {
+  expenses: ({  id: number;
+  amount?: {  amount?: string | undefined;
+  code?: string | undefined;};
+  date?: string | undefined;
+  staffid?: number | undefined;
+  categoryid?: number | undefined;
+  clientid?: number | undefined;
+  notes?: string | undefined;
+  vis_state?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_listinvoices {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Start date filter. Format: YYYY-MM-DD.
+   */
+  date_from?: string | undefined;
+  /**
+   * End date filter. Format: YYYY-MM-DD.
+   */
+  date_to?: string | undefined;
+  /**
+   * Filter for invoices updated since this timestamp. Format: YYYY-MM-DDTHH:MM:SS.
+   */
+  updated_since?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_listinvoices {
+  items: ({  id: number;
+  customerid?: number | undefined;
+  number?: string | undefined;
+  status?: number | undefined;
+  create_date?: string | undefined;
+  update_date?: string | undefined;
+  due_date?: string | undefined;
+  amount?: {  amount?: string | undefined;
+  code?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_listpayments {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Start date filter in YYYY-MM-DD format.
+   */
+  date_from?: string | undefined;
+  /**
+   * End date filter in YYYY-MM-DD format.
+   */
+  date_to?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_listpayments {
+  payments: ({  id: number;
+  accounting_systemid?: string | undefined;
+  amount?: {  amount?: string | undefined;
+  code?: string | undefined;};
+  bulk_paymentid?: number | undefined;
+  creditid?: number | undefined;
+  clientid?: number | undefined;
+  date?: string | undefined;
+  from_credit?: boolean | undefined;
+  gateway?: string | undefined;
+  invoiceid?: number | undefined;
+  logid?: number | undefined;
+  note?: string | undefined;
+  orderid?: number | undefined;
+  overpaymentid?: number | undefined;
+  send_client_notification?: boolean | undefined;
+  transactionid?: number | undefined;
+  type?: string | undefined;
+  updated?: string | undefined;
+  vis_state?: number | undefined;})[];
+  next_cursor?: string | undefined;
+  page?: number | undefined;
+  pages?: number | undefined;
+  per_page?: number | undefined;
+  total?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_listprojects {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Max 30.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_listprojects {
+  items: ({  id: number;
+  title?: string | undefined;
+  description?: string | undefined;
+  client_id?: number | undefined;
+  project_type?: string | undefined;
+  complete?: boolean | undefined;
+  active?: boolean | undefined;
+  internal?: boolean | undefined;
+  due_date?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  budget?: number | undefined;
+  rate?: string | undefined;
+  fixed_price?: string | undefined;
+  billing_method?: string | undefined;
+  logged_duration?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_listtimeentries {
+  /**
+   * Filter by start time (ISO 8601). Example: "2024-01-01T00:00:00Z"
+   */
+  started_from?: string | undefined;
+  /**
+   * Filter by end time (ISO 8601). Example: "2024-12-31T23:59:59Z"
+   */
+  started_to?: string | undefined;
+  /**
+   * Filter by updated since (ISO 8601). Example: "2024-01-01T00:00:00Z"
+   */
+  updated_since?: string | undefined;
+  /**
+   * Page number (1-based). Example: 1
+   */
+  page?: number | undefined;
+  /**
+   * Items per page (max 30). Example: 30
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_listtimeentries {
+  items: ({  id: number;
+  note?: string | undefined;
+  duration?: number | undefined;
+  project_id?: number | undefined;
+  client_id?: number | undefined;
+  is_logged?: boolean | undefined;
+  started_at?: string | undefined;
+  active?: boolean | undefined;
+  timer?: {  id?: number | undefined;
+  is_running?: boolean | undefined;};})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_sendinvoice {
+  /**
+   * The ID of the invoice to send. Example: 453877
+   */
+  invoice_id: number;
+  /**
+   * How to send the invoice. Use "email" to email the client, or "mark_as_sent" to mark as sent without emailing.
+   */
+  method: 'email' | 'mark_as_sent';
+};
+
+export interface ActionOutput_freshbooks_sendinvoice {
+  id: number;
+  display_status?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_updateclient {
+  /**
+   * Client ID. Example: "567521"
+   */
+  id: string;
+  /**
+   * First name
+   */
+  fname?: string | undefined;
+  /**
+   * Last name
+   */
+  lname?: string | undefined;
+  /**
+   * Organization name
+   */
+  organization?: string | undefined;
+  /**
+   * Email address
+   */
+  email?: string | undefined;
+  /**
+   * Phone number
+   */
+  phone?: string | undefined;
+  /**
+   * Primary street address
+   */
+  p_street?: string | undefined;
+  /**
+   * Primary city
+   */
+  p_city?: string | undefined;
+  /**
+   * Primary province or state
+   */
+  p_province?: string | undefined;
+  /**
+   * Primary postal code
+   */
+  p_code?: string | undefined;
+  /**
+   * Primary country
+   */
+  p_country?: string | undefined;
+  /**
+   * Notes about the client
+   */
+  note?: string | undefined;
+  /**
+   * VAT name
+   */
+  vat_name?: string | undefined;
+  /**
+   * VAT number
+   */
+  vat_number?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_updateclient {
+  id: string;
+  userid?: string | undefined;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  organization?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  p_street?: string | undefined;
+  p_city?: string | undefined;
+  p_province?: string | undefined;
+  p_code?: string | undefined;
+  p_country?: string | undefined;
+  note?: string | undefined;
+  vat_name?: string | undefined;
+  vat_number?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_updateestimate {
+  /**
+   * The ID of the estimate to update. Example: 2201278
+   */
+  estimateId: number;
+  customerid?: number | undefined;
+  create_date?: string | undefined;
+  description?: string | undefined;
+  terms?: string | undefined;
+  notes?: string | undefined;
+  po_number?: string | undefined;
+  currency_code?: string | undefined;
+  language?: string | undefined;
+  discount_value?: string | undefined;
+  template?: string | undefined;
+  street?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  code?: string | undefined;
+  country?: string | undefined;
+  organization?: string | undefined;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  vat_name?: string | undefined;
+  vat_number?: string | undefined;
+  lines?: ({  type?: number | undefined;
+  qty?: number | undefined;
+  unit_cost?: {  amount: string;
+  code: string;} | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  taxName1?: string | undefined;
+  taxAmount1?: number | undefined;
+  taxName2?: string | undefined;
+  taxAmount2?: number | undefined;
+  expenseid?: number | undefined;})[];
+};
+
+export interface ActionOutput_freshbooks_updateestimate {
+  id: number;
+  status: number;
+  create_date: string;
+  customerid: number;
+  estimate_number: string;
+  amount: {  amount: string;
+  code: string;};
+  currency_code: string;
+  description?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  po_number?: string | undefined;
+  discount_value?: string | undefined;
+  discount_total?: {  amount: string;
+  code: string;} | undefined;
+  template?: string | undefined;
+  language?: string | undefined;
+  vis_state?: number | undefined;
+  invoiced?: boolean | undefined;
+  ui_status?: string | undefined;
+  display_status?: string | undefined;
+  organization?: string | undefined;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  street?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  code?: string | undefined;
+  vat_name?: string | undefined;
+  vat_number?: string | undefined;
+  updated?: string | undefined;
+  created_at?: string | undefined;
+  lines?: ({  lineid?: number | undefined;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  updated?: string | undefined;
+  type?: number | undefined;
+  qty?: number | undefined;
+  unit_cost?: {  amount: string;
+  code: string;} | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  taxName1?: string | undefined;
+  taxAmount1?: number | undefined;
+  taxName2?: string | undefined;
+  taxAmount2?: number | undefined;
+  expenseid?: number | undefined;})[];
+};
+
+export interface ActionInput_freshbooks_updateexpense {
+  /**
+   * Expense ID. Example: 123
+   */
+  expenseId: number;
+  /**
+   * Expense amount object with amount string and currency code. Example: {"amount": "25.00", "code": "USD"}
+   */
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  /**
+   * Expense date. Example: "2024-01-15"
+   */
+  date?: string | undefined;
+  /**
+   * Vendor name
+   */
+  vendor?: string | undefined;
+  /**
+   * Expense notes
+   */
+  notes?: string | undefined;
+  /**
+   * Staff member ID
+   */
+  staffid?: number | undefined;
+  /**
+   * Expense category ID
+   */
+  categoryid?: number | undefined;
+  /**
+   * Client ID
+   */
+  clientid?: number | undefined;
+  /**
+   * Project ID
+   */
+  projectid?: number | undefined;
+  /**
+   * First tax percentage
+   */
+  taxPercent1?: string | undefined;
+  /**
+   * Second tax percentage
+   */
+  taxPercent2?: string | undefined;
+  /**
+   * Expense status
+   */
+  status?: number | undefined;
+  /**
+   * Visibility state: 0 for active, 1 for deleted
+   */
+  vis_state?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_updateexpense {
+  id: number;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  date?: string | undefined;
+  vendor?: string | undefined;
+  notes?: string | undefined;
+  staffid?: number | undefined;
+  categoryid?: number | undefined;
+  clientid?: number | undefined;
+  projectid?: number | undefined;
+  taxPercent1?: string | undefined;
+  taxPercent2?: string | undefined;
+  status?: number | undefined;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_updateinvoice {
+  /**
+   * Invoice ID. Example: "453877"
+   */
+  invoiceId: string;
+  /**
+   * Client ID to associate with the invoice.
+   */
+  customerid?: string | number | undefined;
+  /**
+   * Creation date in YYYY-MM-DD format.
+   */
+  create_date?: string | undefined;
+  /**
+   * Due date in YYYY-MM-DD format.
+   */
+  due_date?: string | undefined;
+  /**
+   * Invoice description or title.
+   */
+  description?: string | undefined;
+  /**
+   * Payment terms.
+   */
+  terms?: string | undefined;
+  /**
+   * Notes visible to the client.
+   */
+  notes?: string | undefined;
+  /**
+   * Purchase order number.
+   */
+  po_number?: string | undefined;
+  /**
+   * Discount value.
+   */
+  discount_value?: string | number | undefined;
+  /**
+   * Discount description.
+   */
+  discount_description?: string | undefined;
+  /**
+   * Deposit amount.
+   */
+  deposit_amount?: string | number | undefined;
+  /**
+   * Deposit percentage.
+   */
+  deposit_percent?: string | number | undefined;
+  /**
+   * Deposit type.
+   */
+  deposit_type?: string | undefined;
+  /**
+   * Line items for the invoice.
+   */
+  lines?: ({})[] | undefined;
+};
+
+export interface ActionOutput_freshbooks_updateinvoice {
+  id: string | number;
+  customerid?: string | number | undefined;
+  create_date?: string | undefined;
+  due_date?: string | undefined;
+  description?: string | undefined;
+  terms?: string | undefined;
+  notes?: string | undefined;
+  po_number?: string | undefined;
+  discount_value?: string | number | undefined;
+  discount_description?: string | undefined;
+  deposit_amount?: string | number | undefined;
+  deposit_percent?: string | number | undefined;
+  deposit_type?: string | undefined;
+  vis_state?: number | undefined;
+  status?: number | undefined;
+  lines?: ({})[] | undefined;
+  current_organization?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_updateproject {
+  /**
+   * The unique id of the project to update. Example: 779597
+   */
+  project_id: number;
+  /**
+   * The project title
+   */
+  title?: string | undefined;
+  /**
+   * The project description
+   */
+  description?: string | undefined;
+  /**
+   * Date of projected completion. Example: 2017-07-12
+   */
+  due_date?: string | undefined;
+  /**
+   * Unique id of the client being billed for the project
+   */
+  client_id?: number | undefined;
+  /**
+   * Type of project
+   */
+  project_type?: 'fixed_price' | 'hourly_rate' | undefined;
+  /**
+   * Used for flat-rate projects. Represents the amount being charged
+   */
+  fixed_price?: string | undefined;
+  /**
+   * Budget for project
+   */
+  budget?: number | undefined;
+  /**
+   * Whether the project has been completed
+   */
+  complete?: boolean | undefined;
+  /**
+   * Whether the project is active
+   */
+  active?: boolean | undefined;
+  /**
+   * Clarifies that the project is internal
+   */
+  internal?: boolean | undefined;
+  /**
+   * The hourly rate of the project
+   */
+  rate?: string | undefined;
+  /**
+   * The method of payment for the project
+   */
+  billing_method?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_updateproject {
+  project: {  id: number;
+  title?: string | undefined;
+  description?: string | null | undefined;
+  due_date?: string | null | undefined;
+  project_type?: string | undefined;
+  fixed_price?: string | null | undefined;
+  budget?: number | null | undefined;
+  complete?: boolean | undefined;
+  active?: boolean | undefined;
+  internal?: boolean | undefined;
+  client_id?: number | null | undefined;
+  rate?: string | null | undefined;
+  billing_method?: string | null | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  logged_duration?: number | null | undefined;
+  sample?: boolean | undefined;
+  links?: {  self?: string | undefined;
+  threads?: string | undefined;};
+  group?: {  pending_invitations?: string[] | null | undefined;
+  id?: number | undefined;
+  members?: ({  first_name?: string | undefined;
+  last_name?: string | undefined;
+  role?: string | undefined;
+  identity_id?: number | undefined;
+  active?: boolean | undefined;
+  company?: string | undefined;
+  id?: number | undefined;
+  email?: string | undefined;})[];};
+  services?: ({  business_id?: number | undefined;
+  name?: string | undefined;
+  id?: number | undefined;})[];};
+};
+
+export interface ActionInput_freshbooks_updatetimeentry {
+  /**
+   * Time entry ID. Example: 343714461
+   */
+  id: number;
+  /**
+   * Updated note for the time entry
+   */
+  note?: string | undefined;
+  /**
+   * Duration in seconds
+   */
+  duration?: number | undefined;
+  /**
+   * Start time in ISO 8601 format. Example: "2026-06-29T10:00:00.000Z"
+   */
+  started_at?: string | undefined;
+  /**
+   * Client ID associated with the time entry
+   */
+  client_id?: number | undefined;
+  /**
+   * Project ID associated with the time entry
+   */
+  project_id?: number | undefined;
+  /**
+   * Whether the time entry is logged
+   */
+  is_logged?: boolean | undefined;
+  /**
+   * Whether the time entry is billable
+   */
+  billable?: boolean | undefined;
+  /**
+   * Service ID associated with the time entry
+   */
+  service_id?: number | undefined;
+  /**
+   * Task ID associated with the time entry
+   */
+  task_id?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_updatetimeentry {
+  id: number;
+  note?: string | undefined;
+  duration?: number | undefined;
+  started_at?: string | undefined;
+  client_id?: number | undefined;
+  project_id?: number | undefined;
+  is_logged?: boolean | undefined;
+  billable?: boolean | undefined;
+  billed?: boolean | undefined;
+  active?: boolean | undefined;
+  timer?: {  id?: number | undefined;
+  is_running?: boolean | undefined;};
+};
+
 export interface Article {
   id: string;
   title?: string | undefined;
@@ -58037,6 +59548,283 @@ export interface ActionOutput_google_drive_uploaddocument {
    * A link for downloading the content of the file in a browser
    */
   webContentLink?: string | undefined;
+};
+
+export interface CachedContent {
+  id: string;
+  name: string;
+  displayName?: string | undefined;
+  model?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expireTime?: string | undefined;
+  usageMetadata?: {  totalTokenCount?: number | undefined;
+  textCount?: number | undefined;
+  imageCount?: number | undefined;
+  videoDurationSeconds?: number | undefined;};
+};
+
+export interface ActionInput_google_gemini_batchembedcontents {
+  /**
+   * The embedding model to use. Defaults to "gemini-embedding-001".
+   */
+  model?: string | undefined;
+  /**
+   * Array of embed requests.
+   */
+  requests: ({  /**
+   * Model name. Must match the outer model. Defaults to the outer model.
+   */
+  model?: string | undefined;
+  /**
+   * Text content to embed.
+   */
+  content: string;
+  /**
+   * Optional task type for the embedding.
+   */
+  taskType?: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY' | 'SEMANTIC_SIMILARITY' | 'CLASSIFICATION' | 'CLUSTERING' | 'CODE_RETRIEVAL_QUERY' | undefined;})[];
+};
+
+export interface ActionOutput_google_gemini_batchembedcontents {
+  /**
+   * The embeddings for each request, in the same order as provided in the batch request.
+   */
+  embeddings: ({  values?: number[] | undefined;})[];
+};
+
+export interface ActionInput_google_gemini_counttokens {
+  /**
+   * Model name. Example: "gemini-2.5-flash"
+   */
+  model?: string | undefined;
+  /**
+   * Input contents to tokenize.
+   */
+  contents: ({  role?: string | undefined;
+  parts: ({  text?: string | undefined;
+  inlineData?: {  mimeType: string;
+  data: string;} | undefined;
+  fileData?: {  mimeType: string;
+  fileUri: string;} | undefined;})[];})[];
+  /**
+   * Optional system instruction content.
+   */
+  systemInstruction?: {  role?: string | undefined;
+  parts: ({  text?: string | undefined;
+  inlineData?: {  mimeType: string;
+  data: string;} | undefined;
+  fileData?: {  mimeType: string;
+  fileUri: string;} | undefined;})[];};
+};
+
+export interface ActionOutput_google_gemini_counttokens {
+  /**
+   * Total number of tokens in the input.
+   */
+  totalTokens: number;
+  promptTokensDetails?: ({  modality?: string | undefined;
+  tokenCount?: number | undefined;})[];
+};
+
+export interface ActionInput_google_gemini_deletefile {
+  /**
+   * File name. Example: "files/abc123"
+   */
+  name: string;
+};
+
+export interface ActionOutput_google_gemini_deletefile {
+};
+
+export interface ActionInput_google_gemini_embedcontent {
+  /**
+   * The text content to embed.
+   */
+  content: string;
+  /**
+   * The embedding model name. Defaults to gemini-embedding-001.
+   */
+  model?: string | undefined;
+  /**
+   * The task type for which the embeddings will be used.
+   */
+  taskType?: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY' | 'SEMANTIC_SIMILARITY' | 'CLASSIFICATION' | 'CLUSTERING' | 'CODE_RETRIEVAL_QUERY' | undefined;
+  /**
+   * An optional title for the text. Only applicable when taskType is RETRIEVAL_DOCUMENT.
+   */
+  title?: string | undefined;
+  /**
+   * Reduced dimension for the output embedding. If set, excessive values are truncated from the end.
+   */
+  outputDimensionality?: number | undefined;
+};
+
+export interface ActionOutput_google_gemini_embedcontent {
+  /**
+   * The embedding vector values.
+   */
+  values: number[];
+  truncated?: boolean | undefined;
+  promptTokenCount?: number | undefined;
+  totalTokenCount?: number | undefined;
+};
+
+export interface ActionInput_google_gemini_generatecontent {
+  model?: string | undefined;
+  contents: ({  role?: string | undefined;
+  parts: ({  text?: string | undefined;})[];})[];
+  systemInstruction?: {  role?: string | undefined;
+  parts: ({  text?: string | undefined;})[];};
+  generationConfig?: {  maxOutputTokens?: number | undefined;
+  temperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+  stopSequences?: string[] | undefined;
+  responseMimeType?: string | undefined;};
+  tools?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_google_gemini_generatecontent {
+  candidates?: ({  content?: {  role?: string | undefined;
+  parts?: ({  text?: string | undefined;})[];};
+  finishReason?: string | undefined;
+  index?: number | undefined;
+  safetyRatings?: ({  [key: string]: unknown | undefined;})[];
+  citationMetadata?: {  [key: string]: unknown | undefined;};
+  groundingMetadata?: {  [key: string]: unknown | undefined;};})[];
+  promptFeedback?: {  blockReason?: string | undefined;
+  safetyRatings?: ({  [key: string]: unknown | undefined;})[];};
+  usageMetadata?: {  promptTokenCount?: number | undefined;
+  cachedContentTokenCount?: number | undefined;
+  candidatesTokenCount?: number | undefined;
+  totalTokenCount?: number | undefined;};
+};
+
+export interface ActionInput_google_gemini_getfile {
+  /**
+   * The name of the file to retrieve. Example: "files/abc123"
+   */
+  name: string;
+};
+
+export interface ActionOutput_google_gemini_getfile {
+  name: string;
+  displayName?: string | undefined;
+  mimeType?: string | undefined;
+  sizeBytes?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expirationTime?: string | undefined;
+  sha256Hash?: string | undefined;
+  uri?: string | undefined;
+  downloadUri?: string | undefined;
+  state?: string | undefined;
+  source?: string | undefined;
+  error?: {} | undefined;
+  videoMetadata?: {} | undefined;
+};
+
+export interface ActionInput_google_gemini_getmodel {
+  /**
+   * Model name. Example: "gemini-2.5-flash" or "models/gemini-2.5-flash"
+   */
+  model: string;
+};
+
+export interface ActionOutput_google_gemini_getmodel {
+  name: string;
+  baseModelId?: string | undefined;
+  version?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  inputTokenLimit?: number | undefined;
+  outputTokenLimit?: number | undefined;
+  supportedGenerationMethods?: string[] | undefined;
+  temperature?: number | undefined;
+  maxTemperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+};
+
+export interface ActionInput_google_gemini_listcachedcontents {
+  /**
+   * The maximum number of cached contents to return. Maximum is 1000.
+   */
+  pageSize?: number | undefined;
+  /**
+   * A page token from a previous cachedContents.list call to retrieve the subsequent page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listcachedcontents {
+  items: ({  name: string;
+  displayName?: string | undefined;
+  model?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expireTime?: string | undefined;
+  ttl?: string | undefined;})[];
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_google_gemini_listfiles {
+  /**
+   * Maximum number of files to return per page. Defaults to 10, maximum is 100.
+   */
+  pageSize?: number | undefined;
+  /**
+   * Pagination token from a previous list-files call. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listfiles {
+  items: ({  name: string;
+  displayName?: string | undefined;
+  mimeType?: string | undefined;
+  sizeBytes?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expirationTime?: string | undefined;
+  sha256Hash?: string | undefined;
+  uri?: string | undefined;
+  downloadUri?: string | undefined;
+  state?: string | undefined;
+  source?: string | undefined;
+  error?: {} | undefined;
+  videoMetadata?: {} | undefined;})[];
+  /**
+   * Token to retrieve the next page of results.
+   */
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_google_gemini_listmodels {
+  /**
+   * Maximum number of models to return per page. Example: 10
+   */
+  pageSize?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listmodels {
+  items: ({  name: string;
+  version?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  inputTokenLimit?: number | undefined;
+  outputTokenLimit?: number | undefined;
+  supportedGenerationMethods?: string[] | undefined;
+  temperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+  maxTemperature?: number | undefined;})[];
+  next_page_token?: string | undefined;
 };
 
 export interface Filter {
@@ -88233,32 +90021,6 @@ export interface Deposit {
   lines?: ({  [key: string]: unknown | undefined;})[];
 };
 
-export interface Estimate {
-  id: string;
-  estimate_number: string;
-  status: string;
-  customer_id: string;
-  customer_name: string;
-  date: string;
-  expiry_date?: string | undefined;
-  reference_number?: string | undefined;
-  total: number;
-  sub_total?: number | undefined;
-  tax_total?: number | undefined;
-  currency_id?: string | undefined;
-  currency_code?: string | undefined;
-  exchange_rate?: number | undefined;
-  created_time: string;
-  last_modified_time: string;
-  notes?: string | undefined;
-  terms?: string | undefined;
-  billing_address?: {  [key: string]: unknown | undefined;};
-  shipping_address?: {  [key: string]: unknown | undefined;};
-  line_items?: ({  [key: string]: unknown | undefined;})[];
-  custom_fields?: ({  [key: string]: unknown | undefined;})[];
-  tags?: ({  [key: string]: unknown | undefined;})[];
-};
-
 export interface JournalEntry {
   id: string;
   docNumber?: string | undefined;
@@ -101210,25 +102972,6 @@ export interface ActionInput_smartsheet_disableuser {
 
 export interface ActionOutput_smartsheet_disableuser {
   success: boolean;
-};
-
-export interface Expense {
-  id: string;
-  expense_id: string;
-  date?: string | undefined;
-  account_name?: string | undefined;
-  description?: string | undefined;
-  currency_id?: string | undefined;
-  currency_code?: string | undefined;
-  bcy_total?: number | undefined;
-  total?: number | undefined;
-  is_billable?: boolean | undefined;
-  reference_number?: string | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  status?: string | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
 };
 
 export interface Friend {

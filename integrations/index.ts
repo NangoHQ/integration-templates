@@ -1553,6 +1553,50 @@ import './fireflies/actions/update-meeting-state.js';
 import './fireflies/actions/update-meeting-title.js';
 import './fireflies/actions/upload-audio.js';
 
+// -- Integration: freshbooks
+import './freshbooks/syncs/clients.js';
+import './freshbooks/syncs/estimates.js';
+import './freshbooks/syncs/expenses.js';
+import './freshbooks/syncs/invoices.js';
+import './freshbooks/syncs/payments.js';
+import './freshbooks/syncs/projects.js';
+import './freshbooks/syncs/time-entries.js';
+import './freshbooks/actions/create-client.js';
+import './freshbooks/actions/create-estimate.js';
+import './freshbooks/actions/create-expense.js';
+import './freshbooks/actions/create-invoice.js';
+import './freshbooks/actions/create-payment.js';
+import './freshbooks/actions/create-project.js';
+import './freshbooks/actions/create-time-entry.js';
+import './freshbooks/actions/delete-client.js';
+import './freshbooks/actions/delete-estimate.js';
+import './freshbooks/actions/delete-expense.js';
+import './freshbooks/actions/delete-invoice.js';
+import './freshbooks/actions/delete-payment.js';
+import './freshbooks/actions/delete-project.js';
+import './freshbooks/actions/delete-time-entry.js';
+import './freshbooks/actions/get-account-id.js';
+import './freshbooks/actions/get-client.js';
+import './freshbooks/actions/get-expense.js';
+import './freshbooks/actions/get-invoice.js';
+import './freshbooks/actions/get-payment.js';
+import './freshbooks/actions/get-project.js';
+import './freshbooks/actions/get-time-entry.js';
+import './freshbooks/actions/list-clients.js';
+import './freshbooks/actions/list-estimates.js';
+import './freshbooks/actions/list-expenses.js';
+import './freshbooks/actions/list-invoices.js';
+import './freshbooks/actions/list-payments.js';
+import './freshbooks/actions/list-projects.js';
+import './freshbooks/actions/list-time-entries.js';
+import './freshbooks/actions/send-invoice.js';
+import './freshbooks/actions/update-client.js';
+import './freshbooks/actions/update-estimate.js';
+import './freshbooks/actions/update-expense.js';
+import './freshbooks/actions/update-invoice.js';
+import './freshbooks/actions/update-project.js';
+import './freshbooks/actions/update-time-entry.js';
+
 // -- Integration: freshdesk
 import './freshdesk/syncs/articles.js';
 import './freshdesk/syncs/contacts.js';
@@ -1923,6 +1967,20 @@ import './google-drive/actions/update-file.js';
 import './google-drive/actions/update-permission.js';
 import './google-drive/actions/update-shared-drive.js';
 import './google-drive/actions/upload-document.js';
+
+// -- Integration: google-gemini
+import './google-gemini/syncs/cached-contents.js';
+import './google-gemini/syncs/models.js';
+import './google-gemini/actions/batch-embed-contents.js';
+import './google-gemini/actions/count-tokens.js';
+import './google-gemini/actions/delete-file.js';
+import './google-gemini/actions/embed-content.js';
+import './google-gemini/actions/generate-content.js';
+import './google-gemini/actions/get-file.js';
+import './google-gemini/actions/get-model.js';
+import './google-gemini/actions/list-cached-contents.js';
+import './google-gemini/actions/list-files.js';
+import './google-gemini/actions/list-models.js';
 
 // -- Integration: google-mail
 import './google-mail/syncs/filters.js';
