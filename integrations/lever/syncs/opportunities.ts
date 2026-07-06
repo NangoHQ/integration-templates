@@ -103,10 +103,11 @@ const LeverOpportunitySchema = z.object({
     opportunityLocation: z.string().optional()
 });
 
-const DeletedOpportunitySchema = z.object({
-    opportunity_id: z.string(),
-    deleted_at: z.number()
-});
+const DeletedOpportunitySchema = z
+    .object({
+        id: z.string()
+    })
+    .passthrough();
 
 const sync = createSync({
     description: 'Fetches all opportunities',
@@ -174,7 +175,7 @@ const sync = createSync({
             for await (const deletedPage of nango.paginate(deletedConfig)) {
                 const deletions = deletedPage.map((item) => {
                     const parsed = DeletedOpportunitySchema.parse(item);
-                    return { id: parsed.opportunity_id };
+                    return { id: parsed.id };
                 });
                 if (deletions.length > 0) {
                     await nango.batchDelete(deletions, 'LeverOpportunity');

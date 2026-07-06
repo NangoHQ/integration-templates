@@ -37,7 +37,7 @@ const ProviderRequisitionSchema = z
         createdAt: z.number().nullable().optional(),
         creator: z.string().nullable().optional(),
         headcountHired: z.union([z.number(), z.string()]).nullable().optional(),
-        headcountTotal: z.number().nullable().optional(),
+        headcountTotal: z.union([z.number(), z.string()]).nullable().optional(),
         status: z.string().nullable().optional(),
         hiringManager: z.string().nullable().optional(),
         owner: z.string().nullable().optional(),

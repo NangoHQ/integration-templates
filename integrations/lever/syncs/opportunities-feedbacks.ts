@@ -52,9 +52,11 @@ const sync = createSync({
     exec: async (nango) => {
         let totalRecords = 0;
 
-        await nango.trackDeletesStart('LeverOpportunityFeedback');
-
+        // Fetch opportunities before opening the delete-tracking window, so a failure here
+        // never leaves LeverOpportunityFeedback's tracking started without a matching end.
         const opportunities = await getAllOpportunities(nango);
+
+        await nango.trackDeletesStart('LeverOpportunityFeedback');
 
         for (const opportunity of opportunities) {
             const config: ProxyConfiguration = {

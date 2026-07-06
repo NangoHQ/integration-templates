@@ -3,7 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     opportunityId: z.string().describe('The ID of the opportunity to delete the note from. Example: "6408dc54-7015-4e5b-8d60-23afff2b1efc"'),
-    noteId: z.string().describe('The ID of the note to delete. Example: "2c506ee0-f99f-4aff-b556-76e003efb5ea"')
+    noteId: z.string().describe('The ID of the note to delete. Example: "2c506ee0-f99f-4aff-b556-76e003efb5ea"'),
+    perform_as: z.string().optional().describe('Lever user ID to attribute this change to.')
 });
 
 const OutputSchema = z.object({
@@ -23,6 +24,7 @@ const action = createAction({
         await nango.delete({
             // https://hire.lever.co/developer/documentation
             endpoint: `/v1/opportunities/${encodeURIComponent(input.opportunityId)}/notes/${encodeURIComponent(input.noteId)}`,
+            ...(input.perform_as !== undefined && { params: { perform_as: input.perform_as } }),
             retries: 3
         });
 

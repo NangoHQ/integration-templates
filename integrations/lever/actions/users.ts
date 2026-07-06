@@ -8,13 +8,13 @@ const UserSchema = z.object({
     username: z.string(),
     email: z.string(),
     accessRole: z.string(),
-    photo: z.string().nullable(),
+    photo: z.string().nullable().optional(),
     createdAt: z.number(),
-    deactivatedAt: z.string().nullable(),
-    externalDirectoryId: z.string().nullable(),
-    linkedContactIds: z.string().array().nullable(),
-    jobTitle: z.string().nullable(),
-    managerId: z.string().nullable()
+    deactivatedAt: z.number().nullable().optional(),
+    externalDirectoryId: z.string().nullable().optional(),
+    linkedContactIds: z.string().array().nullable().optional(),
+    jobTitle: z.string().nullable().optional(),
+    managerId: z.string().nullable().optional()
 });
 
 const GetUsersSchema = z.object({

@@ -22,10 +22,6 @@ const LeverResumeSchema = z.object({
         .nullish()
 });
 
-const LeverResumeListResponseSchema = z.object({
-    data: z.array(LeverResumeSchema.passthrough()).optional()
-});
-
 const OpportunityItemSchema = z.object({
     id: z.string()
 });
@@ -79,7 +75,7 @@ const sync = createSync({
             for (const opportunity of opportunities) {
                 const parsedOpportunity = OpportunityItemSchema.safeParse(opportunity);
                 if (!parsedOpportunity.success) {
-                    continue;
+                    throw new Error(`Invalid opportunity record: ${parsedOpportunity.error.message}`);
                 }
 
                 const opportunityId = parsedOpportunity.data.id;
@@ -87,34 +83,43 @@ const sync = createSync({
                 const resumesProxyConfig: ProxyConfiguration = {
                     // https://hire.lever.co/developer/documentation
                     endpoint: `/v1/opportunities/${encodeURIComponent(opportunityId)}/resumes`,
+                    paginate: {
+                        type: 'cursor',
+                        cursor_name_in_request: 'offset',
+                        cursor_path_in_response: 'next',
+                        response_path: 'data',
+                        limit_name_in_request: 'limit',
+                        limit: 100
+                    },
                     retries: 3
                 };
-                const resumesResponse = await nango.get(resumesProxyConfig);
 
-                const parsed = LeverResumeListResponseSchema.safeParse(resumesResponse.data);
-                if (!parsed.success) {
-                    continue;
-                }
+                for await (const resumeBatch of nango.paginate(resumesProxyConfig)) {
+                    const parsed = z.array(LeverResumeSchema.passthrough()).safeParse(resumeBatch);
+                    if (!parsed.success) {
+                        throw new Error(`Invalid resume batch for opportunity ${opportunityId}: ${parsed.error.message}`);
+                    }
 
-                for (const resume of parsed.data.data ?? []) {
-                    const file = resume.file;
-                    const record: z.infer<typeof OpportunityResumeSchema> = {
-                        id: resume.id,
-                        opportunityId: opportunityId
-                    };
-                    if (typeof resume.createdAt === 'number') {
-                        record.createdAt = resume.createdAt;
+                    for (const resume of parsed.data) {
+                        const file = resume.file;
+                        const record: z.infer<typeof OpportunityResumeSchema> = {
+                            id: resume.id,
+                            opportunityId: opportunityId
+                        };
+                        if (typeof resume.createdAt === 'number') {
+                            record.createdAt = resume.createdAt;
+                        }
+                        if (file?.name) {
+                            record.fileName = file.name;
+                        }
+                        if (file?.ext) {
+                            record.fileExt = file.ext;
+                        }
+                        if (file?.status) {
+                            record.fileStatus = file.status;
+                        }
+                        resumes.push(record);
                     }
-                    if (file?.name) {
-                        record.fileName = file.name;
-                    }
-                    if (file?.ext) {
-                        record.fileExt = file.ext;
-                    }
-                    if (file?.status) {
-                        record.fileStatus = file.status;
-                    }
-                    resumes.push(record);
                 }
             }
 
@@ -122,9 +127,10 @@ const sync = createSync({
                 await nango.batchSave(resumes, 'OpportunityResume');
             }
 
-            if (offset) {
-                await nango.saveCheckpoint({ offset });
-            }
+            // Save unconditionally, including the empty string on the final page, so a stale
+            // offset from a previous run's last page can't make the next run skip earlier
+            // opportunities.
+            await nango.saveCheckpoint({ offset });
         }
     }
 });

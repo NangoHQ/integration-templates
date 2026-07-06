@@ -3,7 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     opportunityId: z.string().describe('Opportunity ID. Example: "6408dc54-7015-4e5b-8d60-23afff2b1efc"'),
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+    limit: z.number().int().min(1).max(100).optional().describe('Number of results to return per page (1-100). Defaults to the API default.')
 });
 
 const ReferralSchema = z.object({
@@ -38,7 +39,8 @@ const action = createAction({
             // https://hire.lever.co/developer/documentation
             endpoint: `/v1/opportunities/${encodeURIComponent(input.opportunityId)}/referrals`,
             params: {
-                ...(input.cursor !== undefined && { offset: input.cursor })
+                ...(input.cursor !== undefined && { offset: input.cursor }),
+                ...(input.limit !== undefined && { limit: input.limit })
             },
             retries: 3
         });

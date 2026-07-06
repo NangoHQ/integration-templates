@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const RequisitionSchema = z
     .object({
         id: z.string(),
-        requisitionCode: z.string(),
+        requisitionCode: z.string().nullable().optional(),
         name: z.string().optional(),
         backfill: z.boolean().optional(),
         confidentiality: z.string().optional(),
@@ -25,7 +25,7 @@ const RequisitionSchema = z
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (offset token) from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Number of results to return per page. Max 100.'),
+    limit: z.number().int().min(1).max(100).optional().describe('Number of results to return per page. Max 100.'),
     status: z.string().optional().describe('Filter by requisition status, e.g. "open" or "closed".'),
     confidentiality: z.string().optional().describe('Filter by confidentiality: "confidential", "non-confidential", or "all".'),
     requisitionCode: z.string().optional().describe('Filter by non-Lever requisition code.'),

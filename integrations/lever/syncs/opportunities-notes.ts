@@ -46,11 +46,13 @@ const sync = createSync({
         // delta filtering. Notes must be fetched by enumerating all opportunities and
         // listing notes for each opportunity, so the only way to ensure completeness is a
         // full refresh.
-        await nango.trackDeletesStart('LeverOpportunityNote');
-
         let totalRecords = 0;
 
+        // Fetch opportunities before opening the delete-tracking window, so a failure here
+        // never leaves LeverOpportunityNote's tracking started without a matching end.
         const opportunities = await getAllOpportunities(nango);
+
+        await nango.trackDeletesStart('LeverOpportunityNote');
 
         for (const opportunity of opportunities) {
             const config: ProxyConfiguration = {

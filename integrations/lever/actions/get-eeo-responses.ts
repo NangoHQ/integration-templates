@@ -2,7 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
-const InputSchema = z.object({});
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor (offset token) from the previous response. Omit for the first page.'),
+    limit: z.number().int().min(1).max(100).optional().describe('Number of results to return per page (1-100). Defaults to the API default.')
+});
 
 const EeoResponseSchema = z.object({
     applicationArchivedAt: z.number().nullable().optional(),
@@ -17,7 +20,8 @@ const EeoResponseSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    responses: z.array(EeoResponseSchema)
+    responses: z.array(EeoResponseSchema),
+    next: z.string().optional()
 });
 
 const action = createAction({
@@ -26,10 +30,14 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     scopes: ['eeo_responses:read:admin'],
-    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://hire.lever.co/developer/documentation#retrieve-eeo-for-all-postings
             endpoint: '/v1/eeo/responses',
+            params: {
+                ...(input.cursor !== undefined && { offset: input.cursor }),
+                ...(input.limit !== undefined && { limit: input.limit })
+            },
             retries: 3
         };
 
@@ -37,12 +45,14 @@ const action = createAction({
 
         const providerResponse = z
             .object({
-                data: z.array(EeoResponseSchema)
+                data: z.array(EeoResponseSchema),
+                next: z.string().optional()
             })
             .parse(response.data);
 
         return {
-            responses: providerResponse.data
+            responses: providerResponse.data,
+            ...(providerResponse.next !== undefined && { next: providerResponse.next })
         };
     }
 });

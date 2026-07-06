@@ -11,13 +11,13 @@ const ProviderUserSchema = z.object({
     username: z.string(),
     email: z.string(),
     accessRole: z.string(),
-    photo: z.string().nullable(),
+    photo: z.string().nullable().optional(),
     createdAt: z.number(),
-    deactivatedAt: z.string().nullable(),
-    externalDirectoryId: z.string().nullable(),
-    linkedContactIds: z.array(z.string()).nullable(),
-    jobTitle: z.string().nullable(),
-    managerId: z.string().nullable()
+    deactivatedAt: z.number().nullable().optional(),
+    externalDirectoryId: z.string().nullable().optional(),
+    linkedContactIds: z.array(z.string()).nullable().optional(),
+    jobTitle: z.string().nullable().optional(),
+    managerId: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -28,7 +28,7 @@ const OutputSchema = z.object({
     accessRole: z.string(),
     createdAt: z.number(),
     photo: z.string().optional(),
-    deactivatedAt: z.string().optional(),
+    deactivatedAt: z.number().optional(),
     externalDirectoryId: z.string().optional(),
     linkedContactIds: z.array(z.string()).optional(),
     jobTitle: z.string().optional(),

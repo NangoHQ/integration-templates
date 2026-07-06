@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 
 const InterviewerInputSchema = z.object({
     id: z.string().describe('User ID of the interviewer. Example: "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef"')
@@ -20,6 +21,16 @@ const ProviderInterviewerSchema = z.object({
     id: z.string().optional(),
     email: z.string().optional()
 });
+
+const CurrentInterviewSchema = z
+    .object({
+        subject: z.string().nullish(),
+        note: z.string().nullish(),
+        interviewers: z.array(z.object({ id: z.string().optional() }).passthrough()).nullish(),
+        date: z.number().nullish(),
+        duration: z.number().nullish()
+    })
+    .passthrough();
 
 const ProviderInterviewSchema = z.object({
     id: z.string(),
@@ -59,23 +70,49 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {};
 
-        if (input.subject !== undefined) {
-            requestBody['subject'] = input.subject;
-        }
-        if (input.note !== undefined) {
-            requestBody['note'] = input.note;
-        }
-        if (input.interviewers !== undefined) {
-            requestBody['interviewers'] = input.interviewers;
-        }
-        if (input.date !== undefined) {
-            requestBody['date'] = input.date;
-        }
-        if (input.duration !== undefined) {
-            requestBody['duration'] = input.duration;
+        const isPartialUpdate =
+            input.subject === undefined ||
+            input.note === undefined ||
+            input.interviewers === undefined ||
+            input.date === undefined ||
+            input.duration === undefined;
+
+        // Lever's update-interview endpoint replaces the full interview body, so on a partial
+        // update, fields the caller did not specify must be re-sent with their current values
+        // or they get cleared.
+        let currentInterview: z.infer<typeof CurrentInterviewSchema> | undefined;
+        if (isPartialUpdate) {
+            const getConfig: ProxyConfiguration = {
+                // https://hire.lever.co/developer/documentation#retrieve-a-single-interview
+                endpoint: `/v1/opportunities/${encodeURIComponent(input.opportunityId)}/interviews/${encodeURIComponent(input.interviewId)}`,
+                retries: 3
+            };
+            const currentResponse = await nango.get(getConfig);
+
+            if (!currentResponse.data) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Interview not found.',
+                    opportunityId: input.opportunityId,
+                    interviewId: input.interviewId
+                });
+            }
+
+            const currentWrapper = z.object({ data: z.unknown() }).safeParse(currentResponse.data);
+            const rawCurrentInterview = currentWrapper.success ? currentWrapper.data.data : currentResponse.data;
+            currentInterview = CurrentInterviewSchema.parse(rawCurrentInterview);
         }
 
-        // https://hire.lever.co/developer/documentation
+        requestBody['subject'] = input.subject !== undefined ? input.subject : currentInterview?.subject;
+        requestBody['note'] = input.note !== undefined ? input.note : currentInterview?.note;
+        requestBody['interviewers'] =
+            input.interviewers !== undefined
+                ? input.interviewers
+                : (currentInterview?.interviewers ?? []).filter((i): i is { id: string } => i.id !== undefined).map((i) => ({ id: i.id }));
+        requestBody['date'] = input.date !== undefined ? input.date : currentInterview?.date;
+        requestBody['duration'] = input.duration !== undefined ? input.duration : currentInterview?.duration;
+
+        // https://hire.lever.co/developer/documentation#update-an-interview
         const response = await nango.put({
             endpoint: `/v1/opportunities/${encodeURIComponent(input.opportunityId)}/interviews/${encodeURIComponent(input.interviewId)}`,
             params: {

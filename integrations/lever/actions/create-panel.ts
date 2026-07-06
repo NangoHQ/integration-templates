@@ -22,28 +22,28 @@ const InputSchema = z.object({
 
 const ProviderInterviewerSchema = z.object({
     id: z.string(),
-    email: z.string().optional(),
-    name: z.string().optional()
+    email: z.string().nullish(),
+    name: z.string().nullish()
 });
 
 const ProviderInterviewSchema = z.object({
     id: z.string(),
-    subject: z.string().optional(),
-    note: z.string().optional(),
-    interviewers: z.array(ProviderInterviewerSchema).optional(),
-    date: z.number().optional(),
-    duration: z.number().optional(),
-    createdAt: z.number().optional(),
-    updatedAt: z.number().optional()
+    subject: z.string().nullish(),
+    note: z.string().nullish(),
+    interviewers: z.array(ProviderInterviewerSchema).nullish(),
+    date: z.number().nullish(),
+    duration: z.number().nullish(),
+    createdAt: z.number().nullish(),
+    updatedAt: z.number().nullish()
 });
 
 const ProviderPanelSchema = z.object({
     id: z.string(),
-    opportunityId: z.string().optional(),
-    timezone: z.string().optional(),
-    interviews: z.array(ProviderInterviewSchema).optional(),
-    createdAt: z.number().optional(),
-    updatedAt: z.number().optional()
+    opportunityId: z.string().nullish(),
+    timezone: z.string().nullish(),
+    interviews: z.array(ProviderInterviewSchema).nullish(),
+    createdAt: z.number().nullish(),
+    updatedAt: z.number().nullish()
 });
 
 const OutputSchema = z.object({
@@ -96,16 +96,16 @@ const action = createAction({
 
         return {
             id: providerPanel.id,
-            ...(providerPanel.opportunityId !== undefined && { opportunityId: providerPanel.opportunityId }),
-            ...(providerPanel.timezone !== undefined && { timezone: providerPanel.timezone }),
-            ...(providerPanel.interviews !== undefined && {
+            ...(providerPanel.opportunityId != null && { opportunityId: providerPanel.opportunityId }),
+            ...(providerPanel.timezone != null && { timezone: providerPanel.timezone }),
+            ...(providerPanel.interviews != null && {
                 interviews: providerPanel.interviews.map((interview) => ({
                     id: interview.id,
-                    ...(interview.subject !== undefined && { subject: interview.subject }),
-                    ...(interview.note !== undefined && { note: interview.note }),
-                    ...(interview.interviewers !== undefined && { interviewers: interview.interviewers }),
-                    ...(interview.date !== undefined && { date: interview.date }),
-                    ...(interview.duration !== undefined && { duration: interview.duration })
+                    ...(interview.subject != null && { subject: interview.subject }),
+                    ...(interview.note != null && { note: interview.note }),
+                    ...(interview.interviewers != null && { interviewers: interview.interviewers }),
+                    ...(interview.date != null && { date: interview.date }),
+                    ...(interview.duration != null && { duration: interview.duration })
                 }))
             })
         };

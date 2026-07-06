@@ -16,26 +16,26 @@ const ProviderNoteResponseSchema = z.object({
     data: z
         .object({
             id: z.string(),
-            text: z.string().optional(),
-            fields: z.array(z.unknown()).optional(),
-            user: z.string().optional(),
-            secret: z.boolean().optional(),
-            completedAt: z.number().nullable().optional(),
-            createdAt: z.number().nullable().optional(),
-            deletedAt: z.number().nullable().optional()
+            text: z.string().nullish(),
+            fields: z.array(z.unknown()).nullish(),
+            user: z.string().nullish(),
+            secret: z.boolean().nullish(),
+            completedAt: z.number().nullish(),
+            createdAt: z.number().nullish(),
+            deletedAt: z.number().nullish()
         })
         .optional()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
-    text: z.string().optional(),
-    fields: z.array(z.unknown()).optional(),
-    user: z.string().optional(),
-    secret: z.boolean().optional(),
-    completedAt: z.number().nullable().optional(),
-    createdAt: z.number().nullable().optional(),
-    deletedAt: z.number().nullable().optional()
+    text: z.string().nullish(),
+    fields: z.array(z.unknown()).nullish(),
+    user: z.string().nullish(),
+    secret: z.boolean().nullish(),
+    completedAt: z.number().nullish(),
+    createdAt: z.number().nullish(),
+    deletedAt: z.number().nullish()
 });
 
 const action = createAction({

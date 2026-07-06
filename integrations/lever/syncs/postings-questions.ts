@@ -64,10 +64,7 @@ const sync = createSync({
             retries: 3
         })) {
             for (const record of recordBatch) {
-                const parsed = PostingSchema.safeParse(record);
-                if (parsed.success) {
-                    records.push(parsed.data);
-                }
+                records.push(PostingSchema.parse(record));
             }
         }
 
@@ -77,7 +74,7 @@ const sync = createSync({
             const applyResponse = await nango.get({ endpoint, retries: 3 });
             const parsedResponse = ApplyResponseSchema.safeParse(applyResponse.data);
             if (!parsedResponse.success) {
-                continue;
+                throw new Error(`Invalid apply response for posting ${posting.id}: ${parsedResponse.error.message}`);
             }
 
             const applyData = parsedResponse.data.data;
@@ -92,7 +89,7 @@ const sync = createSync({
 
             const parsedApply = LeverPostingApplySchema.safeParse(mappedApply);
             if (!parsedApply.success) {
-                continue;
+                throw new Error(`Invalid apply data for posting ${posting.id}: ${parsedApply.error.message}`);
             }
 
             totalRecords++;

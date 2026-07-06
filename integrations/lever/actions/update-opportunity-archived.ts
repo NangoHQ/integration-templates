@@ -10,14 +10,58 @@ const InputSchema = z.object({
     perform_as: z.string().optional().describe('Lever user ID to perform this action on behalf of.')
 });
 
+const LeverOpportunitySchema = z.object({
+    id: z.string(),
+    name: z.string().nullish(),
+    headline: z.string().nullish(),
+    contact: z.string().nullish(),
+    emails: z.string().array().nullish(),
+    phones: z.string().array().nullish(),
+    confidentiality: z.string().nullish(),
+    location: z.string().nullish(),
+    links: z.string().array().nullish(),
+    archived: z
+        .object({
+            reason: z.string().nullish(),
+            archivedAt: z.number().nullish()
+        })
+        .nullish(),
+    createdAt: z.number().nullish(),
+    updatedAt: z.number().nullish(),
+    lastInteractionAt: z.number().nullish(),
+    lastAdvancedAt: z.number().nullish(),
+    snoozedUntil: z.number().nullish(),
+    archivedAt: z.number().nullish(),
+    archiveReason: z.string().nullish(),
+    stage: z.string().nullish(),
+    stageChanges: z.unknown().array().nullish(),
+    owner: z.string().nullish(),
+    tags: z.string().array().nullish(),
+    sources: z.string().array().nullish(),
+    origin: z.string().nullish(),
+    sourcedBy: z.string().nullish(),
+    applications: z.string().array().nullish(),
+    resume: z.string().nullish(),
+    followers: z.string().array().nullish(),
+    urls: z
+        .object({
+            list: z.string().nullish(),
+            show: z.string().nullish()
+        })
+        .nullish(),
+    dataProtection: z.unknown().nullish(),
+    isAnonymized: z.boolean().nullish(),
+    opportunityLocation: z.string().nullish()
+});
+
 const ProviderResponseSchema = z.object({
-    data: z.unknown()
+    data: LeverOpportunitySchema
 });
 
 const OutputSchema = z.object({
     success: z.boolean(),
     opportunityId: z.string(),
-    response: z.unknown()
+    response: LeverOpportunitySchema
 });
 
 const action = createAction({

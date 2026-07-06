@@ -12,7 +12,7 @@ const ProviderWebhookSchema = z.object({
     url: z.string(),
     configuration: z
         .object({
-            signatureToken: z.string()
+            signatureToken: z.string().optional()
         })
         .optional()
 });

@@ -5,7 +5,7 @@ const InputSchema = z.object({
     perform_as: z.string().optional(),
     links: z.array(z.string()),
     opportunityId: z.string(),
-    delete: z.boolean()
+    delete: z.boolean().optional().describe('When true, removes the given links instead of adding them.')
 });
 
 const StageChangesObjectSchema = z.object({
@@ -17,46 +17,46 @@ const StageChangesObjectSchema = z.object({
 
 const ProviderOpportunitySchema = z.object({
     id: z.string().optional(),
-    name: z.string().optional(),
-    headline: z.string().optional(),
-    contact: z.string().optional(),
-    emails: z.array(z.string()).optional(),
-    phones: z.array(z.object({ type: z.string(), value: z.string() })).optional(),
-    confidentiality: z.string().optional(),
-    location: z.string().optional(),
-    links: z.array(z.string()).optional(),
+    name: z.string().nullish(),
+    headline: z.string().nullish(),
+    contact: z.string().nullish(),
+    emails: z.array(z.string()).nullish(),
+    phones: z.array(z.object({ type: z.string(), value: z.string() })).nullish(),
+    confidentiality: z.string().nullish(),
+    location: z.string().nullish(),
+    links: z.array(z.string()).nullish(),
     archived: z
         .object({
-            reason: z.string().optional(),
-            archivedAt: z.number().optional()
+            reason: z.string().nullish(),
+            archivedAt: z.number().nullish()
         })
-        .optional(),
-    createdAt: z.number().optional(),
-    updatedAt: z.number().optional(),
-    lastInteractionAt: z.number().optional(),
-    lastAdvancedAt: z.number().optional(),
-    snoozedUntil: z.union([z.number(), z.null()]).optional(),
-    archivedAt: z.number().optional(),
-    archiveReason: z.string().optional(),
-    stage: z.string().optional(),
-    stageChanges: z.array(z.union([StageChangesObjectSchema, z.string()])).optional(),
-    owner: z.string().optional(),
-    tags: z.array(z.string()).optional(),
-    sources: z.array(z.string()).optional(),
-    origin: z.string().optional(),
-    sourcedBy: z.string().optional(),
-    applications: z.array(z.string()).optional(),
-    resume: z.string().optional(),
-    followers: z.array(z.string()).optional(),
+        .nullish(),
+    createdAt: z.number().nullish(),
+    updatedAt: z.number().nullish(),
+    lastInteractionAt: z.number().nullish(),
+    lastAdvancedAt: z.number().nullish(),
+    snoozedUntil: z.number().nullish(),
+    archivedAt: z.number().nullish(),
+    archiveReason: z.string().nullish(),
+    stage: z.string().nullish(),
+    stageChanges: z.array(z.union([StageChangesObjectSchema, z.string()])).nullish(),
+    owner: z.string().nullish(),
+    tags: z.array(z.string()).nullish(),
+    sources: z.array(z.string()).nullish(),
+    origin: z.string().nullish(),
+    sourcedBy: z.string().nullish(),
+    applications: z.array(z.string()).nullish(),
+    resume: z.string().nullish(),
+    followers: z.array(z.string()).nullish(),
     urls: z
         .object({
-            list: z.string().optional(),
-            show: z.string().optional()
+            list: z.string().nullish(),
+            show: z.string().nullish()
         })
-        .optional(),
-    dataProtection: z.union([z.object({}), z.null()]).optional(),
-    isAnonymized: z.boolean().optional(),
-    opportunityLocation: z.string().optional()
+        .nullish(),
+    dataProtection: z.record(z.string(), z.unknown()).nullish(),
+    isAnonymized: z.boolean().nullish(),
+    opportunityLocation: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({

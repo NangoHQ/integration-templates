@@ -52,9 +52,11 @@ const ProviderApplicationSchema = z.object({
 const OutputSchema = z.object({
     id: z.string(),
     opportunityId: z.string(),
+    candidateId: z.string().optional(),
     createdAt: z.number(),
     type: z.string(),
     posting: z.string().optional(),
+    resume: z.string().optional(),
     postingOwner: z.string().optional(),
     postingHiringManager: z.string().optional(),
     user: z.string().optional(),
@@ -102,9 +104,11 @@ const action = createAction({
         return {
             id: providerApplication.id,
             opportunityId: providerApplication.opportunityId,
+            ...(providerApplication.candidateId != null && { candidateId: providerApplication.candidateId }),
             createdAt: providerApplication.createdAt,
             type: providerApplication.type,
             ...(providerApplication.posting != null && { posting: providerApplication.posting }),
+            ...(providerApplication.resume != null && { resume: providerApplication.resume }),
             ...(providerApplication.postingOwner != null && { postingOwner: providerApplication.postingOwner }),
             ...(providerApplication.postingHiringManager != null && { postingHiringManager: providerApplication.postingHiringManager }),
             ...(providerApplication.user != null && { user: providerApplication.user }),

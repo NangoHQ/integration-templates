@@ -4,7 +4,7 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('A limit on the number of objects to be returned. The limit can range between 1 and 100 items.')
+    limit: z.number().int().min(1).max(100).optional().describe('A limit on the number of objects to be returned. The limit can range between 1 and 100 items.')
 });
 
 const ProviderTagSchema = z.object({

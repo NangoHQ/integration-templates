@@ -5,7 +5,7 @@ const InputSchema = z.object({
     name: z.string().describe('User\'s preferred name. Example: "Chandler Bing"'),
     email: z.string().describe('User\'s email address. Example: "chandler@example.com"'),
     accessRole: z
-        .string()
+        .enum(['super admin', 'admin', 'team member', 'limited team member', 'interviewer'])
         .optional()
         .describe("User's access role. One of: super admin, admin, team member, limited team member, interviewer. Defaults to interviewer."),
     externalDirectoryId: z.string().optional().describe('Unique Id for user in external HR directory. Example: "2277399"'),

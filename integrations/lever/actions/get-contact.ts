@@ -14,15 +14,17 @@ const LocationSchema = z.object({
     name: z.string().optional()
 });
 
-const ProviderContactSchema = z.object({
-    id: z.string(),
-    name: z.string().optional(),
-    headline: z.string().optional(),
-    isAnonymized: z.boolean().optional(),
-    location: LocationSchema.optional(),
-    emails: z.array(z.string()).optional(),
-    phones: z.array(PhoneSchema).optional()
-});
+const ProviderContactSchema = z
+    .object({
+        id: z.string(),
+        name: z.string().nullish(),
+        headline: z.string().nullish(),
+        isAnonymized: z.boolean().nullish(),
+        location: LocationSchema.nullish(),
+        emails: z.array(z.string()).nullish(),
+        phones: z.array(PhoneSchema).nullish()
+    })
+    .passthrough();
 
 const OutputSchema = z.object({
     id: z.string(),
@@ -64,12 +66,12 @@ const action = createAction({
 
         return {
             id: providerContact.id,
-            ...(providerContact.name !== undefined && { name: providerContact.name }),
-            ...(providerContact.headline !== undefined && { headline: providerContact.headline }),
-            ...(providerContact.isAnonymized !== undefined && { isAnonymized: providerContact.isAnonymized }),
-            ...(providerContact.location !== undefined && { location: providerContact.location }),
-            ...(providerContact.emails !== undefined && { emails: providerContact.emails }),
-            ...(providerContact.phones !== undefined && { phones: providerContact.phones })
+            ...(providerContact.name != null && { name: providerContact.name }),
+            ...(providerContact.headline != null && { headline: providerContact.headline }),
+            ...(providerContact.isAnonymized != null && { isAnonymized: providerContact.isAnonymized }),
+            ...(providerContact.location != null && { location: providerContact.location }),
+            ...(providerContact.emails != null && { emails: providerContact.emails }),
+            ...(providerContact.phones != null && { phones: providerContact.phones })
         };
     }
 });

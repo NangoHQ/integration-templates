@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     deleted_at_start: z.number().describe('Inclusive lower bound timestamp in milliseconds. Example: 1711929600000'),
     deleted_at_end: z.number().describe('Exclusive upper bound timestamp in milliseconds. Example: 1714521600000'),
-    limit: z.number().optional().describe('Number of results per page (1-100). Defaults to 50.'),
+    limit: z.number().int().min(1).max(100).optional().describe('Number of results per page (1-100). Defaults to 50.'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 

@@ -11,7 +11,7 @@ const InterviewerSchema = z.object({
     email: z.string(),
     id: z.string(),
     name: z.string(),
-    feedbackTemplate: z.string()
+    feedbackTemplate: z.string().nullable()
 });
 
 const ConferenceEntryPointSchema = z.object({

@@ -4,46 +4,46 @@ import type { ProxyConfiguration } from 'nango';
 
 const LeverOpportunitySchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    headline: z.string().optional(),
-    contact: z.string().optional(),
-    emails: z.string().array().optional(),
-    phones: z.string().array().optional(),
-    confidentiality: z.string().optional(),
-    location: z.string().optional(),
-    links: z.string().array().optional(),
+    name: z.string().nullish(),
+    headline: z.string().nullish(),
+    contact: z.string().nullish(),
+    emails: z.string().array().nullish(),
+    phones: z.string().array().nullish(),
+    confidentiality: z.string().nullish(),
+    location: z.string().nullish(),
+    links: z.string().array().nullish(),
     archived: z
         .object({
-            reason: z.string().optional(),
-            archivedAt: z.number().optional()
+            reason: z.string().nullish(),
+            archivedAt: z.number().nullish()
         })
-        .optional(),
-    createdAt: z.number().optional(),
-    updatedAt: z.number().optional(),
-    lastInteractionAt: z.number().optional(),
-    lastAdvancedAt: z.number().optional(),
-    snoozedUntil: z.number().nullable().optional(),
-    archivedAt: z.number().optional(),
-    archiveReason: z.string().optional(),
-    stage: z.string().optional(),
-    stageChanges: z.unknown().array().optional(),
-    owner: z.string().optional(),
-    tags: z.string().array().optional(),
-    sources: z.string().array().optional(),
-    origin: z.string().optional(),
-    sourcedBy: z.string().optional(),
-    applications: z.string().array().optional(),
-    resume: z.string().optional(),
-    followers: z.string().array().optional(),
+        .nullish(),
+    createdAt: z.number().nullish(),
+    updatedAt: z.number().nullish(),
+    lastInteractionAt: z.number().nullish(),
+    lastAdvancedAt: z.number().nullish(),
+    snoozedUntil: z.number().nullish(),
+    archivedAt: z.number().nullish(),
+    archiveReason: z.string().nullish(),
+    stage: z.string().nullish(),
+    stageChanges: z.unknown().array().nullish(),
+    owner: z.string().nullish(),
+    tags: z.string().array().nullish(),
+    sources: z.string().array().nullish(),
+    origin: z.string().nullish(),
+    sourcedBy: z.string().nullish(),
+    applications: z.string().array().nullish(),
+    resume: z.string().nullish(),
+    followers: z.string().array().nullish(),
     urls: z
         .object({
-            list: z.string().optional(),
-            show: z.string().optional()
+            list: z.string().nullish(),
+            show: z.string().nullish()
         })
-        .optional(),
-    dataProtection: z.unknown().nullable().optional(),
-    isAnonymized: z.boolean().optional(),
-    opportunityLocation: z.string().optional()
+        .nullish(),
+    dataProtection: z.unknown().nullish(),
+    isAnonymized: z.boolean().nullish(),
+    opportunityLocation: z.string().nullish()
 });
 
 const InputSchema = z.object({

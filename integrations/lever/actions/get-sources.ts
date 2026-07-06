@@ -3,12 +3,12 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     offset: z.string().optional().describe('Pagination offset from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of sources to return per page.')
+    limit: z.number().int().min(1).max(100).optional().describe('Maximum number of sources to return per page (1-100).')
 });
 
 const SourceSchema = z.object({
     text: z.string(),
-    count: z.number()
+    count: z.number().optional()
 });
 
 const OutputSchema = z.object({
@@ -35,12 +35,7 @@ const action = createAction({
         });
 
         const ProviderResponseSchema = z.object({
-            data: z.array(
-                z.object({
-                    text: z.string(),
-                    count: z.number()
-                })
-            ),
+            data: z.array(SourceSchema),
             hasNext: z.boolean().optional(),
             next: z.string().optional()
         });

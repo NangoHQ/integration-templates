@@ -20,7 +20,7 @@ const EeoResponseSchema = z
     .passthrough();
 
 const ProviderResponseSchema = z.object({
-    data: z.array(EeoResponseSchema).optional(),
+    data: z.array(EeoResponseSchema),
     hasNext: z.boolean().optional(),
     next: z.string().optional()
 });
@@ -51,11 +51,10 @@ const action = createAction({
         const response = await nango.get(config);
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
-        const eeoResponses = providerResponse.data ?? [];
 
         return {
             success: true,
-            response: eeoResponses,
+            response: providerResponse.data,
             ...(providerResponse.next !== undefined && { next: providerResponse.next })
         };
     }

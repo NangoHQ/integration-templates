@@ -6,7 +6,10 @@ const InputSchema = z.object({
     id: z.string().describe('User ID. Example: "be129d9b-50da-4485-9377-0d83e981f30b"'),
     name: z.string().optional().describe("User's preferred name."),
     email: z.string().optional().describe("User's email address."),
-    accessRole: z.string().optional().describe("User's access role. One of: super admin, admin, team member, limited team member, interviewer."),
+    accessRole: z
+        .enum(['super admin', 'admin', 'team member', 'limited team member', 'interviewer'])
+        .optional()
+        .describe("User's access role. One of: super admin, admin, team member, limited team member, interviewer."),
     jobTitle: z.string().nullable().optional().describe("User's job title."),
     photo: z.string().nullable().optional().describe("URL for user's gravatar."),
     externalDirectoryId: z.string().nullable().optional().describe('Unique Id for user in external HR directory.'),

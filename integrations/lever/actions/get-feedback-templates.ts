@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of results to return per page.')
+    limit: z.number().int().min(1).max(100).optional().describe('Maximum number of results to return per page (1-100).')
 });
 
 const FeedbackTemplateFieldSchema = z
@@ -11,6 +11,15 @@ const FeedbackTemplateFieldSchema = z
         id: z.string(),
         text: z.string().optional(),
         type: z.string().optional()
+    })
+    .passthrough();
+
+const ProviderFeedbackTemplateSchema = z
+    .object({
+        id: z.string(),
+        name: z.string().nullish(),
+        text: z.string().nullish(),
+        fields: z.array(FeedbackTemplateFieldSchema).optional()
     })
     .passthrough();
 
@@ -55,7 +64,12 @@ const action = createAction({
             .parse(response.data);
 
         const items = providerResponse.data.map((item: unknown) => {
-            return FeedbackTemplateSchema.parse(item);
+            const { name, text, ...template } = ProviderFeedbackTemplateSchema.parse(item);
+            return {
+                ...template,
+                ...(name != null && { name }),
+                ...(text != null && { text })
+            };
         });
 
         return {

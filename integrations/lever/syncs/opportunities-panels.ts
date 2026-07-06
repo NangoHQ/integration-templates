@@ -23,9 +23,11 @@ const LeverOpportunityPanel = z.object({
 
 type LeverOpportunityPanel = z.infer<typeof LeverOpportunityPanel>;
 
-interface Opportunity {
-    id: string;
-}
+const OpportunitySchema = z.object({
+    id: z.string()
+});
+
+type Opportunity = z.infer<typeof OpportunitySchema>;
 
 interface PanelResponse {
     id: string;
@@ -57,9 +59,11 @@ const sync = createSync({
     exec: async (nango) => {
         let totalRecords = 0;
 
-        await nango.trackDeletesStart('LeverOpportunityPanel');
-
+        // Fetch opportunities before opening the delete-tracking window, so a failure here
+        // never leaves LeverOpportunityPanel's tracking started without a matching end.
         const opportunities: Opportunity[] = await getAllOpportunities(nango);
+
+        await nango.trackDeletesStart('LeverOpportunityPanel');
 
         for (const opportunity of opportunities) {
             const config: ProxyConfiguration = {
@@ -108,7 +112,9 @@ async function getAllOpportunities(nango: NangoSyncLocal): Promise<Opportunity[]
     };
 
     for await (const recordBatch of nango.paginate(config)) {
-        records.push(...recordBatch);
+        for (const record of recordBatch) {
+            records.push(OpportunitySchema.parse(record));
+        }
     }
 
     return records;

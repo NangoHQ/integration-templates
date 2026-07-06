@@ -65537,7 +65537,7 @@ export interface ActionInput_lever_getpostings {
 export interface ActionOutput_lever_getpostings {
   success: boolean;
   response: ({  id: string;
-  text: string;
+  text?: string | undefined;
   createdAt?: number | undefined;
   updatedAt?: number | undefined;
   user?: string | undefined;
@@ -65552,8 +65552,8 @@ export interface ActionOutput_lever_getpostings {
   level?: string | undefined;};
   content?: {  description?: string | undefined;
   descriptionHtml?: string | undefined;
-  lists?: ({  text: string;
-  content: string;})[] | undefined;
+  lists?: ({  text?: string | undefined;
+  content?: string | undefined;})[];
   closing?: string | undefined;
   closingHtml?: string | undefined;};
   country?: string | undefined;
@@ -65609,14 +65609,49 @@ export interface ActionInput_lever_updateopportunityarchived {
 export interface ActionOutput_lever_updateopportunityarchived {
   success: boolean;
   opportunityId: string;
-  response?: unknown | undefined;
+  response: {  id: string;
+  name?: string | undefined;
+  headline?: string | undefined;
+  contact?: string | undefined;
+  emails?: string[] | undefined;
+  phones?: string[] | undefined;
+  confidentiality?: string | undefined;
+  location?: string | undefined;
+  links?: string[] | undefined;
+  archived?: {  reason?: string | undefined;
+  archivedAt?: number | undefined;};
+  createdAt?: number | undefined;
+  updatedAt?: number | undefined;
+  lastInteractionAt?: number | undefined;
+  lastAdvancedAt?: number | undefined;
+  snoozedUntil?: number | undefined;
+  archivedAt?: number | undefined;
+  archiveReason?: string | undefined;
+  stage?: string | undefined;
+  stageChanges?: unknown[] | undefined;
+  owner?: string | undefined;
+  tags?: string[] | undefined;
+  sources?: string[] | undefined;
+  origin?: string | undefined;
+  sourcedBy?: string | undefined;
+  applications?: string[] | undefined;
+  resume?: string | undefined;
+  followers?: string[] | undefined;
+  urls?: {  list?: string | undefined;
+  show?: string | undefined;};
+  dataProtection?: unknown | undefined;
+  isAnonymized?: boolean | undefined;
+  opportunityLocation?: string | undefined;};
 };
 
 export interface ActionInput_lever_updateopportunitylinks {
   perform_as?: string | undefined;
   links: string[];
   opportunityId: string;
-  delete: boolean;
+  /**
+   * When true, removes the given links instead of adding them.
+   */
+  delete?: boolean | undefined;
 };
 
 export interface ActionOutput_lever_updateopportunitylinks {
@@ -65638,7 +65673,7 @@ export interface ActionOutput_lever_updateopportunitylinks {
   updatedAt?: number | undefined;
   lastInteractionAt?: number | undefined;
   lastAdvancedAt?: number | undefined;
-  snoozedUntil?: number | null | undefined;
+  snoozedUntil?: number | undefined;
   archivedAt?: number | undefined;
   archiveReason?: string | undefined;
   stage?: string | undefined;
@@ -65657,7 +65692,7 @@ export interface ActionOutput_lever_updateopportunitylinks {
   followers?: string[] | undefined;
   urls?: {  list?: string | undefined;
   show?: string | undefined;};
-  dataProtection?: {} | null | undefined;
+  dataProtection?: {  [key: string]: unknown | undefined;};
   isAnonymized?: boolean | undefined;
   opportunityLocation?: string | undefined;};
 };
@@ -65778,9 +65813,13 @@ export interface ActionInput_lever_updateopportunitytags {
    */
   opportunityId: string;
   /**
-   * Array of tag names to add to the opportunity. Example: ["Engineering", "Referral"]
+   * Array of tag names to add or remove from the opportunity. Example: ["Engineering", "Referral"]
    */
   tags: string[];
+  /**
+   * When true, removes the given tags instead of adding them.
+   */
+  delete?: boolean | undefined;
   /**
    * The ID of the user to attribute this change to. Example: "be129d9b-50da-4485-9377-0d83e981f30b"
    */
@@ -65801,13 +65840,13 @@ export interface ActionOutput_lever_users {
   username: string;
   email: string;
   accessRole: string;
-  photo: string;
+  photo?: string | undefined;
   createdAt: number;
-  deactivatedAt: string;
-  externalDirectoryId: string;
-  linkedContactIds: string[];
-  jobTitle: string;
-  managerId: string;})[];
+  deactivatedAt?: number | undefined;
+  externalDirectoryId?: string | undefined;
+  linkedContactIds?: string[] | undefined;
+  jobTitle?: string | undefined;
+  managerId?: string | undefined;})[];
 };
 
 export interface Cycle {

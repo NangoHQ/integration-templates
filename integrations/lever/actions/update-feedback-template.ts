@@ -106,6 +106,13 @@ const action = createAction({
         }
 
         if (input.fields !== undefined) {
+            const scoreSystemCount = input.fields.filter((field) => field.type === 'score-system').length;
+            if (scoreSystemCount !== 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'A Feedback Template requires exactly 1 field of type score-system.'
+                });
+            }
             putData.fields = input.fields;
         } else {
             putData.fields = existing.fields.map((field) => {

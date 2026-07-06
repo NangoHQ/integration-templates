@@ -3,13 +3,13 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const ContentListSchema = z.object({
-    text: z.string(),
-    content: z.string()
+    text: z.string().nullable().optional(),
+    content: z.string().nullable().optional()
 });
 
 const PostingSchema = z.object({
     id: z.string(),
-    text: z.string(),
+    text: z.string().nullable().optional(),
     createdAt: z.number().optional(),
     updatedAt: z.number().optional(),
     user: z.string().nullable().optional(),

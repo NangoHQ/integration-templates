@@ -19,7 +19,7 @@ const ResumeFileSchema = z.object({
 const ResumeSchema = z.object({
     id: z.string(),
     createdAt: z.number().optional(),
-    file: ResumeFileSchema.optional(),
+    file: ResumeFileSchema.nullish(),
     parsedData: z.record(z.string(), z.unknown()).optional()
 });
 
