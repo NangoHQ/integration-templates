@@ -65614,7 +65614,8 @@ export interface ActionOutput_lever_updateopportunityarchived {
   headline?: string | undefined;
   contact?: string | undefined;
   emails?: string[] | undefined;
-  phones?: string[] | undefined;
+  phones?: ({  type: string;
+  value: string;})[] | undefined;
   confidentiality?: string | undefined;
   location?: string | undefined;
   links?: string[] | undefined;
@@ -65724,7 +65725,8 @@ export interface ActionOutput_lever_updateopportunitysources {
   headline?: string | undefined;
   contact?: string | undefined;
   emails?: string[] | undefined;
-  phones?: string[] | undefined;
+  phones?: ({  type: string;
+  value: string;})[] | undefined;
   confidentiality?: string | undefined;
   location?: string | undefined;
   links?: string[] | undefined;
@@ -65777,7 +65779,8 @@ export interface ActionOutput_lever_updateopportunitystage {
   headline?: string | undefined;
   contact?: string | undefined;
   emails?: string[] | undefined;
-  phones?: string[] | undefined;
+  phones?: ({  type: string;
+  value: string;})[] | undefined;
   confidentiality?: string | undefined;
   location?: string | undefined;
   links?: string[] | undefined;

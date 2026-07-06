@@ -73,7 +73,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get all posts for your account. Note that this does\nnot paginate the response so it is possible that not all postings \nare returned.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: z.object({}),
     output: OutputSchema,
     exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {

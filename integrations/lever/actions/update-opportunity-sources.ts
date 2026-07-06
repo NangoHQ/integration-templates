@@ -8,7 +8,7 @@ const LeverOpportunitySchema = z.object({
     headline: z.string().nullish(),
     contact: z.string().nullish(),
     emails: z.string().array().nullish(),
-    phones: z.string().array().nullish(),
+    phones: z.array(z.object({ type: z.string(), value: z.string() })).nullish(),
     confidentiality: z.string().nullish(),
     location: z.string().nullish(),
     links: z.string().array().nullish(),

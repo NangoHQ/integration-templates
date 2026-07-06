@@ -23,6 +23,11 @@ const ProviderOpportunitySchema = z.object({
     id: z.string()
 });
 
+const OpportunityPageSchema = z.object({
+    data: z.array(ProviderOpportunitySchema),
+    next: z.string().optional()
+});
+
 const LeverOpportunityFeedbackSchema = z.object({
     id: z.string(),
     type: z.string(),
@@ -52,39 +57,51 @@ const sync = createSync({
     exec: async (nango) => {
         let totalRecords = 0;
 
-        // Fetch opportunities before opening the delete-tracking window, so a failure here
-        // never leaves LeverOpportunityFeedback's tracking started without a matching end.
-        const opportunities = await getAllOpportunities(nango);
+        // Fetch and validate only the first page before opening the delete-tracking window, so a
+        // failure here never leaves LeverOpportunityFeedback's tracking started without a
+        // matching end. Subsequent pages are streamed and processed immediately to keep memory
+        // bounded on large accounts.
+        const firstPage = await fetchOpportunityPage(nango, undefined);
 
         await nango.trackDeletesStart('LeverOpportunityFeedback');
 
-        for (const opportunity of opportunities) {
-            const config: ProxyConfiguration = {
-                // https://hire.lever.co/developer/documentation#list-all-feedback
-                endpoint: `/v1/opportunities/${encodeURIComponent(opportunity.id)}/feedback`,
-                paginate: {
-                    type: 'cursor',
-                    cursor_path_in_response: 'next',
-                    cursor_name_in_request: 'offset',
-                    limit_name_in_request: 'limit',
-                    response_path: 'data',
-                    limit: LIMIT
-                },
-                retries: 3
-            };
+        const processOpportunities = async (opportunities: z.infer<typeof ProviderOpportunitySchema>[]) => {
+            for (const opportunity of opportunities) {
+                const config: ProxyConfiguration = {
+                    // https://hire.lever.co/developer/documentation#list-all-feedback
+                    endpoint: `/v1/opportunities/${encodeURIComponent(opportunity.id)}/feedback`,
+                    paginate: {
+                        type: 'cursor',
+                        cursor_path_in_response: 'next',
+                        cursor_name_in_request: 'offset',
+                        limit_name_in_request: 'limit',
+                        response_path: 'data',
+                        limit: LIMIT
+                    },
+                    retries: 3
+                };
 
-            for await (const feedbackBatch of nango.paginate<z.infer<typeof ProviderFeedbackSchema>>(config)) {
-                const parsed = z.array(ProviderFeedbackSchema).safeParse(feedbackBatch);
-                if (!parsed.success) {
-                    throw new Error(`Invalid feedback batch: ${parsed.error.message}`);
+                for await (const feedbackBatch of nango.paginate<z.infer<typeof ProviderFeedbackSchema>>(config)) {
+                    const parsed = z.array(ProviderFeedbackSchema).safeParse(feedbackBatch);
+                    if (!parsed.success) {
+                        throw new Error(`Invalid feedback batch: ${parsed.error.message}`);
+                    }
+
+                    const mappedFeedback = parsed.data.map(mapFeedback);
+                    const batchSize = mappedFeedback.length;
+                    totalRecords += batchSize;
+                    await nango.log(`Saving batch of ${batchSize} feedback(s) for opportunity ${opportunity.id} (total feedback(s): ${totalRecords})`);
+                    await nango.batchSave(mappedFeedback, 'LeverOpportunityFeedback');
                 }
-
-                const mappedFeedback = parsed.data.map(mapFeedback);
-                const batchSize = mappedFeedback.length;
-                totalRecords += batchSize;
-                await nango.log(`Saving batch of ${batchSize} feedback(s) for opportunity ${opportunity.id} (total feedback(s): ${totalRecords})`);
-                await nango.batchSave(mappedFeedback, 'LeverOpportunityFeedback');
             }
+        };
+
+        await processOpportunities(firstPage.data);
+        let cursor = firstPage.next;
+        while (cursor) {
+            const page = await fetchOpportunityPage(nango, cursor);
+            await processOpportunities(page.data);
+            cursor = page.next;
         }
 
         await nango.trackDeletesEnd('LeverOpportunityFeedback');
@@ -94,31 +111,22 @@ const sync = createSync({
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
-async function getAllOpportunities(nango: NangoSyncLocal) {
-    const records: Array<z.infer<typeof ProviderOpportunitySchema>> = [];
+async function fetchOpportunityPage(nango: NangoSyncLocal, offset: string | undefined): Promise<z.infer<typeof OpportunityPageSchema>> {
     const config: ProxyConfiguration = {
         // https://hire.lever.co/developer/documentation#list-all-opportunities
         endpoint: '/v1/opportunities',
-        paginate: {
-            type: 'cursor',
-            cursor_path_in_response: 'next',
-            cursor_name_in_request: 'offset',
-            limit_name_in_request: 'limit',
-            response_path: 'data',
-            limit: LIMIT
+        params: {
+            limit: String(LIMIT),
+            ...(offset !== undefined && { offset })
         },
         retries: 3
     };
-
-    for await (const recordBatch of nango.paginate<z.infer<typeof ProviderOpportunitySchema>>(config)) {
-        const parsed = z.array(ProviderOpportunitySchema).safeParse(recordBatch);
-        if (!parsed.success) {
-            throw new Error(`Invalid opportunity batch: ${parsed.error.message}`);
-        }
-        records.push(...parsed.data);
+    const response = await nango.get(config);
+    const parsed = OpportunityPageSchema.safeParse(response.data);
+    if (!parsed.success) {
+        throw new Error(`Lever opportunities response did not match expected schema: ${parsed.error.message}`);
     }
-
-    return records;
+    return parsed.data;
 }
 
 function mapFeedback(feedback: z.infer<typeof ProviderFeedbackSchema>): z.infer<typeof LeverOpportunityFeedbackSchema> {

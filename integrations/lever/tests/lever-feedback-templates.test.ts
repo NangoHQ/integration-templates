@@ -57,5 +57,7 @@ describe('lever-basic feedback-templates tests', () => {
             expect(nangoMock.trackDeletesStart).toHaveBeenCalledWith(model);
             expect(nangoMock.trackDeletesEnd).toHaveBeenCalledWith(model);
         }
+
+        expect(nangoMock.trackDeletesStart.mock.invocationCallOrder[0]).toBeLessThan(nangoMock.trackDeletesEnd.mock.invocationCallOrder[0]);
     });
 });
