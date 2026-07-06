@@ -1,0 +1,260 @@
+{
+  "nango": {
+    "batchSave": {
+      "Image": [
+        {
+          "id": "343296483",
+          "name": "image-dad1d376-e8bc-41a5-8178-3941698c8e1e",
+          "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/d604611a-391e-4c5f-a20b-b56cce31b1b4.png",
+          "format": "png",
+          "size": 9676,
+          "hidden": false,
+          "updated_at": "2026-07-01T22:06:43+00:00"
+        },
+        {
+          "id": "343296489",
+          "name": "Logo 1",
+          "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/d221a1a0-d49e-4544-b934-919667f6c2a8.png",
+          "format": "png",
+          "size": 9676,
+          "hidden": false,
+          "updated_at": "2026-07-01T22:06:47+00:00"
+        },
+        {
+          "id": "343296490",
+          "name": "Logo 4",
+          "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/624c132c-37af-4189-b2d8-be6a200680ea.png",
+          "format": "png",
+          "size": 17770,
+          "hidden": false,
+          "updated_at": "2026-07-01T22:06:47+00:00"
+        },
+        {
+          "id": "343296491",
+          "name": "Logo 3",
+          "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/853823ad-217f-41d1-9fe8-133fea1c92ee.png",
+          "format": "png",
+          "size": 12309,
+          "hidden": false,
+          "updated_at": "2026-07-01T22:06:48+00:00"
+        },
+        {
+          "id": "343296495",
+          "name": "Logo 2",
+          "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/2a1400b9-d488-4636-ae09-f799a5bcc7c7.png",
+          "format": "png",
+          "size": 632510,
+          "hidden": false,
+          "updated_at": "2026-07-01T22:06:48+00:00"
+        },
+        {
+          "id": "343369058",
+          "name": "nango-seed-uploaded-image",
+          "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/ca902cd8-d77f-4bfe-a215-916908a326ef.png",
+          "format": "png",
+          "size": 9676,
+          "hidden": false,
+          "updated_at": "2026-07-02T04:26:39+00:00"
+        },
+        {
+          "id": "343373121",
+          "name": "Nango Test Image",
+          "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/605141f2-1a7f-41f2-8e53-d0f8c275da28.png",
+          "format": "png",
+          "size": 3831,
+          "hidden": false,
+          "updated_at": "2026-07-02T04:47:19+00:00"
+        },
+        {
+          "id": "343373132",
+          "name": "Nango Test Image.1",
+          "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/3ce928ca-d1a1-45f6-91b7-f9ff6da8bf98.png",
+          "format": "png",
+          "size": 3831,
+          "hidden": false,
+          "updated_at": "2026-07-02T04:47:25+00:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Image": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/images": {
+        "response": {
+          "data": [
+            {
+              "type": "image",
+              "id": "343296483",
+              "attributes": {
+                "name": "image-dad1d376-e8bc-41a5-8178-3941698c8e1e",
+                "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/d604611a-391e-4c5f-a20b-b56cce31b1b4.png",
+                "format": "png",
+                "size": 9676,
+                "hidden": false,
+                "updated_at": "2026-07-01T22:06:43+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/images/343296483/"
+              }
+            },
+            {
+              "type": "image",
+              "id": "343296489",
+              "attributes": {
+                "name": "Logo 1",
+                "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/d221a1a0-d49e-4544-b934-919667f6c2a8.png",
+                "format": "png",
+                "size": 9676,
+                "hidden": false,
+                "updated_at": "2026-07-01T22:06:47+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/images/343296489/"
+              }
+            },
+            {
+              "type": "image",
+              "id": "343296490",
+              "attributes": {
+                "name": "Logo 4",
+                "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/624c132c-37af-4189-b2d8-be6a200680ea.png",
+                "format": "png",
+                "size": 17770,
+                "hidden": false,
+                "updated_at": "2026-07-01T22:06:47+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/images/343296490/"
+              }
+            },
+            {
+              "type": "image",
+              "id": "343296491",
+              "attributes": {
+                "name": "Logo 3",
+                "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/853823ad-217f-41d1-9fe8-133fea1c92ee.png",
+                "format": "png",
+                "size": 12309,
+                "hidden": false,
+                "updated_at": "2026-07-01T22:06:48+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/images/343296491/"
+              }
+            },
+            {
+              "type": "image",
+              "id": "343296495",
+              "attributes": {
+                "name": "Logo 2",
+                "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/2a1400b9-d488-4636-ae09-f799a5bcc7c7.png",
+                "format": "png",
+                "size": 632510,
+                "hidden": false,
+                "updated_at": "2026-07-01T22:06:48+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/images/343296495/"
+              }
+            },
+            {
+              "type": "image",
+              "id": "343369058",
+              "attributes": {
+                "name": "nango-seed-uploaded-image",
+                "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/ca902cd8-d77f-4bfe-a215-916908a326ef.png",
+                "format": "png",
+                "size": 9676,
+                "hidden": false,
+                "updated_at": "2026-07-02T04:26:39+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/images/343369058/"
+              }
+            },
+            {
+              "type": "image",
+              "id": "343373121",
+              "attributes": {
+                "name": "Nango Test Image",
+                "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/605141f2-1a7f-41f2-8e53-d0f8c275da28.png",
+                "format": "png",
+                "size": 3831,
+                "hidden": false,
+                "updated_at": "2026-07-02T04:47:19+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/images/343373121/"
+              }
+            },
+            {
+              "type": "image",
+              "id": "343373132",
+              "attributes": {
+                "name": "Nango Test Image.1",
+                "image_url": "https://d3k81ch9hvuctc.cloudfront.net/company/VXSTFA/images/3ce928ca-d1a1-45f6-91b7-f9ff6da8bf98.png",
+                "format": "png",
+                "size": 3831,
+                "hidden": false,
+                "updated_at": "2026-07-02T04:47:25+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/images/343373132/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/images?page%5Bsize%5D=100",
+            "next": null,
+            "prev": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 04:48:32 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1782967764",
+          "cf-ray": "a14b04cc1e7eabbf-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/",
+          "ratelimit-limit": "10, 10;w=1, 150;w=60",
+          "ratelimit-remaining": "9",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "71",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "eaf4d419-82c3-402c-a4f9-79092f74028b"
+        },
+        "hash": "64832c451944738ae674afcbd5abf558a3e5e8f5",
+        "request": {
+          "params": {
+            "page[size]": "100"
+          },
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      }
+    }
+  }
+}

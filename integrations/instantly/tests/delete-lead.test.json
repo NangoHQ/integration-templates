@@ -1,0 +1,69 @@
+{
+  "input": {
+    "id": "019f1a0d-ff98-75d7-86b0-e0f62f62a15e"
+  },
+  "output": {
+    "id": "019f1a0d-ff98-75d7-86b0-e0f62f62a15e",
+    "success": true
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/v2/leads/019f1a0d-ff98-75d7-86b0-e0f62f62a15e": {
+        "response": {
+          "id": "019f1a0d-ff98-75d7-86b0-e0f62f62a15e",
+          "timestamp_created": "2026-06-30T19:42:32.858Z",
+          "timestamp_updated": "2026-06-30T19:42:39.505Z",
+          "organization": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "status": 1,
+          "email_open_count": 0,
+          "email_reply_count": 0,
+          "email_click_count": 0,
+          "company_domain": "example-nango.com",
+          "status_summary": {},
+          "email": "nango-seed-lead-b@example-nango.com",
+          "personalization": "",
+          "website": "",
+          "last_name": "Seed Lead B",
+          "first_name": "Nango",
+          "company_name": "Nango Seed Co",
+          "payload": {
+            "firstName": "Nango",
+            "lastName": "Seed Lead B",
+            "companyName": "Nango Seed Co",
+            "website": "",
+            "personalization": "",
+            "email": "nango-seed-lead-b@example-nango.com",
+            "list_id": "b74958cc-c9c4-40d4-976a-6837eb84493f"
+          },
+          "list_id": "b74958cc-c9c4-40d4-976a-6837eb84493f",
+          "upload_method": "api",
+          "esp_code": 1000
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:13:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "787",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4935",
+          "x-ratelimit-reset": "1782854023",
+          "x-request-id": "9125047954903397931",
+          "etag": "W/\"313-kioGPFr6iqpzk2W3wb1aQ2pYuc4\""
+        },
+        "hash": "ebac73f227be0b6507e09f27aca73f6fe2cd9ffb",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,672 @@
+{
+  "nango": {
+    "batchSave": {
+      "CouponCode": []
+    },
+    "batchDelete": {
+      "CouponCode": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/coupons": {
+        "response": {
+          "data": [
+            {
+              "type": "coupon",
+              "id": "nango_temp_coupon_1782968062399",
+              "attributes": {
+                "external_id": "nango_temp_coupon_1782968062399",
+                "description": "",
+                "monitor_configuration": {
+                  "low_balance_threshold": "500"
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupons/nango_temp_coupon_1782968062399/"
+              }
+            },
+            {
+              "type": "coupon",
+              "id": "nango_temp_coupon_1782968095488",
+              "attributes": {
+                "external_id": "nango_temp_coupon_1782968095488",
+                "description": "",
+                "monitor_configuration": {
+                  "low_balance_threshold": "500"
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupons/nango_temp_coupon_1782968095488/"
+              }
+            },
+            {
+              "type": "coupon",
+              "id": "nango_test_coupon_1782969210",
+              "attributes": {
+                "external_id": "nango_test_coupon_1782969210",
+                "description": "Test coupon created by dryrun validation",
+                "monitor_configuration": {
+                  "low_balance_threshold": "500"
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupons/nango_test_coupon_1782969210/"
+              }
+            },
+            {
+              "type": "coupon",
+              "id": "nango_test_coupon_1782969225",
+              "attributes": {
+                "external_id": "nango_test_coupon_1782969225",
+                "description": "Test coupon created by dryrun save",
+                "monitor_configuration": {
+                  "low_balance_threshold": "500"
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupons/nango_test_coupon_1782969225/"
+              }
+            },
+            {
+              "type": "coupon",
+              "id": "nango_test_coupon_1782969265",
+              "attributes": {
+                "external_id": "nango_test_coupon_1782969265",
+                "description": "Test coupon created by dryrun validation",
+                "monitor_configuration": {
+                  "low_balance_threshold": "500"
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupons/nango_test_coupon_1782969265/"
+              }
+            },
+            {
+              "type": "coupon",
+              "id": "nango_test_coupon_1782969281",
+              "attributes": {
+                "external_id": "nango_test_coupon_1782969281",
+                "description": "Test coupon created by dryrun save",
+                "monitor_configuration": {
+                  "low_balance_threshold": "500"
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupons/nango_test_coupon_1782969281/"
+              }
+            },
+            {
+              "type": "coupon",
+              "id": "nango_temp_coupon_001",
+              "attributes": {
+                "external_id": "nango_temp_coupon_001",
+                "description": "",
+                "monitor_configuration": {
+                  "low_balance_threshold": "500"
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupons/nango_temp_coupon_001/"
+              }
+            },
+            {
+              "type": "coupon",
+              "id": "nango_temp_coupon_002",
+              "attributes": {
+                "external_id": "nango_temp_coupon_002",
+                "description": "",
+                "monitor_configuration": {
+                  "low_balance_threshold": "500"
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupons/nango_temp_coupon_002/"
+              }
+            },
+            {
+              "type": "coupon",
+              "id": "nango_temp_coupon_003",
+              "attributes": {
+                "external_id": "nango_temp_coupon_003",
+                "description": "",
+                "monitor_configuration": {
+                  "low_balance_threshold": "500"
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupons/nango_temp_coupon_003/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/coupons?page%5Bsize%5D=100",
+            "next": null,
+            "prev": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 05:23:53 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4956",
+          "x-ratelimit-reset": "1782969867",
+          "cf-ray": "a14b38913c749b30-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; report-uri /csp/",
+          "ratelimit-limit": "75, 75;w=1, 750;w=60",
+          "ratelimit-remaining": "74",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "55",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "448a5766-6fa4-451b-8914-6dc9c4a2963c"
+        },
+        "hash": "7ffdddbcbc2af95dfd15b19838fcc8798a34b873",
+        "request": {
+          "params": {
+            "page[size]": "100"
+          },
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      },
+      "/api/coupon-codes": [
+        {
+          "response": {
+            "data": [],
+            "links": {
+              "self": "https://a.klaviyo.com/api/coupon-codes?filter=equals%28coupon.id%2C%27nango_temp_coupon_1782968062399%27%29&page%5Bsize%5D=100",
+              "next": null,
+              "prev": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 02 Jul 2026 05:23:53 GMT",
+            "content-type": "application/vnd.api+json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4954",
+            "x-ratelimit-reset": "1782969867",
+            "cf-ray": "a14b38929ff3ef18-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "allow": "GET, POST, HEAD, OPTIONS",
+            "content-language": "en-us",
+            "server": "cloudflare",
+            "vary": "Accept, Accept-Language, Cookie, Origin",
+            "cid": "VXSTFA",
+            "content-security-policy": "script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; report-uri /csp/",
+            "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+            "ratelimit-remaining": "349",
+            "ratelimit-reset": "0",
+            "x-envoy-upstream-service-time": "60",
+            "x-klaviyo-api-revision": "2026-04-15",
+            "x-klaviyo-req-id": "edd85017-cbea-4d6a-a9c7-315d8e574b5a"
+          },
+          "hash": "99085980134bab24e486688d0cfc0df499a57536",
+          "request": {
+            "params": {
+              "filter": "equals(coupon.id,'nango_temp_coupon_1782968062399')",
+              "page[size]": "100"
+            },
+            "headers": {
+              "revision": "2026-04-15"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": [],
+            "links": {
+              "self": "https://a.klaviyo.com/api/coupon-codes?filter=equals%28coupon.id%2C%27nango_temp_coupon_1782968095488%27%29&page%5Bsize%5D=100",
+              "next": null,
+              "prev": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 02 Jul 2026 05:23:53 GMT",
+            "content-type": "application/vnd.api+json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4953",
+            "x-ratelimit-reset": "1782969867",
+            "cf-ray": "a14b38941c7a8bee-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "allow": "GET, POST, HEAD, OPTIONS",
+            "content-language": "en-us",
+            "server": "cloudflare",
+            "vary": "Accept, Accept-Language, Cookie, Origin",
+            "cid": "VXSTFA",
+            "content-security-policy": "object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/",
+            "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+            "ratelimit-remaining": "348",
+            "ratelimit-reset": "0",
+            "x-envoy-upstream-service-time": "53",
+            "x-klaviyo-api-revision": "2026-04-15",
+            "x-klaviyo-req-id": "e7ff8ee0-db15-4def-875f-1acecbdd6683"
+          },
+          "hash": "78e247166925624dd050008f348b464d65b19ee2",
+          "request": {
+            "params": {
+              "filter": "equals(coupon.id,'nango_temp_coupon_1782968095488')",
+              "page[size]": "100"
+            },
+            "headers": {
+              "revision": "2026-04-15"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": [],
+            "links": {
+              "self": "https://a.klaviyo.com/api/coupon-codes?filter=equals%28coupon.id%2C%27nango_test_coupon_1782969210%27%29&page%5Bsize%5D=100",
+              "next": null,
+              "prev": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 02 Jul 2026 05:23:53 GMT",
+            "content-type": "application/vnd.api+json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4952",
+            "x-ratelimit-reset": "1782969867",
+            "cf-ray": "a14b3895690b87cd-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "allow": "GET, POST, HEAD, OPTIONS",
+            "content-language": "en-us",
+            "server": "cloudflare",
+            "vary": "Accept, Accept-Language, Cookie, Origin",
+            "cid": "VXSTFA",
+            "content-security-policy": "frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; report-uri /csp/",
+            "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+            "ratelimit-remaining": "347",
+            "ratelimit-reset": "0",
+            "x-envoy-upstream-service-time": "49",
+            "x-klaviyo-api-revision": "2026-04-15",
+            "x-klaviyo-req-id": "1a954d98-5398-48d0-b090-023ba62af361"
+          },
+          "hash": "fe984ad2b4adabe8e5e16873d356f2a2d083e0a1",
+          "request": {
+            "params": {
+              "filter": "equals(coupon.id,'nango_test_coupon_1782969210')",
+              "page[size]": "100"
+            },
+            "headers": {
+              "revision": "2026-04-15"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": [],
+            "links": {
+              "self": "https://a.klaviyo.com/api/coupon-codes?filter=equals%28coupon.id%2C%27nango_test_coupon_1782969225%27%29&page%5Bsize%5D=100",
+              "next": null,
+              "prev": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 02 Jul 2026 05:23:54 GMT",
+            "content-type": "application/vnd.api+json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4951",
+            "x-ratelimit-reset": "1782969867",
+            "cf-ray": "a14b3896b8ce302c-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "allow": "GET, POST, HEAD, OPTIONS",
+            "content-language": "en-us",
+            "server": "cloudflare",
+            "vary": "Accept, Accept-Language, Cookie, Origin",
+            "cid": "VXSTFA",
+            "content-security-policy": "object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/",
+            "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+            "ratelimit-remaining": "349",
+            "ratelimit-reset": "0",
+            "x-envoy-upstream-service-time": "53",
+            "x-klaviyo-api-revision": "2026-04-15",
+            "x-klaviyo-req-id": "1bc12b74-3148-4c6c-b463-2eded59f9fc4"
+          },
+          "hash": "d7525a45596b2c4c1ece0817f2b3962266dc0d12",
+          "request": {
+            "params": {
+              "filter": "equals(coupon.id,'nango_test_coupon_1782969225')",
+              "page[size]": "100"
+            },
+            "headers": {
+              "revision": "2026-04-15"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": [],
+            "links": {
+              "self": "https://a.klaviyo.com/api/coupon-codes?filter=equals%28coupon.id%2C%27nango_test_coupon_1782969265%27%29&page%5Bsize%5D=100",
+              "next": null,
+              "prev": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 02 Jul 2026 05:23:54 GMT",
+            "content-type": "application/vnd.api+json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4950",
+            "x-ratelimit-reset": "1782969867",
+            "cf-ray": "a14b3897ed50816e-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "allow": "GET, POST, HEAD, OPTIONS",
+            "content-language": "en-us",
+            "server": "cloudflare",
+            "vary": "Accept, Accept-Language, Cookie, Origin",
+            "cid": "VXSTFA",
+            "content-security-policy": "base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; report-uri /csp/",
+            "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+            "ratelimit-remaining": "348",
+            "ratelimit-reset": "0",
+            "x-envoy-upstream-service-time": "50",
+            "x-klaviyo-api-revision": "2026-04-15",
+            "x-klaviyo-req-id": "a58476cd-89aa-4085-84fb-5830bf0006d4"
+          },
+          "hash": "25f16dcd5104f3ee1e02a79b4079f09ddeb90630",
+          "request": {
+            "params": {
+              "filter": "equals(coupon.id,'nango_test_coupon_1782969265')",
+              "page[size]": "100"
+            },
+            "headers": {
+              "revision": "2026-04-15"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": [],
+            "links": {
+              "self": "https://a.klaviyo.com/api/coupon-codes?filter=equals%28coupon.id%2C%27nango_test_coupon_1782969281%27%29&page%5Bsize%5D=100",
+              "next": null,
+              "prev": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 02 Jul 2026 05:23:54 GMT",
+            "content-type": "application/vnd.api+json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4949",
+            "x-ratelimit-reset": "1782969867",
+            "cf-ray": "a14b389929d56e09-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "allow": "GET, POST, HEAD, OPTIONS",
+            "content-language": "en-us",
+            "server": "cloudflare",
+            "vary": "Accept, Accept-Language, Cookie, Origin",
+            "cid": "VXSTFA",
+            "content-security-policy": "object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; report-uri /csp/",
+            "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+            "ratelimit-remaining": "347",
+            "ratelimit-reset": "0",
+            "x-envoy-upstream-service-time": "53",
+            "x-klaviyo-api-revision": "2026-04-15",
+            "x-klaviyo-req-id": "cd5b3a09-aef4-4b05-b420-de1e9b53f300"
+          },
+          "hash": "4fdf77bd5785d7014d31dd29337f8b21c90c4aad",
+          "request": {
+            "params": {
+              "filter": "equals(coupon.id,'nango_test_coupon_1782969281')",
+              "page[size]": "100"
+            },
+            "headers": {
+              "revision": "2026-04-15"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": [],
+            "links": {
+              "self": "https://a.klaviyo.com/api/coupon-codes?filter=equals%28coupon.id%2C%27nango_temp_coupon_001%27%29&page%5Bsize%5D=100",
+              "next": null,
+              "prev": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 02 Jul 2026 05:23:54 GMT",
+            "content-type": "application/vnd.api+json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4948",
+            "x-ratelimit-reset": "1782969867",
+            "cf-ray": "a14b389a5dd4e5c0-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "allow": "GET, POST, HEAD, OPTIONS",
+            "content-language": "en-us",
+            "server": "cloudflare",
+            "vary": "Accept, Accept-Language, Cookie, Origin",
+            "cid": "VXSTFA",
+            "content-security-policy": "base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/",
+            "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+            "ratelimit-remaining": "346",
+            "ratelimit-reset": "0",
+            "x-envoy-upstream-service-time": "48",
+            "x-klaviyo-api-revision": "2026-04-15",
+            "x-klaviyo-req-id": "17561304-ae25-44c2-b6f6-d9dbd232d006"
+          },
+          "hash": "02cd722d3ef5ff9d1b4e33696c2c335ee0db3ba5",
+          "request": {
+            "params": {
+              "filter": "equals(coupon.id,'nango_temp_coupon_001')",
+              "page[size]": "100"
+            },
+            "headers": {
+              "revision": "2026-04-15"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": [],
+            "links": {
+              "self": "https://a.klaviyo.com/api/coupon-codes?filter=equals%28coupon.id%2C%27nango_temp_coupon_002%27%29&page%5Bsize%5D=100",
+              "next": null,
+              "prev": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 02 Jul 2026 05:23:54 GMT",
+            "content-type": "application/vnd.api+json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4947",
+            "x-ratelimit-reset": "1782969867",
+            "cf-ray": "a14b389bafd7e5c0-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "allow": "GET, POST, HEAD, OPTIONS",
+            "content-language": "en-us",
+            "server": "cloudflare",
+            "vary": "Accept, Accept-Language, Cookie, Origin",
+            "cid": "VXSTFA",
+            "content-security-policy": "base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; report-uri /csp/",
+            "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+            "ratelimit-remaining": "345",
+            "ratelimit-reset": "0",
+            "x-envoy-upstream-service-time": "49",
+            "x-klaviyo-api-revision": "2026-04-15",
+            "x-klaviyo-req-id": "580cd06d-c939-4c02-aed7-df66215681d5"
+          },
+          "hash": "f43448171707d026b5c3dc38d52b59f66caa21b7",
+          "request": {
+            "params": {
+              "filter": "equals(coupon.id,'nango_temp_coupon_002')",
+              "page[size]": "100"
+            },
+            "headers": {
+              "revision": "2026-04-15"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": [],
+            "links": {
+              "self": "https://a.klaviyo.com/api/coupon-codes?filter=equals%28coupon.id%2C%27nango_temp_coupon_003%27%29&page%5Bsize%5D=100",
+              "next": null,
+              "prev": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Thu, 02 Jul 2026 05:23:55 GMT",
+            "content-type": "application/vnd.api+json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4946",
+            "x-ratelimit-reset": "1782969867",
+            "cf-ray": "a14b389ceb4687cd-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "allow": "GET, POST, HEAD, OPTIONS",
+            "content-language": "en-us",
+            "server": "cloudflare",
+            "vary": "Accept, Accept-Language, Cookie, Origin",
+            "cid": "VXSTFA",
+            "content-security-policy": "object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/",
+            "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+            "ratelimit-remaining": "349",
+            "ratelimit-reset": "0",
+            "x-envoy-upstream-service-time": "60",
+            "x-klaviyo-api-revision": "2026-04-15",
+            "x-klaviyo-req-id": "008776e1-1837-40e4-b08b-efece2a8051f"
+          },
+          "hash": "bae225e0f5c7b3614d0254c7e36e6a285add988b",
+          "request": {
+            "params": {
+              "filter": "equals(coupon.id,'nango_temp_coupon_003')",
+              "page[size]": "100"
+            },
+            "headers": {
+              "revision": "2026-04-15"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

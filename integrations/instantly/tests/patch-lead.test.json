@@ -1,0 +1,88 @@
+{
+  "input": {
+    "id": "019f1a6c-2696-7967-a05e-4335a9b176a7",
+    "first_name": "Updated Name"
+  },
+  "output": {
+    "id": "019f1a6c-2696-7967-a05e-4335a9b176a7",
+    "email": "nango-test-lead-patch@example-nango.com",
+    "first_name": "Updated Name",
+    "last_name": "Lead",
+    "company_name": "",
+    "website": "",
+    "personalization": "",
+    "payload": {
+      "firstName": "Updated Name",
+      "lastName": "Lead",
+      "companyName": "",
+      "website": "",
+      "personalization": "",
+      "email": "nango-test-lead-patch@example-nango.com"
+    },
+    "status": 1,
+    "timestamp_created": "2026-06-30T21:25:23.223Z",
+    "timestamp_updated": "2026-06-30T21:25:49.070Z"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v2/leads/019f1a6c-2696-7967-a05e-4335a9b176a7": {
+        "response": {
+          "id": "019f1a6c-2696-7967-a05e-4335a9b176a7",
+          "timestamp_created": "2026-06-30T21:25:23.223Z",
+          "timestamp_updated": "2026-06-30T21:25:49.070Z",
+          "organization": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "status": 1,
+          "email_open_count": 0,
+          "email_reply_count": 0,
+          "email_click_count": 0,
+          "company_domain": "example-nango.com",
+          "status_summary": {},
+          "email": "nango-test-lead-patch@example-nango.com",
+          "personalization": "",
+          "website": "",
+          "last_name": "Lead",
+          "first_name": "Updated Name",
+          "company_name": "",
+          "payload": {
+            "firstName": "Updated Name",
+            "lastName": "Lead",
+            "companyName": "",
+            "website": "",
+            "personalization": "",
+            "email": "nango-test-lead-patch@example-nango.com"
+          },
+          "upload_method": "api",
+          "esp_code": 1000
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:25:49 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "671",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4920",
+          "x-ratelimit-reset": "1782854764",
+          "x-request-id": "5189219914637549852",
+          "etag": "W/\"29f-qbe8Ed4vKZRHhqzImT3mKm7BVDI\""
+        },
+        "hash": "1847e2ea1eb0e5a0b9ee1b2ea0ba25af34cfb926",
+        "request": {
+          "data": {
+            "first_name": "Updated Name"
+          }
+        }
+      }
+    }
+  }
+}
