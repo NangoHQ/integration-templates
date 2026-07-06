@@ -1,0 +1,110 @@
+{
+  "input": {
+    "name": "agent-test-hook",
+    "teamId": 2066772,
+    "typeName": "gateway-webhook",
+    "method": false,
+    "headers": false,
+    "stringify": false
+  },
+  "output": {
+    "id": 3329535,
+    "name": "agent-test-hook",
+    "teamId": 2066772,
+    "udid": "jeal2q91ffe8elb3i92jmrvi9v7wguk8",
+    "type": "web",
+    "packageName": null,
+    "theme": "#c73a63",
+    "flags": {},
+    "editable": true,
+    "queueCount": 0,
+    "queueLimit": 50,
+    "enabled": true,
+    "gone": false,
+    "typeName": "gateway-webhook",
+    "data": {
+      "headers": false,
+      "method": false,
+      "stringify": false,
+      "teamId": 2066772
+    },
+    "scenarioId": null,
+    "url": "https://hook.eu1.make.com/jeal2q91ffe8elb3i92jmrvi9v7wguk8"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/hooks": {
+        "response": {
+          "hook": {
+            "id": 3329535,
+            "name": "agent-test-hook",
+            "teamId": 2066772,
+            "organizationId": 8242280,
+            "udid": "jeal2q91ffe8elb3i92jmrvi9v7wguk8",
+            "type": "web",
+            "packageName": null,
+            "theme": "#c73a63",
+            "editable": true,
+            "flags": {},
+            "queueCount": 0,
+            "queueLimit": 50,
+            "enabled": true,
+            "gone": false,
+            "typeName": "gateway-webhook",
+            "typeAppName": null,
+            "data": {
+              "teamId": 2066772,
+              "method": false,
+              "headers": false,
+              "stringify": false
+            },
+            "scenarioId": null,
+            "scenarioName": null,
+            "scenarioIsActive": null,
+            "scenarioIsConfidential": null,
+            "relay": null,
+            "url": "https://hook.eu1.make.com/jeal2q91ffe8elb3i92jmrvi9v7wguk8"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 09:24:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "14",
+          "x-ratelimit-reset": "1782984295",
+          "server": "cloudflare",
+          "x-request-id": "7cb459a25c7b80c6704f0fff64434a52",
+          "authtype": "token",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "accept-encoding",
+          "set-cookie": "<redacted>",
+          "cf-ray": "a14c990d2d48a60a-PDX"
+        },
+        "hash": "0b4825cd4c5fa13bac781318a97da0677af16878",
+        "request": {
+          "data": {
+            "name": "agent-test-hook",
+            "teamId": 2066772,
+            "typeName": "gateway-webhook",
+            "method": false,
+            "headers": false,
+            "stringify": false
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,591 @@
+{
+  "input": {
+    "scenarioId": 6413021
+  },
+  "output": {
+    "scenarioLogs": [
+      {
+        "imtId": "1782984474246_bdcda86a6e774513868c0e1c66dbb75e",
+        "duration": 81,
+        "operations": 1,
+        "transfer": 0,
+        "centicredits": 100,
+        "organizationId": 8242280,
+        "teamId": 2066772,
+        "id": "bdcda86a6e774513868c0e1c66dbb75e",
+        "type": "auto",
+        "authorId": null,
+        "authorName": null,
+        "instant": false,
+        "timestamp": "2026-07-02T09:27:54.246Z",
+        "status": 3
+      },
+      {
+        "imtId": "1782984470271_59562751",
+        "id": "59562751",
+        "type": "start",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:27:50.271Z"
+      },
+      {
+        "imtId": "1782984246797_1522cea3f6ef42b082640b595dedf5a2",
+        "duration": 115,
+        "operations": 1,
+        "transfer": 0,
+        "centicredits": 100,
+        "organizationId": 8242280,
+        "teamId": 2066772,
+        "id": "1522cea3f6ef42b082640b595dedf5a2",
+        "type": "auto",
+        "authorId": null,
+        "authorName": null,
+        "instant": false,
+        "timestamp": "2026-07-02T09:24:06.797Z",
+        "status": 3
+      },
+      {
+        "imtId": "1782984244470_59562149",
+        "id": "59562149",
+        "type": "stop",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:24:04.470Z"
+      },
+      {
+        "imtId": "1782984238672_59562139",
+        "id": "59562139",
+        "type": "start",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:23:58.672Z"
+      },
+      {
+        "imtId": "1782984216987_59562078",
+        "id": "59562078",
+        "type": "stop",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:23:36.987Z"
+      },
+      {
+        "imtId": "1782984186060_cdbab09394604ba8adaec4c84ef03e29",
+        "duration": 121,
+        "operations": 1,
+        "transfer": 0,
+        "centicredits": 100,
+        "organizationId": 8242280,
+        "teamId": 2066772,
+        "id": "cdbab09394604ba8adaec4c84ef03e29",
+        "type": "auto",
+        "authorId": null,
+        "authorName": null,
+        "instant": false,
+        "timestamp": "2026-07-02T09:23:06.060Z",
+        "status": 3
+      },
+      {
+        "imtId": "1782984177152_59561962",
+        "id": "59561962",
+        "type": "start",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:22:57.152Z"
+      },
+      {
+        "imtId": "1782984150490_e0839e2109764dc8908187a6b42b8363",
+        "duration": 91,
+        "operations": 1,
+        "transfer": 0,
+        "centicredits": 100,
+        "organizationId": 8242280,
+        "teamId": 2066772,
+        "id": "e0839e2109764dc8908187a6b42b8363",
+        "type": "auto",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "instant": false,
+        "timestamp": "2026-07-02T09:22:30.490Z",
+        "status": 3
+      },
+      {
+        "imtId": "1782984132750_6fec355b021343a782eac3e2a066cfc9",
+        "duration": 130,
+        "operations": 1,
+        "transfer": 0,
+        "centicredits": 100,
+        "organizationId": 8242280,
+        "teamId": 2066772,
+        "id": "6fec355b021343a782eac3e2a066cfc9",
+        "type": "auto",
+        "authorId": null,
+        "authorName": null,
+        "instant": false,
+        "timestamp": "2026-07-02T09:22:12.750Z",
+        "status": 3
+      },
+      {
+        "imtId": "1782984126977_0d1906a3468944f1838ca98b704ec4a0",
+        "duration": 105,
+        "operations": 1,
+        "transfer": 0,
+        "centicredits": 100,
+        "organizationId": 8242280,
+        "teamId": 2066772,
+        "id": "0d1906a3468944f1838ca98b704ec4a0",
+        "type": "auto",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "instant": false,
+        "timestamp": "2026-07-02T09:22:06.977Z",
+        "status": 3
+      },
+      {
+        "imtId": "1782984124396_59561795",
+        "id": "59561795",
+        "type": "start",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:22:04.396Z"
+      },
+      {
+        "imtId": "1782983757143_59560822",
+        "id": "59560822",
+        "type": "stop",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:15:57.143Z"
+      },
+      {
+        "imtId": "1782983744018_59560787",
+        "id": "59560787",
+        "type": "start",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:15:44.018Z"
+      },
+      {
+        "imtId": "1782983241998_59559606",
+        "id": "59559606",
+        "type": "stop",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:07:21.998Z"
+      },
+      {
+        "imtId": "1782983241687_17da7e4c4595472cade7bb01341effa8",
+        "duration": 106,
+        "operations": 1,
+        "transfer": 0,
+        "centicredits": 100,
+        "organizationId": 8242280,
+        "teamId": 2066772,
+        "id": "17da7e4c4595472cade7bb01341effa8",
+        "type": "auto",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "instant": false,
+        "timestamp": "2026-07-02T09:07:21.687Z",
+        "status": 3
+      },
+      {
+        "imtId": "1782983241244_59559601",
+        "id": "59559601",
+        "type": "start",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:07:21.244Z"
+      },
+      {
+        "imtId": "1782983209050_59559490",
+        "id": "59559490",
+        "type": "modify",
+        "authorId": 8535506,
+        "authorName": "Nango Developer",
+        "timestamp": "2026-07-02T09:06:49.050Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/scenarios/6413021/logs": {
+        "response": {
+          "scenarioLogs": [
+            {
+              "imtId": "1782984474246_bdcda86a6e774513868c0e1c66dbb75e",
+              "scenarioName": "Seed Scenario One",
+              "replayOfExecutionId": null,
+              "eventType": "EXECUTION_END",
+              "teamId": 2066772,
+              "type": "auto",
+              "error": {
+                "name": "BundleValidationError",
+                "message": "Validation failed for 2 parameter(s)."
+              },
+              "scenarioId": 6413021,
+              "instant": false,
+              "duration": 81,
+              "centicredits": 100,
+              "operations": 1,
+              "transfer": 0,
+              "replayOfExecutionName": null,
+              "organizationId": 8242280,
+              "id": "bdcda86a6e774513868c0e1c66dbb75e",
+              "authorId": null,
+              "replayOfExecutionTimestamp": null,
+              "timestamp": "2026-07-02T09:27:54.246Z",
+              "status": 3,
+              "authorName": null
+            },
+            {
+              "imtId": "1782984470271_59562751",
+              "id": "59562751",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "start",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:27:50.271Z",
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782984246797_1522cea3f6ef42b082640b595dedf5a2",
+              "scenarioName": "Seed Scenario One",
+              "replayOfExecutionId": null,
+              "eventType": "EXECUTION_END",
+              "teamId": 2066772,
+              "type": "auto",
+              "error": {
+                "name": "BundleValidationError",
+                "message": "Validation failed for 2 parameter(s)."
+              },
+              "scenarioId": 6413021,
+              "instant": false,
+              "duration": 115,
+              "centicredits": 100,
+              "operations": 1,
+              "transfer": 0,
+              "replayOfExecutionName": null,
+              "organizationId": 8242280,
+              "id": "1522cea3f6ef42b082640b595dedf5a2",
+              "authorId": null,
+              "replayOfExecutionTimestamp": null,
+              "timestamp": "2026-07-02T09:24:06.797Z",
+              "status": 3,
+              "authorName": null
+            },
+            {
+              "imtId": "1782984244470_59562149",
+              "id": "59562149",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "stop",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:24:04.470Z",
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782984238672_59562139",
+              "id": "59562139",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "start",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:23:58.672Z",
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782984216987_59562078",
+              "id": "59562078",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "stop",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:23:36.987Z",
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782984186060_cdbab09394604ba8adaec4c84ef03e29",
+              "scenarioName": "Seed Scenario One",
+              "replayOfExecutionId": null,
+              "eventType": "EXECUTION_END",
+              "teamId": 2066772,
+              "type": "auto",
+              "error": {
+                "name": "BundleValidationError",
+                "message": "Validation failed for 2 parameter(s)."
+              },
+              "scenarioId": 6413021,
+              "instant": false,
+              "duration": 121,
+              "centicredits": 100,
+              "operations": 1,
+              "transfer": 0,
+              "replayOfExecutionName": null,
+              "organizationId": 8242280,
+              "id": "cdbab09394604ba8adaec4c84ef03e29",
+              "authorId": null,
+              "replayOfExecutionTimestamp": null,
+              "timestamp": "2026-07-02T09:23:06.060Z",
+              "status": 3,
+              "authorName": null
+            },
+            {
+              "imtId": "1782984177152_59561962",
+              "id": "59561962",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "start",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:22:57.152Z",
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782984150490_e0839e2109764dc8908187a6b42b8363",
+              "scenarioName": "Seed Scenario One",
+              "replayOfExecutionId": null,
+              "eventType": "EXECUTION_END",
+              "teamId": 2066772,
+              "type": "auto",
+              "error": {
+                "name": "BundleValidationError",
+                "message": "Validation failed for 2 parameter(s)."
+              },
+              "scenarioId": 6413021,
+              "instant": false,
+              "duration": 91,
+              "centicredits": 100,
+              "operations": 1,
+              "transfer": 0,
+              "replayOfExecutionName": null,
+              "organizationId": 8242280,
+              "id": "e0839e2109764dc8908187a6b42b8363",
+              "authorId": 8535506,
+              "replayOfExecutionTimestamp": null,
+              "timestamp": "2026-07-02T09:22:30.490Z",
+              "status": 3,
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782984132750_6fec355b021343a782eac3e2a066cfc9",
+              "scenarioName": "Seed Scenario One",
+              "replayOfExecutionId": null,
+              "eventType": "EXECUTION_END",
+              "teamId": 2066772,
+              "type": "auto",
+              "error": {
+                "name": "BundleValidationError",
+                "message": "Validation failed for 2 parameter(s)."
+              },
+              "scenarioId": 6413021,
+              "instant": false,
+              "duration": 130,
+              "centicredits": 100,
+              "operations": 1,
+              "transfer": 0,
+              "replayOfExecutionName": null,
+              "organizationId": 8242280,
+              "id": "6fec355b021343a782eac3e2a066cfc9",
+              "authorId": null,
+              "replayOfExecutionTimestamp": null,
+              "timestamp": "2026-07-02T09:22:12.750Z",
+              "status": 3,
+              "authorName": null
+            },
+            {
+              "imtId": "1782984126977_0d1906a3468944f1838ca98b704ec4a0",
+              "scenarioName": "Seed Scenario One",
+              "replayOfExecutionId": null,
+              "eventType": "EXECUTION_END",
+              "teamId": 2066772,
+              "type": "auto",
+              "error": {
+                "name": "BundleValidationError",
+                "message": "Validation failed for 2 parameter(s)."
+              },
+              "scenarioId": 6413021,
+              "instant": false,
+              "duration": 105,
+              "centicredits": 100,
+              "operations": 1,
+              "transfer": 0,
+              "replayOfExecutionName": null,
+              "organizationId": 8242280,
+              "id": "0d1906a3468944f1838ca98b704ec4a0",
+              "authorId": 8535506,
+              "replayOfExecutionTimestamp": null,
+              "timestamp": "2026-07-02T09:22:06.977Z",
+              "status": 3,
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782984124396_59561795",
+              "id": "59561795",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "start",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:22:04.396Z",
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782983757143_59560822",
+              "id": "59560822",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "stop",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:15:57.143Z",
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782983744018_59560787",
+              "id": "59560787",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "start",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:15:44.018Z",
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782983241998_59559606",
+              "id": "59559606",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "stop",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:07:21.998Z",
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782983241687_17da7e4c4595472cade7bb01341effa8",
+              "scenarioName": "Seed Scenario Test",
+              "replayOfExecutionId": null,
+              "eventType": "EXECUTION_END",
+              "teamId": 2066772,
+              "type": "auto",
+              "error": {
+                "name": "BundleValidationError",
+                "message": "Validation failed for 2 parameter(s)."
+              },
+              "scenarioId": 6413021,
+              "instant": false,
+              "duration": 106,
+              "centicredits": 100,
+              "operations": 1,
+              "transfer": 0,
+              "replayOfExecutionName": null,
+              "organizationId": 8242280,
+              "id": "17da7e4c4595472cade7bb01341effa8",
+              "authorId": 8535506,
+              "replayOfExecutionTimestamp": null,
+              "timestamp": "2026-07-02T09:07:21.687Z",
+              "status": 3,
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782983241244_59559601",
+              "id": "59559601",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "start",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:07:21.244Z",
+              "authorName": "Nango Developer"
+            },
+            {
+              "imtId": "1782983209050_59559490",
+              "id": "59559490",
+              "detail": {
+                "author": {
+                  "name": "Nango Developer",
+                  "staff": false
+                }
+              },
+              "type": "modify",
+              "authorId": 8535506,
+              "timestamp": "2026-07-02T09:06:49.050Z",
+              "authorName": "Nango Developer"
+            }
+          ],
+          "pg": {
+            "sortBy": "imtId",
+            "limit": 50,
+            "sortDir": "desc",
+            "offset": 0,
+            "returnTotalCount": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 09:29:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "9",
+          "x-ratelimit-reset": "1782984610",
+          "server": "cloudflare",
+          "x-request-id": "03a57f6e2752d783b51aa3de59f11e85",
+          "authtype": "token",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "accept-encoding",
+          "set-cookie": "<redacted>",
+          "cf-ray": "a14ca0600e15884d-PDX"
+        },
+        "hash": "dd149e18dfb8d4243d7a51673231d6ec7350cf6e",
+        "request": {}
+      }
+    }
+  }
+}

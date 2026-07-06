@@ -14895,15 +14895,22 @@ export interface ActionOutput_attio_upsertrecord {
 export interface Connection {
   id: string;
   name: string;
-  display_name?: string | undefined;
-  strategy: string;
-  realms?: string[] | undefined;
-  is_domain_connection?: boolean | undefined;
-  show_as_button?: boolean | undefined;
-  metadata?: {  [key: string]: string;} | undefined;
-  options?: unknown | undefined;
-  authentication?: unknown | undefined;
-  connected_accounts?: unknown | undefined;
+  accountName?: string | undefined;
+  accountLabel?: string | undefined;
+  packageName?: string | undefined;
+  expire?: string | undefined;
+  metadataValue?: string | undefined;
+  metadataType?: string | undefined;
+  teamId?: number | undefined;
+  theme?: string | undefined;
+  upgradeable?: boolean | undefined;
+  scopesCnt?: number | undefined;
+  scoped?: boolean | undefined;
+  accountType?: string | undefined;
+  editable?: boolean | undefined;
+  uid?: string | undefined;
+  connectedSystemId?: string | undefined;
+  organizationId?: number | undefined;
 };
 
 export interface Grant {
@@ -76229,6 +76236,1514 @@ export interface ActionOutput_mailchimp_updatetemplate {
   thumbnail?: string | undefined;
   share_url?: string | undefined;
   content_type?: string | undefined;
+};
+
+export interface SyncMetadata_make_connections {
+  team_id: string;
+};
+
+export interface DataStoreRecord {
+  id: string;
+  dataStoreId: number;
+  key: string;
+  data?: {  [key: string]: unknown | undefined;};
+};
+
+export interface DataStore {
+  id: string;
+  name?: string | undefined;
+  records?: number | undefined;
+  size?: string | undefined;
+  maxSize?: string | undefined;
+  teamId?: string | undefined;
+};
+
+export interface Hook {
+  id: string;
+  name: string;
+  teamId: number;
+  udid?: string | undefined;
+  type?: string | undefined;
+  packageName?: string | undefined;
+  theme?: string | undefined;
+  flags?: {  form?: boolean | undefined;};
+  editable?: boolean | undefined;
+  queueCount?: number | undefined;
+  queueLimit?: number | undefined;
+  enabled?: boolean | undefined;
+  gone?: boolean | undefined;
+  typeName?: string | undefined;
+  data?: {  [key: string]: unknown | undefined;};
+  scenarioId?: number | undefined;
+  url?: string | undefined;
+};
+
+export interface IncompleteExecution {
+  id: string;
+  scenarioId: number;
+  reason?: string | undefined;
+  created?: string | undefined;
+  size?: number | undefined;
+  resolved?: boolean | undefined;
+  retry?: boolean | undefined;
+  attempts?: number | undefined;
+};
+
+export interface SyncMetadata_make_incompleteexecutions {
+  teamId?: string | number | undefined;
+};
+
+export interface ScenarioExecution {
+  /**
+   * Stable execution identifier (imtId)
+   */
+  id: string;
+  /**
+   * Scenario ID
+   */
+  scenarioId: string;
+  /**
+   * Monotonically increasing execution sequence ID
+   */
+  imtId: string;
+  /**
+   * Execution timestamp
+   */
+  timestamp?: string | undefined;
+  /**
+   * Execution duration in milliseconds
+   */
+  duration?: number | undefined;
+  /**
+   * Execution status (SUCCESS, WARNING, ERROR)
+   */
+  status?: string | undefined;
+  /**
+   * Error message if failed
+   */
+  error?: string | undefined;
+};
+
+export interface Scenario {
+  id: string;
+  name?: string | undefined;
+  teamId?: number | undefined;
+  hookId?: number | undefined;
+  description?: string | undefined;
+  folderId?: number | undefined;
+  isinvalid?: boolean | undefined;
+  isActive?: boolean | undefined;
+  islocked?: boolean | undefined;
+  isPaused?: boolean | undefined;
+  usedPackages?: string[] | undefined;
+  lastEdit?: string | undefined;
+  scheduling?: {  type?: string | undefined;
+  interval?: number | undefined;};
+  iswaiting?: boolean | undefined;
+  dlqCount?: number | undefined;
+  nextExec?: string | undefined;
+  created?: string | undefined;
+  scenarioVersion?: number | undefined;
+  moduleSequenceId?: number | undefined;
+  type?: string | undefined;
+  deleted?: boolean | undefined;
+  deletedAt?: string | undefined;
+};
+
+export interface SyncMetadata_make_scenarios {
+  team_id: string;
+};
+
+export interface ActionInput_make_clonescenario {
+  /**
+   * ID of the scenario to clone. Example: 6413022
+   */
+  scenarioId: number;
+  /**
+   * Organization ID for the query param. Example: 8242280
+   */
+  organizationId: number;
+  /**
+   * Destination team ID. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * Name for the cloned scenario.
+   */
+  name: string;
+  /**
+   * Scenario states; can be an empty object {}.
+   */
+  states: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_make_clonescenario {
+  scenario: {  id: number;
+  name: string;
+  teamId?: number | undefined;
+  organizationId?: number | undefined;};
+};
+
+export interface ActionInput_make_createdatastorerecord {
+  /**
+   * Data store ID. Example: 141641
+   */
+  dataStoreId: number;
+  /**
+   * Optional record key. Auto-generated if omitted.
+   */
+  key?: string | undefined;
+  /**
+   * Record data matching the data store structure spec.
+   */
+  data: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_make_createdatastorerecord {
+  key: string;
+  data: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_make_createdatastore {
+  /**
+   * Name of the data store. Example: "My Data Store"
+   */
+  name: string;
+  /**
+   * Team ID. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * Data structure ID. Example: 477315
+   */
+  datastructureId: number;
+  /**
+   * Maximum size in MB. Example: 1
+   */
+  maxSizeMB: number;
+};
+
+export interface ActionOutput_make_createdatastore {
+  id: number;
+  name: string;
+  teamId: number;
+  datastructureId: number;
+  records: number;
+  size: string;
+  maxSize: string;
+};
+
+export interface ActionInput_make_createdatastructure {
+  /**
+   * The name of the data structure. Max 128 characters.
+   */
+  name: string;
+  /**
+   * The unique ID of the team in which the data structure will be created.
+   */
+  teamId: number;
+  /**
+   * Set to true to enforce strict validation of the data put in the data structure.
+   */
+  strict: boolean;
+  /**
+   * The data structure specification.
+   */
+  spec: ({  /**
+   * Field type. Examples: text, number, boolean, date, array, collection
+   */
+  type: string;
+  /**
+   * Field name
+   */
+  name: string;
+  label?: string | undefined;
+  required?: boolean | undefined;})[];
+};
+
+export interface ActionOutput_make_createdatastructure {
+  /**
+   * The unique ID of the created data structure.
+   */
+  id: number;
+  /**
+   * The unique ID of the team the data structure belongs to.
+   */
+  teamId: number;
+  /**
+   * The name of the data structure.
+   */
+  name: string;
+  /**
+   * Whether strict validation is enforced.
+   */
+  strict: boolean;
+  /**
+   * The data structure specification.
+   */
+  spec: ({  /**
+   * Field type. Examples: text, number, boolean, date, array, collection
+   */
+  type: string;
+  /**
+   * Field name
+   */
+  name: string;
+  label?: string | undefined;
+  required?: boolean | undefined;})[];
+};
+
+export interface ActionInput_make_createhook {
+  /**
+   * The name of the hook. Example: "My Webhook"
+   */
+  name: string;
+  /**
+   * The unique ID of the team in which the hook will be created. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * The hook type. Example: "gateway-webhook"
+   */
+  typeName: string;
+  /**
+   * Set to true to add the HTTP method to the request body.
+   */
+  method: boolean;
+  /**
+   * Set to true to add headers to the request body.
+   */
+  headers: boolean;
+  /**
+   * Set to true to return JSON payloads as strings.
+   */
+  stringify: boolean;
+};
+
+export interface ActionOutput_make_createhook {
+  id: number;
+  name: string;
+  teamId: number;
+  udid: string;
+  type?: string | undefined;
+  packageName?: string | undefined;
+  theme?: string | undefined;
+  flags?: {  form?: boolean | undefined;};
+  editable?: boolean | undefined;
+  queueCount?: number | undefined;
+  queueLimit?: number | undefined;
+  enabled?: boolean | undefined;
+  gone?: boolean | undefined;
+  typeName?: string | undefined;
+  data?: {  headers?: boolean | undefined;
+  method?: boolean | undefined;
+  stringify?: boolean | undefined;
+  teamId?: number | undefined;
+  ip?: string | undefined;
+  udt?: number | undefined;};
+  scenarioId?: number | undefined;
+  url: string;
+};
+
+export interface ActionInput_make_createscenario {
+  /**
+   * The unique ID of the team in which the scenario will be created. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * The scenario blueprint as an object. It will be JSON-encoded before sending.
+   */
+  blueprint: {};
+  /**
+   * The scenario scheduling details as an object. It will be JSON-encoded before sending.
+   */
+  scheduling: {  type: string;
+  interval?: number | undefined;};
+  /**
+   * The unique ID of the folder in which to store the created scenario.
+   */
+  folderId?: number | undefined;
+  /**
+   * Defines if the scenario is created based on a template. The value is the template ID.
+   */
+  basedon?: number | undefined;
+};
+
+export interface ActionOutput_make_createscenario {
+  scenario: {  id: number;
+  name?: string | undefined;
+  teamId?: number | undefined;
+  hookId?: number | undefined;
+  description?: string | undefined;
+  folderId?: number | undefined;
+  isinvalid?: boolean | undefined;
+  isActive?: boolean | undefined;
+  islocked?: boolean | undefined;
+  isPaused?: boolean | undefined;
+  usedPackages?: string[] | undefined;
+  lastEdit?: string | undefined;
+  scheduling?: {  type?: string | undefined;
+  interval?: number | undefined;};
+  created?: string | undefined;
+  scenarioVersion?: number | undefined;
+  type?: 'scenario' | 'tool' | undefined;
+  deleted?: boolean | undefined;
+  deletedAt?: string | undefined;};
+};
+
+export interface ActionInput_make_createteam {
+  /**
+   * The name of the team.
+   */
+  name: string;
+  /**
+   * The ID of the organization.
+   */
+  organizationId: number;
+};
+
+export interface ActionOutput_make_createteam {
+  team: {  id: number;
+  name: string;
+  organizationId: number;
+  operationsLimit?: number | undefined;
+  transferLimit?: number | undefined;};
+};
+
+export interface ActionInput_make_deletedatastorerecords {
+  /**
+   * The ID of the data store. Example: 141641
+   */
+  dataStoreId: number;
+  /**
+   * The keys of data store records to delete.
+   */
+  keys?: string[] | undefined;
+  /**
+   * Set to true to delete all records in the data store.
+   */
+  all?: boolean | undefined;
+  /**
+   * Keys of records to keep when deleting all records.
+   */
+  exceptKeys?: string[] | undefined;
+};
+
+export interface ActionOutput_make_deletedatastorerecords {
+  /**
+   * Keys of the deleted records.
+   */
+  keys: string[];
+};
+
+export interface ActionInput_make_deletedatastore {
+  /**
+   * The unique ID of the team from which the data store will be deleted. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * The IDs of data stores to delete. Use this or `all`, not both.
+   */
+  ids?: number[] | undefined;
+  /**
+   * If set to true, all data stores will be deleted. Use this or `ids`, not both.
+   */
+  all?: boolean | undefined;
+  /**
+   * The IDs of data stores to be excluded from deleting. Can only be used together with `all: true`.
+   */
+  exceptIds?: number[] | undefined;
+  /**
+   * Confirms the deletion if a data store is included in at least one scenario.
+   */
+  confirmed?: boolean | undefined;
+};
+
+export interface ActionOutput_make_deletedatastore {
+  /**
+   * The IDs of the deleted data stores.
+   */
+  dataStores: number[];
+};
+
+export interface ActionInput_make_deletehook {
+  /**
+   * Hook ID. Example: 3329468
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_deletehook {
+  /**
+   * ID of the deleted hook
+   */
+  hook: number;
+};
+
+export interface ActionInput_make_deleteincompleteexecutions {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * Specific incomplete execution IDs to delete.
+   */
+  ids?: string[] | undefined;
+  /**
+   * Set to true to delete all incomplete executions for the scenario.
+   */
+  all?: boolean | undefined;
+  /**
+   * Required when all is true. Set to true to confirm deletion of all incomplete executions.
+   */
+  confirmed?: boolean | undefined;
+};
+
+export interface ActionOutput_make_deleteincompleteexecutions {
+  /**
+   * IDs of the deleted incomplete executions.
+   */
+  dlqs: string[];
+};
+
+export interface ActionInput_make_deletescenario {
+  /**
+   * Scenario ID. Example: 6413024
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_deletescenario {
+  id: number;
+  deleted: boolean;
+};
+
+export interface ActionInput_make_disablehook {
+  /**
+   * The ID of the webhook to disable. Example: 3329422
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_disablehook {
+  success: boolean;
+};
+
+export interface ActionInput_make_enablehook {
+  /**
+   * The unique ID of the hook to enable. Example: 3329422
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_enablehook {
+  success: boolean;
+};
+
+export interface ActionInput_make_getconnection {
+  connectionId: number;
+};
+
+export interface ActionOutput_make_getconnection {
+  connection: {  id: number;
+  name: string;
+  accountName?: string | undefined;
+  accountLabel?: string | undefined;
+  packageName?: string | undefined;
+  expire?: string | undefined;
+  metadata?: {  value?: string | undefined;
+  type?: 'string' | 'email' | undefined;};
+  teamId?: number | undefined;
+  theme?: string | undefined;
+  upgradeable?: boolean | undefined;
+  scopesCnt?: number | undefined;
+  scoped?: boolean | undefined;
+  accountType?: string | undefined;
+  editable?: boolean | undefined;
+  uid?: string | undefined;
+  connectedSystemId?: string | undefined;
+  organizationId?: number | undefined;
+  scopes?: ({  id: string;
+  name: string;
+  account: string;})[] | undefined;};
+};
+
+export interface ActionInput_make_getdatastore {
+  /**
+   * The ID of the data store. Example: 141697
+   */
+  dataStoreId: number;
+};
+
+export interface ActionOutput_make_getdatastore {
+  dataStore: {  id: number;
+  name: string;
+  records: number;
+  size: string;
+  maxSize: string;
+  teamId: number;
+  datastructureId: number;};
+};
+
+export interface ActionInput_make_getdatastructure {
+  /**
+   * Data structure ID. Example: 477315
+   */
+  dataStructureId: number;
+};
+
+export interface ActionOutput_make_getdatastructure {
+  dataStructure: {  id: number;
+  name: string;
+  teamId: number;
+  spec: ({  name: string;
+  type: string;
+  required: boolean;})[];};
+};
+
+export interface ActionInput_make_gethookincoming {
+  /**
+   * The ID of the webhook. Example: 3329615
+   */
+  hookId: number;
+  /**
+   * The ID of the queued webhook item. Example: "b2dcd37766de51c8c246ddd8fd6d2afd"
+   */
+  incomingId: string;
+};
+
+export interface ActionOutput_make_gethookincoming {
+  incoming: {  id: string;
+  scope: string;
+  size: number;
+  created: string;
+  data: {  [key: string]: unknown | undefined;};};
+};
+
+export interface ActionInput_make_gethook {
+  /**
+   * Hook ID. Example: 3329421
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_gethook {
+  id: number;
+  name: string;
+  typeName?: string | undefined;
+  url?: string | undefined;
+  scenarioId?: number | undefined;
+  queueCount?: number | undefined;
+  queueLimit?: number | undefined;
+  enabled?: boolean | undefined;
+  teamId?: number | undefined;
+  organizationId?: number | undefined;
+  data?: unknown | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  lastRun?: string | undefined;
+  dataStructure?: unknown | undefined;
+};
+
+export interface ActionInput_make_getorganization {
+  /**
+   * Organization ID. Example: 8242280
+   */
+  organizationId: number;
+};
+
+export interface ActionOutput_make_getorganization {
+  organization: {  id: number;
+  name: string;
+  createdAt?: string | undefined;
+  serviceName?: string | undefined;
+  nextReset?: string | undefined;
+  lastReset?: string | undefined;
+  isPaused?: boolean | undefined;
+  countryId?: number | undefined;
+  timezoneId?: number | undefined;
+  deleted?: boolean | undefined;
+  license?: {  [key: string]: unknown | undefined;};
+  zone?: string | undefined;
+  teams?: ({  id: number;
+  name: string;})[] | undefined;
+  productName?: string | undefined;
+  ssoType?: string | undefined;
+  scenarios?: number | undefined;
+  activeScenarios?: number | undefined;
+  tfaEnforced?: boolean | undefined;
+  featureControls?: ({  name: string;
+  enabled: boolean;})[] | undefined;};
+};
+
+export interface ActionInput_make_getscenarioblueprint {
+  /**
+   * The ID of the scenario. Example: 6413021
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_getscenarioblueprint {
+  blueprint: {  flow: ({  [key: string]: unknown | undefined;})[];
+  name: string;
+  metadata?: {  [key: string]: unknown | undefined;};};
+  scheduling?: {  [key: string]: unknown | undefined;};
+  idSequence?: number | undefined;
+  created?: string | undefined;
+  last_edit?: string | undefined;
+};
+
+export interface ActionInput_make_getscenarioexecution {
+  /**
+   * The ID of the scenario. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * The unique ID of the scenario execution. Example: "8383f2871d634888a4debe8cdf444aa2"
+   */
+  executionId: string;
+};
+
+export interface ActionOutput_make_getscenarioexecution {
+  /**
+   * Status of the scenario execution: RUNNING, SUCCESS, WARNING, ERROR
+   */
+  status: string;
+  outputs?: {  [key: string]: unknown | undefined;};
+  error?: {  name?: string | undefined;
+  message?: string | undefined;
+  causeModule?: {  name?: string | undefined;
+  appName?: string | undefined;};};
+};
+
+export interface ActionInput_make_getscenariolog {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * Execution ID. Example: "e0839e2109764dc8908187a6b42b8363"
+   */
+  executionId: string;
+};
+
+export interface ActionOutput_make_getscenariolog {
+  imtId: string;
+  id: string;
+  eventType?: string | undefined;
+  timestamp: string;
+  type: string;
+  instant: boolean;
+  authorId?: number | undefined;
+  authorName?: string | undefined;
+  teamId: number;
+  organizationId: number;
+  scenarioId?: number | undefined;
+  scenarioName?: string | undefined;
+  duration?: number | undefined;
+  operations?: number | undefined;
+  transfer?: number | undefined;
+  centicredits?: number | undefined;
+  status?: number | undefined;
+  error?: {  name: string;
+  message: string;} | undefined;
+  isReplayable?: boolean | undefined;
+  replayOfExecutionId?: string | undefined;
+  replayOfExecutionName?: string | undefined;
+  replayOfExecutionTimestamp?: string | undefined;
+};
+
+export interface ActionInput_make_getscenariousage {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_getscenariousage {
+  data: ({  date: string;
+  operations: number;
+  centicredits: number;
+  dataTransfer: number;})[];
+};
+
+export interface ActionInput_make_getscenario {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_getscenario {
+  scenario: {  id: number;
+  name: string;
+  teamId: number;
+  hookId?: number | undefined;
+  devices?: ({  id: number;
+  scope: string;})[] | undefined;
+  deviceId?: number | undefined;
+  deviceScope?: string | undefined;
+  description?: string | undefined;
+  folderId?: number | undefined;
+  isinvalid?: boolean | undefined;
+  islinked?: boolean | undefined;
+  isActive?: boolean | undefined;
+  islocked?: boolean | undefined;
+  isPaused?: boolean | undefined;
+  usedPackages?: string[] | undefined;
+  lastEdit?: string | undefined;
+  scheduling?: {  type?: string | undefined;
+  interval?: number | undefined;};
+  iswaiting?: boolean | undefined;
+  dlqCount?: number | undefined;
+  createdByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  updatedByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  nextExec?: string | undefined;
+  created?: string | undefined;
+  scenarioVersion?: number | undefined;
+  moduleSequenceId?: number | undefined;
+  type?: string | undefined;};
+};
+
+export interface ActionInput_make_getteam {
+  /**
+   * Team ID. Example: 2066772
+   */
+  teamId: number;
+};
+
+export interface ActionOutput_make_getteam {
+  team: {  id: number;
+  name: string;
+  organizationId: number;
+  globalAgentsEnabled: boolean;};
+};
+
+export interface ActionInput_make_learnstarthook {
+  /**
+   * Hook ID. Example: 3329422
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_learnstarthook {
+  success: boolean;
+};
+
+export interface ActionInput_make_learnstophook {
+  /**
+   * Hook ID. Example: 3329421
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_learnstophook {
+  success: boolean;
+};
+
+export interface ActionInput_make_listconnections {
+  /**
+   * The unique ID of the team whose connections will be retrieved. Example: 2066772
+   */
+  teamId: number;
+};
+
+export interface ActionOutput_make_listconnections {
+  connections: ({  id: number;
+  name?: string | undefined;
+  accountName?: string | undefined;
+  accountLabel?: string | undefined;
+  packageName?: string | undefined;
+  expire?: string | undefined;
+  metadata?: {  value?: string | undefined;
+  type?: string | undefined;};
+  teamId?: number | undefined;
+  theme?: string | undefined;
+  upgradeable?: boolean | undefined;
+  scopesCnt?: number | undefined;
+  scoped?: boolean | undefined;
+  accountType?: string | undefined;
+  editable?: boolean | undefined;
+  uid?: string | undefined;
+  connectedSystemId?: string | undefined;
+  organizationId?: number | undefined;})[];
+};
+
+export interface ActionInput_make_listdatastorerecords {
+  /**
+   * Data store ID. Example: 141641
+   */
+  dataStoreId: number;
+  /**
+   * Page size. Default: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_make_listdatastorerecords {
+  records: ({  key: string;
+  data: {  [key: string]: unknown | undefined;};})[];
+  spec?: unknown | undefined;
+  strict?: boolean | undefined;
+  count: number;
+  pg?: {  limit: number;
+  offset: number;
+  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  returnTotalCount?: boolean | undefined;};
+  nextOffset?: number | undefined;
+};
+
+export interface ActionInput_make_listdatastores {
+  /**
+   * Team ID. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_make_listdatastores {
+  dataStores: ({  id: number;
+  name: string;
+  records: number;
+  size: string;
+  maxSize: string;
+  teamId: number;})[];
+  pg: {  sortBy: string;
+  limit: number;
+  sortDir: string;
+  offset: number;};
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listdatastructures {
+  /**
+   * Team ID. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * Pagination cursor (offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Max results per page. Defaults to 150.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listdatastructures {
+  dataStructures: ({  id: number;
+  teamId: number;
+  name: string;
+  strict?: boolean | undefined;
+  spec?: unknown[] | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listhookincomings {
+  /**
+   * The ID of the webhook. Example: 3329421
+   */
+  hookId: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listhookincomings {
+  incomings: ({  id: string;
+  scope: string;
+  size: number;
+  created?: string | undefined;
+  data?: {} | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listhooks {
+  /**
+   * The unique ID of the team whose hooks will be retrieved. Example: "2066772"
+   */
+  teamId: string;
+  /**
+   * The hook type. Two native Make hook types are gateway-webhook and gateway-mailhook.
+   */
+  typeName?: string | undefined;
+  /**
+   * If true, return only hooks assigned to a scenario.
+   */
+  assigned?: boolean | undefined;
+  /**
+   * Show only hooks that can be used by a scenario with this specific ID.
+   */
+  viewForScenarioId?: number | undefined;
+  /**
+   * Pagination cursor (offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_make_listhooks {
+  hooks: ({  id: number;
+  name: string;
+  teamId?: number | undefined;
+  udid?: string | undefined;
+  type?: string | undefined;
+  packageName?: string | undefined;
+  theme?: string | undefined;
+  flags?: {  form?: boolean | undefined;};
+  editable?: boolean | undefined;
+  queueCount?: number | undefined;
+  queueLimit?: number | undefined;
+  enabled?: boolean | undefined;
+  gone?: boolean | undefined;
+  typeName?: string | undefined;
+  data?: {  headers?: boolean | undefined;
+  method?: boolean | undefined;
+  stringify?: boolean | undefined;
+  teamId?: number | undefined;
+  ip?: string | undefined;
+  udt?: number | undefined;};
+  scenarioId?: number | undefined;
+  url?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listincompleteexecutions {
+  /**
+   * The ID of the scenario to list incomplete executions for. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results to return per page. Defaults to 25.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listincompleteexecutions {
+  items: ({  id: string;
+  reason?: string | undefined;
+  created?: string | undefined;
+  size?: number | undefined;
+  resolved?: boolean | undefined;
+  retry?: boolean | undefined;
+  attempts?: number | undefined;})[];
+  next_cursor?: string | undefined;
+  pg?: {  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;};
+};
+
+export interface ActionInput_make_listorganizations {
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listorganizations {
+  organizations: ({  /**
+   * Organization ID. Example: 8242280
+   */
+  id: number;
+  /**
+   * Organization name. Example: "My Organization"
+   */
+  name: string;
+  /**
+   * Timezone ID. Example: 1
+   */
+  timezoneId?: number | undefined;
+  /**
+   * Regional hostname. Example: "eu1.make.com"
+   */
+  zone?: string | undefined;})[];
+  pg?: {  last?: string | undefined;
+  showLast?: boolean | undefined;
+  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;};
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listscenariologs {
+  /**
+   * The ID of the scenario. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of log entries to return.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listscenariologs {
+  scenarioLogs: ({  imtId: string;
+  duration?: number | undefined;
+  operations?: number | undefined;
+  transfer?: number | undefined;
+  centicredits?: number | undefined;
+  organizationId?: number | undefined;
+  teamId?: number | undefined;
+  id: number | string;
+  type: string;
+  authorId?: number | undefined;
+  authorName?: string | undefined;
+  instant?: boolean | undefined;
+  timestamp?: string | undefined;
+  status?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listscenariomodulelogs {
+  /**
+   * The ID of the scenario. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * The unique ID of the scenario module (flow node id from the blueprint). Example: 1
+   */
+  moduleId: number;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of entities to return.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listscenariomodulelogs {
+  moduleLogs: ({  imtId?: string | undefined;
+  executionId?: string | undefined;
+  organizationId?: number | undefined;
+  teamId?: number | undefined;
+  scenarioId?: number | undefined;
+  timestamp?: string | undefined;
+  status?: number | undefined;
+  bundles?: number | undefined;
+  size?: number | undefined;
+  warning?: {  message?: string | undefined;};
+  error?: {  message?: string | undefined;};})[];
+  pg: {  last?: string | undefined;
+  showLast?: boolean | undefined;
+  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;};
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listscenarios {
+  /**
+   * The unique ID of the team whose scenarios will be retrieved. Either teamId or organizationId is required.
+   */
+  teamId?: number | undefined;
+  /**
+   * The unique ID of the organization whose scenarios will be retrieved. Either teamId or organizationId is required.
+   */
+  organizationId?: number | undefined;
+  /**
+   * The unique ID of the folder containing scenarios you want to retrieve.
+   */
+  folderId?: number | undefined;
+  /**
+   * Specifies columns that are returned in the response.
+   */
+  cols?: string[] | undefined;
+  /**
+   * Pagination offset.
+   */
+  offset?: number | undefined;
+  /**
+   * Pagination limit.
+   */
+  limit?: number | undefined;
+  /**
+   * The value that will be used to sort returned entities by.
+   */
+  sortBy?: string | undefined;
+  /**
+   * The only allowed value for this parameter is desc.
+   */
+  sortDir?: string | undefined;
+};
+
+export interface ActionOutput_make_listscenarios {
+  scenarios: ({  id: number;
+  name?: string | undefined;
+  teamId?: number | undefined;
+  hookId?: number | undefined;
+  devices?: ({  id: number;
+  scope: string;})[] | undefined;
+  deviceId?: number | undefined;
+  deviceScope?: string | undefined;
+  description?: string | undefined;
+  folderId?: number | undefined;
+  isinvalid?: boolean | undefined;
+  islinked?: boolean | undefined;
+  isActive?: boolean | undefined;
+  islocked?: boolean | undefined;
+  isPaused?: boolean | undefined;
+  usedPackages?: string[] | undefined;
+  lastEdit?: string | undefined;
+  scheduling?: {  type?: string | undefined;
+  interval?: number | undefined;};
+  iswaiting?: boolean | undefined;
+  dlqCount?: number | undefined;
+  createdByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  updatedByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  nextExec?: string | undefined;
+  created?: string | undefined;
+  scenarioVersion?: number | undefined;
+  moduleSequenceId?: number | undefined;
+  type?: string | undefined;
+  deleted?: boolean | undefined;
+  deletedAt?: string | undefined;})[];
+  pg: {  last?: string | undefined;
+  showLast?: boolean | undefined;
+  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;};
+};
+
+export interface ActionInput_make_listteams {
+  /**
+   * Organization ID. Example: "8242280"
+   */
+  organizationId: string;
+};
+
+export interface ActionOutput_make_listteams {
+  teams: ({  id: number;
+  name: string;
+  organizationId: number;
+  globalAgentsEnabled?: boolean | undefined;})[];
+  pg?: {  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+  total?: number | undefined;};
+};
+
+export interface ActionInput_make_pinghook {
+  /**
+   * The ID of the hook to ping. Example: 3329421
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_pinghook {
+  address?: string | undefined;
+  attached?: boolean | undefined;
+  learning?: boolean | undefined;
+  gone?: boolean | undefined;
+  dataStructure?: ({  name: string;
+  type: string;})[] | undefined;
+};
+
+export interface ActionInput_make_runscenario {
+  /**
+   * The ID of the scenario to run. Example: 6413022
+   */
+  scenarioId: number;
+  /**
+   * Input data for the scenario if it requires inputs.
+   */
+  data?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_make_runscenario {
+  executionId: string;
+  status: string;
+  outputs?: {  [key: string]: unknown | undefined;};
+  error?: {  name?: string | undefined;
+  message?: string | undefined;
+  causeModule?: {  name?: string | undefined;
+  appName?: string | undefined;};};
+};
+
+export interface ActionInput_make_startscenario {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_startscenario {
+  scenario: {  id: number;
+  islinked: boolean;
+  isActive: boolean;};
+};
+
+export interface ActionInput_make_stopscenario {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_stopscenario {
+  scenario: {  id: number;
+  islinked: boolean;
+  isActive: boolean;};
+};
+
+export interface ActionInput_make_testconnection {
+  /**
+   * The ID of the connection to test. Example: 8708889
+   */
+  connectionId: number;
+};
+
+export interface ActionOutput_make_testconnection {
+  verified: boolean;
+  connection?: unknown | undefined;
+};
+
+export interface ActionInput_make_updateconnectionname {
+  /**
+   * The ID of the connection to rename. Example: 8708889
+   */
+  connectionId: number;
+  /**
+   * The new display name for the connection.
+   */
+  name: string;
+};
+
+export interface ActionOutput_make_updateconnectionname {
+  id: number;
+  name: string;
+  accountName?: string | undefined;
+  accountLabel?: string | undefined;
+  packageName?: string | undefined;
+  expire?: string | undefined;
+  metadata?: {  value?: string | undefined;
+  type?: string | undefined;};
+  teamId?: number | undefined;
+  theme?: string | undefined;
+  upgradeable?: boolean | undefined;
+  scopesCnt?: number | undefined;
+  scoped?: boolean | undefined;
+  accountType?: string | undefined;
+  editable?: boolean | undefined;
+  uid?: string | undefined;
+  connectedSystemId?: string | undefined;
+  organizationId?: number | undefined;
+};
+
+export interface ActionInput_make_updatedatastorerecord {
+  /**
+   * The ID of the data store. Example: 141641
+   */
+  dataStoreId: number;
+  /**
+   * The key of the data store record. Example: seed-record-1
+   */
+  dataStoreKeyRecord: string;
+  /**
+   * Partial data object to update. Unspecified fields are left unchanged.
+   */
+  data: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_make_updatedatastorerecord {
+  key: string;
+  data: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_make_updatedatastore {
+  /**
+   * The ID of the data store. Example: 141696
+   */
+  dataStoreId: number;
+  /**
+   * The data store name. The name must be at most 128 characters long and does not need to be unique.
+   */
+  name?: string | undefined;
+  /**
+   * The unique ID of the data structure included in the data store.
+   */
+  datastructureId?: number | undefined;
+  /**
+   * The maximum size of the data store (defined in MB).
+   */
+  maxSizeMB?: number | undefined;
+};
+
+export interface ActionOutput_make_updatedatastore {
+  id: number;
+  name: string;
+  records: number;
+  size: string;
+  maxSize: string;
+  teamId: number;
+  datastructureId?: number | undefined;
+};
+
+export interface ActionInput_make_updatedatastructure {
+  /**
+   * Data structure ID. Example: 477315
+   */
+  dataStructureId: number;
+  name?: string | undefined;
+  strict?: boolean | undefined;
+  spec?: ({})[] | undefined;
+};
+
+export interface ActionOutput_make_updatedatastructure {
+  id: number;
+  teamId: number;
+  name: string;
+  strict: boolean;
+  spec?: ({  type: string;
+  name: string;
+  label?: string | undefined;
+  required?: boolean | undefined;
+  default?: unknown | undefined;
+  multiline?: boolean | undefined;})[];
+};
+
+export interface ActionInput_make_updatehook {
+  /**
+   * The ID of the hook to rename. Example: 3329422
+   */
+  hookId: number;
+  /**
+   * The new name for the hook.
+   */
+  name: string;
+};
+
+export interface ActionOutput_make_updatehook {
+  hook: {  id: number;
+  name: string;
+  typeName?: string | undefined;
+  teamId?: number | undefined;
+  scenarioId?: number | undefined;
+  url?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  dataStructure?: unknown | undefined;
+  incomings?: unknown | undefined;};
+};
+
+export interface ActionInput_make_updatescenario {
+  /**
+   * The ID of the scenario to update. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * A new name for the scenario.
+   */
+  name?: string | undefined;
+  /**
+   * The scenario blueprint as a stringified JSON object.
+   */
+  blueprint?: string | undefined;
+  /**
+   * The scenario scheduling details as a stringified JSON object.
+   */
+  scheduling?: string | undefined;
+};
+
+export interface ActionOutput_make_updatescenario {
+  scenario: {  id: number;
+  name?: string | undefined;
+  teamId?: number | undefined;
+  hookId?: number | undefined;
+  devices?: ({  id: number;
+  scope?: string | undefined;})[];
+  deviceId?: number | undefined;
+  deviceScope?: string | undefined;
+  description?: string | undefined;
+  folderId?: number | undefined;
+  isinvalid?: boolean | undefined;
+  islinked?: boolean | undefined;
+  isActive?: boolean | undefined;
+  islocked?: boolean | undefined;
+  isPaused?: boolean | undefined;
+  usedPackages?: string[] | undefined;
+  lastEdit?: string | undefined;
+  scheduling?: {  type?: string | undefined;
+  interval?: number | undefined;};
+  iswaiting?: boolean | undefined;
+  dlqCount?: number | undefined;
+  createdByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  updatedByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  nextExec?: string | undefined;
+  created?: string | undefined;
+  scenarioVersion?: number | undefined;
+  moduleSequenceId?: number | undefined;
+  type?: string | undefined;
+  deleted?: boolean | undefined;
+  deletedAt?: string | undefined;};
+};
+
+export interface ActionInput_make_updateteam {
+  /**
+   * The ID of the team to update. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * The new name for the team.
+   */
+  name?: string | undefined;
+  /**
+   * The new operations coefficient for the team.
+   */
+  operationsCoef?: number | undefined;
+};
+
+export interface ActionOutput_make_updateteam {
+  /**
+   * The team ID.
+   */
+  id: number;
+  name?: string | undefined;
+  organizationId?: number | undefined;
+  operationsCoef?: number | undefined;
+  transferCoef?: number | undefined;
 };
 
 export interface SyncMetadata_metabase_users {
