@@ -1,0 +1,194 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "63281ccb-a459-4fd8-8de9-a36afbdddd8b",
+        "event": "candidateHired",
+        "url": "https://example.com/webhooks/nango-seed-1",
+        "configuration": {
+          "conditions": {
+            "origins": [
+              "applied",
+              "sourced",
+              "referred",
+              "university",
+              "internal",
+              "agency"
+            ]
+          }
+        },
+        "createdAt": 1782972945492,
+        "updatedAt": 1782972945492
+      },
+      {
+        "id": "adbf1d7c-5243-4ff5-9ce2-b5f11188d30a",
+        "event": "candidateHired",
+        "url": "https://example.com/webhooks/test-create-nango",
+        "configuration": {
+          "conditions": {
+            "origins": [
+              "applied",
+              "sourced",
+              "referred",
+              "university",
+              "internal",
+              "agency"
+            ]
+          }
+        },
+        "createdAt": 1782973955203,
+        "updatedAt": 1782973955203
+      },
+      {
+        "id": "bdfd4771-daa1-4426-b526-a509742614d0",
+        "event": "candidateHired",
+        "url": "https://example.com/webhooks/test-create-nango",
+        "configuration": {
+          "conditions": {
+            "origins": [
+              "applied",
+              "sourced",
+              "referred",
+              "university",
+              "internal",
+              "agency"
+            ]
+          }
+        },
+        "createdAt": 1782973971716,
+        "updatedAt": 1782973971716
+      },
+      {
+        "id": "ac747738-0e9f-44af-83a5-d4185cbd073b",
+        "event": "candidateStageChange",
+        "url": "https://example.com/webhooks/nango-seed-2",
+        "configuration": {
+          "conditions": {
+            "origins": [
+              "applied",
+              "sourced",
+              "referred",
+              "university",
+              "internal",
+              "agency"
+            ]
+          }
+        },
+        "createdAt": 1782972966954,
+        "updatedAt": 1782972966954
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/webhooks": {
+        "response": {
+          "data": [
+            {
+              "id": "63281ccb-a459-4fd8-8de9-a36afbdddd8b",
+              "event": "candidateHired",
+              "url": "https://example.com/webhooks/nango-seed-1",
+              "configuration": {
+                "conditions": {
+                  "origins": [
+                    "applied",
+                    "sourced",
+                    "referred",
+                    "university",
+                    "internal",
+                    "agency"
+                  ]
+                }
+              },
+              "createdAt": 1782972945492,
+              "updatedAt": 1782972945492
+            },
+            {
+              "id": "adbf1d7c-5243-4ff5-9ce2-b5f11188d30a",
+              "event": "candidateHired",
+              "url": "https://example.com/webhooks/test-create-nango",
+              "configuration": {
+                "conditions": {
+                  "origins": [
+                    "applied",
+                    "sourced",
+                    "referred",
+                    "university",
+                    "internal",
+                    "agency"
+                  ]
+                }
+              },
+              "createdAt": 1782973955203,
+              "updatedAt": 1782973955203
+            },
+            {
+              "id": "bdfd4771-daa1-4426-b526-a509742614d0",
+              "event": "candidateHired",
+              "url": "https://example.com/webhooks/test-create-nango",
+              "configuration": {
+                "conditions": {
+                  "origins": [
+                    "applied",
+                    "sourced",
+                    "referred",
+                    "university",
+                    "internal",
+                    "agency"
+                  ]
+                }
+              },
+              "createdAt": 1782973971716,
+              "updatedAt": 1782973971716
+            },
+            {
+              "id": "ac747738-0e9f-44af-83a5-d4185cbd073b",
+              "event": "candidateStageChange",
+              "url": "https://example.com/webhooks/nango-seed-2",
+              "configuration": {
+                "conditions": {
+                  "origins": [
+                    "applied",
+                    "sourced",
+                    "referred",
+                    "university",
+                    "internal",
+                    "agency"
+                  ]
+                }
+              },
+              "createdAt": 1782972966954,
+              "updatedAt": 1782972966954
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:33:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4928",
+          "x-ratelimit-reset": "1782973994",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "1a03c3d311b7af225117a67d361acd59af09d85b",
+        "request": {}
+      }
+    }
+  }
+}

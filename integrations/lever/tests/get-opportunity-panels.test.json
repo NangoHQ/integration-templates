@@ -1,0 +1,151 @@
+{
+  "input": {
+    "opportunityId": "6408dc54-7015-4e5b-8d60-23afff2b1efc"
+  },
+  "output": {
+    "panels": [
+      {
+        "id": "027d1217-72e7-4fbb-83fd-3022aa25d0c4",
+        "applications": [
+          "7278da68-141b-4203-b209-8ca6c0fa1f2d"
+        ],
+        "createdAt": 1782973120306,
+        "end": 1783101800000,
+        "externallyManaged": true,
+        "feedbackReminder": "daily",
+        "interviews": [
+          {
+            "id": "32b7bf78-4592-4a56-b313-3e31ed25ea00",
+            "date": 1783000000000,
+            "duration": 45,
+            "feedbackReminder": "daily",
+            "interviewers": [
+              {
+                "id": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+                "email": "taylor@nango.dev",
+                "name": "Taylor Conlin",
+                "feedbackTemplate": "no-feedback"
+              }
+            ],
+            "note": "Seed interview for delete testing",
+            "subject": "Nango Seed Interview 1 (updated)"
+          },
+          {
+            "id": "9c23242a-0d66-4571-9de2-fce0ab42d6eb",
+            "date": 1783100000000,
+            "duration": 30,
+            "feedbackReminder": "daily",
+            "feedbackTemplate": "no-feedback",
+            "interviewers": [
+              {
+                "id": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+                "email": "taylor@nango.dev",
+                "name": "Taylor Conlin",
+                "feedbackTemplate": "no-feedback"
+              }
+            ],
+            "note": "Second seed interview for delete testing",
+            "subject": "Nango Seed Interview 2"
+          }
+        ],
+        "stage": "lead-reached-out",
+        "start": 1783000000000,
+        "timezone": "America/Los_Angeles",
+        "user": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/opportunities/6408dc54-7015-4e5b-8d60-23afff2b1efc/panels": {
+        "response": {
+          "data": [
+            {
+              "id": "027d1217-72e7-4fbb-83fd-3022aa25d0c4",
+              "applications": [
+                "7278da68-141b-4203-b209-8ca6c0fa1f2d"
+              ],
+              "canceledAt": null,
+              "createdAt": 1782973120306,
+              "end": 1783101800000,
+              "externallyManaged": true,
+              "externalUrl": null,
+              "feedbackReminder": "daily",
+              "interviews": [
+                {
+                  "id": "32b7bf78-4592-4a56-b313-3e31ed25ea00",
+                  "date": 1783000000000,
+                  "duration": 45,
+                  "feedbackReminder": "daily",
+                  "feedbackTemplate": null,
+                  "interviewers": [
+                    {
+                      "id": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+                      "email": "taylor@nango.dev",
+                      "name": "Taylor Conlin",
+                      "responseStatus": "needsAction",
+                      "feedbackTemplate": "no-feedback"
+                    }
+                  ],
+                  "location": null,
+                  "note": "Seed interview for delete testing",
+                  "subject": "Nango Seed Interview 1 (updated)"
+                },
+                {
+                  "id": "9c23242a-0d66-4571-9de2-fce0ab42d6eb",
+                  "date": 1783100000000,
+                  "duration": 30,
+                  "feedbackReminder": "daily",
+                  "feedbackTemplate": "no-feedback",
+                  "interviewers": [
+                    {
+                      "id": "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef",
+                      "email": "taylor@nango.dev",
+                      "name": "Taylor Conlin",
+                      "responseStatus": "needsAction",
+                      "feedbackTemplate": "no-feedback"
+                    }
+                  ],
+                  "location": null,
+                  "note": "Second seed interview for delete testing",
+                  "subject": "Nango Seed Interview 2"
+                }
+              ],
+              "note": null,
+              "stage": "lead-reached-out",
+              "start": 1783000000000,
+              "timezone": "America/Los_Angeles",
+              "user": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e"
+            }
+          ],
+          "hasNext": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:34:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4883",
+          "x-ratelimit-reset": "1782974055",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "d6dc56cb10ceb6a37f9b029dde9cffe27c2b792c",
+        "request": {}
+      }
+    }
+  }
+}

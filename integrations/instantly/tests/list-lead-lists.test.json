@@ -1,0 +1,105 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "119389b5-6900-4e2b-bd60-9dc7c08c1c95",
+        "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+        "name": "Nango Test Lead List",
+        "timestamp_created": "2026-06-30T21:12:49.978Z"
+      },
+      {
+        "id": "01954409-ef0c-422d-9a82-1c44a63612fd",
+        "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+        "name": "Nango Test Lead List",
+        "timestamp_created": "2026-06-30T21:12:43.943Z"
+      },
+      {
+        "id": "c737308b-aec0-4a0f-bd51-d6feefd8df6b",
+        "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+        "name": "Nango Seed List B",
+        "timestamp_created": "2026-06-30T19:41:51.365Z"
+      },
+      {
+        "id": "5c194eae-9382-4bf1-aff4-d9eaa90668e1",
+        "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+        "name": "Nango Seed List A",
+        "timestamp_created": "2026-06-30T19:41:22.212Z"
+      },
+      {
+        "id": "b74958cc-c9c4-40d4-976a-6837eb84493f",
+        "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+        "name": "Nango AI Sales Agent - AI SDR Master Lead List",
+        "timestamp_created": "2026-06-30T19:00:26.985Z",
+        "has_enrichment_task": false
+      }
+    ],
+    "next_starting_after": "2026-06-30T19:00:26.985Z"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/lead-lists": {
+        "response": {
+          "items": [
+            {
+              "id": "119389b5-6900-4e2b-bd60-9dc7c08c1c95",
+              "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+              "name": "Nango Test Lead List",
+              "timestamp_created": "2026-06-30T21:12:49.978Z"
+            },
+            {
+              "id": "01954409-ef0c-422d-9a82-1c44a63612fd",
+              "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+              "name": "Nango Test Lead List",
+              "timestamp_created": "2026-06-30T21:12:43.943Z"
+            },
+            {
+              "id": "c737308b-aec0-4a0f-bd51-d6feefd8df6b",
+              "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+              "name": "Nango Seed List B",
+              "timestamp_created": "2026-06-30T19:41:51.365Z"
+            },
+            {
+              "id": "5c194eae-9382-4bf1-aff4-d9eaa90668e1",
+              "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+              "name": "Nango Seed List A",
+              "timestamp_created": "2026-06-30T19:41:22.212Z"
+            },
+            {
+              "id": "b74958cc-c9c4-40d4-976a-6837eb84493f",
+              "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+              "name": "Nango AI Sales Agent - AI SDR Master Lead List",
+              "timestamp_created": "2026-06-30T19:00:26.985Z",
+              "has_enrichment_task": false
+            }
+          ],
+          "next_starting_after": "2026-06-30T19:00:26.985Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:14:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1008",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4883",
+          "x-ratelimit-reset": "1782854084",
+          "x-request-id": "2691967348432905860",
+          "etag": "W/\"3f0-aLOOJF2m3MMmVMcnkvKo8vwiMoQ\""
+        },
+        "hash": "de08c35928803e0d20fd7cbd37d30ab5ebd4dda9",
+        "request": {}
+      }
+    }
+  }
+}

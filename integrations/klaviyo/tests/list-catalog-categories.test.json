@@ -1,0 +1,114 @@
+{
+  "input": {},
+  "output": {
+    "categories": [
+      {
+        "id": "$custom:::$default:::nango-test-category-a1",
+        "external_id": "nango-test-category-a1",
+        "name": "Nango Test Category A1",
+        "updated": "2026-07-02T04:51:34.897000+00:00"
+      },
+      {
+        "id": "$custom:::$default:::nango-test-category-b2",
+        "external_id": "nango-test-category-b2",
+        "name": "Nango Test Category B2",
+        "updated": "2026-07-02T04:51:47.659000+00:00"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/catalog-categories": {
+        "response": {
+          "data": [
+            {
+              "type": "catalog-category",
+              "id": "$custom:::$default:::nango-test-category-a1",
+              "attributes": {
+                "external_id": "nango-test-category-a1",
+                "name": "Nango Test Category A1",
+                "updated": "2026-07-02T04:51:34.897000+00:00"
+              },
+              "relationships": {
+                "items": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/catalog-categories/$custom:::$default:::nango-test-category-a1/relationships/items/",
+                    "related": "https://a.klaviyo.com/api/catalog-categories/$custom:::$default:::nango-test-category-a1/items/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/catalog-categories/$custom:::$default:::nango-test-category-a1/"
+              }
+            },
+            {
+              "type": "catalog-category",
+              "id": "$custom:::$default:::nango-test-category-b2",
+              "attributes": {
+                "external_id": "nango-test-category-b2",
+                "name": "Nango Test Category B2",
+                "updated": "2026-07-02T04:51:47.659000+00:00"
+              },
+              "relationships": {
+                "items": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/catalog-categories/$custom:::$default:::nango-test-category-b2/relationships/items/",
+                    "related": "https://a.klaviyo.com/api/catalog-categories/$custom:::$default:::nango-test-category-b2/items/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/catalog-categories/$custom:::$default:::nango-test-category-b2/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/catalog-categories",
+            "next": null,
+            "prev": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 04:53:48 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4942",
+          "x-ratelimit-reset": "1782968066",
+          "cf-ray": "a14b0c7fcc623d1b-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; report-uri /csp/",
+          "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+          "ratelimit-remaining": "349",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "113",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "2727eaa6-049d-4059-8cb8-2638465efbe7"
+        },
+        "hash": "267528fdf27a76d82378b9f0f6c51efb65fde0ed",
+        "request": {
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      }
+    }
+  }
+}

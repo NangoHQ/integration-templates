@@ -1,0 +1,218 @@
+{
+  "input": {
+    "requisitionId": "f0b8f177-920d-4c0b-a719-7762ff3febad",
+    "name": "Test Requisition for Dryrun - Updated Again"
+  },
+  "output": {
+    "id": "f0b8f177-920d-4c0b-a719-7762ff3febad",
+    "requisitionCode": "NANGO-DRYRUN-TEST",
+    "name": "Test Requisition for Dryrun - Updated Again",
+    "backfill": false,
+    "createdAt": 1782974436604,
+    "headcountHired": 0,
+    "headcountTotal": 1,
+    "status": "open",
+    "internalNotes": " ",
+    "postingIds": [],
+    "customFields": {},
+    "updatedAt": 1782974640743,
+    "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+    "creatorUserId": null,
+    "hasConfidentialPosting": false,
+    "ownerUserId": null,
+    "reservedOfferIds": [],
+    "stateHistory": [
+      {
+        "beginAt": 1782974436604,
+        "status": "open",
+        "attribution": {
+          "timestamp": 1782974436604,
+          "service": "data-api"
+        }
+      }
+    ],
+    "headcountInfinite": false,
+    "search": {
+      "nameCodeTokens": [
+        "test",
+        "requisition",
+        "for",
+        "dryrun",
+        "updated",
+        "again",
+        "test requisition",
+        "requisition for",
+        "for dryrun",
+        "dryrun - updated",
+        "updated again",
+        "test requisition for",
+        "requisition for dryrun",
+        "for dryrun - updated",
+        "dryrun - updated again",
+        "nango",
+        "nango-dryrun",
+        "dryrun-test",
+        "nango-dryrun-test"
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/requisitions/f0b8f177-920d-4c0b-a719-7762ff3febad": {
+        "response": {
+          "data": {
+            "id": "f0b8f177-920d-4c0b-a719-7762ff3febad",
+            "createdAt": 1782974436604,
+            "confidentiality": "non-confidential",
+            "status": "open",
+            "name": "Test Requisition for Dryrun - Updated Again",
+            "requisitionCode": "NANGO-DRYRUN-TEST",
+            "headcountTotal": 1,
+            "headcountHired": 0,
+            "headcountInfinite": false,
+            "backfill": false,
+            "creator": null,
+            "owner": null,
+            "hiringManager": null,
+            "internalNotes": " ",
+            "compensationBand": null,
+            "approval": {
+              "steps": []
+            },
+            "employmentStatus": null,
+            "location": null,
+            "team": null,
+            "department": null,
+            "postings": [],
+            "offerIds": [],
+            "timeToFillStartAt": null,
+            "timeToFillEndAt": null,
+            "updatedAt": 1782974640743,
+            "customFields": {},
+            "closedAt": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:45:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4851",
+          "x-ratelimit-reset": "1782974784",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "8c72c2ae46688be6a103ee30da1ab8e7bf789c21",
+        "request": {}
+      }
+    },
+    "put": {
+      "/v1/requisitions/f0b8f177-920d-4c0b-a719-7762ff3febad": {
+        "response": {
+          "data": {
+            "accountId": "d82ec851-d498-490e-afe8-d05f59859cb8",
+            "backfill": false,
+            "createdAt": 1782974436604,
+            "creatorUserId": null,
+            "hasConfidentialPosting": false,
+            "internalNotes": " ",
+            "name": "Test Requisition for Dryrun - Updated Again",
+            "ownerUserId": null,
+            "postingIds": [],
+            "requisitionCode": "NANGO-DRYRUN-TEST",
+            "reservedOfferIds": [],
+            "status": "open",
+            "stateHistory": [
+              {
+                "beginAt": 1782974436604,
+                "status": "open",
+                "attribution": {
+                  "timestamp": 1782974436604,
+                  "service": "data-api"
+                }
+              }
+            ],
+            "updatedAt": 1782974640743,
+            "headcountInfinite": false,
+            "headcountTotal": 1,
+            "headcountHired": 0,
+            "customFields": {},
+            "search": {
+              "nameCodeTokens": [
+                "test",
+                "requisition",
+                "for",
+                "dryrun",
+                "updated",
+                "again",
+                "test requisition",
+                "requisition for",
+                "for dryrun",
+                "dryrun - updated",
+                "updated again",
+                "test requisition for",
+                "requisition for dryrun",
+                "for dryrun - updated",
+                "dryrun - updated again",
+                "nango",
+                "nango-dryrun",
+                "dryrun-test",
+                "nango-dryrun-test"
+              ]
+            },
+            "id": "f0b8f177-920d-4c0b-a719-7762ff3febad"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:45:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4850",
+          "x-ratelimit-reset": "1782974784",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "45bb898fd4fc6cf6af3d0eefa3563b3ab52c3f7b",
+        "request": {
+          "data": {
+            "requisitionCode": "NANGO-DRYRUN-TEST",
+            "name": "Test Requisition for Dryrun - Updated Again",
+            "backfill": false,
+            "createdAt": 1782974436604,
+            "customFields": {},
+            "internalNotes": " ",
+            "status": "open",
+            "headcountTotal": 1,
+            "postingIds": []
+          }
+        }
+      }
+    }
+  }
+}

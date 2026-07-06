@@ -1,0 +1,93 @@
+{
+  "input": {
+    "hookId": 3329421
+  },
+  "output": {
+    "id": 3329421,
+    "name": "seed-hook-1",
+    "typeName": "gateway-webhook",
+    "url": "https://hook.eu1.make.com/17kyw32wzu2im5dd634p70i2iaak1kfs",
+    "scenarioId": 6413074,
+    "queueCount": 1,
+    "queueLimit": 50,
+    "enabled": true,
+    "teamId": 2066772,
+    "organizationId": 8242280,
+    "data": {
+      "teamId": 2066772,
+      "method": true,
+      "headers": true,
+      "stringify": false
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {}
+  },
+  "api": {
+    "get": {
+      "/api/v2/hooks/3329421": {
+        "response": {
+          "hook": {
+            "id": 3329421,
+            "name": "seed-hook-1",
+            "teamId": 2066772,
+            "organizationId": 8242280,
+            "udid": "17kyw32wzu2im5dd634p70i2iaak1kfs",
+            "type": "web",
+            "packageName": null,
+            "theme": "#c73a63",
+            "editable": true,
+            "flags": {},
+            "queueCount": 1,
+            "queueLimit": 50,
+            "enabled": true,
+            "gone": false,
+            "typeName": "gateway-webhook",
+            "typeAppName": null,
+            "data": {
+              "teamId": 2066772,
+              "method": true,
+              "headers": true,
+              "stringify": false
+            },
+            "scenarioId": 6413074,
+            "scenarioName": "Seed Scenario Webhook",
+            "scenarioIsActive": false,
+            "scenarioIsConfidential": false,
+            "relay": null,
+            "url": "https://hook.eu1.make.com/17kyw32wzu2im5dd634p70i2iaak1kfs"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 09:31:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "25",
+          "x-ratelimit-reset": "1782984731",
+          "server": "cloudflare",
+          "x-request-id": "12aa290e0fed824f56252e033d772874",
+          "authtype": "token",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "accept-encoding",
+          "set-cookie": "__cf_bm=nrJt9rN.aYw2pwb3fRsug5H_jA5OkdvIvLYDEYSOYak-1782984672.6763484-1.0.1.1-6ikP19iZPn8mWNbDHCoK3FtwfdPFH7xqUSBGqslR34wuI4lAmUAEpDxylfUA5Tj6lKztZ7JIkB3UOeZ8X72GbBAYOBixKw.hkELW30B7KoQmbivmfrwCWA1z2vcfEXcs; HttpOnly; SameSite=None; Secure; Path=/; Domain=eu1.make.com; Expires=Thu, 02 Jul 2026 10:01:12 GMT",
+          "cf-ray": "a14ca2dc3981613d-PDX"
+        },
+        "hash": "6a47464d8510344dc9bb93634bb9361e6a8aa18c",
+        "request": {}
+      }
+    }
+  }
+}

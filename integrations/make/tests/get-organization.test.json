@@ -1,0 +1,158 @@
+{
+  "input": {
+    "organizationId": 8242280
+  },
+  "output": {
+    "organization": {
+      "id": 8242280,
+      "name": "My Organization",
+      "createdAt": "2026-07-02T08:15:10.749Z",
+      "serviceName": "Free",
+      "nextReset": "2026-08-02T08:15:10.749Z",
+      "lastReset": "2026-07-02T08:15:10.749Z",
+      "isPaused": false,
+      "countryId": 109,
+      "timezoneId": 168,
+      "license": {
+        "teams": 1,
+        "dslimit": 1,
+        "fslimit": 5242880,
+        "iolimit": 50,
+        "apiLimit": 30,
+        "dsslimit": 1048576,
+        "fulltext": false,
+        "interval": 15,
+        "priority": "low",
+        "transfer": 536870912,
+        "mcpVHosts": -1,
+        "retention": 7,
+        "scenarios": 2,
+        "dlqStorage": 1048576,
+        "operations": 1000,
+        "scenarioIO": true,
+        "gracePeriod": 0,
+        "executionTime": 5,
+        "restartPeriod": "1 month",
+        "creatingTemplates": false,
+        "installPublicApps": true,
+        "productManagement": "selfService",
+        "onDemandScheduling": true,
+        "webhookLogRetentionDays": 3
+      },
+      "zone": "eu1.make.com",
+      "teams": [
+        {
+          "id": 2066772,
+          "name": "My Team"
+        }
+      ],
+      "productName": "Free",
+      "activeScenarios": 2,
+      "tfaEnforced": false,
+      "featureControls": []
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/organizations/8242280": {
+        "response": {
+          "organization": {
+            "id": 8242280,
+            "name": "My Organization",
+            "timezoneId": 168,
+            "zone": "eu1.make.com",
+            "countryId": 109,
+            "license": {
+              "teams": 1,
+              "dslimit": 1,
+              "fslimit": 5242880,
+              "iolimit": 50,
+              "apiLimit": 30,
+              "dsslimit": 1048576,
+              "fulltext": false,
+              "interval": 15,
+              "priority": "low",
+              "transfer": 536870912,
+              "mcpVHosts": -1,
+              "retention": 7,
+              "scenarios": 2,
+              "dlqStorage": 1048576,
+              "operations": 1000,
+              "scenarioIO": true,
+              "gracePeriod": 0,
+              "executionTime": 5,
+              "restartPeriod": "1 month",
+              "creatingTemplates": false,
+              "installPublicApps": true,
+              "productManagement": "selfService",
+              "onDemandScheduling": true,
+              "webhookLogRetentionDays": 3
+            },
+            "serviceName": "Free",
+            "isPaused": false,
+            "externalId": null,
+            "productName": "Free",
+            "solutionPartnerLink": null,
+            "tfaEnforced": false,
+            "sharedScenarioPartnerCode": null,
+            "privateSpaces": [],
+            "createdAt": "2026-07-02T08:15:10.749Z",
+            "lastReset": "2026-07-02T08:15:10.749Z",
+            "nextReset": "2026-08-02T08:15:10.749Z",
+            "operations": "18",
+            "transfer": "0",
+            "centicreditsConsumed": "1800",
+            "operationsExt": "0",
+            "centicreditsExtra": "0",
+            "autoPurchasingActivated": false,
+            "transferExt": "0",
+            "features": {},
+            "activeApps": 0,
+            "activeScenarios": 2,
+            "unusedOperations": "982",
+            "unusedTransfer": "536870912",
+            "unusedCenticredits": "98200",
+            "autoPurchaseInProgress": false,
+            "ssoType": null,
+            "featureControls": [],
+            "teams": [
+              {
+                "id": 2066772,
+                "name": "My Team"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 09:29:23 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "<redacted>",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "18",
+          "x-ratelimit-reset": "1782984610",
+          "server": "cloudflare",
+          "x-request-id": "c747978302b92e246cc5f35612ef7b46",
+          "authtype": "token",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "accept-encoding",
+          "set-cookie": "<redacted>",
+          "cf-ray": "a14ca02f8a7a5509-PDX"
+        },
+        "hash": "08304ac8471911fe31f2292965a5df31340729d9",
+        "request": {}
+      }
+    }
+  }
+}

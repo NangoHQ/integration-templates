@@ -1,0 +1,97 @@
+{
+  "input": {
+    "reply_to_uuid": "019f1aa0-e6ef-75ff-842f-7fc9499ddd38",
+    "to_address_email_list": "api@nango.dev",
+    "eaccount": "test@nango-test.test.mailu.io",
+    "subject": "Fwd: Hello",
+    "body": {
+      "text": "Forwarding this email to you."
+    }
+  },
+  "output": {
+    "id": "019f1aa3-ce48-7b21-bfab-cbc9d86f8d65",
+    "timestamp_created": "2026-06-30T22:26:11.993Z",
+    "timestamp_email": "2026-06-30T22:26:11.993Z",
+    "message_id": "<ins-u-1-019f1aa3-ce48-7b21-bfab-cbca27911d8d@nango-test.test.mailu.io>",
+    "subject": "Fwd: Hello",
+    "from_address_email": "test@nango-test.test.mailu.io",
+    "to_address_email_list": "api@nango.dev",
+    "cc_address_email_list": "",
+    "bcc_address_email_list": "",
+    "body": {
+      "html": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\">\n    <title>Fwd: Hello</title>\n  </head>\n  <body>\n  Forwarding this email to you.</body>\n</html>"
+    },
+    "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+    "campaign_id": "31691681-3722-4015-99d8-3cdbeabf14eb",
+    "lead": "nango-seed-lead-a@example-nango.com",
+    "lead_id": "019f1a9e-2c6d-7148-8d7e-8bfec9853da6",
+    "eaccount": "test@nango-test.test.mailu.io",
+    "ue_type": 3,
+    "is_focused": 1,
+    "thread_id": "31-b83pey3VxIug2tNSES8NvCK",
+    "content_preview": "Forwarding this email to you."
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/emails/forward": {
+        "response": {
+          "id": "019f1aa3-ce48-7b21-bfab-cbc9d86f8d65",
+          "timestamp_created": "2026-06-30T22:26:11.993Z",
+          "timestamp_email": "2026-06-30T22:26:11.993Z",
+          "message_id": "<ins-u-1-019f1aa3-ce48-7b21-bfab-cbca27911d8d@nango-test.test.mailu.io>",
+          "subject": "Fwd: Hello",
+          "to_address_email_list": "api@nango.dev",
+          "body": {
+            "html": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\">\n    <title>Fwd: Hello</title>\n  </head>\n  <body>\n  Forwarding this email to you.</body>\n</html>"
+          },
+          "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "eaccount": "test@nango-test.test.mailu.io",
+          "from_address_email": "test@nango-test.test.mailu.io",
+          "cc_address_email_list": "",
+          "bcc_address_email_list": "",
+          "campaign_id": "31691681-3722-4015-99d8-3cdbeabf14eb",
+          "lead": "nango-seed-lead-a@example-nango.com",
+          "lead_id": "019f1a9e-2c6d-7148-8d7e-8bfec9853da6",
+          "ue_type": 3,
+          "is_focused": 1,
+          "thread_id": "31-b83pey3VxIug2tNSES8NvCK",
+          "content_preview": "Forwarding this email to you."
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 22:26:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "943",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4967",
+          "x-ratelimit-reset": "1782858397",
+          "x-request-id": "5289772787402057510",
+          "etag": "W/\"3af-aMn9ToGJWa93vY5JErLVjnSeE/8\""
+        },
+        "hash": "0b9adef415a60418c584ae353508e2edd3a0cc2c",
+        "request": {
+          "data": {
+            "reply_to_uuid": "019f1aa0-e6ef-75ff-842f-7fc9499ddd38",
+            "to_address_email_list": "api@nango.dev",
+            "eaccount": "test@nango-test.test.mailu.io",
+            "subject": "Fwd: Hello",
+            "body": {
+              "text": "Forwarding this email to you."
+            }
+          }
+        }
+      }
+    }
+  }
+}

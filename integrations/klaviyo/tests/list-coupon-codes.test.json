@@ -1,0 +1,178 @@
+{
+  "input": {
+    "coupon_id": "nango_seed_coupon_1"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "nango_seed_coupon_1-NANGOSEED1",
+        "unique_code": "NANGOSEED1",
+        "status": "UNASSIGNED",
+        "expires_at": "2027-06-30T22:40:09+00:00",
+        "coupon_id": "nango_seed_coupon_1"
+      },
+      {
+        "id": "nango_seed_coupon_1-NANGOTESTCODE1",
+        "unique_code": "NANGOTESTCODE1",
+        "status": "UNASSIGNED",
+        "expires_at": "2027-07-01T04:46:36+00:00",
+        "coupon_id": "nango_seed_coupon_1"
+      },
+      {
+        "id": "nango_seed_coupon_1-NANGOTESTCODE2",
+        "unique_code": "NANGOTESTCODE2",
+        "status": "UNASSIGNED",
+        "expires_at": "2027-07-01T04:47:02+00:00",
+        "coupon_id": "nango_seed_coupon_1"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/coupon-codes": {
+        "response": {
+          "data": [
+            {
+              "type": "coupon-code",
+              "id": "nango_seed_coupon_1-NANGOSEED1",
+              "attributes": {
+                "unique_code": "NANGOSEED1",
+                "expires_at": "2027-06-30T22:40:09+00:00",
+                "status": "UNASSIGNED"
+              },
+              "relationships": {
+                "coupon": {
+                  "data": {
+                    "type": "coupon",
+                    "id": "nango_seed_coupon_1"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOSEED1/relationships/coupon/",
+                    "related": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOSEED1/coupon/"
+                  }
+                },
+                "profile": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOSEED1/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOSEED1/profile/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOSEED1/"
+              }
+            },
+            {
+              "type": "coupon-code",
+              "id": "nango_seed_coupon_1-NANGOTESTCODE1",
+              "attributes": {
+                "unique_code": "NANGOTESTCODE1",
+                "expires_at": "2027-07-01T04:46:36+00:00",
+                "status": "UNASSIGNED"
+              },
+              "relationships": {
+                "coupon": {
+                  "data": {
+                    "type": "coupon",
+                    "id": "nango_seed_coupon_1"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOTESTCODE1/relationships/coupon/",
+                    "related": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOTESTCODE1/coupon/"
+                  }
+                },
+                "profile": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOTESTCODE1/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOTESTCODE1/profile/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOTESTCODE1/"
+              }
+            },
+            {
+              "type": "coupon-code",
+              "id": "nango_seed_coupon_1-NANGOTESTCODE2",
+              "attributes": {
+                "unique_code": "NANGOTESTCODE2",
+                "expires_at": "2027-07-01T04:47:02+00:00",
+                "status": "UNASSIGNED"
+              },
+              "relationships": {
+                "coupon": {
+                  "data": {
+                    "type": "coupon",
+                    "id": "nango_seed_coupon_1"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOTESTCODE2/relationships/coupon/",
+                    "related": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOTESTCODE2/coupon/"
+                  }
+                },
+                "profile": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOTESTCODE2/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOTESTCODE2/profile/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/coupon-codes/nango_seed_coupon_1-NANGOTESTCODE2/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/coupon-codes?filter=equals%28coupon.id%2C%27nango_seed_coupon_1%27%29",
+            "next": null,
+            "prev": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 04:49:43 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4937",
+          "x-ratelimit-reset": "1782967824",
+          "cf-ray": "a14b06882a1b3d1b-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "object-src 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; report-uri /csp/",
+          "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+          "ratelimit-remaining": "349",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "57",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "3e0d0b94-9fdd-490c-980a-4f4b73668995"
+        },
+        "hash": "a51d8782db270c2626caa29ab0f5b43ef7891488",
+        "request": {
+          "params": {
+            "filter": "equals(coupon.id,'nango_seed_coupon_1')"
+          },
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      }
+    }
+  }
+}

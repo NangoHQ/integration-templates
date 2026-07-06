@@ -1,0 +1,149 @@
+{
+  "input": {
+    "ids": [
+      "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+    ],
+    "list_id": "5c194eae-9382-4bf1-aff4-d9eaa90668e1",
+    "to_list_id": "c737308b-aec0-4a0f-bd51-d6feefd8df6b"
+  },
+  "output": {
+    "id": "6a4431f44bcfcb421d06d78e",
+    "workspace_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+    "type": "move-leads",
+    "entity_id": "5c194eae-9382-4bf1-aff4-d9eaa90668e1",
+    "entity_type": "list",
+    "data": {
+      "moved_lead_emails": [],
+      "filters": {
+        "ids": [
+          "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+        ],
+        "list_id": "5c194eae-9382-4bf1-aff4-d9eaa90668e1",
+        "to_list_id": "c737308b-aec0-4a0f-bd51-d6feefd8df6b"
+      },
+      "total_leads": 0,
+      "moved_leads": 0,
+      "duplicated_leads": 0,
+      "leads_missing_email": null,
+      "leads_in_other_campaigns": 0,
+      "ignored_leads_from_blocklist": 0
+    },
+    "progress": 100,
+    "status": "success",
+    "created_at": "2026-06-30T21:15:32.254Z",
+    "updated_at": "2026-06-30T21:15:32.752Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/leads/move": {
+        "response": {
+          "id": "6a4431f44bcfcb421d06d78e",
+          "workspace_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "type": "move-leads",
+          "progress": 0,
+          "status": "pending",
+          "created_at": "2026-06-30T21:15:32.254Z",
+          "updated_at": "2026-06-30T21:15:32.254Z",
+          "user_id": null,
+          "entity_id": "5c194eae-9382-4bf1-aff4-d9eaa90668e1",
+          "entity_type": "list",
+          "data": {
+            "filters": {
+              "ids": [
+                "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+              ],
+              "list_id": "5c194eae-9382-4bf1-aff4-d9eaa90668e1",
+              "to_list_id": "c737308b-aec0-4a0f-bd51-d6feefd8df6b"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:15:32 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "475",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4907",
+          "x-ratelimit-reset": "1782854145",
+          "x-request-id": "4864884239164212632",
+          "etag": "W/\"1db-oqL44bXFPlADRAPuD9K94ZC+MjA\""
+        },
+        "hash": "4dbbf340c47b04c8d1e9f970d6400efe8e1e0898",
+        "request": {
+          "data": {
+            "ids": [
+              "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+            ],
+            "list_id": "5c194eae-9382-4bf1-aff4-d9eaa90668e1",
+            "to_list_id": "c737308b-aec0-4a0f-bd51-d6feefd8df6b"
+          }
+        }
+      }
+    },
+    "get": {
+      "/v2/background-jobs/6a4431f44bcfcb421d06d78e": {
+        "response": {
+          "id": "6a4431f44bcfcb421d06d78e",
+          "workspace_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "type": "move-leads",
+          "progress": 100,
+          "status": "success",
+          "created_at": "2026-06-30T21:15:32.254Z",
+          "updated_at": "2026-06-30T21:15:32.752Z",
+          "entity_id": "5c194eae-9382-4bf1-aff4-d9eaa90668e1",
+          "entity_type": "list",
+          "data": {
+            "moved_lead_emails": [],
+            "filters": {
+              "ids": [
+                "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+              ],
+              "list_id": "5c194eae-9382-4bf1-aff4-d9eaa90668e1",
+              "to_list_id": "c737308b-aec0-4a0f-bd51-d6feefd8df6b"
+            },
+            "total_leads": 0,
+            "moved_leads": 0,
+            "duplicated_leads": 0,
+            "leads_missing_email": null,
+            "leads_in_other_campaigns": 0,
+            "ignored_leads_from_blocklist": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:15:34 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "627",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4904",
+          "x-ratelimit-reset": "1782854145",
+          "x-request-id": "6843787385360312115",
+          "etag": "W/\"273-opYz8PatzGWr7pa9o6flqtJhQjo\""
+        },
+        "hash": "d41db5ecfed6a796437ce52de7b684570c5c2ea8",
+        "request": {}
+      }
+    }
+  }
+}

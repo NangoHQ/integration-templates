@@ -1,0 +1,107 @@
+{
+  "input": {
+    "id": "019f19e7-cbee-7984-a98a-670d728799c2"
+  },
+  "output": {
+    "id": "019f19e7-cbee-7984-a98a-670d728799c2",
+    "timestamp_created": "2026-06-30T19:00:49.261Z",
+    "timestamp_updated": "2026-06-30T21:18:51.714Z",
+    "organization": "bffdcc34-56cd-403e-a325-def96cc9d027",
+    "campaign": "9b6f458e-6dc5-4762-83d5-a528aedd2235",
+    "status": 1,
+    "email": "saif.khalaf@transportexchangegroup.com",
+    "first_name": "Saif",
+    "last_name": "Khalaf",
+    "company_name": "Teg.tech",
+    "job_title": "Senior Product Manager",
+    "company_domain": "transportexchangegroup.com",
+    "verification_status": 1
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/leads/subsequence/remove": {
+        "response": {
+          "id": "019f19e7-cbee-7984-a98a-670d728799c2",
+          "timestamp_created": "2026-06-30T19:00:49.261Z",
+          "timestamp_updated": "2026-06-30T21:18:51.714Z",
+          "organization": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "status": 1,
+          "email_open_count": 0,
+          "email_reply_count": 0,
+          "email_click_count": 0,
+          "company_domain": "transportexchangegroup.com",
+          "status_summary": {},
+          "campaign": "9b6f458e-6dc5-4762-83d5-a528aedd2235",
+          "email": "saif.khalaf@transportexchangegroup.com",
+          "last_name": "Khalaf",
+          "first_name": "Saif",
+          "company_name": "Teg.tech",
+          "job_title": "Senior Product Manager",
+          "payload": {
+            "firstName": "Saif",
+            "lastName": "Khalaf",
+            "companyName": "Teg.tech",
+            "jobTitle": "Senior Product Manager",
+            "email": "saif.khalaf@transportexchangegroup.com",
+            "jobList": "No data found",
+            "summary": "Saif has been involved in freight-tech startups where he launched new solutions and…",
+            "headline": "Senior Product Manager | Ocean Freight | Logistics | Product Management | Ex-Founder in the Freightech space",
+            "industry": "Software & Internet",
+            "jobLevel": "Manager",
+            "linkedIn": "linkedin.com/in/saifkhalaf",
+            "location": "London, England, United Kingdom",
+            "department": "Other",
+            "icp_source": "Product Managers and Technical Product Owners at SaaS companies with 25-250 employees in Canada and United Kingdom",
+            "companyNews": "No data found",
+            "fundingType": "No data found",
+            "subIndustry": "Information Technology and Services",
+            "companyDomain": "transportexchangegroup.com",
+            "companyWebsite": "https://teg.tech/",
+            "connectionCount": "28307",
+            "companyHeadCount": "100 - 250",
+            "companyTechnology": "No data found",
+            "companyDescription": "TEG is the logistics collaboration platform for enterprise. 3PLs and LSPs use the TEG platform to collaborate with internal and external carriers, unlocking efficiency, sustainability and resilience benefits.",
+            "timezone_calculated": "Europe/London",
+            "9b6f458e-6dc5-4762-83d5-a528aedd2235_email_1": "Saif - TEG’s rebrand signals a big integration push across logistics workflows and fintech features. \n\nWe help product teams deliver scalable API integrations faster without extra engineering overhead. \n\nCan I share a quick example of how another logistics SaaS sped up partner onboarding with us? \n\nIf this isn’t on your radar, just let me know and I won’t follow up. \n\nBest, \n{{sendingAccountFirstName}} \n\n{{accountSignature}}",
+            "9b6f458e-6dc5-4762-83d5-a528aedd2235_subject_1": "teg partner onboarding?",
+            "9b6f458e-6dc5-4762-83d5-a528aedd2235_email_followup_1": "Saif,\n\nTEG’s move to unify logistics and fintech means your integrations must keep pace with many partners and data sources.\n\nI’ve seen teams cut integration time dramatically with a flexible API platform like ours.\n\nSound relevant for you?\n\nIf now’s not ideal, no worries at all - just say the word.\n\nCheers, \n{{sendingAccountFirstName}}\n\n{{accountSignature}}",
+            "9b6f458e-6dc5-4762-83d5-a528aedd2235_email_followup_2": "Hey Saif,\n\nNango lets product teams like yours build and manage 800+ API integrations fast, cutting manual work and syncing real-time logistics data securely.\n\nShould I map out how this would work for TEG?\n\nNo pressure if the timing isn’t right - just let me know.\n\nRegards, \n{{sendingAccountFirstName}}\n\n{{accountSignature}}",
+            "9b6f458e-6dc5-4762-83d5-a528aedd2235_email_followup_3": "Saif - I’ll close the loop here since I haven’t heard back. If streamlining TEG’s API integrations becomes a priority, I’d be glad to reconnect.\n\nIf you prefer not to continue this conversation, just say so.\n\nAll the best, \n{{sendingAccountFirstName}}\n\n{{accountSignature}}"
+          },
+          "verification_status": 1,
+          "timestamp_added_subsequence": "2026-06-30T21:18:51.714Z",
+          "esp_code": 999,
+          "esg_code": 2
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:18:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3654",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1782854391",
+          "x-request-id": "1485570026115893657",
+          "etag": "W/\"e46-76czrci3hOCbQ4txLq8SKVA0AtE\""
+        },
+        "hash": "9f895e06bcd73967ec0c645de0be244270e7b35e",
+        "request": {
+          "data": {
+            "id": "019f19e7-cbee-7984-a98a-670d728799c2"
+          }
+        }
+      }
+    }
+  }
+}

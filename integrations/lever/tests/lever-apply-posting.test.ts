@@ -1,17 +1,17 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import runAction from '../actions/apply-posting.js';
+import createAction from '../actions/apply-posting.js';
 
-describe('lever apply-posting tests', () => {
+describe('lever-basic apply-posting tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
         name: 'apply-posting',
-        Model: 'SuccessResponse'
+        Model: 'ActionOutput_lever_basic_applyposting'
     });
 
     it('should output the action output that is expected', async () => {
         const input = await nangoMock.getInput();
-        const response = await runAction.exec(nangoMock, input);
+        const response = await createAction.exec(nangoMock, input);
         const output = await nangoMock.getOutput();
 
         expect(response).toEqual(output);

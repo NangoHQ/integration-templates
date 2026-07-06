@@ -1,0 +1,221 @@
+{
+  "input": {},
+  "output": {
+    "event_types": [
+      {
+        "id": "email_sent",
+        "label": "Email Sent",
+        "type": "standard"
+      },
+      {
+        "id": "email_bounced",
+        "label": "Email Bounced",
+        "type": "standard"
+      },
+      {
+        "id": "email_opened",
+        "label": "Email Opened",
+        "type": "standard"
+      },
+      {
+        "id": "email_link_clicked",
+        "label": "Email Link Clicked",
+        "type": "standard"
+      },
+      {
+        "id": "reply_received",
+        "label": "Reply Received",
+        "type": "standard"
+      },
+      {
+        "id": "lead_unsubscribed",
+        "label": "Lead Unsubscribed",
+        "type": "standard"
+      },
+      {
+        "id": "campaign_completed",
+        "label": "Campaign Completed",
+        "type": "standard"
+      },
+      {
+        "id": "account_error",
+        "label": "Email Account Error",
+        "type": "standard"
+      },
+      {
+        "id": "lead_interested",
+        "label": "Lead is marked as interested",
+        "type": "standard"
+      },
+      {
+        "id": "lead_not_interested",
+        "label": "Lead is marked as not interested",
+        "type": "standard"
+      },
+      {
+        "id": "lead_neutral",
+        "label": "Lead is marked as neutral",
+        "type": "standard"
+      },
+      {
+        "id": "lead_meeting_booked",
+        "label": "Lead status changed to 'Meeting Booked'",
+        "type": "standard"
+      },
+      {
+        "id": "lead_meeting_completed",
+        "label": "Lead status changed to 'Meeting Complete | Not Closed'",
+        "type": "standard"
+      },
+      {
+        "id": "lead_closed",
+        "label": "Lead status changed to 'Closed'",
+        "type": "standard"
+      },
+      {
+        "id": "lead_out_of_office",
+        "label": "Lead status changed to 'Out of Office'",
+        "type": "standard"
+      },
+      {
+        "id": "lead_wrong_person",
+        "label": "Lead status changed to 'Wrong Person'",
+        "type": "standard"
+      },
+      {
+        "id": "custom_label_any_positive",
+        "label": "Lead is marked with any positive custom label",
+        "type": "custom_label"
+      },
+      {
+        "id": "custom_label_any_negative",
+        "label": "Lead is marked with any negative custom label",
+        "type": "custom_label"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/webhooks/event-types": {
+        "response": {
+          "event_types": [
+            {
+              "id": "email_sent",
+              "label": "Email Sent",
+              "type": "standard"
+            },
+            {
+              "id": "email_bounced",
+              "label": "Email Bounced",
+              "type": "standard"
+            },
+            {
+              "id": "email_opened",
+              "label": "Email Opened",
+              "type": "standard"
+            },
+            {
+              "id": "email_link_clicked",
+              "label": "Email Link Clicked",
+              "type": "standard"
+            },
+            {
+              "id": "reply_received",
+              "label": "Reply Received",
+              "type": "standard"
+            },
+            {
+              "id": "lead_unsubscribed",
+              "label": "Lead Unsubscribed",
+              "type": "standard"
+            },
+            {
+              "id": "campaign_completed",
+              "label": "Campaign Completed",
+              "type": "standard"
+            },
+            {
+              "id": "account_error",
+              "label": "Email Account Error",
+              "type": "standard"
+            },
+            {
+              "id": "lead_interested",
+              "label": "Lead is marked as interested",
+              "type": "standard"
+            },
+            {
+              "id": "lead_not_interested",
+              "label": "Lead is marked as not interested",
+              "type": "standard"
+            },
+            {
+              "id": "lead_neutral",
+              "label": "Lead is marked as neutral",
+              "type": "standard"
+            },
+            {
+              "id": "lead_meeting_booked",
+              "label": "Lead status changed to 'Meeting Booked'",
+              "type": "standard"
+            },
+            {
+              "id": "lead_meeting_completed",
+              "label": "Lead status changed to 'Meeting Complete | Not Closed'",
+              "type": "standard"
+            },
+            {
+              "id": "lead_closed",
+              "label": "Lead status changed to 'Closed'",
+              "type": "standard"
+            },
+            {
+              "id": "lead_out_of_office",
+              "label": "Lead status changed to 'Out of Office'",
+              "type": "standard"
+            },
+            {
+              "id": "lead_wrong_person",
+              "label": "Lead status changed to 'Wrong Person'",
+              "type": "standard"
+            },
+            {
+              "id": "custom_label_any_positive",
+              "label": "Lead is marked with any positive custom label",
+              "type": "custom_label"
+            },
+            {
+              "id": "custom_label_any_negative",
+              "label": "Lead is marked with any negative custom label",
+              "type": "custom_label"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:15:57 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1520",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1782854207",
+          "x-request-id": "6374590854442305337",
+          "etag": "W/\"5f0-WfJtsvrvav5FskxUyz2RGukkUIU\""
+        },
+        "hash": "2bed303b3809cb7113c8a607f807b6e577ab4697",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "input": {
+    "dataStructureId": 477315,
+    "name": "seed-structure-renamed"
+  },
+  "output": {
+    "id": 477315,
+    "teamId": 2066772,
+    "name": "seed-structure-renamed",
+    "strict": false,
+    "spec": [
+      {
+        "type": "text",
+        "name": "title",
+        "required": true
+      },
+      {
+        "type": "number",
+        "name": "value",
+        "required": false
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {}
+  },
+  "api": {
+    "patch": {
+      "/data-structures/477315": {
+        "response": {
+          "dataStructure": {
+            "id": 477315,
+            "name": "seed-structure-renamed",
+            "teamId": 2066772,
+            "spec": [
+              {
+                "name": "title",
+                "type": "text",
+                "required": true
+              },
+              {
+                "name": "value",
+                "type": "number",
+                "required": false
+              }
+            ],
+            "strict": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 09:25:55 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "2",
+          "x-ratelimit-reset": "1782984356",
+          "server": "cloudflare",
+          "x-request-id": "d0e9ffa36636b066cbe5d33550cc89df",
+          "authtype": "token",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "accept-encoding",
+          "set-cookie": "__cf_bm=hiNlKgL.ppxK9mS6I3zMCdWZTBhYMfmpsoe8EtbtI3A-1782984354.9265878-1.0.1.1-ySp5Lu3wbRDExCLIMnzURuK8HUhyQqcO0skvsQ0okCt5uUVu45aAJ49.51W6gAkgr56iDhwy9uR5LJ6oNTcjq3pH2Fu36_T1C8OFsITq6bh572lNCnwA553PoU2VyM7c; HttpOnly; SameSite=None; Secure; Path=/; Domain=eu1.make.com; Expires=Thu, 02 Jul 2026 09:55:55 GMT",
+          "cf-ray": "a14c9b1a48794afe-PDX"
+        },
+        "hash": "6309a6d620f26efc3e10b2ce175ac937c334fea8",
+        "request": {
+          "data": {
+            "name": "seed-structure-renamed"
+          }
+        }
+      }
+    }
+  }
+}

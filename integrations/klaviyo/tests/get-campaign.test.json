@@ -1,0 +1,256 @@
+{
+  "input": {
+    "id": "01KWGH6A8NJ5EDSB3JR4QMRJRM"
+  },
+  "output": {
+    "id": "01KWGH6A8NJ5EDSB3JR4QMRJRM",
+    "type": "campaign",
+    "name": "Nango Seed Delete Campaign One",
+    "status": "Draft",
+    "created_at": "2026-07-02T04:25:31.671853+00:00",
+    "updated_at": "2026-07-02T04:25:31.671874+00:00",
+    "scheduled_at": null,
+    "attributes": {
+      "name": "Nango Seed Delete Campaign One",
+      "status": "Draft",
+      "created_at": "2026-07-02T04:25:31.671853+00:00",
+      "updated_at": "2026-07-02T04:25:31.671874+00:00",
+      "scheduled_at": null,
+      "send_options": {
+        "use_smart_sending": true,
+        "ignore_unsubscribes": false
+      },
+      "send_strategy": {
+        "method": "static",
+        "datetime": "2026-07-01T21:00:00+00:00",
+        "options": {
+          "is_local": true,
+          "send_past_recipients_immediately": true
+        }
+      },
+      "archived": false,
+      "audiences": {
+        "included": [
+          "XW53Ha"
+        ],
+        "excluded": []
+      },
+      "tracking_options": {
+        "add_tracking_params": false,
+        "custom_tracking_params": [],
+        "is_tracking_clicks": true,
+        "is_tracking_opens": true
+      },
+      "send_time": null
+    },
+    "relationships": {
+      "campaign-messages": {
+        "data": [
+          {
+            "type": "campaign-message",
+            "id": "01KWGH6A8WQCRN1YH91HQK0YC6"
+          }
+        ],
+        "links": {
+          "self": "https://a.klaviyo.com/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM/relationships/campaign-messages/",
+          "related": "https://a.klaviyo.com/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM/campaign-messages/"
+        }
+      },
+      "tags": {
+        "links": {
+          "self": "https://a.klaviyo.com/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM/relationships/tags/",
+          "related": "https://a.klaviyo.com/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM/tags/"
+        }
+      }
+    },
+    "messages": [
+      {
+        "type": "campaign-message",
+        "id": "01KWGH6A8WQCRN1YH91HQK0YC6",
+        "attributes": {
+          "created_at": "2026-07-02T04:25:31.678641+00:00",
+          "updated_at": "2026-07-02T04:25:31.678661+00:00",
+          "definition": {
+            "channel": "email",
+            "label": "Nango Seed Delete Campaign One",
+            "content": {
+              "subject": "",
+              "preview_text": "",
+              "from_email": "api@nango.dev",
+              "from_label": "Nango",
+              "reply_to_email": null,
+              "cc_email": null,
+              "bcc_email": null
+            }
+          },
+          "send_times": []
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM": {
+        "response": {
+          "data": {
+            "type": "campaign",
+            "id": "01KWGH6A8NJ5EDSB3JR4QMRJRM",
+            "attributes": {
+              "name": "Nango Seed Delete Campaign One",
+              "status": "Draft",
+              "archived": false,
+              "audiences": {
+                "included": [
+                  "XW53Ha"
+                ],
+                "excluded": []
+              },
+              "send_options": {
+                "use_smart_sending": true,
+                "ignore_unsubscribes": false
+              },
+              "tracking_options": {
+                "add_tracking_params": false,
+                "custom_tracking_params": [],
+                "is_tracking_clicks": true,
+                "is_tracking_opens": true
+              },
+              "send_strategy": {
+                "method": "static",
+                "datetime": "2026-07-01T21:00:00+00:00",
+                "options": {
+                  "is_local": true,
+                  "send_past_recipients_immediately": true
+                }
+              },
+              "created_at": "2026-07-02T04:25:31.671853+00:00",
+              "scheduled_at": null,
+              "updated_at": "2026-07-02T04:25:31.671874+00:00",
+              "send_time": null
+            },
+            "relationships": {
+              "campaign-messages": {
+                "data": [
+                  {
+                    "type": "campaign-message",
+                    "id": "01KWGH6A8WQCRN1YH91HQK0YC6"
+                  }
+                ],
+                "links": {
+                  "self": "https://a.klaviyo.com/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM/relationships/campaign-messages/",
+                  "related": "https://a.klaviyo.com/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM/campaign-messages/"
+                }
+              },
+              "tags": {
+                "links": {
+                  "self": "https://a.klaviyo.com/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM/relationships/tags/",
+                  "related": "https://a.klaviyo.com/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM/tags/"
+                }
+              }
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM/"
+            }
+          },
+          "included": [
+            {
+              "type": "campaign-message",
+              "id": "01KWGH6A8WQCRN1YH91HQK0YC6",
+              "attributes": {
+                "definition": {
+                  "channel": "email",
+                  "label": "Nango Seed Delete Campaign One",
+                  "content": {
+                    "subject": "",
+                    "preview_text": "",
+                    "from_email": "api@nango.dev",
+                    "from_label": "Nango",
+                    "reply_to_email": null,
+                    "cc_email": null,
+                    "bcc_email": null
+                  }
+                },
+                "send_times": [],
+                "created_at": "2026-07-02T04:25:31.678641+00:00",
+                "updated_at": "2026-07-02T04:25:31.678661+00:00"
+              },
+              "relationships": {
+                "campaign": {
+                  "data": {
+                    "type": "campaign",
+                    "id": "01KWGH6A8NJ5EDSB3JR4QMRJRM"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/campaign-messages/01KWGH6A8WQCRN1YH91HQK0YC6/relationships/campaign/",
+                    "related": "https://a.klaviyo.com/api/campaign-messages/01KWGH6A8WQCRN1YH91HQK0YC6/campaign/"
+                  }
+                },
+                "template": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/campaign-messages/01KWGH6A8WQCRN1YH91HQK0YC6/relationships/template/",
+                    "related": "https://a.klaviyo.com/api/campaign-messages/01KWGH6A8WQCRN1YH91HQK0YC6/template/"
+                  }
+                },
+                "image": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/campaign-messages/01KWGH6A8WQCRN1YH91HQK0YC6/relationships/image/",
+                    "related": "https://a.klaviyo.com/api/campaign-messages/01KWGH6A8WQCRN1YH91HQK0YC6/image/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/campaign-messages/01KWGH6A8WQCRN1YH91HQK0YC6/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/campaigns/01KWGH6A8NJ5EDSB3JR4QMRJRM?include=campaign-messages"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 05:17:40 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4937",
+          "x-ratelimit-reset": "1782969481",
+          "cf-ray": "a14b2f767f82816e-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; report-uri /csp/",
+          "ratelimit-limit": "10, 10;w=1, 150;w=60",
+          "ratelimit-remaining": "9",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "344",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "4ff9535a-b94d-4d97-9fdd-ea3d84a6536c"
+        },
+        "hash": "9245f10b9b3a48ed092729168b2dc6d6baf3c705",
+        "request": {
+          "params": {
+            "include": "campaign-messages"
+          },
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      }
+    }
+  }
+}
