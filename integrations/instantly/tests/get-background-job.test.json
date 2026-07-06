@@ -1,0 +1,111 @@
+{
+  "input": {
+    "id": "6a441298bce6853f4c4c0fc0"
+  },
+  "output": {
+    "id": "6a441298bce6853f4c4c0fc0",
+    "status": "success",
+    "progress": 100,
+    "data": {
+      "moved_lead_emails": [
+        "jonathan@studiographene.com",
+        "saif.khalaf@transportexchangegroup.com",
+        "shahedsaleh@colabsoftware.com",
+        "murat.tirmandi@anecdotes.ai",
+        "akyriacou@telana.com"
+      ],
+      "filters": {
+        "list_id": "fcda8fca-3c62-4ef2-88e4-68aa14891cdc",
+        "to_list_id": "b74958cc-c9c4-40d4-976a-6837eb84493f",
+        "ids": [
+          "019f19e7-cbee-7984-a98a-670c65cc875f",
+          "019f19e7-cbee-7984-a98a-670d728799c2",
+          "019f19e7-cbee-7984-a98a-670e248c918d",
+          "019f19e7-cbee-7984-a98a-670fb749f832",
+          "019f19e7-cbee-7984-a98a-6710bfa97c79"
+        ],
+        "check_duplicates": true
+      },
+      "total_leads": 5,
+      "moved_leads": 5,
+      "duplicated_leads": 0,
+      "leads_missing_email": null,
+      "leads_in_other_campaigns": 0,
+      "ignored_leads_from_blocklist": 0
+    },
+    "type": "move-leads",
+    "created_at": "2026-06-30T19:01:44.305Z",
+    "updated_at": "2026-06-30T19:01:44.739Z",
+    "workspace_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+    "entity_id": "fcda8fca-3c62-4ef2-88e4-68aa14891cdc",
+    "entity_type": "list"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/background-jobs/6a441298bce6853f4c4c0fc0": {
+        "response": {
+          "id": "6a441298bce6853f4c4c0fc0",
+          "workspace_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "type": "move-leads",
+          "progress": 100,
+          "status": "success",
+          "created_at": "2026-06-30T19:01:44.305Z",
+          "updated_at": "2026-06-30T19:01:44.739Z",
+          "entity_id": "fcda8fca-3c62-4ef2-88e4-68aa14891cdc",
+          "entity_type": "list",
+          "data": {
+            "moved_lead_emails": [
+              "jonathan@studiographene.com",
+              "saif.khalaf@transportexchangegroup.com",
+              "shahedsaleh@colabsoftware.com",
+              "murat.tirmandi@anecdotes.ai",
+              "akyriacou@telana.com"
+            ],
+            "filters": {
+              "list_id": "fcda8fca-3c62-4ef2-88e4-68aa14891cdc",
+              "to_list_id": "b74958cc-c9c4-40d4-976a-6837eb84493f",
+              "ids": [
+                "019f19e7-cbee-7984-a98a-670c65cc875f",
+                "019f19e7-cbee-7984-a98a-670d728799c2",
+                "019f19e7-cbee-7984-a98a-670e248c918d",
+                "019f19e7-cbee-7984-a98a-670fb749f832",
+                "019f19e7-cbee-7984-a98a-6710bfa97c79"
+              ],
+              "check_duplicates": true
+            },
+            "total_leads": 5,
+            "moved_leads": 5,
+            "duplicated_leads": 0,
+            "leads_missing_email": null,
+            "leads_in_other_campaigns": 0,
+            "ignored_leads_from_blocklist": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:14:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "962",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4893",
+          "x-ratelimit-reset": "1782854084",
+          "x-request-id": "4945100366648679319",
+          "etag": "W/\"3c2-AQAFDhn+pDR748vK406Ty2bJLOM\""
+        },
+        "hash": "47686ec882a7c499bb5f823d2e1dde278338bdd5",
+        "request": {}
+      }
+    }
+  }
+}

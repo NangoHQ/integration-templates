@@ -1,0 +1,140 @@
+{
+  "input": {
+    "id": "01KWFX4MZPQDSD3YG79C83CBDV",
+    "first_name": "Johnny"
+  },
+  "output": {
+    "id": "01KWFX4MZPQDSD3YG79C83CBDV",
+    "email": "john.doe@nangotest.dev",
+    "first_name": "Johnny",
+    "last_name": "Doe",
+    "location": {},
+    "properties": {
+      "seed": "nango-test"
+    }
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV": {
+        "response": {
+          "data": {
+            "type": "profile",
+            "id": "01KWFX4MZPQDSD3YG79C83CBDV",
+            "attributes": {
+              "email": "john.doe@nangotest.dev",
+              "phone_number": null,
+              "external_id": null,
+              "anonymous_id": null,
+              "whatsapp_bsuid": null,
+              "first_name": "Johnny",
+              "last_name": "Doe",
+              "organization": null,
+              "locale": null,
+              "title": null,
+              "image": null,
+              "created": "2026-07-01T22:35:06+00:00",
+              "updated": "2026-07-02T04:52:52+00:00",
+              "last_event_date": null,
+              "location": {
+                "address1": null,
+                "address2": null,
+                "city": null,
+                "country": null,
+                "latitude": null,
+                "longitude": null,
+                "region": null,
+                "zip": null,
+                "timezone": null,
+                "ip": null
+              },
+              "properties": {
+                "seed": "nango-test"
+              }
+            },
+            "relationships": {
+              "lists": {
+                "links": {
+                  "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/relationships/lists/",
+                  "related": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/lists/"
+                }
+              },
+              "segments": {
+                "links": {
+                  "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/relationships/segments/",
+                  "related": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/segments/"
+                }
+              },
+              "push-tokens": {
+                "links": {
+                  "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/relationships/push-tokens/",
+                  "related": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/push-tokens/"
+                }
+              },
+              "conversation": {
+                "links": {
+                  "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/relationships/conversation/",
+                  "related": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/conversation/"
+                }
+              }
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/"
+            }
+          },
+          "links": {
+            "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 04:53:09 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4869",
+          "x-ratelimit-reset": "1782968006",
+          "cf-ray": "a14b0b900a65a096-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; report-uri /csp/",
+          "ratelimit-limit": "75, 75;w=1, 750;w=60",
+          "ratelimit-remaining": "74",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "99",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "8ce60e78-91a7-4ed8-ae26-610e4691f0f8"
+        },
+        "hash": "2273e8f863adc995389acf1b3605e8270feafd24",
+        "request": {
+          "headers": {
+            "revision": "2026-04-15"
+          },
+          "data": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX4MZPQDSD3YG79C83CBDV",
+              "attributes": {
+                "first_name": "Johnny"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

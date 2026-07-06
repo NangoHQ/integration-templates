@@ -1,0 +1,55 @@
+{
+  "input": {
+    "eaccount": "admin@test.mailu.io",
+    "to_address_email_list": "nango-seed-lead-a@example-nango.com",
+    "subject": "Nango test email",
+    "body": {
+      "html": "<p>This is a test email from Nango</p>"
+    }
+  },
+  "output": {
+    "status": "success"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/emails/test": {
+        "response": {
+          "status": "success"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:47:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "20",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4948",
+          "x-ratelimit-reset": "1782856069",
+          "x-request-id": "2814307185176986670",
+          "etag": "W/\"14-Y53wuE/mmbSikKcT/WualL1N65U\""
+        },
+        "hash": "42148745b872fc0b3c9dba18f1a5da55eaeb5d0d",
+        "request": {
+          "data": {
+            "eaccount": "admin@test.mailu.io",
+            "to_address_email_list": "nango-seed-lead-a@example-nango.com",
+            "subject": "Nango test email",
+            "body": {
+              "html": "<p>This is a test email from Nango</p>"
+            }
+          }
+        }
+      }
+    }
+  }
+}

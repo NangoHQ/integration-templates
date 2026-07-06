@@ -1,0 +1,1234 @@
+{
+  "input": {},
+  "output": {
+    "data": [
+      {
+        "type": "event",
+        "id": "7fxE8qn2RFa",
+        "attributes": {
+          "timestamp": 1782969611,
+          "event_properties": {
+            "$klaviyo_bounce_category": "Unclassified",
+            "Recipient Email Address": "bulk.import.one.20260702@nangotest.dev",
+            "Subject": "Test Email",
+            "$_cohort$message_send_cohort": "1782969609:QSNJxA",
+            "$flow": "WT7rFE",
+            "Inbox Provider": "Other",
+            "Campaign Name": "Email #1",
+            "$message": "QSNJxA",
+            "$internal": {
+              "Friendly From Domain": "nangotest.dev",
+              "Transmission ID": "01KWGMAASDWPP836S6K9NR34XP",
+              "Handoff Time": 1782969609
+            },
+            "$ESP": 2,
+            "Email Domain": "nangotest.dev",
+            "Bounce Type": "Soft",
+            "$originating_email": "bulk.import.one.20260702@nangotest.dev",
+            "$event_id": "QSNJxA:01KWGMAASDWPP836S6K9NR34XP:1782969611",
+            "$extra": {
+              "$bounce_delivery_info": {
+                "ip": "",
+                "type": "blocked",
+                "action_id": 110850184,
+                "is_autoresponder": true,
+                "reason": "Sorry, I couldn't find any host named nangotest.dev. (#5.1.2)",
+                "code": "unknown",
+                "add_exclusion": true
+              }
+            }
+          },
+          "datetime": "2026-07-02T05:20:11+00:00",
+          "uuid": "b2983780-75d5-11f1-8001-e9a8d4f42b88"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWGM9RD093Y3Y0R6BTMTA2VZ"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxE8qn2RFa/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxE8qn2RFa/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "RGVjNe"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxE8qn2RFa/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxE8qn2RFa/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxE8qn2RFa/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxE8nU9pMk",
+        "attributes": {
+          "timestamp": 1782969608,
+          "event_properties": {
+            "Subject": "Test Email",
+            "$_cohort$message_send_cohort": "1782969608:QSNJxA",
+            "$flow": "WT7rFE",
+            "Recipient Email Address": "bulk.import.two.20260702@nangotest.dev",
+            "$klaviyo_bounce_category": "Unclassified",
+            "$ESP": 2,
+            "$message": "QSNJxA",
+            "Campaign Name": "Email #1",
+            "Bounce Type": "Soft",
+            "Inbox Provider": "Other",
+            "$internal": {
+              "Handoff Time": 1782969608,
+              "Transmission ID": "01KWGMA94W6EZ3NAQJWC99NF9Q",
+              "Friendly From Domain": "nangotest.dev"
+            },
+            "Email Domain": "nangotest.dev",
+            "$originating_email": "bulk.import.two.20260702@nangotest.dev",
+            "$event_id": "QSNJxA:01KWGMA94W6EZ3NAQJWC99NF9Q:1782969608",
+            "$extra": {
+              "$bounce_delivery_info": {
+                "add_exclusion": true,
+                "reason": "Sorry, I couldn't find any host named nangotest.dev. (#5.1.2)",
+                "type": "blocked",
+                "action_id": 110850184,
+                "ip": "",
+                "is_autoresponder": true,
+                "code": "unknown"
+              }
+            }
+          },
+          "datetime": "2026-07-02T05:20:08+00:00",
+          "uuid": "b0ce7400-75d5-11f1-8001-95f5f522e9a5"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWGM9RDKBPJB1JC2A3TG3TXS"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxE8nU9pMk/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxE8nU9pMk/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "RGVjNe"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxE8nU9pMk/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxE8nU9pMk/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxE8nU9pMk/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxDc28mTZx",
+        "attributes": {
+          "timestamp": 1782969352,
+          "event_properties": {
+            "List": "Nango Test List A",
+            "list_id": "XW53Ha",
+            "$event_id": "XW53Ha1782969352.053049"
+          },
+          "datetime": "2026-07-02T05:15:52+00:00",
+          "uuid": "1837f400-75d5-11f1-8001-891dc56d979f"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX5CBH8X8N0JMDN5KJ1S3A"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxDc28mTZx/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxDc28mTZx/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "UT43iX"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxDc28mTZx/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxDc28mTZx/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxDc28mTZx/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxCR6XFDX3",
+        "attributes": {
+          "timestamp": 1782969352,
+          "event_properties": {
+            "list_ids": [
+              "XW53Ha"
+            ],
+            "method_detail": "b273",
+            "method": "API_V3_SUBSCRIBE",
+            "email_address": "subscribe.test@nangotest.dev",
+            "list_names": [
+              "Nango Test List A"
+            ],
+            "$event_id": "1782969352"
+          },
+          "datetime": "2026-07-02T05:15:52+00:00",
+          "uuid": "1837f400-75d5-11f1-8001-42d0105154c3"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX5CBH8X8N0JMDN5KJ1S3A"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxCR6XFDX3/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxCR6XFDX3/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "RicghZ"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxCR6XFDX3/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxCR6XFDX3/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxCR6XFDX3/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxvS3n9k3B",
+        "attributes": {
+          "timestamp": 1782967978,
+          "event_properties": {
+            "test_key": "test_value",
+            "$event_id": "nango-test-event-123"
+          },
+          "datetime": "2026-07-02T04:52:58+00:00",
+          "uuid": "e5403100-75d1-11f1-8001-0dcfc64cb6ca"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX4MZPQDSD3YG79C83CBDV"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxvS3n9k3B/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxvS3n9k3B/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "WzhEtt"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxvS3n9k3B/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxvS3n9k3B/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxvS3n9k3B/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxvb3KeaAm",
+        "attributes": {
+          "timestamp": 1782967857,
+          "event_properties": {
+            "MergeType": "Merged via API",
+            "MergeDate": "2026-07-02T04:50:57",
+            "$event_id": "merge_tombstone:01KWGJKNY3RC97AKTY266J4XD2:01KWFX5B2R2JJMQTH7J23ZZ0S1",
+            "$extra": {
+              "FirstName": null,
+              "ExternalID": null,
+              "LastName": null,
+              "AnonymousID": null,
+              "KlaviyoID": "01KWGJKNY3RC97AKTY266J4XD2",
+              "Created": "2026-07-02T04:50:18"
+            }
+          },
+          "datetime": "2026-07-02T04:50:57+00:00",
+          "uuid": "9d210e80-75d1-11f1-8001-8631d6d6ded1"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX5B2R2JJMQTH7J23ZZ0S1"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxvb3KeaAm/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxvb3KeaAm/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "V9SixX"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxvb3KeaAm/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxvb3KeaAm/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxvb3KeaAm/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxuAJWpwMB",
+        "attributes": {
+          "timestamp": 1782967722,
+          "event_properties": {
+            "MergeDate": "2026-07-02T04:48:42",
+            "MergeType": "Merged via API",
+            "$event_id": "merge_tombstone:01KWFX59SDCSCCSF0WVS9D5DFT:01KWFX5B2R2JJMQTH7J23ZZ0S1",
+            "$extra": {
+              "ExternalID": null,
+              "LastName": "MergeSource",
+              "KlaviyoID": "01KWFX59SDCSCCSF0WVS9D5DFT",
+              "AnonymousID": null,
+              "FirstName": "Seed",
+              "Created": "2026-07-01T22:35:27"
+            }
+          },
+          "datetime": "2026-07-02T04:48:42+00:00",
+          "uuid": "4ca9b100-75d1-11f1-8001-84c9d24ebce6"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX5B2R2JJMQTH7J23ZZ0S1"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxuAJWpwMB/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxuAJWpwMB/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "V9SixX"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxuAJWpwMB/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxuAJWpwMB/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxuAJWpwMB/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxmgKdAMfk",
+        "attributes": {
+          "timestamp": 1782966435,
+          "event_properties": {
+            "double_optin": false,
+            "email_address": "subscribe.test@nangotest.dev",
+            "list_name": "Nango Test List A",
+            "list_id": "XW53Ha",
+            "method": "API_V3_SUBSCRIBE",
+            "custom_method_detail": null,
+            "method_detail": "b273",
+            "$event_id": "01KWFX5CBH8X8N0JMDN5KJ1S3AVXSTFA1782966435"
+          },
+          "datetime": "2026-07-02T04:27:15+00:00",
+          "uuid": "4d8d1380-75ce-11f1-8001-3432fd4c84d7"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX5CBH8X8N0JMDN5KJ1S3A"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxmgKdAMfk/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxmgKdAMfk/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "SQtSXs"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxmgKdAMfk/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxmgKdAMfk/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxmgKdAMfk/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxmgLcbxPC",
+        "attributes": {
+          "timestamp": 1782966432,
+          "event_properties": {
+            "list_id": "XW53Ha",
+            "List": "Nango Test List A",
+            "$event_id": "XW53Ha1782966432"
+          },
+          "datetime": "2026-07-02T04:27:12+00:00",
+          "uuid": "4bc35000-75ce-11f1-8001-de2d9f7e6ac2"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX5CBH8X8N0JMDN5KJ1S3A"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxmgLcbxPC/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxmgLcbxPC/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "SnHm3B"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxmgLcbxPC/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxmgLcbxPC/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxmgLcbxPC/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fvdejYRW7k",
+        "attributes": {
+          "timestamp": 1782943739,
+          "event_properties": {
+            "email_address": "api@nango.dev",
+            "suppression_method": "BOT_PROTECTION",
+            "$event_id": "1782943739"
+          },
+          "datetime": "2026-07-01T22:08:59+00:00",
+          "uuid": "75ae4f80-7599-11f1-8001-d2da8ed040af"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFVK2PYZEYGGRNDRWEC6SMN"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fvdejYRW7k/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fvdejYRW7k/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "XyULiM"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fvdejYRW7k/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fvdejYRW7k/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fvdejYRW7k/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxkWWsHxXF",
+        "attributes": {
+          "timestamp": 1782914400,
+          "event_properties": {
+            "seed": "nango-test",
+            "$event_id": "nango-seed-event-3",
+            "$value": 42.5
+          },
+          "datetime": "2026-07-01T14:00:00+00:00",
+          "uuid": "26463000-7555-11f1-8001-c3b768f317c5"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX543QCNFFAPCDNGTRCESM"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxkWWsHxXF/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxkWWsHxXF/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "UGkwJB"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxkWWsHxXF/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxkWWsHxXF/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxkWWsHxXF/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxkTBhj7cn",
+        "attributes": {
+          "timestamp": 1782910800,
+          "event_properties": {
+            "seed": "nango-test",
+            "$event_id": "nango-seed-event-2"
+          },
+          "datetime": "2026-07-01T13:00:00+00:00",
+          "uuid": "c481c800-754c-11f1-8001-26f10f3dcef1"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX52Q0EK1Q2NPWA93X35DS"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxkTBhj7cn/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxkTBhj7cn/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "Tsirvm"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxkTBhj7cn/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxkTBhj7cn/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxkTBhj7cn/"
+        }
+      },
+      {
+        "type": "event",
+        "id": "7fxkUHF8g5Y",
+        "attributes": {
+          "timestamp": 1782907200,
+          "event_properties": {
+            "seed": "nango-test",
+            "item": "Nango Seed Delete Item One",
+            "$event_id": "nango-seed-event-1",
+            "$value": 19.99
+          },
+          "datetime": "2026-07-01T12:00:00+00:00",
+          "uuid": "62bd6000-7544-11f1-8001-34a792894cc7"
+        },
+        "relationships": {
+          "profile": {
+            "data": {
+              "type": "profile",
+              "id": "01KWFX4MZPQDSD3YG79C83CBDV"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxkUHF8g5Y/relationships/profile/",
+              "related": "https://a.klaviyo.com/api/events/7fxkUHF8g5Y/profile/"
+            }
+          },
+          "metric": {
+            "data": {
+              "type": "metric",
+              "id": "UGkwJB"
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/events/7fxkUHF8g5Y/relationships/metric/",
+              "related": "https://a.klaviyo.com/api/events/7fxkUHF8g5Y/metric/"
+            }
+          }
+        },
+        "links": {
+          "self": "https://a.klaviyo.com/api/events/7fxkUHF8g5Y/"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/events": {
+        "response": {
+          "data": [
+            {
+              "type": "event",
+              "id": "7fxE8qn2RFa",
+              "attributes": {
+                "timestamp": 1782969611,
+                "event_properties": {
+                  "$klaviyo_bounce_category": "Unclassified",
+                  "Recipient Email Address": "bulk.import.one.20260702@nangotest.dev",
+                  "Subject": "Test Email",
+                  "$_cohort$message_send_cohort": "1782969609:QSNJxA",
+                  "$flow": "WT7rFE",
+                  "Inbox Provider": "Other",
+                  "Campaign Name": "Email #1",
+                  "$message": "QSNJxA",
+                  "$internal": {
+                    "Friendly From Domain": "nangotest.dev",
+                    "Transmission ID": "01KWGMAASDWPP836S6K9NR34XP",
+                    "Handoff Time": 1782969609
+                  },
+                  "$ESP": 2,
+                  "Email Domain": "nangotest.dev",
+                  "Bounce Type": "Soft",
+                  "$originating_email": "bulk.import.one.20260702@nangotest.dev",
+                  "$event_id": "QSNJxA:01KWGMAASDWPP836S6K9NR34XP:1782969611",
+                  "$extra": {
+                    "$bounce_delivery_info": {
+                      "ip": "",
+                      "type": "blocked",
+                      "action_id": 110850184,
+                      "is_autoresponder": true,
+                      "reason": "Sorry, I couldn't find any host named nangotest.dev. (#5.1.2)",
+                      "code": "unknown",
+                      "add_exclusion": true
+                    }
+                  }
+                },
+                "datetime": "2026-07-02T05:20:11+00:00",
+                "uuid": "b2983780-75d5-11f1-8001-e9a8d4f42b88"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWGM9RD093Y3Y0R6BTMTA2VZ"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxE8qn2RFa/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxE8qn2RFa/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "RGVjNe"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxE8qn2RFa/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxE8qn2RFa/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxE8qn2RFa/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxE8nU9pMk",
+              "attributes": {
+                "timestamp": 1782969608,
+                "event_properties": {
+                  "Subject": "Test Email",
+                  "$_cohort$message_send_cohort": "1782969608:QSNJxA",
+                  "$flow": "WT7rFE",
+                  "Recipient Email Address": "bulk.import.two.20260702@nangotest.dev",
+                  "$klaviyo_bounce_category": "Unclassified",
+                  "$ESP": 2,
+                  "$message": "QSNJxA",
+                  "Campaign Name": "Email #1",
+                  "Bounce Type": "Soft",
+                  "Inbox Provider": "Other",
+                  "$internal": {
+                    "Handoff Time": 1782969608,
+                    "Transmission ID": "01KWGMA94W6EZ3NAQJWC99NF9Q",
+                    "Friendly From Domain": "nangotest.dev"
+                  },
+                  "Email Domain": "nangotest.dev",
+                  "$originating_email": "bulk.import.two.20260702@nangotest.dev",
+                  "$event_id": "QSNJxA:01KWGMA94W6EZ3NAQJWC99NF9Q:1782969608",
+                  "$extra": {
+                    "$bounce_delivery_info": {
+                      "add_exclusion": true,
+                      "reason": "Sorry, I couldn't find any host named nangotest.dev. (#5.1.2)",
+                      "type": "blocked",
+                      "action_id": 110850184,
+                      "ip": "",
+                      "is_autoresponder": true,
+                      "code": "unknown"
+                    }
+                  }
+                },
+                "datetime": "2026-07-02T05:20:08+00:00",
+                "uuid": "b0ce7400-75d5-11f1-8001-95f5f522e9a5"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWGM9RDKBPJB1JC2A3TG3TXS"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxE8nU9pMk/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxE8nU9pMk/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "RGVjNe"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxE8nU9pMk/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxE8nU9pMk/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxE8nU9pMk/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxDc28mTZx",
+              "attributes": {
+                "timestamp": 1782969352,
+                "event_properties": {
+                  "List": "Nango Test List A",
+                  "list_id": "XW53Ha",
+                  "$event_id": "XW53Ha1782969352.053049"
+                },
+                "datetime": "2026-07-02T05:15:52+00:00",
+                "uuid": "1837f400-75d5-11f1-8001-891dc56d979f"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFX5CBH8X8N0JMDN5KJ1S3A"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxDc28mTZx/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxDc28mTZx/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "UT43iX"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxDc28mTZx/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxDc28mTZx/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxDc28mTZx/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxCR6XFDX3",
+              "attributes": {
+                "timestamp": 1782969352,
+                "event_properties": {
+                  "list_ids": [
+                    "XW53Ha"
+                  ],
+                  "method_detail": "b273",
+                  "method": "API_V3_SUBSCRIBE",
+                  "email_address": "subscribe.test@nangotest.dev",
+                  "list_names": [
+                    "Nango Test List A"
+                  ],
+                  "$event_id": "1782969352"
+                },
+                "datetime": "2026-07-02T05:15:52+00:00",
+                "uuid": "1837f400-75d5-11f1-8001-42d0105154c3"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFX5CBH8X8N0JMDN5KJ1S3A"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxCR6XFDX3/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxCR6XFDX3/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "RicghZ"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxCR6XFDX3/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxCR6XFDX3/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxCR6XFDX3/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxvS3n9k3B",
+              "attributes": {
+                "timestamp": 1782967978,
+                "event_properties": {
+                  "test_key": "test_value",
+                  "$event_id": "nango-test-event-123"
+                },
+                "datetime": "2026-07-02T04:52:58+00:00",
+                "uuid": "e5403100-75d1-11f1-8001-0dcfc64cb6ca"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFX4MZPQDSD3YG79C83CBDV"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxvS3n9k3B/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxvS3n9k3B/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "WzhEtt"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxvS3n9k3B/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxvS3n9k3B/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxvS3n9k3B/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxvb3KeaAm",
+              "attributes": {
+                "timestamp": 1782967857,
+                "event_properties": {
+                  "MergeType": "Merged via API",
+                  "MergeDate": "2026-07-02T04:50:57",
+                  "$event_id": "merge_tombstone:01KWGJKNY3RC97AKTY266J4XD2:01KWFX5B2R2JJMQTH7J23ZZ0S1",
+                  "$extra": {
+                    "FirstName": null,
+                    "ExternalID": null,
+                    "LastName": null,
+                    "AnonymousID": null,
+                    "KlaviyoID": "01KWGJKNY3RC97AKTY266J4XD2",
+                    "Created": "2026-07-02T04:50:18"
+                  }
+                },
+                "datetime": "2026-07-02T04:50:57+00:00",
+                "uuid": "9d210e80-75d1-11f1-8001-8631d6d6ded1"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFX5B2R2JJMQTH7J23ZZ0S1"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxvb3KeaAm/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxvb3KeaAm/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "V9SixX"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxvb3KeaAm/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxvb3KeaAm/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxvb3KeaAm/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxuAJWpwMB",
+              "attributes": {
+                "timestamp": 1782967722,
+                "event_properties": {
+                  "MergeDate": "2026-07-02T04:48:42",
+                  "MergeType": "Merged via API",
+                  "$event_id": "merge_tombstone:01KWFX59SDCSCCSF0WVS9D5DFT:01KWFX5B2R2JJMQTH7J23ZZ0S1",
+                  "$extra": {
+                    "ExternalID": null,
+                    "LastName": "MergeSource",
+                    "KlaviyoID": "01KWFX59SDCSCCSF0WVS9D5DFT",
+                    "AnonymousID": null,
+                    "FirstName": "Seed",
+                    "Created": "2026-07-01T22:35:27"
+                  }
+                },
+                "datetime": "2026-07-02T04:48:42+00:00",
+                "uuid": "4ca9b100-75d1-11f1-8001-84c9d24ebce6"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFX5B2R2JJMQTH7J23ZZ0S1"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxuAJWpwMB/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxuAJWpwMB/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "V9SixX"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxuAJWpwMB/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxuAJWpwMB/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxuAJWpwMB/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxmgKdAMfk",
+              "attributes": {
+                "timestamp": 1782966435,
+                "event_properties": {
+                  "double_optin": false,
+                  "email_address": "subscribe.test@nangotest.dev",
+                  "list_name": "Nango Test List A",
+                  "list_id": "XW53Ha",
+                  "method": "API_V3_SUBSCRIBE",
+                  "custom_method_detail": null,
+                  "method_detail": "b273",
+                  "$event_id": "01KWFX5CBH8X8N0JMDN5KJ1S3AVXSTFA1782966435"
+                },
+                "datetime": "2026-07-02T04:27:15+00:00",
+                "uuid": "4d8d1380-75ce-11f1-8001-3432fd4c84d7"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFX5CBH8X8N0JMDN5KJ1S3A"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxmgKdAMfk/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxmgKdAMfk/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "SQtSXs"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxmgKdAMfk/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxmgKdAMfk/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxmgKdAMfk/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxmgLcbxPC",
+              "attributes": {
+                "timestamp": 1782966432,
+                "event_properties": {
+                  "list_id": "XW53Ha",
+                  "List": "Nango Test List A",
+                  "$event_id": "XW53Ha1782966432"
+                },
+                "datetime": "2026-07-02T04:27:12+00:00",
+                "uuid": "4bc35000-75ce-11f1-8001-de2d9f7e6ac2"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFX5CBH8X8N0JMDN5KJ1S3A"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxmgLcbxPC/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxmgLcbxPC/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "SnHm3B"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxmgLcbxPC/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxmgLcbxPC/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxmgLcbxPC/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fvdejYRW7k",
+              "attributes": {
+                "timestamp": 1782943739,
+                "event_properties": {
+                  "email_address": "api@nango.dev",
+                  "suppression_method": "BOT_PROTECTION",
+                  "$event_id": "1782943739"
+                },
+                "datetime": "2026-07-01T22:08:59+00:00",
+                "uuid": "75ae4f80-7599-11f1-8001-d2da8ed040af"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFVK2PYZEYGGRNDRWEC6SMN"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fvdejYRW7k/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fvdejYRW7k/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "XyULiM"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fvdejYRW7k/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fvdejYRW7k/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fvdejYRW7k/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxkWWsHxXF",
+              "attributes": {
+                "timestamp": 1782914400,
+                "event_properties": {
+                  "seed": "nango-test",
+                  "$event_id": "nango-seed-event-3",
+                  "$value": 42.5
+                },
+                "datetime": "2026-07-01T14:00:00+00:00",
+                "uuid": "26463000-7555-11f1-8001-c3b768f317c5"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFX543QCNFFAPCDNGTRCESM"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxkWWsHxXF/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxkWWsHxXF/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "UGkwJB"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxkWWsHxXF/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxkWWsHxXF/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxkWWsHxXF/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxkTBhj7cn",
+              "attributes": {
+                "timestamp": 1782910800,
+                "event_properties": {
+                  "seed": "nango-test",
+                  "$event_id": "nango-seed-event-2"
+                },
+                "datetime": "2026-07-01T13:00:00+00:00",
+                "uuid": "c481c800-754c-11f1-8001-26f10f3dcef1"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFX52Q0EK1Q2NPWA93X35DS"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxkTBhj7cn/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxkTBhj7cn/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "Tsirvm"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxkTBhj7cn/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxkTBhj7cn/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxkTBhj7cn/"
+              }
+            },
+            {
+              "type": "event",
+              "id": "7fxkUHF8g5Y",
+              "attributes": {
+                "timestamp": 1782907200,
+                "event_properties": {
+                  "seed": "nango-test",
+                  "item": "Nango Seed Delete Item One",
+                  "$event_id": "nango-seed-event-1",
+                  "$value": 19.99
+                },
+                "datetime": "2026-07-01T12:00:00+00:00",
+                "uuid": "62bd6000-7544-11f1-8001-34a792894cc7"
+              },
+              "relationships": {
+                "profile": {
+                  "data": {
+                    "type": "profile",
+                    "id": "01KWFX4MZPQDSD3YG79C83CBDV"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxkUHF8g5Y/relationships/profile/",
+                    "related": "https://a.klaviyo.com/api/events/7fxkUHF8g5Y/profile/"
+                  }
+                },
+                "metric": {
+                  "data": {
+                    "type": "metric",
+                    "id": "UGkwJB"
+                  },
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/events/7fxkUHF8g5Y/relationships/metric/",
+                    "related": "https://a.klaviyo.com/api/events/7fxkUHF8g5Y/metric/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/events/7fxkUHF8g5Y/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/events",
+            "next": null,
+            "prev": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 05:25:56 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1782969990",
+          "cf-ray": "a14b3b9008041319-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; base-uri 'none'; report-uri /csp/",
+          "ratelimit-limit": "350, 350;w=1, 3500;w=60",
+          "ratelimit-remaining": "349",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "158",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "8235d8ff-2cce-486a-afa4-19d265041bb9"
+        },
+        "hash": "d8440f265a537785c2a69a0c88dc7b3edef0f39f",
+        "request": {
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "input": {
+    "emails": [
+      "nango-test-warmup@example.com"
+    ]
+  },
+  "output": {
+    "id": "6a4431ffe7344abb7a05b177",
+    "workspace_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+    "user_id": null,
+    "type": "update-warmup-accounts",
+    "entity_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+    "entity_type": "workspace",
+    "data": {
+      "filters": {
+        "emails": [
+          "nango-test-warmup@example.com"
+        ],
+        "includeAllEmails": null,
+        "excludedEmails": null,
+        "filter": null,
+        "search": null
+      },
+      "warmup_status": 0
+    },
+    "progress": 0,
+    "status": "pending",
+    "created_at": "2026-06-30T21:15:43.697Z",
+    "updated_at": "2026-06-30T21:15:43.697Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/accounts/warmup/disable": {
+        "response": {
+          "id": "6a4431ffe7344abb7a05b177",
+          "workspace_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "type": "update-warmup-accounts",
+          "progress": 0,
+          "status": "pending",
+          "created_at": "2026-06-30T21:15:43.697Z",
+          "updated_at": "2026-06-30T21:15:43.697Z",
+          "user_id": null,
+          "entity_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "entity_type": "workspace",
+          "data": {
+            "filters": {
+              "emails": [
+                "nango-test-warmup@example.com"
+              ],
+              "includeAllEmails": null,
+              "excludedEmails": null,
+              "filter": null,
+              "search": null
+            },
+            "warmup_status": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:15:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "479",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4869",
+          "x-ratelimit-reset": "1782854145",
+          "x-request-id": "3670456159084348860",
+          "etag": "W/\"1df-eNrVCIRIa0iwa8ogXMCPy+BCgwU\""
+        },
+        "hash": "b8cc6b1a93a0f7df0d204d14d9f56460496c6c5a",
+        "request": {
+          "data": {
+            "emails": [
+              "nango-test-warmup@example.com"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

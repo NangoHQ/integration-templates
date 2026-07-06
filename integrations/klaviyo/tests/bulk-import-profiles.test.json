@@ -1,0 +1,141 @@
+{
+  "input": {
+    "profiles": [
+      {
+        "email": "bulk.import.one.20260702@nangotest.dev",
+        "first_name": "Bulk",
+        "last_name": "One"
+      },
+      {
+        "email": "bulk.import.two.20260702@nangotest.dev",
+        "first_name": "Bulk",
+        "last_name": "Two"
+      }
+    ],
+    "list_id": "XW53Ha"
+  },
+  "output": {
+    "job_id": "VlhTVEZBX21haW50ZW5hbmNlLkxoaVdlaC4xNzgyOTY5NTk3LmZ1NkpTMQ",
+    "status": "queued",
+    "failed_count": 0,
+    "completed_count": 0,
+    "total_count": 2
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/profile-bulk-import-jobs": {
+        "response": {
+          "data": {
+            "type": "profile-bulk-import-job",
+            "id": "VlhTVEZBX21haW50ZW5hbmNlLkxoaVdlaC4xNzgyOTY5NTk3LmZ1NkpTMQ",
+            "attributes": {
+              "status": "queued",
+              "created_at": "2026-07-02T05:19:57+00:00",
+              "total_count": 2,
+              "completed_count": 0,
+              "failed_count": 0,
+              "completed_at": null,
+              "expires_at": "2026-07-09T05:19:57+00:00",
+              "started_at": null
+            },
+            "relationships": {
+              "lists": {
+                "data": [
+                  {
+                    "type": "list",
+                    "id": "XW53Ha"
+                  }
+                ],
+                "links": {
+                  "self": "https://a.klaviyo.com/api/profile-bulk-import-jobs/VlhTVEZBX21haW50ZW5hbmNlLkxoaVdlaC4xNzgyOTY5NTk3LmZ1NkpTMQ/relationships/lists/",
+                  "related": "https://a.klaviyo.com/api/profile-bulk-import-jobs/VlhTVEZBX21haW50ZW5hbmNlLkxoaVdlaC4xNzgyOTY5NTk3LmZ1NkpTMQ/lists/"
+                }
+              },
+              "profiles": {
+                "links": {
+                  "self": "https://a.klaviyo.com/api/profile-bulk-import-jobs/VlhTVEZBX21haW50ZW5hbmNlLkxoaVdlaC4xNzgyOTY5NTk3LmZ1NkpTMQ/relationships/profiles/",
+                  "related": "https://a.klaviyo.com/api/profile-bulk-import-jobs/VlhTVEZBX21haW50ZW5hbmNlLkxoaVdlaC4xNzgyOTY5NTk3LmZ1NkpTMQ/profiles/"
+                }
+              },
+              "import-errors": {
+                "links": {
+                  "related": "https://a.klaviyo.com/api/profile-bulk-import-jobs/VlhTVEZBX21haW50ZW5hbmNlLkxoaVdlaC4xNzgyOTY5NTk3LmZ1NkpTMQ/import-errors/"
+                }
+              }
+            },
+            "links": {
+              "self": "https://a.klaviyo.com/api/profile-bulk-import-jobs/VlhTVEZBX21haW50ZW5hbmNlLkxoaVdlaC4xNzgyOTY5NTk3LmZ1NkpTMQ/"
+            }
+          },
+          "links": {
+            "self": "https://a.klaviyo.com/api/profile-bulk-import-jobs"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 05:19:57 GMT",
+          "content-type": "application/vnd.api+json",
+          "content-length": "1324",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4965",
+          "x-ratelimit-reset": "1782969607",
+          "etag": "W/\"52c-fbPVhvipB8Pof/M9omZsQETCKfY\""
+        },
+        "hash": "a2a498c3c76a114bba20fd2735262393085a1092",
+        "request": {
+          "headers": {
+            "revision": "2026-04-15"
+          },
+          "data": {
+            "data": {
+              "type": "profile-bulk-import-job",
+              "attributes": {
+                "profiles": {
+                  "data": [
+                    {
+                      "type": "profile",
+                      "attributes": {
+                        "email": "bulk.import.one.20260702@nangotest.dev",
+                        "first_name": "Bulk",
+                        "last_name": "One"
+                      }
+                    },
+                    {
+                      "type": "profile",
+                      "attributes": {
+                        "email": "bulk.import.two.20260702@nangotest.dev",
+                        "first_name": "Bulk",
+                        "last_name": "Two"
+                      }
+                    }
+                  ]
+                }
+              },
+              "relationships": {
+                "lists": {
+                  "data": [
+                    {
+                      "type": "list",
+                      "id": "XW53Ha"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
