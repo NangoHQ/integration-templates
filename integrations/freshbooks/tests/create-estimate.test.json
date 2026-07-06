@@ -1,0 +1,143 @@
+{
+  "input": {
+    "customerid": 567521,
+    "create_date": "2026-06-29",
+    "currency_code": "USD",
+    "lines": [
+      {
+        "type": 0,
+        "name": "Test Estimate Line",
+        "qty": 1,
+        "unit_cost": {
+          "amount": "100.00",
+          "code": "USD"
+        }
+      }
+    ]
+  },
+  "output": {
+    "id": 28509,
+    "customerid": 567521,
+    "create_date": "2026-06-29",
+    "currency_code": "USD"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountId": "ZyQ04o"
+    }
+  },
+  "api": {
+    "post": {
+      "/accounting/account/ZyQ04o/estimates/estimates": {
+        "response": {
+          "response": {
+            "result": {
+              "estimate": {
+                "accepted": false,
+                "accounting_systemid": "ZyQ04o",
+                "address": "",
+                "amount": {
+                  "amount": "100.00",
+                  "code": "USD"
+                },
+                "city": "",
+                "code": "",
+                "country": "",
+                "create_date": "2026-06-29",
+                "created_at": "2026-06-29 12:53:52",
+                "currency_code": "USD",
+                "current_organization": "Nango Test Co",
+                "customerid": 567521,
+                "description": "",
+                "discount_total": {
+                  "amount": "0.00",
+                  "code": "USD"
+                },
+                "discount_value": "0",
+                "display_status": "draft",
+                "estimate_number": "0000003",
+                "estimateid": 28509,
+                "ext_archive": 0,
+                "fname": "Alice",
+                "id": 28509,
+                "invoiced": false,
+                "language": "en",
+                "lname": "Nango",
+                "modern_projectid": null,
+                "notes": "",
+                "organization": "Nango Test Co",
+                "ownerid": 1,
+                "po_number": null,
+                "province": "",
+                "reply_status": null,
+                "require_client_signature": false,
+                "rich_proposal": false,
+                "sentid": 1,
+                "status": 1,
+                "street": "",
+                "street2": "",
+                "template": "clean-grouped",
+                "terms": null,
+                "ui_status": "draft",
+                "updated": "2026-06-29 12:53:52",
+                "vat_name": "",
+                "vat_number": "",
+                "vis_state": 0
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 29 Jun 2026 16:53:52 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556926; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "250",
+          "x-ratelimit-remaining": "247",
+          "x-ratelimit-reset": "1782752059",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-api-version": "2023-02-20",
+          "permissions-policy": "browsing-topics=()",
+          "content-security-policy": "default-src 'self'; object-src 'none'",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "retry-after": "26",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "7f3575be51d6e808a7da63527a219d2b5aad55f2",
+        "request": {
+          "data": {
+            "estimate": {
+              "customerid": 567521,
+              "create_date": "2026-06-29",
+              "currency_code": "USD",
+              "lines": [
+                {
+                  "type": 0,
+                  "name": "Test Estimate Line",
+                  "qty": 1,
+                  "unit_cost": {
+                    "amount": "100.00",
+                    "code": "USD"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

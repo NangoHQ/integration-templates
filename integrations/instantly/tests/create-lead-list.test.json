@@ -1,0 +1,51 @@
+{
+  "input": {
+    "name": "Nango Test Lead List"
+  },
+  "output": {
+    "id": "119389b5-6900-4e2b-bd60-9dc7c08c1c95",
+    "name": "Nango Test Lead List",
+    "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+    "timestamp_created": "2026-06-30T21:12:49.978Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/lead-lists": {
+        "response": {
+          "id": "119389b5-6900-4e2b-bd60-9dc7c08c1c95",
+          "organization_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "name": "Nango Test Lead List",
+          "timestamp_created": "2026-06-30T21:12:49.978Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:12:50 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "179",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1782854023",
+          "x-request-id": "7141390610328862889",
+          "etag": "W/\"b3-WHkjA5neJlaQ0v4OzfBZUJNX8Dg\""
+        },
+        "hash": "2359e4fec87592b251daec82b589bbe9301c0e4a",
+        "request": {
+          "data": {
+            "name": "Nango Test Lead List"
+          }
+        }
+      }
+    }
+  }
+}
