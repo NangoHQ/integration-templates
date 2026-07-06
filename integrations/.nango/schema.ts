@@ -4398,16 +4398,16 @@ export interface User {
 
 export interface Webhook {
   id: string;
-  event_type: string;
-  team_id: string;
-  context: string;
-  context_id: string;
-  plan_api_id: string;
-  status: string;
-  client_id: string;
-  passcode: string;
-  endpoint: string;
-  description: string;
+  organization: string;
+  campaign?: string | undefined;
+  name?: string | undefined;
+  target_hook_url: string;
+  event_type?: string | undefined;
+  custom_interest_value?: number | undefined;
+  headers?: {  [key: string]: string;} | undefined;
+  timestamp_created: string;
+  status?: number | undefined;
+  timestamp_error?: string | undefined;
 };
 
 export interface ActionInput_aircall_addteammember {
@@ -64183,13 +64183,3471 @@ export interface ActionOutput_hubspot_whoami {
   hubDomain?: string | undefined;
 };
 
-export interface ActionInput_instantly_setcampaignname {
+export interface AccountAnalytics {
+  id: string;
+  /**
+   * The date of the analytics entry, in YYYY-MM-DD format
+   */
+  date: string;
+  /**
+   * The email account that sent the emails
+   */
+  email_account: string;
+  /**
+   * The total number of campaign emails sent on this date by this account
+   */
+  sent: number;
+  /**
+   * The number of emails that bounced on this date for this account
+   */
+  bounced: number;
+  /**
+   * The total number of unique contacts who received an email on this date from this account
+   */
+  contacted: number;
+  /**
+   * The total number of new leads contacted on this date from this account
+   */
+  new_leads_contacted: number;
+  /**
+   * The total number of opened emails on this date for this account
+   */
+  opened: number;
+  /**
+   * The total number of unique opened emails on this date for this account
+   */
+  unique_opened: number;
+  /**
+   * The total number of replies received on this date for this account
+   */
+  replies: number;
+  /**
+   * The total number of unique replies received on this date for this account
+   */
+  unique_replies: number;
+  /**
+   * The total number of automatic replies detected on this date for this account
+   */
+  replies_automatic: number;
+  /**
+   * The total number of unique automatic replies detected on this date for this account
+   */
+  unique_replies_automatic: number;
+  /**
+   * The total number of links clicked on this date for this account
+   */
+  clicks: number;
+  /**
+   * The total number of unique links clicked on this date for this account
+   */
+  unique_clicks: number;
+};
+
+export interface BackgroundJob {
+  id: string;
+  workspace_id: string;
+  user_id?: string | undefined;
+  type: string;
+  entity_id?: string | undefined;
+  entity_type?: string | undefined;
+  data?: {  [key: string]: unknown | undefined;};
+  progress: number;
+  status: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export interface CampaignAnalytics {
+  id: string;
   campaign_id: string;
+  campaign_name?: string | undefined;
+  campaign_status?: number | undefined;
+  campaign_is_evergreen?: boolean | undefined;
+  leads_count?: number | undefined;
+  contacted_count?: number | undefined;
+  emails_sent_count?: number | undefined;
+  new_leads_contacted_count?: number | undefined;
+  open_count?: number | undefined;
+  open_count_unique?: number | undefined;
+  open_count_unique_by_step?: number | undefined;
+  reply_count?: number | undefined;
+  reply_count_unique?: number | undefined;
+  reply_count_unique_by_step?: number | undefined;
+  reply_count_automatic?: number | undefined;
+  reply_count_automatic_unique?: number | undefined;
+  reply_count_automatic_unique_by_step?: number | undefined;
+  link_click_count?: number | undefined;
+  link_click_count_unique?: number | undefined;
+  link_click_count_unique_by_step?: number | undefined;
+  bounced_count?: number | undefined;
+  unsubscribed_count?: number | undefined;
+  completed_count?: number | undefined;
+  total_opportunities?: number | undefined;
+  total_opportunity_value?: number | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+};
+
+export interface CampaignAnalyticsOverview {
+  id: string;
+  campaign_id: string;
+  open_count?: number | undefined;
+  open_count_unique?: number | undefined;
+  open_count_unique_by_step?: number | undefined;
+  link_click_count?: number | undefined;
+  link_click_count_unique?: number | undefined;
+  link_click_count_unique_by_step?: number | undefined;
+  reply_count?: number | undefined;
+  reply_count_unique?: number | undefined;
+  reply_count_unique_by_step?: number | undefined;
+  reply_count_automatic?: number | undefined;
+  reply_count_automatic_unique?: number | undefined;
+  reply_count_automatic_unique_by_step?: number | undefined;
+  bounced_count?: number | undefined;
+  unsubscribed_count?: number | undefined;
+  completed_count?: number | undefined;
+  emails_sent_count?: number | undefined;
+  contacted_count?: number | undefined;
+  new_leads_contacted_count?: number | undefined;
+  total_opportunities?: number | undefined;
+  total_opportunity_value?: number | undefined;
+  total_interested?: number | undefined;
+  total_meeting_booked?: number | undefined;
+  total_meeting_completed?: number | undefined;
+  total_closed?: number | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+};
+
+export interface CampaignAnalyticsDaily {
+  id: string;
+  campaign_id: string;
+  date: string;
+  sent?: number | undefined;
+  contacted?: number | undefined;
+  new_leads_contacted?: number | undefined;
+  opened?: number | undefined;
+  unique_opened?: number | undefined;
+  replies?: number | undefined;
+  unique_replies?: number | undefined;
+  replies_automatic?: number | undefined;
+  unique_replies_automatic?: number | undefined;
+  clicks?: number | undefined;
+  unique_clicks?: number | undefined;
+  opportunities?: number | undefined;
+  unique_opportunities?: number | undefined;
+};
+
+export interface CampaignAnalyticsSteps {
+  id: string;
+  campaign_id: string;
+  step?: string | undefined;
+  variant?: string | undefined;
+  sent?: number | undefined;
+  opened?: number | undefined;
+  unique_opened?: number | undefined;
+  replies?: number | undefined;
+  unique_replies?: number | undefined;
+  replies_automatic?: number | undefined;
+  unique_replies_automatic?: number | undefined;
+  clicks?: number | undefined;
+  unique_clicks?: number | undefined;
+  opportunities?: number | undefined;
+  unique_opportunities?: number | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+};
+
+export interface CustomTag {
+  id: string;
+  organization_id: string;
+  label: string;
+  color?: string | undefined;
+  description?: string | undefined;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+};
+
+export interface Email {
+  id: string;
+  timestamp_created: string;
+  timestamp_email?: string | undefined;
+  message_id?: string | undefined;
+  subject?: string | undefined;
+  from_address_email?: string | undefined;
+  to_address_email_list?: string | undefined;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body?: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id?: string | undefined;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount?: string | undefined;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  attachment_json?: {  files?: ({  filename: string;
+  size?: number | undefined;
+  type?: string | undefined;
+  url?: string | undefined;
+  error?: string | undefined;})[];};
+  from_address_json?: unknown | undefined;
+  to_address_json?: unknown | undefined;
+  cc_address_json?: unknown | undefined;
+  ai_agent_id?: string | undefined;
+};
+
+export interface LeadList {
+  id: string;
+  organization_id: string;
+  has_enrichment_task?: boolean | undefined;
+  owned_by?: string | undefined;
+  name: string;
+  timestamp_created: string;
+};
+
+export interface SyncMetadata_instantly_leads {
+  /**
+   * Optional list ID to scope the leads sync. Example: 019f1a45-4dfb-7da4-b68b-0eaf57f6b3a6
+   */
+  list_id?: string | undefined;
+  /**
+   * Optional campaign ID to scope the leads sync. Example: 019f1a45-4dfb-7da4-b68b-0eaad1f324ea
+   */
+  campaign_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_activatecampaign {
+  /**
+   * Campaign ID. Example: "ec8dae2c-8bd3-461d-90db-a8d262719b5f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_activatecampaign {
+  id: string;
+  name: string;
+  status: number;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  campaign_schedule?: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  [key: string]: unknown | undefined;})[];})[];
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+};
+
+export interface ActionInput_instantly_addcampaignvariables {
+  /**
+   * Campaign ID. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  campaign_id: string;
+  /**
+   * Array of custom variable name strings to register on the campaign. Example: ["first_name", "company_name"]
+   */
+  variables: string[];
+};
+
+export interface ActionOutput_instantly_addcampaignvariables {
+  id: string;
+  name?: string | undefined;
+  status?: number | undefined;
+};
+
+export interface ActionInput_instantly_addleads {
+  /**
+   * The unique identifier for the campaign to add leads to. Example: "019f1a45-a728-7d40-9901-742d3ad2fddf"
+   */
+  campaign_id: string;
+  /**
+   * An array of lead objects to create. Must contain at least 1 and at most 1000 leads.
+   */
+  leads: ({  /**
+   * Email address of the lead
+   */
+  email?: string | undefined;
+  /**
+   * First name of the lead
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the lead
+   */
+  last_name?: string | undefined;
+  /**
+   * Company name of the lead
+   */
+  company_name?: string | undefined;
+  /**
+   * Job title of the lead
+   */
+  job_title?: string | undefined;
+  /**
+   * Phone number of the lead
+   */
+  phone?: string | undefined;
+  /**
+   * Website of the lead
+   */
+  website?: string | undefined;
+  /**
+   * Personalization of the lead
+   */
+  personalization?: string | undefined;
+  /**
+   * Lead interest status
+   */
+  lt_interest_status?: number | undefined;
+  /**
+   * Potential value of the lead
+   */
+  pl_value_lead?: string | undefined;
+  /**
+   * ID of the user assigned to the lead
+   */
+  assigned_to?: string | undefined;
+  /**
+   * Custom variables for the lead
+   */
+  custom_variables?: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Optional blocklist ID to check leads against.
+   */
+  blocklist_id?: string | undefined;
+  /**
+   * Optional user ID to assign all imported leads to.
+   */
+  assigned_to?: string | undefined;
+  /**
+   * If true, a background job will be created to verify the email addresses of the imported leads.
+   */
+  verify_leads_on_import?: boolean | undefined;
+  /**
+   * If true, any lead that already exists anywhere in your workspace will be skipped.
+   */
+  skip_if_in_workspace?: boolean | undefined;
+  /**
+   * If true, any lead that already exists in ANY campaign in your workspace will be skipped.
+   */
+  skip_if_in_campaign?: boolean | undefined;
+  /**
+   * If true, any lead that already exists in ANY list in your workspace will be skipped.
+   */
+  skip_if_in_list?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_addleads {
+  status: string;
+  total_sent: number;
+  leads_uploaded: number;
+  in_blocklist: number;
+  blocklist_used?: string | undefined;
+  duplicated_leads: number;
+  skipped_count: number;
+  invalid_email_count: number;
+  incomplete_count: number;
+  duplicate_email_count: number;
+  remaining_in_plan?: number | undefined;
+  created_leads: ({  id: string;
+  index: number;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  phone?: string | undefined;})[];
+};
+
+export interface ActionInput_instantly_bulkassignleads {
+  /**
+   * Array of organization user IDs to assign leads to. Example: ["019f1a45-a723-7e22-8a57-336ad585bbaa"]
+   */
+  organization_user_ids: string[];
+  /**
+   * Specific lead IDs to assign. Example: ["019f1a45-a723-7e22-8a57-336cd2ecffe0"]
+   */
+  ids?: string[] | undefined;
+  /**
+   * Campaign ID to filter leads by. Example: "019f1a45-a723-7e22-8a57-336813395c1f"
+   */
+  campaign?: string | undefined;
+  /**
+   * List ID to filter leads by. Example: "019f1a45-a723-7e22-8a57-33693d8d3f7e"
+   */
+  list_id?: string | undefined;
+  /**
+   * Search query to filter leads by. Example: "test"
+   */
+  search?: string | undefined;
+  /**
+   * Filter to apply to the leads. Example: "FILTER_LEAD_CLOSED"
+   */
+  filter?: 'FILTER_VAL_CONTACTED' | 'FILTER_VAL_NOT_CONTACTED' | 'FILTER_VAL_COMPLETED' | 'FILTER_VAL_UNSUBSCRIBED' | 'FILTER_VAL_ACTIVE' | 'FILTER_LEAD_INTERESTED' | 'FILTER_LEAD_NOT_INTERESTED' | 'FILTER_LEAD_MEETING_BOOKED' | 'FILTER_LEAD_MEETING_COMPLETED' | 'FILTER_LEAD_CLOSED' | 'FILTER_LEAD_OUT_OF_OFFICE' | 'FILTER_LEAD_WRONG_PERSON' | 'FILTER_LEAD_LOST' | 'FILTER_LEAD_NO_SHOW' | 'FILTER_LEAD_CUSTOM_LABEL_POSITIVE' | 'FILTER_LEAD_CUSTOM_LABEL_NEGATIVE' | 'FILTER_VAL_BOUNCED' | 'FILTER_VAL_SKIPPED' | 'FILTER_VAL_RISKY' | 'FILTER_VAL_INVALID' | 'FILTER_VAL_VALID' | 'FILTER_VAL_IN_SUBSEQUENCE' | 'FILTER_VAL_OPENED_NO_REPLY' | 'FILTER_VAL_COMPLETED_NO_REPLY' | 'FILTER_VAL_NO_OPENS' | 'FILTER_VAL_REPLIED' | 'FILTER_VAL_LINK_CLICKED' | undefined;
+  /**
+   * Whether the leads are in the campaign.
+   */
+  in_campaign?: boolean | undefined;
+  /**
+   * Whether the leads are in the list.
+   */
+  in_list?: boolean | undefined;
+  /**
+   * Smart view ID to filter leads by. Example: "019f1a45-a723-7e22-8a57-336ba3fea9c9"
+   */
+  smart_view_id?: string | undefined;
+  /**
+   * Maximum number of leads to assign. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Filter leads by their current owner. Example: "019f1a45-a723-7e22-8a57-336dd0df52c5"
+   */
+  assigned_to?: string | undefined;
+  /**
+   * Whether to apply filters from the web app.
+   */
+  has_clause?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_bulkassignleads {
+  status: string;
+  message: string;
+};
+
+export interface ActionInput_instantly_countunreademails {
+};
+
+export interface ActionOutput_instantly_countunreademails {
+  count: number;
+};
+
+export interface ActionInput_instantly_createaccount {
+  /**
+   * Email address of the account. Example: "user@example.com"
+   */
+  email: string;
+  /**
+   * First name associated with the account. Example: "John"
+   */
+  first_name: string;
+  /**
+   * Last name associated with the account. Example: "Doe"
+   */
+  last_name: string;
+  /**
+   * Provider code: 1=Custom IMAP/SMTP, 2=Google, 3=Microsoft, 4=AWS, 8=AirMail
+   */
+  provider_code: number;
+  /**
+   * IMAP username. Example: "username"
+   */
+  imap_username: string;
+  /**
+   * IMAP password. Example: "password"
+   */
+  imap_password: string;
+  /**
+   * IMAP host. Example: "imap.gmail.com"
+   */
+  imap_host: string;
+  /**
+   * IMAP port. Example: 993
+   */
+  imap_port: number;
+  /**
+   * SMTP username. Example: "username"
+   */
+  smtp_username: string;
+  /**
+   * SMTP password. Example: "password"
+   */
+  smtp_password: string;
+  /**
+   * SMTP host. Example: "smtp.gmail.com"
+   */
+  smtp_host: string;
+  /**
+   * SMTP port. Example: 587
+   */
+  smtp_port: number;
+  daily_limit?: number | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: '0' | '1' | '2' | '3' | '4' | 'disabled' | undefined;
+  reply_rate?: number | undefined;};
+  skip_cname_check?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_createaccount {
+  email: string;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  first_name: string;
+  last_name: string;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: string | undefined;
+  reply_rate?: number | undefined;};
+  added_by?: string | undefined;
+  daily_limit?: number | undefined;
+  daily_limit_max?: number | undefined;
+  warmup_limit_max?: number | undefined;
+  modified_by?: string | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  status?: number | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  organization?: string | undefined;
+  timestamp_last_used?: string | undefined;
+  warmup_status?: number | undefined;
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  responseCode?: number | undefined;};
+  timestamp_warmup_start?: string | undefined;
+  provider_code: number;
+  setup_pending?: boolean | undefined;
+  warmup_pool_id?: string | undefined;
+  is_managed_account?: boolean | undefined;
+  dfy_password_changed?: boolean | undefined;
+  is_ready_made_account?: boolean | undefined;
+  stat_warmup_score?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  autofix_failed?: boolean | undefined;
+};
+
+export interface ActionInput_instantly_createcampaignfromexport {
+  /**
+   * Source campaign ID to clone. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  id: string;
+  /**
+   * Optional name override for the new campaign.
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_instantly_createcampaignfromexport {
+  id: string;
+  name: string;
+  status: number;
+  pl_value?: number | undefined;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule?: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  type: string;
+  delay: number;
+  delay_unit?: string | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: string | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  [key: string]: unknown | undefined;};
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  [key: string]: unknown | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_instantly_createcampaign {
+  name: string;
+  pl_value?: number | undefined;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  0?: boolean | undefined;
+  1?: boolean | undefined;
+  2?: boolean | undefined;
+  3?: boolean | undefined;
+  4?: boolean | undefined;
+  5?: boolean | undefined;
+  6?: boolean | undefined;};
+  timezone: 'Etc/GMT+1' | 'Etc/GMT+2' | 'Etc/GMT+3' | 'Etc/GMT+4' | 'Etc/GMT+5' | 'Etc/GMT+6' | 'Etc/GMT+7' | 'Etc/GMT+8' | 'Etc/GMT+9' | 'Etc/GMT+10' | 'Etc/GMT+11' | 'Etc/GMT+12' | 'Etc/GMT-1' | 'Etc/GMT-2' | 'Etc/GMT-3' | 'Etc/GMT-4' | 'Etc/GMT-5' | 'Etc/GMT-6' | 'Etc/GMT-7' | 'Etc/GMT-8' | 'Etc/GMT-9' | 'Etc/GMT-10' | 'Etc/GMT-11' | 'Etc/GMT-12';})[];};
+  sequences?: ({  steps: ({  type: 'email';
+  delay: number;
+  delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger: 'reply_rate' | 'click_rate' | 'open_rate';} | undefined;
+  match_lead_esp?: boolean | undefined;
+  stop_for_company?: boolean | undefined;
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode: 'custom' | 'disabled';
+  daily_limit?: number | undefined;
+  scope?: 'per_campaign' | 'across_workspace' | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action: 'send' | 'do_not_send';
+  recipient_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];
+  sender_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];})[] | undefined;
+};
+
+export interface ActionOutput_instantly_createcampaign {
+  id: string;
+  name: string;
+  pl_value?: number | undefined;
+  status: number;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  0?: boolean | undefined;
+  1?: boolean | undefined;
+  2?: boolean | undefined;
+  3?: boolean | undefined;
+  4?: boolean | undefined;
+  5?: boolean | undefined;
+  6?: boolean | undefined;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  type: 'email';
+  delay: number;
+  delay_unit?: string | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: string | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger: string;} | undefined;
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode: string;
+  daily_limit?: number | undefined;
+  scope?: string | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action: string;
+  recipient_esp: string[];
+  sender_esp: string[];})[] | undefined;
+};
+
+export interface ActionInput_instantly_createcustomtag {
+  /**
+   * Display label for the custom tag. Example: "Important"
+   */
+  label: string;
+  /**
+   * Optional description for the custom tag. Example: "Tag for high priority items"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_instantly_createcustomtag {
+  id: string;
+  label: string;
+  description?: string | undefined;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  organization_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_createleadlist {
+  /**
+   * Name of the lead list to create. Example: "My Lead List"
+   */
   name: string;
 };
 
-export interface ActionOutput_instantly_setcampaignname {
+export interface ActionOutput_instantly_createleadlist {
+  id: string;
+  name: string;
+  organization_id: string;
+  timestamp_created: string;
+};
+
+export interface ActionInput_instantly_createlead {
+  /**
+   * Email address of the lead. Example: "example@example.com"
+   */
+  email: string;
+  /**
+   * First name of the lead. Example: "John"
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the lead. Example: "Doe"
+   */
+  last_name?: string | undefined;
+  /**
+   * Company name of the lead. Example: "Example Inc."
+   */
+  company_name?: string | undefined;
+  /**
+   * List ID associated with the lead. Example: "019f1a45-4dfb-7da4-b68b-0eaf57f6b3a6"
+   */
+  list_id?: string | undefined;
+  /**
+   * Custom fields map for the lead. Values can be string, number, boolean, or null.
+   */
+  payload?: {  [key: string]: string | number | boolean | null;} | undefined;
+};
+
+export interface ActionOutput_instantly_createlead {
+  id: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  organization: string;
+  status: number;
+  email_open_count: number;
+  email_reply_count: number;
+  email_click_count: number;
+  company_domain: string;
+  status_summary?: {  lastStep?: {  from?: string | undefined;
+  stepID?: string | undefined;
+  timestamp_executed?: string | undefined;};
+  domain_complete?: boolean | undefined;};
+  campaign?: string | undefined;
+  email?: string | undefined;
+  personalization?: string | undefined;
+  website?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  status_summary_subseq?: {  from?: string | undefined;
+  stepID?: string | undefined;
+  timestampExecuted?: string | undefined;};
+  last_step_from?: string | undefined;
+  last_step_id?: string | undefined;
+  last_step_timestamp_executed?: string | undefined;
+  email_opened_step?: number | undefined;
+  email_opened_variant?: number | undefined;
+  email_replied_step?: number | undefined;
+  email_replied_variant?: number | undefined;
+  email_clicked_step?: number | undefined;
+  email_clicked_variant?: number | undefined;
+  lt_interest_status?: number | undefined;
+  subsequence_id?: string | undefined;
+  verification_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  timestamp_added_subsequence?: string | undefined;
+  timestamp_last_contact?: string | undefined;
+  timestamp_last_open?: string | undefined;
+  timestamp_last_reply?: string | undefined;
+  timestamp_last_interest_change?: string | undefined;
+  timestamp_last_click?: string | undefined;
+  enrichment_status?: number | undefined;
+  list_id?: string | undefined;
+  last_contacted_from?: string | undefined;
+  uploaded_by_user?: string | undefined;
+  upload_method?: string | undefined;
+  assigned_to?: string | undefined;
+  is_website_visitor?: boolean | undefined;
+  timestamp_last_touch?: string | undefined;
+  esp_code?: number | undefined;
+  esg_code?: number | undefined;
+  payload?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_instantly_createwebhook {
+  /**
+   * Optional user-defined name for the webhook. Example: "Zapier Positive Replies"
+   */
+  name?: string | undefined;
+  /**
+   * Target URL to send webhook payloads. Must start with http:// or https://. Example: https://webhook.site/unique-url
+   */
+  target_hook_url: string;
+  /**
+   * Type of event to trigger the webhook. Valid values: all_events, email_sent, email_bounced, email_opened, email_link_clicked, reply_received, lead_unsubscribed, campaign_completed, account_error, lead_neutral, lead_interested, lead_not_interested, lead_meeting_booked, lead_meeting_completed, lead_closed, lead_out_of_office, lead_wrong_person, lead_no_show, supersearch_enrichment_completed, custom_label_any_positive, custom_label_any_negative. Example: email_sent
+   */
+  event_type?: string | undefined;
+  /**
+   * Optional campaign UUID to filter events (omit for all campaigns in workspace). Example: 019f1a5b-d114-7571-a55f-e0326358730b
+   */
+  campaign?: string | undefined;
+  /**
+   * Custom interest value - corresponds to LeadLabel.interest_status (used for custom label events). Example: 1
+   */
+  custom_interest_value?: number | undefined;
+  /**
+   * Optional HTTP headers to include when delivering webhook payloads (key-value pairs). Example: { Authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=" }
+   */
+  headers?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_instantly_createwebhook {
+  /**
+   * Unique identifier for the webhook (UUID). Example: 019f1a5b-d114-7571-a55f-e03043a03717
+   */
+  id: string;
+  /**
+   * Organization (workspace) UUID that owns this webhook. Example: 019f1a5b-d114-7571-a55f-e03178d1c488
+   */
+  organization: string;
+  /**
+   * Target URL to send webhook payloads. Example: https://webhook.site/unique-url
+   */
+  target_hook_url: string;
+  /**
+   * Timestamp when the webhook was created. Example: 2026-06-30T21:07:32.756Z
+   */
+  timestamp_created: string;
+  /**
+   * Optional campaign UUID to filter events. Example: 019f1a5b-d114-7571-a55f-e0326358730b
+   */
+  campaign?: string | undefined;
+  /**
+   * Optional user-defined name for the webhook. Example: Zapier Positive Replies
+   */
+  name?: string | undefined;
+  /**
+   * Type of event to trigger the webhook. Example: email_sent
+   */
+  event_type?: string | undefined;
+  /**
+   * Custom interest value - corresponds to LeadLabel.interest_status. Example: 1
+   */
+  custom_interest_value?: number | undefined;
+  /**
+   * Optional HTTP headers to include when delivering webhook payloads. Example: { Authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=" }
+   */
+  headers?: {  [key: string]: string;} | undefined;
+  /**
+   * Webhook status: 1 = active, -1 = error (disabled due to delivery failures). Example: 1
+   */
+  status?: number | undefined;
+  /**
+   * Timestamp when webhook was disabled due to delivery failures (omitted if active). Example: 2026-06-30T21:07:32.756Z
+   */
+  timestamp_error?: string | undefined;
+};
+
+export interface ActionInput_instantly_deleteaccount {
+  /**
+   * Email address of the account to delete. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_deleteaccount {
+  email: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  first_name: string;
+  last_name: string;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: string | undefined;
+  reply_rate?: number | undefined;};
+  added_by?: string | undefined;
+  daily_limit?: number | undefined;
+  daily_limit_max?: number | undefined;
+  warmup_limit_max?: number | undefined;
+  modified_by?: string | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  status?: number | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  organization: string;
+  timestamp_last_used?: string | undefined;
+  warmup_status: number;
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  responseCode?: number | undefined;};
+  timestamp_warmup_start?: string | undefined;
+  provider_code: number;
+  setup_pending: boolean;
+  warmup_pool_id?: string | undefined;
+  is_managed_account: boolean;
+  dfy_password_changed?: boolean | undefined;
+  is_ready_made_account?: boolean | undefined;
+  stat_warmup_score?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  autofix_failed?: boolean | undefined;
+};
+
+export interface ActionInput_instantly_deletecampaign {
+  /**
+   * Campaign ID. Example: "ec8dae2c-8bd3-461d-90db-a8d262719b5f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deletecampaign {
+  id: string;
+  status?: number | undefined;
+};
+
+export interface ActionInput_instantly_deletecustomtag {
+  /**
+   * The ID of the custom tag to delete. Example: "bca10b65-b620-44b3-8571-8ce409ad38c8"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deletecustomtag {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_instantly_deleteemail {
+  /**
+   * The ID of the email to delete. Example: "019f1a77-d235-7344-8666-d64518b48f8c"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deleteemail {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_email?: string | undefined;
+  message_id?: string | undefined;
+  subject?: string | undefined;
+  from_address_email?: string | undefined;
+  to_address_email_list?: string | undefined;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body?: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id?: string | undefined;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount?: string | undefined;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  attachment_json?: unknown | undefined;
+  from_address_json?: unknown | undefined;
+  to_address_json?: unknown | undefined;
+  cc_address_json?: unknown | undefined;
+  ai_agent_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_deleteleadlist {
+  /**
+   * Lead list ID to delete. Example: "5c194eae-9382-4bf1-aff4-d9eaa90668e1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deleteleadlist {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_instantly_deletelead {
+  /**
+   * Lead ID. Example: "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deletelead {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_instantly_deleteleadsbulk {
+  /**
+   * The ID of the campaign to delete leads from. Required if list_id is not provided.
+   */
+  campaign_id?: string | undefined;
+  /**
+   * The ID of the list to delete leads from. Required if campaign_id is not provided.
+   */
+  list_id?: string | undefined;
+  /**
+   * Optional array of specific lead IDs to delete.
+   */
+  ids?: string[] | undefined;
+  /**
+   * Optional status filter. Only delete leads with this status.
+   */
+  status?: number | undefined;
+  /**
+   * Maximum number of leads to delete.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_instantly_deleteleadsbulk {
+  /**
+   * Number of leads successfully deleted.
+   */
+  count: number;
+};
+
+export interface ActionInput_instantly_deletewebhook {
+  /**
+   * Webhook ID to delete. Example: "019f1a0f-1a3c-7828-801d-069c4b11cf00"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deletewebhook {
+  id: string;
+  organization: string;
+  target_hook_url: string;
+  timestamp_created: string;
+  campaign?: string | undefined;
+  name?: string | undefined;
+  event_type?: string | undefined;
+  custom_interest_value?: number | undefined;
+  headers?: {  [key: string]: string;} | undefined;
+  status?: number | undefined;
+  timestamp_error?: string | undefined;
+};
+
+export interface ActionInput_instantly_disableaccountwarmup {
+  /**
+   * List of account emails to disable warmup for. Example: ["account@domain.com"]
+   */
+  emails: string[];
+};
+
+export interface ActionOutput_instantly_disableaccountwarmup {
+  /**
+   * Unique identifier for the background job. Example: "675266e304a8e55b17f0228b"
+   */
+  id: string;
+  /**
+   * Workspace ID. Example: "019f1a45-689a-74f8-abee-8ccb897e168d"
+   */
+  workspace_id: string;
+  /**
+   * The ID of the user that triggered the job.
+   */
+  user_id?: string | undefined;
+  /**
+   * Type of background job. Example: "update-warmup-accounts"
+   */
+  type: string;
+  /**
+   * The ID of the entity the job is related to.
+   */
+  entity_id?: string | undefined;
+  /**
+   * Type of entity. Example: "workspace"
+   */
+  entity_type?: string | undefined;
+  /**
+   * Additional data about the job.
+   */
+  data?: {} | undefined;
+  /**
+   * Progress of the job as a percentage (0 to 100).
+   */
+  progress: number;
+  /**
+   * Job status. Example: "pending"
+   */
   status: string;
+  /**
+   * Timestamp when the job was created. Example: "2026-06-30T20:43:04.218Z"
+   */
+  created_at: string;
+  /**
+   * Timestamp when the job was last updated. Example: "2026-06-30T20:43:04.218Z"
+   */
+  updated_at: string;
+};
+
+export interface ActionInput_instantly_duplicatecampaign {
+  /**
+   * Campaign ID to duplicate. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_duplicatecampaign {
+  id: string;
+  name: string;
+  status: number;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  org_id?: string | undefined;
+  user_id?: string | undefined;
+  campaign_schedule?: {  schedules?: ({  timezone?: string | undefined;
+  days?: unknown | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  sending_account_email?: string | undefined;
+  sending_account_id?: string | undefined;})[];
+  sending_gap?: unknown | undefined;
+  sending_volume?: unknown | undefined;
+  stop_on_reply?: boolean | undefined;};
+  custom_variables?: string[] | undefined;
+  list_id?: string | undefined;
+  list_name?: string | undefined;
+};
+
+export interface ActionInput_instantly_enableaccountwarmup {
+  /**
+   * List of emails to enable warmup accounts for. The emails should be attached to accounts in your workspace.
+   */
+  emails: string[];
+};
+
+export interface ActionOutput_instantly_enableaccountwarmup {
+  /**
+   * Unique identifier for the background job
+   */
+  job_id: string;
+  /**
+   * Final job status
+   */
+  status: string;
+  /**
+   * Progress of the job as a percentage
+   */
+  progress: number;
+  /**
+   * Type of background job
+   */
+  type: string;
+  /**
+   * Timestamp when the job was created
+   */
+  created_at: string;
+  /**
+   * Timestamp when the job was last updated
+   */
+  updated_at: string;
+};
+
+export interface ActionInput_instantly_exportcampaign {
+  /**
+   * The ID of the campaign to export. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_instantly_exportcampaign {
+  id: string;
+  name: string;
+  pl_value?: number | undefined;
+  status: number;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  type: string;
+  delay: number;
+  delay_unit?: string | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: string | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking: boolean;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger: string;} | undefined;
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode: string;
+  daily_limit?: number | undefined;
+  scope?: string | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action: string;
+  recipient_esp: string[];
+  sender_esp: string[];})[] | undefined;
+};
+
+export interface ActionInput_instantly_forwardemail {
+  /**
+   * The id of the email you want to forward. Example: "019f1a8f-9da9-70c2-b20b-440cffc77ef6"
+   */
+  reply_to_uuid: string;
+  /**
+   * Comma-separated list of recipients that will receive the forwarded email. Example: "recipient@example.com"
+   */
+  to_address_email_list: string;
+  /**
+   * The email account that will be used to send this email. It has to be an email account connected to your workspace. Example: "jondoe@example.com"
+   */
+  eaccount: string;
+  /**
+   * Subject line of the forwarded email message. Example: "Fwd: Interesting update"
+   */
+  subject: string;
+  /**
+   * Optional body content for the forwarded email. Specify either html or text, or both. Required unless include_original_body is true.
+   */
+  body?: {  html?: string | undefined;
+  text?: string | undefined;};
+  /**
+   * Comma-separated list of CC email addresses. Example: "cc@example.com"
+   */
+  cc_address_email_list?: string | undefined;
+  /**
+   * Comma-separated list of BCC email addresses. Example: "bcc@example.com"
+   */
+  bcc_address_email_list?: string | undefined;
+  /**
+   * Reply-to email address that recipients should use when replying. Example: "reply@example.com"
+   */
+  reply_to?: string | undefined;
+  /**
+   * JSON-encoded forwarded attachment metadata from the original email.
+   */
+  forwarded_attachments?: string | undefined;
+  /**
+   * When true, append the original email headers and content after the provided body. Default: false.
+   */
+  include_original_body?: boolean | undefined;
+  /**
+   * The user id assigned to the lead. Example: "019f1a77-d233-70e8-865a-19fd84904bb3"
+   */
+  assigned_to?: string | undefined;
+};
+
+export interface ActionOutput_instantly_forwardemail {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_email?: string | undefined;
+  message_id?: string | undefined;
+  subject: string;
+  from_address_email?: string | undefined;
+  to_address_email_list: string;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body?: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id?: string | undefined;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount: string;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  attachment_json?: {  files: ({  filename: string;
+  size?: number | undefined;
+  type?: string | undefined;
+  url?: string | undefined;
+  error?: string | undefined;})[];};
+  from_address_json?: unknown[] | undefined;
+  to_address_json?: unknown[] | undefined;
+  cc_address_json?: unknown[] | undefined;
+  ai_agent_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_getaccount {
+  /**
+   * Email address of the account to retrieve. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_getaccount {
+  email: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  first_name: string;
+  last_name: string;
+  organization: string;
+  warmup_status: number;
+  provider_code: number;
+  setup_pending: boolean;
+  is_managed_account: boolean;
+  added_by?: string | undefined;
+  daily_limit?: number | undefined;
+  daily_limit_max?: number | undefined;
+  warmup_limit_max?: number | undefined;
+  modified_by?: string | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  status?: number | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  timestamp_last_used?: string | undefined;
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  responseCode?: number | undefined;};
+  timestamp_warmup_start?: string | undefined;
+  warmup_pool_id?: string | undefined;
+  dfy_password_changed?: boolean | undefined;
+  is_ready_made_account?: boolean | undefined;
+  stat_warmup_score?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  autofix_failed?: boolean | undefined;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: string | undefined;
+  reply_rate?: number | undefined;};
+};
+
+export interface ActionInput_instantly_getbackgroundjob {
+  /**
+   * Background job ID. Example: "6a441298bce6853f4c4c0fc0"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getbackgroundjob {
+  id: string;
+  status: 'pending' | 'running' | 'success' | 'failed';
+  progress: number;
+  data?: unknown | undefined;
+  type?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_instantly_getcampaignanalyticsoverview {
+  /**
+   * A campaign ID to get the analytics overview for. Leave empty to get analytics for all campaigns. Example: "019f1a45-a5db-793c-a016-562d70d931a0"
+   */
+  id?: string | undefined;
+  /**
+   * A list of campaign IDs to get the analytics overview for. Leave empty to get analytics for all campaigns.
+   */
+  ids?: string[] | undefined;
+  /**
+   * Start date filter in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  start_date?: string | undefined;
+  /**
+   * End date filter in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  end_date?: string | undefined;
+  /**
+   * Filter by campaign status. Values: -99 (Account Suspended), -1 (Accounts Unhealthy), -2 (Bounce Protect), 0 (Draft), 1 (Active), 2 (Paused), 3 (Completed), 4 (Running Subsequences).
+   */
+  campaign_status?: number | undefined;
+  /**
+   * When true, calculates totals based on all occurrences of lead interest status events instead of only the first occurrence per contact.
+   */
+  expand_crm_events?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_getcampaignanalyticsoverview {
+  open_count?: number | undefined;
+  open_count_unique?: number | undefined;
+  open_count_unique_by_step?: number | undefined;
+  link_click_count?: number | undefined;
+  link_click_count_unique?: number | undefined;
+  link_click_count_unique_by_step?: number | undefined;
+  reply_count?: number | undefined;
+  reply_count_unique?: number | undefined;
+  reply_count_unique_by_step?: number | undefined;
+  reply_count_automatic?: number | undefined;
+  reply_count_automatic_unique?: number | undefined;
+  reply_count_automatic_unique_by_step?: number | undefined;
+  bounced_count?: number | undefined;
+  unsubscribed_count?: number | undefined;
+  completed_count?: number | undefined;
+  emails_sent_count?: number | undefined;
+  contacted_count?: number | undefined;
+  new_leads_contacted_count?: number | undefined;
+  total_opportunities?: number | undefined;
+  total_opportunity_value?: number | undefined;
+  total_interested?: number | undefined;
+  total_meeting_booked?: number | undefined;
+  total_meeting_completed?: number | undefined;
+  total_closed?: number | undefined;
+};
+
+export interface ActionInput_instantly_getcampaignanalytics {
+  /**
+   * Campaign ID to filter analytics by. Omit to get analytics for all campaigns.
+   */
+  id?: string | undefined;
+  /**
+   * Start date in YYYY-MM-DD format.
+   */
+  start_date?: string | undefined;
+  /**
+   * End date in YYYY-MM-DD format.
+   */
+  end_date?: string | undefined;
+  /**
+   * Exclude total leads count from the result to decrease response time.
+   */
+  exclude_total_leads_count?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_getcampaignanalytics {
+  0: {  campaign_name: string;
+  campaign_id: string;
+  campaign_status: number;
+  campaign_is_evergreen: boolean;
+  leads_count: number;
+  contacted_count: number;
+  emails_sent_count: number;
+  new_leads_contacted_count: number;
+  open_count: number;
+  open_count_unique?: number | undefined;
+  open_count_unique_by_step?: number | undefined;
+  reply_count: number;
+  reply_count_unique?: number | undefined;
+  reply_count_unique_by_step?: number | undefined;
+  reply_count_automatic?: number | undefined;
+  reply_count_automatic_unique?: number | undefined;
+  reply_count_automatic_unique_by_step?: number | undefined;
+  link_click_count: number;
+  link_click_count_unique?: number | undefined;
+  link_click_count_unique_by_step?: number | undefined;
+  bounced_count: number;
+  unsubscribed_count: number;
+  completed_count: number;
+  total_opportunities: number;
+  total_opportunity_value: number;};
+};
+
+export interface ActionInput_instantly_getcampaignsendingstatus {
+  /**
+   * Campaign ID. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_instantly_getcampaignsendingstatus {
+  status: string;
+  status_message: string;
+  ai_summary?: string | undefined;
+};
+
+export interface ActionInput_instantly_getcampaignstepsanalytics {
+  /**
+   * Campaign ID. Example: "019f1a45-a5de-7ccc-a006-653e170503f4"
+   */
+  campaign_id?: string | undefined;
+  /**
+   * Start date. Example: "2024-01-01"
+   */
+  start_date?: string | undefined;
+  /**
+   * End date. Example: "2024-01-01"
+   */
+  end_date?: string | undefined;
+  /**
+   * Whether to include opportunities count per step
+   */
+  include_opportunities_count?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_getcampaignstepsanalytics {
+  steps: ({  step: string;
+  variant: string;
+  sent: number;
+  opened: number;
+  unique_opened: number;
+  replies: number;
+  unique_replies: number;
+  replies_automatic: number;
+  unique_replies_automatic: number;
+  clicks: number;
+  unique_clicks: number;
+  opportunities?: number | undefined;
+  unique_opportunities?: number | undefined;})[];
+};
+
+export interface ActionInput_instantly_getcampaign {
+  /**
+   * The campaign ID. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getcampaign {
+  id: string;
+  name: string;
+  pl_value?: number | undefined;
+  status: number;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules?: ({  name?: string | undefined;
+  timing?: {  from?: string | undefined;
+  to?: string | undefined;};
+  days?: {  [key: string]: boolean;} | undefined;
+  timezone?: string | undefined;})[];};
+  sequences?: ({  steps?: ({  type?: string | undefined;
+  delay?: number | undefined;
+  delay_unit?: string | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: string | undefined;
+  variants?: ({  subject?: string | undefined;
+  body?: string | undefined;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger?: string | undefined;};
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode?: string | undefined;
+  daily_limit?: number | undefined;
+  scope?: string | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action?: string | undefined;
+  recipient_esp?: string[] | undefined;
+  sender_esp?: string[] | undefined;})[];
+};
+
+export interface ActionInput_instantly_getcustomtag {
+  /**
+   * Custom tag ID. Example: "bca10b65-b620-44b3-8571-8ce409ad38c8"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getcustomtag {
+  id: string;
+  label: string;
+  color?: string | undefined;
+};
+
+export interface ActionInput_instantly_getcustomtrackingdomainstatus {
+  /**
+   * Custom tracking domain host. Example: "mail.yourdomain.com"
+   */
+  host: string;
+};
+
+export interface ActionOutput_instantly_getcustomtrackingdomainstatus {
+  success?: boolean | undefined;
+  ssl: boolean;
+  cname: boolean;
+  host: string;
+};
+
+export interface ActionInput_instantly_getdailyaccountanalytics {
+  /**
+   * Date for analytics in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  date: string;
+  /**
+   * Optional email account to filter by. Example: "user@example.com"
+   */
+  email?: string | undefined;
+};
+
+export interface ActionOutput_instantly_getdailyaccountanalytics {
+  analytics: ({  /**
+   * The date of the analytics entry, in YYYY-MM-DD format
+   */
+  date: string;
+  /**
+   * The email account that sent the emails
+   */
+  email_account: string;
+  /**
+   * The total number of campaign emails sent on this date by this account, including emails for subsequences
+   */
+  sent: number;
+  /**
+   * The number of emails that bounced on this date for this account for campaigns - including subsequences
+   */
+  bounced: number;
+  /**
+   * The total number of unique contacts who received an email on this date from this account
+   */
+  contacted: number;
+  /**
+   * The total number of new leads contacted on this date from this account
+   */
+  new_leads_contacted: number;
+  /**
+   * The total number of opened emails on this date for this account
+   */
+  opened: number;
+  /**
+   * The total number of unique opened emails on this date for this account
+   */
+  unique_opened: number;
+  /**
+   * The total number of replies received on this date for this account
+   */
+  replies: number;
+  /**
+   * The total number of unique replies received on this date for this account
+   */
+  unique_replies: number;
+  /**
+   * The total number of automatic replies detected on this date for this account
+   */
+  replies_automatic: number;
+  /**
+   * The total number of unique automatic replies detected on this date for this account
+   */
+  unique_replies_automatic: number;
+  /**
+   * The total number of links clicked on this date for this account
+   */
+  clicks: number;
+  /**
+   * The total number of unique links clicked on this date for this account. Unique meaning from unique leads, not unique links
+   */
+  unique_clicks: number;})[];
+};
+
+export interface ActionInput_instantly_getdailycampaignanalytics {
+  /**
+   * Campaign ID (optional). Leave empty to get analytics for all campaigns. Example: "019f1a45-a5dd-763f-898f-a14b87db8b35"
+   */
+  campaign_id?: string | undefined;
+  /**
+   * Start date in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  start_date?: string | undefined;
+  /**
+   * End date in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  end_date?: string | undefined;
+  /**
+   * Filter by campaign status. 0 = Draft, 1 = Active, 2 = Paused, 3 = Completed, 4 = Running Subsequences, -99 = Account Suspended, -1 = Accounts Unhealthy, -2 = Bounce Protect.
+   */
+  campaign_status?: number | undefined;
+};
+
+export interface ActionOutput_instantly_getdailycampaignanalytics {
+  0: {  /**
+   * The date of the analytics entry, in YYYY-MM-DD format.
+   */
+  date: string;
+  sent?: number | undefined;
+  contacted?: number | undefined;
+  new_leads_contacted?: number | undefined;
+  opened?: number | undefined;
+  unique_opened?: number | undefined;
+  replies?: number | undefined;
+  unique_replies?: number | undefined;
+  replies_automatic?: number | undefined;
+  unique_replies_automatic?: number | undefined;
+  clicks?: number | undefined;
+  unique_clicks?: number | undefined;
+  opportunities?: number | undefined;
+  unique_opportunities?: number | undefined;};
+};
+
+export interface ActionInput_instantly_getemail {
+  /**
+   * Email ID. Example: "019f1a8f-9da9-70c2-b20b-440cffc77ef6"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getemail {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_email?: string | undefined;
+  message_id?: string | undefined;
+  subject?: string | undefined;
+  to_address_email_list?: string | undefined;
+  body?: {  html?: string | undefined;};
+  organization_id?: string | undefined;
+  eaccount?: string | undefined;
+  from_address_email?: string | undefined;
+  campaign_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_focused?: number | undefined;
+  thread_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_getlaunchedcampaignscount {
+};
+
+export interface ActionOutput_instantly_getlaunchedcampaignscount {
+  count: number;
+};
+
+export interface ActionInput_instantly_getleadlistverificationstats {
+  /**
+   * Lead list ID. Example: "5c194eae-9382-4bf1-aff4-d9eaa90668e1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getleadlistverificationstats {
+  stats: {  verified: number;
+  invalid: number;
+  risky: number;
+  catch_all: number;
+  job_change: number;
+  verification_job_pending_leadfinder: number;
+  verification_job_pending_user: number;};
+  total_leads: number;
+};
+
+export interface ActionInput_instantly_getleadlist {
+  /**
+   * Lead list ID. Example: "5c194eae-9382-4bf1-aff4-d9eaa90668e1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getleadlist {
+  id: string;
+  organization_id: string;
+  name: string;
+  timestamp_created: string;
+  has_enrichment_task?: boolean | undefined;
+  owned_by?: string | undefined;
+};
+
+export interface ActionInput_instantly_getlead {
+  /**
+   * Lead ID. Example: "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getlead {
+  id: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  organization: string;
+  campaign?: string | undefined;
+  status: number;
+  email?: string | undefined;
+  personalization?: string | undefined;
+  website?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  email_open_count: number;
+  email_reply_count: number;
+  email_click_count: number;
+  company_domain: string;
+  status_summary: {  lastStep?: {  from?: string | undefined;
+  stepID?: string | undefined;
+  timestamp_executed?: string | undefined;};
+  domain_complete?: boolean | undefined;};
+  status_summary_subseq?: {  from?: string | undefined;
+  stepID?: string | undefined;
+  timestampExecuted?: string | undefined;};
+  last_step_from?: string | undefined;
+  last_step_id?: string | undefined;
+  last_step_timestamp_executed?: string | undefined;
+  email_opened_step?: number | undefined;
+  email_opened_variant?: number | undefined;
+  email_replied_step?: number | undefined;
+  email_replied_variant?: number | undefined;
+  email_clicked_step?: number | undefined;
+  email_clicked_variant?: number | undefined;
+  lt_interest_status?: number | undefined;
+  subsequence_id?: string | undefined;
+  verification_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  timestamp_added_subsequence?: string | undefined;
+  timestamp_last_contact?: string | undefined;
+  timestamp_last_open?: string | undefined;
+  timestamp_last_reply?: string | undefined;
+  timestamp_last_interest_change?: string | undefined;
+  timestamp_last_click?: string | undefined;
+  enrichment_status?: number | undefined;
+  list_id?: string | undefined;
+  last_contacted_from?: string | undefined;
+  uploaded_by_user?: string | undefined;
+  upload_method?: string | undefined;
+  assigned_to?: string | undefined;
+  is_website_visitor?: boolean | undefined;
+  timestamp_last_touch?: string | undefined;
+  esp_code?: number | undefined;
+  esg_code?: number | undefined;
+  payload?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  companyName?: string | undefined;
+  jobTitle?: string | undefined;
+  website?: string | undefined;
+  phone?: string | undefined;
+  personalization?: string | undefined;};
+};
+
+export interface ActionInput_instantly_getwarmupanalytics {
+  /**
+   * List of emails to get warmup analytics for. The emails should be attached to accounts in your workspace.
+   */
+  emails: string[];
+};
+
+export interface ActionOutput_instantly_getwarmupanalytics {
+  email_date_data?: {  [key: string]: {  [key: string]: {  sent?: number | undefined;
+  landed_inbox?: number | undefined;
+  landed_spam?: number | undefined;
+  received?: number | undefined;};};};
+  aggregate_data?: {  [key: string]: {  sent?: number | undefined;
+  received?: number | undefined;
+  landed_inbox?: number | undefined;
+  landed_spam?: number | undefined;
+  health_score_label?: string | undefined;
+  health_score?: number | undefined;};};
+};
+
+export interface ActionInput_instantly_getwebhook {
+  /**
+   * The ID of the webhook to retrieve. Example: "019f1a0f-1a3c-7828-801d-069c4b11cf00"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getwebhook {
+  id: string;
+  organization: string;
+  campaign?: string | undefined;
+  name?: string | undefined;
+  target_hook_url: string;
+  event_type?: string | undefined;
+  custom_interest_value?: number | undefined;
+  headers?: {  [key: string]: string;} | undefined;
+  timestamp_created: string;
+  status?: number | undefined;
+  timestamp_error?: string | undefined;
+};
+
+export interface ActionInput_instantly_listaccounts {
+  /**
+   * Maximum number of accounts to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+  /**
+   * Search term to filter accounts. Example: gmail.com
+   */
+  search?: string | undefined;
+  /**
+   * Filter by account status. 1 = Active, 2 = Paused, 3 = Temporarily paused, -1 = Connection Error, -2 = Soft Bounce Error, -3 = Sending Error.
+   */
+  status?: number | undefined;
+  /**
+   * Include tags assigned to each account in the response.
+   */
+  include_tags?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_listaccounts {
+  items: ({  email: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  first_name: string;
+  last_name: string;
+  organization: string;
+  warmup_status: number;
+  provider_code: number;
+  setup_pending: boolean;
+  is_managed_account: boolean;
+  status?: number | undefined;
+  daily_limit?: number | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  stat_warmup_score?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  tags?: ({  id: string;
+  label: string;
+  description?: string | undefined;})[];})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listbackgroundjobs {
+  /**
+   * Number of results to return per page. Maximum 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+};
+
+export interface ActionOutput_instantly_listbackgroundjobs {
+  items: ({  id: string;
+  workspace_id: string;
+  user_id?: string | undefined;
+  type: string;
+  entity_id?: string | undefined;
+  entity_type?: string | undefined;
+  data?: {  [key: string]: unknown | undefined;};
+  progress?: number | undefined;
+  status: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listcampaigns {
+  /**
+   * Number of items to return per page. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+  /**
+   * Search by campaign name.
+   */
+  search?: string | undefined;
+  /**
+   * Filter campaigns by tag ids, comma-separated.
+   */
+  tag_ids?: string | undefined;
+  /**
+   * Filter campaigns by AI Sales Agent ID.
+   */
+  ai_sales_agent_id?: string | undefined;
+  /**
+   * Filter campaigns by status enum value.
+   */
+  status?: number | undefined;
+};
+
+export interface ActionOutput_instantly_listcampaigns {
+  items: ({  id: string;
+  name: string;
+  pl_value?: number | undefined;
+  status: number;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  type: 'email';
+  delay: number;
+  delay_unit?: string | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: string | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger: string;} | undefined;
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode: string;
+  daily_limit?: number | undefined;
+  scope?: string | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action: string;
+  recipient_esp: string[];
+  sender_esp: string[];})[] | undefined;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listcustomtags {
+};
+
+export interface ActionOutput_instantly_listcustomtags {
+  items: ({  id: string;
+  label: string;
+  color?: string | undefined;
+  organization_id: string;})[];
+};
+
+export interface ActionInput_instantly_listemails {
+  /**
+   * The number of items to return. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+  /**
+   * Search query to filter emails. Can be an email address or "thread:<thread_id>".
+   */
+  search?: string | undefined;
+  /**
+   * Filter emails by campaign ID.
+   */
+  campaign_id?: string | undefined;
+  /**
+   * Filter emails by lead list ID.
+   */
+  list_id?: string | undefined;
+  /**
+   * Filter by unread emails only.
+   */
+  is_unread?: boolean | undefined;
+  /**
+   * Filter by email type.
+   */
+  email_type?: 'received' | 'sent' | 'manual' | undefined;
+  /**
+   * Filter by lead email address.
+   */
+  lead?: string | undefined;
+  /**
+   * Filter by sending account email address.
+   */
+  eaccount?: string | undefined;
+  /**
+   * Filter by Unibox mode.
+   */
+  mode?: 'emode_focused' | 'emode_others' | 'emode_all' | undefined;
+  /**
+   * Sort order by creation date. Default is desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Filter emails created after this ISO timestamp.
+   */
+  min_timestamp_created?: string | undefined;
+  /**
+   * Filter emails created before this ISO timestamp.
+   */
+  max_timestamp_created?: string | undefined;
+  /**
+   * Return only the latest email in each thread.
+   */
+  latest_of_thread?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_listemails {
+  items: ({  id: string;
+  timestamp_created: string;
+  timestamp_email: string;
+  message_id: string;
+  subject: string;
+  from_address_email?: string | undefined;
+  to_address_email_list: string;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id: string;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount: string;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  attachment_json?: {  files: ({  filename: string;
+  size?: number | undefined;
+  type?: string | undefined;
+  url?: string | undefined;
+  error?: string | undefined;})[];};
+  from_address_json?: unknown[] | undefined;
+  to_address_json?: unknown[] | undefined;
+  cc_address_json?: unknown[] | undefined;
+  ai_agent_id?: string | undefined;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listleadlists {
+  /**
+   * Maximum number of lead lists to return per page. Example: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_instantly_listleadlists {
+  items: ({  id: string;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listleads {
+  /**
+   * Number of leads to return per page. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+  filter?: {  /**
+   * Lead list ID to filter by. Example: "b74958cc-c9c4-40d4-976a-6837eb84493f"
+   */
+  list_id?: string | undefined;
+  /**
+   * Campaign ID to filter by. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  campaign_id?: string | undefined;};
+};
+
+export interface ActionOutput_instantly_listleads {
+  items: ({  id: string;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  status?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listwebhookeventtypes {
+};
+
+export interface ActionOutput_instantly_listwebhookeventtypes {
+  event_types: ({  id: string;
+  label: string;
+  type: 'standard' | 'custom_label';})[];
+};
+
+export interface ActionInput_instantly_listwebhooks {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+};
+
+export interface ActionOutput_instantly_listwebhooks {
+  items: ({  id: string;
+  name?: string | undefined;
+  target_hook_url?: string | undefined;
+  event_type?: string | undefined;
+  status?: number | undefined;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_markaccountfixed {
+  /**
+   * Email address of the account to mark as fixed. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_markaccountfixed {
+  email: string;
+  status?: number | undefined;
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  response_code?: number | undefined;};
+  provider_code: number;
+  setup_pending: boolean;
+  is_managed_account: boolean;
+  warmup_status?: number | undefined;
+  daily_limit?: number | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  organization?: string | undefined;
+};
+
+export interface ActionInput_instantly_markthreadasread {
+  /**
+   * Thread ID. Example: "123e4567-e89b-12d3-a456-426614174000"
+   */
+  thread_id: string;
+};
+
+export interface ActionOutput_instantly_markthreadasread {
+  success: boolean;
+};
+
+export interface ActionInput_instantly_mergeleads {
+  /**
+   * The ID of the lead to merge. Example: "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+   */
+  lead_id: string;
+  /**
+   * The ID of the destination lead to merge into. Example: "019f1a0d-ff98-75d7-86b0-e0f62f62a15e"
+   */
+  destination_lead_id: string;
+};
+
+export interface ActionOutput_instantly_mergeleads {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  organization?: string | undefined;
+  status?: number | undefined;
+  email?: string | undefined;
+  personalization?: string | undefined;
+  website?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  email_open_count?: number | undefined;
+  email_reply_count?: number | undefined;
+  email_click_count?: number | undefined;
+  company_domain?: string | undefined;
+  status_summary?: {  [key: string]: unknown | undefined;};
+  payload?: {  [key: string]: unknown | undefined;};
+  status_summary_subseq?: {  [key: string]: unknown | undefined;};
+  last_step_from?: string | undefined;
+  last_step_id?: string | undefined;
+  last_step_timestamp_executed?: string | undefined;
+  email_opened_step?: number | undefined;
+  email_opened_variant?: number | undefined;
+  email_replied_step?: number | undefined;
+  email_replied_variant?: number | undefined;
+  email_clicked_step?: number | undefined;
+  email_clicked_variant?: number | undefined;
+  lt_interest_status?: number | undefined;
+  subsequence_id?: string | undefined;
+  verification_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  timestamp_added_subsequence?: string | undefined;
+  timestamp_last_contact?: string | undefined;
+  timestamp_last_open?: string | undefined;
+  timestamp_last_reply?: string | undefined;
+  timestamp_last_interest_change?: string | undefined;
+  timestamp_last_click?: string | undefined;
+  enrichment_status?: number | undefined;
+  list_id?: string | undefined;
+  last_contacted_from?: string | undefined;
+  uploaded_by_user?: string | undefined;
+  upload_method?: string | undefined;
+  assigned_to?: string | undefined;
+  is_website_visitor?: boolean | undefined;
+  timestamp_last_touch?: string | undefined;
+  esp_code?: number | undefined;
+  esg_code?: number | undefined;
+};
+
+export interface ActionInput_instantly_moveleadtosubsequence {
+  /**
+   * Lead UUID. Example: "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+   */
+  id: string;
+  /**
+   * Subsequence UUID. Example: "855651af-54db-4ad5-8cfc-ac0de0f22921"
+   */
+  subsequence_id: string;
+};
+
+export interface ActionOutput_instantly_moveleadtosubsequence {
+  id?: string | undefined;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  organization?: string | undefined;
+  campaign?: string | undefined;
+  status?: number | undefined;
+  email?: string | undefined;
+  personalization?: string | undefined;
+  website?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  email_open_count?: number | undefined;
+  email_reply_count?: number | undefined;
+  email_click_count?: number | undefined;
+  company_domain?: string | undefined;
+  status_summary?: unknown | undefined;
+  payload?: unknown | undefined;
+  status_summary_subseq?: unknown | undefined;
+  last_step_from?: string | undefined;
+  last_step_id?: string | undefined;
+  last_step_timestamp_executed?: string | undefined;
+  email_opened_step?: number | undefined;
+  email_opened_variant?: number | undefined;
+  email_replied_step?: number | undefined;
+  email_replied_variant?: number | undefined;
+  email_clicked_step?: number | undefined;
+  email_clicked_variant?: number | undefined;
+  lt_interest_status?: number | undefined;
+  subsequence_id?: string | undefined;
+  verification_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  timestamp_added_subsequence?: string | undefined;
+  timestamp_last_contact?: string | undefined;
+  timestamp_last_open?: string | undefined;
+  timestamp_last_reply?: string | undefined;
+  timestamp_last_interest_change?: string | undefined;
+  timestamp_last_click?: string | undefined;
+  enrichment_status?: number | undefined;
+  list_id?: string | undefined;
+  last_contacted_from?: string | undefined;
+  uploaded_by_user?: string | undefined;
+  upload_method?: string | undefined;
+  assigned_to?: string | undefined;
+  is_website_visitor?: boolean | undefined;
+  timestamp_last_touch?: string | undefined;
+  esp_code?: number | undefined;
+  esg_code?: number | undefined;
+};
+
+export interface ActionInput_instantly_moveleads {
+  /**
+   * Array of lead IDs to move. When provided, either campaign or list_id must also be specified.
+   */
+  ids?: string[] | undefined;
+  /**
+   * List ID to filter leads from.
+   */
+  list_id?: string | undefined;
+  /**
+   * Campaign ID to filter leads from.
+   */
+  campaign?: string | undefined;
+  /**
+   * The ID of the campaign to move the leads to.
+   */
+  to_campaign_id?: string | undefined;
+  /**
+   * The ID of the list to move the leads to.
+   */
+  to_list_id?: string | undefined;
+  search?: string | undefined;
+  filter?: string | undefined;
+  in_campaign?: boolean | undefined;
+  in_list?: boolean | undefined;
+  queries?: ({})[] | undefined;
+  excluded_ids?: string[] | undefined;
+  contacts?: string[] | undefined;
+  ignore_resource_filter_clauses?: boolean | undefined;
+  check_duplicates_in_campaigns?: boolean | undefined;
+  skip_leads_in_verification?: boolean | undefined;
+  limit?: number | undefined;
+  assigned_to?: string | undefined;
+  esp_code?: number | undefined;
+  esg_code?: string | undefined;
+  copy_leads?: boolean | undefined;
+  check_duplicates?: boolean | undefined;
+  reset_interest_status?: boolean | undefined;
+  /**
+   * Polling interval in milliseconds. Default: 2000.
+   */
+  poll_interval_ms?: number | undefined;
+  /**
+   * Maximum number of polling attempts. Default: 30.
+   */
+  max_poll_attempts?: number | undefined;
+};
+
+export interface ActionOutput_instantly_moveleads {
+  id: string;
+  workspace_id: string;
+  user_id?: string | undefined;
+  type: string;
+  entity_id?: string | undefined;
+  entity_type?: string | undefined;
+  data?: {  moved_lead_emails?: string[] | undefined;};
+  progress: number;
+  status: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ActionInput_instantly_patchaccount {
+  /**
+   * The email address of the account to patch. Example: "user@example.com"
+   */
+  email: string;
+  /**
+   * First name associated with the account
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name associated with the account
+   */
+  last_name?: string | undefined;
+  /**
+   * Warmup configuration for the account
+   */
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: '0' | '1' | '2' | '3' | '4' | 'disabled' | undefined;
+  reply_rate?: number | undefined;};
+  /**
+   * Daily email sending limit
+   */
+  daily_limit?: number | undefined;
+  /**
+   * Tracking domain
+   */
+  tracking_domain_name?: string | undefined;
+  /**
+   * Tracking domain status
+   */
+  tracking_domain_status?: string | undefined;
+  /**
+   * Whether to enable slow ramp up for sending limits
+   */
+  enable_slow_ramp?: boolean | undefined;
+  /**
+   * The limit for inbox placement tests
+   */
+  inbox_placement_test_limit?: number | undefined;
+  /**
+   * The gap between emails sent from this account in minutes
+   */
+  sending_gap?: number | undefined;
+  /**
+   * Email signature for the account
+   */
+  signature?: string | undefined;
+  /**
+   * Custom reply-to email address for the account
+   */
+  reply_to?: string | undefined;
+  /**
+   * Whether to skip CNAME check
+   */
+  skip_cname_check?: boolean | undefined;
+  /**
+   * Whether to remove the tracking domain
+   */
+  remove_tracking_domain?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_patchaccount {
+  email: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  first_name: string;
+  last_name: string;
+  organization: string;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: '0' | '1' | '2' | '3' | '4' | 'disabled' | undefined;
+  reply_rate?: number | undefined;};
+  added_by?: string | undefined;
+  daily_limit?: number | undefined;
+  daily_limit_max?: number | undefined;
+  warmup_limit_max?: number | undefined;
+  modified_by?: string | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  status?: number | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  timestamp_last_used?: string | undefined;
+  warmup_status?: number | undefined;
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  responseCode?: number | undefined;};
+  timestamp_warmup_start?: string | undefined;
+  provider_code?: number | undefined;
+  setup_pending?: boolean | undefined;
+  warmup_pool_id?: string | undefined;
+  is_managed_account?: boolean | undefined;
+  dfy_password_changed?: boolean | undefined;
+  is_ready_made_account?: boolean | undefined;
+  stat_warmup_score?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  autofix_failed?: boolean | undefined;
+};
+
+export interface ActionInput_instantly_patchcampaign {
+  /**
+   * Campaign ID. Example: "019f1a5b-cfe6-71d3-8678-5ef834392c02"
+   */
+  id: string;
+  /**
+   * Name of the campaign
+   */
+  name?: string | undefined;
+  /**
+   * Value of every positive lead
+   */
+  pl_value?: number | undefined;
+  /**
+   * Whether the campaign is evergreen
+   */
+  is_evergreen?: boolean | undefined;
+  /**
+   * Campaign schedule
+   */
+  campaign_schedule?: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  /**
+   * List of sequences
+   */
+  sequences?: ({  steps: ({  type: 'email';
+  delay: number;
+  delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  /**
+   * The gap between emails in minutes
+   */
+  email_gap?: number | undefined;
+  /**
+   * The maximum random wait time in minutes
+   */
+  random_wait_max?: number | undefined;
+  /**
+   * Whether the campaign is text only
+   */
+  text_only?: boolean | undefined;
+  /**
+   * Whether the campaign sends the first email as text only
+   */
+  first_email_text_only?: boolean | undefined;
+  /**
+   * List of accounts to use for sending emails
+   */
+  email_list?: string[] | undefined;
+  /**
+   * The daily limit for sending emails
+   */
+  daily_limit?: number | undefined;
+  /**
+   * Whether to stop the campaign on reply
+   */
+  stop_on_reply?: boolean | undefined;
+  /**
+   * List of tags to use for sending emails
+   */
+  email_tag_list?: string[] | undefined;
+  /**
+   * Whether to track links in emails
+   */
+  link_tracking?: boolean | undefined;
+  /**
+   * Whether to track opens in emails
+   */
+  open_tracking?: boolean | undefined;
+  /**
+   * Whether to stop the campaign on auto reply
+   */
+  stop_on_auto_reply?: boolean | undefined;
+  /**
+   * The daily maximum new leads to contact
+   */
+  daily_max_leads?: number | undefined;
+  /**
+   * Whether to prioritize new leads
+   */
+  prioritize_new_leads?: boolean | undefined;
+  /**
+   * Auto variant select settings
+   */
+  auto_variant_select?: {  trigger: 'reply_rate' | 'click_rate' | 'open_rate';} | undefined;
+  /**
+   * Whether to match leads by ESP
+   */
+  match_lead_esp?: boolean | undefined;
+  /**
+   * Whether to stop the campaign for the entire company when a lead replies
+   */
+  stop_for_company?: boolean | undefined;
+  /**
+   * Whether to insert an unsubscribe header in emails
+   */
+  insert_unsubscribe_header?: boolean | undefined;
+  /**
+   * Whether to allow risky contacts
+   */
+  allow_risky_contacts?: boolean | undefined;
+  /**
+   * Whether to disable bounce protection
+   */
+  disable_bounce_protect?: boolean | undefined;
+  /**
+   * Overrides the workspace-wide limit emails per company setting
+   */
+  limit_emails_per_company_override?: {  mode: 'custom' | 'disabled';
+  daily_limit?: number | undefined;
+  scope?: 'per_campaign' | 'across_workspace' | undefined;};
+  /**
+   * List of accounts to CC on emails
+   */
+  cc_list?: string[] | undefined;
+  /**
+   * List of accounts to BCC on emails
+   */
+  bcc_list?: string[] | undefined;
+  /**
+   * Owner ID
+   */
+  owned_by?: string | undefined;
+  /**
+   * Provider routing rules
+   */
+  provider_routing_rules?: ({  action: 'send' | 'do_not_send';
+  recipient_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];
+  sender_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];})[] | undefined;
+};
+
+export interface ActionOutput_instantly_patchcampaign {
+  id: string;
+  name?: string | undefined;
+  pl_value?: number | undefined;
+  status?: number | undefined;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule?: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  type: 'email';
+  delay: number;
+  delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger: 'reply_rate' | 'click_rate' | 'open_rate';} | undefined;
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode: 'custom' | 'disabled';
+  daily_limit?: number | undefined;
+  scope?: 'per_campaign' | 'across_workspace' | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action: 'send' | 'do_not_send';
+  recipient_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];
+  sender_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];})[] | undefined;
+};
+
+export interface ActionInput_instantly_patchcustomtag {
+  /**
+   * Custom tag ID. Example: "019f1a5b-d034-7f35-840b-685069e56a08"
+   */
+  id: string;
+  /**
+   * New display label for the custom tag. Example: "Important"
+   */
+  label?: string | undefined;
+  /**
+   * Detailed description of the custom tag purpose. Set to null to clear. Example: "Used for marking important items"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_instantly_patchcustomtag {
+  id: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  organization_id: string;
+  label: string;
+  description?: string | undefined;
+};
+
+export interface ActionInput_instantly_patchemail {
+  /**
+   * The email ID to patch. Example: "019f1a8f-9da9-70c2-b20b-440cffc77ef6"
+   */
+  id: string;
+  /**
+   * Indicates if the email is unread. Set to 1 for unread, 0 for read.
+   */
+  is_unread?: number | undefined;
+  /**
+   * Timestamp for the reminder. Example: "2026-06-30T21:37:58.976Z"
+   */
+  reminder_ts?: string | undefined;
+};
+
+export interface ActionOutput_instantly_patchemail {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_email?: string | undefined;
+  message_id?: string | undefined;
+  subject?: string | undefined;
+  from_address_email?: string | undefined;
+  to_address_email_list?: string | undefined;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body?: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id?: string | undefined;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount?: string | undefined;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  attachment_json?: {  files: ({  filename: string;
+  size?: number | undefined;
+  type?: string | undefined;
+  url?: string | undefined;
+  error?: string | undefined;})[];};
+  from_address_json?: ({  [key: string]: unknown | undefined;})[];
+  to_address_json?: ({  [key: string]: unknown | undefined;})[];
+  cc_address_json?: ({  [key: string]: unknown | undefined;})[];
+  ai_agent_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_patchleadlist {
+  /**
+   * The ID of the lead list to update. Example: "019f1a45-a708-7d03-8559-2ba70b2e77cc"
+   */
+  id: string;
+  /**
+   * Name of the lead list.
+   */
+  name?: string | undefined;
+  /**
+   * Whether this list runs the enrichment process on every added lead or not.
+   */
+  has_enrichment_task?: boolean | undefined;
+  /**
+   * User ID of the owner of this lead list.
+   */
+  owned_by?: string | undefined;
+};
+
+export interface ActionOutput_instantly_patchleadlist {
+  id: string;
+  organization_id: string;
+  name: string;
+  has_enrichment_task?: boolean | undefined;
+  owned_by?: string | undefined;
+  timestamp_created: string;
+};
+
+export interface ActionInput_instantly_patchlead {
+  /**
+   * Lead ID. Example: "019f1a45-a722-7b9f-a4b8-cfad19555104"
+   */
+  id: string;
+  personalization?: string | undefined;
+  website?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  lt_interest_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  assigned_to?: string | undefined;
+  payload?: {  [key: string]: string | number | boolean | null;} | undefined;
+};
+
+export interface ActionOutput_instantly_patchlead {
+  id: string;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  website?: string | undefined;
+  personalization?: string | undefined;
+  lt_interest_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  assigned_to?: string | undefined;
+  payload?: {  [key: string]: unknown | undefined;};
+  status?: number | undefined;
+  campaign?: string | undefined;
+  list_id?: string | undefined;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+};
+
+export interface ActionInput_instantly_patchwebhook {
+  /**
+   * Webhook ID. Example: "019f1a0f-1a3c-7828-801d-069c4b11cf00"
+   */
+  id: string;
+  /**
+   * Updated webhook name.
+   */
+  name?: string | undefined;
+  /**
+   * Updated target URL for the webhook.
+   */
+  target_hook_url?: string | undefined;
+  /**
+   * Updated event type. Valid values come from GET /v2/webhooks/event-types.
+   */
+  event_type?: string | undefined;
+};
+
+export interface ActionOutput_instantly_patchwebhook {
+  id: string;
+  name?: string | undefined;
+  target_hook_url?: string | undefined;
+  event_type?: string | undefined;
+  workspace_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_instantly_pauseaccount {
+  /**
+   * Email address of the account to pause. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_pauseaccount {
+  email: string;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  organization?: string | undefined;
+  warmup_status?: number | undefined;
+  provider_code?: number | undefined;
+  setup_pending?: boolean | undefined;
+  is_managed_account?: boolean | undefined;
+  status?: number | undefined;
+  stat_warmup_score?: number | undefined;
+};
+
+export interface ActionInput_instantly_pausecampaign {
+  /**
+   * Campaign ID. Example: "ec8dae2c-8bd3-461d-90db-a8d262719b5f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_pausecampaign {
+  id: string;
+  name: string;
+  status: number;
+  campaign_schedule?: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  core_variables?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_instantly_removeleadfromsubsequence {
+  /**
+   * Lead UUID. Example: "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_removeleadfromsubsequence {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  organization?: string | undefined;
+  campaign?: string | undefined;
+  status?: number | undefined;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  company_domain?: string | undefined;
+  list_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  verification_status?: number | undefined;
+  upload_method?: string | undefined;
+  assigned_to?: string | undefined;
+};
+
+export interface ActionInput_instantly_replytoemail {
+  /**
+   * The UUID of the existing email to reply to. Example: "019f1a8f-9da9-70c2-b20b-440cffc77ef6"
+   */
+  reply_to_uuid: string;
+  /**
+   * The sending account email address connected to the workspace. Example: "sender@example.com"
+   */
+  eaccount: string;
+  /**
+   * Subject line of the reply email. Example: "Re: Your inquiry"
+   */
+  subject: string;
+  /**
+   * Plain text body of the reply email. Example: "Hello, how are you?"
+   */
+  body: string;
+  /**
+   * Optional HTML body of the reply email. Example: "<p>Hello, how are you?</p>"
+   */
+  html_body?: string | undefined;
+  /**
+   * Optional extra recipient email addresses to include in the reply.
+   */
+  additional_recipients?: string[] | undefined;
+  /**
+   * Comma-separated list of CC email addresses. Example: "cc@example.com"
+   */
+  cc_address_email_list?: string | undefined;
+  /**
+   * Comma-separated list of BCC email addresses. Example: "bcc@example.com"
+   */
+  bcc_address_email_list?: string | undefined;
+  /**
+   * Optional ISO 8601 timestamp to attach a reminder to this email. Example: "2026-06-30T21:38:08.051Z"
+   */
+  reminder_ts?: string | undefined;
+  /**
+   * Optional user UUID assigned to the lead. Example: "019f1a77-d233-70e8-865a-19fc267e9150"
+   */
+  assigned_to?: string | undefined;
+};
+
+export interface ActionOutput_instantly_replytoemail {
+  id: string;
+  timestamp_created: string;
+  subject: string;
+  from_address_email?: string | undefined;
+  to_address_email_list: string;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id: string;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount: string;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  ai_agent_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_resumeaccount {
+  /**
+   * Email address of the paused account to resume. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_resumeaccount {
+  email: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  first_name: string;
+  last_name: string;
+  organization: string;
+  warmup_status: number;
+  provider_code: number;
+  setup_pending: boolean;
+  is_managed_account: boolean;
+  status?: number | undefined;
+  sending_gap?: number | undefined;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: string | undefined;
+  reply_rate?: number | undefined;};
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  responseCode?: number | undefined;};
+  added_by?: string | undefined;
+  daily_limit?: number | undefined;
+  daily_limit_max?: number | undefined;
+  warmup_limit_max?: number | undefined;
+  modified_by?: string | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  timestamp_last_used?: string | undefined;
+  timestamp_warmup_start?: string | undefined;
+  warmup_pool_id?: string | undefined;
+  dfy_password_changed?: boolean | undefined;
+  is_ready_made_account?: boolean | undefined;
+  stat_warmup_score?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  autofix_failed?: boolean | undefined;
+};
+
+export interface ActionInput_instantly_resumewebhook {
+  /**
+   * Webhook ID to resume. Example: "019f1a45-a80d-7b4a-ba64-f5d57118477c"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_resumewebhook {
+  id: string;
+  organization: string;
+  target_hook_url: string;
+  timestamp_created: string;
+  campaign?: string | undefined;
+  name?: string | undefined;
+  event_type?: string | undefined;
+  custom_interest_value?: number | undefined;
+  headers?: {  [key: string]: string;} | undefined;
+  status?: number | undefined;
+  timestamp_error?: string | undefined;
+};
+
+export interface ActionInput_instantly_searchcampaignsbycontact {
+  /**
+   * Lead email address to search for. Example: "lead@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_searchcampaignsbycontact {
+  items: ({  id: string;
+  name: string;
+  status: number;
+  timestamp_created: string;
+  timestamp_updated: string;})[];
+};
+
+export interface ActionInput_instantly_sendtestemail {
+  /**
+   * The email account that will be used to send this email. It has to be an email account connected to your workspace. Example: jondoe@example.com
+   */
+  eaccount: string;
+  /**
+   * Comma-separated list of recipients that will receive the test email. Example: recipient@example.com,recipient2@example.com
+   */
+  to_address_email_list: string;
+  /**
+   * Subject line of the test email. Example: Test email subject
+   */
+  subject: string;
+  body: {  /**
+   * HTML body of the test email. Example: <p>This is a test email</p>
+   */
+  html: string;};
+};
+
+export interface ActionOutput_instantly_sendtestemail {
+  status: string;
+};
+
+export interface ActionInput_instantly_sharecampaign {
+  /**
+   * Campaign ID to share. Example: "ec8dae2c-8bd3-461d-90db-a8d262719b5f"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_instantly_sharecampaign {
+  success: boolean;
+  campaign_id: string;
+};
+
+export interface ActionInput_instantly_testaccountvitals {
+  /**
+   * List of sending account emails to test. Example: ["user@example.com"]
+   */
+  accounts: string[];
+};
+
+export interface ActionOutput_instantly_testaccountvitals {
+  status?: string | undefined;
+  success_list?: ({  domain: string;
+  allPass: boolean;
+  mx: boolean;
+  spf: boolean;
+  dkim: boolean;
+  dmarc: boolean;})[] | undefined;
+  failure_list?: ({  domain: string;
+  allPass: boolean;
+  mx: boolean;
+  spf: boolean;
+  dkim: boolean;
+  dmarc: boolean;})[] | undefined;
+};
+
+export interface ActionInput_instantly_testwebhook {
+  /**
+   * Webhook ID. Example: "019f1a0f-1a3c-7828-801d-069c4b11cf00"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_testwebhook {
+  success: boolean;
+  response_time_ms: number;
+  status_code: number;
+  error?: string | undefined;
+};
+
+export interface ActionInput_instantly_togglecustomtagresource {
+  /**
+   * Custom tag UUID. Example: "bca10b65-b620-44b3-8571-8ce409ad38c8"
+   */
+  tag_id: string;
+  /**
+   * Resource UUID (account or campaign). Example: "ec8dae2c-8bd3-461d-90db-a8d262719b5f"
+   */
+  resource_id: string;
+  /**
+   * Resource type: 1 = Account, 2 = Campaign
+   */
+  resource_type: number;
+};
+
+export interface ActionOutput_instantly_togglecustomtagresource {
+  success: boolean;
+  assigned: boolean;
+};
+
+export interface ActionInput_instantly_updateleadintereststatus {
+  /**
+   * The email of the lead to update the interest status of. Example: "test@test.com"
+   */
+  email: string;
+  /**
+   * The interest status label to set for the lead.
+   */
+  interest_value: 'Interested' | 'Not Interested' | 'Meeting Booked' | 'Meeting Completed' | 'Closed' | 'Out Of Office' | 'Wrong Person';
+  /**
+   * The ID of the campaign context for the interest status update. Example: "019f1a45-a721-7787-bd69-0f0792a00518"
+   */
+  campaign_id?: string | undefined;
+};
+
+export interface ActionOutput_instantly_updateleadintereststatus {
+  /**
+   * Confirmation message from the provider.
+   */
+  message: string;
 };
 
 export interface Admin {

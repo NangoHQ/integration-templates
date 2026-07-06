@@ -1,0 +1,143 @@
+{
+  "input": {
+    "emails": [
+      "warmup-test@example-nango.com"
+    ]
+  },
+  "output": {
+    "job_id": "6a443823e5b146c0a2006677",
+    "status": "success",
+    "progress": 100,
+    "type": "update-warmup-accounts",
+    "created_at": "2026-06-30T21:41:55.524Z",
+    "updated_at": "2026-06-30T21:41:55.730Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/accounts/warmup/enable": {
+        "response": {
+          "id": "6a443823e5b146c0a2006677",
+          "workspace_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "type": "update-warmup-accounts",
+          "progress": 0,
+          "status": "pending",
+          "created_at": "2026-06-30T21:41:55.524Z",
+          "updated_at": "2026-06-30T21:41:55.524Z",
+          "user_id": null,
+          "entity_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "entity_type": "workspace",
+          "data": {
+            "filters": {
+              "emails": [
+                "warmup-test@example-nango.com"
+              ],
+              "includeAllEmails": null,
+              "excludedEmails": null,
+              "filter": null,
+              "search": null
+            },
+            "warmup_status": 1
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:41:55 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "479",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1782855765",
+          "x-request-id": "8765712406036335013",
+          "etag": "W/\"1df-cZ3y8k/vOAgfm0Hr/cGrTAQZkPs\""
+        },
+        "hash": "1806893afadfef09c9efa83f1db2bd94443a8c40",
+        "request": {
+          "data": {
+            "emails": [
+              "warmup-test@example-nango.com"
+            ]
+          }
+        }
+      }
+    },
+    "get": {
+      "/v2/background-jobs/6a443823e5b146c0a2006677": {
+        "response": {
+          "id": "6a443823e5b146c0a2006677",
+          "workspace_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "type": "update-warmup-accounts",
+          "progress": 100,
+          "status": "success",
+          "created_at": "2026-06-30T21:41:55.524Z",
+          "updated_at": "2026-06-30T21:41:55.730Z",
+          "entity_id": "bffdcc34-56cd-403e-a325-def96cc9d027",
+          "entity_type": "workspace",
+          "data": {
+            "filters": {
+              "emails": [
+                "warmup-test@example-nango.com"
+              ],
+              "includeAllEmails": null,
+              "excludedEmails": null,
+              "filter": null,
+              "search": null
+            },
+            "warmup_status": 1,
+            "step": "DONE",
+            "pending_emails": [],
+            "processed_emails": [
+              {
+                "email": "warmup-test@example-nango.com",
+                "status": "failed",
+                "error": "Account not found"
+              }
+            ],
+            "transition_emails": [],
+            "domains_to_check": [],
+            "valid_mx_domains": [],
+            "mx_check_offset": 0,
+            "update_status_offset": 0,
+            "total_to_process": 1,
+            "success_count": 0,
+            "failed_count": 1,
+            "verification_offset": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:41:57 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "801",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1782855765",
+          "x-request-id": "7264747974955174917",
+          "etag": "W/\"321-YYE8GO/FkLcE+ICA2tqCPBMd2as\""
+        },
+        "hash": "60542fe9a9f5dd9574920df4918e08381ba845a3",
+        "request": {}
+      }
+    }
+  }
+}
