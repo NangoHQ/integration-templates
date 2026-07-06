@@ -1,0 +1,1131 @@
+{
+  "nango": {
+    "batchSave": {
+      "Profile": [
+        {
+          "id": "01KWFX55MPRH1DKMAKXKY2YMND",
+          "email": "list.member.two@nangotest.dev",
+          "first_name": "Mark",
+          "last_name": "Member",
+          "created": "2026-07-01T22:35:23+00:00",
+          "updated": "2026-07-01T22:35:23+00:00"
+        },
+        {
+          "id": "01KWFVK2PYZEYGGRNDRWEC6SMN",
+          "email": "api@nango.dev",
+          "created": "2026-07-01T22:08:02+00:00",
+          "updated": "2026-07-01T23:12:18+00:00"
+        },
+        {
+          "id": "01KWGJTKBMN796SK0XH90Z17KT",
+          "email": "agent.create.profile@nangotest.dev",
+          "first_name": "Agent",
+          "last_name": "Test",
+          "created": "2026-07-02T04:54:05+00:00",
+          "updated": "2026-07-02T04:54:05+00:00"
+        },
+        {
+          "id": "01KWGJW4G7TJMVF3WYC98VYJY3",
+          "email": "nango.bulk.one@nangotest.dev",
+          "first_name": "Bulk",
+          "last_name": "One",
+          "created": "2026-07-02T04:54:55+00:00",
+          "updated": "2026-07-02T04:54:55+00:00"
+        },
+        {
+          "id": "01KWGJW4H03NJ3KKW0B1EJ8QH2",
+          "email": "nango.bulk.two@nangotest.dev",
+          "first_name": "Bulk",
+          "last_name": "Two",
+          "created": "2026-07-02T04:54:55+00:00",
+          "updated": "2026-07-02T04:54:55+00:00"
+        },
+        {
+          "id": "01KWGJXMEC5B6ZBBQJ8PNE6FG9",
+          "email": "agent.create.profile.2@nangotest.dev",
+          "first_name": "Agent",
+          "last_name": "Test",
+          "created": "2026-07-02T04:55:44+00:00",
+          "updated": "2026-07-02T04:55:44+00:00"
+        },
+        {
+          "id": "01KWGK1KXKYBCDRXZC7CRB2Z0N",
+          "email": "agent.create.profile.3@nangotest.dev",
+          "first_name": "Agent",
+          "last_name": "Test",
+          "created": "2026-07-02T04:57:55+00:00",
+          "updated": "2026-07-02T04:57:55+00:00"
+        },
+        {
+          "id": "01KWFX4MZPQDSD3YG79C83CBDV",
+          "email": "john.doe@nangotest.dev",
+          "first_name": "Johnny",
+          "last_name": "Doe",
+          "created": "2026-07-01T22:35:06+00:00",
+          "updated": "2026-07-02T05:10:27+00:00"
+        },
+        {
+          "id": "01KWFX543QCNFFAPCDNGTRCESM",
+          "email": "list.member.one@nangotest.dev",
+          "first_name": "Lisa",
+          "last_name": "Member",
+          "created": "2026-07-01T22:35:21+00:00",
+          "updated": "2026-07-02T05:10:27+00:00"
+        },
+        {
+          "id": "01KWFX5B2R2JJMQTH7J23ZZ0S1",
+          "email": "merge.destination@nangotest.dev",
+          "first_name": "Seed",
+          "last_name": "MergeDestination",
+          "created": "2026-07-01T22:35:28+00:00",
+          "updated": "2026-07-02T05:10:27+00:00"
+        },
+        {
+          "id": "01KWFX5CBH8X8N0JMDN5KJ1S3A",
+          "email": "subscribe.test@nangotest.dev",
+          "first_name": "Sub",
+          "last_name": "TestUser",
+          "created": "2026-07-01T22:35:30+00:00",
+          "updated": "2026-07-02T05:10:27+00:00"
+        },
+        {
+          "id": "01KWFX52Q0EK1Q2NPWA93X35DS",
+          "email": "jane.smith@nangotest.dev",
+          "first_name": "Jane",
+          "last_name": "Smith",
+          "created": "2026-07-01T22:35:20+00:00",
+          "updated": "2026-07-02T05:10:28+00:00"
+        },
+        {
+          "id": "01KWGKWC9YHHYXTDJYC054CNJT",
+          "email": "oauth.write.test@nangotest.dev",
+          "first_name": "OAuth",
+          "last_name": "WriteTest",
+          "created": "2026-07-02T05:12:32+00:00",
+          "updated": "2026-07-02T05:12:32+00:00"
+        },
+        {
+          "id": "01KWGM4Q641H16JYMGNM65M5SM",
+          "email": "dryrun.validate.1782969420@nangotest.dev",
+          "first_name": "Dryrun",
+          "last_name": "Validate",
+          "created": "2026-07-02T05:17:05+00:00",
+          "updated": "2026-07-02T05:17:05+00:00"
+        },
+        {
+          "id": "01KWGM50V688NFCRR14H0KPHR7",
+          "email": "dryrun.save.1782969430@nangotest.dev",
+          "first_name": "Dryrun",
+          "last_name": "Save",
+          "created": "2026-07-02T05:17:15+00:00",
+          "updated": "2026-07-02T05:17:15+00:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Profile": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/profiles": {
+        "response": {
+          "data": [
+            {
+              "type": "profile",
+              "id": "01KWFX55MPRH1DKMAKXKY2YMND",
+              "attributes": {
+                "email": "list.member.two@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Mark",
+                "last_name": "Member",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-01T22:35:23+00:00",
+                "updated": "2026-07-01T22:35:23+00:00",
+                "last_event_date": null,
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {}
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX55MPRH1DKMAKXKY2YMND/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX55MPRH1DKMAKXKY2YMND/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX55MPRH1DKMAKXKY2YMND/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX55MPRH1DKMAKXKY2YMND/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX55MPRH1DKMAKXKY2YMND/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX55MPRH1DKMAKXKY2YMND/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX55MPRH1DKMAKXKY2YMND/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX55MPRH1DKMAKXKY2YMND/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWFX55MPRH1DKMAKXKY2YMND/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWFVK2PYZEYGGRNDRWEC6SMN",
+              "attributes": {
+                "email": "api@nango.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": null,
+                "last_name": null,
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T23:12:18+00:00",
+                "last_event_date": "2026-07-01T22:08:59+00:00",
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {}
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFVK2PYZEYGGRNDRWEC6SMN/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFVK2PYZEYGGRNDRWEC6SMN/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFVK2PYZEYGGRNDRWEC6SMN/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFVK2PYZEYGGRNDRWEC6SMN/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFVK2PYZEYGGRNDRWEC6SMN/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFVK2PYZEYGGRNDRWEC6SMN/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFVK2PYZEYGGRNDRWEC6SMN/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFVK2PYZEYGGRNDRWEC6SMN/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWFVK2PYZEYGGRNDRWEC6SMN/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWGJTKBMN796SK0XH90Z17KT",
+              "attributes": {
+                "email": "agent.create.profile@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Agent",
+                "last_name": "Test",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-02T04:54:05+00:00",
+                "updated": "2026-07-02T04:54:05+00:00",
+                "last_event_date": null,
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {}
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJTKBMN796SK0XH90Z17KT/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJTKBMN796SK0XH90Z17KT/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJTKBMN796SK0XH90Z17KT/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJTKBMN796SK0XH90Z17KT/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJTKBMN796SK0XH90Z17KT/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJTKBMN796SK0XH90Z17KT/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJTKBMN796SK0XH90Z17KT/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJTKBMN796SK0XH90Z17KT/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWGJTKBMN796SK0XH90Z17KT/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWGJW4G7TJMVF3WYC98VYJY3",
+              "attributes": {
+                "email": "nango.bulk.one@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Bulk",
+                "last_name": "One",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-02T04:54:55+00:00",
+                "updated": "2026-07-02T04:54:55+00:00",
+                "last_event_date": null,
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {}
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJW4G7TJMVF3WYC98VYJY3/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJW4G7TJMVF3WYC98VYJY3/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJW4G7TJMVF3WYC98VYJY3/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJW4G7TJMVF3WYC98VYJY3/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJW4G7TJMVF3WYC98VYJY3/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJW4G7TJMVF3WYC98VYJY3/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJW4G7TJMVF3WYC98VYJY3/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJW4G7TJMVF3WYC98VYJY3/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWGJW4G7TJMVF3WYC98VYJY3/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWGJW4H03NJ3KKW0B1EJ8QH2",
+              "attributes": {
+                "email": "nango.bulk.two@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Bulk",
+                "last_name": "Two",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-02T04:54:55+00:00",
+                "updated": "2026-07-02T04:54:55+00:00",
+                "last_event_date": null,
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {}
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJW4H03NJ3KKW0B1EJ8QH2/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJW4H03NJ3KKW0B1EJ8QH2/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJW4H03NJ3KKW0B1EJ8QH2/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJW4H03NJ3KKW0B1EJ8QH2/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJW4H03NJ3KKW0B1EJ8QH2/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJW4H03NJ3KKW0B1EJ8QH2/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJW4H03NJ3KKW0B1EJ8QH2/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJW4H03NJ3KKW0B1EJ8QH2/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWGJW4H03NJ3KKW0B1EJ8QH2/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWGJXMEC5B6ZBBQJ8PNE6FG9",
+              "attributes": {
+                "email": "agent.create.profile.2@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Agent",
+                "last_name": "Test",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-02T04:55:44+00:00",
+                "updated": "2026-07-02T04:55:44+00:00",
+                "last_event_date": null,
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {}
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJXMEC5B6ZBBQJ8PNE6FG9/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJXMEC5B6ZBBQJ8PNE6FG9/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJXMEC5B6ZBBQJ8PNE6FG9/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJXMEC5B6ZBBQJ8PNE6FG9/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJXMEC5B6ZBBQJ8PNE6FG9/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJXMEC5B6ZBBQJ8PNE6FG9/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGJXMEC5B6ZBBQJ8PNE6FG9/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGJXMEC5B6ZBBQJ8PNE6FG9/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWGJXMEC5B6ZBBQJ8PNE6FG9/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWGK1KXKYBCDRXZC7CRB2Z0N",
+              "attributes": {
+                "email": "agent.create.profile.3@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Agent",
+                "last_name": "Test",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-02T04:57:55+00:00",
+                "updated": "2026-07-02T04:57:55+00:00",
+                "last_event_date": null,
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {}
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGK1KXKYBCDRXZC7CRB2Z0N/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGK1KXKYBCDRXZC7CRB2Z0N/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGK1KXKYBCDRXZC7CRB2Z0N/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGK1KXKYBCDRXZC7CRB2Z0N/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGK1KXKYBCDRXZC7CRB2Z0N/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGK1KXKYBCDRXZC7CRB2Z0N/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGK1KXKYBCDRXZC7CRB2Z0N/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGK1KXKYBCDRXZC7CRB2Z0N/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWGK1KXKYBCDRXZC7CRB2Z0N/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWFX4MZPQDSD3YG79C83CBDV",
+              "attributes": {
+                "email": "john.doe@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Johnny",
+                "last_name": "Doe",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-01T22:35:06+00:00",
+                "updated": "2026-07-02T05:10:27+00:00",
+                "last_event_date": "2026-07-02T04:52:58+00:00",
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {
+                  "seed": "nango-test"
+                }
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWFX4MZPQDSD3YG79C83CBDV/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWFX543QCNFFAPCDNGTRCESM",
+              "attributes": {
+                "email": "list.member.one@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Lisa",
+                "last_name": "Member",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-01T22:35:21+00:00",
+                "updated": "2026-07-02T05:10:27+00:00",
+                "last_event_date": "2026-07-01T14:00:00+00:00",
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {}
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX543QCNFFAPCDNGTRCESM/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX543QCNFFAPCDNGTRCESM/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX543QCNFFAPCDNGTRCESM/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX543QCNFFAPCDNGTRCESM/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX543QCNFFAPCDNGTRCESM/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX543QCNFFAPCDNGTRCESM/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX543QCNFFAPCDNGTRCESM/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX543QCNFFAPCDNGTRCESM/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWFX543QCNFFAPCDNGTRCESM/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWFX5B2R2JJMQTH7J23ZZ0S1",
+              "attributes": {
+                "email": "merge.destination@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Seed",
+                "last_name": "MergeDestination",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-01T22:35:28+00:00",
+                "updated": "2026-07-02T05:10:27+00:00",
+                "last_event_date": "2026-07-02T04:50:57+00:00",
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {}
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX5B2R2JJMQTH7J23ZZ0S1/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX5B2R2JJMQTH7J23ZZ0S1/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX5B2R2JJMQTH7J23ZZ0S1/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX5B2R2JJMQTH7J23ZZ0S1/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX5B2R2JJMQTH7J23ZZ0S1/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX5B2R2JJMQTH7J23ZZ0S1/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX5B2R2JJMQTH7J23ZZ0S1/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX5B2R2JJMQTH7J23ZZ0S1/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWFX5B2R2JJMQTH7J23ZZ0S1/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWFX5CBH8X8N0JMDN5KJ1S3A",
+              "attributes": {
+                "email": "subscribe.test@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Sub",
+                "last_name": "TestUser",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-01T22:35:30+00:00",
+                "updated": "2026-07-02T05:10:27+00:00",
+                "last_event_date": "2026-07-02T04:27:15+00:00",
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {
+                  "$sms_consent_method": 5,
+                  "$source": -9,
+                  "$consent": [
+                    "email"
+                  ],
+                  "$consent_timestamp": "2026-07-02T04:52:26.405996+00:00"
+                }
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX5CBH8X8N0JMDN5KJ1S3A/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX5CBH8X8N0JMDN5KJ1S3A/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX5CBH8X8N0JMDN5KJ1S3A/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX5CBH8X8N0JMDN5KJ1S3A/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX5CBH8X8N0JMDN5KJ1S3A/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX5CBH8X8N0JMDN5KJ1S3A/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX5CBH8X8N0JMDN5KJ1S3A/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX5CBH8X8N0JMDN5KJ1S3A/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWFX5CBH8X8N0JMDN5KJ1S3A/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWFX52Q0EK1Q2NPWA93X35DS",
+              "attributes": {
+                "email": "jane.smith@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Jane",
+                "last_name": "Smith",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-01T22:35:20+00:00",
+                "updated": "2026-07-02T05:10:28+00:00",
+                "last_event_date": "2026-07-01T13:00:00+00:00",
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {
+                  "seed": "nango-test"
+                }
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX52Q0EK1Q2NPWA93X35DS/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX52Q0EK1Q2NPWA93X35DS/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX52Q0EK1Q2NPWA93X35DS/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX52Q0EK1Q2NPWA93X35DS/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX52Q0EK1Q2NPWA93X35DS/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX52Q0EK1Q2NPWA93X35DS/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWFX52Q0EK1Q2NPWA93X35DS/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWFX52Q0EK1Q2NPWA93X35DS/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWFX52Q0EK1Q2NPWA93X35DS/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWGKWC9YHHYXTDJYC054CNJT",
+              "attributes": {
+                "email": "oauth.write.test@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "OAuth",
+                "last_name": "WriteTest",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-02T05:12:32+00:00",
+                "updated": "2026-07-02T05:12:32+00:00",
+                "last_event_date": null,
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {}
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGKWC9YHHYXTDJYC054CNJT/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGKWC9YHHYXTDJYC054CNJT/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGKWC9YHHYXTDJYC054CNJT/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGKWC9YHHYXTDJYC054CNJT/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGKWC9YHHYXTDJYC054CNJT/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGKWC9YHHYXTDJYC054CNJT/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGKWC9YHHYXTDJYC054CNJT/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGKWC9YHHYXTDJYC054CNJT/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWGKWC9YHHYXTDJYC054CNJT/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWGM4Q641H16JYMGNM65M5SM",
+              "attributes": {
+                "email": "dryrun.validate.1782969420@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Dryrun",
+                "last_name": "Validate",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-02T05:17:05+00:00",
+                "updated": "2026-07-02T05:17:05+00:00",
+                "last_event_date": null,
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {
+                  "source": "nango_dryrun"
+                }
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGM4Q641H16JYMGNM65M5SM/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGM4Q641H16JYMGNM65M5SM/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGM4Q641H16JYMGNM65M5SM/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGM4Q641H16JYMGNM65M5SM/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGM4Q641H16JYMGNM65M5SM/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGM4Q641H16JYMGNM65M5SM/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGM4Q641H16JYMGNM65M5SM/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGM4Q641H16JYMGNM65M5SM/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWGM4Q641H16JYMGNM65M5SM/"
+              }
+            },
+            {
+              "type": "profile",
+              "id": "01KWGM50V688NFCRR14H0KPHR7",
+              "attributes": {
+                "email": "dryrun.save.1782969430@nangotest.dev",
+                "phone_number": null,
+                "external_id": null,
+                "anonymous_id": null,
+                "whatsapp_bsuid": null,
+                "first_name": "Dryrun",
+                "last_name": "Save",
+                "organization": null,
+                "locale": null,
+                "title": null,
+                "image": null,
+                "created": "2026-07-02T05:17:15+00:00",
+                "updated": "2026-07-02T05:17:15+00:00",
+                "last_event_date": null,
+                "location": {
+                  "address1": null,
+                  "address2": null,
+                  "city": null,
+                  "country": null,
+                  "latitude": null,
+                  "longitude": null,
+                  "region": null,
+                  "zip": null,
+                  "timezone": null,
+                  "ip": null
+                },
+                "properties": {
+                  "source": "nango_dryrun"
+                }
+              },
+              "relationships": {
+                "lists": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGM50V688NFCRR14H0KPHR7/relationships/lists/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGM50V688NFCRR14H0KPHR7/lists/"
+                  }
+                },
+                "segments": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGM50V688NFCRR14H0KPHR7/relationships/segments/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGM50V688NFCRR14H0KPHR7/segments/"
+                  }
+                },
+                "push-tokens": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGM50V688NFCRR14H0KPHR7/relationships/push-tokens/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGM50V688NFCRR14H0KPHR7/push-tokens/"
+                  }
+                },
+                "conversation": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/profiles/01KWGM50V688NFCRR14H0KPHR7/relationships/conversation/",
+                    "related": "https://a.klaviyo.com/api/profiles/01KWGM50V688NFCRR14H0KPHR7/conversation/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/profiles/01KWGM50V688NFCRR14H0KPHR7/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/profiles?sort=updated",
+            "next": null,
+            "prev": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 05:18:27 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4959",
+          "x-ratelimit-reset": "1782969544",
+          "cf-ray": "a14b309b186b8bee-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; report-uri /csp/",
+          "ratelimit-limit": "75, 75;w=1, 750;w=60",
+          "ratelimit-remaining": "74",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "83",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "d94d0ac4-64bf-48fd-8203-8d77689490ec"
+        },
+        "hash": "f280843d1564c06f9d005346cd5d07132ba03757",
+        "request": {
+          "params": {
+            "sort": "updated"
+          },
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      }
+    }
+  }
+}

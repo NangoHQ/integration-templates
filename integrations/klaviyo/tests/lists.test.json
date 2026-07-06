@@ -1,0 +1,302 @@
+{
+  "nango": {
+    "batchSave": {
+      "List": [
+        {
+          "id": "R8wxnu",
+          "name": "Preview List",
+          "created": "2026-07-01T22:08:03+00:00",
+          "updated": "2026-07-01T22:09:50+00:00"
+        },
+        {
+          "id": "Rd9MHS",
+          "name": "Email List",
+          "created": "2026-07-01T22:08:02+00:00",
+          "updated": "2026-07-01T22:09:50+00:00"
+        },
+        {
+          "id": "UfBLtB",
+          "name": "Text Messaging List",
+          "created": "2026-07-01T22:08:01+00:00",
+          "updated": "2026-07-01T22:08:01+00:00"
+        },
+        {
+          "id": "UgA2kN",
+          "name": "Nango Test List B",
+          "created": "2026-07-01T22:35:45+00:00",
+          "updated": "2026-07-01T22:35:45+00:00"
+        },
+        {
+          "id": "XPNfKB",
+          "name": "Nango Send Test Empty 1782967739487",
+          "created": "2026-07-02T04:49:00+00:00",
+          "updated": "2026-07-02T04:49:00+00:00"
+        },
+        {
+          "id": "XW53Ha",
+          "name": "Nango Test List A",
+          "created": "2026-07-01T22:35:43+00:00",
+          "updated": "2026-07-01T22:35:43+00:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "List": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/lists": {
+        "response": {
+          "data": [
+            {
+              "type": "list",
+              "id": "R8wxnu",
+              "attributes": {
+                "name": "Preview List",
+                "created": "2026-07-01T22:08:03+00:00",
+                "updated": "2026-07-01T22:09:50+00:00",
+                "opt_in_process": "single_opt_in"
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/R8wxnu/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/lists/R8wxnu/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/R8wxnu/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/lists/R8wxnu/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/R8wxnu/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/lists/R8wxnu/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/lists/R8wxnu/"
+              }
+            },
+            {
+              "type": "list",
+              "id": "Rd9MHS",
+              "attributes": {
+                "name": "Email List",
+                "created": "2026-07-01T22:08:02+00:00",
+                "updated": "2026-07-01T22:09:50+00:00",
+                "opt_in_process": "single_opt_in"
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/Rd9MHS/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/lists/Rd9MHS/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/Rd9MHS/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/lists/Rd9MHS/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/Rd9MHS/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/lists/Rd9MHS/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/lists/Rd9MHS/"
+              }
+            },
+            {
+              "type": "list",
+              "id": "UfBLtB",
+              "attributes": {
+                "name": "Text Messaging List",
+                "created": "2026-07-01T22:08:01+00:00",
+                "updated": "2026-07-01T22:08:01+00:00",
+                "opt_in_process": "double_opt_in"
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/UfBLtB/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/lists/UfBLtB/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/UfBLtB/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/lists/UfBLtB/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/UfBLtB/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/lists/UfBLtB/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/lists/UfBLtB/"
+              }
+            },
+            {
+              "type": "list",
+              "id": "UgA2kN",
+              "attributes": {
+                "name": "Nango Test List B",
+                "created": "2026-07-01T22:35:45+00:00",
+                "updated": "2026-07-01T22:35:45+00:00",
+                "opt_in_process": "single_opt_in"
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/UgA2kN/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/lists/UgA2kN/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/UgA2kN/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/lists/UgA2kN/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/UgA2kN/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/lists/UgA2kN/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/lists/UgA2kN/"
+              }
+            },
+            {
+              "type": "list",
+              "id": "XPNfKB",
+              "attributes": {
+                "name": "Nango Send Test Empty 1782967739487",
+                "created": "2026-07-02T04:49:00+00:00",
+                "updated": "2026-07-02T04:49:00+00:00",
+                "opt_in_process": "single_opt_in"
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/XPNfKB/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/lists/XPNfKB/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/XPNfKB/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/lists/XPNfKB/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/XPNfKB/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/lists/XPNfKB/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/lists/XPNfKB/"
+              }
+            },
+            {
+              "type": "list",
+              "id": "XW53Ha",
+              "attributes": {
+                "name": "Nango Test List A",
+                "created": "2026-07-01T22:35:43+00:00",
+                "updated": "2026-07-01T22:35:43+00:00",
+                "opt_in_process": "single_opt_in"
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/XW53Ha/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/lists/XW53Ha/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/XW53Ha/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/lists/XW53Ha/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/lists/XW53Ha/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/lists/XW53Ha/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/lists/XW53Ha/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/lists?page%5Bsize%5D=10",
+            "next": null,
+            "prev": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 04:49:06 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4866",
+          "x-ratelimit-reset": "1782967764",
+          "cf-ray": "a14b059e28bbd0a0-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; object-src 'none'; base-uri 'none'; report-uri /csp/",
+          "ratelimit-limit": "75, 75;w=1, 750;w=60",
+          "ratelimit-remaining": "74",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "82",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "64e8e323-e27a-4d31-842e-1a84053e53f3"
+        },
+        "hash": "2c3a79248363706f998ecb76c299b5c2ffa22ed3",
+        "request": {
+          "params": {
+            "page[size]": "10"
+          },
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,661 @@
+{
+  "nango": {
+    "batchSave": {
+      "Segment": [
+        {
+          "id": "S6zPJr",
+          "name": "Nango Test Segment Create",
+          "created": "2026-07-02T04:49:50+00:00",
+          "updated": "2026-07-02T04:49:57+00:00",
+          "is_active": true,
+          "is_processing": false,
+          "is_starred": false
+        },
+        {
+          "id": "UZSjCv",
+          "name": "Engaged (90 Days)",
+          "created": "2026-07-01T22:08:05+00:00",
+          "updated": "2026-07-01T22:08:09+00:00",
+          "is_active": true,
+          "is_processing": false,
+          "is_starred": false
+        },
+        {
+          "id": "Uy7MGE",
+          "name": "Engaged (30 Days)",
+          "created": "2026-07-01T22:08:04+00:00",
+          "updated": "2026-07-01T22:08:07+00:00",
+          "is_active": true,
+          "is_processing": false,
+          "is_starred": false
+        },
+        {
+          "id": "V7Rips",
+          "name": "Nango Seed Delete Segment One",
+          "created": "2026-07-02T04:48:54+00:00",
+          "updated": "2026-07-02T04:49:07+00:00",
+          "is_active": true,
+          "is_processing": false,
+          "is_starred": false
+        },
+        {
+          "id": "XFd2MM",
+          "name": "New Subscribers",
+          "created": "2026-07-01T22:08:03+00:00",
+          "updated": "2026-07-01T22:08:07+00:00",
+          "is_active": true,
+          "is_processing": false,
+          "is_starred": false
+        },
+        {
+          "id": "XYegnA",
+          "name": "Nango Test Segment Create",
+          "created": "2026-07-02T04:50:17+00:00",
+          "updated": "2026-07-02T04:50:29+00:00",
+          "is_active": true,
+          "is_processing": false,
+          "is_starred": false
+        },
+        {
+          "id": "Y4kine",
+          "name": "Engaged (60 Days)",
+          "created": "2026-07-01T22:08:05+00:00",
+          "updated": "2026-07-01T22:08:07+00:00",
+          "is_active": true,
+          "is_processing": false,
+          "is_starred": false
+        }
+      ]
+    },
+    "batchDelete": {
+      "Segment": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/segments": {
+        "response": {
+          "data": [
+            {
+              "type": "segment",
+              "id": "S6zPJr",
+              "attributes": {
+                "name": "Nango Test Segment Create",
+                "definition": {
+                  "condition_groups": [
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-property",
+                          "property": "email",
+                          "filter": {
+                            "type": "existence",
+                            "operator": "is-set"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "created": "2026-07-02T04:49:50+00:00",
+                "updated": "2026-07-02T04:49:57+00:00",
+                "is_active": true,
+                "is_processing": false,
+                "is_starred": false
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/S6zPJr/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/segments/S6zPJr/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/S6zPJr/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/segments/S6zPJr/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/S6zPJr/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/segments/S6zPJr/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/segments/S6zPJr/"
+              }
+            },
+            {
+              "type": "segment",
+              "id": "UZSjCv",
+              "attributes": {
+                "name": "Engaged (90 Days)",
+                "definition": {
+                  "condition_groups": [
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-group-membership",
+                          "is_member": true,
+                          "group_ids": [
+                            "Rd9MHS"
+                          ],
+                          "timeframe_filter": null
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-metric",
+                          "metric_id": "WxPc4s",
+                          "measurement": "count",
+                          "measurement_filter": {
+                            "type": "numeric",
+                            "operator": "greater-than",
+                            "value": 0
+                          },
+                          "timeframe_filter": {
+                            "type": "date",
+                            "operator": "in-the-last",
+                            "unit": "day",
+                            "quantity": 90
+                          },
+                          "metric_filters": null
+                        },
+                        {
+                          "type": "profile-metric",
+                          "metric_id": "SjWnqR",
+                          "measurement": "count",
+                          "measurement_filter": {
+                            "type": "numeric",
+                            "operator": "greater-than",
+                            "value": 0
+                          },
+                          "timeframe_filter": {
+                            "type": "date",
+                            "operator": "in-the-last",
+                            "unit": "day",
+                            "quantity": 90
+                          },
+                          "metric_filters": null
+                        },
+                        {
+                          "type": "profile-group-membership",
+                          "is_member": true,
+                          "group_ids": [
+                            "Rd9MHS"
+                          ],
+                          "timeframe_filter": {
+                            "type": "date",
+                            "operator": "in-the-last",
+                            "unit": "day",
+                            "quantity": 45
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "created": "2026-07-01T22:08:05+00:00",
+                "updated": "2026-07-01T22:08:09+00:00",
+                "is_active": true,
+                "is_processing": false,
+                "is_starred": false
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/UZSjCv/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/segments/UZSjCv/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/UZSjCv/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/segments/UZSjCv/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/UZSjCv/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/segments/UZSjCv/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/segments/UZSjCv/"
+              }
+            },
+            {
+              "type": "segment",
+              "id": "Uy7MGE",
+              "attributes": {
+                "name": "Engaged (30 Days)",
+                "definition": {
+                  "condition_groups": [
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-group-membership",
+                          "is_member": true,
+                          "group_ids": [
+                            "Rd9MHS"
+                          ],
+                          "timeframe_filter": null
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-metric",
+                          "metric_id": "WxPc4s",
+                          "measurement": "count",
+                          "measurement_filter": {
+                            "type": "numeric",
+                            "operator": "greater-than",
+                            "value": 0
+                          },
+                          "timeframe_filter": {
+                            "type": "date",
+                            "operator": "in-the-last",
+                            "unit": "day",
+                            "quantity": 30
+                          },
+                          "metric_filters": null
+                        },
+                        {
+                          "type": "profile-metric",
+                          "metric_id": "SjWnqR",
+                          "measurement": "count",
+                          "measurement_filter": {
+                            "type": "numeric",
+                            "operator": "greater-than",
+                            "value": 0
+                          },
+                          "timeframe_filter": {
+                            "type": "date",
+                            "operator": "in-the-last",
+                            "unit": "day",
+                            "quantity": 30
+                          },
+                          "metric_filters": null
+                        },
+                        {
+                          "type": "profile-group-membership",
+                          "is_member": true,
+                          "group_ids": [
+                            "Rd9MHS"
+                          ],
+                          "timeframe_filter": {
+                            "type": "date",
+                            "operator": "in-the-last",
+                            "unit": "day",
+                            "quantity": 15
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "created": "2026-07-01T22:08:04+00:00",
+                "updated": "2026-07-01T22:08:07+00:00",
+                "is_active": true,
+                "is_processing": false,
+                "is_starred": false
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/Uy7MGE/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/segments/Uy7MGE/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/Uy7MGE/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/segments/Uy7MGE/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/Uy7MGE/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/segments/Uy7MGE/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/segments/Uy7MGE/"
+              }
+            },
+            {
+              "type": "segment",
+              "id": "V7Rips",
+              "attributes": {
+                "name": "Nango Seed Delete Segment One",
+                "definition": {
+                  "condition_groups": [
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-property",
+                          "property": "email",
+                          "filter": {
+                            "type": "existence",
+                            "operator": "is-set"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "created": "2026-07-02T04:48:54+00:00",
+                "updated": "2026-07-02T04:49:07+00:00",
+                "is_active": true,
+                "is_processing": false,
+                "is_starred": false
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/V7Rips/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/segments/V7Rips/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/V7Rips/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/segments/V7Rips/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/V7Rips/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/segments/V7Rips/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/segments/V7Rips/"
+              }
+            },
+            {
+              "type": "segment",
+              "id": "XFd2MM",
+              "attributes": {
+                "name": "New Subscribers",
+                "definition": {
+                  "condition_groups": [
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-group-membership",
+                          "is_member": true,
+                          "group_ids": [
+                            "Rd9MHS"
+                          ],
+                          "timeframe_filter": {
+                            "type": "date",
+                            "operator": "in-the-last",
+                            "unit": "day",
+                            "quantity": 14
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-marketing-consent",
+                          "consent": {
+                            "channel": "email",
+                            "can_receive_marketing": true,
+                            "consent_status": {
+                              "subscription": "any",
+                              "filters": null
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "created": "2026-07-01T22:08:03+00:00",
+                "updated": "2026-07-01T22:08:07+00:00",
+                "is_active": true,
+                "is_processing": false,
+                "is_starred": false
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/XFd2MM/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/segments/XFd2MM/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/XFd2MM/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/segments/XFd2MM/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/XFd2MM/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/segments/XFd2MM/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/segments/XFd2MM/"
+              }
+            },
+            {
+              "type": "segment",
+              "id": "XYegnA",
+              "attributes": {
+                "name": "Nango Test Segment Create",
+                "definition": {
+                  "condition_groups": [
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-property",
+                          "property": "email",
+                          "filter": {
+                            "type": "existence",
+                            "operator": "is-set"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "created": "2026-07-02T04:50:17+00:00",
+                "updated": "2026-07-02T04:50:29+00:00",
+                "is_active": true,
+                "is_processing": false,
+                "is_starred": false
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/XYegnA/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/segments/XYegnA/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/XYegnA/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/segments/XYegnA/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/XYegnA/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/segments/XYegnA/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/segments/XYegnA/"
+              }
+            },
+            {
+              "type": "segment",
+              "id": "Y4kine",
+              "attributes": {
+                "name": "Engaged (60 Days)",
+                "definition": {
+                  "condition_groups": [
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-group-membership",
+                          "is_member": true,
+                          "group_ids": [
+                            "Rd9MHS"
+                          ],
+                          "timeframe_filter": null
+                        }
+                      ]
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "type": "profile-metric",
+                          "metric_id": "WxPc4s",
+                          "measurement": "count",
+                          "measurement_filter": {
+                            "type": "numeric",
+                            "operator": "greater-than",
+                            "value": 0
+                          },
+                          "timeframe_filter": {
+                            "type": "date",
+                            "operator": "in-the-last",
+                            "unit": "day",
+                            "quantity": 60
+                          },
+                          "metric_filters": null
+                        },
+                        {
+                          "type": "profile-metric",
+                          "metric_id": "SjWnqR",
+                          "measurement": "count",
+                          "measurement_filter": {
+                            "type": "numeric",
+                            "operator": "greater-than",
+                            "value": 0
+                          },
+                          "timeframe_filter": {
+                            "type": "date",
+                            "operator": "in-the-last",
+                            "unit": "day",
+                            "quantity": 60
+                          },
+                          "metric_filters": null
+                        },
+                        {
+                          "type": "profile-group-membership",
+                          "is_member": true,
+                          "group_ids": [
+                            "Rd9MHS"
+                          ],
+                          "timeframe_filter": {
+                            "type": "date",
+                            "operator": "in-the-last",
+                            "unit": "day",
+                            "quantity": 30
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "created": "2026-07-01T22:08:05+00:00",
+                "updated": "2026-07-01T22:08:07+00:00",
+                "is_active": true,
+                "is_processing": false,
+                "is_starred": false
+              },
+              "relationships": {
+                "profiles": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/Y4kine/relationships/profiles/",
+                    "related": "https://a.klaviyo.com/api/segments/Y4kine/profiles/"
+                  }
+                },
+                "tags": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/Y4kine/relationships/tags/",
+                    "related": "https://a.klaviyo.com/api/segments/Y4kine/tags/"
+                  }
+                },
+                "flow-triggers": {
+                  "links": {
+                    "self": "https://a.klaviyo.com/api/segments/Y4kine/relationships/flow-triggers/",
+                    "related": "https://a.klaviyo.com/api/segments/Y4kine/flow-triggers/"
+                  }
+                }
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/segments/Y4kine/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/segments?page%5Bsize%5D=10",
+            "next": null,
+            "prev": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 04:50:30 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1782967885",
+          "cf-ray": "a14b07adbebbdfd2-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "object-src 'none'; base-uri 'none'; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; report-uri /csp/",
+          "ratelimit-limit": "75, 75;w=1, 750;w=60",
+          "ratelimit-remaining": "74",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "62",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "2c09ea38-0a61-4fe4-9b7b-4083a39f5ade"
+        },
+        "hash": "e8efedda071ed7394e1d95ca015920ad2fdfb246",
+        "request": {
+          "params": {
+            "page[size]": "10"
+          },
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      }
+    }
+  }
+}
