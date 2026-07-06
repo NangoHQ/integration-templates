@@ -1,0 +1,116 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InterviewerInputSchema = z.object({
+    id: z.string().describe('User ID of the interviewer. Example: "c4bc6266-375b-4d45-9b3b-ad527ba5f3ef"')
+});
+
+const InterviewInputSchema = z.object({
+    subject: z.string().optional().describe('Subject or title of the interview.'),
+    note: z.string().optional().describe('Additional notes for the interview.'),
+    interviewers: z.array(InterviewerInputSchema).min(1).describe('At least one interviewer is required.'),
+    date: z.number().describe('Start time as a Unix timestamp in milliseconds. Example: 1751404800000'),
+    duration: z.number().optional().describe('Duration in minutes.')
+});
+
+const InputSchema = z.object({
+    opportunityId: z.string().describe('Opportunity ID to schedule interviews for. Example: "6408dc54-7015-4e5b-8d60-23afff2b1efc"'),
+    performAs: z.string().describe('Lever user ID to attribute this action to. Example: "be129d9b-50da-4485-9377-0d83e981f30b"'),
+    timezone: z.string().optional().describe('Timezone for the interviews. Example: "America/Los_Angeles"'),
+    interviews: z.array(InterviewInputSchema).min(1).describe('At least one interview is required.')
+});
+
+const ProviderInterviewerSchema = z.object({
+    id: z.string(),
+    email: z.string().nullish(),
+    name: z.string().nullish()
+});
+
+const ProviderInterviewSchema = z.object({
+    id: z.string(),
+    subject: z.string().nullish(),
+    note: z.string().nullish(),
+    interviewers: z.array(ProviderInterviewerSchema).nullish(),
+    date: z.number().nullish(),
+    duration: z.number().nullish(),
+    createdAt: z.number().nullish(),
+    updatedAt: z.number().nullish()
+});
+
+const ProviderPanelSchema = z.object({
+    id: z.string(),
+    opportunityId: z.string().nullish(),
+    timezone: z.string().nullish(),
+    interviews: z.array(ProviderInterviewSchema).nullish(),
+    createdAt: z.number().nullish(),
+    updatedAt: z.number().nullish()
+});
+
+const OutputSchema = z.object({
+    id: z.string(),
+    opportunityId: z.string().optional(),
+    timezone: z.string().optional(),
+    interviews: z
+        .array(
+            z.object({
+                id: z.string(),
+                subject: z.string().optional(),
+                note: z.string().optional(),
+                interviewers: z.array(ProviderInterviewerSchema).optional(),
+                date: z.number().optional(),
+                duration: z.number().optional()
+            })
+        )
+        .optional()
+});
+
+const action = createAction({
+    description: 'Schedule one or more interviews for an opportunity by creating an interview panel.',
+    version: '1.0.0',
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['opportunities:write'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.post({
+            // https://hire.lever.co/developer/documentation
+            endpoint: `/v1/opportunities/${encodeURIComponent(input.opportunityId)}/panels`,
+            params: {
+                perform_as: input.performAs
+            },
+            data: {
+                ...(input.timezone !== undefined && { timezone: input.timezone }),
+                interviews: input.interviews.map((interview) => ({
+                    ...(interview.subject !== undefined && { subject: interview.subject }),
+                    ...(interview.note !== undefined && { note: interview.note }),
+                    interviewers: interview.interviewers.map((interviewer) => ({ id: interviewer.id })),
+                    date: interview.date,
+                    ...(interview.duration !== undefined && { duration: interview.duration })
+                }))
+            },
+            retries: 10
+        });
+
+        const wrapper = z.object({ data: ProviderPanelSchema }).parse(response.data);
+        const providerPanel = wrapper.data;
+
+        return {
+            id: providerPanel.id,
+            ...(providerPanel.opportunityId != null && { opportunityId: providerPanel.opportunityId }),
+            ...(providerPanel.timezone != null && { timezone: providerPanel.timezone }),
+            ...(providerPanel.interviews != null && {
+                interviews: providerPanel.interviews.map((interview) => ({
+                    id: interview.id,
+                    ...(interview.subject != null && { subject: interview.subject }),
+                    ...(interview.note != null && { note: interview.note }),
+                    ...(interview.interviewers != null && { interviewers: interview.interviewers }),
+                    ...(interview.date != null && { date: interview.date }),
+                    ...(interview.duration != null && { duration: interview.duration })
+                }))
+            })
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

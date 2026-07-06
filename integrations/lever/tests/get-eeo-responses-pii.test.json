@@ -1,0 +1,176 @@
+{
+  "input": {},
+  "output": {
+    "success": true,
+    "response": [
+      {
+        "id": "5c77c84e-e124-4244-9c87-bad792976eed",
+        "opportunityId": "7e3dde7c-fb87-40b9-99cd-bc3f3b58847b",
+        "posting": "75ff237f-c221-4c26-8b23-faf395f5ea1c",
+        "applicationArchivedAt": null,
+        "applicationArchivedBy": null,
+        "applicationArchiveReason": null,
+        "applicationId": "5c77c84e-e124-4244-9c87-bad792976eed",
+        "applicationTitle": "Nango Seed Posting 1 - Updated",
+        "appliedAt": 1782974071183,
+        "currentStage": "applicant-new",
+        "contact": "294f08fc-1aad-409a-a7e3-6455c1a04bca",
+        "eeoResponseSource": "api",
+        "eeoSurveyRespondedAt": 1782974071242,
+        "hiredDate": null,
+        "hiringManager": null,
+        "opportunityOwner": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+        "origin": "internal",
+        "sources": [
+          "Job site"
+        ]
+      },
+      {
+        "id": "e75025fd-6ad2-4354-a18a-9e944c42ecda",
+        "opportunityId": "b4d854ea-e5d1-4bae-b819-aa1dfe480d1f",
+        "posting": "75ff237f-c221-4c26-8b23-faf395f5ea1c",
+        "applicationArchivedAt": null,
+        "applicationArchivedBy": null,
+        "applicationArchiveReason": null,
+        "applicationId": "e75025fd-6ad2-4354-a18a-9e944c42ecda",
+        "applicationTitle": "Nango Seed Posting 1 - Updated",
+        "appliedAt": 1782974063765,
+        "currentStage": "applicant-new",
+        "contact": "294f08fc-1aad-409a-a7e3-6455c1a04bca",
+        "eeoResponseSource": "api",
+        "eeoSurveyRespondedAt": 1782974063823,
+        "hiredDate": null,
+        "hiringManager": null,
+        "opportunityOwner": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+        "origin": "internal",
+        "sources": [
+          "Job site"
+        ]
+      },
+      {
+        "id": "6c543a2d-b6d1-402f-9e66-c3383b604b55",
+        "opportunityId": "9a45dfee-5c91-4861-9073-c225f4e4a68b",
+        "posting": "75ff237f-c221-4c26-8b23-faf395f5ea1c",
+        "applicationArchivedAt": null,
+        "applicationArchivedBy": null,
+        "applicationArchiveReason": null,
+        "applicationId": "6c543a2d-b6d1-402f-9e66-c3383b604b55",
+        "applicationTitle": "Nango Seed Posting 1 - Updated",
+        "appliedAt": 1782973038411,
+        "currentStage": "applicant-new",
+        "contact": "b0351c44-abbf-455c-ba3a-ab2d8d82fb56",
+        "eeoResponseSource": "api",
+        "eeoSurveyRespondedAt": 1782973038479,
+        "hiredDate": null,
+        "hiringManager": null,
+        "opportunityOwner": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+        "origin": "applied",
+        "sources": [
+          "Job site"
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/eeo/responses/pii": {
+        "response": {
+          "data": [
+            {
+              "id": "5c77c84e-e124-4244-9c87-bad792976eed",
+              "applicationArchivedAt": null,
+              "applicationArchivedBy": null,
+              "applicationArchiveReason": null,
+              "applicationId": "5c77c84e-e124-4244-9c87-bad792976eed",
+              "applicationTitle": "Nango Seed Posting 1 - Updated",
+              "appliedAt": 1782974071183,
+              "currentStage": "applicant-new",
+              "contact": "294f08fc-1aad-409a-a7e3-6455c1a04bca",
+              "eeoResponseSource": "api",
+              "eeoSurveyRespondedAt": 1782974071242,
+              "hiredDate": null,
+              "hiringManager": null,
+              "opportunityId": "7e3dde7c-fb87-40b9-99cd-bc3f3b58847b",
+              "opportunityOwner": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+              "origin": "internal",
+              "posting": "75ff237f-c221-4c26-8b23-faf395f5ea1c",
+              "sources": [
+                "Job site"
+              ]
+            },
+            {
+              "id": "e75025fd-6ad2-4354-a18a-9e944c42ecda",
+              "applicationArchivedAt": null,
+              "applicationArchivedBy": null,
+              "applicationArchiveReason": null,
+              "applicationId": "e75025fd-6ad2-4354-a18a-9e944c42ecda",
+              "applicationTitle": "Nango Seed Posting 1 - Updated",
+              "appliedAt": 1782974063765,
+              "currentStage": "applicant-new",
+              "contact": "294f08fc-1aad-409a-a7e3-6455c1a04bca",
+              "eeoResponseSource": "api",
+              "eeoSurveyRespondedAt": 1782974063823,
+              "hiredDate": null,
+              "hiringManager": null,
+              "opportunityId": "b4d854ea-e5d1-4bae-b819-aa1dfe480d1f",
+              "opportunityOwner": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+              "origin": "internal",
+              "posting": "75ff237f-c221-4c26-8b23-faf395f5ea1c",
+              "sources": [
+                "Job site"
+              ]
+            },
+            {
+              "id": "6c543a2d-b6d1-402f-9e66-c3383b604b55",
+              "applicationArchivedAt": null,
+              "applicationArchivedBy": null,
+              "applicationArchiveReason": null,
+              "applicationId": "6c543a2d-b6d1-402f-9e66-c3383b604b55",
+              "applicationTitle": "Nango Seed Posting 1 - Updated",
+              "appliedAt": 1782973038411,
+              "currentStage": "applicant-new",
+              "contact": "b0351c44-abbf-455c-ba3a-ab2d8d82fb56",
+              "eeoResponseSource": "api",
+              "eeoSurveyRespondedAt": 1782973038479,
+              "hiredDate": null,
+              "hiringManager": null,
+              "opportunityId": "9a45dfee-5c91-4861-9073-c225f4e4a68b",
+              "opportunityOwner": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+              "origin": "applied",
+              "posting": "75ff237f-c221-4c26-8b23-faf395f5ea1c",
+              "sources": [
+                "Job site"
+              ]
+            }
+          ],
+          "hasNext": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:44:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4576",
+          "x-ratelimit-reset": "1782974662",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "c7dfa41ddf8cc564b759e2a6089dbfed868289cf",
+        "request": {}
+      }
+    }
+  }
+}

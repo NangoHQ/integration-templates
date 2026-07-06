@@ -1,17 +1,81 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, UpdateLinks } from '../models.js';
+
+const InputSchema = z.object({
+    perform_as: z.string().optional(),
+    links: z.array(z.string()),
+    opportunityId: z.string(),
+    delete: z.boolean().optional().describe('When true, removes the given links instead of adding them.')
+});
+
+const StageChangesObjectSchema = z.object({
+    toStageId: z.string(),
+    toStageIndex: z.number(),
+    updatedAt: z.number(),
+    userId: z.string()
+});
+
+const ProviderOpportunitySchema = z.object({
+    id: z.string().optional(),
+    name: z.string().nullish(),
+    headline: z.string().nullish(),
+    contact: z.string().nullish(),
+    emails: z.array(z.string()).nullish(),
+    phones: z.array(z.object({ type: z.string(), value: z.string() })).nullish(),
+    confidentiality: z.string().nullish(),
+    location: z.string().nullish(),
+    links: z.array(z.string()).nullish(),
+    archived: z
+        .object({
+            reason: z.string().nullish(),
+            archivedAt: z.number().nullish()
+        })
+        .nullish(),
+    createdAt: z.number().nullish(),
+    updatedAt: z.number().nullish(),
+    lastInteractionAt: z.number().nullish(),
+    lastAdvancedAt: z.number().nullish(),
+    snoozedUntil: z.number().nullish(),
+    archivedAt: z.number().nullish(),
+    archiveReason: z.string().nullish(),
+    stage: z.string().nullish(),
+    stageChanges: z.array(z.union([StageChangesObjectSchema, z.string()])).nullish(),
+    owner: z.string().nullish(),
+    tags: z.array(z.string()).nullish(),
+    sources: z.array(z.string()).nullish(),
+    origin: z.string().nullish(),
+    sourcedBy: z.string().nullish(),
+    applications: z.array(z.string()).nullish(),
+    resume: z.string().nullish(),
+    followers: z.array(z.string()).nullish(),
+    urls: z
+        .object({
+            list: z.string().nullish(),
+            show: z.string().nullish()
+        })
+        .nullish(),
+    dataProtection: z.record(z.string(), z.unknown()).nullish(),
+    isAnonymized: z.boolean().nullish(),
+    opportunityLocation: z.string().nullish()
+});
+
+const ProviderResponseSchema = z.object({
+    data: ProviderOpportunitySchema
+});
+
+const OutputSchema = z.object({
+    success: z.boolean(),
+    opportunityId: z.string().optional(),
+    response: ProviderOpportunitySchema
+});
 
 const action = createAction({
     description: 'Update the links in an opportunity',
-    version: '2.0.1',
+    version: '3.0.0',
+    input: InputSchema,
+    output: OutputSchema,
 
-    input: UpdateLinks,
-    output: SuccessResponse,
-
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        let endpoint: string;
-
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.links.length <= 0) {
             throw new nango.ActionError({
                 message: 'links can not be an empty array'
@@ -28,28 +92,24 @@ const action = createAction({
             links: input.links
         };
 
-        if (input?.delete) {
-            endpoint = `/v1/opportunities/${input.opportunityId}/removeLinks`;
-        } else {
-            endpoint = `/v1/opportunities/${input.opportunityId}/addLinks`;
-        }
+        const endpoint = input.delete
+            ? `/v1/opportunities/${encodeURIComponent(input.opportunityId)}/removeLinks`
+            : `/v1/opportunities/${encodeURIComponent(input.opportunityId)}/addLinks`;
 
-        const config: ProxyConfiguration = {
-            // https://hire.lever.co/developer/documentation#update-contact-links-by-opportunity
+        // https://hire.lever.co/developer/documentation
+        const resp = await nango.post({
             endpoint,
             data: putData,
+            ...(input.perform_as && { params: { perform_as: input.perform_as } }),
             retries: 3
-        };
+        });
 
-        if (input.perform_as) {
-            config.params = { perform_as: input.perform_as };
-        }
+        const parsed = ProviderResponseSchema.parse(resp.data);
 
-        const resp = await nango.post(config);
         return {
             success: true,
             opportunityId: input.opportunityId,
-            response: resp.data.data
+            response: parsed.data
         };
     }
 });

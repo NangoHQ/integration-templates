@@ -1,0 +1,140 @@
+{
+  "nango": {
+    "batchSave": {
+      "Source": [
+        {
+          "id": "Added manually",
+          "text": "Added manually",
+          "count": 23
+        },
+        {
+          "id": "Extension",
+          "text": "Extension",
+          "count": 1
+        },
+        {
+          "id": "GitHub",
+          "text": "GitHub",
+          "count": 2
+        },
+        {
+          "id": "Glassdoor",
+          "text": "Glassdoor",
+          "count": 2
+        },
+        {
+          "id": "https://source.com",
+          "text": "https://source.com",
+          "count": 1
+        },
+        {
+          "id": "Job site",
+          "text": "Job site",
+          "count": 30
+        },
+        {
+          "id": "LinkedIn",
+          "text": "LinkedIn",
+          "count": 43
+        },
+        {
+          "id": "Referral",
+          "text": "Referral",
+          "count": 10
+        },
+        {
+          "id": "Social referral",
+          "text": "Social referral",
+          "count": 2
+        },
+        {
+          "id": "Xing",
+          "text": "Xing",
+          "count": 2
+        }
+      ]
+    },
+    "batchDelete": {
+      "Source": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/sources": {
+        "response": {
+          "data": [
+            {
+              "count": 23,
+              "text": "Added manually"
+            },
+            {
+              "count": 1,
+              "text": "Extension"
+            },
+            {
+              "count": 2,
+              "text": "GitHub"
+            },
+            {
+              "count": 2,
+              "text": "Glassdoor"
+            },
+            {
+              "count": 1,
+              "text": "https://source.com"
+            },
+            {
+              "count": 30,
+              "text": "Job site"
+            },
+            {
+              "count": 43,
+              "text": "LinkedIn"
+            },
+            {
+              "count": 10,
+              "text": "Referral"
+            },
+            {
+              "count": 2,
+              "text": "Social referral"
+            },
+            {
+              "count": 2,
+              "text": "Xing"
+            }
+          ],
+          "hasNext": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:33:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1782974055",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "f12fba087ce40177134f0b48e3288934a8ebea06",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

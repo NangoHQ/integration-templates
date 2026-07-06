@@ -1,0 +1,127 @@
+{
+  "input": {
+    "opportunityId": "6408dc54-7015-4e5b-8d60-23afff2b1efc",
+    "tags": [
+      "nango-test-tag"
+    ],
+    "perform_as": "be129d9b-50da-4485-9377-0d83e981f30b"
+  },
+  "output": {
+    "id": "6408dc54-7015-4e5b-8d60-23afff2b1efc",
+    "name": "",
+    "tags": [
+      "Nango Seed",
+      "Research & Development",
+      "Engineering",
+      "San Francisco, CA",
+      "Full-time",
+      "Nango Seed Posting 1 - Updated",
+      "nango-test-tag"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/opportunities/6408dc54-7015-4e5b-8d60-23afff2b1efc/addTags": {
+        "response": {
+          "data": {
+            "id": "6408dc54-7015-4e5b-8d60-23afff2b1efc",
+            "name": "",
+            "contact": "997fd432-94f6-4613-9fa8-c3d5bd49600b",
+            "headline": "",
+            "stage": "lead-reached-out",
+            "confidentiality": "non-confidential",
+            "location": "",
+            "phones": [],
+            "emails": [],
+            "links": [],
+            "archived": {
+              "reason": "c97322d4-a7f3-4008-948c-4f8e9c58d372",
+              "archivedAt": 1782973996415
+            },
+            "tags": [
+              "Nango Seed",
+              "Research & Development",
+              "Engineering",
+              "San Francisco, CA",
+              "Full-time",
+              "Nango Seed Posting 1 - Updated",
+              "nango-test-tag"
+            ],
+            "sources": [
+              "Referral",
+              "Nango Test Source"
+            ],
+            "stageChanges": [
+              {
+                "toStageId": "lead-new",
+                "toStageIndex": 0,
+                "updatedAt": 1782972986091,
+                "userId": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e"
+              },
+              {
+                "toStageId": "lead-reached-out",
+                "toStageIndex": 1,
+                "updatedAt": 1782974004990,
+                "userId": "be129d9b-50da-4485-9377-0d83e981f30b"
+              }
+            ],
+            "origin": "sourced",
+            "sourcedBy": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+            "owner": "32bc4d3b-1aa6-4e2b-92d0-2e575047001e",
+            "followers": [
+              "32bc4d3b-1aa6-4e2b-92d0-2e575047001e"
+            ],
+            "applications": [
+              "7278da68-141b-4203-b209-8ca6c0fa1f2d"
+            ],
+            "createdAt": 1782972986091,
+            "updatedAt": 1782974622089,
+            "lastInteractionAt": 1782974582364,
+            "lastAdvancedAt": 1782974004990,
+            "snoozedUntil": null,
+            "urls": {
+              "list": "https://hire.lever.co/candidates",
+              "show": "https://hire.lever.co/candidates/6408dc54-7015-4e5b-8d60-23afff2b1efc"
+            },
+            "isAnonymized": false,
+            "dataProtection": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:43:50 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4729",
+          "x-ratelimit-reset": "1782974662",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "c87c02046b97b1f4c76e8e95c8aade8c146387f7",
+        "request": {
+          "params": {
+            "perform_as": "be129d9b-50da-4485-9377-0d83e981f30b"
+          },
+          "data": {
+            "tags": [
+              "nango-test-tag"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

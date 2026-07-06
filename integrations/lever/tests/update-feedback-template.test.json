@@ -1,0 +1,265 @@
+{
+  "input": {
+    "templateId": "467b2346-f5e8-470e-a6f1-50775ba7d877",
+    "text": "Nango Temp Template Updated"
+  },
+  "output": {
+    "id": "467b2346-f5e8-470e-a6f1-50775ba7d877",
+    "text": "Nango Temp Template Updated",
+    "instructions": "Please fill out",
+    "createdAt": 1782974590843,
+    "updatedAt": 1782974653940,
+    "fields": [
+      {
+        "id": "a3ca9f75-3809-42ca-b411-bd985ee8fadc",
+        "type": "multiple-select",
+        "text": "Which languages or frameworks are you comfortable with?",
+        "description": "Select one or more.",
+        "required": false,
+        "options": [
+          {
+            "text": "javascript"
+          },
+          {
+            "text": "node"
+          },
+          {
+            "text": "derby"
+          }
+        ]
+      },
+      {
+        "id": "daba94fd-38de-44db-b467-0af3f8d2c4c9",
+        "type": "score-system",
+        "text": "Rating",
+        "description": "",
+        "required": true,
+        "options": [
+          {
+            "text": "4 - Strong Hire"
+          },
+          {
+            "text": "3 - Hire"
+          },
+          {
+            "text": "2 - No Hire"
+          },
+          {
+            "text": "1 - Strong No Hire"
+          }
+        ],
+        "prompt": "Select one"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/feedback_templates/467b2346-f5e8-470e-a6f1-50775ba7d877": {
+        "response": {
+          "data": {
+            "id": "467b2346-f5e8-470e-a6f1-50775ba7d877",
+            "text": "Nango Temp Template Updated",
+            "group": null,
+            "instructions": "Please fill out",
+            "fields": [
+              {
+                "description": "Select one or more.",
+                "required": false,
+                "text": "Which languages or frameworks are you comfortable with?",
+                "type": "multiple-select",
+                "id": "3bdc64f8-2af3-4724-9095-1e8a5035eb41",
+                "options": [
+                  {
+                    "text": "javascript"
+                  },
+                  {
+                    "text": "node"
+                  },
+                  {
+                    "text": "derby"
+                  }
+                ]
+              },
+              {
+                "description": "",
+                "required": true,
+                "text": "Rating",
+                "type": "score-system",
+                "id": "2d2e2ea7-912c-44bb-924a-aa0b1c6dfef0",
+                "prompt": "Select one",
+                "options": [
+                  {
+                    "text": "4 - Strong Hire"
+                  },
+                  {
+                    "text": "3 - Hire"
+                  },
+                  {
+                    "text": "2 - No Hire"
+                  },
+                  {
+                    "text": "1 - Strong No Hire"
+                  }
+                ]
+              }
+            ],
+            "createdAt": 1782974590843,
+            "stage": null,
+            "updatedAt": 1782974641004
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:44:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4466",
+          "x-ratelimit-reset": "1782974662",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "293c1ba4b3f34319a898256e43ed299cc828cd98",
+        "request": {}
+      }
+    },
+    "put": {
+      "/v1/feedback_templates/467b2346-f5e8-470e-a6f1-50775ba7d877": {
+        "response": {
+          "data": {
+            "id": "467b2346-f5e8-470e-a6f1-50775ba7d877",
+            "text": "Nango Temp Template Updated",
+            "group": null,
+            "instructions": "Please fill out",
+            "fields": [
+              {
+                "description": "Select one or more.",
+                "required": false,
+                "text": "Which languages or frameworks are you comfortable with?",
+                "type": "multiple-select",
+                "id": "a3ca9f75-3809-42ca-b411-bd985ee8fadc",
+                "options": [
+                  {
+                    "text": "javascript"
+                  },
+                  {
+                    "text": "node"
+                  },
+                  {
+                    "text": "derby"
+                  }
+                ]
+              },
+              {
+                "description": "",
+                "required": true,
+                "text": "Rating",
+                "type": "score-system",
+                "id": "daba94fd-38de-44db-b467-0af3f8d2c4c9",
+                "prompt": "Select one",
+                "options": [
+                  {
+                    "text": "4 - Strong Hire"
+                  },
+                  {
+                    "text": "3 - Hire"
+                  },
+                  {
+                    "text": "2 - No Hire"
+                  },
+                  {
+                    "text": "1 - Strong No Hire"
+                  }
+                ]
+              }
+            ],
+            "createdAt": 1782974590843,
+            "stage": null,
+            "updatedAt": 1782974653940
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:44:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4464",
+          "x-ratelimit-reset": "1782974662",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "85030647e5ad2df7e2372f6d9abe92cddcfb7530",
+        "request": {
+          "data": {
+            "text": "Nango Temp Template Updated",
+            "instructions": "Please fill out",
+            "fields": [
+              {
+                "type": "multiple-select",
+                "text": "Which languages or frameworks are you comfortable with?",
+                "description": "Select one or more.",
+                "required": false,
+                "options": [
+                  {
+                    "text": "javascript"
+                  },
+                  {
+                    "text": "node"
+                  },
+                  {
+                    "text": "derby"
+                  }
+                ]
+              },
+              {
+                "type": "score-system",
+                "text": "Rating",
+                "description": "",
+                "required": true,
+                "options": [
+                  {
+                    "text": "4 - Strong Hire"
+                  },
+                  {
+                    "text": "3 - Hire"
+                  },
+                  {
+                    "text": "2 - No Hire"
+                  },
+                  {
+                    "text": "1 - Strong No Hire"
+                  }
+                ],
+                "prompt": "Select one"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

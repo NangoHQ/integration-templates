@@ -1,0 +1,178 @@
+{
+  "input": {
+    "text": "Nango Dryrun Feedback Template 3",
+    "fields": [
+      {
+        "type": "multiple-select",
+        "text": "Which languages are you comfortable with?",
+        "description": "Select one or more.",
+        "required": false,
+        "options": [
+          {
+            "text": "javascript"
+          },
+          {
+            "text": "node"
+          }
+        ]
+      },
+      {
+        "type": "score-system",
+        "text": "Rating",
+        "required": true
+      }
+    ]
+  },
+  "output": {
+    "id": "f9d41b08-372b-4c49-9974-7765174013cc",
+    "text": "Nango Dryrun Feedback Template 3",
+    "instructions": "",
+    "fields": [
+      {
+        "id": "22f7c00b-de3a-41b8-942b-05c7453327a1",
+        "type": "multiple-select",
+        "text": "Which languages are you comfortable with?",
+        "description": "Select one or more.",
+        "required": false,
+        "options": [
+          {
+            "text": "javascript"
+          },
+          {
+            "text": "node"
+          }
+        ]
+      },
+      {
+        "id": "d594d202-574a-471c-ae3b-d4aabd9bc275",
+        "type": "score-system",
+        "text": "Rating",
+        "description": "",
+        "required": true,
+        "prompt": "Select one",
+        "options": [
+          {
+            "text": "4 - Strong Hire"
+          },
+          {
+            "text": "3 - Hire"
+          },
+          {
+            "text": "2 - No Hire"
+          },
+          {
+            "text": "1 - Strong No Hire"
+          }
+        ]
+      }
+    ],
+    "createdAt": 1782974224698,
+    "updatedAt": 1782974224698
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/feedback_templates": {
+        "response": {
+          "data": {
+            "id": "f9d41b08-372b-4c49-9974-7765174013cc",
+            "text": "Nango Dryrun Feedback Template 3",
+            "group": null,
+            "instructions": "",
+            "fields": [
+              {
+                "description": "Select one or more.",
+                "required": false,
+                "text": "Which languages are you comfortable with?",
+                "type": "multiple-select",
+                "id": "22f7c00b-de3a-41b8-942b-05c7453327a1",
+                "options": [
+                  {
+                    "text": "javascript"
+                  },
+                  {
+                    "text": "node"
+                  }
+                ]
+              },
+              {
+                "description": "",
+                "required": true,
+                "text": "Rating",
+                "type": "score-system",
+                "id": "d594d202-574a-471c-ae3b-d4aabd9bc275",
+                "prompt": "Select one",
+                "options": [
+                  {
+                    "text": "4 - Strong Hire"
+                  },
+                  {
+                    "text": "3 - Hire"
+                  },
+                  {
+                    "text": "2 - No Hire"
+                  },
+                  {
+                    "text": "1 - Strong No Hire"
+                  }
+                ]
+              }
+            ],
+            "createdAt": 1782974224698,
+            "stage": null,
+            "updatedAt": 1782974224698
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 06:37:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4648",
+          "x-ratelimit-reset": "1782974239",
+          "x-lever-region": "global",
+          "server": "lever-data-api",
+          "x-stream-path": "dapi"
+        },
+        "hash": "3971fc9b417f8dac49e7a0e0bc77d997675f1b6e",
+        "request": {
+          "data": {
+            "text": "Nango Dryrun Feedback Template 3",
+            "fields": [
+              {
+                "type": "multiple-select",
+                "text": "Which languages are you comfortable with?",
+                "description": "Select one or more.",
+                "required": false,
+                "options": [
+                  {
+                    "text": "javascript"
+                  },
+                  {
+                    "text": "node"
+                  }
+                ]
+              },
+              {
+                "type": "score-system",
+                "text": "Rating",
+                "required": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

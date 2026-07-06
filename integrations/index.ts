@@ -2482,7 +2482,6 @@ import './lever/actions/get-archive-reasons.js';
 import './lever/actions/get-posting.js';
 import './lever/actions/get-postings.js';
 import './lever/actions/get-stages.js';
-import './lever/actions/update-opportunity.js';
 import './lever/actions/update-opportunity-archived.js';
 import './lever/actions/update-opportunity-links.js';
 import './lever/actions/update-opportunity-sources.js';
