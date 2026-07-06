@@ -1,0 +1,49 @@
+{
+  "input": {
+    "campaign_id": "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+  },
+  "output": {
+    "status": "campaign_accounts_unhealthy",
+    "status_message": "None of the sending accounts are healthy, connected, or usable. This happens when all sending accounts are suspended, bounced, or disconnected."
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/campaigns/9b6f458e-6dc5-4762-83d5-a528aedd2235/sending-status": {
+        "response": {
+          "diagnostics": null,
+          "summary": {
+            "status": "campaign_accounts_unhealthy",
+            "status_message": "None of the sending accounts are healthy, connected, or usable. This happens when all sending accounts are suspended, bounced, or disconnected.",
+            "issue_started_at": null,
+            "last_healthy_send_at": null,
+            "ai_summary": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:13:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "304",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4953",
+          "x-ratelimit-reset": "1782854023",
+          "x-request-id": "1719737134017028287",
+          "etag": "W/\"130-GIVOS69ZGO0iPSyhb9hrM4W8zwk\""
+        },
+        "hash": "271d6e6e5f24a2086c76c7cd4a94e48f7cc2bd60",
+        "request": {}
+      }
+    }
+  }
+}

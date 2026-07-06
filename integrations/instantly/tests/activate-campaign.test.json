@@ -1,0 +1,212 @@
+{
+  "input": {
+    "id": "afe53ec4-9af6-4032-b3b9-088bbfe8552a"
+  },
+  "output": {
+    "id": "afe53ec4-9af6-4032-b3b9-088bbfe8552a",
+    "name": "[AI SDR] Nango AI Sales Agent - Fully Personalized Campaign (copy)",
+    "status": 1,
+    "timestamp_created": "2026-06-30T21:15:01.135Z",
+    "timestamp_updated": "2026-06-30T21:44:44.198Z",
+    "campaign_schedule": {
+      "schedules": [
+        {
+          "name": "Weekdays",
+          "timing": {
+            "from": "00:00",
+            "to": "23:59"
+          },
+          "days": {
+            "0": false,
+            "1": true,
+            "2": true,
+            "3": true,
+            "4": true,
+            "5": true,
+            "6": false
+          },
+          "timezone": "Etc/GMT+12"
+        }
+      ]
+    },
+    "sequences": [
+      {
+        "steps": [
+          {
+            "type": "email",
+            "delay": 3,
+            "variants": [
+              {
+                "subject": "{{9b6f458e-6dc5-4762-83d5-a528aedd2235_subject_1}}",
+                "body": "{{9b6f458e-6dc5-4762-83d5-a528aedd2235_email_1}}"
+              }
+            ],
+            "delay_unit": "days",
+            "pre_delay_unit": "days"
+          },
+          {
+            "type": "email",
+            "delay": 1,
+            "variants": [
+              {
+                "subject": "",
+                "body": "{{9b6f458e-6dc5-4762-83d5-a528aedd2235_email_followup_1}}"
+              }
+            ],
+            "delay_unit": "days",
+            "pre_delay_unit": "days"
+          },
+          {
+            "type": "email",
+            "delay": 2,
+            "variants": [
+              {
+                "subject": "",
+                "body": "{{9b6f458e-6dc5-4762-83d5-a528aedd2235_email_followup_2}}"
+              }
+            ],
+            "delay_unit": "days",
+            "pre_delay_unit": "days"
+          },
+          {
+            "type": "email",
+            "delay": 3,
+            "variants": [
+              {
+                "subject": "",
+                "body": "{{9b6f458e-6dc5-4762-83d5-a528aedd2235_email_followup_3}}"
+              }
+            ],
+            "delay_unit": "days",
+            "pre_delay_unit": "days"
+          }
+        ]
+      }
+    ],
+    "email_list": [],
+    "daily_limit": 10,
+    "stop_on_reply": true,
+    "open_tracking": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/campaigns/afe53ec4-9af6-4032-b3b9-088bbfe8552a/activate": {
+        "response": {
+          "id": "afe53ec4-9af6-4032-b3b9-088bbfe8552a",
+          "name": "[AI SDR] Nango AI Sales Agent - Fully Personalized Campaign (copy)",
+          "status": 1,
+          "campaign_schedule": {
+            "schedules": [
+              {
+                "name": "Weekdays",
+                "timing": {
+                  "from": "00:00",
+                  "to": "23:59"
+                },
+                "days": {
+                  "0": false,
+                  "1": true,
+                  "2": true,
+                  "3": true,
+                  "4": true,
+                  "5": true,
+                  "6": false
+                },
+                "timezone": "Etc/GMT+12"
+              }
+            ]
+          },
+          "timestamp_created": "2026-06-30T21:15:01.135Z",
+          "timestamp_updated": "2026-06-30T21:44:44.198Z",
+          "sequences": [
+            {
+              "steps": [
+                {
+                  "type": "email",
+                  "delay": 3,
+                  "variants": [
+                    {
+                      "subject": "{{9b6f458e-6dc5-4762-83d5-a528aedd2235_subject_1}}",
+                      "body": "{{9b6f458e-6dc5-4762-83d5-a528aedd2235_email_1}}"
+                    }
+                  ],
+                  "delay_unit": "days",
+                  "pre_delay_unit": "days"
+                },
+                {
+                  "type": "email",
+                  "delay": 1,
+                  "variants": [
+                    {
+                      "subject": "",
+                      "body": "{{9b6f458e-6dc5-4762-83d5-a528aedd2235_email_followup_1}}"
+                    }
+                  ],
+                  "delay_unit": "days",
+                  "pre_delay_unit": "days"
+                },
+                {
+                  "type": "email",
+                  "delay": 2,
+                  "variants": [
+                    {
+                      "subject": "",
+                      "body": "{{9b6f458e-6dc5-4762-83d5-a528aedd2235_email_followup_2}}"
+                    }
+                  ],
+                  "delay_unit": "days",
+                  "pre_delay_unit": "days"
+                },
+                {
+                  "type": "email",
+                  "delay": 3,
+                  "variants": [
+                    {
+                      "subject": "",
+                      "body": "{{9b6f458e-6dc5-4762-83d5-a528aedd2235_email_followup_3}}"
+                    }
+                  ],
+                  "delay_unit": "days",
+                  "pre_delay_unit": "days"
+                }
+              ]
+            }
+          ],
+          "first_email_text_only": true,
+          "email_list": [],
+          "daily_limit": 10,
+          "stop_on_reply": true,
+          "email_tag_list": [],
+          "open_tracking": false,
+          "prioritize_new_leads": true,
+          "match_lead_esp": true,
+          "organization": "bffdcc34-56cd-403e-a325-def96cc9d027"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 30 Jun 2026 21:44:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1379",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4950",
+          "x-ratelimit-reset": "1782855888",
+          "x-request-id": "4364812654770249735",
+          "etag": "W/\"563-jnF+FnniZEnuehlWboRq4R0cS78\""
+        },
+        "hash": "b22e16c0a863e685fa9a6448b596a169d0f0ca9c",
+        "request": {}
+      }
+    }
+  }
+}

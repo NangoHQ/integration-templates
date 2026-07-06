@@ -1,0 +1,62 @@
+{
+  "input": {
+    "teamId": 2067383,
+    "ids": [
+      141687
+    ]
+  },
+  "output": {
+    "dataStores": [
+      141687
+    ]
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/data-stores": {
+        "response": {
+          "dataStores": [
+            141687
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 10:05:08 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "29",
+          "x-ratelimit-reset": "1782986769",
+          "server": "cloudflare",
+          "x-request-id": "e6c26399c93784eee46f6ccb7ccd87e5",
+          "authtype": "token",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "accept-encoding",
+          "set-cookie": "__cf_bm=y_T_hXGMnNJf6Y8wK8RUuBmMRYLNM44rP5ucRhUA5Po-1782986708.560762-1.0.1.1-qNqzfryLuvosgRMFQ3ETHVlO5bjt76f.Mkm4dz9y_yMDoPe.0WaMKHvegbF1lseDGTUECC5vPzakyLd8N1Be.ZgCr8YlwnygXnqGa6R_7K0mHn9ac57gwLGQ2oGWttFf; HttpOnly; SameSite=None; Secure; Path=/; Domain=eu1.make.com; Expires=Thu, 02 Jul 2026 10:35:08 GMT",
+          "cf-ray": "a14cd49078ddfef9-PDX"
+        },
+        "hash": "e27d74c39d81875d4b997075b1abe4ac70cbba72",
+        "request": {
+          "params": {
+            "teamId": "2067383"
+          },
+          "data": {
+            "ids": [
+              141687
+            ]
+          }
+        }
+      }
+    }
+  }
+}

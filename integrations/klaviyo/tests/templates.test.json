@@ -1,0 +1,222 @@
+{
+  "nango": {
+    "batchSave": {
+      "Template": [
+        {
+          "id": "RYq5hq",
+          "name": "Nango Test Template",
+          "editor_type": "CODE",
+          "html": "<html><head></head><body>Hello from Nango</body></html>"
+        },
+        {
+          "id": "USyMpC",
+          "name": "Nango Test Template",
+          "editor_type": "CODE",
+          "html": "<html><head></head><body><h1>Hello</h1></body></html>"
+        },
+        {
+          "id": "X7cGJj",
+          "name": "Nango Test Template",
+          "editor_type": "CODE",
+          "html": "<html><head></head><body>Hello from Nango</body></html>"
+        },
+        {
+          "id": "XAguJk",
+          "name": "Nango Test Template Temp",
+          "editor_type": "CODE",
+          "html": "<html><head></head><body>Hello from Nango</body></html>"
+        },
+        {
+          "id": "U8Tuh6",
+          "name": "Nango Test Template Updated",
+          "editor_type": "CODE",
+          "html": "<html><head></head><body>Hello from Nango Updated</body></html>"
+        },
+        {
+          "id": "UnMfjg",
+          "name": "Nango Test Template Updated",
+          "editor_type": "CODE",
+          "html": "<html><head></head><body>Hello from Nango Updated</body></html>"
+        },
+        {
+          "id": "XzjeF5",
+          "name": "Nango Test Update Template Updated",
+          "editor_type": "CODE",
+          "html": "<html><head></head><body>Hello World</body></html>"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Template": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/templates": {
+        "response": {
+          "data": [
+            {
+              "type": "template",
+              "id": "RYq5hq",
+              "attributes": {
+                "name": "Nango Test Template",
+                "editor_type": "CODE",
+                "html": "<html><head></head><body>Hello from Nango</body></html>",
+                "text": null,
+                "amp": null,
+                "created": "2026-07-02T04:47:05+00:00",
+                "updated": "2026-07-02T04:47:05+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/templates/RYq5hq/"
+              }
+            },
+            {
+              "type": "template",
+              "id": "USyMpC",
+              "attributes": {
+                "name": "Nango Test Template",
+                "editor_type": "CODE",
+                "html": "<html><head></head><body><h1>Hello</h1></body></html>",
+                "text": null,
+                "amp": null,
+                "created": "2026-07-02T04:49:27+00:00",
+                "updated": "2026-07-02T04:49:27+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/templates/USyMpC/"
+              }
+            },
+            {
+              "type": "template",
+              "id": "X7cGJj",
+              "attributes": {
+                "name": "Nango Test Template",
+                "editor_type": "CODE",
+                "html": "<html><head></head><body>Hello from Nango</body></html>",
+                "text": null,
+                "amp": null,
+                "created": "2026-07-02T04:46:43+00:00",
+                "updated": "2026-07-02T04:46:43+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/templates/X7cGJj/"
+              }
+            },
+            {
+              "type": "template",
+              "id": "XAguJk",
+              "attributes": {
+                "name": "Nango Test Template Temp",
+                "editor_type": "CODE",
+                "html": "<html><head></head><body>Hello from Nango</body></html>",
+                "text": null,
+                "amp": null,
+                "created": "2026-07-02T04:51:43+00:00",
+                "updated": "2026-07-02T04:51:43+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/templates/XAguJk/"
+              }
+            },
+            {
+              "type": "template",
+              "id": "U8Tuh6",
+              "attributes": {
+                "name": "Nango Test Template Updated",
+                "editor_type": "CODE",
+                "html": "<html><head></head><body>Hello from Nango Updated</body></html>",
+                "text": null,
+                "amp": null,
+                "created": "2026-07-02T04:49:41+00:00",
+                "updated": "2026-07-02T04:49:41+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/templates/U8Tuh6/"
+              }
+            },
+            {
+              "type": "template",
+              "id": "UnMfjg",
+              "attributes": {
+                "name": "Nango Test Template Updated",
+                "editor_type": "CODE",
+                "html": "<html><head></head><body>Hello from Nango Updated</body></html>",
+                "text": null,
+                "amp": null,
+                "created": "2026-07-02T04:49:35+00:00",
+                "updated": "2026-07-02T04:49:35+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/templates/UnMfjg/"
+              }
+            },
+            {
+              "type": "template",
+              "id": "XzjeF5",
+              "attributes": {
+                "name": "Nango Test Update Template Updated",
+                "editor_type": "CODE",
+                "html": "<html><head></head><body>Hello World</body></html>",
+                "text": null,
+                "amp": null,
+                "created": "2026-07-02T04:48:42+00:00",
+                "updated": "2026-07-02T04:48:55+00:00"
+              },
+              "links": {
+                "self": "https://a.klaviyo.com/api/templates/XzjeF5/"
+              }
+            }
+          ],
+          "links": {
+            "self": "https://a.klaviyo.com/api/templates?page%5Bsize%5D=10",
+            "next": null,
+            "prev": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 02 Jul 2026 05:17:04 GMT",
+          "content-type": "application/vnd.api+json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1782969481",
+          "cf-ray": "a14b2e93cff08bee-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-language": "en-us",
+          "server": "cloudflare",
+          "vary": "Accept, Accept-Language, Cookie, Origin",
+          "cid": "VXSTFA",
+          "content-security-policy": "object-src 'none'; frame-ancestors 'self' login.bigcommerce.com *.mybigcommerce.com admin.shopify.com klaviyo.file.force.com klaviyo.lightning.force.com klaviyo.my.salesforce.com; script-src 'report-sample' 'strict-dynamic' 'unsafe-eval'; base-uri 'none'; report-uri /csp/",
+          "ratelimit-limit": "75, 75;w=1, 750;w=60",
+          "ratelimit-remaining": "74",
+          "ratelimit-reset": "0",
+          "x-envoy-upstream-service-time": "117",
+          "x-klaviyo-api-revision": "2026-04-15",
+          "x-klaviyo-req-id": "aa8c2090-d96a-4eca-bb72-5d168cf64c68"
+        },
+        "hash": "b1a15010a79ceb7c2be0b1de5e8c323d6b69c162",
+        "request": {
+          "params": {
+            "page[size]": "10"
+          },
+          "headers": {
+            "revision": "2026-04-15"
+          }
+        }
+      }
+    }
+  }
+}

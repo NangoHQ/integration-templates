@@ -699,10 +699,10 @@ export interface Note {
 
 export interface Tag {
   id: string;
-  name: string;
-  type: string;
-  created_at?: number | undefined;
-  updated_at?: number | undefined;
+  name?: string | undefined;
+  tag_group_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
 };
 
 export interface ActionInput_active_campaign_addcontacttolist {
@@ -3031,31 +3031,6 @@ export interface Certificate {
 
 export interface Client {
   id: string;
-  client_id?: string | undefined;
-  tenant?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  global?: boolean | undefined;
-  app_type?: string | undefined;
-  logo_uri?: string | undefined;
-  is_first_party?: boolean | undefined;
-  oidc_conformant?: boolean | undefined;
-  callbacks?: string[] | undefined;
-  allowed_origins?: string[] | undefined;
-  web_origins?: string[] | undefined;
-  allowed_logout_urls?: string[] | undefined;
-  grant_types?: string[] | undefined;
-  is_token_endpoint_ip_header_trusted?: boolean | undefined;
-  initiate_login_uri?: string | undefined;
-  organization_usage?: string | undefined;
-  organization_require_behavior?: string | undefined;
-  require_pushed_authorization_requests?: boolean | undefined;
-  require_proof_of_possession?: boolean | undefined;
-  sso_disabled?: boolean | undefined;
-  cross_origin_authentication?: boolean | undefined;
-  custom_login_page_on?: boolean | undefined;
-  custom_login_page?: string | undefined;
-  client_metadata?: {  [key: string]: string;} | undefined;
 };
 
 export interface Form {
@@ -4423,16 +4398,16 @@ export interface User {
 
 export interface Webhook {
   id: string;
-  event_type: string;
-  team_id: string;
-  context: string;
-  context_id: string;
-  plan_api_id: string;
-  status: string;
-  client_id: string;
-  passcode: string;
-  endpoint: string;
-  description: string;
+  organization: string;
+  campaign?: string | undefined;
+  name?: string | undefined;
+  target_hook_url: string;
+  event_type?: string | undefined;
+  custom_interest_value?: number | undefined;
+  headers?: {  [key: string]: string;} | undefined;
+  timestamp_created: string;
+  status?: number | undefined;
+  timestamp_error?: string | undefined;
 };
 
 export interface ActionInput_aircall_addteammember {
@@ -14920,15 +14895,22 @@ export interface ActionOutput_attio_upsertrecord {
 export interface Connection {
   id: string;
   name: string;
-  display_name?: string | undefined;
-  strategy: string;
-  realms?: string[] | undefined;
-  is_domain_connection?: boolean | undefined;
-  show_as_button?: boolean | undefined;
-  metadata?: {  [key: string]: string;} | undefined;
-  options?: unknown | undefined;
-  authentication?: unknown | undefined;
-  connected_accounts?: unknown | undefined;
+  accountName?: string | undefined;
+  accountLabel?: string | undefined;
+  packageName?: string | undefined;
+  expire?: string | undefined;
+  metadataValue?: string | undefined;
+  metadataType?: string | undefined;
+  teamId?: number | undefined;
+  theme?: string | undefined;
+  upgradeable?: boolean | undefined;
+  scopesCnt?: number | undefined;
+  scoped?: boolean | undefined;
+  accountType?: string | undefined;
+  editable?: boolean | undefined;
+  uid?: string | undefined;
+  connectedSystemId?: string | undefined;
+  organizationId?: number | undefined;
 };
 
 export interface Grant {
@@ -29784,15 +29766,19 @@ export interface SyncMetadata_clickup_spaces {
 
 export interface TimeEntry {
   id: string;
-  start: string;
-  end: string;
-  duration: string;
-  description?: string | undefined;
-  user_id?: number | undefined;
-  user_username?: string | undefined;
-  user_email?: string | undefined;
-  task_id?: string | undefined;
-  task_name?: string | undefined;
+  note?: string | undefined;
+  duration?: number | undefined;
+  project_id?: number | undefined;
+  client_id?: number | undefined;
+  identity_id?: number | undefined;
+  is_logged?: boolean | undefined;
+  started_at?: string | undefined;
+  active?: boolean | undefined;
+  billable?: boolean | undefined;
+  billed?: boolean | undefined;
+  internal?: boolean | undefined;
+  timer_id?: number | undefined;
+  timer_is_running?: boolean | undefined;
 };
 
 export interface SyncMetadata_clickup_timeentries {
@@ -36968,10 +36954,11 @@ export interface SigningGroup {
 export interface Template {
   id: string;
   name?: string | undefined;
-  description?: string | undefined;
-  created?: string | undefined;
-  lastModified?: string | undefined;
-  uri?: string | undefined;
+  editor_type?: string | undefined;
+  html?: string | undefined;
+  text?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
 };
 
 export interface SyncMetadata_docusign_templates {
@@ -45371,6 +45358,1538 @@ export interface ActionOutput_fireflies_uploadaudio {
   success: boolean;
   title?: string | undefined;
   message?: string | undefined;
+};
+
+export interface SyncMetadata_freshbooks_clients {
+  accountId: string;
+};
+
+export interface Estimate {
+  id: string;
+  estimate_number: string;
+  status: string;
+  customer_id: string;
+  customer_name: string;
+  date: string;
+  expiry_date?: string | undefined;
+  reference_number?: string | undefined;
+  total: number;
+  sub_total?: number | undefined;
+  tax_total?: number | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  exchange_rate?: number | undefined;
+  created_time: string;
+  last_modified_time: string;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  billing_address?: {  [key: string]: unknown | undefined;};
+  shipping_address?: {  [key: string]: unknown | undefined;};
+  line_items?: ({  [key: string]: unknown | undefined;})[];
+  custom_fields?: ({  [key: string]: unknown | undefined;})[];
+  tags?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface SyncMetadata_freshbooks_estimates {
+  accountId: string;
+};
+
+export interface Expense {
+  id: string;
+  expense_id: string;
+  date?: string | undefined;
+  account_name?: string | undefined;
+  description?: string | undefined;
+  currency_id?: string | undefined;
+  currency_code?: string | undefined;
+  bcy_total?: number | undefined;
+  total?: number | undefined;
+  is_billable?: boolean | undefined;
+  reference_number?: string | undefined;
+  customer_id?: string | undefined;
+  customer_name?: string | undefined;
+  status?: string | undefined;
+  created_time?: string | undefined;
+  last_modified_time?: string | undefined;
+};
+
+export interface SyncMetadata_freshbooks_expenses {
+  accountId: string;
+};
+
+export interface SyncMetadata_freshbooks_invoices {
+  accountId: string;
+};
+
+export interface SyncMetadata_freshbooks_payments {
+  accountId: string;
+};
+
+export interface SyncMetadata_freshbooks_projects {
+  businessId: string | number;
+};
+
+export interface SyncMetadata_freshbooks_timeentries {
+  businessId: string | number;
+};
+
+export interface ActionInput_freshbooks_createclient {
+  /**
+   * First name. Example: "Alice"
+   */
+  fname: string;
+  /**
+   * Last name. Example: "Nango"
+   */
+  lname: string;
+  /**
+   * Email address. Example: "alice@example.com"
+   */
+  email: string;
+  /**
+   * Company or organization name. Example: "Builder LLC"
+   */
+  organization?: string | undefined;
+  /**
+   * Phone number.
+   */
+  phone?: string | undefined;
+  /**
+   * Primary address street.
+   */
+  p_street?: string | undefined;
+  /**
+   * Primary address city.
+   */
+  p_city?: string | undefined;
+  /**
+   * Primary address province or state.
+   */
+  p_province?: string | undefined;
+  /**
+   * Primary address country.
+   */
+  p_country?: string | undefined;
+  /**
+   * Primary address postal code.
+   */
+  p_code?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_createclient {
+  /**
+   * Client ID. Example: "567521"
+   */
+  id: string;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  email?: string | undefined;
+  organization?: string | undefined;
+  phone?: string | undefined;
+  p_street?: string | undefined;
+  p_city?: string | undefined;
+  p_province?: string | undefined;
+  p_country?: string | undefined;
+  p_code?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_createestimate {
+  /**
+   * Customer ID. Example: 567521
+   */
+  customerid: number;
+  /**
+   * Creation date in YYYY-MM-DD format. Example: "2026-06-29"
+   */
+  create_date: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currency_code: string;
+  /**
+   * Line items for the estimate
+   */
+  lines: ({  /**
+   * Line item type. Example: 0 for Item
+   */
+  type: number;
+  /**
+   * Line item name. Example: "Test Estimate Line"
+   */
+  name: string;
+  /**
+   * Quantity. Example: 1
+   */
+  qty: number;
+  unit_cost: {  /**
+   * Unit cost amount. Example: "100.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  code: string;};})[];
+};
+
+export interface ActionOutput_freshbooks_createestimate {
+  /**
+   * Estimate ID. Example: 123456
+   */
+  id: number;
+  customerid?: number | undefined;
+  create_date?: string | undefined;
+  currency_code?: string | undefined;
+  lines?: ({  type?: number | undefined;
+  name?: string | undefined;
+  qty?: number | undefined;
+  unit_cost?: {  amount?: string | undefined;
+  code?: string | undefined;};})[];
+};
+
+export interface ActionInput_freshbooks_createexpense {
+  /**
+   * Staff member ID. Defaults to 1 (account owner).
+   */
+  staffid?: number | undefined;
+  /**
+   * Expense category ID. If omitted, the first available category is fetched and used.
+   */
+  categoryid?: number | undefined;
+  amount: {  /**
+   * Monetary amount as a string. Example: "150.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  code: string;};
+  /**
+   * Expense date in YYYY-MM-DD format. Example: "2026-06-29"
+   */
+  date: string;
+  /**
+   * Optional notes for the expense.
+   */
+  notes?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_createexpense {
+  id: string;
+  staffid?: number | undefined;
+  categoryid?: number | undefined;
+  amount?: {  amount?: string | undefined;
+  code?: string | undefined;};
+  date?: string | undefined;
+  notes?: string | undefined;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_createinvoice {
+  /**
+   * Customer ID. Example: 567521
+   */
+  customerid: number;
+  /**
+   * Invoice creation date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  create_date?: string | undefined;
+  /**
+   * Currency code. Example: "USD"
+   */
+  currency_code?: string | undefined;
+  /**
+   * Invoice line items
+   */
+  lines: ({  /**
+   * Line type. 0 for item, 1 for unbilled expense. Example: 0
+   */
+  type?: number | undefined;
+  /**
+   * Line item name. Example: "Consulting Services"
+   */
+  name: string;
+  /**
+   * Quantity. Example: 1
+   */
+  qty: number;
+  unit_cost: {  /**
+   * Unit cost amount. Example: "1500.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  code: string;};})[];
+};
+
+export interface ActionOutput_freshbooks_createinvoice {
+  id: number;
+  invoiceid: number;
+  customerid: number;
+  status: number;
+  display_status: string;
+  create_date: string;
+  currency_code: string;
+  amount: {  amount: string;
+  code: string;};
+  outstanding: {  amount: string;
+  code: string;};
+  paid: {  amount: string;
+  code: string;};
+  lines?: ({  type?: number | null | undefined;
+  name: string;
+  qty: number | string;
+  unit_cost?: {  amount: string;
+  code: string;} | undefined;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  description?: string | undefined;
+  expenseid?: number | null | undefined;})[];
+  invoice_number?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  due_date?: string | undefined;
+  description?: string | undefined;
+  discount_value?: string | number | undefined;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_createpayment {
+  /**
+   * Invoice ID to apply the payment to. Example: 453877
+   */
+  invoiceid: number;
+  amount: {  /**
+   * Payment amount. Example: "100.00"
+   */
+  amount: string;
+  /**
+   * Currency code. Example: "USD"
+   */
+  code: string;};
+  /**
+   * Payment date in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  date: string;
+  /**
+   * Payment type. Example: "Cash"
+   */
+  type: 'Cash' | 'Check' | 'Credit' | 'VISA' | 'MC' | 'AMEX' | 'Discover' | 'Interac' | 'Diners' | 'JCB' | 'PayPal' | 'Stripe' | 'Square' | 'Eway' | 'TwoCheckout' | 'ACH' | 'NoCharge' | 'Other';
+};
+
+export interface ActionOutput_freshbooks_createpayment {
+  id: number;
+  invoiceid?: number | undefined;
+  amount?: {  amount?: string | undefined;
+  code?: string | undefined;};
+  date?: string | undefined;
+  type?: string | undefined;
+  clientid?: number | undefined;
+  vis_state?: number | undefined;
+  updated?: string | undefined;
+  note?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_createproject {
+  /**
+   * Project title. Example: "Website Redesign"
+   */
+  title: string;
+  /**
+   * Client ID to bill for the project. Example: 567521
+   */
+  client_id: number;
+  /**
+   * Project description.
+   */
+  description?: string | undefined;
+  /**
+   * Projected completion date. Example: "2026-07-31"
+   */
+  due_date?: string | undefined;
+  /**
+   * Type of project billing.
+   */
+  project_type?: 'fixed_price' | 'hourly_rate' | undefined;
+  /**
+   * Flat-rate amount charged to the client. Example: "500.00"
+   */
+  fixed_price?: string | undefined;
+  /**
+   * Budget for the project.
+   */
+  budget?: number | undefined;
+  /**
+   * Hourly rate of the project. Example: "75.00"
+   */
+  rate?: string | undefined;
+  /**
+   * Whether the project is internal to the company.
+   */
+  internal?: boolean | undefined;
+  /**
+   * Whether the project is active.
+   */
+  active?: boolean | undefined;
+  /**
+   * Whether the project is completed.
+   */
+  complete?: boolean | undefined;
+};
+
+export interface ActionOutput_freshbooks_createproject {
+  id: number;
+  title: string;
+  client_id: number;
+  description?: string | undefined;
+  due_date?: string | undefined;
+  project_type?: string | undefined;
+  fixed_price?: string | undefined;
+  budget?: number | undefined;
+  rate?: string | undefined;
+  internal?: boolean | undefined;
+  active?: boolean | undefined;
+  complete?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  logged_duration?: number | undefined;
+  billing_method?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_createtimeentry {
+  /**
+   * Whether the time entry is logged.
+   */
+  is_logged: boolean;
+  /**
+   * ISO 8601 timestamp when the work started. Example: "2024-01-01T10:00:00Z"
+   */
+  started_at: string;
+  /**
+   * Duration of the time entry in seconds. Example: 3600
+   */
+  duration: number;
+  /**
+   * Client ID associated with the time entry. Example: 567521
+   */
+  client_id: number | string;
+  /**
+   * Identity ID of the teammate logging the time.
+   */
+  identity_id?: number | string | undefined;
+  /**
+   * Project ID associated with the time entry.
+   */
+  project_id?: number | string | undefined;
+  /**
+   * Service ID associated with the time entry.
+   */
+  service_id?: number | string | undefined;
+  /**
+   * Task ID associated with the time entry.
+   */
+  task_id?: number | string | undefined;
+  /**
+   * Note describing the work.
+   */
+  note?: string | undefined;
+  /**
+   * Whether the entry can be added to an invoice.
+   */
+  billable?: boolean | undefined;
+  /**
+   * Whether the entry has already been billed.
+   */
+  billed?: boolean | undefined;
+  /**
+   * Whether the time entry is internal (not assigned to a client).
+   */
+  internal?: boolean | undefined;
+};
+
+export interface ActionOutput_freshbooks_createtimeentry {
+  id: number | string;
+  identity_id?: number | string | undefined;
+  is_logged: boolean;
+  started_at: string;
+  created_at?: string | undefined;
+  client_id?: number | string | undefined;
+  project_id?: number | string | undefined;
+  task_id?: number | string | undefined;
+  service_id?: number | string | undefined;
+  note?: string | undefined;
+  active?: boolean | undefined;
+  billable?: boolean | undefined;
+  billed?: boolean | undefined;
+  internal?: boolean | undefined;
+  duration?: number | undefined;
+  timer?: unknown | undefined;
+};
+
+export interface ActionInput_freshbooks_deleteclient {
+  /**
+   * Client ID. Example: "567521"
+   */
+  clientId: string;
+};
+
+export interface ActionOutput_freshbooks_deleteclient {
+  id: string | number;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_deleteestimate {
+  /**
+   * FreshBooks estimate ID to archive. Example: "567521"
+   */
+  estimateId: string;
+};
+
+export interface ActionOutput_freshbooks_deleteestimate {
+  /**
+   * Estimate ID
+   */
+  id: string;
+  /**
+   * Visibility state: 0 = active, 1 = archived
+   */
+  vis_state: number;
+  estimate_number?: string | undefined;
+  customerid?: string | undefined;
+  status?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_deleteexpense {
+  /**
+   * Expense ID. Example: "2420459"
+   */
+  id: string;
+};
+
+export interface ActionOutput_freshbooks_deleteexpense {
+  id: string;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_deleteinvoice {
+  /**
+   * Invoice ID to archive. Example: 453877
+   */
+  invoiceId: number;
+};
+
+export interface ActionOutput_freshbooks_deleteinvoice {
+  id: string;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_deletepayment {
+  /**
+   * Payment ID to archive. Example: "312041"
+   */
+  id: string;
+};
+
+export interface ActionOutput_freshbooks_deletepayment {
+  id: string;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_deleteproject {
+  /**
+   * The project ID to delete. Example: "123"
+   */
+  projectId: string;
+};
+
+export interface ActionOutput_freshbooks_deleteproject {
+  success: boolean;
+  projectId: string;
+};
+
+export interface ActionInput_freshbooks_deletetimeentry {
+  /**
+   * The ID of the time entry to delete. Example: "123456"
+   */
+  timeEntryId: string;
+};
+
+export interface ActionOutput_freshbooks_deletetimeentry {
+  /**
+   * The ID of the deleted time entry.
+   */
+  id: string;
+  /**
+   * Whether the deletion was successful.
+   */
+  success: boolean;
+};
+
+export interface ActionInput_freshbooks_getaccountid {
+};
+
+export interface ActionOutput_freshbooks_getaccountid {
+  /**
+   * Alphanumeric account identifier for /accounting/ endpoints. Example: "ZyQ04o"
+   */
+  accountId: string;
+  /**
+   * Numeric business identifier for /projects/ and /timetracking/ endpoints. Example: 14719708
+   */
+  businessId: number;
+};
+
+export interface ActionInput_freshbooks_getclient {
+  /**
+   * FreshBooks client ID. Example: "567521"
+   */
+  clientId: string;
+};
+
+export interface ActionOutput_freshbooks_getclient {
+  id: number;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  organization?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  note?: string | undefined;
+  language?: string | undefined;
+  currency_code?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_getexpense {
+  /**
+   * Expense ID. Example: "2420475"
+   */
+  id: string;
+};
+
+export interface ActionOutput_freshbooks_getexpense {
+  id: number;
+  expenseid: number;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  date?: string | undefined;
+  notes?: string | undefined;
+  staffid?: number | undefined;
+  categoryid?: number | undefined;
+  clientid?: number | undefined;
+  vis_state?: number | undefined;
+  status?: number | undefined;
+  updated?: string | undefined;
+  vendor?: string | undefined;
+  projectid?: number | undefined;
+  billable?: boolean | undefined;
+  is_cogs?: boolean | undefined;
+  isduplicate?: boolean | undefined;
+  transactionid?: number | undefined;
+  invoiceid?: number | undefined;
+  ext_invoiceid?: number | undefined;
+  ext_systemid?: number | undefined;
+  modern_projectid?: number | undefined;
+  converse_projectid?: number | undefined;
+  background_jobid?: number | undefined;
+  ext_accountid?: number | undefined;
+  profileid?: number | undefined;
+  accountid?: number | undefined;
+  accounting_systemid?: string | undefined;
+  taxAmount1?: string | undefined;
+  taxAmount2?: string | undefined;
+  taxName1?: string | undefined;
+  taxName2?: string | undefined;
+  taxPercent1?: string | undefined;
+  taxPercent2?: string | undefined;
+  markup_percent?: string | undefined;
+  version?: string | undefined;
+  from_bulk_import?: boolean | undefined;
+  has_receipt?: boolean | undefined;
+  include_receipt?: boolean | undefined;
+  potential_bill_payment?: boolean | undefined;
+  compounded_tax?: boolean | undefined;
+  bank_name?: string | undefined;
+  account_name?: string | undefined;
+  bill_matches?: unknown[] | undefined;
+};
+
+export interface ActionInput_freshbooks_getinvoice {
+  /**
+   * Invoice ID. Example: "453877"
+   */
+  invoiceId: string;
+};
+
+export interface ActionOutput_freshbooks_getinvoice {
+  invoiceid: number;
+  id: number;
+  customerid: number;
+  invoice_number: string;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  outstanding?: {  amount: string;
+  code: string;} | undefined;
+  paid?: {  amount: string;
+  code: string;} | undefined;
+  status?: number | undefined;
+  v3_status?: string | undefined;
+  create_date?: string | undefined;
+  due_date?: string | undefined;
+  updated?: string | undefined;
+  currency_code?: string | undefined;
+  notes?: string | undefined;
+  description?: string | undefined;
+  terms?: string | undefined;
+  po_number?: string | undefined;
+  discount_value?: string | undefined;
+  discount_total?: {  amount: string;
+  code: string;} | undefined;
+  deposit_status?: string | undefined;
+  display_status?: string | undefined;
+  payment_status?: string | undefined;
+  organization?: string | undefined;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  address?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  code?: string | undefined;
+  street?: string | undefined;
+  street2?: string | undefined;
+  vat_name?: string | undefined;
+  vat_number?: string | undefined;
+  ownerid?: number | undefined;
+  auto_bill?: boolean | undefined;
+  sentid?: number | undefined;
+  show_attachments?: boolean | undefined;
+  template?: string | undefined;
+  language?: string | undefined;
+  vis_state?: number | undefined;
+  uuid?: string | undefined;
+  created_at?: string | undefined;
+  date_paid?: string | undefined;
+  lines?: unknown[] | undefined;
+  presentation?: unknown | undefined;
+};
+
+export interface ActionInput_freshbooks_getpayment {
+  /**
+   * Payment ID. Example: "312041"
+   */
+  paymentId: string;
+};
+
+export interface ActionOutput_freshbooks_getpayment {
+  id: number;
+  accounting_systemid: string;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  bulk_paymentid?: number | undefined;
+  clientid: number;
+  creditid?: number | undefined;
+  date: string;
+  from_credit: boolean;
+  gateway?: string | undefined;
+  invoiceid: number;
+  logid: number;
+  note?: string | undefined;
+  orderid?: number | undefined;
+  overpaymentid?: number | undefined;
+  send_client_notification?: boolean | undefined;
+  transactionid?: number | undefined;
+  type: string;
+  updated: string;
+  vis_state: number;
+};
+
+export interface ActionInput_freshbooks_getproject {
+  /**
+   * Project ID. Example: 13312426
+   */
+  projectId: string | number;
+};
+
+export interface ActionOutput_freshbooks_getproject {
+  id: number;
+  title: string;
+  description?: string | undefined;
+  due_date?: string | undefined;
+  client_id?: number | undefined;
+  internal: boolean;
+  budget?: number | undefined;
+  billing_method: string;
+  project_type: string;
+  project_manager_id?: number | undefined;
+  active: boolean;
+  complete: boolean;
+  sample: boolean;
+  created_at: string;
+  updated_at: string;
+  logged_duration?: number | undefined;
+  services: unknown[];
+  billed_amount: string;
+  billed_status: string;
+  retainer_id?: number | undefined;
+  expense_markup: string;
+  service_estimate_type: string;
+  fixed_price?: string | undefined;
+  rate?: string | undefined;
+  group?: {  id: number;
+  members: ({  id: number;
+  identity_id: number;
+  role: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  company: string;
+  active: boolean;})[];
+  pending_invitations: unknown[];} | undefined;
+};
+
+export interface ActionInput_freshbooks_gettimeentry {
+  /**
+   * Time entry ID. Example: "343714461"
+   */
+  time_entry_id: string;
+};
+
+export interface ActionOutput_freshbooks_gettimeentry {
+  id: number;
+  identity_id: number;
+  is_logged: boolean;
+  local_started_at: string;
+  local_timezone: string;
+  started_at: string;
+  created_at: string;
+  client_id?: number | undefined;
+  project_id?: number | undefined;
+  pending_client?: unknown | undefined;
+  pending_project?: unknown | undefined;
+  pending_task?: unknown | undefined;
+  task_id?: number | undefined;
+  service_id?: number | undefined;
+  note?: string | undefined;
+  active: boolean;
+  billable: boolean;
+  billed: boolean;
+  internal: boolean;
+  retainer_id?: number | undefined;
+  duration: number;
+  timer?: unknown | undefined;
+};
+
+export interface ActionInput_freshbooks_listclients {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Max 100. Defaults to 100.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_listclients {
+  items: ({})[];
+  next_page?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_listestimates {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * ISO 8601 timestamp to filter estimates updated since. Example: "2024-01-01T00:00:00Z"
+   */
+  updated_since?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_listestimates {
+  estimates: ({})[];
+  page: number;
+  pages: number;
+  total: number;
+  per_page: number;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_listexpenses {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Max 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Filter by start date (YYYY-MM-DD).
+   */
+  date_from?: string | undefined;
+  /**
+   * Filter by end date (YYYY-MM-DD).
+   */
+  date_to?: string | undefined;
+  /**
+   * Filter by updated since timestamp (YYYY-MM-DDTHH:MM:SS).
+   */
+  updated_since?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_listexpenses {
+  expenses: ({  id: number;
+  amount?: {  amount?: string | undefined;
+  code?: string | undefined;};
+  date?: string | undefined;
+  staffid?: number | undefined;
+  categoryid?: number | undefined;
+  clientid?: number | undefined;
+  notes?: string | undefined;
+  vis_state?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_listinvoices {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Start date filter. Format: YYYY-MM-DD.
+   */
+  date_from?: string | undefined;
+  /**
+   * End date filter. Format: YYYY-MM-DD.
+   */
+  date_to?: string | undefined;
+  /**
+   * Filter for invoices updated since this timestamp. Format: YYYY-MM-DDTHH:MM:SS.
+   */
+  updated_since?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_listinvoices {
+  items: ({  id: number;
+  customerid?: number | undefined;
+  number?: string | undefined;
+  status?: number | undefined;
+  create_date?: string | undefined;
+  update_date?: string | undefined;
+  due_date?: string | undefined;
+  amount?: {  amount?: string | undefined;
+  code?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_listpayments {
+  /**
+   * Pagination cursor (page number) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Max 100.
+   */
+  per_page?: number | undefined;
+  /**
+   * Start date filter in YYYY-MM-DD format.
+   */
+  date_from?: string | undefined;
+  /**
+   * End date filter in YYYY-MM-DD format.
+   */
+  date_to?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_listpayments {
+  payments: ({  id: number;
+  accounting_systemid?: string | undefined;
+  amount?: {  amount?: string | undefined;
+  code?: string | undefined;};
+  bulk_paymentid?: number | undefined;
+  creditid?: number | undefined;
+  clientid?: number | undefined;
+  date?: string | undefined;
+  from_credit?: boolean | undefined;
+  gateway?: string | undefined;
+  invoiceid?: number | undefined;
+  logid?: number | undefined;
+  note?: string | undefined;
+  orderid?: number | undefined;
+  overpaymentid?: number | undefined;
+  send_client_notification?: boolean | undefined;
+  transactionid?: number | undefined;
+  type?: string | undefined;
+  updated?: string | undefined;
+  vis_state?: number | undefined;})[];
+  next_cursor?: string | undefined;
+  page?: number | undefined;
+  pages?: number | undefined;
+  per_page?: number | undefined;
+  total?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_listprojects {
+  /**
+   * Pagination cursor (page number). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of items per page. Max 30.
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_listprojects {
+  items: ({  id: number;
+  title?: string | undefined;
+  description?: string | undefined;
+  client_id?: number | undefined;
+  project_type?: string | undefined;
+  complete?: boolean | undefined;
+  active?: boolean | undefined;
+  internal?: boolean | undefined;
+  due_date?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  budget?: number | undefined;
+  rate?: string | undefined;
+  fixed_price?: string | undefined;
+  billing_method?: string | undefined;
+  logged_duration?: number | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_listtimeentries {
+  /**
+   * Filter by start time (ISO 8601). Example: "2024-01-01T00:00:00Z"
+   */
+  started_from?: string | undefined;
+  /**
+   * Filter by end time (ISO 8601). Example: "2024-12-31T23:59:59Z"
+   */
+  started_to?: string | undefined;
+  /**
+   * Filter by updated since (ISO 8601). Example: "2024-01-01T00:00:00Z"
+   */
+  updated_since?: string | undefined;
+  /**
+   * Page number (1-based). Example: 1
+   */
+  page?: number | undefined;
+  /**
+   * Items per page (max 30). Example: 30
+   */
+  per_page?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_listtimeentries {
+  items: ({  id: number;
+  note?: string | undefined;
+  duration?: number | undefined;
+  project_id?: number | undefined;
+  client_id?: number | undefined;
+  is_logged?: boolean | undefined;
+  started_at?: string | undefined;
+  active?: boolean | undefined;
+  timer?: {  id?: number | undefined;
+  is_running?: boolean | undefined;};})[];
+  next_page?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_sendinvoice {
+  /**
+   * The ID of the invoice to send. Example: 453877
+   */
+  invoice_id: number;
+  /**
+   * How to send the invoice. Use "email" to email the client, or "mark_as_sent" to mark as sent without emailing.
+   */
+  method: 'email' | 'mark_as_sent';
+};
+
+export interface ActionOutput_freshbooks_sendinvoice {
+  id: number;
+  display_status?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_updateclient {
+  /**
+   * Client ID. Example: "567521"
+   */
+  id: string;
+  /**
+   * First name
+   */
+  fname?: string | undefined;
+  /**
+   * Last name
+   */
+  lname?: string | undefined;
+  /**
+   * Organization name
+   */
+  organization?: string | undefined;
+  /**
+   * Email address
+   */
+  email?: string | undefined;
+  /**
+   * Phone number
+   */
+  phone?: string | undefined;
+  /**
+   * Primary street address
+   */
+  p_street?: string | undefined;
+  /**
+   * Primary city
+   */
+  p_city?: string | undefined;
+  /**
+   * Primary province or state
+   */
+  p_province?: string | undefined;
+  /**
+   * Primary postal code
+   */
+  p_code?: string | undefined;
+  /**
+   * Primary country
+   */
+  p_country?: string | undefined;
+  /**
+   * Notes about the client
+   */
+  note?: string | undefined;
+  /**
+   * VAT name
+   */
+  vat_name?: string | undefined;
+  /**
+   * VAT number
+   */
+  vat_number?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_updateclient {
+  id: string;
+  userid?: string | undefined;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  organization?: string | undefined;
+  email?: string | undefined;
+  phone?: string | undefined;
+  p_street?: string | undefined;
+  p_city?: string | undefined;
+  p_province?: string | undefined;
+  p_code?: string | undefined;
+  p_country?: string | undefined;
+  note?: string | undefined;
+  vat_name?: string | undefined;
+  vat_number?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_updateestimate {
+  /**
+   * The ID of the estimate to update. Example: 2201278
+   */
+  estimateId: number;
+  customerid?: number | undefined;
+  create_date?: string | undefined;
+  description?: string | undefined;
+  terms?: string | undefined;
+  notes?: string | undefined;
+  po_number?: string | undefined;
+  currency_code?: string | undefined;
+  language?: string | undefined;
+  discount_value?: string | undefined;
+  template?: string | undefined;
+  street?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  code?: string | undefined;
+  country?: string | undefined;
+  organization?: string | undefined;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  vat_name?: string | undefined;
+  vat_number?: string | undefined;
+  lines?: ({  type?: number | undefined;
+  qty?: number | undefined;
+  unit_cost?: {  amount: string;
+  code: string;} | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  taxName1?: string | undefined;
+  taxAmount1?: number | undefined;
+  taxName2?: string | undefined;
+  taxAmount2?: number | undefined;
+  expenseid?: number | undefined;})[];
+};
+
+export interface ActionOutput_freshbooks_updateestimate {
+  id: number;
+  status: number;
+  create_date: string;
+  customerid: number;
+  estimate_number: string;
+  amount: {  amount: string;
+  code: string;};
+  currency_code: string;
+  description?: string | undefined;
+  notes?: string | undefined;
+  terms?: string | undefined;
+  po_number?: string | undefined;
+  discount_value?: string | undefined;
+  discount_total?: {  amount: string;
+  code: string;} | undefined;
+  template?: string | undefined;
+  language?: string | undefined;
+  vis_state?: number | undefined;
+  invoiced?: boolean | undefined;
+  ui_status?: string | undefined;
+  display_status?: string | undefined;
+  organization?: string | undefined;
+  fname?: string | undefined;
+  lname?: string | undefined;
+  street?: string | undefined;
+  street2?: string | undefined;
+  city?: string | undefined;
+  province?: string | undefined;
+  country?: string | undefined;
+  code?: string | undefined;
+  vat_name?: string | undefined;
+  vat_number?: string | undefined;
+  updated?: string | undefined;
+  created_at?: string | undefined;
+  lines?: ({  lineid?: number | undefined;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  updated?: string | undefined;
+  type?: number | undefined;
+  qty?: number | undefined;
+  unit_cost?: {  amount: string;
+  code: string;} | undefined;
+  description?: string | undefined;
+  name?: string | undefined;
+  taxName1?: string | undefined;
+  taxAmount1?: number | undefined;
+  taxName2?: string | undefined;
+  taxAmount2?: number | undefined;
+  expenseid?: number | undefined;})[];
+};
+
+export interface ActionInput_freshbooks_updateexpense {
+  /**
+   * Expense ID. Example: 123
+   */
+  expenseId: number;
+  /**
+   * Expense amount object with amount string and currency code. Example: {"amount": "25.00", "code": "USD"}
+   */
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  /**
+   * Expense date. Example: "2024-01-15"
+   */
+  date?: string | undefined;
+  /**
+   * Vendor name
+   */
+  vendor?: string | undefined;
+  /**
+   * Expense notes
+   */
+  notes?: string | undefined;
+  /**
+   * Staff member ID
+   */
+  staffid?: number | undefined;
+  /**
+   * Expense category ID
+   */
+  categoryid?: number | undefined;
+  /**
+   * Client ID
+   */
+  clientid?: number | undefined;
+  /**
+   * Project ID
+   */
+  projectid?: number | undefined;
+  /**
+   * First tax percentage
+   */
+  taxPercent1?: string | undefined;
+  /**
+   * Second tax percentage
+   */
+  taxPercent2?: string | undefined;
+  /**
+   * Expense status
+   */
+  status?: number | undefined;
+  /**
+   * Visibility state: 0 for active, 1 for deleted
+   */
+  vis_state?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_updateexpense {
+  id: number;
+  amount?: {  amount: string;
+  code: string;} | undefined;
+  date?: string | undefined;
+  vendor?: string | undefined;
+  notes?: string | undefined;
+  staffid?: number | undefined;
+  categoryid?: number | undefined;
+  clientid?: number | undefined;
+  projectid?: number | undefined;
+  taxPercent1?: string | undefined;
+  taxPercent2?: string | undefined;
+  status?: number | undefined;
+  vis_state?: number | undefined;
+};
+
+export interface ActionInput_freshbooks_updateinvoice {
+  /**
+   * Invoice ID. Example: "453877"
+   */
+  invoiceId: string;
+  /**
+   * Client ID to associate with the invoice.
+   */
+  customerid?: string | number | undefined;
+  /**
+   * Creation date in YYYY-MM-DD format.
+   */
+  create_date?: string | undefined;
+  /**
+   * Due date in YYYY-MM-DD format.
+   */
+  due_date?: string | undefined;
+  /**
+   * Invoice description or title.
+   */
+  description?: string | undefined;
+  /**
+   * Payment terms.
+   */
+  terms?: string | undefined;
+  /**
+   * Notes visible to the client.
+   */
+  notes?: string | undefined;
+  /**
+   * Purchase order number.
+   */
+  po_number?: string | undefined;
+  /**
+   * Discount value.
+   */
+  discount_value?: string | number | undefined;
+  /**
+   * Discount description.
+   */
+  discount_description?: string | undefined;
+  /**
+   * Deposit amount.
+   */
+  deposit_amount?: string | number | undefined;
+  /**
+   * Deposit percentage.
+   */
+  deposit_percent?: string | number | undefined;
+  /**
+   * Deposit type.
+   */
+  deposit_type?: string | undefined;
+  /**
+   * Line items for the invoice.
+   */
+  lines?: ({})[] | undefined;
+};
+
+export interface ActionOutput_freshbooks_updateinvoice {
+  id: string | number;
+  customerid?: string | number | undefined;
+  create_date?: string | undefined;
+  due_date?: string | undefined;
+  description?: string | undefined;
+  terms?: string | undefined;
+  notes?: string | undefined;
+  po_number?: string | undefined;
+  discount_value?: string | number | undefined;
+  discount_description?: string | undefined;
+  deposit_amount?: string | number | undefined;
+  deposit_percent?: string | number | undefined;
+  deposit_type?: string | undefined;
+  vis_state?: number | undefined;
+  status?: number | undefined;
+  lines?: ({})[] | undefined;
+  current_organization?: string | undefined;
+};
+
+export interface ActionInput_freshbooks_updateproject {
+  /**
+   * The unique id of the project to update. Example: 779597
+   */
+  project_id: number;
+  /**
+   * The project title
+   */
+  title?: string | undefined;
+  /**
+   * The project description
+   */
+  description?: string | undefined;
+  /**
+   * Date of projected completion. Example: 2017-07-12
+   */
+  due_date?: string | undefined;
+  /**
+   * Unique id of the client being billed for the project
+   */
+  client_id?: number | undefined;
+  /**
+   * Type of project
+   */
+  project_type?: 'fixed_price' | 'hourly_rate' | undefined;
+  /**
+   * Used for flat-rate projects. Represents the amount being charged
+   */
+  fixed_price?: string | undefined;
+  /**
+   * Budget for project
+   */
+  budget?: number | undefined;
+  /**
+   * Whether the project has been completed
+   */
+  complete?: boolean | undefined;
+  /**
+   * Whether the project is active
+   */
+  active?: boolean | undefined;
+  /**
+   * Clarifies that the project is internal
+   */
+  internal?: boolean | undefined;
+  /**
+   * The hourly rate of the project
+   */
+  rate?: string | undefined;
+  /**
+   * The method of payment for the project
+   */
+  billing_method?: string | undefined;
+};
+
+export interface ActionOutput_freshbooks_updateproject {
+  project: {  id: number;
+  title?: string | undefined;
+  description?: string | null | undefined;
+  due_date?: string | null | undefined;
+  project_type?: string | undefined;
+  fixed_price?: string | null | undefined;
+  budget?: number | null | undefined;
+  complete?: boolean | undefined;
+  active?: boolean | undefined;
+  internal?: boolean | undefined;
+  client_id?: number | null | undefined;
+  rate?: string | null | undefined;
+  billing_method?: string | null | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  logged_duration?: number | null | undefined;
+  sample?: boolean | undefined;
+  links?: {  self?: string | undefined;
+  threads?: string | undefined;};
+  group?: {  pending_invitations?: string[] | null | undefined;
+  id?: number | undefined;
+  members?: ({  first_name?: string | undefined;
+  last_name?: string | undefined;
+  role?: string | undefined;
+  identity_id?: number | undefined;
+  active?: boolean | undefined;
+  company?: string | undefined;
+  id?: number | undefined;
+  email?: string | undefined;})[];};
+  services?: ({  business_id?: number | undefined;
+  name?: string | undefined;
+  id?: number | undefined;})[];};
+};
+
+export interface ActionInput_freshbooks_updatetimeentry {
+  /**
+   * Time entry ID. Example: 343714461
+   */
+  id: number;
+  /**
+   * Updated note for the time entry
+   */
+  note?: string | undefined;
+  /**
+   * Duration in seconds
+   */
+  duration?: number | undefined;
+  /**
+   * Start time in ISO 8601 format. Example: "2026-06-29T10:00:00.000Z"
+   */
+  started_at?: string | undefined;
+  /**
+   * Client ID associated with the time entry
+   */
+  client_id?: number | undefined;
+  /**
+   * Project ID associated with the time entry
+   */
+  project_id?: number | undefined;
+  /**
+   * Whether the time entry is logged
+   */
+  is_logged?: boolean | undefined;
+  /**
+   * Whether the time entry is billable
+   */
+  billable?: boolean | undefined;
+  /**
+   * Service ID associated with the time entry
+   */
+  service_id?: number | undefined;
+  /**
+   * Task ID associated with the time entry
+   */
+  task_id?: number | undefined;
+};
+
+export interface ActionOutput_freshbooks_updatetimeentry {
+  id: number;
+  note?: string | undefined;
+  duration?: number | undefined;
+  started_at?: string | undefined;
+  client_id?: number | undefined;
+  project_id?: number | undefined;
+  is_logged?: boolean | undefined;
+  billable?: boolean | undefined;
+  billed?: boolean | undefined;
+  active?: boolean | undefined;
+  timer?: {  id?: number | undefined;
+  is_running?: boolean | undefined;};
 };
 
 export interface Article {
@@ -58039,6 +59558,283 @@ export interface ActionOutput_google_drive_uploaddocument {
   webContentLink?: string | undefined;
 };
 
+export interface CachedContent {
+  id: string;
+  name: string;
+  displayName?: string | undefined;
+  model?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expireTime?: string | undefined;
+  usageMetadata?: {  totalTokenCount?: number | undefined;
+  textCount?: number | undefined;
+  imageCount?: number | undefined;
+  videoDurationSeconds?: number | undefined;};
+};
+
+export interface ActionInput_google_gemini_batchembedcontents {
+  /**
+   * The embedding model to use. Defaults to "gemini-embedding-001".
+   */
+  model?: string | undefined;
+  /**
+   * Array of embed requests.
+   */
+  requests: ({  /**
+   * Model name. Must match the outer model. Defaults to the outer model.
+   */
+  model?: string | undefined;
+  /**
+   * Text content to embed.
+   */
+  content: string;
+  /**
+   * Optional task type for the embedding.
+   */
+  taskType?: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY' | 'SEMANTIC_SIMILARITY' | 'CLASSIFICATION' | 'CLUSTERING' | 'CODE_RETRIEVAL_QUERY' | undefined;})[];
+};
+
+export interface ActionOutput_google_gemini_batchembedcontents {
+  /**
+   * The embeddings for each request, in the same order as provided in the batch request.
+   */
+  embeddings: ({  values?: number[] | undefined;})[];
+};
+
+export interface ActionInput_google_gemini_counttokens {
+  /**
+   * Model name. Example: "gemini-2.5-flash"
+   */
+  model?: string | undefined;
+  /**
+   * Input contents to tokenize.
+   */
+  contents: ({  role?: string | undefined;
+  parts: ({  text?: string | undefined;
+  inlineData?: {  mimeType: string;
+  data: string;} | undefined;
+  fileData?: {  mimeType: string;
+  fileUri: string;} | undefined;})[];})[];
+  /**
+   * Optional system instruction content.
+   */
+  systemInstruction?: {  role?: string | undefined;
+  parts: ({  text?: string | undefined;
+  inlineData?: {  mimeType: string;
+  data: string;} | undefined;
+  fileData?: {  mimeType: string;
+  fileUri: string;} | undefined;})[];};
+};
+
+export interface ActionOutput_google_gemini_counttokens {
+  /**
+   * Total number of tokens in the input.
+   */
+  totalTokens: number;
+  promptTokensDetails?: ({  modality?: string | undefined;
+  tokenCount?: number | undefined;})[];
+};
+
+export interface ActionInput_google_gemini_deletefile {
+  /**
+   * File name. Example: "files/abc123"
+   */
+  name: string;
+};
+
+export interface ActionOutput_google_gemini_deletefile {
+};
+
+export interface ActionInput_google_gemini_embedcontent {
+  /**
+   * The text content to embed.
+   */
+  content: string;
+  /**
+   * The embedding model name. Defaults to gemini-embedding-001.
+   */
+  model?: string | undefined;
+  /**
+   * The task type for which the embeddings will be used.
+   */
+  taskType?: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY' | 'SEMANTIC_SIMILARITY' | 'CLASSIFICATION' | 'CLUSTERING' | 'CODE_RETRIEVAL_QUERY' | undefined;
+  /**
+   * An optional title for the text. Only applicable when taskType is RETRIEVAL_DOCUMENT.
+   */
+  title?: string | undefined;
+  /**
+   * Reduced dimension for the output embedding. If set, excessive values are truncated from the end.
+   */
+  outputDimensionality?: number | undefined;
+};
+
+export interface ActionOutput_google_gemini_embedcontent {
+  /**
+   * The embedding vector values.
+   */
+  values: number[];
+  truncated?: boolean | undefined;
+  promptTokenCount?: number | undefined;
+  totalTokenCount?: number | undefined;
+};
+
+export interface ActionInput_google_gemini_generatecontent {
+  model?: string | undefined;
+  contents: ({  role?: string | undefined;
+  parts: ({  text?: string | undefined;})[];})[];
+  systemInstruction?: {  role?: string | undefined;
+  parts: ({  text?: string | undefined;})[];};
+  generationConfig?: {  maxOutputTokens?: number | undefined;
+  temperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+  stopSequences?: string[] | undefined;
+  responseMimeType?: string | undefined;};
+  tools?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionOutput_google_gemini_generatecontent {
+  candidates?: ({  content?: {  role?: string | undefined;
+  parts?: ({  text?: string | undefined;})[];};
+  finishReason?: string | undefined;
+  index?: number | undefined;
+  safetyRatings?: ({  [key: string]: unknown | undefined;})[];
+  citationMetadata?: {  [key: string]: unknown | undefined;};
+  groundingMetadata?: {  [key: string]: unknown | undefined;};})[];
+  promptFeedback?: {  blockReason?: string | undefined;
+  safetyRatings?: ({  [key: string]: unknown | undefined;})[];};
+  usageMetadata?: {  promptTokenCount?: number | undefined;
+  cachedContentTokenCount?: number | undefined;
+  candidatesTokenCount?: number | undefined;
+  totalTokenCount?: number | undefined;};
+};
+
+export interface ActionInput_google_gemini_getfile {
+  /**
+   * The name of the file to retrieve. Example: "files/abc123"
+   */
+  name: string;
+};
+
+export interface ActionOutput_google_gemini_getfile {
+  name: string;
+  displayName?: string | undefined;
+  mimeType?: string | undefined;
+  sizeBytes?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expirationTime?: string | undefined;
+  sha256Hash?: string | undefined;
+  uri?: string | undefined;
+  downloadUri?: string | undefined;
+  state?: string | undefined;
+  source?: string | undefined;
+  error?: {} | undefined;
+  videoMetadata?: {} | undefined;
+};
+
+export interface ActionInput_google_gemini_getmodel {
+  /**
+   * Model name. Example: "gemini-2.5-flash" or "models/gemini-2.5-flash"
+   */
+  model: string;
+};
+
+export interface ActionOutput_google_gemini_getmodel {
+  name: string;
+  baseModelId?: string | undefined;
+  version?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  inputTokenLimit?: number | undefined;
+  outputTokenLimit?: number | undefined;
+  supportedGenerationMethods?: string[] | undefined;
+  temperature?: number | undefined;
+  maxTemperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+};
+
+export interface ActionInput_google_gemini_listcachedcontents {
+  /**
+   * The maximum number of cached contents to return. Maximum is 1000.
+   */
+  pageSize?: number | undefined;
+  /**
+   * A page token from a previous cachedContents.list call to retrieve the subsequent page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listcachedcontents {
+  items: ({  name: string;
+  displayName?: string | undefined;
+  model?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expireTime?: string | undefined;
+  ttl?: string | undefined;})[];
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_google_gemini_listfiles {
+  /**
+   * Maximum number of files to return per page. Defaults to 10, maximum is 100.
+   */
+  pageSize?: number | undefined;
+  /**
+   * Pagination token from a previous list-files call. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listfiles {
+  items: ({  name: string;
+  displayName?: string | undefined;
+  mimeType?: string | undefined;
+  sizeBytes?: string | undefined;
+  createTime?: string | undefined;
+  updateTime?: string | undefined;
+  expirationTime?: string | undefined;
+  sha256Hash?: string | undefined;
+  uri?: string | undefined;
+  downloadUri?: string | undefined;
+  state?: string | undefined;
+  source?: string | undefined;
+  error?: {} | undefined;
+  videoMetadata?: {} | undefined;})[];
+  /**
+   * Token to retrieve the next page of results.
+   */
+  next_page_token?: string | undefined;
+};
+
+export interface ActionInput_google_gemini_listmodels {
+  /**
+   * Maximum number of models to return per page. Example: 10
+   */
+  pageSize?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  pageToken?: string | undefined;
+};
+
+export interface ActionOutput_google_gemini_listmodels {
+  items: ({  name: string;
+  version?: string | undefined;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  inputTokenLimit?: number | undefined;
+  outputTokenLimit?: number | undefined;
+  supportedGenerationMethods?: string[] | undefined;
+  temperature?: number | undefined;
+  topP?: number | undefined;
+  topK?: number | undefined;
+  maxTemperature?: number | undefined;})[];
+  next_page_token?: string | undefined;
+};
+
 export interface Filter {
   id: string;
   from?: string | undefined;
@@ -62395,13 +64191,3471 @@ export interface ActionOutput_hubspot_whoami {
   hubDomain?: string | undefined;
 };
 
-export interface ActionInput_instantly_setcampaignname {
+export interface AccountAnalytics {
+  id: string;
+  /**
+   * The date of the analytics entry, in YYYY-MM-DD format
+   */
+  date: string;
+  /**
+   * The email account that sent the emails
+   */
+  email_account: string;
+  /**
+   * The total number of campaign emails sent on this date by this account
+   */
+  sent: number;
+  /**
+   * The number of emails that bounced on this date for this account
+   */
+  bounced: number;
+  /**
+   * The total number of unique contacts who received an email on this date from this account
+   */
+  contacted: number;
+  /**
+   * The total number of new leads contacted on this date from this account
+   */
+  new_leads_contacted: number;
+  /**
+   * The total number of opened emails on this date for this account
+   */
+  opened: number;
+  /**
+   * The total number of unique opened emails on this date for this account
+   */
+  unique_opened: number;
+  /**
+   * The total number of replies received on this date for this account
+   */
+  replies: number;
+  /**
+   * The total number of unique replies received on this date for this account
+   */
+  unique_replies: number;
+  /**
+   * The total number of automatic replies detected on this date for this account
+   */
+  replies_automatic: number;
+  /**
+   * The total number of unique automatic replies detected on this date for this account
+   */
+  unique_replies_automatic: number;
+  /**
+   * The total number of links clicked on this date for this account
+   */
+  clicks: number;
+  /**
+   * The total number of unique links clicked on this date for this account
+   */
+  unique_clicks: number;
+};
+
+export interface BackgroundJob {
+  id: string;
+  workspace_id: string;
+  user_id?: string | undefined;
+  type: string;
+  entity_id?: string | undefined;
+  entity_type?: string | undefined;
+  data?: {  [key: string]: unknown | undefined;};
+  progress: number;
+  status: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export interface CampaignAnalytics {
+  id: string;
   campaign_id: string;
+  campaign_name?: string | undefined;
+  campaign_status?: number | undefined;
+  campaign_is_evergreen?: boolean | undefined;
+  leads_count?: number | undefined;
+  contacted_count?: number | undefined;
+  emails_sent_count?: number | undefined;
+  new_leads_contacted_count?: number | undefined;
+  open_count?: number | undefined;
+  open_count_unique?: number | undefined;
+  open_count_unique_by_step?: number | undefined;
+  reply_count?: number | undefined;
+  reply_count_unique?: number | undefined;
+  reply_count_unique_by_step?: number | undefined;
+  reply_count_automatic?: number | undefined;
+  reply_count_automatic_unique?: number | undefined;
+  reply_count_automatic_unique_by_step?: number | undefined;
+  link_click_count?: number | undefined;
+  link_click_count_unique?: number | undefined;
+  link_click_count_unique_by_step?: number | undefined;
+  bounced_count?: number | undefined;
+  unsubscribed_count?: number | undefined;
+  completed_count?: number | undefined;
+  total_opportunities?: number | undefined;
+  total_opportunity_value?: number | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+};
+
+export interface CampaignAnalyticsOverview {
+  id: string;
+  campaign_id: string;
+  open_count?: number | undefined;
+  open_count_unique?: number | undefined;
+  open_count_unique_by_step?: number | undefined;
+  link_click_count?: number | undefined;
+  link_click_count_unique?: number | undefined;
+  link_click_count_unique_by_step?: number | undefined;
+  reply_count?: number | undefined;
+  reply_count_unique?: number | undefined;
+  reply_count_unique_by_step?: number | undefined;
+  reply_count_automatic?: number | undefined;
+  reply_count_automatic_unique?: number | undefined;
+  reply_count_automatic_unique_by_step?: number | undefined;
+  bounced_count?: number | undefined;
+  unsubscribed_count?: number | undefined;
+  completed_count?: number | undefined;
+  emails_sent_count?: number | undefined;
+  contacted_count?: number | undefined;
+  new_leads_contacted_count?: number | undefined;
+  total_opportunities?: number | undefined;
+  total_opportunity_value?: number | undefined;
+  total_interested?: number | undefined;
+  total_meeting_booked?: number | undefined;
+  total_meeting_completed?: number | undefined;
+  total_closed?: number | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+};
+
+export interface CampaignAnalyticsDaily {
+  id: string;
+  campaign_id: string;
+  date: string;
+  sent?: number | undefined;
+  contacted?: number | undefined;
+  new_leads_contacted?: number | undefined;
+  opened?: number | undefined;
+  unique_opened?: number | undefined;
+  replies?: number | undefined;
+  unique_replies?: number | undefined;
+  replies_automatic?: number | undefined;
+  unique_replies_automatic?: number | undefined;
+  clicks?: number | undefined;
+  unique_clicks?: number | undefined;
+  opportunities?: number | undefined;
+  unique_opportunities?: number | undefined;
+};
+
+export interface CampaignAnalyticsSteps {
+  id: string;
+  campaign_id: string;
+  step?: string | undefined;
+  variant?: string | undefined;
+  sent?: number | undefined;
+  opened?: number | undefined;
+  unique_opened?: number | undefined;
+  replies?: number | undefined;
+  unique_replies?: number | undefined;
+  replies_automatic?: number | undefined;
+  unique_replies_automatic?: number | undefined;
+  clicks?: number | undefined;
+  unique_clicks?: number | undefined;
+  opportunities?: number | undefined;
+  unique_opportunities?: number | undefined;
+  start_date?: string | undefined;
+  end_date?: string | undefined;
+};
+
+export interface CustomTag {
+  id: string;
+  organization_id: string;
+  label: string;
+  color?: string | undefined;
+  description?: string | undefined;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+};
+
+export interface Email {
+  id: string;
+  timestamp_created: string;
+  timestamp_email?: string | undefined;
+  message_id?: string | undefined;
+  subject?: string | undefined;
+  from_address_email?: string | undefined;
+  to_address_email_list?: string | undefined;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body?: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id?: string | undefined;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount?: string | undefined;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  attachment_json?: {  files?: ({  filename: string;
+  size?: number | undefined;
+  type?: string | undefined;
+  url?: string | undefined;
+  error?: string | undefined;})[];};
+  from_address_json?: unknown | undefined;
+  to_address_json?: unknown | undefined;
+  cc_address_json?: unknown | undefined;
+  ai_agent_id?: string | undefined;
+};
+
+export interface LeadList {
+  id: string;
+  organization_id: string;
+  has_enrichment_task?: boolean | undefined;
+  owned_by?: string | undefined;
+  name: string;
+  timestamp_created: string;
+};
+
+export interface SyncMetadata_instantly_leads {
+  /**
+   * Optional list ID to scope the leads sync. Example: 019f1a45-4dfb-7da4-b68b-0eaf57f6b3a6
+   */
+  list_id?: string | undefined;
+  /**
+   * Optional campaign ID to scope the leads sync. Example: 019f1a45-4dfb-7da4-b68b-0eaad1f324ea
+   */
+  campaign_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_activatecampaign {
+  /**
+   * Campaign ID. Example: "ec8dae2c-8bd3-461d-90db-a8d262719b5f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_activatecampaign {
+  id: string;
+  name: string;
+  status: number;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  campaign_schedule?: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  [key: string]: unknown | undefined;})[];})[];
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+};
+
+export interface ActionInput_instantly_addcampaignvariables {
+  /**
+   * Campaign ID. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  campaign_id: string;
+  /**
+   * Array of custom variable name strings to register on the campaign. Example: ["first_name", "company_name"]
+   */
+  variables: string[];
+};
+
+export interface ActionOutput_instantly_addcampaignvariables {
+  id: string;
+  name?: string | undefined;
+  status?: number | undefined;
+};
+
+export interface ActionInput_instantly_addleads {
+  /**
+   * The unique identifier for the campaign to add leads to. Example: "019f1a45-a728-7d40-9901-742d3ad2fddf"
+   */
+  campaign_id: string;
+  /**
+   * An array of lead objects to create. Must contain at least 1 and at most 1000 leads.
+   */
+  leads: ({  /**
+   * Email address of the lead
+   */
+  email?: string | undefined;
+  /**
+   * First name of the lead
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the lead
+   */
+  last_name?: string | undefined;
+  /**
+   * Company name of the lead
+   */
+  company_name?: string | undefined;
+  /**
+   * Job title of the lead
+   */
+  job_title?: string | undefined;
+  /**
+   * Phone number of the lead
+   */
+  phone?: string | undefined;
+  /**
+   * Website of the lead
+   */
+  website?: string | undefined;
+  /**
+   * Personalization of the lead
+   */
+  personalization?: string | undefined;
+  /**
+   * Lead interest status
+   */
+  lt_interest_status?: number | undefined;
+  /**
+   * Potential value of the lead
+   */
+  pl_value_lead?: string | undefined;
+  /**
+   * ID of the user assigned to the lead
+   */
+  assigned_to?: string | undefined;
+  /**
+   * Custom variables for the lead
+   */
+  custom_variables?: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Optional blocklist ID to check leads against.
+   */
+  blocklist_id?: string | undefined;
+  /**
+   * Optional user ID to assign all imported leads to.
+   */
+  assigned_to?: string | undefined;
+  /**
+   * If true, a background job will be created to verify the email addresses of the imported leads.
+   */
+  verify_leads_on_import?: boolean | undefined;
+  /**
+   * If true, any lead that already exists anywhere in your workspace will be skipped.
+   */
+  skip_if_in_workspace?: boolean | undefined;
+  /**
+   * If true, any lead that already exists in ANY campaign in your workspace will be skipped.
+   */
+  skip_if_in_campaign?: boolean | undefined;
+  /**
+   * If true, any lead that already exists in ANY list in your workspace will be skipped.
+   */
+  skip_if_in_list?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_addleads {
+  status: string;
+  total_sent: number;
+  leads_uploaded: number;
+  in_blocklist: number;
+  blocklist_used?: string | undefined;
+  duplicated_leads: number;
+  skipped_count: number;
+  invalid_email_count: number;
+  incomplete_count: number;
+  duplicate_email_count: number;
+  remaining_in_plan?: number | undefined;
+  created_leads: ({  id: string;
+  index: number;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  phone?: string | undefined;})[];
+};
+
+export interface ActionInput_instantly_bulkassignleads {
+  /**
+   * Array of organization user IDs to assign leads to. Example: ["019f1a45-a723-7e22-8a57-336ad585bbaa"]
+   */
+  organization_user_ids: string[];
+  /**
+   * Specific lead IDs to assign. Example: ["019f1a45-a723-7e22-8a57-336cd2ecffe0"]
+   */
+  ids?: string[] | undefined;
+  /**
+   * Campaign ID to filter leads by. Example: "019f1a45-a723-7e22-8a57-336813395c1f"
+   */
+  campaign?: string | undefined;
+  /**
+   * List ID to filter leads by. Example: "019f1a45-a723-7e22-8a57-33693d8d3f7e"
+   */
+  list_id?: string | undefined;
+  /**
+   * Search query to filter leads by. Example: "test"
+   */
+  search?: string | undefined;
+  /**
+   * Filter to apply to the leads. Example: "FILTER_LEAD_CLOSED"
+   */
+  filter?: 'FILTER_VAL_CONTACTED' | 'FILTER_VAL_NOT_CONTACTED' | 'FILTER_VAL_COMPLETED' | 'FILTER_VAL_UNSUBSCRIBED' | 'FILTER_VAL_ACTIVE' | 'FILTER_LEAD_INTERESTED' | 'FILTER_LEAD_NOT_INTERESTED' | 'FILTER_LEAD_MEETING_BOOKED' | 'FILTER_LEAD_MEETING_COMPLETED' | 'FILTER_LEAD_CLOSED' | 'FILTER_LEAD_OUT_OF_OFFICE' | 'FILTER_LEAD_WRONG_PERSON' | 'FILTER_LEAD_LOST' | 'FILTER_LEAD_NO_SHOW' | 'FILTER_LEAD_CUSTOM_LABEL_POSITIVE' | 'FILTER_LEAD_CUSTOM_LABEL_NEGATIVE' | 'FILTER_VAL_BOUNCED' | 'FILTER_VAL_SKIPPED' | 'FILTER_VAL_RISKY' | 'FILTER_VAL_INVALID' | 'FILTER_VAL_VALID' | 'FILTER_VAL_IN_SUBSEQUENCE' | 'FILTER_VAL_OPENED_NO_REPLY' | 'FILTER_VAL_COMPLETED_NO_REPLY' | 'FILTER_VAL_NO_OPENS' | 'FILTER_VAL_REPLIED' | 'FILTER_VAL_LINK_CLICKED' | undefined;
+  /**
+   * Whether the leads are in the campaign.
+   */
+  in_campaign?: boolean | undefined;
+  /**
+   * Whether the leads are in the list.
+   */
+  in_list?: boolean | undefined;
+  /**
+   * Smart view ID to filter leads by. Example: "019f1a45-a723-7e22-8a57-336ba3fea9c9"
+   */
+  smart_view_id?: string | undefined;
+  /**
+   * Maximum number of leads to assign. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Filter leads by their current owner. Example: "019f1a45-a723-7e22-8a57-336dd0df52c5"
+   */
+  assigned_to?: string | undefined;
+  /**
+   * Whether to apply filters from the web app.
+   */
+  has_clause?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_bulkassignleads {
+  status: string;
+  message: string;
+};
+
+export interface ActionInput_instantly_countunreademails {
+};
+
+export interface ActionOutput_instantly_countunreademails {
+  count: number;
+};
+
+export interface ActionInput_instantly_createaccount {
+  /**
+   * Email address of the account. Example: "user@example.com"
+   */
+  email: string;
+  /**
+   * First name associated with the account. Example: "John"
+   */
+  first_name: string;
+  /**
+   * Last name associated with the account. Example: "Doe"
+   */
+  last_name: string;
+  /**
+   * Provider code: 1=Custom IMAP/SMTP, 2=Google, 3=Microsoft, 4=AWS, 8=AirMail
+   */
+  provider_code: number;
+  /**
+   * IMAP username. Example: "username"
+   */
+  imap_username: string;
+  /**
+   * IMAP password. Example: "password"
+   */
+  imap_password: string;
+  /**
+   * IMAP host. Example: "imap.gmail.com"
+   */
+  imap_host: string;
+  /**
+   * IMAP port. Example: 993
+   */
+  imap_port: number;
+  /**
+   * SMTP username. Example: "username"
+   */
+  smtp_username: string;
+  /**
+   * SMTP password. Example: "password"
+   */
+  smtp_password: string;
+  /**
+   * SMTP host. Example: "smtp.gmail.com"
+   */
+  smtp_host: string;
+  /**
+   * SMTP port. Example: 587
+   */
+  smtp_port: number;
+  daily_limit?: number | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: '0' | '1' | '2' | '3' | '4' | 'disabled' | undefined;
+  reply_rate?: number | undefined;};
+  skip_cname_check?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_createaccount {
+  email: string;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  first_name: string;
+  last_name: string;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: string | undefined;
+  reply_rate?: number | undefined;};
+  added_by?: string | undefined;
+  daily_limit?: number | undefined;
+  daily_limit_max?: number | undefined;
+  warmup_limit_max?: number | undefined;
+  modified_by?: string | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  status?: number | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  organization?: string | undefined;
+  timestamp_last_used?: string | undefined;
+  warmup_status?: number | undefined;
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  responseCode?: number | undefined;};
+  timestamp_warmup_start?: string | undefined;
+  provider_code: number;
+  setup_pending?: boolean | undefined;
+  warmup_pool_id?: string | undefined;
+  is_managed_account?: boolean | undefined;
+  dfy_password_changed?: boolean | undefined;
+  is_ready_made_account?: boolean | undefined;
+  stat_warmup_score?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  autofix_failed?: boolean | undefined;
+};
+
+export interface ActionInput_instantly_createcampaignfromexport {
+  /**
+   * Source campaign ID to clone. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  id: string;
+  /**
+   * Optional name override for the new campaign.
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_instantly_createcampaignfromexport {
+  id: string;
+  name: string;
+  status: number;
+  pl_value?: number | undefined;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule?: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  type: string;
+  delay: number;
+  delay_unit?: string | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: string | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  [key: string]: unknown | undefined;};
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  [key: string]: unknown | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_instantly_createcampaign {
+  name: string;
+  pl_value?: number | undefined;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  0?: boolean | undefined;
+  1?: boolean | undefined;
+  2?: boolean | undefined;
+  3?: boolean | undefined;
+  4?: boolean | undefined;
+  5?: boolean | undefined;
+  6?: boolean | undefined;};
+  timezone: 'Etc/GMT+1' | 'Etc/GMT+2' | 'Etc/GMT+3' | 'Etc/GMT+4' | 'Etc/GMT+5' | 'Etc/GMT+6' | 'Etc/GMT+7' | 'Etc/GMT+8' | 'Etc/GMT+9' | 'Etc/GMT+10' | 'Etc/GMT+11' | 'Etc/GMT+12' | 'Etc/GMT-1' | 'Etc/GMT-2' | 'Etc/GMT-3' | 'Etc/GMT-4' | 'Etc/GMT-5' | 'Etc/GMT-6' | 'Etc/GMT-7' | 'Etc/GMT-8' | 'Etc/GMT-9' | 'Etc/GMT-10' | 'Etc/GMT-11' | 'Etc/GMT-12';})[];};
+  sequences?: ({  steps: ({  type: 'email';
+  delay: number;
+  delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger: 'reply_rate' | 'click_rate' | 'open_rate';} | undefined;
+  match_lead_esp?: boolean | undefined;
+  stop_for_company?: boolean | undefined;
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode: 'custom' | 'disabled';
+  daily_limit?: number | undefined;
+  scope?: 'per_campaign' | 'across_workspace' | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action: 'send' | 'do_not_send';
+  recipient_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];
+  sender_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];})[] | undefined;
+};
+
+export interface ActionOutput_instantly_createcampaign {
+  id: string;
+  name: string;
+  pl_value?: number | undefined;
+  status: number;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  0?: boolean | undefined;
+  1?: boolean | undefined;
+  2?: boolean | undefined;
+  3?: boolean | undefined;
+  4?: boolean | undefined;
+  5?: boolean | undefined;
+  6?: boolean | undefined;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  type: 'email';
+  delay: number;
+  delay_unit?: string | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: string | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger: string;} | undefined;
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode: string;
+  daily_limit?: number | undefined;
+  scope?: string | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action: string;
+  recipient_esp: string[];
+  sender_esp: string[];})[] | undefined;
+};
+
+export interface ActionInput_instantly_createcustomtag {
+  /**
+   * Display label for the custom tag. Example: "Important"
+   */
+  label: string;
+  /**
+   * Optional description for the custom tag. Example: "Tag for high priority items"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_instantly_createcustomtag {
+  id: string;
+  label: string;
+  description?: string | undefined;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  organization_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_createleadlist {
+  /**
+   * Name of the lead list to create. Example: "My Lead List"
+   */
   name: string;
 };
 
-export interface ActionOutput_instantly_setcampaignname {
+export interface ActionOutput_instantly_createleadlist {
+  id: string;
+  name: string;
+  organization_id: string;
+  timestamp_created: string;
+};
+
+export interface ActionInput_instantly_createlead {
+  /**
+   * Email address of the lead. Example: "example@example.com"
+   */
+  email: string;
+  /**
+   * First name of the lead. Example: "John"
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the lead. Example: "Doe"
+   */
+  last_name?: string | undefined;
+  /**
+   * Company name of the lead. Example: "Example Inc."
+   */
+  company_name?: string | undefined;
+  /**
+   * List ID associated with the lead. Example: "019f1a45-4dfb-7da4-b68b-0eaf57f6b3a6"
+   */
+  list_id?: string | undefined;
+  /**
+   * Custom fields map for the lead. Values can be string, number, boolean, or null.
+   */
+  payload?: {  [key: string]: string | number | boolean | null;} | undefined;
+};
+
+export interface ActionOutput_instantly_createlead {
+  id: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  organization: string;
+  status: number;
+  email_open_count: number;
+  email_reply_count: number;
+  email_click_count: number;
+  company_domain: string;
+  status_summary?: {  lastStep?: {  from?: string | undefined;
+  stepID?: string | undefined;
+  timestamp_executed?: string | undefined;};
+  domain_complete?: boolean | undefined;};
+  campaign?: string | undefined;
+  email?: string | undefined;
+  personalization?: string | undefined;
+  website?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  status_summary_subseq?: {  from?: string | undefined;
+  stepID?: string | undefined;
+  timestampExecuted?: string | undefined;};
+  last_step_from?: string | undefined;
+  last_step_id?: string | undefined;
+  last_step_timestamp_executed?: string | undefined;
+  email_opened_step?: number | undefined;
+  email_opened_variant?: number | undefined;
+  email_replied_step?: number | undefined;
+  email_replied_variant?: number | undefined;
+  email_clicked_step?: number | undefined;
+  email_clicked_variant?: number | undefined;
+  lt_interest_status?: number | undefined;
+  subsequence_id?: string | undefined;
+  verification_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  timestamp_added_subsequence?: string | undefined;
+  timestamp_last_contact?: string | undefined;
+  timestamp_last_open?: string | undefined;
+  timestamp_last_reply?: string | undefined;
+  timestamp_last_interest_change?: string | undefined;
+  timestamp_last_click?: string | undefined;
+  enrichment_status?: number | undefined;
+  list_id?: string | undefined;
+  last_contacted_from?: string | undefined;
+  uploaded_by_user?: string | undefined;
+  upload_method?: string | undefined;
+  assigned_to?: string | undefined;
+  is_website_visitor?: boolean | undefined;
+  timestamp_last_touch?: string | undefined;
+  esp_code?: number | undefined;
+  esg_code?: number | undefined;
+  payload?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_instantly_createwebhook {
+  /**
+   * Optional user-defined name for the webhook. Example: "Zapier Positive Replies"
+   */
+  name?: string | undefined;
+  /**
+   * Target URL to send webhook payloads. Must start with http:// or https://. Example: https://webhook.site/unique-url
+   */
+  target_hook_url: string;
+  /**
+   * Type of event to trigger the webhook. Valid values: all_events, email_sent, email_bounced, email_opened, email_link_clicked, reply_received, lead_unsubscribed, campaign_completed, account_error, lead_neutral, lead_interested, lead_not_interested, lead_meeting_booked, lead_meeting_completed, lead_closed, lead_out_of_office, lead_wrong_person, lead_no_show, supersearch_enrichment_completed, custom_label_any_positive, custom_label_any_negative. Example: email_sent
+   */
+  event_type?: string | undefined;
+  /**
+   * Optional campaign UUID to filter events (omit for all campaigns in workspace). Example: 019f1a5b-d114-7571-a55f-e0326358730b
+   */
+  campaign?: string | undefined;
+  /**
+   * Custom interest value - corresponds to LeadLabel.interest_status (used for custom label events). Example: 1
+   */
+  custom_interest_value?: number | undefined;
+  /**
+   * Optional HTTP headers to include when delivering webhook payloads (key-value pairs). Example: { Authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=" }
+   */
+  headers?: {  [key: string]: string;} | undefined;
+};
+
+export interface ActionOutput_instantly_createwebhook {
+  /**
+   * Unique identifier for the webhook (UUID). Example: 019f1a5b-d114-7571-a55f-e03043a03717
+   */
+  id: string;
+  /**
+   * Organization (workspace) UUID that owns this webhook. Example: 019f1a5b-d114-7571-a55f-e03178d1c488
+   */
+  organization: string;
+  /**
+   * Target URL to send webhook payloads. Example: https://webhook.site/unique-url
+   */
+  target_hook_url: string;
+  /**
+   * Timestamp when the webhook was created. Example: 2026-06-30T21:07:32.756Z
+   */
+  timestamp_created: string;
+  /**
+   * Optional campaign UUID to filter events. Example: 019f1a5b-d114-7571-a55f-e0326358730b
+   */
+  campaign?: string | undefined;
+  /**
+   * Optional user-defined name for the webhook. Example: Zapier Positive Replies
+   */
+  name?: string | undefined;
+  /**
+   * Type of event to trigger the webhook. Example: email_sent
+   */
+  event_type?: string | undefined;
+  /**
+   * Custom interest value - corresponds to LeadLabel.interest_status. Example: 1
+   */
+  custom_interest_value?: number | undefined;
+  /**
+   * Optional HTTP headers to include when delivering webhook payloads. Example: { Authorization: "Basic dXNlcm5hbWU6cGFzc3dvcmQ=" }
+   */
+  headers?: {  [key: string]: string;} | undefined;
+  /**
+   * Webhook status: 1 = active, -1 = error (disabled due to delivery failures). Example: 1
+   */
+  status?: number | undefined;
+  /**
+   * Timestamp when webhook was disabled due to delivery failures (omitted if active). Example: 2026-06-30T21:07:32.756Z
+   */
+  timestamp_error?: string | undefined;
+};
+
+export interface ActionInput_instantly_deleteaccount {
+  /**
+   * Email address of the account to delete. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_deleteaccount {
+  email: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  first_name: string;
+  last_name: string;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: string | undefined;
+  reply_rate?: number | undefined;};
+  added_by?: string | undefined;
+  daily_limit?: number | undefined;
+  daily_limit_max?: number | undefined;
+  warmup_limit_max?: number | undefined;
+  modified_by?: string | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  status?: number | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  organization: string;
+  timestamp_last_used?: string | undefined;
+  warmup_status: number;
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  responseCode?: number | undefined;};
+  timestamp_warmup_start?: string | undefined;
+  provider_code: number;
+  setup_pending: boolean;
+  warmup_pool_id?: string | undefined;
+  is_managed_account: boolean;
+  dfy_password_changed?: boolean | undefined;
+  is_ready_made_account?: boolean | undefined;
+  stat_warmup_score?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  autofix_failed?: boolean | undefined;
+};
+
+export interface ActionInput_instantly_deletecampaign {
+  /**
+   * Campaign ID. Example: "ec8dae2c-8bd3-461d-90db-a8d262719b5f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deletecampaign {
+  id: string;
+  status?: number | undefined;
+};
+
+export interface ActionInput_instantly_deletecustomtag {
+  /**
+   * The ID of the custom tag to delete. Example: "bca10b65-b620-44b3-8571-8ce409ad38c8"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deletecustomtag {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_instantly_deleteemail {
+  /**
+   * The ID of the email to delete. Example: "019f1a77-d235-7344-8666-d64518b48f8c"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deleteemail {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_email?: string | undefined;
+  message_id?: string | undefined;
+  subject?: string | undefined;
+  from_address_email?: string | undefined;
+  to_address_email_list?: string | undefined;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body?: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id?: string | undefined;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount?: string | undefined;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  attachment_json?: unknown | undefined;
+  from_address_json?: unknown | undefined;
+  to_address_json?: unknown | undefined;
+  cc_address_json?: unknown | undefined;
+  ai_agent_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_deleteleadlist {
+  /**
+   * Lead list ID to delete. Example: "5c194eae-9382-4bf1-aff4-d9eaa90668e1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deleteleadlist {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_instantly_deletelead {
+  /**
+   * Lead ID. Example: "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deletelead {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_instantly_deleteleadsbulk {
+  /**
+   * The ID of the campaign to delete leads from. Required if list_id is not provided.
+   */
+  campaign_id?: string | undefined;
+  /**
+   * The ID of the list to delete leads from. Required if campaign_id is not provided.
+   */
+  list_id?: string | undefined;
+  /**
+   * Optional array of specific lead IDs to delete.
+   */
+  ids?: string[] | undefined;
+  /**
+   * Optional status filter. Only delete leads with this status.
+   */
+  status?: number | undefined;
+  /**
+   * Maximum number of leads to delete.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_instantly_deleteleadsbulk {
+  /**
+   * Number of leads successfully deleted.
+   */
+  count: number;
+};
+
+export interface ActionInput_instantly_deletewebhook {
+  /**
+   * Webhook ID to delete. Example: "019f1a0f-1a3c-7828-801d-069c4b11cf00"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_deletewebhook {
+  id: string;
+  organization: string;
+  target_hook_url: string;
+  timestamp_created: string;
+  campaign?: string | undefined;
+  name?: string | undefined;
+  event_type?: string | undefined;
+  custom_interest_value?: number | undefined;
+  headers?: {  [key: string]: string;} | undefined;
+  status?: number | undefined;
+  timestamp_error?: string | undefined;
+};
+
+export interface ActionInput_instantly_disableaccountwarmup {
+  /**
+   * List of account emails to disable warmup for. Example: ["account@domain.com"]
+   */
+  emails: string[];
+};
+
+export interface ActionOutput_instantly_disableaccountwarmup {
+  /**
+   * Unique identifier for the background job. Example: "675266e304a8e55b17f0228b"
+   */
+  id: string;
+  /**
+   * Workspace ID. Example: "019f1a45-689a-74f8-abee-8ccb897e168d"
+   */
+  workspace_id: string;
+  /**
+   * The ID of the user that triggered the job.
+   */
+  user_id?: string | undefined;
+  /**
+   * Type of background job. Example: "update-warmup-accounts"
+   */
+  type: string;
+  /**
+   * The ID of the entity the job is related to.
+   */
+  entity_id?: string | undefined;
+  /**
+   * Type of entity. Example: "workspace"
+   */
+  entity_type?: string | undefined;
+  /**
+   * Additional data about the job.
+   */
+  data?: {} | undefined;
+  /**
+   * Progress of the job as a percentage (0 to 100).
+   */
+  progress: number;
+  /**
+   * Job status. Example: "pending"
+   */
   status: string;
+  /**
+   * Timestamp when the job was created. Example: "2026-06-30T20:43:04.218Z"
+   */
+  created_at: string;
+  /**
+   * Timestamp when the job was last updated. Example: "2026-06-30T20:43:04.218Z"
+   */
+  updated_at: string;
+};
+
+export interface ActionInput_instantly_duplicatecampaign {
+  /**
+   * Campaign ID to duplicate. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_duplicatecampaign {
+  id: string;
+  name: string;
+  status: number;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  org_id?: string | undefined;
+  user_id?: string | undefined;
+  campaign_schedule?: {  schedules?: ({  timezone?: string | undefined;
+  days?: unknown | undefined;
+  start_time?: string | undefined;
+  end_time?: string | undefined;
+  sending_account_email?: string | undefined;
+  sending_account_id?: string | undefined;})[];
+  sending_gap?: unknown | undefined;
+  sending_volume?: unknown | undefined;
+  stop_on_reply?: boolean | undefined;};
+  custom_variables?: string[] | undefined;
+  list_id?: string | undefined;
+  list_name?: string | undefined;
+};
+
+export interface ActionInput_instantly_enableaccountwarmup {
+  /**
+   * List of emails to enable warmup accounts for. The emails should be attached to accounts in your workspace.
+   */
+  emails: string[];
+};
+
+export interface ActionOutput_instantly_enableaccountwarmup {
+  /**
+   * Unique identifier for the background job
+   */
+  job_id: string;
+  /**
+   * Final job status
+   */
+  status: string;
+  /**
+   * Progress of the job as a percentage
+   */
+  progress: number;
+  /**
+   * Type of background job
+   */
+  type: string;
+  /**
+   * Timestamp when the job was created
+   */
+  created_at: string;
+  /**
+   * Timestamp when the job was last updated
+   */
+  updated_at: string;
+};
+
+export interface ActionInput_instantly_exportcampaign {
+  /**
+   * The ID of the campaign to export. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_instantly_exportcampaign {
+  id: string;
+  name: string;
+  pl_value?: number | undefined;
+  status: number;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  type: string;
+  delay: number;
+  delay_unit?: string | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: string | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking: boolean;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger: string;} | undefined;
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode: string;
+  daily_limit?: number | undefined;
+  scope?: string | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action: string;
+  recipient_esp: string[];
+  sender_esp: string[];})[] | undefined;
+};
+
+export interface ActionInput_instantly_forwardemail {
+  /**
+   * The id of the email you want to forward. Example: "019f1a8f-9da9-70c2-b20b-440cffc77ef6"
+   */
+  reply_to_uuid: string;
+  /**
+   * Comma-separated list of recipients that will receive the forwarded email. Example: "recipient@example.com"
+   */
+  to_address_email_list: string;
+  /**
+   * The email account that will be used to send this email. It has to be an email account connected to your workspace. Example: "jondoe@example.com"
+   */
+  eaccount: string;
+  /**
+   * Subject line of the forwarded email message. Example: "Fwd: Interesting update"
+   */
+  subject: string;
+  /**
+   * Optional body content for the forwarded email. Specify either html or text, or both. Required unless include_original_body is true.
+   */
+  body?: {  html?: string | undefined;
+  text?: string | undefined;};
+  /**
+   * Comma-separated list of CC email addresses. Example: "cc@example.com"
+   */
+  cc_address_email_list?: string | undefined;
+  /**
+   * Comma-separated list of BCC email addresses. Example: "bcc@example.com"
+   */
+  bcc_address_email_list?: string | undefined;
+  /**
+   * Reply-to email address that recipients should use when replying. Example: "reply@example.com"
+   */
+  reply_to?: string | undefined;
+  /**
+   * JSON-encoded forwarded attachment metadata from the original email.
+   */
+  forwarded_attachments?: string | undefined;
+  /**
+   * When true, append the original email headers and content after the provided body. Default: false.
+   */
+  include_original_body?: boolean | undefined;
+  /**
+   * The user id assigned to the lead. Example: "019f1a77-d233-70e8-865a-19fd84904bb3"
+   */
+  assigned_to?: string | undefined;
+};
+
+export interface ActionOutput_instantly_forwardemail {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_email?: string | undefined;
+  message_id?: string | undefined;
+  subject: string;
+  from_address_email?: string | undefined;
+  to_address_email_list: string;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body?: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id?: string | undefined;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount: string;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  attachment_json?: {  files: ({  filename: string;
+  size?: number | undefined;
+  type?: string | undefined;
+  url?: string | undefined;
+  error?: string | undefined;})[];};
+  from_address_json?: unknown[] | undefined;
+  to_address_json?: unknown[] | undefined;
+  cc_address_json?: unknown[] | undefined;
+  ai_agent_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_getaccount {
+  /**
+   * Email address of the account to retrieve. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_getaccount {
+  email: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  first_name: string;
+  last_name: string;
+  organization: string;
+  warmup_status: number;
+  provider_code: number;
+  setup_pending: boolean;
+  is_managed_account: boolean;
+  added_by?: string | undefined;
+  daily_limit?: number | undefined;
+  daily_limit_max?: number | undefined;
+  warmup_limit_max?: number | undefined;
+  modified_by?: string | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  status?: number | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  timestamp_last_used?: string | undefined;
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  responseCode?: number | undefined;};
+  timestamp_warmup_start?: string | undefined;
+  warmup_pool_id?: string | undefined;
+  dfy_password_changed?: boolean | undefined;
+  is_ready_made_account?: boolean | undefined;
+  stat_warmup_score?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  autofix_failed?: boolean | undefined;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: string | undefined;
+  reply_rate?: number | undefined;};
+};
+
+export interface ActionInput_instantly_getbackgroundjob {
+  /**
+   * Background job ID. Example: "6a441298bce6853f4c4c0fc0"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getbackgroundjob {
+  id: string;
+  status: 'pending' | 'running' | 'success' | 'failed';
+  progress: number;
+  data?: unknown | undefined;
+  type?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_instantly_getcampaignanalyticsoverview {
+  /**
+   * A campaign ID to get the analytics overview for. Leave empty to get analytics for all campaigns. Example: "019f1a45-a5db-793c-a016-562d70d931a0"
+   */
+  id?: string | undefined;
+  /**
+   * A list of campaign IDs to get the analytics overview for. Leave empty to get analytics for all campaigns.
+   */
+  ids?: string[] | undefined;
+  /**
+   * Start date filter in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  start_date?: string | undefined;
+  /**
+   * End date filter in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  end_date?: string | undefined;
+  /**
+   * Filter by campaign status. Values: -99 (Account Suspended), -1 (Accounts Unhealthy), -2 (Bounce Protect), 0 (Draft), 1 (Active), 2 (Paused), 3 (Completed), 4 (Running Subsequences).
+   */
+  campaign_status?: number | undefined;
+  /**
+   * When true, calculates totals based on all occurrences of lead interest status events instead of only the first occurrence per contact.
+   */
+  expand_crm_events?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_getcampaignanalyticsoverview {
+  open_count?: number | undefined;
+  open_count_unique?: number | undefined;
+  open_count_unique_by_step?: number | undefined;
+  link_click_count?: number | undefined;
+  link_click_count_unique?: number | undefined;
+  link_click_count_unique_by_step?: number | undefined;
+  reply_count?: number | undefined;
+  reply_count_unique?: number | undefined;
+  reply_count_unique_by_step?: number | undefined;
+  reply_count_automatic?: number | undefined;
+  reply_count_automatic_unique?: number | undefined;
+  reply_count_automatic_unique_by_step?: number | undefined;
+  bounced_count?: number | undefined;
+  unsubscribed_count?: number | undefined;
+  completed_count?: number | undefined;
+  emails_sent_count?: number | undefined;
+  contacted_count?: number | undefined;
+  new_leads_contacted_count?: number | undefined;
+  total_opportunities?: number | undefined;
+  total_opportunity_value?: number | undefined;
+  total_interested?: number | undefined;
+  total_meeting_booked?: number | undefined;
+  total_meeting_completed?: number | undefined;
+  total_closed?: number | undefined;
+};
+
+export interface ActionInput_instantly_getcampaignanalytics {
+  /**
+   * Campaign ID to filter analytics by. Omit to get analytics for all campaigns.
+   */
+  id?: string | undefined;
+  /**
+   * Start date in YYYY-MM-DD format.
+   */
+  start_date?: string | undefined;
+  /**
+   * End date in YYYY-MM-DD format.
+   */
+  end_date?: string | undefined;
+  /**
+   * Exclude total leads count from the result to decrease response time.
+   */
+  exclude_total_leads_count?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_getcampaignanalytics {
+  0: {  campaign_name: string;
+  campaign_id: string;
+  campaign_status: number;
+  campaign_is_evergreen: boolean;
+  leads_count: number;
+  contacted_count: number;
+  emails_sent_count: number;
+  new_leads_contacted_count: number;
+  open_count: number;
+  open_count_unique?: number | undefined;
+  open_count_unique_by_step?: number | undefined;
+  reply_count: number;
+  reply_count_unique?: number | undefined;
+  reply_count_unique_by_step?: number | undefined;
+  reply_count_automatic?: number | undefined;
+  reply_count_automatic_unique?: number | undefined;
+  reply_count_automatic_unique_by_step?: number | undefined;
+  link_click_count: number;
+  link_click_count_unique?: number | undefined;
+  link_click_count_unique_by_step?: number | undefined;
+  bounced_count: number;
+  unsubscribed_count: number;
+  completed_count: number;
+  total_opportunities: number;
+  total_opportunity_value: number;};
+};
+
+export interface ActionInput_instantly_getcampaignsendingstatus {
+  /**
+   * Campaign ID. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_instantly_getcampaignsendingstatus {
+  status: string;
+  status_message: string;
+  ai_summary?: string | undefined;
+};
+
+export interface ActionInput_instantly_getcampaignstepsanalytics {
+  /**
+   * Campaign ID. Example: "019f1a45-a5de-7ccc-a006-653e170503f4"
+   */
+  campaign_id?: string | undefined;
+  /**
+   * Start date. Example: "2024-01-01"
+   */
+  start_date?: string | undefined;
+  /**
+   * End date. Example: "2024-01-01"
+   */
+  end_date?: string | undefined;
+  /**
+   * Whether to include opportunities count per step
+   */
+  include_opportunities_count?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_getcampaignstepsanalytics {
+  steps: ({  step: string;
+  variant: string;
+  sent: number;
+  opened: number;
+  unique_opened: number;
+  replies: number;
+  unique_replies: number;
+  replies_automatic: number;
+  unique_replies_automatic: number;
+  clicks: number;
+  unique_clicks: number;
+  opportunities?: number | undefined;
+  unique_opportunities?: number | undefined;})[];
+};
+
+export interface ActionInput_instantly_getcampaign {
+  /**
+   * The campaign ID. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getcampaign {
+  id: string;
+  name: string;
+  pl_value?: number | undefined;
+  status: number;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules?: ({  name?: string | undefined;
+  timing?: {  from?: string | undefined;
+  to?: string | undefined;};
+  days?: {  [key: string]: boolean;} | undefined;
+  timezone?: string | undefined;})[];};
+  sequences?: ({  steps?: ({  type?: string | undefined;
+  delay?: number | undefined;
+  delay_unit?: string | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: string | undefined;
+  variants?: ({  subject?: string | undefined;
+  body?: string | undefined;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger?: string | undefined;};
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode?: string | undefined;
+  daily_limit?: number | undefined;
+  scope?: string | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action?: string | undefined;
+  recipient_esp?: string[] | undefined;
+  sender_esp?: string[] | undefined;})[];
+};
+
+export interface ActionInput_instantly_getcustomtag {
+  /**
+   * Custom tag ID. Example: "bca10b65-b620-44b3-8571-8ce409ad38c8"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getcustomtag {
+  id: string;
+  label: string;
+  color?: string | undefined;
+};
+
+export interface ActionInput_instantly_getcustomtrackingdomainstatus {
+  /**
+   * Custom tracking domain host. Example: "mail.yourdomain.com"
+   */
+  host: string;
+};
+
+export interface ActionOutput_instantly_getcustomtrackingdomainstatus {
+  success?: boolean | undefined;
+  ssl: boolean;
+  cname: boolean;
+  host: string;
+};
+
+export interface ActionInput_instantly_getdailyaccountanalytics {
+  /**
+   * Date for analytics in YYYY-MM-DD format. Example: "2024-01-15"
+   */
+  date: string;
+  /**
+   * Optional email account to filter by. Example: "user@example.com"
+   */
+  email?: string | undefined;
+};
+
+export interface ActionOutput_instantly_getdailyaccountanalytics {
+  analytics: ({  /**
+   * The date of the analytics entry, in YYYY-MM-DD format
+   */
+  date: string;
+  /**
+   * The email account that sent the emails
+   */
+  email_account: string;
+  /**
+   * The total number of campaign emails sent on this date by this account, including emails for subsequences
+   */
+  sent: number;
+  /**
+   * The number of emails that bounced on this date for this account for campaigns - including subsequences
+   */
+  bounced: number;
+  /**
+   * The total number of unique contacts who received an email on this date from this account
+   */
+  contacted: number;
+  /**
+   * The total number of new leads contacted on this date from this account
+   */
+  new_leads_contacted: number;
+  /**
+   * The total number of opened emails on this date for this account
+   */
+  opened: number;
+  /**
+   * The total number of unique opened emails on this date for this account
+   */
+  unique_opened: number;
+  /**
+   * The total number of replies received on this date for this account
+   */
+  replies: number;
+  /**
+   * The total number of unique replies received on this date for this account
+   */
+  unique_replies: number;
+  /**
+   * The total number of automatic replies detected on this date for this account
+   */
+  replies_automatic: number;
+  /**
+   * The total number of unique automatic replies detected on this date for this account
+   */
+  unique_replies_automatic: number;
+  /**
+   * The total number of links clicked on this date for this account
+   */
+  clicks: number;
+  /**
+   * The total number of unique links clicked on this date for this account. Unique meaning from unique leads, not unique links
+   */
+  unique_clicks: number;})[];
+};
+
+export interface ActionInput_instantly_getdailycampaignanalytics {
+  /**
+   * Campaign ID (optional). Leave empty to get analytics for all campaigns. Example: "019f1a45-a5dd-763f-898f-a14b87db8b35"
+   */
+  campaign_id?: string | undefined;
+  /**
+   * Start date in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  start_date?: string | undefined;
+  /**
+   * End date in YYYY-MM-DD format. Example: "2024-01-01"
+   */
+  end_date?: string | undefined;
+  /**
+   * Filter by campaign status. 0 = Draft, 1 = Active, 2 = Paused, 3 = Completed, 4 = Running Subsequences, -99 = Account Suspended, -1 = Accounts Unhealthy, -2 = Bounce Protect.
+   */
+  campaign_status?: number | undefined;
+};
+
+export interface ActionOutput_instantly_getdailycampaignanalytics {
+  0: {  /**
+   * The date of the analytics entry, in YYYY-MM-DD format.
+   */
+  date: string;
+  sent?: number | undefined;
+  contacted?: number | undefined;
+  new_leads_contacted?: number | undefined;
+  opened?: number | undefined;
+  unique_opened?: number | undefined;
+  replies?: number | undefined;
+  unique_replies?: number | undefined;
+  replies_automatic?: number | undefined;
+  unique_replies_automatic?: number | undefined;
+  clicks?: number | undefined;
+  unique_clicks?: number | undefined;
+  opportunities?: number | undefined;
+  unique_opportunities?: number | undefined;};
+};
+
+export interface ActionInput_instantly_getemail {
+  /**
+   * Email ID. Example: "019f1a8f-9da9-70c2-b20b-440cffc77ef6"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getemail {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_email?: string | undefined;
+  message_id?: string | undefined;
+  subject?: string | undefined;
+  to_address_email_list?: string | undefined;
+  body?: {  html?: string | undefined;};
+  organization_id?: string | undefined;
+  eaccount?: string | undefined;
+  from_address_email?: string | undefined;
+  campaign_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_focused?: number | undefined;
+  thread_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_getlaunchedcampaignscount {
+};
+
+export interface ActionOutput_instantly_getlaunchedcampaignscount {
+  count: number;
+};
+
+export interface ActionInput_instantly_getleadlistverificationstats {
+  /**
+   * Lead list ID. Example: "5c194eae-9382-4bf1-aff4-d9eaa90668e1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getleadlistverificationstats {
+  stats: {  verified: number;
+  invalid: number;
+  risky: number;
+  catch_all: number;
+  job_change: number;
+  verification_job_pending_leadfinder: number;
+  verification_job_pending_user: number;};
+  total_leads: number;
+};
+
+export interface ActionInput_instantly_getleadlist {
+  /**
+   * Lead list ID. Example: "5c194eae-9382-4bf1-aff4-d9eaa90668e1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getleadlist {
+  id: string;
+  organization_id: string;
+  name: string;
+  timestamp_created: string;
+  has_enrichment_task?: boolean | undefined;
+  owned_by?: string | undefined;
+};
+
+export interface ActionInput_instantly_getlead {
+  /**
+   * Lead ID. Example: "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getlead {
+  id: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  organization: string;
+  campaign?: string | undefined;
+  status: number;
+  email?: string | undefined;
+  personalization?: string | undefined;
+  website?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  email_open_count: number;
+  email_reply_count: number;
+  email_click_count: number;
+  company_domain: string;
+  status_summary: {  lastStep?: {  from?: string | undefined;
+  stepID?: string | undefined;
+  timestamp_executed?: string | undefined;};
+  domain_complete?: boolean | undefined;};
+  status_summary_subseq?: {  from?: string | undefined;
+  stepID?: string | undefined;
+  timestampExecuted?: string | undefined;};
+  last_step_from?: string | undefined;
+  last_step_id?: string | undefined;
+  last_step_timestamp_executed?: string | undefined;
+  email_opened_step?: number | undefined;
+  email_opened_variant?: number | undefined;
+  email_replied_step?: number | undefined;
+  email_replied_variant?: number | undefined;
+  email_clicked_step?: number | undefined;
+  email_clicked_variant?: number | undefined;
+  lt_interest_status?: number | undefined;
+  subsequence_id?: string | undefined;
+  verification_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  timestamp_added_subsequence?: string | undefined;
+  timestamp_last_contact?: string | undefined;
+  timestamp_last_open?: string | undefined;
+  timestamp_last_reply?: string | undefined;
+  timestamp_last_interest_change?: string | undefined;
+  timestamp_last_click?: string | undefined;
+  enrichment_status?: number | undefined;
+  list_id?: string | undefined;
+  last_contacted_from?: string | undefined;
+  uploaded_by_user?: string | undefined;
+  upload_method?: string | undefined;
+  assigned_to?: string | undefined;
+  is_website_visitor?: boolean | undefined;
+  timestamp_last_touch?: string | undefined;
+  esp_code?: number | undefined;
+  esg_code?: number | undefined;
+  payload?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  companyName?: string | undefined;
+  jobTitle?: string | undefined;
+  website?: string | undefined;
+  phone?: string | undefined;
+  personalization?: string | undefined;};
+};
+
+export interface ActionInput_instantly_getwarmupanalytics {
+  /**
+   * List of emails to get warmup analytics for. The emails should be attached to accounts in your workspace.
+   */
+  emails: string[];
+};
+
+export interface ActionOutput_instantly_getwarmupanalytics {
+  email_date_data?: {  [key: string]: {  [key: string]: {  sent?: number | undefined;
+  landed_inbox?: number | undefined;
+  landed_spam?: number | undefined;
+  received?: number | undefined;};};};
+  aggregate_data?: {  [key: string]: {  sent?: number | undefined;
+  received?: number | undefined;
+  landed_inbox?: number | undefined;
+  landed_spam?: number | undefined;
+  health_score_label?: string | undefined;
+  health_score?: number | undefined;};};
+};
+
+export interface ActionInput_instantly_getwebhook {
+  /**
+   * The ID of the webhook to retrieve. Example: "019f1a0f-1a3c-7828-801d-069c4b11cf00"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_getwebhook {
+  id: string;
+  organization: string;
+  campaign?: string | undefined;
+  name?: string | undefined;
+  target_hook_url: string;
+  event_type?: string | undefined;
+  custom_interest_value?: number | undefined;
+  headers?: {  [key: string]: string;} | undefined;
+  timestamp_created: string;
+  status?: number | undefined;
+  timestamp_error?: string | undefined;
+};
+
+export interface ActionInput_instantly_listaccounts {
+  /**
+   * Maximum number of accounts to return. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+  /**
+   * Search term to filter accounts. Example: gmail.com
+   */
+  search?: string | undefined;
+  /**
+   * Filter by account status. 1 = Active, 2 = Paused, 3 = Temporarily paused, -1 = Connection Error, -2 = Soft Bounce Error, -3 = Sending Error.
+   */
+  status?: number | undefined;
+  /**
+   * Include tags assigned to each account in the response.
+   */
+  include_tags?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_listaccounts {
+  items: ({  email: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  first_name: string;
+  last_name: string;
+  organization: string;
+  warmup_status: number;
+  provider_code: number;
+  setup_pending: boolean;
+  is_managed_account: boolean;
+  status?: number | undefined;
+  daily_limit?: number | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  stat_warmup_score?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  tags?: ({  id: string;
+  label: string;
+  description?: string | undefined;})[];})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listbackgroundjobs {
+  /**
+   * Number of results to return per page. Maximum 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+};
+
+export interface ActionOutput_instantly_listbackgroundjobs {
+  items: ({  id: string;
+  workspace_id: string;
+  user_id?: string | undefined;
+  type: string;
+  entity_id?: string | undefined;
+  entity_type?: string | undefined;
+  data?: {  [key: string]: unknown | undefined;};
+  progress?: number | undefined;
+  status: string;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listcampaigns {
+  /**
+   * Number of items to return per page. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+  /**
+   * Search by campaign name.
+   */
+  search?: string | undefined;
+  /**
+   * Filter campaigns by tag ids, comma-separated.
+   */
+  tag_ids?: string | undefined;
+  /**
+   * Filter campaigns by AI Sales Agent ID.
+   */
+  ai_sales_agent_id?: string | undefined;
+  /**
+   * Filter campaigns by status enum value.
+   */
+  status?: number | undefined;
+};
+
+export interface ActionOutput_instantly_listcampaigns {
+  items: ({  id: string;
+  name: string;
+  pl_value?: number | undefined;
+  status: number;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  type: 'email';
+  delay: number;
+  delay_unit?: string | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: string | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger: string;} | undefined;
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode: string;
+  daily_limit?: number | undefined;
+  scope?: string | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action: string;
+  recipient_esp: string[];
+  sender_esp: string[];})[] | undefined;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listcustomtags {
+};
+
+export interface ActionOutput_instantly_listcustomtags {
+  items: ({  id: string;
+  label: string;
+  color?: string | undefined;
+  organization_id: string;})[];
+};
+
+export interface ActionInput_instantly_listemails {
+  /**
+   * The number of items to return. Max 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+  /**
+   * Search query to filter emails. Can be an email address or "thread:<thread_id>".
+   */
+  search?: string | undefined;
+  /**
+   * Filter emails by campaign ID.
+   */
+  campaign_id?: string | undefined;
+  /**
+   * Filter emails by lead list ID.
+   */
+  list_id?: string | undefined;
+  /**
+   * Filter by unread emails only.
+   */
+  is_unread?: boolean | undefined;
+  /**
+   * Filter by email type.
+   */
+  email_type?: 'received' | 'sent' | 'manual' | undefined;
+  /**
+   * Filter by lead email address.
+   */
+  lead?: string | undefined;
+  /**
+   * Filter by sending account email address.
+   */
+  eaccount?: string | undefined;
+  /**
+   * Filter by Unibox mode.
+   */
+  mode?: 'emode_focused' | 'emode_others' | 'emode_all' | undefined;
+  /**
+   * Sort order by creation date. Default is desc.
+   */
+  sort_order?: 'asc' | 'desc' | undefined;
+  /**
+   * Filter emails created after this ISO timestamp.
+   */
+  min_timestamp_created?: string | undefined;
+  /**
+   * Filter emails created before this ISO timestamp.
+   */
+  max_timestamp_created?: string | undefined;
+  /**
+   * Return only the latest email in each thread.
+   */
+  latest_of_thread?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_listemails {
+  items: ({  id: string;
+  timestamp_created: string;
+  timestamp_email: string;
+  message_id: string;
+  subject: string;
+  from_address_email?: string | undefined;
+  to_address_email_list: string;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id: string;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount: string;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  attachment_json?: {  files: ({  filename: string;
+  size?: number | undefined;
+  type?: string | undefined;
+  url?: string | undefined;
+  error?: string | undefined;})[];};
+  from_address_json?: unknown[] | undefined;
+  to_address_json?: unknown[] | undefined;
+  cc_address_json?: unknown[] | undefined;
+  ai_agent_id?: string | undefined;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listleadlists {
+  /**
+   * Maximum number of lead lists to return per page. Example: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_instantly_listleadlists {
+  items: ({  id: string;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listleads {
+  /**
+   * Number of leads to return per page. Example: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+  filter?: {  /**
+   * Lead list ID to filter by. Example: "b74958cc-c9c4-40d4-976a-6837eb84493f"
+   */
+  list_id?: string | undefined;
+  /**
+   * Campaign ID to filter by. Example: "9b6f458e-6dc5-4762-83d5-a528aedd2235"
+   */
+  campaign_id?: string | undefined;};
+};
+
+export interface ActionOutput_instantly_listleads {
+  items: ({  id: string;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  status?: number | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_listwebhookeventtypes {
+};
+
+export interface ActionOutput_instantly_listwebhookeventtypes {
+  event_types: ({  id: string;
+  label: string;
+  type: 'standard' | 'custom_label';})[];
+};
+
+export interface ActionInput_instantly_listwebhooks {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  starting_after?: string | undefined;
+};
+
+export interface ActionOutput_instantly_listwebhooks {
+  items: ({  id: string;
+  name?: string | undefined;
+  target_hook_url?: string | undefined;
+  event_type?: string | undefined;
+  status?: number | undefined;})[];
+  next_starting_after?: string | undefined;
+};
+
+export interface ActionInput_instantly_markaccountfixed {
+  /**
+   * Email address of the account to mark as fixed. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_markaccountfixed {
+  email: string;
+  status?: number | undefined;
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  response_code?: number | undefined;};
+  provider_code: number;
+  setup_pending: boolean;
+  is_managed_account: boolean;
+  warmup_status?: number | undefined;
+  daily_limit?: number | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  organization?: string | undefined;
+};
+
+export interface ActionInput_instantly_markthreadasread {
+  /**
+   * Thread ID. Example: "123e4567-e89b-12d3-a456-426614174000"
+   */
+  thread_id: string;
+};
+
+export interface ActionOutput_instantly_markthreadasread {
+  success: boolean;
+};
+
+export interface ActionInput_instantly_mergeleads {
+  /**
+   * The ID of the lead to merge. Example: "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+   */
+  lead_id: string;
+  /**
+   * The ID of the destination lead to merge into. Example: "019f1a0d-ff98-75d7-86b0-e0f62f62a15e"
+   */
+  destination_lead_id: string;
+};
+
+export interface ActionOutput_instantly_mergeleads {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  organization?: string | undefined;
+  status?: number | undefined;
+  email?: string | undefined;
+  personalization?: string | undefined;
+  website?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  email_open_count?: number | undefined;
+  email_reply_count?: number | undefined;
+  email_click_count?: number | undefined;
+  company_domain?: string | undefined;
+  status_summary?: {  [key: string]: unknown | undefined;};
+  payload?: {  [key: string]: unknown | undefined;};
+  status_summary_subseq?: {  [key: string]: unknown | undefined;};
+  last_step_from?: string | undefined;
+  last_step_id?: string | undefined;
+  last_step_timestamp_executed?: string | undefined;
+  email_opened_step?: number | undefined;
+  email_opened_variant?: number | undefined;
+  email_replied_step?: number | undefined;
+  email_replied_variant?: number | undefined;
+  email_clicked_step?: number | undefined;
+  email_clicked_variant?: number | undefined;
+  lt_interest_status?: number | undefined;
+  subsequence_id?: string | undefined;
+  verification_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  timestamp_added_subsequence?: string | undefined;
+  timestamp_last_contact?: string | undefined;
+  timestamp_last_open?: string | undefined;
+  timestamp_last_reply?: string | undefined;
+  timestamp_last_interest_change?: string | undefined;
+  timestamp_last_click?: string | undefined;
+  enrichment_status?: number | undefined;
+  list_id?: string | undefined;
+  last_contacted_from?: string | undefined;
+  uploaded_by_user?: string | undefined;
+  upload_method?: string | undefined;
+  assigned_to?: string | undefined;
+  is_website_visitor?: boolean | undefined;
+  timestamp_last_touch?: string | undefined;
+  esp_code?: number | undefined;
+  esg_code?: number | undefined;
+};
+
+export interface ActionInput_instantly_moveleadtosubsequence {
+  /**
+   * Lead UUID. Example: "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+   */
+  id: string;
+  /**
+   * Subsequence UUID. Example: "855651af-54db-4ad5-8cfc-ac0de0f22921"
+   */
+  subsequence_id: string;
+};
+
+export interface ActionOutput_instantly_moveleadtosubsequence {
+  id?: string | undefined;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  organization?: string | undefined;
+  campaign?: string | undefined;
+  status?: number | undefined;
+  email?: string | undefined;
+  personalization?: string | undefined;
+  website?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  email_open_count?: number | undefined;
+  email_reply_count?: number | undefined;
+  email_click_count?: number | undefined;
+  company_domain?: string | undefined;
+  status_summary?: unknown | undefined;
+  payload?: unknown | undefined;
+  status_summary_subseq?: unknown | undefined;
+  last_step_from?: string | undefined;
+  last_step_id?: string | undefined;
+  last_step_timestamp_executed?: string | undefined;
+  email_opened_step?: number | undefined;
+  email_opened_variant?: number | undefined;
+  email_replied_step?: number | undefined;
+  email_replied_variant?: number | undefined;
+  email_clicked_step?: number | undefined;
+  email_clicked_variant?: number | undefined;
+  lt_interest_status?: number | undefined;
+  subsequence_id?: string | undefined;
+  verification_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  timestamp_added_subsequence?: string | undefined;
+  timestamp_last_contact?: string | undefined;
+  timestamp_last_open?: string | undefined;
+  timestamp_last_reply?: string | undefined;
+  timestamp_last_interest_change?: string | undefined;
+  timestamp_last_click?: string | undefined;
+  enrichment_status?: number | undefined;
+  list_id?: string | undefined;
+  last_contacted_from?: string | undefined;
+  uploaded_by_user?: string | undefined;
+  upload_method?: string | undefined;
+  assigned_to?: string | undefined;
+  is_website_visitor?: boolean | undefined;
+  timestamp_last_touch?: string | undefined;
+  esp_code?: number | undefined;
+  esg_code?: number | undefined;
+};
+
+export interface ActionInput_instantly_moveleads {
+  /**
+   * Array of lead IDs to move. When provided, either campaign or list_id must also be specified.
+   */
+  ids?: string[] | undefined;
+  /**
+   * List ID to filter leads from.
+   */
+  list_id?: string | undefined;
+  /**
+   * Campaign ID to filter leads from.
+   */
+  campaign?: string | undefined;
+  /**
+   * The ID of the campaign to move the leads to.
+   */
+  to_campaign_id?: string | undefined;
+  /**
+   * The ID of the list to move the leads to.
+   */
+  to_list_id?: string | undefined;
+  search?: string | undefined;
+  filter?: string | undefined;
+  in_campaign?: boolean | undefined;
+  in_list?: boolean | undefined;
+  queries?: ({})[] | undefined;
+  excluded_ids?: string[] | undefined;
+  contacts?: string[] | undefined;
+  ignore_resource_filter_clauses?: boolean | undefined;
+  check_duplicates_in_campaigns?: boolean | undefined;
+  skip_leads_in_verification?: boolean | undefined;
+  limit?: number | undefined;
+  assigned_to?: string | undefined;
+  esp_code?: number | undefined;
+  esg_code?: string | undefined;
+  copy_leads?: boolean | undefined;
+  check_duplicates?: boolean | undefined;
+  reset_interest_status?: boolean | undefined;
+  /**
+   * Polling interval in milliseconds. Default: 2000.
+   */
+  poll_interval_ms?: number | undefined;
+  /**
+   * Maximum number of polling attempts. Default: 30.
+   */
+  max_poll_attempts?: number | undefined;
+};
+
+export interface ActionOutput_instantly_moveleads {
+  id: string;
+  workspace_id: string;
+  user_id?: string | undefined;
+  type: string;
+  entity_id?: string | undefined;
+  entity_type?: string | undefined;
+  data?: {  moved_lead_emails?: string[] | undefined;};
+  progress: number;
+  status: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export interface ActionInput_instantly_patchaccount {
+  /**
+   * The email address of the account to patch. Example: "user@example.com"
+   */
+  email: string;
+  /**
+   * First name associated with the account
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name associated with the account
+   */
+  last_name?: string | undefined;
+  /**
+   * Warmup configuration for the account
+   */
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: '0' | '1' | '2' | '3' | '4' | 'disabled' | undefined;
+  reply_rate?: number | undefined;};
+  /**
+   * Daily email sending limit
+   */
+  daily_limit?: number | undefined;
+  /**
+   * Tracking domain
+   */
+  tracking_domain_name?: string | undefined;
+  /**
+   * Tracking domain status
+   */
+  tracking_domain_status?: string | undefined;
+  /**
+   * Whether to enable slow ramp up for sending limits
+   */
+  enable_slow_ramp?: boolean | undefined;
+  /**
+   * The limit for inbox placement tests
+   */
+  inbox_placement_test_limit?: number | undefined;
+  /**
+   * The gap between emails sent from this account in minutes
+   */
+  sending_gap?: number | undefined;
+  /**
+   * Email signature for the account
+   */
+  signature?: string | undefined;
+  /**
+   * Custom reply-to email address for the account
+   */
+  reply_to?: string | undefined;
+  /**
+   * Whether to skip CNAME check
+   */
+  skip_cname_check?: boolean | undefined;
+  /**
+   * Whether to remove the tracking domain
+   */
+  remove_tracking_domain?: boolean | undefined;
+};
+
+export interface ActionOutput_instantly_patchaccount {
+  email: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  first_name: string;
+  last_name: string;
+  organization: string;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: '0' | '1' | '2' | '3' | '4' | 'disabled' | undefined;
+  reply_rate?: number | undefined;};
+  added_by?: string | undefined;
+  daily_limit?: number | undefined;
+  daily_limit_max?: number | undefined;
+  warmup_limit_max?: number | undefined;
+  modified_by?: string | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  status?: number | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  timestamp_last_used?: string | undefined;
+  warmup_status?: number | undefined;
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  responseCode?: number | undefined;};
+  timestamp_warmup_start?: string | undefined;
+  provider_code?: number | undefined;
+  setup_pending?: boolean | undefined;
+  warmup_pool_id?: string | undefined;
+  is_managed_account?: boolean | undefined;
+  dfy_password_changed?: boolean | undefined;
+  is_ready_made_account?: boolean | undefined;
+  stat_warmup_score?: number | undefined;
+  sending_gap?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  autofix_failed?: boolean | undefined;
+};
+
+export interface ActionInput_instantly_patchcampaign {
+  /**
+   * Campaign ID. Example: "019f1a5b-cfe6-71d3-8678-5ef834392c02"
+   */
+  id: string;
+  /**
+   * Name of the campaign
+   */
+  name?: string | undefined;
+  /**
+   * Value of every positive lead
+   */
+  pl_value?: number | undefined;
+  /**
+   * Whether the campaign is evergreen
+   */
+  is_evergreen?: boolean | undefined;
+  /**
+   * Campaign schedule
+   */
+  campaign_schedule?: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  /**
+   * List of sequences
+   */
+  sequences?: ({  steps: ({  type: 'email';
+  delay: number;
+  delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  /**
+   * The gap between emails in minutes
+   */
+  email_gap?: number | undefined;
+  /**
+   * The maximum random wait time in minutes
+   */
+  random_wait_max?: number | undefined;
+  /**
+   * Whether the campaign is text only
+   */
+  text_only?: boolean | undefined;
+  /**
+   * Whether the campaign sends the first email as text only
+   */
+  first_email_text_only?: boolean | undefined;
+  /**
+   * List of accounts to use for sending emails
+   */
+  email_list?: string[] | undefined;
+  /**
+   * The daily limit for sending emails
+   */
+  daily_limit?: number | undefined;
+  /**
+   * Whether to stop the campaign on reply
+   */
+  stop_on_reply?: boolean | undefined;
+  /**
+   * List of tags to use for sending emails
+   */
+  email_tag_list?: string[] | undefined;
+  /**
+   * Whether to track links in emails
+   */
+  link_tracking?: boolean | undefined;
+  /**
+   * Whether to track opens in emails
+   */
+  open_tracking?: boolean | undefined;
+  /**
+   * Whether to stop the campaign on auto reply
+   */
+  stop_on_auto_reply?: boolean | undefined;
+  /**
+   * The daily maximum new leads to contact
+   */
+  daily_max_leads?: number | undefined;
+  /**
+   * Whether to prioritize new leads
+   */
+  prioritize_new_leads?: boolean | undefined;
+  /**
+   * Auto variant select settings
+   */
+  auto_variant_select?: {  trigger: 'reply_rate' | 'click_rate' | 'open_rate';} | undefined;
+  /**
+   * Whether to match leads by ESP
+   */
+  match_lead_esp?: boolean | undefined;
+  /**
+   * Whether to stop the campaign for the entire company when a lead replies
+   */
+  stop_for_company?: boolean | undefined;
+  /**
+   * Whether to insert an unsubscribe header in emails
+   */
+  insert_unsubscribe_header?: boolean | undefined;
+  /**
+   * Whether to allow risky contacts
+   */
+  allow_risky_contacts?: boolean | undefined;
+  /**
+   * Whether to disable bounce protection
+   */
+  disable_bounce_protect?: boolean | undefined;
+  /**
+   * Overrides the workspace-wide limit emails per company setting
+   */
+  limit_emails_per_company_override?: {  mode: 'custom' | 'disabled';
+  daily_limit?: number | undefined;
+  scope?: 'per_campaign' | 'across_workspace' | undefined;};
+  /**
+   * List of accounts to CC on emails
+   */
+  cc_list?: string[] | undefined;
+  /**
+   * List of accounts to BCC on emails
+   */
+  bcc_list?: string[] | undefined;
+  /**
+   * Owner ID
+   */
+  owned_by?: string | undefined;
+  /**
+   * Provider routing rules
+   */
+  provider_routing_rules?: ({  action: 'send' | 'do_not_send';
+  recipient_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];
+  sender_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];})[] | undefined;
+};
+
+export interface ActionOutput_instantly_patchcampaign {
+  id: string;
+  name?: string | undefined;
+  pl_value?: number | undefined;
+  status?: number | undefined;
+  is_evergreen?: boolean | undefined;
+  campaign_schedule?: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  sequences?: ({  steps: ({  type: 'email';
+  delay: number;
+  delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  pre_delay?: number | undefined;
+  pre_delay_unit?: 'minutes' | 'hours' | 'days' | undefined;
+  variants: ({  subject: string;
+  body: string;
+  v_disabled?: boolean | undefined;})[];})[];})[];
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  email_gap?: number | undefined;
+  random_wait_max?: number | undefined;
+  text_only?: boolean | undefined;
+  first_email_text_only?: boolean | undefined;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  email_tag_list?: string[] | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  stop_on_auto_reply?: boolean | undefined;
+  daily_max_leads?: number | undefined;
+  prioritize_new_leads?: boolean | undefined;
+  auto_variant_select?: {  trigger: 'reply_rate' | 'click_rate' | 'open_rate';} | undefined;
+  match_lead_esp?: boolean | undefined;
+  not_sending_status?: number | undefined;
+  stop_for_company?: boolean | undefined;
+  core_variables?: {  [key: string]: unknown | undefined;};
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  insert_unsubscribe_header?: boolean | undefined;
+  allow_risky_contacts?: boolean | undefined;
+  disable_bounce_protect?: boolean | undefined;
+  limit_emails_per_company_override?: {  mode: 'custom' | 'disabled';
+  daily_limit?: number | undefined;
+  scope?: 'per_campaign' | 'across_workspace' | undefined;};
+  cc_list?: string[] | undefined;
+  bcc_list?: string[] | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  provider_routing_rules?: ({  action: 'send' | 'do_not_send';
+  recipient_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];
+  sender_esp: ({  0: 'all';
+  1: 'google';
+  2: 'outlook';
+  3: 'other';})[];})[] | undefined;
+};
+
+export interface ActionInput_instantly_patchcustomtag {
+  /**
+   * Custom tag ID. Example: "019f1a5b-d034-7f35-840b-685069e56a08"
+   */
+  id: string;
+  /**
+   * New display label for the custom tag. Example: "Important"
+   */
+  label?: string | undefined;
+  /**
+   * Detailed description of the custom tag purpose. Set to null to clear. Example: "Used for marking important items"
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_instantly_patchcustomtag {
+  id: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  organization_id: string;
+  label: string;
+  description?: string | undefined;
+};
+
+export interface ActionInput_instantly_patchemail {
+  /**
+   * The email ID to patch. Example: "019f1a8f-9da9-70c2-b20b-440cffc77ef6"
+   */
+  id: string;
+  /**
+   * Indicates if the email is unread. Set to 1 for unread, 0 for read.
+   */
+  is_unread?: number | undefined;
+  /**
+   * Timestamp for the reminder. Example: "2026-06-30T21:37:58.976Z"
+   */
+  reminder_ts?: string | undefined;
+};
+
+export interface ActionOutput_instantly_patchemail {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_email?: string | undefined;
+  message_id?: string | undefined;
+  subject?: string | undefined;
+  from_address_email?: string | undefined;
+  to_address_email_list?: string | undefined;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body?: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id?: string | undefined;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount?: string | undefined;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  attachment_json?: {  files: ({  filename: string;
+  size?: number | undefined;
+  type?: string | undefined;
+  url?: string | undefined;
+  error?: string | undefined;})[];};
+  from_address_json?: ({  [key: string]: unknown | undefined;})[];
+  to_address_json?: ({  [key: string]: unknown | undefined;})[];
+  cc_address_json?: ({  [key: string]: unknown | undefined;})[];
+  ai_agent_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_patchleadlist {
+  /**
+   * The ID of the lead list to update. Example: "019f1a45-a708-7d03-8559-2ba70b2e77cc"
+   */
+  id: string;
+  /**
+   * Name of the lead list.
+   */
+  name?: string | undefined;
+  /**
+   * Whether this list runs the enrichment process on every added lead or not.
+   */
+  has_enrichment_task?: boolean | undefined;
+  /**
+   * User ID of the owner of this lead list.
+   */
+  owned_by?: string | undefined;
+};
+
+export interface ActionOutput_instantly_patchleadlist {
+  id: string;
+  organization_id: string;
+  name: string;
+  has_enrichment_task?: boolean | undefined;
+  owned_by?: string | undefined;
+  timestamp_created: string;
+};
+
+export interface ActionInput_instantly_patchlead {
+  /**
+   * Lead ID. Example: "019f1a45-a722-7b9f-a4b8-cfad19555104"
+   */
+  id: string;
+  personalization?: string | undefined;
+  website?: string | undefined;
+  last_name?: string | undefined;
+  first_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  lt_interest_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  assigned_to?: string | undefined;
+  payload?: {  [key: string]: string | number | boolean | null;} | undefined;
+};
+
+export interface ActionOutput_instantly_patchlead {
+  id: string;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  website?: string | undefined;
+  personalization?: string | undefined;
+  lt_interest_status?: number | undefined;
+  pl_value_lead?: string | undefined;
+  assigned_to?: string | undefined;
+  payload?: {  [key: string]: unknown | undefined;};
+  status?: number | undefined;
+  campaign?: string | undefined;
+  list_id?: string | undefined;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+};
+
+export interface ActionInput_instantly_patchwebhook {
+  /**
+   * Webhook ID. Example: "019f1a0f-1a3c-7828-801d-069c4b11cf00"
+   */
+  id: string;
+  /**
+   * Updated webhook name.
+   */
+  name?: string | undefined;
+  /**
+   * Updated target URL for the webhook.
+   */
+  target_hook_url?: string | undefined;
+  /**
+   * Updated event type. Valid values come from GET /v2/webhooks/event-types.
+   */
+  event_type?: string | undefined;
+};
+
+export interface ActionOutput_instantly_patchwebhook {
+  id: string;
+  name?: string | undefined;
+  target_hook_url?: string | undefined;
+  event_type?: string | undefined;
+  workspace_id?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_instantly_pauseaccount {
+  /**
+   * Email address of the account to pause. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_pauseaccount {
+  email: string;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  organization?: string | undefined;
+  warmup_status?: number | undefined;
+  provider_code?: number | undefined;
+  setup_pending?: boolean | undefined;
+  is_managed_account?: boolean | undefined;
+  status?: number | undefined;
+  stat_warmup_score?: number | undefined;
+};
+
+export interface ActionInput_instantly_pausecampaign {
+  /**
+   * Campaign ID. Example: "ec8dae2c-8bd3-461d-90db-a8d262719b5f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_pausecampaign {
+  id: string;
+  name: string;
+  status: number;
+  campaign_schedule?: {  start_date?: string | undefined;
+  end_date?: string | undefined;
+  schedules: ({  name: string;
+  timing: {  from: string;
+  to: string;};
+  days: {  [key: string]: boolean;};
+  timezone: string;})[];};
+  timestamp_created: string;
+  timestamp_updated: string;
+  email_list?: string[] | undefined;
+  daily_limit?: number | undefined;
+  stop_on_reply?: boolean | undefined;
+  link_tracking?: boolean | undefined;
+  open_tracking?: boolean | undefined;
+  organization?: string | undefined;
+  owned_by?: string | undefined;
+  ai_sdr_id?: string | undefined;
+  custom_variables?: {  [key: string]: unknown | undefined;};
+  core_variables?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_instantly_removeleadfromsubsequence {
+  /**
+   * Lead UUID. Example: "019f1a0d-70d9-756a-bc19-c8b5cc3a0215"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_removeleadfromsubsequence {
+  id: string;
+  timestamp_created?: string | undefined;
+  timestamp_updated?: string | undefined;
+  organization?: string | undefined;
+  campaign?: string | undefined;
+  status?: number | undefined;
+  email?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  company_name?: string | undefined;
+  job_title?: string | undefined;
+  phone?: string | undefined;
+  company_domain?: string | undefined;
+  list_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  verification_status?: number | undefined;
+  upload_method?: string | undefined;
+  assigned_to?: string | undefined;
+};
+
+export interface ActionInput_instantly_replytoemail {
+  /**
+   * The UUID of the existing email to reply to. Example: "019f1a8f-9da9-70c2-b20b-440cffc77ef6"
+   */
+  reply_to_uuid: string;
+  /**
+   * The sending account email address connected to the workspace. Example: "sender@example.com"
+   */
+  eaccount: string;
+  /**
+   * Subject line of the reply email. Example: "Re: Your inquiry"
+   */
+  subject: string;
+  /**
+   * Plain text body of the reply email. Example: "Hello, how are you?"
+   */
+  body: string;
+  /**
+   * Optional HTML body of the reply email. Example: "<p>Hello, how are you?</p>"
+   */
+  html_body?: string | undefined;
+  /**
+   * Optional extra recipient email addresses to include in the reply.
+   */
+  additional_recipients?: string[] | undefined;
+  /**
+   * Comma-separated list of CC email addresses. Example: "cc@example.com"
+   */
+  cc_address_email_list?: string | undefined;
+  /**
+   * Comma-separated list of BCC email addresses. Example: "bcc@example.com"
+   */
+  bcc_address_email_list?: string | undefined;
+  /**
+   * Optional ISO 8601 timestamp to attach a reminder to this email. Example: "2026-06-30T21:38:08.051Z"
+   */
+  reminder_ts?: string | undefined;
+  /**
+   * Optional user UUID assigned to the lead. Example: "019f1a77-d233-70e8-865a-19fc267e9150"
+   */
+  assigned_to?: string | undefined;
+};
+
+export interface ActionOutput_instantly_replytoemail {
+  id: string;
+  timestamp_created: string;
+  subject: string;
+  from_address_email?: string | undefined;
+  to_address_email_list: string;
+  cc_address_email_list?: string | undefined;
+  bcc_address_email_list?: string | undefined;
+  reply_to?: string | undefined;
+  body: {  text?: string | undefined;
+  html?: string | undefined;};
+  organization_id: string;
+  campaign_id?: string | undefined;
+  subsequence_id?: string | undefined;
+  list_id?: string | undefined;
+  lead?: string | undefined;
+  lead_id?: string | undefined;
+  eaccount: string;
+  ue_type?: number | undefined;
+  step?: string | undefined;
+  is_unread?: number | undefined;
+  is_auto_reply?: number | undefined;
+  reminder_ts?: string | undefined;
+  ai_interest_value?: number | undefined;
+  ai_assisted?: number | undefined;
+  is_focused?: number | undefined;
+  i_status?: number | undefined;
+  thread_id?: string | undefined;
+  content_preview?: string | undefined;
+  ai_agent_id?: string | undefined;
+};
+
+export interface ActionInput_instantly_resumeaccount {
+  /**
+   * Email address of the paused account to resume. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_resumeaccount {
+  email: string;
+  timestamp_created: string;
+  timestamp_updated: string;
+  first_name: string;
+  last_name: string;
+  organization: string;
+  warmup_status: number;
+  provider_code: number;
+  setup_pending: boolean;
+  is_managed_account: boolean;
+  status?: number | undefined;
+  sending_gap?: number | undefined;
+  warmup?: {  limit?: number | undefined;
+  advanced?: {  warm_ctd?: boolean | undefined;
+  open_rate?: number | undefined;
+  important_rate?: number | undefined;
+  read_emulation?: boolean | undefined;
+  spam_save_rate?: number | undefined;
+  weekday_only?: boolean | undefined;};
+  warmup_custom_ftag?: string | undefined;
+  increment?: string | undefined;
+  reply_rate?: number | undefined;};
+  status_message?: {  code?: string | undefined;
+  command?: string | undefined;
+  response?: string | undefined;
+  e_message?: string | undefined;
+  responseCode?: number | undefined;};
+  added_by?: string | undefined;
+  daily_limit?: number | undefined;
+  daily_limit_max?: number | undefined;
+  warmup_limit_max?: number | undefined;
+  modified_by?: string | undefined;
+  tracking_domain_name?: string | undefined;
+  tracking_domain_status?: string | undefined;
+  enable_slow_ramp?: boolean | undefined;
+  inbox_placement_test_limit?: number | undefined;
+  timestamp_last_used?: string | undefined;
+  timestamp_warmup_start?: string | undefined;
+  warmup_pool_id?: string | undefined;
+  dfy_password_changed?: boolean | undefined;
+  is_ready_made_account?: boolean | undefined;
+  stat_warmup_score?: number | undefined;
+  signature?: string | undefined;
+  reply_to?: string | undefined;
+  autofix_failed?: boolean | undefined;
+};
+
+export interface ActionInput_instantly_resumewebhook {
+  /**
+   * Webhook ID to resume. Example: "019f1a45-a80d-7b4a-ba64-f5d57118477c"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_resumewebhook {
+  id: string;
+  organization: string;
+  target_hook_url: string;
+  timestamp_created: string;
+  campaign?: string | undefined;
+  name?: string | undefined;
+  event_type?: string | undefined;
+  custom_interest_value?: number | undefined;
+  headers?: {  [key: string]: string;} | undefined;
+  status?: number | undefined;
+  timestamp_error?: string | undefined;
+};
+
+export interface ActionInput_instantly_searchcampaignsbycontact {
+  /**
+   * Lead email address to search for. Example: "lead@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_instantly_searchcampaignsbycontact {
+  items: ({  id: string;
+  name: string;
+  status: number;
+  timestamp_created: string;
+  timestamp_updated: string;})[];
+};
+
+export interface ActionInput_instantly_sendtestemail {
+  /**
+   * The email account that will be used to send this email. It has to be an email account connected to your workspace. Example: jondoe@example.com
+   */
+  eaccount: string;
+  /**
+   * Comma-separated list of recipients that will receive the test email. Example: recipient@example.com,recipient2@example.com
+   */
+  to_address_email_list: string;
+  /**
+   * Subject line of the test email. Example: Test email subject
+   */
+  subject: string;
+  body: {  /**
+   * HTML body of the test email. Example: <p>This is a test email</p>
+   */
+  html: string;};
+};
+
+export interface ActionOutput_instantly_sendtestemail {
+  status: string;
+};
+
+export interface ActionInput_instantly_sharecampaign {
+  /**
+   * Campaign ID to share. Example: "ec8dae2c-8bd3-461d-90db-a8d262719b5f"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_instantly_sharecampaign {
+  success: boolean;
+  campaign_id: string;
+};
+
+export interface ActionInput_instantly_testaccountvitals {
+  /**
+   * List of sending account emails to test. Example: ["user@example.com"]
+   */
+  accounts: string[];
+};
+
+export interface ActionOutput_instantly_testaccountvitals {
+  status?: string | undefined;
+  success_list?: ({  domain: string;
+  allPass: boolean;
+  mx: boolean;
+  spf: boolean;
+  dkim: boolean;
+  dmarc: boolean;})[] | undefined;
+  failure_list?: ({  domain: string;
+  allPass: boolean;
+  mx: boolean;
+  spf: boolean;
+  dkim: boolean;
+  dmarc: boolean;})[] | undefined;
+};
+
+export interface ActionInput_instantly_testwebhook {
+  /**
+   * Webhook ID. Example: "019f1a0f-1a3c-7828-801d-069c4b11cf00"
+   */
+  id: string;
+};
+
+export interface ActionOutput_instantly_testwebhook {
+  success: boolean;
+  response_time_ms: number;
+  status_code: number;
+  error?: string | undefined;
+};
+
+export interface ActionInput_instantly_togglecustomtagresource {
+  /**
+   * Custom tag UUID. Example: "bca10b65-b620-44b3-8571-8ce409ad38c8"
+   */
+  tag_id: string;
+  /**
+   * Resource UUID (account or campaign). Example: "ec8dae2c-8bd3-461d-90db-a8d262719b5f"
+   */
+  resource_id: string;
+  /**
+   * Resource type: 1 = Account, 2 = Campaign
+   */
+  resource_type: number;
+};
+
+export interface ActionOutput_instantly_togglecustomtagresource {
+  success: boolean;
+  assigned: boolean;
+};
+
+export interface ActionInput_instantly_updateleadintereststatus {
+  /**
+   * The email of the lead to update the interest status of. Example: "test@test.com"
+   */
+  email: string;
+  /**
+   * The interest status label to set for the lead.
+   */
+  interest_value: 'Interested' | 'Not Interested' | 'Meeting Booked' | 'Meeting Completed' | 'Closed' | 'Out Of Office' | 'Wrong Person';
+  /**
+   * The ID of the campaign context for the interest status update. Example: "019f1a45-a721-7787-bd69-0f0792a00518"
+   */
+  campaign_id?: string | undefined;
+};
+
+export interface ActionOutput_instantly_updateleadintereststatus {
+  /**
+   * Confirmation message from the provider.
+   */
+  message: string;
 };
 
 export interface Admin {
@@ -65081,6 +70335,1702 @@ export interface ActionInput_keeper_scim_deleteuser {
 
 export interface ActionOutput_keeper_scim_deleteuser {
   success: boolean;
+};
+
+export interface CatalogCategory {
+  id: string;
+  external_id?: string | undefined;
+  name?: string | undefined;
+  updated?: string | undefined;
+};
+
+export interface CatalogItem {
+  id: string;
+  external_id?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  price?: number | undefined;
+  url?: string | undefined;
+  image_full_url?: string | undefined;
+  image_thumbnail_url?: string | undefined;
+  published?: boolean | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+};
+
+export interface CouponCode {
+  id: string;
+  unique_code?: string | undefined;
+  status?: string | undefined;
+  expires_at?: string | undefined;
+  coupon_id?: string | undefined;
+};
+
+export interface Flow {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  trigger_type?: string | undefined;
+  flow_type?: string | undefined;
+  archived?: boolean | undefined;
+};
+
+export interface Image {
+  id: string;
+  name?: string | undefined;
+  image_url?: string | undefined;
+  format?: string | undefined;
+  size?: number | undefined;
+  hidden?: boolean | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface Metric {
+  id: string;
+  name?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  integration?: {  name?: string | undefined;
+  category?: string | undefined;
+  id?: string | undefined;};
+};
+
+export interface Profile {
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+};
+
+export interface Review {
+  id: string;
+  email?: string | undefined;
+  status?: string | undefined;
+  verified: boolean;
+  review_type: string;
+  created: string;
+  updated: string;
+  images?: string[] | undefined;
+  product_url?: string | undefined;
+  product_name?: string | undefined;
+  product_image_url?: string | undefined;
+  product_external_id?: string | undefined;
+  rating?: number | undefined;
+  author?: string | undefined;
+  content?: string | undefined;
+  title?: string | undefined;
+  smart_quote?: string | undefined;
+  public_reply_content?: string | undefined;
+  public_reply_author?: string | undefined;
+  public_reply_updated?: string | undefined;
+  item_id?: string | undefined;
+  event_ids?: string[] | undefined;
+};
+
+export interface ActionInput_klaviyo_addprofilestolist {
+  /**
+   * The ID of the list to add profiles to. Example: "XW53Ha"
+   */
+  listId: string;
+  /**
+   * Array of profile IDs to add to the list. Maximum 1000. Example: ["01KWFX4MZPQDSD3YG79C83CBDV"]
+   */
+  profileIds: string[];
+};
+
+export interface ActionOutput_klaviyo_addprofilestolist {
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_assigntemplatetocampaignmessage {
+  /**
+   * The campaign message ID. Example: "01KWGH6P9Z1E8CN49A9DGDRMBW"
+   */
+  campaign_message_id: string;
+  /**
+   * The reusable template ID. Example: "WmRV7f"
+   */
+  template_id: string;
+};
+
+export interface ActionOutput_klaviyo_assigntemplatetocampaignmessage {
+  campaign_message_id: string;
+  assigned_template_id: string;
+};
+
+export interface ActionInput_klaviyo_bulkimportprofiles {
+  /**
+   * Array of profile attributes to bulk import.
+   */
+  profiles: ({  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  title?: string | undefined;
+  organization?: string | undefined;
+  image?: string | undefined;
+  location?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  region?: string | undefined;
+  zip?: string | undefined;
+  timezone?: string | undefined;
+  latitude?: number | undefined;
+  longitude?: number | undefined;};})[];
+  /**
+   * Optional list ID to add imported profiles to. Example: "XW53Ha"
+   */
+  list_id?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_bulkimportprofiles {
+  job_id: string;
+  status: string;
+  completed_at?: string | undefined;
+  failed_count?: number | undefined;
+  completed_count?: number | undefined;
+  total_count?: number | undefined;
+};
+
+export interface ActionInput_klaviyo_createcampaign {
+  /**
+   * Campaign name. Example: "Summer Sale 2026"
+   */
+  name: string;
+  /**
+   * List or segment IDs to include in the audience. Example: ["XW53Ha"]
+   */
+  audience_ids: string[];
+  /**
+   * Message channel. Example: "email"
+   */
+  channel: 'email' | 'sms';
+  /**
+   * Label for the campaign message. Example: "Main message"
+   */
+  message_label?: string | undefined;
+  /**
+   * ISO 8601 send datetime. If omitted, defaults to ~6 months in the future. Example: "2027-01-15T12:00:00+00:00"
+   */
+  send_time?: string | undefined;
+  /**
+   * Whether to use smart sending. Defaults to true.
+   */
+  use_smart_sending?: boolean | undefined;
+  /**
+   * Whether to track opens. Defaults to true.
+   */
+  is_tracking_opens?: boolean | undefined;
+  /**
+   * Whether to track clicks. Defaults to true.
+   */
+  is_tracking_clicks?: boolean | undefined;
+};
+
+export interface ActionOutput_klaviyo_createcampaign {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createcatalogcategory {
+  /**
+   * Unique external ID for the category. Example: "nango-test-category-1"
+   */
+  external_id: string;
+  /**
+   * Display name of the category. Example: "Nango Test Category"
+   */
+  name: string;
+  /**
+   * Catalog type. Defaults to "$default".
+   */
+  catalog_type?: string | undefined;
+  /**
+   * Integration type. Defaults to "$custom".
+   */
+  integration_type?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createcatalogcategory {
+  /**
+   * Klaviyo catalog category ID. Example: "$custom:::$default:::nango-test-category-1"
+   */
+  id: string;
+  external_id: string;
+  name: string;
+  catalog_type?: string | undefined;
+  integration_type?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createcatalogitem {
+  /**
+   * Catalog item external_id. Example: 'nango-test-item-1'
+   */
+  external_id: string;
+  /**
+   * Catalog item title. Example: 'Nango Test Item'
+   */
+  title: string;
+  /**
+   * Catalog item description.
+   */
+  description: string;
+  /**
+   * Catalog item price.
+   */
+  price?: number | undefined;
+  /**
+   * Catalog item URL.
+   */
+  url: string;
+  /**
+   * Catalog type. Defaults to '$default'.
+   */
+  catalog_type?: string | undefined;
+  /**
+   * Integration type. Defaults to '$custom'.
+   */
+  integration_type?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createcatalogitem {
+  id: string;
+  external_id: string;
+  title: string;
+  description?: string | undefined;
+  price?: number | undefined;
+  url?: string | undefined;
+  catalog_type: string;
+  integration_type: string;
+};
+
+export interface ActionInput_klaviyo_createcatalogvariant {
+  /**
+   * Parent catalog item ID. Example: "$custom:::$default:::item-123"
+   */
+  item_id: string;
+  /**
+   * Unique external ID for the variant. Example: "variant-123"
+   */
+  external_id: string;
+  /**
+   * Title of the variant. Example: "Small Red Shirt"
+   */
+  title: string;
+  /**
+   * Description of the variant. Required even though optional on parent items. Example: "A small red cotton shirt."
+   */
+  description: string;
+  /**
+   * URL for the variant. Required even though optional on parent items. Example: "https://example.com/products/red-shirt"
+   */
+  url: string;
+  /**
+   * Stock keeping unit. Example: "SKU-123-RED-S"
+   */
+  sku: string;
+  /**
+   * Price of the variant. Example: 29.99
+   */
+  price: number;
+  /**
+   * Inventory policy value. Example: 0
+   */
+  inventory_policy?: number | undefined;
+  /**
+   * Available inventory quantity. Example: 100
+   */
+  inventory_quantity: number;
+  /**
+   * Whether the variant is published. Example: true
+   */
+  published?: boolean | undefined;
+};
+
+export interface ActionOutput_klaviyo_createcatalogvariant {
+  id: string;
+  type?: string | undefined;
+  external_id?: string | undefined;
+  catalog_type?: string | undefined;
+  integration_type?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  sku?: string | undefined;
+  url?: string | undefined;
+  price?: number | undefined;
+  inventory_policy?: number | undefined;
+  inventory_quantity?: number | undefined;
+  published?: boolean | undefined;
+  item_id?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createcouponcode {
+  /**
+   * Coupon ID. Example: "nango_seed_coupon_1"
+   */
+  coupon_id: string;
+  /**
+   * Unique coupon code to create. Example: "NANGOTESTCODE1"
+   */
+  unique_code: string;
+};
+
+export interface ActionOutput_klaviyo_createcouponcode {
+  id: string;
+  coupon_id: string;
+  unique_code: string;
+  expires_at?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createcoupon {
+  /**
+   * Unique coupon identifier. Example: "nango_seed_coupon_1"
+   */
+  external_id: string;
+  /**
+   * Human-readable description of the coupon.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createcoupon {
+  id: string;
+  external_id: string;
+  description?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createevent {
+  /**
+   * The name of the metric to associate with this event. Example: "Placed Order"
+   */
+  metric_name: string;
+  /**
+   * The email address of the profile to associate with this event. Example: "user@example.com"
+   */
+  profile_email: string;
+  /**
+   * Additional properties for the event. Example: { order_id: "123" }
+   */
+  properties?: {  [key: string]: unknown | undefined;};
+  /**
+   * ISO8601 timestamp for the event. Example: "2024-01-15T10:00:00Z"
+   */
+  time?: string | undefined;
+  /**
+   * Numeric value for the event. Example: 99.99
+   */
+  value?: number | undefined;
+  /**
+   * Unique identifier for idempotent retries. Example: "event-123-abc"
+   */
+  unique_id?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createevent {
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_createimage {
+  /**
+   * URL of the image to import. Example: "https://example.com/image.png"
+   */
+  import_from_url: string;
+  /**
+   * Name for the imported image. Example: "My Image"
+   */
+  name?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createimage {
+  id: string;
+  name?: string | undefined;
+  image_url?: string | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createlist {
+  /**
+   * Name of the list to create. Example: "My New List"
+   */
+  name: string;
+};
+
+export interface ActionOutput_klaviyo_createlist {
+  id: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;
+  opt_in_process?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createprofile {
+  /**
+   * Email address of the profile. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Phone number of the profile. Example: "+1234567890"
+   */
+  phone_number?: string | undefined;
+  /**
+   * First name of the profile. Example: "John"
+   */
+  first_name?: string | undefined;
+  /**
+   * Last name of the profile. Example: "Doe"
+   */
+  last_name?: string | undefined;
+  /**
+   * External ID of the profile. Example: "user-123"
+   */
+  external_id?: string | undefined;
+  /**
+   * Custom properties for the profile.
+   */
+  properties?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_klaviyo_createprofile {
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  external_id?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createsegment {
+  /**
+   * Segment name. Example: "New Subscribers"
+   */
+  name: string;
+  /**
+   * Segment condition definition. Example: { condition_groups: [{ conditions: [{ type: "profile-property", property: "email", filter: { type: "existence", operator: "is-set" } }] }] }
+   */
+  definition: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_klaviyo_createsegment {
+  id: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_createtaggroup {
+  /**
+   * Name of the tag group. Example: 'Campaign Tags'
+   */
+  name: string;
+  /**
+   * Whether a tagged resource can only carry one tag from this group at a time. Defaults to false.
+   */
+  exclusive?: boolean | undefined;
+};
+
+export interface ActionOutput_klaviyo_createtaggroup {
+  /**
+   * The unique identifier of the tag group.
+   */
+  id: string;
+  /**
+   * The name of the tag group.
+   */
+  name: string;
+  /**
+   * Whether the tag group is exclusive.
+   */
+  exclusive: boolean;
+};
+
+export interface ActionInput_klaviyo_createtag {
+  /**
+   * Tag name. Example: "new-tag"
+   */
+  name: string;
+  /**
+   * Optional tag group ID to file the tag under. Omit to use the default tag group.
+   */
+  tag_group_id?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_createtag {
+  id: string;
+  name: string;
+};
+
+export interface ActionInput_klaviyo_createtemplate {
+  /**
+   * Template name. Example: "Welcome Email"
+   */
+  name: string;
+  /**
+   * Raw HTML content for the template. Example: "<html><body>Hello</body></html>"
+   */
+  html: string;
+};
+
+export interface ActionOutput_klaviyo_createtemplate {
+  /**
+   * Template ID. Example: "WmRV7f"
+   */
+  id: string;
+  /**
+   * Template name.
+   */
+  name: string;
+  /**
+   * Editor type used to create the template. Example: "CODE"
+   */
+  editor_type: string;
+  /**
+   * Raw HTML content of the template.
+   */
+  html: string;
+  /**
+   * ISO 8601 creation timestamp.
+   */
+  created_at?: string | undefined;
+  /**
+   * ISO 8601 update timestamp.
+   */
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_deletecampaign {
+  /**
+   * Campaign ID. Example: "01KWGH6P9PERJ0AHGNBJQMH55G"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecampaign {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_deletecatalogcategory {
+  /**
+   * The unique identifier of the catalog category. Example: "$custom:::$default:::nango-seed-category-1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecatalogcategory {
+  success: boolean;
+  id?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_deletecatalogitem {
+  /**
+   * Catalog item ID. Example: "$custom:::$default:::nango-seed-item-1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecatalogitem {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_klaviyo_deletecatalogvariant {
+  /**
+   * Catalog variant ID. Example: "$custom:::$default:::nango_seed_variant_1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecatalogvariant {
+  id: string;
+};
+
+export interface ActionInput_klaviyo_deletecouponcode {
+  /**
+   * The unique ID of the coupon code to delete. Example: "nango_seed_coupon_1-NANGOSEED1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecouponcode {
+  success: boolean;
+  id: string;
+};
+
+export interface ActionInput_klaviyo_deletecoupon {
+  /**
+   * Coupon ID. Example: "nango_seed_coupon_1"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletecoupon {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_deleteflow {
+  /**
+   * ID of the Flow to delete. Example: XVTP5Q
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deleteflow {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_deletelist {
+  /**
+   * The list ID to delete. Example: "XeqJK9"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletelist {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_deletesegment {
+  /**
+   * Segment ID. Example: "SRSEt8"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletesegment {
+  id: string;
+};
+
+export interface ActionInput_klaviyo_deletetaggroup {
+  /**
+   * Tag group ID. Example: "a2172fc4-968e-49e8-8ced-ea0bb242acba"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletetaggroup {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_klaviyo_deletetag {
+  /**
+   * The tag ID to delete. Example: "aa27b1b8-9198-47da-86bf-3f6196d4c074"
+   */
+  tag_id: string;
+};
+
+export interface ActionOutput_klaviyo_deletetag {
+  id: string;
+};
+
+export interface ActionInput_klaviyo_deletetemplate {
+  /**
+   * Template ID. Example: "WmRV7f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_deletetemplate {
+  id: string;
+  deleted: boolean;
+};
+
+export interface ActionInput_klaviyo_getcampaign {
+  /**
+   * Campaign ID. Example: "01KWGH6P9PERJ0AHGNBJQMH55G"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_getcampaign {
+  id: string;
+  type: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  channel?: string | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  scheduled_at?: string | undefined;
+  attributes?: {  [key: string]: unknown | undefined;};
+  relationships?: {  [key: string]: unknown | undefined;};
+  messages?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_klaviyo_getimage {
+  /**
+   * The ID of the image. Example: "343296489"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_getimage {
+  id: string;
+  type: string;
+  format?: string | undefined;
+  hidden?: boolean | undefined;
+  image_url?: string | undefined;
+  name?: string | undefined;
+  size?: number | undefined;
+  updated_at?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_getlist {
+  /**
+   * Primary key that uniquely identifies this list. Example: "XW53Ha"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_getlist {
+  id: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;
+  opt_in_process?: string | undefined;
+  profile_count?: number | undefined;
+};
+
+export interface ActionInput_klaviyo_getprofile {
+  /**
+   * Profile ID. Example: "01KWFX4MZPQDSD3YG79C83CBDV"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_getprofile {
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  title?: string | undefined;
+  organization?: string | undefined;
+  image?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  last_event_date?: string | undefined;
+  location?: {  [key: string]: unknown | undefined;};
+  properties?: {  [key: string]: unknown | undefined;};
+  subscriptions?: {  [key: string]: unknown | undefined;};
+  predictive_analytics?: {  [key: string]: unknown | undefined;};
+  anonymous?: boolean | undefined;
+};
+
+export interface ActionInput_klaviyo_getsegment {
+  /**
+   * Segment ID. Example: "SRSEt8"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_getsegment {
+  id: string;
+  name?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  is_active: boolean;
+  is_processing: boolean;
+  is_starred: boolean;
+  profile_count?: number | undefined;
+};
+
+export interface ActionInput_klaviyo_gettemplate {
+  /**
+   * The ID of the template. Example: "WmRV7f"
+   */
+  id: string;
+};
+
+export interface ActionOutput_klaviyo_gettemplate {
+  id: string;
+  name: string;
+  editor_type: string;
+  html: string;
+  text?: string | undefined;
+  amp?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  definition?: unknown | undefined;
+};
+
+export interface ActionInput_klaviyo_listcampaigns {
+  /**
+   * Campaign channel filter. Defaults to 'email'.
+   */
+  channel?: 'email' | 'sms' | 'mobile_push' | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Defaults to 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcampaigns {
+  items: ({  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  archived?: boolean | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  scheduled_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listcatalogcategories {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcatalogcategories {
+  categories: ({  id: string;
+  external_id?: string | undefined;
+  name?: string | undefined;
+  updated?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listcatalogitems {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter query string. Example: equals(published,true)
+   */
+  filter?: string | undefined;
+  /**
+   * Sort order. Example: created or -created
+   */
+  sort?: string | undefined;
+  /**
+   * Number of items per page. Default: 100, Min: 1, Max: 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcatalogitems {
+  items: ({  id: string;
+  external_id?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  url?: string | undefined;
+  published?: boolean | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listcatalogvariants {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by the parent catalog item ID. Example: "$custom:::$default:::nango-seed-item-1"
+   */
+  item_id?: string | undefined;
+  /**
+   * Filter by SKU (exact match).
+   */
+  sku?: string | undefined;
+  /**
+   * Filter by title (contains).
+   */
+  title?: string | undefined;
+  /**
+   * Filter by published status (exact match).
+   */
+  published?: boolean | undefined;
+  /**
+   * Number of results per page. Default: 100. Min: 1. Max: 100.
+   */
+  page_size?: number | undefined;
+  /**
+   * Sort order. Use "created" for ascending or "-created" for descending.
+   */
+  sort?: 'created' | '-created' | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcatalogvariants {
+  items: ({  id: string;
+  external_id?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  sku?: string | undefined;
+  inventory_policy?: number | undefined;
+  inventory_quantity?: number | undefined;
+  price?: number | undefined;
+  url?: string | undefined;
+  image_full_url?: string | undefined;
+  image_thumbnail_url?: string | undefined;
+  images?: string[] | undefined;
+  custom_metadata?: {  [key: string]: unknown | undefined;};
+  published?: boolean | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  item_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listcouponcodes {
+  /**
+   * Coupon ID to filter by. Example: "nango_seed_coupon_1"
+   */
+  coupon_id?: string | undefined;
+  /**
+   * Profile ID to filter by. Example: "01KWFX4MZPQDSD3YG79C83CBDV"
+   */
+  profile_id?: string | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 100, Max: 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcouponcodes {
+  items: ({  id: string;
+  unique_code?: string | undefined;
+  status?: string | undefined;
+  expires_at?: string | undefined;
+  coupon_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listcoupons {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listcoupons {
+  coupons: ({  id: string;
+  type: string;
+  attributes: {};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listevents {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter by metric ID. Example: "abc123"
+   */
+  metric_id?: string | undefined;
+  /**
+   * Filter by profile ID. Example: "01KWFX4MZPQDSD3YG79C83CBDV"
+   */
+  profile_id?: string | undefined;
+  /**
+   * Filter by datetime. Example: "2024-01-01T00:00:00Z"
+   */
+  datetime?: string | undefined;
+  /**
+   * Relationships to include in the response.
+   */
+  include?: ({  0: 'metric';
+  1: 'profile';})[] | undefined;
+};
+
+export interface ActionOutput_klaviyo_listevents {
+  data?: unknown[] | undefined;
+  included?: unknown[] | undefined;
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listflows {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listflows {
+  flows: ({  id: string;
+  type: string;
+  attributes?: {  name?: string | undefined;
+  status?: string | undefined;
+  trigger_type?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;};
+  links?: {  self?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listforms {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Defaults to 20.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listforms {
+  items: ({  type: string;
+  id: string;
+  attributes?: {  ab_test?: boolean | undefined;
+  created_at?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  updated_at?: string | undefined;};
+  relationships?: {  [key: string]: unknown | undefined;};
+  links?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listimages {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listimages {
+  items: ({  id: string;
+  name?: string | undefined;
+  image_url?: string | undefined;
+  format?: string | undefined;
+  size?: number | undefined;
+  hidden?: boolean | undefined;
+  updated_at?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listlists {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listlists {
+  items: ({  id: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;
+  opt_in_process?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listmetrics {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listmetrics {
+  metrics: ({  id: string;
+  type: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;
+  integration?: {  name?: string | undefined;
+  category?: string | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listprofiles {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Filter query string. Example: equals(email,'john.doe@nangotest.dev')
+   */
+  filter?: string | undefined;
+  /**
+   * Number of results per page. Default is provider-specific.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listprofiles {
+  items: ({  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  anonymous_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  organization?: string | undefined;
+  title?: string | undefined;
+  image?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  last_event_date?: string | undefined;
+  location?: {  [key: string]: unknown | undefined;};
+  properties?: {  [key: string]: unknown | undefined;};
+  predictive_analytics?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listreviews {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default: 20, Max: 100.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionOutput_klaviyo_listreviews {
+  items: ({  id: string;
+  email?: string | undefined;
+  status?: string | undefined;
+  rejection_reason?: string | undefined;
+  rejection_explanation?: string | undefined;
+  verified: boolean;
+  review_type: string;
+  created: string;
+  updated: string;
+  images: string[];
+  product?: {  url: string;
+  name: string;
+  image_url?: string | undefined;
+  external_id?: string | undefined;};
+  rating?: number | undefined;
+  author?: string | undefined;
+  content?: string | undefined;
+  title?: string | undefined;
+  smart_quote?: string | undefined;
+  public_reply?: {  content: string;
+  author: string;
+  updated: string;} | undefined;
+  event_ids?: string[] | undefined;
+  item_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listsegments {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listsegments {
+  items: ({  id: string;
+  name: string;
+  created?: string | undefined;
+  updated?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listtaggroups {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listtaggroups {
+  items: ({  id: string;
+  name: string;
+  default: boolean;
+  exclusive: boolean;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listtags {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listtags {
+  items: ({  id: string;
+  name: string;
+  tag_group_id?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listtemplates {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listtemplates {
+  items: ({  id: string;
+  name?: string | undefined;
+  editor_type?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_listwebhooks {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_listwebhooks {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  endpoint_url: string;
+  enabled: boolean;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  webhook_topics?: string[] | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_mergeprofiles {
+  /**
+   * The ID of the profile to merge into the destination. Example: "01KWFX59SDCSCCSF0WVS9D5DFT"
+   */
+  source_id: string;
+  /**
+   * The ID of the profile to keep after the merge. Example: "01KWFX5B2R2JJMQTH7J23ZZ0S1"
+   */
+  destination_id: string;
+};
+
+export interface ActionOutput_klaviyo_mergeprofiles {
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_querycampaignvaluesreport {
+  /**
+   * Timeframe key for the report. Example: "last_30_days"
+   */
+  timeframe_key?: string | undefined;
+  /**
+   * Metric ID to use for conversion attribution. Example: "abc123"
+   */
+  conversion_metric_id?: string | undefined;
+  /**
+   * List of statistics to include. Example: ["opens", "clicks", "delivered"]
+   */
+  statistics?: string[] | undefined;
+  /**
+   * Klaviyo filter expression. Example: "equals(campaign_channel,'email')"
+   */
+  filter?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_querycampaignvaluesreport {
+  type: string;
+  id?: string | undefined;
+  attributes: {  timeframe?: {  key?: string | undefined;
+  start?: string | undefined;
+  end?: string | undefined;};
+  statistics?: {  [key: string]: unknown | undefined;};
+  groupings?: {  [key: string]: unknown | undefined;};
+  results?: ({  [key: string]: unknown | undefined;})[];};
+  relationships?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_klaviyo_querymetricaggregates {
+  /**
+   * The ID of the metric to query aggregates for. Example: "UGkwJB"
+   */
+  metric_id: string;
+  /**
+   * The measurements to return. Example: ["count", "sum_value"]
+   */
+  measurements: string[];
+  /**
+   * The time bucket size. Example: "day"
+   */
+  interval: string;
+  /**
+   * The timezone for the query. Defaults to UTC. Example: "UTC"
+   */
+  timezone?: string | undefined;
+  /**
+   * Filters to apply. Example: ["greater-or-equal(datetime,2026-01-01T00:00:00Z)", "less-than(datetime,2026-07-03T00:00:00Z)"]
+   */
+  filter?: string[] | undefined;
+  /**
+   * Dimensions to group by.
+   */
+  by?: string[] | undefined;
+  /**
+   * Fields to return in the response.
+   */
+  return_fields?: string[] | undefined;
+  /**
+   * Number of results per page.
+   */
+  page_size?: number | undefined;
+  /**
+   * Sort order.
+   */
+  sort?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_querymetricaggregates {
+  id: string;
+  type: 'metric-aggregate';
+  metric_id: string;
+  measurements: string[];
+  interval: string;
+  timezone?: string | undefined;
+  filter?: string[] | undefined;
+  by?: string[] | undefined;
+  return_fields?: string[] | undefined;
+  dates: string[];
+  data?: ({  dimensions: string[];
+  measurements: {  [key: string]: number[];};})[] | undefined;
+  links?: {  self?: string | undefined;
+  next?: string | undefined;
+  prev?: string | undefined;};
+};
+
+export interface ActionInput_klaviyo_removeprofilesfromlist {
+  /**
+   * The list ID. Example: "XW53Ha"
+   */
+  list_id: string;
+  /**
+   * Profile IDs to remove from the list. Maximum 1000 per call.
+   */
+  profile_ids: string[];
+};
+
+export interface ActionOutput_klaviyo_removeprofilesfromlist {
+  list_id: string;
+  removed_profile_ids: string[];
+};
+
+export interface ActionInput_klaviyo_requestprofiledeletion {
+  /**
+   * Email address of the profile to delete. Example: "user@example.com"
+   */
+  email: string;
+};
+
+export interface ActionOutput_klaviyo_requestprofiledeletion {
+  id: string;
+  email: string;
+};
+
+export interface ActionInput_klaviyo_sendcampaign {
+  /**
+   * The ID of the campaign to send. Example: "01KWGH6P9PERJ0AHGNBJQMH55G"
+   */
+  campaign_id: string;
+};
+
+export interface ActionOutput_klaviyo_sendcampaign {
+  campaign_id: string;
+  status: string;
+  send_job_type: string;
+};
+
+export interface ActionInput_klaviyo_subscribeprofiles {
+  /**
+   * The ID of the list to subscribe profiles to. Example: "XW53Ha"
+   */
+  list_id: string;
+  /**
+   * Array of profiles to subscribe.
+   */
+  profiles: ({  /**
+   * Profile email address. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Profile phone number in E.164 format. Example: "+15005550006"
+   */
+  phone_number?: string | undefined;
+  subscriptions?: {  email?: {  marketing?: {  consent: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'NEVER_SUBSCRIBED' | 'SUBSCRIBED_PENDING_DOUBLE_OPTIN';} | undefined;};
+  sms?: {  marketing?: {  consent: 'SUBSCRIBED' | 'UNSUBSCRIBED' | 'NEVER_SUBSCRIBED' | 'SUBSCRIBED_PENDING_DOUBLE_OPTIN';} | undefined;};};})[];
+};
+
+export interface ActionOutput_klaviyo_subscribeprofiles {
+  success: boolean;
+  list_id: string;
+};
+
+export interface ActionInput_klaviyo_unsubscribeprofiles {
+  /**
+   * The list ID to remove profiles from. Example: "XW53Ha"
+   */
+  list_id: string;
+  /**
+   * The profiles to unsubscribe. Either email or phone_number is required per profile. Maximum 100 profiles.
+   */
+  profiles: ({  /**
+   * Profile email address. Example: "user@example.com"
+   */
+  email?: string | undefined;
+  /**
+   * Profile phone number in E.164 format. Example: "+15005550006"
+   */
+  phone_number?: string | undefined;})[];
+};
+
+export interface ActionOutput_klaviyo_unsubscribeprofiles {
+  success: boolean;
+};
+
+export interface ActionInput_klaviyo_updatecampaign {
+  /**
+   * The campaign ID to update. Example: "01KWGH6P9PERJ0AHGNBJQMH55G"
+   */
+  id: string;
+  /**
+   * The campaign name. Set to null to clear.
+   */
+  name?: string | undefined;
+  /**
+   * The audiences to include and/or exclude. Set to null to clear.
+   */
+  audiences?: {  included?: string[] | undefined;
+  excluded?: string[] | undefined;};
+  /**
+   * The send strategy for the campaign. Set to null to clear.
+   */
+  send_strategy?: {  method: 'static';
+  datetime: string;
+  options?: {  is_local: boolean;
+  send_past_recipients_immediately?: boolean | undefined;};} | {  method: 'immediate';} | {  method: 'throttled';
+  datetime: string;
+  throttle_percentage: number;} | {  method: 'smart_send_time';
+  date: string;} | {  method: 'ab_test_campaign';};
+  /**
+   * Options to use when sending the campaign. Set to null to clear.
+   */
+  send_options?: {  use_smart_sending?: boolean | undefined;};
+  /**
+   * The tracking options associated with the campaign. Set to null to clear.
+   */
+  tracking_options?: {  add_tracking_params?: boolean | undefined;
+  custom_tracking_params?: ({  type: 'dynamic' | 'static';
+  value: string;
+  name: string;})[] | undefined;
+  is_tracking_clicks?: boolean | undefined;
+  is_tracking_opens?: boolean | undefined;} | {  add_tracking_params?: boolean | undefined;
+  custom_tracking_params?: ({  type: 'dynamic' | 'static';
+  value: string;
+  name: string;})[] | undefined;};
+};
+
+export interface ActionOutput_klaviyo_updatecampaign {
+  id: string;
+  name: string;
+  status: string;
+  archived: boolean;
+  audiences?: {  included: string[];
+  excluded?: string[] | undefined;};
+  send_strategy?: unknown | undefined;
+  send_options?: unknown | undefined;
+  tracking_options?: unknown | undefined;
+  created_at?: string | undefined;
+  updated_at?: string | undefined;
+  scheduled_at?: string | undefined;
+  send_time?: string | undefined;
+  campaign_message_ids?: string[] | undefined;
+  tag_ids?: string[] | undefined;
+};
+
+export interface ActionInput_klaviyo_updateflowstatus {
+  /**
+   * Flow ID. Example: "01ABC123"
+   */
+  flow_id: string;
+  /**
+   * Target status for the flow.
+   */
+  status: 'draft' | 'manual' | 'live' | 'archived';
+};
+
+export interface ActionOutput_klaviyo_updateflowstatus {
+  id: string;
+  name?: string | undefined;
+  status?: string | undefined;
+  archived?: boolean | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  trigger_type?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_updatelist {
+  /**
+   * The ID of the list to update. Example: "UgA2kN"
+   */
+  id: string;
+  /**
+   * The new name for the list. Example: "Updated List Name"
+   */
+  name: string;
+};
+
+export interface ActionOutput_klaviyo_updatelist {
+  id: string;
+  name?: string | undefined;
+};
+
+export interface ActionInput_klaviyo_updateprofile {
+  /**
+   * Profile ID. Example: "01KWFX4MZPQDSD3YG79C83CBDV"
+   */
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  title?: string | undefined;
+  organization?: string | undefined;
+  image?: string | undefined;
+  location?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  region?: string | undefined;
+  zip?: string | undefined;
+  timezone?: string | undefined;
+  ip?: string | undefined;};
+  properties?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_klaviyo_updateprofile {
+  id: string;
+  email?: string | undefined;
+  phone_number?: string | undefined;
+  external_id?: string | undefined;
+  first_name?: string | undefined;
+  last_name?: string | undefined;
+  title?: string | undefined;
+  organization?: string | undefined;
+  image?: string | undefined;
+  location?: {  address1?: string | undefined;
+  address2?: string | undefined;
+  city?: string | undefined;
+  country?: string | undefined;
+  region?: string | undefined;
+  zip?: string | undefined;
+  timezone?: string | undefined;
+  ip?: string | undefined;};
+  properties?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_klaviyo_updatesegment {
+  /**
+   * Segment ID. Example: "SRSEt8"
+   */
+  id: string;
+  /**
+   * The name of the segment.
+   */
+  name?: string | undefined;
+  /**
+   * The segment definition containing condition groups.
+   */
+  definition?: {  condition_groups?: ({  [key: string]: unknown | undefined;})[];};
+  /**
+   * Whether the segment is starred.
+   */
+  is_starred?: boolean | undefined;
+  /**
+   * Set to false to deactivate the segment. Must be the only attribute when deactivating.
+   */
+  is_active?: boolean | undefined;
+};
+
+export interface ActionOutput_klaviyo_updatesegment {
+  id: string;
+  type: string;
+  name?: string | undefined;
+  definition?: {  condition_groups?: ({  [key: string]: unknown | undefined;})[];};
+  created?: string | undefined;
+  updated?: string | undefined;
+  is_active: boolean;
+  is_processing: boolean;
+  is_starred: boolean;
+};
+
+export interface ActionInput_klaviyo_updatetag {
+  /**
+   * Tag ID. Example: "aa27b1b8-9198-47da-86bf-3f6196d4c074"
+   */
+  id: string;
+  /**
+   * New name for the tag. Example: "updated-tag-name"
+   */
+  name: string;
+};
+
+export interface ActionOutput_klaviyo_updatetag {
+  id: string;
+  name: string;
+};
+
+export interface ActionInput_klaviyo_updatetemplate {
+  /**
+   * The ID of the template. Example: "VJQSuC"
+   */
+  id: string;
+  /**
+   * The name of the template
+   */
+  name?: string | undefined;
+  /**
+   * The HTML contents of the template
+   */
+  html?: string | undefined;
+  /**
+   * The plaintext of the template
+   */
+  text?: string | undefined;
+  /**
+   * The AMP version of the template
+   */
+  amp?: string | undefined;
+};
+
+export interface ActionOutput_klaviyo_updatetemplate {
+  id: string;
+  name: string;
+  editor_type: string;
+  html: string;
+  text?: string | undefined;
+  amp?: string | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
 };
 
 export interface KustomerConversation {
@@ -69237,6 +76187,1514 @@ export interface ActionOutput_mailchimp_updatetemplate {
   thumbnail?: string | undefined;
   share_url?: string | undefined;
   content_type?: string | undefined;
+};
+
+export interface SyncMetadata_make_connections {
+  team_id: string;
+};
+
+export interface DataStoreRecord {
+  id: string;
+  dataStoreId: number;
+  key: string;
+  data?: {  [key: string]: unknown | undefined;};
+};
+
+export interface DataStore {
+  id: string;
+  name?: string | undefined;
+  records?: number | undefined;
+  size?: string | undefined;
+  maxSize?: string | undefined;
+  teamId?: string | undefined;
+};
+
+export interface Hook {
+  id: string;
+  name: string;
+  teamId: number;
+  udid?: string | undefined;
+  type?: string | undefined;
+  packageName?: string | undefined;
+  theme?: string | undefined;
+  flags?: {  form?: boolean | undefined;};
+  editable?: boolean | undefined;
+  queueCount?: number | undefined;
+  queueLimit?: number | undefined;
+  enabled?: boolean | undefined;
+  gone?: boolean | undefined;
+  typeName?: string | undefined;
+  data?: {  [key: string]: unknown | undefined;};
+  scenarioId?: number | undefined;
+  url?: string | undefined;
+};
+
+export interface IncompleteExecution {
+  id: string;
+  scenarioId: number;
+  reason?: string | undefined;
+  created?: string | undefined;
+  size?: number | undefined;
+  resolved?: boolean | undefined;
+  retry?: boolean | undefined;
+  attempts?: number | undefined;
+};
+
+export interface SyncMetadata_make_incompleteexecutions {
+  teamId?: string | number | undefined;
+};
+
+export interface ScenarioExecution {
+  /**
+   * Stable execution identifier (imtId)
+   */
+  id: string;
+  /**
+   * Scenario ID
+   */
+  scenarioId: string;
+  /**
+   * Monotonically increasing execution sequence ID
+   */
+  imtId: string;
+  /**
+   * Execution timestamp
+   */
+  timestamp?: string | undefined;
+  /**
+   * Execution duration in milliseconds
+   */
+  duration?: number | undefined;
+  /**
+   * Execution status (SUCCESS, WARNING, ERROR)
+   */
+  status?: string | undefined;
+  /**
+   * Error message if failed
+   */
+  error?: string | undefined;
+};
+
+export interface Scenario {
+  id: string;
+  name?: string | undefined;
+  teamId?: number | undefined;
+  hookId?: number | undefined;
+  description?: string | undefined;
+  folderId?: number | undefined;
+  isinvalid?: boolean | undefined;
+  isActive?: boolean | undefined;
+  islocked?: boolean | undefined;
+  isPaused?: boolean | undefined;
+  usedPackages?: string[] | undefined;
+  lastEdit?: string | undefined;
+  scheduling?: {  type?: string | undefined;
+  interval?: number | undefined;};
+  iswaiting?: boolean | undefined;
+  dlqCount?: number | undefined;
+  nextExec?: string | undefined;
+  created?: string | undefined;
+  scenarioVersion?: number | undefined;
+  moduleSequenceId?: number | undefined;
+  type?: string | undefined;
+  deleted?: boolean | undefined;
+  deletedAt?: string | undefined;
+};
+
+export interface SyncMetadata_make_scenarios {
+  team_id: string;
+};
+
+export interface ActionInput_make_clonescenario {
+  /**
+   * ID of the scenario to clone. Example: 6413022
+   */
+  scenarioId: number;
+  /**
+   * Organization ID for the query param. Example: 8242280
+   */
+  organizationId: number;
+  /**
+   * Destination team ID. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * Name for the cloned scenario.
+   */
+  name: string;
+  /**
+   * Scenario states; can be an empty object {}.
+   */
+  states: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_make_clonescenario {
+  scenario: {  id: number;
+  name: string;
+  teamId?: number | undefined;
+  organizationId?: number | undefined;};
+};
+
+export interface ActionInput_make_createdatastorerecord {
+  /**
+   * Data store ID. Example: 141641
+   */
+  dataStoreId: number;
+  /**
+   * Optional record key. Auto-generated if omitted.
+   */
+  key?: string | undefined;
+  /**
+   * Record data matching the data store structure spec.
+   */
+  data: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_make_createdatastorerecord {
+  key: string;
+  data: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_make_createdatastore {
+  /**
+   * Name of the data store. Example: "My Data Store"
+   */
+  name: string;
+  /**
+   * Team ID. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * Data structure ID. Example: 477315
+   */
+  datastructureId: number;
+  /**
+   * Maximum size in MB. Example: 1
+   */
+  maxSizeMB: number;
+};
+
+export interface ActionOutput_make_createdatastore {
+  id: number;
+  name: string;
+  teamId: number;
+  datastructureId: number;
+  records: number;
+  size: string;
+  maxSize: string;
+};
+
+export interface ActionInput_make_createdatastructure {
+  /**
+   * The name of the data structure. Max 128 characters.
+   */
+  name: string;
+  /**
+   * The unique ID of the team in which the data structure will be created.
+   */
+  teamId: number;
+  /**
+   * Set to true to enforce strict validation of the data put in the data structure.
+   */
+  strict: boolean;
+  /**
+   * The data structure specification.
+   */
+  spec: ({  /**
+   * Field type. Examples: text, number, boolean, date, array, collection
+   */
+  type: string;
+  /**
+   * Field name
+   */
+  name: string;
+  label?: string | undefined;
+  required?: boolean | undefined;})[];
+};
+
+export interface ActionOutput_make_createdatastructure {
+  /**
+   * The unique ID of the created data structure.
+   */
+  id: number;
+  /**
+   * The unique ID of the team the data structure belongs to.
+   */
+  teamId: number;
+  /**
+   * The name of the data structure.
+   */
+  name: string;
+  /**
+   * Whether strict validation is enforced.
+   */
+  strict: boolean;
+  /**
+   * The data structure specification.
+   */
+  spec: ({  /**
+   * Field type. Examples: text, number, boolean, date, array, collection
+   */
+  type: string;
+  /**
+   * Field name
+   */
+  name: string;
+  label?: string | undefined;
+  required?: boolean | undefined;})[];
+};
+
+export interface ActionInput_make_createhook {
+  /**
+   * The name of the hook. Example: "My Webhook"
+   */
+  name: string;
+  /**
+   * The unique ID of the team in which the hook will be created. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * The hook type. Example: "gateway-webhook"
+   */
+  typeName: string;
+  /**
+   * Set to true to add the HTTP method to the request body.
+   */
+  method: boolean;
+  /**
+   * Set to true to add headers to the request body.
+   */
+  headers: boolean;
+  /**
+   * Set to true to return JSON payloads as strings.
+   */
+  stringify: boolean;
+};
+
+export interface ActionOutput_make_createhook {
+  id: number;
+  name: string;
+  teamId: number;
+  udid: string;
+  type?: string | undefined;
+  packageName?: string | undefined;
+  theme?: string | undefined;
+  flags?: {  form?: boolean | undefined;};
+  editable?: boolean | undefined;
+  queueCount?: number | undefined;
+  queueLimit?: number | undefined;
+  enabled?: boolean | undefined;
+  gone?: boolean | undefined;
+  typeName?: string | undefined;
+  data?: {  headers?: boolean | undefined;
+  method?: boolean | undefined;
+  stringify?: boolean | undefined;
+  teamId?: number | undefined;
+  ip?: string | undefined;
+  udt?: number | undefined;};
+  scenarioId?: number | undefined;
+  url: string;
+};
+
+export interface ActionInput_make_createscenario {
+  /**
+   * The unique ID of the team in which the scenario will be created. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * The scenario blueprint as an object. It will be JSON-encoded before sending.
+   */
+  blueprint: {};
+  /**
+   * The scenario scheduling details as an object. It will be JSON-encoded before sending.
+   */
+  scheduling: {  type: string;
+  interval?: number | undefined;};
+  /**
+   * The unique ID of the folder in which to store the created scenario.
+   */
+  folderId?: number | undefined;
+  /**
+   * Defines if the scenario is created based on a template. The value is the template ID.
+   */
+  basedon?: number | undefined;
+};
+
+export interface ActionOutput_make_createscenario {
+  scenario: {  id: number;
+  name?: string | undefined;
+  teamId?: number | undefined;
+  hookId?: number | undefined;
+  description?: string | undefined;
+  folderId?: number | undefined;
+  isinvalid?: boolean | undefined;
+  isActive?: boolean | undefined;
+  islocked?: boolean | undefined;
+  isPaused?: boolean | undefined;
+  usedPackages?: string[] | undefined;
+  lastEdit?: string | undefined;
+  scheduling?: {  type?: string | undefined;
+  interval?: number | undefined;};
+  created?: string | undefined;
+  scenarioVersion?: number | undefined;
+  type?: 'scenario' | 'tool' | undefined;
+  deleted?: boolean | undefined;
+  deletedAt?: string | undefined;};
+};
+
+export interface ActionInput_make_createteam {
+  /**
+   * The name of the team.
+   */
+  name: string;
+  /**
+   * The ID of the organization.
+   */
+  organizationId: number;
+};
+
+export interface ActionOutput_make_createteam {
+  team: {  id: number;
+  name: string;
+  organizationId: number;
+  operationsLimit?: number | undefined;
+  transferLimit?: number | undefined;};
+};
+
+export interface ActionInput_make_deletedatastorerecords {
+  /**
+   * The ID of the data store. Example: 141641
+   */
+  dataStoreId: number;
+  /**
+   * The keys of data store records to delete.
+   */
+  keys?: string[] | undefined;
+  /**
+   * Set to true to delete all records in the data store.
+   */
+  all?: boolean | undefined;
+  /**
+   * Keys of records to keep when deleting all records.
+   */
+  exceptKeys?: string[] | undefined;
+};
+
+export interface ActionOutput_make_deletedatastorerecords {
+  /**
+   * Keys of the deleted records.
+   */
+  keys: string[];
+};
+
+export interface ActionInput_make_deletedatastore {
+  /**
+   * The unique ID of the team from which the data store will be deleted. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * The IDs of data stores to delete. Use this or `all`, not both.
+   */
+  ids?: number[] | undefined;
+  /**
+   * If set to true, all data stores will be deleted. Use this or `ids`, not both.
+   */
+  all?: boolean | undefined;
+  /**
+   * The IDs of data stores to be excluded from deleting. Can only be used together with `all: true`.
+   */
+  exceptIds?: number[] | undefined;
+  /**
+   * Confirms the deletion if a data store is included in at least one scenario.
+   */
+  confirmed?: boolean | undefined;
+};
+
+export interface ActionOutput_make_deletedatastore {
+  /**
+   * The IDs of the deleted data stores.
+   */
+  dataStores: number[];
+};
+
+export interface ActionInput_make_deletehook {
+  /**
+   * Hook ID. Example: 3329468
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_deletehook {
+  /**
+   * ID of the deleted hook
+   */
+  hook: number;
+};
+
+export interface ActionInput_make_deleteincompleteexecutions {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * Specific incomplete execution IDs to delete.
+   */
+  ids?: string[] | undefined;
+  /**
+   * Set to true to delete all incomplete executions for the scenario.
+   */
+  all?: boolean | undefined;
+  /**
+   * Required when all is true. Set to true to confirm deletion of all incomplete executions.
+   */
+  confirmed?: boolean | undefined;
+};
+
+export interface ActionOutput_make_deleteincompleteexecutions {
+  /**
+   * IDs of the deleted incomplete executions.
+   */
+  dlqs: string[];
+};
+
+export interface ActionInput_make_deletescenario {
+  /**
+   * Scenario ID. Example: 6413024
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_deletescenario {
+  id: number;
+  deleted: boolean;
+};
+
+export interface ActionInput_make_disablehook {
+  /**
+   * The ID of the webhook to disable. Example: 3329422
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_disablehook {
+  success: boolean;
+};
+
+export interface ActionInput_make_enablehook {
+  /**
+   * The unique ID of the hook to enable. Example: 3329422
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_enablehook {
+  success: boolean;
+};
+
+export interface ActionInput_make_getconnection {
+  connectionId: number;
+};
+
+export interface ActionOutput_make_getconnection {
+  connection: {  id: number;
+  name: string;
+  accountName?: string | undefined;
+  accountLabel?: string | undefined;
+  packageName?: string | undefined;
+  expire?: string | undefined;
+  metadata?: {  value?: string | undefined;
+  type?: 'string' | 'email' | undefined;};
+  teamId?: number | undefined;
+  theme?: string | undefined;
+  upgradeable?: boolean | undefined;
+  scopesCnt?: number | undefined;
+  scoped?: boolean | undefined;
+  accountType?: string | undefined;
+  editable?: boolean | undefined;
+  uid?: string | undefined;
+  connectedSystemId?: string | undefined;
+  organizationId?: number | undefined;
+  scopes?: ({  id: string;
+  name: string;
+  account: string;})[] | undefined;};
+};
+
+export interface ActionInput_make_getdatastore {
+  /**
+   * The ID of the data store. Example: 141697
+   */
+  dataStoreId: number;
+};
+
+export interface ActionOutput_make_getdatastore {
+  dataStore: {  id: number;
+  name: string;
+  records: number;
+  size: string;
+  maxSize: string;
+  teamId: number;
+  datastructureId: number;};
+};
+
+export interface ActionInput_make_getdatastructure {
+  /**
+   * Data structure ID. Example: 477315
+   */
+  dataStructureId: number;
+};
+
+export interface ActionOutput_make_getdatastructure {
+  dataStructure: {  id: number;
+  name: string;
+  teamId: number;
+  spec: ({  name: string;
+  type: string;
+  required: boolean;})[];};
+};
+
+export interface ActionInput_make_gethookincoming {
+  /**
+   * The ID of the webhook. Example: 3329615
+   */
+  hookId: number;
+  /**
+   * The ID of the queued webhook item. Example: "b2dcd37766de51c8c246ddd8fd6d2afd"
+   */
+  incomingId: string;
+};
+
+export interface ActionOutput_make_gethookincoming {
+  incoming: {  id: string;
+  scope: string;
+  size: number;
+  created: string;
+  data: {  [key: string]: unknown | undefined;};};
+};
+
+export interface ActionInput_make_gethook {
+  /**
+   * Hook ID. Example: 3329421
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_gethook {
+  id: number;
+  name: string;
+  typeName?: string | undefined;
+  url?: string | undefined;
+  scenarioId?: number | undefined;
+  queueCount?: number | undefined;
+  queueLimit?: number | undefined;
+  enabled?: boolean | undefined;
+  teamId?: number | undefined;
+  organizationId?: number | undefined;
+  data?: unknown | undefined;
+  created?: string | undefined;
+  updated?: string | undefined;
+  lastRun?: string | undefined;
+  dataStructure?: unknown | undefined;
+};
+
+export interface ActionInput_make_getorganization {
+  /**
+   * Organization ID. Example: 8242280
+   */
+  organizationId: number;
+};
+
+export interface ActionOutput_make_getorganization {
+  organization: {  id: number;
+  name: string;
+  createdAt?: string | undefined;
+  serviceName?: string | undefined;
+  nextReset?: string | undefined;
+  lastReset?: string | undefined;
+  isPaused?: boolean | undefined;
+  countryId?: number | undefined;
+  timezoneId?: number | undefined;
+  deleted?: boolean | undefined;
+  license?: {  [key: string]: unknown | undefined;};
+  zone?: string | undefined;
+  teams?: ({  id: number;
+  name: string;})[] | undefined;
+  productName?: string | undefined;
+  ssoType?: string | undefined;
+  scenarios?: number | undefined;
+  activeScenarios?: number | undefined;
+  tfaEnforced?: boolean | undefined;
+  featureControls?: ({  name: string;
+  enabled: boolean;})[] | undefined;};
+};
+
+export interface ActionInput_make_getscenarioblueprint {
+  /**
+   * The ID of the scenario. Example: 6413021
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_getscenarioblueprint {
+  blueprint: {  flow: ({  [key: string]: unknown | undefined;})[];
+  name: string;
+  metadata?: {  [key: string]: unknown | undefined;};};
+  scheduling?: {  [key: string]: unknown | undefined;};
+  idSequence?: number | undefined;
+  created?: string | undefined;
+  last_edit?: string | undefined;
+};
+
+export interface ActionInput_make_getscenarioexecution {
+  /**
+   * The ID of the scenario. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * The unique ID of the scenario execution. Example: "8383f2871d634888a4debe8cdf444aa2"
+   */
+  executionId: string;
+};
+
+export interface ActionOutput_make_getscenarioexecution {
+  /**
+   * Status of the scenario execution: RUNNING, SUCCESS, WARNING, ERROR
+   */
+  status: string;
+  outputs?: {  [key: string]: unknown | undefined;};
+  error?: {  name?: string | undefined;
+  message?: string | undefined;
+  causeModule?: {  name?: string | undefined;
+  appName?: string | undefined;};};
+};
+
+export interface ActionInput_make_getscenariolog {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * Execution ID. Example: "e0839e2109764dc8908187a6b42b8363"
+   */
+  executionId: string;
+};
+
+export interface ActionOutput_make_getscenariolog {
+  imtId: string;
+  id: string;
+  eventType?: string | undefined;
+  timestamp: string;
+  type: string;
+  instant: boolean;
+  authorId?: number | undefined;
+  authorName?: string | undefined;
+  teamId: number;
+  organizationId: number;
+  scenarioId?: number | undefined;
+  scenarioName?: string | undefined;
+  duration?: number | undefined;
+  operations?: number | undefined;
+  transfer?: number | undefined;
+  centicredits?: number | undefined;
+  status?: number | undefined;
+  error?: {  name: string;
+  message: string;} | undefined;
+  isReplayable?: boolean | undefined;
+  replayOfExecutionId?: string | undefined;
+  replayOfExecutionName?: string | undefined;
+  replayOfExecutionTimestamp?: string | undefined;
+};
+
+export interface ActionInput_make_getscenariousage {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_getscenariousage {
+  data: ({  date: string;
+  operations: number;
+  centicredits: number;
+  dataTransfer: number;})[];
+};
+
+export interface ActionInput_make_getscenario {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_getscenario {
+  scenario: {  id: number;
+  name: string;
+  teamId: number;
+  hookId?: number | undefined;
+  devices?: ({  id: number;
+  scope: string;})[] | undefined;
+  deviceId?: number | undefined;
+  deviceScope?: string | undefined;
+  description?: string | undefined;
+  folderId?: number | undefined;
+  isinvalid?: boolean | undefined;
+  islinked?: boolean | undefined;
+  isActive?: boolean | undefined;
+  islocked?: boolean | undefined;
+  isPaused?: boolean | undefined;
+  usedPackages?: string[] | undefined;
+  lastEdit?: string | undefined;
+  scheduling?: {  type?: string | undefined;
+  interval?: number | undefined;};
+  iswaiting?: boolean | undefined;
+  dlqCount?: number | undefined;
+  createdByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  updatedByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  nextExec?: string | undefined;
+  created?: string | undefined;
+  scenarioVersion?: number | undefined;
+  moduleSequenceId?: number | undefined;
+  type?: string | undefined;};
+};
+
+export interface ActionInput_make_getteam {
+  /**
+   * Team ID. Example: 2066772
+   */
+  teamId: number;
+};
+
+export interface ActionOutput_make_getteam {
+  team: {  id: number;
+  name: string;
+  organizationId: number;
+  globalAgentsEnabled: boolean;};
+};
+
+export interface ActionInput_make_learnstarthook {
+  /**
+   * Hook ID. Example: 3329422
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_learnstarthook {
+  success: boolean;
+};
+
+export interface ActionInput_make_learnstophook {
+  /**
+   * Hook ID. Example: 3329421
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_learnstophook {
+  success: boolean;
+};
+
+export interface ActionInput_make_listconnections {
+  /**
+   * The unique ID of the team whose connections will be retrieved. Example: 2066772
+   */
+  teamId: number;
+};
+
+export interface ActionOutput_make_listconnections {
+  connections: ({  id: number;
+  name?: string | undefined;
+  accountName?: string | undefined;
+  accountLabel?: string | undefined;
+  packageName?: string | undefined;
+  expire?: string | undefined;
+  metadata?: {  value?: string | undefined;
+  type?: string | undefined;};
+  teamId?: number | undefined;
+  theme?: string | undefined;
+  upgradeable?: boolean | undefined;
+  scopesCnt?: number | undefined;
+  scoped?: boolean | undefined;
+  accountType?: string | undefined;
+  editable?: boolean | undefined;
+  uid?: string | undefined;
+  connectedSystemId?: string | undefined;
+  organizationId?: number | undefined;})[];
+};
+
+export interface ActionInput_make_listdatastorerecords {
+  /**
+   * Data store ID. Example: 141641
+   */
+  dataStoreId: number;
+  /**
+   * Page size. Default: 10
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination offset from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_make_listdatastorerecords {
+  records: ({  key: string;
+  data: {  [key: string]: unknown | undefined;};})[];
+  spec?: unknown | undefined;
+  strict?: boolean | undefined;
+  count: number;
+  pg?: {  limit: number;
+  offset: number;
+  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  returnTotalCount?: boolean | undefined;};
+  nextOffset?: number | undefined;
+};
+
+export interface ActionInput_make_listdatastores {
+  /**
+   * Team ID. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_make_listdatastores {
+  dataStores: ({  id: number;
+  name: string;
+  records: number;
+  size: string;
+  maxSize: string;
+  teamId: number;})[];
+  pg: {  sortBy: string;
+  limit: number;
+  sortDir: string;
+  offset: number;};
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listdatastructures {
+  /**
+   * Team ID. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * Pagination cursor (offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Max results per page. Defaults to 150.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listdatastructures {
+  dataStructures: ({  id: number;
+  teamId: number;
+  name: string;
+  strict?: boolean | undefined;
+  spec?: unknown[] | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listhookincomings {
+  /**
+   * The ID of the webhook. Example: 3329421
+   */
+  hookId: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listhookincomings {
+  incomings: ({  id: string;
+  scope: string;
+  size: number;
+  created?: string | undefined;
+  data?: {} | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listhooks {
+  /**
+   * The unique ID of the team whose hooks will be retrieved. Example: "2066772"
+   */
+  teamId: string;
+  /**
+   * The hook type. Two native Make hook types are gateway-webhook and gateway-mailhook.
+   */
+  typeName?: string | undefined;
+  /**
+   * If true, return only hooks assigned to a scenario.
+   */
+  assigned?: boolean | undefined;
+  /**
+   * Show only hooks that can be used by a scenario with this specific ID.
+   */
+  viewForScenarioId?: number | undefined;
+  /**
+   * Pagination cursor (offset). Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_make_listhooks {
+  hooks: ({  id: number;
+  name: string;
+  teamId?: number | undefined;
+  udid?: string | undefined;
+  type?: string | undefined;
+  packageName?: string | undefined;
+  theme?: string | undefined;
+  flags?: {  form?: boolean | undefined;};
+  editable?: boolean | undefined;
+  queueCount?: number | undefined;
+  queueLimit?: number | undefined;
+  enabled?: boolean | undefined;
+  gone?: boolean | undefined;
+  typeName?: string | undefined;
+  data?: {  headers?: boolean | undefined;
+  method?: boolean | undefined;
+  stringify?: boolean | undefined;
+  teamId?: number | undefined;
+  ip?: string | undefined;
+  udt?: number | undefined;};
+  scenarioId?: number | undefined;
+  url?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listincompleteexecutions {
+  /**
+   * The ID of the scenario to list incomplete executions for. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results to return per page. Defaults to 25.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listincompleteexecutions {
+  items: ({  id: string;
+  reason?: string | undefined;
+  created?: string | undefined;
+  size?: number | undefined;
+  resolved?: boolean | undefined;
+  retry?: boolean | undefined;
+  attempts?: number | undefined;})[];
+  next_cursor?: string | undefined;
+  pg?: {  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;};
+};
+
+export interface ActionInput_make_listorganizations {
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listorganizations {
+  organizations: ({  /**
+   * Organization ID. Example: 8242280
+   */
+  id: number;
+  /**
+   * Organization name. Example: "My Organization"
+   */
+  name: string;
+  /**
+   * Timezone ID. Example: 1
+   */
+  timezoneId?: number | undefined;
+  /**
+   * Regional hostname. Example: "eu1.make.com"
+   */
+  zone?: string | undefined;})[];
+  pg?: {  last?: string | undefined;
+  showLast?: boolean | undefined;
+  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;};
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listscenariologs {
+  /**
+   * The ID of the scenario. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of log entries to return.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listscenariologs {
+  scenarioLogs: ({  imtId: string;
+  duration?: number | undefined;
+  operations?: number | undefined;
+  transfer?: number | undefined;
+  centicredits?: number | undefined;
+  organizationId?: number | undefined;
+  teamId?: number | undefined;
+  id: number | string;
+  type: string;
+  authorId?: number | undefined;
+  authorName?: string | undefined;
+  instant?: boolean | undefined;
+  timestamp?: string | undefined;
+  status?: number | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listscenariomodulelogs {
+  /**
+   * The ID of the scenario. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * The unique ID of the scenario module (flow node id from the blueprint). Example: 1
+   */
+  moduleId: number;
+  /**
+   * Pagination cursor (offset) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * The maximum number of entities to return.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_make_listscenariomodulelogs {
+  moduleLogs: ({  imtId?: string | undefined;
+  executionId?: string | undefined;
+  organizationId?: number | undefined;
+  teamId?: number | undefined;
+  scenarioId?: number | undefined;
+  timestamp?: string | undefined;
+  status?: number | undefined;
+  bundles?: number | undefined;
+  size?: number | undefined;
+  warning?: {  message?: string | undefined;};
+  error?: {  message?: string | undefined;};})[];
+  pg: {  last?: string | undefined;
+  showLast?: boolean | undefined;
+  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;};
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_make_listscenarios {
+  /**
+   * The unique ID of the team whose scenarios will be retrieved. Either teamId or organizationId is required.
+   */
+  teamId?: number | undefined;
+  /**
+   * The unique ID of the organization whose scenarios will be retrieved. Either teamId or organizationId is required.
+   */
+  organizationId?: number | undefined;
+  /**
+   * The unique ID of the folder containing scenarios you want to retrieve.
+   */
+  folderId?: number | undefined;
+  /**
+   * Specifies columns that are returned in the response.
+   */
+  cols?: string[] | undefined;
+  /**
+   * Pagination offset.
+   */
+  offset?: number | undefined;
+  /**
+   * Pagination limit.
+   */
+  limit?: number | undefined;
+  /**
+   * The value that will be used to sort returned entities by.
+   */
+  sortBy?: string | undefined;
+  /**
+   * The only allowed value for this parameter is desc.
+   */
+  sortDir?: string | undefined;
+};
+
+export interface ActionOutput_make_listscenarios {
+  scenarios: ({  id: number;
+  name?: string | undefined;
+  teamId?: number | undefined;
+  hookId?: number | undefined;
+  devices?: ({  id: number;
+  scope: string;})[] | undefined;
+  deviceId?: number | undefined;
+  deviceScope?: string | undefined;
+  description?: string | undefined;
+  folderId?: number | undefined;
+  isinvalid?: boolean | undefined;
+  islinked?: boolean | undefined;
+  isActive?: boolean | undefined;
+  islocked?: boolean | undefined;
+  isPaused?: boolean | undefined;
+  usedPackages?: string[] | undefined;
+  lastEdit?: string | undefined;
+  scheduling?: {  type?: string | undefined;
+  interval?: number | undefined;};
+  iswaiting?: boolean | undefined;
+  dlqCount?: number | undefined;
+  createdByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  updatedByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  nextExec?: string | undefined;
+  created?: string | undefined;
+  scenarioVersion?: number | undefined;
+  moduleSequenceId?: number | undefined;
+  type?: string | undefined;
+  deleted?: boolean | undefined;
+  deletedAt?: string | undefined;})[];
+  pg: {  last?: string | undefined;
+  showLast?: boolean | undefined;
+  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;};
+};
+
+export interface ActionInput_make_listteams {
+  /**
+   * Organization ID. Example: "8242280"
+   */
+  organizationId: string;
+};
+
+export interface ActionOutput_make_listteams {
+  teams: ({  id: number;
+  name: string;
+  organizationId: number;
+  globalAgentsEnabled?: boolean | undefined;})[];
+  pg?: {  sortBy?: string | undefined;
+  sortDir?: string | undefined;
+  limit?: number | undefined;
+  offset?: number | undefined;
+  total?: number | undefined;};
+};
+
+export interface ActionInput_make_pinghook {
+  /**
+   * The ID of the hook to ping. Example: 3329421
+   */
+  hookId: number;
+};
+
+export interface ActionOutput_make_pinghook {
+  address?: string | undefined;
+  attached?: boolean | undefined;
+  learning?: boolean | undefined;
+  gone?: boolean | undefined;
+  dataStructure?: ({  name: string;
+  type: string;})[] | undefined;
+};
+
+export interface ActionInput_make_runscenario {
+  /**
+   * The ID of the scenario to run. Example: 6413022
+   */
+  scenarioId: number;
+  /**
+   * Input data for the scenario if it requires inputs.
+   */
+  data?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_make_runscenario {
+  executionId: string;
+  status: string;
+  outputs?: {  [key: string]: unknown | undefined;};
+  error?: {  name?: string | undefined;
+  message?: string | undefined;
+  causeModule?: {  name?: string | undefined;
+  appName?: string | undefined;};};
+};
+
+export interface ActionInput_make_startscenario {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_startscenario {
+  scenario: {  id: number;
+  islinked: boolean;
+  isActive: boolean;};
+};
+
+export interface ActionInput_make_stopscenario {
+  /**
+   * Scenario ID. Example: 6413021
+   */
+  scenarioId: number;
+};
+
+export interface ActionOutput_make_stopscenario {
+  scenario: {  id: number;
+  islinked: boolean;
+  isActive: boolean;};
+};
+
+export interface ActionInput_make_testconnection {
+  /**
+   * The ID of the connection to test. Example: 8708889
+   */
+  connectionId: number;
+};
+
+export interface ActionOutput_make_testconnection {
+  verified: boolean;
+  connection?: unknown | undefined;
+};
+
+export interface ActionInput_make_updateconnectionname {
+  /**
+   * The ID of the connection to rename. Example: 8708889
+   */
+  connectionId: number;
+  /**
+   * The new display name for the connection.
+   */
+  name: string;
+};
+
+export interface ActionOutput_make_updateconnectionname {
+  id: number;
+  name: string;
+  accountName?: string | undefined;
+  accountLabel?: string | undefined;
+  packageName?: string | undefined;
+  expire?: string | undefined;
+  metadata?: {  value?: string | undefined;
+  type?: string | undefined;};
+  teamId?: number | undefined;
+  theme?: string | undefined;
+  upgradeable?: boolean | undefined;
+  scopesCnt?: number | undefined;
+  scoped?: boolean | undefined;
+  accountType?: string | undefined;
+  editable?: boolean | undefined;
+  uid?: string | undefined;
+  connectedSystemId?: string | undefined;
+  organizationId?: number | undefined;
+};
+
+export interface ActionInput_make_updatedatastorerecord {
+  /**
+   * The ID of the data store. Example: 141641
+   */
+  dataStoreId: number;
+  /**
+   * The key of the data store record. Example: seed-record-1
+   */
+  dataStoreKeyRecord: string;
+  /**
+   * Partial data object to update. Unspecified fields are left unchanged.
+   */
+  data: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_make_updatedatastorerecord {
+  key: string;
+  data: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_make_updatedatastore {
+  /**
+   * The ID of the data store. Example: 141696
+   */
+  dataStoreId: number;
+  /**
+   * The data store name. The name must be at most 128 characters long and does not need to be unique.
+   */
+  name?: string | undefined;
+  /**
+   * The unique ID of the data structure included in the data store.
+   */
+  datastructureId?: number | undefined;
+  /**
+   * The maximum size of the data store (defined in MB).
+   */
+  maxSizeMB?: number | undefined;
+};
+
+export interface ActionOutput_make_updatedatastore {
+  id: number;
+  name: string;
+  records: number;
+  size: string;
+  maxSize: string;
+  teamId: number;
+  datastructureId?: number | undefined;
+};
+
+export interface ActionInput_make_updatedatastructure {
+  /**
+   * Data structure ID. Example: 477315
+   */
+  dataStructureId: number;
+  name?: string | undefined;
+  strict?: boolean | undefined;
+  spec?: ({})[] | undefined;
+};
+
+export interface ActionOutput_make_updatedatastructure {
+  id: number;
+  teamId: number;
+  name: string;
+  strict: boolean;
+  spec?: ({  type: string;
+  name: string;
+  label?: string | undefined;
+  required?: boolean | undefined;
+  default?: unknown | undefined;
+  multiline?: boolean | undefined;})[];
+};
+
+export interface ActionInput_make_updatehook {
+  /**
+   * The ID of the hook to rename. Example: 3329422
+   */
+  hookId: number;
+  /**
+   * The new name for the hook.
+   */
+  name: string;
+};
+
+export interface ActionOutput_make_updatehook {
+  hook: {  id: number;
+  name: string;
+  typeName?: string | undefined;
+  teamId?: number | undefined;
+  scenarioId?: number | undefined;
+  url?: string | undefined;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
+  dataStructure?: unknown | undefined;
+  incomings?: unknown | undefined;};
+};
+
+export interface ActionInput_make_updatescenario {
+  /**
+   * The ID of the scenario to update. Example: 6413021
+   */
+  scenarioId: number;
+  /**
+   * A new name for the scenario.
+   */
+  name?: string | undefined;
+  /**
+   * The scenario blueprint as a stringified JSON object.
+   */
+  blueprint?: string | undefined;
+  /**
+   * The scenario scheduling details as a stringified JSON object.
+   */
+  scheduling?: string | undefined;
+};
+
+export interface ActionOutput_make_updatescenario {
+  scenario: {  id: number;
+  name?: string | undefined;
+  teamId?: number | undefined;
+  hookId?: number | undefined;
+  devices?: ({  id: number;
+  scope?: string | undefined;})[];
+  deviceId?: number | undefined;
+  deviceScope?: string | undefined;
+  description?: string | undefined;
+  folderId?: number | undefined;
+  isinvalid?: boolean | undefined;
+  islinked?: boolean | undefined;
+  isActive?: boolean | undefined;
+  islocked?: boolean | undefined;
+  isPaused?: boolean | undefined;
+  usedPackages?: string[] | undefined;
+  lastEdit?: string | undefined;
+  scheduling?: {  type?: string | undefined;
+  interval?: number | undefined;};
+  iswaiting?: boolean | undefined;
+  dlqCount?: number | undefined;
+  createdByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  updatedByUser?: {  id: number;
+  name?: string | undefined;
+  email?: string | undefined;};
+  nextExec?: string | undefined;
+  created?: string | undefined;
+  scenarioVersion?: number | undefined;
+  moduleSequenceId?: number | undefined;
+  type?: string | undefined;
+  deleted?: boolean | undefined;
+  deletedAt?: string | undefined;};
+};
+
+export interface ActionInput_make_updateteam {
+  /**
+   * The ID of the team to update. Example: 2066772
+   */
+  teamId: number;
+  /**
+   * The new name for the team.
+   */
+  name?: string | undefined;
+  /**
+   * The new operations coefficient for the team.
+   */
+  operationsCoef?: number | undefined;
+};
+
+export interface ActionOutput_make_updateteam {
+  /**
+   * The team ID.
+   */
+  id: number;
+  name?: string | undefined;
+  organizationId?: number | undefined;
+  operationsCoef?: number | undefined;
+  transferCoef?: number | undefined;
 };
 
 export interface SyncMetadata_metabase_users {
@@ -84726,32 +93184,6 @@ export interface Deposit {
   lines?: ({  [key: string]: unknown | undefined;})[];
 };
 
-export interface Estimate {
-  id: string;
-  estimate_number: string;
-  status: string;
-  customer_id: string;
-  customer_name: string;
-  date: string;
-  expiry_date?: string | undefined;
-  reference_number?: string | undefined;
-  total: number;
-  sub_total?: number | undefined;
-  tax_total?: number | undefined;
-  currency_id?: string | undefined;
-  currency_code?: string | undefined;
-  exchange_rate?: number | undefined;
-  created_time: string;
-  last_modified_time: string;
-  notes?: string | undefined;
-  terms?: string | undefined;
-  billing_address?: {  [key: string]: unknown | undefined;};
-  shipping_address?: {  [key: string]: unknown | undefined;};
-  line_items?: ({  [key: string]: unknown | undefined;})[];
-  custom_fields?: ({  [key: string]: unknown | undefined;})[];
-  tags?: ({  [key: string]: unknown | undefined;})[];
-};
-
 export interface JournalEntry {
   id: string;
   docNumber?: string | undefined;
@@ -97703,25 +106135,6 @@ export interface ActionInput_smartsheet_disableuser {
 
 export interface ActionOutput_smartsheet_disableuser {
   success: boolean;
-};
-
-export interface Expense {
-  id: string;
-  expense_id: string;
-  date?: string | undefined;
-  account_name?: string | undefined;
-  description?: string | undefined;
-  currency_id?: string | undefined;
-  currency_code?: string | undefined;
-  bcy_total?: number | undefined;
-  total?: number | undefined;
-  is_billable?: boolean | undefined;
-  reference_number?: string | undefined;
-  customer_id?: string | undefined;
-  customer_name?: string | undefined;
-  status?: string | undefined;
-  created_time?: string | undefined;
-  last_modified_time?: string | undefined;
 };
 
 export interface Friend {
