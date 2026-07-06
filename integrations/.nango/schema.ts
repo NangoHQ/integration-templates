@@ -80031,6 +80031,983 @@ export interface ActionOutput_microsoft_teams_updatechannel {
   isFavoriteByDefault?: boolean | undefined;
 };
 
+export interface SyncMetadata_mixpanel_events {
+  project_id?: string | undefined;
+  data_host?: string | undefined;
+};
+
+export interface LexiconSchema {
+  id: string;
+  entityType: string;
+  name: string;
+  schemaJson?: {  [key: string]: unknown | undefined;};
+};
+
+export interface LookupTable {
+  id: string;
+  name: string;
+};
+
+export interface SyncMetadata_mixpanel_lookuptables {
+  project_id: string;
+  base_url?: string | undefined;
+};
+
+export interface ProjectServiceAccount {
+  id: string;
+  service_account_id: string;
+  project_id: string;
+  username?: string | undefined;
+  last_used?: string | undefined;
+  expires?: string | undefined;
+  creator?: number | undefined;
+  created?: string | undefined;
+  user?: number | undefined;
+  hasSensitiveAccess?: boolean | undefined;
+  role?: string | undefined;
+  role_order?: number | undefined;
+  target_type?: string | undefined;
+  email?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_addserviceaccountstoprojects {
+  /**
+   * Your organization id (eg: 3108968). If omitted, it will be fetched from /api/app/me.
+   */
+  organization_id?: number | undefined;
+  /**
+   * List of service account ids. Example: [194890]
+   */
+  service_account_ids: number[];
+  /**
+   * List of project/roles to assign.
+   */
+  projects: ({  /**
+   * The project id to add the service account to. Example: 4040293
+   */
+  id: number;
+  /**
+   * The service account role for this project. Example: "analyst"
+   */
+  role: 'owner' | 'admin' | 'analyst' | 'consumer';})[];
+};
+
+export interface ActionOutput_mixpanel_addserviceaccountstoprojects {
+  status: string;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_appendprofilelistproperty {
+  /**
+   * User distinct ID. Example: "13793"
+   */
+  distinct_id: string;
+  /**
+   * Property name to append to. Example: "favorite_colors"
+   */
+  property: string;
+  /**
+   * Values to append to the list. Example: ["red", "blue"]
+   */
+  values: ({  0: string;
+  1: number;
+  2: boolean;})[];
+};
+
+export interface ActionOutput_mixpanel_appendprofilelistproperty {
+  success: boolean;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_batchupdategroupprofiles {
+  /**
+   * Array of group profile update objects
+   */
+  updates: ({  token?: string | undefined;
+  /**
+   * Group key. Example: "Company"
+   */
+  group_key: string;
+  /**
+   * Group ID. Example: "Mixpanel"
+   */
+  group_id: string;
+  set?: {  [key: string]: unknown | undefined;};
+  set_once?: {  [key: string]: unknown | undefined;};
+  add?: {  [key: string]: unknown | undefined;};
+  union?: {  [key: string]: unknown[];} | undefined;
+  remove?: {  [key: string]: unknown[];} | undefined;
+  unset?: string[] | undefined;
+  delete?: string | null | undefined;})[];
+  ip?: number | undefined;
+  strict?: number | undefined;
+  verbose?: number | undefined;
+};
+
+export interface ActionOutput_mixpanel_batchupdategroupprofiles {
+  /**
+   * 1 on success, 0 on failure
+   */
+  status: number;
+  /**
+   * Error message if the request was not successful
+   */
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_batchupdateprofiles {
+  /**
+   * Array of profile update objects.
+   */
+  updates: ({  /**
+   * The distinct_id of the user profile to update.
+   */
+  "$distinct_id": string;
+  /**
+   * Project token. Will be injected if omitted and projectToken is provided at the top level.
+   */
+  "$token"?: string | undefined;
+  "$set"?: {  [key: string]: unknown | undefined;};
+  "$set_once"?: {  [key: string]: unknown | undefined;};
+  "$add"?: {  [key: string]: unknown | undefined;};
+  "$append"?: {  [key: string]: unknown | undefined;};
+  "$union"?: {  [key: string]: unknown | undefined;};
+  "$remove"?: {  [key: string]: unknown | undefined;};
+  "$unset"?: string[] | undefined;
+  "$delete"?: string | null | undefined;})[];
+  /**
+   * Project token to inject into each update as $token if not already present.
+   */
+  projectToken?: string | undefined;
+  /**
+   * Data residency region. Defaults to us.
+   */
+  region?: 'us' | 'eu' | 'in' | undefined;
+  /**
+   * Set to 0 to disable IP-based geolocation. Defaults to 1.
+   */
+  ip?: number | undefined;
+  /**
+   * Set to 1 to validate records and return per-record errors.
+   */
+  strict?: number | undefined;
+  /**
+   * Set to 1 to receive a JSON response with status and error.
+   */
+  verbose?: number | undefined;
+};
+
+export interface ActionOutput_mixpanel_batchupdateprofiles {
+  /**
+   * 1 on success, 0 on failure.
+   */
+  status: number;
+  /**
+   * Error message if the request was not successful.
+   */
+  error?: string | undefined;
+  /**
+   * Per-record validation errors when strict=1.
+   */
+  failed_records?: ({  [key: string]: unknown | undefined;})[];
+};
+
+export interface ActionInput_mixpanel_createalias {
+  /**
+   * The new alias to map to the distinct_id. Example: "user-123-alias"
+   */
+  alias: string;
+  /**
+   * The existing distinct_id to alias. Example: "user-123"
+   */
+  distinct_id: string;
+  /**
+   * Optional project token. If omitted, the service account secret from the connection is used.
+   */
+  token?: string | undefined;
+};
+
+export interface ActionOutput_mixpanel_createalias {
+  success: boolean;
+  alias: string;
+  distinct_id: string;
+};
+
+export interface ActionInput_mixpanel_createannotation {
+  /**
+   * Mixpanel project ID. Example: "4040293"
+   */
+  project_id: string;
+  /**
+   * Annotation date in YYYY-MM-DD HH:MM:SS format. Example: "2026-07-03 12:00:00"
+   */
+  date: string;
+  /**
+   * Annotation description. Example: "Release v1.2.0"
+   */
+  description: string;
+};
+
+export interface ActionOutput_mixpanel_createannotation {
+  id: string;
+  date?: string | undefined;
+  description?: string | undefined;
+  project_id?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_createidentity {
+  /**
+   * A distinct_id to merge with the anon_id. Example: "user@example.com"
+   */
+  identified_id: string;
+  /**
+   * A distinct_id to merge with the identified_id. Must be UUID v4 format and not already merged to an identified_id. Example: "e6f4a9de-1c2b-4d3e-9f6a-7b8c9d0e1f2a"
+   */
+  anon_id: string;
+  /**
+   * The distinct ID post-identification (same as identified_id - it will be inferred from identified_id if not included).
+   */
+  distinct_id?: string | undefined;
+  /**
+   * The Mixpanel project token. If omitted, it will be read from connection metadata.
+   */
+  token?: string | undefined;
+};
+
+export interface ActionOutput_mixpanel_createidentity {
+  success: boolean;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_deleteallschemas {
+  /**
+   * Your project id (eg: 12345)
+   */
+  project_id: number;
+};
+
+export interface ActionOutput_mixpanel_deleteallschemas {
+  deleted_count?: number | undefined;
+  status?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_deleteannotation {
+  /**
+   * Mixpanel project ID. Example: "4040293"
+   */
+  projectId: string;
+  /**
+   * Annotation ID to delete. Example: "2004052"
+   */
+  annotationId: string;
+};
+
+export interface ActionOutput_mixpanel_deleteannotation {
+  id: number;
+  status: string;
+};
+
+export interface ActionInput_mixpanel_deletegroupproperty {
+  /**
+   * Group key. Example: "company"
+   */
+  group_key: string;
+  /**
+   * Group ID. Example: "acme"
+   */
+  group_id: string;
+  /**
+   * Properties to unset. Example: ["industry", "size"]
+   */
+  properties: string[];
+  /**
+   * Mixpanel project token. Falls back to connection metadata.
+   */
+  project_token?: string | undefined;
+  /**
+   * Data residency region. Defaults to api (US).
+   */
+  region?: 'api' | 'api-eu' | 'api-in' | undefined;
+};
+
+export interface ActionOutput_mixpanel_deletegroupproperty {
+  success: boolean;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_deletegroup {
+  /**
+   * Group key. Example: "Company"
+   */
+  group_key: string;
+  /**
+   * Group ID. Example: "Mixpanel"
+   */
+  group_id: string;
+  /**
+   * Mixpanel project token or API secret. If omitted, falls back to the token stored in connection metadata under the key "token", then to the connection Basic Auth password.
+   */
+  token?: string | undefined;
+};
+
+export interface ActionOutput_mixpanel_deletegroup {
+  success: boolean;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_deleteprofileproperty {
+  /**
+   * The distinct_id of the user profile to modify. Example: "13793"
+   */
+  distinct_id: string;
+  /**
+   * List of profile property names to remove. Example: ["plan", "company"]
+   */
+  properties: string[];
+  /**
+   * The Mixpanel project token. Example: "YOUR_PROJECT_TOKEN"
+   */
+  project_token: string;
+  /**
+   * Data residency region. Defaults to the connection region or us.
+   */
+  region?: 'us' | 'eu' | 'in' | undefined;
+};
+
+export interface ActionOutput_mixpanel_deleteprofileproperty {
+  success: boolean;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_deleteprofile {
+  /**
+   * The distinct_id of the profile to delete. Example: "13793"
+   */
+  distinct_id: string;
+  /**
+   * The Mixpanel project token. Example: "YOUR_PROJECT_TOKEN"
+   */
+  project_token: string;
+  /**
+   * If true, prevents deleting the original profile when the distinct_id is an alias.
+   */
+  ignore_alias?: boolean | undefined;
+  /**
+   * The Mixpanel data residency region. Defaults to "api" (US). Use "api-eu" for EU or "api-in" for India.
+   */
+  region?: 'api' | 'api-eu' | 'api-in' | undefined;
+};
+
+export interface ActionOutput_mixpanel_deleteprofile {
+  success: boolean;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_deleteschema {
+  /**
+   * Your project id. Example: 4040293
+   */
+  projectId: number;
+  /**
+   * The entity type. Example: event
+   */
+  entityType: 'event' | 'profile';
+  /**
+   * The entity name. Example: nango_seed_event
+   */
+  name: string;
+};
+
+export interface ActionOutput_mixpanel_deleteschema {
+  status: string;
+  delete_count?: number | undefined;
+};
+
+export interface ActionInput_mixpanel_deleteschemasforentity {
+  /**
+   * Mixpanel project ID. Example: 4040293
+   */
+  project_id: number;
+  /**
+   * Entity type. Example: "event" or "profile"
+   */
+  entity_type: 'event' | 'profile';
+  /**
+   * Optional entity name to delete a specific schema. Example: "Added To Cart"
+   */
+  entity_name?: string | undefined;
+};
+
+export interface ActionOutput_mixpanel_deleteschemasforentity {
+  results: {  delete_count: number;};
+  status: string;
+};
+
+export interface ActionInput_mixpanel_importevents {
+  /**
+   * Mixpanel project ID. Example: "4040293"
+   */
+  project_id: string;
+  /**
+   * Data residency region host prefix. Use "api-eu" for EU residency or "api-in" for India residency. Defaults to "api" (US).
+   */
+  region?: string | undefined;
+  /**
+   * Events to import. Maximum 2000 events per request.
+   */
+  events: ({  /**
+   * Event name. Example: "Signed up"
+   */
+  event: string;
+  /**
+   * Event properties. Must include time, distinct_id, and $insert_id. Additional properties are allowed.
+   */
+  properties: {  /**
+   * Event time in seconds or milliseconds since epoch. Example: 1618716477000
+   */
+  time: number;
+  /**
+   * User distinct ID. Example: "91304156-cafc-4673-a237-623d1129c801"
+   */
+  distinct_id: string;
+  /**
+   * Unique insert ID for deduplication. Example: "29fc2962-6d9c-455d-95ad-95b84f09b9e4"
+   */
+  "$insert_id": string;};})[];
+};
+
+export interface ActionOutput_mixpanel_importevents {
+  code: number;
+  status: string;
+  num_records_imported: number;
+};
+
+export interface ActionInput_mixpanel_incrementprofileproperty {
+  /**
+   * Unique identifier for the user profile. Example: "user-123"
+   */
+  distinct_id: string;
+  /**
+   * Numeric properties to increment. Negative values decrement. Example: {"logins": 1}
+   */
+  properties: {  [key: string]: number;};
+};
+
+export interface ActionOutput_mixpanel_incrementprofileproperty {
+  status: number;
+  num_good_events: number;
+  error?: string | undefined;
+  errors?: {  [key: string]: unknown[];} | undefined;
+};
+
+export interface ActionInput_mixpanel_listannotationtags {
+  /**
+   * Mixpanel project ID. Example: "4040293"
+   */
+  project_id: string;
+  /**
+   * Maximum number of tags to return. Default: 100
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_mixpanel_listannotationtags {
+  tags: ({  id: number;
+  name: string;
+  project_id: number;
+  has_annotations: boolean;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_listlookuptables {
+  /**
+   * The Mixpanel project_id, used to authenticate service account credentials. Example: "4040293"
+   */
+  project_id: string;
+};
+
+export interface ActionOutput_mixpanel_listlookuptables {
+  results: ({  id: string;
+  name: string;})[];
+};
+
+export interface ActionInput_mixpanel_listschemasforentity {
+  /**
+   * Your Mixpanel project ID. Example: 4040293
+   */
+  project_id: number;
+  /**
+   * The entity type. Valid values: event, profile, group, lookup.
+   */
+  entity_type: 'event' | 'profile' | 'group' | 'lookup';
+  /**
+   * Maximum number of schemas to return per page. Defaults to 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_mixpanel_listschemasforentity {
+  results: ({  entityType: string;
+  name: string;
+  schemaJson?: unknown | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_listwarehouseimports {
+  /**
+   * Mixpanel project ID. Example: 4040293
+   */
+  project_id: number;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results to return per page.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_mixpanel_listwarehouseimports {
+  items: ({  id: number;
+  import_type: 'event_sync' | 'event_stream' | 'people' | 'groups' | 'lookup_table';
+  sync_mode: 'time_based' | 'mirror_mode' | 'full_sync' | 'one_time';
+  created?: string | undefined;
+  creator_id?: number | undefined;
+  creator_name?: string | undefined;
+  creator_email?: string | undefined;
+  warehouse_source_id?: number | undefined;
+  table_params?: {} | undefined;
+  paused?: boolean | undefined;
+  run_every?: 0 | 3600000000000 | 86400000000000 | 604800000000000 | undefined;
+  last_dispatch?: number | undefined;
+  is_deleted?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_patchannotation {
+  /**
+   * Your project id. Example: "4040293"
+   */
+  project_id: string;
+  /**
+   * The id of the annotation. Example: "2004052"
+   */
+  annotation_id: string;
+  /**
+   * The text that will be shown when looking at the annotation
+   */
+  description?: string | undefined;
+  /**
+   * The ids of the tags to be added to the annotation
+   */
+  tags?: number[] | undefined;
+};
+
+export interface ActionOutput_mixpanel_patchannotation {
+  id: number;
+  date?: string | undefined;
+  description?: string | undefined;
+  user?: {  id: number;
+  first_name?: string | undefined;
+  last_name?: string | undefined;};
+  tags?: ({  id: number;
+  name: string;})[] | undefined;
+};
+
+export interface ActionInput_mixpanel_queryprofileactivity {
+  /**
+   * Mixpanel project ID. Required for service account authentication. Example: 4040293
+   */
+  project_id: number;
+  /**
+   * Array of distinct IDs to query activity for. Example: ["user-123"]
+   */
+  distinct_ids: string[];
+  /**
+   * Start date in yyyy-mm-dd format (inclusive). Example: 2024-01-01
+   */
+  from_date: string;
+  /**
+   * End date in yyyy-mm-dd format (inclusive). Example: 2024-01-31
+   */
+  to_date: string;
+  /**
+   * Workspace ID if applicable. Example: 4536550
+   */
+  workspace_id?: number | undefined;
+  /**
+   * Maximum number of events to return. Defaults to 100.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_mixpanel_queryprofileactivity {
+  status: string;
+  results: {  events: ({  event: string;
+  properties?: unknown | undefined;})[];};
+};
+
+export interface ActionInput_mixpanel_queryprofiles {
+  /**
+   * Opaque pagination cursor from a previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Requested page size. The Mixpanel API uses a fixed page size; this field is reserved for future use.
+   */
+  limit?: number | undefined;
+  /**
+   * Mixpanel project id. Required when authenticating with a service account. Falls back to connection metadata if omitted.
+   */
+  project_id?: string | undefined;
+  /**
+   * Selector expression to filter profiles. See Mixpanel segmentation expressions docs.
+   */
+  where?: string | undefined;
+  /**
+   * Property names to include in the response. Example: ["$last_name", "$email"]
+   */
+  output_properties?: string[] | undefined;
+  /**
+   * A single distinct_id to retrieve.
+   */
+  distinct_id?: string | undefined;
+  /**
+   * List of distinct_ids to retrieve.
+   */
+  distinct_ids?: string[] | undefined;
+  /**
+   * Group key id when querying group profiles.
+   */
+  data_group_id?: string | undefined;
+  /**
+   * JSON string cohort filter object. Example: '{"id":12345}'
+   */
+  filter_by_cohort?: string | undefined;
+  /**
+   * Include all distinct_ids in a cohort query even if they do not have a profile.
+   */
+  include_all_users?: boolean | undefined;
+  /**
+   * Event selector for exporting user profiles with event filters.
+   */
+  behaviors?: number | undefined;
+  /**
+   * Timestamp required when behaviors exports more than 1k profiles.
+   */
+  as_of_timestamp?: number | undefined;
+};
+
+export interface ActionOutput_mixpanel_queryprofiles {
+  items: ({  "$distinct_id": string | number;
+  "$properties"?: {  [key: string]: unknown | undefined;};})[];
+  /**
+   * Cursor to request the next page. Absent when there are no more pages.
+   */
+  next_cursor?: string | undefined;
+  /**
+   * Total number of profiles matching the query.
+   */
+  total?: number | undefined;
+  /**
+   * Current page number returned by the provider.
+   */
+  page?: number | undefined;
+  /**
+   * Maximum number of results per provider page.
+   */
+  page_size?: number | undefined;
+};
+
+export interface ActionInput_mixpanel_removegrouplistproperty {
+  /**
+   * Mixpanel project token. Example: "abc123"
+   */
+  token: string;
+  /**
+   * Group key. Example: "company"
+   */
+  group_key: string;
+  /**
+   * Group ID. Example: "mixpanel"
+   */
+  group_id: string;
+  /**
+   * Name of the list property to remove values from.
+   */
+  property_name: string;
+  /**
+   * Values to remove from the list property. Example: ["feature-a", "feature-b"]
+   */
+  values: ({  0: string;
+  1: number;})[];
+};
+
+export interface ActionOutput_mixpanel_removegrouplistproperty {
+  success: boolean;
+};
+
+export interface ActionInput_mixpanel_removeprofilelistproperty {
+  /**
+   * The distinct_id of the user profile. Example: "user-123"
+   */
+  distinct_id: string;
+  /**
+   * The name of the list property to modify. Example: "interests"
+   */
+  property_name: string;
+  /**
+   * Values to remove from the list property. Example: ["gaming", "reading"]
+   */
+  values: string[];
+  /**
+   * The Mixpanel project token. Example: "abc123def456"
+   */
+  project_token: string;
+  /**
+   * Data residency region. Defaults to "us".
+   */
+  region?: 'us' | 'eu' | 'in' | undefined;
+};
+
+export interface ActionOutput_mixpanel_removeprofilelistproperty {
+  success: boolean;
+};
+
+export interface ActionInput_mixpanel_setgrouppropertyonce {
+  /**
+   * The Mixpanel project token. Example: "abc123..."
+   */
+  token: string;
+  /**
+   * The group key. Example: "company"
+   */
+  group_key: string;
+  /**
+   * The group ID. Example: "nango"
+   */
+  group_id: string;
+  /**
+   * Properties to set once on the group profile.
+   */
+  properties: {  [key: string]: unknown | undefined;};
+  /**
+   * Data residency region. Defaults to us.
+   */
+  region?: 'us' | 'eu' | 'in' | undefined;
+};
+
+export interface ActionOutput_mixpanel_setgrouppropertyonce {
+  success: boolean;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_setgroupproperty {
+  /**
+   * The group key. Example: "company_id"
+   */
+  group_key: string;
+  /**
+   * The group ID. Example: "acme-corp"
+   */
+  group_id: string;
+  /**
+   * Properties to set on the group profile.
+   */
+  properties: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_mixpanel_setgroupproperty {
+  success: boolean;
+};
+
+export interface ActionInput_mixpanel_setprofilepropertyonce {
+  /**
+   * User distinct ID. Example: "user-123"
+   */
+  distinct_id: string;
+  /**
+   * Properties to set if absent. Example: {"First login date": "2024-01-01"}
+   */
+  properties: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionOutput_mixpanel_setprofilepropertyonce {
+  status: number;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_setprofile {
+  /**
+   * Mixpanel project token. Example: "4040293"
+   */
+  token: string;
+  /**
+   * Unique identifier for the user profile. Example: "user-123"
+   */
+  distinct_id: string;
+  /**
+   * Profile properties to set
+   */
+  properties: {  [key: string]: unknown | undefined;};
+  /**
+   * If 0, Mixpanel will not perform geolocation parsing using the request IP. Defaults to 1.
+   */
+  ip?: number | undefined;
+  /**
+   * If 1, Mixpanel will validate records and return per-record error messages. Defaults to 0.
+   */
+  strict?: number | undefined;
+  /**
+   * If 1, Mixpanel will respond with a JSON object describing success or failure. Defaults to 0.
+   */
+  verbose?: number | undefined;
+};
+
+export interface ActionOutput_mixpanel_setprofile {
+  status: 1 | 0;
+  error?: string | undefined;
+  num_good_events?: number | undefined;
+};
+
+export interface ActionInput_mixpanel_trackevent {
+  /**
+   * Mixpanel project ID. Example: "4040293"
+   */
+  project_id: string;
+  /**
+   * The name of the event. Example: "Signed Up"
+   */
+  event: string;
+  /**
+   * Event properties. Must include distinct_id. Additional properties are passed through to Mixpanel.
+   */
+  properties: {  /**
+   * The unique identifier of the user who performed the event. Example: "13793"
+   */
+  distinct_id: string;
+  /**
+   * The time at which the event occurred, in seconds or milliseconds since UTC epoch. Example: 1609459200
+   */
+  time?: number | undefined;
+  /**
+   * A unique identifier for the event, used for deduplication. Maps to $insert_id. Example: "abc123"
+   */
+  insert_id?: string | undefined;};
+};
+
+export interface ActionOutput_mixpanel_trackevent {
+  /**
+   * 1 on success, 0 on failure.
+   */
+  status: number;
+  /**
+   * Error message if the request was not successful.
+   */
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_uniongrouplistproperty {
+  /**
+   * Group key. Example: "company"
+   */
+  group_key: string;
+  /**
+   * Group ID. Example: "acme"
+   */
+  group_id: string;
+  /**
+   * Name of the list property to union into. Example: "features"
+   */
+  property_name: string;
+  /**
+   * Values to union into the list property. Example: ["feature-a", "feature-b"]
+   */
+  values: ({  0: string;
+  1: number;})[];
+  /**
+   * Mixpanel project token. If omitted, the connection credentials will be used.
+   */
+  project_token?: string | undefined;
+};
+
+export interface ActionOutput_mixpanel_uniongrouplistproperty {
+  status: number;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_unionprofilelistproperty {
+  /**
+   * The distinct ID of the user profile to update. Example: "user-123"
+   */
+  distinctId: string;
+  /**
+   * An object mapping property names to arrays of values to union into list properties. Example: { "roles": ["admin", "editor"] }
+   */
+  union: {  [key: string]: ({  0: string;
+  1: number;})[];};
+  /**
+   * If 0, Mixpanel will not perform geolocation parsing using the IP address of the request. Defaults to 1.
+   */
+  ip?: number | undefined;
+  /**
+   * If 1, Mixpanel will validate the provided records and return per-record error messages for records that fail validation.
+   */
+  strict?: number | undefined;
+  /**
+   * If 1, Mixpanel will respond with a JSON object describing the success or failure of the tracking call.
+   */
+  verbose?: number | undefined;
+};
+
+export interface ActionOutput_mixpanel_unionprofilelistproperty {
+  status: number;
+  error?: string | undefined;
+};
+
+export interface ActionInput_mixpanel_updateprofileproperty {
+  /**
+   * The distinct ID of the user profile to update. Example: "user-123"
+   */
+  distinct_id: string;
+  /**
+   * Properties to set on the user profile. Example: {"Plan": "Premium"}
+   */
+  properties: {  [key: string]: unknown | undefined;};
+  /**
+   * The Mixpanel project token. Example: "abc123..."
+   */
+  project_token: string;
+};
+
+export interface ActionOutput_mixpanel_updateprofileproperty {
+  /**
+   * 1 if the request structure is valid, 0 if invalid
+   */
+  status: number;
+  /**
+   * The distinct ID of the updated profile
+   */
+  distinct_id: string;
+  /**
+   * Number of valid records when strict mode is enabled
+   */
+  num_good_events?: number | undefined;
+  /**
+   * Error message if validation failed
+   */
+  error?: string | undefined;
+};
+
 export interface Board {
   id: string;
   name: string;
