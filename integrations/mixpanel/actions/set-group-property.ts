@@ -46,7 +46,7 @@ async function resolveProjectToken(nango: NangoAction, explicitToken?: string | 
     throw new nango.ActionError({
         type: 'missing_token',
         message:
-            'Could not resolve a Mixpanel project token. Provide it as input, set "project_token" in connection metadata, or ensure the connection credentials include a password.'
+            'Could not resolve a Mixpanel project token. Set "project_token" in connection metadata or ensure the connection credentials include a password.'
     });
 }
 

@@ -1,9 +1,14 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/events.js';
 
 describe('mixpanel events tests', () => {
     const models = 'Event'.split(',');
+
+    // Fixture was recorded at 22:03 UTC on 2026-07-03; getDefaultFromDate subtracts 30 days → 2026-06-03, matching the fixture params.
+    beforeEach(() => {
+        vi.useFakeTimers({ now: new Date('2026-07-03T22:03:44Z') });
+    });
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
@@ -19,6 +24,7 @@ describe('mixpanel events tests', () => {
     };
 
     afterEach(() => {
+        vi.useRealTimers();
         vi.clearAllMocks();
         vi.restoreAllMocks();
     });

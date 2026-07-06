@@ -163,7 +163,7 @@ const sync = createSync({
                 });
             } catch (error) {
                 const responseData = getResponseData(error);
-                const responseText = typeof responseData === 'string' ? responseData : JSON.stringify(responseData);
+                const responseText = typeof responseData === 'string' ? responseData : responseData !== undefined ? JSON.stringify(responseData) : '';
                 if (responseText.includes('Unable to authenticate') || responseText.includes('not a member of this project')) {
                     await nango.log(`Mixpanel export API unavailable for this connection: ${responseText}`);
                     return;
@@ -174,7 +174,7 @@ const sync = createSync({
             const responseStatus = isObject(exportResponse) && 'status' in exportResponse ? exportResponse['status'] : undefined;
             if (typeof responseStatus === 'number' && responseStatus >= 400) {
                 const responseData = isObject(exportResponse) && 'data' in exportResponse ? exportResponse['data'] : undefined;
-                const responseText = typeof responseData === 'string' ? responseData : JSON.stringify(responseData);
+                const responseText = typeof responseData === 'string' ? responseData : responseData !== undefined ? JSON.stringify(responseData) : '';
                 if (responseText.includes('Unable to authenticate') || responseText.includes('not a member of this project')) {
                     await nango.log(`Mixpanel export API unavailable for this connection: ${responseText}`);
                     return;
