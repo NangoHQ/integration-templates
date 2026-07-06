@@ -2457,6 +2457,47 @@ import './microsoft-teams/actions/remove-team-member.js';
 import './microsoft-teams/actions/reply-to-channel-message.js';
 import './microsoft-teams/actions/update-channel.js';
 
+// -- Integration: mixpanel
+import './mixpanel/syncs/annotations.js';
+import './mixpanel/syncs/events.js';
+import './mixpanel/syncs/lexicon-schemas.js';
+import './mixpanel/syncs/lookup-tables.js';
+import './mixpanel/syncs/project-service-accounts.js';
+import './mixpanel/actions/add-service-accounts-to-projects.js';
+import './mixpanel/actions/append-profile-list-property.js';
+import './mixpanel/actions/batch-update-group-profiles.js';
+import './mixpanel/actions/batch-update-profiles.js';
+import './mixpanel/actions/create-alias.js';
+import './mixpanel/actions/create-annotation.js';
+import './mixpanel/actions/create-identity.js';
+import './mixpanel/actions/delete-all-schemas.js';
+import './mixpanel/actions/delete-annotation.js';
+import './mixpanel/actions/delete-group-property.js';
+import './mixpanel/actions/delete-group.js';
+import './mixpanel/actions/delete-profile-property.js';
+import './mixpanel/actions/delete-profile.js';
+import './mixpanel/actions/delete-schema.js';
+import './mixpanel/actions/delete-schemas-for-entity.js';
+import './mixpanel/actions/import-events.js';
+import './mixpanel/actions/increment-profile-property.js';
+import './mixpanel/actions/list-annotation-tags.js';
+import './mixpanel/actions/list-lookup-tables.js';
+import './mixpanel/actions/list-schemas-for-entity.js';
+import './mixpanel/actions/list-warehouse-imports.js';
+import './mixpanel/actions/patch-annotation.js';
+import './mixpanel/actions/query-profile-activity.js';
+import './mixpanel/actions/query-profiles.js';
+import './mixpanel/actions/remove-group-list-property.js';
+import './mixpanel/actions/remove-profile-list-property.js';
+import './mixpanel/actions/set-group-property-once.js';
+import './mixpanel/actions/set-group-property.js';
+import './mixpanel/actions/set-profile-property-once.js';
+import './mixpanel/actions/set-profile.js';
+import './mixpanel/actions/track-event.js';
+import './mixpanel/actions/union-group-list-property.js';
+import './mixpanel/actions/union-profile-list-property.js';
+import './mixpanel/actions/update-profile-property.js';
+
 // -- Integration: monday
 import './monday/syncs/boards.js';
 import './monday/syncs/columns.js';
