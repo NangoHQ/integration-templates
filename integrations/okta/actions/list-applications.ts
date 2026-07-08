@@ -24,6 +24,21 @@ const OutputSchema = z.object({
     nextCursor: z.string().optional()
 });
 
+function getHeaderValue(headers: unknown, name: string): string | string[] | undefined {
+    if (typeof headers !== 'object' || headers === null) {
+        return undefined;
+    }
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === name.toLowerCase()) {
+            if (typeof value === 'string' || Array.isArray(value)) {
+                return value;
+            }
+            return undefined;
+        }
+    }
+    return undefined;
+}
+
 function extractNextCursor(linkHeader: string | string[] | undefined): string | undefined {
     if (!linkHeader) {
         return undefined;
@@ -63,7 +78,7 @@ const action = createAction({
         });
 
         const apps = z.array(ApplicationSchema).parse(response.data);
-        const linkHeader = response.headers['link'] || response.headers['Link'];
+        const linkHeader = getHeaderValue(response.headers, 'link');
         const nextCursor = extractNextCursor(linkHeader);
 
         return {

@@ -48,6 +48,18 @@ const OutputSchema = z.object({
     next_cursor: z.string().optional()
 });
 
+function getHeaderValue(headers: unknown, name: string): string | undefined {
+    if (typeof headers !== 'object' || headers === null) {
+        return undefined;
+    }
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === name.toLowerCase()) {
+            return typeof value === 'string' ? value : undefined;
+        }
+    }
+    return undefined;
+}
+
 function extractNextCursor(linkHeader: unknown): string | undefined {
     if (typeof linkHeader !== 'string') {
         return undefined;
@@ -83,7 +95,7 @@ const action = createAction({
 
         const response = await nango.get(config);
         const items = z.array(ProviderAppSchema).parse(response.data);
-        const next_cursor = extractNextCursor(response.headers?.['link'] || response.headers?.['Link']);
+        const next_cursor = extractNextCursor(getHeaderValue(response.headers, 'link'));
 
         return {
             items,

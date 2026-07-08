@@ -54,11 +54,6 @@ const sync = createSync({
             }
         }
 
-        if (users.length === 0) {
-            await nango.log('No users found, skipping factor sync');
-            return;
-        }
-
         await nango.trackDeletesStart('Factor');
 
         for (const user of users) {

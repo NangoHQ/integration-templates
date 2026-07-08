@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     userId: z.string().describe('User ID. Example: "00u14u78lfuUpDWf0698"')
@@ -42,23 +43,34 @@ const action = createAction({
     scopes: ['okta.factors.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.okta.com/docs/reference/api/factors/#list-enrolled-factors
-        const response = await nango.get({
+        const proxyConfig: ProxyConfiguration = {
+            // https://developer.okta.com/docs/reference/api/factors/#list-enrolled-factors
             endpoint: `/api/v1/users/${encodeURIComponent(input.userId)}/factors`,
+            paginate: {
+                type: 'link',
+                limit_name_in_request: 'limit',
+                link_rel_in_response_header: 'next',
+                limit: 100
+            },
             retries: 3
-        });
+        };
 
-        const parsed = z.array(FactorSchema).safeParse(response.data);
-        if (!parsed.success) {
-            throw new nango.ActionError({
-                type: 'parse_error',
-                message: 'Failed to parse factors response',
-                details: parsed.error.issues
-            });
+        const factors: z.infer<typeof FactorSchema>[] = [];
+
+        for await (const page of nango.paginate(proxyConfig)) {
+            const parsed = z.array(FactorSchema).safeParse(page);
+            if (!parsed.success) {
+                throw new nango.ActionError({
+                    type: 'parse_error',
+                    message: 'Failed to parse factors response',
+                    details: parsed.error.issues
+                });
+            }
+            factors.push(...parsed.data);
         }
 
         return {
-            factors: parsed.data
+            factors
         };
     }
 });

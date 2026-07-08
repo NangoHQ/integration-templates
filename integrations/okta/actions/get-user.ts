@@ -16,6 +16,7 @@ const ProviderUserSchema = z
         lastUpdated: z.string().optional(),
         passwordChanged: z.string().nullable().optional(),
         transitioningToStatus: z.string().nullable().optional(),
+        type: z.object({ id: z.string() }).optional(),
         profile: z.object({}).passthrough().optional(),
         credentials: z.object({}).passthrough().optional(),
         _links: z.object({}).passthrough().optional()

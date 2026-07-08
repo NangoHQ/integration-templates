@@ -22,21 +22,7 @@ const ProviderGroupSchema = z.object({
     _links: z.record(z.string(), z.unknown()).nullable().optional()
 });
 
-const OutputSchema = z.object({
-    id: z.string(),
-    created: z.string().optional(),
-    lastUpdated: z.string().optional(),
-    lastMembershipUpdated: z.string().optional(),
-    objectClass: z.array(z.string()).optional(),
-    type: z.string().optional(),
-    profile: z
-        .object({
-            name: z.string().optional(),
-            description: z.string().optional()
-        })
-        .optional(),
-    _links: z.record(z.string(), z.unknown()).optional()
-});
+const OutputSchema = ProviderGroupSchema;
 
 const action = createAction({
     description: 'Retrieve a group.',
@@ -60,23 +46,7 @@ const action = createAction({
             });
         }
 
-        const providerGroup = ProviderGroupSchema.parse(response.data);
-
-        return {
-            id: providerGroup.id,
-            ...(providerGroup.created != null && { created: providerGroup.created }),
-            ...(providerGroup.lastUpdated != null && { lastUpdated: providerGroup.lastUpdated }),
-            ...(providerGroup.lastMembershipUpdated != null && { lastMembershipUpdated: providerGroup.lastMembershipUpdated }),
-            ...(providerGroup.objectClass != null && { objectClass: providerGroup.objectClass }),
-            ...(providerGroup.type != null && { type: providerGroup.type }),
-            ...(providerGroup.profile != null && {
-                profile: {
-                    ...(providerGroup.profile.name != null && { name: providerGroup.profile.name }),
-                    ...(providerGroup.profile.description != null && { description: providerGroup.profile.description })
-                }
-            }),
-            ...(providerGroup._links != null && { _links: providerGroup._links })
-        };
+        return ProviderGroupSchema.parse(response.data);
     }
 });
 

@@ -5,16 +5,18 @@ const InputSchema = z.object({
     userId: z.string().describe('The unique ID of the Okta user. Example: "00u14y5plo5MraBIf698"')
 });
 
-const ProviderRoleSchema = z.object({
-    id: z.string(),
-    label: z.string(),
-    type: z.string(),
-    status: z.string(),
-    created: z.string().optional(),
-    lastUpdated: z.string().optional(),
-    assignmentType: z.string().optional(),
-    _links: z.unknown().optional()
-});
+const ProviderRoleSchema = z
+    .object({
+        id: z.string(),
+        label: z.string(),
+        type: z.string(),
+        status: z.string(),
+        created: z.string().optional(),
+        lastUpdated: z.string().optional(),
+        assignmentType: z.string().optional(),
+        _links: z.unknown().optional()
+    })
+    .passthrough();
 
 const OutputSchema = z.object({
     roles: z.array(ProviderRoleSchema)

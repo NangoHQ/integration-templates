@@ -1,7 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const PolicyTypeSchema = z.enum(['OKTA_SIGN_ON', 'PASSWORD', 'MFA_ENROLL', 'IDP_DISCOVERY', 'ACCESS_POLICY', 'PROFILE_ENROLLMENT']);
+const PolicyTypeSchema = z.enum([
+    'OKTA_SIGN_ON',
+    'PASSWORD',
+    'MFA_ENROLL',
+    'IDP_DISCOVERY',
+    'ACCESS_POLICY',
+    'PROFILE_ENROLLMENT',
+    'ENTITY_RISK',
+    'POST_AUTH_SESSION',
+    'DEVICE_SIGNAL_COLLECTION',
+    'SESSION_VIOLATION_DETECTION',
+    'CLIENT_UPDATE',
+    'IDENTITY_CLAIM_SOURCING'
+]);
 
 const PolicyStatusSchema = z.enum(['ACTIVE', 'INACTIVE']);
 

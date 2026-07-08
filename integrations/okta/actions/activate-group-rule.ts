@@ -10,6 +10,7 @@ const action = createAction({
     version: '1.0.0',
     input: inputSchema,
     output: z.null(),
+    scopes: ['okta.groups.manage'],
 
     exec: async (nango, input) => {
         // https://developer.okta.com/docs/reference/api/groups/#activate-group-rule

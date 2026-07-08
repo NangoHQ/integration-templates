@@ -35,8 +35,17 @@ const action = createAction({
             });
         }
 
+        if (response.status < 200 || response.status >= 300) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: `Unexpected status code ${String(response.status)} when deleting authorization server scope.`,
+                authServerId: input.authServerId,
+                scopeId: input.scopeId
+            });
+        }
+
         return {
-            success: response.status >= 200 && response.status < 300,
+            success: true,
             authServerId: input.authServerId,
             scopeId: input.scopeId
         };

@@ -52,6 +52,11 @@ const CheckpointSchema = z.object({
     last_full_refresh: z.string()
 });
 
+const StoredCheckpointSchema = z.object({
+    updated_after: z.string().optional(),
+    last_full_refresh: z.string().optional()
+});
+
 const FULL_REFRESH_INTERVAL_MS = 24 * 60 * 60 * 1000;
 
 const sync = createSync({
@@ -67,7 +72,7 @@ const sync = createSync({
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        const checkpoint = StoredCheckpointSchema.parse(rawCheckpoint ?? {});
         const runStartedAt = new Date().toISOString();
 
         const shouldFullRefresh =

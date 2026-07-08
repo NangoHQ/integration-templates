@@ -6,6 +6,13 @@ const InputSchema = z.object({
     sendEmail: z.boolean().optional().describe('Whether to send an activation email to the user.')
 });
 
+const ActivationLinkSchema = z
+    .object({
+        activationUrl: z.string().optional(),
+        activationToken: z.string().optional()
+    })
+    .passthrough();
+
 const ProviderUserSchema = z
     .object({
         id: z.string(),
@@ -43,7 +50,9 @@ const OutputSchema = z.object({
         .optional(),
     profile: z.record(z.string(), z.unknown()).optional(),
     credentials: z.record(z.string(), z.unknown()).optional(),
-    _links: z.record(z.string(), z.unknown()).optional()
+    _links: z.record(z.string(), z.unknown()).optional(),
+    activationUrl: z.string().optional(),
+    activationToken: z.string().optional()
 });
 
 const action = createAction({
@@ -59,24 +68,25 @@ const action = createAction({
             params['sendEmail'] = String(input.sendEmail);
         }
 
-        const response = await nango.post({
+        const activateResponse = await nango.post({
             // https://developer.okta.com/docs/reference/api/users/#activate-user
             endpoint: `/api/v1/users/${encodeURIComponent(input.userId)}/lifecycle/activate`,
             params,
             retries: 3
         });
 
-        let userData = response.data;
-        if (!userData || typeof userData !== 'object' || !('id' in userData)) {
-            const getResponse = await nango.get({
-                // https://developer.okta.com/docs/reference/api/users/#get-user
-                endpoint: `/api/v1/users/${encodeURIComponent(input.userId)}`,
-                retries: 3
-            });
-            userData = getResponse.data;
-        }
+        // The activate endpoint never returns a user object: it returns an activation
+        // link (activationUrl/activationToken) when sendEmail=false, or an empty body
+        // when Okta emails the link instead. The current user state must be fetched separately.
+        const activationLink = ActivationLinkSchema.safeParse(activateResponse.data);
 
-        const providerUser = ProviderUserSchema.parse(userData);
+        const getResponse = await nango.get({
+            // https://developer.okta.com/docs/reference/api/users/#get-user
+            endpoint: `/api/v1/users/${encodeURIComponent(input.userId)}`,
+            retries: 3
+        });
+
+        const providerUser = ProviderUserSchema.parse(getResponse.data);
 
         return {
             id: providerUser.id,
@@ -90,7 +100,9 @@ const action = createAction({
             ...(providerUser.type !== undefined && { type: providerUser.type }),
             ...(providerUser.profile !== undefined && { profile: providerUser.profile }),
             ...(providerUser.credentials !== undefined && { credentials: providerUser.credentials }),
-            ...(providerUser._links !== undefined && { _links: providerUser._links })
+            ...(providerUser._links !== undefined && { _links: providerUser._links }),
+            ...(activationLink.success && activationLink.data.activationUrl !== undefined && { activationUrl: activationLink.data.activationUrl }),
+            ...(activationLink.success && activationLink.data.activationToken !== undefined && { activationToken: activationLink.data.activationToken })
         };
     }
 });

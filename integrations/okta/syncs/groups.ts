@@ -1,21 +1,6 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
-const ProviderGroupSchema = z.object({
-    id: z.string(),
-    created: z.string().optional(),
-    lastUpdated: z.string().optional(),
-    lastMembershipUpdated: z.string().optional(),
-    objectClass: z.array(z.string()).optional(),
-    type: z.string().optional(),
-    profile: z
-        .object({
-            name: z.string().optional(),
-            description: z.string().optional()
-        })
-        .optional()
-});
-
 const GroupSchema = z.object({
     id: z.string(),
     created: z.string().optional(),
@@ -30,6 +15,8 @@ const GroupSchema = z.object({
         })
         .optional()
 });
+
+const ProviderGroupSchema = GroupSchema;
 
 const CheckpointSchema = z.object({
     updated_after: z.string(),
@@ -73,6 +60,7 @@ const sync = createSync({
             },
             paginate: {
                 type: 'link',
+                link_rel_in_response_header: 'next',
                 limit_name_in_request: 'limit',
                 limit: 1000
             },

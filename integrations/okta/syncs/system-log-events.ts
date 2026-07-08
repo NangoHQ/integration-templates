@@ -24,24 +24,8 @@ const LogEventSchema = z.object({
     securityContext: z.record(z.string(), z.unknown()).optional()
 });
 
-const SystemLogEventSchema = z.object({
-    id: z.string(),
-    uuid: z.string(),
-    published: z.string(),
-    eventType: z.string().optional(),
-    displayMessage: z.string().optional(),
-    severity: z.string().optional(),
-    legacyEventType: z.string().optional(),
-    version: z.string().optional(),
-    actor: z.record(z.string(), z.unknown()).optional(),
-    target: z.array(z.record(z.string(), z.unknown())).optional(),
-    client: z.record(z.string(), z.unknown()).optional(),
-    authenticationContext: z.record(z.string(), z.unknown()).optional(),
-    outcome: z.record(z.string(), z.unknown()).optional(),
-    request: z.record(z.string(), z.unknown()).optional(),
-    transaction: z.record(z.string(), z.unknown()).optional(),
-    debugContext: z.record(z.string(), z.unknown()).optional(),
-    securityContext: z.record(z.string(), z.unknown()).optional()
+const SystemLogEventSchema = LogEventSchema.extend({
+    id: z.string()
 });
 
 const sync = createSync({
@@ -58,6 +42,10 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
         const validatedCheckpoint = CheckpointSchema.safeParse(checkpoint);
         const since = validatedCheckpoint.success ? validatedCheckpoint.data.since : undefined;
+        // Okta always returns a rel="next" link for an ASCENDING query with no `until`
+        // (a "polling query"), which would make pagination run forever. Bounding the
+        // window with `until` makes it a normal, terminating query.
+        const until = new Date().toISOString();
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.okta.com/docs/reference/api/system-log/
@@ -65,6 +53,7 @@ const sync = createSync({
             params: {
                 sortOrder: 'ASCENDING',
                 limit: 1000,
+                until,
                 ...(since && { since })
             },
             paginate: {
@@ -75,6 +64,8 @@ const sync = createSync({
             },
             retries: 3
         };
+
+        let lastPublished: string | undefined;
 
         for await (const page of nango.paginate(proxyConfig)) {
             if (!Array.isArray(page)) {
@@ -117,9 +108,13 @@ const sync = createSync({
 
             const lastEvent = events[events.length - 1];
             if (lastEvent) {
-                await nango.saveCheckpoint({ since: lastEvent.published });
+                lastPublished = lastEvent.published;
             }
         }
+
+        // Always advance the checkpoint to `until`, even if no events were found, so the
+        // next run doesn't keep re-querying the same empty window forever.
+        await nango.saveCheckpoint({ since: lastPublished ?? until });
     }
 });
 

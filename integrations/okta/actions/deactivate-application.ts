@@ -38,12 +38,18 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.okta.com/docs/reference/api/apps/#deactivate-application
-        const response = await nango.post({
+        await nango.post({
             endpoint: `/api/v1/apps/${encodeURIComponent(input.appId)}/lifecycle/deactivate`,
             retries: 3
         });
 
-        const providerApp = ProviderAppSchema.parse(response.data);
+        const getResponse = await nango.get({
+            // https://developer.okta.com/docs/reference/api/apps/#get-application
+            endpoint: `/api/v1/apps/${encodeURIComponent(input.appId)}`,
+            retries: 3
+        });
+
+        const providerApp = ProviderAppSchema.parse(getResponse.data);
 
         return {
             id: providerApp.id ?? input.appId,

@@ -41,6 +41,18 @@ const OutputSchema = z.object({
     next_cursor: z.string().optional()
 });
 
+function getHeaderValue(headers: unknown, name: string): string | undefined {
+    if (typeof headers !== 'object' || headers === null) {
+        return undefined;
+    }
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === name.toLowerCase()) {
+            return typeof value === 'string' ? value : undefined;
+        }
+    }
+    return undefined;
+}
+
 const action = createAction({
     description: 'List authorization servers.',
     version: '1.0.0',
@@ -60,7 +72,7 @@ const action = createAction({
 
         const items = z.array(AuthorizationServerSchema).parse(response.data);
 
-        const linkHeader = response.headers?.['link'];
+        const linkHeader = getHeaderValue(response.headers, 'link');
         let next_cursor: string | undefined;
         if (typeof linkHeader === 'string') {
             const match = linkHeader.match(/<[^>]+[?&]after=([^&>]+)[^>]*>; rel="next"/i);

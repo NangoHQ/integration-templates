@@ -24,7 +24,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['okta.schemas.read'],
+    scopes: ['okta.userTypes.read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

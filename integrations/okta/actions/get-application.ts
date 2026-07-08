@@ -31,13 +31,13 @@ const ProviderApplicationSchema = z
         created: z.string().optional(),
         lastUpdated: z.string().optional(),
         signOnMode: z.string().optional(),
-        features: z.array(z.string()).optional(),
-        accessibility: z.record(z.string(), z.unknown()).optional(),
-        visibility: z.record(z.string(), z.unknown()).optional(),
-        credentials: z.record(z.string(), z.unknown()).optional(),
-        settings: z.record(z.string(), z.unknown()).optional(),
-        profile: z.record(z.string(), z.unknown()).optional(),
-        _links: z.record(z.string(), z.unknown()).optional()
+        features: z.array(z.string()).nullable().optional(),
+        accessibility: z.record(z.string(), z.unknown()).nullable().optional(),
+        visibility: z.record(z.string(), z.unknown()).nullable().optional(),
+        credentials: z.record(z.string(), z.unknown()).nullable().optional(),
+        settings: z.record(z.string(), z.unknown()).nullable().optional(),
+        profile: z.record(z.string(), z.unknown()).nullable().optional(),
+        _links: z.record(z.string(), z.unknown()).nullable().optional()
     })
     .passthrough();
 
@@ -74,13 +74,13 @@ const action = createAction({
             ...(app.created !== undefined && { created: app.created }),
             ...(app.lastUpdated !== undefined && { lastUpdated: app.lastUpdated }),
             ...(app.signOnMode !== undefined && { signOnMode: app.signOnMode }),
-            ...(app.features !== undefined && { features: app.features }),
-            ...(app.accessibility !== undefined && { accessibility: app.accessibility }),
-            ...(app.visibility !== undefined && { visibility: app.visibility }),
-            ...(app.credentials !== undefined && { credentials: app.credentials }),
-            ...(app.settings !== undefined && { settings: app.settings }),
-            ...(app.profile !== undefined && { profile: app.profile }),
-            ...(app._links !== undefined && { links: app._links })
+            ...(app.features != null && { features: app.features }),
+            ...(app.accessibility != null && { accessibility: app.accessibility }),
+            ...(app.visibility != null && { visibility: app.visibility }),
+            ...(app.credentials != null && { credentials: app.credentials }),
+            ...(app.settings != null && { settings: app.settings }),
+            ...(app.profile != null && { profile: app.profile }),
+            ...(app._links != null && { links: app._links })
         };
     }
 });

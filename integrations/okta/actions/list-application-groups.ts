@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     appId: z.string().describe('Application ID. Example: "0oa14y5qldjOIAGrc698"'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Number of results per page. Defaults to 20.')
+    limit: z.number().int().min(1).max(200).optional().describe('Number of results per page. Defaults to 20.')
 });
 
 const ApplicationGroupSchema = z.object({

@@ -22,8 +22,8 @@ const ProviderUserSchema = z
         id: z.string(),
         status: z.string(),
         created: z.string().optional(),
-        activated: z.string().optional(),
-        statusChanged: z.string().optional(),
+        activated: z.string().nullable().optional(),
+        statusChanged: z.string().nullable().optional(),
         lastLogin: z.string().nullable().optional(),
         lastUpdated: z.string().optional(),
         passwordChanged: z.string().nullable().optional(),
@@ -36,12 +36,24 @@ const OutputSchema = z.object({
     nextCursor: z.string().optional()
 });
 
+function getHeaderValue(headers: unknown, name: string): string | undefined {
+    if (typeof headers !== 'object' || headers === null) {
+        return undefined;
+    }
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === name.toLowerCase()) {
+            return typeof value === 'string' ? value : undefined;
+        }
+    }
+    return undefined;
+}
+
 function extractNextCursor(linkHeader: unknown): string | undefined {
     if (typeof linkHeader !== 'string') {
         return undefined;
     }
     const match = linkHeader.match(/<[^>]+[?&]after=([^&>]+)[^>]*>;\s*rel="next"/i);
-    return match?.[1];
+    return match?.[1] !== undefined ? decodeURIComponent(match[1]) : undefined;
 }
 
 const action = createAction({
@@ -63,7 +75,7 @@ const action = createAction({
         });
 
         const users = z.array(ProviderUserSchema).parse(response.data);
-        const nextCursor = extractNextCursor(response.headers?.['link'] ?? response.headers?.['Link']);
+        const nextCursor = extractNextCursor(getHeaderValue(response.headers, 'link'));
 
         return {
             items: users,

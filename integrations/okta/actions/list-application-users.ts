@@ -34,6 +34,18 @@ const OutputSchema = z.object({
     nextCursor: z.string().optional()
 });
 
+function getHeaderValue(headers: unknown, name: string): string | undefined {
+    if (typeof headers !== 'object' || headers === null) {
+        return undefined;
+    }
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === name.toLowerCase()) {
+            return typeof value === 'string' ? value : undefined;
+        }
+    }
+    return undefined;
+}
+
 const action = createAction({
     description: 'List users assigned to an application',
     version: '1.0.0',
@@ -52,8 +64,7 @@ const action = createAction({
             retries: 3
         });
 
-        const headers = response.headers;
-        const linkValue = typeof headers === 'object' && headers !== null ? headers['link'] : undefined;
+        const linkValue = getHeaderValue(response.headers, 'link');
         let nextCursor: string | undefined;
 
         if (typeof linkValue === 'string') {

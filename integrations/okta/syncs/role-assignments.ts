@@ -40,6 +40,7 @@ const sync = createSync({
             endpoint: '/api/v1/users',
             paginate: {
                 type: 'link',
+                link_rel_in_response_header: 'next',
                 limit: 100,
                 limit_name_in_request: 'limit'
             },
@@ -60,6 +61,7 @@ const sync = createSync({
             endpoint: '/api/v1/groups',
             paginate: {
                 type: 'link',
+                link_rel_in_response_header: 'next',
                 limit: 100,
                 limit_name_in_request: 'limit'
             },

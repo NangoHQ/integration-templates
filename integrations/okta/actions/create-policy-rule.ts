@@ -21,17 +21,7 @@ const ProviderRuleSchema = z.object({
     system: z.boolean().optional()
 });
 
-const OutputSchema = z.object({
-    id: z.string(),
-    type: z.string(),
-    name: z.string(),
-    status: z.string().optional(),
-    conditions: z.record(z.string(), z.unknown()).optional(),
-    actions: z.record(z.string(), z.unknown()).optional(),
-    created: z.string().optional(),
-    lastUpdated: z.string().optional(),
-    system: z.boolean().optional()
-});
+const OutputSchema = ProviderRuleSchema;
 
 const action = createAction({
     description: 'Create a rule under a policy.',
@@ -53,19 +43,7 @@ const action = createAction({
             retries: 10
         });
 
-        const providerRule = ProviderRuleSchema.parse(response.data);
-
-        return {
-            id: providerRule.id,
-            type: providerRule.type,
-            name: providerRule.name,
-            ...(providerRule.status !== undefined && { status: providerRule.status }),
-            ...(providerRule.conditions !== undefined && { conditions: providerRule.conditions }),
-            ...(providerRule.actions !== undefined && { actions: providerRule.actions }),
-            ...(providerRule.created !== undefined && { created: providerRule.created }),
-            ...(providerRule.lastUpdated !== undefined && { lastUpdated: providerRule.lastUpdated }),
-            ...(providerRule.system !== undefined && { system: providerRule.system })
-        };
+        return ProviderRuleSchema.parse(response.data);
     }
 });
 

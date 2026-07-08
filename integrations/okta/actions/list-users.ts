@@ -14,8 +14,8 @@ const UserSchema = z
         id: z.string(),
         status: z.string().optional(),
         created: z.string().optional(),
-        activated: z.string().optional(),
-        statusChanged: z.string().optional(),
+        activated: z.string().nullable().optional(),
+        statusChanged: z.string().nullable().optional(),
         lastLogin: z.string().nullable().optional(),
         lastUpdated: z.string().optional(),
         passwordChanged: z.string().nullable().optional(),
@@ -35,6 +35,18 @@ const OutputSchema = z.object({
     users: z.array(UserSchema),
     next_cursor: z.string().optional()
 });
+
+function getHeaderValue(headers: unknown, name: string): string | undefined {
+    if (typeof headers !== 'object' || headers === null) {
+        return undefined;
+    }
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === name.toLowerCase()) {
+            return typeof value === 'string' ? value : undefined;
+        }
+    }
+    return undefined;
+}
 
 const action = createAction({
     description: 'List users.',
@@ -71,7 +83,7 @@ const action = createAction({
         const users = z.array(UserSchema).parse(response.data);
 
         let next_cursor: string | undefined;
-        const linkHeader = response.headers ? response.headers['link'] : undefined;
+        const linkHeader = getHeaderValue(response.headers, 'link');
         if (typeof linkHeader === 'string') {
             const nextMatch = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
             if (nextMatch && nextMatch[1] !== undefined) {

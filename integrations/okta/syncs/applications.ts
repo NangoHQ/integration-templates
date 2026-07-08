@@ -45,6 +45,7 @@ const sync = createSync({
             endpoint: '/api/v1/apps',
             paginate: {
                 type: 'link',
+                link_rel_in_response_header: 'next',
                 limit_name_in_request: 'limit',
                 limit: 200
             },

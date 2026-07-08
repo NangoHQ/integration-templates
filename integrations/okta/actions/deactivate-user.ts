@@ -45,33 +45,33 @@ const action = createAction({
             params['sendEmail'] = String(input.sendEmail);
         }
 
-        const response = await nango.post({
+        // The deactivate endpoint returns an empty body, so the current user state
+        // must be fetched separately.
+        await nango.post({
             // https://developer.okta.com/docs/reference/api/users/#deactivate-user
             endpoint: `/api/v1/users/${encodeURIComponent(input.userId)}/lifecycle/deactivate`,
             params,
             retries: 10
         });
 
-        const parseResult = ProviderUserSchema.safeParse(response.data);
-        if (parseResult.success) {
-            const user = parseResult.data;
-            return {
-                id: user.id,
-                status: user.status,
-                ...(user.created !== undefined && { created: user.created }),
-                ...(user.activated != null && { activated: user.activated }),
-                ...(user.statusChanged != null && { statusChanged: user.statusChanged }),
-                ...(user.lastLogin != null && { lastLogin: user.lastLogin }),
-                ...(user.lastUpdated !== undefined && { lastUpdated: user.lastUpdated }),
-                ...(user.passwordChanged != null && { passwordChanged: user.passwordChanged }),
-                ...(user.profile !== undefined && { profile: user.profile }),
-                ...(user.credentials !== undefined && { credentials: user.credentials })
-            };
-        }
+        const getResponse = await nango.get({
+            // https://developer.okta.com/docs/reference/api/users/#get-user
+            endpoint: `/api/v1/users/${encodeURIComponent(input.userId)}`,
+            retries: 3
+        });
 
+        const user = ProviderUserSchema.parse(getResponse.data);
         return {
-            id: input.userId,
-            status: 'DEPROVISIONED'
+            id: user.id,
+            status: user.status,
+            ...(user.created !== undefined && { created: user.created }),
+            ...(user.activated != null && { activated: user.activated }),
+            ...(user.statusChanged != null && { statusChanged: user.statusChanged }),
+            ...(user.lastLogin != null && { lastLogin: user.lastLogin }),
+            ...(user.lastUpdated !== undefined && { lastUpdated: user.lastUpdated }),
+            ...(user.passwordChanged != null && { passwordChanged: user.passwordChanged }),
+            ...(user.profile !== undefined && { profile: user.profile }),
+            ...(user.credentials !== undefined && { credentials: user.credentials })
         };
     }
 });

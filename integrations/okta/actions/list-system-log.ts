@@ -93,6 +93,21 @@ const OutputSchema = z.object({
     nextCursor: z.string().optional()
 });
 
+function getHeaderValue(headers: unknown, name: string): string | string[] | undefined {
+    if (typeof headers !== 'object' || headers === null) {
+        return undefined;
+    }
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === name.toLowerCase()) {
+            if (typeof value === 'string' || Array.isArray(value)) {
+                return value;
+            }
+            return undefined;
+        }
+    }
+    return undefined;
+}
+
 const action = createAction({
     description: 'List system log events.',
     version: '1.0.0',
@@ -134,7 +149,7 @@ const action = createAction({
         const rawEvents = z.array(z.unknown()).parse(response.data);
         const events = rawEvents.map((item) => SystemLogEventSchema.parse(item));
 
-        const rawLink = response.headers ? response.headers['link'] : undefined;
+        const rawLink = getHeaderValue(response.headers, 'link');
         let linkHeader: string | undefined;
         if (typeof rawLink === 'string') {
             linkHeader = rawLink;

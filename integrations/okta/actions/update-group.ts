@@ -37,13 +37,29 @@ const action = createAction({
     scopes: ['okta.groups.manage'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let description = input.description;
+
+        if (description === undefined) {
+            // Okta's update-group PUT replaces the whole profile object, so an omitted
+            // description would otherwise silently wipe out the existing one.
+            const currentResponse = await nango.get({
+                // https://developer.okta.com/docs/reference/api/groups/#get-group
+                endpoint: `/api/v1/groups/${encodeURIComponent(input.groupId)}`,
+                retries: 3
+            });
+            const currentGroup = ProviderGroupSchema.safeParse(currentResponse.data);
+            if (currentGroup.success && currentGroup.data.profile.description != null) {
+                description = currentGroup.data.profile.description;
+            }
+        }
+
         const response = await nango.put({
             // https://developer.okta.com/docs/reference/api/groups/#update-group
             endpoint: `/api/v1/groups/${encodeURIComponent(input.groupId)}`,
             data: {
                 profile: {
                     name: input.name,
-                    ...(input.description !== undefined && { description: input.description })
+                    ...(description !== undefined && { description })
                 }
             },
             retries: 3

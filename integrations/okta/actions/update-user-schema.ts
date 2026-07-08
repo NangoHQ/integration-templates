@@ -77,7 +77,17 @@ const action = createAction({
         const schemaData = ProviderSchemaResponseSchema.parse(response.data);
         const customProperties = schemaData.definitions?.custom?.properties;
         const rawAttribute = customProperties ? customProperties[input.attributeName] : undefined;
-        const attribute = ProviderCustomPropertySchema.parse(rawAttribute ?? {});
+
+        if (rawAttribute === undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: `The updated schema does not contain the custom attribute "${input.attributeName}".`,
+                schemaId: input.schemaId,
+                attributeName: input.attributeName
+            });
+        }
+
+        const attribute = ProviderCustomPropertySchema.parse(rawAttribute);
 
         return {
             schemaId: input.schemaId,

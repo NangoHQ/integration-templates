@@ -67,9 +67,10 @@ const sync = createSync({
         for await (const page of nango.paginate(appsConfig)) {
             for (const rawApp of page) {
                 const appResult = AppSchema.safeParse(rawApp);
-                if (appResult.success) {
-                    apps.push(appResult.data);
+                if (!appResult.success) {
+                    throw new Error(`Failed to parse application: ${appResult.error.message}`);
                 }
+                apps.push(appResult.data);
             }
         }
 

@@ -26,6 +26,18 @@ const OutputSchema = z.object({
     next_cursor: z.string().optional()
 });
 
+function getHeaderValue(headers: unknown, name: string): string | undefined {
+    if (typeof headers !== 'object' || headers === null) {
+        return undefined;
+    }
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === name.toLowerCase()) {
+            return typeof value === 'string' ? value : undefined;
+        }
+    }
+    return undefined;
+}
+
 const action = createAction({
     description: 'List the rules under a policy',
     version: '1.0.0',
@@ -46,7 +58,7 @@ const action = createAction({
         const items = z.array(PolicyRuleSchema).parse(response.data);
 
         let next_cursor: string | undefined;
-        const linkHeader = response.headers?.['link'];
+        const linkHeader = getHeaderValue(response.headers, 'link');
         if (typeof linkHeader === 'string') {
             const match = linkHeader.match(/<[^>]+[?&]after=([^>]+)>;\s*rel="next"/);
             if (match && match[1]) {

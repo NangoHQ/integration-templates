@@ -28,17 +28,20 @@ const GroupSchema = z
     })
     .passthrough();
 
-const LinkHeaderSchema = z.object({
-    link: z.string().optional()
-});
-
-function extractNextCursor(headers: unknown): string | undefined {
-    const parsed = LinkHeaderSchema.safeParse(headers);
-    if (!parsed.success) {
+function getHeaderValue(headers: unknown, name: string): string | undefined {
+    if (typeof headers !== 'object' || headers === null) {
         return undefined;
     }
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === name.toLowerCase()) {
+            return typeof value === 'string' ? value : undefined;
+        }
+    }
+    return undefined;
+}
 
-    const linkHeader = parsed.data.link;
+function extractNextCursor(headers: unknown): string | undefined {
+    const linkHeader = getHeaderValue(headers, 'link');
     if (!linkHeader) {
         return undefined;
     }

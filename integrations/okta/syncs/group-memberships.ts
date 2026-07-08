@@ -9,21 +9,8 @@ const GroupMembershipSchema = z.object({
     status: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    updated_after: z.string(),
-    last_full_refresh: z.string()
-});
-
-const StoredCheckpointSchema = z.object({
-    updated_after: z.string().optional(),
-    last_full_refresh: z.string().optional()
-});
-
-const FULL_REFRESH_INTERVAL_MS = 24 * 60 * 60 * 1000;
-
 const GroupSchema = z.object({
-    id: z.string(),
-    lastMembershipUpdated: z.string().optional()
+    id: z.string()
 });
 
 const OktaUserSchema = z.object({
@@ -41,19 +28,15 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         GroupMembership: GroupMembershipSchema
     },
 
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = StoredCheckpointSchema.parse(rawCheckpoint ?? {});
-        const updatedAfter = checkpoint?.updated_after;
-        const runStartedAt = new Date().toISOString();
-        const shouldFullRefresh =
-            !checkpoint.last_full_refresh || new Date(runStartedAt).getTime() - new Date(checkpoint.last_full_refresh).getTime() > FULL_REFRESH_INTERVAL_MS;
-
+        // Delete tracking is model-wide, and Okta gives no way to fetch previously-synced
+        // records back, so which members were removed from a specific group since the last
+        // run can't be reconstructed. Reconciling deletions correctly requires re-crawling
+        // every group's current membership and delete-tracking the whole model each run.
         const groupsToProcess: Array<z.infer<typeof GroupSchema>> = [];
 
         const groupsProxyConfig: ProxyConfiguration = {
@@ -61,6 +44,7 @@ const sync = createSync({
             endpoint: '/api/v1/groups',
             paginate: {
                 type: 'link',
+                link_rel_in_response_header: 'next',
                 limit_name_in_request: 'limit',
                 limit: 1000
             },
@@ -78,19 +62,11 @@ const sync = createSync({
                     throw new Error(`Failed to parse group: ${parsed.error.message}`);
                 }
 
-                const group = parsed.data;
-                if (!shouldFullRefresh && updatedAfter && group.lastMembershipUpdated && group.lastMembershipUpdated <= updatedAfter) {
-                    continue;
-                }
-
-                groupsToProcess.push(group);
+                groupsToProcess.push(parsed.data);
             }
         }
 
-        if (shouldFullRefresh) {
-            // Delete tracking is model-wide, so it is only safe during a true full crawl.
-            await nango.trackDeletesStart('GroupMembership');
-        }
+        await nango.trackDeletesStart('GroupMembership');
 
         for (const group of groupsToProcess) {
             const proxyConfig: ProxyConfiguration = {
@@ -98,6 +74,7 @@ const sync = createSync({
                 endpoint: `/api/v1/groups/${encodeURIComponent(group.id)}/users`,
                 paginate: {
                     type: 'link',
+                    link_rel_in_response_header: 'next',
                     limit_name_in_request: 'limit',
                     limit: 100
                 },
@@ -147,14 +124,7 @@ const sync = createSync({
             }
         }
 
-        if (shouldFullRefresh) {
-            await nango.trackDeletesEnd('GroupMembership');
-        }
-
-        await nango.saveCheckpoint({
-            updated_after: runStartedAt,
-            last_full_refresh: shouldFullRefresh ? runStartedAt : (checkpoint.last_full_refresh ?? runStartedAt)
-        });
+        await nango.trackDeletesEnd('GroupMembership');
     }
 });
 

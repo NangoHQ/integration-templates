@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     authServerId: z.string().describe('Authorization server ID. Example: "aus14u78liihuiepy698"'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Number of scopes to return per page. Default is determined by the provider.')
+    limit: z.number().int().min(1).max(200).optional().describe('Number of scopes to return per page. Default is determined by the provider.')
 });
 
 const ProviderScopeSchema = z.object({
@@ -35,6 +35,23 @@ const OutputSchema = z.object({
     items: z.array(ScopeSchema),
     next_cursor: z.string().optional()
 });
+
+function getHeaderValue(headers: unknown, name: string): string | undefined {
+    if (typeof headers !== 'object' || headers === null) {
+        return undefined;
+    }
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() === name.toLowerCase()) {
+            if (typeof value === 'string') {
+                return value;
+            }
+            if (Array.isArray(value)) {
+                return value.join(', ');
+            }
+        }
+    }
+    return undefined;
+}
 
 function extractNextCursorFromLinkHeader(linkHeader: string | undefined): string | undefined {
     if (!linkHeader) {
@@ -84,8 +101,7 @@ const action = createAction({
             };
         });
 
-        const rawLinkHeader = response.headers?.['link'];
-        const linkHeader = typeof rawLinkHeader === 'string' ? rawLinkHeader : undefined;
+        const linkHeader = getHeaderValue(response.headers, 'link');
         const next_cursor = extractNextCursorFromLinkHeader(linkHeader);
 
         return {

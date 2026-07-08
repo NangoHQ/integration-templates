@@ -16,7 +16,7 @@ const ProviderUserSchema = z.object({
     id: z.string(),
     status: z.string(),
     created: z.string().optional(),
-    activated: z.string().optional(),
+    activated: z.string().nullable().optional(),
     profile: ProviderProfileSchema.optional()
 });
 
@@ -61,7 +61,7 @@ const action = createAction({
             id: providerUser.id,
             status: providerUser.status,
             ...(providerUser.created !== undefined && { created: providerUser.created }),
-            ...(providerUser.activated !== undefined && { activated: providerUser.activated }),
+            ...(providerUser.activated != null && { activated: providerUser.activated }),
             ...(providerUser.profile !== undefined && {
                 profile: {
                     ...(providerUser.profile.firstName !== undefined && { firstName: providerUser.profile.firstName }),
