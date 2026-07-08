@@ -12,6 +12,14 @@ const PolicySchema = z.object({
     system: z.boolean().optional()
 });
 
+const OktaErrorSchema = z
+    .object({
+        errorSummary: z.string().optional()
+    })
+    .passthrough();
+
+const MISSING_FEATURE_FLAG_MARKER = 'Missing Required Feature Flag';
+
 const sync = createSync({
     description: 'Sync policies.',
     version: '1.0.0',
@@ -64,7 +72,9 @@ const sync = createSync({
             try {
                 for await (const page of nango.paginate(proxyConfig)) {
                     if (!Array.isArray(page)) {
-                        throw new Error(`Expected array from policies endpoint, got ${typeof page}`);
+                        const parsedError = OktaErrorSchema.safeParse(page);
+                        const errorSummary = parsedError.success ? parsedError.data.errorSummary : undefined;
+                        throw new Error(errorSummary ?? `Expected array from policies endpoint, got ${typeof page}`);
                     }
 
                     const policies = [];
@@ -81,7 +91,14 @@ const sync = createSync({
                     }
                 }
             } catch (err) {
-                await nango.log(`Skipping policy type ${policyType}: ${err instanceof Error ? err.message : String(err)}`, { level: 'warn' });
+                const message = err instanceof Error ? err.message : String(err);
+                // Only skip the specific "org doesn't have this policy type enabled" case.
+                // Any other failure (transient network error, parse error, etc.) must abort
+                // the sync rather than let trackDeletesEnd finalize on partial enumeration.
+                if (!message.includes(MISSING_FEATURE_FLAG_MARKER)) {
+                    throw err;
+                }
+                await nango.log(`Skipping policy type ${policyType}: ${message}`, { level: 'warn' });
             }
         }
 

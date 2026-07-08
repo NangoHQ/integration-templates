@@ -20,6 +20,19 @@ const ProviderGroupSchema = z.object({
     })
 });
 
+// Only validates the one field this fallback needs, so unrelated nullable fields
+// on the current group (created, lastUpdated, etc.) can't cause this to fail and
+// silently drop the description-preservation path.
+const CurrentGroupProfileSchema = z
+    .object({
+        profile: z
+            .object({
+                description: z.string().nullable().optional()
+            })
+            .passthrough()
+    })
+    .passthrough();
+
 const OutputSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -47,7 +60,7 @@ const action = createAction({
                 endpoint: `/api/v1/groups/${encodeURIComponent(input.groupId)}`,
                 retries: 3
             });
-            const currentGroup = ProviderGroupSchema.safeParse(currentResponse.data);
+            const currentGroup = CurrentGroupProfileSchema.safeParse(currentResponse.data);
             if (currentGroup.success && currentGroup.data.profile.description != null) {
                 description = currentGroup.data.profile.description;
             }

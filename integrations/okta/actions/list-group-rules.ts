@@ -30,7 +30,13 @@ function getHeaderValue(headers: unknown, name: string): string | undefined {
     }
     for (const [key, value] of Object.entries(headers)) {
         if (key.toLowerCase() === name.toLowerCase()) {
-            return typeof value === 'string' ? value : undefined;
+            if (typeof value === 'string') {
+                return value;
+            }
+            if (Array.isArray(value)) {
+                return value.join(', ');
+            }
+            return undefined;
         }
     }
     return undefined;

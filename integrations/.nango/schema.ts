@@ -12504,24 +12504,13 @@ export interface ActionOutput_asana_updatetask {
 
 export interface Application {
   id: string;
-  candidate_id: string;
-  applied_at: string;
-  rejected_at: string | null;
-  last_activity_at: string;
-  source: {  id: string;
-  public_name: string;};
-  credited_to: string;
-  rejection_reason: {  id: string;
   name: string;
-  type: {  id: string;
-  name: string;};} | null;
-  jobs: ({  id: string;
-  name: string;})[];
-  job_post_id: string;
+  label: string;
   status: string;
-  current_stage: {  id: string;
-  name: string;};
-  deleted_at: string | null;
+  lastUpdated: string;
+  created: string;
+  signOnMode?: string | undefined;
+  features?: string[] | undefined;
 };
 
 export interface SyncMetadata_ashby_applications {
@@ -84063,72 +84052,1663 @@ export interface ActionOutput_odoo_cc_updaterecord {
   success: boolean;
 };
 
-export interface SyncMetadata_okta_users {
+export interface ApplicationUser {
+  id: string;
+  app_id: string;
+  user_id: string;
+  external_id?: string | undefined;
+  created?: string | undefined;
+  last_updated?: string | undefined;
+  scope?: string | undefined;
+  status?: string | undefined;
+  status_changed?: string | undefined;
+  sync_state?: string | undefined;
+  last_sync?: string | undefined;
+  credentials_user_name?: string | undefined;
+};
+
+export interface AuthorizationServer {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  audiences?: string[] | undefined;
+  issuer?: string | undefined;
+  status?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+};
+
+export interface Factor {
+  id: string;
+  userId: string;
+  factorType: string;
+  provider: string;
+  status: string;
+};
+
+export interface GroupMembership {
+  id: string;
+  groupId: string;
+  userId: string;
+  email?: string | undefined;
+  status?: string | undefined;
+};
+
+export interface Policy {
+  id: string;
+  type: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  system?: boolean | undefined;
+};
+
+export interface RoleAssignment {
+  id: string;
+  principalType: 'user' | 'group';
+  principalId: string;
+  type: string;
+  label?: string | undefined;
+  status?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+};
+
+export interface Schema {
+  /**
+   * Composite identifier: database_name/schema_name
+   */
+  id: string;
+  database_name: string;
+  name: string;
+  created_on?: string | undefined;
+  schema_owner?: string | undefined;
+  comment?: string | undefined;
+  retention_time?: string | undefined;
+};
+
+export interface SystemLogEvent {
+  uuid: string;
+  published: string;
+  eventType?: string | undefined;
+  displayMessage?: string | undefined;
+  severity?: string | undefined;
+  legacyEventType?: string | undefined;
+  version?: string | undefined;
+  actor?: {  [key: string]: unknown | undefined;};
+  target?: ({  [key: string]: unknown | undefined;})[];
+  client?: {  [key: string]: unknown | undefined;};
+  authenticationContext?: {  [key: string]: unknown | undefined;};
+  outcome?: {  [key: string]: unknown | undefined;};
+  request?: {  [key: string]: unknown | undefined;};
+  transaction?: {  [key: string]: unknown | undefined;};
+  debugContext?: {  [key: string]: unknown | undefined;};
+  securityContext?: {  [key: string]: unknown | undefined;};
+  id: string;
+};
+
+export interface ActionInput_okta_activateapplication {
+  /**
+   * Application ID. Example: "0oa14y5pvdukQRBPv698"
+   */
+  appId: string;
+};
+
+export interface ActionOutput_okta_activateapplication {
+  id: string;
+  name: string;
+  label: string;
+  status: string;
+};
+
+export interface ActionInput_okta_activategrouprule {
+  ruleId: string;
+};
+
+export type ActionOutput_okta_activategrouprule = null
+
+export interface ActionInput_okta_activateuser {
+  /**
+   * User ID. Example: "00u14u78lfuUpDWf0698"
+   */
+  userId: string;
+  /**
+   * Whether to send an activation email to the user.
+   */
+  sendEmail?: boolean | undefined;
+};
+
+export interface ActionOutput_okta_activateuser {
+  id: string;
+  status: string;
+  created?: string | undefined;
+  activated?: string | undefined;
+  statusChanged?: string | undefined;
+  lastLogin?: string | undefined;
+  lastUpdated?: string | undefined;
+  passwordChanged?: string | undefined;
+  type?: {  id: string;} | undefined;
+  profile?: {  [key: string]: unknown | undefined;};
+  credentials?: {  [key: string]: unknown | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};
+  activationUrl?: string | undefined;
+  activationToken?: string | undefined;
 };
 
 export interface ActionInput_okta_addgroup {
-  description?: string | undefined;
+  /**
+   * Group name. Example: "Engineering"
+   */
   name: string;
+  /**
+   * Group description. Example: "Engineering team members"
+   */
+  description?: string | undefined;
 };
 
 export interface ActionOutput_okta_addgroup {
   id: string;
-  created: string;
-  lastMembershipUpdated: string;
-  lastUpdated: string;
-  objectClass: string[];
-  type: 'APP_GROUP' | 'BUILT_IN' | 'OKTA_GROUP';
-  profile: {  description: string | null;
-  name: string;} | {  description: string;
-  dn: string;
-  externalId: string;
   name: string;
-  samAccountName: string;
-  windowsDomainQualifiedName: string;};
+  description?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  type?: string | undefined;
 };
 
 export interface ActionInput_okta_addusergroup {
+  /**
+   * Group ID. Example: "00g14y5q5vaoT7IXb698"
+   */
   groupId: string;
+  /**
+   * User ID. Example: "00u14y5o7tvvw1qA0698"
+   */
   userId: string;
 };
 
 export interface ActionOutput_okta_addusergroup {
-  success: boolean;
+  userId: string;
+  groupId: string;
+};
+
+export interface ActionInput_okta_assigngrouptoapplication {
+  /**
+   * Application ID. Example: 0oa14y5qldjOIAGrc698
+   */
+  appId: string;
+  /**
+   * Group ID. Example: 00g14y5qi7zRLgyzT698
+   */
+  groupId: string;
+  /**
+   * Priority assigned to the group. If omitted, the next highest priority is assigned by default.
+   */
+  priority?: number | undefined;
+};
+
+export interface ActionOutput_okta_assigngrouptoapplication {
+  id: string;
+  priority?: number | undefined;
+  lastUpdated?: string | undefined;
+  profile?: {  [key: string]: unknown | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_okta_assignroletouser {
+  /**
+   * User ID. Example: "00u14y5o7tvvw1qA0698"
+   */
+  userId: string;
+  /**
+   * Standard Okta admin role type enum value
+   */
+  type: 'SUPER_ADMIN' | 'ORG_ADMIN' | 'APP_ADMIN' | 'USER_ADMIN' | 'GROUP_ADMIN' | 'READ_ONLY_ADMIN' | 'MOBILE_ADMIN' | 'HELP_DESK_ADMIN' | 'REPORT_ADMIN' | 'API_ACCESS_MANAGEMENT_ADMIN';
+};
+
+export interface ActionOutput_okta_assignroletouser {
+  id: string;
+  type: string;
+  status?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+};
+
+export interface ActionInput_okta_assignusertoapplication {
+  /**
+   * Application ID. Example: "0oa14y5qldjOIAGrc698"
+   */
+  appId: string;
+  /**
+   * User ID to assign. Example: "00u14y5n6uhI2lpQ3698"
+   */
+  userId: string;
+  /**
+   * Assignment scope. Defaults to "USER".
+   */
+  scope?: string | undefined;
+};
+
+export interface ActionOutput_okta_assignusertoapplication {
+  id: string;
+  scope: string;
+  status: string;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  userName?: string | undefined;
+};
+
+export interface ActionInput_okta_createapplication {
+  /**
+   * Display name for the application. Example: "My Bookmark App"
+   */
+  label: string;
+  /**
+   * Target URL for the bookmark app. Example: "https://example.com"
+   */
+  url: string;
+  /**
+   * Application type name. Defaults to "bookmark"
+   */
+  name?: string | undefined;
+  /**
+   * Sign-on mode. Defaults to "BOOKMARK"
+   */
+  signOnMode?: string | undefined;
+  /**
+   * Whether to request integration. Defaults to false
+   */
+  requestIntegration?: boolean | undefined;
+};
+
+export interface ActionOutput_okta_createapplication {
+  id: string;
+  name: string;
+  label: string;
+  status: string;
+  signOnMode: string;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  url?: string | undefined;
+};
+
+export interface ActionInput_okta_createauthorizationserverscope {
+  /**
+   * Authorization server ID. Example: "aus14u78liihuiepy698"
+   */
+  authServerId: string;
+  /**
+   * Scope name. Example: "nango:test:create"
+   */
+  name: string;
+  /**
+   * Human-readable display name. Example: "Nango Test Create"
+   */
+  displayName: string;
+  /**
+   * Scope description. Example: "Allows creating test resources"
+   */
+  description: string;
+};
+
+export interface ActionOutput_okta_createauthorizationserverscope {
+  id: string;
+  name: string;
+  displayName?: string | undefined;
+  description?: string | undefined;
+  system?: boolean | undefined;
+  metadataPublish?: string | undefined;
+  default?: boolean | undefined;
+  consent?: string | undefined;
+};
+
+export interface ActionInput_okta_creategrouprule {
+  /**
+   * Unique name for the group rule.
+   */
+  name: string;
+  /**
+   * Okta expression used to determine group membership. Example: String.stringContains(user.email, "@example.com")
+   */
+  expression_value: string;
+  /**
+   * List of group IDs to assign matching users to.
+   */
+  group_ids: string[];
+};
+
+export interface ActionOutput_okta_creategrouprule {
+  id: string;
+  name: string;
+  status: string;
+  expression_value?: string | undefined;
+  group_ids?: string[] | undefined;
+};
+
+export interface ActionInput_okta_createpolicyrule {
+  /**
+   * Policy ID. Example: 00p14y5whkhX2J7ek698
+   */
+  policyId: string;
+  /**
+   * Rule name. Example: New Sign-On Rule
+   */
+  name: string;
+  /**
+   * Rule type corresponding to the parent policy's type. Example: SIGN_ON
+   */
+  type: string;
+  /**
+   * Rule conditions object. Structure depends on policy type.
+   */
+  conditions?: {} | undefined;
+  /**
+   * Rule actions object. Structure depends on policy type.
+   */
+  actions?: {} | undefined;
+};
+
+export interface ActionOutput_okta_createpolicyrule {
+  id: string;
+  type: string;
+  name: string;
+  status?: string | undefined;
+  conditions?: {  [key: string]: unknown | undefined;};
+  actions?: {  [key: string]: unknown | undefined;};
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  system?: boolean | undefined;
+};
+
+export interface ActionInput_okta_createpolicy {
+  /**
+   * Policy type. Example: "OKTA_SIGN_ON"
+   */
+  type: string;
+  /**
+   * Policy name.
+   */
+  name: string;
+  /**
+   * Policy description.
+   */
+  description?: string | undefined;
+  /**
+   * Group IDs to include in the policy conditions.
+   */
+  groupIds: string[];
+};
+
+export interface ActionOutput_okta_createpolicy {
+  id: string;
+  type: string;
+  name: string;
+  description?: string | undefined;
+  status: string;
+  conditions?: {  [key: string]: unknown | undefined;};
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  priority?: number | undefined;
+  system?: boolean | undefined;
+  active?: boolean | undefined;
 };
 
 export interface ActionInput_okta_createuser {
+  /**
+   * First name of the user.
+   */
   firstName: string;
+  /**
+   * Last name of the user.
+   */
   lastName: string;
+  /**
+   * Email address of the user.
+   */
   email: string;
-  login: string;
-  mobilePhone?: string | null | undefined;
+  /**
+   * Login username. Defaults to email if omitted.
+   */
+  login?: string | undefined;
+  /**
+   * Whether to activate the user immediately. Defaults to true.
+   */
+  activate?: boolean | undefined;
+  /**
+   * Initial password. If provided, the user is created ACTIVE with no welcome email.
+   */
+  password?: string | undefined;
 };
 
 export interface ActionOutput_okta_createuser {
   id: string;
+  status?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  login?: string | undefined;
+  createdAt?: string | undefined;
+};
+
+export interface ActionInput_okta_deactivateapplication {
+  /**
+   * The unique identifier of the application to deactivate. Example: "0oa1a2b3c4d5e6f7g8h9"
+   */
+  appId: string;
+};
+
+export interface ActionOutput_okta_deactivateapplication {
+  id: string;
+  name?: string | undefined;
+  label?: string | undefined;
+  status?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  signOnMode?: string | undefined;
+  features?: string[] | undefined;
+};
+
+export interface ActionInput_okta_deactivateuser {
+  /**
+   * User ID. Example: "00u14y5o7tvvw1qA0698"
+   */
+  userId: string;
+  /**
+   * Whether to send a deactivation email to the user. Defaults to false.
+   */
+  sendEmail?: boolean | undefined;
+};
+
+export interface ActionOutput_okta_deactivateuser {
+  id: string;
   status: string;
-  created: string;
-  activated: string;
-  statusChanged: string;
-  lastLogin: string | null;
-  lastUpdated: string;
-  passwordChanged: string | null;
-  type: {  id: string;};
-  profile: {  firstName: string | null;
-  lastName: string | null;
-  mobilePhone: string | null;
-  secondEmail: string | null;
-  login: string;
-  email: string;};
+  created?: string | undefined;
+  activated?: string | undefined;
+  statusChanged?: string | undefined;
+  lastLogin?: string | undefined;
+  lastUpdated?: string | undefined;
+  passwordChanged?: string | undefined;
+  profile?: {} | undefined;
+  credentials?: {} | undefined;
+};
+
+export interface ActionInput_okta_deleteapplication {
+  /**
+   * Application ID to delete. Example: "0oa1a2b3c4d5e6f7g8h9"
+   */
+  appId: string;
+};
+
+export interface ActionOutput_okta_deleteapplication {
+  /**
+   * Deleted application ID.
+   */
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_okta_deleteauthorizationserverscope {
+  /**
+   * Authorization server ID. Example: "aus14u78liihuiepy698"
+   */
+  authServerId: string;
+  /**
+   * Scope ID to delete. Example: "scp14y5t17kyZD0Pq698"
+   */
+  scopeId: string;
+};
+
+export interface ActionOutput_okta_deleteauthorizationserverscope {
+  success: boolean;
+  authServerId: string;
+  scopeId: string;
+};
+
+export interface ActionInput_okta_deletefactor {
+  /**
+   * User ID. Example: "00u14u78lfuUpDWf0698"
+   */
+  userId: string;
+  /**
+   * Factor ID. Example: "ost14u7gbraSXvpXE698"
+   */
+  factorId: string;
+};
+
+export interface ActionOutput_okta_deletefactor {
+  success: boolean;
+};
+
+export interface ActionInput_okta_deletegrouprule {
+  /**
+   * The unique identifier of the group rule. Example: "0pr14y9xo353ycfX8698"
+   */
+  ruleId: string;
+};
+
+export interface ActionOutput_okta_deletegrouprule {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_okta_deletegroup {
+  /**
+   * The unique ID of the Okta group to delete. Example: "00g14y5puecllOL1v698"
+   */
+  groupId: string;
+};
+
+export interface ActionOutput_okta_deletegroup {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_okta_deletepolicy {
+  /**
+   * The unique ID of the policy to delete. Example: "00p14y5whkhX2J7ek698"
+   */
+  policyId: string;
+};
+
+export interface ActionOutput_okta_deletepolicy {
+  success: boolean;
+  policyId: string;
+};
+
+export interface ActionInput_okta_deleteuser {
+  /**
+   * Okta user ID. Example: "00u14y5ppk7oVbg7r698"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_okta_deleteuser {
+  id: string;
+  success: boolean;
+};
+
+export interface ActionInput_okta_enrollfactor {
+  /**
+   * User ID. Example: "00u14y5o7tvvw1qA0698"
+   */
+  userId: string;
+  /**
+   * Factor type. Example: "push", "token:software:totp", "email", "sms", "question"
+   */
+  factorType: string;
+  /**
+   * Factor provider. Example: "OKTA", "GOOGLE", "YUBICO"
+   */
+  provider: string;
+  profile?: {  [key: string]: unknown | undefined;};
+  activate?: boolean | undefined;
+};
+
+export interface ActionOutput_okta_enrollfactor {
+  id: string;
+  factorType: string;
+  provider: string;
+  status: string;
+  profile?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_okta_expirepassword {
+  /**
+   * User ID. Example: "00u14y5oijeYKVDn0698"
+   */
+  userId: string;
+  /**
+   * If true, returns a temporary password for the user.
+   */
+  tempPassword?: boolean | undefined;
+};
+
+export interface ActionOutput_okta_expirepassword {
+  /**
+   * User ID, returned when tempPassword is false or omitted.
+   */
+  id?: string | undefined;
+  /**
+   * Temporary password, returned when tempPassword is true.
+   */
+  tempPassword?: string | undefined;
+  /**
+   * User status, returned when tempPassword is false or omitted.
+   */
+  status?: string | undefined;
+};
+
+export interface ActionInput_okta_getapplication {
+  /**
+   * Application ID. Example: "0oa14y5qldjOIAGrc698"
+   */
+  appId: string;
+};
+
+export interface ActionOutput_okta_getapplication {
+  /**
+   * Application ID. Example: "0oa14y5qldjOIAGrc698"
+   */
+  id: string;
+  /**
+   * Application name. Example: "bookmark"
+   */
+  name: string;
+  /**
+   * User-facing label. Example: "Nango Test Bookmark App"
+   */
+  label: string;
+  /**
+   * Application status. Example: "ACTIVE"
+   */
+  status: string;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  signOnMode?: string | undefined;
+  features?: string[] | undefined;
+  accessibility?: {  [key: string]: unknown | undefined;};
+  visibility?: {  [key: string]: unknown | undefined;};
+  credentials?: {  [key: string]: unknown | undefined;};
+  settings?: {  [key: string]: unknown | undefined;};
+  profile?: {  [key: string]: unknown | undefined;};
+  links?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_okta_getauthorizationserver {
+  /**
+   * Authorization server ID. Use "default" for the org's default server. Example: "default"
+   */
+  authServerId: string;
+};
+
+export interface ActionOutput_okta_getauthorizationserver {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  audiences?: string[] | undefined;
+  issuer?: string | undefined;
+  issuerMode?: string | undefined;
+  status?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  credentials?: {  signing?: {  kid?: string | undefined;
+  lastRotated?: string | undefined;
+  nextRotation?: string | undefined;
+  rotationMode?: string | undefined;
+  use?: string | undefined;};};
+  _links?: {  self?: {  href: string;
+  hints?: {  allow?: string[] | undefined;};
+  name?: string | undefined;
+  templated?: boolean | undefined;
+  type?: string | undefined;};
+  claims?: {  href: string;
+  hints?: {  allow?: string[] | undefined;};
+  name?: string | undefined;
+  templated?: boolean | undefined;
+  type?: string | undefined;};
+  deactivate?: {  href: string;
+  hints?: {  allow?: string[] | undefined;};
+  name?: string | undefined;
+  templated?: boolean | undefined;
+  type?: string | undefined;};
+  metadata?: ({  href: string;
+  hints?: {  allow?: string[] | undefined;};
+  name?: string | undefined;
+  templated?: boolean | undefined;
+  type?: string | undefined;})[];
+  policies?: {  href: string;
+  hints?: {  allow?: string[] | undefined;};
+  name?: string | undefined;
+  templated?: boolean | undefined;
+  type?: string | undefined;};
+  rotateKey?: {  href: string;
+  hints?: {  allow?: string[] | undefined;};
+  name?: string | undefined;
+  templated?: boolean | undefined;
+  type?: string | undefined;};
+  scopes?: {  href: string;
+  hints?: {  allow?: string[] | undefined;};
+  name?: string | undefined;
+  templated?: boolean | undefined;
+  type?: string | undefined;};};
+};
+
+export interface ActionInput_okta_getfactor {
+  /**
+   * Okta user ID. Example: "00u14u78lfuUpDWf0698"
+   */
+  userId: string;
+  /**
+   * Enrolled factor ID. Example: "ost14u7gbraSXvpXE698"
+   */
+  factorId: string;
+};
+
+export interface ActionOutput_okta_getfactor {
+  id: string;
+  factorType: string;
+  provider: string;
+  status: string;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  profile?: {  [key: string]: unknown | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_okta_getgroup {
+  /**
+   * Group ID. Example: "00g14y5qi7zRLgyzT698"
+   */
+  groupId: string;
+};
+
+export interface ActionOutput_okta_getgroup {
+  id: string;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  lastMembershipUpdated?: string | undefined;
+  objectClass?: string[] | undefined;
+  type?: string | undefined;
+  profile?: {  name?: string | undefined;
+  description?: string | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_okta_getpolicy {
+  /**
+   * The unique identifier of the policy. Example: "00p14u78ldpLmNhTB698"
+   */
+  policyId: string;
+};
+
+export interface ActionOutput_okta_getpolicy {
+  id: string;
+  type: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  status?: string | undefined;
+  priority?: number | undefined;
+  system?: boolean | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  conditions?: {} | undefined;
+  settings?: {} | undefined;
+  _embedded?: {  rules?: ({  id: string;
+  type?: string | undefined;
+  name?: string | undefined;
+  status?: string | undefined;
+  priority?: number | undefined;
+  system?: boolean | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  conditions?: {} | undefined;
+  actions?: {} | undefined;})[];};
+};
+
+export interface ActionInput_okta_getuserschema {
+  /**
+   * Schema ID. Example: "osc14u78ldxtbv6BP698"
+   */
+  schemaId: string;
+};
+
+export interface ActionOutput_okta_getuserschema {
+  id: string;
+  "$schema"?: string | undefined;
+  name?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  properties?: {  [key: string]: unknown | undefined;};
+  definitions?: {  [key: string]: unknown | undefined;};
+};
+
+export interface ActionInput_okta_getuser {
+  /**
+   * Okta user ID or login/email. Example: "00u14u78lfuUpDWf0698" or "api+dev@nango.dev"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_okta_getuser {
+  id: string;
+  status: string;
+  created?: string | undefined;
+  activated?: string | undefined;
+  statusChanged?: string | undefined;
+  lastLogin?: string | undefined;
+  lastUpdated?: string | undefined;
+  passwordChanged?: string | undefined;
+  transitioningToStatus?: string | undefined;
+  type?: {  id: string;} | undefined;
+  profile?: {} | undefined;
+  credentials?: {} | undefined;
+  _links?: {} | undefined;
+};
+
+export interface ActionInput_okta_listapplicationgroups {
+  /**
+   * Application ID. Example: "0oa14y5qldjOIAGrc698"
+   */
+  appId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Defaults to 20.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_okta_listapplicationgroups {
+  items: ({  id: string;
+  lastUpdated?: string | undefined;
+  priority?: number | undefined;
+  profile?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listapplicationusers {
+  /**
+   * Application ID. Example: "0oa14y5qldjOIAGrc698"
+   */
+  appId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Maximum number of results per page. Default is 200.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_okta_listapplicationusers {
+  users: ({  id: string;
+  externalId?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  scope?: string | undefined;
+  status?: string | undefined;
+  statusChanged?: string | undefined;
+  passwordChanged?: string | undefined;
+  syncState?: string | undefined;
+  lastSync?: string | undefined;
+  credentials?: {  userName?: string | undefined;};
+  profile?: {  [key: string]: unknown | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listapplications {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Maximum is 200.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_okta_listapplications {
+  items: ({  id: string;
+  name: string;
+  label: string;
+  status: string;
+  lastUpdated?: string | undefined;
+  created?: string | undefined;
+  signOnMode?: string | undefined;
+  features?: string[] | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listauthenticators {
+};
+
+export interface ActionOutput_okta_listauthenticators {
+  authenticators: ({  id: string;
+  name: string;
+  type: string;
+  status: string;
+  key?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;})[];
+};
+
+export interface ActionInput_okta_listauthorizationserverclaims {
+  /**
+   * Authorization server ID. Example: "aus14u78liihuiepy698"
+   */
+  authServerId: string;
+};
+
+export interface ActionOutput_okta_listauthorizationserverclaims {
+  claims: ({  id: string;
+  name: string;
+  status: string;
+  claimType?: string | undefined;
+  valueType?: string | undefined;
+  value?: string | undefined;
+  alwaysIncludeInToken?: boolean | undefined;
+  conditions?: {  scopes?: string[] | undefined;
+  grantTypes?: string[] | undefined;};
+  system?: boolean | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;})[];
+};
+
+export interface ActionInput_okta_listauthorizationserverscopes {
+  /**
+   * Authorization server ID. Example: "aus14u78liihuiepy698"
+   */
+  authServerId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of scopes to return per page. Default is determined by the provider.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_okta_listauthorizationserverscopes {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  displayName?: string | undefined;
+  consent?: string | undefined;
+  metadataPublish?: string | undefined;
+  default?: boolean | undefined;
+  optional?: boolean | undefined;
+  system?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listauthorizationservers {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_okta_listauthorizationservers {
+  items: ({  id: string;
+  name: string;
+  description?: string | undefined;
+  audiences: string[];
+  issuer: string;
+  issuerMode?: string | undefined;
+  status: string;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  credentials?: {  signing?: {  rotationMode?: string | undefined;
+  lastRotated?: string | undefined;
+  nextRotation?: string | undefined;
+  kid?: string | undefined;
+  use?: string | undefined;};};
+  jwks_uri?: string | undefined;
+  accessTokenEncryptedResponseAlgorithm?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listfactorcatalog {
+  /**
+   * User ID. Example: "00u14u78lfuUpDWf0698"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_okta_listfactorcatalog {
+  items: ({  id?: string | undefined;
+  factorType: string;
+  provider: string;
+  status?: string | undefined;
+  _links?: {  enroll?: {  href: string;
+  hints?: {  allow?: string[] | undefined;};};
+  self?: {  href: string;
+  hints?: {  allow?: string[] | undefined;};};};})[];
+};
+
+export interface ActionInput_okta_listfactors {
+  /**
+   * User ID. Example: "00u14u78lfuUpDWf0698"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_okta_listfactors {
+  factors: ({  /**
+   * Factor ID. Example: "ost14u7gbraSXvpXE698"
+   */
+  id: string;
+  /**
+   * Factor type. Example: "token:software:totp"
+   */
+  factorType: string;
+  /**
+   * Factor provider. Example: "OKTA"
+   */
+  provider: string;
+  /**
+   * Factor status. Example: "ACTIVE"
+   */
+  status: string;
+  /**
+   * ISO 8601 creation timestamp
+   */
+  created?: string | undefined;
+  /**
+   * ISO 8601 last updated timestamp
+   */
+  lastUpdated?: string | undefined;
+  profile?: {  credentialId?: string | undefined;
+  phoneNumber?: string | undefined;
+  email?: string | undefined;
+  deviceType?: string | undefined;
+  name?: string | undefined;
+  platform?: string | undefined;
+  version?: string | undefined;
+  authenticatorName?: string | undefined;};})[];
+};
+
+export interface ActionInput_okta_listgroupapplications {
+  /**
+   * Group ID. Example: "00g14y5qi7zRLgyzT698"
+   */
+  groupId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_okta_listgroupapplications {
+  items: ({  id: string;
+  name: string;
+  label?: string | undefined;
+  status?: string | undefined;
+  lastUpdated?: string | undefined;
+  created?: string | undefined;
+  accessibility?: {  selfService?: boolean | undefined;
+  errorRedirectUrl?: string | undefined;
+  loginRedirectUrl?: string | undefined;};
+  visibility?: {  autoSubmitToolbar?: boolean | undefined;
+  hide?: {  iOS?: boolean | undefined;
+  web?: boolean | undefined;};};
+  features?: string[] | undefined;
+  signOnMode?: string | undefined;
+  credentials?: {} | undefined;
+  settings?: {} | undefined;
+  profile?: {  [key: string]: unknown | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listgrouproles {
+  /**
+   * The unique identifier of the group. Example: "00g14y5qi7zRLgyzT698"
+   */
+  groupId: string;
+};
+
+export interface ActionOutput_okta_listgrouproles {
+  roles: ({  id: string;
+  label: string;
+  type: string;
+  status: string;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  assignmentType?: string | undefined;
+  resourceSet?: string | undefined;
+  roleType?: string | undefined;})[];
+};
+
+export interface ActionInput_okta_listgrouprules {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_okta_listgrouprules {
+  items: ({  id: string;
+  type?: string | undefined;
+  status?: string | undefined;
+  name?: string | undefined;
+  conditions?: unknown | undefined;
+  actions?: unknown | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  lastUpdatedBy?: string | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listgroupusers {
+  /**
+   * Group ID. Example: "00g14y5qi7zRLgyzT698"
+   */
+  groupId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_okta_listgroupusers {
+  items: ({  id: string;
+  status: string;
+  created?: string | undefined;
+  activated?: string | undefined;
+  statusChanged?: string | undefined;
+  lastLogin?: string | undefined;
+  lastUpdated?: string | undefined;
+  passwordChanged?: string | undefined;
+  profile?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  login?: string | undefined;
+  mobilePhone?: string | undefined;
+  secondEmail?: string | undefined;};})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listgroups {
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Searches for groups with a name that begins with the specified value.
+   */
+  q?: string | undefined;
+  /**
+   * Filter expression for groups.
+   */
+  filter?: string | undefined;
+  /**
+   * Searches for groups with supported search specifications.
+   */
+  search?: string | undefined;
+  /**
+   * Number of groups to return per page. Default is 200.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_okta_listgroups {
+  items: ({  /**
+   * Group ID. Example: "00g14u78ldnusLh9Y698"
+   */
+  id: string;
+  /**
+   * ISO 8601 creation timestamp.
+   */
+  created?: string | undefined;
+  /**
+   * ISO 8601 last update timestamp.
+   */
+  lastUpdated?: string | undefined;
+  /**
+   * ISO 8601 last membership update timestamp.
+   */
+  lastMembershipUpdated?: string | undefined;
+  objectClass?: string[] | undefined;
+  type?: string | undefined;
+  profile?: {  name: string;
+  description?: string | undefined;};})[];
+  /**
+   * Pagination cursor for the next page.
+   */
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listpolicies {
+  /**
+   * Policy type to filter by. Example: "OKTA_SIGN_ON"
+   */
+  type: 'OKTA_SIGN_ON' | 'PASSWORD' | 'MFA_ENROLL' | 'IDP_DISCOVERY' | 'ACCESS_POLICY' | 'PROFILE_ENROLLMENT' | 'ENTITY_RISK' | 'POST_AUTH_SESSION' | 'DEVICE_SIGNAL_COLLECTION' | 'SESSION_VIOLATION_DETECTION' | 'CLIENT_UPDATE' | 'IDENTITY_CLAIM_SOURCING';
+  /**
+   * Filter by policy status. Example: "ACTIVE"
+   */
+  status?: 'ACTIVE' | 'INACTIVE' | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_okta_listpolicies {
+  items: ({  id: string;
+  type: string;
+  name: string;
+  status: string;
+  description?: string | undefined;
+  priority?: number | undefined;
+  system?: boolean | undefined;
+  active?: boolean | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  conditions?: unknown | undefined;
+  settings?: unknown | undefined;})[];
+  /**
+   * Cursor to fetch the next page.
+   */
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listpolicyrules {
+  /**
+   * The ID of the policy. Example: "00p14u78ldpLmNhTB698"
+   */
+  policyId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_okta_listpolicyrules {
+  items: ({  id: string;
+  type: string;
+  status: string;
+  name: string;
+  priority?: number | undefined;
+  system?: boolean | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  conditions?: unknown | undefined;
+  actions?: unknown | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listsystemlog {
+  /**
+   * Start date/time in ISO 8601 format. Example: "2024-01-01T00:00:00Z"
+   */
+  since?: string | undefined;
+  /**
+   * End date/time in ISO 8601 format. Example: "2024-01-02T00:00:00Z"
+   */
+  until?: string | undefined;
+  /**
+   * Okta filter expression. Example: "eventType eq "user.session.start""
+   */
+  filter?: string | undefined;
+  /**
+   * Search query string.
+   */
+  q?: string | undefined;
+  /**
+   * Sort order. Defaults to ASCENDING.
+   */
+  sortOrder?: 'ASCENDING' | 'DESCENDING' | undefined;
+  /**
+   * Max number of events to return per page. Default 100, max 1000.
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor (after value) from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_okta_listsystemlog {
+  events: ({  uuid: string;
+  published: string;
+  eventType: string;
+  version?: string | undefined;
+  severity?: string | undefined;
+  actor?: {  id?: string | undefined;
+  type?: string | undefined;
+  alternateId?: string | undefined;
+  displayName?: string | undefined;
+  detailEntry?: unknown | undefined;};
+  client?: {  userAgent?: {  rawUserAgent?: string | undefined;
+  os?: string | undefined;
+  browser?: string | undefined;};
+  geographicalContext?: unknown | undefined;
+  zone?: string | undefined;
+  ipAddress?: string | undefined;
+  device?: string | undefined;
+  id?: string | undefined;};
+  outcome?: {  result?: string | undefined;
+  reason?: string | undefined;};
+  target?: ({  id?: string | undefined;
+  type?: string | undefined;
+  alternateId?: string | undefined;
+  displayName?: string | undefined;
+  detailEntry?: unknown | undefined;})[];
+  transaction?: {  type?: string | undefined;
+  id?: string | undefined;
+  detail?: unknown | undefined;};
+  debugContext?: {  debugData?: unknown | undefined;};
+  authenticationContext?: unknown | undefined;
+  displayMessage?: string | undefined;
+  legacyEventType?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listusergroups {
+  /**
+   * User ID. Example: "00u14y5n6uhI2lpQ3698"
+   */
+  userId: string;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+  /**
+   * Number of results per page. Default is determined by the provider.
+   */
+  limit?: number | undefined;
+};
+
+export interface ActionOutput_okta_listusergroups {
+  groups: ({  id: string;
+  name?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  objectClass?: string[] | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  lastMembershipUpdated?: string | undefined;})[];
+  nextCursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listuserroles {
+  /**
+   * The unique ID of the Okta user. Example: "00u14y5plo5MraBIf698"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_okta_listuserroles {
+  roles: ({  id: string;
+  label: string;
+  type: string;
+  status: string;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  assignmentType?: string | undefined;
+  _links?: unknown | undefined;})[];
+};
+
+export interface ActionInput_okta_listusertypes {
+};
+
+export interface ActionOutput_okta_listusertypes {
+  items: ({  id: string;
+  name: string;
+  displayName: string;
+  description?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+  lastUpdatedBy?: string | undefined;
+  default?: boolean | undefined;})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_okta_listusers {
+  /**
+   * Finds users whose firstName, lastName, or email begins with the specified value
+   */
+  q?: string | undefined;
+  /**
+   * Filter expression for filtering users
+   */
+  filter?: string | undefined;
+  /**
+   * Elasticsearch-style query
+   */
+  search?: string | undefined;
+  /**
+   * Results per page
+   */
+  limit?: number | undefined;
+  /**
+   * Pagination cursor from the previous response. Omit for the first page.
+   */
+  cursor?: string | undefined;
+};
+
+export interface ActionOutput_okta_listusers {
+  users: ({  id: string;
+  status?: string | undefined;
+  created?: string | undefined;
+  activated?: string | undefined;
+  statusChanged?: string | undefined;
+  lastLogin?: string | undefined;
+  lastUpdated?: string | undefined;
+  passwordChanged?: string | undefined;
+  type?: {  id?: string | undefined;};
+  profile?: {  [key: string]: unknown | undefined;};
+  credentials?: {  [key: string]: unknown | undefined;};
+  _links?: {  [key: string]: unknown | undefined;};})[];
+  next_cursor?: string | undefined;
+};
+
+export interface ActionInput_okta_removegroupfromapplication {
+  /**
+   * Application ID. Example: "0oa14y5qldjOIAGrc698"
+   */
+  appId: string;
+  /**
+   * Group ID. Example: "00g14y5qi7zRLgyzT698"
+   */
+  groupId: string;
+};
+
+export interface ActionOutput_okta_removegroupfromapplication {
+  success: boolean;
+  appId: string;
+  groupId: string;
+};
+
+export interface ActionInput_okta_removerolefromuser {
+  /**
+   * User ID. Example: "00u14y5oijeYKVDn0698"
+   */
+  userId: string;
+  /**
+   * Role assignment ID. Example: "KVJUKUS7IFCE2SKO"
+   */
+  roleAssignmentId: string;
+};
+
+export interface ActionOutput_okta_removerolefromuser {
+  success: boolean;
+};
+
+export interface ActionInput_okta_removeuserfromapplication {
+  /**
+   * Application ID. Example: "0oa14y5qldjOIAGrc698"
+   */
+  appId: string;
+  /**
+   * User ID. Example: "00u14y5plo5MraBIf698"
+   */
+  userId: string;
+  /**
+   * Whether to send an email to the user. Defaults to true.
+   */
+  sendEmail?: boolean | undefined;
+};
+
+export interface ActionOutput_okta_removeuserfromapplication {
+  success: boolean;
 };
 
 export interface ActionInput_okta_removeusergroup {
+  /**
+   * The unique identifier of the Okta group. Example: "00g14y5q5vaoT7IXb698"
+   */
   groupId: string;
+  /**
+   * The unique identifier of the Okta user. Example: "00u14y5oijeYKVDn0698"
+   */
   userId: string;
 };
 
 export interface ActionOutput_okta_removeusergroup {
   success: boolean;
+};
+
+export interface ActionInput_okta_resetpassword {
+  /**
+   * User ID. Example: "00u14y5oijeYKVDn0698"
+   */
+  userId: string;
+  /**
+   * Send reset password email to the user. If false, the reset password URL is returned in the response. Defaults to true per Okta API.
+   */
+  sendEmail?: boolean | undefined;
+};
+
+export interface ActionOutput_okta_resetpassword {
+  resetPasswordUrl?: string | undefined;
+};
+
+export interface ActionInput_okta_suspenduser {
+  /**
+   * The unique ID of the user to suspend. Example: "00u14y5n6uhI2lpQ3698"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_okta_suspenduser {
+  id: string;
+  status: string;
+  created?: string | undefined;
+  activated?: string | undefined;
+  profile?: {  firstName?: string | undefined;
+  lastName?: string | undefined;
+  email?: string | undefined;
+  login?: string | undefined;};
+};
+
+export interface ActionInput_okta_unlockuser {
+  /**
+   * The unique ID of the user to unlock. Example: "00u14y9f9k4hf71lc698"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_okta_unlockuser {
+};
+
+export interface ActionInput_okta_unsuspenduser {
+  /**
+   * Okta user ID. Example: "00u14y5oijeYKVDn0698"
+   */
+  userId: string;
+};
+
+export interface ActionOutput_okta_unsuspenduser {
+  id: string;
+  status?: string | undefined;
+  email?: string | undefined;
+  firstName?: string | undefined;
+  lastName?: string | undefined;
+  login?: string | undefined;
+};
+
+export interface ActionInput_okta_updategroup {
+  /**
+   * Group ID. Example: "00g14y5q5vaoT7IXb698"
+   */
+  groupId: string;
+  /**
+   * Group name. Must be provided even if unchanged.
+   */
+  name: string;
+  /**
+   * Group description.
+   */
+  description?: string | undefined;
+};
+
+export interface ActionOutput_okta_updategroup {
+  id: string;
+  name: string;
+  description?: string | undefined;
+  type?: string | undefined;
+  created?: string | undefined;
+  lastUpdated?: string | undefined;
+};
+
+export interface ActionInput_okta_updateuserschema {
+  /**
+   * User schema ID. Example: "osc14u78ldxtbv6BP698"
+   */
+  schemaId: string;
+  /**
+   * Name of the custom attribute to add or update. Example: "nangoTestAttribute"
+   */
+  attributeName: string;
+  /**
+   * Display title of the attribute.
+   */
+  title: string;
+  /**
+   * Data type of the attribute. Example: "string"
+   */
+  type: string;
+  /**
+   * Description of the attribute.
+   */
+  description?: string | undefined;
+  /**
+   * Mutability setting. Example: "READ_WRITE"
+   */
+  mutability?: string | undefined;
+  /**
+   * Scope of the attribute. Example: "SELF"
+   */
+  scope?: string | undefined;
+};
+
+export interface ActionOutput_okta_updateuserschema {
+  schemaId: string;
+  attributeName: string;
+  attribute: {  title?: string | undefined;
+  description?: string | undefined;
+  type?: string | undefined;
+  mutability?: string | undefined;
+  scope?: string | undefined;};
+};
+
+export interface ActionInput_okta_updateuser {
+  /**
+   * The unique ID of the user to update. Example: "00u14y5o7tvvw1qA0698"
+   */
+  userId: string;
+  /**
+   * Partial profile fields to merge into the existing user profile.
+   */
+  profile?: {  [key: string]: unknown | undefined;};
+  /**
+   * User credentials to update. Only supply when explicitly changing the password.
+   */
+  credentials?: {  password?: {  value: string;} | undefined;};
+};
+
+export interface ActionOutput_okta_updateuser {
+  id: string;
+  status: string;
+  created?: string | undefined;
+  activated?: string | undefined;
+  statusChanged?: string | undefined;
+  lastLogin?: string | undefined;
+  lastUpdated?: string | undefined;
+  passwordChanged?: string | undefined;
+  profile?: {  [key: string]: unknown | undefined;};
+  credentials?: unknown | undefined;
+  type?: {  id?: string | undefined;};
+  _links?: unknown | undefined;
 };
 
 export interface DriveItem {
@@ -107928,19 +109508,6 @@ export interface SyncMetadata_snowflake_jwt_queryresults {
   schema?: string | undefined;
   warehouse?: string | undefined;
   role?: string | undefined;
-};
-
-export interface Schema {
-  /**
-   * Composite identifier: database_name/schema_name
-   */
-  id: string;
-  database_name: string;
-  name: string;
-  created_on?: string | undefined;
-  schema_owner?: string | undefined;
-  comment?: string | undefined;
-  retention_time?: string | undefined;
 };
 
 export interface SyncMetadata_snowflake_jwt_tables {

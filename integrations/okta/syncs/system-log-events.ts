@@ -42,10 +42,6 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
         const validatedCheckpoint = CheckpointSchema.safeParse(checkpoint);
         const since = validatedCheckpoint.success ? validatedCheckpoint.data.since : undefined;
-        // Okta always returns a rel="next" link for an ASCENDING query with no `until`
-        // (a "polling query"), which would make pagination run forever. Bounding the
-        // window with `until` makes it a normal, terminating query.
-        const until = new Date().toISOString();
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.okta.com/docs/reference/api/system-log/
@@ -53,7 +49,6 @@ const sync = createSync({
             params: {
                 sortOrder: 'ASCENDING',
                 limit: 1000,
-                until,
                 ...(since && { since })
             },
             paginate: {
@@ -81,7 +76,13 @@ const sync = createSync({
             }
 
             if (events.length === 0) {
-                continue;
+                // Okta's System Log always returns a rel="next" link for an ASCENDING
+                // polling query (no `until`), so an empty page — not a missing next
+                // link — is the documented signal that we've caught up to the live
+                // tail. Stop here rather than bounding the query with `until`, which
+                // would risk skipping events whose `published` time lags behind when
+                // Okta actually persists/indexes them.
+                break;
             }
 
             const records = events.map((event) => ({
@@ -112,9 +113,9 @@ const sync = createSync({
             }
         }
 
-        // Always advance the checkpoint to `until`, even if no events were found, so the
-        // next run doesn't keep re-querying the same empty window forever.
-        await nango.saveCheckpoint({ since: lastPublished ?? until });
+        if (lastPublished) {
+            await nango.saveCheckpoint({ since: lastPublished });
+        }
     }
 });
 
