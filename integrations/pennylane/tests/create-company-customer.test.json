@@ -1,0 +1,126 @@
+{
+  "input": {
+    "name": "Test Company 2",
+    "billing_address": {
+      "address": "456 Main St",
+      "postal_code": "75002",
+      "city": "Lyon",
+      "country_alpha2": "FR"
+    }
+  },
+  "output": {
+    "id": 1338658480128,
+    "name": "Test Company 2",
+    "payment_conditions": "30_days",
+    "reference": "",
+    "ledger_account": {
+      "id": 14065926402048
+    },
+    "billing_address": {
+      "address": "456 Main St",
+      "postal_code": "75002",
+      "city": "Lyon",
+      "country_alpha2": "FR"
+    },
+    "delivery_address": {
+      "address": "",
+      "postal_code": "",
+      "city": "",
+      "country_alpha2": ""
+    },
+    "created_at": "2026-07-08T12:28:07.637822Z",
+    "updated_at": "2026-07-08T12:28:07.637720Z",
+    "external_reference": "019f41b3-2651-72e1-9c70-caf826184bec",
+    "billing_language": "fr_FR",
+    "mandates": {
+      "url": "https://app.pennylane.com/api/external/v2/gocardless_mandates?filter=%5B%7B%22field%22%3A%22customer_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A%221338658480128%22%7D%5D"
+    },
+    "pro_account_mandates": {
+      "url": "https://app.pennylane.com/api/external/v2/pro_account/mandates?filter=%5B%7B%22field%22%3A%22customer_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A%221338658480128%22%7D%5D"
+    },
+    "contacts": {
+      "url": "https://app.pennylane.com/api/external/v2/customers/1338658480128/contacts"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/external/v2/company_customers": {
+        "response": {
+          "id": 1338658480128,
+          "name": "Test Company 2",
+          "billing_iban": null,
+          "payment_conditions": "30_days",
+          "recipient": "",
+          "updated_at": "2026-07-08T12:28:07.637720Z",
+          "phone": "",
+          "reference": "",
+          "vat_number": "",
+          "reg_no": "",
+          "created_at": "2026-07-08T12:28:07.637822Z",
+          "billing_language": "fr_FR",
+          "ledger_account": {
+            "id": 14065926402048
+          },
+          "notes": null,
+          "emails": [],
+          "billing_address": {
+            "address": "456 Main St",
+            "postal_code": "75002",
+            "city": "Lyon",
+            "country_alpha2": "FR"
+          },
+          "delivery_address": {
+            "address": "",
+            "postal_code": "",
+            "city": "",
+            "country_alpha2": ""
+          },
+          "external_reference": "019f41b3-2651-72e1-9c70-caf826184bec",
+          "mandates": {
+            "url": "https://app.pennylane.com/api/external/v2/gocardless_mandates?filter=%5B%7B%22field%22%3A%22customer_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A%221338658480128%22%7D%5D"
+          },
+          "pro_account_mandates": {
+            "url": "https://app.pennylane.com/api/external/v2/pro_account/mandates?filter=%5B%7B%22field%22%3A%22customer_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A%221338658480128%22%7D%5D"
+          },
+          "contacts": {
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338658480128/contacts"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:28:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1089",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4941",
+          "x-ratelimit-reset": "1783513699",
+          "x-request-id": "e607eb7b-0b53-4631-94aa-5c09230d2086",
+          "etag": "W/\"441-Dq5T+z3l4UwaSNjY+HCiIDqjKrw\""
+        },
+        "hash": "b75826369b2dc931dde3eb32962d3ac1cb414083",
+        "request": {
+          "data": {
+            "name": "Test Company 2",
+            "billing_address": {
+              "address": "456 Main St",
+              "postal_code": "75002",
+              "city": "Lyon",
+              "country_alpha2": "FR"
+            }
+          }
+        }
+      }
+    }
+  }
+}

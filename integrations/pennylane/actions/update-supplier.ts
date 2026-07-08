@@ -23,7 +23,7 @@ const InputSchema = z.object({
     emails: z.array(z.string()).optional().describe('Email addresses. Example: ["hello@example.org"]'),
     iban: z.string().optional().describe('IBAN. Example: "FR3330002005500000157841Z25"'),
     supplier_payment_method: SupplierPaymentMethodEnum.nullable().optional(),
-    supplier_due_date_delay: z.number().nullable().optional().describe('Due date delay in days. Example: 30'),
+    supplier_due_date_delay: z.number().int().nullable().optional().describe('Due date delay in days. Example: 30'),
     supplier_due_date_rule: SupplierDueDateRuleEnum.nullable().optional(),
     external_reference: z.string().optional().describe('Unique external reference. Example: "FR123"')
 });

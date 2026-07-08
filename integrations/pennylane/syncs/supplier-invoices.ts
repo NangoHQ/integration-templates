@@ -95,10 +95,10 @@ const sync = createSync({
             cursor = validatedCheckpoint.data.cursor || undefined;
         }
 
-        if (!checkpoint) {
-            // The changelog feed only retains recent history, so a brand-new connection must first
-            // backfill every existing supplier invoice via full enumeration before switching to the
-            // changelog-based incremental strategy below.
+        if (!validatedCheckpoint || !validatedCheckpoint.success) {
+            // The changelog feed only retains recent history, so a brand-new connection (or one with
+            // an unparsable/legacy checkpoint) must first backfill every existing supplier invoice via
+            // full enumeration before switching to the changelog-based incremental strategy below.
             const backfillStartedAt = new Date().toISOString();
             const backfillConfig: ProxyConfiguration = {
                 // https://pennylane.readme.io/reference/getsupplierinvoices

@@ -1,0 +1,75 @@
+{
+  "input": {
+    "id": 14048452796416,
+    "label": "Updated Taxi Account"
+  },
+  "output": {
+    "id": 14048452796416,
+    "number": "401100008",
+    "label": "Updated Taxi Account",
+    "vat_rate": "any",
+    "country_alpha2": "any",
+    "enabled": true,
+    "type": "supplier",
+    "letterable": true,
+    "created_at": "2026-07-08T11:26:52.461697Z",
+    "updated_at": "2026-07-08T12:39:36.249153Z"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/external/v2/ledger_accounts/14048452796416": {
+        "response": {
+          "id": 14048452796416,
+          "number": "401100008",
+          "label": "Updated Taxi Account",
+          "vat_rate": "any",
+          "country_alpha2": "any",
+          "enabled": true,
+          "created_at": "2026-07-08T11:26:52.461697Z",
+          "updated_at": "2026-07-08T12:39:36.249153Z",
+          "type": "supplier",
+          "letterable": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:39:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1783514432",
+          "cf-ray": "a17f2712b86a5f03-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"ea0db87dfd98318c274824a2b3ff9bb8\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "21",
+          "ratelimit-reset": "1783514380",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "cff4e94f-3d55-44e3-b17c-b147c2a1585f",
+          "set-cookie": "__cf_bm=mpwowrIQ9A3EP6ndxBx0Wn60Vmwl6FMCAFqTW9Wm_ys-1783514376.1178856-1.0.1.1-ajAPnUvsP.eXuXyzF6PfcmxV6BdgSi3ZnhqFcLvX6SR1bFP8S2ypwdQfScRDa.oaJktDclCVom1B20qAj.Esd5i3QpSoJcSYlqG8NA2Yq4sKGGR3DJl0bd620Xg8NVfH; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:09:36 GMT"
+        },
+        "hash": "7cbf2f2273ee8164a32f35be633448f4a0a61ce2",
+        "request": {
+          "data": {
+            "label": "Updated Taxi Account"
+          }
+        }
+      }
+    }
+  }
+}

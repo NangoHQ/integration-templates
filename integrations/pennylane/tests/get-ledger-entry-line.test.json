@@ -1,0 +1,96 @@
+{
+  "input": {
+    "id": 104378875760640
+  },
+  "output": {
+    "id": 104378875760640,
+    "debit": "0.0",
+    "credit": "100.0",
+    "label": "Test credit line",
+    "ledger_account": {
+      "id": 14065329119232,
+      "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065329119232"
+    },
+    "journal": {
+      "id": 91278557184,
+      "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+    },
+    "date": "2026-07-08",
+    "ledger_entry": {
+      "id": 25466331439104
+    },
+    "lettered_ledger_entry_lines": {
+      "ids": [],
+      "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104378875760640/lettered_ledger_entry_lines"
+    },
+    "created_at": "2026-07-08T12:30:55.591845Z",
+    "updated_at": "2026-07-08T12:30:55.591349Z"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/ledger_entry_lines/104378875760640": {
+        "response": {
+          "id": 104378875760640,
+          "label": "Test credit line",
+          "debit": "0.0",
+          "credit": "100.0",
+          "date": "2026-07-08",
+          "created_at": "2026-07-08T12:30:55.591845Z",
+          "updated_at": "2026-07-08T12:30:55.591349Z",
+          "journal": {
+            "id": 91278557184,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+          },
+          "categories": [],
+          "ledger_account": {
+            "id": 14065329119232,
+            "number": "706",
+            "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065329119232"
+          },
+          "ledger_entry": {
+            "id": 25466331439104
+          },
+          "lettered_ledger_entry_lines": {
+            "ids": [],
+            "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104378875760640/lettered_ledger_entry_lines"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:31:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1783513941",
+          "cf-ray": "a17f1b037ca93abd-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"27e18930a9492920859ae21dfa1b0d4e\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "21",
+          "ratelimit-reset": "1783513885",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "c09b1250-0c62-4afd-bdec-1638ccc6e8f0",
+          "set-cookie": "__cf_bm=LbCX..G6eigPipF6qoEoQhHSqvhmm0kGE8wMVqT8hF8-1783513882.155991-1.0.1.1-pMANdK_4_w9YQUwohxo4UFKBj6wYHBtQoUCDn8wGa3jA3ceGw.YVlo1JzqOTaAwc_IZ0wQtZVxIQBIOwdn7BCKkHxXJUamvBQJHLhY.FIVnt1uqkf5uIizKfawVJ8iqS; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:01:22 GMT"
+        },
+        "hash": "8db0f1cb913d2e144590fde3ffe0714b963d9a70",
+        "request": {}
+      }
+    }
+  }
+}

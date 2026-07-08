@@ -1,0 +1,198 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 14570303488,
+        "name": "Test Bank Account",
+        "currency": "EUR",
+        "balance": "0.0",
+        "created_at": "2026-07-08T12:38:42.794247Z",
+        "updated_at": "2026-07-08T12:38:42.789973Z",
+        "bank_establishment": {
+          "id": 2640
+        },
+        "journal": {
+          "id": 91416215552,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91416215552"
+        },
+        "ledger_account": {
+          "id": 14068927545344,
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14068927545344"
+        }
+      },
+      {
+        "id": 14570291200,
+        "name": "Test Bank Account",
+        "currency": "EUR",
+        "balance": "0.0",
+        "created_at": "2026-07-08T12:38:28.896611Z",
+        "updated_at": "2026-07-08T12:38:28.893111Z",
+        "bank_establishment": {
+          "id": 2640
+        },
+        "journal": {
+          "id": 91416035328,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91416035328"
+        },
+        "ledger_account": {
+          "id": 14068901957632,
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14068901957632"
+        }
+      },
+      {
+        "id": 14570160128,
+        "name": "Test Bank Account",
+        "currency": "EUR",
+        "balance": "0.0",
+        "created_at": "2026-07-08T12:36:48.043634Z",
+        "updated_at": "2026-07-08T12:36:48.039172Z",
+        "bank_establishment": {
+          "id": 2640
+        },
+        "journal": {
+          "id": 91415310336,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91415310336"
+        },
+        "ledger_account": {
+          "id": 14068797313024,
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14068797313024"
+        }
+      },
+      {
+        "id": 14569345024,
+        "name": "Test Bank Account",
+        "currency": "EUR",
+        "balance": "0.0",
+        "created_at": "2026-07-08T12:24:04.626733Z",
+        "updated_at": "2026-07-08T12:24:04.621836Z",
+        "bank_establishment": {
+          "id": 2640
+        },
+        "journal": {
+          "id": 91387359232,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91387359232"
+        },
+        "ledger_account": {
+          "id": 14064606162944,
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+        }
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/bank_accounts": {
+        "response": {
+          "items": [
+            {
+              "id": 14570303488,
+              "name": "Test Bank Account",
+              "currency": "EUR",
+              "balance": "0.0",
+              "created_at": "2026-07-08T12:38:42.794247Z",
+              "updated_at": "2026-07-08T12:38:42.789973Z",
+              "bank_establishment": {
+                "id": 2640
+              },
+              "journal": {
+                "id": 91416215552,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91416215552"
+              },
+              "ledger_account": {
+                "id": 14068927545344,
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14068927545344"
+              }
+            },
+            {
+              "id": 14570291200,
+              "name": "Test Bank Account",
+              "currency": "EUR",
+              "balance": "0.0",
+              "created_at": "2026-07-08T12:38:28.896611Z",
+              "updated_at": "2026-07-08T12:38:28.893111Z",
+              "bank_establishment": {
+                "id": 2640
+              },
+              "journal": {
+                "id": 91416035328,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91416035328"
+              },
+              "ledger_account": {
+                "id": 14068901957632,
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14068901957632"
+              }
+            },
+            {
+              "id": 14570160128,
+              "name": "Test Bank Account",
+              "currency": "EUR",
+              "balance": "0.0",
+              "created_at": "2026-07-08T12:36:48.043634Z",
+              "updated_at": "2026-07-08T12:36:48.039172Z",
+              "bank_establishment": {
+                "id": 2640
+              },
+              "journal": {
+                "id": 91415310336,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91415310336"
+              },
+              "ledger_account": {
+                "id": 14068797313024,
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14068797313024"
+              }
+            },
+            {
+              "id": 14569345024,
+              "name": "Test Bank Account",
+              "currency": "EUR",
+              "balance": "0.0",
+              "created_at": "2026-07-08T12:24:04.626733Z",
+              "updated_at": "2026-07-08T12:24:04.621836Z",
+              "bank_establishment": {
+                "id": 2640
+              },
+              "journal": {
+                "id": 91387359232,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91387359232"
+              },
+              "ledger_account": {
+                "id": 14064606162944,
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+              }
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:39:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "cf-ray": "a17f266eceafb9e8-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"4a18c3043d45f878190e2802720d1959\"",
+          "server": "cloudflare",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "22",
+          "ratelimit-reset": "1783514355",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "a6ef21f9-87b5-4aba-a0d8-d57812e473b4",
+          "x-xss-protection": "0"
+        },
+        "hash": "373d0d456371385c759fa01d774ad9979f3a870c",
+        "request": {}
+      }
+    }
+  }
+}

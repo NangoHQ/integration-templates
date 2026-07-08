@@ -1,0 +1,139 @@
+{
+  "input": {
+    "id": 25465510096896,
+    "label": "Updated label via API"
+  },
+  "output": {
+    "id": 25465510096896,
+    "label": "Updated label via API",
+    "invoice_number": "",
+    "currency": "EUR",
+    "amount": "120.0",
+    "currency_amount": "120.0",
+    "currency_amount_before_tax": "100.0",
+    "exchange_rate": "1.0",
+    "date": "2026-07-08",
+    "deadline": "2026-07-15",
+    "currency_tax": "20.0",
+    "tax": "20.0",
+    "reconciled": false,
+    "accounting_status": "complete",
+    "filename": "dummy.pdf",
+    "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=m9iLUpvlDIl98UIKexBUyYwK2AqjszZoxK%2BDThu85iWuCkCd87y8JwrWtub6TMLoyfrMcvSUcq3EuI5dfJ05troPP2yby5KWOTacuuqDuUFS1Nu1rggF7CbxHYyO4Q%3D%3D--OfoU%2B65dB%2BwteIQA--H%2BJrUsUJW0EkzFVEQwNYiw%3D%3D",
+    "remaining_amount_with_tax": "-120.0",
+    "remaining_amount_without_tax": "-100.0",
+    "ledger_entry_id": 25465510096896,
+    "supplier_id": 1338485968896,
+    "supplier_url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896",
+    "invoice_lines_url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/invoice_lines",
+    "categories_url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/categories",
+    "transaction_reference": {
+      "banking_provider": "bank",
+      "provider_field_name": "label",
+      "provider_field_value": "Test transaction"
+    },
+    "payment_status": "to_be_processed",
+    "paid": false,
+    "payments_url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/payments",
+    "matched_transactions_url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/matched_transactions",
+    "external_reference": "S4GJB6XIFC",
+    "created_at": "2026-07-08T12:25:29.783648Z",
+    "updated_at": "2026-07-08T12:32:34.929969Z"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/external/v2/supplier_invoices/25465510096896": {
+        "response": {
+          "amount": "120.0",
+          "archived_at": null,
+          "created_at": "2026-07-08T12:25:29.783648Z",
+          "currency_amount_before_tax": "100.0",
+          "currency_amount": "120.0",
+          "currency_tax": "20.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "deadline": "2026-07-15",
+          "filename": "dummy.pdf",
+          "id": 25465510096896,
+          "invoice_number": "",
+          "label": "Updated label via API",
+          "payment_status": "to_be_processed",
+          "paid": false,
+          "remaining_amount_with_tax": "-120.0",
+          "remaining_amount_without_tax": "-100.0",
+          "tax": "20.0",
+          "updated_at": "2026-07-08T12:32:34.929969Z",
+          "reconciled": false,
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=m9iLUpvlDIl98UIKexBUyYwK2AqjszZoxK%2BDThu85iWuCkCd87y8JwrWtub6TMLoyfrMcvSUcq3EuI5dfJ05troPP2yby5KWOTacuuqDuUFS1Nu1rggF7CbxHYyO4Q%3D%3D--OfoU%2B65dB%2BwteIQA--H%2BJrUsUJW0EkzFVEQwNYiw%3D%3D",
+          "exchange_rate": "1.0",
+          "accounting_status": "complete",
+          "ledger_entry": {
+            "id": 25465510096896
+          },
+          "transaction_reference": {
+            "banking_provider": "bank",
+            "provider_field_name": "label",
+            "provider_field_value": "Test transaction"
+          },
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/invoice_lines"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/matched_transactions"
+          },
+          "external_reference": "S4GJB6XIFC",
+          "e_invoicing": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:32:35 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1783514001",
+          "cf-ray": "a17f1cc9080e0384-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"c456e9011cd0602a28f2e4c99dcfc08d\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "22",
+          "ratelimit-reset": "1783513955",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "16c8523a-b296-45c4-a58d-365bba8476d5",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "5b9c8d39d77dfa2b3878e8b2830fd93b9f9578d0",
+        "request": {
+          "data": {
+            "label": "Updated label via API"
+          }
+        }
+      }
+    }
+  }
+}

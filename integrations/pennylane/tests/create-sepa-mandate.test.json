@@ -1,0 +1,73 @@
+{
+  "input": {
+    "bic": "SOGEFRPP",
+    "iban": "FR1420041010050500013M02606",
+    "signed_at": "2026-01-01",
+    "identifier": "MANDATE-TEST-20260708-004",
+    "customer_id": 1338468995072
+  },
+  "output": {
+    "id": "8326021120",
+    "customer_id": "1338468995072",
+    "bic": "SOGEFRPP",
+    "iban": "FR1420041010050500013M02606",
+    "sequence_type": "RCUR",
+    "signed_at": "2026-01-01",
+    "identifier": "MANDATE-TEST-20260708-004",
+    "created_at": "2026-07-08T13:00:12.820289Z",
+    "updated_at": "2026-07-08T13:00:12.820167Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/external/v2/sepa_mandates": {
+        "response": {
+          "id": 8326021120,
+          "bank": null,
+          "bic": "SOGEFRPP",
+          "iban": "FR1420041010050500013M02606",
+          "sequence_type": "RCUR",
+          "identifier": "MANDATE-TEST-20260708-004",
+          "created_at": "2026-07-08T13:00:12.820289Z",
+          "updated_at": "2026-07-08T13:00:12.820167Z",
+          "signed_at": "2026-01-01",
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:00:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "364",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4953",
+          "x-ratelimit-reset": "1783515634",
+          "x-request-id": "bec27b4b-4e2f-4a6f-99c7-6151a6130ac8",
+          "etag": "W/\"16c-eHllnFu2CiNu8pBsPssVy8NUcJg\""
+        },
+        "hash": "3fa34b3d41713ea0db92e78058b1d15d28e58d59",
+        "request": {
+          "data": {
+            "bic": "SOGEFRPP",
+            "iban": "FR1420041010050500013M02606",
+            "signed_at": "2026-01-01",
+            "identifier": "MANDATE-TEST-20260708-004",
+            "customer_id": 1338468995072
+          }
+        }
+      }
+    }
+  }
+}

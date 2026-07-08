@@ -285,14 +285,16 @@ const sync = createSync({
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = CheckpointSchema.safeParse(rawCheckpoint);
-        let processedAfter = checkpoint.success ? checkpoint.data.processed_after : undefined;
+        const processedAfter = checkpoint.success ? checkpoint.data.processed_after : undefined;
         let cursor = checkpoint.success ? checkpoint.data.cursor || undefined : undefined;
 
-        if (!rawCheckpoint) {
+        if (!checkpoint.success) {
             // The changelog feed used below only retains recent history, so a brand-new connection
-            // must first backfill every existing invoice via a full enumeration ordered by id. Only
-            // after that completes do we switch to changelog-based incremental updates, which is the
-            // only way to also pick up status/payment changes on invoices created before this run.
+            // (or one still holding a pre-migration `{ updated_after }` checkpoint from the legacy
+            // id-based sync) must first backfill every existing invoice via a full enumeration ordered
+            // by id. Only after that completes do we switch to changelog-based incremental updates,
+            // which is the only way to also pick up status/payment changes on invoices created before
+            // this run.
             const backfillStartedAt = new Date().toISOString();
             const backfillConfig: ProxyConfiguration = {
                 // https://pennylane.readme.io/reference/getcustomerinvoices

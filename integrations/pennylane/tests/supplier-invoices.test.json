@@ -1,0 +1,1327 @@
+{
+  "nango": {
+    "batchSave": {
+      "SupplierInvoice": [
+        {
+          "id": "25465510096896",
+          "supplier_id": "1338485968896",
+          "status": "to_be_processed",
+          "label": "Updated label via API",
+          "amount": "120.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "due_date": "2026-07-15",
+          "file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=0lULklx2i5o7En0aRDgJahnClLnauu0i1JetHTuciFRbZQy9v0l%2FLtJO68COEoDyiGNCGkNHnHH9zxlsXX7sLQKmqB%2FbUXtldg1bi84L0swMbwU7QFZuR7yrgDWAIw%3D%3D--%2FcpYI04cH6e00W5y--klPv1540Cyg40dhAbft5kg%3D%3D",
+          "created_at": "2026-07-08T12:25:29.783648Z",
+          "updated_at": "2026-07-08T13:24:48.382211Z"
+        },
+        {
+          "id": "25465872809984",
+          "supplier_id": "1338485968896",
+          "status": "to_be_processed",
+          "label": "Facture Office Supplies SARL (label généré)",
+          "amount": "120.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "due_date": "2026-07-15",
+          "file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=9UXBja3INsTtETIn8PCsjqXLvtMQkXctSIRiRGa17NMuSRPoMarZWeHgP6gSz1myJTGUZtu0G2OgHg4ZbdFV%2BZqQMT4X5KwhtbdqHHigzMrYTE02ZxDFJ2aKU9bEbA%3D%3D--nls0DM2EGQstwxmz--GzVtcgdOvouRLHv2rfmZaw%3D%3D",
+          "created_at": "2026-07-08T12:28:05.542251Z",
+          "updated_at": "2026-07-08T12:28:05.847972Z"
+        },
+        {
+          "id": "25465885929472",
+          "supplier_id": "1338485968896",
+          "status": "paid_offline",
+          "label": "Updated label via API",
+          "amount": "120.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "due_date": "2024-01-01",
+          "file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=mJW7qFalZmFq%2BgQ33wuyGanEwFZIFNSyyK86WJBDbqQsnvJp66zrt4lHpZy0A5jlJvKcNlYwSA7le5VWZPM6JnYI28g%2FsH7qEkRAyDFQi9AnlbfaSkQYEgKFeMKY7g%3D%3D--LGNN%2B75R9nnLv0ve--Mn7vWI5sq2JeABSnbIJn3w%3D%3D",
+          "created_at": "2026-07-08T12:28:12.080542Z",
+          "updated_at": "2026-07-08T13:21:44.990571Z"
+        },
+        {
+          "id": "25467524694016",
+          "supplier_id": "1338485968896",
+          "status": "to_be_paid",
+          "label": "Facture Office Supplies SARL - INV-TEST-001 (label généré)",
+          "amount": "120.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "due_date": "2026-07-08",
+          "file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=Zyg0l%2B0h6rJBJfj%2BsPHOkNpBbZMeMYHLzeJ41G2G96Pj1xpW4%2F0mr4IHJ%2F7MCj3HwyHtNH%2FDb%2Ft9upCAnAuVl4FJQON61at4uj4%2Bt%2Bbqu3HXGtede9Sq0hXyabBw5Q%3D%3D--xeUds8KO0IcxzT%2Fj--1jtQwkUWjG49dNrzej86Gw%3D%3D",
+          "created_at": "2026-07-08T12:38:23.041874Z",
+          "updated_at": "2026-07-08T13:21:44.990568Z"
+        },
+        {
+          "id": "25475660611584",
+          "supplier_id": "1338485968896",
+          "status": "to_be_paid",
+          "label": "Facture Office Supplies SARL Updated - TEST-EINV-001 (label généré)",
+          "amount": "120.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "due_date": "2026-07-08",
+          "file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=g%2FV70Yt3JGN2tzpkWO1JrACbpx9AiBcKifUTV1CngzYsLWMQH0IkJCNiqSAY%2FnwK%2BhWe7hPUbvbYRw2gPKXL5XSt%2BNO%2FPGXW2oU%2FKc0KV%2FIGAG%2BWPLwUnCD7lMQRtQ%3D%3D--tyk1aWN6KFPf4GQG--Duk%2BaGBwxQHbfcExe1xeOA%3D%3D",
+          "created_at": "2026-07-08T13:20:33.855891Z",
+          "updated_at": "2026-07-08T13:21:44.990574Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "SupplierInvoice": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/external/v2/changelogs/supplier_invoices": {
+        "response": {
+          "items": [
+            {
+              "id": 25465510096896,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:25:29.782762Z",
+              "processed_at": "2026-07-08T12:25:30.547896Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:25:30.334643Z",
+              "processed_at": "2026-07-08T12:25:31.091227Z"
+            },
+            {
+              "id": 25465872809984,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:28:05.542251Z",
+              "updated_at": "2026-07-08T12:28:05.541534Z",
+              "processed_at": "2026-07-08T12:28:06.299748Z"
+            },
+            {
+              "id": 25465872809984,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:05.542251Z",
+              "updated_at": "2026-07-08T12:28:05.794166Z",
+              "processed_at": "2026-07-08T12:28:06.313853Z"
+            },
+            {
+              "id": 25465872809984,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:05.542251Z",
+              "updated_at": "2026-07-08T12:28:05.847972Z",
+              "processed_at": "2026-07-08T12:28:07.143880Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:28:12.107362Z",
+              "processed_at": "2026-07-08T12:28:12.999515Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:28:12.682046Z",
+              "processed_at": "2026-07-08T12:28:13.877464Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:28:15.792488Z",
+              "processed_at": "2026-07-08T12:28:16.687884Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:28:16.680287Z",
+              "processed_at": "2026-07-08T12:28:18.345544Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:29:16.606604Z",
+              "processed_at": "2026-07-08T12:29:17.345612Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:32:27.439813Z",
+              "processed_at": "2026-07-08T12:32:28.349942Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:32:34.929969Z",
+              "processed_at": "2026-07-08T12:32:35.931954Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:33:38.581947Z",
+              "processed_at": "2026-07-08T12:33:39.604066Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:34:13.015295Z",
+              "processed_at": "2026-07-08T12:34:13.902770Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:35:51.886582Z",
+              "processed_at": "2026-07-08T12:35:52.622733Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:36:03.674477Z",
+              "processed_at": "2026-07-08T12:36:04.428899Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:37:38.083061Z",
+              "processed_at": "2026-07-08T12:37:39.126546Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:37:45.194152Z",
+              "processed_at": "2026-07-08T12:37:46.215190Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T12:38:23.068839Z",
+              "processed_at": "2026-07-08T12:38:24.295116Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T12:38:23.233026Z",
+              "processed_at": "2026-07-08T12:38:24.296713Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:38:24.170320Z",
+              "processed_at": "2026-07-08T12:38:25.145615Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T12:38:24.298799Z",
+              "processed_at": "2026-07-08T12:38:25.147077Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T12:38:33.040029Z",
+              "processed_at": "2026-07-08T12:38:34.121250Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:39:21.040770Z",
+              "processed_at": "2026-07-08T12:39:22.096192Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:43:52.141499Z",
+              "processed_at": "2026-07-08T12:43:59.615488Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T12:43:52.141512Z",
+              "processed_at": "2026-07-08T12:43:59.615597Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T12:43:52.757108Z",
+              "processed_at": "2026-07-08T12:44:00.749897Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:44:26.895423Z",
+              "processed_at": "2026-07-08T12:44:27.250202Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:44:26.895433Z",
+              "processed_at": "2026-07-08T12:44:27.558490Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T12:44:26.895437Z",
+              "processed_at": "2026-07-08T12:44:27.558604Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:44:27.324069Z",
+              "processed_at": "2026-07-08T12:44:28.178026Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:56:52.603754Z",
+              "processed_at": "2026-07-08T12:56:53.186038Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T12:58:24.932971Z",
+              "processed_at": "2026-07-08T12:58:26.198246Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:58:24.932985Z",
+              "processed_at": "2026-07-08T12:58:26.330749Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T12:58:24.933006Z",
+              "processed_at": "2026-07-08T12:58:26.330864Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:01:23.421358Z",
+              "processed_at": "2026-07-08T13:01:24.609922Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:01:23.421369Z",
+              "processed_at": "2026-07-08T13:01:24.705009Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:02:00.380238Z",
+              "processed_at": "2026-07-08T13:02:01.376533Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:02:00.380249Z",
+              "processed_at": "2026-07-08T13:02:01.516926Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T13:02:00.380252Z",
+              "processed_at": "2026-07-08T13:02:01.517036Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:02:01.158037Z",
+              "processed_at": "2026-07-08T13:02:02.266336Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:02:01.158022Z",
+              "processed_at": "2026-07-08T13:02:02.563917Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:02:09.316810Z",
+              "processed_at": "2026-07-08T13:02:10.749372Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:02:09.316821Z",
+              "processed_at": "2026-07-08T13:02:10.806231Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:08:43.668299Z",
+              "processed_at": "2026-07-08T13:08:44.455386Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:08:43.668308Z",
+              "processed_at": "2026-07-08T13:08:44.518234Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T13:08:43.668311Z",
+              "processed_at": "2026-07-08T13:08:44.518347Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:08:44.337312Z",
+              "processed_at": "2026-07-08T13:08:45.736815Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:08:44.337303Z",
+              "processed_at": "2026-07-08T13:08:45.759025Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:08:54.805763Z",
+              "processed_at": "2026-07-08T13:08:55.711474Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:08:54.805774Z",
+              "processed_at": "2026-07-08T13:08:55.745549Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T13:08:54.805778Z",
+              "processed_at": "2026-07-08T13:08:55.745657Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:09:10.079747Z",
+              "processed_at": "2026-07-08T13:09:11.053682Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:09:10.079732Z",
+              "processed_at": "2026-07-08T13:09:11.112953Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T13:09:10.079743Z",
+              "processed_at": "2026-07-08T13:09:11.113066Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:10:09.387542Z",
+              "processed_at": "2026-07-08T13:10:10.415222Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:10:09.387530Z",
+              "processed_at": "2026-07-08T13:10:11.005499Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T13:10:09.387539Z",
+              "processed_at": "2026-07-08T13:10:11.005676Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T13:12:01.417357Z",
+              "processed_at": "2026-07-08T13:12:02.592374Z"
+            },
+            {
+              "id": 25475660611584,
+              "operation": "insert",
+              "created_at": "2026-07-08T13:20:33.855891Z",
+              "updated_at": "2026-07-08T13:20:33.890944Z",
+              "processed_at": "2026-07-08T13:20:34.832862Z"
+            },
+            {
+              "id": 25475660611584,
+              "operation": "update",
+              "created_at": "2026-07-08T13:20:33.855891Z",
+              "updated_at": "2026-07-08T13:20:34.026289Z",
+              "processed_at": "2026-07-08T13:20:34.836256Z"
+            },
+            {
+              "id": 25475660611584,
+              "operation": "update",
+              "created_at": "2026-07-08T13:20:33.855891Z",
+              "updated_at": "2026-07-08T13:20:34.435983Z",
+              "processed_at": "2026-07-08T13:20:35.272457Z"
+            },
+            {
+              "id": 25475660611584,
+              "operation": "update",
+              "created_at": "2026-07-08T13:20:33.855891Z",
+              "updated_at": "2026-07-08T13:20:34.884831Z",
+              "processed_at": "2026-07-08T13:20:36.337677Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:21:23.692908Z",
+              "processed_at": "2026-07-08T13:21:24.928056Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:21:23.692895Z",
+              "processed_at": "2026-07-08T13:21:24.968585Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T13:21:23.692904Z",
+              "processed_at": "2026-07-08T13:21:24.968666Z"
+            },
+            {
+              "id": 25475660611584,
+              "operation": "update",
+              "created_at": "2026-07-08T13:20:33.855891Z",
+              "updated_at": "2026-07-08T13:21:23.692911Z",
+              "processed_at": "2026-07-08T13:21:24.968743Z"
+            },
+            {
+              "id": 25475660611584,
+              "operation": "update",
+              "created_at": "2026-07-08T13:20:33.855891Z",
+              "updated_at": "2026-07-08T13:21:24.353804Z",
+              "processed_at": "2026-07-08T13:21:25.842495Z"
+            },
+            {
+              "id": 25475660611584,
+              "operation": "update",
+              "created_at": "2026-07-08T13:20:33.855891Z",
+              "updated_at": "2026-07-08T13:21:41.344847Z",
+              "processed_at": "2026-07-08T13:21:42.721711Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:21:44.990560Z",
+              "processed_at": "2026-07-08T13:21:45.829482Z"
+            },
+            {
+              "id": 25467524694016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "updated_at": "2026-07-08T13:21:44.990568Z",
+              "processed_at": "2026-07-08T13:21:45.829589Z"
+            },
+            {
+              "id": 25475660611584,
+              "operation": "update",
+              "created_at": "2026-07-08T13:20:33.855891Z",
+              "updated_at": "2026-07-08T13:21:44.990574Z",
+              "processed_at": "2026-07-08T13:21:45.829697Z"
+            },
+            {
+              "id": 25465885929472,
+              "operation": "update",
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "updated_at": "2026-07-08T13:21:44.990571Z",
+              "processed_at": "2026-07-08T13:21:46.012222Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:24:38.851133Z",
+              "processed_at": "2026-07-08T13:25:24.164253Z"
+            },
+            {
+              "id": 25465510096896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T13:24:48.382211Z",
+              "processed_at": "2026-07-08T13:25:29.142178Z"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 15:44:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4967",
+          "x-ratelimit-reset": "1783525458",
+          "cf-ray": "a18035429f464598-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"8799f01dbb39d6f4dc61286a4981198d\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "11",
+          "ratelimit-reset": "1783525445",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "3e48d4c5-487d-4145-adaa-06c1c4e5212c",
+          "set-cookie": "__cf_bm=r4zjIjbXS6ZIOZ71.gObVngilMkUAa4Q.SM3GoUDiFg-1783525442.9716396-1.0.1.1-9cza__qIt82Jsf2bk9VfELkgeTNmgkeb94ZLRdZao6SPUAIy9Pq_AmyKSWF8HWwbXPnzRHUmlt8mI_uG6WqjfU1Gy8zb8YyFWa4HB7rt0hGONY9ntsGtqa0Rsc7fDB.c; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 16:14:03 GMT"
+        },
+        "hash": "d156af41eeb3b42d70f195f6b5b6125751f7cbe2",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/api/external/v2/supplier_invoices/25465510096896": {
+        "response": {
+          "amount": "120.0",
+          "archived_at": null,
+          "created_at": "2026-07-08T12:25:29.783648Z",
+          "currency_amount_before_tax": "100.0",
+          "currency_amount": "120.0",
+          "currency_tax": "20.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "deadline": "2026-07-15",
+          "filename": "dummy.pdf",
+          "id": 25465510096896,
+          "invoice_number": "",
+          "label": "Updated label via API",
+          "payment_status": "to_be_processed",
+          "paid": false,
+          "remaining_amount_with_tax": "-120.0",
+          "remaining_amount_without_tax": "-100.0",
+          "tax": "20.0",
+          "updated_at": "2026-07-08T13:24:48.382211Z",
+          "reconciled": false,
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=0lULklx2i5o7En0aRDgJahnClLnauu0i1JetHTuciFRbZQy9v0l%2FLtJO68COEoDyiGNCGkNHnHH9zxlsXX7sLQKmqB%2FbUXtldg1bi84L0swMbwU7QFZuR7yrgDWAIw%3D%3D--%2FcpYI04cH6e00W5y--klPv1540Cyg40dhAbft5kg%3D%3D",
+          "exchange_rate": "1.0",
+          "accounting_status": "complete",
+          "ledger_entry": {
+            "id": 25465510096896
+          },
+          "transaction_reference": {
+            "banking_provider": "bank",
+            "provider_field_name": "label",
+            "provider_field_value": "Test transaction"
+          },
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/invoice_lines"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/matched_transactions"
+          },
+          "external_reference": "S4GJB6XIFC",
+          "e_invoicing": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 15:44:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4966",
+          "x-ratelimit-reset": "1783525458",
+          "cf-ray": "a18035467f58b248-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"9eda17eaa7464970e1b222d1aff69a60\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "10",
+          "ratelimit-reset": "1783525445",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "279060c7-2131-41cb-b7aa-618dec24b29a",
+          "set-cookie": "__cf_bm=x4j2OXJIbPZENsU9Kb01gkLC8Dv32E0hSVOJScCLfNQ-1783525443.597134-1.0.1.1-Fm4dtfWQ2ksCidr.PlMdQ0znEVkm8mGgS4Ot5RKtxeDU8hD7PmDvDxkHavDfAaed7kzHPKGRZO7K02D911GiDfELjFkCdtuWKWKL42pIoXglKJLcYhQsPYOJgx0b5DK0; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 16:14:03 GMT"
+        },
+        "hash": "e0bae03f4144e48a78936778e358958c173ea6b4",
+        "request": {}
+      },
+      "/api/external/v2/supplier_invoices/25465872809984": {
+        "response": {
+          "amount": "120.0",
+          "archived_at": null,
+          "created_at": "2026-07-08T12:28:05.542251Z",
+          "currency_amount_before_tax": "100.0",
+          "currency_amount": "120.0",
+          "currency_tax": "20.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "deadline": "2026-07-15",
+          "filename": "dummy2.pdf",
+          "id": 25465872809984,
+          "invoice_number": "",
+          "label": "Facture Office Supplies SARL (label généré)",
+          "payment_status": "to_be_processed",
+          "paid": false,
+          "remaining_amount_with_tax": "-120.0",
+          "remaining_amount_without_tax": "-100.0",
+          "tax": "20.0",
+          "updated_at": "2026-07-08T12:28:05.847972Z",
+          "reconciled": false,
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=9UXBja3INsTtETIn8PCsjqXLvtMQkXctSIRiRGa17NMuSRPoMarZWeHgP6gSz1myJTGUZtu0G2OgHg4ZbdFV%2BZqQMT4X5KwhtbdqHHigzMrYTE02ZxDFJ2aKU9bEbA%3D%3D--nls0DM2EGQstwxmz--GzVtcgdOvouRLHv2rfmZaw%3D%3D",
+          "exchange_rate": "1.0",
+          "accounting_status": "complete",
+          "ledger_entry": {
+            "id": 25465872809984
+          },
+          "transaction_reference": null,
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/invoice_lines"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/matched_transactions"
+          },
+          "external_reference": "JWUFJX7LMG",
+          "e_invoicing": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 15:44:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4965",
+          "x-ratelimit-reset": "1783525458",
+          "cf-ray": "a180354a19ef4598-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"44f5cb9fa8ed3cedce79eb0254f4a2f4\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "9",
+          "ratelimit-reset": "1783525445",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "493caed8-8ad9-4e24-a994-32f733e57ea5",
+          "set-cookie": "__cf_bm=oXD1.g8ug97GnePtF2zcYxiVMZfshUaPb3CcTrNLP_A-1783525444.1771674-1.0.1.1-EBNj20U2Mx8lAXGdKkS9Of5DXE1cmhCEVNeKl8eYJnPwbGQCGKI4hoZ6uhmBH72GMilO2oh1qf4Yv_2Grrjeg2h26bMAZVOdi48WCCxY6tuyGgf2qE1tD7V_usNF6iGJ; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 16:14:04 GMT"
+        },
+        "hash": "bf9e56a9fd51c0370e014eb38364e3ad358d3515",
+        "request": {}
+      },
+      "/api/external/v2/supplier_invoices/25465885929472": {
+        "response": {
+          "amount": "120.0",
+          "archived_at": null,
+          "created_at": "2026-07-08T12:28:12.080542Z",
+          "currency_amount_before_tax": "100.0",
+          "currency_amount": "120.0",
+          "currency_tax": "20.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "deadline": "2024-01-01",
+          "filename": "test-invoice.xml",
+          "id": 25465885929472,
+          "invoice_number": "TEST-001",
+          "label": "Updated label via API",
+          "payment_status": "paid_offline",
+          "paid": false,
+          "remaining_amount_with_tax": "-120.0",
+          "remaining_amount_without_tax": "-100.0",
+          "tax": "20.0",
+          "updated_at": "2026-07-08T13:21:44.990571Z",
+          "reconciled": false,
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=mJW7qFalZmFq%2BgQ33wuyGanEwFZIFNSyyK86WJBDbqQsnvJp66zrt4lHpZy0A5jlJvKcNlYwSA7le5VWZPM6JnYI28g%2FsH7qEkRAyDFQi9AnlbfaSkQYEgKFeMKY7g%3D%3D--LGNN%2B75R9nnLv0ve--Mn7vWI5sq2JeABSnbIJn3w%3D%3D",
+          "exchange_rate": "1.0",
+          "accounting_status": "complete",
+          "ledger_entry": {
+            "id": 25465885929472
+          },
+          "transaction_reference": null,
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/invoice_lines"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/matched_transactions"
+          },
+          "external_reference": "A9SSVDTNFM",
+          "e_invoicing": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 15:44:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1783525458",
+          "cf-ray": "a180354dbd4531df-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"253beb9f4cccdf4182ee1ad938c16870\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "8",
+          "ratelimit-reset": "1783525445",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "829be7eb-0e49-429d-85ea-b0166fba80a6",
+          "set-cookie": "__cf_bm=omGBX2J3X.Y4a4XhRODIzQnmeGvggewBMOND43_zDDM-1783525444.7514648-1.0.1.1-u9edZSgnqvU8ehsTEg5LhtFF.v9fv9L.mz_ogvwOERbdjT9MWTzaH90f_sh9ukxSp_O9sf2vGTL4V_cHzarICJRdEvK0vnfHQmvvBEXdoMmWFndGKOQDLh5tAczKqHd6; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 16:14:04 GMT"
+        },
+        "hash": "7be0ce3e5588f5f4c3413ad96be3c602c1fc12bd",
+        "request": {}
+      },
+      "/api/external/v2/supplier_invoices/25467524694016": {
+        "response": {
+          "amount": "120.0",
+          "archived_at": null,
+          "created_at": "2026-07-08T12:38:23.041874Z",
+          "currency_amount_before_tax": "100.0",
+          "currency_amount": "120.0",
+          "currency_tax": "20.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "deadline": "2026-07-08",
+          "filename": "test-invoice.xml",
+          "id": 25467524694016,
+          "invoice_number": "INV-TEST-001",
+          "label": "Facture Office Supplies SARL - INV-TEST-001 (label généré)",
+          "payment_status": "to_be_paid",
+          "paid": false,
+          "remaining_amount_with_tax": "-120.0",
+          "remaining_amount_without_tax": "-100.0",
+          "tax": "20.0",
+          "updated_at": "2026-07-08T13:21:44.990568Z",
+          "reconciled": false,
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=Zyg0l%2B0h6rJBJfj%2BsPHOkNpBbZMeMYHLzeJ41G2G96Pj1xpW4%2F0mr4IHJ%2F7MCj3HwyHtNH%2FDb%2Ft9upCAnAuVl4FJQON61at4uj4%2Bt%2Bbqu3HXGtede9Sq0hXyabBw5Q%3D%3D--xeUds8KO0IcxzT%2Fj--1jtQwkUWjG49dNrzej86Gw%3D%3D",
+          "exchange_rate": "1.0",
+          "accounting_status": "complete",
+          "ledger_entry": {
+            "id": 25467524694016
+          },
+          "transaction_reference": null,
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/invoice_lines"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/matched_transactions"
+          },
+          "external_reference": "ZXKY0QM6WV",
+          "e_invoicing": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 15:44:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1783525458",
+          "cf-ray": "a1803551799e503f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"04b9ae5ceb6b1208847fd66ca852ab77\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783525450",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "32bcf080-eb57-4c75-866a-dfbe8fe7bb26",
+          "set-cookie": "__cf_bm=nu11YR.0joX8HV_ZkKtXjqbDt8HPgHAwEMsR_QcXgHY-1783525445.3592873-1.0.1.1-_P1Em7nc4u_P1_cf9ooPF3qkIimBtncObjV6iABSlc5Uqv5k_cWpA3tot2USqDrfIcaHQx_6hZHiTA8pofIA4RnaTtT5aCxlDuE0g0WI3kmg8NoXng8h5y4XJOsheZJ8; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 16:14:05 GMT"
+        },
+        "hash": "0a3a37755bee872f4736af204c26f5c040f9cf6f",
+        "request": {}
+      },
+      "/api/external/v2/supplier_invoices/25475660611584": {
+        "response": {
+          "amount": "120.0",
+          "archived_at": null,
+          "created_at": "2026-07-08T13:20:33.855891Z",
+          "currency_amount_before_tax": "100.0",
+          "currency_amount": "120.0",
+          "currency_tax": "20.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "deadline": "2026-07-08",
+          "filename": "test-einvoice.xml",
+          "id": 25475660611584,
+          "invoice_number": "TEST-EINV-001",
+          "label": "Facture Office Supplies SARL Updated - TEST-EINV-001 (label généré)",
+          "payment_status": "to_be_paid",
+          "paid": false,
+          "remaining_amount_with_tax": "-120.0",
+          "remaining_amount_without_tax": "-100.0",
+          "tax": "20.0",
+          "updated_at": "2026-07-08T13:21:44.990574Z",
+          "reconciled": false,
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=g%2FV70Yt3JGN2tzpkWO1JrACbpx9AiBcKifUTV1CngzYsLWMQH0IkJCNiqSAY%2FnwK%2BhWe7hPUbvbYRw2gPKXL5XSt%2BNO%2FPGXW2oU%2FKc0KV%2FIGAG%2BWPLwUnCD7lMQRtQ%3D%3D--tyk1aWN6KFPf4GQG--Duk%2BaGBwxQHbfcExe1xeOA%3D%3D",
+          "exchange_rate": "1.0",
+          "accounting_status": "validation_needed",
+          "ledger_entry": {
+            "id": 25475660611584
+          },
+          "transaction_reference": null,
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25475660611584/invoice_lines"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25475660611584/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25475660611584/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25475660611584/matched_transactions"
+          },
+          "external_reference": "WESZGRLNFO",
+          "e_invoicing": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 15:44:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4962",
+          "x-ratelimit-reset": "1783525458",
+          "cf-ray": "a18035556c6931df-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"4f9d4a327210eb7bb21417658738dd8e\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "23",
+          "ratelimit-reset": "1783525450",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "dbbeca24-1b84-490d-a9bb-7733dd92e818",
+          "set-cookie": "__cf_bm=44tAGq6q4Isl74zk25rEyiBjEdB6kZf6cJKMN9eCJXM-1783525445.986165-1.0.1.1-CJ6tTP51gFlrEqyGmjFZCYCJwO2jx.YfJgxJ0nefINn4FFkqOOuc6LL9HCEKDPM751f0_YU2sbAmfr8wopXhOG9nX00pk4pceJhL2.u3RPTWEdXSlNk42wpwV2ZHHIOk; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 16:14:06 GMT"
+        },
+        "hash": "dc22d8cd7037adb227c31da9d5e51df063a453a1",
+        "request": {}
+      },
+      "/api/external/v2/supplier_invoices": {
+        "response": {
+          "items": [
+            {
+              "amount": "120.0",
+              "archived_at": null,
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "date": "2026-07-08",
+              "deadline": "2026-07-15",
+              "filename": "dummy.pdf",
+              "id": 25465510096896,
+              "invoice_number": "",
+              "label": "Updated label via API",
+              "payment_status": "to_be_processed",
+              "paid": false,
+              "remaining_amount_with_tax": "-120.0",
+              "remaining_amount_without_tax": "-100.0",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T13:24:48.382211Z",
+              "reconciled": false,
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=0lULklx2i5o7En0aRDgJahnClLnauu0i1JetHTuciFRbZQy9v0l%2FLtJO68COEoDyiGNCGkNHnHH9zxlsXX7sLQKmqB%2FbUXtldg1bi84L0swMbwU7QFZuR7yrgDWAIw%3D%3D--%2FcpYI04cH6e00W5y--klPv1540Cyg40dhAbft5kg%3D%3D",
+              "exchange_rate": "1.0",
+              "accounting_status": "complete",
+              "ledger_entry": {
+                "id": 25465510096896
+              },
+              "transaction_reference": {
+                "banking_provider": "bank",
+                "provider_field_name": "label",
+                "provider_field_value": "Test transaction"
+              },
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/invoice_lines"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/matched_transactions"
+              },
+              "external_reference": "S4GJB6XIFC",
+              "e_invoicing": null
+            },
+            {
+              "amount": "120.0",
+              "archived_at": null,
+              "created_at": "2026-07-08T12:28:05.542251Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "date": "2026-07-08",
+              "deadline": "2026-07-15",
+              "filename": "dummy2.pdf",
+              "id": 25465872809984,
+              "invoice_number": "",
+              "label": "Facture Office Supplies SARL (label généré)",
+              "payment_status": "to_be_processed",
+              "paid": false,
+              "remaining_amount_with_tax": "-120.0",
+              "remaining_amount_without_tax": "-100.0",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T12:28:05.847972Z",
+              "reconciled": false,
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=9UXBja3INsTtETIn8PCsjqXLvtMQkXctSIRiRGa17NMuSRPoMarZWeHgP6gSz1myJTGUZtu0G2OgHg4ZbdFV%2BZqQMT4X5KwhtbdqHHigzMrYTE02ZxDFJ2aKU9bEbA%3D%3D--nls0DM2EGQstwxmz--GzVtcgdOvouRLHv2rfmZaw%3D%3D",
+              "exchange_rate": "1.0",
+              "accounting_status": "complete",
+              "ledger_entry": {
+                "id": 25465872809984
+              },
+              "transaction_reference": null,
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/invoice_lines"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/matched_transactions"
+              },
+              "external_reference": "JWUFJX7LMG",
+              "e_invoicing": null
+            },
+            {
+              "amount": "120.0",
+              "archived_at": null,
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "date": "2026-07-08",
+              "deadline": "2024-01-01",
+              "filename": "test-invoice.xml",
+              "id": 25465885929472,
+              "invoice_number": "TEST-001",
+              "label": "Updated label via API",
+              "payment_status": "paid_offline",
+              "paid": false,
+              "remaining_amount_with_tax": "-120.0",
+              "remaining_amount_without_tax": "-100.0",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T13:21:44.990571Z",
+              "reconciled": false,
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=mJW7qFalZmFq%2BgQ33wuyGanEwFZIFNSyyK86WJBDbqQsnvJp66zrt4lHpZy0A5jlJvKcNlYwSA7le5VWZPM6JnYI28g%2FsH7qEkRAyDFQi9AnlbfaSkQYEgKFeMKY7g%3D%3D--LGNN%2B75R9nnLv0ve--Mn7vWI5sq2JeABSnbIJn3w%3D%3D",
+              "exchange_rate": "1.0",
+              "accounting_status": "complete",
+              "ledger_entry": {
+                "id": 25465885929472
+              },
+              "transaction_reference": null,
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/invoice_lines"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/matched_transactions"
+              },
+              "external_reference": "A9SSVDTNFM",
+              "e_invoicing": null
+            },
+            {
+              "amount": "120.0",
+              "archived_at": null,
+              "created_at": "2026-07-08T12:38:23.041874Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "date": "2026-07-08",
+              "deadline": "2026-07-08",
+              "filename": "test-invoice.xml",
+              "id": 25467524694016,
+              "invoice_number": "INV-TEST-001",
+              "label": "Facture Office Supplies SARL - INV-TEST-001 (label généré)",
+              "payment_status": "to_be_paid",
+              "paid": false,
+              "remaining_amount_with_tax": "-120.0",
+              "remaining_amount_without_tax": "-100.0",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T13:21:44.990568Z",
+              "reconciled": false,
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=Zyg0l%2B0h6rJBJfj%2BsPHOkNpBbZMeMYHLzeJ41G2G96Pj1xpW4%2F0mr4IHJ%2F7MCj3HwyHtNH%2FDb%2Ft9upCAnAuVl4FJQON61at4uj4%2Bt%2Bbqu3HXGtede9Sq0hXyabBw5Q%3D%3D--xeUds8KO0IcxzT%2Fj--1jtQwkUWjG49dNrzej86Gw%3D%3D",
+              "exchange_rate": "1.0",
+              "accounting_status": "complete",
+              "ledger_entry": {
+                "id": 25467524694016
+              },
+              "transaction_reference": null,
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/invoice_lines"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/matched_transactions"
+              },
+              "external_reference": "ZXKY0QM6WV",
+              "e_invoicing": null
+            },
+            {
+              "amount": "120.0",
+              "archived_at": null,
+              "created_at": "2026-07-08T13:20:33.855891Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "date": "2026-07-08",
+              "deadline": "2026-07-08",
+              "filename": "test-einvoice.xml",
+              "id": 25475660611584,
+              "invoice_number": "TEST-EINV-001",
+              "label": "Facture Office Supplies SARL Updated - TEST-EINV-001 (label généré)",
+              "payment_status": "to_be_paid",
+              "paid": false,
+              "remaining_amount_with_tax": "-120.0",
+              "remaining_amount_without_tax": "-100.0",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T13:21:44.990574Z",
+              "reconciled": false,
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=g%2FV70Yt3JGN2tzpkWO1JrACbpx9AiBcKifUTV1CngzYsLWMQH0IkJCNiqSAY%2FnwK%2BhWe7hPUbvbYRw2gPKXL5XSt%2BNO%2FPGXW2oU%2FKc0KV%2FIGAG%2BWPLwUnCD7lMQRtQ%3D%3D--tyk1aWN6KFPf4GQG--Duk%2BaGBwxQHbfcExe1xeOA%3D%3D",
+              "exchange_rate": "1.0",
+              "accounting_status": "validation_needed",
+              "ledger_entry": {
+                "id": 25475660611584
+              },
+              "transaction_reference": null,
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25475660611584/invoice_lines"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25475660611584/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25475660611584/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25475660611584/matched_transactions"
+              },
+              "external_reference": "WESZGRLNFO",
+              "e_invoicing": null
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "hash": "b79ac5dc5bf9290701338ca9e134c982dbbd2979",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

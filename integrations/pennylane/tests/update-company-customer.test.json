@@ -1,0 +1,120 @@
+{
+  "input": {
+    "id": "1338468995072",
+    "notes": "Updated via Nango action"
+  },
+  "output": {
+    "id": 1338468995072,
+    "name": "Acme Corp Test",
+    "payment_conditions": "30_days",
+    "recipient": "",
+    "phone": "",
+    "reference": "",
+    "notes": "Updated via Nango action",
+    "vat_number": "",
+    "reg_no": "",
+    "emails": [],
+    "billing_address": {
+      "address": "1 Rue de la Paix",
+      "postal_code": "75002",
+      "city": "Paris",
+      "country_alpha2": "FR"
+    },
+    "delivery_address": {
+      "address": "",
+      "postal_code": "",
+      "city": "",
+      "country_alpha2": ""
+    },
+    "external_reference": "019f419b-fadb-7969-ba95-567de18414e0",
+    "billing_language": "fr_FR",
+    "created_at": "2026-07-08T12:02:49.184274Z",
+    "updated_at": "2026-07-08T12:37:45.185229Z"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/external/v2/company_customers/1338468995072": {
+        "response": {
+          "id": 1338468995072,
+          "name": "Acme Corp Test",
+          "billing_iban": null,
+          "payment_conditions": "30_days",
+          "recipient": "",
+          "updated_at": "2026-07-08T12:37:45.185229Z",
+          "phone": "",
+          "reference": "",
+          "vat_number": "",
+          "reg_no": "",
+          "created_at": "2026-07-08T12:02:49.184274Z",
+          "billing_language": "fr_FR",
+          "ledger_account": {
+            "id": 14057741639680
+          },
+          "notes": "Updated via Nango action",
+          "emails": [],
+          "billing_address": {
+            "address": "1 Rue de la Paix",
+            "postal_code": "75002",
+            "city": "Paris",
+            "country_alpha2": "FR"
+          },
+          "delivery_address": {
+            "address": "",
+            "postal_code": "",
+            "city": "",
+            "country_alpha2": ""
+          },
+          "external_reference": "019f419b-fadb-7969-ba95-567de18414e0",
+          "mandates": {
+            "url": "https://app.pennylane.com/api/external/v2/gocardless_mandates?filter=%5B%7B%22field%22%3A%22customer_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A%221338468995072%22%7D%5D"
+          },
+          "pro_account_mandates": {
+            "url": "https://app.pennylane.com/api/external/v2/pro_account/mandates?filter=%5B%7B%22field%22%3A%22customer_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A%221338468995072%22%7D%5D"
+          },
+          "contacts": {
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072/contacts"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:37:45 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1783514312",
+          "cf-ray": "a17f245c48f70ccf-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"ec686adccc81754eb1d34c995c3cedef\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "23",
+          "ratelimit-reset": "1783514270",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "63f2575d-f9cd-45fb-9195-1b9fe987c686",
+          "set-cookie": "__cf_bm=zk5JqFEIN2AqYOzW.ad2gdYXrWUuiXBuGBcEbUd0y.E-1783514265.010063-1.0.1.1-66hVXIwHYDoOxNcufU0TFBYSl3.ELeBWgH73AQxajZAfayCw_MSA0nFUM280jQ6fUd5sJjRpz91COBlv9S4AYzxX1akZzfPmLmHrrJ9eU3q7EfiyTL6QKp77oB7lupty; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:07:45 GMT"
+        },
+        "hash": "1c9fe9a678006938d8f8a702bdaea572eea96c3d",
+        "request": {
+          "data": {
+            "notes": "Updated via Nango action"
+          }
+        }
+      }
+    }
+  }
+}

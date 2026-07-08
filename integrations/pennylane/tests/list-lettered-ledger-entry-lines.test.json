@@ -1,0 +1,177 @@
+{
+  "input": {
+    "ledger_entry_line_id": 104375812313088
+  },
+  "output": {
+    "items": [
+      {
+        "id": 104375812317184,
+        "debit": "0.0",
+        "credit": "100.0",
+        "label": "Line B",
+        "categories": [],
+        "ledger_account": {
+          "id": 14064606162944,
+          "number": "5121001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465648861184
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [
+            104375812313088,
+            104375812317184
+          ],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375812317184/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:30.269808Z",
+        "updated_at": "2026-07-08T12:27:00.581972Z"
+      },
+      {
+        "id": 104375812313088,
+        "debit": "100.0",
+        "credit": "0.0",
+        "label": "Line A",
+        "categories": [],
+        "ledger_account": {
+          "id": 14064606162944,
+          "number": "5121001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465648861184
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [
+            104375812313088,
+            104375812317184
+          ],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375812313088/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:30.269808Z",
+        "updated_at": "2026-07-08T12:27:00.581972Z"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/ledger_entry_lines/104375812313088/lettered_ledger_entry_lines": {
+        "response": {
+          "total_pages": null,
+          "current_page": null,
+          "per_page": null,
+          "total_items": null,
+          "items": [
+            {
+              "id": 104375812317184,
+              "label": "Line B",
+              "debit": "0.0",
+              "credit": "100.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:30.269808Z",
+              "updated_at": "2026-07-08T12:27:00.581972Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14064606162944,
+                "number": "5121001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+              },
+              "ledger_entry": {
+                "id": 25465648861184
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [
+                  104375812313088,
+                  104375812317184
+                ],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375812317184/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375812313088,
+              "label": "Line A",
+              "debit": "100.0",
+              "credit": "0.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:30.269808Z",
+              "updated_at": "2026-07-08T12:27:00.581972Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14064606162944,
+                "number": "5121001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+              },
+              "ledger_entry": {
+                "id": 25465648861184
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [
+                  104375812313088,
+                  104375812317184
+                ],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375812313088/lettered_ledger_entry_lines"
+              }
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:29:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4968",
+          "x-ratelimit-reset": "1783513820",
+          "cf-ray": "a17f184adfd8148b-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"64a7cb325654f47b0d70a9716d60dba4\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783513775",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "c7e04a75-207c-4403-bfff-7207301f2ac1",
+          "set-cookie": "__cf_bm=RE5LMwzARv1sIMwNYZWw5qWHBbUOJ.vUCL0Z_de2Uvs-1783513770.6958036-1.0.1.1-T4_x4BDaFSj16vI56EccHmdxD5E9Fd5N0tLkn7Dv2nz2azi7oIa7jpwNq0t0M7DwQnAb2uFjp9E5i8swBwd8Wpb.atCIZPQabVKq2UkCueS2B03S7hxEdApc3qGVNO0j; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 12:59:30 GMT"
+        },
+        "hash": "3a2a6ec2a5a3a1f7aeefdee912d107e4a7bdfa1f",
+        "request": {}
+      }
+    }
+  }
+}

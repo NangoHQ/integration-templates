@@ -4,7 +4,10 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         start_date: z.string().optional().describe('RFC3339 datetime filter. Example: "2026-01-01T00:00:00Z". Changes for the last 4 weeks are retained.'),
-        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page. Must not be used together with start_date.'),
+        cursor: z
+            .string()
+            .optional()
+            .describe('Pagination cursor from the previous response. Omit for the first page. Must not be used together with start_date.'),
         limit: z.number().int().min(1).max(1000).optional().describe('Number of items to return per request. Defaults to 20. Must be between 1 and 1000.')
     })
     .refine((data) => !(data.start_date !== undefined && data.cursor !== undefined), {

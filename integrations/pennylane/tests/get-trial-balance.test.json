@@ -1,0 +1,206 @@
+{
+  "input": {
+    "period_start": "2026-01-01",
+    "period_end": "2026-12-31"
+  },
+  "output": {
+    "items": [
+      {
+        "number": "401",
+        "label": "Fournisseurs",
+        "debits": "150.0",
+        "credits": "390.0",
+        "formatted_number": "4010000"
+      },
+      {
+        "number": "411",
+        "label": "Clients",
+        "debits": "600.0",
+        "credits": "0.0",
+        "formatted_number": "4110000"
+      },
+      {
+        "number": "44564",
+        "label": "TVA d\u00e9ductible sur encaissements",
+        "debits": "40.0",
+        "credits": "0.0",
+        "formatted_number": "4456400"
+      },
+      {
+        "number": "44574",
+        "label": "TVA collect\u00e9e sur encaissements",
+        "debits": "0.0",
+        "credits": "100.0",
+        "formatted_number": "4457400"
+      },
+      {
+        "number": "4717001",
+        "label": "Other - Test Bank Account - encaissements en attente",
+        "debits": "0.0",
+        "credits": "200.0",
+        "formatted_number": "4717001"
+      },
+      {
+        "number": "5121001",
+        "label": "Other - Test Bank Account",
+        "debits": "400.0",
+        "credits": "100.0",
+        "formatted_number": "5121001"
+      },
+      {
+        "number": "6288",
+        "label": "Autres charges ext\u00e9rieures diverses",
+        "debits": "200.0",
+        "credits": "0.0",
+        "formatted_number": "6288000"
+      },
+      {
+        "number": "706",
+        "label": "Prestations de services",
+        "debits": "0.0",
+        "credits": "600.0",
+        "formatted_number": "7060000"
+      },
+      {
+        "number": "999001",
+        "label": "Test Ledger Account",
+        "debits": "0.0",
+        "credits": "200.0",
+        "formatted_number": "9990010"
+      },
+      {
+        "number": "999002",
+        "label": "Test Ledger Account",
+        "debits": "200.0",
+        "credits": "0.0",
+        "formatted_number": "9990020"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/trial_balance": {
+        "response": {
+          "total_pages": null,
+          "current_page": null,
+          "per_page": null,
+          "total_items": null,
+          "items": [
+            {
+              "credits": "390.0",
+              "debits": "150.0",
+              "label": "Fournisseurs",
+              "number": "401",
+              "formatted_number": "4010000"
+            },
+            {
+              "credits": "0.0",
+              "debits": "600.0",
+              "label": "Clients",
+              "number": "411",
+              "formatted_number": "4110000"
+            },
+            {
+              "credits": "0.0",
+              "debits": "40.0",
+              "label": "TVA d\u00e9ductible sur encaissements",
+              "number": "44564",
+              "formatted_number": "4456400"
+            },
+            {
+              "credits": "100.0",
+              "debits": "0.0",
+              "label": "TVA collect\u00e9e sur encaissements",
+              "number": "44574",
+              "formatted_number": "4457400"
+            },
+            {
+              "credits": "200.0",
+              "debits": "0.0",
+              "label": "Other - Test Bank Account - encaissements en attente",
+              "number": "4717001",
+              "formatted_number": "4717001"
+            },
+            {
+              "credits": "100.0",
+              "debits": "400.0",
+              "label": "Other - Test Bank Account",
+              "number": "5121001",
+              "formatted_number": "5121001"
+            },
+            {
+              "credits": "0.0",
+              "debits": "200.0",
+              "label": "Autres charges ext\u00e9rieures diverses",
+              "number": "6288",
+              "formatted_number": "6288000"
+            },
+            {
+              "credits": "600.0",
+              "debits": "0.0",
+              "label": "Prestations de services",
+              "number": "706",
+              "formatted_number": "7060000"
+            },
+            {
+              "credits": "200.0",
+              "debits": "0.0",
+              "label": "Test Ledger Account",
+              "number": "999001",
+              "formatted_number": "9990010"
+            },
+            {
+              "credits": "0.0",
+              "debits": "200.0",
+              "label": "Test Ledger Account",
+              "number": "999002",
+              "formatted_number": "9990020"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:33:09 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4958",
+          "x-ratelimit-reset": "1783514001",
+          "cf-ray": "a17f1da38d8eb74e-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"c045f0a958fb12b68b99b3eaf1fa1386\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "23",
+          "ratelimit-reset": "1783513990",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "492c40ad-37fd-4225-9dff-bee9ef153d79",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "668bcd24971fe5cd48e36e44b6d6d888c4584665",
+        "request": {
+          "params": {
+            "period_end": "2026-12-31",
+            "period_start": "2026-01-01"
+          }
+        }
+      }
+    }
+  }
+}
