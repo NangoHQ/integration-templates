@@ -31,7 +31,7 @@ const InvoiceLineSchema = z.object({
     currency_tax: z.string().describe('Total tax amount in currency'),
     tax: z.string().describe('Total tax amount in euros'),
     raw_currency_unit_price: z.string().describe('Unit price (excluding tax)'),
-    discount: DiscountSchema,
+    discount: DiscountSchema.nullable(),
     section_rank: z.number().nullable().describe('Has to correspond to the rank number of a line items section in which the line item should be'),
     created_at: z.string().describe('Creation timestamp'),
     updated_at: z.string().describe('Update timestamp')

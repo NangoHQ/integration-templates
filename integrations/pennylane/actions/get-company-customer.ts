@@ -33,8 +33,8 @@ const OutputSchema = z.object({
         })
         .optional(),
     emails: z.array(z.string()),
-    billing_address: AddressSchema,
-    delivery_address: AddressSchema,
+    billing_address: AddressSchema.nullable().optional(),
+    delivery_address: AddressSchema.nullable().optional(),
     created_at: z.string(),
     updated_at: z.string(),
     external_reference: z.string(),
@@ -61,8 +61,8 @@ const ProviderCompanyCustomerSchema = z.object({
         })
         .nullable(),
     emails: z.array(z.string()),
-    billing_address: AddressSchema,
-    delivery_address: AddressSchema,
+    billing_address: AddressSchema.nullable().optional(),
+    delivery_address: AddressSchema.nullable().optional(),
     created_at: z.string(),
     updated_at: z.string(),
     external_reference: z.string(),

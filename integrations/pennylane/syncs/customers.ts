@@ -51,7 +51,7 @@ const PennylaneCustomerSchema = z.object({
     source_id: z.union([z.string(), z.null()]).optional(),
     emails: z.union([z.string().array(), z.null()]).optional(),
     billing_iban: z.union([z.string(), z.null()]).optional(),
-    delivery_address: z.union([DeliveryAddressSchema, z.null()]).optional(),
+    delivery_address: DeliveryAddressSchema.nullable().optional(),
     delivery_postal_code: z.union([z.string(), z.null()]).optional(),
     delivery_country_alpha2: z.union([z.string(), z.null()]).optional(),
     payment_conditions: z.union([z.string(), z.null()]).optional(),
@@ -146,6 +146,11 @@ const sync = createSync({
                 await nango.saveCheckpoint({ cursor });
             }
         }
+
+        // The customers endpoint has no changed-since filter, so every run is a full crawl.
+        // Clear the checkpoint on successful completion so the next run starts from page one
+        // instead of resuming from the last page's cursor and skipping everything before it.
+        await nango.clearCheckpoint();
     }
 });
 

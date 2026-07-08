@@ -1,96 +1,127 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const SupplierPaymentMethodEnum = z.enum(['automatic_transfer', 'manual_transfer', 'automatic_debiting', 'bill_of_exchange', 'check', 'cash', 'card', 'other']);
+
+const SupplierDueDateRuleEnum = z.enum(['days', 'days_or_end_of_month']);
+
 const InputSchema = z.object({
     name: z.string().describe('Supplier name. Example: "Office Supplies SARL"'),
-    email: z.string().optional().describe('Supplier email address'),
-    phone: z.string().optional().describe('Supplier phone number'),
-    address: z.string().optional().describe('Street address'),
-    city: z.string().optional().describe('City'),
-    postal_code: z.string().optional().describe('Postal code'),
-    country: z.string().optional().describe('Country code (ISO 3166-1 alpha-2). Example: "FR"'),
-    vat_number: z.string().optional().describe('VAT number'),
-    source_id: z.string().optional().describe('External source identifier'),
-    reference: z.string().optional().describe('Internal reference')
+    establishment_no: z.string().nullable().optional().describe('Supplier identification number (SIRET). 14-digit number. Example: "82762938500014"'),
+    reg_no: z.string().optional().describe('Supplier registration number (SIREN). 9-digit number. Example: "827629385"'),
+    postal_address: z
+        .object({
+            address: z.string(),
+            postal_code: z.string(),
+            city: z.string(),
+            country_alpha2: z.string()
+        })
+        .optional()
+        .describe('Postal address. All fields required when provided.'),
+    vat_number: z.string().optional().describe('VAT number. Example: "FR32123456789"'),
+    emails: z.array(z.string()).optional().describe('Email addresses. Example: ["hello@example.org"]'),
+    iban: z.string().optional().describe('IBAN. Example: "FR3330002005500000157841Z25"'),
+    supplier_payment_method: SupplierPaymentMethodEnum.nullable().optional(),
+    supplier_due_date_delay: z.number().nullable().optional().describe('Due date delay in days. Example: 30'),
+    supplier_due_date_rule: SupplierDueDateRuleEnum.nullable().optional(),
+    external_reference: z.string().optional().describe('Unique external reference. Example: "FR123"')
 });
 
-const ProviderSupplierSchema = z
-    .object({
-        id: z.union([z.string(), z.number()]).transform((val) => String(val)),
-        name: z.string(),
-        email: z.string().nullable().optional(),
-        phone: z.string().nullable().optional(),
-        address: z.string().nullable().optional(),
-        city: z.string().nullable().optional(),
-        postal_code: z.string().nullable().optional(),
-        country: z.string().nullable().optional(),
-        vat_number: z.string().nullable().optional(),
-        source_id: z.string().nullable().optional(),
-        reference: z.string().nullable().optional()
-    })
-    .passthrough();
+const ProviderPostalAddressSchema = z.object({
+    address: z.string(),
+    postal_code: z.string(),
+    city: z.string(),
+    country_alpha2: z.string()
+});
+
+const ProviderSupplierSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    establishment_no: z.string().nullable(),
+    reg_no: z.string().nullable(),
+    vat_number: z.string(),
+    ledger_account: z
+        .object({
+            id: z.number()
+        })
+        .nullable(),
+    emails: z.array(z.string()),
+    iban: z.string(),
+    postal_address: ProviderPostalAddressSchema,
+    supplier_payment_method: SupplierPaymentMethodEnum.nullable(),
+    supplier_due_date_delay: z.number().nullable(),
+    supplier_due_date_rule: SupplierDueDateRuleEnum.nullable(),
+    external_reference: z.string(),
+    created_at: z.string(),
+    updated_at: z.string()
+});
 
 const OutputSchema = z.object({
-    id: z.string(),
+    id: z.number(),
     name: z.string(),
-    email: z.string().optional(),
-    phone: z.string().optional(),
-    address: z.string().optional(),
-    city: z.string().optional(),
-    postal_code: z.string().optional(),
-    country: z.string().optional(),
+    establishment_no: z.string().nullable().optional(),
+    reg_no: z.string().nullable().optional(),
     vat_number: z.string().optional(),
-    source_id: z.string().optional(),
-    reference: z.string().optional()
+    ledger_account_id: z.number().nullable().optional(),
+    emails: z.array(z.string()).optional(),
+    iban: z.string().optional(),
+    postal_address: ProviderPostalAddressSchema.optional(),
+    supplier_payment_method: SupplierPaymentMethodEnum.nullable().optional(),
+    supplier_due_date_delay: z.number().nullable().optional(),
+    supplier_due_date_rule: SupplierDueDateRuleEnum.nullable().optional(),
+    external_reference: z.string().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional()
 });
-
-function normalizeSupplier(providerSupplier: z.infer<typeof ProviderSupplierSchema>): z.infer<typeof OutputSchema> {
-    return {
-        id: providerSupplier.id,
-        name: providerSupplier.name,
-        ...(providerSupplier.email != null && { email: providerSupplier.email }),
-        ...(providerSupplier.phone != null && { phone: providerSupplier.phone }),
-        ...(providerSupplier.address != null && { address: providerSupplier.address }),
-        ...(providerSupplier.city != null && { city: providerSupplier.city }),
-        ...(providerSupplier.postal_code != null && { postal_code: providerSupplier.postal_code }),
-        ...(providerSupplier.country != null && { country: providerSupplier.country }),
-        ...(providerSupplier.vat_number != null && { vat_number: providerSupplier.vat_number }),
-        ...(providerSupplier.source_id != null && { source_id: providerSupplier.source_id }),
-        ...(providerSupplier.reference != null && { reference: providerSupplier.reference })
-    };
-}
 
 const action = createAction({
     description: 'Create a supplier in Pennylane',
-    version: '3.0.0',
+    version: '4.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['suppliers:all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const payload: Record<string, unknown> = {
+        const data: Record<string, unknown> = {
             name: input.name,
-            ...(input.email !== undefined && { email: input.email }),
-            ...(input.phone !== undefined && { phone: input.phone }),
-            ...(input.address !== undefined && { address: input.address }),
-            ...(input.city !== undefined && { city: input.city }),
-            ...(input.postal_code !== undefined && { postal_code: input.postal_code }),
-            ...(input.country !== undefined && { country: input.country }),
+            ...(input.establishment_no !== undefined && { establishment_no: input.establishment_no }),
+            ...(input.reg_no !== undefined && { reg_no: input.reg_no }),
+            ...(input.postal_address !== undefined && { postal_address: input.postal_address }),
             ...(input.vat_number !== undefined && { vat_number: input.vat_number }),
-            ...(input.source_id !== undefined && { source_id: input.source_id }),
-            ...(input.reference !== undefined && { reference: input.reference })
+            ...(input.emails !== undefined && { emails: input.emails }),
+            ...(input.iban !== undefined && { iban: input.iban }),
+            ...(input.supplier_payment_method !== undefined && { supplier_payment_method: input.supplier_payment_method }),
+            ...(input.supplier_due_date_delay !== undefined && { supplier_due_date_delay: input.supplier_due_date_delay }),
+            ...(input.supplier_due_date_rule !== undefined && { supplier_due_date_rule: input.supplier_due_date_rule }),
+            ...(input.external_reference !== undefined && { external_reference: input.external_reference })
         };
 
         const response = await nango.post({
             // https://pennylane.readme.io/reference/postsupplier
             endpoint: '/api/external/v2/suppliers',
-            data: payload,
+            data,
             retries: 1
         });
 
         const providerSupplier = ProviderSupplierSchema.parse(response.data);
 
-        return normalizeSupplier(providerSupplier);
+        return {
+            id: providerSupplier.id,
+            name: providerSupplier.name,
+            ...(providerSupplier.establishment_no != null && { establishment_no: providerSupplier.establishment_no }),
+            ...(providerSupplier.reg_no != null && { reg_no: providerSupplier.reg_no }),
+            ...(providerSupplier.vat_number && { vat_number: providerSupplier.vat_number }),
+            ...(providerSupplier.ledger_account != null && { ledger_account_id: providerSupplier.ledger_account.id }),
+            ...(providerSupplier.emails && { emails: providerSupplier.emails }),
+            ...(providerSupplier.iban && { iban: providerSupplier.iban }),
+            ...(providerSupplier.postal_address && { postal_address: providerSupplier.postal_address }),
+            ...(providerSupplier.supplier_payment_method != null && { supplier_payment_method: providerSupplier.supplier_payment_method }),
+            ...(providerSupplier.supplier_due_date_delay != null && { supplier_due_date_delay: providerSupplier.supplier_due_date_delay }),
+            ...(providerSupplier.supplier_due_date_rule != null && { supplier_due_date_rule: providerSupplier.supplier_due_date_rule }),
+            ...(providerSupplier.external_reference && { external_reference: providerSupplier.external_reference }),
+            ...(providerSupplier.created_at && { created_at: providerSupplier.created_at }),
+            ...(providerSupplier.updated_at && { updated_at: providerSupplier.updated_at })
+        };
     }
 });
 

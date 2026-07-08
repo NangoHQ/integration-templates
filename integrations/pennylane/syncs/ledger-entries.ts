@@ -94,6 +94,7 @@ const sync = createSync({
         if (metadata?.date_to) {
             filters.push({ field: 'date', operator: 'lteq', value: metadata.date_to });
         }
+        const isFiltered = filters.length > 0;
 
         const params: { limit: number; filter?: string } = {
             limit: 100
@@ -117,7 +118,12 @@ const sync = createSync({
             retries: 3
         };
 
-        await nango.trackDeletesStart('LedgerEntry');
+        // Delete tracking must only run for unfiltered, full enumerations: when date_from/date_to
+        // narrow the crawl, records outside that window are legitimately absent from the run and
+        // must not be treated as deleted.
+        if (!isFiltered) {
+            await nango.trackDeletesStart('LedgerEntry');
+        }
 
         for await (const page of nango.paginate(config)) {
             const entries = z.array(ProviderLedgerEntrySchema).parse(page);
@@ -154,7 +160,9 @@ const sync = createSync({
             }
         }
 
-        await nango.trackDeletesEnd('LedgerEntry');
+        if (!isFiltered) {
+            await nango.trackDeletesEnd('LedgerEntry');
+        }
     }
 });
 

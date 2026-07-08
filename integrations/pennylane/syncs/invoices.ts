@@ -163,7 +163,7 @@ const RawInvoiceSchema = z.object({
 const InvoiceSchema = z.object({
     id: z.string(),
     amount: z.union([z.string(), z.null()]),
-    billing_subscription: z.union([BillingSubscriptionSchema, z.null()]).optional(),
+    billing_subscription: BillingSubscriptionSchema.nullable().optional(),
     categories: z.union([InvoiceCategorySchema.array(), z.null()]).optional(),
     currency: z.union([z.string(), z.null()]),
     currency_amount: z.union([z.string(), z.null()]),
@@ -180,7 +180,7 @@ const InvoiceSchema = z.object({
     file_url: z.union([z.string(), z.null()]),
     filename: z.union([z.string(), z.null()]),
     fully_paid_at: z.union([z.date(), z.null()]).optional(),
-    imputation_dates: z.union([ImputationDateSchema, z.null()]),
+    imputation_dates: ImputationDateSchema.nullable(),
     invoice_number: z.union([z.string(), z.null()]).optional(),
     is_draft: z.boolean(),
     is_estimate: z.boolean().optional(),
@@ -199,12 +199,25 @@ const InvoiceSchema = z.object({
     source: z.union([z.string(), z.null()]),
     special_mention: z.union([z.string(), z.null()]),
     status: z.union([z.string(), z.null()]),
-    transactions_reference: z.union([TransactionReferenceSchema, z.null()]).optional(),
+    transactions_reference: TransactionReferenceSchema.nullable().optional(),
     updated_at: z.union([z.date(), z.string()])
 });
 
+const ChangelogItemSchema = z.object({
+    id: z.union([z.number(), z.string()]),
+    operation: z.enum(['insert', 'update', 'delete']),
+    processed_at: z.string()
+});
+
+const ChangelogResponseSchema = z.object({
+    items: z.array(ChangelogItemSchema),
+    has_more: z.boolean(),
+    next_cursor: z.string().nullable().optional()
+});
+
 const CheckpointSchema = z.object({
-    last_id: z.string()
+    processed_after: z.string(),
+    cursor: z.string()
 });
 
 function toInvoice(raw: z.infer<typeof RawInvoiceSchema>): z.infer<typeof InvoiceSchema> {
@@ -272,44 +285,125 @@ const sync = createSync({
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = CheckpointSchema.safeParse(rawCheckpoint);
-        const lastId = checkpoint.success ? checkpoint.data.last_id : undefined;
+        let processedAfter = checkpoint.success ? checkpoint.data.processed_after : undefined;
+        let cursor = checkpoint.success ? checkpoint.data.cursor || undefined : undefined;
 
-        const config: ProxyConfiguration = {
-            // https://pennylane.readme.io/reference/getcustomerinvoices
-            endpoint: '/api/external/v2/customer_invoices',
-            retries: 3,
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'cursor',
-                cursor_path_in_response: 'next_cursor',
-                response_path: 'items',
-                limit_name_in_request: 'limit',
-                limit: 50
+        if (!rawCheckpoint) {
+            // The changelog feed used below only retains recent history, so a brand-new connection
+            // must first backfill every existing invoice via a full enumeration ordered by id. Only
+            // after that completes do we switch to changelog-based incremental updates, which is the
+            // only way to also pick up status/payment changes on invoices created before this run.
+            const backfillStartedAt = new Date().toISOString();
+            const backfillConfig: ProxyConfiguration = {
+                // https://pennylane.readme.io/reference/getcustomerinvoices
+                endpoint: '/api/external/v2/customer_invoices',
+                params: { sort: 'id' },
+                retries: 3,
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'cursor',
+                    cursor_path_in_response: 'next_cursor',
+                    response_path: 'items',
+                    limit_name_in_request: 'limit',
+                    limit: 50
+                }
+            };
+
+            for await (const page of nango.paginate(backfillConfig)) {
+                const items = Array.isArray(page) ? page : [];
+                const invoices = items.map((item: unknown) => {
+                    const parsed = RawInvoiceSchema.safeParse(item);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse invoice: ${parsed.error.message}`);
+                    }
+                    return toInvoice(parsed.data);
+                });
+
+                if (invoices.length > 0) {
+                    await nango.batchSave(invoices, 'PennylaneInvoice');
+                }
             }
-        };
 
-        config.params = {
-            sort: 'id',
-            ...(lastId && { filter: JSON.stringify([{ field: 'id', operator: 'gt', value: lastId }]) })
-        };
+            // Hand off to the changelog-based incremental strategy on the next scheduled run,
+            // starting from the moment this backfill began.
+            await nango.saveCheckpoint({ processed_after: backfillStartedAt, cursor: '' });
+            return;
+        }
 
-        for await (const page of nango.paginate(config)) {
-            const items = Array.isArray(page) ? page : [];
-            const invoices = items.map((item: unknown) => {
-                const parsed = RawInvoiceSchema.safeParse(item);
+        let overallLastProcessedAt = processedAfter;
+        let hasMore = true;
+
+        while (hasMore) {
+            const params: Record<string, string | number> = { limit: 50 };
+            if (cursor) {
+                params['cursor'] = cursor;
+            } else if (processedAfter) {
+                params['start_date'] = processedAfter;
+            }
+
+            const changelogResponse = await nango.get({
+                // https://pennylane.readme.io/reference/getcustomerinvoiceschanges
+                endpoint: '/api/external/v2/changelogs/customer_invoices',
+                params,
+                retries: 3
+            });
+
+            const changelogData = ChangelogResponseSchema.parse(changelogResponse.data);
+
+            const decisions = new Map<string, 'upsert' | 'delete'>();
+            let lastProcessedAt: string | undefined;
+            for (const change of changelogData.items) {
+                lastProcessedAt = change.processed_at;
+                decisions.set(String(change.id), change.operation === 'delete' ? 'delete' : 'upsert');
+            }
+
+            const deletions: Array<{ id: string }> = [];
+            const upsertIds: string[] = [];
+            for (const [id, decision] of decisions) {
+                if (decision === 'delete') {
+                    deletions.push({ id });
+                } else {
+                    upsertIds.push(id);
+                }
+            }
+
+            const invoices: Array<z.infer<typeof InvoiceSchema>> = [];
+            for (const id of upsertIds) {
+                const invoiceResponse = await nango.get({
+                    // https://pennylane.readme.io/reference/getcustomerinvoice
+                    endpoint: `/api/external/v2/customer_invoices/${encodeURIComponent(id)}`,
+                    retries: 3
+                });
+
+                const parsed = RawInvoiceSchema.safeParse(invoiceResponse.data);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse invoice: ${parsed.error.message}`);
                 }
-                return toInvoice(parsed.data);
-            });
+                invoices.push(toInvoice(parsed.data));
+            }
 
             if (invoices.length > 0) {
                 await nango.batchSave(invoices, 'PennylaneInvoice');
-                const lastInvoice = invoices[invoices.length - 1];
-                if (lastInvoice) {
-                    await nango.saveCheckpoint({ last_id: lastInvoice.id });
-                }
             }
+
+            if (deletions.length > 0) {
+                await nango.batchDelete(deletions, 'PennylaneInvoice');
+            }
+
+            if (lastProcessedAt) {
+                overallLastProcessedAt = lastProcessedAt;
+            }
+
+            hasMore = changelogData.has_more && changelogData.next_cursor != null;
+            cursor = changelogData.next_cursor ?? undefined;
+
+            if (hasMore) {
+                await nango.saveCheckpoint({ processed_after: processedAfter || '', cursor: cursor || '' });
+            }
+        }
+
+        if (overallLastProcessedAt) {
+            await nango.saveCheckpoint({ processed_after: overallLastProcessedAt, cursor: '' });
         }
     }
 });

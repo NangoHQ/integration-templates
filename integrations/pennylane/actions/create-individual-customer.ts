@@ -8,6 +8,13 @@ const AddressSchema = z.object({
     country_alpha2: z.string().describe('ISO 3166-1 alpha-2 country code. Example: "FR"')
 });
 
+const ProviderAddressSchema = z.object({
+    address: z.string().nullable(),
+    postal_code: z.string().nullable(),
+    city: z.string().nullable(),
+    country_alpha2: z.string().nullable()
+});
+
 const InputSchema = z.object({
     first_name: z.string().describe('First name of the individual customer. Example: "John"'),
     last_name: z.string().describe('Last name of the individual customer. Example: "Doe"'),
@@ -53,8 +60,8 @@ const ProviderIndividualCustomerSchema = z.object({
         })
         .nullable(),
     emails: z.array(z.string()).nullable(),
-    billing_address: AddressSchema,
-    delivery_address: AddressSchema.nullable(),
+    billing_address: ProviderAddressSchema,
+    delivery_address: ProviderAddressSchema.nullable(),
     created_at: z.string(),
     updated_at: z.string(),
     external_reference: z.string().nullable(),
@@ -93,8 +100,8 @@ const OutputSchema = z.object({
         })
         .optional(),
     emails: z.array(z.string()).optional(),
-    billing_address: AddressSchema,
-    delivery_address: AddressSchema.optional(),
+    billing_address: ProviderAddressSchema,
+    delivery_address: ProviderAddressSchema.optional(),
     created_at: z.string(),
     updated_at: z.string(),
     external_reference: z.string().optional(),

@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 const ChangelogEventSchema = z.object({
     id: z.number(),
-    operation: z.string(),
+    operation: z.enum(['insert', 'update', 'delete']),
     processed_at: z.string()
 });
 

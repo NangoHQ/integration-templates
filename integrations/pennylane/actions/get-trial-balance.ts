@@ -51,13 +51,7 @@ const action = createAction({
 
             const parsed = ProviderResponseSchema.parse(response.data);
             const rawItems = parsed.items ?? [];
-
-            for (const raw of rawItems) {
-                const itemResult = TrialBalanceItemSchema.safeParse(raw);
-                if (itemResult.success) {
-                    items.push(itemResult.data);
-                }
-            }
+            items.push(...z.array(TrialBalanceItemSchema).parse(rawItems));
 
             const nextCursor = parsed.next_cursor;
             cursor = nextCursor != null && nextCursor.length > 0 ? nextCursor : undefined;

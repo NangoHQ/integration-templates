@@ -37,7 +37,7 @@ const BankAccountSchema = z.object({
     bic: z.string().optional().describe('Bank Identifier Code'),
     account_type: z.string().optional().describe('Account type (e.g. checking, savings, loan, life_insurance, other)'),
     bank_establishment: BankEstablishmentSchema.optional().describe('Associated bank establishment'),
-    journal: LinkedJournalSchema.optional().describe('Associated journal'),
+    journal: LinkedJournalSchema.nullable().optional().describe('Associated journal'),
     ledger_account: LinkedLedgerAccountSchema.optional().describe('Associated ledger account')
 });
 
@@ -63,7 +63,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://pennylane.readme.io/reference/getbankaccounts
-            endpoint: '/bank_accounts',
+            endpoint: '/api/external/v2/bank_accounts',
             params: {
                 ...(input.cursor !== undefined && { cursor: input.cursor }),
                 ...(input.limit !== undefined && { limit: String(input.limit) })

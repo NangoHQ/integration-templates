@@ -4,7 +4,10 @@ import { createAction } from 'nango';
 const InvoiceLineInputSchema = z.object({
     product_id: z.number().describe('The product ID. Example: 87538491392'),
     quantity: z.number().describe('Line item quantity. Example: 2'),
-    raw_currency_unit_price: z.number().describe('The unit price excluding taxes. Example: 500.00'),
+    raw_currency_unit_price: z
+        .string()
+        .optional()
+        .describe('The unit price excluding taxes, as a string with up to 6 decimals. Overrides the product price when provided. Example: "500.00"'),
     label: z.string().optional().describe('Line item label'),
     ledger_account_id: z.number().optional().describe('The ledger account ID'),
     unit: z.string().optional().describe('Line item unit'),
@@ -93,10 +96,12 @@ const action = createAction({
         const invoiceLines = input.invoice_lines.map((line) => {
             const mappedLine: Record<string, unknown> = {
                 product_id: line.product_id,
-                quantity: line.quantity,
-                raw_currency_unit_price: String(line.raw_currency_unit_price)
+                quantity: line.quantity
             };
 
+            if (line.raw_currency_unit_price !== undefined) {
+                mappedLine['raw_currency_unit_price'] = line.raw_currency_unit_price;
+            }
             if (line.label !== undefined) {
                 mappedLine['label'] = line.label;
             }

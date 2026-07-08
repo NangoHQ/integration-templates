@@ -1,6 +1,22 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+const ProviderMandateSchema = z.object({
+    status: z.string().optional(),
+    early_execution_date_permitted: z.boolean().optional(),
+    active_billing_subscription: z.boolean().optional(),
+    signed_at: z.string().nullable().optional(),
+    created_at: z.string().optional(),
+    pdf_url: z.string().nullable().optional(),
+    customer: z
+        .object({
+            id: z.number(),
+            url: z.string()
+        })
+        .nullable()
+        .optional()
+});
+
 const ProAccountMandateSchema = z.object({
     id: z.string(),
     status: z.string().optional(),
@@ -8,14 +24,8 @@ const ProAccountMandateSchema = z.object({
     active_billing_subscription: z.boolean().optional(),
     signed_at: z.string().optional(),
     created_at: z.string().optional(),
-    updated_at: z.string().optional(),
     pdf_url: z.string().optional(),
-    customer: z
-        .object({
-            id: z.string().optional(),
-            name: z.string().optional()
-        })
-        .optional()
+    customer_id: z.string().optional()
 });
 
 function isNoProAccountError(error: unknown): boolean {
@@ -46,6 +56,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['customer_mandates:readonly'],
     models: {
         ProAccountMandate: ProAccountMandateSchema
     },
@@ -75,13 +86,31 @@ const sync = createSync({
         // company state that should delete any previously synced mandates.
         try {
             for await (const page of nango.paginate(proxyConfig)) {
-                const mandates = page.map((record: unknown) => {
-                    const parsed = ProAccountMandateSchema.safeParse(record);
+                const mandates: Array<z.infer<typeof ProAccountMandateSchema>> = [];
+                for (const record of page) {
+                    const parsed = ProviderMandateSchema.safeParse(record);
                     if (!parsed.success) {
                         throw new Error(`Failed to parse mandate: ${parsed.error.message}`);
                     }
-                    return parsed.data;
-                });
+                    // A mandate has no identifier of its own; it is uniquely keyed by its customer.
+                    if (parsed.data.customer == null) {
+                        continue;
+                    }
+                    mandates.push({
+                        id: String(parsed.data.customer.id),
+                        ...(parsed.data.status != null && { status: parsed.data.status }),
+                        ...(parsed.data.early_execution_date_permitted != null && {
+                            early_execution_date_permitted: parsed.data.early_execution_date_permitted
+                        }),
+                        ...(parsed.data.active_billing_subscription != null && {
+                            active_billing_subscription: parsed.data.active_billing_subscription
+                        }),
+                        ...(parsed.data.signed_at != null && { signed_at: parsed.data.signed_at }),
+                        ...(parsed.data.created_at != null && { created_at: parsed.data.created_at }),
+                        ...(parsed.data.pdf_url != null && { pdf_url: parsed.data.pdf_url }),
+                        customer_id: String(parsed.data.customer.id)
+                    });
+                }
 
                 if (mandates.length > 0) {
                     await nango.batchSave(mandates, 'ProAccountMandate');

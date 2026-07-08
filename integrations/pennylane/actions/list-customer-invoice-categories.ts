@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    customer_invoice_id: z.number().describe('Customer invoice ID. Example: 25461646082048'),
+    customer_invoice_id: z.number().int().positive().describe('Customer invoice ID. Example: 25461646082048'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().min(1).max(100).optional().describe('Number of items to return per page. Defaults to 20.')
+    limit: z.number().int().min(1).max(100).default(20).describe('Number of items to return per page. Defaults to 20.')
 });
 
 const ProviderCategorySchema = z.object({

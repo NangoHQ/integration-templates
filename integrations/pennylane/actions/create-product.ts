@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    label: z.string().describe('Product label. Example: "Consulting Services"'),
-    price_before_tax: z.string().describe('Product price without taxes. Example: "100.00"'),
-    vat_rate: z.string().describe('Product VAT rate. A 20% VAT in France is FR_200. Example: "FR_200"'),
+    label: z.string().min(1, 'label is required').describe('Product label. Example: "Consulting Services"'),
+    price_before_tax: z.string().min(1, 'price_before_tax is required').describe('Product price without taxes. Example: "100.00"'),
+    vat_rate: z.string().min(1, 'vat_rate is required').describe('Product VAT rate. A 20% VAT in France is FR_200. Example: "FR_200"'),
     description: z.string().optional().describe('Product description. Maximum 5,000 characters.'),
     external_reference: z.string().optional().describe('Unique external reference. If not provided, Pennylane will assign one.'),
     unit: z.string().optional().describe('Product unit. Example: "piece"'),

@@ -7,7 +7,7 @@ const CategoryInputSchema = z.object({
 });
 
 const InputSchema = z.object({
-    ledger_entry_line_id: z.number().describe('The unique identifier of the ledger entry line. Example: 104374555205632'),
+    ledger_entry_line_id: z.string().describe('The unique identifier of the ledger entry line. Example: "104374555205632"'),
     categories: z.array(CategoryInputSchema).describe('Array of categories to assign. Pass an empty array to remove all categories.')
 });
 

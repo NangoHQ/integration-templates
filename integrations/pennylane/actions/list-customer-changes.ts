@@ -50,35 +50,25 @@ const action = createAction({
             retries: 3
         });
 
-        const raw = response.data;
+        const responseSchema = z.object({
+            items: z.array(CustomerChangeSchema),
+            has_more: z.boolean(),
+            next_cursor: z.string().nullable()
+        });
 
-        if (typeof raw !== 'object' || raw === null || !Array.isArray(raw.items)) {
+        const parsed = responseSchema.safeParse(response.data);
+        if (!parsed.success) {
             throw new nango.ActionError({
                 type: 'invalid_response',
-                message: 'Unexpected response shape from changelog customers endpoint'
+                message: 'Unexpected response shape from changelog customers endpoint',
+                detail: parsed.error.message
             });
         }
 
-        const parsedItems: z.infer<typeof CustomerChangeSchema>[] = [];
-        for (const item of raw.items) {
-            const parsed = CustomerChangeSchema.safeParse(item);
-            if (!parsed.success) {
-                throw new nango.ActionError({
-                    type: 'invalid_response',
-                    message: 'Failed to parse a customer change event',
-                    detail: parsed.error.message
-                });
-            }
-            parsedItems.push(parsed.data);
-        }
-
-        const hasMore = typeof raw.has_more === 'boolean' ? raw.has_more : false;
-        const nextCursor = raw.next_cursor != null && typeof raw.next_cursor === 'string' ? raw.next_cursor : undefined;
-
         return {
-            items: parsedItems,
-            has_more: hasMore,
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            items: parsed.data.items,
+            has_more: parsed.data.has_more,
+            ...(parsed.data.next_cursor != null && { next_cursor: parsed.data.next_cursor })
         };
     }
 });

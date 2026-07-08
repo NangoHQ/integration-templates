@@ -88,7 +88,8 @@ const InvoiceResponseSchema = z
     .passthrough();
 
 const CheckpointSchema = z.object({
-    processed_after: z.string()
+    processed_after: z.string(),
+    cursor: z.string()
 });
 
 const sync = createSync({
@@ -104,8 +105,9 @@ const sync = createSync({
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
-        let cursor: string | undefined;
+        let cursor: string | undefined = checkpoint?.cursor || undefined;
         let hasMore = true;
+        let overallLastProcessedAt = checkpoint?.processed_after;
 
         while (hasMore) {
             const params: Record<string, string | number> = { limit: 100 };
@@ -200,11 +202,25 @@ const sync = createSync({
             }
 
             if (lastProcessedAt !== undefined) {
-                await nango.saveCheckpoint({ processed_after: lastProcessedAt });
+                overallLastProcessedAt = lastProcessedAt;
             }
 
             hasMore = has_more;
             cursor = typeof next_cursor === 'string' ? next_cursor : undefined;
+
+            if (hasMore) {
+                // Persist the exact API cursor mid-run so a retry resumes at this precise position
+                // instead of re-querying by start_date, which can miss or replay entries when
+                // several changelog events share the same processed_at timestamp.
+                await nango.saveCheckpoint({
+                    processed_after: checkpoint?.processed_after || '',
+                    cursor: cursor || ''
+                });
+            }
+        }
+
+        if (overallLastProcessedAt !== undefined) {
+            await nango.saveCheckpoint({ processed_after: overallLastProcessedAt, cursor: '' });
         }
     }
 });

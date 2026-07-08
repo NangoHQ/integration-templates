@@ -31,30 +31,43 @@ const action = createAction({
             data['recipients'] = input.recipients;
         }
 
-        const response = await nango.post({
-            // https://pennylane.readme.io/reference/sendbyemailquote
-            endpoint: `/api/external/v2/quotes/${encodeURIComponent(String(input.id))}/send_by_email`,
-            data,
-            retries: 1
-        });
-
-        if (response.status === 409) {
-            const parsed = ProviderErrorSchema.parse(response.data);
-            throw new nango.ActionError({
-                type: 'pdf_not_ready',
-                message: `The quote PDF is not yet generated. Retry in a few minutes. Original error: ${parsed.error}`,
-                quote_id: input.id
+        // @allowTryCatch Catching 409 Conflict to surface PDF generation retry guidance per Pennylane docs.
+        try {
+            await nango.post({
+                // https://pennylane.readme.io/reference/sendbyemailquote
+                endpoint: `/api/external/v2/quotes/${encodeURIComponent(String(input.id))}/send_by_email`,
+                data,
+                retries: 1
             });
-        }
-
-        if (response.status < 200 || response.status >= 300) {
-            const parsed = ProviderErrorSchema.safeParse(response.data);
-            throw new nango.ActionError({
-                type: 'provider_error',
-                message: parsed.success ? parsed.data.error : `Unexpected ${response.status} response from provider.`,
-                quote_id: input.id,
-                status: response.status
+        } catch (error) {
+            const errorSchema = z.object({
+                response: z.object({
+                    status: z.number(),
+                    data: z.unknown()
+                })
             });
+
+            const parsed = errorSchema.safeParse(error);
+            if (parsed.success && parsed.data.response.status === 409) {
+                const providerError = ProviderErrorSchema.safeParse(parsed.data.response.data);
+                throw new nango.ActionError({
+                    type: 'pdf_not_ready',
+                    message: `The quote PDF is not yet generated. Retry in a few minutes.${providerError.success ? ` Original error: ${providerError.data.error}` : ''}`,
+                    quote_id: input.id
+                });
+            }
+
+            if (parsed.success) {
+                const providerError = ProviderErrorSchema.safeParse(parsed.data.response.data);
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: providerError.success ? providerError.data.error : `Unexpected ${parsed.data.response.status} response from provider.`,
+                    quote_id: input.id,
+                    status: parsed.data.response.status
+                });
+            }
+
+            throw error;
         }
 
         return { success: true };

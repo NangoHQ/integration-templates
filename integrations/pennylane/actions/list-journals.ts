@@ -38,7 +38,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://pennylane.readme.io/reference/getjournals
-            endpoint: '/journals',
+            endpoint: '/api/external/v2/journals',
             params: {
                 ...(input.cursor !== undefined && { cursor: input.cursor }),
                 ...(input.limit !== undefined && { limit: input.limit })

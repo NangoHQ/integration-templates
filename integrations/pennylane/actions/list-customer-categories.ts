@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    customer_id: z.number().describe('Customer ID. Example: 1338468995072'),
+    customer_id: z.number().int().positive().describe('Customer ID. Example: 1338468995072'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     limit: z.number().min(1).max(100).optional().describe('Number of items to return per request. Defaults to 20. Must be between 1 and 100.')
 });

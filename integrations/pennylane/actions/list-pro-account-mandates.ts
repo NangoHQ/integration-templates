@@ -79,15 +79,17 @@ const action = createAction({
                 ...(listData.next_cursor != null && { next_cursor: listData.next_cursor })
             };
         } catch (err) {
+            const errorSchema = z.object({
+                response: z.object({
+                    status: z.number(),
+                    data: z.object({ error: z.string() }).partial()
+                })
+            });
+            const parsedErr = errorSchema.safeParse(err);
             const isNoProAccount =
-                typeof err === 'object' &&
-                err !== null &&
-                (('status' in err && err.status === 404) ||
-                    ('response' in err &&
-                        typeof err.response === 'object' &&
-                        err.response !== null &&
-                        'status' in err.response &&
-                        err.response.status === 404));
+                parsedErr.success &&
+                parsedErr.data.response.status === 404 &&
+                parsedErr.data.response.data.error === 'No Pro Account associated with the company';
 
             if (isNoProAccount) {
                 return {

@@ -21,19 +21,24 @@ const ProviderBankAccountSchema = z.object({
     balance: z.string().describe('Example: 100.15'),
     created_at: z.string().describe('Example: 2023-08-30T10:08:08.146343Z'),
     updated_at: z.string().describe('Example: 2023-08-30T10:08:08.146343Z'),
-    bank_establishment: z.object({
-        id: z.number().describe('Example: 42')
-    }),
+    bank_establishment: z
+        .object({
+            id: z.number().describe('Example: 42')
+        })
+        .optional(),
     journal: z
         .object({
             id: z.number().describe('Example: 42'),
             url: z.string().describe('Example: https://app.pennylane.com/api/external/v2/journals/7')
         })
-        .nullable(),
-    ledger_account: z.object({
-        id: z.number().describe('Example: 42'),
-        url: z.string().describe('Example: https://app.pennylane.com/api/external/v2/ledger_accounts/8')
-    })
+        .nullable()
+        .optional(),
+    ledger_account: z
+        .object({
+            id: z.number().describe('Example: 42'),
+            url: z.string().describe('Example: https://app.pennylane.com/api/external/v2/ledger_accounts/8')
+        })
+        .optional()
 });
 
 const sync = createSync({

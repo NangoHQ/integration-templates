@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    supplier_invoice_id: z.number().describe('Supplier invoice ID. Example: 1234'),
+    supplier_invoice_id: z.number().int().positive().describe('Supplier invoice ID. Example: 1234'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     limit: z.number().min(1).max(100).optional().describe('Number of items to return per request. Defaults to 20. Must be between 1 and 100.'),
     sort: z.string().optional().describe("Sort field. Defaults to '-id'. Available fields: id.")

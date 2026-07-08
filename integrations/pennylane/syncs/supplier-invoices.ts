@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const SupplierInvoiceSchema = z.object({
@@ -11,7 +11,6 @@ const SupplierInvoiceSchema = z.object({
     currency: z.string().optional(),
     date: z.string().optional(),
     due_date: z.string().optional(),
-    payment_date: z.string().optional(),
     file_url: z.string().optional(),
     created_at: z.string().optional(),
     updated_at: z.string().optional()
@@ -33,15 +32,19 @@ const RawSupplierInvoiceSchema = z
     .object({
         id: z.union([z.string(), z.number()]),
         source_id: z.union([z.string(), z.number()]).optional().nullable(),
-        supplier_id: z.union([z.string(), z.number()]).optional().nullable(),
-        status: z.string().optional().nullable(),
+        supplier: z
+            .object({
+                id: z.union([z.string(), z.number()])
+            })
+            .optional()
+            .nullable(),
+        payment_status: z.string().optional().nullable(),
         label: z.string().optional().nullable(),
         amount: z.union([z.string(), z.number()]).optional().nullable(),
         currency: z.string().optional().nullable(),
         date: z.string().optional().nullable(),
-        due_date: z.string().optional().nullable(),
-        payment_date: z.string().optional().nullable(),
-        file_url: z.string().optional().nullable(),
+        deadline: z.string().optional().nullable(),
+        public_file_url: z.string().optional().nullable(),
         created_at: z.string().optional().nullable(),
         updated_at: z.string().optional().nullable()
     })
@@ -56,15 +59,14 @@ function normalizeSupplierInvoice(raw: z.infer<typeof RawSupplierInvoiceSchema>)
     return {
         id: String(raw.id),
         ...(raw.source_id != null && { source_id: String(raw.source_id) }),
-        ...(raw.supplier_id != null && { supplier_id: String(raw.supplier_id) }),
-        ...(raw.status != null && { status: raw.status }),
+        ...(raw.supplier != null && { supplier_id: String(raw.supplier.id) }),
+        ...(raw.payment_status != null && { status: raw.payment_status }),
         ...(raw.label != null && { label: raw.label }),
         ...(raw.amount != null && { amount: String(raw.amount) }),
         ...(raw.currency != null && { currency: raw.currency }),
         ...(raw.date != null && { date: raw.date }),
-        ...(raw.due_date != null && { due_date: raw.due_date }),
-        ...(raw.payment_date != null && { payment_date: raw.payment_date }),
-        ...(raw.file_url != null && { file_url: raw.file_url }),
+        ...(raw.deadline != null && { due_date: raw.deadline }),
+        ...(raw.public_file_url != null && { file_url: raw.public_file_url }),
         ...(raw.created_at != null && { created_at: raw.created_at }),
         ...(raw.updated_at != null && { updated_at: raw.updated_at })
     };
@@ -91,6 +93,38 @@ const sync = createSync({
         if (validatedCheckpoint && validatedCheckpoint.success) {
             startDate = validatedCheckpoint.data.start_date || undefined;
             cursor = validatedCheckpoint.data.cursor || undefined;
+        }
+
+        if (!checkpoint) {
+            // The changelog feed only retains recent history, so a brand-new connection must first
+            // backfill every existing supplier invoice via full enumeration before switching to the
+            // changelog-based incremental strategy below.
+            const backfillStartedAt = new Date().toISOString();
+            const backfillConfig: ProxyConfiguration = {
+                // https://pennylane.readme.io/reference/getsupplierinvoices
+                endpoint: '/api/external/v2/supplier_invoices',
+                retries: 3,
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'cursor',
+                    cursor_path_in_response: 'next_cursor',
+                    response_path: 'items',
+                    limit_name_in_request: 'limit',
+                    limit: 100
+                }
+            };
+
+            for await (const page of nango.paginate(backfillConfig)) {
+                const backfilled = page.map((item: unknown) => normalizeSupplierInvoice(RawSupplierInvoiceSchema.parse(item)));
+                if (backfilled.length > 0) {
+                    await nango.batchSave(backfilled, 'SupplierInvoice');
+                }
+            }
+
+            // Hand off to the changelog-based incremental strategy on the next scheduled run,
+            // starting from the moment this backfill began.
+            await nango.saveCheckpoint({ start_date: backfillStartedAt, cursor: '' });
+            return;
         }
 
         // Pennylane changelog endpoints do not allow start_date and cursor in the same request.

@@ -187,52 +187,51 @@ const sync = createSync({
             }
 
             if (upsertIds.length > 0) {
-                const quotes = await Promise.all(
-                    upsertIds.map(async (id) => {
-                        // https://pennylane.readme.io/reference/getquote
-                        const quoteResponse = await nango.get({
-                            endpoint: `/api/external/v2/quotes/${encodeURIComponent(String(id))}`,
-                            retries: 3
-                        });
-                        const quote = ProviderQuoteSchema.parse(quoteResponse.data);
-                        return {
-                            id: String(quote.id),
-                            ...(quote.label != null && { label: quote.label }),
-                            quote_number: quote.quote_number,
-                            currency: quote.currency,
-                            amount: quote.amount,
-                            currency_amount: quote.currency_amount,
-                            currency_amount_before_tax: quote.currency_amount_before_tax,
-                            exchange_rate: quote.exchange_rate,
-                            ...(quote.date != null && { date: quote.date }),
-                            ...(quote.deadline != null && { deadline: quote.deadline }),
-                            currency_tax: quote.currency_tax,
-                            tax: quote.tax,
-                            language: quote.language,
-                            status: quote.status,
-                            ...(quote.discount && {
-                                discount_type: quote.discount.type,
-                                discount_value: quote.discount.value
-                            }),
-                            ...(quote.public_file_url != null && { public_file_url: quote.public_file_url }),
-                            ...(quote.filename != null && { filename: quote.filename }),
-                            ...(quote.special_mention != null && { special_mention: quote.special_mention }),
-                            ...(quote.customer != null && { customer_id: String(quote.customer.id) }),
-                            ...(quote.invoice_line_sections && { invoice_line_sections_url: quote.invoice_line_sections.url }),
-                            ...(quote.invoice_lines && { invoice_lines_url: quote.invoice_lines.url }),
-                            ...(quote.linked_invoices && { linked_invoices_url: quote.linked_invoices.url }),
-                            ...(quote.pdf_invoice_free_text && { pdf_invoice_free_text: quote.pdf_invoice_free_text }),
-                            ...(quote.pdf_invoice_subject && { pdf_invoice_subject: quote.pdf_invoice_subject }),
-                            ...(quote.pdf_description != null && { pdf_description: quote.pdf_description }),
-                            ...(quote.quote_template != null && { quote_template_id: String(quote.quote_template.id) }),
-                            ...(quote.appendices && { appendices_url: quote.appendices.url }),
-                            ...(quote.external_reference && { external_reference: quote.external_reference }),
-                            ...(quote.archived_at != null && { archived_at: quote.archived_at }),
-                            created_at: quote.created_at,
-                            updated_at: quote.updated_at
-                        };
-                    })
-                );
+                const quotes: Array<z.infer<typeof QuoteSchema>> = [];
+                for (const id of upsertIds) {
+                    // https://pennylane.readme.io/reference/getquote
+                    const quoteResponse = await nango.get({
+                        endpoint: `/api/external/v2/quotes/${encodeURIComponent(String(id))}`,
+                        retries: 3
+                    });
+                    const quote = ProviderQuoteSchema.parse(quoteResponse.data);
+                    quotes.push({
+                        id: String(quote.id),
+                        ...(quote.label != null && { label: quote.label }),
+                        quote_number: quote.quote_number,
+                        currency: quote.currency,
+                        amount: quote.amount,
+                        currency_amount: quote.currency_amount,
+                        currency_amount_before_tax: quote.currency_amount_before_tax,
+                        exchange_rate: quote.exchange_rate,
+                        ...(quote.date != null && { date: quote.date }),
+                        ...(quote.deadline != null && { deadline: quote.deadline }),
+                        currency_tax: quote.currency_tax,
+                        tax: quote.tax,
+                        language: quote.language,
+                        status: quote.status,
+                        ...(quote.discount && {
+                            discount_type: quote.discount.type,
+                            discount_value: quote.discount.value
+                        }),
+                        ...(quote.public_file_url != null && { public_file_url: quote.public_file_url }),
+                        ...(quote.filename != null && { filename: quote.filename }),
+                        ...(quote.special_mention != null && { special_mention: quote.special_mention }),
+                        ...(quote.customer != null && { customer_id: String(quote.customer.id) }),
+                        ...(quote.invoice_line_sections && { invoice_line_sections_url: quote.invoice_line_sections.url }),
+                        ...(quote.invoice_lines && { invoice_lines_url: quote.invoice_lines.url }),
+                        ...(quote.linked_invoices && { linked_invoices_url: quote.linked_invoices.url }),
+                        ...(quote.pdf_invoice_free_text && { pdf_invoice_free_text: quote.pdf_invoice_free_text }),
+                        ...(quote.pdf_invoice_subject && { pdf_invoice_subject: quote.pdf_invoice_subject }),
+                        ...(quote.pdf_description != null && { pdf_description: quote.pdf_description }),
+                        ...(quote.quote_template != null && { quote_template_id: String(quote.quote_template.id) }),
+                        ...(quote.appendices && { appendices_url: quote.appendices.url }),
+                        ...(quote.external_reference && { external_reference: quote.external_reference }),
+                        ...(quote.archived_at != null && { archived_at: quote.archived_at }),
+                        created_at: quote.created_at,
+                        updated_at: quote.updated_at
+                    });
+                }
                 await nango.batchSave(quotes, 'Quote');
             }
 

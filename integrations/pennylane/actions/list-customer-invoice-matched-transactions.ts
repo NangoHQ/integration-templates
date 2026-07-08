@@ -11,7 +11,7 @@ const InputSchema = z.object({
 const MatchedTransactionSchema = z.object({
     label: z.string().nullable(),
     amount: z.string().nullable(),
-    group_uuid: z.string().nullable(),
+    group_uuid: z.string().nullable().optional(),
     date: z.string().nullable(),
     fee: z.string().nullable(),
     currency: z.string()
