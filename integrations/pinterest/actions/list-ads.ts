@@ -17,7 +17,7 @@ const InputSchema = z.object({
 const ProviderAdSchema = z
     .object({
         id: z.string(),
-        ad_group_id: z.string(),
+        ad_group_id: z.string().optional(),
         pin_id: z.string(),
         creative_type: z.string(),
         ad_account_id: z.string(),

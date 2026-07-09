@@ -66,10 +66,10 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developers.pinterest.com/docs/api/v5/#operation/pins/list
-            endpoint: '/v5/pins',
+            // `board_id` is not a supported filter on /v5/pins, so board-scoped requests are routed to /v5/boards/{board_id}/pins
+            endpoint: input.board_id !== undefined ? `/v5/boards/${encodeURIComponent(input.board_id)}/pins` : '/v5/pins',
             params: {
                 ...(input.cursor !== undefined && { bookmark: input.cursor }),
-                ...(input.board_id !== undefined && { board_id: input.board_id }),
                 ...(input.pin_filter !== undefined && { pin_filter: input.pin_filter }),
                 ...(input.creative_types !== undefined && { creative_types: input.creative_types.join(',') })
             },

@@ -28,7 +28,7 @@ const BoardSchema = z.object({
 const InputSchema = z.object({
     query: z.string().describe('Search query. Example: "summer recipes"'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('Maximum number of results to return. Example: 25')
+    page_size: z.number().int().min(1).max(250).optional().describe('Maximum number of results to return. Example: 25')
 });
 
 const OutputSchema = z.object({
@@ -64,7 +64,14 @@ const action = createAction({
             });
         }
 
-        const items = Array.isArray(raw.items) ? raw.items : [];
+        if (!Array.isArray(raw.items)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected an array of boards from the Pinterest API.'
+            });
+        }
+
+        const items = raw.items;
         const bookmark = raw.bookmark != null && typeof raw.bookmark === 'string' ? raw.bookmark : undefined;
 
         return {

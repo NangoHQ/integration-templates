@@ -5,7 +5,7 @@ const AdCreateSchema = z
     .object({
         ad_group_id: z.string().describe('Ad group ID. Example: "2680091388706"'),
         pin_id: z.string().describe('Pin ID. Example: "1099300590356451849"'),
-        creative_type: z.string().optional().describe('Creative type. Example: "REGULAR"'),
+        creative_type: z.string().describe('Creative type. Example: "REGULAR"'),
         name: z.string().optional().describe('Ad name. Example: "My Ad"'),
         status: z.string().optional().describe('Ad status. Example: "ACTIVE"'),
         android_deep_link: z.string().optional(),
@@ -17,7 +17,7 @@ const AdCreateSchema = z
 
 const InputSchema = z.object({
     ad_account_id: z.string().describe('Ad account ID. Example: "549770573673"'),
-    ads: z.array(AdCreateSchema).describe('Array of ad objects to create.')
+    ads: z.array(AdCreateSchema).min(1).max(30).describe('Array of ad objects to create. Between 1 and 30 items.')
 });
 
 const ExceptionSchema = z

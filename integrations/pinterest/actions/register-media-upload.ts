@@ -7,40 +7,32 @@ const InputSchema = z.object({
         .describe("Media type to register. Must be 'video', 'image_latent_disclosure', or 'video_latent_disclosure'.")
 });
 
+const UploadParametersSchema = z
+    .object({
+        'x-amz-date': z.string().optional(),
+        'x-amz-signature': z.string().optional(),
+        'x-amz-security-token': z.string().optional(),
+        'x-amz-algorithm': z.string().optional(),
+        'x-amz-credential': z.string().optional(),
+        key: z.string().optional(),
+        policy: z.string().optional(),
+        bucket: z.string().optional(),
+        'Content-Type': z.string().optional()
+    })
+    .passthrough();
+
 const ProviderResponseSchema = z.object({
     media_id: z.string(),
     media_type: z.enum(['video', 'image_latent_disclosure', 'video_latent_disclosure']).optional(),
     upload_url: z.string().optional(),
-    upload_parameters: z
-        .object({
-            'x-amz-date': z.string().optional(),
-            'x-amz-signature': z.string().optional(),
-            'x-amz-security-token': z.string().optional(),
-            'x-amz-algorithm': z.string().optional(),
-            key: z.string().optional(),
-            policy: z.string().optional(),
-            bucket: z.string().optional(),
-            'Content-Type': z.string().optional()
-        })
-        .optional()
+    upload_parameters: UploadParametersSchema.optional()
 });
 
 const OutputSchema = z.object({
     media_id: z.string(),
     media_type: z.enum(['video', 'image_latent_disclosure', 'video_latent_disclosure']).optional(),
     upload_url: z.string().optional(),
-    upload_parameters: z
-        .object({
-            'x-amz-date': z.string().optional(),
-            'x-amz-signature': z.string().optional(),
-            'x-amz-security-token': z.string().optional(),
-            'x-amz-algorithm': z.string().optional(),
-            key: z.string().optional(),
-            policy: z.string().optional(),
-            bucket: z.string().optional(),
-            'Content-Type': z.string().optional()
-        })
-        .optional()
+    upload_parameters: UploadParametersSchema.optional()
 });
 
 const action = createAction({

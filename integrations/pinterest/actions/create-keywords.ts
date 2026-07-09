@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const KeywordCreateSchema = z.object({
     match_type: z.enum(['BROAD', 'PHRASE', 'EXACT', 'EXACT_NEGATIVE', 'PHRASE_NEGATIVE']).describe('Keyword match type'),
-    value: z.string().describe('Keyword value (120 chars max)'),
+    value: z.string().max(120).describe('Keyword value (120 chars max)'),
     bid: z.number().optional().describe('Keyword custom bid in microcurrency')
 });
 

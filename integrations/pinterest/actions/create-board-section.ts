@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    board_id: z.string().describe('Board ID. Example: "1099300658984851677"'),
+    board_id: z.string().min(1).describe('Board ID. Example: "1099300658984851677"'),
     name: z.string().min(1).max(180).describe('Name of the board section.'),
     ad_account_id: z.string().optional().describe('Optional ad account ID for Business Access.')
 });

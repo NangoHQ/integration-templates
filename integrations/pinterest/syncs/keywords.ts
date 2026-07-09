@@ -61,6 +61,8 @@ const sync = createSync({
             retries: 3
         };
 
+        await nango.trackDeletesStart('Keyword');
+
         const adAccounts: Array<{ id: string }> = [];
         for await (const page of nango.paginate(adAccountProxyConfig)) {
             const validated = z
@@ -76,10 +78,9 @@ const sync = createSync({
             adAccounts.push(...validated.data);
         }
 
-        if (adAccounts.length === 0) {
-            await nango.clearCheckpoint();
-            return;
-        }
+        // Sort by a stable key so checkpoint resume position is consistent even if the
+        // provider returns ad accounts in a different order across runs.
+        adAccounts.sort((a, b) => a.id.localeCompare(b.id));
 
         // Keywords are archived in place rather than hard-deleted, so bookmark checkpoints are
         // safe to restore after a failed run.
@@ -227,6 +228,7 @@ const sync = createSync({
             }
         }
 
+        await nango.trackDeletesEnd('Keyword');
         await nango.clearCheckpoint();
     }
 });

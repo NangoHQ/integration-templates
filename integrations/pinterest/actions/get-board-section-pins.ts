@@ -5,7 +5,7 @@ const InputSchema = z.object({
     board_id: z.string().describe('Unique identifier of the board. Example: "1099300658984851677"'),
     section_id: z.string().describe('Unique identifier of the board section. Example: "3662612923485353472"'),
     cursor: z.string().optional().describe('Pagination cursor (bookmark) from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of pins to return per page.')
+    page_size: z.number().int().min(1).max(250).optional().describe('Number of pins to return per page.')
 });
 
 const ProviderPinSchema = z.object({

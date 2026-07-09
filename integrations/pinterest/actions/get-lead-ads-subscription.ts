@@ -12,7 +12,7 @@ const ProviderLeadSubscriptionSchema = z.object({
     created_time: z.number().int().optional(),
     cryptographic_algorithm: z.string().nullable().optional(),
     cryptographic_key: z.string().nullable().optional(),
-    id: z.string().optional(),
+    id: z.string(),
     lead_form_id: z.string().nullable().optional(),
     user_account_id: z.string().optional(),
     webhook_url: z.string().optional()
@@ -24,7 +24,7 @@ const OutputSchema = z.object({
     created_time: z.number().int().optional(),
     cryptographic_algorithm: z.string().optional(),
     cryptographic_key: z.string().optional(),
-    id: z.string().optional(),
+    id: z.string(),
     lead_form_id: z.string().optional(),
     user_account_id: z.string().optional(),
     webhook_url: z.string().optional()
@@ -61,7 +61,7 @@ const action = createAction({
             ...(providerSubscription.created_time !== undefined && { created_time: providerSubscription.created_time }),
             ...(providerSubscription.cryptographic_algorithm != null && { cryptographic_algorithm: providerSubscription.cryptographic_algorithm }),
             ...(providerSubscription.cryptographic_key != null && { cryptographic_key: providerSubscription.cryptographic_key }),
-            ...(providerSubscription.id !== undefined && { id: providerSubscription.id }),
+            id: providerSubscription.id,
             ...(providerSubscription.lead_form_id != null && { lead_form_id: providerSubscription.lead_form_id }),
             ...(providerSubscription.user_account_id !== undefined && { user_account_id: providerSubscription.user_account_id }),
             ...(providerSubscription.webhook_url !== undefined && { webhook_url: providerSubscription.webhook_url })

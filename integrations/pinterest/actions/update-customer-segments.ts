@@ -1,13 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const SegmentUpdateSchema = z.object({
-    id: z.string().describe('Customer segment ID. Example: "123456789"'),
-    operation_type: z
-        .enum(['UPDATE', 'REMOVE'])
-        .describe('Operation type for the segment. Use UPDATE to modify audience_ids, or REMOVE to delete the segment.'),
-    audience_ids: z.array(z.string()).optional().describe('Audience IDs to include in the customer segment. Only applicable for UPDATE operations.')
-});
+const SegmentUpdateSchema = z
+    .object({
+        id: z.string().describe('Customer segment ID. Example: "123456789"'),
+        operation_type: z
+            .enum(['UPDATE', 'REMOVE'])
+            .describe('Operation type for the segment. Use UPDATE to modify audience_ids, or REMOVE to delete the segment.'),
+        audience_ids: z.array(z.string()).optional().describe('Audience IDs to include in the customer segment. Only applicable for UPDATE operations.')
+    })
+    .refine((segment) => segment.operation_type !== 'UPDATE' || (segment.audience_ids !== undefined && segment.audience_ids.length > 0), {
+        message: 'audience_ids is required and must be non-empty when operation_type is UPDATE.'
+    })
+    .refine((segment) => segment.operation_type !== 'REMOVE' || segment.audience_ids === undefined, {
+        message: 'audience_ids must not be provided when operation_type is REMOVE.'
+    });
 
 const InputSchema = z.object({
     ad_account_id: z.string().describe('Ad account ID. Example: "549770573673"'),

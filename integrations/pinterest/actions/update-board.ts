@@ -1,12 +1,16 @@
 import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
-const InputSchema = z.object({
-    board_id: z.string().describe('The unique identifier of the board to update. Example: "1099300658984851679"'),
-    name: z.string().optional().describe('New name for the board.'),
-    description: z.string().nullable().optional().describe('New description for the board. Pass null to clear.'),
-    privacy: z.enum(['PUBLIC', 'SECRET']).optional().describe('New privacy setting for the board.')
-});
+const InputSchema = z
+    .object({
+        board_id: z.string().describe('The unique identifier of the board to update. Example: "1099300658984851679"'),
+        name: z.string().optional().describe('New name for the board.'),
+        description: z.string().nullable().optional().describe('New description for the board. Pass null to clear.'),
+        privacy: z.enum(['PUBLIC', 'SECRET']).optional().describe('New privacy setting for the board.')
+    })
+    .refine((input) => input.name !== undefined || input.description !== undefined || input.privacy !== undefined, {
+        message: 'At least one of name, description, or privacy must be provided.'
+    });
 
 const ProviderBoardSchema = z.object({
     id: z.string(),

@@ -10,7 +10,7 @@ const InputSchema = z.object({
         .optional()
         .describe('Entity statuses to filter by.'),
     cursor: z.string().optional().describe('Pagination cursor (bookmark) from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of results per page.'),
+    page_size: z.number().int().min(1).max(250).optional().describe('Number of results per page. Maximum: 250.'),
     order: z.enum(['ASCENDING', 'DESCENDING']).optional().describe('Sort order by ID: ASCENDING or DESCENDING.')
 });
 

@@ -7,7 +7,10 @@ const UserDataSchema = z
         em: z.array(z.string()).optional().describe('Raw email addresses to be lowercased and SHA-256 hashed before sending.'),
         ph: z.array(z.string()).optional().describe('Raw phone numbers to be lowercased and SHA-256 hashed before sending.')
     })
-    .passthrough();
+    .passthrough()
+    .refine((data) => Object.keys(data).length > 0, {
+        message: 'user_data must include at least one identifying field (e.g. em, ph, external_id, click_id, hashed_maids).'
+    });
 
 const EventSchema = z
     .object({
@@ -38,6 +41,10 @@ function sha256Hash(value: string): string {
     return createHash('sha256').update(value.toLowerCase()).digest('hex');
 }
 
+function normalizePhone(phone: string): string {
+    return phone.replace(/\D/g, '').replace(/^0+/, '');
+}
+
 function hashUserData(userData: z.infer<typeof UserDataSchema>): z.infer<typeof UserDataSchema> {
     const result: z.infer<typeof UserDataSchema> = { ...userData };
 
@@ -53,7 +60,7 @@ function hashUserData(userData: z.infer<typeof UserDataSchema>): z.infer<typeof 
     if (Array.isArray(result.ph)) {
         result.ph = result.ph.map((phone) => {
             if (typeof phone === 'string') {
-                return sha256Hash(phone);
+                return sha256Hash(normalizePhone(phone));
             }
             return phone;
         });

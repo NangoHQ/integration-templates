@@ -74,15 +74,6 @@ const action = createAction({
 
         if (errors !== undefined && errors.length > 0) {
             const firstError = errors[0];
-            const errorData = firstError?.data;
-            if (errorData !== undefined) {
-                return {
-                    ...(errorData.id !== undefined && { id: errorData.id }),
-                    ...(errorData.label_type != null && { label_type: errorData.label_type }),
-                    ...(errorData.status != null && { status: errorData.status }),
-                    ...(errorData.value != null && { value: errorData.value })
-                };
-            }
             throw new nango.ActionError({
                 type: 'label_creation_error',
                 message: firstError?.error_messages?.join(', ') || 'Label creation failed'

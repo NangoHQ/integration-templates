@@ -1,14 +1,18 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    ad_account_id: z.string().describe('Pinterest ad account ID. Example: "549770573673"'),
-    audience_id: z.string().describe('Audience ID. Example: "2542623499736"'),
-    name: z.string().optional().describe('Audience name'),
-    description: z.string().optional().describe('Audience description'),
-    rule: z.record(z.string(), z.unknown()).optional().describe('Audience rule object, e.g. { visitor_source_id: "2612511566392", retention_days: 180 }'),
-    status: z.string().optional().describe('Audience status, e.g. "ACTIVE" or "ARCHIVED". ARCHIVED is the only way to delete an audience.')
-});
+const InputSchema = z
+    .object({
+        ad_account_id: z.string().describe('Pinterest ad account ID. Example: "549770573673"'),
+        audience_id: z.string().describe('Audience ID. Example: "2542623499736"'),
+        name: z.string().optional().describe('Audience name'),
+        description: z.string().optional().describe('Audience description'),
+        rule: z.record(z.string(), z.unknown()).optional().describe('Audience rule object, e.g. { visitor_source_id: "2612511566392", retention_days: 180 }'),
+        status: z.string().optional().describe('Audience status, e.g. "ACTIVE" or "ARCHIVED". ARCHIVED is the only way to delete an audience.')
+    })
+    .refine((input) => input.name !== undefined || input.description !== undefined || input.rule !== undefined || input.status !== undefined, {
+        message: 'At least one of name, description, rule, or status must be provided.'
+    });
 
 const RuleSchema = z
     .object({

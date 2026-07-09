@@ -7,10 +7,17 @@ const LeadFormPolicyLinkSchema = z.object({
 });
 
 const LeadFormQuestionSchema = z.object({
-    question_type: z.string(),
+    question_type: z.string().optional(),
     custom_question_field_type: z.string().optional(),
     custom_question_label: z.string().optional(),
     custom_question_options: z.array(z.string()).optional()
+});
+
+const ProviderLeadFormQuestionSchema = z.object({
+    question_type: z.string().nullable().optional(),
+    custom_question_field_type: z.string().nullable().optional(),
+    custom_question_label: z.string().nullable().optional(),
+    custom_question_options: z.array(z.string()).nullable().optional()
 });
 
 const LeadFormSchema = z.object({
@@ -31,14 +38,14 @@ const LeadFormSchema = z.object({
 const ProviderLeadFormSchema = z.object({
     id: z.string(),
     ad_account_id: z.string(),
-    name: z.string().nullable(),
-    completion_message: z.string().nullable(),
-    disclosure_language: z.string().nullable(),
-    has_accepted_terms: z.boolean(),
-    privacy_policy_link: z.string().nullable(),
+    name: z.string().nullable().optional(),
+    completion_message: z.string().nullable().optional(),
+    disclosure_language: z.string().nullable().optional(),
+    has_accepted_terms: z.boolean().optional(),
+    privacy_policy_link: z.string().nullable().optional(),
     policy_links: z.array(LeadFormPolicyLinkSchema).optional(),
-    questions: z.array(LeadFormQuestionSchema).optional(),
-    status: z.string(),
+    questions: z.array(ProviderLeadFormQuestionSchema).optional(),
+    status: z.string().optional(),
     created_time: z.number().optional(),
     updated_time: z.number().optional()
 });
@@ -120,7 +127,16 @@ const sync = createSync({
                         ...(form.has_accepted_terms !== undefined && { has_accepted_terms: form.has_accepted_terms }),
                         ...(form.privacy_policy_link != null && { privacy_policy_link: form.privacy_policy_link }),
                         ...(form.policy_links && { policy_links: form.policy_links }),
-                        ...(form.questions && { questions: form.questions }),
+                        ...(form.questions && {
+                            questions: form.questions.map((question) => ({
+                                ...(question.question_type != null && { question_type: question.question_type }),
+                                ...(question.custom_question_field_type != null && {
+                                    custom_question_field_type: question.custom_question_field_type
+                                }),
+                                ...(question.custom_question_label != null && { custom_question_label: question.custom_question_label }),
+                                ...(question.custom_question_options != null && { custom_question_options: question.custom_question_options })
+                            }))
+                        }),
                         ...(form.status && { status: form.status }),
                         ...(form.created_time !== undefined && { created_time: form.created_time }),
                         ...(form.updated_time !== undefined && { updated_time: form.updated_time })

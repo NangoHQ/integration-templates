@@ -58,7 +58,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ads:read'],
+    scopes: ['user_accounts:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number | string[]> = {

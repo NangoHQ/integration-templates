@@ -57,6 +57,8 @@ const sync = createSync({
             retries: 3
         };
 
+        await nango.trackDeletesStart('TargetingTemplate');
+
         const adAccounts: Array<z.infer<typeof AdAccountSchema>> = [];
         for await (const page of nango.paginate(adAccountProxyConfig)) {
             for (const raw of page) {
@@ -65,10 +67,9 @@ const sync = createSync({
             }
         }
 
-        if (adAccounts.length === 0) {
-            await nango.clearCheckpoint();
-            return;
-        }
+        // Sort by a stable key so checkpoint resume position is consistent even if the
+        // provider returns ad accounts in a different order across runs.
+        adAccounts.sort((a, b) => a.id.localeCompare(b.id));
 
         // Targeting templates are archived via status rather than hard-deleted, so the
         // bookmark cursor is safe to use as a resumable checkpoint between failed runs.
@@ -137,6 +138,7 @@ const sync = createSync({
             }
         }
 
+        await nango.trackDeletesEnd('TargetingTemplate');
         await nango.clearCheckpoint();
     }
 });

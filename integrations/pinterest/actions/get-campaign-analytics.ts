@@ -7,7 +7,7 @@ const InputSchema = z.object({
     start_date: z.string().describe('Start date in YYYY-MM-DD format. Example: "2024-01-01"'),
     end_date: z.string().describe('End date in YYYY-MM-DD format. Example: "2024-01-31"'),
     columns: z.array(z.string()).describe('Analytics columns to return. Example: ["SPEND_IN_MICRO_DOLLAR", "IMPRESSION"]'),
-    granularity: z.enum(['HOUR', 'DAY', 'WEEK', 'MONTH']).describe('Data aggregation level.'),
+    granularity: z.enum(['TOTAL', 'HOUR', 'DAY', 'WEEK', 'MONTH']).describe('Data aggregation level.'),
     click_window_days: z.number().optional().describe('Click attribution window in days.'),
     engagement_window_days: z.number().optional().describe('Engagement attribution window in days.'),
     view_window_days: z.number().optional().describe('View attribution window in days.'),

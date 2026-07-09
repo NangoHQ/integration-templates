@@ -6,21 +6,21 @@ const InputSchema = z.object({
 });
 
 const OwnerSchema = z.object({
-    username: z.string().optional(),
-    id: z.string().optional()
+    username: z.string().nullable().optional(),
+    id: z.string().nullable().optional()
 });
 
 const ProviderBoardSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    description: z.string().optional(),
-    owner: OwnerSchema.optional(),
-    privacy: z.string().optional(),
-    pin_count: z.number().optional(),
-    follower_count: z.number().optional(),
-    media: z.record(z.string(), z.unknown()).optional(),
-    created_at: z.string().optional(),
-    board_pins_modified_at: z.string().optional()
+    name: z.string().nullable().optional(),
+    description: z.string().nullable().optional(),
+    owner: OwnerSchema.nullable().optional(),
+    privacy: z.string().nullable().optional(),
+    pin_count: z.number().nullable().optional(),
+    follower_count: z.number().nullable().optional(),
+    media: z.record(z.string(), z.unknown()).nullable().optional(),
+    created_at: z.string().nullable().optional(),
+    board_pins_modified_at: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -62,15 +62,20 @@ const action = createAction({
 
         return {
             id: providerBoard.id,
-            ...(providerBoard.name !== undefined && { name: providerBoard.name }),
-            ...(providerBoard.description !== undefined && { description: providerBoard.description }),
-            ...(providerBoard.owner !== undefined && { owner: providerBoard.owner }),
-            ...(providerBoard.privacy !== undefined && { privacy: providerBoard.privacy }),
-            ...(providerBoard.pin_count !== undefined && { pin_count: providerBoard.pin_count }),
-            ...(providerBoard.follower_count !== undefined && { follower_count: providerBoard.follower_count }),
-            ...(providerBoard.media !== undefined && { media: providerBoard.media }),
-            ...(providerBoard.created_at !== undefined && { created_at: providerBoard.created_at }),
-            ...(providerBoard.board_pins_modified_at !== undefined && { board_pins_modified_at: providerBoard.board_pins_modified_at })
+            ...(providerBoard.name != null && { name: providerBoard.name }),
+            ...(providerBoard.description != null && { description: providerBoard.description }),
+            ...(providerBoard.owner != null && {
+                owner: {
+                    ...(providerBoard.owner.username != null && { username: providerBoard.owner.username }),
+                    ...(providerBoard.owner.id != null && { id: providerBoard.owner.id })
+                }
+            }),
+            ...(providerBoard.privacy != null && { privacy: providerBoard.privacy }),
+            ...(providerBoard.pin_count != null && { pin_count: providerBoard.pin_count }),
+            ...(providerBoard.follower_count != null && { follower_count: providerBoard.follower_count }),
+            ...(providerBoard.media != null && { media: providerBoard.media }),
+            ...(providerBoard.created_at != null && { created_at: providerBoard.created_at }),
+            ...(providerBoard.board_pins_modified_at != null && { board_pins_modified_at: providerBoard.board_pins_modified_at })
         };
     }
 });

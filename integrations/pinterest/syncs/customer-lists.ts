@@ -55,6 +55,8 @@ const sync = createSync({
             retries: 3
         };
 
+        await nango.trackDeletesStart('CustomerList');
+
         const adAccounts: Array<{ id: string }> = [];
 
         for await (const page of nango.paginate(adAccountsProxyConfig)) {
@@ -67,10 +69,9 @@ const sync = createSync({
             }
         }
 
-        if (adAccounts.length === 0) {
-            await nango.clearCheckpoint();
-            return;
-        }
+        // Sort by a stable key so checkpoint resume position is consistent even if the
+        // provider returns ad accounts in a different order across runs.
+        adAccounts.sort((a, b) => a.id.localeCompare(b.id));
 
         // Customer lists are updated in place rather than hard-deleted, so the bookmark cursor
         // is safe to use as a resumable checkpoint between failed runs.
@@ -152,6 +153,7 @@ const sync = createSync({
             }
         }
 
+        await nango.trackDeletesEnd('CustomerList');
         await nango.clearCheckpoint();
     }
 });

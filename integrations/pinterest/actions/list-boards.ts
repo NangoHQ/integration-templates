@@ -74,7 +74,14 @@ const action = createAction({
             });
         }
 
-        const itemsArray: unknown[] = Array.isArray(rawData.items) ? rawData.items : [];
+        if (!Array.isArray(rawData.items)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected an array of boards from the Pinterest API.'
+            });
+        }
+
+        const itemsArray: unknown[] = rawData.items;
 
         const parsedItems = itemsArray.map((item) => {
             const parsed = ProviderBoardSchema.safeParse(item);

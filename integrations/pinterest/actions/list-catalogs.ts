@@ -5,7 +5,7 @@ const InputSchema = z.object({
     country: z.string().describe('Country code. Example: "US"'),
     ad_account_id: z.string().optional().describe('Ad account ID for Business Access. Example: "549770573673"'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of items per page. Example: 25')
+    page_size: z.number().int().min(1).max(250).optional().describe('Number of items per page. Example: 25')
 });
 
 const CatalogSchema = z.object({

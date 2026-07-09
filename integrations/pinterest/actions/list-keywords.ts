@@ -37,7 +37,10 @@ const action = createAction({
     scopes: ['ads:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (!input.ad_group_ids && !input.campaign_ids) {
+        const hasAdGroupIds = input.ad_group_ids !== undefined && input.ad_group_ids.length > 0;
+        const hasCampaignIds = input.campaign_ids !== undefined && input.campaign_ids.length > 0;
+
+        if (!hasAdGroupIds && !hasCampaignIds) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'Either ad_group_ids or campaign_ids is required.'
@@ -81,8 +84,14 @@ const action = createAction({
             });
         }
 
-        const rawItems = 'items' in raw && Array.isArray(raw.items) ? raw.items : [];
-        const items = rawItems.map((item: unknown) => KeywordSchema.parse(item));
+        if (!('items' in raw) || !Array.isArray(raw.items)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected an array of keywords from the Pinterest API.'
+            });
+        }
+
+        const items = raw.items.map((item: unknown) => KeywordSchema.parse(item));
 
         return {
             items,

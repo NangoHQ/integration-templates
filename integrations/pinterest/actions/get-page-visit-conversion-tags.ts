@@ -18,7 +18,7 @@ const inputSchema = z.object({
     ad_account_id: z.string(),
     bookmark: z.string().optional(),
     order: z.enum(['ASCENDING', 'DESCENDING']).optional(),
-    page_size: z.number().min(1).max(250).optional()
+    page_size: z.number().int().min(1).max(250).optional()
 });
 
 const action = createAction({

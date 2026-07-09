@@ -59,6 +59,8 @@ const sync = createSync({
             retries: 3
         };
 
+        await nango.trackDeletesStart('ConversionTag');
+
         const adAccounts: Array<{ id: string }> = [];
         for await (const page of nango.paginate(adAccountProxyConfig)) {
             for (const account of page) {
@@ -70,10 +72,9 @@ const sync = createSync({
             }
         }
 
-        if (adAccounts.length === 0) {
-            await nango.clearCheckpoint();
-            return;
-        }
+        // Sort by a stable key so checkpoint resume position is consistent even if the
+        // provider returns ad accounts in a different order across runs.
+        adAccounts.sort((a, b) => a.id.localeCompare(b.id));
 
         // Conversion tags cannot be deleted through the API, so a saved bookmark is safe to use
         // as a resumable checkpoint between failed runs.
@@ -144,6 +145,7 @@ const sync = createSync({
             }
         }
 
+        await nango.trackDeletesEnd('ConversionTag');
         await nango.clearCheckpoint();
     }
 });

@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     ad_account_id: z.string().describe('Ad Account ID. Example: "549770573673"'),
     cursor: z.string().optional().describe('Pagination cursor (bookmark) from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of results per page. Max 250.')
+    page_size: z.number().int().min(1).max(250).optional().describe('Number of results per page. Max 250.')
 });
 
 const ProviderSubscriptionSchema = z.object({

@@ -62,11 +62,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // Blocker: provider only exposes /v5/catalogs/product_groups with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor that can be safely restored across runs
-        // with delete tracking.
-        let trackDeletesStarted = false;
-
         const proxyConfig: ProxyConfiguration = {
             // https://developers.pinterest.com/docs/api/v5/#operation/catalogs_product_groups/list
             endpoint: '/v5/catalogs/product_groups',
@@ -81,16 +76,13 @@ const sync = createSync({
             retries: 3
         };
 
+        await nango.trackDeletesStart('CatalogProductGroup');
+
         // @allowTryCatch: Pinterest returns 409 when the connected account has no catalog set up.
-        // This is a normal state, not a failure, so we handle it explicitly and return early.
+        // This is a normal, empty-snapshot state, not a failure.
         try {
             // https://developers.pinterest.com/docs/api/v5/#operation/catalogs_product_groups/list
             for await (const page of nango.paginate(proxyConfig)) {
-                if (!trackDeletesStarted) {
-                    await nango.trackDeletesStart('CatalogProductGroup');
-                    trackDeletesStarted = true;
-                }
-
                 const items = z.array(RawCatalogsProductGroupItemSchema).parse(page);
 
                 const groups = items.map((record) => ({
@@ -115,15 +107,14 @@ const sync = createSync({
             }
         } catch (error) {
             const status = getErrorStatus(error);
-            if (status === 409) {
-                return;
+            if (status !== 409) {
+                throw error;
             }
-            throw error;
+            // Fall through so the delete reconciliation below still marks any previously
+            // synced product groups as removed.
         }
 
-        if (trackDeletesStarted) {
-            await nango.trackDeletesEnd('CatalogProductGroup');
-        }
+        await nango.trackDeletesEnd('CatalogProductGroup');
     }
 });
 

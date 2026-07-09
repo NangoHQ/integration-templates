@@ -52,7 +52,7 @@ const sync = createSync({
                 cursor_path_in_response: 'bookmark',
                 response_path: 'items',
                 limit_name_in_request: 'page_size',
-                limit: 2
+                limit: 100
             },
             retries: 3
         };

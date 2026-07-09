@@ -49,7 +49,7 @@ const TargetingTemplateSchema = z
 const InputSchema = z.object({
     ad_account_id: z.string().describe('Ad account ID. Example: "549770573673"'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of items per page.'),
+    page_size: z.number().int().min(1).max(250).optional().describe('Number of items per page.'),
     order: z.string().optional().describe('Ordering parameter.'),
     include_sizing: z.boolean().optional().describe('Include audience sizing estimates.'),
     search_query: z.string().optional().describe('Search query to filter templates.')

@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     ad_account_id: z.string().describe('Ad account ID. Example: "549770573673"'),
     cursor: z.string().optional().describe('Pagination cursor (bookmark) from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of results per page.'),
+    page_size: z.number().int().min(1).max(250).optional().describe('Number of results per page.'),
     include_sizing: z.boolean().optional().describe('Include audience sizing in result.'),
     search_query: z.string().optional().describe('Search query. Can contain pin description keywords or comma-separated pin IDs.')
 });

@@ -27,7 +27,7 @@ const PromotionSchema = z.object({
 const InputSchema = z.object({
     ad_account_id: z.string().describe('Ad account ID. Example: "549770573673"'),
     bookmark: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('Maximum number of items to return per page. Default: 25, Maximum: 250.')
+    page_size: z.number().int().min(1).max(250).optional().describe('Maximum number of items to return per page. Default: 25, Maximum: 250.')
 });
 
 const OutputSchema = z.object({

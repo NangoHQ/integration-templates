@@ -4,27 +4,27 @@ import { z } from 'zod';
 const CampaignSchema = z
     .object({
         id: z.string(),
-        ad_account_id: z.string().optional(),
-        name: z.string().optional(),
-        status: z.string().optional(),
-        summary_status: z.string().optional(),
-        objective_type: z.string().optional(),
-        created_time: z.number().optional(),
-        updated_time: z.number().optional(),
+        ad_account_id: z.string().nullable().optional(),
+        name: z.string().nullable().optional(),
+        status: z.string().nullable().optional(),
+        summary_status: z.string().nullable().optional(),
+        objective_type: z.string().nullable().optional(),
+        created_time: z.number().nullable().optional(),
+        updated_time: z.number().nullable().optional(),
         start_time: z.number().nullable().optional(),
         end_time: z.number().nullable().optional(),
         daily_spend_cap: z.number().nullable().optional(),
         lifetime_spend_cap: z.number().nullable().optional(),
         is_campaign_budget_optimization: z.boolean().nullable().optional(),
         is_flexible_daily_budgets: z.boolean().nullable().optional(),
-        is_performance_plus: z.boolean().optional(),
+        is_performance_plus: z.boolean().nullable().optional(),
         is_automated_campaign: z.boolean().nullable().optional(),
-        is_ltv_optimized: z.boolean().optional(),
-        is_top_of_search: z.boolean().optional(),
-        is_carting: z.boolean().optional(),
+        is_ltv_optimized: z.boolean().nullable().optional(),
+        is_top_of_search: z.boolean().nullable().optional(),
+        is_carting: z.boolean().nullable().optional(),
         order_line_id: z.string().nullable().optional(),
-        type: z.string().optional(),
-        intended_promotion_type: z.string().optional()
+        type: z.string().nullable().optional(),
+        intended_promotion_type: z.string().nullable().optional()
     })
     .passthrough();
 
@@ -69,6 +69,8 @@ const sync = createSync({
             retries: 3
         };
 
+        await nango.trackDeletesStart('Campaign');
+
         const adAccounts: Array<{ id: string }> = [];
         for await (const page of nango.paginate(adAccountsProxyConfig)) {
             if (!Array.isArray(page)) {
@@ -83,9 +85,9 @@ const sync = createSync({
             }
         }
 
-        if (adAccounts.length === 0) {
-            return;
-        }
+        // Sort by a stable key so checkpoint resume position is consistent even if the
+        // provider returns ad accounts in a different order across runs.
+        adAccounts.sort((a, b) => a.id.localeCompare(b.id));
 
         let startIndex = 0;
         let resumeBookmark: string | undefined;
@@ -159,13 +161,14 @@ const sync = createSync({
                     ad_account_id: nextAccount.id,
                     bookmark: ''
                 });
-            } else {
-                await nango.saveCheckpoint({
-                    ad_account_id: '',
-                    bookmark: ''
-                });
             }
         }
+
+        await nango.trackDeletesEnd('Campaign');
+        await nango.saveCheckpoint({
+            ad_account_id: '',
+            bookmark: ''
+        });
     }
 });
 

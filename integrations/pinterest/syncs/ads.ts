@@ -8,12 +8,12 @@ const AdAccountResponseSchema = z.object({
 const AdResponseSchema = z.object({
     id: z.string().describe('Ad ID'),
     ad_account_id: z.string().optional().describe('ID of the advertiser that this ad belongs to'),
-    ad_group_id: z.string().optional().describe('ID of the ad group that contains the ad'),
-    campaign_id: z.string().optional().describe('ID of the ad campaign that contains this ad'),
-    pin_id: z.string().optional().describe('Pin ID'),
+    ad_group_id: z.string().describe('ID of the ad group that contains the ad'),
+    campaign_id: z.string().describe('ID of the ad campaign that contains this ad'),
+    pin_id: z.string().describe('Pin ID'),
     name: z.string().nullable().optional().describe('Name of the ad'),
     status: z.string().optional().describe('Entity status'),
-    creative_type: z.string().optional().describe('Creative type'),
+    creative_type: z.string().describe('Creative type'),
     review_status: z.string().optional().describe('Ad review status'),
     summary_status: z.string().optional().describe('Ad summary status'),
     created_time: z.number().optional().describe('Pin creation time. Unix timestamp in seconds'),
@@ -71,6 +71,8 @@ const sync = createSync({
             retries: 3
         };
 
+        await nango.trackDeletesStart('Ad');
+
         const adAccountIds: string[] = [];
         for await (const page of nango.paginate(adAccountsConfig)) {
             for (const raw of page) {
@@ -82,10 +84,9 @@ const sync = createSync({
             }
         }
 
-        if (adAccountIds.length === 0) {
-            await nango.clearCheckpoint();
-            return;
-        }
+        // Sort by a stable key so checkpoint resume position is consistent even if the
+        // provider returns ad accounts in a different order across runs.
+        adAccountIds.sort();
 
         // Ads are archived via status rather than hard-deleted, so a saved bookmark is safe
         // to use as a resumable page checkpoint between failed runs.
@@ -139,10 +140,10 @@ const sync = createSync({
                     ads.push({
                         id: ad.id,
                         ad_account_id: ad.ad_account_id ?? adAccountId,
-                        ad_group_id: ad.ad_group_id ?? '',
-                        campaign_id: ad.campaign_id ?? '',
-                        pin_id: ad.pin_id ?? '',
-                        creative_type: ad.creative_type ?? '',
+                        ad_group_id: ad.ad_group_id,
+                        campaign_id: ad.campaign_id,
+                        pin_id: ad.pin_id,
+                        creative_type: ad.creative_type,
                         ...(ad.name != null && { name: ad.name }),
                         ...(ad.status != null && { status: ad.status }),
                         ...(ad.review_status != null && { review_status: ad.review_status }),
@@ -172,6 +173,7 @@ const sync = createSync({
             }
         }
 
+        await nango.trackDeletesEnd('Ad');
         await nango.clearCheckpoint();
     }
 });

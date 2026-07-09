@@ -44,7 +44,14 @@ const action = createAction({
             });
         }
 
-        const rawItems: unknown[] = 'items' in rawData && Array.isArray(rawData.items) ? rawData.items : [];
+        if (!('items' in rawData) || !Array.isArray(rawData.items)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected an array of ad accounts from the Pinterest API.'
+            });
+        }
+
+        const rawItems: unknown[] = rawData.items;
         const bookmark = 'bookmark' in rawData && typeof rawData.bookmark === 'string' ? rawData.bookmark : undefined;
 
         const items = rawItems.map((item) => {

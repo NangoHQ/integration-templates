@@ -101,7 +101,26 @@ const sync = createSync({
             }
         }
 
-        for (const adAccount of adAccounts) {
+        // Sort by a stable key so checkpoint resume position is consistent even if the
+        // provider returns ad accounts in a different order across runs.
+        adAccounts.sort((a, b) => a.id.localeCompare(b.id));
+
+        let startIndex = 0;
+        if (resumeAdAccountId !== undefined) {
+            const foundIndex = adAccounts.findIndex((adAccount) => adAccount.id === resumeAdAccountId);
+            if (foundIndex >= 0) {
+                startIndex = foundIndex;
+            } else {
+                resumeAdAccountId = undefined;
+                resumeBookmark = undefined;
+            }
+        }
+
+        for (let i = startIndex; i < adAccounts.length; i++) {
+            const adAccount = adAccounts[i];
+            if (!adAccount) {
+                break;
+            }
             const adAccountId = adAccount.id;
 
             let audienceBookmark: string | undefined;

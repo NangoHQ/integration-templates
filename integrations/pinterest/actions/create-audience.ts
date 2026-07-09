@@ -9,8 +9,8 @@ const RuleSchema = z.object({
 const InputSchema = z.object({
     ad_account_id: z.string().describe('Ad account ID. Example: "549770573673"'),
     name: z.string().describe('Audience name.'),
-    audience_type: z.enum(['VISITOR', 'ENGAGEMENT', 'ACTALIKE', 'CUSTOMER_LIST']).describe('Audience type.'),
-    rule: RuleSchema,
+    audience_type: z.literal('VISITOR').describe('Audience type. Only VISITOR audiences are supported by this action.'),
+    rule: RuleSchema.describe('Visitor rule. Required for VISITOR audiences.'),
     description: z.string().optional().describe('Optional audience description.')
 });
 
