@@ -1,0 +1,75 @@
+{
+  "input": {
+    "ad_account_id": "549770573673",
+    "name": "Nango Test Conversion Tag"
+  },
+  "output": {
+    "ad_account_id": "549770573673",
+    "code_snippet": "<script type=\"text/javascript\">\n  !function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version=\"3.0\";var t=document.createElement(\"script\");t.async=!0,t.src=e;var r=document.getElementsByTagName(\"script\")[0];r.parentNode.insertBefore(t,r)}}(\"https://s.pinimg.com/ct/core.js\");\n\n  pintrk('load', '2613607232870');\n  pintrk('page');\n</script>\n\n<noscript>\n  <img height=\"1\" width=\"1\" style=\"display:none;\" alt=\"\" src=\"https://ct.pinterest.com/v3/?tid=2613607232870&noscript=1\" />\n</noscript>\n",
+    "configs": {
+      "aem_db_enabled": false,
+      "aem_enabled": false,
+      "aem_external_id_enabled": false,
+      "aem_fnln_enabled": false,
+      "aem_ge_enabled": false,
+      "aem_loc_enabled": false,
+      "aem_ph_enabled": false,
+      "md_frequency": 1
+    },
+    "id": "2613607232870",
+    "name": "Nango Test Conversion Tag",
+    "status": "ACTIVE",
+    "version": "3"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v5/ad_accounts/549770573673/conversion_tags": {
+        "response": {
+          "ad_account_id": "549770573673",
+          "code_snippet": "<script type=\"text/javascript\">\n  !function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version=\"3.0\";var t=document.createElement(\"script\");t.async=!0,t.src=e;var r=document.getElementsByTagName(\"script\")[0];r.parentNode.insertBefore(t,r)}}(\"https://s.pinimg.com/ct/core.js\");\n\n  pintrk('load', '2613607232870');\n  pintrk('page');\n</script>\n\n<noscript>\n  <img height=\"1\" width=\"1\" style=\"display:none;\" alt=\"\" src=\"https://ct.pinterest.com/v3/?tid=2613607232870&noscript=1\" />\n</noscript>\n",
+          "id": "2613607232870",
+          "name": "Nango Test Conversion Tag",
+          "status": "ACTIVE",
+          "version": "3",
+          "configs": {
+            "aem_enabled": false,
+            "md_frequency": 1,
+            "aem_fnln_enabled": false,
+            "aem_ph_enabled": false,
+            "aem_ge_enabled": false,
+            "aem_db_enabled": false,
+            "aem_loc_enabled": false,
+            "aem_external_id_enabled": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 13:37:49 GMT",
+          "content-type": "application/json",
+          "content-length": "960",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1783604315",
+          "etag": "W/\"3c0-jPvNVT4osturQD4smSP/n6UuTw4\""
+        },
+        "hash": "b877b16e88910012b0114d60100e26e2a1281e50",
+        "request": {
+          "data": {
+            "name": "Nango Test Conversion Tag"
+          }
+        }
+      }
+    }
+  }
+}

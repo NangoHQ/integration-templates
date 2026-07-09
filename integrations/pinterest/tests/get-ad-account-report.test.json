@@ -1,0 +1,61 @@
+{
+  "input": {
+    "ad_account_id": "549770573673",
+    "token": "aicYIR-uD7NJ_rphdEHgGA==Zi917b1WcQgRysnPnfPiWlKmBfT3vBTaDCgjjRZl1_NWJ_7JzHG4fEhbtMxLHgUoUbzE93pgvXuwYQNjz7LZCl_thydbnY9LsLOJyoNEiXboYaqR7YvF2QQ3amfPZBR_QjgfL_KC4bEMN8fkQ4e1Hv1iiC1Bj3RqwuXHa8bRLpV8JPpKa_bA2T4wMNOxtCxL5lzcBqmmKOmbpywUwcmlbU-HR9YHOdjnwZXGP_9sQtdKTVLJabntAkFNHLqqwioJXRZAlS9--j3o9E0RdzT6sbHfNs2KHqSF_URa3ahzZpOTsAOiJzKpTRyI2G3D03OITic3MuL65PEkZCJJyMKRyy9wTro51-9aU1grur2x-m8="
+  },
+  "output": {
+    "report_status": "FINISHED",
+    "url": "https://pinterest-waterloo.s3.amazonaws.com/async_reporting_v3/549770573673-1783598723-4196334607986059/metrics_report.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6QZJ64OPPZLUT7EY%2F20260709%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260709T120712Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQD9I61ONO34SWeb7orLNXrkXEfyd9%2BnZEQXdU%2FQpWGn2wIgD5iqOmQGe8JatuP3cqmC%2B9Iw0lHxvHETKjox5rKdw4cquwUIm%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw5OTgxMzEwMzI5OTAiDIKHWPKO1Ovw260gfSqPBX6mAVysrjrBFkcv5j5JBWTSS8YXXBUB%2BFm3NiODoMgEuDrdfEpgH5Jbz9tvdnDKFJvgNHyxIXhFnNNMxvJvfM%2BU5%2FYOQLHaJms9yVIKbDSZ9K2s9yvU%2BE%2F1B2kJ%2F%2F%2FIk7SXAKZgnTWCbbpNHOUaT2TId6b25jaSL6M4coz2%2FzYa2Uaw8Iu0oMBL%2BxuYQyD0mn0xZkjOIooK05ZvbkkjS6fl4hiwgb4NnJ2u2SMTEGGgpuPJsRkN8iKPdK53eNfice8Q9by%2BZttf8wZblu4F3ZXUvT2EGd%2B6tvRzYEg2AFQsumr4n9vjkWDPgnugJOa3%2B%2Fhxu2hPVL1XC1Kk6PUXrCMbsMv0quM%2FihIPZQD3UARg83hwLPn5hxWN3yWVl96JWvqpa1dltoLtzRVi54oj5%2FFG7NyKkpq9FVSX5PU0Hk63aDho%2BjVXhT1Im4u1tuKGdbsX%2BurJUKASE5y%2F8DfL2iS5lCMisiZqv1HuoLFLYZ7h0xZO6yKM5NOJmlybZOj5AbfpwFEq3LrERoQvgx0amgdRqdzW0RHgqzllEkdbXb2hHmXtSZNB6OgNUxLdSsIf2IFz7Mg7A3075nffDsc0PAY3musiGX19ESNePZ7wDgkxStCJSOjR73zO35XyGBE7OM4nWWI881QS177m2uw50DTUFr2jIkaiaNOPI0ClpHUPULFb6dvUZgC3d7%2BGxV5MPLLtdH55q4ZnSTj63HgxtgHRWhdrpXl1%2FRYpy0Lmoo1fvljqcXDFJP02pQYBefbqDbonm20%2FCiDrbaY%2B9GNM8XK9K0QfEnLDUXSLy9NvPmBE0S9Kwzc8C%2BHBYbrTOdr2AyPrbCzBQ3ji8oix8vIO09ZJWntziYU%2BTaqPJWpmC3Qwuem90gY6sQFr8qsVMTFkJVuGQL7qP41revMXh8U4oyEOKTJ7oX%2BJrWs223z8B8m6Lvct%2FQ%2FgOZPSFCxigXPhKpmYLTip0aB%2FNa6%2BREGMyGU2vnjHxcGmb7dS07pN4Crq7oCTl7dFMwiaazUmJjQlRC11NwWpt06IKoppDhg%2BVW9Q%2FGulVpCda%2FH1Y59yhKMlouDvxVHhQFmnyASXAbRdHxqPzpeZan8lMnuIGREsMtPhkIV0mt21dX4%3D&X-Amz-Signature=4024be5c121eab208fa328bce37cd6f8aacb90f62fe793ab810b7b54e5b5d04c",
+    "size": 2
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v5/ad_accounts/549770573673/reports": {
+        "response": {
+          "report_status": "FINISHED",
+          "url": "https://pinterest-waterloo.s3.amazonaws.com/async_reporting_v3/549770573673-1783598723-4196334607986059/metrics_report.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6QZJ64OPPZLUT7EY%2F20260709%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260709T120712Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQD9I61ONO34SWeb7orLNXrkXEfyd9%2BnZEQXdU%2FQpWGn2wIgD5iqOmQGe8JatuP3cqmC%2B9Iw0lHxvHETKjox5rKdw4cquwUIm%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw5OTgxMzEwMzI5OTAiDIKHWPKO1Ovw260gfSqPBX6mAVysrjrBFkcv5j5JBWTSS8YXXBUB%2BFm3NiODoMgEuDrdfEpgH5Jbz9tvdnDKFJvgNHyxIXhFnNNMxvJvfM%2BU5%2FYOQLHaJms9yVIKbDSZ9K2s9yvU%2BE%2F1B2kJ%2F%2F%2FIk7SXAKZgnTWCbbpNHOUaT2TId6b25jaSL6M4coz2%2FzYa2Uaw8Iu0oMBL%2BxuYQyD0mn0xZkjOIooK05ZvbkkjS6fl4hiwgb4NnJ2u2SMTEGGgpuPJsRkN8iKPdK53eNfice8Q9by%2BZttf8wZblu4F3ZXUvT2EGd%2B6tvRzYEg2AFQsumr4n9vjkWDPgnugJOa3%2B%2Fhxu2hPVL1XC1Kk6PUXrCMbsMv0quM%2FihIPZQD3UARg83hwLPn5hxWN3yWVl96JWvqpa1dltoLtzRVi54oj5%2FFG7NyKkpq9FVSX5PU0Hk63aDho%2BjVXhT1Im4u1tuKGdbsX%2BurJUKASE5y%2F8DfL2iS5lCMisiZqv1HuoLFLYZ7h0xZO6yKM5NOJmlybZOj5AbfpwFEq3LrERoQvgx0amgdRqdzW0RHgqzllEkdbXb2hHmXtSZNB6OgNUxLdSsIf2IFz7Mg7A3075nffDsc0PAY3musiGX19ESNePZ7wDgkxStCJSOjR73zO35XyGBE7OM4nWWI881QS177m2uw50DTUFr2jIkaiaNOPI0ClpHUPULFb6dvUZgC3d7%2BGxV5MPLLtdH55q4ZnSTj63HgxtgHRWhdrpXl1%2FRYpy0Lmoo1fvljqcXDFJP02pQYBefbqDbonm20%2FCiDrbaY%2B9GNM8XK9K0QfEnLDUXSLy9NvPmBE0S9Kwzc8C%2BHBYbrTOdr2AyPrbCzBQ3ji8oix8vIO09ZJWntziYU%2BTaqPJWpmC3Qwuem90gY6sQFr8qsVMTFkJVuGQL7qP41revMXh8U4oyEOKTJ7oX%2BJrWs223z8B8m6Lvct%2FQ%2FgOZPSFCxigXPhKpmYLTip0aB%2FNa6%2BREGMyGU2vnjHxcGmb7dS07pN4Crq7oCTl7dFMwiaazUmJjQlRC11NwWpt06IKoppDhg%2BVW9Q%2FGulVpCda%2FH1Y59yhKMlouDvxVHhQFmnyASXAbRdHxqPzpeZan8lMnuIGREsMtPhkIV0mt21dX4%3D&X-Amz-Signature=4024be5c121eab208fa328bce37cd6f8aacb90f62fe793ab810b7b54e5b5d04c",
+          "size": 2
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 12:07:12 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "100, 100;w=1;name=\"safety_net_app_id_user_id\", 300;w=60;name=\"ads_analytics_app_id_user_id\", 800;w=60;name=\"analytics_get_report_app_id\"",
+          "x-ratelimit-remaining": "99",
+          "x-ratelimit-reset": "1",
+          "pinterest-version": "6567469",
+          "access-control-allow-credentials": "true",
+          "p3p": "CP=\"Pinterest does not have a P3P policy. You can find our privacy policy at https://www.pinterest.com/_/_/policy/privacy-policy.\"",
+          "x-envoy-upstream-service-time": "192",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "age": "0",
+          "set-cookie": "_ir=0; Max-Age=1800; HttpOnly; Path=/; Secure",
+          "x-pinterest-rid": "1525349756529329",
+          "x-pinterest-rid-128bit": "d28a7e6ae9770b20d3af4f381997c80a",
+          "vary": "Accept-Encoding",
+          "x-cdn": "fastly",
+          "alt-svc": "h3=\":443\";ma=604800",
+          "pinterest-generated-by": "tpp-api-prod-0a03eb18"
+        },
+        "hash": "62f565a561439b2414a1269c7ac60fb96f1c8218",
+        "request": {
+          "params": {
+            "token": "aicYIR-uD7NJ_rphdEHgGA==Zi917b1WcQgRysnPnfPiWlKmBfT3vBTaDCgjjRZl1_NWJ_7JzHG4fEhbtMxLHgUoUbzE93pgvXuwYQNjz7LZCl_thydbnY9LsLOJyoNEiXboYaqR7YvF2QQ3amfPZBR_QjgfL_KC4bEMN8fkQ4e1Hv1iiC1Bj3RqwuXHa8bRLpV8JPpKa_bA2T4wMNOxtCxL5lzcBqmmKOmbpywUwcmlbU-HR9YHOdjnwZXGP_9sQtdKTVLJabntAkFNHLqqwioJXRZAlS9--j3o9E0RdzT6sbHfNs2KHqSF_URa3ahzZpOTsAOiJzKpTRyI2G3D03OITic3MuL65PEkZCJJyMKRyy9wTro51-9aU1grur2x-m8="
+          }
+        }
+      }
+    }
+  }
+}

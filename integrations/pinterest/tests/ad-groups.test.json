@@ -1,0 +1,1107 @@
+{
+  "nango": {
+    "batchSave": {
+      "AdGroup": [
+        {
+          "id": "2680091388706",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Seed Ad Group Keep",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783586905,
+          "updated_time": 1783586906,
+          "bid_in_micro_currency": 5000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        },
+        {
+          "id": "2680091388832",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Seed Delete Ad Group One Updated",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783587562,
+          "updated_time": 1783594161,
+          "bid_in_micro_currency": 5000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        },
+        {
+          "id": "2680091388834",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Seed Delete Ad Group Two",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783587564,
+          "updated_time": 1783587565,
+          "bid_in_micro_currency": 5000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        },
+        {
+          "id": "2680091390005",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Dryrun Ad Group",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783591181,
+          "updated_time": 1783591183,
+          "bid_in_micro_currency": 10000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        },
+        {
+          "id": "2680091390006",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Dryrun Ad Group",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783591189,
+          "updated_time": 1783591190,
+          "bid_in_micro_currency": 10000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        },
+        {
+          "id": "2680091390182",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Test Ad Group",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783591614,
+          "updated_time": 1783591617,
+          "bid_in_micro_currency": 5000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        },
+        {
+          "id": "2680091390186",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Test Ad Group",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783591620,
+          "updated_time": 1783591621,
+          "bid_in_micro_currency": 5000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        },
+        {
+          "id": "2680091390448",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Dryrun Ad Group",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783592468,
+          "updated_time": 1783592469,
+          "bid_in_micro_currency": 5000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        },
+        {
+          "id": "2680091390450",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Dryrun Ad Group",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783592478,
+          "updated_time": 1783592479,
+          "bid_in_micro_currency": 5000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        },
+        {
+          "id": "2680091390760",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Test Create Ad Groups Dryrun",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783594118,
+          "updated_time": 1783594119,
+          "bid_in_micro_currency": 5000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        },
+        {
+          "id": "2680091390761",
+          "ad_account_id": "549770573673",
+          "campaign_id": "626759223935",
+          "name": "Nango Test Create Ad Groups Dryrun",
+          "status": "PAUSED",
+          "summary_status": "ADVERTISER_DISABLED",
+          "created_time": 1783594126,
+          "updated_time": 1783594127,
+          "bid_in_micro_currency": 5000000,
+          "budget_type": "CBO_ADGROUP",
+          "pacing_delivery_type": "STANDARD",
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "auto_targeting_enabled": true,
+          "placement_group": "ALL",
+          "type": "adgroup"
+        }
+      ]
+    },
+    "batchDelete": {
+      "AdGroup": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v5/ad_accounts": {
+        "response": {
+          "items": [
+            {
+              "id": "549770573673",
+              "name": "Nango Seed Ad Account",
+              "owner": {
+                "username": "nangodeveloper",
+                "id": "1099300727702429065"
+              },
+              "country": "US",
+              "currency": "USD",
+              "permissions": [
+                "OWNER"
+              ],
+              "created_time": 1783586335,
+              "updated_time": 1783586335
+            },
+            {
+              "id": "549770573870",
+              "name": "Nango Ad Account Test 2026-07-09",
+              "owner": {
+                "username": "nangodeveloper",
+                "id": "1099300727702429065"
+              },
+              "country": "US",
+              "currency": "USD",
+              "permissions": [
+                "OWNER"
+              ],
+              "created_time": 1783591458,
+              "updated_time": 1783591459,
+              "time_zone": "America/Los_Angeles"
+            },
+            {
+              "id": "549770573872",
+              "name": "Nango Ad Account Test 2026-07-09",
+              "owner": {
+                "username": "nangodeveloper",
+                "id": "1099300727702429065"
+              },
+              "country": "US",
+              "currency": "USD",
+              "permissions": [
+                "OWNER"
+              ],
+              "created_time": 1783591466,
+              "updated_time": 1783591466,
+              "time_zone": "America/Los_Angeles"
+            },
+            {
+              "id": "549770573919",
+              "name": "Nango Test Ad Account Dryrun",
+              "owner": {
+                "username": "nangodeveloper",
+                "id": "1099300727702429065"
+              },
+              "country": "US",
+              "currency": "USD",
+              "permissions": [
+                "OWNER"
+              ],
+              "created_time": 1783592420,
+              "updated_time": 1783592420
+            },
+            {
+              "id": "549770573920",
+              "name": "Nango Test Ad Account Dryrun",
+              "owner": {
+                "username": "nangodeveloper",
+                "id": "1099300727702429065"
+              },
+              "country": "US",
+              "currency": "USD",
+              "permissions": [
+                "OWNER"
+              ],
+              "created_time": 1783592426,
+              "updated_time": 1783592426
+            },
+            {
+              "id": "549770573923",
+              "name": "Nango Temp Ad Account",
+              "owner": {
+                "username": "nangodeveloper",
+                "id": "1099300727702429065"
+              },
+              "country": "US",
+              "currency": "USD",
+              "permissions": [
+                "OWNER"
+              ],
+              "created_time": 1783592519,
+              "updated_time": 1783592520
+            },
+            {
+              "id": "549770573924",
+              "name": "Nango Prod Delete Test",
+              "owner": {
+                "username": "nangodeveloper",
+                "id": "1099300727702429065"
+              },
+              "country": "US",
+              "currency": "USD",
+              "permissions": [
+                "OWNER"
+              ],
+              "created_time": 1783592520,
+              "updated_time": 1783592521
+            }
+          ],
+          "bookmark": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 15:13:20 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "100, 100;w=1;name=\"safety_net_app_id_user_id\", 1000;w=60;name=\"ads_read_app_id_user_id\"",
+          "x-ratelimit-remaining": "99",
+          "x-ratelimit-reset": "1",
+          "pinterest-version": "6567469",
+          "access-control-allow-credentials": "true",
+          "p3p": "CP=\"Pinterest does not have a P3P policy. You can find our privacy policy at https://www.pinterest.com/_/_/policy/privacy-policy.\"",
+          "x-envoy-upstream-service-time": "51",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "age": "0",
+          "set-cookie": "_ir=0; Max-Age=1800; HttpOnly; Path=/; Secure",
+          "x-pinterest-rid": "1403458232120457",
+          "x-pinterest-rid-128bit": "845394baf20cddc9c2c4da4342603adc",
+          "vary": "Accept-Encoding",
+          "x-cdn": "fastly",
+          "alt-svc": "h3=\":443\";ma=604800",
+          "pinterest-generated-by": "tpp-api-prod-0a039b41"
+        },
+        "hash": "f77bb269e27d4e88d2661091307ace7979779caa",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      },
+      "/v5/ad_accounts/549770573673/ad_groups": {
+        "response": {
+          "items": [
+            {
+              "id": "2680091388706",
+              "created_time": 1783586905,
+              "updated_time": 1783586906,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 5000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Seed Ad Group Keep",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            },
+            {
+              "id": "2680091388832",
+              "created_time": 1783587562,
+              "updated_time": 1783594161,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 5000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Seed Delete Ad Group One Updated",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            },
+            {
+              "id": "2680091388834",
+              "created_time": 1783587564,
+              "updated_time": 1783587565,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 5000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Seed Delete Ad Group Two",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            },
+            {
+              "id": "2680091390005",
+              "created_time": 1783591181,
+              "updated_time": 1783591183,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 10000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Dryrun Ad Group",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            },
+            {
+              "id": "2680091390006",
+              "created_time": 1783591189,
+              "updated_time": 1783591190,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 10000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Dryrun Ad Group",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            },
+            {
+              "id": "2680091390182",
+              "created_time": 1783591614,
+              "updated_time": 1783591617,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 5000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Test Ad Group",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            },
+            {
+              "id": "2680091390186",
+              "created_time": 1783591620,
+              "updated_time": 1783591621,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 5000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Test Ad Group",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            },
+            {
+              "id": "2680091390448",
+              "created_time": 1783592468,
+              "updated_time": 1783592469,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 5000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Dryrun Ad Group",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            },
+            {
+              "id": "2680091390450",
+              "created_time": 1783592478,
+              "updated_time": 1783592479,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 5000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Dryrun Ad Group",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            },
+            {
+              "id": "2680091390760",
+              "created_time": 1783594118,
+              "updated_time": 1783594119,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 5000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Test Create Ad Groups Dryrun",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            },
+            {
+              "id": "2680091390761",
+              "created_time": 1783594126,
+              "updated_time": 1783594127,
+              "start_time": null,
+              "end_time": null,
+              "bid_in_micro_currency": 5000000,
+              "budget_in_micro_currency": null,
+              "campaign_id": "626759223935",
+              "ad_account_id": "549770573673",
+              "auto_targeting_enabled": true,
+              "type": "adgroup",
+              "budget_type": "CBO_ADGROUP",
+              "billable_event": "IMPRESSION",
+              "status": "PAUSED",
+              "lifetime_frequency_cap": -1,
+              "targeting_spec": {
+                "GEO": [
+                  "US"
+                ]
+              },
+              "name": "Nango Test Create Ad Groups Dryrun",
+              "placement_group": "ALL",
+              "pacing_delivery_type": "STANDARD",
+              "tracking_urls": null,
+              "conversion_learning_mode_type": null,
+              "summary_status": "ADVERTISER_DISABLED",
+              "feed_profile_id": "0",
+              "placement_traffic_type": null,
+              "optimization_goal_metadata": {},
+              "targeting_template_ids": null,
+              "is_creative_optimization": null,
+              "promotion_id": null,
+              "promotion_ids": [],
+              "promotion_application_level": null,
+              "bid_multiplier": null,
+              "ext_features": null,
+              "bid_strategy_type": "MAX_BID",
+              "is_automated_campaign": false,
+              "is_creative_expansion": false,
+              "enabled_catalog_expansion": false
+            }
+          ],
+          "bookmark": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 15:13:21 GMT",
+          "content-type": "application/json",
+          "content-length": "10948",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1783610036",
+          "etag": "W/\"2ac4-RcCaf0BYSLyB1okA3qcp4Kt90Hk\""
+        },
+        "hash": "b84712b63cd6b3369626749fddc59a3c73132b80",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      },
+      "/v5/ad_accounts/549770573870/ad_groups": {
+        "response": {
+          "items": [],
+          "bookmark": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 15:13:21 GMT",
+          "content-type": "application/json",
+          "content-length": "28",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1783610036",
+          "etag": "W/\"1c-waYRb1LUU8w+IPwN2WCEXFDDHPs\""
+        },
+        "hash": "6d68c49c1c23ffbf52c4f8dfd8a93a8ab66607c3",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      },
+      "/v5/ad_accounts/549770573872/ad_groups": {
+        "response": {
+          "items": [],
+          "bookmark": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 15:13:22 GMT",
+          "content-type": "application/json",
+          "content-length": "28",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1783610036",
+          "etag": "W/\"1c-waYRb1LUU8w+IPwN2WCEXFDDHPs\""
+        },
+        "hash": "dafbbe0d00fd330db06c18b3b01bbe15f300acf1",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      },
+      "/v5/ad_accounts/549770573919/ad_groups": {
+        "response": {
+          "items": [],
+          "bookmark": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 15:13:23 GMT",
+          "content-type": "application/json",
+          "content-length": "28",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4971",
+          "x-ratelimit-reset": "1783610036",
+          "etag": "W/\"1c-waYRb1LUU8w+IPwN2WCEXFDDHPs\""
+        },
+        "hash": "5b2c70254a3198ab806dbcea0999bcdbf9521ad3",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      },
+      "/v5/ad_accounts/549770573920/ad_groups": {
+        "response": {
+          "items": [],
+          "bookmark": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 15:13:23 GMT",
+          "content-type": "application/json",
+          "content-length": "28",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1783610036",
+          "etag": "W/\"1c-waYRb1LUU8w+IPwN2WCEXFDDHPs\""
+        },
+        "hash": "796aa061e442b6cc3af88411359cfc835fcc7cdd",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      },
+      "/v5/ad_accounts/549770573923/ad_groups": {
+        "response": {
+          "items": [],
+          "bookmark": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 15:13:24 GMT",
+          "content-type": "application/json",
+          "content-length": "28",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4969",
+          "x-ratelimit-reset": "1783610036",
+          "etag": "W/\"1c-waYRb1LUU8w+IPwN2WCEXFDDHPs\""
+        },
+        "hash": "e15ceddfa4012d32a3be9077dcfdc06495aa6863",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      },
+      "/v5/ad_accounts/549770573924/ad_groups": {
+        "response": {
+          "items": [],
+          "bookmark": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 15:13:24 GMT",
+          "content-type": "application/json",
+          "content-length": "28",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4968",
+          "x-ratelimit-reset": "1783610036",
+          "etag": "W/\"1c-waYRb1LUU8w+IPwN2WCEXFDDHPs\""
+        },
+        "hash": "880679e4c2e1633425dc2b1e78d6713f4b7976fd",
+        "request": {
+          "params": {
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

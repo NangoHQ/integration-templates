@@ -1,0 +1,397 @@
+{
+  "input": {
+    "ad_account_id": "549770573673"
+  },
+  "output": {
+    "items": [
+      {
+        "ad_account_id": "549770573673",
+        "audience_type": "VISITOR",
+        "created_by_company_name": "NangoDeveloper",
+        "created_timestamp": 1783587041,
+        "description": "seed audience",
+        "id": "2542623499735",
+        "is_nca": false,
+        "name": "Nango Seed Audience Keep",
+        "rule": {
+          "retention_days": 180,
+          "visitor_source_id": "2612511566392"
+        },
+        "size": 0,
+        "status": "INITIALIZING",
+        "type": "audience",
+        "updated_timestamp": 1783587041,
+        "is_ctv_enabled": false
+      },
+      {
+        "ad_account_id": "549770573673",
+        "audience_type": "VISITOR",
+        "created_by_company_name": "NangoDeveloper",
+        "created_timestamp": 1783587072,
+        "description": "seed delete",
+        "id": "2542623499736",
+        "is_nca": false,
+        "name": "Nango Seed Delete Audience One Updated",
+        "rule": {
+          "retention_days": 90,
+          "visitor_source_id": "2612511566392"
+        },
+        "size": 0,
+        "status": "INITIALIZING",
+        "type": "audience",
+        "updated_timestamp": 1783593973,
+        "is_ctv_enabled": false
+      },
+      {
+        "ad_account_id": "549770573673",
+        "audience_type": "VISITOR",
+        "created_by_company_name": "NangoDeveloper",
+        "created_timestamp": 1783587076,
+        "description": "seed delete",
+        "id": "2542623499737",
+        "is_nca": false,
+        "name": "Nango Seed Delete Audience Two",
+        "rule": {
+          "retention_days": 90,
+          "visitor_source_id": "2612511566392"
+        },
+        "size": 0,
+        "status": "INITIALIZING",
+        "type": "audience",
+        "updated_timestamp": 1783587077,
+        "is_ctv_enabled": false
+      },
+      {
+        "ad_account_id": "549770573673",
+        "audience_type": "VISITOR",
+        "created_by_company_name": "NangoDeveloper",
+        "created_timestamp": 1783591037,
+        "description": "Test audience created via Nango dryrun",
+        "id": "2542623499762",
+        "is_nca": false,
+        "name": "Nango Test Audience Dryrun",
+        "rule": {
+          "retention_days": 180,
+          "visitor_source_id": "2612511566392"
+        },
+        "size": 0,
+        "status": "INITIALIZING",
+        "type": "audience",
+        "updated_timestamp": 1783591037,
+        "is_ctv_enabled": false
+      },
+      {
+        "ad_account_id": "549770573673",
+        "audience_type": "VISITOR",
+        "created_by_company_name": "NangoDeveloper",
+        "created_timestamp": 1783591075,
+        "description": "Test audience created via Nango dryrun",
+        "id": "2542623499764",
+        "is_nca": false,
+        "name": "Nango Test Audience Dryrun",
+        "rule": {
+          "retention_days": 180,
+          "visitor_source_id": "2612511566392"
+        },
+        "size": 0,
+        "status": "INITIALIZING",
+        "type": "audience",
+        "updated_timestamp": 1783591075,
+        "is_ctv_enabled": false
+      },
+      {
+        "ad_account_id": "549770573673",
+        "audience_type": "VISITOR",
+        "created_by_company_name": "NangoDeveloper",
+        "created_timestamp": 1783592357,
+        "description": "Test audience for validation",
+        "id": "2542623499776",
+        "is_nca": false,
+        "name": "Nango Test Audience Validate",
+        "rule": {
+          "retention_days": 180,
+          "visitor_source_id": "2612511566392"
+        },
+        "size": 0,
+        "status": "INITIALIZING",
+        "type": "audience",
+        "updated_timestamp": 1783592357,
+        "is_ctv_enabled": false
+      },
+      {
+        "ad_account_id": "549770573673",
+        "audience_type": "VISITOR",
+        "created_by_company_name": "NangoDeveloper",
+        "created_timestamp": 1783592367,
+        "description": "Test audience for validation",
+        "id": "2542623499778",
+        "is_nca": false,
+        "name": "Nango Test Audience Validate",
+        "rule": {
+          "retention_days": 180,
+          "visitor_source_id": "2612511566392"
+        },
+        "size": 0,
+        "status": "INITIALIZING",
+        "type": "audience",
+        "updated_timestamp": 1783592368,
+        "is_ctv_enabled": false
+      },
+      {
+        "ad_account_id": "549770573673",
+        "audience_type": "VISITOR",
+        "created_by_company_name": "NangoDeveloper",
+        "created_timestamp": 1783593929,
+        "description": "Test audience created via Nango",
+        "id": "2542623499795",
+        "is_nca": false,
+        "name": "Nango Test Audience Create",
+        "rule": {
+          "retention_days": 180,
+          "visitor_source_id": "2612511566392"
+        },
+        "size": 0,
+        "status": "INITIALIZING",
+        "type": "audience",
+        "updated_timestamp": 1783593929,
+        "is_ctv_enabled": false
+      },
+      {
+        "ad_account_id": "549770573673",
+        "audience_type": "VISITOR",
+        "created_by_company_name": "NangoDeveloper",
+        "created_timestamp": 1783593968,
+        "description": "Test audience created via Nango",
+        "id": "2542623499796",
+        "is_nca": false,
+        "name": "Nango Test Audience Create",
+        "rule": {
+          "retention_days": 180,
+          "visitor_source_id": "2612511566392"
+        },
+        "size": 0,
+        "status": "INITIALIZING",
+        "type": "audience",
+        "updated_timestamp": 1783593969,
+        "is_ctv_enabled": false
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v5/ad_accounts/549770573673/audiences": {
+        "response": {
+          "items": [
+            {
+              "type": "audience",
+              "id": "2542623499735",
+              "name": "Nango Seed Audience Keep",
+              "ad_account_id": "549770573673",
+              "audience_type": "VISITOR",
+              "description": "seed audience",
+              "status": "INITIALIZING",
+              "size": 0,
+              "updated_timestamp": 1783587041,
+              "created_timestamp": 1783587041,
+              "rule": {
+                "retention_days": 180,
+                "visitor_source_id": "2612511566392"
+              },
+              "created_by_company_name": "NangoDeveloper",
+              "is_nca": false,
+              "is_ctv_enabled": false
+            },
+            {
+              "type": "audience",
+              "id": "2542623499736",
+              "name": "Nango Seed Delete Audience One Updated",
+              "ad_account_id": "549770573673",
+              "audience_type": "VISITOR",
+              "description": "seed delete",
+              "status": "INITIALIZING",
+              "size": 0,
+              "updated_timestamp": 1783593973,
+              "created_timestamp": 1783587072,
+              "rule": {
+                "retention_days": 90,
+                "visitor_source_id": "2612511566392"
+              },
+              "created_by_company_name": "NangoDeveloper",
+              "is_nca": false,
+              "is_ctv_enabled": false
+            },
+            {
+              "type": "audience",
+              "id": "2542623499737",
+              "name": "Nango Seed Delete Audience Two",
+              "ad_account_id": "549770573673",
+              "audience_type": "VISITOR",
+              "description": "seed delete",
+              "status": "INITIALIZING",
+              "size": 0,
+              "updated_timestamp": 1783587077,
+              "created_timestamp": 1783587076,
+              "rule": {
+                "retention_days": 90,
+                "visitor_source_id": "2612511566392"
+              },
+              "created_by_company_name": "NangoDeveloper",
+              "is_nca": false,
+              "is_ctv_enabled": false
+            },
+            {
+              "type": "audience",
+              "id": "2542623499762",
+              "name": "Nango Test Audience Dryrun",
+              "ad_account_id": "549770573673",
+              "audience_type": "VISITOR",
+              "description": "Test audience created via Nango dryrun",
+              "status": "INITIALIZING",
+              "size": 0,
+              "updated_timestamp": 1783591037,
+              "created_timestamp": 1783591037,
+              "rule": {
+                "retention_days": 180,
+                "visitor_source_id": "2612511566392"
+              },
+              "created_by_company_name": "NangoDeveloper",
+              "is_nca": false,
+              "is_ctv_enabled": false
+            },
+            {
+              "type": "audience",
+              "id": "2542623499764",
+              "name": "Nango Test Audience Dryrun",
+              "ad_account_id": "549770573673",
+              "audience_type": "VISITOR",
+              "description": "Test audience created via Nango dryrun",
+              "status": "INITIALIZING",
+              "size": 0,
+              "updated_timestamp": 1783591075,
+              "created_timestamp": 1783591075,
+              "rule": {
+                "retention_days": 180,
+                "visitor_source_id": "2612511566392"
+              },
+              "created_by_company_name": "NangoDeveloper",
+              "is_nca": false,
+              "is_ctv_enabled": false
+            },
+            {
+              "type": "audience",
+              "id": "2542623499776",
+              "name": "Nango Test Audience Validate",
+              "ad_account_id": "549770573673",
+              "audience_type": "VISITOR",
+              "description": "Test audience for validation",
+              "status": "INITIALIZING",
+              "size": 0,
+              "updated_timestamp": 1783592357,
+              "created_timestamp": 1783592357,
+              "rule": {
+                "retention_days": 180,
+                "visitor_source_id": "2612511566392"
+              },
+              "created_by_company_name": "NangoDeveloper",
+              "is_nca": false,
+              "is_ctv_enabled": false
+            },
+            {
+              "type": "audience",
+              "id": "2542623499778",
+              "name": "Nango Test Audience Validate",
+              "ad_account_id": "549770573673",
+              "audience_type": "VISITOR",
+              "description": "Test audience for validation",
+              "status": "INITIALIZING",
+              "size": 0,
+              "updated_timestamp": 1783592368,
+              "created_timestamp": 1783592367,
+              "rule": {
+                "retention_days": 180,
+                "visitor_source_id": "2612511566392"
+              },
+              "created_by_company_name": "NangoDeveloper",
+              "is_nca": false,
+              "is_ctv_enabled": false
+            },
+            {
+              "type": "audience",
+              "id": "2542623499795",
+              "name": "Nango Test Audience Create",
+              "ad_account_id": "549770573673",
+              "audience_type": "VISITOR",
+              "description": "Test audience created via Nango",
+              "status": "INITIALIZING",
+              "size": 0,
+              "updated_timestamp": 1783593929,
+              "created_timestamp": 1783593929,
+              "rule": {
+                "retention_days": 180,
+                "visitor_source_id": "2612511566392"
+              },
+              "created_by_company_name": "NangoDeveloper",
+              "is_nca": false,
+              "is_ctv_enabled": false
+            },
+            {
+              "type": "audience",
+              "id": "2542623499796",
+              "name": "Nango Test Audience Create",
+              "ad_account_id": "549770573673",
+              "audience_type": "VISITOR",
+              "description": "Test audience created via Nango",
+              "status": "INITIALIZING",
+              "size": 0,
+              "updated_timestamp": 1783593969,
+              "created_timestamp": 1783593968,
+              "rule": {
+                "retention_days": 180,
+                "visitor_source_id": "2612511566392"
+              },
+              "created_by_company_name": "NangoDeveloper",
+              "is_nca": false,
+              "is_ctv_enabled": false
+            }
+          ],
+          "bookmark": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 10:47:32 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "100, 100;w=1;name=\"safety_net_app_id_user_id\", 1000;w=60;name=\"ads_read_app_id_user_id\"",
+          "x-ratelimit-remaining": "99",
+          "x-ratelimit-reset": "1",
+          "pinterest-version": "6567469",
+          "access-control-allow-credentials": "true",
+          "p3p": "CP=\"Pinterest does not have a P3P policy. You can find our privacy policy at https://www.pinterest.com/_/_/policy/privacy-policy.\"",
+          "x-envoy-upstream-service-time": "74",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "age": "0",
+          "set-cookie": "_ir=0; Max-Age=1800; HttpOnly; Path=/; Secure",
+          "x-pinterest-rid": "3538779041093628",
+          "x-pinterest-rid-128bit": "47a37ec80d670c29311c44c9e2fbb311",
+          "vary": "Accept-Encoding",
+          "x-cdn": "fastly",
+          "alt-svc": "h3=\":443\";ma=604800",
+          "pinterest-generated-by": "tpp-api-prod-0a03d486"
+        },
+        "hash": "e1c91f76187f329a496c6138d867d64fca1b8bfc",
+        "request": {}
+      }
+    }
+  }
+}

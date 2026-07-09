@@ -1,0 +1,444 @@
+{
+  "input": {
+    "region": "US"
+  },
+  "output": {
+    "items": [
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "T_SHIRTS",
+        "pinterest_product_category_id": 1455,
+        "pct_change_mom": 11,
+        "percent_relative_volume": 100,
+        "verticals": [
+          "FASHION"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "HOUSEHOLD_SUPPLIES",
+        "pinterest_product_category_id": 1258,
+        "pct_change_mom": 16,
+        "percent_relative_volume": 26,
+        "verticals": []
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "BATHROOM_ACCESSORIES",
+        "pinterest_product_category_id": 1036,
+        "pct_change_mom": 10,
+        "percent_relative_volume": 19,
+        "verticals": []
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "STORAGE_AND_ORGANIZATION",
+        "pinterest_product_category_id": 1441,
+        "pct_change_mom": 11,
+        "percent_relative_volume": 18,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "BACKPACKS",
+        "pinterest_product_category_id": 1021,
+        "pct_change_mom": 21,
+        "percent_relative_volume": 10,
+        "verticals": [
+          "FASHION"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "SEASONAL_AND_HOLIDAY_DECORATIONS",
+        "pinterest_product_category_id": 1408,
+        "pct_change_mom": 24,
+        "percent_relative_volume": 9,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "THROW_PILLOWS",
+        "pinterest_product_category_id": 1469,
+        "pct_change_mom": 13,
+        "percent_relative_volume": 9,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "BOOKCASES_AND_STANDING_SHELVES",
+        "pinterest_product_category_id": 1066,
+        "pct_change_mom": 13,
+        "percent_relative_volume": 7,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "LIP_CARE",
+        "pinterest_product_category_id": 1301,
+        "pct_change_mom": 10,
+        "percent_relative_volume": 7,
+        "verticals": [
+          "BEAUTY"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "TUMBLERS_AND_WATER_BOTTLES",
+        "pinterest_product_category_id": 1483,
+        "pct_change_mom": 12,
+        "percent_relative_volume": 7,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "FIGURINES",
+        "pinterest_product_category_id": 1182,
+        "pct_change_mom": 13,
+        "percent_relative_volume": 6,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "FOOD_STORAGE_SUPPLIES",
+        "pinterest_product_category_id": 1203,
+        "pct_change_mom": 15,
+        "percent_relative_volume": 4,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "BATH_TOWELS_AND_WASHCLOTHS",
+        "pinterest_product_category_id": 1035,
+        "pct_change_mom": 19,
+        "percent_relative_volume": 3,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "COOKWARE_AND_BAKEWARE",
+        "pinterest_product_category_id": 1119,
+        "pct_change_mom": 12,
+        "percent_relative_volume": 3,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "DECORATIVE_TAPESTRIES",
+        "pinterest_product_category_id": 1140,
+        "pct_change_mom": 14,
+        "percent_relative_volume": 3,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "HAIR_COLOR",
+        "pinterest_product_category_id": 1223,
+        "pct_change_mom": 26,
+        "percent_relative_volume": 3,
+        "verticals": [
+          "BEAUTY"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "NIGHT_LIGHTS_AND_AMBIENT_LIGHTING",
+        "pinterest_product_category_id": 1326,
+        "pct_change_mom": 26,
+        "percent_relative_volume": 3,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "JEWELRY_SETS",
+        "pinterest_product_category_id": 1265,
+        "pct_change_mom": 13,
+        "percent_relative_volume": 2,
+        "verticals": [
+          "FASHION"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "PILLOWCASES_AND_SHAMS",
+        "pinterest_product_category_id": 1368,
+        "pct_change_mom": 13,
+        "percent_relative_volume": 2,
+        "verticals": [
+          "HOME_DECOR"
+        ]
+      },
+      {
+        "engagement_type": "ENGAGEMENT",
+        "product_category": "POOL_AND_SPA_ACCESSORIES",
+        "pinterest_product_category_id": 1378,
+        "pct_change_mom": 12,
+        "percent_relative_volume": 2,
+        "verticals": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v5/trends/product_categories/trending": {
+        "response": [
+          {
+            "pinterest_product_category_id": 1455,
+            "pct_change_mom": 11,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "T_SHIRTS",
+            "verticals": [
+              "FASHION"
+            ],
+            "percent_relative_volume": 100
+          },
+          {
+            "pinterest_product_category_id": 1258,
+            "pct_change_mom": 16,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "HOUSEHOLD_SUPPLIES",
+            "verticals": [],
+            "percent_relative_volume": 26
+          },
+          {
+            "pinterest_product_category_id": 1036,
+            "pct_change_mom": 10,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "BATHROOM_ACCESSORIES",
+            "verticals": [],
+            "percent_relative_volume": 19
+          },
+          {
+            "pinterest_product_category_id": 1441,
+            "pct_change_mom": 11,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "STORAGE_AND_ORGANIZATION",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 18
+          },
+          {
+            "pinterest_product_category_id": 1021,
+            "pct_change_mom": 21,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "BACKPACKS",
+            "verticals": [
+              "FASHION"
+            ],
+            "percent_relative_volume": 10
+          },
+          {
+            "pinterest_product_category_id": 1408,
+            "pct_change_mom": 24,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "SEASONAL_AND_HOLIDAY_DECORATIONS",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 9
+          },
+          {
+            "pinterest_product_category_id": 1469,
+            "pct_change_mom": 13,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "THROW_PILLOWS",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 9
+          },
+          {
+            "pinterest_product_category_id": 1066,
+            "pct_change_mom": 13,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "BOOKCASES_AND_STANDING_SHELVES",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 7
+          },
+          {
+            "pinterest_product_category_id": 1301,
+            "pct_change_mom": 10,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "LIP_CARE",
+            "verticals": [
+              "BEAUTY"
+            ],
+            "percent_relative_volume": 7
+          },
+          {
+            "pinterest_product_category_id": 1483,
+            "pct_change_mom": 12,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "TUMBLERS_AND_WATER_BOTTLES",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 7
+          },
+          {
+            "pinterest_product_category_id": 1182,
+            "pct_change_mom": 13,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "FIGURINES",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 6
+          },
+          {
+            "pinterest_product_category_id": 1203,
+            "pct_change_mom": 15,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "FOOD_STORAGE_SUPPLIES",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 4
+          },
+          {
+            "pinterest_product_category_id": 1035,
+            "pct_change_mom": 19,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "BATH_TOWELS_AND_WASHCLOTHS",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 3
+          },
+          {
+            "pinterest_product_category_id": 1119,
+            "pct_change_mom": 12,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "COOKWARE_AND_BAKEWARE",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 3
+          },
+          {
+            "pinterest_product_category_id": 1140,
+            "pct_change_mom": 14,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "DECORATIVE_TAPESTRIES",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 3
+          },
+          {
+            "pinterest_product_category_id": 1223,
+            "pct_change_mom": 26,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "HAIR_COLOR",
+            "verticals": [
+              "BEAUTY"
+            ],
+            "percent_relative_volume": 3
+          },
+          {
+            "pinterest_product_category_id": 1326,
+            "pct_change_mom": 26,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "NIGHT_LIGHTS_AND_AMBIENT_LIGHTING",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 3
+          },
+          {
+            "pinterest_product_category_id": 1265,
+            "pct_change_mom": 13,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "JEWELRY_SETS",
+            "verticals": [
+              "FASHION"
+            ],
+            "percent_relative_volume": 2
+          },
+          {
+            "pinterest_product_category_id": 1368,
+            "pct_change_mom": 13,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "PILLOWCASES_AND_SHAMS",
+            "verticals": [
+              "HOME_DECOR"
+            ],
+            "percent_relative_volume": 2
+          },
+          {
+            "pinterest_product_category_id": 1378,
+            "pct_change_mom": 12,
+            "engagement_type": "ENGAGEMENT",
+            "product_category": "POOL_AND_SPA_ACCESSORIES",
+            "verticals": [],
+            "percent_relative_volume": 2
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 10:23:02 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "60, 100;w=1;name=\"safety_net_app_id_user_id\", 60;w=60;name=\"trends_read_app_id_user_id\"",
+          "x-ratelimit-remaining": "59",
+          "x-ratelimit-reset": "58",
+          "pinterest-version": "6567469",
+          "access-control-allow-credentials": "true",
+          "p3p": "CP=\"Pinterest does not have a P3P policy. You can find our privacy policy at https://www.pinterest.com/_/_/policy/privacy-policy.\"",
+          "x-envoy-upstream-service-time": "155",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "age": "0",
+          "set-cookie": "_ir=0; Max-Age=1800; HttpOnly; Path=/; Secure",
+          "x-pinterest-rid": "1006986238844275",
+          "x-pinterest-rid-128bit": "f4cd31941a90183e0df988a6240509b3",
+          "vary": "Accept-Encoding",
+          "x-cdn": "fastly",
+          "alt-svc": "h3=\":443\";ma=604800",
+          "pinterest-generated-by": "tpp-api-prod-0a092ff3"
+        },
+        "hash": "9877ca272bfcd7e8129b57c23e10e34926e72f69",
+        "request": {
+          "params": {
+            "region": "US"
+          }
+        }
+      }
+    }
+  }
+}
