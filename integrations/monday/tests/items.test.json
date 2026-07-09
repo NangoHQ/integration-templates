@@ -1,0 +1,114 @@
+{
+  "nango": {
+    "batchSave": {
+      "Item": []
+    },
+    "batchDelete": {
+      "Item": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v2": {
+        "response": {
+          "data": {
+            "boards": [
+              {
+                "id": "5096998873"
+              },
+              {
+                "id": "5096998717"
+              },
+              {
+                "id": "5096998627"
+              },
+              {
+                "id": "5096998620"
+              },
+              {
+                "id": "5096998570"
+              },
+              {
+                "id": "5096998568"
+              },
+              {
+                "id": "5096998558"
+              },
+              {
+                "id": "5096998553"
+              },
+              {
+                "id": "5096982894"
+              },
+              {
+                "id": "5096980653"
+              },
+              {
+                "id": "5096980652"
+              },
+              {
+                "id": "5096980651"
+              },
+              {
+                "id": "5096980650"
+              },
+              {
+                "id": "5096980649"
+              },
+              {
+                "id": "5096980648"
+              },
+              {
+                "id": "5096980647"
+              }
+            ]
+          },
+          "extensions": {
+            "request_id": "ef43129c-8ae4-9546-b4af-03c7f5c86c11"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 18:54:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1783623331",
+          "api-version": "2026-07",
+          "ratelimit": "\"minuteRate\";r=1334, \"concurrency\";r=79, \"complexityMinute\";r=4999840;t=60",
+          "ratelimit-policy": "\"minuteRate\";q=1335;w=60, \"concurrency\";q=80;qu=\"concurrent-requests\", \"complexityMinute\";q=5000000;w=60;qu=\"content-bytes\"",
+          "vary": "Accept-Encoding",
+          "x-api-gateway": "true",
+          "x-powered-by": "Cosmo-Router",
+          "x-request-id": "ef43129c-8ae4-9546-b4af-03c7f5c86c11",
+          "x-envoy-upstream-service-time": "327",
+          "content-security-policy": ";",
+          "x-monday-rgn": "euc1, use1",
+          "server": "cloudflare",
+          "x-routed-from": "use1",
+          "x-routed-to": "euc1",
+          "set-cookie": "<redacted>",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a18989b01f34a11a-PDX"
+        },
+        "hash": "2e3217369d79ea532fde3d2b60d662810d6ef14f",
+        "request": {
+          "data": {
+            "query": "query { boards(limit: 500, state: active) { id } }"
+          }
+        }
+      }
+    }
+  }
+}
