@@ -2795,6 +2795,7 @@ import './mixpanel/actions/update-profile-property.js';
 import './monday/syncs/boards.js';
 import './monday/syncs/columns.js';
 import './monday/syncs/groups.js';
+import './monday/syncs/items.js';
 import './monday/syncs/subitems.js';
 import './monday/syncs/teams.js';
 import './monday/syncs/updates.js';
