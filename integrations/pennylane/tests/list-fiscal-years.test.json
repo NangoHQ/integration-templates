@@ -1,0 +1,123 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 48945082368,
+        "start": "2028-01-01",
+        "finish": "2028-12-31",
+        "status": "open",
+        "created_at": "2026-07-08T11:26:51.291462Z",
+        "updated_at": "2026-07-08T11:26:51.290275Z"
+      },
+      {
+        "id": 48945078272,
+        "start": "2027-01-01",
+        "finish": "2027-12-31",
+        "status": "open",
+        "created_at": "2026-07-08T11:26:51.291462Z",
+        "updated_at": "2026-07-08T11:26:51.290275Z"
+      },
+      {
+        "id": 48945074176,
+        "start": "2026-01-01",
+        "finish": "2026-12-31",
+        "status": "open",
+        "created_at": "2026-07-08T11:26:51.291462Z",
+        "updated_at": "2026-07-08T11:26:51.290275Z"
+      },
+      {
+        "id": 48945070080,
+        "start": "2025-01-01",
+        "finish": "2025-12-31",
+        "status": "open",
+        "created_at": "2026-07-08T11:26:51.291462Z",
+        "updated_at": "2026-07-08T11:26:51.290275Z"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/fiscal_years": {
+        "response": {
+          "total_pages": null,
+          "current_page": null,
+          "per_page": null,
+          "total_items": null,
+          "items": [
+            {
+              "id": 48945082368,
+              "start": "2028-01-01",
+              "finish": "2028-12-31",
+              "status": "open",
+              "created_at": "2026-07-08T11:26:51.291462Z",
+              "updated_at": "2026-07-08T11:26:51.290275Z"
+            },
+            {
+              "id": 48945078272,
+              "start": "2027-01-01",
+              "finish": "2027-12-31",
+              "status": "open",
+              "created_at": "2026-07-08T11:26:51.291462Z",
+              "updated_at": "2026-07-08T11:26:51.290275Z"
+            },
+            {
+              "id": 48945074176,
+              "start": "2026-01-01",
+              "finish": "2026-12-31",
+              "status": "open",
+              "created_at": "2026-07-08T11:26:51.291462Z",
+              "updated_at": "2026-07-08T11:26:51.290275Z"
+            },
+            {
+              "id": 48945070080,
+              "start": "2025-01-01",
+              "finish": "2025-12-31",
+              "status": "open",
+              "created_at": "2026-07-08T11:26:51.291462Z",
+              "updated_at": "2026-07-08T11:26:51.290275Z"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:33:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4938",
+          "x-ratelimit-reset": "1783514001",
+          "cf-ray": "a17f1dd48f348636-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"65de34a3ebb038e78547b86bcf46d391\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "23",
+          "ratelimit-reset": "1783514000",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "37188ca5-4a2e-4f7f-8ab3-6739c06cc77b",
+          "set-cookie": "__cf_bm=IC9vL4JI1Vk64iJHTeZssgl9hiJDK2HCTecuF9nsYgw-1783513997.5269024-1.0.1.1-.CI7ndHbl3BzXaGk1mmM4vj7Nca2wjvpGNvAEAFAt0l7_nnzQmK7xPVZTP.yBXHH0JvB_boA7b5.oT44W5iGLi6sZP552kCmvaT0YuTM_KL1I0YllOVkgi_EzZSAX9j4; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:03:17 GMT"
+        },
+        "hash": "0907f177092b5ac4202d970d06238301dc6f9fb4",
+        "request": {}
+      }
+    }
+  }
+}

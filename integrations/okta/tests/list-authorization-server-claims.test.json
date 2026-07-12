@@ -1,0 +1,811 @@
+{
+  "input": {
+    "authServerId": "aus14u78liihuiepy698"
+  },
+  "output": {
+    "claims": [
+      {
+        "id": "ocl14u78lj8cGa3yC698",
+        "name": "middle_name",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78ljqwlOTIs698",
+        "name": "zoneinfo",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78ljouvfzID698",
+        "name": "website",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78ljmJAljeW698",
+        "name": "updated_at",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78ljkW6szB9698",
+        "name": "profile",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78ljiP4QUP4698",
+        "name": "preferred_username",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": true,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78ljglKmUHJ698",
+        "name": "picture",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78lje0WQ1WY698",
+        "name": "phone_number",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "phone"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78ljcq1wrgQ698",
+        "name": "nickname",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78ljapM22sR698",
+        "name": "name",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": true,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78liqtuctve698",
+        "name": "sub",
+        "status": "ACTIVE",
+        "claimType": "RESOURCE",
+        "valueType": "EXPRESSION",
+        "value": "(appuser != null) ? appuser.userName : app.clientId",
+        "alwaysIncludeInToken": true,
+        "conditions": {
+          "scopes": []
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78lj6Ke4iqU698",
+        "name": "locale",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78lj4UbqubC698",
+        "name": "given_name",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78lj2w35hUp698",
+        "name": "gender",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78lj0rqOSGE698",
+        "name": "family_name",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78liyPFaj3U698",
+        "name": "email_verified",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "email"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78liwvRA2xf698",
+        "name": "email",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": true,
+        "conditions": {
+          "scopes": [
+            "email"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78liuY3Z6e6698",
+        "name": "birthdate",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "profile"
+          ]
+        },
+        "system": true
+      },
+      {
+        "id": "ocl14u78lisXfDSwW698",
+        "name": "address",
+        "status": "ACTIVE",
+        "claimType": "IDENTITY",
+        "valueType": "SYSTEM",
+        "alwaysIncludeInToken": false,
+        "conditions": {
+          "scopes": [
+            "address"
+          ]
+        },
+        "system": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/authorizationServers/aus14u78liihuiepy698/claims": {
+        "response": [
+          {
+            "id": "ocl14u78lj8cGa3yC698",
+            "name": "middle_name",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78lj8cGa3yC698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78ljqwlOTIs698",
+            "name": "zoneinfo",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78ljqwlOTIs698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78ljouvfzID698",
+            "name": "website",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78ljouvfzID698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78ljmJAljeW698",
+            "name": "updated_at",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78ljmJAljeW698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78ljkW6szB9698",
+            "name": "profile",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78ljkW6szB9698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78ljiP4QUP4698",
+            "name": "preferred_username",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": true,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78ljiP4QUP4698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78ljglKmUHJ698",
+            "name": "picture",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78ljglKmUHJ698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78lje0WQ1WY698",
+            "name": "phone_number",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "phone"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78lje0WQ1WY698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78ljcq1wrgQ698",
+            "name": "nickname",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78ljcq1wrgQ698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78ljapM22sR698",
+            "name": "name",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": true,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78ljapM22sR698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78liqtuctve698",
+            "name": "sub",
+            "status": "ACTIVE",
+            "claimType": "RESOURCE",
+            "valueType": "EXPRESSION",
+            "value": "(appuser != null) ? appuser.userName : app.clientId",
+            "conditions": {
+              "scopes": []
+            },
+            "system": true,
+            "alwaysIncludeInToken": true,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78liqtuctve698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78lj6Ke4iqU698",
+            "name": "locale",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78lj6Ke4iqU698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78lj4UbqubC698",
+            "name": "given_name",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78lj4UbqubC698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78lj2w35hUp698",
+            "name": "gender",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78lj2w35hUp698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78lj0rqOSGE698",
+            "name": "family_name",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78lj0rqOSGE698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78liyPFaj3U698",
+            "name": "email_verified",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "email"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78liyPFaj3U698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78liwvRA2xf698",
+            "name": "email",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "email"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": true,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78liwvRA2xf698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78liuY3Z6e6698",
+            "name": "birthdate",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "profile"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78liuY3Z6e6698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": "ocl14u78lisXfDSwW698",
+            "name": "address",
+            "status": "ACTIVE",
+            "claimType": "IDENTITY",
+            "valueType": "SYSTEM",
+            "conditions": {
+              "scopes": [
+                "address"
+              ]
+            },
+            "system": true,
+            "alwaysIncludeInToken": false,
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims/ocl14u78lisXfDSwW698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:22:05 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4927",
+          "x-ratelimit-reset": "1783437739",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "f5b37e361f2c8dd782c9bdb4a7800748",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "sid=\"\";Version=1;Path=/;Max-Age=0, xids=\"\";Version=1;Path=/;Max-Age=0, autolaunch_triggered=\"\"; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/, activate_ca_modal_triggered=\"\"; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/, JSESSIONID=4A5BEDAFA7AC031F64996733E27F99AE; Path=/; Secure; HttpOnly",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "500",
+          "x-rate-limit-remaining": "495",
+          "x-rate-limit-reset": "1783437749",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "e5af1821da7576286c930ab19b19d612ad9f2a2f",
+        "request": {}
+      }
+    }
+  }
+}

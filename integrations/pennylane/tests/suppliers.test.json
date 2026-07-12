@@ -1,0 +1,579 @@
+{
+  "nango": {
+    "batchSave": {
+      "PennylaneSupplier": [
+        {
+          "id": "1338645016576",
+          "name": "Test Supplier From Agent",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f41b0-c2ea-7f80-b780-2df82811ecbb"
+        },
+        {
+          "id": "1338642550784",
+          "name": "Test Supplier From Agent",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f41b0-3f59-76aa-acd1-6ceca59b0d90"
+        },
+        {
+          "id": "1338639400960",
+          "name": "Test Supplier From Agent",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f41af-9c73-79a5-9fe0-03c910bae97b"
+        },
+        {
+          "id": "1338485968896",
+          "name": "Office Supplies SARL Updated",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f419c-a323-78ce-8e82-3fbc0a68a28a"
+        },
+        {
+          "id": "1338242179072",
+          "name": "Updated Taxi Account",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "FR",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f417b-121a-7e23-bba9-28c45350dc04"
+        },
+        {
+          "id": "1338242174976",
+          "name": "Restaurants",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "FR",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f417b-1218-7b48-8e5f-17b1d10bc5d4"
+        },
+        {
+          "id": "1338242170880",
+          "name": "Parking",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "FR",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f417b-1216-75ec-a330-ce1a8a534d3b"
+        },
+        {
+          "id": "1338242166784",
+          "name": "Hôtels",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "FR",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f417b-1215-7ba9-bda1-9e08aaca458b"
+        },
+        {
+          "id": "1338242162688",
+          "name": "Autre",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "FR",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f417b-1213-72a8-a0f2-3685989129d5"
+        },
+        {
+          "id": "1338242154496",
+          "name": "Péage",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "FR",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f417b-1212-7830-aa25-148878f1fd67"
+        },
+        {
+          "id": "1338242146304",
+          "name": "Frais kilométriques",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "FR",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f417b-1210-7e22-8b1e-bdaa059ff27d"
+        },
+        {
+          "id": "1338242142208",
+          "name": "Transport",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "FR",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f417b-1209-7b24-87a9-d8762d6b75b0"
+        },
+        {
+          "id": "1338242060288",
+          "name": "Pennylane",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f417b-0803-7f99-bc97-8fa708f820f9"
+        },
+        {
+          "id": "1338242056192",
+          "name": "Fournisseurs - Achats de biens et prestations de services",
+          "address": "",
+          "postal_code": "",
+          "city": "",
+          "country_alpha2": "",
+          "emails": [],
+          "reg_no": "",
+          "vat_number": "",
+          "iban": "",
+          "reference": "019f417b-0803-71d9-9179-b235f28c0fa3"
+        }
+      ]
+    },
+    "batchDelete": {
+      "PennylaneSupplier": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/external/v2/suppliers": {
+        "response": {
+          "items": [
+            {
+              "created_at": "2026-07-08T12:25:31.119716Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338645016576,
+              "name": "Test Supplier From Agent",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T12:25:31.119626Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14065084686336
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+              },
+              "external_reference": "019f41b0-c2ea-7f80-b780-2df82811ecbb"
+            },
+            {
+              "created_at": "2026-07-08T12:24:57.442742Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338642550784,
+              "name": "Test Supplier From Agent",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T12:24:57.442486Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14064921694208
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+              },
+              "external_reference": "019f41b0-3f59-76aa-acd1-6ceca59b0d90"
+            },
+            {
+              "created_at": "2026-07-08T12:24:15.736713Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338639400960,
+              "name": "Test Supplier From Agent",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T12:24:15.736571Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14064662487040
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+              },
+              "external_reference": "019f41af-9c73-79a5-9fe0-03c910bae97b"
+            },
+            {
+              "created_at": "2026-07-08T12:03:32.264647Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338485968896,
+              "name": "Office Supplies SARL Updated",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T12:40:23.864235Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14057991884800
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+              },
+              "external_reference": "019f419c-a323-78ce-8e82-3fbc0a68a28a"
+            },
+            {
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338242179072,
+              "name": "Updated Taxi Account",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T12:36:47.995551Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14048452796416
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+              },
+              "external_reference": "019f417b-121a-7e23-bba9-28c45350dc04"
+            },
+            {
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338242174976,
+              "name": "Restaurants",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14048452792320
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+              },
+              "external_reference": "019f417b-1218-7b48-8e5f-17b1d10bc5d4"
+            },
+            {
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338242170880,
+              "name": "Parking",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14048452788224
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+              },
+              "external_reference": "019f417b-1216-75ec-a330-ce1a8a534d3b"
+            },
+            {
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338242166784,
+              "name": "Hôtels",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14048452784128
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+              },
+              "external_reference": "019f417b-1215-7ba9-bda1-9e08aaca458b"
+            },
+            {
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338242162688,
+              "name": "Autre",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14048452780032
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+              },
+              "external_reference": "019f417b-1213-72a8-a0f2-3685989129d5"
+            },
+            {
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338242154496,
+              "name": "Péage",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14048452775936
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+              },
+              "external_reference": "019f417b-1212-7830-aa25-148878f1fd67"
+            },
+            {
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338242146304,
+              "name": "Frais kilométriques",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14048452771840
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+              },
+              "external_reference": "019f417b-1210-7e22-8b1e-bdaa059ff27d"
+            },
+            {
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338242142208,
+              "name": "Transport",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14048452767744
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": "FR"
+              },
+              "external_reference": "019f417b-1209-7b24-87a9-d8762d6b75b0"
+            },
+            {
+              "created_at": "2026-07-08T11:26:50.741963Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338242060288,
+              "name": "Pennylane",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T11:26:50.733506Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14048443244544
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+              },
+              "external_reference": "019f417b-0803-7f99-bc97-8fa708f820f9"
+            },
+            {
+              "created_at": "2026-07-08T11:26:50.741963Z",
+              "establishment_no": null,
+              "reg_no": "",
+              "iban": "",
+              "id": 1338242056192,
+              "name": "Fournisseurs - Achats de biens et prestations de services",
+              "supplier_payment_method": null,
+              "supplier_due_date_delay": null,
+              "supplier_due_date_rule": "days",
+              "updated_at": "2026-07-08T11:26:50.733506Z",
+              "vat_number": "",
+              "ledger_account": {
+                "id": 14048443236352
+              },
+              "emails": [],
+              "postal_address": {
+                "address": "",
+                "postal_code": "",
+                "city": "",
+                "country_alpha2": ""
+              },
+              "external_reference": "019f417b-0803-71d9-9179-b235f28c0fa3"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:41:34 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1783514552",
+          "cf-ray": "a17f29f4cf4061c8-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"d5d1bdaaf24c925ee4d2f0b160b38e2c\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "17",
+          "ratelimit-reset": "1783514495",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "ed381e6d-fa15-4ebb-a4d4-47575df5eead",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "9631131a2e09e7599a703d09dc7555b0ebaa3de9",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

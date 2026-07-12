@@ -1,0 +1,460 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 14065329127424,
+        "number": "44574",
+        "label": "TVA collectée sur encaissements",
+        "vat_rate": "FR_200",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14065329119232,
+        "number": "706",
+        "label": "Prestations de services",
+        "vat_rate": "FR_200",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14065195773952,
+        "number": "411100007",
+        "label": "Test User",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14065106386944,
+        "number": "411100006",
+        "label": "Test User",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14065084686336,
+        "number": "401100013",
+        "label": "Test Supplier From Agent",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14065077239808,
+        "number": "44564",
+        "label": "TVA déductible sur encaissements",
+        "vat_rate": "FR_200",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14065077231616,
+        "number": "6288",
+        "label": "Autres charges extérieures diverses",
+        "vat_rate": "FR_200",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14065070927872,
+        "number": "411100005",
+        "label": "Test Company",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14065018343424,
+        "number": "999002",
+        "label": "Test Ledger Account",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14065018310656,
+        "number": "411100004",
+        "label": "Test Company",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14064921694208,
+        "number": "401100012",
+        "label": "Test Supplier From Agent",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14064892428288,
+        "number": "999001",
+        "label": "Test Ledger Account",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14064662487040,
+        "number": "401100011",
+        "label": "Test Supplier From Agent",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14064606171136,
+        "number": "4716001",
+        "label": "Other - Test Bank Account - décaissements en attente",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14064606167040,
+        "number": "4717001",
+        "label": "Other - Test Bank Account - encaissements en attente",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14064606162944,
+        "number": "5121001",
+        "label": "Other - Test Bank Account",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14057991884800,
+        "number": "401100009",
+        "label": "Office Supplies SARL",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14057822666752,
+        "number": "411100003",
+        "label": "Jean Dupont",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14057805975552,
+        "number": "411100002",
+        "label": "Globex Industries",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      },
+      {
+        "id": 14057741639680,
+        "number": "411100001",
+        "label": "Acme Corp Test",
+        "vat_rate": "any",
+        "country_alpha2": "any",
+        "enabled": true
+      }
+    ],
+    "has_more": true,
+    "next_cursor": "eyJjdXJzb3JfYXR0cmlidXRlcyI6WzE0MDU3NzQxNjM5NjgwXSwic29ydCI6Ii1pZCJ9"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/ledger_accounts": {
+        "response": {
+          "total_pages": null,
+          "current_page": null,
+          "per_page": null,
+          "total_items": null,
+          "items": [
+            {
+              "id": 14065329127424,
+              "number": "44574",
+              "label": "TVA collectée sur encaissements",
+              "vat_rate": "FR_200",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:26:22.002291Z",
+              "updated_at": "2026-07-08T12:26:22.000428Z",
+              "type": "reserved",
+              "letterable": true
+            },
+            {
+              "id": 14065329119232,
+              "number": "706",
+              "label": "Prestations de services",
+              "vat_rate": "FR_200",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:26:22.002291Z",
+              "updated_at": "2026-07-08T12:26:22.000428Z",
+              "type": "generic",
+              "letterable": false
+            },
+            {
+              "id": 14065195773952,
+              "number": "411100007",
+              "label": "Test User",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:25:59.402447Z",
+              "updated_at": "2026-07-08T12:25:59.414291Z",
+              "type": "customer",
+              "letterable": true
+            },
+            {
+              "id": 14065106386944,
+              "number": "411100006",
+              "label": "Test User",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:25:36.167506Z",
+              "updated_at": "2026-07-08T12:25:36.179420Z",
+              "type": "customer",
+              "letterable": true
+            },
+            {
+              "id": 14065084686336,
+              "number": "401100013",
+              "label": "Test Supplier From Agent",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:25:31.127299Z",
+              "updated_at": "2026-07-08T12:25:31.152967Z",
+              "type": "supplier",
+              "letterable": true
+            },
+            {
+              "id": 14065077239808,
+              "number": "44564",
+              "label": "TVA déductible sur encaissements",
+              "vat_rate": "FR_200",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:25:30.128039Z",
+              "updated_at": "2026-07-08T12:25:30.125055Z",
+              "type": "reserved",
+              "letterable": true
+            },
+            {
+              "id": 14065077231616,
+              "number": "6288",
+              "label": "Autres charges extérieures diverses",
+              "vat_rate": "FR_200",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:25:30.128039Z",
+              "updated_at": "2026-07-08T12:25:30.125055Z",
+              "type": "generic",
+              "letterable": false
+            },
+            {
+              "id": 14065070927872,
+              "number": "411100005",
+              "label": "Test Company",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:25:28.274404Z",
+              "updated_at": "2026-07-08T12:25:28.288762Z",
+              "type": "customer",
+              "letterable": true
+            },
+            {
+              "id": 14065018343424,
+              "number": "999002",
+              "label": "Test Ledger Account",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:25:13.674536Z",
+              "updated_at": "2026-07-08T12:25:13.673452Z",
+              "type": "custom",
+              "letterable": false
+            },
+            {
+              "id": 14065018310656,
+              "number": "411100004",
+              "label": "Test Company",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:25:13.423919Z",
+              "updated_at": "2026-07-08T12:25:13.440189Z",
+              "type": "customer",
+              "letterable": true
+            },
+            {
+              "id": 14064921694208,
+              "number": "401100012",
+              "label": "Test Supplier From Agent",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:24:57.453941Z",
+              "updated_at": "2026-07-08T12:24:57.491646Z",
+              "type": "supplier",
+              "letterable": true
+            },
+            {
+              "id": 14064892428288,
+              "number": "999001",
+              "label": "Test Ledger Account",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:24:53.010943Z",
+              "updated_at": "2026-07-08T12:24:53.009981Z",
+              "type": "custom",
+              "letterable": false
+            },
+            {
+              "id": 14064662487040,
+              "number": "401100011",
+              "label": "Test Supplier From Agent",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:24:15.743862Z",
+              "updated_at": "2026-07-08T12:24:15.771189Z",
+              "type": "supplier",
+              "letterable": true
+            },
+            {
+              "id": 14064606171136,
+              "number": "4716001",
+              "label": "Other - Test Bank Account - décaissements en attente",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:24:04.602785Z",
+              "updated_at": "2026-07-08T12:24:04.596816Z",
+              "type": "custom",
+              "letterable": true
+            },
+            {
+              "id": 14064606167040,
+              "number": "4717001",
+              "label": "Other - Test Bank Account - encaissements en attente",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:24:04.602785Z",
+              "updated_at": "2026-07-08T12:24:04.596816Z",
+              "type": "custom",
+              "letterable": true
+            },
+            {
+              "id": 14064606162944,
+              "number": "5121001",
+              "label": "Other - Test Bank Account",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:24:04.602785Z",
+              "updated_at": "2026-07-08T12:24:04.596816Z",
+              "type": "bank",
+              "letterable": false
+            },
+            {
+              "id": 14057991884800,
+              "number": "401100009",
+              "label": "Office Supplies SARL",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:03:32.271471Z",
+              "updated_at": "2026-07-08T12:25:30.125055Z",
+              "type": "supplier",
+              "letterable": true
+            },
+            {
+              "id": 14057822666752,
+              "number": "411100003",
+              "label": "Jean Dupont",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:03:01.482435Z",
+              "updated_at": "2026-07-08T12:03:01.494342Z",
+              "type": "customer",
+              "letterable": true
+            },
+            {
+              "id": 14057805975552,
+              "number": "411100002",
+              "label": "Globex Industries",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:02:59.810981Z",
+              "updated_at": "2026-07-08T12:02:59.824607Z",
+              "type": "customer",
+              "letterable": true
+            },
+            {
+              "id": 14057741639680,
+              "number": "411100001",
+              "label": "Acme Corp Test",
+              "vat_rate": "any",
+              "country_alpha2": "any",
+              "enabled": true,
+              "created_at": "2026-07-08T12:02:49.196407Z",
+              "updated_at": "2026-07-08T12:26:22.000428Z",
+              "type": "customer",
+              "letterable": true
+            }
+          ],
+          "has_more": true,
+          "next_cursor": "eyJjdXJzb3JfYXR0cmlidXRlcyI6WzE0MDU3NzQxNjM5NjgwXSwic29ydCI6Ii1pZCJ9"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:26:35 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4928",
+          "x-ratelimit-reset": "1783513639",
+          "cf-ray": "a17f1404caa1ef88-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"51fe1ac4994bfbee1045c2077b3c970d\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783513600",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "40642569-8b0f-4779-becf-47a4178be35f",
+          "set-cookie": "__cf_bm=LSyrAqRpJM2Ygcmj7c5vut.iBH8nIDIKyhWrZvHuBdA-1783513595.64411-1.0.1.1-9CkH5M4NP46OcLmsDOxv9aDrfxFeUNHitvy4qgNfGarSrnWRTk2cU.di3d4XfdrbPyOY5i3Dvudbu4CcRsZM3AGwPpXUwuc.pvEPWd9IC_mcGv4OAECmLugscuyIJZfw; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 12:56:35 GMT"
+        },
+        "hash": "476a17caddd8a13c7e3491ed41b69ab14cf871f5",
+        "request": {}
+      }
+    }
+  }
+}

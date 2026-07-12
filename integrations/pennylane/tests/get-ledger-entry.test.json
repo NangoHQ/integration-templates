@@ -1,0 +1,180 @@
+{
+  "input": {
+    "id": 25465638002688
+  },
+  "output": {
+    "id": 25465638002688,
+    "label": "Facture Acme Corp Test - TEST-001 (label généré)",
+    "piece_number": "WOQPXLHWI5",
+    "date": "2026-07-08",
+    "due_date": "2026-08-15",
+    "invoice_number": "TEST-001",
+    "created_at": "2026-07-08T12:26:21.800683Z",
+    "updated_at": "2026-07-08T12:35:28.963785Z",
+    "journal": {
+      "id": 91278557184,
+      "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+    },
+    "status": "complete",
+    "categories": [
+      {
+        "id": 239432757248,
+        "label": "IS",
+        "weight": "1.0",
+        "category_group": {
+          "id": 14148939776
+        },
+        "analytical_code": null,
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.782993Z"
+      }
+    ],
+    "attachment": {
+      "filename": "test_invoice.pdf",
+      "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyEu-o2V4cMcLB85qTktjzjeYXwEAo3B1cqdibG9iX2lk--561957feb89542f92d8d144d17c16db9dcbc8e1c/test_invoice.pdf"
+    },
+    "ledger_entry_lines": [
+      {
+        "id": 104380980912128,
+        "debit": "600.0",
+        "credit": "0.0",
+        "ledger_account": {
+          "id": 14057741639680,
+          "number": "411100001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14057741639680"
+        },
+        "label": ""
+      },
+      {
+        "id": 104380980903936,
+        "debit": "0.0",
+        "credit": "500.0",
+        "ledger_account": {
+          "id": 14065329119232,
+          "number": "706",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065329119232"
+        },
+        "label": ""
+      },
+      {
+        "id": 104380980916224,
+        "debit": "0.0",
+        "credit": "100.0",
+        "ledger_account": {
+          "id": 14065329127424,
+          "number": "44574",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065329127424"
+        },
+        "label": ""
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/ledger_entries/25465638002688": {
+        "response": {
+          "id": 25465638002688,
+          "label": "Facture Acme Corp Test - TEST-001 (label généré)",
+          "date": "2026-07-08",
+          "created_at": "2026-07-08T12:26:21.800683Z",
+          "updated_at": "2026-07-08T12:35:28.963785Z",
+          "invoice_number": "TEST-001",
+          "piece_number": "WOQPXLHWI5",
+          "due_date": "2026-08-15",
+          "journal": {
+            "id": 91278557184,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+          },
+          "status": "complete",
+          "categories": [
+            {
+              "id": 239432757248,
+              "label": "IS",
+              "analytical_code": null,
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "updated_at": "2026-07-08T11:26:51.782993Z",
+              "weight": "1.0",
+              "category_group": {
+                "id": 14148939776
+              }
+            }
+          ],
+          "attachment": {
+            "filename": "test_invoice.pdf",
+            "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyEu-o2V4cMcLB85qTktjzjeYXwEAo3B1cqdibG9iX2lk--561957feb89542f92d8d144d17c16db9dcbc8e1c/test_invoice.pdf"
+          },
+          "ledger_entry_lines": [
+            {
+              "id": 104380980912128,
+              "debit": "600.0",
+              "credit": "0.0",
+              "label": "",
+              "ledger_account": {
+                "id": 14057741639680,
+                "number": "411100001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14057741639680"
+              }
+            },
+            {
+              "id": 104380980903936,
+              "debit": "0.0",
+              "credit": "500.0",
+              "label": "",
+              "ledger_account": {
+                "id": 14065329119232,
+                "number": "706",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065329119232"
+              }
+            },
+            {
+              "id": 104380980916224,
+              "debit": "0.0",
+              "credit": "100.0",
+              "label": "",
+              "ledger_account": {
+                "id": 14065329127424,
+                "number": "44574",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065329127424"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:36:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1783514250",
+          "cf-ray": "a17f22ddaae99b19-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"2986642da1556abe2a25babfec55a7af\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "19",
+          "ratelimit-reset": "1783514205",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "cd93c9c4-0c39-4679-8765-fa606a8531ee",
+          "set-cookie": "__cf_bm=Z9UoD1Z6j.78G1glFWMR6WvYWFRLdzXpq89SOQ_V.V8-1783514203.7898345-1.0.1.1-MHXFjjg9Nkzrp9NkJjLO1Eap9aVDdNZvMvOISsBKphOGEMXCKENS257_nMYUrYTUFO_G2d7oUhNx5kzBuB2liY55LbaKx5859EqOt4Bs7N34Cv.bmzYkgM_UjNUaaZmc; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:06:44 GMT"
+        },
+        "hash": "db3507956377dd2d2a588afce997ab8f89bcf11d",
+        "request": {}
+      }
+    }
+  }
+}

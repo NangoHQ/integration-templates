@@ -1,0 +1,64 @@
+{
+  "input": {
+    "id": 14148939776
+  },
+  "output": {
+    "id": 14148939776,
+    "label": "Suivi de trésorerie",
+    "categories": {
+      "url": "https://app.pennylane.com/api/external/v2/category_groups/14148939776/categories"
+    },
+    "created_at": "2026-07-08T11:26:51.345528Z",
+    "updated_at": "2026-07-08T11:26:51.345482Z"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/category_groups/14148939776": {
+        "response": {
+          "id": 14148939776,
+          "label": "Suivi de trésorerie",
+          "created_at": "2026-07-08T11:26:51.345528Z",
+          "updated_at": "2026-07-08T11:26:51.345482Z",
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/category_groups/14148939776/categories"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:30:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4910",
+          "x-ratelimit-reset": "1783513820",
+          "cf-ray": "a17f194c6aa35913-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"c60f990c084ce09b644566b77d115e22\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "22",
+          "ratelimit-reset": "1783513815",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "cd26194e-7672-4805-8b22-35d1bede26a2",
+          "set-cookie": "__cf_bm=xIeHLabSViMdEnioHGlfn7LV5Ai56rr8kQTyJ13Kl5o-1783513811.9058874-1.0.1.1-1gfZZL2ZUYm7fuXv7sWyKF9EmVcHZlqfo7KuGJm2W_ig3OB6rd_onfqQLXCgL1aQgPpDF3mhymm6l.RFhvwYeJJBOqZUeOo3o6Dng7ALzwCafldnz7b94dxE6iJkjoSo; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:00:12 GMT"
+        },
+        "hash": "3bf4bae49024d8cc5b62a014bc0dd8292b25d51c",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "input": {
+    "category_group_id": 14148939776
+  },
+  "output": {
+    "items": [
+      {
+        "id": 239432757248,
+        "label": "IS",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.782993Z"
+      },
+      {
+        "id": 239432753152,
+        "label": "CFE",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.782990Z"
+      },
+      {
+        "id": 239432749056,
+        "label": "Taxes",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.782996Z"
+      },
+      {
+        "id": 239432744960,
+        "label": "Assurances",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.782982Z"
+      },
+      {
+        "id": 239432740864,
+        "label": "Impôts, taxes et assurances",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.813524Z"
+      },
+      {
+        "id": 239432736768,
+        "label": "Honoraires",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.764578Z"
+      },
+      {
+        "id": 239432732672,
+        "label": "Comptabilité",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.764570Z"
+      },
+      {
+        "id": 239432728576,
+        "label": "Frais postaux",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.764573Z"
+      },
+      {
+        "id": 239432724480,
+        "label": "Greffe et annonces",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.764576Z"
+      },
+      {
+        "id": 239432720384,
+        "label": "Amendes / Pénalités",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.764563Z"
+      },
+      {
+        "id": 239432716288,
+        "label": "Frais de gestion",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.813521Z"
+      },
+      {
+        "id": 239432712192,
+        "label": "Commissions",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.751063Z"
+      },
+      {
+        "id": 239432708096,
+        "label": "Frais bancaires",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.751070Z"
+      },
+      {
+        "id": 239432704000,
+        "label": "Banque",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.813452Z"
+      },
+      {
+        "id": 239432699904,
+        "label": "Prestataire",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.742398Z"
+      },
+      {
+        "id": 239432695808,
+        "label": "Matériels IT",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.742395Z"
+      },
+      {
+        "id": 239432691712,
+        "label": "Hébergements web",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.742386Z"
+      },
+      {
+        "id": 239432687616,
+        "label": "IT / Informatique",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.813527Z"
+      },
+      {
+        "id": 239432683520,
+        "label": "Entretien / Maintenance",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.685648Z"
+      },
+      {
+        "id": 239432679424,
+        "label": "Énergies et carburants",
+        "direction": "cash_out",
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.685640Z"
+      }
+    ],
+    "next_cursor": "eyJjdXJzb3JfYXR0cmlidXRlcyI6WzIzOTQzMjY3OTQyNF0sInNvcnQiOiItaWQifQ==",
+    "has_more": true
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/category_groups/14148939776/categories": {
+        "response": {
+          "items": [
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432757248,
+              "label": "IS",
+              "updated_at": "2026-07-08T11:26:51.782993Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432753152,
+              "label": "CFE",
+              "updated_at": "2026-07-08T11:26:51.782990Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432749056,
+              "label": "Taxes",
+              "updated_at": "2026-07-08T11:26:51.782996Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432744960,
+              "label": "Assurances",
+              "updated_at": "2026-07-08T11:26:51.782982Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432740864,
+              "label": "Impôts, taxes et assurances",
+              "updated_at": "2026-07-08T11:26:51.813524Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432736768,
+              "label": "Honoraires",
+              "updated_at": "2026-07-08T11:26:51.764578Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432732672,
+              "label": "Comptabilité",
+              "updated_at": "2026-07-08T11:26:51.764570Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432728576,
+              "label": "Frais postaux",
+              "updated_at": "2026-07-08T11:26:51.764573Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432724480,
+              "label": "Greffe et annonces",
+              "updated_at": "2026-07-08T11:26:51.764576Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432720384,
+              "label": "Amendes / Pénalités",
+              "updated_at": "2026-07-08T11:26:51.764563Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432716288,
+              "label": "Frais de gestion",
+              "updated_at": "2026-07-08T11:26:51.813521Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432712192,
+              "label": "Commissions",
+              "updated_at": "2026-07-08T11:26:51.751063Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432708096,
+              "label": "Frais bancaires",
+              "updated_at": "2026-07-08T11:26:51.751070Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432704000,
+              "label": "Banque",
+              "updated_at": "2026-07-08T11:26:51.813452Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432699904,
+              "label": "Prestataire",
+              "updated_at": "2026-07-08T11:26:51.742398Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432695808,
+              "label": "Matériels IT",
+              "updated_at": "2026-07-08T11:26:51.742395Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432691712,
+              "label": "Hébergements web",
+              "updated_at": "2026-07-08T11:26:51.742386Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432687616,
+              "label": "IT / Informatique",
+              "updated_at": "2026-07-08T11:26:51.813527Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432683520,
+              "label": "Entretien / Maintenance",
+              "updated_at": "2026-07-08T11:26:51.685648Z",
+              "analytical_code": null
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432679424,
+              "label": "Énergies et carburants",
+              "updated_at": "2026-07-08T11:26:51.685640Z",
+              "analytical_code": null
+            }
+          ],
+          "has_more": true,
+          "next_cursor": "eyJjdXJzb3JfYXR0cmlidXRlcyI6WzIzOTQzMjY3OTQyNF0sInNvcnQiOiItaWQifQ=="
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:23:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1783513456",
+          "cf-ray": "a17f0f4cbeeda11a-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"b6aa330621788994e137cd46f92e6d09\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "23",
+          "ratelimit-reset": "1783513405",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "718217c4-3e04-453b-b873-7e93614f4dd4",
+          "set-cookie": "__cf_bm=.Lp3MO9su_GwyZJzIpp0N.M2s.IPeqK1rla4HHP1px4-1783513402.3563297-1.0.1.1-H.6EC.NlO69JrgCB.DESspKdqw4R2D1OA3s4Exnv_HyUiaGHjMxFOmYgkkWtsTakuM6M4_ZwEaZ_vCXzpr49ECyD3uRWQ4tbjDT_G1lGszHK5FGRGOEdFU7M84JHB23n; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 12:53:22 GMT"
+        },
+        "hash": "54d129cd0e3364b1f141ef5e4cedb25a0d3c33e7",
+        "request": {}
+      }
+    }
+  }
+}

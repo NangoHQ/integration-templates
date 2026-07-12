@@ -1,0 +1,133 @@
+{
+  "input": {
+    "start_date": "2026-07-01T00:00:00Z",
+    "limit": 10
+  },
+  "output": {
+    "items": [
+      {
+        "id": 87538491392,
+        "operation": "insert",
+        "processed_at": "2026-07-08T12:03:15.862463Z",
+        "updated_at": "2026-07-08T12:03:15.174689Z",
+        "created_at": "2026-07-08T12:03:15.180745Z"
+      },
+      {
+        "id": 87542956032,
+        "operation": "insert",
+        "processed_at": "2026-07-08T12:25:49.473533Z",
+        "updated_at": "2026-07-08T12:25:48.684659Z",
+        "created_at": "2026-07-08T12:25:48.715319Z"
+      },
+      {
+        "id": 87543058432,
+        "operation": "insert",
+        "processed_at": "2026-07-08T12:27:06.896737Z",
+        "updated_at": "2026-07-08T12:27:06.143277Z",
+        "created_at": "2026-07-08T12:27:06.148073Z"
+      },
+      {
+        "id": 87538491392,
+        "operation": "update",
+        "processed_at": "2026-07-08T12:39:01.979598Z",
+        "updated_at": "2026-07-08T12:39:01.107100Z",
+        "created_at": "2026-07-08T12:03:15.180745Z"
+      },
+      {
+        "id": 87538491392,
+        "operation": "update",
+        "processed_at": "2026-07-08T12:39:14.019105Z",
+        "updated_at": "2026-07-08T12:39:13.552974Z",
+        "created_at": "2026-07-08T12:03:15.180745Z"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/changelogs/products": {
+        "response": {
+          "items": [
+            {
+              "id": 87538491392,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:03:15.180745Z",
+              "updated_at": "2026-07-08T12:03:15.174689Z",
+              "processed_at": "2026-07-08T12:03:15.862463Z"
+            },
+            {
+              "id": 87542956032,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:25:48.715319Z",
+              "updated_at": "2026-07-08T12:25:48.684659Z",
+              "processed_at": "2026-07-08T12:25:49.473533Z"
+            },
+            {
+              "id": 87543058432,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:27:06.148073Z",
+              "updated_at": "2026-07-08T12:27:06.143277Z",
+              "processed_at": "2026-07-08T12:27:06.896737Z"
+            },
+            {
+              "id": 87538491392,
+              "operation": "update",
+              "created_at": "2026-07-08T12:03:15.180745Z",
+              "updated_at": "2026-07-08T12:39:01.107100Z",
+              "processed_at": "2026-07-08T12:39:01.979598Z"
+            },
+            {
+              "id": 87538491392,
+              "operation": "update",
+              "created_at": "2026-07-08T12:03:15.180745Z",
+              "updated_at": "2026-07-08T12:39:13.552974Z",
+              "processed_at": "2026-07-08T12:39:14.019105Z"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:58:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4954",
+          "x-ratelimit-reset": "1783515570",
+          "cf-ray": "a17f43147867ca84-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"2c8d8c6a912bb5690f8641feb377cba6\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "21",
+          "ratelimit-reset": "1783515525",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "c00ccdb0-0fd0-4535-b9d6-c2aec94e79a8",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "9c8c27fc853176e3a73764f8cc5d8680e78dbc5d",
+        "request": {
+          "params": {
+            "limit": "10",
+            "start_date": "2026-07-01T00:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

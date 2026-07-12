@@ -1,0 +1,113 @@
+{
+  "input": {
+    "id": 25467526230016,
+    "customer_id": 1338468995072
+  },
+  "output": {
+    "id": 25467526230016,
+    "label": "Test Transaction",
+    "attachment_required": true,
+    "date": "2026-07-08",
+    "outstanding_balance": "-100.0",
+    "created_at": "2026-07-08T12:38:24.219247Z",
+    "updated_at": "2026-07-08T12:39:23.362528Z",
+    "currency": "EUR",
+    "currency_amount": "100.0",
+    "amount": "100.0",
+    "journal": {
+      "id": 91415310336,
+      "url": "https://app.pennylane.com/api/external/v2/journals/91415310336"
+    },
+    "bank_account": {
+      "id": 14570160128,
+      "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14570160128"
+    },
+    "customer": {
+      "id": 1338468995072,
+      "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+    },
+    "categories": [],
+    "matched_invoices": {
+      "url": "https://app.pennylane.com/api/external/v2/transactions/25467526230016/matched_invoices"
+    }
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/external/v2/transactions/25467526230016": {
+        "response": {
+          "amount": "100.0",
+          "archived_at": null,
+          "attachment_required": true,
+          "created_at": "2026-07-08T12:38:24.219247Z",
+          "currency_amount": "100.0",
+          "currency_fee": null,
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "fee": null,
+          "id": 25467526230016,
+          "label": "Test Transaction",
+          "outstanding_balance": "-100.0",
+          "updated_at": "2026-07-08T12:39:23.362528Z",
+          "interbank_code": null,
+          "journal": {
+            "id": 91415310336,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91415310336"
+          },
+          "bank_account": {
+            "id": 14570160128,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14570160128"
+          },
+          "pro_account_expense": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "supplier": null,
+          "categories": [],
+          "matched_invoices": {
+            "url": "https://app.pennylane.com/api/external/v2/transactions/25467526230016/matched_invoices"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:39:23 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4841",
+          "x-ratelimit-reset": "1783514372",
+          "cf-ray": "a17f26be4f97ff15-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"d1fece649c1c62f3362b5851870fb537\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "17",
+          "ratelimit-reset": "1783514365",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "1298d56c-9f41-49d4-8cdf-7fd640eacb7d",
+          "set-cookie": "__cf_bm=umO.VA2Iu0c7IskK3uigMK8g5mRfeqwbyL_1En0nHSk-1783514362.6071289-1.0.1.1-SuFJC0jVHwriMJvcT0fXahZ5u1BvpYRe9eB7Kc7TPkcvSFXp4ypTFzVQRyG.0eH9iPukOgZmdFOKOBXfZheLf0UJHSygby.QBrr2xyPaR5XzUTAUNjBigaqxKJW9ZDX3; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:09:23 GMT"
+        },
+        "hash": "604019cddfebe53763b7bb51027b5a257ddc14e4",
+        "request": {
+          "data": {
+            "customer_id": 1338468995072
+          }
+        }
+      }
+    }
+  }
+}

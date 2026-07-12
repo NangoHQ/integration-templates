@@ -1,0 +1,91 @@
+{
+  "input": {
+    "id": 1338485968896
+  },
+  "output": {
+    "id": 1338485968896,
+    "name": "Office Supplies SARL",
+    "reg_no": "",
+    "vat_number": "",
+    "ledger_account": {
+      "id": 14057991884800
+    },
+    "emails": [],
+    "iban": "",
+    "postal_address": {
+      "address": "",
+      "postal_code": "",
+      "city": "",
+      "country_alpha2": ""
+    },
+    "supplier_due_date_rule": "days",
+    "external_reference": "019f419c-a323-78ce-8e82-3fbc0a68a28a",
+    "created_at": "2026-07-08T12:03:32.264647Z",
+    "updated_at": "2026-07-08T12:03:32.264553Z"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/suppliers/1338485968896": {
+        "response": {
+          "created_at": "2026-07-08T12:03:32.264647Z",
+          "establishment_no": null,
+          "reg_no": "",
+          "iban": "",
+          "id": 1338485968896,
+          "name": "Office Supplies SARL",
+          "supplier_payment_method": null,
+          "supplier_due_date_delay": null,
+          "supplier_due_date_rule": "days",
+          "updated_at": "2026-07-08T12:03:32.264553Z",
+          "vat_number": "",
+          "ledger_account": {
+            "id": 14057991884800
+          },
+          "emails": [],
+          "postal_address": {
+            "address": "",
+            "postal_code": "",
+            "city": "",
+            "country_alpha2": ""
+          },
+          "external_reference": "019f419c-a323-78ce-8e82-3fbc0a68a28a"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:26:26 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1783513639",
+          "cf-ray": "a17f13c77db12095-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"66a8a278806a31c9c3e5315f00e35657\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783513590",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "b8d191a3-e8f8-43f9-9a42-730674fd7a50",
+          "set-cookie": "__cf_bm=G3Xcyqf6Z1vNKQlUbMKwoA.Fknj8ly4667Zl0klkbww-1783513585.8348365-1.0.1.1-FClONPASyDb3yR9YnAC8GTDRA12Gw_uUvEW0eI5kE22x2iHd5HirpYYfOKGRX1bv68jUxN5AjZNrPNR8Jm6AOJFWypZmHJI5iw3RPPqpFrhHU3trOx9Qy6q.EjrWVAPJ; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 12:56:26 GMT"
+        },
+        "hash": "307ec007ff1aa9af16c90977bcc7bd96a7b44081",
+        "request": {}
+      }
+    }
+  }
+}

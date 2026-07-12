@@ -1,0 +1,107 @@
+{
+  "input": {
+    "quote_id": 25461979840512
+  },
+  "output": {
+    "has_more": false,
+    "items": [
+      {
+        "id": 3327752531968,
+        "label": "Consulting Services",
+        "unit": "piece",
+        "quantity": "1.0",
+        "amount": "600.0",
+        "currency_amount": "600.0",
+        "description": "",
+        "product": {
+          "id": 87538491392,
+          "url": "https://app.pennylane.com/api/external/v2/products/87538491392"
+        },
+        "vat_rate": "FR_200",
+        "currency_amount_before_tax": "500.0",
+        "currency_tax": "100.0",
+        "tax": "100.0",
+        "raw_currency_unit_price": "500.0",
+        "discount": {
+          "type": "relative",
+          "value": "0.0"
+        },
+        "section_rank": 0,
+        "created_at": "2026-07-08T12:06:59.845903Z",
+        "updated_at": "2026-07-08T12:06:59.845380Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/quotes/25461979840512/invoice_lines": {
+        "response": {
+          "items": [
+            {
+              "id": 3327752531968,
+              "label": "Consulting Services",
+              "unit": "piece",
+              "quantity": "1.0",
+              "amount": "600.0",
+              "currency_amount": "600.0",
+              "description": "",
+              "vat_rate": "FR_200",
+              "tax": "100.0",
+              "currency_tax": "100.0",
+              "raw_currency_unit_price": "500.0",
+              "created_at": "2026-07-08T12:06:59.845903Z",
+              "updated_at": "2026-07-08T12:06:59.845380Z",
+              "currency_amount_before_tax": "500.0",
+              "section_rank": 0,
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "product": {
+                "id": 87538491392,
+                "url": "https://app.pennylane.com/api/external/v2/products/87538491392"
+              }
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:03:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4953",
+          "x-ratelimit-reset": "1783515839",
+          "cf-ray": "a17f4a98f841ff06-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"f4efa507faba1bd1a2cb9a6ce3ca330f\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783515835",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "bafb50ea-7400-4562-a2c7-73a8ba92080e",
+          "set-cookie": "__cf_bm=fNeF_AgA7466dvVsBzs065VlvHu9CQQyVBhG8c7RXdk-1783515831.1951337-1.0.1.1-pTP7i2CObC5wgDrbFmEDZ4M6YjvAAWu_DuVY4Oy8Q3UJ_JOAM2FmVnnPosBEKj8kRCUVX.9aGyh9Hq.LBuTenIC8HCnE7msodoxB9iZA8C4xQrrP1wkx8_6tCx.zs_hm; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:33:51 GMT"
+        },
+        "hash": "5861fcca3c2c9365ce8bc09224364a43b27921e3",
+        "request": {}
+      }
+    }
+  }
+}

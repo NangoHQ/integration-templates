@@ -1,0 +1,1609 @@
+{
+  "nango": {
+    "batchSave": {
+      "PennylaneInvoice": [
+        {
+          "id": "25461646082048",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=nNG40rrg5FZnJ8%2Bis0WJ7K5d1S1UXhVBOxBLBvhcRkPCbZBlQTt1k7TBz%2FfTRiVCnJ9V%2FXGeML2FujrzCHgYb15Orfko7kmV7ohMBDx5%2BOlxAEQi4aRSKXJB8PO8HQ%3D%3D--GvUvrG%2B1gAGimTxx--6yQcLfG3FfKhMCyX2f2HGA%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T12:31:57.988443Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "Updated Subject",
+          "billing_subscription": null
+        },
+        {
+          "id": "25465314803712",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=nVCNlsat8Ks2K2q8bW1kc1orjmzkA3tRIy8HKUPElUdDE4AkbmXwqOBXeZJQlmGiMKDliB7j%2BCx49TGS%2FLknHxamfhIIBgkkBtsGVHozfQvNJH0DALGKaa0oxi3O2Q%3D%3D--In%2B%2FmJCO2PnMD4Gv--Ly1oxdXDlUUHjXkmMfQ5PA%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T12:27:09.518688Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25465319419904",
+          "label": "Avoir Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "-120.0",
+          "currency_amount": "-120.0",
+          "currency_amount_before_tax": "-100.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "-20.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "credit_note",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=xvRWS61AXFsUww78fqW0kS8%2FfX7GjVx63sGzcNiguDYWEXa0hYROY1YOFawkClPFYocWNlu7c%2FBv5GgVvw2UgYRYg0fa%2Bxc7%2BONDhZWOcN7bKqDm2LKWRXaL0H8%2BIg%3D%3D--fPo6aDU1vb8R74ZV--otls%2BwpRAI1evoUzzGrwdw%3D%3D",
+          "file_url": null,
+          "filename": "Avoir-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T12:27:09.504782Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25465375571968",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "1200.0",
+          "currency_amount": "1200.0",
+          "currency_amount_before_tax": "1000.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-07-31",
+          "currency_tax": "200.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=nrMjGRKu6xXz5Exz%2F%2BHIqWp3Cbz%2BZW%2FbRkxmQB2FMe9AhpjRkpKdrr37p0jC4Lq4LWrOwEiU9hX%2BtLBuQpN8WE7s6iaZlANB9GQ5sHsKn60cuoBXW3Pr8eB0Eorlmw%3D%3D--ntFqtglsgoAXkuNl--WKPwCL2bJqxYtFzhBQO4pA%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T12:24:09.892994Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25465420529664",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "1200.0",
+          "currency_amount": "1200.0",
+          "currency_amount_before_tax": "1000.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-07-31",
+          "currency_tax": "200.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=hugtBcrE%2BAsWrBdyFZURr2CgP21uF7DLXdWhcSksy2Wpnv2kjqX%2Feyx5mPkJQbq9XXY7970zS9ypJqkmIDkbvN1MHdlgMtQgaqrK9xf7Di1qJU%2Bfn%2BKAAAwkHMGS5Q%3D%3D--6DkjYKW9KwhcAUOB--5lCB60pRpwt9KQcNmbM9Yw%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T12:24:22.882086Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25465638002688",
+          "label": "Facture Acme Corp Test - TEST-001 (label généré)",
+          "invoice_number": "TEST-001",
+          "quote_group_uuid": null,
+          "is_draft": false,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-08-15",
+          "currency_tax": "100.0",
+          "language": "fr_FR",
+          "paid": true,
+          "fully_paid_at": null,
+          "status": "paid",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=%2BIwLpghhMolthJCtNKbtNeZY31NKn9QgIT5H37PrPdXRpje7fvTAEPuG%2FJblOqBt%2Bj5umhdi%2BLldIjrj8%2FDTWJPXXOS9HV04kUUVAA%2BY44dw8AgdmqrfJNt0ieXZAA%3D%3D--i4qJ1x1boSZpaXpd--O%2BRdDLUs%2ByodzQ7pJl%2FluQ%3D%3D",
+          "file_url": null,
+          "filename": "test_invoice.pdf",
+          "remaining_amount": "0.0",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T13:21:44.970867Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25465639374848",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=w6TJz7pEXWkqFKL4o%2F6KTVXVgC3CeTqLyZNEwRrDmhYS78WME5i1VXflb7%2FIg6o5Cpat2Ti9tVc8pGCF5QOOGMKpYMUPZlsQngqPx8iNJu0cDri%2BlI%2FNWPqoexcYuQ%3D%3D--VmjOjl6%2BY8r%2BFPSV--3ENcNgxXg1XqbxsrMEzIHw%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T12:26:23.836396Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25465821392896",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=CXOoyVCPR%2B8JwClR2eCH9R9sv8RIWlXu0lvFMdjhJLWBQqCUfVDxSWuehFGiMJmclgkctJIy2mXHAQPtQn0U5ZJWw61MjTvvVnomrvD6x5OCxbh6zTiRwpB%2B5R7jpw%3D%3D--sgsgp%2BbaW4ksGDDW--zql3vQ7ahq%2F5q0DM1CumVw%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T12:27:58.651728Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25472380010496",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "120.0",
+          "currency_amount": "120.0",
+          "currency_amount_before_tax": "100.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-07-31",
+          "currency_tax": "20.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=ItCqlrvu%2FSpg9oDALCDO4Xcq1OmqYjaKmDBLJCoc6w9WK8IiWklUWWGi%2F88gYXkxaAWLvcSGnaqGs1MTgKpmZc3k5qESYd9X8gBEt5HZtkntWiB%2Fgw8jM1Rdkh1mrA%3D%3D--D8VFA7qiz6Q8bMlz--xTzgxibYVVd7rt2z1T%2FOAg%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T13:01:15.347777Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25472691884032",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=wEvLlu%2F0CNVN9W%2BPKJz5uoNLyY3AG3Ts6%2FO0Orba5NpuSIp7TyU8HAUfSNXp%2BlHNZyfc4AgfXDoTL4m%2BFbIQ%2BS1yBS9W3ee9N%2Bo0WxFQzOrUEtgO%2BK6XyTLVRuww%2BA%3D%3D--r4hVusD27olgJtaG--dKEemsKYU0caL0f1uE7iTg%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T13:02:55.684505Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25472899411968",
+          "label": "Facture Acme Corp Test - IMP-TEST-001 (label généré)",
+          "invoice_number": "IMP-TEST-001",
+          "quote_group_uuid": null,
+          "is_draft": false,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "120.0",
+          "currency_amount": "120.0",
+          "currency_amount_before_tax": "100.0",
+          "exchange_rate": 1,
+          "date": "2026-07-09",
+          "deadline": "2026-08-08",
+          "currency_tax": "20.0",
+          "language": "fr_FR",
+          "paid": true,
+          "fully_paid_at": null,
+          "status": "incomplete",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=pu6Dr3TTeGlSrajGG5tpotOgApMCf0DX0SBLIwsHnASn6eaAMl1AUQLvYhbGmKUdB%2BdG%2F7SAQYBv3Eqq6b5NG5OBNXLWzRF2VHMTRPHFk4AP5akQGm4x88SARw9hgg%3D%3D--NIuweGPuAPwVGENA--Ot%2ByKkUTm%2BsUQYZA5pGZHQ%3D%3D",
+          "file_url": null,
+          "filename": "test_invoice.xml",
+          "remaining_amount": "120.0",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T13:11:04.980422Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25475642781696",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "120.0",
+          "currency_amount": "120.0",
+          "currency_amount_before_tax": "100.0",
+          "exchange_rate": 1,
+          "date": "2026-01-01",
+          "deadline": "2026-01-15",
+          "currency_tax": "20.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=zZSV5aYsKV%2FMLIWD0CmpyfqLpLdo31Sk9Q0T0hXmeTY2fytOKHq0qheokyaLfd3OHZfVgIJI%2B2OcgpO4lmA6h%2FSml8fROEyBznYJkfYT4euAZjg4RriLQJSYgPXN5Q%3D%3D--EWP%2FHtLxa%2B8SkfI2--loo6buHdklapPEw0TKL8LQ%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T13:20:26.132992Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25481733963776",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-07-15",
+          "currency_tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=wM6a0MM5n06pNjdhSpgymE9QEN2qMl%2BbMFEATnBu5LbaEieL6UdOlkxOmtgG%2Bb1xDQt4vl76KLvMPF5pzEAEW6fC%2Fwk9NcrOvuZPUyj7J0CsMm4NRaXAyMx0nQ6diQ%3D%3D--%2BkCzx0QN0a4ZP2Y%2F--JRmgorayDOFW9I51DBP7XQ%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T13:56:51.473192Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        },
+        {
+          "id": "25481841254400",
+          "label": "Facture Acme Corp Test (label généré)",
+          "invoice_number": "",
+          "quote_group_uuid": null,
+          "is_draft": true,
+          "is_estimate": false,
+          "currency": "EUR",
+          "amount": "120.0",
+          "currency_amount": "120.0",
+          "currency_amount_before_tax": "100.0",
+          "exchange_rate": 1,
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "20.0",
+          "language": "fr_FR",
+          "paid": false,
+          "fully_paid_at": null,
+          "status": "draft",
+          "discount": "0.0",
+          "discount_type": "relative",
+          "public_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=HN7FIHHZsB74G1EcZbJE5a1gBAs74X0eQSo14RxZ2uOHemYfk8Tp0PL%2FStIH%2F9XsnlqqQHRXUEFFj3Gryf4yvgFJQhTfNy0pfoTjqyyZLL9itRX0iegCNgpKUO0p5w%3D%3D--QWYpRh7rZ%2FWR62af--A8qp4fqLacrunQGsz43rlQ%3D%3D",
+          "file_url": null,
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "remaining_amount": "",
+          "source": "",
+          "special_mention": null,
+          "customer_validation_needed": null,
+          "updated_at": "2026-07-08T13:57:24.376993Z",
+          "imputation_dates": null,
+          "customer_name": "",
+          "line_items_sections_attributes": [],
+          "line_items": [],
+          "categories": [],
+          "transactions_reference": null,
+          "payments": [],
+          "matched_transactions": [],
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "billing_subscription": null
+        }
+      ]
+    },
+    "batchDelete": {
+      "PennylaneInvoice": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/external/v2/customer_invoices": {
+        "response": {
+          "items": [
+            {
+              "id": 25461646082048,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "600.0",
+              "currency_amount": "600.0",
+              "currency_amount_before_tax": "500.0",
+              "tax": "100.0",
+              "currency_tax": "100.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-08-08",
+              "special_mention": null,
+              "created_at": "2026-07-08T12:06:19.330107Z",
+              "updated_at": "2026-07-08T12:31:57.988443Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "Updated Subject",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=nNG40rrg5FZnJ8%2Bis0WJ7K5d1S1UXhVBOxBLBvhcRkPCbZBlQTt1k7TBz%2FfTRiVCnJ9V%2FXGeML2FujrzCHgYb15Orfko7kmV7ohMBDx5%2BOlxAEQi4aRSKXJB8PO8HQ%3D%3D--GvUvrG%2B1gAGimTxx--6yQcLfG3FfKhMCyX2f2HGA%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25461646082048
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/appendices"
+              },
+              "external_reference": "W79NQLZQ9Z",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25465314803712,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "600.0",
+              "currency_amount": "600.0",
+              "currency_amount_before_tax": "500.0",
+              "tax": "100.0",
+              "currency_tax": "100.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-08-08",
+              "special_mention": null,
+              "created_at": "2026-07-08T12:23:35.215682Z",
+              "updated_at": "2026-07-08T12:27:09.518688Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=nVCNlsat8Ks2K2q8bW1kc1orjmzkA3tRIy8HKUPElUdDE4AkbmXwqOBXeZJQlmGiMKDliB7j%2BCx49TGS%2FLknHxamfhIIBgkkBtsGVHozfQvNJH0DALGKaa0oxi3O2Q%3D%3D--In%2B%2FmJCO2PnMD4Gv--Ly1oxdXDlUUHjXkmMfQ5PA%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25465314803712
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/appendices"
+              },
+              "external_reference": "N5OPBCSYY8",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25465319419904,
+              "label": "Avoir Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "-120.0",
+              "currency_amount": "-120.0",
+              "currency_amount_before_tax": "-100.0",
+              "tax": "-20.0",
+              "currency_tax": "-20.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "credit_note",
+              "filename": "Avoir-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-08-08",
+              "special_mention": null,
+              "created_at": "2026-07-08T12:23:39.847701Z",
+              "updated_at": "2026-07-08T12:27:09.504782Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=xvRWS61AXFsUww78fqW0kS8%2FfX7GjVx63sGzcNiguDYWEXa0hYROY1YOFawkClPFYocWNlu7c%2FBv5GgVvw2UgYRYg0fa%2Bxc7%2BONDhZWOcN7bKqDm2LKWRXaL0H8%2BIg%3D%3D--fPo6aDU1vb8R74ZV--otls%2BwpRAI1evoUzzGrwdw%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25465319419904
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": {
+                "id": 25465314803712,
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712"
+              },
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/appendices"
+              },
+              "external_reference": "XLTIWHGG8A",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25465375571968,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "1200.0",
+              "currency_amount": "1200.0",
+              "currency_amount_before_tax": "1000.0",
+              "tax": "200.0",
+              "currency_tax": "200.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-07-31",
+              "special_mention": null,
+              "created_at": "2026-07-08T12:24:09.241350Z",
+              "updated_at": "2026-07-08T12:24:09.892994Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=nrMjGRKu6xXz5Exz%2F%2BHIqWp3Cbz%2BZW%2FbRkxmQB2FMe9AhpjRkpKdrr37p0jC4Lq4LWrOwEiU9hX%2BtLBuQpN8WE7s6iaZlANB9GQ5sHsKn60cuoBXW3Pr8eB0Eorlmw%3D%3D--ntFqtglsgoAXkuNl--WKPwCL2bJqxYtFzhBQO4pA%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25465375571968
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/appendices"
+              },
+              "external_reference": "2W7ZCCK96E",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25465420529664,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "1200.0",
+              "currency_amount": "1200.0",
+              "currency_amount_before_tax": "1000.0",
+              "tax": "200.0",
+              "currency_tax": "200.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-07-31",
+              "special_mention": null,
+              "created_at": "2026-07-08T12:24:22.158515Z",
+              "updated_at": "2026-07-08T12:24:22.882086Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=hugtBcrE%2BAsWrBdyFZURr2CgP21uF7DLXdWhcSksy2Wpnv2kjqX%2Feyx5mPkJQbq9XXY7970zS9ypJqkmIDkbvN1MHdlgMtQgaqrK9xf7Di1qJU%2Bfn%2BKAAAwkHMGS5Q%3D%3D--6DkjYKW9KwhcAUOB--5lCB60pRpwt9KQcNmbM9Yw%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25465420529664
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/appendices"
+              },
+              "external_reference": "2SPAZCOI5F",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25465638002688,
+              "label": "Facture Acme Corp Test - TEST-001 (label généré)",
+              "invoice_number": "TEST-001",
+              "currency": "EUR",
+              "amount": "600.0",
+              "currency_amount": "600.0",
+              "currency_amount_before_tax": "500.0",
+              "tax": "100.0",
+              "currency_tax": "100.0",
+              "remaining_amount_with_tax": "0.0",
+              "remaining_amount_without_tax": "0.0",
+              "draft": false,
+              "language": "fr_FR",
+              "paid": true,
+              "status": "paid",
+              "filename": "test_invoice.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-08-15",
+              "special_mention": null,
+              "created_at": "2026-07-08T12:26:21.800683Z",
+              "updated_at": "2026-07-08T13:21:44.970867Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=%2BIwLpghhMolthJCtNKbtNeZY31NKn9QgIT5H37PrPdXRpje7fvTAEPuG%2FJblOqBt%2Bj5umhdi%2BLldIjrj8%2FDTWJPXXOS9HV04kUUVAA%2BY44dw8AgdmqrfJNt0ieXZAA%3D%3D--i4qJ1x1boSZpaXpd--O%2BRdDLUs%2ByodzQ7pJl%2FluQ%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25465638002688
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/appendices"
+              },
+              "external_reference": "WOQPXLHWI5",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25465639374848,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "600.0",
+              "currency_amount": "600.0",
+              "currency_amount_before_tax": "500.0",
+              "tax": "100.0",
+              "currency_tax": "100.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-08-08",
+              "special_mention": null,
+              "created_at": "2026-07-08T12:26:23.057215Z",
+              "updated_at": "2026-07-08T12:26:23.836396Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=w6TJz7pEXWkqFKL4o%2F6KTVXVgC3CeTqLyZNEwRrDmhYS78WME5i1VXflb7%2FIg6o5Cpat2Ti9tVc8pGCF5QOOGMKpYMUPZlsQngqPx8iNJu0cDri%2BlI%2FNWPqoexcYuQ%3D%3D--VmjOjl6%2BY8r%2BFPSV--3ENcNgxXg1XqbxsrMEzIHw%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25465639374848
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": {
+                "id": 25461979840512
+              },
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/appendices"
+              },
+              "external_reference": "S74XKUL40H",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25465821392896,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "600.0",
+              "currency_amount": "600.0",
+              "currency_amount_before_tax": "500.0",
+              "tax": "100.0",
+              "currency_tax": "100.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-08-08",
+              "special_mention": null,
+              "created_at": "2026-07-08T12:27:57.771460Z",
+              "updated_at": "2026-07-08T12:27:58.651728Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=CXOoyVCPR%2B8JwClR2eCH9R9sv8RIWlXu0lvFMdjhJLWBQqCUfVDxSWuehFGiMJmclgkctJIy2mXHAQPtQn0U5ZJWw61MjTvvVnomrvD6x5OCxbh6zTiRwpB%2B5R7jpw%3D%3D--sgsgp%2BbaW4ksGDDW--zql3vQ7ahq%2F5q0DM1CumVw%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25465821392896
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": {
+                "id": 25465737265152
+              },
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/appendices"
+              },
+              "external_reference": "DZ7GCN5U6R",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25472380010496,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "120.0",
+              "currency_amount": "120.0",
+              "currency_amount_before_tax": "100.0",
+              "tax": "20.0",
+              "currency_tax": "20.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-07-31",
+              "special_mention": null,
+              "created_at": "2026-07-08T13:01:14.613749Z",
+              "updated_at": "2026-07-08T13:01:15.347777Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=ItCqlrvu%2FSpg9oDALCDO4Xcq1OmqYjaKmDBLJCoc6w9WK8IiWklUWWGi%2F88gYXkxaAWLvcSGnaqGs1MTgKpmZc3k5qESYd9X8gBEt5HZtkntWiB%2Fgw8jM1Rdkh1mrA%3D%3D--D8VFA7qiz6Q8bMlz--xTzgxibYVVd7rt2z1T%2FOAg%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25472380010496
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472380010496/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472380010496/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472380010496/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472380010496/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472380010496/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472380010496/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472380010496/appendices"
+              },
+              "external_reference": "8OSYDCLEWQ",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25472691884032,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "600.0",
+              "currency_amount": "600.0",
+              "currency_amount_before_tax": "500.0",
+              "tax": "100.0",
+              "currency_tax": "100.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-08-08",
+              "special_mention": null,
+              "created_at": "2026-07-08T13:02:54.655378Z",
+              "updated_at": "2026-07-08T13:02:55.684505Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=wEvLlu%2F0CNVN9W%2BPKJz5uoNLyY3AG3Ts6%2FO0Orba5NpuSIp7TyU8HAUfSNXp%2BlHNZyfc4AgfXDoTL4m%2BFbIQ%2BS1yBS9W3ee9N%2Bo0WxFQzOrUEtgO%2BK6XyTLVRuww%2BA%3D%3D--r4hVusD27olgJtaG--dKEemsKYU0caL0f1uE7iTg%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25472691884032
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472691884032/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472691884032/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472691884032/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472691884032/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472691884032/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472691884032/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472691884032/appendices"
+              },
+              "external_reference": "OYE2FFGEUZ",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25472899411968,
+              "label": "Facture Acme Corp Test - IMP-TEST-001 (label généré)",
+              "invoice_number": "IMP-TEST-001",
+              "currency": "EUR",
+              "amount": "120.0",
+              "currency_amount": "120.0",
+              "currency_amount_before_tax": "100.0",
+              "tax": "20.0",
+              "currency_tax": "20.0",
+              "remaining_amount_with_tax": "120.0",
+              "remaining_amount_without_tax": "100.0",
+              "draft": false,
+              "language": "fr_FR",
+              "paid": true,
+              "status": "incomplete",
+              "filename": "test_invoice.xml",
+              "date": "2026-07-09",
+              "deadline": "2026-08-08",
+              "special_mention": null,
+              "created_at": "2026-07-08T13:04:30.757531Z",
+              "updated_at": "2026-07-08T13:11:04.980422Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=pu6Dr3TTeGlSrajGG5tpotOgApMCf0DX0SBLIwsHnASn6eaAMl1AUQLvYhbGmKUdB%2BdG%2F7SAQYBv3Eqq6b5NG5OBNXLWzRF2VHMTRPHFk4AP5akQGm4x88SARw9hgg%3D%3D--NIuweGPuAPwVGENA--Ot%2ByKkUTm%2BsUQYZA5pGZHQ%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25472899411968
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472899411968/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472899411968/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472899411968/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472899411968/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472899411968/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472899411968/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25472899411968/appendices"
+              },
+              "external_reference": "PJYU2EJRLN",
+              "e_invoicing": null,
+              "factur_x": true
+            },
+            {
+              "id": 25475642781696,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "120.0",
+              "currency_amount": "120.0",
+              "currency_amount_before_tax": "100.0",
+              "tax": "20.0",
+              "currency_tax": "20.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-01-01",
+              "deadline": "2026-01-15",
+              "special_mention": null,
+              "created_at": "2026-07-08T13:20:25.422882Z",
+              "updated_at": "2026-07-08T13:20:26.132992Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=zZSV5aYsKV%2FMLIWD0CmpyfqLpLdo31Sk9Q0T0hXmeTY2fytOKHq0qheokyaLfd3OHZfVgIJI%2B2OcgpO4lmA6h%2FSml8fROEyBznYJkfYT4euAZjg4RriLQJSYgPXN5Q%3D%3D--EWP%2FHtLxa%2B8SkfI2--loo6buHdklapPEw0TKL8LQ%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25475642781696
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25475642781696/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25475642781696/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25475642781696/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25475642781696/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25475642781696/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25475642781696/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25475642781696/appendices"
+              },
+              "external_reference": "UU75KROLBO",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25481733963776,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "600.0",
+              "currency_amount": "600.0",
+              "currency_amount_before_tax": "500.0",
+              "tax": "100.0",
+              "currency_tax": "100.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-07-15",
+              "special_mention": null,
+              "created_at": "2026-07-08T13:56:50.669839Z",
+              "updated_at": "2026-07-08T13:56:51.473192Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=wM6a0MM5n06pNjdhSpgymE9QEN2qMl%2BbMFEATnBu5LbaEieL6UdOlkxOmtgG%2Bb1xDQt4vl76KLvMPF5pzEAEW6fC%2Fwk9NcrOvuZPUyj7J0CsMm4NRaXAyMx0nQ6diQ%3D%3D--%2BkCzx0QN0a4ZP2Y%2F--JRmgorayDOFW9I51DBP7XQ%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25481733963776
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481733963776/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481733963776/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481733963776/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481733963776/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481733963776/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481733963776/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481733963776/appendices"
+              },
+              "external_reference": "AGKZMD2HNZ",
+              "e_invoicing": null,
+              "factur_x": false
+            },
+            {
+              "id": 25481841254400,
+              "label": "Facture Acme Corp Test (label généré)",
+              "invoice_number": "",
+              "currency": "EUR",
+              "amount": "120.0",
+              "currency_amount": "120.0",
+              "currency_amount_before_tax": "100.0",
+              "tax": "20.0",
+              "currency_tax": "20.0",
+              "remaining_amount_with_tax": null,
+              "remaining_amount_without_tax": null,
+              "draft": true,
+              "language": "fr_FR",
+              "paid": false,
+              "status": "draft",
+              "filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-08-08",
+              "special_mention": null,
+              "created_at": "2026-07-08T13:57:23.694929Z",
+              "updated_at": "2026-07-08T13:57:24.376993Z",
+              "archived_at": null,
+              "pdf_invoice_free_text": "",
+              "pdf_description": null,
+              "pdf_invoice_subject": "",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=HN7FIHHZsB74G1EcZbJE5a1gBAs74X0eQSo14RxZ2uOHemYfk8Tp0PL%2FStIH%2F9XsnlqqQHRXUEFFj3Gryf4yvgFJQhTfNy0pfoTjqyyZLL9itRX0iegCNgpKUO0p5w%3D%3D--QWYpRh7rZ%2FWR62af--A8qp4fqLacrunQGsz43rlQ%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "ledger_entry": {
+                "id": 25481841254400
+              },
+              "customer_invoice_template": null,
+              "transaction_reference": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "billing_subscription": null,
+              "credited_invoice": null,
+              "quote": null,
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481841254400/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481841254400/invoice_lines"
+              },
+              "custom_header_fields": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481841254400/custom_header_fields"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481841254400/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481841254400/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481841254400/matched_transactions"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25481841254400/appendices"
+              },
+              "external_reference": "TXM6V8VOUY",
+              "e_invoicing": null,
+              "factur_x": false
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 14:29:52 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1783521039",
+          "cf-ray": "a17fc896fdf1b642-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"facc22d1d49f54c753ae455b7dc1dc94\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783520995",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "55898a22-4830-4ee8-93cd-a27f0051216e",
+          "set-cookie": "__cf_bm=PnVFkb7V3cJZlrVrzezpjDweDkXq.qiOu5OiMwCdmGU-1783520991.8381963-1.0.1.1-pAVzSjrBhjvqAaSSAdatPHL8x33aVBIUfPjk3h.vX.7ZmE6ZliyML435OBNQs0_R8K3vW6Bn6c9NAE_2KY5Xiunb_c.5k3Roqr6woHQmNdsSaiGstYBhVh1JU_f6kJKv; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 14:59:52 GMT"
+        },
+        "hash": "dc88ab8c5d4b82b9f1447a30d53a604912885486",
+        "request": {
+          "params": {
+            "limit": "50",
+            "sort": "id"
+          }
+        }
+      }
+    }
+  }
+}

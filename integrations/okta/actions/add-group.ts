@@ -1,32 +1,63 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { toGroup, createGroup } from '../mappers/toGroup.js';
-import { oktaAddGroupSchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { Group, OktaAddGroup } from '../models.js';
+const InputSchema = z.object({
+    name: z.string().describe('Group name. Example: "Engineering"'),
+    description: z.string().optional().describe('Group description. Example: "Engineering team members"')
+});
+
+const ProviderGroupSchema = z
+    .object({
+        id: z.string(),
+        created: z.string().optional(),
+        lastUpdated: z.string().optional(),
+        type: z.string().optional(),
+        profile: z.object({
+            name: z.string(),
+            description: z.string().nullable().optional()
+        })
+    })
+    .passthrough();
+
+const OutputSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    description: z.string().optional(),
+    created: z.string().optional(),
+    lastUpdated: z.string().optional(),
+    type: z.string().optional()
+});
 
 const action = createAction({
-    description: 'Adds a new group with the OKTA_GROUP type to your org',
-    version: '1.0.1',
-
-    input: OktaAddGroup,
-    output: Group,
+    description: 'Create a group.',
+    version: '2.0.0',
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['okta.groups.manage'],
 
-    exec: async (nango, input): Promise<Group> => {
-        const parsedInput = await nango.zodValidateInput({ zodSchema: oktaAddGroupSchema, input });
-
-        const oktaGroup = createGroup(parsedInput.data);
-        const config: ProxyConfiguration = {
-            // https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Group/#tag/Group/operation/addGroup
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.post({
+            // https://developer.okta.com/docs/reference/api/groups/#add-group
             endpoint: '/api/v1/groups',
-            data: oktaGroup,
+            data: {
+                profile: {
+                    name: input.name,
+                    ...(input.description !== undefined && { description: input.description })
+                }
+            },
             retries: 3
+        });
+
+        const providerGroup = ProviderGroupSchema.parse(response.data);
+
+        return {
+            id: providerGroup.id,
+            name: providerGroup.profile.name,
+            ...(providerGroup.profile.description != null && { description: providerGroup.profile.description }),
+            ...(providerGroup.created !== undefined && { created: providerGroup.created }),
+            ...(providerGroup.lastUpdated !== undefined && { lastUpdated: providerGroup.lastUpdated }),
+            ...(providerGroup.type !== undefined && { type: providerGroup.type })
         };
-
-        const response = await nango.post(config);
-
-        return toGroup(response.data);
     }
 });
 

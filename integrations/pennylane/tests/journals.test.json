@@ -1,0 +1,305 @@
+{
+  "nango": {
+    "batchSave": {
+      "Journal": [
+        {
+          "id": "91435094016",
+          "code": "BQ9",
+          "label": "Journal de trésorerie - Test Bank Account",
+          "type": "finances"
+        },
+        {
+          "id": "91426480128",
+          "code": "BQ8",
+          "label": "Journal de trésorerie - Test Bank Account",
+          "type": "finances"
+        },
+        {
+          "id": "91426406400",
+          "code": "BQ7",
+          "label": "Journal de trésorerie - Test Bank Account",
+          "type": "finances"
+        },
+        {
+          "id": "91424890880",
+          "code": "BQ6",
+          "label": "Journal de trésorerie - Test Bank Account",
+          "type": "finances"
+        },
+        {
+          "id": "91424337920",
+          "code": "BQ5",
+          "label": "Journal de trésorerie - Test Bank Account",
+          "type": "finances"
+        },
+        {
+          "id": "91416215552",
+          "code": "BQ4",
+          "label": "Journal de trésorerie - Test Bank Account",
+          "type": "finances"
+        },
+        {
+          "id": "91416035328",
+          "code": "BQ3",
+          "label": "Journal de trésorerie - Test Bank Account",
+          "type": "finances"
+        },
+        {
+          "id": "91415310336",
+          "code": "BQ2",
+          "label": "Journal de trésorerie - Test Bank Account",
+          "type": "finances"
+        },
+        {
+          "id": "91389366272",
+          "code": "N01",
+          "label": "Nango Test Journal",
+          "type": "custom"
+        },
+        {
+          "id": "91387592704",
+          "code": "TST",
+          "label": "Test Journal",
+          "type": "custom"
+        },
+        {
+          "id": "91387359232",
+          "code": "BQ1",
+          "label": "Journal de trésorerie - Test Bank Account",
+          "type": "finances"
+        },
+        {
+          "id": "91278589952",
+          "code": "EMP",
+          "label": "Emprunts",
+          "type": "loans"
+        },
+        {
+          "id": "91278585856",
+          "code": "PA",
+          "label": "Journal de Paie",
+          "type": "payroll"
+        },
+        {
+          "id": "91278581760",
+          "code": "SIT",
+          "label": "Journal de situation",
+          "type": "situation"
+        },
+        {
+          "id": "91278577664",
+          "code": "AN",
+          "label": "Journal des à-nouveaux",
+          "type": "carryover"
+        },
+        {
+          "id": "91278573568",
+          "code": "RT",
+          "label": "Journal des récupération de TVA",
+          "type": "pending_vat"
+        },
+        {
+          "id": "91278569472",
+          "code": "TVA",
+          "label": "Journal de TVA",
+          "type": "vat"
+        },
+        {
+          "id": "91278565376",
+          "code": "OD",
+          "label": "Journal des opérations diverses",
+          "type": "misc"
+        },
+        {
+          "id": "91278561280",
+          "code": "HA",
+          "label": "Journal d’achat",
+          "type": "purchases"
+        },
+        {
+          "id": "91278557184",
+          "code": "VT",
+          "label": "Journal de vente",
+          "type": "sales"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Journal": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/external/v2/journals": {
+        "response": {
+          "total_pages": null,
+          "current_page": null,
+          "per_page": null,
+          "total_items": null,
+          "items": [
+            {
+              "code": "BQ9",
+              "id": 91435094016,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "BQ8",
+              "id": 91426480128,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "BQ7",
+              "id": 91426406400,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "BQ6",
+              "id": 91424890880,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "BQ5",
+              "id": 91424337920,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "BQ4",
+              "id": 91416215552,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "BQ3",
+              "id": 91416035328,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "BQ2",
+              "id": 91415310336,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "N01",
+              "id": 91389366272,
+              "label": "Nango Test Journal",
+              "type": "custom"
+            },
+            {
+              "code": "TST",
+              "id": 91387592704,
+              "label": "Test Journal",
+              "type": "custom"
+            },
+            {
+              "code": "BQ1",
+              "id": 91387359232,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "EMP",
+              "id": 91278589952,
+              "label": "Emprunts",
+              "type": "loans"
+            },
+            {
+              "code": "PA",
+              "id": 91278585856,
+              "label": "Journal de Paie",
+              "type": "payroll"
+            },
+            {
+              "code": "SIT",
+              "id": 91278581760,
+              "label": "Journal de situation",
+              "type": "situation"
+            },
+            {
+              "code": "AN",
+              "id": 91278577664,
+              "label": "Journal des à-nouveaux",
+              "type": "carryover"
+            },
+            {
+              "code": "RT",
+              "id": 91278573568,
+              "label": "Journal des récupération de TVA",
+              "type": "pending_vat"
+            },
+            {
+              "code": "TVA",
+              "id": 91278569472,
+              "label": "Journal de TVA",
+              "type": "vat"
+            },
+            {
+              "code": "OD",
+              "id": 91278565376,
+              "label": "Journal des opérations diverses",
+              "type": "misc"
+            },
+            {
+              "code": "HA",
+              "id": 91278561280,
+              "label": "Journal d’achat",
+              "type": "purchases"
+            },
+            {
+              "code": "VT",
+              "id": 91278557184,
+              "label": "Journal de vente",
+              "type": "sales"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:26:26 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1783517237",
+          "cf-ray": "a17f6bacd91c5d68-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"eed8e0e6181265083a72a13c4c145f38\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783517190",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "83fc8f09-d792-44ab-8c77-3ac81017c524",
+          "set-cookie": "__cf_bm=lX5RhEOcvKxVeBLTXweHm3gnBqaEWDnaAWh3K9I0rtU-1783517186.0584297-1.0.1.1-eJU456zWje6gYVlXGmu22s7vAXmVU4jQpZmri68IbYo6sFbdyiptb8Bsp6JPe1Xcf3vIROpNafSdyJVvWLBC5VvjY5LIlGnM5Ac2ZJ7djoeo94eF3lw72BuSb7jgUisW; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:56:26 GMT"
+        },
+        "hash": "678cbe5ce321a6eb0527a62dfc913ec248ae4f8f",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

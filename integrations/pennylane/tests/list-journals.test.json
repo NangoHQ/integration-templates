@@ -1,0 +1,207 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 91415310336,
+        "code": "BQ2",
+        "label": "Journal de trésorerie - Test Bank Account",
+        "type": "finances"
+      },
+      {
+        "id": 91389366272,
+        "code": "N01",
+        "label": "Nango Test Journal",
+        "type": "custom"
+      },
+      {
+        "id": 91387592704,
+        "code": "TST",
+        "label": "Test Journal",
+        "type": "custom"
+      },
+      {
+        "id": 91387359232,
+        "code": "BQ1",
+        "label": "Journal de trésorerie - Test Bank Account",
+        "type": "finances"
+      },
+      {
+        "id": 91278589952,
+        "code": "EMP",
+        "label": "Emprunts",
+        "type": "loans"
+      },
+      {
+        "id": 91278585856,
+        "code": "PA",
+        "label": "Journal de Paie",
+        "type": "payroll"
+      },
+      {
+        "id": 91278581760,
+        "code": "SIT",
+        "label": "Journal de situation",
+        "type": "situation"
+      },
+      {
+        "id": 91278577664,
+        "code": "AN",
+        "label": "Journal des à-nouveaux",
+        "type": "carryover"
+      },
+      {
+        "id": 91278573568,
+        "code": "RT",
+        "label": "Journal des récupération de TVA",
+        "type": "pending_vat"
+      },
+      {
+        "id": 91278569472,
+        "code": "TVA",
+        "label": "Journal de TVA",
+        "type": "vat"
+      },
+      {
+        "id": 91278565376,
+        "code": "OD",
+        "label": "Journal des opérations diverses",
+        "type": "misc"
+      },
+      {
+        "id": 91278561280,
+        "code": "HA",
+        "label": "Journal d’achat",
+        "type": "purchases"
+      },
+      {
+        "id": 91278557184,
+        "code": "VT",
+        "label": "Journal de vente",
+        "type": "sales"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/journals": {
+        "response": {
+          "total_pages": null,
+          "current_page": null,
+          "per_page": null,
+          "total_items": null,
+          "items": [
+            {
+              "code": "BQ2",
+              "id": 91415310336,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "N01",
+              "id": 91389366272,
+              "label": "Nango Test Journal",
+              "type": "custom"
+            },
+            {
+              "code": "TST",
+              "id": 91387592704,
+              "label": "Test Journal",
+              "type": "custom"
+            },
+            {
+              "code": "BQ1",
+              "id": 91387359232,
+              "label": "Journal de trésorerie - Test Bank Account",
+              "type": "finances"
+            },
+            {
+              "code": "EMP",
+              "id": 91278589952,
+              "label": "Emprunts",
+              "type": "loans"
+            },
+            {
+              "code": "PA",
+              "id": 91278585856,
+              "label": "Journal de Paie",
+              "type": "payroll"
+            },
+            {
+              "code": "SIT",
+              "id": 91278581760,
+              "label": "Journal de situation",
+              "type": "situation"
+            },
+            {
+              "code": "AN",
+              "id": 91278577664,
+              "label": "Journal des à-nouveaux",
+              "type": "carryover"
+            },
+            {
+              "code": "RT",
+              "id": 91278573568,
+              "label": "Journal des récupération de TVA",
+              "type": "pending_vat"
+            },
+            {
+              "code": "TVA",
+              "id": 91278569472,
+              "label": "Journal de TVA",
+              "type": "vat"
+            },
+            {
+              "code": "OD",
+              "id": 91278565376,
+              "label": "Journal des opérations diverses",
+              "type": "misc"
+            },
+            {
+              "code": "HA",
+              "id": 91278561280,
+              "label": "Journal d’achat",
+              "type": "purchases"
+            },
+            {
+              "code": "VT",
+              "id": 91278557184,
+              "label": "Journal de vente",
+              "type": "sales"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "api-version-expires-at": "",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a17f241b1a12ad8d-SEA",
+          "connection": "keep-alive",
+          "content-type": "application/json; charset=utf-8",
+          "date": "Wed, 08 Jul 2026 12:37:34 GMT",
+          "etag": "W/\"1ac6dcc91c8128341dcfc1261535ff85\"",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "22",
+          "ratelimit-reset": "1783514255",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "server": "cloudflare",
+          "set-cookie": "<redacted>",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "272327a5-589f-46c2-ad11-adaae163eb70",
+          "x-xss-protection": "0",
+          "transfer-encoding": "chunked"
+        },
+        "hash": "27b59a4b18e627fba400b8972b133cd83ef9f982",
+        "request": {}
+      }
+    }
+  }
+}

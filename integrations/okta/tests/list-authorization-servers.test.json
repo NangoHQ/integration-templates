@@ -1,0 +1,278 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "aus14u78liihuiepy698",
+        "name": "default",
+        "description": "Default Authorization Server for your Applications",
+        "audiences": [
+          "api://default"
+        ],
+        "issuer": "https://trial-7332229.okta.com/oauth2/default",
+        "issuerMode": "ORG_URL",
+        "status": "ACTIVE",
+        "created": "2026-07-03T20:42:14.000Z",
+        "lastUpdated": "2026-07-03T20:42:14.000Z",
+        "credentials": {
+          "signing": {
+            "rotationMode": "AUTO",
+            "lastRotated": "2026-07-03T20:42:14.000Z",
+            "nextRotation": "2026-10-01T20:42:14.000Z",
+            "kid": "Y8UpNUGx8nZMrmOUf1i4ruU95crQXfWTDwUjGnOKdIs"
+          }
+        },
+        "default": true,
+        "_links": {
+          "rotateKey": {
+            "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/credentials/lifecycle/keyRotate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          },
+          "metadata": [
+            {
+              "name": "oauth-authorization-server",
+              "href": "https://trial-7332229.okta.com/.well-known/oauth-authorization-server/oauth2/default",
+              "hints": {
+                "allow": [
+                  "GET"
+                ]
+              }
+            },
+            {
+              "name": "openid-configuration",
+              "href": "https://trial-7332229.okta.com/oauth2/default/.well-known/openid-configuration",
+              "hints": {
+                "allow": [
+                  "GET"
+                ]
+              }
+            }
+          ],
+          "resourceServerCredentialsKeys": {
+            "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/resourceservercredentials/keys",
+            "hints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          },
+          "keys": {
+            "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/credentials/keys",
+            "hints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          },
+          "claims": {
+            "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims",
+            "hints": {
+              "allow": [
+                "GET",
+                "POST"
+              ]
+            }
+          },
+          "policies": {
+            "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/policies",
+            "hints": {
+              "allow": [
+                "GET",
+                "POST"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default",
+            "hints": {
+              "allow": [
+                "GET",
+                "DELETE",
+                "PUT"
+              ]
+            }
+          },
+          "scopes": {
+            "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/scopes",
+            "hints": {
+              "allow": [
+                "GET",
+                "POST"
+              ]
+            }
+          },
+          "deactivate": {
+            "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/lifecycle/deactivate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/authorizationServers": {
+        "response": [
+          {
+            "id": "aus14u78liihuiepy698",
+            "name": "default",
+            "description": "Default Authorization Server for your Applications",
+            "audiences": [
+              "api://default"
+            ],
+            "issuer": "https://trial-7332229.okta.com/oauth2/default",
+            "issuerMode": "ORG_URL",
+            "status": "ACTIVE",
+            "created": "2026-07-03T20:42:14.000Z",
+            "lastUpdated": "2026-07-03T20:42:14.000Z",
+            "credentials": {
+              "signing": {
+                "kid": "Y8UpNUGx8nZMrmOUf1i4ruU95crQXfWTDwUjGnOKdIs",
+                "rotationMode": "AUTO",
+                "lastRotated": "2026-07-03T20:42:14.000Z",
+                "nextRotation": "2026-10-01T20:42:14.000Z"
+              }
+            },
+            "default": true,
+            "_links": {
+              "rotateKey": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/credentials/lifecycle/keyRotate",
+                "hints": {
+                  "allow": [
+                    "POST"
+                  ]
+                }
+              },
+              "metadata": [
+                {
+                  "name": "oauth-authorization-server",
+                  "href": "https://trial-7332229.okta.com/.well-known/oauth-authorization-server/oauth2/default",
+                  "hints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                },
+                {
+                  "name": "openid-configuration",
+                  "href": "https://trial-7332229.okta.com/oauth2/default/.well-known/openid-configuration",
+                  "hints": {
+                    "allow": [
+                      "GET"
+                    ]
+                  }
+                }
+              ],
+              "resourceServerCredentialsKeys": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/resourceservercredentials/keys",
+                "hints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              },
+              "keys": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/credentials/keys",
+                "hints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              },
+              "claims": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/claims",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "POST"
+                  ]
+                }
+              },
+              "policies": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/policies",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "POST"
+                  ]
+                }
+              },
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "DELETE",
+                    "PUT"
+                  ]
+                }
+              },
+              "scopes": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/scopes",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "POST"
+                  ]
+                }
+              },
+              "deactivate": {
+                "href": "https://trial-7332229.okta.com/api/v1/authorizationServers/default/lifecycle/deactivate",
+                "hints": {
+                  "allow": [
+                    "POST"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:23:06 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4887",
+          "x-ratelimit-reset": "1783437800",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "5191bf684b324251b927aa831858ba3a",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'nonce-Qxy_aAuyta0FXnnxar39VA' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'nonce-Qxy_aAuyta0FXnnxar39VA' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "500",
+          "x-rate-limit-remaining": "495",
+          "x-rate-limit-reset": "1783437837",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "link": "<https://trial-7332229.okta.com/api/v1/authorizationServers?limit=200>; rel=\"self\""
+        },
+        "hash": "f57dacb14e2ea6f835c29d9a1def0812e026cf83",
+        "request": {}
+      }
+    }
+  }
+}
