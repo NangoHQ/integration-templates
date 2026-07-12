@@ -4,7 +4,10 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     name: z.string().describe('Story name. Example: "Fix login bug"'),
-    workflow_state_id: z.number().optional().describe('Workflow state ID. Example: 500000007. If omitted along with project_id, the workspace default workflow state is used.'),
+    workflow_state_id: z
+        .number()
+        .optional()
+        .describe('Workflow state ID. Example: 500000007. If omitted along with project_id, the workspace default workflow state is used.'),
     project_id: z.number().optional().describe('Project ID. Example: 36'),
     description: z.string().optional().describe('Story description.'),
     story_type: z.enum(['feature', 'bug', 'chore']).optional().describe("Story type. Default: 'feature'."),

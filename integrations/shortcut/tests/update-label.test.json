@@ -1,0 +1,100 @@
+{
+  "input": {
+    "id": 7,
+    "description": "Updated description for testing"
+  },
+  "output": {
+    "id": 7,
+    "name": "ready for design",
+    "color": "#67ad36",
+    "description": "Updated description for testing",
+    "archived": false,
+    "entity_type": "label",
+    "created_at": "2026-07-12T16:15:36Z",
+    "updated_at": "2026-07-12T17:08:08Z",
+    "stats": {
+      "num_related_documents": 0,
+      "num_epics": 0,
+      "num_stories_unstarted": 0,
+      "num_stories_total": 0,
+      "num_epics_unstarted": 0,
+      "num_epics_in_progress": 0,
+      "num_points_unstarted": 0,
+      "num_stories_unestimated": 0,
+      "num_points_in_progress": 0,
+      "num_epics_total": 0,
+      "num_stories_completed": 0,
+      "num_points_completed": 0,
+      "num_stories_backlog": 0,
+      "num_points_total": 0,
+      "num_stories_in_progress": 0,
+      "num_points_backlog": 0,
+      "num_epics_completed": 0
+    }
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/v3/labels/7": {
+        "response": {
+          "app_url": "https://app.shortcut.com/nango-3/label/7",
+          "description": "Updated description for testing",
+          "archived": false,
+          "entity_type": "label",
+          "color": "#67ad36",
+          "name": "ready for design",
+          "global_id": "v2:l:6a53bda8-6d1c-4114-99b8-a3e4515e3381:7",
+          "updated_at": "2026-07-12T17:08:08Z",
+          "external_id": null,
+          "id": 7,
+          "stats": {
+            "num_related_documents": 0,
+            "num_epics": 0,
+            "num_stories_unstarted": 0,
+            "num_stories_total": 0,
+            "num_epics_unstarted": 0,
+            "num_epics_in_progress": 0,
+            "num_points_unstarted": 0,
+            "num_stories_unestimated": 0,
+            "num_points_in_progress": 0,
+            "num_epics_total": 0,
+            "num_stories_completed": 0,
+            "num_points_completed": 0,
+            "num_stories_backlog": 0,
+            "num_points_total": 0,
+            "num_stories_in_progress": 0,
+            "num_points_backlog": 0,
+            "num_epics_completed": 0
+          },
+          "created_at": "2026-07-12T16:15:36Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Sun, 12 Jul 2026 17:08:13 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "765",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4774",
+          "x-ratelimit-reset": "1783876099",
+          "etag": "W/\"2fd-Eje1jRHyrwmus/aunbiBZiwVJVM\""
+        },
+        "hash": "e9a36b379248f58a62d95ae642d0a717f1b503f9",
+        "request": {
+          "data": {
+            "description": "Updated description for testing"
+          }
+        }
+      }
+    }
+  }
+}

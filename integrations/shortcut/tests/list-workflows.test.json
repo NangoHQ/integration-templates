@@ -1,0 +1,202 @@
+{
+  "input": {},
+  "output": {
+    "workflows": [
+      {
+        "id": 500000005,
+        "name": "Standard",
+        "default_state_id": 500000007,
+        "states": [
+          {
+            "id": 500000006,
+            "name": "Backlog",
+            "type": "backlog",
+            "description": "",
+            "entity_type": "workflow-state",
+            "position": 1,
+            "created_at": "2026-07-12T16:15:36Z",
+            "updated_at": "2026-07-12T16:15:36Z",
+            "num_stories": 0,
+            "num_story_templates": 0
+          },
+          {
+            "id": 500000007,
+            "name": "To Do",
+            "type": "unstarted",
+            "description": "",
+            "entity_type": "workflow-state",
+            "position": 2,
+            "created_at": "2026-07-12T16:15:36Z",
+            "updated_at": "2026-07-12T16:15:36Z",
+            "num_stories": 10,
+            "num_story_templates": 0
+          },
+          {
+            "id": 500000008,
+            "name": "In Progress",
+            "type": "started",
+            "description": "",
+            "entity_type": "workflow-state",
+            "position": 3,
+            "created_at": "2026-07-12T16:15:36Z",
+            "updated_at": "2026-07-12T16:15:36Z",
+            "num_stories": 0,
+            "num_story_templates": 0,
+            "verb": "start"
+          },
+          {
+            "id": 500000009,
+            "name": "In Review",
+            "type": "started",
+            "description": "",
+            "entity_type": "workflow-state",
+            "position": 4,
+            "created_at": "2026-07-12T16:15:36Z",
+            "updated_at": "2026-07-12T16:15:36Z",
+            "num_stories": 0,
+            "num_story_templates": 0
+          },
+          {
+            "id": 500000010,
+            "name": "Done",
+            "type": "done",
+            "description": "",
+            "entity_type": "workflow-state",
+            "position": 5,
+            "created_at": "2026-07-12T16:15:36Z",
+            "updated_at": "2026-07-12T16:15:36Z",
+            "num_stories": 0,
+            "num_story_templates": 0,
+            "verb": "finish"
+          }
+        ],
+        "description": "Our default workflow, designed for product and engineering teams. Add to or edit these States to customize your team's workflow.",
+        "entity_type": "workflow",
+        "team_id": 500000005,
+        "created_at": "2026-07-12T16:15:36Z",
+        "updated_at": "2026-07-12T16:15:36Z",
+        "auto_assign_owner": true,
+        "project_ids": [
+          36
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v3/workflows": {
+        "response": [
+          {
+            "description": "Our default workflow, designed for product and engineering teams. Add to or edit these States to customize your team's workflow.",
+            "entity_type": "workflow",
+            "project_ids": [
+              36
+            ],
+            "states": [
+              {
+                "description": "",
+                "entity_type": "workflow-state",
+                "verb": null,
+                "name": "Backlog",
+                "global_id": "v2:wfs:6a53bda8-6d1c-4114-99b8-a3e4515e3381:500000006",
+                "num_stories": 0,
+                "type": "backlog",
+                "updated_at": "2026-07-12T16:15:36Z",
+                "id": 500000006,
+                "num_story_templates": 0,
+                "position": 1,
+                "created_at": "2026-07-12T16:15:36Z"
+              },
+              {
+                "description": "",
+                "entity_type": "workflow-state",
+                "verb": null,
+                "name": "To Do",
+                "global_id": "v2:wfs:6a53bda8-6d1c-4114-99b8-a3e4515e3381:500000007",
+                "num_stories": 10,
+                "type": "unstarted",
+                "updated_at": "2026-07-12T16:15:36Z",
+                "id": 500000007,
+                "num_story_templates": 0,
+                "position": 2,
+                "created_at": "2026-07-12T16:15:36Z"
+              },
+              {
+                "description": "",
+                "entity_type": "workflow-state",
+                "verb": "start",
+                "name": "In Progress",
+                "global_id": "v2:wfs:6a53bda8-6d1c-4114-99b8-a3e4515e3381:500000008",
+                "num_stories": 0,
+                "type": "started",
+                "updated_at": "2026-07-12T16:15:36Z",
+                "id": 500000008,
+                "num_story_templates": 0,
+                "position": 3,
+                "created_at": "2026-07-12T16:15:36Z"
+              },
+              {
+                "description": "",
+                "entity_type": "workflow-state",
+                "verb": null,
+                "name": "In Review",
+                "global_id": "v2:wfs:6a53bda8-6d1c-4114-99b8-a3e4515e3381:500000009",
+                "num_stories": 0,
+                "type": "started",
+                "updated_at": "2026-07-12T16:15:36Z",
+                "id": 500000009,
+                "num_story_templates": 0,
+                "position": 4,
+                "created_at": "2026-07-12T16:15:36Z"
+              },
+              {
+                "description": "",
+                "entity_type": "workflow-state",
+                "verb": "finish",
+                "name": "Done",
+                "global_id": "v2:wfs:6a53bda8-6d1c-4114-99b8-a3e4515e3381:500000010",
+                "num_stories": 0,
+                "type": "done",
+                "updated_at": "2026-07-12T16:15:36Z",
+                "id": 500000010,
+                "num_story_templates": 0,
+                "position": 5,
+                "created_at": "2026-07-12T16:15:36Z"
+              }
+            ],
+            "name": "Standard",
+            "updated_at": "2026-07-12T16:15:36Z",
+            "auto_assign_owner": true,
+            "id": 500000005,
+            "team_id": 500000005,
+            "created_at": "2026-07-12T16:15:36Z",
+            "default_state_id": 500000007
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Sun, 12 Jul 2026 17:09:59 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1910",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4940",
+          "x-ratelimit-reset": "1783876219",
+          "etag": "W/\"776-AOUn0BV2TInKMDKt0dmKpuvEO78\""
+        },
+        "hash": "e6b1ef2aae744a82d851fe87debbedf2e30df732",
+        "request": {}
+      }
+    }
+  }
+}

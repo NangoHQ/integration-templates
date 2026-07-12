@@ -1,0 +1,293 @@
+{
+  "input": {
+    "epic_public_id": 16,
+    "name": "Updated Get Started"
+  },
+  "output": {
+    "id": 16,
+    "name": "Updated Get Started",
+    "archived": false,
+    "epic_state_id": 500000002,
+    "state": "to do",
+    "created_at": "2026-07-12T16:15:36Z",
+    "updated_at": "2026-07-12T17:09:26Z",
+    "app_url": "https://app.shortcut.com/nango-3/epic/16",
+    "entity_type": "epic",
+    "description": "## An **Epic** is a collection of Stories that, together, deliver a larger outcome.\n\n**🏁 Tips for Epics**\n- Keep Epics scoped to deliver value with a timeframe (a week, month, quarter)\n- Include clear success criteria and measurable objectives to learn from what you ship\n- Instead of waiting for all Stories in an Epic to be complete before shipping, Stories in an Epic can, and should, ship when completed to put changes in front of users quickly\n\n\n**💡 Working collaboratively with another team on a feature?**\nUse filters, sorting, and group-by to view Stories by team or owner.",
+    "external_id": null,
+    "deadline": "2026-08-11T00:00:00Z",
+    "started_at": null,
+    "completed_at": null,
+    "started_at_override": null,
+    "completed_at_override": null,
+    "milestone_id": 14,
+    "objective_ids": [
+      14
+    ],
+    "owner_ids": [
+      "6a53bda8-4df3-4862-baf5-bf953f932636"
+    ],
+    "follower_ids": [
+      "6a53bda8-4df3-4862-baf5-bf953f932636"
+    ],
+    "requested_by_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+    "group_id": "6a53bda8-3374-4172-bb50-8bd4efd9e33f",
+    "group_ids": [
+      "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+    ],
+    "label_ids": [],
+    "project_ids": [],
+    "position": 0,
+    "stories_without_projects": 9,
+    "stats": {
+      "num_points_done": 0,
+      "num_related_documents": 0,
+      "num_stories_unstarted": 9,
+      "num_stories_total": 9,
+      "last_story_update": "2026-07-12T17:08:05Z",
+      "num_points_started": 0,
+      "num_points_unstarted": 0,
+      "num_stories_started": 0,
+      "num_stories_unestimated": 9,
+      "num_stories_backlog": 0,
+      "num_points_backlog": 0,
+      "num_points": 0,
+      "num_stories_done": 0
+    },
+    "started": false,
+    "labels": [],
+    "mention_ids": [],
+    "member_mention_ids": [],
+    "associated_groups": null,
+    "productboard_plugin_id": null,
+    "global_id": "v2:e:6a53bda8-6d1c-4114-99b8-a3e4515e3381:16",
+    "completed": false,
+    "comments": [
+      {
+        "app_url": "https://app.shortcut.com/nango-3/epic/16#activity-52",
+        "entity_type": "epic-comment",
+        "deleted": false,
+        "mention_ids": [],
+        "author_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+        "member_mention_ids": [],
+        "comments": [],
+        "updated_at": "2026-07-12T17:07:52Z",
+        "group_mention_ids": [],
+        "external_id": null,
+        "id": 52,
+        "created_at": "2026-07-12T17:07:52Z",
+        "text": "Test comment from Nango action"
+      },
+      {
+        "app_url": "https://app.shortcut.com/nango-3/epic/16#activity-53",
+        "entity_type": "epic-comment",
+        "deleted": false,
+        "mention_ids": [],
+        "author_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+        "member_mention_ids": [],
+        "comments": [],
+        "updated_at": "2026-07-12T17:08:00Z",
+        "group_mention_ids": [],
+        "external_id": null,
+        "id": 53,
+        "created_at": "2026-07-12T17:08:00Z",
+        "text": "Test comment from Nango action"
+      },
+      {
+        "app_url": "https://app.shortcut.com/nango-3/epic/16#activity-57",
+        "entity_type": "epic-comment",
+        "deleted": false,
+        "mention_ids": [],
+        "author_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+        "member_mention_ids": [],
+        "comments": [],
+        "updated_at": "2026-07-12T17:08:34Z",
+        "group_mention_ids": [],
+        "external_id": null,
+        "id": 57,
+        "created_at": "2026-07-12T17:08:34Z",
+        "text": "Test comment from Nango action 2"
+      },
+      {
+        "app_url": "https://app.shortcut.com/nango-3/epic/16#activity-60",
+        "entity_type": "epic-comment",
+        "deleted": false,
+        "mention_ids": [],
+        "author_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+        "member_mention_ids": [],
+        "comments": [],
+        "updated_at": "2026-07-12T17:09:07Z",
+        "group_mention_ids": [],
+        "external_id": null,
+        "id": 60,
+        "created_at": "2026-07-12T17:09:07Z",
+        "text": "Test comment from Nango action 2"
+      }
+    ],
+    "productboard_url": null,
+    "planned_start_date": "2026-07-12T16:15:36Z",
+    "group_mention_ids": [],
+    "productboard_id": null,
+    "productboard_name": null
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/v3/epics/16": {
+        "response": {
+          "app_url": "https://app.shortcut.com/nango-3/epic/16",
+          "description": "## An **Epic** is a collection of Stories that, together, deliver a larger outcome.\n\n**🏁 Tips for Epics**\n- Keep Epics scoped to deliver value with a timeframe (a week, month, quarter)\n- Include clear success criteria and measurable objectives to learn from what you ship\n- Instead of waiting for all Stories in an Epic to be complete before shipping, Stories in an Epic can, and should, ship when completed to put changes in front of users quickly\n\n\n**💡 Working collaboratively with another team on a feature?**\nUse filters, sorting, and group-by to view Stories by team or owner.",
+          "archived": false,
+          "started": false,
+          "entity_type": "epic",
+          "labels": [],
+          "mention_ids": [],
+          "member_mention_ids": [],
+          "associated_groups": null,
+          "project_ids": [],
+          "stories_without_projects": 9,
+          "completed_at_override": null,
+          "productboard_plugin_id": null,
+          "started_at": null,
+          "completed_at": null,
+          "objective_ids": [
+            14
+          ],
+          "name": "Updated Get Started",
+          "global_id": "v2:e:6a53bda8-6d1c-4114-99b8-a3e4515e3381:16",
+          "completed": false,
+          "comments": [
+            {
+              "app_url": "https://app.shortcut.com/nango-3/epic/16#activity-52",
+              "entity_type": "epic-comment",
+              "deleted": false,
+              "mention_ids": [],
+              "author_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+              "member_mention_ids": [],
+              "comments": [],
+              "updated_at": "2026-07-12T17:07:52Z",
+              "group_mention_ids": [],
+              "external_id": null,
+              "id": 52,
+              "created_at": "2026-07-12T17:07:52Z",
+              "text": "Test comment from Nango action"
+            },
+            {
+              "app_url": "https://app.shortcut.com/nango-3/epic/16#activity-53",
+              "entity_type": "epic-comment",
+              "deleted": false,
+              "mention_ids": [],
+              "author_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+              "member_mention_ids": [],
+              "comments": [],
+              "updated_at": "2026-07-12T17:08:00Z",
+              "group_mention_ids": [],
+              "external_id": null,
+              "id": 53,
+              "created_at": "2026-07-12T17:08:00Z",
+              "text": "Test comment from Nango action"
+            },
+            {
+              "app_url": "https://app.shortcut.com/nango-3/epic/16#activity-57",
+              "entity_type": "epic-comment",
+              "deleted": false,
+              "mention_ids": [],
+              "author_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+              "member_mention_ids": [],
+              "comments": [],
+              "updated_at": "2026-07-12T17:08:34Z",
+              "group_mention_ids": [],
+              "external_id": null,
+              "id": 57,
+              "created_at": "2026-07-12T17:08:34Z",
+              "text": "Test comment from Nango action 2"
+            },
+            {
+              "app_url": "https://app.shortcut.com/nango-3/epic/16#activity-60",
+              "entity_type": "epic-comment",
+              "deleted": false,
+              "mention_ids": [],
+              "author_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+              "member_mention_ids": [],
+              "comments": [],
+              "updated_at": "2026-07-12T17:09:07Z",
+              "group_mention_ids": [],
+              "external_id": null,
+              "id": 60,
+              "created_at": "2026-07-12T17:09:07Z",
+              "text": "Test comment from Nango action 2"
+            }
+          ],
+          "productboard_url": null,
+          "planned_start_date": "2026-07-12T16:15:36Z",
+          "state": "to do",
+          "milestone_id": 14,
+          "requested_by_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+          "epic_state_id": 500000002,
+          "label_ids": [],
+          "started_at_override": null,
+          "group_id": "6a53bda8-3374-4172-bb50-8bd4efd9e33f",
+          "updated_at": "2026-07-12T17:09:26Z",
+          "group_mention_ids": [],
+          "productboard_id": null,
+          "follower_ids": [
+            "6a53bda8-4df3-4862-baf5-bf953f932636"
+          ],
+          "group_ids": [
+            "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+          ],
+          "owner_ids": [
+            "6a53bda8-4df3-4862-baf5-bf953f932636"
+          ],
+          "external_id": null,
+          "id": 16,
+          "position": 0,
+          "productboard_name": null,
+          "deadline": "2026-08-11T00:00:00Z",
+          "stats": {
+            "num_points_done": 0,
+            "num_related_documents": 0,
+            "num_stories_unstarted": 9,
+            "num_stories_total": 9,
+            "last_story_update": "2026-07-12T17:08:05Z",
+            "num_points_started": 0,
+            "num_points_unstarted": 0,
+            "num_stories_started": 0,
+            "num_stories_unestimated": 9,
+            "num_stories_backlog": 0,
+            "num_points_backlog": 0,
+            "num_points": 0,
+            "num_stories_done": 0
+          },
+          "created_at": "2026-07-12T16:15:36Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Sun, 12 Jul 2026 17:09:26 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "3633",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1783876219",
+          "etag": "W/\"e31-ZB9BGAw2xLjZnhaUtTdIgiL+ego\""
+        },
+        "hash": "028df1ee7e0e73e23b627bfc2a56575eb5cc54d7",
+        "request": {
+          "data": {
+            "name": "Updated Get Started"
+          }
+        }
+      }
+    }
+  }
+}

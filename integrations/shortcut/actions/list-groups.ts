@@ -38,10 +38,7 @@ const GroupSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(GroupSchema),
-    next_cursor: z
-        .string()
-        .optional()
-        .describe('The /groups endpoint does not return a cursor; this field is reserved for future use.')
+    next_cursor: z.string().optional().describe('The /groups endpoint does not return a cursor; this field is reserved for future use.')
 });
 
 const action = createAction({

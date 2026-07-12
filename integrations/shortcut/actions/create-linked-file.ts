@@ -20,7 +20,7 @@ const ProviderLinkedFileSchema = z.object({
 const OutputSchema = ProviderLinkedFileSchema;
 
 const action = createAction({
-    description: 'Attach a URL-based linked file. Associate it with stories afterward via update-story\'s linked_file_ids.',
+    description: "Attach a URL-based linked file. Associate it with stories afterward via update-story's linked_file_ids.",
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
