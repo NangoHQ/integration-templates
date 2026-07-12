@@ -1,0 +1,551 @@
+{
+  "input": {},
+  "output": {
+    "authenticators": [
+      {
+        "id": "aut14u78lhaGuUd5D698",
+        "name": "Email",
+        "type": "email",
+        "status": "ACTIVE",
+        "key": "okta_email",
+        "created": "2026-07-03T20:42:13.000Z",
+        "lastUpdated": "2026-07-03T20:42:13.000Z",
+        "settings": {
+          "allowedFor": "recovery",
+          "tokenLifetimeInMinutes": 5
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhaGuUd5D698",
+            "hints": {
+              "allow": [
+                "GET",
+                "PUT"
+              ]
+            }
+          },
+          "deactivate": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhaGuUd5D698/lifecycle/deactivate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          },
+          "methods": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhaGuUd5D698/methods",
+            "hints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "aut14u78lheKZ7TB3698",
+        "name": "Okta Verify",
+        "type": "app",
+        "status": "ACTIVE",
+        "key": "okta_verify",
+        "created": "2026-07-03T20:42:13.000Z",
+        "lastUpdated": "2026-07-03T20:42:13.000Z",
+        "settings": {
+          "compliance": {
+            "fips": "OPTIONAL"
+          },
+          "channelBinding": {
+            "style": "NUMBER_CHALLENGE",
+            "required": "NEVER"
+          },
+          "userVerification": "PREFERRED",
+          "userVerificationMethods": [
+            "PIN",
+            "BIOMETRICS"
+          ],
+          "appInstanceId": ""
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lheKZ7TB3698",
+            "hints": {
+              "allow": [
+                "GET",
+                "PUT"
+              ]
+            }
+          },
+          "deactivate": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lheKZ7TB3698/lifecycle/deactivate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          },
+          "methods": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lheKZ7TB3698/methods",
+            "hints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          },
+          "enroll": {
+            "href": "https://trial-7332229.okta.com/idp/authenticators",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "aut14u78lh97o4RxI698",
+        "name": "Password",
+        "type": "password",
+        "status": "ACTIVE",
+        "key": "okta_password",
+        "created": "2026-07-03T20:42:13.000Z",
+        "lastUpdated": "2026-07-03T20:42:13.000Z",
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lh97o4RxI698",
+            "hints": {
+              "allow": [
+                "GET",
+                "PUT"
+              ]
+            }
+          },
+          "methods": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lh97o4RxI698/methods",
+            "hints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "aut14u78lhb4LS3sK698",
+        "name": "Phone",
+        "type": "phone",
+        "status": "INACTIVE",
+        "key": "phone_number",
+        "created": "2026-07-03T20:42:13.000Z",
+        "lastUpdated": "2026-07-03T20:42:13.000Z",
+        "settings": {
+          "allowedFor": "any"
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhb4LS3sK698",
+            "hints": {
+              "allow": [
+                "GET",
+                "PUT"
+              ]
+            }
+          },
+          "activate": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhb4LS3sK698/lifecycle/activate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          },
+          "methods": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhb4LS3sK698/methods",
+            "hints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "aut14u78lpk9Q0fps698",
+        "name": "Security Key or Biometric",
+        "type": "security_key",
+        "status": "INACTIVE",
+        "key": "webauthn",
+        "created": "2026-07-03T20:42:15.000Z",
+        "lastUpdated": "2026-07-03T20:42:15.000Z",
+        "_links": {
+          "aaguids": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lpk9Q0fps698/aaguids",
+            "hints": {
+              "allow": [
+                "GET",
+                "POST"
+              ]
+            }
+          },
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lpk9Q0fps698",
+            "hints": {
+              "allow": [
+                "GET",
+                "PUT"
+              ]
+            }
+          },
+          "activate": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lpk9Q0fps698/lifecycle/activate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          },
+          "methods": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lpk9Q0fps698/methods",
+            "hints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "aut14u78lhdwFHoB8698",
+        "name": "Security Question",
+        "type": "security_question",
+        "status": "INACTIVE",
+        "key": "security_question",
+        "created": "2026-07-03T20:42:13.000Z",
+        "lastUpdated": "2026-07-03T20:42:13.000Z",
+        "settings": {
+          "allowedFor": "recovery"
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhdwFHoB8698",
+            "hints": {
+              "allow": [
+                "GET",
+                "PUT"
+              ]
+            }
+          },
+          "activate": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhdwFHoB8698/lifecycle/activate",
+            "hints": {
+              "allow": [
+                "POST"
+              ]
+            }
+          },
+          "methods": {
+            "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhdwFHoB8698/methods",
+            "hints": {
+              "allow": [
+                "GET"
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/authenticators": {
+        "response": [
+          {
+            "type": "email",
+            "id": "aut14u78lhaGuUd5D698",
+            "key": "okta_email",
+            "status": "ACTIVE",
+            "name": "Email",
+            "created": "2026-07-03T20:42:13.000Z",
+            "lastUpdated": "2026-07-03T20:42:13.000Z",
+            "settings": {
+              "allowedFor": "recovery",
+              "tokenLifetimeInMinutes": 5
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhaGuUd5D698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT"
+                  ]
+                }
+              },
+              "deactivate": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhaGuUd5D698/lifecycle/deactivate",
+                "hints": {
+                  "allow": [
+                    "POST"
+                  ]
+                }
+              },
+              "methods": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhaGuUd5D698/methods",
+                "hints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "type": "app",
+            "id": "aut14u78lheKZ7TB3698",
+            "key": "okta_verify",
+            "status": "ACTIVE",
+            "name": "Okta Verify",
+            "created": "2026-07-03T20:42:13.000Z",
+            "lastUpdated": "2026-07-03T20:42:13.000Z",
+            "settings": {
+              "compliance": {
+                "fips": "OPTIONAL"
+              },
+              "channelBinding": {
+                "style": "NUMBER_CHALLENGE",
+                "required": "NEVER"
+              },
+              "userVerification": "PREFERRED",
+              "userVerificationMethods": [
+                "PIN",
+                "BIOMETRICS"
+              ],
+              "appInstanceId": ""
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lheKZ7TB3698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT"
+                  ]
+                }
+              },
+              "deactivate": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lheKZ7TB3698/lifecycle/deactivate",
+                "hints": {
+                  "allow": [
+                    "POST"
+                  ]
+                }
+              },
+              "methods": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lheKZ7TB3698/methods",
+                "hints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              },
+              "enroll": {
+                "href": "https://trial-7332229.okta.com/idp/authenticators",
+                "hints": {
+                  "allow": [
+                    "POST"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "type": "password",
+            "id": "aut14u78lh97o4RxI698",
+            "key": "okta_password",
+            "status": "ACTIVE",
+            "name": "Password",
+            "created": "2026-07-03T20:42:13.000Z",
+            "lastUpdated": "2026-07-03T20:42:13.000Z",
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lh97o4RxI698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT"
+                  ]
+                }
+              },
+              "methods": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lh97o4RxI698/methods",
+                "hints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "type": "phone",
+            "id": "aut14u78lhb4LS3sK698",
+            "key": "phone_number",
+            "status": "INACTIVE",
+            "name": "Phone",
+            "created": "2026-07-03T20:42:13.000Z",
+            "lastUpdated": "2026-07-03T20:42:13.000Z",
+            "settings": {
+              "allowedFor": "any"
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhb4LS3sK698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT"
+                  ]
+                }
+              },
+              "activate": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhb4LS3sK698/lifecycle/activate",
+                "hints": {
+                  "allow": [
+                    "POST"
+                  ]
+                }
+              },
+              "methods": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhb4LS3sK698/methods",
+                "hints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "type": "security_key",
+            "id": "aut14u78lpk9Q0fps698",
+            "key": "webauthn",
+            "status": "INACTIVE",
+            "name": "Security Key or Biometric",
+            "created": "2026-07-03T20:42:15.000Z",
+            "lastUpdated": "2026-07-03T20:42:15.000Z",
+            "_links": {
+              "aaguids": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lpk9Q0fps698/aaguids",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "POST"
+                  ]
+                }
+              },
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lpk9Q0fps698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT"
+                  ]
+                }
+              },
+              "activate": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lpk9Q0fps698/lifecycle/activate",
+                "hints": {
+                  "allow": [
+                    "POST"
+                  ]
+                }
+              },
+              "methods": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lpk9Q0fps698/methods",
+                "hints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "type": "security_question",
+            "id": "aut14u78lhdwFHoB8698",
+            "key": "security_question",
+            "status": "INACTIVE",
+            "name": "Security Question",
+            "created": "2026-07-03T20:42:13.000Z",
+            "lastUpdated": "2026-07-03T20:42:13.000Z",
+            "settings": {
+              "allowedFor": "recovery"
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhdwFHoB8698",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT"
+                  ]
+                }
+              },
+              "activate": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhdwFHoB8698/lifecycle/activate",
+                "hints": {
+                  "allow": [
+                    "POST"
+                  ]
+                }
+              },
+              "methods": {
+                "href": "https://trial-7332229.okta.com/api/v1/authenticators/aut14u78lhdwFHoB8698/methods",
+                "hints": {
+                  "allow": [
+                    "GET"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:22:09 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4900",
+          "x-ratelimit-reset": "1783437739",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "ac0ec92f3e407f83dece0ce75e62420a",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "sid=\"\";Version=1;Path=/;Max-Age=0, xids=\"\";Version=1;Path=/;Max-Age=0, autolaunch_triggered=\"\"; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/, activate_ca_modal_triggered=\"\"; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/, JSESSIONID=157B40305C8EFBE56E80B0B55B5971C3; Path=/; Secure; HttpOnly",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "500",
+          "x-rate-limit-remaining": "493",
+          "x-rate-limit-reset": "1783437749",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "60b91b249b5392bdaaa49a49399d794c8b10a73c",
+        "request": {}
+      }
+    }
+  }
+}

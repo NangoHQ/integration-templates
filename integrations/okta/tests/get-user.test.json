@@ -1,0 +1,191 @@
+{
+  "input": {
+    "userId": "api+dev@nango.dev"
+  },
+  "output": {
+    "id": "00u14u78lfuUpDWf0698",
+    "status": "ACTIVE",
+    "created": "2026-07-03T20:42:11.000Z",
+    "activated": "2026-07-03T20:42:11.000Z",
+    "statusChanged": "2026-07-03T20:43:14.000Z",
+    "lastLogin": "2026-07-07T14:56:26.000Z",
+    "lastUpdated": "2026-07-03T20:43:14.000Z",
+    "passwordChanged": "2026-07-03T20:43:14.000Z",
+    "profile": {
+      "firstName": "nango",
+      "lastName": "developer",
+      "mobilePhone": null,
+      "secondEmail": null,
+      "login": "api+dev@nango.dev",
+      "email": "api+dev@nango.dev"
+    },
+    "credentials": {
+      "password": {},
+      "provider": {
+        "type": "OKTA",
+        "name": "OKTA"
+      }
+    },
+    "_links": {
+      "suspend": {
+        "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/lifecycle/suspend",
+        "method": "POST"
+      },
+      "schema": {
+        "href": "https://trial-7332229.okta.com/api/v1/meta/schemas/user/osc14u78ldxtbv6BP698"
+      },
+      "resetPassword": {
+        "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/lifecycle/reset_password",
+        "method": "POST"
+      },
+      "forgotPassword": {
+        "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/credentials/forgot_password",
+        "method": "POST"
+      },
+      "expirePassword": {
+        "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/lifecycle/expire_password",
+        "method": "POST"
+      },
+      "changeRecoveryQuestion": {
+        "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/credentials/change_recovery_question",
+        "method": "POST"
+      },
+      "self": {
+        "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698"
+      },
+      "resetFactors": {
+        "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/lifecycle/reset_factors",
+        "method": "POST"
+      },
+      "type": {
+        "href": "https://trial-7332229.okta.com/api/v1/meta/types/user/oty14u78ldxtbv6BP698"
+      },
+      "changePassword": {
+        "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/credentials/change_password",
+        "method": "POST"
+      },
+      "deactivate": {
+        "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/lifecycle/deactivate",
+        "method": "POST"
+      }
+    },
+    "type": {
+      "id": "oty14u78ldxtbv6BP698"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/users/api%2Bdev%40nango.dev": {
+        "response": {
+          "id": "00u14u78lfuUpDWf0698",
+          "status": "ACTIVE",
+          "created": "2026-07-03T20:42:11.000Z",
+          "activated": "2026-07-03T20:42:11.000Z",
+          "statusChanged": "2026-07-03T20:43:14.000Z",
+          "lastLogin": "2026-07-07T14:56:26.000Z",
+          "lastUpdated": "2026-07-03T20:43:14.000Z",
+          "passwordChanged": "2026-07-03T20:43:14.000Z",
+          "type": {
+            "id": "oty14u78ldxtbv6BP698"
+          },
+          "profile": {
+            "firstName": "nango",
+            "lastName": "developer",
+            "mobilePhone": null,
+            "secondEmail": null,
+            "login": "api+dev@nango.dev",
+            "email": "api+dev@nango.dev"
+          },
+          "credentials": {
+            "password": {},
+            "provider": {
+              "type": "OKTA",
+              "name": "OKTA"
+            }
+          },
+          "_links": {
+            "suspend": {
+              "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/lifecycle/suspend",
+              "method": "POST"
+            },
+            "schema": {
+              "href": "https://trial-7332229.okta.com/api/v1/meta/schemas/user/osc14u78ldxtbv6BP698"
+            },
+            "resetPassword": {
+              "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/lifecycle/reset_password",
+              "method": "POST"
+            },
+            "forgotPassword": {
+              "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/credentials/forgot_password",
+              "method": "POST"
+            },
+            "expirePassword": {
+              "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/lifecycle/expire_password",
+              "method": "POST"
+            },
+            "changeRecoveryQuestion": {
+              "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/credentials/change_recovery_question",
+              "method": "POST"
+            },
+            "self": {
+              "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698"
+            },
+            "resetFactors": {
+              "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/lifecycle/reset_factors",
+              "method": "POST"
+            },
+            "type": {
+              "href": "https://trial-7332229.okta.com/api/v1/meta/types/user/oty14u78ldxtbv6BP698"
+            },
+            "changePassword": {
+              "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/credentials/change_password",
+              "method": "POST"
+            },
+            "deactivate": {
+              "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698/lifecycle/deactivate",
+              "method": "POST"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:21:20 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1783437739",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "b116d6b0f2a46293287c6fcd12ca419f",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "sid=\"\";Version=1;Path=/;Max-Age=0, xids=\"\";Version=1;Path=/;Max-Age=0, autolaunch_triggered=\"\"; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/, activate_ca_modal_triggered=\"\"; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/, JSESSIONID=443317199641638E7DAC523132E5A642; Path=/; Secure; HttpOnly",
+          "content-security-policy": "frame-ancestors 'self'",
+          "x-rate-limit-limit": "1000",
+          "x-rate-limit-remaining": "998",
+          "x-rate-limit-reset": "1783437732",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "etag": "W/\"f82e7adaf7d6476a74ab88c827e24984f8a349ac722d1a592cb655b989da015a\"",
+          "content-disposition": "inline;filename=f.txt"
+        },
+        "hash": "3de107859db5712d3c136492d866b145ba6fdc31",
+        "request": {}
+      }
+    }
+  }
+}

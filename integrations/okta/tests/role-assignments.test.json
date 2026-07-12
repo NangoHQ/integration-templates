@@ -1,0 +1,1316 @@
+{
+  "nango": {
+    "batchSave": {
+      "RoleAssignment": [
+        {
+          "id": "user:00u14u78lfuUpDWf0698:ra114u78lfwiT75f9698",
+          "principalType": "user",
+          "principalId": "00u14u78lfuUpDWf0698",
+          "type": "SUPER_ADMIN",
+          "label": "Super Administrator",
+          "status": "ACTIVE",
+          "created": "2026-07-03T20:42:11.000Z",
+          "lastUpdated": "2026-07-03T20:42:11.000Z"
+        },
+        {
+          "id": "user:00u14y5n6uhI2lpQ3698:JBCUYUC7IRCVGS27IFCE2SKO",
+          "principalType": "user",
+          "principalId": "00u14y5n6uhI2lpQ3698",
+          "type": "HELP_DESK_ADMIN",
+          "label": "Help Desk Administrator",
+          "status": "ACTIVE",
+          "created": "2026-07-07T15:04:41.000Z",
+          "lastUpdated": "2026-07-07T15:04:41.000Z"
+        },
+        {
+          "id": "group:00g14y5qi7zRLgyzT698:JBCUYUC7IRCVGS27IFCE2SKO",
+          "principalType": "group",
+          "principalId": "00g14y5qi7zRLgyzT698",
+          "type": "HELP_DESK_ADMIN",
+          "label": "Help Desk Administrator",
+          "status": "ACTIVE",
+          "created": "2026-07-07T15:04:41.000Z",
+          "lastUpdated": "2026-07-07T15:04:41.000Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "RoleAssignment": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v1/users": {
+        "response": [
+          {
+            "id": "00u14y6toa1gV2APU698",
+            "status": "PROVISIONED",
+            "created": "2026-07-07T15:21:59.000Z",
+            "activated": "2026-07-07T15:25:06.000Z",
+            "statusChanged": "2026-07-07T15:25:06.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:25:06.000Z",
+            "passwordChanged": null,
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Test",
+              "lastName": "Staged",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "test.staged.1783437719053@nangotest.dev",
+              "email": "test.staged.1783437719053@nangotest.dev"
+            },
+            "credentials": {
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y6toa1gV2APU698"
+              }
+            }
+          },
+          {
+            "id": "00u14y705oweWRaSw698",
+            "status": "PROVISIONED",
+            "created": "2026-07-07T15:25:22.000Z",
+            "activated": "2026-07-07T15:25:23.000Z",
+            "statusChanged": "2026-07-07T15:25:23.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:25:23.000Z",
+            "passwordChanged": null,
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Test",
+              "lastName": "Staged",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "test.staged.1783437922355@nangotest.dev",
+              "email": "test.staged.1783437922355@nangotest.dev"
+            },
+            "credentials": {
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y705oweWRaSw698"
+              }
+            }
+          },
+          {
+            "id": "00u14y7607pdae6Gr698",
+            "status": "PROVISIONED",
+            "created": "2026-07-07T15:27:08.000Z",
+            "activated": "2026-07-07T15:27:15.000Z",
+            "statusChanged": "2026-07-07T15:27:15.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:27:15.000Z",
+            "passwordChanged": null,
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Test",
+              "lastName": "Staged",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "test.staged.1783438028506@nangotest.dev",
+              "email": "test.staged.1783438028506@nangotest.dev"
+            },
+            "credentials": {
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y7607pdae6Gr698"
+              }
+            }
+          },
+          {
+            "id": "00u14y76omw6aGb5X698",
+            "status": "PROVISIONED",
+            "created": "2026-07-07T15:26:56.000Z",
+            "activated": "2026-07-07T15:27:03.000Z",
+            "statusChanged": "2026-07-07T15:27:03.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:27:03.000Z",
+            "passwordChanged": null,
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Test",
+              "lastName": "Staged",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "test.staged.1783438015980@nangotest.dev",
+              "email": "test.staged.1783438015980@nangotest.dev"
+            },
+            "credentials": {
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y76omw6aGb5X698"
+              }
+            }
+          },
+          {
+            "id": "00u14u78lfuUpDWf0698",
+            "status": "ACTIVE",
+            "created": "2026-07-03T20:42:11.000Z",
+            "activated": "2026-07-03T20:42:11.000Z",
+            "statusChanged": "2026-07-03T20:43:14.000Z",
+            "lastLogin": "2026-07-07T14:56:26.000Z",
+            "lastUpdated": "2026-07-03T20:43:14.000Z",
+            "passwordChanged": "2026-07-03T20:43:14.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "nango",
+              "lastName": "developer",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "api+dev@nango.dev",
+              "email": "api+dev@nango.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698"
+              }
+            }
+          },
+          {
+            "id": "00u14y5n6uhI2lpQ3698",
+            "status": "ACTIVE",
+            "created": "2026-07-07T14:59:18.000Z",
+            "activated": "2026-07-07T14:59:19.000Z",
+            "statusChanged": "2026-07-07T14:59:19.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T14:59:19.000Z",
+            "passwordChanged": "2026-07-07T14:59:19.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Ada",
+              "lastName": "Lovelace",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "ada.lovelace@nangotest.dev",
+              "email": "ada.lovelace@nangotest.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y5n6uhI2lpQ3698"
+              }
+            }
+          },
+          {
+            "id": "00u14y5plo5MraBIf698",
+            "status": "ACTIVE",
+            "created": "2026-07-07T14:59:29.000Z",
+            "activated": "2026-07-07T14:59:29.000Z",
+            "statusChanged": "2026-07-07T14:59:29.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T14:59:29.000Z",
+            "passwordChanged": "2026-07-07T14:59:29.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Grace",
+              "lastName": "Hopper",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "grace.hopper@nangotest.dev",
+              "email": "grace.hopper@nangotest.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y5plo5MraBIf698"
+              }
+            }
+          },
+          {
+            "id": "00u14y6vsuhaETkwX698",
+            "status": "ACTIVE",
+            "created": "2026-07-07T15:23:05.000Z",
+            "activated": "2026-07-07T15:23:05.000Z",
+            "statusChanged": "2026-07-07T15:23:05.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:23:05.000Z",
+            "passwordChanged": "2026-07-07T15:23:05.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Dryrun",
+              "lastName": "TestUser",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "dryrun.test.1783437781@nangotest.dev",
+              "email": "dryrun.test.1783437781@nangotest.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y6vsuhaETkwX698"
+              }
+            }
+          },
+          {
+            "id": "00u14y6xs81Lh9wJV698",
+            "status": "ACTIVE",
+            "created": "2026-07-07T15:23:13.000Z",
+            "activated": "2026-07-07T15:23:14.000Z",
+            "statusChanged": "2026-07-07T15:23:14.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:23:14.000Z",
+            "passwordChanged": "2026-07-07T15:23:13.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Dryrun",
+              "lastName": "TestUser",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "dryrun.test.1783437789@nangotest.dev",
+              "email": "dryrun.test.1783437789@nangotest.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y6xs81Lh9wJV698"
+              }
+            }
+          },
+          {
+            "id": "00u14y5oijeYKVDn0698",
+            "status": "RECOVERY",
+            "created": "2026-07-07T14:59:34.000Z",
+            "activated": "2026-07-07T14:59:34.000Z",
+            "statusChanged": "2026-07-07T15:26:06.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:26:06.000Z",
+            "passwordChanged": "2026-07-07T14:59:34.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Test",
+              "lastName": "LifecycleOne",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "test.lifecycleone@nangotest.dev",
+              "email": "test.lifecycleone@nangotest.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y5oijeYKVDn0698"
+              }
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:26 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "ed56bbb36e330d2c715e111c8580a9b8",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "284",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "link": "<https://trial-7332229.okta.com/api/v1/users?limit=100>; rel=\"self\""
+        },
+        "hash": "fa772b5c72f48086dc18dac5bcedeff0f3b34def",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/api/v1/groups": {
+        "response": [
+          {
+            "id": "00g14y5qi7zRLgyzT698",
+            "created": "2026-07-07T15:00:06.000Z",
+            "lastUpdated": "2026-07-07T15:00:06.000Z",
+            "lastMembershipUpdated": "2026-07-07T15:00:24.000Z",
+            "objectClass": [
+              "okta:user_group"
+            ],
+            "type": "OKTA_GROUP",
+            "profile": {
+              "name": "Engineering",
+              "description": "Nango test group - Engineering"
+            },
+            "_links": {
+              "logo": [
+                {
+                  "name": "medium",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-medium.30ce6d4085dff29412984e4c191bc874.png",
+                  "type": "image/png"
+                },
+                {
+                  "name": "large",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-large.c3cb8cda8ae0add1b4fe928f5844dbe3.png",
+                  "type": "image/png"
+                }
+              ],
+              "users": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14y5qi7zRLgyzT698/users"
+              },
+              "apps": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14y5qi7zRLgyzT698/apps"
+              }
+            }
+          },
+          {
+            "id": "00g14u78ldnusLh9Y698",
+            "created": "2026-07-03T20:42:09.000Z",
+            "lastUpdated": "2026-07-03T20:42:09.000Z",
+            "lastMembershipUpdated": "2026-07-07T15:27:08.000Z",
+            "objectClass": [
+              "okta:user_group"
+            ],
+            "type": "BUILT_IN",
+            "profile": {
+              "name": "Everyone",
+              "description": "All users in your organization"
+            },
+            "_links": {
+              "logo": [
+                {
+                  "name": "medium",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-medium.30ce6d4085dff29412984e4c191bc874.png",
+                  "type": "image/png"
+                },
+                {
+                  "name": "large",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-large.c3cb8cda8ae0add1b4fe928f5844dbe3.png",
+                  "type": "image/png"
+                }
+              ],
+              "users": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14u78ldnusLh9Y698/users"
+              },
+              "apps": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14u78ldnusLh9Y698/apps"
+              }
+            }
+          },
+          {
+            "id": "00g14y6vrth2la5M1698",
+            "created": "2026-07-07T15:23:05.000Z",
+            "lastUpdated": "2026-07-07T15:23:05.000Z",
+            "lastMembershipUpdated": "2026-07-07T15:23:05.000Z",
+            "objectClass": [
+              "okta:user_group"
+            ],
+            "type": "OKTA_GROUP",
+            "profile": {
+              "name": "Nango Add Group Save",
+              "description": "Test group created by dryrun save"
+            },
+            "_links": {
+              "logo": [
+                {
+                  "name": "medium",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-medium.30ce6d4085dff29412984e4c191bc874.png",
+                  "type": "image/png"
+                },
+                {
+                  "name": "large",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-large.c3cb8cda8ae0add1b4fe928f5844dbe3.png",
+                  "type": "image/png"
+                }
+              ],
+              "users": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14y6vrth2la5M1698/users"
+              },
+              "apps": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14y6vrth2la5M1698/apps"
+              }
+            }
+          },
+          {
+            "id": "00g14y6vrkr3wygP2698",
+            "created": "2026-07-07T15:22:25.000Z",
+            "lastUpdated": "2026-07-07T15:22:25.000Z",
+            "lastMembershipUpdated": "2026-07-07T15:22:25.000Z",
+            "objectClass": [
+              "okta:user_group"
+            ],
+            "type": "OKTA_GROUP",
+            "profile": {
+              "name": "Nango Add Group Test",
+              "description": "Test group created by dryrun"
+            },
+            "_links": {
+              "logo": [
+                {
+                  "name": "medium",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-medium.30ce6d4085dff29412984e4c191bc874.png",
+                  "type": "image/png"
+                },
+                {
+                  "name": "large",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-large.c3cb8cda8ae0add1b4fe928f5844dbe3.png",
+                  "type": "image/png"
+                }
+              ],
+              "users": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14y6vrkr3wygP2698/users"
+              },
+              "apps": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14y6vrkr3wygP2698/apps"
+              }
+            }
+          },
+          {
+            "id": "00g14u78ldozTNEzA698",
+            "created": "2026-07-03T20:42:09.000Z",
+            "lastUpdated": "2026-07-03T20:42:09.000Z",
+            "lastMembershipUpdated": "2026-07-03T20:42:09.000Z",
+            "objectClass": [
+              "okta:user_group"
+            ],
+            "type": "BUILT_IN",
+            "profile": {
+              "name": "Okta Administrators",
+              "description": "Okta manages this group, which contains all administrators in your organization."
+            },
+            "_links": {
+              "logo": [
+                {
+                  "name": "medium",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-medium.30ce6d4085dff29412984e4c191bc874.png",
+                  "type": "image/png"
+                },
+                {
+                  "name": "large",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-large.c3cb8cda8ae0add1b4fe928f5844dbe3.png",
+                  "type": "image/png"
+                }
+              ],
+              "users": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14u78ldozTNEzA698/users"
+              },
+              "apps": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14u78ldozTNEzA698/apps"
+              }
+            }
+          },
+          {
+            "id": "00g14y5q5vaoT7IXb698",
+            "created": "2026-07-07T15:00:08.000Z",
+            "lastUpdated": "2026-07-07T15:22:59.000Z",
+            "lastMembershipUpdated": "2026-07-07T15:22:18.000Z",
+            "objectClass": [
+              "okta:user_group"
+            ],
+            "type": "OKTA_GROUP",
+            "profile": {
+              "name": "Sales",
+              "description": "Updated by Nango dryrun test"
+            },
+            "_links": {
+              "logo": [
+                {
+                  "name": "medium",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-medium.30ce6d4085dff29412984e4c191bc874.png",
+                  "type": "image/png"
+                },
+                {
+                  "name": "large",
+                  "href": "https://ok14static.oktacdn.com/assets/img/logos/groups/odyssey/okta-large.c3cb8cda8ae0add1b4fe928f5844dbe3.png",
+                  "type": "image/png"
+                }
+              ],
+              "users": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14y5q5vaoT7IXb698/users"
+              },
+              "apps": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14y5q5vaoT7IXb698/apps"
+              }
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:27 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4994",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "055143ea9d17aa031cb7d78da1607ca9",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "250",
+          "x-rate-limit-remaining": "240",
+          "x-rate-limit-reset": "1783438072",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "link": "<https://trial-7332229.okta.com/api/v1/groups?limit=100>; rel=\"self\""
+        },
+        "hash": "9ec38aded78b524b41c50dd63dce6edf43c53add",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/api/v1/users/00u14y6toa1gV2APU698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:27 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "6870e5195d4336c5455e3903fd409305",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "283",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "1aa53a2a6cc3b4f1cf8ea078a0a61c928474ef1f",
+        "request": {}
+      },
+      "/api/v1/users/00u14y705oweWRaSw698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:27 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "3d48cffe1178007a5b7cc5bef0702551",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "282",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "f5567feb3c9b52dc8466edd9b2a8232ab473c69c",
+        "request": {}
+      },
+      "/api/v1/users/00u14y7607pdae6Gr698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:27 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "037d2f21de64602cd347b4246aa2afa2",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "281",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "8f3ca3524aec421f9ddc97ad9b4a2d133e7f6513",
+        "request": {}
+      },
+      "/api/v1/users/00u14y76omw6aGb5X698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:27 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "105d27fc3256221cd98939b603e0835e",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "280",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "d66ebc10a37792db371b6dacda85e79aa884e71e",
+        "request": {}
+      },
+      "/api/v1/users/00u14u78lfuUpDWf0698/roles": {
+        "response": [
+          {
+            "id": "ra114u78lfwiT75f9698",
+            "label": "Super Administrator",
+            "type": "SUPER_ADMIN",
+            "status": "ACTIVE",
+            "created": "2026-07-03T20:42:11.000Z",
+            "lastUpdated": "2026-07-03T20:42:11.000Z",
+            "assignmentType": "USER",
+            "_links": {
+              "assignee": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698"
+              }
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:28 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "1a2d5570bb7aeb5c579d22c040133565",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "279",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "9399ebaf1a8a2815a6bda3171e9702b51be9f610",
+        "request": {}
+      },
+      "/api/v1/users/00u14y5n6uhI2lpQ3698/roles": {
+        "response": [
+          {
+            "id": "JBCUYUC7IRCVGS27IFCE2SKO",
+            "label": "Help Desk Administrator",
+            "type": "HELP_DESK_ADMIN",
+            "status": "ACTIVE",
+            "created": "2026-07-07T15:04:41.000Z",
+            "lastUpdated": "2026-07-07T15:04:41.000Z",
+            "assignmentType": "GROUP",
+            "_links": {
+              "assignee": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14y5qi7zRLgyzT698"
+              }
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:28 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "1d57674202ea2629b75a6b3037c707d8",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "278",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "ec3260181ac10a3ab1bacb6000239b0cd2a4c092",
+        "request": {}
+      },
+      "/api/v1/users/00u14y5plo5MraBIf698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:28 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "549aee916e20adb6a499020b8b7973d5",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "277",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "d35fd5470970682ddb65a95f7bb451bac7074323",
+        "request": {}
+      },
+      "/api/v1/users/00u14y6vsuhaETkwX698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:29 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "b13839313cfef5273d1b1915ad00906c",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "276",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "af91b29dbcfab5b51ad930bbef39b324fce4d76f",
+        "request": {}
+      },
+      "/api/v1/users/00u14y6xs81Lh9wJV698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:29 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "c64e9a7be09d873997085e98e820e729",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "275",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "ba30e69e4ff34a098d586e0b1d8e61b73bb11296",
+        "request": {}
+      },
+      "/api/v1/users/00u14y5oijeYKVDn0698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:29 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "3c76a17482eaee3703753abbe1a7fca7",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "274",
+          "x-rate-limit-reset": "1783438086",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "55e1f0dbadf70c789614448645d94cfda0e787db",
+        "request": {}
+      },
+      "/api/v1/groups/00g14y5qi7zRLgyzT698/roles": {
+        "response": [
+          {
+            "id": "JBCUYUC7IRCVGS27IFCE2SKO",
+            "label": "Help Desk Administrator",
+            "type": "HELP_DESK_ADMIN",
+            "status": "ACTIVE",
+            "created": "2026-07-07T15:04:41.000Z",
+            "lastUpdated": "2026-07-07T15:04:41.000Z",
+            "assignmentType": "GROUP",
+            "_links": {
+              "assignee": {
+                "href": "https://trial-7332229.okta.com/api/v1/groups/00g14y5qi7zRLgyzT698"
+              }
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:29 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "6d477a8f176e94c4a25687f1804c4921",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "250",
+          "x-rate-limit-remaining": "239",
+          "x-rate-limit-reset": "1783438072",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "09ca3e13394bb1aa9ef3231626c4c4e0cdb9bcec",
+        "request": {}
+      },
+      "/api/v1/groups/00g14u78ldnusLh9Y698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:29 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "1b31849c2d0252576932e7ee445fc921",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "250",
+          "x-rate-limit-remaining": "238",
+          "x-rate-limit-reset": "1783438072",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "a23dc9d7119acdf451e9edd8ab74d5c632abd249",
+        "request": {}
+      },
+      "/api/v1/groups/00g14y6vrth2la5M1698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:30 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "e5294c79e85741038fe088a979fc4458",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "250",
+          "x-rate-limit-remaining": "237",
+          "x-rate-limit-reset": "1783438072",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "c957cae72a30dca377392c7f4f4423cf720d7ef0",
+        "request": {}
+      },
+      "/api/v1/groups/00g14y6vrkr3wygP2698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:30 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "a0fd531947d64325277ea33683efd792",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "250",
+          "x-rate-limit-remaining": "236",
+          "x-rate-limit-reset": "1783438072",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "67c1cacb775097fdbd1a86df172bc97929b945dd",
+        "request": {}
+      },
+      "/api/v1/groups/00g14u78ldozTNEzA698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:30 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "e61c7ae148020587ca9ff5fc0bed0d3d",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "250",
+          "x-rate-limit-remaining": "235",
+          "x-rate-limit-reset": "1783438072",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "213f51f3d196c32174432d5da8becc45fc4faace",
+        "request": {}
+      },
+      "/api/v1/groups/00g14y5q5vaoT7IXb698/roles": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:27:31 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1783438105",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "a27c4b1b287ea146bf6e1e43b77f2429",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "<redacted>",
+          "content-security-policy": "default-src 'self' trial-7332229.okta.com *.oktacdn.com; connect-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com *.oktacdn.com *.mixpanel.com *.mapbox.com trial-7332229.kerberos.okta.com trial-7332229.mtls.okta.com *.authenticatorlocalprod.com:8769 http://localhost:8769 http://127.0.0.1:8769 *.authenticatorlocalprod.com:65111 http://localhost:65111 http://127.0.0.1:65111 *.authenticatorlocalprod.com:65121 http://localhost:65121 http://127.0.0.1:65121 *.authenticatorlocalprod.com:65131 http://localhost:65131 http://127.0.0.1:65131 *.authenticatorlocalprod.com:65141 http://localhost:65141 http://127.0.0.1:65141 *.authenticatorlocalprod.com:65151 http://localhost:65151 http://127.0.0.1:65151 https://oinmanager.okta.com data: *.ingest.sentry.io; script-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; style-src 'unsafe-inline' 'self' 'report-sample' trial-7332229.okta.com *.oktacdn.com; frame-src 'self' trial-7332229.okta.com trial-7332229-admin.okta.com login.okta.com *.vidyard.com com-okta-authenticator:; img-src 'self' trial-7332229.okta.com *.oktacdn.com *.tiles.mapbox.com *.mapbox.com *.vidyard.com data: blob:; font-src 'self' trial-7332229.okta.com data: *.oktacdn.com fonts.gstatic.com; frame-ancestors 'self'",
+          "x-rate-limit-limit": "250",
+          "x-rate-limit-remaining": "234",
+          "x-rate-limit-reset": "1783438072",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "e2bfb036fc9a7e2722a0103e6ed899f9d8a74e20",
+        "request": {}
+      }
+    }
+  }
+}
