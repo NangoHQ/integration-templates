@@ -1,9 +1,15 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/analytics.js';
 
 describe('pinterest analytics tests', () => {
     const models = 'CampaignAnalytics'.split(',');
+
+    // Fixture was recorded at 10:52 UTC on 2026-07-09.
+    // With no checkpoint, the sync computes end_date=2026-07-09 and start_date=2026-07-02 (today - 7), matching the fixture params.
+    beforeEach(() => {
+        vi.useFakeTimers({ now: new Date('2026-07-09T10:52:03Z') });
+    });
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
@@ -19,6 +25,7 @@ describe('pinterest analytics tests', () => {
     };
 
     afterEach(() => {
+        vi.useRealTimers();
         vi.clearAllMocks();
         vi.restoreAllMocks();
     });
