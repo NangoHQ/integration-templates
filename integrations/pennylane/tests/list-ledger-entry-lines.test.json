@@ -1,0 +1,1038 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 104375852802048,
+        "debit": "0.0",
+        "credit": "100.0",
+        "label": "Credit line",
+        "categories": [],
+        "ledger_account": {
+          "id": 14064892428288,
+          "number": "999001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064892428288"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465653366784
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375852802048/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:38.536694Z",
+        "updated_at": "2026-07-08T12:26:38.536190Z"
+      },
+      {
+        "id": 104375852797952,
+        "debit": "100.0",
+        "credit": "0.0",
+        "label": "Debit line",
+        "categories": [],
+        "ledger_account": {
+          "id": 14065018343424,
+          "number": "999002",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065018343424"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465653366784
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375852797952/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:38.536694Z",
+        "updated_at": "2026-07-08T12:26:38.536190Z"
+      },
+      {
+        "id": 104375832002560,
+        "debit": "0.0",
+        "credit": "100.0",
+        "label": "Test line 2",
+        "categories": [],
+        "ledger_account": {
+          "id": 14048452796416,
+          "number": "401100008",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14048452796416"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465651060736
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375832002560/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:34.882200Z",
+        "updated_at": "2026-07-08T12:26:34.881710Z"
+      },
+      {
+        "id": 104375831973888,
+        "debit": "100.0",
+        "credit": "0.0",
+        "label": "Test line 1",
+        "categories": [],
+        "ledger_account": {
+          "id": 14048452796416,
+          "number": "401100008",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14048452796416"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465651060736
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375831973888/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:34.882200Z",
+        "updated_at": "2026-07-08T12:26:34.881710Z"
+      },
+      {
+        "id": 104375812317184,
+        "debit": "0.0",
+        "credit": "100.0",
+        "label": "Line B",
+        "categories": [],
+        "ledger_account": {
+          "id": 14064606162944,
+          "number": "5121001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465648861184
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [
+            104375812313088,
+            104375812317184
+          ],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375812317184/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:30.269808Z",
+        "updated_at": "2026-07-08T12:27:00.581972Z"
+      },
+      {
+        "id": 104375812313088,
+        "debit": "100.0",
+        "credit": "0.0",
+        "label": "Line A",
+        "categories": [],
+        "ledger_account": {
+          "id": 14064606162944,
+          "number": "5121001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465648861184
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [
+            104375812313088,
+            104375812317184
+          ],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375812313088/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:30.269808Z",
+        "updated_at": "2026-07-08T12:27:00.581972Z"
+      },
+      {
+        "id": 104375748874240,
+        "debit": "0.0",
+        "credit": "100.0",
+        "label": "",
+        "categories": [],
+        "ledger_account": {
+          "id": 14065329127424,
+          "number": "44574",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065329127424"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465638002688
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375748874240/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:22.011479Z",
+        "updated_at": "2026-07-08T12:26:22.011795Z"
+      },
+      {
+        "id": 104375748870144,
+        "debit": "600.0",
+        "credit": "0.0",
+        "label": "",
+        "categories": [],
+        "ledger_account": {
+          "id": 14057741639680,
+          "number": "411100001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14057741639680"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465638002688
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375748870144/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:22.011452Z",
+        "updated_at": "2026-07-08T12:26:22.011795Z"
+      },
+      {
+        "id": 104375748853760,
+        "debit": "0.0",
+        "credit": "500.0",
+        "label": "",
+        "categories": [],
+        "ledger_account": {
+          "id": 14065329119232,
+          "number": "706",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065329119232"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465638002688
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375748853760/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:26:22.011406Z",
+        "updated_at": "2026-07-08T12:26:22.011795Z"
+      },
+      {
+        "id": 104375302852608,
+        "debit": "0.0",
+        "credit": "100.0",
+        "label": "Line 2",
+        "categories": [],
+        "ledger_account": {
+          "id": 14064606167040,
+          "number": "4717001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606167040"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465530753024
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375302852608/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:25:45.110372Z",
+        "updated_at": "2026-07-08T12:25:45.109957Z"
+      },
+      {
+        "id": 104375302811648,
+        "debit": "100.0",
+        "credit": "0.0",
+        "label": "Line 1",
+        "categories": [],
+        "ledger_account": {
+          "id": 14064606162944,
+          "number": "5121001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465530753024
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375302811648/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:25:45.110372Z",
+        "updated_at": "2026-07-08T12:25:45.109957Z"
+      },
+      {
+        "id": 104375204495360,
+        "debit": "20.0",
+        "credit": "0.0",
+        "label": "",
+        "categories": [],
+        "ledger_account": {
+          "id": 14065077239808,
+          "number": "44564",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065077239808"
+        },
+        "journal": {
+          "id": 91278561280,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278561280"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465510096896
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375204495360/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:25:30.138003Z",
+        "updated_at": "2026-07-08T12:25:30.138515Z"
+      },
+      {
+        "id": 104375204487168,
+        "debit": "0.0",
+        "credit": "120.0",
+        "label": "",
+        "categories": [],
+        "ledger_account": {
+          "id": 14057991884800,
+          "number": "401100009",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14057991884800"
+        },
+        "journal": {
+          "id": 91278561280,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278561280"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465510096896
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375204487168/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:25:30.137973Z",
+        "updated_at": "2026-07-08T12:25:30.138515Z"
+      },
+      {
+        "id": 104375204478976,
+        "debit": "100.0",
+        "credit": "0.0",
+        "label": "",
+        "categories": [],
+        "ledger_account": {
+          "id": 14065077231616,
+          "number": "6288",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065077231616"
+        },
+        "journal": {
+          "id": 91278561280,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278561280"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465510096896
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375204478976/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:25:30.137916Z",
+        "updated_at": "2026-07-08T12:25:30.138515Z"
+      },
+      {
+        "id": 104375048351744,
+        "debit": "0.0",
+        "credit": "50.0",
+        "label": "Line 2",
+        "categories": [],
+        "ledger_account": {
+          "id": 14048452796416,
+          "number": "401100008",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14048452796416"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465479335936
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [
+            104375048347648,
+            104375048351744
+          ],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375048351744/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:25:01.655090Z",
+        "updated_at": "2026-07-08T12:25:52.833345Z"
+      },
+      {
+        "id": 104375048347648,
+        "debit": "50.0",
+        "credit": "0.0",
+        "label": "Line 1",
+        "categories": [],
+        "ledger_account": {
+          "id": 14048452796416,
+          "number": "401100008",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14048452796416"
+        },
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465479335936
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [
+            104375048347648,
+            104375048351744
+          ],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375048347648/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:25:01.655090Z",
+        "updated_at": "2026-07-08T12:25:52.833345Z"
+      },
+      {
+        "id": 104374555205632,
+        "debit": "0.0",
+        "credit": "100.0",
+        "label": "",
+        "categories": [
+          {
+            "id": 239432757248,
+            "label": "IS",
+            "weight": "1.0",
+            "category_group": {
+              "id": 14148939776
+            },
+            "created_at": "2026-07-08T11:26:51.380074Z",
+            "updated_at": "2026-07-08T11:26:51.782993Z"
+          }
+        ],
+        "ledger_account": {
+          "id": 14064606167040,
+          "number": "4717001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606167040"
+        },
+        "journal": {
+          "id": 91387359232,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91387359232"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465370439680
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104374555205632/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:24:07.937696Z",
+        "updated_at": "2026-07-08T12:25:42.891305Z"
+      },
+      {
+        "id": 104374555201536,
+        "debit": "100.0",
+        "credit": "0.0",
+        "label": "",
+        "categories": [],
+        "ledger_account": {
+          "id": 14064606162944,
+          "number": "5121001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+        },
+        "journal": {
+          "id": 91387359232,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91387359232"
+        },
+        "date": "2026-07-08",
+        "ledger_entry": {
+          "id": 25465370439680
+        },
+        "lettered_ledger_entry_lines": {
+          "ids": [],
+          "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104374555201536/lettered_ledger_entry_lines"
+        },
+        "created_at": "2026-07-08T12:24:07.937640Z",
+        "updated_at": "2026-07-08T12:24:07.938019Z"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/ledger_entry_lines": {
+        "response": {
+          "items": [
+            {
+              "id": 104375852802048,
+              "label": "Credit line",
+              "debit": "0.0",
+              "credit": "100.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:38.536694Z",
+              "updated_at": "2026-07-08T12:26:38.536190Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14064892428288,
+                "number": "999001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064892428288"
+              },
+              "ledger_entry": {
+                "id": 25465653366784
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375852802048/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375852797952,
+              "label": "Debit line",
+              "debit": "100.0",
+              "credit": "0.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:38.536694Z",
+              "updated_at": "2026-07-08T12:26:38.536190Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14065018343424,
+                "number": "999002",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065018343424"
+              },
+              "ledger_entry": {
+                "id": 25465653366784
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375852797952/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375832002560,
+              "label": "Test line 2",
+              "debit": "0.0",
+              "credit": "100.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:34.882200Z",
+              "updated_at": "2026-07-08T12:26:34.881710Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14048452796416,
+                "number": "401100008",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14048452796416"
+              },
+              "ledger_entry": {
+                "id": 25465651060736
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375832002560/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375831973888,
+              "label": "Test line 1",
+              "debit": "100.0",
+              "credit": "0.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:34.882200Z",
+              "updated_at": "2026-07-08T12:26:34.881710Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14048452796416,
+                "number": "401100008",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14048452796416"
+              },
+              "ledger_entry": {
+                "id": 25465651060736
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375831973888/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375812317184,
+              "label": "Line B",
+              "debit": "0.0",
+              "credit": "100.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:30.269808Z",
+              "updated_at": "2026-07-08T12:27:00.581972Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14064606162944,
+                "number": "5121001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+              },
+              "ledger_entry": {
+                "id": 25465648861184
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [
+                  104375812313088,
+                  104375812317184
+                ],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375812317184/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375812313088,
+              "label": "Line A",
+              "debit": "100.0",
+              "credit": "0.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:30.269808Z",
+              "updated_at": "2026-07-08T12:27:00.581972Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14064606162944,
+                "number": "5121001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+              },
+              "ledger_entry": {
+                "id": 25465648861184
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [
+                  104375812313088,
+                  104375812317184
+                ],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375812313088/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375748874240,
+              "label": "",
+              "debit": "0.0",
+              "credit": "100.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:22.011479Z",
+              "updated_at": "2026-07-08T12:26:22.011795Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14065329127424,
+                "number": "44574",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065329127424"
+              },
+              "ledger_entry": {
+                "id": 25465638002688
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375748874240/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375748870144,
+              "label": "",
+              "debit": "600.0",
+              "credit": "0.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:22.011452Z",
+              "updated_at": "2026-07-08T12:26:22.011795Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14057741639680,
+                "number": "411100001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14057741639680"
+              },
+              "ledger_entry": {
+                "id": 25465638002688
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375748870144/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375748853760,
+              "label": "",
+              "debit": "0.0",
+              "credit": "500.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:26:22.011406Z",
+              "updated_at": "2026-07-08T12:26:22.011795Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14065329119232,
+                "number": "706",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065329119232"
+              },
+              "ledger_entry": {
+                "id": 25465638002688
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375748853760/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375302852608,
+              "label": "Line 2",
+              "debit": "0.0",
+              "credit": "100.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:25:45.110372Z",
+              "updated_at": "2026-07-08T12:25:45.109957Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14064606167040,
+                "number": "4717001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606167040"
+              },
+              "ledger_entry": {
+                "id": 25465530753024
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375302852608/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375302811648,
+              "label": "Line 1",
+              "debit": "100.0",
+              "credit": "0.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:25:45.110372Z",
+              "updated_at": "2026-07-08T12:25:45.109957Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14064606162944,
+                "number": "5121001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+              },
+              "ledger_entry": {
+                "id": 25465530753024
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375302811648/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375204495360,
+              "label": "",
+              "debit": "20.0",
+              "credit": "0.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:25:30.138003Z",
+              "updated_at": "2026-07-08T12:25:30.138515Z",
+              "journal": {
+                "id": 91278561280,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278561280"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14065077239808,
+                "number": "44564",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065077239808"
+              },
+              "ledger_entry": {
+                "id": 25465510096896
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375204495360/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375204487168,
+              "label": "",
+              "debit": "0.0",
+              "credit": "120.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:25:30.137973Z",
+              "updated_at": "2026-07-08T12:25:30.138515Z",
+              "journal": {
+                "id": 91278561280,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278561280"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14057991884800,
+                "number": "401100009",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14057991884800"
+              },
+              "ledger_entry": {
+                "id": 25465510096896
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375204487168/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375204478976,
+              "label": "",
+              "debit": "100.0",
+              "credit": "0.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:25:30.137916Z",
+              "updated_at": "2026-07-08T12:25:30.138515Z",
+              "journal": {
+                "id": 91278561280,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278561280"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14065077231616,
+                "number": "6288",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065077231616"
+              },
+              "ledger_entry": {
+                "id": 25465510096896
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375204478976/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375048351744,
+              "label": "Line 2",
+              "debit": "0.0",
+              "credit": "50.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:25:01.655090Z",
+              "updated_at": "2026-07-08T12:25:52.833345Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14048452796416,
+                "number": "401100008",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14048452796416"
+              },
+              "ledger_entry": {
+                "id": 25465479335936
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [
+                  104375048347648,
+                  104375048351744
+                ],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375048351744/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104375048347648,
+              "label": "Line 1",
+              "debit": "50.0",
+              "credit": "0.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:25:01.655090Z",
+              "updated_at": "2026-07-08T12:25:52.833345Z",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14048452796416,
+                "number": "401100008",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14048452796416"
+              },
+              "ledger_entry": {
+                "id": 25465479335936
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [
+                  104375048347648,
+                  104375048351744
+                ],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104375048347648/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104374555205632,
+              "label": "",
+              "debit": "0.0",
+              "credit": "100.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:24:07.937696Z",
+              "updated_at": "2026-07-08T12:25:42.891305Z",
+              "journal": {
+                "id": 91387359232,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91387359232"
+              },
+              "categories": [
+                {
+                  "id": 239432757248,
+                  "label": "IS",
+                  "analytical_code": null,
+                  "created_at": "2026-07-08T11:26:51.380074Z",
+                  "updated_at": "2026-07-08T11:26:51.782993Z",
+                  "weight": "1.0",
+                  "category_group": {
+                    "id": 14148939776
+                  }
+                }
+              ],
+              "ledger_account": {
+                "id": 14064606167040,
+                "number": "4717001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606167040"
+              },
+              "ledger_entry": {
+                "id": 25465370439680
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104374555205632/lettered_ledger_entry_lines"
+              }
+            },
+            {
+              "id": 104374555201536,
+              "label": "",
+              "debit": "100.0",
+              "credit": "0.0",
+              "date": "2026-07-08",
+              "created_at": "2026-07-08T12:24:07.937640Z",
+              "updated_at": "2026-07-08T12:24:07.938019Z",
+              "journal": {
+                "id": 91387359232,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91387359232"
+              },
+              "categories": [],
+              "ledger_account": {
+                "id": 14064606162944,
+                "number": "5121001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064606162944"
+              },
+              "ledger_entry": {
+                "id": 25465370439680
+              },
+              "lettered_ledger_entry_lines": {
+                "ids": [],
+                "url": "https://app.pennylane.com/api/external/v2/ledger_entry_lines/104374555201536/lettered_ledger_entry_lines"
+              }
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:27:11 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4854",
+          "x-ratelimit-reset": "1783513639",
+          "cf-ray": "a17f14e4ae028636-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"9feb9904f1acd918ba107f6ed83b0de2\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "21",
+          "ratelimit-reset": "1783513635",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "b14efb53-4b4a-4cc8-b621-0fdd15ba562d",
+          "set-cookie": "__cf_bm=GmGalo1XJNYSriaGUVPu0v69lk.KC4ZBLVfnjfZ4seA-1783513631.4676254-1.0.1.1-RutDNIkbqjWSE5EWl5eYpvu0j2NNruh6QX7T926zdczRjO2_.K5bmBqpQgyD2jgKAHOuwHnl57gpjp9lscRWxfEaYeNSXbNnlfHskKa7H2901SwsLwNZQpNj1drSjKNd; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 12:57:11 GMT"
+        },
+        "hash": "4c437c445e599c7a72c2e64d21d507f8b8f94aa4",
+        "request": {}
+      }
+    }
+  }
+}

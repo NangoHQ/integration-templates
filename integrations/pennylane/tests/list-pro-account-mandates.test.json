@@ -1,0 +1,48 @@
+{
+  "input": {},
+  "output": {
+    "items": [],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/pro_account/mandates": {
+        "response": {
+          "status": 404,
+          "error": "No Pro Account associated with the company"
+        },
+        "status": 404,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:21:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4971",
+          "x-ratelimit-reset": "1783516900",
+          "cf-ray": "a17f642e4ab6ff09-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache",
+          "server": "cloudflare",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "ab0506b2-f6db-4ae3-854c-599eba0d1457",
+          "set-cookie": "__cf_bm=S3nh_7VDDYfdfkYHmhP18frlP8gdsNvfSeRtZ.rHc.g-1783516879.0907323-1.0.1.1-wdwMWBtHkiu4zVtZ57xOOVLKWNuMUgeKst1m.q6cCMfFUSU2SgYe42uaqdzCiLjSUjyf9fr.uuGh2c_drp9oElUCL3CsaodBlGHOM2haOZtMdiRGLq7PyH.6aD8aPgdc; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:51:19 GMT",
+          "etag": "W/\"43-F+yLUeM1vgbLUE8lpIviPHBwcsw\""
+        },
+        "hash": "70f4126b421c08dd2bb6290fc59bdbad256c8798",
+        "request": {}
+      }
+    }
+  }
+}

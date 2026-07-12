@@ -1,0 +1,1408 @@
+{
+  "nango": {
+    "batchSave": {
+      "CustomerInvoice": [
+        {
+          "id": "25461646082048",
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": "1.0",
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "100.0",
+          "tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "draft": true,
+          "customer_id": "1338468995072",
+          "ledger_entry_id": "25461646082048",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=aY7vyeqsQbWxIffx0Pwlci1aBsgyl6m0qpy0EMxmEXE%2FZzxQLfAHE3RswNCPbPxy6LZRAef%2FgB9GQYKk6vCVi15yOD1aMbh6T6ZnUTSSL%2BOlBLHZCytLj3EqibBedQ%3D%3D--ZCzuVvWfPldbjKjI--dwBSbbA2G43B9PV8AP52Tw%3D%3D",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "external_reference": "W79NQLZQ9Z",
+          "factur_x": false,
+          "created_at": "2026-07-08T12:06:19.330107Z",
+          "updated_at": "2026-07-08T12:31:57.988443Z"
+        },
+        {
+          "id": "25465314803712",
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": "1.0",
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "100.0",
+          "tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "draft": true,
+          "customer_id": "1338468995072",
+          "ledger_entry_id": "25465314803712",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=3hm2ZaFO0VoH2ge%2B6XAUTgz66LA6OrbI8Z5UbsQzFQ8N%2BY5eADtDmtFgIxlAz%2FRT6V0Cr4E0YGZ4sTROgKI66kNnH523oEkW%2BK5ubAkqd4Eg5Qm0NVkHKEln6v5MyA%3D%3D--Xzbzopm3vRlX7cyD--pTG9WiW77BtnfZMfx1caJA%3D%3D",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "external_reference": "N5OPBCSYY8",
+          "factur_x": false,
+          "created_at": "2026-07-08T12:23:35.215682Z",
+          "updated_at": "2026-07-08T12:27:09.518688Z"
+        },
+        {
+          "id": "25465319419904",
+          "label": "Avoir Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "-120.0",
+          "currency_amount": "-120.0",
+          "currency_amount_before_tax": "-100.0",
+          "exchange_rate": "1.0",
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "-20.0",
+          "tax": "-20.0",
+          "language": "fr_FR",
+          "paid": false,
+          "status": "credit_note",
+          "draft": true,
+          "customer_id": "1338468995072",
+          "ledger_entry_id": "25465319419904",
+          "credited_invoice_id": "25465314803712",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=b5TyyZhKhDpA8GN99UC2WNhZoi0U0CvRxzEY7Y%2Bl2az4dydRZU1mzM7nAJFWrDBtWgutY0MM1QejXJW3OJAl1zUNOhQYNiwLlqsOVf4i1wvtz9lTwUce4NdgXHiHcQ%3D%3D--9FkWfvgxhSIpRCNl--6UwUJFdP%2F4jV2Jb74oZjUQ%3D%3D",
+          "filename": "Avoir-Acme Corp Test-NANGO.pdf",
+          "external_reference": "XLTIWHGG8A",
+          "factur_x": false,
+          "created_at": "2026-07-08T12:23:39.847701Z",
+          "updated_at": "2026-07-08T12:27:09.504782Z"
+        },
+        {
+          "id": "25465375571968",
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "1200.0",
+          "currency_amount": "1200.0",
+          "currency_amount_before_tax": "1000.0",
+          "exchange_rate": "1.0",
+          "date": "2026-07-08",
+          "deadline": "2026-07-31",
+          "currency_tax": "200.0",
+          "tax": "200.0",
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "draft": true,
+          "customer_id": "1338468995072",
+          "ledger_entry_id": "25465375571968",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=4PSLhMIOwmjJD677MBoMzvI8mZjv%2BAc1Gakkel1QLhGpemLx4NlMMlTAKlV9tbsOKveCi03fa91ILzudhsBTMi1n39rbAdaQBVo3YvgvPSaD5rAJfVon%2B09si6aETQ%3D%3D--nLYjgFlza%2F7%2FjDpn--z%2FobtkOJ8oJ8TmzppUiKHg%3D%3D",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "external_reference": "2W7ZCCK96E",
+          "factur_x": false,
+          "created_at": "2026-07-08T12:24:09.241350Z",
+          "updated_at": "2026-07-08T12:24:09.892994Z"
+        },
+        {
+          "id": "25465420529664",
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "1200.0",
+          "currency_amount": "1200.0",
+          "currency_amount_before_tax": "1000.0",
+          "exchange_rate": "1.0",
+          "date": "2026-07-08",
+          "deadline": "2026-07-31",
+          "currency_tax": "200.0",
+          "tax": "200.0",
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "draft": true,
+          "customer_id": "1338468995072",
+          "ledger_entry_id": "25465420529664",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=EwLwSOpGKDmku84cs6jf3FKyDvt2%2FLLTTnlaPqyDJVNVY69SQtxvlALJMQB5W1QERzPGmPMrvk%2FHcwWtRbt%2FXtW8B8whNVCtvFX4hTaX89Ee9I2EuW8HO5wSGJgzXA%3D%3D--on1gcspyc51wn2vW--qDw6EOVO%2Fg2B6wbeDfbWFw%3D%3D",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "external_reference": "2SPAZCOI5F",
+          "factur_x": false,
+          "created_at": "2026-07-08T12:24:22.158515Z",
+          "updated_at": "2026-07-08T12:24:22.882086Z"
+        },
+        {
+          "id": "25465638002688",
+          "label": "Facture Acme Corp Test - TEST-001 (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "TEST-001",
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": "1.0",
+          "date": "2026-07-08",
+          "deadline": "2026-08-15",
+          "currency_tax": "100.0",
+          "tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "status": "upcoming",
+          "draft": false,
+          "customer_id": "1338468995072",
+          "ledger_entry_id": "25465638002688",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=v%2BJTIAIbKRHOt64NVwfxVFVsp%2FrJVn%2B2s9pJnSur6nJTOn%2FN5OFN0S9doQ7vMESFBRDqdj9e3rU9PwvS%2BIHXv3hiHI21hbc5eUq2OcB%2B779x6W8sySECLuL44VvDqw%3D%3D--wNNCVjoulkhppOeb--rcygS2ky0cJpVqH1SFXHYA%3D%3D",
+          "filename": "test_invoice.pdf",
+          "remaining_amount_with_tax": "600.0",
+          "remaining_amount_without_tax": "500.0",
+          "external_reference": "WOQPXLHWI5",
+          "factur_x": false,
+          "created_at": "2026-07-08T12:26:21.800683Z",
+          "updated_at": "2026-07-08T12:35:55.675110Z"
+        },
+        {
+          "id": "25465639374848",
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": "1.0",
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "100.0",
+          "tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "draft": true,
+          "customer_id": "1338468995072",
+          "ledger_entry_id": "25465639374848",
+          "quote_id": "25461979840512",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=fuKg2GI4CkylvHWM4NFjwntQCQph3Uo%2BZuTn0mdDbQdZf1BcbFhJr0N6LZ7AGaXDrmonZSFePvenq7wU4H96I7qAEpv8XP9RLrMNym9Rauz9OfMVDBNQ6AC8HsdT%2FA%3D%3D--KrY%2BioXip%2FP3Lube--J6xXgdYlfcH5XZognwonkw%3D%3D",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "external_reference": "S74XKUL40H",
+          "factur_x": false,
+          "created_at": "2026-07-08T12:26:23.057215Z",
+          "updated_at": "2026-07-08T12:26:23.836396Z"
+        },
+        {
+          "id": "25465821392896",
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "exchange_rate": "1.0",
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "currency_tax": "100.0",
+          "tax": "100.0",
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "draft": true,
+          "customer_id": "1338468995072",
+          "ledger_entry_id": "25465821392896",
+          "quote_id": "25465737265152",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=XBovYCREBznTXZ2herdNxHHS6c9n3POe9ZE1sJzmWKFOhOJKBK90JVkt7yUDa%2F9ET84A0esgKxyMUhvhEzQu7QspRjysF9zb2utj39RWOo%2BLUnm86ML303Z%2BRcF%2FgA%3D%3D--VNZic17c8dmc6moT--o%2BOWFrvu28actBPRn8PuyA%3D%3D",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "external_reference": "DZ7GCN5U6R",
+          "factur_x": false,
+          "created_at": "2026-07-08T12:27:57.771460Z",
+          "updated_at": "2026-07-08T12:27:58.651728Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "CustomerInvoice": [
+        {
+          "id": "25461862449152"
+        },
+        {
+          "id": "25461870440448"
+        }
+      ]
+    }
+  },
+  "api": {
+    "get": {
+      "/api/external/v2/changelogs/customer_invoices": {
+        "response": {
+          "items": [
+            {
+              "id": 25461646082048,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:06:19.330107Z",
+              "updated_at": "2026-07-08T12:06:19.329274Z",
+              "processed_at": "2026-07-08T12:06:20.439485Z"
+            },
+            {
+              "id": 25461646082048,
+              "operation": "update",
+              "created_at": "2026-07-08T12:06:19.330107Z",
+              "updated_at": "2026-07-08T12:06:20.066998Z",
+              "processed_at": "2026-07-08T12:06:20.444043Z"
+            },
+            {
+              "id": 25461862449152,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:06:43.142211Z",
+              "updated_at": "2026-07-08T12:06:43.141388Z",
+              "processed_at": "2026-07-08T12:06:43.772934Z"
+            },
+            {
+              "id": 25461862449152,
+              "operation": "update",
+              "created_at": "2026-07-08T12:06:43.142211Z",
+              "updated_at": "2026-07-08T12:06:43.348155Z",
+              "processed_at": "2026-07-08T12:06:43.774364Z"
+            },
+            {
+              "id": 25461862449152,
+              "operation": "update",
+              "created_at": "2026-07-08T12:06:43.142211Z",
+              "updated_at": "2026-07-08T12:06:43.846770Z",
+              "processed_at": "2026-07-08T12:06:44.883576Z"
+            },
+            {
+              "id": 25461870440448,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:06:44.767982Z",
+              "updated_at": "2026-07-08T12:06:44.767209Z",
+              "processed_at": "2026-07-08T12:06:45.380140Z"
+            },
+            {
+              "id": 25461870440448,
+              "operation": "update",
+              "created_at": "2026-07-08T12:06:44.767982Z",
+              "updated_at": "2026-07-08T12:06:45.138518Z",
+              "processed_at": "2026-07-08T12:06:45.381734Z"
+            },
+            {
+              "id": 25461870440448,
+              "operation": "update",
+              "created_at": "2026-07-08T12:06:44.767982Z",
+              "updated_at": "2026-07-08T12:06:45.758193Z",
+              "processed_at": "2026-07-08T12:06:46.687515Z"
+            },
+            {
+              "id": 25465314803712,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:23:35.215682Z",
+              "updated_at": "2026-07-08T12:23:35.214931Z",
+              "processed_at": "2026-07-08T12:23:35.970760Z"
+            },
+            {
+              "id": 25465314803712,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:35.215682Z",
+              "updated_at": "2026-07-08T12:23:35.722985Z",
+              "processed_at": "2026-07-08T12:23:36.474589Z"
+            },
+            {
+              "id": 25465314803712,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:35.215682Z",
+              "updated_at": "2026-07-08T12:23:35.862041Z",
+              "processed_at": "2026-07-08T12:23:37.147116Z"
+            },
+            {
+              "id": 25465319419904,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:23:39.847701Z",
+              "updated_at": "2026-07-08T12:23:39.846885Z",
+              "processed_at": "2026-07-08T12:23:40.384940Z"
+            },
+            {
+              "id": 25465319419904,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:39.847701Z",
+              "updated_at": "2026-07-08T12:23:39.910025Z",
+              "processed_at": "2026-07-08T12:23:40.385059Z"
+            },
+            {
+              "id": 25465319419904,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:39.847701Z",
+              "updated_at": "2026-07-08T12:23:40.370127Z",
+              "processed_at": "2026-07-08T12:23:40.882675Z"
+            },
+            {
+              "id": 25465319419904,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:39.847701Z",
+              "updated_at": "2026-07-08T12:23:40.565013Z",
+              "processed_at": "2026-07-08T12:23:41.657777Z"
+            },
+            {
+              "id": 25465375571968,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:24:09.241350Z",
+              "updated_at": "2026-07-08T12:24:09.240511Z",
+              "processed_at": "2026-07-08T12:24:10.386209Z"
+            },
+            {
+              "id": 25465375571968,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:09.241350Z",
+              "updated_at": "2026-07-08T12:24:09.892994Z",
+              "processed_at": "2026-07-08T12:24:10.386880Z"
+            },
+            {
+              "id": 25465319419904,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:39.847701Z",
+              "updated_at": "2026-07-08T12:24:13.600603Z",
+              "processed_at": "2026-07-08T12:24:14.340618Z"
+            },
+            {
+              "id": 25465314803712,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:35.215682Z",
+              "updated_at": "2026-07-08T12:24:13.615186Z",
+              "processed_at": "2026-07-08T12:24:14.340734Z"
+            },
+            {
+              "id": 25465420529664,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:24:22.158515Z",
+              "updated_at": "2026-07-08T12:24:22.157196Z",
+              "processed_at": "2026-07-08T12:24:27.222070Z"
+            },
+            {
+              "id": 25465420529664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:22.158515Z",
+              "updated_at": "2026-07-08T12:24:22.882086Z",
+              "processed_at": "2026-07-08T12:24:27.224449Z"
+            },
+            {
+              "id": 25465638002688,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:26:21.800683Z",
+              "updated_at": "2026-07-08T12:26:21.799916Z",
+              "processed_at": "2026-07-08T12:26:22.832077Z"
+            },
+            {
+              "id": 25465638002688,
+              "operation": "update",
+              "created_at": "2026-07-08T12:26:21.800683Z",
+              "updated_at": "2026-07-08T12:26:22.027895Z",
+              "processed_at": "2026-07-08T12:26:22.835122Z"
+            },
+            {
+              "id": 25465638002688,
+              "operation": "update",
+              "created_at": "2026-07-08T12:26:21.800683Z",
+              "updated_at": "2026-07-08T12:26:22.083292Z",
+              "processed_at": "2026-07-08T12:26:23.312066Z"
+            },
+            {
+              "id": 25465639374848,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:26:23.057215Z",
+              "updated_at": "2026-07-08T12:26:23.056353Z",
+              "processed_at": "2026-07-08T12:26:23.785413Z"
+            },
+            {
+              "id": 25465639374848,
+              "operation": "update",
+              "created_at": "2026-07-08T12:26:23.057215Z",
+              "updated_at": "2026-07-08T12:26:23.836396Z",
+              "processed_at": "2026-07-08T12:26:24.318282Z"
+            },
+            {
+              "id": 25465319419904,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:39.847701Z",
+              "updated_at": "2026-07-08T12:26:47.510006Z",
+              "processed_at": "2026-07-08T12:26:48.093193Z"
+            },
+            {
+              "id": 25465314803712,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:35.215682Z",
+              "updated_at": "2026-07-08T12:26:47.526209Z",
+              "processed_at": "2026-07-08T12:26:48.093307Z"
+            },
+            {
+              "id": 25465319419904,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:39.847701Z",
+              "updated_at": "2026-07-08T12:27:09.504782Z",
+              "processed_at": "2026-07-08T12:27:10.406977Z"
+            },
+            {
+              "id": 25465314803712,
+              "operation": "update",
+              "created_at": "2026-07-08T12:23:35.215682Z",
+              "updated_at": "2026-07-08T12:27:09.518688Z",
+              "processed_at": "2026-07-08T12:27:10.407241Z"
+            },
+            {
+              "id": 25465821392896,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:27:57.771460Z",
+              "updated_at": "2026-07-08T12:27:57.770701Z",
+              "processed_at": "2026-07-08T12:27:58.505702Z"
+            },
+            {
+              "id": 25465821392896,
+              "operation": "update",
+              "created_at": "2026-07-08T12:27:57.771460Z",
+              "updated_at": "2026-07-08T12:27:58.651728Z",
+              "processed_at": "2026-07-08T12:27:59.294345Z"
+            },
+            {
+              "id": 25461646082048,
+              "operation": "update",
+              "created_at": "2026-07-08T12:06:19.330107Z",
+              "updated_at": "2026-07-08T12:31:21.995837Z",
+              "processed_at": "2026-07-08T12:31:22.962492Z"
+            },
+            {
+              "id": 25461646082048,
+              "operation": "update",
+              "created_at": "2026-07-08T12:06:19.330107Z",
+              "updated_at": "2026-07-08T12:31:57.988443Z",
+              "processed_at": "2026-07-08T12:31:58.928751Z"
+            },
+            {
+              "id": 25465638002688,
+              "operation": "update",
+              "created_at": "2026-07-08T12:26:21.800683Z",
+              "updated_at": "2026-07-08T12:34:20.249796Z",
+              "processed_at": "2026-07-08T12:34:21.256309Z"
+            },
+            {
+              "id": 25465638002688,
+              "operation": "update",
+              "created_at": "2026-07-08T12:26:21.800683Z",
+              "updated_at": "2026-07-08T12:35:17.542413Z",
+              "processed_at": "2026-07-08T12:35:18.433145Z"
+            },
+            {
+              "id": 25465638002688,
+              "operation": "update",
+              "created_at": "2026-07-08T12:26:21.800683Z",
+              "updated_at": "2026-07-08T12:35:28.963785Z",
+              "processed_at": "2026-07-08T12:35:29.822778Z"
+            },
+            {
+              "id": 25461862449152,
+              "operation": "delete",
+              "created_at": "2026-07-08T12:06:43.142211Z",
+              "updated_at": "2026-07-08T12:35:55.522142Z",
+              "processed_at": "2026-07-08T12:35:55.735606Z"
+            },
+            {
+              "id": 25465638002688,
+              "operation": "update",
+              "created_at": "2026-07-08T12:26:21.800683Z",
+              "updated_at": "2026-07-08T12:35:55.675110Z",
+              "processed_at": "2026-07-08T12:35:56.557873Z"
+            },
+            {
+              "id": 25461870440448,
+              "operation": "delete",
+              "created_at": "2026-07-08T12:06:44.767982Z",
+              "updated_at": "2026-07-08T12:36:43.721086Z",
+              "processed_at": "2026-07-08T12:36:44.063457Z"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:40:28 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4845",
+          "x-ratelimit-reset": "1783514432",
+          "cf-ray": "a17f2856f980aee3-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"c5149d57ff1cd9a7e6cf6a4511029496\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "17",
+          "ratelimit-reset": "1783514430",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "f2d5f335-067b-4804-b0fa-0b2a43216c2a",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "1d0e6b3ca496e7487467251b39945572889a1f78",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/api/external/v2/customer_invoices/25461646082048": {
+        "response": {
+          "id": 25461646082048,
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "tax": "100.0",
+          "currency_tax": "100.0",
+          "remaining_amount_with_tax": null,
+          "remaining_amount_without_tax": null,
+          "draft": true,
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "special_mention": null,
+          "created_at": "2026-07-08T12:06:19.330107Z",
+          "updated_at": "2026-07-08T12:31:57.988443Z",
+          "archived_at": null,
+          "pdf_invoice_free_text": "",
+          "pdf_description": null,
+          "pdf_invoice_subject": "Updated Subject",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=aY7vyeqsQbWxIffx0Pwlci1aBsgyl6m0qpy0EMxmEXE%2FZzxQLfAHE3RswNCPbPxy6LZRAef%2FgB9GQYKk6vCVi15yOD1aMbh6T6ZnUTSSL%2BOlBLHZCytLj3EqibBedQ%3D%3D--ZCzuVvWfPldbjKjI--dwBSbbA2G43B9PV8AP52Tw%3D%3D",
+          "exchange_rate": "1.0",
+          "discount": {
+            "type": "relative",
+            "value": "0.0"
+          },
+          "ledger_entry": {
+            "id": 25461646082048
+          },
+          "customer_invoice_template": null,
+          "transaction_reference": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "billing_subscription": null,
+          "credited_invoice": null,
+          "quote": null,
+          "invoice_line_sections": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/invoice_line_sections"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/invoice_lines"
+          },
+          "custom_header_fields": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/custom_header_fields"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/matched_transactions"
+          },
+          "appendices": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25461646082048/appendices"
+          },
+          "external_reference": "W79NQLZQ9Z",
+          "e_invoicing": null,
+          "factur_x": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:40:28 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4843",
+          "x-ratelimit-reset": "1783514432",
+          "cf-ray": "a17f285a1a69fefd-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"83269cf9323781d42b7caeb34a64f81a\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "15",
+          "ratelimit-reset": "1783514430",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "bd5901de-4cb6-4d67-8df9-d7daba12b579",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "5d5e04c69b1c1a5956ba06e40ef979319d9495c2",
+        "request": {}
+      },
+      "/api/external/v2/customer_invoices/25465314803712": {
+        "response": {
+          "id": 25465314803712,
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "tax": "100.0",
+          "currency_tax": "100.0",
+          "remaining_amount_with_tax": null,
+          "remaining_amount_without_tax": null,
+          "draft": true,
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "special_mention": null,
+          "created_at": "2026-07-08T12:23:35.215682Z",
+          "updated_at": "2026-07-08T12:27:09.518688Z",
+          "archived_at": null,
+          "pdf_invoice_free_text": "",
+          "pdf_description": null,
+          "pdf_invoice_subject": "",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=3hm2ZaFO0VoH2ge%2B6XAUTgz66LA6OrbI8Z5UbsQzFQ8N%2BY5eADtDmtFgIxlAz%2FRT6V0Cr4E0YGZ4sTROgKI66kNnH523oEkW%2BK5ubAkqd4Eg5Qm0NVkHKEln6v5MyA%3D%3D--Xzbzopm3vRlX7cyD--pTG9WiW77BtnfZMfx1caJA%3D%3D",
+          "exchange_rate": "1.0",
+          "discount": {
+            "type": "relative",
+            "value": "0.0"
+          },
+          "ledger_entry": {
+            "id": 25465314803712
+          },
+          "customer_invoice_template": null,
+          "transaction_reference": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "billing_subscription": null,
+          "credited_invoice": null,
+          "quote": null,
+          "invoice_line_sections": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/invoice_line_sections"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/invoice_lines"
+          },
+          "custom_header_fields": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/custom_header_fields"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/matched_transactions"
+          },
+          "appendices": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712/appendices"
+          },
+          "external_reference": "N5OPBCSYY8",
+          "e_invoicing": null,
+          "factur_x": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:40:29 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4841",
+          "x-ratelimit-reset": "1783514432",
+          "cf-ray": "a17f285ceb61aee3-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"4fe12ff18c78bb7079d7462204bbb22d\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "13",
+          "ratelimit-reset": "1783514430",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "af2ef23d-5e6f-4e07-85ac-c9dd1890a3dd",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "2f4687582cbaafead4fca4c1131a22c241cf481b",
+        "request": {}
+      },
+      "/api/external/v2/customer_invoices/25465319419904": {
+        "response": {
+          "id": 25465319419904,
+          "label": "Avoir Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "-120.0",
+          "currency_amount": "-120.0",
+          "currency_amount_before_tax": "-100.0",
+          "tax": "-20.0",
+          "currency_tax": "-20.0",
+          "remaining_amount_with_tax": null,
+          "remaining_amount_without_tax": null,
+          "draft": true,
+          "language": "fr_FR",
+          "paid": false,
+          "status": "credit_note",
+          "filename": "Avoir-Acme Corp Test-NANGO.pdf",
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "special_mention": null,
+          "created_at": "2026-07-08T12:23:39.847701Z",
+          "updated_at": "2026-07-08T12:27:09.504782Z",
+          "archived_at": null,
+          "pdf_invoice_free_text": "",
+          "pdf_description": null,
+          "pdf_invoice_subject": "",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=b5TyyZhKhDpA8GN99UC2WNhZoi0U0CvRxzEY7Y%2Bl2az4dydRZU1mzM7nAJFWrDBtWgutY0MM1QejXJW3OJAl1zUNOhQYNiwLlqsOVf4i1wvtz9lTwUce4NdgXHiHcQ%3D%3D--9FkWfvgxhSIpRCNl--6UwUJFdP%2F4jV2Jb74oZjUQ%3D%3D",
+          "exchange_rate": "1.0",
+          "discount": {
+            "type": "relative",
+            "value": "0.0"
+          },
+          "ledger_entry": {
+            "id": 25465319419904
+          },
+          "customer_invoice_template": null,
+          "transaction_reference": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "billing_subscription": null,
+          "credited_invoice": {
+            "id": 25465314803712,
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465314803712"
+          },
+          "quote": null,
+          "invoice_line_sections": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/invoice_line_sections"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/invoice_lines"
+          },
+          "custom_header_fields": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/custom_header_fields"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/matched_transactions"
+          },
+          "appendices": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465319419904/appendices"
+          },
+          "external_reference": "XLTIWHGG8A",
+          "e_invoicing": null,
+          "factur_x": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:40:29 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4838",
+          "x-ratelimit-reset": "1783514432",
+          "cf-ray": "a17f285f7f3b5ebf-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"b462bace9b65b5425f072a27effea142\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "11",
+          "ratelimit-reset": "1783514430",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "81f5e481-8ab9-4197-bd16-60bd5278ca9d",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "7e1df203d0b27b20caa0b83d737d2a4611143729",
+        "request": {}
+      },
+      "/api/external/v2/customer_invoices/25465375571968": {
+        "response": {
+          "id": 25465375571968,
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "1200.0",
+          "currency_amount": "1200.0",
+          "currency_amount_before_tax": "1000.0",
+          "tax": "200.0",
+          "currency_tax": "200.0",
+          "remaining_amount_with_tax": null,
+          "remaining_amount_without_tax": null,
+          "draft": true,
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "date": "2026-07-08",
+          "deadline": "2026-07-31",
+          "special_mention": null,
+          "created_at": "2026-07-08T12:24:09.241350Z",
+          "updated_at": "2026-07-08T12:24:09.892994Z",
+          "archived_at": null,
+          "pdf_invoice_free_text": "",
+          "pdf_description": null,
+          "pdf_invoice_subject": "",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=4PSLhMIOwmjJD677MBoMzvI8mZjv%2BAc1Gakkel1QLhGpemLx4NlMMlTAKlV9tbsOKveCi03fa91ILzudhsBTMi1n39rbAdaQBVo3YvgvPSaD5rAJfVon%2B09si6aETQ%3D%3D--nLYjgFlza%2F7%2FjDpn--z%2FobtkOJ8oJ8TmzppUiKHg%3D%3D",
+          "exchange_rate": "1.0",
+          "discount": {
+            "type": "relative",
+            "value": "0.0"
+          },
+          "ledger_entry": {
+            "id": 25465375571968
+          },
+          "customer_invoice_template": null,
+          "transaction_reference": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "billing_subscription": null,
+          "credited_invoice": null,
+          "quote": null,
+          "invoice_line_sections": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/invoice_line_sections"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/invoice_lines"
+          },
+          "custom_header_fields": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/custom_header_fields"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/matched_transactions"
+          },
+          "appendices": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465375571968/appendices"
+          },
+          "external_reference": "2W7ZCCK96E",
+          "e_invoicing": null,
+          "factur_x": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:40:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4836",
+          "x-ratelimit-reset": "1783514432",
+          "cf-ray": "a17f28656ef8fef7-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"111bfc335580a817be11fb909c475277\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783514435",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "77304afd-e17f-4ec4-9dc9-8ca2d7ca9375",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "1b3ee7d238f64717c0f52899703bc4cd57d94808",
+        "request": {}
+      },
+      "/api/external/v2/customer_invoices/25465420529664": {
+        "response": {
+          "id": 25465420529664,
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "1200.0",
+          "currency_amount": "1200.0",
+          "currency_amount_before_tax": "1000.0",
+          "tax": "200.0",
+          "currency_tax": "200.0",
+          "remaining_amount_with_tax": null,
+          "remaining_amount_without_tax": null,
+          "draft": true,
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "date": "2026-07-08",
+          "deadline": "2026-07-31",
+          "special_mention": null,
+          "created_at": "2026-07-08T12:24:22.158515Z",
+          "updated_at": "2026-07-08T12:24:22.882086Z",
+          "archived_at": null,
+          "pdf_invoice_free_text": "",
+          "pdf_description": null,
+          "pdf_invoice_subject": "",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=EwLwSOpGKDmku84cs6jf3FKyDvt2%2FLLTTnlaPqyDJVNVY69SQtxvlALJMQB5W1QERzPGmPMrvk%2FHcwWtRbt%2FXtW8B8whNVCtvFX4hTaX89Ee9I2EuW8HO5wSGJgzXA%3D%3D--on1gcspyc51wn2vW--qDw6EOVO%2Fg2B6wbeDfbWFw%3D%3D",
+          "exchange_rate": "1.0",
+          "discount": {
+            "type": "relative",
+            "value": "0.0"
+          },
+          "ledger_entry": {
+            "id": 25465420529664
+          },
+          "customer_invoice_template": null,
+          "transaction_reference": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "billing_subscription": null,
+          "credited_invoice": null,
+          "quote": null,
+          "invoice_line_sections": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/invoice_line_sections"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/invoice_lines"
+          },
+          "custom_header_fields": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/custom_header_fields"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/matched_transactions"
+          },
+          "appendices": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465420529664/appendices"
+          },
+          "external_reference": "2SPAZCOI5F",
+          "e_invoicing": null,
+          "factur_x": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:40:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4834",
+          "x-ratelimit-reset": "1783514432",
+          "cf-ray": "a17f28688abd2fbe-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"cda02330ceeb5d86987609d88cf95553\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "23",
+          "ratelimit-reset": "1783514435",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "629b07a2-8def-4705-a2d9-246fa24c763f",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "7367693b703d23403cd6cceb0b827c85c2e1b65b",
+        "request": {}
+      },
+      "/api/external/v2/customer_invoices/25465638002688": {
+        "response": {
+          "id": 25465638002688,
+          "label": "Facture Acme Corp Test - TEST-001 (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "TEST-001",
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "tax": "100.0",
+          "currency_tax": "100.0",
+          "remaining_amount_with_tax": "600.0",
+          "remaining_amount_without_tax": "500.0",
+          "draft": false,
+          "language": "fr_FR",
+          "paid": false,
+          "status": "upcoming",
+          "filename": "test_invoice.pdf",
+          "date": "2026-07-08",
+          "deadline": "2026-08-15",
+          "special_mention": null,
+          "created_at": "2026-07-08T12:26:21.800683Z",
+          "updated_at": "2026-07-08T12:35:55.675110Z",
+          "archived_at": null,
+          "pdf_invoice_free_text": "",
+          "pdf_description": null,
+          "pdf_invoice_subject": "",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=v%2BJTIAIbKRHOt64NVwfxVFVsp%2FrJVn%2B2s9pJnSur6nJTOn%2FN5OFN0S9doQ7vMESFBRDqdj9e3rU9PwvS%2BIHXv3hiHI21hbc5eUq2OcB%2B779x6W8sySECLuL44VvDqw%3D%3D--wNNCVjoulkhppOeb--rcygS2ky0cJpVqH1SFXHYA%3D%3D",
+          "exchange_rate": "1.0",
+          "discount": {
+            "type": "relative",
+            "value": "0.0"
+          },
+          "ledger_entry": {
+            "id": 25465638002688
+          },
+          "customer_invoice_template": null,
+          "transaction_reference": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "billing_subscription": null,
+          "credited_invoice": null,
+          "quote": null,
+          "invoice_line_sections": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/invoice_line_sections"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/invoice_lines"
+          },
+          "custom_header_fields": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/custom_header_fields"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/matched_transactions"
+          },
+          "appendices": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465638002688/appendices"
+          },
+          "external_reference": "WOQPXLHWI5",
+          "e_invoicing": null,
+          "factur_x": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:40:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4833",
+          "x-ratelimit-reset": "1783514432",
+          "cf-ray": "a17f286d4b1dfefd-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"49acdeeb8c56005100ede7116ae75d7b\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "22",
+          "ratelimit-reset": "1783514435",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "7d931580-2a9b-443c-8abc-d64daa6991a2",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "8107d67333bea450bba57cbb83bbb84a8114b6aa",
+        "request": {}
+      },
+      "/api/external/v2/customer_invoices/25465639374848": {
+        "response": {
+          "id": 25465639374848,
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "tax": "100.0",
+          "currency_tax": "100.0",
+          "remaining_amount_with_tax": null,
+          "remaining_amount_without_tax": null,
+          "draft": true,
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "special_mention": null,
+          "created_at": "2026-07-08T12:26:23.057215Z",
+          "updated_at": "2026-07-08T12:26:23.836396Z",
+          "archived_at": null,
+          "pdf_invoice_free_text": "",
+          "pdf_description": null,
+          "pdf_invoice_subject": "",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=fuKg2GI4CkylvHWM4NFjwntQCQph3Uo%2BZuTn0mdDbQdZf1BcbFhJr0N6LZ7AGaXDrmonZSFePvenq7wU4H96I7qAEpv8XP9RLrMNym9Rauz9OfMVDBNQ6AC8HsdT%2FA%3D%3D--KrY%2BioXip%2FP3Lube--J6xXgdYlfcH5XZognwonkw%3D%3D",
+          "exchange_rate": "1.0",
+          "discount": {
+            "type": "relative",
+            "value": "0.0"
+          },
+          "ledger_entry": {
+            "id": 25465639374848
+          },
+          "customer_invoice_template": null,
+          "transaction_reference": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "billing_subscription": null,
+          "credited_invoice": null,
+          "quote": {
+            "id": 25461979840512
+          },
+          "invoice_line_sections": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/invoice_line_sections"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/invoice_lines"
+          },
+          "custom_header_fields": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/custom_header_fields"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/matched_transactions"
+          },
+          "appendices": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465639374848/appendices"
+          },
+          "external_reference": "S74XKUL40H",
+          "e_invoicing": null,
+          "factur_x": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:40:32 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4832",
+          "x-ratelimit-reset": "1783514432",
+          "cf-ray": "a17f28700c7efef7-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"0bc9b7d68b6a76ad11ae477c11570105\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "21",
+          "ratelimit-reset": "1783514435",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "010b2ab8-80b3-4605-8a11-5b19168bfd6b",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "f26918befa5f69e1f3e36d6ecef1b94e4fd1bd1f",
+        "request": {}
+      },
+      "/api/external/v2/customer_invoices/25465821392896": {
+        "response": {
+          "id": 25465821392896,
+          "label": "Facture Acme Corp Test (label g\u00e9n\u00e9r\u00e9)",
+          "invoice_number": "",
+          "currency": "EUR",
+          "amount": "600.0",
+          "currency_amount": "600.0",
+          "currency_amount_before_tax": "500.0",
+          "tax": "100.0",
+          "currency_tax": "100.0",
+          "remaining_amount_with_tax": null,
+          "remaining_amount_without_tax": null,
+          "draft": true,
+          "language": "fr_FR",
+          "paid": false,
+          "status": "draft",
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "date": "2026-07-08",
+          "deadline": "2026-08-08",
+          "special_mention": null,
+          "created_at": "2026-07-08T12:27:57.771460Z",
+          "updated_at": "2026-07-08T12:27:58.651728Z",
+          "archived_at": null,
+          "pdf_invoice_free_text": "",
+          "pdf_description": null,
+          "pdf_invoice_subject": "",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=XBovYCREBznTXZ2herdNxHHS6c9n3POe9ZE1sJzmWKFOhOJKBK90JVkt7yUDa%2F9ET84A0esgKxyMUhvhEzQu7QspRjysF9zb2utj39RWOo%2BLUnm86ML303Z%2BRcF%2FgA%3D%3D--VNZic17c8dmc6moT--o%2BOWFrvu28actBPRn8PuyA%3D%3D",
+          "exchange_rate": "1.0",
+          "discount": {
+            "type": "relative",
+            "value": "0.0"
+          },
+          "ledger_entry": {
+            "id": 25465821392896
+          },
+          "customer_invoice_template": null,
+          "transaction_reference": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "billing_subscription": null,
+          "credited_invoice": null,
+          "quote": {
+            "id": 25465737265152
+          },
+          "invoice_line_sections": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/invoice_line_sections"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/invoice_lines"
+          },
+          "custom_header_fields": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/custom_header_fields"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/matched_transactions"
+          },
+          "appendices": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices/25465821392896/appendices"
+          },
+          "external_reference": "DZ7GCN5U6R",
+          "e_invoicing": null,
+          "factur_x": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:40:32 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4828",
+          "x-ratelimit-reset": "1783514432",
+          "cf-ray": "a17f28729fd3884d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"1cbc31b655c8f0ebdabb927642ab9c6f\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "19",
+          "ratelimit-reset": "1783514435",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "ddd6d080-7549-45d7-88f4-324d192b7d91",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "b1807cf1e518b0b5bff11491e81b5525ce4cb363",
+        "request": {}
+      }
+    }
+  }
+}

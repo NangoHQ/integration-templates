@@ -1,0 +1,1092 @@
+{
+  "nango": {
+    "batchSave": {
+      "Transaction": [
+        {
+          "id": "25465370439680",
+          "label": "Test transaction",
+          "date": "2026-07-08",
+          "amount": "100.0",
+          "currency": "EUR",
+          "outstanding_balance": "0.0",
+          "bank_account": {
+            "id": 14569345024,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14569345024"
+          },
+          "journal": {
+            "id": 91387359232,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91387359232"
+          },
+          "categories": []
+        },
+        {
+          "id": "25467526230016",
+          "label": "Test Transaction",
+          "date": "2026-07-08",
+          "amount": "100.0",
+          "currency": "EUR",
+          "outstanding_balance": "0.0",
+          "bank_account": {
+            "id": 14570160128,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14570160128"
+          },
+          "journal": {
+            "id": 91415310336,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91415310336"
+          },
+          "categories": []
+        },
+        {
+          "id": "25467718930432",
+          "label": "Test Transaction",
+          "date": "2026-07-08",
+          "amount": "100.0",
+          "currency": "EUR",
+          "outstanding_balance": "0.0",
+          "bank_account": {
+            "id": 14570303488,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14570303488"
+          },
+          "journal": {
+            "id": 91416215552,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91416215552"
+          },
+          "categories": [
+            {
+              "id": 239432757248,
+              "label": "IS",
+              "weight": "1.0"
+            }
+          ]
+        },
+        {
+          "id": "25468932849664",
+          "label": "Customer Payment Match",
+          "date": "2026-07-08",
+          "amount": "600.0",
+          "currency": "EUR",
+          "outstanding_balance": "-600.0",
+          "bank_account": {
+            "id": 14570303488,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14570303488"
+          },
+          "journal": {
+            "id": 91416215552,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91416215552"
+          },
+          "categories": []
+        },
+        {
+          "id": "25471101403136",
+          "label": "Test transaction",
+          "date": "2026-07-08",
+          "amount": "100.5",
+          "currency": "EUR",
+          "outstanding_balance": "0.0",
+          "bank_account": {
+            "id": 14571778048,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14571778048"
+          },
+          "journal": {
+            "id": 91424337920,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91424337920"
+          },
+          "categories": [
+            {
+              "id": 239432757248,
+              "label": "IS",
+              "weight": "1.0"
+            }
+          ]
+        },
+        {
+          "id": "25472556056576",
+          "label": "Uncontrolled test",
+          "date": "2026-07-08",
+          "amount": "1.0",
+          "currency": "EUR",
+          "outstanding_balance": "-1.0",
+          "bank_account": {
+            "id": 14571778048,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14571778048"
+          },
+          "journal": {
+            "id": 91424337920,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91424337920"
+          },
+          "categories": []
+        },
+        {
+          "id": "25472688783360",
+          "label": "Uncontrolled test 2",
+          "date": "2026-07-08",
+          "amount": "2.0",
+          "currency": "EUR",
+          "outstanding_balance": "-2.0",
+          "bank_account": {
+            "id": 14571778048,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14571778048"
+          },
+          "journal": {
+            "id": 91424337920,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91424337920"
+          },
+          "categories": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "Transaction": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/external/v2/changelogs/transactions": {
+        "response": {
+          "items": [
+            {
+              "id": 25465370439680,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T12:24:07.711319Z",
+              "processed_at": "2026-07-08T12:24:08.565811Z"
+            },
+            {
+              "id": 25465370439680,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T12:24:08.031595Z",
+              "processed_at": "2026-07-08T12:24:09.131246Z"
+            },
+            {
+              "id": 25465370439680,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T12:29:16.586905Z",
+              "processed_at": "2026-07-08T12:29:17.270357Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:38:24.217934Z",
+              "processed_at": "2026-07-08T12:38:25.126028Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:38:24.797610Z",
+              "processed_at": "2026-07-08T12:38:26.007905Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:39:16.952986Z",
+              "processed_at": "2026-07-08T12:39:18.084608Z"
+            },
+            {
+              "id": 25467718930432,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:39:21.079137Z",
+              "updated_at": "2026-07-08T12:39:21.077738Z",
+              "processed_at": "2026-07-08T12:39:22.216073Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:39:21.300397Z",
+              "processed_at": "2026-07-08T12:39:22.221189Z"
+            },
+            {
+              "id": 25467718930432,
+              "operation": "update",
+              "created_at": "2026-07-08T12:39:21.079137Z",
+              "updated_at": "2026-07-08T12:39:21.531882Z",
+              "processed_at": "2026-07-08T12:39:22.221310Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:39:23.362528Z",
+              "processed_at": "2026-07-08T12:39:24.236907Z"
+            },
+            {
+              "id": 25465370439680,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T12:43:52.115898Z",
+              "processed_at": "2026-07-08T12:43:59.649595Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:43:52.115911Z",
+              "processed_at": "2026-07-08T12:43:59.680341Z"
+            },
+            {
+              "id": 25467718930432,
+              "operation": "update",
+              "created_at": "2026-07-08T12:39:21.079137Z",
+              "updated_at": "2026-07-08T12:43:52.115915Z",
+              "processed_at": "2026-07-08T12:43:59.680411Z"
+            },
+            {
+              "id": 25465370439680,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T12:43:52.724922Z",
+              "processed_at": "2026-07-08T12:44:01.034275Z"
+            },
+            {
+              "id": 25467718930432,
+              "operation": "update",
+              "created_at": "2026-07-08T12:39:21.079137Z",
+              "updated_at": "2026-07-08T12:43:52.724935Z",
+              "processed_at": "2026-07-08T12:44:01.202189Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:43:52.724939Z",
+              "processed_at": "2026-07-08T12:44:01.202248Z"
+            },
+            {
+              "id": 25465370439680,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T12:44:26.875368Z",
+              "processed_at": "2026-07-08T12:44:27.310951Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:44:26.875377Z",
+              "processed_at": "2026-07-08T12:44:27.330763Z"
+            },
+            {
+              "id": 25467718930432,
+              "operation": "update",
+              "created_at": "2026-07-08T12:39:21.079137Z",
+              "updated_at": "2026-07-08T12:44:26.875381Z",
+              "processed_at": "2026-07-08T12:44:27.330825Z"
+            },
+            {
+              "id": 25467718930432,
+              "operation": "update",
+              "created_at": "2026-07-08T12:39:21.079137Z",
+              "updated_at": "2026-07-08T12:44:27.293599Z",
+              "processed_at": "2026-07-08T12:44:28.163823Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:44:27.293603Z",
+              "processed_at": "2026-07-08T12:44:28.163884Z"
+            },
+            {
+              "id": 25465370439680,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T12:44:27.293587Z",
+              "processed_at": "2026-07-08T12:44:28.214499Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T12:45:51.211663Z",
+              "processed_at": "2026-07-08T12:45:52.195338Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T12:45:51.489749Z",
+              "processed_at": "2026-07-08T12:45:52.197632Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T12:45:53.616019Z",
+              "processed_at": "2026-07-08T12:45:54.638464Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T12:45:53.950587Z",
+              "processed_at": "2026-07-08T12:45:55.070854Z"
+            },
+            {
+              "id": 25471101403136,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:56:52.662049Z",
+              "updated_at": "2026-07-08T12:56:52.660493Z",
+              "processed_at": "2026-07-08T12:56:53.874587Z"
+            },
+            {
+              "id": 25471101403136,
+              "operation": "update",
+              "created_at": "2026-07-08T12:56:52.662049Z",
+              "updated_at": "2026-07-08T12:56:53.097823Z",
+              "processed_at": "2026-07-08T12:56:54.375028Z"
+            },
+            {
+              "id": 25465370439680,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T12:58:24.874457Z",
+              "processed_at": "2026-07-08T12:58:26.051344Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T12:58:24.874478Z",
+              "processed_at": "2026-07-08T12:58:26.051407Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:58:24.874469Z",
+              "processed_at": "2026-07-08T12:58:26.053804Z"
+            },
+            {
+              "id": 25467718930432,
+              "operation": "update",
+              "created_at": "2026-07-08T12:39:21.079137Z",
+              "updated_at": "2026-07-08T12:58:24.874472Z",
+              "processed_at": "2026-07-08T12:58:26.053869Z"
+            },
+            {
+              "id": 25471101403136,
+              "operation": "update",
+              "created_at": "2026-07-08T12:56:52.662049Z",
+              "updated_at": "2026-07-08T12:58:24.874475Z",
+              "processed_at": "2026-07-08T12:58:26.053975Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T12:58:25.613174Z",
+              "processed_at": "2026-07-08T12:58:26.534730Z"
+            },
+            {
+              "id": 25467718930432,
+              "operation": "update",
+              "created_at": "2026-07-08T12:39:21.079137Z",
+              "updated_at": "2026-07-08T12:58:25.613179Z",
+              "processed_at": "2026-07-08T12:58:26.534793Z"
+            },
+            {
+              "id": 25471101403136,
+              "operation": "update",
+              "created_at": "2026-07-08T12:56:52.662049Z",
+              "updated_at": "2026-07-08T12:58:25.613187Z",
+              "processed_at": "2026-07-08T12:58:26.534855Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T12:58:25.612998Z",
+              "processed_at": "2026-07-08T12:58:26.541442Z"
+            },
+            {
+              "id": 25465370439680,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T12:58:25.613183Z",
+              "processed_at": "2026-07-08T12:58:26.541485Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T13:01:22.602845Z",
+              "processed_at": "2026-07-08T13:01:23.265872Z"
+            },
+            {
+              "id": 25471101403136,
+              "operation": "update",
+              "created_at": "2026-07-08T12:56:52.662049Z",
+              "updated_at": "2026-07-08T13:01:23.280192Z",
+              "processed_at": "2026-07-08T13:01:24.628143Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T13:01:23.280203Z",
+              "processed_at": "2026-07-08T13:01:24.633095Z"
+            },
+            {
+              "id": 25467526230016,
+              "operation": "update",
+              "created_at": "2026-07-08T12:38:24.219247Z",
+              "updated_at": "2026-07-08T13:02:00.324549Z",
+              "processed_at": "2026-07-08T13:02:00.849572Z"
+            },
+            {
+              "id": 25467718930432,
+              "operation": "update",
+              "created_at": "2026-07-08T12:39:21.079137Z",
+              "updated_at": "2026-07-08T13:02:00.324552Z",
+              "processed_at": "2026-07-08T13:02:00.849650Z"
+            },
+            {
+              "id": 25471101403136,
+              "operation": "update",
+              "created_at": "2026-07-08T12:56:52.662049Z",
+              "updated_at": "2026-07-08T13:02:00.324555Z",
+              "processed_at": "2026-07-08T13:02:00.849717Z"
+            },
+            {
+              "id": 25465370439680,
+              "operation": "update",
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T13:02:00.324539Z",
+              "processed_at": "2026-07-08T13:02:00.851334Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T13:02:00.324558Z",
+              "processed_at": "2026-07-08T13:02:00.851397Z"
+            },
+            {
+              "id": 25471101403136,
+              "operation": "update",
+              "created_at": "2026-07-08T12:56:52.662049Z",
+              "updated_at": "2026-07-08T13:02:01.017859Z",
+              "processed_at": "2026-07-08T13:02:01.915992Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T13:02:01.017848Z",
+              "processed_at": "2026-07-08T13:02:01.931565Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T13:02:08.287871Z",
+              "processed_at": "2026-07-08T13:02:09.002800Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T13:02:08.504498Z",
+              "processed_at": "2026-07-08T13:02:09.880474Z"
+            },
+            {
+              "id": 25471101403136,
+              "operation": "update",
+              "created_at": "2026-07-08T12:56:52.662049Z",
+              "updated_at": "2026-07-08T13:02:09.158668Z",
+              "processed_at": "2026-07-08T13:02:10.684056Z"
+            },
+            {
+              "id": 25468932849664,
+              "operation": "update",
+              "created_at": "2026-07-08T12:45:51.213013Z",
+              "updated_at": "2026-07-08T13:02:09.158679Z",
+              "processed_at": "2026-07-08T13:02:10.764217Z"
+            },
+            {
+              "id": 25472556056576,
+              "operation": "insert",
+              "created_at": "2026-07-08T13:02:11.680302Z",
+              "updated_at": "2026-07-08T13:02:11.676290Z",
+              "processed_at": "2026-07-08T13:02:12.272466Z"
+            },
+            {
+              "id": 25472556056576,
+              "operation": "update",
+              "created_at": "2026-07-08T13:02:11.680302Z",
+              "updated_at": "2026-07-08T13:02:11.945256Z",
+              "processed_at": "2026-07-08T13:02:12.811618Z"
+            },
+            {
+              "id": 25472688783360,
+              "operation": "insert",
+              "created_at": "2026-07-08T13:02:52.324342Z",
+              "updated_at": "2026-07-08T13:02:52.317054Z",
+              "processed_at": "2026-07-08T13:02:53.184605Z"
+            },
+            {
+              "id": 25472688783360,
+              "operation": "update",
+              "created_at": "2026-07-08T13:02:52.324342Z",
+              "updated_at": "2026-07-08T13:02:52.542514Z",
+              "processed_at": "2026-07-08T13:02:53.186592Z"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:08:28 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4981",
+          "x-ratelimit-reset": "1783516152",
+          "cf-ray": "a17f515fab1cff16-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"d519e03c00f7b15459316eba29330dea\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783516110",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "cd05d57b-ef8b-48a8-8151-cbf9118ed457",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "d0f9d23130a9120483118a0d7c5a57842b5e6be1",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/api/external/v2/transactions/25465370439680": {
+        "response": {
+          "amount": "100.0",
+          "archived_at": null,
+          "attachment_required": true,
+          "created_at": "2026-07-08T12:24:07.718476Z",
+          "currency_amount": "100.0",
+          "currency_fee": null,
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "fee": null,
+          "id": 25465370439680,
+          "label": "Test transaction",
+          "outstanding_balance": "0.0",
+          "updated_at": "2026-07-08T13:02:00.324539Z",
+          "interbank_code": null,
+          "journal": {
+            "id": 91387359232,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91387359232"
+          },
+          "bank_account": {
+            "id": 14569345024,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14569345024"
+          },
+          "pro_account_expense": null,
+          "customer": null,
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "categories": [],
+          "matched_invoices": {
+            "url": "https://app.pennylane.com/api/external/v2/transactions/25465370439680/matched_invoices"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:08:29 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1783516152",
+          "cf-ray": "a17f5161be468bee-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"c72bec0bded172b646f24a9ba0a58b65\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "23",
+          "ratelimit-reset": "1783516110",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "c0678d10-f806-4b3f-8baa-e4399e2f17a4",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "4bbe0655e9e7f1d955fdb72d1d23b23412379092",
+        "request": {}
+      },
+      "/api/external/v2/transactions/25467526230016": {
+        "response": {
+          "amount": "100.0",
+          "archived_at": null,
+          "attachment_required": true,
+          "created_at": "2026-07-08T12:38:24.219247Z",
+          "currency_amount": "100.0",
+          "currency_fee": null,
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "fee": null,
+          "id": 25467526230016,
+          "label": "Test Transaction",
+          "outstanding_balance": "0.0",
+          "updated_at": "2026-07-08T13:02:00.324549Z",
+          "interbank_code": null,
+          "journal": {
+            "id": 91415310336,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91415310336"
+          },
+          "bank_account": {
+            "id": 14570160128,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14570160128"
+          },
+          "pro_account_expense": null,
+          "customer": null,
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "categories": [],
+          "matched_invoices": {
+            "url": "https://app.pennylane.com/api/external/v2/transactions/25467526230016/matched_invoices"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:08:29 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4979",
+          "x-ratelimit-reset": "1783516152",
+          "cf-ray": "a17f51637d53ff0f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"3970e8e48209f8a9c6d65f5a92bdce9b\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "22",
+          "ratelimit-reset": "1783516110",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "c502f608-08b9-4491-8a54-dfdd7feb877b",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "99971514a59a8963dc6dfed0b67623c548369247",
+        "request": {}
+      },
+      "/api/external/v2/transactions/25467718930432": {
+        "response": {
+          "amount": "100.0",
+          "archived_at": null,
+          "attachment_required": true,
+          "created_at": "2026-07-08T12:39:21.079137Z",
+          "currency_amount": "100.0",
+          "currency_fee": null,
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "fee": null,
+          "id": 25467718930432,
+          "label": "Test Transaction",
+          "outstanding_balance": "0.0",
+          "updated_at": "2026-07-08T13:02:00.324552Z",
+          "interbank_code": null,
+          "journal": {
+            "id": 91416215552,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91416215552"
+          },
+          "bank_account": {
+            "id": 14570303488,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14570303488"
+          },
+          "pro_account_expense": null,
+          "customer": null,
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "categories": [
+            {
+              "weight": "1.0",
+              "id": 239432757248,
+              "label": "IS",
+              "analytical_code": null,
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "updated_at": "2026-07-08T11:26:51.782993Z",
+              "category_group": {
+                "id": 14148939776
+              }
+            }
+          ],
+          "matched_invoices": {
+            "url": "https://app.pennylane.com/api/external/v2/transactions/25467718930432/matched_invoices"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:08:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1783516153",
+          "cf-ray": "a17f5165abc3a096-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"2cc44385474cb22d110bfa13b08f130f\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "21",
+          "ratelimit-reset": "1783516110",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "22063bcb-04d1-45b6-bc51-d5b462c33976",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "d7c0f90a944be1232b76890e8ece29f141c37ffb",
+        "request": {}
+      },
+      "/api/external/v2/transactions/25468932849664": {
+        "response": {
+          "amount": "600.0",
+          "archived_at": null,
+          "attachment_required": true,
+          "created_at": "2026-07-08T12:45:51.213013Z",
+          "currency_amount": "600.0",
+          "currency_fee": null,
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "fee": null,
+          "id": 25468932849664,
+          "label": "Customer Payment Match",
+          "outstanding_balance": "-600.0",
+          "updated_at": "2026-07-08T13:02:09.158679Z",
+          "interbank_code": null,
+          "journal": {
+            "id": 91416215552,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91416215552"
+          },
+          "bank_account": {
+            "id": 14570303488,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14570303488"
+          },
+          "pro_account_expense": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "supplier": null,
+          "categories": [],
+          "matched_invoices": {
+            "url": "https://app.pennylane.com/api/external/v2/transactions/25468932849664/matched_invoices"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:08:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1783516152",
+          "cf-ray": "a17f516a0f125509-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"6e3a7ccf164ce065767bed9e7c0b6bf2\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783516115",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "cf018c68-51d1-4e27-b319-fb1273c9ee62",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "39fad13cd611dc59531012c1137d003979f7f922",
+        "request": {}
+      },
+      "/api/external/v2/transactions/25471101403136": {
+        "response": {
+          "amount": "100.5",
+          "archived_at": null,
+          "attachment_required": true,
+          "created_at": "2026-07-08T12:56:52.662049Z",
+          "currency_amount": "100.5",
+          "currency_fee": null,
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "fee": null,
+          "id": 25471101403136,
+          "label": "Test transaction",
+          "outstanding_balance": "0.0",
+          "updated_at": "2026-07-08T13:02:09.158668Z",
+          "interbank_code": null,
+          "journal": {
+            "id": 91424337920,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91424337920"
+          },
+          "bank_account": {
+            "id": 14571778048,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14571778048"
+          },
+          "pro_account_expense": null,
+          "customer": null,
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "categories": [
+            {
+              "weight": "1.0",
+              "id": 239432757248,
+              "label": "IS",
+              "analytical_code": null,
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "updated_at": "2026-07-08T11:26:51.782993Z",
+              "category_group": {
+                "id": 14148939776
+              }
+            }
+          ],
+          "matched_invoices": {
+            "url": "https://app.pennylane.com/api/external/v2/transactions/25471101403136/matched_invoices"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:08:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1783516152",
+          "cf-ray": "a17f516c09b4ff0f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"3b65114b7682f5e8763a73d50e5e1754\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "23",
+          "ratelimit-reset": "1783516115",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "741c1baa-3328-4e75-8973-59ebfd63348b",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "340d6ac3d4e30f7b8bc16493a6bae1dba8dd3385",
+        "request": {}
+      },
+      "/api/external/v2/transactions/25472556056576": {
+        "response": {
+          "amount": "1.0",
+          "archived_at": null,
+          "attachment_required": true,
+          "created_at": "2026-07-08T13:02:11.680302Z",
+          "currency_amount": "1.0",
+          "currency_fee": null,
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "fee": null,
+          "id": 25472556056576,
+          "label": "Uncontrolled test",
+          "outstanding_balance": "-1.0",
+          "updated_at": "2026-07-08T13:02:11.945256Z",
+          "interbank_code": null,
+          "journal": {
+            "id": 91424337920,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91424337920"
+          },
+          "bank_account": {
+            "id": 14571778048,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14571778048"
+          },
+          "pro_account_expense": null,
+          "customer": null,
+          "supplier": null,
+          "categories": [],
+          "matched_invoices": {
+            "url": "https://app.pennylane.com/api/external/v2/transactions/25472556056576/matched_invoices"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:08:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1783516152",
+          "cf-ray": "a17f516dc8a5fef6-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"fd51f33b372bbefff66c19b7bcfff0e3\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "22",
+          "ratelimit-reset": "1783516115",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "093356eb-b8d5-4586-8fc3-df64c3ccdf45",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "ac63cde08d3d5576aad140492b7a8b9364b9c236",
+        "request": {}
+      },
+      "/api/external/v2/transactions/25472688783360": {
+        "response": {
+          "amount": "2.0",
+          "archived_at": null,
+          "attachment_required": true,
+          "created_at": "2026-07-08T13:02:52.324342Z",
+          "currency_amount": "2.0",
+          "currency_fee": null,
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "fee": null,
+          "id": 25472688783360,
+          "label": "Uncontrolled test 2",
+          "outstanding_balance": "-2.0",
+          "updated_at": "2026-07-08T13:02:52.542514Z",
+          "interbank_code": null,
+          "journal": {
+            "id": 91424337920,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91424337920"
+          },
+          "bank_account": {
+            "id": 14571778048,
+            "url": "https://app.pennylane.com/api/external/v2/bank_accounts/14571778048"
+          },
+          "pro_account_expense": null,
+          "customer": null,
+          "supplier": null,
+          "categories": [],
+          "matched_invoices": {
+            "url": "https://app.pennylane.com/api/external/v2/transactions/25472688783360/matched_invoices"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:08:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1783516152",
+          "cf-ray": "a17f516faa9be22a-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"96fda975015a8c0298bb71b1f84c39f1\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "21",
+          "ratelimit-reset": "1783516115",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "083112d2-69cf-4b62-bc6b-a387c17a38a2",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "9b8d167b1025c546a1c1581bd082752281fb0d4e",
+        "request": {}
+      }
+    }
+  }
+}

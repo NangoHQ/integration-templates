@@ -1,0 +1,750 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "label": "Test ledger entry",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:26:38.530667Z",
+        "updated_at": "2026-07-08T12:26:38.529216Z",
+        "invoice_number": "",
+        "id": 25465653366784,
+        "piece_number": "HF8OWY0FWW",
+        "due_date": null,
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": null,
+        "categories": [],
+        "ledger_attachment_filename": null,
+        "attachment": null
+      },
+      {
+        "label": "Test ledger entry for categories",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:26:34.874129Z",
+        "updated_at": "2026-07-08T12:26:34.872632Z",
+        "invoice_number": "",
+        "id": 25465651060736,
+        "piece_number": "JCFJZCWZGO",
+        "due_date": null,
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": null,
+        "categories": [],
+        "ledger_attachment_filename": null,
+        "attachment": null
+      },
+      {
+        "label": "Test same account lettering",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:26:30.265869Z",
+        "updated_at": "2026-07-08T12:26:30.264647Z",
+        "invoice_number": "",
+        "id": 25465648861184,
+        "piece_number": "BDZ2MBXBSB",
+        "due_date": null,
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": null,
+        "categories": [],
+        "ledger_attachment_filename": null,
+        "attachment": null
+      },
+      {
+        "label": "Facture Acme Corp Test (label généré)",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:26:23.057215Z",
+        "updated_at": "2026-07-08T12:26:23.056353Z",
+        "invoice_number": "",
+        "id": 25465639374848,
+        "piece_number": "S74XKUL40H",
+        "due_date": "2026-08-08",
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": "draft",
+        "categories": [],
+        "ledger_attachment_filename": "Facture-Acme Corp Test-NANGO.pdf",
+        "attachment": {
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyE9co2V4cMcLB85qTkkozjLadxgAo3B1cqdibG9iX2lk--dfcd4c09cb42e62f2f0e8646eb85c14be2651e47/Facture-Acme%20Corp%20Test-NANGO.pdf"
+        }
+      },
+      {
+        "label": "Facture Acme Corp Test (label généré)",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:26:21.800683Z",
+        "updated_at": "2026-07-08T12:26:21.799916Z",
+        "invoice_number": "",
+        "id": 25465638002688,
+        "piece_number": "WOQPXLHWI5",
+        "due_date": "2026-07-31",
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": "complete",
+        "categories": [
+          {
+            "id": 239432757248,
+            "label": "IS",
+            "analytical_code": null,
+            "created_at": "2026-07-08T11:26:51.380074Z",
+            "updated_at": "2026-07-08T11:26:51.782993Z",
+            "weight": "1.0",
+            "category_group": {
+              "id": 14148939776
+            }
+          }
+        ],
+        "ledger_attachment_filename": "test_invoice.pdf",
+        "attachment": {
+          "filename": "test_invoice.pdf",
+          "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyEu-o2V4cMcLB85qTkkozjMh58QAo3B1cqdibG9iX2lk--e2ec99e72ca8504d88d3b31f1a648eaca0b598c8/test_invoice.pdf"
+        }
+      },
+      {
+        "label": "Test lettering entry",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:25:45.106137Z",
+        "updated_at": "2026-07-08T12:25:45.105010Z",
+        "invoice_number": "",
+        "id": 25465530753024,
+        "piece_number": "E8VPCRSUDT",
+        "due_date": null,
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": null,
+        "categories": [],
+        "ledger_attachment_filename": null,
+        "attachment": null
+      },
+      {
+        "label": "Facture Office Supplies SARL (label généré)",
+        "date": "2026-07-08",
+        "journal_id": 91278561280,
+        "created_at": "2026-07-08T12:25:29.783648Z",
+        "updated_at": "2026-07-08T12:25:29.782762Z",
+        "invoice_number": "",
+        "id": 25465510096896,
+        "piece_number": "S4GJB6XIFC",
+        "due_date": "2026-07-15",
+        "journal": {
+          "id": 91278561280,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278561280"
+        },
+        "status": "complete",
+        "categories": [],
+        "ledger_attachment_filename": "dummy.pdf",
+        "attachment": {
+          "filename": "dummy.pdf",
+          "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBPvo2V4cMcLB85qTkkozjNiT80Ao3B1cqdibG9iX2lk--85e910ceb3f5d063d9badc82b1d474f757b1ae88/dummy.pdf"
+        }
+      },
+      {
+        "label": "Test ledger entry for lettering",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:25:01.596282Z",
+        "updated_at": "2026-07-08T12:25:01.593292Z",
+        "invoice_number": "",
+        "id": 25465479335936,
+        "piece_number": "C21ZSBKC8D",
+        "due_date": null,
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": null,
+        "categories": [],
+        "ledger_attachment_filename": null,
+        "attachment": null
+      },
+      {
+        "label": "Facture Acme Corp Test (label généré)",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:24:22.158515Z",
+        "updated_at": "2026-07-08T12:24:22.157196Z",
+        "invoice_number": "",
+        "id": 25465420529664,
+        "piece_number": "2SPAZCOI5F",
+        "due_date": "2026-07-31",
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": "draft",
+        "categories": [],
+        "ledger_attachment_filename": "Facture-Acme Corp Test-NANGO.pdf",
+        "attachment": {
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBiBo2V4cMcLB85qTkkozjNsN5EAo3B1cqdibG9iX2lk--d39920d34ebf7103172afaf56af012f479659c7e/Facture-Acme%20Corp%20Test-NANGO.pdf"
+        }
+      },
+      {
+        "label": "Facture Acme Corp Test (label généré)",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:24:09.241350Z",
+        "updated_at": "2026-07-08T12:24:09.240511Z",
+        "invoice_number": "",
+        "id": 25465375571968,
+        "piece_number": "2W7ZCCK96E",
+        "due_date": "2026-07-31",
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": "draft",
+        "categories": [],
+        "ledger_attachment_filename": "Facture-Acme Corp Test-NANGO.pdf",
+        "attachment": {
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBOKo2V4cMcLB85qTkkozjNxUHIAo3B1cqdibG9iX2lk--df0671c43e5e988075235a7452b54abe16659ff3/Facture-Acme%20Corp%20Test-NANGO.pdf"
+        }
+      },
+      {
+        "label": "Test transaction",
+        "date": "2026-07-08",
+        "journal_id": 91387359232,
+        "created_at": "2026-07-08T12:24:07.718476Z",
+        "updated_at": "2026-07-08T12:24:07.711319Z",
+        "invoice_number": "",
+        "id": 25465370439680,
+        "piece_number": "NXUOTFE9FD",
+        "due_date": null,
+        "journal": {
+          "id": 91387359232,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91387359232"
+        },
+        "status": "accounting_needed",
+        "categories": [],
+        "ledger_attachment_filename": null,
+        "attachment": null
+      },
+      {
+        "label": "Avoir Acme Corp Test (label généré)",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:23:39.847701Z",
+        "updated_at": "2026-07-08T12:23:39.846885Z",
+        "invoice_number": "",
+        "id": 25465319419904,
+        "piece_number": "XLTIWHGG8A",
+        "due_date": "2026-08-08",
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": "draft",
+        "categories": [],
+        "ledger_attachment_filename": "Avoir-Acme Corp Test-NANGO.pdf",
+        "attachment": {
+          "filename": "Avoir-Acme Corp Test-NANGO.pdf",
+          "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyAg6o2V4cMcLB85qTkkozjN2gM4Ao3B1cqdibG9iX2lk--4f50f56d244477ba72d72addd7195b859d861295/Avoir-Acme%20Corp%20Test-NANGO.pdf"
+        }
+      },
+      {
+        "label": "Facture Acme Corp Test (label généré)",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:23:35.215682Z",
+        "updated_at": "2026-07-08T12:23:35.214931Z",
+        "invoice_number": "",
+        "id": 25465314803712,
+        "piece_number": "N5OPBCSYY8",
+        "due_date": "2026-08-08",
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": "draft",
+        "categories": [],
+        "ledger_attachment_filename": "Facture-Acme Corp Test-NANGO.pdf",
+        "attachment": {
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyAYwo2V4cMcLB85qTkkozjN8rSEAo3B1cqdibG9iX2lk--9daa8e9e5c8031c9411b1280a4ce4393ca933898/Facture-Acme%20Corp%20Test-NANGO.pdf"
+        }
+      },
+      {
+        "label": "Facture Jean Dupont (label généré)",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:06:44.767982Z",
+        "updated_at": "2026-07-08T12:06:44.767209Z",
+        "invoice_number": "",
+        "id": 25461870440448,
+        "piece_number": "HXGHVHPHSG",
+        "due_date": "2026-08-08",
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": "draft",
+        "categories": [],
+        "ledger_attachment_filename": "Facture-Jean Dupont-NANGO.pdf",
+        "attachment": {
+          "filename": "Facture-Jean Dupont-NANGO.pdf",
+          "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5Exp54o2V4cMcLB85qTkkozjOBBsIAo3B1cqdibG9iX2lk--63130ae5d81489dbd7dd252c52452cb50ae0b727/Facture-Jean%20Dupont-NANGO.pdf"
+        }
+      },
+      {
+        "label": "Facture Globex Industries (label généré)",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:06:43.142211Z",
+        "updated_at": "2026-07-08T12:06:43.141388Z",
+        "invoice_number": "",
+        "id": 25461862449152,
+        "piece_number": "FQ6HM5RIBT",
+        "due_date": "2026-08-08",
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": "draft",
+        "categories": [],
+        "ledger_attachment_filename": "Facture-Globex Industries-NANGO.pdf",
+        "attachment": {
+          "filename": "Facture-Globex Industries-NANGO.pdf",
+          "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5Exp3Xo2V4cMcLB85qTkkozjOEXJ8Ao3B1cqdibG9iX2lk--f3303a9e381e80cc4f57843d3b96a76ffdcecced/Facture-Globex%20Industries-NANGO.pdf"
+        }
+      },
+      {
+        "label": "Facture Acme Corp Test (label généré)",
+        "date": "2026-07-08",
+        "journal_id": 91278557184,
+        "created_at": "2026-07-08T12:06:19.330107Z",
+        "updated_at": "2026-07-08T12:06:19.329274Z",
+        "invoice_number": "",
+        "id": 25461646082048,
+        "piece_number": "W79NQLZQ9Z",
+        "due_date": "2026-08-08",
+        "journal": {
+          "id": 91278557184,
+          "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+        },
+        "status": "draft",
+        "categories": [],
+        "ledger_attachment_filename": "Facture-Acme Corp Test-NANGO.pdf",
+        "attachment": {
+          "filename": "Facture-Acme Corp Test-NANGO.pdf",
+          "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5ExpV3o2V4cMcLB85qTkkozjOIYAIAo3B1cqdibG9iX2lk--a0f91e6f3a0dc5c7e1c2f21951926c546a5ae913/Facture-Acme%20Corp%20Test-NANGO.pdf"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/ledger_entries": {
+        "response": {
+          "total_pages": null,
+          "current_page": null,
+          "per_page": null,
+          "total_items": null,
+          "items": [
+            {
+              "label": "Test ledger entry",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:26:38.530667Z",
+              "updated_at": "2026-07-08T12:26:38.529216Z",
+              "invoice_number": "",
+              "id": 25465653366784,
+              "piece_number": "HF8OWY0FWW",
+              "due_date": null,
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": null,
+              "categories": [],
+              "ledger_attachment_filename": null,
+              "attachment": null
+            },
+            {
+              "label": "Test ledger entry for categories",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:26:34.874129Z",
+              "updated_at": "2026-07-08T12:26:34.872632Z",
+              "invoice_number": "",
+              "id": 25465651060736,
+              "piece_number": "JCFJZCWZGO",
+              "due_date": null,
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": null,
+              "categories": [],
+              "ledger_attachment_filename": null,
+              "attachment": null
+            },
+            {
+              "label": "Test same account lettering",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:26:30.265869Z",
+              "updated_at": "2026-07-08T12:26:30.264647Z",
+              "invoice_number": "",
+              "id": 25465648861184,
+              "piece_number": "BDZ2MBXBSB",
+              "due_date": null,
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": null,
+              "categories": [],
+              "ledger_attachment_filename": null,
+              "attachment": null
+            },
+            {
+              "label": "Facture Acme Corp Test (label généré)",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:26:23.057215Z",
+              "updated_at": "2026-07-08T12:26:23.056353Z",
+              "invoice_number": "",
+              "id": 25465639374848,
+              "piece_number": "S74XKUL40H",
+              "due_date": "2026-08-08",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": "draft",
+              "categories": [],
+              "ledger_attachment_filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "attachment": {
+                "filename": "Facture-Acme Corp Test-NANGO.pdf",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyE9co2V4cMcLB85qTkkozjLadxgAo3B1cqdibG9iX2lk--dfcd4c09cb42e62f2f0e8646eb85c14be2651e47/Facture-Acme%20Corp%20Test-NANGO.pdf"
+              }
+            },
+            {
+              "label": "Facture Acme Corp Test (label généré)",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:26:21.800683Z",
+              "updated_at": "2026-07-08T12:26:21.799916Z",
+              "invoice_number": "",
+              "id": 25465638002688,
+              "piece_number": "WOQPXLHWI5",
+              "due_date": "2026-07-31",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": "complete",
+              "categories": [
+                {
+                  "id": 239432757248,
+                  "label": "IS",
+                  "analytical_code": null,
+                  "created_at": "2026-07-08T11:26:51.380074Z",
+                  "updated_at": "2026-07-08T11:26:51.782993Z",
+                  "weight": "1.0",
+                  "category_group": {
+                    "id": 14148939776
+                  }
+                }
+              ],
+              "ledger_attachment_filename": "test_invoice.pdf",
+              "attachment": {
+                "filename": "test_invoice.pdf",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyEu-o2V4cMcLB85qTkkozjMh58QAo3B1cqdibG9iX2lk--e2ec99e72ca8504d88d3b31f1a648eaca0b598c8/test_invoice.pdf"
+              }
+            },
+            {
+              "label": "Test lettering entry",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:25:45.106137Z",
+              "updated_at": "2026-07-08T12:25:45.105010Z",
+              "invoice_number": "",
+              "id": 25465530753024,
+              "piece_number": "E8VPCRSUDT",
+              "due_date": null,
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": null,
+              "categories": [],
+              "ledger_attachment_filename": null,
+              "attachment": null
+            },
+            {
+              "label": "Facture Office Supplies SARL (label généré)",
+              "date": "2026-07-08",
+              "journal_id": 91278561280,
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "updated_at": "2026-07-08T12:25:29.782762Z",
+              "invoice_number": "",
+              "id": 25465510096896,
+              "piece_number": "S4GJB6XIFC",
+              "due_date": "2026-07-15",
+              "journal": {
+                "id": 91278561280,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278561280"
+              },
+              "status": "complete",
+              "categories": [],
+              "ledger_attachment_filename": "dummy.pdf",
+              "attachment": {
+                "filename": "dummy.pdf",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBPvo2V4cMcLB85qTkkozjNiT80Ao3B1cqdibG9iX2lk--85e910ceb3f5d063d9badc82b1d474f757b1ae88/dummy.pdf"
+              }
+            },
+            {
+              "label": "Test ledger entry for lettering",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:25:01.596282Z",
+              "updated_at": "2026-07-08T12:25:01.593292Z",
+              "invoice_number": "",
+              "id": 25465479335936,
+              "piece_number": "C21ZSBKC8D",
+              "due_date": null,
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": null,
+              "categories": [],
+              "ledger_attachment_filename": null,
+              "attachment": null
+            },
+            {
+              "label": "Facture Acme Corp Test (label généré)",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:24:22.158515Z",
+              "updated_at": "2026-07-08T12:24:22.157196Z",
+              "invoice_number": "",
+              "id": 25465420529664,
+              "piece_number": "2SPAZCOI5F",
+              "due_date": "2026-07-31",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": "draft",
+              "categories": [],
+              "ledger_attachment_filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "attachment": {
+                "filename": "Facture-Acme Corp Test-NANGO.pdf",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBiBo2V4cMcLB85qTkkozjNsN5EAo3B1cqdibG9iX2lk--d39920d34ebf7103172afaf56af012f479659c7e/Facture-Acme%20Corp%20Test-NANGO.pdf"
+              }
+            },
+            {
+              "label": "Facture Acme Corp Test (label généré)",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:24:09.241350Z",
+              "updated_at": "2026-07-08T12:24:09.240511Z",
+              "invoice_number": "",
+              "id": 25465375571968,
+              "piece_number": "2W7ZCCK96E",
+              "due_date": "2026-07-31",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": "draft",
+              "categories": [],
+              "ledger_attachment_filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "attachment": {
+                "filename": "Facture-Acme Corp Test-NANGO.pdf",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBOKo2V4cMcLB85qTkkozjNxUHIAo3B1cqdibG9iX2lk--df0671c43e5e988075235a7452b54abe16659ff3/Facture-Acme%20Corp%20Test-NANGO.pdf"
+              }
+            },
+            {
+              "label": "Test transaction",
+              "date": "2026-07-08",
+              "journal_id": 91387359232,
+              "created_at": "2026-07-08T12:24:07.718476Z",
+              "updated_at": "2026-07-08T12:24:07.711319Z",
+              "invoice_number": "",
+              "id": 25465370439680,
+              "piece_number": "NXUOTFE9FD",
+              "due_date": null,
+              "journal": {
+                "id": 91387359232,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91387359232"
+              },
+              "status": "accounting_needed",
+              "categories": [],
+              "ledger_attachment_filename": null,
+              "attachment": null
+            },
+            {
+              "label": "Avoir Acme Corp Test (label généré)",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:23:39.847701Z",
+              "updated_at": "2026-07-08T12:23:39.846885Z",
+              "invoice_number": "",
+              "id": 25465319419904,
+              "piece_number": "XLTIWHGG8A",
+              "due_date": "2026-08-08",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": "draft",
+              "categories": [],
+              "ledger_attachment_filename": "Avoir-Acme Corp Test-NANGO.pdf",
+              "attachment": {
+                "filename": "Avoir-Acme Corp Test-NANGO.pdf",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyAg6o2V4cMcLB85qTkkozjN2gM4Ao3B1cqdibG9iX2lk--4f50f56d244477ba72d72addd7195b859d861295/Avoir-Acme%20Corp%20Test-NANGO.pdf"
+              }
+            },
+            {
+              "label": "Facture Acme Corp Test (label généré)",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:23:35.215682Z",
+              "updated_at": "2026-07-08T12:23:35.214931Z",
+              "invoice_number": "",
+              "id": 25465314803712,
+              "piece_number": "N5OPBCSYY8",
+              "due_date": "2026-08-08",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": "draft",
+              "categories": [],
+              "ledger_attachment_filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "attachment": {
+                "filename": "Facture-Acme Corp Test-NANGO.pdf",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyAYwo2V4cMcLB85qTkkozjN8rSEAo3B1cqdibG9iX2lk--9daa8e9e5c8031c9411b1280a4ce4393ca933898/Facture-Acme%20Corp%20Test-NANGO.pdf"
+              }
+            },
+            {
+              "label": "Facture Jean Dupont (label généré)",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:06:44.767982Z",
+              "updated_at": "2026-07-08T12:06:44.767209Z",
+              "invoice_number": "",
+              "id": 25461870440448,
+              "piece_number": "HXGHVHPHSG",
+              "due_date": "2026-08-08",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": "draft",
+              "categories": [],
+              "ledger_attachment_filename": "Facture-Jean Dupont-NANGO.pdf",
+              "attachment": {
+                "filename": "Facture-Jean Dupont-NANGO.pdf",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5Exp54o2V4cMcLB85qTkkozjOBBsIAo3B1cqdibG9iX2lk--63130ae5d81489dbd7dd252c52452cb50ae0b727/Facture-Jean%20Dupont-NANGO.pdf"
+              }
+            },
+            {
+              "label": "Facture Globex Industries (label généré)",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:06:43.142211Z",
+              "updated_at": "2026-07-08T12:06:43.141388Z",
+              "invoice_number": "",
+              "id": 25461862449152,
+              "piece_number": "FQ6HM5RIBT",
+              "due_date": "2026-08-08",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": "draft",
+              "categories": [],
+              "ledger_attachment_filename": "Facture-Globex Industries-NANGO.pdf",
+              "attachment": {
+                "filename": "Facture-Globex Industries-NANGO.pdf",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5Exp3Xo2V4cMcLB85qTkkozjOEXJ8Ao3B1cqdibG9iX2lk--f3303a9e381e80cc4f57843d3b96a76ffdcecced/Facture-Globex%20Industries-NANGO.pdf"
+              }
+            },
+            {
+              "label": "Facture Acme Corp Test (label généré)",
+              "date": "2026-07-08",
+              "journal_id": 91278557184,
+              "created_at": "2026-07-08T12:06:19.330107Z",
+              "updated_at": "2026-07-08T12:06:19.329274Z",
+              "invoice_number": "",
+              "id": 25461646082048,
+              "piece_number": "W79NQLZQ9Z",
+              "due_date": "2026-08-08",
+              "journal": {
+                "id": 91278557184,
+                "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+              },
+              "status": "draft",
+              "categories": [],
+              "ledger_attachment_filename": "Facture-Acme Corp Test-NANGO.pdf",
+              "attachment": {
+                "filename": "Facture-Acme Corp Test-NANGO.pdf",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5ExpV3o2V4cMcLB85qTkkozjOIYAIAo3B1cqdibG9iX2lk--a0f91e6f3a0dc5c7e1c2f21951926c546a5ae913/Facture-Acme%20Corp%20Test-NANGO.pdf"
+              }
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:27:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4848",
+          "x-ratelimit-reset": "1783513639",
+          "cf-ray": "a17f14ec4b60eedd-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"0de775a7eb2b595bb32d62b7039209ba\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "20",
+          "ratelimit-reset": "1783513635",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "c917c3ea-6d31-4b09-8338-628b8ab2d9fb",
+          "set-cookie": "__cf_bm=Zz8EHx6uKosk99az3JIT0q4.rDL5E.pnS0jbSw1AT6s-1783513632.6841605-1.0.1.1-rD0I9jiMF4Z7kNhqLVTUTYRtOHbIUmJn4K4DFXS4io3JzLpX5SwbDCsjgrzPeh.k6QJnDALYDooFWMkMffiLUZ3TB.Xg0ueuF6eHBwIyWE0Lx0Jnt_bVIYRzD.YIn3Vo; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 12:57:12 GMT"
+        },
+        "hash": "eaf013c482076e07859d47a1a9901c8427a2324d",
+        "request": {}
+      }
+    }
+  }
+}

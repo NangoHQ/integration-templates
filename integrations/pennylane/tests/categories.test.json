@@ -1,0 +1,1106 @@
+{
+  "nango": {
+    "batchSave": {
+      "Category": [
+        {
+          "id": "239432757248",
+          "label": "IS",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.782993Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432753152",
+          "label": "CFE",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.782990Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432749056",
+          "label": "Taxes",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.782996Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432744960",
+          "label": "Assurances",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.782982Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432740864",
+          "label": "Impôts, taxes et assurances",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.813524Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432736768",
+          "label": "Honoraires",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.764578Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432732672",
+          "label": "Comptabilité",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.764570Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432728576",
+          "label": "Frais postaux",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.764573Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432724480",
+          "label": "Greffe et annonces",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.764576Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432720384",
+          "label": "Amendes / Pénalités",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.764563Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432716288",
+          "label": "Frais de gestion",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.813521Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432712192",
+          "label": "Commissions",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.751063Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432708096",
+          "label": "Frais bancaires",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.751070Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432704000",
+          "label": "Banque",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.813452Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432699904",
+          "label": "Prestataire",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.742398Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432695808",
+          "label": "Matériels IT",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.742395Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432691712",
+          "label": "Hébergements web",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.742386Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432687616",
+          "label": "IT / Informatique",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.813527Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432683520",
+          "label": "Entretien / Maintenance",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.685648Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432679424",
+          "label": "Énergies et carburants",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.685640Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432675328",
+          "label": "Fournitures de bureaux",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.685650Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432671232",
+          "label": "Téléphonie / Internet",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.685665Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432667136",
+          "label": "Leasing, crédit-bail",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.685653Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432663040",
+          "label": "Repas / Réception",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.685663Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432658944",
+          "label": "Loyer et charges",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.685658Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432654848",
+          "label": "Note de frais",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.685660Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432650752",
+          "label": "Transports",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.685667Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432646656",
+          "label": "Logiciels",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.685655Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432642560",
+          "label": "Frais de fonctionnement",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.813519Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432638464",
+          "label": "Formations",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.659877Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432634368",
+          "label": "Prélèvement à la source",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.659886Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432630272",
+          "label": "Prévoyance / Retraite",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.659889Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432626176",
+          "label": "Tickets restau",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.659894Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432622080",
+          "label": "Mutuelle",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.659883Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432617984",
+          "label": "URSSAF",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.659896Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432613888",
+          "label": "Salaires nets",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.659891Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432609792",
+          "label": "Salaires",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.813532Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432605696",
+          "label": "Sous-traitance générale",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.649498Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432601600",
+          "label": "Achats de marchandise",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.649488Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432597504",
+          "label": "Prestations de service",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.649495Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432593408",
+          "label": "Sous-traitants",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.813534Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432589312",
+          "label": "Agence marketing",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.639233Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432585216",
+          "label": "Événements / Salons",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.639241Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432581120",
+          "label": "Relation Presse",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.639246Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432577024",
+          "label": "Publicité",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.639244Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432572928",
+          "label": "Marketing",
+          "direction": "cash_out",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.813529Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432568832",
+          "label": "Subvention",
+          "direction": "cash_in",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.612628Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432564736",
+          "label": "Levée de fonds",
+          "direction": "cash_in",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.612625Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432560640",
+          "label": "Emprunt bancaire",
+          "direction": "cash_in",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.612623Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432556544",
+          "label": "Apport compte courant",
+          "direction": "cash_in",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.612616Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432552448",
+          "label": "Financements",
+          "direction": "cash_in",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.793270Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432548352",
+          "label": "Ventes de marchandise",
+          "direction": "cash_in",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.793277Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432544256",
+          "label": "Abonnements",
+          "direction": "cash_in",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.603776Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432540160",
+          "label": "Conseil",
+          "direction": "cash_in",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.603785Z",
+          "category_group_id": 14148939776
+        },
+        {
+          "id": "239432536064",
+          "label": "Ventes de service",
+          "direction": "cash_in",
+          "created_at": "2026-07-08T11:26:51.380074Z",
+          "updated_at": "2026-07-08T11:26:51.793280Z",
+          "category_group_id": 14148939776
+        }
+      ]
+    },
+    "batchDelete": {
+      "Category": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/external/v2/categories": {
+        "response": {
+          "items": [
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432757248,
+              "label": "IS",
+              "updated_at": "2026-07-08T11:26:51.782993Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432753152,
+              "label": "CFE",
+              "updated_at": "2026-07-08T11:26:51.782990Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432749056,
+              "label": "Taxes",
+              "updated_at": "2026-07-08T11:26:51.782996Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432744960,
+              "label": "Assurances",
+              "updated_at": "2026-07-08T11:26:51.782982Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432740864,
+              "label": "Impôts, taxes et assurances",
+              "updated_at": "2026-07-08T11:26:51.813524Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432736768,
+              "label": "Honoraires",
+              "updated_at": "2026-07-08T11:26:51.764578Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432732672,
+              "label": "Comptabilité",
+              "updated_at": "2026-07-08T11:26:51.764570Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432728576,
+              "label": "Frais postaux",
+              "updated_at": "2026-07-08T11:26:51.764573Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432724480,
+              "label": "Greffe et annonces",
+              "updated_at": "2026-07-08T11:26:51.764576Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432720384,
+              "label": "Amendes / Pénalités",
+              "updated_at": "2026-07-08T11:26:51.764563Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432716288,
+              "label": "Frais de gestion",
+              "updated_at": "2026-07-08T11:26:51.813521Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432712192,
+              "label": "Commissions",
+              "updated_at": "2026-07-08T11:26:51.751063Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432708096,
+              "label": "Frais bancaires",
+              "updated_at": "2026-07-08T11:26:51.751070Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432704000,
+              "label": "Banque",
+              "updated_at": "2026-07-08T11:26:51.813452Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432699904,
+              "label": "Prestataire",
+              "updated_at": "2026-07-08T11:26:51.742398Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432695808,
+              "label": "Matériels IT",
+              "updated_at": "2026-07-08T11:26:51.742395Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432691712,
+              "label": "Hébergements web",
+              "updated_at": "2026-07-08T11:26:51.742386Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432687616,
+              "label": "IT / Informatique",
+              "updated_at": "2026-07-08T11:26:51.813527Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432683520,
+              "label": "Entretien / Maintenance",
+              "updated_at": "2026-07-08T11:26:51.685648Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432679424,
+              "label": "Énergies et carburants",
+              "updated_at": "2026-07-08T11:26:51.685640Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432675328,
+              "label": "Fournitures de bureaux",
+              "updated_at": "2026-07-08T11:26:51.685650Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432671232,
+              "label": "Téléphonie / Internet",
+              "updated_at": "2026-07-08T11:26:51.685665Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432667136,
+              "label": "Leasing, crédit-bail",
+              "updated_at": "2026-07-08T11:26:51.685653Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432663040,
+              "label": "Repas / Réception",
+              "updated_at": "2026-07-08T11:26:51.685663Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432658944,
+              "label": "Loyer et charges",
+              "updated_at": "2026-07-08T11:26:51.685658Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432654848,
+              "label": "Note de frais",
+              "updated_at": "2026-07-08T11:26:51.685660Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432650752,
+              "label": "Transports",
+              "updated_at": "2026-07-08T11:26:51.685667Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432646656,
+              "label": "Logiciels",
+              "updated_at": "2026-07-08T11:26:51.685655Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432642560,
+              "label": "Frais de fonctionnement",
+              "updated_at": "2026-07-08T11:26:51.813519Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432638464,
+              "label": "Formations",
+              "updated_at": "2026-07-08T11:26:51.659877Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432634368,
+              "label": "Prélèvement à la source",
+              "updated_at": "2026-07-08T11:26:51.659886Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432630272,
+              "label": "Prévoyance / Retraite",
+              "updated_at": "2026-07-08T11:26:51.659889Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432626176,
+              "label": "Tickets restau",
+              "updated_at": "2026-07-08T11:26:51.659894Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432622080,
+              "label": "Mutuelle",
+              "updated_at": "2026-07-08T11:26:51.659883Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432617984,
+              "label": "URSSAF",
+              "updated_at": "2026-07-08T11:26:51.659896Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432613888,
+              "label": "Salaires nets",
+              "updated_at": "2026-07-08T11:26:51.659891Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432609792,
+              "label": "Salaires",
+              "updated_at": "2026-07-08T11:26:51.813532Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432605696,
+              "label": "Sous-traitance générale",
+              "updated_at": "2026-07-08T11:26:51.649498Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432601600,
+              "label": "Achats de marchandise",
+              "updated_at": "2026-07-08T11:26:51.649488Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432597504,
+              "label": "Prestations de service",
+              "updated_at": "2026-07-08T11:26:51.649495Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432593408,
+              "label": "Sous-traitants",
+              "updated_at": "2026-07-08T11:26:51.813534Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432589312,
+              "label": "Agence marketing",
+              "updated_at": "2026-07-08T11:26:51.639233Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432585216,
+              "label": "Événements / Salons",
+              "updated_at": "2026-07-08T11:26:51.639241Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432581120,
+              "label": "Relation Presse",
+              "updated_at": "2026-07-08T11:26:51.639246Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432577024,
+              "label": "Publicité",
+              "updated_at": "2026-07-08T11:26:51.639244Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_out",
+              "id": 239432572928,
+              "label": "Marketing",
+              "updated_at": "2026-07-08T11:26:51.813529Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_in",
+              "id": 239432568832,
+              "label": "Subvention",
+              "updated_at": "2026-07-08T11:26:51.612628Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_in",
+              "id": 239432564736,
+              "label": "Levée de fonds",
+              "updated_at": "2026-07-08T11:26:51.612625Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_in",
+              "id": 239432560640,
+              "label": "Emprunt bancaire",
+              "updated_at": "2026-07-08T11:26:51.612623Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_in",
+              "id": 239432556544,
+              "label": "Apport compte courant",
+              "updated_at": "2026-07-08T11:26:51.612616Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_in",
+              "id": 239432552448,
+              "label": "Financements",
+              "updated_at": "2026-07-08T11:26:51.793270Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_in",
+              "id": 239432548352,
+              "label": "Ventes de marchandise",
+              "updated_at": "2026-07-08T11:26:51.793277Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_in",
+              "id": 239432544256,
+              "label": "Abonnements",
+              "updated_at": "2026-07-08T11:26:51.603776Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_in",
+              "id": 239432540160,
+              "label": "Conseil",
+              "updated_at": "2026-07-08T11:26:51.603785Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            },
+            {
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "direction": "cash_in",
+              "id": 239432536064,
+              "label": "Ventes de service",
+              "updated_at": "2026-07-08T11:26:51.793280Z",
+              "analytical_code": null,
+              "category_group": {
+                "id": 14148939776
+              }
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:23:39 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4923",
+          "x-ratelimit-reset": "1783517042",
+          "cf-ray": "a17f679b2cc09873-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"08bf1f38aa3a937e78fa424d80f04cbf\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783517020",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "8493f145-b906-4199-952b-6ac8c0f893b6",
+          "set-cookie": "__cf_bm=9xZMbgl8XEUaP0rk3veyleEogkjSvyuqGqa.8qAQrlE-1783517019.3841288-1.0.1.1-EO.4CdKZA1Gb0trp8O6dXA5JG7laYndVnkf7H2lfTsn33EWN9Q5Ci1KaYzEXkNIHnmTq5shsjz68..gtbIMLfJZEFQE0ayV3mJlvKTRLkoU8jE86XA7ZMz5GzvqysNeu; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:53:39 GMT"
+        },
+        "hash": "45afd48d4964876ca5cb7befd3b8d618c54f55bc",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

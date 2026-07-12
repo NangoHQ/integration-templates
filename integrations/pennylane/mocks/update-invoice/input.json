@@ -1,8 +1,0 @@
-{
-    "id": "V3QHG9K5GX",
-    "transactions_reference": {
-        "banking_provider": "bank",
-        "provider_field_name": "label",
-        "provider_field_value": "INV_002_REF"
-    }
-}

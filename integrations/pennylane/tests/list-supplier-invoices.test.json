@@ -1,0 +1,337 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 25465885929472,
+        "label": "Facture Office Supplies SARL - TEST-001 (label généré)",
+        "invoice_number": "TEST-001",
+        "currency": "EUR",
+        "amount": "120.0",
+        "currency_amount": "120.0",
+        "currency_amount_before_tax": "100.0",
+        "exchange_rate": "1.0",
+        "date": null,
+        "deadline": "2024-01-01",
+        "currency_tax": "20.0",
+        "tax": "20.0",
+        "reconciled": false,
+        "accounting_status": "entry",
+        "filename": "test-invoice.xml",
+        "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=5aOyM3AaptTqNztbJf0VrakJ2sm2P2KHiuniGJfP0utdsss7rqgiv%2BJjjh4BTIW3Z5ZEuQQ7x8bJmgxt39nHWacA4VM6WZZVy8sFOE5pyEo6aPV0F5JMiR45CvxtJA%3D%3D--NMIaEwTVFaXNQPI4--Host1hAyuCjHk938tirApA%3D%3D",
+        "remaining_amount_with_tax": "-120.0",
+        "remaining_amount_without_tax": "-100.0",
+        "ledger_entry": {
+          "id": 25465885929472
+        },
+        "supplier": {
+          "id": 1338485968896,
+          "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+        },
+        "invoice_lines": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/invoice_lines"
+        },
+        "categories": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/categories"
+        },
+        "transaction_reference": null,
+        "payment_status": "to_be_processed",
+        "paid": false,
+        "payments": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/payments"
+        },
+        "matched_transactions": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/matched_transactions"
+        },
+        "external_reference": "A9SSVDTNFM",
+        "e_invoicing": null,
+        "archived_at": null,
+        "created_at": "2026-07-08T12:28:12.080542Z",
+        "updated_at": "2026-07-08T12:28:16.680287Z"
+      },
+      {
+        "id": 25465872809984,
+        "label": "Facture Office Supplies SARL (label généré)",
+        "invoice_number": "",
+        "currency": "EUR",
+        "amount": "120.0",
+        "currency_amount": "120.0",
+        "currency_amount_before_tax": "100.0",
+        "exchange_rate": "1.0",
+        "date": "2026-07-08",
+        "deadline": "2026-07-15",
+        "currency_tax": "20.0",
+        "tax": "20.0",
+        "reconciled": false,
+        "accounting_status": "complete",
+        "filename": "dummy2.pdf",
+        "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=bASwvKOHyUW1725DHiKmZrhhZMLCDXTvfxE0Zy4hrz2nSsUy7NEd8AtWYyJ7i1cIE7DffsguimLSqoIO%2F5Lg4m3NvjgU3Zheeu6p2ICf2T2GoszodTaj1%2FjTqPa%2FsQ%3D%3D--pd%2BVtJDHmSSNLyTb--IT6b%2Fe8%2ByeZpUfBLc9bm3w%3D%3D",
+        "remaining_amount_with_tax": "-120.0",
+        "remaining_amount_without_tax": "-100.0",
+        "ledger_entry": {
+          "id": 25465872809984
+        },
+        "supplier": {
+          "id": 1338485968896,
+          "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+        },
+        "invoice_lines": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/invoice_lines"
+        },
+        "categories": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/categories"
+        },
+        "transaction_reference": null,
+        "payment_status": "to_be_processed",
+        "paid": false,
+        "payments": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/payments"
+        },
+        "matched_transactions": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/matched_transactions"
+        },
+        "external_reference": "JWUFJX7LMG",
+        "e_invoicing": null,
+        "archived_at": null,
+        "created_at": "2026-07-08T12:28:05.542251Z",
+        "updated_at": "2026-07-08T12:28:05.847972Z"
+      },
+      {
+        "id": 25465510096896,
+        "label": "Facture Office Supplies SARL (label généré)",
+        "invoice_number": "",
+        "currency": "EUR",
+        "amount": "120.0",
+        "currency_amount": "120.0",
+        "currency_amount_before_tax": "100.0",
+        "exchange_rate": "1.0",
+        "date": "2026-07-08",
+        "deadline": "2026-07-15",
+        "currency_tax": "20.0",
+        "tax": "20.0",
+        "reconciled": false,
+        "accounting_status": "complete",
+        "filename": "dummy.pdf",
+        "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=Q1JXIcGXcOz2FS6oorZ2lvXv4mEM49KUmuRS9y2wfTxDg1Nz9U%2FqWoGh%2FPoD07X5d7IJ%2BJeIYxtQYqk0BKcbQiD1il9LBhAFYFR484YGUPCyqXWnqNXlJzpVqQLn0Q%3D%3D--wvcyNogrw%2Ba8UKFw--9A4iXn6guf9M89YhdKQBLw%3D%3D",
+        "remaining_amount_with_tax": "-120.0",
+        "remaining_amount_without_tax": "-100.0",
+        "ledger_entry": {
+          "id": 25465510096896
+        },
+        "supplier": {
+          "id": 1338485968896,
+          "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+        },
+        "invoice_lines": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/invoice_lines"
+        },
+        "categories": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/categories"
+        },
+        "transaction_reference": null,
+        "payment_status": "to_be_processed",
+        "paid": false,
+        "payments": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/payments"
+        },
+        "matched_transactions": {
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/matched_transactions"
+        },
+        "external_reference": "S4GJB6XIFC",
+        "e_invoicing": null,
+        "archived_at": null,
+        "created_at": "2026-07-08T12:25:29.783648Z",
+        "updated_at": "2026-07-08T12:25:30.334643Z"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/supplier_invoices": {
+        "response": {
+          "items": [
+            {
+              "amount": "120.0",
+              "archived_at": null,
+              "created_at": "2026-07-08T12:28:12.080542Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "date": null,
+              "deadline": "2024-01-01",
+              "filename": "test-invoice.xml",
+              "id": 25465885929472,
+              "invoice_number": "TEST-001",
+              "label": "Facture Office Supplies SARL - TEST-001 (label généré)",
+              "payment_status": "to_be_processed",
+              "paid": false,
+              "remaining_amount_with_tax": "-120.0",
+              "remaining_amount_without_tax": "-100.0",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T12:28:16.680287Z",
+              "reconciled": false,
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=5aOyM3AaptTqNztbJf0VrakJ2sm2P2KHiuniGJfP0utdsss7rqgiv%2BJjjh4BTIW3Z5ZEuQQ7x8bJmgxt39nHWacA4VM6WZZVy8sFOE5pyEo6aPV0F5JMiR45CvxtJA%3D%3D--NMIaEwTVFaXNQPI4--Host1hAyuCjHk938tirApA%3D%3D",
+              "exchange_rate": "1.0",
+              "accounting_status": "entry",
+              "ledger_entry": {
+                "id": 25465885929472
+              },
+              "transaction_reference": null,
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/invoice_lines"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465885929472/matched_transactions"
+              },
+              "external_reference": "A9SSVDTNFM",
+              "e_invoicing": null
+            },
+            {
+              "amount": "120.0",
+              "archived_at": null,
+              "created_at": "2026-07-08T12:28:05.542251Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "date": "2026-07-08",
+              "deadline": "2026-07-15",
+              "filename": "dummy2.pdf",
+              "id": 25465872809984,
+              "invoice_number": "",
+              "label": "Facture Office Supplies SARL (label généré)",
+              "payment_status": "to_be_processed",
+              "paid": false,
+              "remaining_amount_with_tax": "-120.0",
+              "remaining_amount_without_tax": "-100.0",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T12:28:05.847972Z",
+              "reconciled": false,
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=bASwvKOHyUW1725DHiKmZrhhZMLCDXTvfxE0Zy4hrz2nSsUy7NEd8AtWYyJ7i1cIE7DffsguimLSqoIO%2F5Lg4m3NvjgU3Zheeu6p2ICf2T2GoszodTaj1%2FjTqPa%2FsQ%3D%3D--pd%2BVtJDHmSSNLyTb--IT6b%2Fe8%2ByeZpUfBLc9bm3w%3D%3D",
+              "exchange_rate": "1.0",
+              "accounting_status": "complete",
+              "ledger_entry": {
+                "id": 25465872809984
+              },
+              "transaction_reference": null,
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/invoice_lines"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984/matched_transactions"
+              },
+              "external_reference": "JWUFJX7LMG",
+              "e_invoicing": null
+            },
+            {
+              "amount": "120.0",
+              "archived_at": null,
+              "created_at": "2026-07-08T12:25:29.783648Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "date": "2026-07-08",
+              "deadline": "2026-07-15",
+              "filename": "dummy.pdf",
+              "id": 25465510096896,
+              "invoice_number": "",
+              "label": "Facture Office Supplies SARL (label généré)",
+              "payment_status": "to_be_processed",
+              "paid": false,
+              "remaining_amount_with_tax": "-120.0",
+              "remaining_amount_without_tax": "-100.0",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T12:25:30.334643Z",
+              "reconciled": false,
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=Q1JXIcGXcOz2FS6oorZ2lvXv4mEM49KUmuRS9y2wfTxDg1Nz9U%2FqWoGh%2FPoD07X5d7IJ%2BJeIYxtQYqk0BKcbQiD1il9LBhAFYFR484YGUPCyqXWnqNXlJzpVqQLn0Q%3D%3D--wvcyNogrw%2Ba8UKFw--9A4iXn6guf9M89YhdKQBLw%3D%3D",
+              "exchange_rate": "1.0",
+              "accounting_status": "complete",
+              "ledger_entry": {
+                "id": 25465510096896
+              },
+              "transaction_reference": null,
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/invoice_lines"
+              },
+              "categories": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/categories"
+              },
+              "payments": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/payments"
+              },
+              "matched_transactions": {
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896/matched_transactions"
+              },
+              "external_reference": "S4GJB6XIFC",
+              "e_invoicing": null
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:28:40 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1783513760",
+          "cf-ray": "a17f170e9ef31d89-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"189ba3d3fc68c599f17ca005eb8de877\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783513725",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "e6c74914-b760-437a-aa17-564fe8f3fe80",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "43829ae99b6720a4809fd156a8824fd46d63d3ae",
+        "request": {}
+      }
+    }
+  }
+}

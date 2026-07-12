@@ -1,0 +1,137 @@
+{
+  "input": {
+    "id": "25467524694016"
+  },
+  "output": {
+    "id": 25467524694016,
+    "label": "Facture Office Supplies SARL - INV-TEST-001 (label généré)",
+    "invoice_number": "INV-TEST-001",
+    "currency": "EUR",
+    "amount": "120.0",
+    "currency_amount": "120.0",
+    "currency_amount_before_tax": "100.0",
+    "exchange_rate": "1.0",
+    "date": "2026-07-08",
+    "deadline": "2026-07-08",
+    "currency_tax": "20.0",
+    "tax": "20.0",
+    "reconciled": false,
+    "accounting_status": "complete",
+    "filename": "test-invoice.xml",
+    "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=TKcjZwPCLuSm3GTCkhhV4x9znN6d3KaVTuHHEdmJdaPw%2By0Xa5ZCSuqv1OR6DV%2BqlD9KQf3pnNYXI4AyGrZPx7ao1uk0OLqdAYl1G1w0IVVJa5ae0KhGpxFtkYHvuA%3D%3D--XRI7rlOahA%2FroEim--zbEZbrTMrkgp4VQuvdfspg%3D%3D",
+    "remaining_amount_with_tax": "-120.0",
+    "remaining_amount_without_tax": "-100.0",
+    "ledger_entry": {
+      "id": 25467524694016
+    },
+    "supplier": {
+      "id": 1338485968896,
+      "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+    },
+    "invoice_lines": {
+      "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/invoice_lines"
+    },
+    "categories": {
+      "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/categories"
+    },
+    "payment_status": "to_be_processed",
+    "paid": false,
+    "payments": {
+      "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/payments"
+    },
+    "matched_transactions": {
+      "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/matched_transactions"
+    },
+    "external_reference": "ZXKY0QM6WV",
+    "created_at": "2026-07-08T12:38:23.041874Z",
+    "updated_at": "2026-07-08T12:38:33.040029Z"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/external/v2/supplier_invoices/25467524694016/validate_accounting": {
+        "response": {
+          "amount": "120.0",
+          "archived_at": null,
+          "created_at": "2026-07-08T12:38:23.041874Z",
+          "currency_amount_before_tax": "100.0",
+          "currency_amount": "120.0",
+          "currency_tax": "20.0",
+          "currency": "EUR",
+          "date": "2026-07-08",
+          "deadline": "2026-07-08",
+          "filename": "test-invoice.xml",
+          "id": 25467524694016,
+          "invoice_number": "INV-TEST-001",
+          "label": "Facture Office Supplies SARL - INV-TEST-001 (label généré)",
+          "payment_status": "to_be_processed",
+          "paid": false,
+          "remaining_amount_with_tax": "-120.0",
+          "remaining_amount_without_tax": "-100.0",
+          "tax": "20.0",
+          "updated_at": "2026-07-08T12:38:33.040029Z",
+          "reconciled": false,
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=TKcjZwPCLuSm3GTCkhhV4x9znN6d3KaVTuHHEdmJdaPw%2By0Xa5ZCSuqv1OR6DV%2BqlD9KQf3pnNYXI4AyGrZPx7ao1uk0OLqdAYl1G1w0IVVJa5ae0KhGpxFtkYHvuA%3D%3D--XRI7rlOahA%2FroEim--zbEZbrTMrkgp4VQuvdfspg%3D%3D",
+          "exchange_rate": "1.0",
+          "accounting_status": "complete",
+          "ledger_entry": {
+            "id": 25467524694016
+          },
+          "transaction_reference": null,
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/invoice_lines"
+          },
+          "categories": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/categories"
+          },
+          "payments": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/payments"
+          },
+          "matched_transactions": {
+            "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25467524694016/matched_transactions"
+          },
+          "external_reference": "ZXKY0QM6WV",
+          "e_invoicing": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:38:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1783514372",
+          "cf-ray": "a17f25872c0f9935-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"96c22ad787779578b6e274a8640c3b71\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "16",
+          "ratelimit-reset": "1783514315",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "3a225aea-79b0-4ca9-a25e-dc2350317433",
+          "set-cookie": "__cf_bm=Tb9f7zVLs68ABxtHKUaPwiKntlOu4bHoWf4x72coQbQ-1783514312.8217099-1.0.1.1-IX0lpCdee9Mfcvi7pviI7iuBSm4u52Gc4wfYfXglrPPeVyqpHCHD_fprOW4TXqThvaUw5iDzhKI.ysDSB8.1Fm0HmwpAnNJJ9IAqNo9apw9abkSRsWmpTW2ar.eh8EDH; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:08:33 GMT"
+        },
+        "hash": "e2e4e5f81f628622d96d7f6e0130a851bb68ab01",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,325 @@
+{
+  "nango": {
+    "batchSave": {
+      "PurchaseRequest": [
+        {
+          "id": "3094990848",
+          "purchase_order_number": "PO-004",
+          "supplier_id": "1338485968896",
+          "supplier_url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896",
+          "delivery_address": {
+            "address": "1 Rue de la Paix",
+            "postal_code": "75001",
+            "city": "Paris",
+            "country_alpha2": "FR"
+          },
+          "status": "invoiced",
+          "currency": "EUR",
+          "reason": "Test PR 4",
+          "amount": "120.0",
+          "currency_amount": "120.0",
+          "currency_amount_before_tax": "100.0",
+          "exchange_rate": "1.0",
+          "currency_tax": "20.0",
+          "tax": "20.0",
+          "purchase_order_filename": "purchase_order",
+          "purchase_order_url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyHYlo2V4cMcLB85qTlFSzjE3GCgAo3B1cqdibG9iX2lk--535e66d4e8d13cc875e802db344ca0eef65cf4a6/dummy2.pdf",
+          "linked_invoice_ids": [
+            "25465872809984"
+          ],
+          "created_at": "2026-07-08T12:29:32.495747Z",
+          "updated_at": "2026-07-08T12:30:05.606578Z"
+        },
+        {
+          "id": "3094962176",
+          "purchase_order_number": "PO-003",
+          "supplier_id": "1338485968896",
+          "supplier_url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896",
+          "delivery_address": {
+            "address": "1 Rue de la Paix",
+            "postal_code": "75001",
+            "city": "Paris",
+            "country_alpha2": "FR"
+          },
+          "status": "invoiced",
+          "currency": "EUR",
+          "reason": "Test PR 3",
+          "amount": "120.0",
+          "currency_amount": "120.0",
+          "currency_amount_before_tax": "100.0",
+          "exchange_rate": "1.0",
+          "currency_tax": "20.0",
+          "tax": "20.0",
+          "purchase_order_filename": "purchase_order",
+          "purchase_order_url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyHYlo2V4cMcLB85qTlFSzjFBYToAo3B1cqdibG9iX2lk--114855e7cd61da0e1105e9888588e5c108909292/dummy2.pdf",
+          "linked_invoice_ids": [
+            "25465872809984"
+          ],
+          "created_at": "2026-07-08T12:28:37.589189Z",
+          "updated_at": "2026-07-08T12:29:15.375749Z"
+        },
+        {
+          "id": "3094958080",
+          "purchase_order_number": "PO-002",
+          "supplier_id": "1338485968896",
+          "supplier_url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896",
+          "delivery_address": {
+            "address": "1 Rue de la Paix",
+            "postal_code": "75001",
+            "city": "Paris",
+            "country_alpha2": "FR"
+          },
+          "status": "invoiced",
+          "currency": "EUR",
+          "reason": "Test PR 2",
+          "amount": "120.0",
+          "currency_amount": "120.0",
+          "currency_amount_before_tax": "100.0",
+          "exchange_rate": "1.0",
+          "currency_tax": "20.0",
+          "tax": "20.0",
+          "purchase_order_filename": "purchase_order",
+          "purchase_order_url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBPvo2V4cMcLB85qTlFSzjFIBNEAo3B1cqdibG9iX2lk--04fb9d0fff52614bd26f2ef1279326442ac9e18a/dummy.pdf",
+          "linked_invoice_ids": [
+            "25465510096896"
+          ],
+          "created_at": "2026-07-08T12:27:06.935202Z",
+          "updated_at": "2026-07-08T12:27:10.452993Z"
+        },
+        {
+          "id": "3094925312",
+          "purchase_order_number": "PO-001",
+          "supplier_id": "1338485968896",
+          "supplier_url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896",
+          "delivery_address": {
+            "address": "1 Rue de la Paix",
+            "postal_code": "75001",
+            "city": "Paris",
+            "country_alpha2": "FR"
+          },
+          "status": "invoiced",
+          "currency": "EUR",
+          "reason": "Test PR",
+          "amount": "120.0",
+          "currency_amount": "120.0",
+          "currency_amount_before_tax": "100.0",
+          "exchange_rate": "1.0",
+          "currency_tax": "20.0",
+          "tax": "20.0",
+          "purchase_order_filename": "purchase_order",
+          "purchase_order_url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBPvo2V4cMcLB85qTlFSzjFMZA0Ao3B1cqdibG9iX2lk--de7f24afbf9985579a5f9d37c36144d051e0341a/dummy.pdf",
+          "linked_invoice_ids": [
+            "25465510096896"
+          ],
+          "created_at": "2026-07-08T12:24:56.873080Z",
+          "updated_at": "2026-07-08T12:25:34.485055Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "PurchaseRequest": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/external/v2/purchase_requests": {
+        "response": {
+          "items": [
+            {
+              "id": 3094990848,
+              "amount": "120.0",
+              "created_at": "2026-07-08T12:29:32.495747Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "estimated_delivery_date": null,
+              "exchange_rate": "1.0",
+              "reason": "Test PR 4",
+              "status": "invoiced",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T12:30:05.606578Z",
+              "purchase_order_number": "PO-004",
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "delivery_address": {
+                "address": "1 Rue de la Paix",
+                "postal_code": "75001",
+                "city": "Paris",
+                "country_alpha2": "FR"
+              },
+              "purchase_order": {
+                "filename": "purchase_order",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyHYlo2V4cMcLB85qTlFSzjE3GCgAo3B1cqdibG9iX2lk--535e66d4e8d13cc875e802db344ca0eef65cf4a6/dummy2.pdf"
+              },
+              "linked_invoices": {
+                "items": [
+                  {
+                    "id": 25465872809984,
+                    "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 3094962176,
+              "amount": "120.0",
+              "created_at": "2026-07-08T12:28:37.589189Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "estimated_delivery_date": null,
+              "exchange_rate": "1.0",
+              "reason": "Test PR 3",
+              "status": "invoiced",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T12:29:15.375749Z",
+              "purchase_order_number": "PO-003",
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "delivery_address": {
+                "address": "1 Rue de la Paix",
+                "postal_code": "75001",
+                "city": "Paris",
+                "country_alpha2": "FR"
+              },
+              "purchase_order": {
+                "filename": "purchase_order",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyHYlo2V4cMcLB85qTlFSzjFBYToAo3B1cqdibG9iX2lk--114855e7cd61da0e1105e9888588e5c108909292/dummy2.pdf"
+              },
+              "linked_invoices": {
+                "items": [
+                  {
+                    "id": 25465872809984,
+                    "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465872809984"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 3094958080,
+              "amount": "120.0",
+              "created_at": "2026-07-08T12:27:06.935202Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "estimated_delivery_date": null,
+              "exchange_rate": "1.0",
+              "reason": "Test PR 2",
+              "status": "invoiced",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T12:27:10.452993Z",
+              "purchase_order_number": "PO-002",
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "delivery_address": {
+                "address": "1 Rue de la Paix",
+                "postal_code": "75001",
+                "city": "Paris",
+                "country_alpha2": "FR"
+              },
+              "purchase_order": {
+                "filename": "purchase_order",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBPvo2V4cMcLB85qTlFSzjFIBNEAo3B1cqdibG9iX2lk--04fb9d0fff52614bd26f2ef1279326442ac9e18a/dummy.pdf"
+              },
+              "linked_invoices": {
+                "items": [
+                  {
+                    "id": 25465510096896,
+                    "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896"
+                  }
+                ]
+              }
+            },
+            {
+              "id": 3094925312,
+              "amount": "120.0",
+              "created_at": "2026-07-08T12:24:56.873080Z",
+              "currency_amount_before_tax": "100.0",
+              "currency_amount": "120.0",
+              "currency_tax": "20.0",
+              "currency": "EUR",
+              "estimated_delivery_date": null,
+              "exchange_rate": "1.0",
+              "reason": "Test PR",
+              "status": "invoiced",
+              "tax": "20.0",
+              "updated_at": "2026-07-08T12:25:34.485055Z",
+              "purchase_order_number": "PO-001",
+              "supplier": {
+                "id": 1338485968896,
+                "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+              },
+              "delivery_address": {
+                "address": "1 Rue de la Paix",
+                "postal_code": "75001",
+                "city": "Paris",
+                "country_alpha2": "FR"
+              },
+              "purchase_order": {
+                "filename": "purchase_order",
+                "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBPvo2V4cMcLB85qTlFSzjFMZA0Ao3B1cqdibG9iX2lk--de7f24afbf9985579a5f9d37c36144d051e0341a/dummy.pdf"
+              },
+              "linked_invoices": {
+                "items": [
+                  {
+                    "id": 25465510096896,
+                    "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896"
+                  }
+                ]
+              }
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:02:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4977",
+          "x-ratelimit-reset": "1783515776",
+          "cf-ray": "a17f47f2bd57147f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"7e9ddab337241005470997136f95b6e6\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "22",
+          "ratelimit-reset": "1783515725",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "fbb81695-98cb-4651-8875-4c346724d4eb",
+          "set-cookie": "__cf_bm=Tdhz.6b_gQ.OlmRebzIInOYcAJrUiEPlQR.0RbXlGb0-1783515722.6777365-1.0.1.1-Q_PWc1Pj3izcT9_g_JzquMM7bi0MrhtP1nnc6zboK33GtU9UWaeXagzAeqQ7ij8UGGXjLKmtarZR8JMPIyNKV7dbApPFuFSg3_GZXNII_Tub7xJKJvOq2LyyjK5swiW.; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:32:02 GMT"
+        },
+        "hash": "85a9afbe82808e5b3051fe0553881e9cd9adf9b3",
+        "request": {
+          "params": {
+            "limit": "50"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 9570,
+        "name": "Revolut Business BE",
+        "created_at": "2026-07-02T06:06:58.430929Z",
+        "updated_at": "2026-07-03T00:30:04.687404Z"
+      },
+      {
+        "id": 9537,
+        "name": "Wise IT",
+        "created_at": "2026-06-25T09:43:46.345118Z",
+        "updated_at": "2026-06-26T00:30:04.118631Z"
+      },
+      {
+        "id": 9504,
+        "name": "UAF LIFE Patrimoine",
+        "created_at": "2026-06-17T09:39:17.198376Z",
+        "updated_at": "2026-06-18T00:30:05.248725Z"
+      },
+      {
+        "id": 9471,
+        "name": "Sumup NL",
+        "created_at": "2026-06-01T04:58:48.441483Z",
+        "updated_at": "2026-06-17T00:30:04.351834Z"
+      },
+      {
+        "id": 9438,
+        "name": "Banque des Territoires",
+        "created_at": "2026-05-26T12:31:36.557214Z",
+        "updated_at": "2026-07-08T13:08:21.452367Z"
+      },
+      {
+        "id": 9405,
+        "name": "UBS DE",
+        "created_at": "2026-05-22T10:14:14.002420Z",
+        "updated_at": "2026-06-25T00:30:03.702153Z"
+      },
+      {
+        "id": 9372,
+        "name": "Banque Fiducial Beta",
+        "created_at": "2026-04-27T12:21:19.964230Z",
+        "updated_at": "2026-04-28T00:30:04.230642Z"
+      },
+      {
+        "id": 9339,
+        "name": "Nickel",
+        "created_at": "2026-04-27T07:17:45.403781Z",
+        "updated_at": "2026-07-08T13:14:02.896998Z"
+      },
+      {
+        "id": 9306,
+        "name": "Novo Banco",
+        "created_at": "2026-04-13T13:23:16.811566Z",
+        "updated_at": "2026-07-04T00:30:10.120940Z"
+      },
+      {
+        "id": 9273,
+        "name": "Wise DE",
+        "created_at": "2026-04-12T18:47:44.014097Z",
+        "updated_at": "2026-04-13T00:30:02.370295Z"
+      },
+      {
+        "id": 9240,
+        "name": "Commerzbank Firmenkunden",
+        "created_at": "2026-03-24T10:08:41.891121Z",
+        "updated_at": "2026-06-25T00:30:03.702153Z"
+      },
+      {
+        "id": 9207,
+        "name": "BforBank (Client avant le 18/09/23)",
+        "created_at": "2026-03-18T16:59:20.999557Z",
+        "updated_at": "2026-06-16T00:30:04.015653Z"
+      },
+      {
+        "id": 9174,
+        "name": "L by LCL Pro Beta",
+        "created_at": "2026-03-12T00:18:47.735422Z",
+        "updated_at": "2026-07-08T00:30:04.937741Z"
+      },
+      {
+        "id": 9141,
+        "name": "Crédit Municipal de Toulon",
+        "created_at": "2026-03-04T09:37:48.709461Z",
+        "updated_at": "2026-07-07T00:30:04.971307Z"
+      },
+      {
+        "id": 9108,
+        "name": "Revolut Business ES",
+        "created_at": "2026-03-01T05:16:13.648194Z",
+        "updated_at": "2026-04-10T00:30:01.684829Z"
+      },
+      {
+        "id": 9076,
+        "name": "Wise ES",
+        "created_at": "2026-02-24T14:44:03.007329Z",
+        "updated_at": "2026-02-25T00:30:03.772563Z"
+      },
+      {
+        "id": 9075,
+        "name": "Vivid Money ES",
+        "created_at": "2026-02-24T13:52:20.741285Z",
+        "updated_at": "2026-02-25T00:30:03.772563Z"
+      },
+      {
+        "id": 9042,
+        "name": "Info Retraite",
+        "created_at": "2026-02-13T13:08:37.234657Z",
+        "updated_at": "2026-02-13T13:08:37.234585Z"
+      },
+      {
+        "id": 9009,
+        "name": "Beobank",
+        "created_at": "2026-02-10T08:08:08.599802Z",
+        "updated_at": "2026-06-24T00:30:04.511938Z"
+      },
+      {
+        "id": 8976,
+        "name": "Ebury",
+        "created_at": "2026-02-06T15:51:38.457088Z",
+        "updated_at": "2026-07-07T00:30:04.971307Z"
+      }
+    ],
+    "has_more": true,
+    "next_cursor": "eyJjdXJzb3JfYXR0cmlidXRlcyI6Wzg5NzZdLCJzb3J0IjoiLWlkIn0="
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/bank_establishments": {
+        "response": {
+          "items": [
+            {
+              "id": 9570,
+              "name": "Revolut Business BE",
+              "created_at": "2026-07-02T06:06:58.430929Z",
+              "updated_at": "2026-07-03T00:30:04.687404Z"
+            },
+            {
+              "id": 9537,
+              "name": "Wise IT",
+              "created_at": "2026-06-25T09:43:46.345118Z",
+              "updated_at": "2026-06-26T00:30:04.118631Z"
+            },
+            {
+              "id": 9504,
+              "name": "UAF LIFE Patrimoine",
+              "created_at": "2026-06-17T09:39:17.198376Z",
+              "updated_at": "2026-06-18T00:30:05.248725Z"
+            },
+            {
+              "id": 9471,
+              "name": "Sumup NL",
+              "created_at": "2026-06-01T04:58:48.441483Z",
+              "updated_at": "2026-06-17T00:30:04.351834Z"
+            },
+            {
+              "id": 9438,
+              "name": "Banque des Territoires",
+              "created_at": "2026-05-26T12:31:36.557214Z",
+              "updated_at": "2026-07-08T13:08:21.452367Z"
+            },
+            {
+              "id": 9405,
+              "name": "UBS DE",
+              "created_at": "2026-05-22T10:14:14.002420Z",
+              "updated_at": "2026-06-25T00:30:03.702153Z"
+            },
+            {
+              "id": 9372,
+              "name": "Banque Fiducial Beta",
+              "created_at": "2026-04-27T12:21:19.964230Z",
+              "updated_at": "2026-04-28T00:30:04.230642Z"
+            },
+            {
+              "id": 9339,
+              "name": "Nickel",
+              "created_at": "2026-04-27T07:17:45.403781Z",
+              "updated_at": "2026-07-08T13:14:02.896998Z"
+            },
+            {
+              "id": 9306,
+              "name": "Novo Banco",
+              "created_at": "2026-04-13T13:23:16.811566Z",
+              "updated_at": "2026-07-04T00:30:10.120940Z"
+            },
+            {
+              "id": 9273,
+              "name": "Wise DE",
+              "created_at": "2026-04-12T18:47:44.014097Z",
+              "updated_at": "2026-04-13T00:30:02.370295Z"
+            },
+            {
+              "id": 9240,
+              "name": "Commerzbank Firmenkunden",
+              "created_at": "2026-03-24T10:08:41.891121Z",
+              "updated_at": "2026-06-25T00:30:03.702153Z"
+            },
+            {
+              "id": 9207,
+              "name": "BforBank (Client avant le 18/09/23)",
+              "created_at": "2026-03-18T16:59:20.999557Z",
+              "updated_at": "2026-06-16T00:30:04.015653Z"
+            },
+            {
+              "id": 9174,
+              "name": "L by LCL Pro Beta",
+              "created_at": "2026-03-12T00:18:47.735422Z",
+              "updated_at": "2026-07-08T00:30:04.937741Z"
+            },
+            {
+              "id": 9141,
+              "name": "Crédit Municipal de Toulon",
+              "created_at": "2026-03-04T09:37:48.709461Z",
+              "updated_at": "2026-07-07T00:30:04.971307Z"
+            },
+            {
+              "id": 9108,
+              "name": "Revolut Business ES",
+              "created_at": "2026-03-01T05:16:13.648194Z",
+              "updated_at": "2026-04-10T00:30:01.684829Z"
+            },
+            {
+              "id": 9076,
+              "name": "Wise ES",
+              "created_at": "2026-02-24T14:44:03.007329Z",
+              "updated_at": "2026-02-25T00:30:03.772563Z"
+            },
+            {
+              "id": 9075,
+              "name": "Vivid Money ES",
+              "created_at": "2026-02-24T13:52:20.741285Z",
+              "updated_at": "2026-02-25T00:30:03.772563Z"
+            },
+            {
+              "id": 9042,
+              "name": "Info Retraite",
+              "created_at": "2026-02-13T13:08:37.234657Z",
+              "updated_at": "2026-02-13T13:08:37.234585Z"
+            },
+            {
+              "id": 9009,
+              "name": "Beobank",
+              "created_at": "2026-02-10T08:08:08.599802Z",
+              "updated_at": "2026-06-24T00:30:04.511938Z"
+            },
+            {
+              "id": 8976,
+              "name": "Ebury",
+              "created_at": "2026-02-06T15:51:38.457088Z",
+              "updated_at": "2026-07-07T00:30:04.971307Z"
+            }
+          ],
+          "has_more": true,
+          "next_cursor": "eyJjdXJzb3JfYXR0cmlidXRlcyI6Wzg5NzZdLCJzb3J0IjoiLWlkIn0="
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "date": "Wed, 08 Jul 2026 13:17:05 GMT",
+          "connection": "keep-alive",
+          "keep-alive": "timeout=5",
+          "transfer-encoding": "chunked"
+        },
+        "hash": "cdc16417c6e36c48794c3873b169e1f9fc5394d0",
+        "request": {}
+      }
+    }
+  }
+}

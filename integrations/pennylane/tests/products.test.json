@@ -1,0 +1,148 @@
+{
+  "nango": {
+    "batchSave": {
+      "PennylaneProduct": [
+        {
+          "id": "87543058432",
+          "source_id": "87543058432",
+          "label": "Test Product",
+          "description": "",
+          "unit": "piece",
+          "price_before_tax": 100,
+          "price": 120,
+          "vat_rate": "FR_200",
+          "currency": "EUR",
+          "reference": "",
+          "substance": ""
+        },
+        {
+          "id": "87542956032",
+          "source_id": "87542956032",
+          "label": "Test Product",
+          "description": "",
+          "unit": "piece",
+          "price_before_tax": 100,
+          "price": 120,
+          "vat_rate": "FR_200",
+          "currency": "EUR",
+          "reference": "",
+          "substance": ""
+        },
+        {
+          "id": "87538491392",
+          "source_id": "87538491392",
+          "label": "Consulting Services Updated",
+          "description": "",
+          "unit": "piece",
+          "price_before_tax": 500,
+          "price": 600,
+          "vat_rate": "FR_200",
+          "currency": "EUR",
+          "reference": "",
+          "substance": ""
+        }
+      ]
+    },
+    "batchDelete": {
+      "PennylaneProduct": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/external/v2/products": {
+        "response": {
+          "items": [
+            {
+              "id": 87543058432,
+              "price_before_tax": "100.0",
+              "vat_rate": "FR_200",
+              "price": "120.0",
+              "unit": "piece",
+              "currency": "EUR",
+              "reference": "",
+              "created_at": "2026-07-08T12:27:06.148073Z",
+              "updated_at": "2026-07-08T12:27:06.143277Z",
+              "archived_at": null,
+              "description": "",
+              "label": "Test Product",
+              "external_reference": "019f41b2-361c-754f-a7ac-619bb040553c",
+              "ledger_account": null
+            },
+            {
+              "id": 87542956032,
+              "price_before_tax": "100.0",
+              "vat_rate": "FR_200",
+              "price": "120.0",
+              "unit": "piece",
+              "currency": "EUR",
+              "reference": "",
+              "created_at": "2026-07-08T12:25:48.715319Z",
+              "updated_at": "2026-07-08T12:25:48.684659Z",
+              "archived_at": null,
+              "description": "",
+              "label": "Test Product",
+              "external_reference": "019f41b1-0788-7410-8858-8c75eed481b4",
+              "ledger_account": null
+            },
+            {
+              "id": 87538491392,
+              "price_before_tax": "500.0",
+              "vat_rate": "FR_200",
+              "price": "600.0",
+              "unit": "piece",
+              "currency": "EUR",
+              "reference": "",
+              "created_at": "2026-07-08T12:03:15.180745Z",
+              "updated_at": "2026-07-08T12:39:13.552974Z",
+              "archived_at": null,
+              "description": "",
+              "label": "Consulting Services Updated",
+              "external_reference": "019f419c-6063-70a2-8a99-b2c3e03566d5",
+              "ledger_account": null
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:08:47 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4945",
+          "x-ratelimit-reset": "1783516152",
+          "cf-ray": "a17f51d0e8035509-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"678bc645415f1f4b324831d7b9f48844\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "23",
+          "ratelimit-reset": "1783516130",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "27c7d094-0aa0-4002-863e-a038942f08a5",
+          "set-cookie": "__cf_bm=ed15EMuYMwqsFO0OjJMiYuCnbA4M86qERqHeFRSy1.w-1783516126.8690982-1.0.1.1-VaCROIEPC45ghV0MyujTZ.5ze8C2xEvdEZJnUgWv5Hp2bZVdn1dZXs4Bwr1ikYs4yYpG9bMLTfeFlCjuWQ2AVBCkyeJOLrTY43jf2etlaJtgm1e9iPpQ9_wzuc6dGiLw; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:38:47 GMT"
+        },
+        "hash": "aaa3cd8706ae869c935868c88237825dd1145ab7",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

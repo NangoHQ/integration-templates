@@ -1,0 +1,71 @@
+{
+  "input": {
+    "name": "Test Bank Account"
+  },
+  "output": {
+    "id": 14572167168,
+    "name": "Test Bank Account",
+    "currency": "EUR",
+    "balance": "0.0",
+    "created_at": "2026-07-08T13:02:41.339911Z",
+    "updated_at": "2026-07-08T13:02:41.331915Z",
+    "bank_establishment_id": 2640,
+    "journal_id": 91426480128,
+    "journal_url": "https://app.pennylane.com/api/external/v2/journals/91426480128",
+    "ledger_account_id": 14070508908544,
+    "ledger_account_url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14070508908544"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/external/v2/bank_accounts": {
+        "response": {
+          "id": 14572167168,
+          "name": "Test Bank Account",
+          "currency": "EUR",
+          "balance": "0.0",
+          "created_at": "2026-07-08T13:02:41.339911Z",
+          "updated_at": "2026-07-08T13:02:41.331915Z",
+          "bank_establishment": {
+            "id": 2640
+          },
+          "journal": {
+            "id": 91426480128,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91426480128"
+          },
+          "ledger_account": {
+            "id": 14070508908544,
+            "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14070508908544"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 13:02:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "417",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4940",
+          "x-ratelimit-reset": "1783515776",
+          "x-request-id": "bc656f6b-5980-41a7-a0e1-bf72f00c6102",
+          "etag": "W/\"1a1-FwmNosni1CHjZ2x9h475OYchXxU\""
+        },
+        "hash": "0455ac50ed3d3a498e754b464b67eda3aebc1cc3",
+        "request": {
+          "data": {
+            "name": "Test Bank Account"
+          }
+        }
+      }
+    }
+  }
+}

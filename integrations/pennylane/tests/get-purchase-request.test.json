@@ -1,0 +1,121 @@
+{
+  "input": {
+    "id": 3094925312
+  },
+  "output": {
+    "id": 3094925312,
+    "purchase_order_number": "PO-001",
+    "supplier": {
+      "id": 1338485968896,
+      "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+    },
+    "delivery_address": {
+      "address": "1 Rue de la Paix",
+      "postal_code": "75001",
+      "city": "Paris",
+      "country_alpha2": "FR"
+    },
+    "status": "invoiced",
+    "currency": "EUR",
+    "reason": "Test PR",
+    "amount": "120.0",
+    "currency_amount": "120.0",
+    "currency_amount_before_tax": "100.0",
+    "exchange_rate": "1.0",
+    "currency_tax": "20.0",
+    "tax": "20.0",
+    "purchase_order": {
+      "filename": "purchase_order",
+      "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBPvo2V4cMcLB85qTkjRzgJp9i0Ao3B1cqdibG9iX2lk--f0e87c38765f0ef0a68de5f1f7227960119e7971/dummy.pdf"
+    },
+    "linked_invoices": {
+      "items": [
+        {
+          "id": 25465510096896,
+          "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896"
+        }
+      ]
+    },
+    "created_at": "2026-07-08T12:24:56.873080Z",
+    "updated_at": "2026-07-08T12:25:34.485055Z"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/purchase_requests/3094925312": {
+        "response": {
+          "id": 3094925312,
+          "amount": "120.0",
+          "created_at": "2026-07-08T12:24:56.873080Z",
+          "currency_amount_before_tax": "100.0",
+          "currency_amount": "120.0",
+          "currency_tax": "20.0",
+          "currency": "EUR",
+          "estimated_delivery_date": null,
+          "exchange_rate": "1.0",
+          "reason": "Test PR",
+          "status": "invoiced",
+          "tax": "20.0",
+          "updated_at": "2026-07-08T12:25:34.485055Z",
+          "purchase_order_number": "PO-001",
+          "supplier": {
+            "id": 1338485968896,
+            "url": "https://app.pennylane.com/api/external/v2/suppliers/1338485968896"
+          },
+          "delivery_address": {
+            "address": "1 Rue de la Paix",
+            "postal_code": "75001",
+            "city": "Paris",
+            "country_alpha2": "FR"
+          },
+          "purchase_order": {
+            "filename": "purchase_order",
+            "url": "https://app.pennylane.com/rails/active_storage/blobs/redirect/zICBpl9yYWlsc4OkZGF0Yc5EyBPvo2V4cMcLB85qTkjRzgJp9i0Ao3B1cqdibG9iX2lk--f0e87c38765f0ef0a68de5f1f7227960119e7971/dummy.pdf"
+          },
+          "linked_invoices": {
+            "items": [
+              {
+                "id": 25465510096896,
+                "url": "https://app.pennylane.com/api/external/v2/supplier_invoices/25465510096896"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:25:45 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4898",
+          "x-ratelimit-reset": "1783513579",
+          "cf-ray": "a17f12c7b9e2c146-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"0aa808192844142fea3486a5ce56aa6f\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783513550",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "991dc5eb-991a-4b05-acd9-d3b1e0be12b5",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "11df26152295eb417841716df6371b5e1f3a5416",
+        "request": {}
+      }
+    }
+  }
+}

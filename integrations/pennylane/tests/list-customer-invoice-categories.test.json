@@ -1,0 +1,78 @@
+{
+  "input": {
+    "customer_invoice_id": 25461646082048
+  },
+  "output": {
+    "items": [
+      {
+        "id": 239432757248,
+        "label": "IS",
+        "weight": "1.0",
+        "category_group": {
+          "id": 14148939776
+        },
+        "created_at": "2026-07-08T11:26:51.380074Z",
+        "updated_at": "2026-07-08T11:26:51.782993Z"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/customer_invoices/25461646082048/categories": {
+        "response": {
+          "items": [
+            {
+              "weight": "1.0",
+              "id": 239432757248,
+              "label": "IS",
+              "analytical_code": null,
+              "created_at": "2026-07-08T11:26:51.380074Z",
+              "updated_at": "2026-07-08T11:26:51.782993Z",
+              "category_group": {
+                "id": 14148939776
+              }
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:59:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1783515634",
+          "cf-ray": "a17f44654a92706c-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"1b6ba91371e783eb82b7ccedf7d1d20e\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "22",
+          "ratelimit-reset": "1783515580",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "e7a8a3cd-cbe3-400d-8c7a-b2b9f54ea555",
+          "set-cookie": "__cf_bm=T7m_es9YGAW2l8pi3b_RLnQNXildy34R7_LImwXKLCQ-1783515577.1616945-1.0.1.1-PzQLMYYFW6u8PHWwUbLqFBqSeIn1J.01sXziHZ7lSf34uMFUu.M8PfujMfRPCOzb.2_GUbMgM0xwwBSJMOk8668CBkC2h2VT2LGRs5YXgdgzMdvsWnVRAPx_GJ41mXDD; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:29:37 GMT"
+        },
+        "hash": "8116f49dcc4f3652ecad0e20e1ccd86cbe7e7252",
+        "request": {}
+      }
+    }
+  }
+}

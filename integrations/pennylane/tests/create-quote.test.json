@@ -1,0 +1,140 @@
+{
+  "input": {
+    "customer_id": 1338468995072,
+    "date": "2026-07-08",
+    "deadline": "2026-07-15",
+    "invoice_lines": [
+      {
+        "product_id": 87538491392,
+        "quantity": 2,
+        "raw_currency_unit_price": "500.00"
+      }
+    ]
+  },
+  "output": {
+    "id": 25471750471680,
+    "quote_number": "0",
+    "date": "2026-07-08",
+    "deadline": "2026-07-15",
+    "currency": "EUR",
+    "amount": "1200.0",
+    "currency_amount": "1200.0",
+    "currency_amount_before_tax": "1000.0",
+    "exchange_rate": "1.0",
+    "currency_tax": "200.0",
+    "tax": "200.0",
+    "language": "fr_FR",
+    "status": "pending",
+    "label": "0",
+    "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=tqJVmTJYpMYOstBUaX7XkrereZ8bR6L0wySCkiIUmY9BUPvuDpi%2BPZvgjjrWy8hoTTgkTt7keRpYOJ8Dc4J%2FdS5d8OYXpNc4uoczb50PyFyiex5mt%2FYM1LbR548Rcw%3D%3D--AihumlzpIjStwvzJ--%2F96nh78sUUE5N3Bb8feJQg%3D%3D",
+    "pdf_invoice_free_text": "",
+    "pdf_invoice_subject": "",
+    "customer": {
+      "id": 1338468995072,
+      "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+    },
+    "invoice_lines": {
+      "url": "https://app.pennylane.com/api/external/v2/quotes/25471750471680/invoice_lines"
+    },
+    "invoice_line_sections": {
+      "url": "https://app.pennylane.com/api/external/v2/quotes/25471750471680/invoice_line_sections"
+    },
+    "linked_invoices": {
+      "url": "https://app.pennylane.com/api/external/v2/customer_invoices?filter=%5B%7B%22field%22%3A%22quote_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A25471750471680%7D%5D"
+    },
+    "discount": {
+      "type": "relative",
+      "value": "0.0"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/external/v2/quotes": {
+        "response": {
+          "id": 25471750471680,
+          "label": "0",
+          "currency": "EUR",
+          "amount": "1200.0",
+          "currency_amount": "1200.0",
+          "currency_amount_before_tax": "1000.0",
+          "tax": "200.0",
+          "currency_tax": "200.0",
+          "language": "fr_FR",
+          "filename": null,
+          "date": "2026-07-08",
+          "deadline": "2026-07-15",
+          "pdf_invoice_free_text": "",
+          "pdf_invoice_subject": "",
+          "pdf_description": null,
+          "special_mention": null,
+          "created_at": "2026-07-08T12:58:33.377229Z",
+          "updated_at": "2026-07-08T12:58:33.375761Z",
+          "archived_at": null,
+          "status": "pending",
+          "quote_number": "0",
+          "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=tqJVmTJYpMYOstBUaX7XkrereZ8bR6L0wySCkiIUmY9BUPvuDpi%2BPZvgjjrWy8hoTTgkTt7keRpYOJ8Dc4J%2FdS5d8OYXpNc4uoczb50PyFyiex5mt%2FYM1LbR548Rcw%3D%3D--AihumlzpIjStwvzJ--%2F96nh78sUUE5N3Bb8feJQg%3D%3D",
+          "exchange_rate": "1.0",
+          "discount": {
+            "type": "relative",
+            "value": "0.0"
+          },
+          "quote_template": null,
+          "customer": {
+            "id": 1338468995072,
+            "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+          },
+          "invoice_line_sections": {
+            "url": "https://app.pennylane.com/api/external/v2/quotes/25471750471680/invoice_line_sections"
+          },
+          "invoice_lines": {
+            "url": "https://app.pennylane.com/api/external/v2/quotes/25471750471680/invoice_lines"
+          },
+          "linked_invoices": {
+            "url": "https://app.pennylane.com/api/external/v2/customer_invoices?filter=%5B%7B%22field%22%3A%22quote_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A25471750471680%7D%5D"
+          },
+          "appendices": {
+            "url": "https://app.pennylane.com/api/external/v2/quotes/25471750471680/appendices"
+          },
+          "external_reference": "3I1SBFAITY"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:58:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1503",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1783515570",
+          "x-request-id": "05d46127-623f-49e8-ad6c-89f7949443f7",
+          "etag": "W/\"5df-qe5/UMjfMNZ0BL0D6KZNpHumGAg\""
+        },
+        "hash": "c5bc5afef8187e1a41e4a5d7ed338be2ac8ad203",
+        "request": {
+          "data": {
+            "customer_id": 1338468995072,
+            "date": "2026-07-08",
+            "deadline": "2026-07-15",
+            "invoice_lines": [
+              {
+                "product_id": 87538491392,
+                "quantity": 2,
+                "raw_currency_unit_price": "500.00"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 25465737265152,
+        "label": "0",
+        "quote_number": "0",
+        "currency": "EUR",
+        "amount": "600.0",
+        "currency_amount": "600.0",
+        "currency_amount_before_tax": "500.0",
+        "exchange_rate": "1.0",
+        "date": "2026-07-08",
+        "deadline": "2026-08-08",
+        "currency_tax": "100.0",
+        "tax": "100.0",
+        "language": "fr_FR",
+        "status": "pending",
+        "discount": {
+          "type": "relative",
+          "value": "0.0"
+        },
+        "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=4HPbbgSeVajQh6M29GssTzQ3W2cReb%2FHyANet0lvifCOPAnNRsn5r2VHAApn7OWFNaYtlnNhp3APC5pss%2Bwx%2FfYgseO59W3zBPk2el1usM%2FMAbvigJe7vk9xK5aqBQ%3D%3D--jxMdC9CySjyXOKD1--5ygmSfvjmPTdujWbvn3lEg%3D%3D",
+        "filename": "Devis-Acme Corp Test-NANGO-0.pdf",
+        "customer": {
+          "id": 1338468995072,
+          "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+        },
+        "invoice_line_sections": {
+          "url": "https://app.pennylane.com/api/external/v2/quotes/25465737265152/invoice_line_sections"
+        },
+        "invoice_lines": {
+          "url": "https://app.pennylane.com/api/external/v2/quotes/25465737265152/invoice_lines"
+        },
+        "linked_invoices": {
+          "url": "https://app.pennylane.com/api/external/v2/customer_invoices?filter=%5B%7B%22field%22%3A%22quote_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A25465737265152%7D%5D"
+        },
+        "pdf_invoice_free_text": "",
+        "pdf_invoice_subject": "",
+        "appendices": {
+          "url": "https://app.pennylane.com/api/external/v2/quotes/25465737265152/appendices"
+        },
+        "external_reference": "R6GMNOUE7I",
+        "created_at": "2026-07-08T12:27:22.751579Z",
+        "updated_at": "2026-07-08T12:27:23.461875Z"
+      },
+      {
+        "id": 25461979840512,
+        "label": "0",
+        "quote_number": "0",
+        "currency": "EUR",
+        "amount": "600.0",
+        "currency_amount": "600.0",
+        "currency_amount_before_tax": "500.0",
+        "exchange_rate": "1.0",
+        "date": "2026-07-08",
+        "deadline": "2026-08-08",
+        "currency_tax": "100.0",
+        "tax": "100.0",
+        "language": "fr_FR",
+        "status": "pending",
+        "discount": {
+          "type": "relative",
+          "value": "0.0"
+        },
+        "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=ZNMIA1PQZFVkLk2XiY8%2Blwz%2FkaSwk5yYApOx9PX6j7y9PzuQJwfD1sNtDbXsriCpTlJAARWBzSAGIRjxfH1a4Z4%2BGLErRwQAqN%2BAf5I%2FF2TJPE1d8i%2FZgswDs8bKqw%3D%3D--4ufctr%2F7ziuZcxDu--Xg61Yt8wI3mmdEEWqSgZDQ%3D%3D",
+        "filename": "Devis-Acme Corp Test-NANGO-0.pdf",
+        "customer": {
+          "id": 1338468995072,
+          "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+        },
+        "invoice_line_sections": {
+          "url": "https://app.pennylane.com/api/external/v2/quotes/25461979840512/invoice_line_sections"
+        },
+        "invoice_lines": {
+          "url": "https://app.pennylane.com/api/external/v2/quotes/25461979840512/invoice_lines"
+        },
+        "linked_invoices": {
+          "url": "https://app.pennylane.com/api/external/v2/customer_invoices?filter=%5B%7B%22field%22%3A%22quote_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A25461979840512%7D%5D"
+        },
+        "pdf_invoice_free_text": "",
+        "pdf_invoice_subject": "",
+        "appendices": {
+          "url": "https://app.pennylane.com/api/external/v2/quotes/25461979840512/appendices"
+        },
+        "external_reference": "LZEG8MI0SV",
+        "created_at": "2026-07-08T12:06:59.798469Z",
+        "updated_at": "2026-07-08T12:30:23.694018Z"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/quotes": {
+        "response": {
+          "items": [
+            {
+              "id": 25465737265152,
+              "label": "0",
+              "currency": "EUR",
+              "amount": "600.0",
+              "currency_amount": "600.0",
+              "currency_amount_before_tax": "500.0",
+              "tax": "100.0",
+              "currency_tax": "100.0",
+              "language": "fr_FR",
+              "filename": "Devis-Acme Corp Test-NANGO-0.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-08-08",
+              "pdf_invoice_free_text": "",
+              "pdf_invoice_subject": "",
+              "pdf_description": null,
+              "special_mention": null,
+              "created_at": "2026-07-08T12:27:22.751579Z",
+              "updated_at": "2026-07-08T12:27:23.461875Z",
+              "archived_at": null,
+              "status": "pending",
+              "quote_number": "0",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=4HPbbgSeVajQh6M29GssTzQ3W2cReb%2FHyANet0lvifCOPAnNRsn5r2VHAApn7OWFNaYtlnNhp3APC5pss%2Bwx%2FfYgseO59W3zBPk2el1usM%2FMAbvigJe7vk9xK5aqBQ%3D%3D--jxMdC9CySjyXOKD1--5ygmSfvjmPTdujWbvn3lEg%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "quote_template": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/quotes/25465737265152/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/quotes/25465737265152/invoice_lines"
+              },
+              "linked_invoices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices?filter=%5B%7B%22field%22%3A%22quote_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A25465737265152%7D%5D"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/quotes/25465737265152/appendices"
+              },
+              "external_reference": "R6GMNOUE7I"
+            },
+            {
+              "id": 25461979840512,
+              "label": "0",
+              "currency": "EUR",
+              "amount": "600.0",
+              "currency_amount": "600.0",
+              "currency_amount_before_tax": "500.0",
+              "tax": "100.0",
+              "currency_tax": "100.0",
+              "language": "fr_FR",
+              "filename": "Devis-Acme Corp Test-NANGO-0.pdf",
+              "date": "2026-07-08",
+              "deadline": "2026-08-08",
+              "pdf_invoice_free_text": "",
+              "pdf_invoice_subject": "",
+              "pdf_description": null,
+              "special_mention": null,
+              "created_at": "2026-07-08T12:06:59.798469Z",
+              "updated_at": "2026-07-08T12:30:23.694018Z",
+              "archived_at": null,
+              "status": "pending",
+              "quote_number": "0",
+              "public_file_url": "https://app.pennylane.com/public/invoice/pdf?encrypted_id=ZNMIA1PQZFVkLk2XiY8%2Blwz%2FkaSwk5yYApOx9PX6j7y9PzuQJwfD1sNtDbXsriCpTlJAARWBzSAGIRjxfH1a4Z4%2BGLErRwQAqN%2BAf5I%2FF2TJPE1d8i%2FZgswDs8bKqw%3D%3D--4ufctr%2F7ziuZcxDu--Xg61Yt8wI3mmdEEWqSgZDQ%3D%3D",
+              "exchange_rate": "1.0",
+              "discount": {
+                "type": "relative",
+                "value": "0.0"
+              },
+              "quote_template": null,
+              "customer": {
+                "id": 1338468995072,
+                "url": "https://app.pennylane.com/api/external/v2/customers/1338468995072"
+              },
+              "invoice_line_sections": {
+                "url": "https://app.pennylane.com/api/external/v2/quotes/25461979840512/invoice_line_sections"
+              },
+              "invoice_lines": {
+                "url": "https://app.pennylane.com/api/external/v2/quotes/25461979840512/invoice_lines"
+              },
+              "linked_invoices": {
+                "url": "https://app.pennylane.com/api/external/v2/customer_invoices?filter=%5B%7B%22field%22%3A%22quote_id%22%2C%22operator%22%3A%22eq%22%2C%22value%22%3A25461979840512%7D%5D"
+              },
+              "appendices": {
+                "url": "https://app.pennylane.com/api/external/v2/quotes/25461979840512/appendices"
+              },
+              "external_reference": "LZEG8MI0SV"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:41:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4943",
+          "x-ratelimit-reset": "1783514492",
+          "cf-ray": "a17f297298b0fefd-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"1ccad5dd7b1bd5c7eb265a20aecb3b5c\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "24",
+          "ratelimit-reset": "1783514475",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "9b6156f1-be52-4739-b6b0-8b43655e0185",
+          "set-cookie": "__cf_bm=BgY5EX3yNZblOQ8FCpEtpFbzxPMzJEAb6OK.4GnYZw4-1783514473.3802078-1.0.1.1-9EKwr5HMUl47k9dmq6ymEFhkPWgBBO0xbF0g8AcBxjHupZUFNMZoP8TWj6qmBCai_sYopZLdACJFRiUVNltKbSEhQ6UWk8COji5CqF50eGY1ZfNPwguD5mo6CoH0kL5d; HttpOnly; SameSite=None; Secure; Path=/; Domain=pennylane.com; Expires=Wed, 08 Jul 2026 13:11:13 GMT"
+        },
+        "hash": "dece4973f96365063c972e4da3d0d148dbbddf5d",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 1338242056192,
+        "operation": "insert",
+        "processed_at": "2026-07-08T11:26:56.254701Z",
+        "updated_at": "2026-07-08T11:26:50.733506Z",
+        "created_at": "2026-07-08T11:26:50.741963Z"
+      },
+      {
+        "id": 1338242060288,
+        "operation": "insert",
+        "processed_at": "2026-07-08T11:26:56.254755Z",
+        "updated_at": "2026-07-08T11:26:50.733506Z",
+        "created_at": "2026-07-08T11:26:50.741963Z"
+      },
+      {
+        "id": 1338242142208,
+        "operation": "insert",
+        "processed_at": "2026-07-08T11:26:56.264867Z",
+        "updated_at": "2026-07-08T11:26:52.468437Z",
+        "created_at": "2026-07-08T11:26:52.474832Z"
+      },
+      {
+        "id": 1338242146304,
+        "operation": "insert",
+        "processed_at": "2026-07-08T11:26:56.264941Z",
+        "updated_at": "2026-07-08T11:26:52.468437Z",
+        "created_at": "2026-07-08T11:26:52.474832Z"
+      },
+      {
+        "id": 1338242154496,
+        "operation": "insert",
+        "processed_at": "2026-07-08T11:26:56.265009Z",
+        "updated_at": "2026-07-08T11:26:52.468437Z",
+        "created_at": "2026-07-08T11:26:52.474832Z"
+      },
+      {
+        "id": 1338242162688,
+        "operation": "insert",
+        "processed_at": "2026-07-08T11:26:56.265069Z",
+        "updated_at": "2026-07-08T11:26:52.468437Z",
+        "created_at": "2026-07-08T11:26:52.474832Z"
+      },
+      {
+        "id": 1338242166784,
+        "operation": "insert",
+        "processed_at": "2026-07-08T11:26:56.265135Z",
+        "updated_at": "2026-07-08T11:26:52.468437Z",
+        "created_at": "2026-07-08T11:26:52.474832Z"
+      },
+      {
+        "id": 1338242170880,
+        "operation": "insert",
+        "processed_at": "2026-07-08T11:26:56.265193Z",
+        "updated_at": "2026-07-08T11:26:52.468437Z",
+        "created_at": "2026-07-08T11:26:52.474832Z"
+      },
+      {
+        "id": 1338242174976,
+        "operation": "insert",
+        "processed_at": "2026-07-08T11:26:56.265249Z",
+        "updated_at": "2026-07-08T11:26:52.468437Z",
+        "created_at": "2026-07-08T11:26:52.474832Z"
+      },
+      {
+        "id": 1338242179072,
+        "operation": "insert",
+        "processed_at": "2026-07-08T11:26:56.265302Z",
+        "updated_at": "2026-07-08T11:26:52.468437Z",
+        "created_at": "2026-07-08T11:26:52.474832Z"
+      },
+      {
+        "id": 1338485968896,
+        "operation": "insert",
+        "processed_at": "2026-07-08T12:03:32.969592Z",
+        "updated_at": "2026-07-08T12:03:32.264553Z",
+        "created_at": "2026-07-08T12:03:32.264647Z"
+      },
+      {
+        "id": 1338639400960,
+        "operation": "insert",
+        "processed_at": "2026-07-08T12:24:16.879659Z",
+        "updated_at": "2026-07-08T12:24:15.736571Z",
+        "created_at": "2026-07-08T12:24:15.736713Z"
+      },
+      {
+        "id": 1338642550784,
+        "operation": "insert",
+        "processed_at": "2026-07-08T12:24:58.297409Z",
+        "updated_at": "2026-07-08T12:24:57.442486Z",
+        "created_at": "2026-07-08T12:24:57.442742Z"
+      },
+      {
+        "id": 1338645016576,
+        "operation": "insert",
+        "processed_at": "2026-07-08T12:25:31.599944Z",
+        "updated_at": "2026-07-08T12:25:31.119626Z",
+        "created_at": "2026-07-08T12:25:31.119716Z"
+      },
+      {
+        "id": 1338242179072,
+        "operation": "update",
+        "processed_at": "2026-07-08T12:36:48.570742Z",
+        "updated_at": "2026-07-08T12:36:47.995551Z",
+        "created_at": "2026-07-08T11:26:52.474832Z"
+      }
+    ],
+    "has_more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/external/v2/changelogs/suppliers": {
+        "response": {
+          "items": [
+            {
+              "id": 1338242056192,
+              "operation": "insert",
+              "created_at": "2026-07-08T11:26:50.741963Z",
+              "updated_at": "2026-07-08T11:26:50.733506Z",
+              "processed_at": "2026-07-08T11:26:56.254701Z"
+            },
+            {
+              "id": 1338242060288,
+              "operation": "insert",
+              "created_at": "2026-07-08T11:26:50.741963Z",
+              "updated_at": "2026-07-08T11:26:50.733506Z",
+              "processed_at": "2026-07-08T11:26:56.254755Z"
+            },
+            {
+              "id": 1338242142208,
+              "operation": "insert",
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "processed_at": "2026-07-08T11:26:56.264867Z"
+            },
+            {
+              "id": 1338242146304,
+              "operation": "insert",
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "processed_at": "2026-07-08T11:26:56.264941Z"
+            },
+            {
+              "id": 1338242154496,
+              "operation": "insert",
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "processed_at": "2026-07-08T11:26:56.265009Z"
+            },
+            {
+              "id": 1338242162688,
+              "operation": "insert",
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "processed_at": "2026-07-08T11:26:56.265069Z"
+            },
+            {
+              "id": 1338242166784,
+              "operation": "insert",
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "processed_at": "2026-07-08T11:26:56.265135Z"
+            },
+            {
+              "id": 1338242170880,
+              "operation": "insert",
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "processed_at": "2026-07-08T11:26:56.265193Z"
+            },
+            {
+              "id": 1338242174976,
+              "operation": "insert",
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "processed_at": "2026-07-08T11:26:56.265249Z"
+            },
+            {
+              "id": 1338242179072,
+              "operation": "insert",
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "updated_at": "2026-07-08T11:26:52.468437Z",
+              "processed_at": "2026-07-08T11:26:56.265302Z"
+            },
+            {
+              "id": 1338485968896,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:03:32.264647Z",
+              "updated_at": "2026-07-08T12:03:32.264553Z",
+              "processed_at": "2026-07-08T12:03:32.969592Z"
+            },
+            {
+              "id": 1338639400960,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:24:15.736713Z",
+              "updated_at": "2026-07-08T12:24:15.736571Z",
+              "processed_at": "2026-07-08T12:24:16.879659Z"
+            },
+            {
+              "id": 1338642550784,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:24:57.442742Z",
+              "updated_at": "2026-07-08T12:24:57.442486Z",
+              "processed_at": "2026-07-08T12:24:58.297409Z"
+            },
+            {
+              "id": 1338645016576,
+              "operation": "insert",
+              "created_at": "2026-07-08T12:25:31.119716Z",
+              "updated_at": "2026-07-08T12:25:31.119626Z",
+              "processed_at": "2026-07-08T12:25:31.599944Z"
+            },
+            {
+              "id": 1338242179072,
+              "operation": "update",
+              "created_at": "2026-07-08T11:26:52.474832Z",
+              "updated_at": "2026-07-08T12:36:47.995551Z",
+              "processed_at": "2026-07-08T12:36:48.570742Z"
+            }
+          ],
+          "has_more": false,
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:36:49 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4947",
+          "x-ratelimit-reset": "1783514250",
+          "cf-ray": "a17f22fe0992b024-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"ee8e820b2a7afc5591f67a37d277dc94\"",
+          "server": "cloudflare",
+          "api-version-expires-at": "",
+          "ratelimit-limit": "25",
+          "ratelimit-remaining": "20",
+          "ratelimit-reset": "1783514210",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "b7fba349-b007-48d7-9d00-f17e0b852ae6",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "b38e496306260cd1837ae490bf50b314e1fdbbf9",
+        "request": {}
+      }
+    }
+  }
+}

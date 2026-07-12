@@ -1,0 +1,159 @@
+{
+  "input": {
+    "date": "2026-07-08",
+    "label": "Test ledger entry",
+    "journal_id": 91278557184,
+    "ledger_entry_lines": [
+      {
+        "debit": "100.00",
+        "credit": "0.00",
+        "ledger_account_id": 14065018343424,
+        "label": "Debit line"
+      },
+      {
+        "debit": "0.00",
+        "credit": "100.00",
+        "ledger_account_id": 14064892428288,
+        "label": "Credit line"
+      }
+    ]
+  },
+  "output": {
+    "id": 25465726578688,
+    "label": "Test ledger entry",
+    "piece_number": "VKHUXS4J4U",
+    "date": "2026-07-08",
+    "due_date": null,
+    "invoice_number": "",
+    "journal_id": 91278557184,
+    "journal": {
+      "id": 91278557184,
+      "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+    },
+    "status": null,
+    "categories": [],
+    "ledger_attachment_filename": null,
+    "ledger_attachment_id": null,
+    "attachment": null,
+    "ledger_entry_lines": [
+      {
+        "id": 104376217477120,
+        "debit": "100.0",
+        "credit": "0.0",
+        "ledger_account_id": 14065018343424,
+        "ledger_account": {
+          "id": 14065018343424,
+          "number": "999002",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065018343424"
+        },
+        "label": "Debit line"
+      },
+      {
+        "id": 104376217489408,
+        "debit": "0.0",
+        "credit": "100.0",
+        "ledger_account_id": 14064892428288,
+        "ledger_account": {
+          "id": 14064892428288,
+          "number": "999001",
+          "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064892428288"
+        },
+        "label": "Credit line"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/external/v2/ledger_entries": {
+        "response": {
+          "label": "Test ledger entry",
+          "date": "2026-07-08",
+          "journal_id": 91278557184,
+          "invoice_number": "",
+          "id": 25465726578688,
+          "piece_number": "VKHUXS4J4U",
+          "due_date": null,
+          "journal": {
+            "id": 91278557184,
+            "url": "https://app.pennylane.com/api/external/v2/journals/91278557184"
+          },
+          "status": null,
+          "categories": [],
+          "ledger_attachment_id": null,
+          "ledger_attachment_filename": null,
+          "attachment": null,
+          "ledger_entry_lines": [
+            {
+              "id": 104376217477120,
+              "debit": "100.0",
+              "credit": "0.0",
+              "label": "Debit line",
+              "ledger_account_id": 14065018343424,
+              "ledger_account": {
+                "id": 14065018343424,
+                "number": "999002",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14065018343424"
+              }
+            },
+            {
+              "id": 104376217489408,
+              "debit": "0.0",
+              "credit": "100.0",
+              "label": "Credit line",
+              "ledger_account_id": 14064892428288,
+              "ledger_account": {
+                "id": 14064892428288,
+                "number": "999001",
+                "url": "https://app.pennylane.com/api/external/v2/ledger_accounts/14064892428288"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 08 Jul 2026 12:27:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "888",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4832",
+          "x-ratelimit-reset": "1783513639",
+          "x-request-id": "64dc2124-917c-427f-af6e-3f4bedd895cd",
+          "etag": "W/\"378-tvc76xo/UziX9xchxmcM5WfHzRM\""
+        },
+        "hash": "1bce98145cef4edbb97bb7870ef992a6854c903a",
+        "request": {
+          "data": {
+            "date": "2026-07-08",
+            "label": "Test ledger entry",
+            "journal_id": 91278557184,
+            "ledger_entry_lines": [
+              {
+                "debit": "100.00",
+                "credit": "0.00",
+                "ledger_account_id": 14065018343424,
+                "label": "Debit line"
+              },
+              {
+                "debit": "0.00",
+                "credit": "100.00",
+                "ledger_account_id": 14064892428288,
+                "label": "Credit line"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
