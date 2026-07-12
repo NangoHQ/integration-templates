@@ -1,0 +1,704 @@
+{
+  "input": {},
+  "output": {
+    "users": [
+      {
+        "id": "00u14y6toa1gV2APU698",
+        "status": "PROVISIONED",
+        "created": "2026-07-07T15:21:59.000Z",
+        "activated": "2026-07-07T15:25:06.000Z",
+        "statusChanged": "2026-07-07T15:25:06.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2026-07-07T15:25:06.000Z",
+        "passwordChanged": null,
+        "type": {
+          "id": "oty14u78ldxtbv6BP698"
+        },
+        "profile": {
+          "firstName": "Test",
+          "lastName": "Staged",
+          "mobilePhone": null,
+          "secondEmail": null,
+          "login": "test.staged.1783437719053@nangotest.dev",
+          "email": "test.staged.1783437719053@nangotest.dev"
+        },
+        "credentials": {
+          "provider": {
+            "type": "OKTA",
+            "name": "OKTA"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/users/00u14y6toa1gV2APU698"
+          }
+        }
+      },
+      {
+        "id": "00u14y705oweWRaSw698",
+        "status": "PROVISIONED",
+        "created": "2026-07-07T15:25:22.000Z",
+        "activated": "2026-07-07T15:25:23.000Z",
+        "statusChanged": "2026-07-07T15:25:23.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2026-07-07T15:25:23.000Z",
+        "passwordChanged": null,
+        "type": {
+          "id": "oty14u78ldxtbv6BP698"
+        },
+        "profile": {
+          "firstName": "Test",
+          "lastName": "Staged",
+          "mobilePhone": null,
+          "secondEmail": null,
+          "login": "test.staged.1783437922355@nangotest.dev",
+          "email": "test.staged.1783437922355@nangotest.dev"
+        },
+        "credentials": {
+          "provider": {
+            "type": "OKTA",
+            "name": "OKTA"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/users/00u14y705oweWRaSw698"
+          }
+        }
+      },
+      {
+        "id": "00u14y7607pdae6Gr698",
+        "status": "PROVISIONED",
+        "created": "2026-07-07T15:27:08.000Z",
+        "activated": "2026-07-07T15:27:15.000Z",
+        "statusChanged": "2026-07-07T15:27:15.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2026-07-07T15:27:15.000Z",
+        "passwordChanged": null,
+        "type": {
+          "id": "oty14u78ldxtbv6BP698"
+        },
+        "profile": {
+          "firstName": "Test",
+          "lastName": "Staged",
+          "mobilePhone": null,
+          "secondEmail": null,
+          "login": "test.staged.1783438028506@nangotest.dev",
+          "email": "test.staged.1783438028506@nangotest.dev"
+        },
+        "credentials": {
+          "provider": {
+            "type": "OKTA",
+            "name": "OKTA"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/users/00u14y7607pdae6Gr698"
+          }
+        }
+      },
+      {
+        "id": "00u14y76omw6aGb5X698",
+        "status": "PROVISIONED",
+        "created": "2026-07-07T15:26:56.000Z",
+        "activated": "2026-07-07T15:27:03.000Z",
+        "statusChanged": "2026-07-07T15:27:03.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2026-07-07T15:27:03.000Z",
+        "passwordChanged": null,
+        "type": {
+          "id": "oty14u78ldxtbv6BP698"
+        },
+        "profile": {
+          "firstName": "Test",
+          "lastName": "Staged",
+          "mobilePhone": null,
+          "secondEmail": null,
+          "login": "test.staged.1783438015980@nangotest.dev",
+          "email": "test.staged.1783438015980@nangotest.dev"
+        },
+        "credentials": {
+          "provider": {
+            "type": "OKTA",
+            "name": "OKTA"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/users/00u14y76omw6aGb5X698"
+          }
+        }
+      },
+      {
+        "id": "00u14u78lfuUpDWf0698",
+        "status": "ACTIVE",
+        "created": "2026-07-03T20:42:11.000Z",
+        "activated": "2026-07-03T20:42:11.000Z",
+        "statusChanged": "2026-07-03T20:43:14.000Z",
+        "lastLogin": "2026-07-07T14:56:26.000Z",
+        "lastUpdated": "2026-07-03T20:43:14.000Z",
+        "passwordChanged": "2026-07-03T20:43:14.000Z",
+        "type": {
+          "id": "oty14u78ldxtbv6BP698"
+        },
+        "profile": {
+          "firstName": "nango",
+          "lastName": "developer",
+          "mobilePhone": null,
+          "secondEmail": null,
+          "login": "api+dev@nango.dev",
+          "email": "api+dev@nango.dev"
+        },
+        "credentials": {
+          "password": {},
+          "provider": {
+            "type": "OKTA",
+            "name": "OKTA"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698"
+          }
+        }
+      },
+      {
+        "id": "00u14y5plo5MraBIf698",
+        "status": "ACTIVE",
+        "created": "2026-07-07T14:59:29.000Z",
+        "activated": "2026-07-07T14:59:29.000Z",
+        "statusChanged": "2026-07-07T14:59:29.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2026-07-07T14:59:29.000Z",
+        "passwordChanged": "2026-07-07T14:59:29.000Z",
+        "type": {
+          "id": "oty14u78ldxtbv6BP698"
+        },
+        "profile": {
+          "firstName": "Grace",
+          "lastName": "Hopper",
+          "mobilePhone": null,
+          "secondEmail": null,
+          "login": "grace.hopper@nangotest.dev",
+          "email": "grace.hopper@nangotest.dev"
+        },
+        "credentials": {
+          "password": {},
+          "provider": {
+            "type": "OKTA",
+            "name": "OKTA"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/users/00u14y5plo5MraBIf698"
+          }
+        }
+      },
+      {
+        "id": "00u14y6vsuhaETkwX698",
+        "status": "ACTIVE",
+        "created": "2026-07-07T15:23:05.000Z",
+        "activated": "2026-07-07T15:23:05.000Z",
+        "statusChanged": "2026-07-07T15:23:05.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2026-07-07T15:23:05.000Z",
+        "passwordChanged": "2026-07-07T15:23:05.000Z",
+        "type": {
+          "id": "oty14u78ldxtbv6BP698"
+        },
+        "profile": {
+          "firstName": "Dryrun",
+          "lastName": "TestUser",
+          "mobilePhone": null,
+          "secondEmail": null,
+          "login": "dryrun.test.1783437781@nangotest.dev",
+          "email": "dryrun.test.1783437781@nangotest.dev"
+        },
+        "credentials": {
+          "password": {},
+          "provider": {
+            "type": "OKTA",
+            "name": "OKTA"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/users/00u14y6vsuhaETkwX698"
+          }
+        }
+      },
+      {
+        "id": "00u14y6xs81Lh9wJV698",
+        "status": "ACTIVE",
+        "created": "2026-07-07T15:23:13.000Z",
+        "activated": "2026-07-07T15:23:14.000Z",
+        "statusChanged": "2026-07-07T15:23:14.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2026-07-07T15:23:14.000Z",
+        "passwordChanged": "2026-07-07T15:23:13.000Z",
+        "type": {
+          "id": "oty14u78ldxtbv6BP698"
+        },
+        "profile": {
+          "firstName": "Dryrun",
+          "lastName": "TestUser",
+          "mobilePhone": null,
+          "secondEmail": null,
+          "login": "dryrun.test.1783437789@nangotest.dev",
+          "email": "dryrun.test.1783437789@nangotest.dev"
+        },
+        "credentials": {
+          "password": {},
+          "provider": {
+            "type": "OKTA",
+            "name": "OKTA"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/users/00u14y6xs81Lh9wJV698"
+          }
+        }
+      },
+      {
+        "id": "00u14y5oijeYKVDn0698",
+        "status": "RECOVERY",
+        "created": "2026-07-07T14:59:34.000Z",
+        "activated": "2026-07-07T14:59:34.000Z",
+        "statusChanged": "2026-07-07T15:28:48.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2026-07-07T15:28:48.000Z",
+        "passwordChanged": "2026-07-07T14:59:34.000Z",
+        "type": {
+          "id": "oty14u78ldxtbv6BP698"
+        },
+        "profile": {
+          "firstName": "Test",
+          "lastName": "LifecycleOne",
+          "mobilePhone": null,
+          "secondEmail": null,
+          "login": "test.lifecycleone@nangotest.dev",
+          "email": "test.lifecycleone@nangotest.dev"
+        },
+        "credentials": {
+          "password": {},
+          "provider": {
+            "type": "OKTA",
+            "name": "OKTA"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/users/00u14y5oijeYKVDn0698"
+          }
+        }
+      },
+      {
+        "id": "00u14y5n6uhI2lpQ3698",
+        "status": "SUSPENDED",
+        "created": "2026-07-07T14:59:18.000Z",
+        "activated": "2026-07-07T14:59:19.000Z",
+        "statusChanged": "2026-07-07T15:28:55.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2026-07-07T15:28:55.000Z",
+        "passwordChanged": "2026-07-07T14:59:19.000Z",
+        "type": {
+          "id": "oty14u78ldxtbv6BP698"
+        },
+        "profile": {
+          "firstName": "Ada",
+          "lastName": "Lovelace",
+          "mobilePhone": null,
+          "secondEmail": null,
+          "login": "ada.lovelace@nangotest.dev",
+          "email": "ada.lovelace@nangotest.dev"
+        },
+        "credentials": {
+          "password": {},
+          "provider": {
+            "type": "OKTA",
+            "name": "OKTA"
+          }
+        },
+        "_links": {
+          "self": {
+            "href": "https://trial-7332229.okta.com/api/v1/users/00u14y5n6uhI2lpQ3698"
+          }
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/users": {
+        "response": [
+          {
+            "id": "00u14y6toa1gV2APU698",
+            "status": "PROVISIONED",
+            "created": "2026-07-07T15:21:59.000Z",
+            "activated": "2026-07-07T15:25:06.000Z",
+            "statusChanged": "2026-07-07T15:25:06.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:25:06.000Z",
+            "passwordChanged": null,
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Test",
+              "lastName": "Staged",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "test.staged.1783437719053@nangotest.dev",
+              "email": "test.staged.1783437719053@nangotest.dev"
+            },
+            "credentials": {
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y6toa1gV2APU698"
+              }
+            }
+          },
+          {
+            "id": "00u14y705oweWRaSw698",
+            "status": "PROVISIONED",
+            "created": "2026-07-07T15:25:22.000Z",
+            "activated": "2026-07-07T15:25:23.000Z",
+            "statusChanged": "2026-07-07T15:25:23.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:25:23.000Z",
+            "passwordChanged": null,
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Test",
+              "lastName": "Staged",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "test.staged.1783437922355@nangotest.dev",
+              "email": "test.staged.1783437922355@nangotest.dev"
+            },
+            "credentials": {
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y705oweWRaSw698"
+              }
+            }
+          },
+          {
+            "id": "00u14y7607pdae6Gr698",
+            "status": "PROVISIONED",
+            "created": "2026-07-07T15:27:08.000Z",
+            "activated": "2026-07-07T15:27:15.000Z",
+            "statusChanged": "2026-07-07T15:27:15.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:27:15.000Z",
+            "passwordChanged": null,
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Test",
+              "lastName": "Staged",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "test.staged.1783438028506@nangotest.dev",
+              "email": "test.staged.1783438028506@nangotest.dev"
+            },
+            "credentials": {
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y7607pdae6Gr698"
+              }
+            }
+          },
+          {
+            "id": "00u14y76omw6aGb5X698",
+            "status": "PROVISIONED",
+            "created": "2026-07-07T15:26:56.000Z",
+            "activated": "2026-07-07T15:27:03.000Z",
+            "statusChanged": "2026-07-07T15:27:03.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:27:03.000Z",
+            "passwordChanged": null,
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Test",
+              "lastName": "Staged",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "test.staged.1783438015980@nangotest.dev",
+              "email": "test.staged.1783438015980@nangotest.dev"
+            },
+            "credentials": {
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y76omw6aGb5X698"
+              }
+            }
+          },
+          {
+            "id": "00u14u78lfuUpDWf0698",
+            "status": "ACTIVE",
+            "created": "2026-07-03T20:42:11.000Z",
+            "activated": "2026-07-03T20:42:11.000Z",
+            "statusChanged": "2026-07-03T20:43:14.000Z",
+            "lastLogin": "2026-07-07T14:56:26.000Z",
+            "lastUpdated": "2026-07-03T20:43:14.000Z",
+            "passwordChanged": "2026-07-03T20:43:14.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "nango",
+              "lastName": "developer",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "api+dev@nango.dev",
+              "email": "api+dev@nango.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14u78lfuUpDWf0698"
+              }
+            }
+          },
+          {
+            "id": "00u14y5plo5MraBIf698",
+            "status": "ACTIVE",
+            "created": "2026-07-07T14:59:29.000Z",
+            "activated": "2026-07-07T14:59:29.000Z",
+            "statusChanged": "2026-07-07T14:59:29.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T14:59:29.000Z",
+            "passwordChanged": "2026-07-07T14:59:29.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Grace",
+              "lastName": "Hopper",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "grace.hopper@nangotest.dev",
+              "email": "grace.hopper@nangotest.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y5plo5MraBIf698"
+              }
+            }
+          },
+          {
+            "id": "00u14y6vsuhaETkwX698",
+            "status": "ACTIVE",
+            "created": "2026-07-07T15:23:05.000Z",
+            "activated": "2026-07-07T15:23:05.000Z",
+            "statusChanged": "2026-07-07T15:23:05.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:23:05.000Z",
+            "passwordChanged": "2026-07-07T15:23:05.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Dryrun",
+              "lastName": "TestUser",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "dryrun.test.1783437781@nangotest.dev",
+              "email": "dryrun.test.1783437781@nangotest.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y6vsuhaETkwX698"
+              }
+            }
+          },
+          {
+            "id": "00u14y6xs81Lh9wJV698",
+            "status": "ACTIVE",
+            "created": "2026-07-07T15:23:13.000Z",
+            "activated": "2026-07-07T15:23:14.000Z",
+            "statusChanged": "2026-07-07T15:23:14.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:23:14.000Z",
+            "passwordChanged": "2026-07-07T15:23:13.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Dryrun",
+              "lastName": "TestUser",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "dryrun.test.1783437789@nangotest.dev",
+              "email": "dryrun.test.1783437789@nangotest.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y6xs81Lh9wJV698"
+              }
+            }
+          },
+          {
+            "id": "00u14y5oijeYKVDn0698",
+            "status": "RECOVERY",
+            "created": "2026-07-07T14:59:34.000Z",
+            "activated": "2026-07-07T14:59:34.000Z",
+            "statusChanged": "2026-07-07T15:28:48.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:28:48.000Z",
+            "passwordChanged": "2026-07-07T14:59:34.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Test",
+              "lastName": "LifecycleOne",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "test.lifecycleone@nangotest.dev",
+              "email": "test.lifecycleone@nangotest.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y5oijeYKVDn0698"
+              }
+            }
+          },
+          {
+            "id": "00u14y5n6uhI2lpQ3698",
+            "status": "SUSPENDED",
+            "created": "2026-07-07T14:59:18.000Z",
+            "activated": "2026-07-07T14:59:19.000Z",
+            "statusChanged": "2026-07-07T15:28:55.000Z",
+            "lastLogin": null,
+            "lastUpdated": "2026-07-07T15:28:55.000Z",
+            "passwordChanged": "2026-07-07T14:59:19.000Z",
+            "type": {
+              "id": "oty14u78ldxtbv6BP698"
+            },
+            "profile": {
+              "firstName": "Ada",
+              "lastName": "Lovelace",
+              "mobilePhone": null,
+              "secondEmail": null,
+              "login": "ada.lovelace@nangotest.dev",
+              "email": "ada.lovelace@nangotest.dev"
+            },
+            "credentials": {
+              "password": {},
+              "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+              }
+            },
+            "_links": {
+              "self": {
+                "href": "https://trial-7332229.okta.com/api/v1/users/00u14y5n6uhI2lpQ3698"
+              }
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 07 Jul 2026 15:28:55 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=315360000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1783438189",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-okta-request-id": "ec0fb60655e9df9b57ded0e74f22d528",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "p3p": "CP=\"HONK\"",
+          "set-cookie": "sid=\"\";Version=1;Path=/;Max-Age=0, xids=\"\";Version=1;Path=/;Max-Age=0, autolaunch_triggered=\"\"; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/, activate_ca_modal_triggered=\"\"; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Path=/, JSESSIONID=EC3E39E10CFCA821F2DB7BDFD15869B0; Path=/; Secure; HttpOnly",
+          "content-security-policy": "frame-ancestors 'self'",
+          "x-rate-limit-limit": "300",
+          "x-rate-limit-remaining": "283",
+          "x-rate-limit-reset": "1783438154",
+          "cache-control": "no-cache, no-store",
+          "pragma": "no-cache",
+          "expires": "0",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "link": "<https://trial-7332229.okta.com/api/v1/users?limit=200>; rel=\"self\""
+        },
+        "hash": "4c75286c7ce6df1561220b1cb66ba8ec5379e88f",
+        "request": {}
+      }
+    }
+  }
+}
