@@ -1,0 +1,99 @@
+{
+  "input": {
+    "ad_account_id": "549770573673",
+    "start_date": "2026-07-01",
+    "end_date": "2026-07-03",
+    "granularity": "DAY",
+    "level": "ADVERTISER",
+    "columns": [
+      "SPEND_IN_DOLLAR",
+      "IMPRESSION_1"
+    ]
+  },
+  "output": {
+    "token": "aicYIR-uD7NJ_rphdEHgGA==jP9iEEsvXm64h52uRvTQOie7lMYSdxTYJ6wioS5spUWvlgUqRv6XaMdvBznPWey7T77Q2o7X_vT4thTjzy23hzExrRYAXo-VXHK6PTGddRZ2UoT51MZHN9NkO9RLdy_g8hFZa526HZCX9ViQSvfdMM7hTk2EZWigmVpoJOY4aIG9z9sASWJvcnvowxEH3oEB9cHGTzA9fwJdVmCDY5cwNXlxAKSuPFPJKj1jgYyyuqQ67OniYQuh3lqzIrJUDUA2DQv7dcUnvTjN5FR2MX_tVmPgMYJfXPfi849JaTGnML0S_8xsfwp41-TOIj0Yx90QEuQs_WAOCCnS9v_dQdwGZeMEmjSZ172deT1POja5lwk=",
+    "report_status": "FINISHED",
+    "url": "https://pinterest-waterloo.s3.amazonaws.com/async_reporting_v3/549770573673-1783598365-8569623297172239/metrics_report.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6QZJ64OPOZTJVXGD%2F20260709%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260709T115937Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQD0Uyh3X5oYmKPvaT67CJxUiakJG%2BbHp%2BOiCaCIFOt%2FxQIhAI44A9A%2B8w17MO11lf6adI4hCTWP7TU5gMphvcStDmWrKrsFCJv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMOTk4MTMxMDMyOTkwIgzMPvOxb53Nalf7C34qjwVmb08ooASBhSfDd7o3d3xswiNfSVKqabd3ASWZEjg4fbhJ7PS50nZZUTtK36N5CNSgXlvvVUj%2BCCrS0DCSQpUPYQI9%2BODpP1pCREigZOcz%2BisdL04g7laQfGycwE88mOunsWp%2F8%2Bt6lIV4B5gN6TB3SFGLh6zEyMkRwZMW9%2BKnGWunN7ZXdgbj9WL4IY1zebgGA%2BE9kQgjd5Guee8WWJ1xwTIvPE%2F162GF%2FQyRuwH4SOWjOxm7V0nfTk2AKqbu5wo0OV94XT6LoRICbg0ACu%2FkRd2HHKz7mCBDmTP3HxHuddp7nrNofLiLI0klPJKjI%2BG1vDjnIfR4hDLKzpy931UyIhmMFWlj97s42Ho6oAc0Tm789I7EdU3FmPUENoQgf0t7iJqcaFd9Ee5x%2F1JRv1PulOSlYIWTliWdrvtZqiwQJOInmIkauAtnXCnyDgu7PBjhz1TzFA6DyKtrbd7lqDxsejRKh0CL6spxDoCdGwDZh8HdGWSMFdlwbbotlUxVUtsRpo4UQD3KoeAoJWjHjbJXz1BsF7lRJr%2FsbLHzyjcpSdbiPeYqhPpKefI%2B6NTaSi4oLdZBKYAIyeK3QXUC%2B1uNFgA1QWLKWKKLs1gdbtZ1IMRJ70r7BtrG2tjj8BN%2BoUWKa3edtNW9gjHi%2F6MoqWGAs5%2F6Z064w2LBohGJnhGQbbSlSRlw2T4HXeAqaU8XkPy0%2F3yqha9J07LyMwQm3YI8AMQp3x1Kt4GaCnnaj3Oyx5OPPTJowrlW4d%2FxJKUmXI6dXz9uNp6zE4J%2BwdxEUTwdiQnJHDQDV5DqbImLZNnU2dRgUVXZeG7RSlQJhsYwGenK57UNa6ENJDNGwtMRDJn1RowkIYMY32qVwIE0OSnkMKncvdIGOrAB51n89wwo5RHRjh517vFldrCOJskmbnh3zaTq9ARML6dM4zUKlxEMx2jzXqQGy2K2puKLxpbRECLIjguN39lthPPf8OWcU6Pv0qM4R8LC2XPXE0Zyc1WuJaATKo5PZrl%2BVX%2BWDmy%2FFcEHTVumWIOmEtkDTyn8LSuhvR3oJ3Qj76%2BknhumMoiWCoLTsirvD%2FWmGZYHXm%2Fp8t9OBOA%2BLKy%2BuNKhbPTVhff4ZqLGic%2FxnP8%3D&X-Amz-Signature=a76fec88f4a4f4dbf96b703bf2517f51e84f8b26a482b4860fb3f137c169260e",
+    "size": 2
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v5/ad_accounts/549770573673/reports": {
+        "response": {
+          "report_status": "FINISHED",
+          "token": "aicYIR-uD7NJ_rphdEHgGA==jP9iEEsvXm64h52uRvTQOie7lMYSdxTYJ6wioS5spUWvlgUqRv6XaMdvBznPWey7T77Q2o7X_vT4thTjzy23hzExrRYAXo-VXHK6PTGddRZ2UoT51MZHN9NkO9RLdy_g8hFZa526HZCX9ViQSvfdMM7hTk2EZWigmVpoJOY4aIG9z9sASWJvcnvowxEH3oEB9cHGTzA9fwJdVmCDY5cwNXlxAKSuPFPJKj1jgYyyuqQ67OniYQuh3lqzIrJUDUA2DQv7dcUnvTjN5FR2MX_tVmPgMYJfXPfi849JaTGnML0S_8xsfwp41-TOIj0Yx90QEuQs_WAOCCnS9v_dQdwGZeMEmjSZ172deT1POja5lwk=",
+          "message": "This job has already finished processing. Please make a GET request to this endpoint and pass in the token parameter aicYIR-uD7NJ_rphdEHgGA==jP9iEEsvXm64h52uRvTQOie7lMYSdxTYJ6wioS5spUWvlgUqRv6XaMdvBznPWey7T77Q2o7X_vT4thTjzy23hzExrRYAXo-VXHK6PTGddRZ2UoT51MZHN9NkO9RLdy_g8hFZa526HZCX9ViQSvfdMM7hTk2EZWigmVpoJOY4aIG9z9sASWJvcnvowxEH3oEB9cHGTzA9fwJdVmCDY5cwNXlxAKSuPFPJKj1jgYyyuqQ67OniYQuh3lqzIrJUDUA2DQv7dcUnvTjN5FR2MX_tVmPgMYJfXPfi849JaTGnML0S_8xsfwp41-TOIj0Yx90QEuQs_WAOCCnS9v_dQdwGZeMEmjSZ172deT1POja5lwk="
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 11:59:37 GMT",
+          "content-type": "application/json",
+          "content-length": "945",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4959",
+          "x-ratelimit-reset": "1783598392",
+          "etag": "W/\"3b1-qJi6j1RM/pc398xZbvIJ1c6de4g\""
+        },
+        "hash": "2f03ff773517d1b2e6384ca8180c8df5555711a2",
+        "request": {
+          "data": {
+            "start_date": "2026-07-01",
+            "end_date": "2026-07-03",
+            "granularity": "DAY",
+            "level": "ADVERTISER",
+            "columns": [
+              "SPEND_IN_DOLLAR",
+              "IMPRESSION_1"
+            ]
+          }
+        }
+      }
+    },
+    "get": {
+      "/v5/ad_accounts/549770573673/reports": {
+        "response": {
+          "report_status": "FINISHED",
+          "url": "https://pinterest-waterloo.s3.amazonaws.com/async_reporting_v3/549770573673-1783598365-8569623297172239/metrics_report.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6QZJ64OPOZTJVXGD%2F20260709%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260709T115937Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQD0Uyh3X5oYmKPvaT67CJxUiakJG%2BbHp%2BOiCaCIFOt%2FxQIhAI44A9A%2B8w17MO11lf6adI4hCTWP7TU5gMphvcStDmWrKrsFCJv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMOTk4MTMxMDMyOTkwIgzMPvOxb53Nalf7C34qjwVmb08ooASBhSfDd7o3d3xswiNfSVKqabd3ASWZEjg4fbhJ7PS50nZZUTtK36N5CNSgXlvvVUj%2BCCrS0DCSQpUPYQI9%2BODpP1pCREigZOcz%2BisdL04g7laQfGycwE88mOunsWp%2F8%2Bt6lIV4B5gN6TB3SFGLh6zEyMkRwZMW9%2BKnGWunN7ZXdgbj9WL4IY1zebgGA%2BE9kQgjd5Guee8WWJ1xwTIvPE%2F162GF%2FQyRuwH4SOWjOxm7V0nfTk2AKqbu5wo0OV94XT6LoRICbg0ACu%2FkRd2HHKz7mCBDmTP3HxHuddp7nrNofLiLI0klPJKjI%2BG1vDjnIfR4hDLKzpy931UyIhmMFWlj97s42Ho6oAc0Tm789I7EdU3FmPUENoQgf0t7iJqcaFd9Ee5x%2F1JRv1PulOSlYIWTliWdrvtZqiwQJOInmIkauAtnXCnyDgu7PBjhz1TzFA6DyKtrbd7lqDxsejRKh0CL6spxDoCdGwDZh8HdGWSMFdlwbbotlUxVUtsRpo4UQD3KoeAoJWjHjbJXz1BsF7lRJr%2FsbLHzyjcpSdbiPeYqhPpKefI%2B6NTaSi4oLdZBKYAIyeK3QXUC%2B1uNFgA1QWLKWKKLs1gdbtZ1IMRJ70r7BtrG2tjj8BN%2BoUWKa3edtNW9gjHi%2F6MoqWGAs5%2F6Z064w2LBohGJnhGQbbSlSRlw2T4HXeAqaU8XkPy0%2F3yqha9J07LyMwQm3YI8AMQp3x1Kt4GaCnnaj3Oyx5OPPTJowrlW4d%2FxJKUmXI6dXz9uNp6zE4J%2BwdxEUTwdiQnJHDQDV5DqbImLZNnU2dRgUVXZeG7RSlQJhsYwGenK57UNa6ENJDNGwtMRDJn1RowkIYMY32qVwIE0OSnkMKncvdIGOrAB51n89wwo5RHRjh517vFldrCOJskmbnh3zaTq9ARML6dM4zUKlxEMx2jzXqQGy2K2puKLxpbRECLIjguN39lthPPf8OWcU6Pv0qM4R8LC2XPXE0Zyc1WuJaATKo5PZrl%2BVX%2BWDmy%2FFcEHTVumWIOmEtkDTyn8LSuhvR3oJ3Qj76%2BknhumMoiWCoLTsirvD%2FWmGZYHXm%2Fp8t9OBOA%2BLKy%2BuNKhbPTVhff4ZqLGic%2FxnP8%3D&X-Amz-Signature=a76fec88f4a4f4dbf96b703bf2517f51e84f8b26a482b4860fb3f137c169260e",
+          "size": 2
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 11:59:37 GMT",
+          "content-type": "application/json",
+          "content-length": "1894",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4958",
+          "x-ratelimit-reset": "1783598392",
+          "etag": "W/\"766-7IRnYffQkMKSKjExs9Heu2wUb+w\""
+        },
+        "hash": "813635efe00d4da72d443416816e4c3a34c16634",
+        "request": {
+          "params": {
+            "token": "aicYIR-uD7NJ_rphdEHgGA==jP9iEEsvXm64h52uRvTQOie7lMYSdxTYJ6wioS5spUWvlgUqRv6XaMdvBznPWey7T77Q2o7X_vT4thTjzy23hzExrRYAXo-VXHK6PTGddRZ2UoT51MZHN9NkO9RLdy_g8hFZa526HZCX9ViQSvfdMM7hTk2EZWigmVpoJOY4aIG9z9sASWJvcnvowxEH3oEB9cHGTzA9fwJdVmCDY5cwNXlxAKSuPFPJKj1jgYyyuqQ67OniYQuh3lqzIrJUDUA2DQv7dcUnvTjN5FR2MX_tVmPgMYJfXPfi849JaTGnML0S_8xsfwp41-TOIj0Yx90QEuQs_WAOCCnS9v_dQdwGZeMEmjSZ172deT1POja5lwk="
+          }
+        }
+      }
+    }
+  }
+}

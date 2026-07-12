@@ -1,0 +1,126 @@
+{
+  "input": {
+    "pin_id": "1099300590356451849"
+  },
+  "output": {
+    "id": "1099300590356451849",
+    "created_at": "2026-07-09T09:33:55",
+    "title": "Nango Sandbox Seed Pin",
+    "description": " ",
+    "board_id": "1099300658984851770",
+    "is_standard": true,
+    "has_been_promoted": false,
+    "media": {
+      "media_type": "image",
+      "images": {
+        "150x150": {
+          "width": 150,
+          "height": 150,
+          "url": "https://i.pinimg.com/150x150/2a/27/13/2a27133e9021b874c1e04ac139505c21.jpg"
+        },
+        "400x300": {
+          "width": 400,
+          "height": 300,
+          "url": "https://i.pinimg.com/400x300/2a/27/13/2a27133e9021b874c1e04ac139505c21.jpg"
+        },
+        "600x": {
+          "width": 564,
+          "height": 376,
+          "url": "https://i.pinimg.com/564x/2a/27/13/2a27133e9021b874c1e04ac139505c21.jpg"
+        },
+        "1200x": {
+          "width": 600,
+          "height": 400,
+          "url": "https://i.pinimg.com/1200x/2a/27/13/2a27133e9021b874c1e04ac139505c21.jpg"
+        }
+      }
+    },
+    "is_product": false,
+    "board_owner": {
+      "username": "nangodeveloper"
+    },
+    "is_owner": true,
+    "product_tags": [],
+    "creative_type": "REGULAR",
+    "dominant_color": "#604f41",
+    "is_removable": false,
+    "pin_metrics": null
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v5/pins/1099300590356451849": {
+        "response": {
+          "is_standard": true,
+          "title": "Nango Sandbox Seed Pin",
+          "link": null,
+          "parent_pin_id": null,
+          "is_product": false,
+          "board_owner": {
+            "username": "nangodeveloper"
+          },
+          "alt_text": null,
+          "is_owner": true,
+          "product_tags": [],
+          "creative_type": "REGULAR",
+          "description": " ",
+          "board_section_id": null,
+          "created_at": "2026-07-09T09:33:55",
+          "id": "1099300590356451849",
+          "dominant_color": "#604f41",
+          "media": {
+            "media_type": "image",
+            "images": {
+              "150x150": {
+                "width": 150,
+                "height": 150,
+                "url": "https://i.pinimg.com/150x150/2a/27/13/2a27133e9021b874c1e04ac139505c21.jpg"
+              },
+              "400x300": {
+                "width": 400,
+                "height": 300,
+                "url": "https://i.pinimg.com/400x300/2a/27/13/2a27133e9021b874c1e04ac139505c21.jpg"
+              },
+              "600x": {
+                "width": 564,
+                "height": 376,
+                "url": "https://i.pinimg.com/564x/2a/27/13/2a27133e9021b874c1e04ac139505c21.jpg"
+              },
+              "1200x": {
+                "width": 600,
+                "height": 400,
+                "url": "https://i.pinimg.com/1200x/2a/27/13/2a27133e9021b874c1e04ac139505c21.jpg"
+              }
+            }
+          },
+          "board_id": "1099300658984851770",
+          "has_been_promoted": false,
+          "is_removable": false,
+          "pin_metrics": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 10:42:05 GMT",
+          "content-type": "application/json",
+          "content-length": "967",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4949",
+          "x-ratelimit-reset": "1783593774",
+          "etag": "W/\"3c7-H/eOdWvUYgtIwC7jDztxXdwrkCk\""
+        },
+        "hash": "227aa0f24545e592c7d3d0e3725d41ea988c9ac9",
+        "request": {}
+      }
+    }
+  }
+}

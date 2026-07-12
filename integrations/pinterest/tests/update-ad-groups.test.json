@@ -1,0 +1,139 @@
+{
+  "input": {
+    "ad_account_id": "549770573673",
+    "ad_groups": [
+      {
+        "id": "2680091388832",
+        "name": "Nango Seed Delete Ad Group One Updated"
+      }
+    ]
+  },
+  "output": {
+    "items": [
+      {
+        "data": {
+          "id": "2680091388832",
+          "name": "Nango Seed Delete Ad Group One Updated",
+          "campaign_id": "626759223935",
+          "status": "PAUSED",
+          "bid_in_micro_currency": 5000000,
+          "budget_in_micro_currency": null,
+          "bid_multiplier": null,
+          "bid_strategy_type": "MAX_BID",
+          "billable_event": "IMPRESSION",
+          "budget_type": "CBO_ADGROUP",
+          "end_time": null,
+          "start_time": null,
+          "targeting_spec": {
+            "GEO": [
+              "US"
+            ]
+          },
+          "targeting_template_ids": null,
+          "tracking_urls": null,
+          "auto_targeting_enabled": true,
+          "is_creative_optimization": null,
+          "placement_group": "ALL",
+          "pacing_delivery_type": "STANDARD",
+          "promotion_id": null,
+          "promotion_ids": [],
+          "ad_account_id": "549770573673",
+          "created_time": 1783587562,
+          "updated_time": 1783594161,
+          "summary_status": "ADVERTISER_DISABLED",
+          "type": "adgroup",
+          "lifetime_frequency_cap": -1,
+          "conversion_learning_mode_type": null,
+          "feed_profile_id": "0",
+          "placement_traffic_type": null,
+          "optimization_goal_metadata": {},
+          "promotion_application_level": null,
+          "ext_features": null,
+          "enabled_catalog_expansion": false
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v5/ad_accounts/549770573673/ad_groups": {
+        "response": {
+          "items": [
+            {
+              "data": {
+                "id": "2680091388832",
+                "created_time": 1783587562,
+                "updated_time": 1783594161,
+                "start_time": null,
+                "end_time": null,
+                "bid_in_micro_currency": 5000000,
+                "budget_in_micro_currency": null,
+                "campaign_id": "626759223935",
+                "ad_account_id": "549770573673",
+                "auto_targeting_enabled": true,
+                "type": "adgroup",
+                "budget_type": "CBO_ADGROUP",
+                "billable_event": "IMPRESSION",
+                "status": "PAUSED",
+                "lifetime_frequency_cap": -1,
+                "targeting_spec": {
+                  "GEO": [
+                    "US"
+                  ]
+                },
+                "name": "Nango Seed Delete Ad Group One Updated",
+                "placement_group": "ALL",
+                "pacing_delivery_type": "STANDARD",
+                "tracking_urls": null,
+                "conversion_learning_mode_type": null,
+                "summary_status": "ADVERTISER_DISABLED",
+                "feed_profile_id": "0",
+                "placement_traffic_type": null,
+                "optimization_goal_metadata": {},
+                "targeting_template_ids": null,
+                "is_creative_optimization": null,
+                "promotion_id": null,
+                "promotion_ids": [],
+                "promotion_application_level": null,
+                "bid_multiplier": null,
+                "ext_features": null,
+                "bid_strategy_type": "MAX_BID",
+                "enabled_catalog_expansion": false
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 10:49:20 GMT",
+          "content-type": "application/json",
+          "content-length": "965",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4815",
+          "x-ratelimit-reset": "1783594168",
+          "etag": "W/\"3c5-7WHmJGJRRZ5HILuEAClKbMCqM8s\""
+        },
+        "hash": "be990e589c2e5327daccb7b58344fe114e9143c6",
+        "request": {
+          "data": [
+            {
+              "id": "2680091388832",
+              "name": "Nango Seed Delete Ad Group One Updated"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

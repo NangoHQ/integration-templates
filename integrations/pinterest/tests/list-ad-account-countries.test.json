@@ -1,0 +1,364 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "code": "AR",
+        "currency": "Argentine Peso",
+        "index": 36,
+        "name": "Argentina"
+      },
+      {
+        "code": "AU",
+        "currency": "Australian Dollars",
+        "index": 5,
+        "name": "Australia"
+      },
+      {
+        "code": "AT",
+        "currency": "Euros",
+        "index": 11,
+        "name": "Austria"
+      },
+      {
+        "code": "BE",
+        "currency": "Euros",
+        "index": 15,
+        "name": "Belgium"
+      },
+      {
+        "code": "BR",
+        "currency": "Brazilian Real",
+        "index": 34,
+        "name": "Brazil"
+      },
+      {
+        "code": "CA",
+        "currency": "Canadian Dollars",
+        "index": 3,
+        "name": "Canada"
+      },
+      {
+        "code": "CL",
+        "currency": "Chilean Peso",
+        "index": 37,
+        "name": "Chile"
+      },
+      {
+        "code": "CO",
+        "currency": "Colombian Peso",
+        "index": 38,
+        "name": "Colombia"
+      },
+      {
+        "code": "DK",
+        "currency": "Danish Krone",
+        "index": 23,
+        "name": "Denmark"
+      },
+      {
+        "code": "FI",
+        "currency": "Euros",
+        "index": 24,
+        "name": "Finland"
+      },
+      {
+        "code": "FR",
+        "currency": "Euros",
+        "index": 7,
+        "name": "France"
+      },
+      {
+        "code": "DE",
+        "currency": "Euros",
+        "index": 10,
+        "name": "Germany"
+      },
+      {
+        "code": "IE",
+        "currency": "Euros",
+        "index": 4,
+        "name": "Ireland"
+      },
+      {
+        "code": "IT",
+        "currency": "Euros",
+        "index": 12,
+        "name": "Italy"
+      },
+      {
+        "code": "JP",
+        "currency": "Yen",
+        "index": 19,
+        "name": "Japan"
+      },
+      {
+        "code": "LU",
+        "currency": "Euros",
+        "index": 26,
+        "name": "Luxembourg"
+      },
+      {
+        "code": "MX",
+        "currency": "Mexican Peso",
+        "index": 35,
+        "name": "Mexico"
+      },
+      {
+        "code": "NL",
+        "currency": "Euros",
+        "index": 14,
+        "name": "Netherlands"
+      },
+      {
+        "code": "NZ",
+        "currency": "New Zealand Dollars",
+        "index": 6,
+        "name": "New Zealand"
+      },
+      {
+        "code": "NO",
+        "currency": "Norwegian Krone",
+        "index": 22,
+        "name": "Norway"
+      },
+      {
+        "code": "PT",
+        "currency": "Euros",
+        "index": 16,
+        "name": "Portugal"
+      },
+      {
+        "code": "ES",
+        "currency": "Euros",
+        "index": 13,
+        "name": "Spain"
+      },
+      {
+        "code": "SE",
+        "currency": "Krona",
+        "index": 8,
+        "name": "Sweden"
+      },
+      {
+        "code": "CH",
+        "currency": "Swiss Franc",
+        "index": 17,
+        "name": "Switzerland"
+      },
+      {
+        "code": "GB",
+        "currency": "British Pounds",
+        "index": 2,
+        "name": "United Kingdom"
+      },
+      {
+        "code": "US",
+        "currency": "Dollars",
+        "index": 1,
+        "name": "United States"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v5/resources/ad_account_countries": {
+        "response": {
+          "items": [
+            {
+              "code": "AR",
+              "currency": "Argentine Peso",
+              "index": 36,
+              "name": "Argentina"
+            },
+            {
+              "code": "AU",
+              "currency": "Australian Dollars",
+              "index": 5,
+              "name": "Australia"
+            },
+            {
+              "code": "AT",
+              "currency": "Euros",
+              "index": 11,
+              "name": "Austria"
+            },
+            {
+              "code": "BE",
+              "currency": "Euros",
+              "index": 15,
+              "name": "Belgium"
+            },
+            {
+              "code": "BR",
+              "currency": "Brazilian Real",
+              "index": 34,
+              "name": "Brazil"
+            },
+            {
+              "code": "CA",
+              "currency": "Canadian Dollars",
+              "index": 3,
+              "name": "Canada"
+            },
+            {
+              "code": "CL",
+              "currency": "Chilean Peso",
+              "index": 37,
+              "name": "Chile"
+            },
+            {
+              "code": "CO",
+              "currency": "Colombian Peso",
+              "index": 38,
+              "name": "Colombia"
+            },
+            {
+              "code": "DK",
+              "currency": "Danish Krone",
+              "index": 23,
+              "name": "Denmark"
+            },
+            {
+              "code": "FI",
+              "currency": "Euros",
+              "index": 24,
+              "name": "Finland"
+            },
+            {
+              "code": "FR",
+              "currency": "Euros",
+              "index": 7,
+              "name": "France"
+            },
+            {
+              "code": "DE",
+              "currency": "Euros",
+              "index": 10,
+              "name": "Germany"
+            },
+            {
+              "code": "IE",
+              "currency": "Euros",
+              "index": 4,
+              "name": "Ireland"
+            },
+            {
+              "code": "IT",
+              "currency": "Euros",
+              "index": 12,
+              "name": "Italy"
+            },
+            {
+              "code": "JP",
+              "currency": "Yen",
+              "index": 19,
+              "name": "Japan"
+            },
+            {
+              "code": "LU",
+              "currency": "Euros",
+              "index": 26,
+              "name": "Luxembourg"
+            },
+            {
+              "code": "MX",
+              "currency": "Mexican Peso",
+              "index": 35,
+              "name": "Mexico"
+            },
+            {
+              "code": "NL",
+              "currency": "Euros",
+              "index": 14,
+              "name": "Netherlands"
+            },
+            {
+              "code": "NZ",
+              "currency": "New Zealand Dollars",
+              "index": 6,
+              "name": "New Zealand"
+            },
+            {
+              "code": "NO",
+              "currency": "Norwegian Krone",
+              "index": 22,
+              "name": "Norway"
+            },
+            {
+              "code": "PT",
+              "currency": "Euros",
+              "index": 16,
+              "name": "Portugal"
+            },
+            {
+              "code": "ES",
+              "currency": "Euros",
+              "index": 13,
+              "name": "Spain"
+            },
+            {
+              "code": "SE",
+              "currency": "Krona",
+              "index": 8,
+              "name": "Sweden"
+            },
+            {
+              "code": "CH",
+              "currency": "Swiss Franc",
+              "index": 17,
+              "name": "Switzerland"
+            },
+            {
+              "code": "GB",
+              "currency": "British Pounds",
+              "index": 2,
+              "name": "United Kingdom"
+            },
+            {
+              "code": "US",
+              "currency": "Dollars",
+              "index": 1,
+              "name": "United States"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 10:42:05 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "100, 100;w=1;name=\"safety_net_app_id_user_id\", 1000;w=60;name=\"ads_read_app_id_user_id\"",
+          "x-ratelimit-remaining": "98",
+          "x-ratelimit-reset": "1",
+          "pinterest-version": "6567469",
+          "access-control-allow-credentials": "true",
+          "p3p": "CP=\"Pinterest does not have a P3P policy. You can find our privacy policy at https://www.pinterest.com/_/_/policy/privacy-policy.\"",
+          "x-envoy-upstream-service-time": "45",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "age": "0",
+          "set-cookie": "<redacted>",
+          "x-pinterest-rid": "1866693851556115",
+          "x-pinterest-rid-128bit": "92bfe5f1176ad61719e7d42af668736f",
+          "vary": "Accept-Encoding",
+          "x-cdn": "fastly",
+          "alt-svc": "h3=\":443\";ma=604800",
+          "pinterest-generated-by": "tpp-api-prod-0a091aa9"
+        },
+        "hash": "1df214ca6e4d9b8157cb2cd5d6a550bbd3bc9d53",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "input": {
+    "media_type": "video"
+  },
+  "output": {
+    "media_id": "3663911204352559680",
+    "media_type": "video",
+    "upload_url": "https://pinterest-media-upload.s3-accelerate.amazonaws.com/",
+    "upload_parameters": {
+      "x-amz-date": "20260709T192422Z",
+      "x-amz-signature": "8d83a104b33f3740367d2799783261370397018705435976ac525abd5c0153fd",
+      "x-amz-security-token": "IQoJb3JpZ2luX2VjENz//////////wEaCXVzLWVhc3QtMSJGMEQCIAZEnrkLX5ziiQXzTGQqMJ06sc2M6c0XSi4kCCy/bPnWAiAvBlaEeCvUoAgxrkV+gtIq1n7XaSMGUqBn8PK6U5/kMCq6BQik//////////8BEAAaDDk5ODEzMTAzMjk5MCIMp9BBW3IBMWhOe/GCKo4FHrjhJwdoP5tm5IN+S2Jchlg6Zg7pL3b04n/xPPxFxv5DEfw/KmYcjYBEm/AISBaJnjuWYgDVbQRUPcCfWbHfniAIl04k9PYAtU0C7gAtF4YX69Ytzzs8dDANJIFrLEqF5bdO+F3y0CnTus/oOURy6LwfjGcXVRxn5EOg5QNv23cC9NU8HUCStIrXPXLffXYW66JcTwnFsebKWDK2+oQOGF6NemWqO4bfsFMyOcQ7Lv98rTJSiFx7Xi23i/E4gE7yTxJXWEBU8+eIegPWKdjTJpQvsDk8mQDuDL545SSXIRllN7GECz5LCfcdaVcAkz/kFX3mxdHnDledFVEZPF/VFLvzKmt4cawwBpYPiKUIT9OUVBtsIC8LMGw3R6YTmzIR9cJElvXMBo7P7KStQrHReXbY2znGHqtlBlL/czgY0yqLzbbxnADd08zeQ5AJaVh69UcXKErKYvb5NljZ4y11j6S7DJH7YDG5Edhuv9PQx8WOYEr0F0fpvI4wZVkA1EbTqSZUhkywZQTQw/Nx06G3tRvHhQKwdz4RK20IQC63odB0pKIjGe7txiQOvQ56/+zoLr+ha2uZeOspK+YMkRGMlXgWeXs/Hs53LnYr3lwHqlEBZWXvhgHhJKtG6nY+5KnyhdWcmk5LZ1kxKqiq+/zqm87VJ4oM5IreVsDJZ8oSdG/bLUzWm36Kh1Eac6I7qlmD6cGpFU5BOqRJd8errJoGwpArMHRPNiu/CIHB7y9gPAzjcatYEqObk/ae2vkjolO1P+t49pYImt8jIYR3ZtTE8W5O5c1tMN5WtYwLWaAYckA4qa0VcjYZbZOfkkUQS+9F8wxOAeyISnfQcDoj1NT8lKT89L/YzIuFcOdWREK/MPPkv9IGOrIBNpXm46+RYraBRFrCnlrGe92rswz9CFOhMwUp2+pPYyCh68LXxyEfJOLI45DbtuRYmoVKOhXCAf/HMwJCnXUNIRZlJVQA40TiSFnd8xBSw7bCTqpTvcfzRUb/MkPOQmwT3gF7qWuRrSMhVc/4Tv4i3yj75/Cf6YGMBjNU9xNYY4tfuB6PfJUciBnNgLUqkRMv2nt876dnxIlg3NojM2f0XjPnt/DLGH65I7JL9RAhukFCMQ==",
+      "x-amz-algorithm": "AWS4-HMAC-SHA256",
+      "x-amz-credential": "ASIA6QZJ64OPCVQLHLNM/20260709/us-east-1/s3/aws4_request",
+      "key": "uploads/d4/0b/af/2:video:1099300727702429065:3663911204352559680:vip5Aak6v5Bj3oFqiKVyH8",
+      "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wNy0xMVQxOToyNDoyMi4wMDBaIiwiY29uZGl0aW9ucyI6W3siYnVja2V0IjoicGludGVyZXN0LW1lZGlhLXVwbG9hZCJ9LFsic3RhcnRzLXdpdGgiLCIka2V5IiwidXBsb2Fkcy9kNC8wYi9hZiJdLHsieC1hbXotY3JlZGVudGlhbCI6IkFTSUE2UVpKNjRPUENWUUxITE5NLzIwMjYwNzA5L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDI2MDcwOVQxOTI0MjJaIn0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCw1MzY4NzA5MTIwXSxbImVxIiwiJENvbnRlbnQtVHlwZSIsIm11bHRpcGFydC9mb3JtLWRhdGEiXSx7IngtYW16LXNlY3VyaXR5LXRva2VuIjoiSVFvSmIzSnBaMmx1WDJWakVOei8vLy8vLy8vLy93RWFDWFZ6TFdWaGMzUXRNU0pHTUVRQ0lBWkVucmtMWDV6aWlRWHpUR1FxTUowNnNjMk02YzBYU2k0a0NDeS9iUG5XQWlBdkJsYUVlQ3ZVb0FneHJrVitndElxMW43WGFTTUdVcUJuOFBLNlU1L2tNQ3E2QlFpay8vLy8vLy8vLy84QkVBQWFERGs1T0RFek1UQXpNams1TUNJTXA5QkJXM0lCTVdoT2UvR0NLbzRGSHJqaEp3ZG9QNXRtNUlOK1MySmNobGc2Wmc3cEwzYjA0bi94UFB4Rnh2NURFZncvS21ZY2pZQkVtL0FJU0JhSm5qdVdZZ0RWYlFSVVBjQ2ZXYkhmbmlBSWwwNGs5UFlBdFUwQzdnQXRGNFlYNjlZdHp6czhkREFOSklGckxFcUY1YmRPK0YzeTBDblR1cy9vT1VSeTZMd2ZqR2NYVlJ4bjVFT2c1UU52MjNjQzlOVThIVUNTdElyWFBYTGZmWFlXNjZKY1R3bkZzZWJLV0RLMitvUU9HRjZOZW1XcU80YmZzRk15T2NRN0x2OThyVEpTaUZ4N1hpMjNpL0U0Z0U3eVR4SlhXRUJVOCtlSWVnUFdLZGpUSnBRdnNEazhtUUR1REw1NDVTU1hJUmxsTjdHRUN6NUxDZmNkYVZjQWt6L2tGWDNteGRIbkRsZWRGVkVaUEYvVkZMdnpLbXQ0Y2F3d0JwWVBpS1VJVDlPVVZCdHNJQzhMTUd3M1I2WVRteklSOWNKRWx2WE1CbzdQN0tTdFFySFJlWGJZMnpuR0hxdGxCbEwvY3pnWTB5cUx6YmJ4bkFEZDA4emVRNUFKYVZoNjlVY1hLRXJLWXZiNU5salo0eTExajZTN0RKSDdZREc1RWRodXY5UFF4OFdPWUVyMEYwZnB2STR3WlZrQTFFYlRxU1pVaGt5d1pRVFF3L054MDZHM3RSdkhoUUt3ZHo0UksyMElRQzYzb2RCMHBLSWpHZTd0eGlRT3ZRNTYvK3pvTHIraGEydVplT3NwSytZTWtSR01sWGdXZVhzL0hzNTNMbllyM2x3SHFsRUJaV1h2aGdIaEpLdEc2blkrNUtueWhkV2NtazVMWjFreEtxaXErL3pxbTg3Vko0b001SXJlVnNESlo4b1NkRy9iTFV6V20zNktoMUVhYzZJN3FsbUQ2Y0dwRlU1Qk9xUkpkOGVyckpvR3dwQXJNSFJQTml1L0NJSEI3eTlnUEF6amNhdFlFcU9iay9hZTJ2a2pvbE8xUCt0NDlwWUltdDhqSVlSM1p0VEU4VzVPNWMxdE1ONVd0WXdMV2FBWWNrQTRxYTBWY2pZWmJaT2Zra1VRUys5Rjh3eE9BZXlJU25mUWNEb2oxTlQ4bEtUODlML1l6SXVGY09kV1JFSy9NUFBrdjlJR09ySUJOcFhtNDYrUllyYUJSRnJDbmxyR2U5MnJzd3o5Q0ZPaE13VXAyK3BQWXlDaDY4TFh4eUVmSk9MSTQ1RGJ0dVJZbW9WS09oWENBZi9ITXdKQ25YVU5JUlpsSlZRQTQwVGlTRm5kOHhCU3c3YkNUcXBUdmNmelJVYi9Na1BPUW13VDNnRjdxV3VSclNNaFZjLzRUdjRpM3lqNzUvQ2Y2WUdNQmpOVTl4TllZNHRmdUI2UGZKVWNpQm5OZ0xVcWtSTXYybnQ4NzZkbnhJbGczTm9qTTJmMFhqUG50L0RMR0g2NUk3Skw5UkFodWtGQ01RPT0ifV19",
+      "Content-Type": "multipart/form-data"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v5/media": {
+        "response": {
+          "media_id": "3663911204352559680",
+          "media_type": "video",
+          "upload_url": "https://pinterest-media-upload.s3-accelerate.amazonaws.com/",
+          "upload_parameters": {
+            "x-amz-date": "20260709T192422Z",
+            "x-amz-signature": "8d83a104b33f3740367d2799783261370397018705435976ac525abd5c0153fd",
+            "x-amz-security-token": "IQoJb3JpZ2luX2VjENz//////////wEaCXVzLWVhc3QtMSJGMEQCIAZEnrkLX5ziiQXzTGQqMJ06sc2M6c0XSi4kCCy/bPnWAiAvBlaEeCvUoAgxrkV+gtIq1n7XaSMGUqBn8PK6U5/kMCq6BQik//////////8BEAAaDDk5ODEzMTAzMjk5MCIMp9BBW3IBMWhOe/GCKo4FHrjhJwdoP5tm5IN+S2Jchlg6Zg7pL3b04n/xPPxFxv5DEfw/KmYcjYBEm/AISBaJnjuWYgDVbQRUPcCfWbHfniAIl04k9PYAtU0C7gAtF4YX69Ytzzs8dDANJIFrLEqF5bdO+F3y0CnTus/oOURy6LwfjGcXVRxn5EOg5QNv23cC9NU8HUCStIrXPXLffXYW66JcTwnFsebKWDK2+oQOGF6NemWqO4bfsFMyOcQ7Lv98rTJSiFx7Xi23i/E4gE7yTxJXWEBU8+eIegPWKdjTJpQvsDk8mQDuDL545SSXIRllN7GECz5LCfcdaVcAkz/kFX3mxdHnDledFVEZPF/VFLvzKmt4cawwBpYPiKUIT9OUVBtsIC8LMGw3R6YTmzIR9cJElvXMBo7P7KStQrHReXbY2znGHqtlBlL/czgY0yqLzbbxnADd08zeQ5AJaVh69UcXKErKYvb5NljZ4y11j6S7DJH7YDG5Edhuv9PQx8WOYEr0F0fpvI4wZVkA1EbTqSZUhkywZQTQw/Nx06G3tRvHhQKwdz4RK20IQC63odB0pKIjGe7txiQOvQ56/+zoLr+ha2uZeOspK+YMkRGMlXgWeXs/Hs53LnYr3lwHqlEBZWXvhgHhJKtG6nY+5KnyhdWcmk5LZ1kxKqiq+/zqm87VJ4oM5IreVsDJZ8oSdG/bLUzWm36Kh1Eac6I7qlmD6cGpFU5BOqRJd8errJoGwpArMHRPNiu/CIHB7y9gPAzjcatYEqObk/ae2vkjolO1P+t49pYImt8jIYR3ZtTE8W5O5c1tMN5WtYwLWaAYckA4qa0VcjYZbZOfkkUQS+9F8wxOAeyISnfQcDoj1NT8lKT89L/YzIuFcOdWREK/MPPkv9IGOrIBNpXm46+RYraBRFrCnlrGe92rswz9CFOhMwUp2+pPYyCh68LXxyEfJOLI45DbtuRYmoVKOhXCAf/HMwJCnXUNIRZlJVQA40TiSFnd8xBSw7bCTqpTvcfzRUb/MkPOQmwT3gF7qWuRrSMhVc/4Tv4i3yj75/Cf6YGMBjNU9xNYY4tfuB6PfJUciBnNgLUqkRMv2nt876dnxIlg3NojM2f0XjPnt/DLGH65I7JL9RAhukFCMQ==",
+            "x-amz-algorithm": "AWS4-HMAC-SHA256",
+            "key": "uploads/d4/0b/af/2:video:1099300727702429065:3663911204352559680:vip5Aak6v5Bj3oFqiKVyH8",
+            "policy": "eyJleHBpcmF0aW9uIjoiMjAyNi0wNy0xMVQxOToyNDoyMi4wMDBaIiwiY29uZGl0aW9ucyI6W3siYnVja2V0IjoicGludGVyZXN0LW1lZGlhLXVwbG9hZCJ9LFsic3RhcnRzLXdpdGgiLCIka2V5IiwidXBsb2Fkcy9kNC8wYi9hZiJdLHsieC1hbXotY3JlZGVudGlhbCI6IkFTSUE2UVpKNjRPUENWUUxITE5NLzIwMjYwNzA5L3VzLWVhc3QtMS9zMy9hd3M0X3JlcXVlc3QifSx7IngtYW16LWFsZ29yaXRobSI6IkFXUzQtSE1BQy1TSEEyNTYifSx7IngtYW16LWRhdGUiOiIyMDI2MDcwOVQxOTI0MjJaIn0sWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCw1MzY4NzA5MTIwXSxbImVxIiwiJENvbnRlbnQtVHlwZSIsIm11bHRpcGFydC9mb3JtLWRhdGEiXSx7IngtYW16LXNlY3VyaXR5LXRva2VuIjoiSVFvSmIzSnBaMmx1WDJWakVOei8vLy8vLy8vLy93RWFDWFZ6TFdWaGMzUXRNU0pHTUVRQ0lBWkVucmtMWDV6aWlRWHpUR1FxTUowNnNjMk02YzBYU2k0a0NDeS9iUG5XQWlBdkJsYUVlQ3ZVb0FneHJrVitndElxMW43WGFTTUdVcUJuOFBLNlU1L2tNQ3E2QlFpay8vLy8vLy8vLy84QkVBQWFERGs1T0RFek1UQXpNams1TUNJTXA5QkJXM0lCTVdoT2UvR0NLbzRGSHJqaEp3ZG9QNXRtNUlOK1MySmNobGc2Wmc3cEwzYjA0bi94UFB4Rnh2NURFZncvS21ZY2pZQkVtL0FJU0JhSm5qdVdZZ0RWYlFSVVBjQ2ZXYkhmbmlBSWwwNGs5UFlBdFUwQzdnQXRGNFlYNjlZdHp6czhkREFOSklGckxFcUY1YmRPK0YzeTBDblR1cy9vT1VSeTZMd2ZqR2NYVlJ4bjVFT2c1UU52MjNjQzlOVThIVUNTdElyWFBYTGZmWFlXNjZKY1R3bkZzZWJLV0RLMitvUU9HRjZOZW1XcU80YmZzRk15T2NRN0x2OThyVEpTaUZ4N1hpMjNpL0U0Z0U3eVR4SlhXRUJVOCtlSWVnUFdLZGpUSnBRdnNEazhtUUR1REw1NDVTU1hJUmxsTjdHRUN6NUxDZmNkYVZjQWt6L2tGWDNteGRIbkRsZWRGVkVaUEYvVkZMdnpLbXQ0Y2F3d0JwWVBpS1VJVDlPVVZCdHNJQzhMTUd3M1I2WVRteklSOWNKRWx2WE1CbzdQN0tTdFFySFJlWGJZMnpuR0hxdGxCbEwvY3pnWTB5cUx6YmJ4bkFEZDA4emVRNUFKYVZoNjlVY1hLRXJLWXZiNU5salo0eTExajZTN0RKSDdZREc1RWRodXY5UFF4OFdPWUVyMEYwZnB2STR3WlZrQTFFYlRxU1pVaGt5d1pRVFF3L054MDZHM3RSdkhoUUt3ZHo0UksyMElRQzYzb2RCMHBLSWpHZTd0eGlRT3ZRNTYvK3pvTHIraGEydVplT3NwSytZTWtSR01sWGdXZVhzL0hzNTNMbllyM2x3SHFsRUJaV1h2aGdIaEpLdEc2blkrNUtueWhkV2NtazVMWjFreEtxaXErL3pxbTg3Vko0b001SXJlVnNESlo4b1NkRy9iTFV6V20zNktoMUVhYzZJN3FsbUQ2Y0dwRlU1Qk9xUkpkOGVyckpvR3dwQXJNSFJQTml1L0NJSEI3eTlnUEF6amNhdFlFcU9iay9hZTJ2a2pvbE8xUCt0NDlwWUltdDhqSVlSM1p0VEU4VzVPNWMxdE1ONVd0WXdMV2FBWWNrQTRxYTBWY2pZWmJaT2Zra1VRUys5Rjh3eE9BZXlJU25mUWNEb2oxTlQ4bEtUODlML1l6SXVGY09kV1JFSy9NUFBrdjlJR09ySUJOcFhtNDYrUllyYUJSRnJDbmxyR2U5MnJzd3o5Q0ZPaE13VXAyK3BQWXlDaDY4TFh4eUVmSk9MSTQ1RGJ0dVJZbW9WS09oWENBZi9ITXdKQ25YVU5JUlpsSlZRQTQwVGlTRm5kOHhCU3c3YkNUcXBUdmNmelJVYi9Na1BPUW13VDNnRjdxV3VSclNNaFZjLzRUdjRpM3lqNzUvQ2Y2WUdNQmpOVTl4TllZNHRmdUI2UGZKVWNpQm5OZ0xVcWtSTXYybnQ4NzZkbnhJbGczTm9qTTJmMFhqUG50L0RMR0g2NUk3Skw5UkFodWtGQ01RPT0ifV19",
+            "x-amz-credential": "ASIA6QZJ64OPCVQLHLNM/20260709/us-east-1/s3/aws4_request",
+            "Content-Type": "multipart/form-data"
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Thu, 09 Jul 2026 19:24:22 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "100, 100;w=1;name=\"safety_net_app_id_user_id\", 100;w=60;name=\"org_write_app_id_user_id\"",
+          "x-ratelimit-remaining": "99",
+          "x-ratelimit-reset": "1",
+          "pinterest-version": "8cdc5dc",
+          "access-control-allow-credentials": "true",
+          "p3p": "CP=\"Pinterest does not have a P3P policy. You can find our privacy policy at https://www.pinterest.com/_/_/policy/privacy-policy.\"",
+          "x-envoy-upstream-service-time": "90",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "age": "0",
+          "set-cookie": "_ir=0; Max-Age=1800; HttpOnly; Path=/; Secure",
+          "x-pinterest-rid": "1210073756878483",
+          "x-pinterest-rid-128bit": "9535a0df55f8516fa7ee74b4d3a4e673",
+          "vary": "Accept-Encoding",
+          "x-cdn": "fastly",
+          "alt-svc": "h3=\":443\";ma=604800",
+          "pinterest-generated-by": "tpp-api-prod-0a03f8f3"
+        },
+        "hash": "7ce9e7ab188a0e8f457fa6342cfabacd5f97fa74",
+        "request": {
+          "data": {
+            "media_type": "video"
+          }
+        }
+      }
+    }
+  }
+}

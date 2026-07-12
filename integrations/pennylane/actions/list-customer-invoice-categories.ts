@@ -4,7 +4,7 @@ import { createAction, ProxyConfiguration } from 'nango';
 const InputSchema = z.object({
     customer_invoice_id: z.number().int().positive().describe('Customer invoice ID. Example: 25461646082048'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().int().min(1).max(100).default(20).describe('Number of items to return per page. Defaults to 20.')
+    limit: z.number().int().min(1).max(100).optional().describe('Number of items to return per page (1-100). Defaults to 20.')
 });
 
 const ProviderCategorySchema = z.object({
@@ -45,7 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List categories for a customer invoice',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['customer_invoices:all', 'customer_invoices:readonly'],
