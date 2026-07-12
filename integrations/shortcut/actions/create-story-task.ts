@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    story_public_id: z.number().describe('The story public ID to add the task to. Example: 35'),
+    story_public_id: z.number().int().describe('The story public ID to add the task to. Example: 35'),
     description: z.string().describe('The task description. Example: "Review design mockups"'),
     complete: z.boolean().optional().describe('Whether the task is complete. Defaults to false.'),
     owner_ids: z.array(z.string()).optional().describe('UUIDs of members to assign as owners. Example: ["6a53bda8-4df3-4862-baf5-bf953f932636"]')

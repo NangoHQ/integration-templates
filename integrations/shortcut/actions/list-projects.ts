@@ -51,6 +51,13 @@ const action = createAction({
             retries: 3
         });
 
+        if (!Array.isArray(response.data)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected a flat array of projects from the Shortcut API.'
+            });
+        }
+
         const projects = z.array(ProjectSchema).parse(response.data);
 
         return {

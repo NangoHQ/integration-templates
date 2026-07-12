@@ -36,8 +36,6 @@ const sync = createSync({
         // Blocker: GET /api/v3/labels returns a flat, unpaginated array with no
         // incremental filter (updated_since, cursor, or page token), so full
         // refresh is required.
-        await nango.trackDeletesStart('Label');
-
         // https://developer.shortcut.com/api/rest/v3#get-labels
         const response = await nango.get({
             endpoint: '/api/v3/labels',
@@ -51,6 +49,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse labels: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('Label');
 
         const labels = parsed.data.map((label) => ({
             id: String(label.id),

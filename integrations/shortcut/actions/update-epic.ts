@@ -9,7 +9,7 @@ const LabelInputSchema = z.object({
 });
 
 const InputSchema = z.object({
-    epic_public_id: z.number().describe('The unique ID of the Epic. Example: 16'),
+    epic_public_id: z.number().int().describe('The unique ID of the Epic. Example: 16'),
     name: z.string().optional(),
     archived: z.boolean().optional(),
     epic_state_id: z.number().optional(),
@@ -20,11 +20,11 @@ const InputSchema = z.object({
     completed_at_override: z.string().nullable().optional(),
     milestone_id: z.number().nullable().optional(),
     objective_ids: z.array(z.number()).optional(),
-    owner_ids: z.array(z.string()).optional(),
-    follower_ids: z.array(z.string()).optional(),
-    requested_by_id: z.string().nullable().optional(),
-    group_id: z.string().nullable().optional(),
-    group_ids: z.array(z.string()).optional(),
+    owner_ids: z.array(z.string().uuid()).optional(),
+    follower_ids: z.array(z.string().uuid()).optional(),
+    requested_by_id: z.string().uuid().nullable().optional(),
+    group_id: z.string().uuid().nullable().optional(),
+    group_ids: z.array(z.string().uuid()).optional(),
     labels: z.array(LabelInputSchema).optional(),
     external_id: z.string().nullable().optional(),
     after_id: z.number().optional(),

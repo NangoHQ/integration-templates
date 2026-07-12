@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    iteration_public_id: z.number().describe('The unique ID of the Iteration. Example: 28')
+    iteration_public_id: z.number().int().describe('The unique ID of the Iteration. Example: 28')
 });
 
 const OutputSchema = z.object({
@@ -17,19 +17,11 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.delete({
+        await nango.delete({
             // https://developer.shortcut.com/api/rest/v3#Delete-Iteration
             endpoint: `/api/v3/iterations/${encodeURIComponent(String(input.iteration_public_id))}`,
             retries: 1
         });
-
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: `Iteration ${input.iteration_public_id} not found.`,
-                iteration_public_id: input.iteration_public_id
-            });
-        }
 
         return {
             success: true,

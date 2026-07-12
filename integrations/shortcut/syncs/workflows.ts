@@ -69,8 +69,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Workflow');
-
         // https://developer.shortcut.com/api/rest/v3#get-workflows
         const response = await nango.get({
             endpoint: '/api/v3/workflows',
@@ -81,6 +79,8 @@ const sync = createSync({
         if (!parseResult.success) {
             throw new Error(`Failed to parse workflows: ${parseResult.error.message}`);
         }
+
+        await nango.trackDeletesStart('Workflow');
 
         const workflows = parseResult.data.map((workflow) => {
             const mappedStates = workflow.states?.map((state) => ({

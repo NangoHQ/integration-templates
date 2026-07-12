@@ -3,7 +3,6 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     name: z.string().describe('Category name. Example: "Q3 Goals"'),
-    type: z.string().describe('Category type. The only supported value is "milestone".'),
     color: z.string().optional().describe('Hex color string. Example: "#ff0000"'),
     external_id: z.string().optional().describe('External identifier. Example: "ext-123"')
 });
@@ -32,8 +31,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {
-            name: input.name,
-            type: input.type
+            name: input.name
         };
 
         if (input.color !== undefined) {

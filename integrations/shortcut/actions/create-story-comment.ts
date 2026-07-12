@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    story_public_id: z.number().describe('The public ID of the story to comment on. Example: 35'),
+    story_public_id: z.number().int().describe('The public ID of the story to comment on. Example: 35'),
     text: z.string().describe('Comment text, supporting Markdown and @mentions via member UUIDs. Example: "Great work!"'),
-    parent_id: z.number().optional().describe('The ID of an existing comment to reply to, creating a thread. Example: 37')
+    parent_id: z.number().int().optional().describe('The ID of an existing comment to reply to, creating a thread. Example: 37')
 });
 
 const ProviderCommentSchema = z.object({

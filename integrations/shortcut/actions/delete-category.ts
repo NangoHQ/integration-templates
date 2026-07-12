@@ -2,12 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('Category ID. Example: "32"')
+    id: z.number().int().describe('Category ID. Example: 32')
 });
 
 const OutputSchema = z.object({
-    id: z.string(),
-    deleted: z.boolean()
+    id: z.number(),
+    success: z.boolean()
 });
 
 const action = createAction({
@@ -20,13 +20,13 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({
             // https://developer.shortcut.com/api/rest/v3#Delete-Category
-            endpoint: `/api/v3/categories/${encodeURIComponent(input.id)}`,
+            endpoint: `/api/v3/categories/${encodeURIComponent(String(input.id))}`,
             retries: 10
         });
 
         return {
             id: input.id,
-            deleted: true
+            success: true
         };
     }
 });

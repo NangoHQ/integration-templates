@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    epic_public_id: z.number().describe('The unique ID of the Epic. Example: 16'),
+    epic_public_id: z.number().int().describe('The unique ID of the Epic. Example: 16'),
     text: z.string().describe('The comment text. Markdown is supported.')
 });
 

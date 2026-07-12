@@ -33,10 +33,6 @@ const sync = createSync({
         const updatedAfter = typeof checkpoint['updated_after'] === 'string' ? checkpoint['updated_after'] : undefined;
         const isFullCrawl = !updatedAfter;
 
-        if (isFullCrawl) {
-            await nango.trackDeletesStart('Epic');
-        }
-
         let maxUpdatedAt: string | undefined;
 
         if (isFullCrawl) {
@@ -50,6 +46,8 @@ const sync = createSync({
             if (!parsed.success) {
                 throw new Error(`Failed to parse epics response: ${parsed.error.message}`);
             }
+
+            await nango.trackDeletesStart('Epic');
 
             const epics = parsed.data;
             if (epics.length > 0) {
@@ -130,7 +128,14 @@ const sync = createSync({
             await nango.trackDeletesEnd('Epic');
         }
 
-        const nextCheckpoint = maxUpdatedAt ?? new Date().toISOString();
+        // Incremental search filters by day (updated:D..*), which can re-return epics
+        // updated earlier than `updatedAfter`. Never let the checkpoint regress.
+        let nextCheckpoint: string;
+        if (isFullCrawl) {
+            nextCheckpoint = maxUpdatedAt ?? new Date().toISOString();
+        } else {
+            nextCheckpoint = maxUpdatedAt && maxUpdatedAt > updatedAfter! ? maxUpdatedAt : updatedAfter!;
+        }
         await nango.saveCheckpoint({ updated_after: nextCheckpoint });
     }
 });

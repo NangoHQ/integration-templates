@@ -2,11 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    milestone_id: z.number().describe('The ID of the Milestone. Example: 15'),
+    milestone_id: z.number().int().describe('The ID of the Milestone. Example: 15'),
     name: z.string().max(256).optional(),
     description: z.string().max(100000).optional(),
     state: z.enum(['to do', 'in progress', 'done']).optional(),
-    categories: z.array(z.number()).optional().describe('An array of IDs of Categories attached to the Milestone.'),
+    categories: z.array(z.string()).optional().describe('An array of category names to attach to the Milestone. Example: ["Q3 Goals"]'),
     archived: z.boolean().optional()
 });
 
@@ -69,16 +69,16 @@ const action = createAction({
                 ...(input.name !== undefined && { name: input.name }),
                 ...(input.description !== undefined && { description: input.description }),
                 ...(input.state !== undefined && { state: input.state }),
-                ...(input.categories !== undefined && { categories: input.categories }),
+                ...(input.categories !== undefined && { categories: input.categories.map((name) => ({ name })) }),
                 ...(input.archived !== undefined && { archived: input.archived })
             },
             retries: 10
         });
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: 'Milestone not found or update failed',
+                message: 'Milestone not found',
                 milestone_id: input.milestone_id
             });
         }

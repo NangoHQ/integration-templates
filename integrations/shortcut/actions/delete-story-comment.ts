@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    story_public_id: z.number().describe('The unique ID of the Story. Example: 35'),
-    comment_id: z.number().describe('The unique ID of the Comment. Example: 37')
+    story_public_id: z.number().int().describe('The unique ID of the Story. Example: 35'),
+    comment_id: z.number().int().describe('The unique ID of the Comment. Example: 37')
 });
 
 const OutputSchema = z.object({

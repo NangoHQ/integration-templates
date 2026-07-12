@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    milestone_id: z.number().describe('The unique ID of the Milestone (Objective) to delete. Example: 43')
+    milestone_id: z.number().int().describe('The unique ID of the Milestone (Objective) to delete. Example: 43')
 });
 
 const OutputSchema = z.object({

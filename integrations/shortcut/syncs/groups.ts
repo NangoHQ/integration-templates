@@ -37,8 +37,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /api/v3/groups returns a flat, unpaginated array with no incremental filter,
         // no deleted-record endpoint, and no resumable cursor or page token.
-        await nango.trackDeletesStart('Group');
-
         // https://developer.shortcut.com/api/rest/v3#list-groups
         const response = await nango.get({
             endpoint: '/api/v3/groups',
@@ -69,6 +67,8 @@ const sync = createSync({
                 ...(group.workflow_ids != null && { workflow_ids: group.workflow_ids })
             });
         }
+
+        await nango.trackDeletesStart('Group');
 
         if (groups.length > 0) {
             await nango.batchSave(groups, 'Group');

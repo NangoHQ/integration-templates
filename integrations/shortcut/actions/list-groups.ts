@@ -2,7 +2,10 @@ import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    cursor: z
+        .string()
+        .optional()
+        .describe('Pagination cursor from a previous response. The /groups endpoint does not support cursor pagination; this field is reserved for future use.')
 });
 
 const ProviderGroupSchema = z.object({
@@ -35,7 +38,10 @@ const GroupSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(GroupSchema),
-    next_cursor: z.string().optional()
+    next_cursor: z
+        .string()
+        .optional()
+        .describe('The /groups endpoint does not return a cursor; this field is reserved for future use.')
 });
 
 const action = createAction({
@@ -44,20 +50,22 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
 
-    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const params: Record<string, string> = {};
-        if (input.cursor) {
-            params['cursor'] = input.cursor;
-        }
-
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://developer.shortcut.com/api/rest/v3#get-groups
+            // The endpoint returns a flat, unpaginated array; it does not accept a cursor param.
             endpoint: '/api/v3/groups',
-            params,
             retries: 3
         };
 
         const response = await nango.get(config);
+
+        if (!Array.isArray(response.data)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected a flat array of groups from the Shortcut API.'
+            });
+        }
 
         const providerGroups = z.array(ProviderGroupSchema).parse(response.data);
 

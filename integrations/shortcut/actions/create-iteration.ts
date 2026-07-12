@@ -1,15 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const dateOnly = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Must be in YYYY-MM-DD format.');
+
 const InputSchema = z
     .object({
         name: z.string().describe('The name of the iteration. Example: "Sprint 1"'),
-        start_date: z.string().describe('The start date of the iteration in YYYY-MM-DD format. Example: "2026-07-15"'),
-        end_date: z.string().describe('The end date of the iteration in YYYY-MM-DD format. Must be after start_date. Example: "2026-07-28"'),
+        start_date: dateOnly.describe('The start date of the iteration in YYYY-MM-DD format. Example: "2026-07-15"'),
+        end_date: dateOnly.describe('The end date of the iteration in YYYY-MM-DD format. Must be after start_date. Example: "2026-07-28"'),
         description: z.string().optional().describe('Optional description for the iteration.'),
         group_ids: z.array(z.string()).optional().describe('Optional array of group (team) IDs to associate with the iteration.')
     })
-    .refine((data) => data.end_date > data.start_date, {
+    .refine((data) => new Date(`${data.end_date}T00:00:00Z`) > new Date(`${data.start_date}T00:00:00Z`), {
         message: 'end_date must be after start_date',
         path: ['end_date']
     });

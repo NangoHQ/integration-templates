@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    story_public_id: z.number().describe('The public ID of the story. Example: 35')
+    story_public_id: z.number().int().describe('The public ID of the story. Example: 35')
 });
 
 function optionalNumber() {

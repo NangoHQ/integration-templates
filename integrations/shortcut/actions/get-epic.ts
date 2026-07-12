@@ -2,29 +2,29 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    epic_id: z.number().describe('The unique public ID of the epic. Example: 16')
+    epic_id: z.number().int().describe('The unique public ID of the epic. Example: 16')
 });
 
 const CommentSchema = z
     .object({
         id: z.number(),
-        text: z.string().optional(),
-        author_id: z.string().uuid().optional(),
-        created_at: z.string().optional(),
-        updated_at: z.string().optional()
+        text: z.string().nullable().optional(),
+        author_id: z.string().uuid().nullable().optional(),
+        created_at: z.string().nullable().optional(),
+        updated_at: z.string().nullable().optional()
     })
     .passthrough();
 
 const StatsSchema = z
     .object({
-        num_stories_total: z.number().optional(),
-        num_stories_done: z.number().optional(),
-        num_stories_in_progress: z.number().optional(),
-        num_stories_unstarted: z.number().optional(),
-        num_points_total: z.number().optional(),
-        num_points_done: z.number().optional(),
-        num_points_in_progress: z.number().optional(),
-        num_points_unstarted: z.number().optional()
+        num_stories_total: z.number().nullable().optional(),
+        num_stories_done: z.number().nullable().optional(),
+        num_stories_in_progress: z.number().nullable().optional(),
+        num_stories_unstarted: z.number().nullable().optional(),
+        num_points_total: z.number().nullable().optional(),
+        num_points_done: z.number().nullable().optional(),
+        num_points_in_progress: z.number().nullable().optional(),
+        num_points_unstarted: z.number().nullable().optional()
     })
     .passthrough();
 
@@ -33,8 +33,8 @@ const ProviderEpicSchema = z
         id: z.number(),
         name: z.string(),
         description: z.string().nullable().optional(),
-        comments: z.array(CommentSchema).optional(),
-        stats: StatsSchema.optional(),
+        comments: z.array(CommentSchema).nullable().optional(),
+        stats: StatsSchema.nullable().optional(),
         label_ids: z.array(z.number()).optional(),
         owner_ids: z.array(z.string().uuid()).optional(),
         milestone_id: z.number().nullable().optional(),
@@ -60,7 +60,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Epic not found',

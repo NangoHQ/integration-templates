@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    story_public_id: z.number().describe('The unique ID of the story containing the task. Example: 35'),
-    task_id: z.number().describe('The unique ID of the task to delete. Example: 39')
+    story_public_id: z.number().int().describe('The unique ID of the story containing the task. Example: 35'),
+    task_id: z.number().int().describe('The unique ID of the task to delete. Example: 39')
 });
 
 const OutputSchema = z.object({

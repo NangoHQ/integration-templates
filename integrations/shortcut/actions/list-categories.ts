@@ -38,6 +38,13 @@ const action = createAction({
             retries: 3
         });
 
+        if (!Array.isArray(response.data)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected a flat array of categories from the Shortcut API.'
+            });
+        }
+
         const rawCategories = z.array(z.unknown()).parse(response.data);
         const categories = rawCategories.map((item) => {
             const category = ProviderCategorySchema.parse(item);

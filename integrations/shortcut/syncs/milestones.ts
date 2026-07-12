@@ -67,8 +67,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /api/v3/milestones returns a flat, unpaginated array with no
         // timestamp filter, cursor, page token, or offset support.
-        await nango.trackDeletesStart('Milestone');
-
         // https://developer.shortcut.com/api/rest/v3#List-Milestones
         const response = await nango.get({
             endpoint: '/api/v3/milestones',
@@ -79,6 +77,8 @@ const sync = createSync({
         if (!parseResult.success) {
             throw new Error(`Failed to parse milestones: ${parseResult.error.message}`);
         }
+
+        await nango.trackDeletesStart('Milestone');
 
         const milestones = parseResult.data.map((milestone) => {
             const mapped: {

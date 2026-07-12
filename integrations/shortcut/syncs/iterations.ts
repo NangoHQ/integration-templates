@@ -1,6 +1,33 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
+const ProviderLabelSchema = z.object({
+    id: z.number().int(),
+    name: z.string(),
+    color: z.string().nullable().optional(),
+    description: z.string().nullable().optional(),
+    archived: z.boolean().optional(),
+    external_id: z.string().nullable().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional()
+});
+
+const IterationStatsSchema = z.object({
+    average_cycle_time: z.number().optional(),
+    average_lead_time: z.number().optional(),
+    num_points: z.number().optional(),
+    num_points_backlog: z.number().optional(),
+    num_points_done: z.number().optional(),
+    num_points_started: z.number().optional(),
+    num_points_unstarted: z.number().optional(),
+    num_related_documents: z.number().optional(),
+    num_stories_backlog: z.number().optional(),
+    num_stories_done: z.number().optional(),
+    num_stories_started: z.number().optional(),
+    num_stories_unestimated: z.number().optional(),
+    num_stories_unstarted: z.number().optional()
+});
+
 const ProviderIterationSchema = z
     .object({
         id: z.number(),
@@ -13,12 +40,12 @@ const ProviderIterationSchema = z
         group_ids: z.array(z.string()).optional(),
         group_mention_ids: z.array(z.string()).optional(),
         label_ids: z.array(z.number()).optional(),
-        labels: z.array(z.unknown()).optional(),
+        labels: z.array(ProviderLabelSchema).optional(),
         member_mention_ids: z.array(z.string()).optional(),
         mention_ids: z.array(z.string()).optional(),
         name: z.string(),
         start_date: z.string().optional(),
-        stats: z.record(z.string(), z.unknown()).optional(),
+        stats: IterationStatsSchema.optional(),
         status: z.string().optional(),
         updated_at: z.string()
     })
@@ -35,12 +62,12 @@ const IterationSchema = z.object({
     group_ids: z.array(z.string()).optional(),
     group_mention_ids: z.array(z.string()).optional(),
     label_ids: z.array(z.number()).optional(),
-    labels: z.array(z.unknown()).optional(),
+    labels: z.array(ProviderLabelSchema).optional(),
     member_mention_ids: z.array(z.string()).optional(),
     mention_ids: z.array(z.string()).optional(),
     name: z.string(),
     start_date: z.string().optional(),
-    stats: z.record(z.string(), z.unknown()).optional(),
+    stats: IterationStatsSchema.optional(),
     status: z.string().optional(),
     updated_at: z.string()
 });

@@ -2,24 +2,20 @@ import { z } from 'zod';
 import type { ProxyConfiguration } from 'nango';
 import { createAction } from 'nango';
 
-const InputSchema = z
-    .object({
-        name: z.string().describe('Story name. Example: "Fix login bug"'),
-        workflow_state_id: z.number().optional().describe('Workflow state ID. Example: 500000007'),
-        project_id: z.number().optional().describe('Project ID. Example: 36'),
-        description: z.string().optional().describe('Story description.'),
-        story_type: z.enum(['feature', 'bug', 'chore']).optional().describe("Story type. Default: 'feature'."),
-        epic_id: z.number().optional().describe('Epic ID.'),
-        iteration_id: z.number().optional().describe('Iteration ID.'),
-        group_id: z.string().optional().describe('Group (modern team) UUID.'),
-        owner_ids: z.array(z.string()).optional().describe('Member UUIDs who own the story.'),
-        label_ids: z.array(z.number()).optional().describe('Label IDs to attach.'),
-        deadline: z.string().optional().describe('Deadline in ISO 8601 format.'),
-        estimate: z.number().optional().describe('Point estimate (only meaningful for feature stories).')
-    })
-    .refine((data) => data.workflow_state_id !== undefined || data.project_id !== undefined, {
-        message: 'Must provide at least one of workflow_state_id or project_id.'
-    });
+const InputSchema = z.object({
+    name: z.string().describe('Story name. Example: "Fix login bug"'),
+    workflow_state_id: z.number().optional().describe('Workflow state ID. Example: 500000007. If omitted along with project_id, the workspace default workflow state is used.'),
+    project_id: z.number().optional().describe('Project ID. Example: 36'),
+    description: z.string().optional().describe('Story description.'),
+    story_type: z.enum(['feature', 'bug', 'chore']).optional().describe("Story type. Default: 'feature'."),
+    epic_id: z.number().optional().describe('Epic ID.'),
+    iteration_id: z.number().optional().describe('Iteration ID.'),
+    group_id: z.string().optional().describe('Group (modern team) UUID.'),
+    owner_ids: z.array(z.string()).optional().describe('Member UUIDs who own the story.'),
+    label_ids: z.array(z.number()).optional().describe('Label IDs to attach.'),
+    deadline: z.string().optional().describe('Deadline in ISO 8601 format.'),
+    estimate: z.number().optional().describe('Point estimate (only meaningful for feature stories).')
+});
 
 const WorkflowSchema = z.object({
     id: z.number(),

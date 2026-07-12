@@ -36,8 +36,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /api/v3/custom-fields returns a flat, unpaginated array
         // with no updated_since filter, cursor, or deleted-record endpoint.
-        await nango.trackDeletesStart('CustomField');
-
         // https://developer.shortcut.com/api/rest/v3#List-Custom-Fields
         const response = await nango.get({
             endpoint: '/api/v3/custom-fields',
@@ -48,6 +46,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse custom fields: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('CustomField');
 
         const customFields = parsed.data;
         if (customFields.length > 0) {

@@ -28,8 +28,13 @@ const InputSchema = z.object({
     created_at_start: z.string().optional().describe('Stories created on or after this ISO 8601 date.'),
     created_at_end: z.string().optional().describe('Stories created on or before this ISO 8601 date.'),
     includes_description: z.boolean().optional().describe('Include story description in the response.'),
-    page_size: z.number().optional().describe('Number of results per page.'),
-    cursor: z.string().optional().describe('Pagination cursor from the previous response (`next` field). Omit for the first page.')
+    page_size: z.number().optional().describe('Number of results per page. Only used with `query` (GET /search/stories); ignored otherwise.'),
+    cursor: z
+        .string()
+        .optional()
+        .describe(
+            'Pagination cursor from the previous response (`next` field). Only used with `query` (GET /search/stories) — the structured-filter search (POST /stories/search) returns the full result set with no pagination support and ignores this field.'
+        )
 });
 
 const StorySchema = z

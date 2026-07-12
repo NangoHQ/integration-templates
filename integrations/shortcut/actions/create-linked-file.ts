@@ -4,9 +4,8 @@ import { createAction, ProxyConfiguration } from 'nango';
 const InputSchema = z.object({
     name: z.string().describe('Name of the linked file. Example: "Design Spec"'),
     url: z.string().describe('URL of the linked file. Example: "https://example.com/doc"'),
-    type: z.enum(['url', 'google-drive', 'dropbox', 'box', 'onedrive']).describe('Type of linked file.'),
-    description: z.string().optional().describe('Optional description.'),
-    story_ids: z.array(z.number()).optional().describe('Optional array of story IDs to associate.')
+    type: z.enum(['url', 'google', 'dropbox', 'box', 'onedrive']).describe('Type of linked file.'),
+    description: z.string().optional().describe('Optional description.')
 });
 
 const ProviderLinkedFileSchema = z.object({
@@ -21,7 +20,7 @@ const ProviderLinkedFileSchema = z.object({
 const OutputSchema = ProviderLinkedFileSchema;
 
 const action = createAction({
-    description: 'Attach a URL-based linked file, optionally to stories.',
+    description: 'Attach a URL-based linked file. Associate it with stories afterward via update-story\'s linked_file_ids.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -35,8 +34,7 @@ const action = createAction({
                 name: input.name,
                 url: input.url,
                 type: input.type,
-                ...(input.description !== undefined && { description: input.description }),
-                ...(input.story_ids !== undefined && { story_ids: input.story_ids })
+                ...(input.description !== undefined && { description: input.description })
             },
             retries: 1
         };

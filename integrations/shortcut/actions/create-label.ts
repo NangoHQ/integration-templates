@@ -3,7 +3,11 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     name: z.string().describe('Label name. Must be unique within the workspace.'),
-    color: z.string().optional().describe('Hex color string. Example: "#ff5555"'),
+    color: z
+        .string()
+        .regex(/^#[0-9a-fA-F]{6}$/, 'Must be a hex color string, e.g. "#ff5555".')
+        .optional()
+        .describe('Hex color string. Example: "#ff5555"'),
     description: z.string().optional(),
     external_id: z.string().optional().describe('External reference ID.')
 });

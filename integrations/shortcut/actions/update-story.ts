@@ -77,7 +77,7 @@ const StorySchema = z
         custom_fields: z.array(StoryCustomFieldSchema).optional(),
         cycle_time: z.number().nullable().optional(),
         deadline: z.string().nullable().optional(),
-        description: z.string().optional(),
+        description: z.string().nullable().optional(),
         entity_type: z.string(),
         epic_id: z.number().nullable().optional(),
         estimate: z.number().nullable().optional(),
@@ -120,7 +120,7 @@ const StorySchema = z
     .passthrough();
 
 const InputSchema = z.object({
-    story_public_id: z.number().describe('The unique ID of the Story to update. Example: 35'),
+    story_public_id: z.number().int().describe('The unique ID of the Story to update. Example: 35'),
     name: z.string().optional().describe('The title of the story.'),
     description: z.string().optional().describe('The description of the story.'),
     workflow_state_id: z.number().optional().describe('The ID of the workflow state to put the story in.'),

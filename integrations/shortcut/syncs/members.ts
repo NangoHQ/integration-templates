@@ -46,8 +46,6 @@ const sync = createSync({
         // Blocker: provider only exposes /api/v3/members with no changed-since
         // filter, no deleted-record endpoint, and no resumable cursor or
         // pagination. The endpoint returns a flat, unpaginated array.
-        await nango.trackDeletesStart('Member');
-
         // https://developer.shortcut.com/api/rest/v3#List-Members
         const response = await nango.get({
             endpoint: '/api/v3/members',
@@ -55,6 +53,8 @@ const sync = createSync({
         });
 
         const rawMembers = z.array(ProviderMemberSchema).parse(response.data);
+
+        await nango.trackDeletesStart('Member');
 
         const members = rawMembers.map((member) => ({
             id: member.id,

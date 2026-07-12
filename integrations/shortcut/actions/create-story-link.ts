@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    subject_id: z.number().describe('The ID of the story doing the linking. Example: 33'),
-    object_id: z.number().describe('The ID of the story being linked to. Example: 34'),
+    subject_id: z.number().int().describe('The ID of the story doing the linking. Example: 33'),
+    object_id: z.number().int().describe('The ID of the story being linked to. Example: 34'),
     verb: z.enum(['blocks', 'duplicates', 'relates to']).describe('The relationship verb. Example: "blocks"')
 });
 

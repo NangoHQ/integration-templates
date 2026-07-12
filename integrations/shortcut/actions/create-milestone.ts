@@ -5,9 +5,9 @@ const InputSchema = z.object({
     name: z.string().describe('The name of the Milestone. Example: "Q3 Objective"'),
     description: z.string().optional().describe('The Milestone description.'),
     categories: z
-        .array(z.union([z.string(), z.number()]))
+        .array(z.string())
         .optional()
-        .describe('Array of category names or ids attached to the Milestone.'),
+        .describe('Array of category names to attach to the Milestone. Example: ["Q3 Goals"]'),
     started_at_override: z.string().optional().describe('Manual override for the time/date the Milestone was started. ISO 8601 format.'),
     completed_at_override: z.string().optional().describe('Manual override for the time/date the Milestone was completed. ISO 8601 format.')
 });
@@ -26,7 +26,7 @@ const CategorySchema = z.object({
 const MilestoneSchema = z.object({
     id: z.number(),
     name: z.string(),
-    description: z.string().optional(),
+    description: z.string().nullable().optional(),
     categories: z.array(CategorySchema).optional(),
     started_at_override: z.string().nullable().optional(),
     completed_at_override: z.string().nullable().optional(),
@@ -63,7 +63,7 @@ const action = createAction({
             data: {
                 name: input.name,
                 ...(input.description !== undefined && { description: input.description }),
-                ...(input.categories !== undefined && { categories: input.categories }),
+                ...(input.categories !== undefined && { categories: input.categories.map((name) => ({ name })) }),
                 ...(input.started_at_override !== undefined && { started_at_override: input.started_at_override }),
                 ...(input.completed_at_override !== undefined && { completed_at_override: input.completed_at_override })
             },

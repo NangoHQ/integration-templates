@@ -38,8 +38,6 @@ const sync = createSync({
         // Blocker: GET /api/v3/categories returns a flat, unpaginated array with no
         // updated_at filter, no cursor, no page token, and no deleted-record endpoint.
         // It is small reference data meant to be fetched as a full snapshot.
-        await nango.trackDeletesStart('Category');
-
         // https://developer.shortcut.com/api/rest/v3#List-Categories
         const response = await nango.get({
             endpoint: '/api/v3/categories',
@@ -50,6 +48,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse categories response: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('Category');
 
         const categories = parsed.data.map((category) => ({
             id: String(category.id),

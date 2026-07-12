@@ -43,6 +43,13 @@ const action = createAction({
             retries: 3
         });
 
+        if (!Array.isArray(response.data)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected a flat array of custom fields from the Shortcut API.'
+            });
+        }
+
         const parsed = z.array(CustomFieldSchema).parse(response.data);
 
         return parsed.map((field) => ({

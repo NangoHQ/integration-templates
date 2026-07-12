@@ -48,7 +48,7 @@ const action = createAction({
             const searchResult = z
                 .object({
                     data: z.array(z.unknown()),
-                    next: z.string().optional(),
+                    next: z.string().nullable().optional(),
                     total: z.number().optional()
                 })
                 .parse(response.data);

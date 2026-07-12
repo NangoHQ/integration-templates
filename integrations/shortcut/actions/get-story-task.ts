@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    story_public_id: z.number().describe('The unique ID of the Story. Example: 35'),
-    task_id: z.number().describe('The unique ID of the Task. Example: 39')
+    story_public_id: z.number().int().describe('The unique ID of the Story. Example: 35'),
+    task_id: z.number().int().describe('The unique ID of the Task. Example: 39')
 });
 
 const ProviderTaskSchema = z.object({
@@ -36,7 +36,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: `Task ${input.task_id} not found on story ${input.story_public_id}`

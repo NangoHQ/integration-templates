@@ -67,8 +67,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Project');
-
         // https://developer.shortcut.com/api/rest/v3#get-projects
         const response = await nango.get({
             endpoint: '/api/v3/projects',
@@ -76,6 +74,8 @@ const sync = createSync({
         });
 
         const rawProjects = z.array(ProviderProjectSchema).parse(response.data);
+
+        await nango.trackDeletesStart('Project');
 
         const records = rawProjects.map((project) => ({
             id: String(project.id),

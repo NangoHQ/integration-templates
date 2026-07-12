@@ -6,7 +6,7 @@ const InputSchema = z.object({});
 const WorkflowStateSchema = z.object({
     id: z.number(),
     name: z.string(),
-    type: z.enum(['backlog', 'unstarted', 'started', 'done']),
+    type: z.string().optional(),
     color: z.string().optional(),
     description: z.string().optional(),
     entity_type: z.string().optional(),
@@ -21,8 +21,8 @@ const WorkflowStateSchema = z.object({
 const WorkflowSchema = z.object({
     id: z.number(),
     name: z.string(),
-    default_state_id: z.number(),
-    states: z.array(WorkflowStateSchema),
+    default_state_id: z.number().optional(),
+    states: z.array(WorkflowStateSchema).optional(),
     description: z.string().optional(),
     entity_type: z.string().optional(),
     team_id: z.number().optional(),

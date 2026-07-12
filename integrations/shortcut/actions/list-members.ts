@@ -51,6 +51,13 @@ const action = createAction({
 
         const response = await nango.get(config);
 
+        if (!Array.isArray(response.data)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected a flat array of members from the Shortcut API.'
+            });
+        }
+
         const providerMembers = z.array(ProviderMemberSchema).parse(response.data);
 
         const items = providerMembers.map((member) => ({
