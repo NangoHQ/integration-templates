@@ -1,0 +1,376 @@
+{
+  "input": {
+    "story_type": "feature"
+  },
+  "output": {
+    "stories": [
+      {
+        "id": 17,
+        "name": "Get Started with Shortcut",
+        "story_type": "feature",
+        "app_url": "https://app.shortcut.com/nango-3/story/17",
+        "archived": false,
+        "blocked": true,
+        "blocker": false,
+        "completed": false,
+        "completed_at": null,
+        "created_at": "2026-07-12T16:15:36Z",
+        "updated_at": "2026-07-12T17:07:51Z",
+        "deadline": "2026-07-19T00:00:00Z",
+        "entity_type": "story",
+        "epic_id": 16,
+        "estimate": null,
+        "external_id": null,
+        "follower_ids": [
+          "6a53bda8-4df3-4862-baf5-bf953f932636"
+        ],
+        "group_id": "6a53bda8-3374-4172-bb50-8bd4efd9e33f",
+        "iteration_id": null,
+        "label_ids": [],
+        "owner_ids": [
+          "6a53bda8-4df3-4862-baf5-bf953f932636"
+        ],
+        "position": 22147483648,
+        "project_id": null,
+        "requested_by_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+        "started": false,
+        "workflow_id": 500000005,
+        "workflow_state_id": 500000007,
+        "parent_story_id": null,
+        "stats": {
+          "num_related_documents": 0
+        },
+        "story_links": [
+          {
+            "entity_type": "story-link",
+            "object_id": 17,
+            "verb": "blocks",
+            "type": "object",
+            "updated_at": "2026-07-12T17:07:51Z",
+            "id": 500000021,
+            "subject_id": 35,
+            "subject_workflow_state_id": 500000007,
+            "created_at": "2026-07-12T17:07:51Z"
+          }
+        ],
+        "custom_fields": [],
+        "labels": [],
+        "task_ids": [],
+        "mention_ids": [],
+        "member_mention_ids": [],
+        "file_ids": [],
+        "num_tasks_completed": 0,
+        "completed_at_override": null,
+        "started_at": null,
+        "global_id": "v2:s:6a53bda8-6d1c-4114-99b8-a3e4515e3381:17",
+        "story_template_id": null,
+        "external_links": [],
+        "previous_iteration_ids": [],
+        "sub_task_story_ids": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "started_at_override": null,
+        "group_mention_ids": [],
+        "linked_file_ids": [],
+        "comment_ids": [],
+        "moved_at": "2026-07-12T16:15:36Z"
+      },
+      {
+        "id": 35,
+        "name": "Seed Story - General Testing Updated",
+        "story_type": "feature",
+        "app_url": "https://app.shortcut.com/nango-3/story/35",
+        "archived": false,
+        "blocked": false,
+        "blocker": true,
+        "completed": false,
+        "completed_at": null,
+        "created_at": "2026-07-12T16:33:02Z",
+        "updated_at": "2026-07-12T17:13:14Z",
+        "deadline": null,
+        "entity_type": "story",
+        "epic_id": null,
+        "estimate": null,
+        "external_id": null,
+        "follower_ids": [
+          "6a53bda8-4df3-4862-baf5-bf953f932636"
+        ],
+        "group_id": null,
+        "iteration_id": null,
+        "label_ids": [],
+        "owner_ids": [],
+        "position": 22148204544,
+        "project_id": null,
+        "requested_by_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+        "started": false,
+        "workflow_id": 500000005,
+        "workflow_state_id": 500000007,
+        "parent_story_id": null,
+        "stats": {
+          "num_related_documents": 0
+        },
+        "story_links": [
+          {
+            "entity_type": "story-link",
+            "object_id": 18,
+            "verb": "relates to",
+            "type": "subject",
+            "updated_at": "2026-07-12T17:08:05Z",
+            "id": 500000022,
+            "subject_id": 35,
+            "subject_workflow_state_id": 500000007,
+            "created_at": "2026-07-12T17:08:05Z"
+          },
+          {
+            "entity_type": "story-link",
+            "object_id": 17,
+            "verb": "blocks",
+            "type": "subject",
+            "updated_at": "2026-07-12T17:07:51Z",
+            "id": 500000021,
+            "subject_id": 35,
+            "subject_workflow_state_id": 500000007,
+            "created_at": "2026-07-12T17:07:51Z"
+          }
+        ],
+        "custom_fields": [],
+        "labels": [],
+        "task_ids": [
+          54,
+          55
+        ],
+        "mention_ids": [],
+        "member_mention_ids": [],
+        "file_ids": [],
+        "num_tasks_completed": 0,
+        "completed_at_override": null,
+        "started_at": null,
+        "global_id": "v2:s:6a53bda8-6d1c-4114-99b8-a3e4515e3381:35",
+        "story_template_id": null,
+        "external_links": [],
+        "previous_iteration_ids": [],
+        "sub_task_story_ids": [],
+        "started_at_override": null,
+        "group_mention_ids": [],
+        "linked_file_ids": [],
+        "comment_ids": [
+          74,
+          37,
+          38,
+          70,
+          75,
+          72
+        ],
+        "moved_at": "2026-07-12T16:33:02Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v3/stories/search": {
+        "response": [
+          {
+            "app_url": "https://app.shortcut.com/nango-3/story/17",
+            "archived": false,
+            "started": false,
+            "story_links": [
+              {
+                "entity_type": "story-link",
+                "object_id": 17,
+                "verb": "blocks",
+                "type": "object",
+                "updated_at": "2026-07-12T17:07:51Z",
+                "id": 500000021,
+                "subject_id": 35,
+                "subject_workflow_state_id": 500000007,
+                "created_at": "2026-07-12T17:07:51Z"
+              }
+            ],
+            "entity_type": "story",
+            "labels": [],
+            "task_ids": [],
+            "mention_ids": [],
+            "member_mention_ids": [],
+            "story_type": "feature",
+            "custom_fields": [],
+            "file_ids": [],
+            "num_tasks_completed": 0,
+            "workflow_id": 500000005,
+            "completed_at_override": null,
+            "started_at": null,
+            "completed_at": null,
+            "name": "Get Started with Shortcut",
+            "global_id": "v2:s:6a53bda8-6d1c-4114-99b8-a3e4515e3381:17",
+            "completed": false,
+            "blocker": false,
+            "epic_id": 16,
+            "story_template_id": null,
+            "external_links": [],
+            "previous_iteration_ids": [],
+            "requested_by_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+            "iteration_id": null,
+            "sub_task_story_ids": [
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25
+            ],
+            "label_ids": [],
+            "started_at_override": null,
+            "group_id": "6a53bda8-3374-4172-bb50-8bd4efd9e33f",
+            "workflow_state_id": 500000007,
+            "updated_at": "2026-07-12T17:07:51Z",
+            "group_mention_ids": [],
+            "follower_ids": [
+              "6a53bda8-4df3-4862-baf5-bf953f932636"
+            ],
+            "owner_ids": [
+              "6a53bda8-4df3-4862-baf5-bf953f932636"
+            ],
+            "external_id": null,
+            "id": 17,
+            "parent_story_id": null,
+            "estimate": null,
+            "position": 22147483648,
+            "blocked": true,
+            "project_id": null,
+            "linked_file_ids": [],
+            "deadline": "2026-07-19T00:00:00Z",
+            "stats": {
+              "num_related_documents": 0
+            },
+            "comment_ids": [],
+            "created_at": "2026-07-12T16:15:36Z",
+            "moved_at": "2026-07-12T16:15:36Z"
+          },
+          {
+            "app_url": "https://app.shortcut.com/nango-3/story/35",
+            "archived": false,
+            "started": false,
+            "story_links": [
+              {
+                "entity_type": "story-link",
+                "object_id": 18,
+                "verb": "relates to",
+                "type": "subject",
+                "updated_at": "2026-07-12T17:08:05Z",
+                "id": 500000022,
+                "subject_id": 35,
+                "subject_workflow_state_id": 500000007,
+                "created_at": "2026-07-12T17:08:05Z"
+              },
+              {
+                "entity_type": "story-link",
+                "object_id": 17,
+                "verb": "blocks",
+                "type": "subject",
+                "updated_at": "2026-07-12T17:07:51Z",
+                "id": 500000021,
+                "subject_id": 35,
+                "subject_workflow_state_id": 500000007,
+                "created_at": "2026-07-12T17:07:51Z"
+              }
+            ],
+            "entity_type": "story",
+            "labels": [],
+            "task_ids": [
+              54,
+              55
+            ],
+            "mention_ids": [],
+            "member_mention_ids": [],
+            "story_type": "feature",
+            "custom_fields": [],
+            "file_ids": [],
+            "num_tasks_completed": 0,
+            "workflow_id": 500000005,
+            "completed_at_override": null,
+            "started_at": null,
+            "completed_at": null,
+            "name": "Seed Story - General Testing Updated",
+            "global_id": "v2:s:6a53bda8-6d1c-4114-99b8-a3e4515e3381:35",
+            "completed": false,
+            "blocker": true,
+            "epic_id": null,
+            "story_template_id": null,
+            "external_links": [],
+            "previous_iteration_ids": [],
+            "requested_by_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+            "iteration_id": null,
+            "sub_task_story_ids": [],
+            "label_ids": [],
+            "started_at_override": null,
+            "group_id": null,
+            "workflow_state_id": 500000007,
+            "updated_at": "2026-07-12T17:13:14Z",
+            "group_mention_ids": [],
+            "follower_ids": [
+              "6a53bda8-4df3-4862-baf5-bf953f932636"
+            ],
+            "owner_ids": [],
+            "external_id": null,
+            "id": 35,
+            "parent_story_id": null,
+            "estimate": null,
+            "position": 22148204544,
+            "blocked": false,
+            "project_id": null,
+            "linked_file_ids": [],
+            "deadline": null,
+            "stats": {
+              "num_related_documents": 0
+            },
+            "comment_ids": [
+              74,
+              37,
+              38,
+              70,
+              75,
+              72
+            ],
+            "created_at": "2026-07-12T16:33:02Z",
+            "moved_at": "2026-07-12T16:33:02Z"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Sun, 12 Jul 2026 17:13:44 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "3176",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1783876472",
+          "etag": "W/\"c68-nDSpishWgRcXZlIJD0Z8OtPD07U\""
+        },
+        "hash": "7e045401eb70c34d9f4e65bb5557a83977c6dfd6",
+        "request": {
+          "data": {
+            "story_type": "feature"
+          }
+        }
+      }
+    }
+  }
+}

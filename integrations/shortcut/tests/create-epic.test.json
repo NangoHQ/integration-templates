@@ -1,0 +1,109 @@
+{
+  "input": {
+    "name": "Test Epic from Dryrun"
+  },
+  "output": {
+    "id": 73,
+    "name": "Test Epic from Dryrun",
+    "description": "",
+    "owner_ids": [],
+    "label_ids": [],
+    "epic_state_id": 500000002,
+    "position": 2,
+    "created_at": "2026-07-12T17:12:48Z",
+    "updated_at": "2026-07-12T17:12:48Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v3/epics": {
+        "response": {
+          "app_url": "https://app.shortcut.com/nango-3/epic/73",
+          "description": "",
+          "archived": false,
+          "started": false,
+          "entity_type": "epic",
+          "labels": [],
+          "mention_ids": [],
+          "member_mention_ids": [],
+          "associated_groups": null,
+          "project_ids": [],
+          "stories_without_projects": 0,
+          "completed_at_override": null,
+          "productboard_plugin_id": null,
+          "started_at": null,
+          "completed_at": null,
+          "objective_ids": [],
+          "name": "Test Epic from Dryrun",
+          "global_id": "v2:e:6a53bda8-6d1c-4114-99b8-a3e4515e3381:73",
+          "completed": false,
+          "comments": [],
+          "productboard_url": null,
+          "planned_start_date": null,
+          "state": "to do",
+          "milestone_id": null,
+          "requested_by_id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+          "epic_state_id": 500000002,
+          "label_ids": [],
+          "started_at_override": null,
+          "group_id": null,
+          "updated_at": "2026-07-12T17:12:48Z",
+          "group_mention_ids": [],
+          "productboard_id": null,
+          "follower_ids": [
+            "6a53bda8-4df3-4862-baf5-bf953f932636"
+          ],
+          "group_ids": [],
+          "owner_ids": [],
+          "external_id": null,
+          "id": 73,
+          "position": 2,
+          "productboard_name": null,
+          "deadline": null,
+          "stats": {
+            "num_points_done": 0,
+            "num_related_documents": 0,
+            "num_stories_unstarted": 0,
+            "num_stories_total": 0,
+            "last_story_update": null,
+            "num_points_started": 0,
+            "num_points_unstarted": 0,
+            "num_stories_started": 0,
+            "num_stories_unestimated": 0,
+            "num_stories_backlog": 0,
+            "num_points_backlog": 0,
+            "num_points": 0,
+            "num_stories_done": 0
+          },
+          "created_at": "2026-07-12T17:12:48Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Sun, 12 Jul 2026 17:12:48 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1316",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1783876410",
+          "etag": "W/\"524-M6glQIy0OLly6WgfIhmhgD9PYcQ\""
+        },
+        "hash": "8de7fd13f1e0db966bb9ed2dcbdd77f15e9a792c",
+        "request": {
+          "data": {
+            "name": "Test Epic from Dryrun"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "app_url": "https://app.shortcut.com/nango-3/iteration/56",
+        "created_at": "2026-07-12T17:08:32Z",
+        "end_date": "2026-08-14",
+        "entity_type": "iteration",
+        "follower_ids": [],
+        "group_ids": [
+          "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+        ],
+        "group_mention_ids": [],
+        "id": 56,
+        "label_ids": [],
+        "labels": [],
+        "member_mention_ids": [],
+        "mention_ids": [],
+        "name": "Updated Iteration 56",
+        "start_date": "2026-08-01",
+        "stats": {
+          "num_points_done": 0,
+          "num_related_documents": 0,
+          "num_stories_unstarted": 0,
+          "num_points_started": 0,
+          "num_points_unstarted": 0,
+          "num_stories_started": 0,
+          "num_stories_unestimated": 0,
+          "num_stories_backlog": 0,
+          "num_points_backlog": 0,
+          "num_points": 0,
+          "num_stories_done": 0
+        },
+        "status": "unstarted",
+        "updated_at": "2026-07-12T17:09:57Z",
+        "associated_groups": null,
+        "global_id": "v2:it:6a53bda8-6d1c-4114-99b8-a3e4515e3381:56"
+      },
+      {
+        "app_url": "https://app.shortcut.com/nango-3/iteration/59",
+        "created_at": "2026-07-12T17:09:04Z",
+        "end_date": "2026-08-14",
+        "entity_type": "iteration",
+        "follower_ids": [],
+        "group_ids": [
+          "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+        ],
+        "group_mention_ids": [],
+        "id": 59,
+        "label_ids": [],
+        "labels": [],
+        "member_mention_ids": [],
+        "mention_ids": [],
+        "name": "Test Iteration",
+        "start_date": "2026-08-01",
+        "stats": {
+          "num_points_done": 0,
+          "num_related_documents": 0,
+          "num_stories_unstarted": 0,
+          "num_points_started": 0,
+          "num_points_unstarted": 0,
+          "num_stories_started": 0,
+          "num_stories_unestimated": 0,
+          "num_stories_backlog": 0,
+          "num_points_backlog": 0,
+          "num_points": 0,
+          "num_stories_done": 0
+        },
+        "status": "unstarted",
+        "updated_at": "2026-07-12T17:09:04Z",
+        "associated_groups": null,
+        "global_id": "v2:it:6a53bda8-6d1c-4114-99b8-a3e4515e3381:59"
+      },
+      {
+        "app_url": "https://app.shortcut.com/nango-3/iteration/64",
+        "created_at": "2026-07-12T17:10:06Z",
+        "end_date": "2026-08-14",
+        "entity_type": "iteration",
+        "follower_ids": [],
+        "group_ids": [
+          "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+        ],
+        "group_mention_ids": [],
+        "id": 64,
+        "label_ids": [],
+        "labels": [],
+        "member_mention_ids": [],
+        "mention_ids": [],
+        "name": "Test Iteration",
+        "start_date": "2026-08-01",
+        "stats": {
+          "num_points_done": 0,
+          "num_related_documents": 0,
+          "num_stories_unstarted": 0,
+          "num_points_started": 0,
+          "num_points_unstarted": 0,
+          "num_stories_started": 0,
+          "num_stories_unestimated": 0,
+          "num_stories_backlog": 0,
+          "num_points_backlog": 0,
+          "num_points": 0,
+          "num_stories_done": 0
+        },
+        "status": "unstarted",
+        "updated_at": "2026-07-12T17:10:06Z",
+        "associated_groups": null,
+        "global_id": "v2:it:6a53bda8-6d1c-4114-99b8-a3e4515e3381:64"
+      },
+      {
+        "app_url": "https://app.shortcut.com/nango-3/iteration/65",
+        "created_at": "2026-07-12T17:10:12Z",
+        "end_date": "2026-08-14",
+        "entity_type": "iteration",
+        "follower_ids": [],
+        "group_ids": [
+          "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+        ],
+        "group_mention_ids": [],
+        "id": 65,
+        "label_ids": [],
+        "labels": [],
+        "member_mention_ids": [],
+        "mention_ids": [],
+        "name": "Test Iteration",
+        "start_date": "2026-08-01",
+        "stats": {
+          "num_points_done": 0,
+          "num_related_documents": 0,
+          "num_stories_unstarted": 0,
+          "num_points_started": 0,
+          "num_points_unstarted": 0,
+          "num_stories_started": 0,
+          "num_stories_unestimated": 0,
+          "num_stories_backlog": 0,
+          "num_points_backlog": 0,
+          "num_points": 0,
+          "num_stories_done": 0
+        },
+        "status": "unstarted",
+        "updated_at": "2026-07-12T17:10:12Z",
+        "associated_groups": null,
+        "global_id": "v2:it:6a53bda8-6d1c-4114-99b8-a3e4515e3381:65"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v3/iterations": {
+        "response": [
+          {
+            "app_url": "https://app.shortcut.com/nango-3/iteration/56",
+            "entity_type": "iteration",
+            "labels": [],
+            "mention_ids": [],
+            "member_mention_ids": [],
+            "associated_groups": null,
+            "name": "Updated Iteration 56",
+            "global_id": "v2:it:6a53bda8-6d1c-4114-99b8-a3e4515e3381:56",
+            "label_ids": [],
+            "updated_at": "2026-07-12T17:09:57Z",
+            "group_mention_ids": [],
+            "end_date": "2026-08-14",
+            "follower_ids": [],
+            "group_ids": [
+              "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+            ],
+            "start_date": "2026-08-01",
+            "status": "unstarted",
+            "id": 56,
+            "stats": {
+              "num_points_done": 0,
+              "num_related_documents": 0,
+              "num_stories_unstarted": 0,
+              "num_points_started": 0,
+              "num_points_unstarted": 0,
+              "num_stories_started": 0,
+              "num_stories_unestimated": 0,
+              "num_stories_backlog": 0,
+              "num_points_backlog": 0,
+              "num_points": 0,
+              "num_stories_done": 0
+            },
+            "created_at": "2026-07-12T17:08:32Z"
+          },
+          {
+            "app_url": "https://app.shortcut.com/nango-3/iteration/59",
+            "entity_type": "iteration",
+            "labels": [],
+            "mention_ids": [],
+            "member_mention_ids": [],
+            "associated_groups": null,
+            "name": "Test Iteration",
+            "global_id": "v2:it:6a53bda8-6d1c-4114-99b8-a3e4515e3381:59",
+            "label_ids": [],
+            "updated_at": "2026-07-12T17:09:04Z",
+            "group_mention_ids": [],
+            "end_date": "2026-08-14",
+            "follower_ids": [],
+            "group_ids": [
+              "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+            ],
+            "start_date": "2026-08-01",
+            "status": "unstarted",
+            "id": 59,
+            "stats": {
+              "num_points_done": 0,
+              "num_related_documents": 0,
+              "num_stories_unstarted": 0,
+              "num_points_started": 0,
+              "num_points_unstarted": 0,
+              "num_stories_started": 0,
+              "num_stories_unestimated": 0,
+              "num_stories_backlog": 0,
+              "num_points_backlog": 0,
+              "num_points": 0,
+              "num_stories_done": 0
+            },
+            "created_at": "2026-07-12T17:09:04Z"
+          },
+          {
+            "app_url": "https://app.shortcut.com/nango-3/iteration/64",
+            "entity_type": "iteration",
+            "labels": [],
+            "mention_ids": [],
+            "member_mention_ids": [],
+            "associated_groups": null,
+            "name": "Test Iteration",
+            "global_id": "v2:it:6a53bda8-6d1c-4114-99b8-a3e4515e3381:64",
+            "label_ids": [],
+            "updated_at": "2026-07-12T17:10:06Z",
+            "group_mention_ids": [],
+            "end_date": "2026-08-14",
+            "follower_ids": [],
+            "group_ids": [
+              "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+            ],
+            "start_date": "2026-08-01",
+            "status": "unstarted",
+            "id": 64,
+            "stats": {
+              "num_points_done": 0,
+              "num_related_documents": 0,
+              "num_stories_unstarted": 0,
+              "num_points_started": 0,
+              "num_points_unstarted": 0,
+              "num_stories_started": 0,
+              "num_stories_unestimated": 0,
+              "num_stories_backlog": 0,
+              "num_points_backlog": 0,
+              "num_points": 0,
+              "num_stories_done": 0
+            },
+            "created_at": "2026-07-12T17:10:06Z"
+          },
+          {
+            "app_url": "https://app.shortcut.com/nango-3/iteration/65",
+            "entity_type": "iteration",
+            "labels": [],
+            "mention_ids": [],
+            "member_mention_ids": [],
+            "associated_groups": null,
+            "name": "Test Iteration",
+            "global_id": "v2:it:6a53bda8-6d1c-4114-99b8-a3e4515e3381:65",
+            "label_ids": [],
+            "updated_at": "2026-07-12T17:10:12Z",
+            "group_mention_ids": [],
+            "end_date": "2026-08-14",
+            "follower_ids": [],
+            "group_ids": [
+              "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+            ],
+            "start_date": "2026-08-01",
+            "status": "unstarted",
+            "id": 65,
+            "stats": {
+              "num_points_done": 0,
+              "num_related_documents": 0,
+              "num_stories_unstarted": 0,
+              "num_points_started": 0,
+              "num_points_unstarted": 0,
+              "num_stories_started": 0,
+              "num_stories_unestimated": 0,
+              "num_stories_backlog": 0,
+              "num_points_backlog": 0,
+              "num_points": 0,
+              "num_stories_done": 0
+            },
+            "created_at": "2026-07-12T17:10:12Z"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Sun, 12 Jul 2026 17:19:13 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "3119",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1783876800",
+          "etag": "W/\"c2f-n0gYIJjojt4aUFx8Qb+Uy//cevY\""
+        },
+        "hash": "79918c5a757f8264a43553047b41053d65958cf1",
+        "request": {}
+      }
+    }
+  }
+}

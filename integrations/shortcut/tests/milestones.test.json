@@ -1,0 +1,215 @@
+{
+  "nango": {
+    "batchSave": {
+      "Milestone": [
+        {
+          "id": "63",
+          "created_at": "2026-07-12T17:09:21Z",
+          "name": "Test Milestone",
+          "updated_at": "2026-07-12T17:09:21Z",
+          "app_url": "https://app.shortcut.com/nango-3/milestone/63",
+          "archived": false,
+          "completed": false,
+          "description": "",
+          "entity_type": "milestone",
+          "key_result_ids": [],
+          "position": 32000,
+          "started": false,
+          "state": "to do",
+          "stats": {
+            "num_related_documents": 0
+          }
+        },
+        {
+          "id": "61",
+          "created_at": "2026-07-12T17:09:15Z",
+          "name": "Test Milestone",
+          "updated_at": "2026-07-12T17:09:15Z",
+          "app_url": "https://app.shortcut.com/nango-3/milestone/61",
+          "archived": false,
+          "completed": false,
+          "description": "",
+          "entity_type": "milestone",
+          "key_result_ids": [],
+          "position": 32256,
+          "started": false,
+          "state": "to do",
+          "stats": {
+            "num_related_documents": 0
+          }
+        },
+        {
+          "id": "15",
+          "created_at": "2026-07-12T16:15:36Z",
+          "name": "Updated Tactical Objective",
+          "updated_at": "2026-07-12T17:09:06Z",
+          "app_url": "https://app.shortcut.com/nango-3/milestone/15",
+          "archived": false,
+          "completed": false,
+          "description": "Tactical Objectives are used for day-to-day execution and don't require Key Results.  These can be any collection of Epics (projects) that help you achieve a specific outcome.\n\n\n\n- **Example Tactical Objective**: \"Launch improved data pipeline\"\n- **Example Epic**: \"Implement updated event tags\"",
+          "entity_type": "milestone",
+          "key_result_ids": [],
+          "position": 32512,
+          "started": false,
+          "started_at_override": "2026-07-12T16:15:36Z",
+          "state": "to do",
+          "stats": {
+            "num_related_documents": 0
+          }
+        },
+        {
+          "id": "14",
+          "created_at": "2026-07-12T16:15:36Z",
+          "name": "Our first Strategic Objective",
+          "updated_at": "2026-07-12T16:15:36Z",
+          "app_url": "https://app.shortcut.com/nango-3/milestone/14",
+          "archived": false,
+          "completed": false,
+          "description": "Strategic Objectives are used for OKRs and larger company goals.  They help keep everyone aligned and driving in the right direction.  You can add Key Results and the Epics (projects) that make up each of those Key Results, helping connect your company Objectives directly to the work your team is doing.\n\n\n\n- **Example Strategic Objective**: \"Become the top rated mobile app in our category\"\n- **Example Key Result**: \"Improve app load time by 30%\"\n- **Example Epic**: \"Refactor iOS loading screen\"",
+          "entity_type": "milestone",
+          "key_result_ids": [
+            "6a53bda9-437f-4cc8-9aaf-eaea434abbff"
+          ],
+          "position": 32768,
+          "started": false,
+          "started_at_override": "2026-07-12T16:15:36Z",
+          "state": "to do",
+          "stats": {
+            "num_related_documents": 0
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Milestone": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v3/milestones": {
+        "response": [
+          {
+            "app_url": "https://app.shortcut.com/nango-3/milestone/63",
+            "description": "",
+            "archived": false,
+            "started": false,
+            "entity_type": "milestone",
+            "completed_at_override": null,
+            "started_at": null,
+            "completed_at": null,
+            "name": "Test Milestone",
+            "global_id": "v2:m:6a53bda8-6d1c-4114-99b8-a3e4515e3381:63",
+            "completed": false,
+            "state": "to do",
+            "started_at_override": null,
+            "updated_at": "2026-07-12T17:09:21Z",
+            "categories": [],
+            "id": 63,
+            "key_result_ids": [],
+            "position": 32000,
+            "stats": {
+              "num_related_documents": 0
+            },
+            "created_at": "2026-07-12T17:09:21Z"
+          },
+          {
+            "app_url": "https://app.shortcut.com/nango-3/milestone/61",
+            "description": "",
+            "archived": false,
+            "started": false,
+            "entity_type": "milestone",
+            "completed_at_override": null,
+            "started_at": null,
+            "completed_at": null,
+            "name": "Test Milestone",
+            "global_id": "v2:m:6a53bda8-6d1c-4114-99b8-a3e4515e3381:61",
+            "completed": false,
+            "state": "to do",
+            "started_at_override": null,
+            "updated_at": "2026-07-12T17:09:15Z",
+            "categories": [],
+            "id": 61,
+            "key_result_ids": [],
+            "position": 32256,
+            "stats": {
+              "num_related_documents": 0
+            },
+            "created_at": "2026-07-12T17:09:15Z"
+          },
+          {
+            "app_url": "https://app.shortcut.com/nango-3/milestone/15",
+            "description": "Tactical Objectives are used for day-to-day execution and don't require Key Results.  These can be any collection of Epics (projects) that help you achieve a specific outcome.\n\n\n\n- **Example Tactical Objective**: \"Launch improved data pipeline\"\n- **Example Epic**: \"Implement updated event tags\"",
+            "archived": false,
+            "started": false,
+            "entity_type": "milestone",
+            "completed_at_override": null,
+            "started_at": null,
+            "completed_at": null,
+            "name": "Updated Tactical Objective",
+            "global_id": "v2:m:6a53bda8-6d1c-4114-99b8-a3e4515e3381:15",
+            "completed": false,
+            "state": "to do",
+            "started_at_override": "2026-07-12T16:15:36Z",
+            "updated_at": "2026-07-12T17:09:06Z",
+            "categories": [],
+            "id": 15,
+            "key_result_ids": [],
+            "position": 32512,
+            "stats": {
+              "num_related_documents": 0
+            },
+            "created_at": "2026-07-12T16:15:36Z"
+          },
+          {
+            "app_url": "https://app.shortcut.com/nango-3/milestone/14",
+            "description": "Strategic Objectives are used for OKRs and larger company goals.  They help keep everyone aligned and driving in the right direction.  You can add Key Results and the Epics (projects) that make up each of those Key Results, helping connect your company Objectives directly to the work your team is doing.\n\n\n\n- **Example Strategic Objective**: \"Become the top rated mobile app in our category\"\n- **Example Key Result**: \"Improve app load time by 30%\"\n- **Example Epic**: \"Refactor iOS loading screen\"",
+            "archived": false,
+            "started": false,
+            "entity_type": "milestone",
+            "completed_at_override": null,
+            "started_at": null,
+            "completed_at": null,
+            "name": "Our first Strategic Objective",
+            "global_id": "v2:m:6a53bda8-6d1c-4114-99b8-a3e4515e3381:14",
+            "completed": false,
+            "state": "to do",
+            "started_at_override": "2026-07-12T16:15:36Z",
+            "updated_at": "2026-07-12T16:15:36Z",
+            "categories": [],
+            "id": 14,
+            "key_result_ids": [
+              "6a53bda9-437f-4cc8-9aaf-eaea434abbff"
+            ],
+            "position": 32768,
+            "stats": {
+              "num_related_documents": 0
+            },
+            "created_at": "2026-07-12T16:15:36Z"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Sun, 12 Jul 2026 17:09:29 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "3001",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1783876219",
+          "etag": "W/\"bb9-V0l2KWwosZZFevCi5v1hpumdYcE\""
+        },
+        "hash": "e08b01b7ed9d6da6fab0e05b173ca3462b4152b5",
+        "request": {}
+      }
+    }
+  }
+}

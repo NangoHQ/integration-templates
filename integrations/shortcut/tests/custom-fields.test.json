@@ -1,0 +1,789 @@
+{
+  "nango": {
+    "batchSave": {
+      "CustomField": [
+        {
+          "id": "6a53bda8-76e8-43c0-b605-71c83ce6cadb",
+          "canonical_name": "technical-area",
+          "created_at": "2026-07-12T16:15:36Z",
+          "description": "The location in the tech stack of this work.",
+          "enabled": true,
+          "entity_type": "custom-field",
+          "field_type": "enum",
+          "name": "Technical Area",
+          "position": 0,
+          "updated_at": "2026-07-12T16:15:36Z",
+          "values": [
+            {
+              "color_key": "red",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-6c74-45d2-8b59-2c7b12eb8a83",
+              "position": 0,
+              "value": "API"
+            },
+            {
+              "color_key": "green",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-85f2-449f-8d49-6b03bec56df2",
+              "position": 1,
+              "value": "Client"
+            },
+            {
+              "color_key": "orange",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-4cb0-4ae6-87e7-8b412f8a5a9c",
+              "position": 2,
+              "value": "Database"
+            },
+            {
+              "color_key": "black",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-c51d-457f-8c5c-3a70cc6c5b04",
+              "position": 3,
+              "value": "Mobile"
+            },
+            {
+              "color_key": "sky-blue",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-787e-4803-9366-a5758d4a59e5",
+              "position": 4,
+              "value": "Server"
+            },
+            {
+              "color_key": "purple",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-d2c5-4334-82b2-decc750a8d03",
+              "position": 5,
+              "value": "Web app"
+            }
+          ]
+        },
+        {
+          "id": "6a53bda8-4f22-472b-be04-4ca5e1084ee6",
+          "canonical_name": "skill-set",
+          "created_at": "2026-07-12T16:15:36Z",
+          "description": "The skills or abilities needed to complete this work.",
+          "enabled": true,
+          "entity_type": "custom-field",
+          "field_type": "enum",
+          "name": "Skill Set",
+          "position": 1,
+          "updated_at": "2026-07-12T16:15:36Z",
+          "values": [
+            {
+              "color_key": "turquoise",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-839f-46a0-a8e4-22cecae9ac80",
+              "position": 0,
+              "value": "Frontend"
+            },
+            {
+              "color_key": "gray",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-1e3e-4f5b-bbef-da486ba8ff05",
+              "position": 1,
+              "value": "Backend"
+            },
+            {
+              "color_key": "slate",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-e7fa-456c-a01e-3840165f6484",
+              "position": 2,
+              "value": "Product"
+            },
+            {
+              "color_key": "brass",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-5f7c-4d6d-8eed-0f82392adc4f",
+              "position": 3,
+              "value": "Design"
+            },
+            {
+              "color_key": "red",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-1848-47e6-9561-d19c63e60475",
+              "position": 4,
+              "value": "Analytics"
+            }
+          ]
+        },
+        {
+          "id": "6a53bda8-c816-4ae3-88b0-66ce1f34f25e",
+          "canonical_name": "product-area",
+          "created_at": "2026-07-12T16:15:36Z",
+          "description": "The impacted area or feature of the product.",
+          "enabled": true,
+          "entity_type": "custom-field",
+          "field_type": "enum",
+          "name": "Product Area",
+          "position": 2,
+          "updated_at": "2026-07-12T16:15:36Z",
+          "values": [
+            {
+              "color_key": "midnight-blue",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-c9db-44e8-b481-735366b42044",
+              "position": 0,
+              "value": "Onboarding"
+            },
+            {
+              "color_key": "yellow-green",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-23d5-400b-9b50-2217d3880477",
+              "position": 1,
+              "value": "Billing"
+            },
+            {
+              "color_key": "yellow",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-e463-401d-ada9-62306b2da06e",
+              "position": 2,
+              "value": "Search"
+            },
+            {
+              "color_key": "fuchsia",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-62fe-43fe-ad97-0278a5faed45",
+              "position": 3,
+              "value": "Integrations"
+            },
+            {
+              "color_key": "blue",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-3215-48cf-8c9f-c76cb290bd31",
+              "position": 4,
+              "value": "Demo"
+            },
+            {
+              "color_key": "pink",
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-60d6-46f8-93b5-d5d538427e06",
+              "position": 5,
+              "value": "Notifications"
+            }
+          ]
+        },
+        {
+          "id": "6a53bda8-fcc5-4f12-bfb8-a5737fb8d3f3",
+          "canonical_name": "priority",
+          "created_at": "2026-07-12T16:15:36Z",
+          "description": "Used to filter and sort stories in order of priority.",
+          "enabled": true,
+          "entity_type": "custom-field",
+          "field_type": "enum",
+          "name": "Priority",
+          "position": 3,
+          "updated_at": "2026-07-12T16:15:36Z",
+          "values": [
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-0d99-45c9-a17a-532e0ce012a7",
+              "position": 0,
+              "value": "Highest"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-a2e5-44f1-8d7e-8a4909855d51",
+              "position": 1,
+              "value": "High"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-a704-43ea-ba73-7544afba0bea",
+              "position": 2,
+              "value": "Medium"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-3519-496e-9d31-7e6fb3f33316",
+              "position": 3,
+              "value": "Low"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-c1c6-4a14-853c-bd7eacc26d3a",
+              "position": 4,
+              "value": "Lowest"
+            }
+          ]
+        },
+        {
+          "id": "6a53bda8-cce3-4647-96bd-1fe69c413396",
+          "canonical_name": "severity",
+          "created_at": "2026-07-12T16:15:36Z",
+          "description": "Used to describe the severity of bugs. This field is only applied to Bug story types.",
+          "enabled": true,
+          "entity_type": "custom-field",
+          "field_type": "enum",
+          "name": "Severity",
+          "position": 4,
+          "updated_at": "2026-07-12T16:15:36Z",
+          "values": [
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-4c55-4f51-9b82-9e45a2dd84eb",
+              "position": 0,
+              "value": "Severity 0"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-37f1-4ff5-b045-58b5aa7ea34b",
+              "position": 1,
+              "value": "Severity 1"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-a976-4dfa-b661-d81dcc931628",
+              "position": 2,
+              "value": "Severity 2"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-4158-496d-939f-fb06477e15bb",
+              "position": 3,
+              "value": "Severity 3"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-9c3f-47b8-8cfd-257974a6e30d",
+              "position": 4,
+              "value": "Severity 4"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-a2d2-4a71-954e-14c7829571c1",
+              "position": 5,
+              "value": "Severity 5"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53bda8-75f2-4ef5-a374-d7cc9fe515ae",
+              "position": 6,
+              "value": "Severity 6"
+            }
+          ]
+        },
+        {
+          "id": "6a53cb19-b697-4cdc-bfc1-705af0b535b2",
+          "created_at": "2026-07-12T17:12:57Z",
+          "enabled": true,
+          "entity_type": "custom-field",
+          "field_type": "enum",
+          "name": "Nango Test Custom Field",
+          "position": 5,
+          "updated_at": "2026-07-12T17:12:57Z",
+          "values": [
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53cb19-ba8c-4e6e-8876-b3a5d6eeab67",
+              "position": 0,
+              "value": "Alpha"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53cb19-2e34-4af6-9bcf-518d3a730c5e",
+              "position": 1,
+              "value": "Beta"
+            }
+          ]
+        },
+        {
+          "id": "6a53cb36-c495-4717-bcf9-2f6d474963a3",
+          "created_at": "2026-07-12T17:13:26Z",
+          "enabled": true,
+          "entity_type": "custom-field",
+          "field_type": "enum",
+          "name": "Nango Test Custom Field 2",
+          "position": 6,
+          "updated_at": "2026-07-12T17:13:26Z",
+          "values": [
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53cb36-3eaf-4605-8f79-a3f328503b7e",
+              "position": 0,
+              "value": "Alpha"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53cb36-4f0e-4fe7-b155-0e9739d8fb91",
+              "position": 1,
+              "value": "Beta"
+            }
+          ]
+        },
+        {
+          "id": "6a53cb45-3c10-4237-93f6-18a15d70ae29",
+          "created_at": "2026-07-12T17:13:41Z",
+          "enabled": true,
+          "entity_type": "custom-field",
+          "field_type": "enum",
+          "name": "Nango Test Custom Field 3",
+          "position": 7,
+          "updated_at": "2026-07-12T17:13:41Z",
+          "values": [
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53cb45-e345-458f-b093-e8194ad6985c",
+              "position": 0,
+              "value": "Alpha"
+            },
+            {
+              "color_key": null,
+              "entity_type": "custom-field-enum-value",
+              "id": "6a53cb45-bcb2-422e-a800-c1e233ced2f1",
+              "position": 1,
+              "value": "Beta"
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "CustomField": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v3/custom-fields": {
+        "response": [
+          {
+            "description": "The location in the tech stack of this work.",
+            "entity_type": "custom-field",
+            "name": "Technical Area",
+            "fixed_position": false,
+            "updated_at": "2026-07-12T16:15:36Z",
+            "id": "6a53bda8-76e8-43c0-b605-71c83ce6cadb",
+            "values": [
+              {
+                "id": "6a53bda8-6c74-45d2-8b59-2c7b12eb8a83",
+                "value": "API",
+                "position": 0,
+                "color_key": "red",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-85f2-449f-8d49-6b03bec56df2",
+                "value": "Client",
+                "position": 1,
+                "color_key": "green",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-4cb0-4ae6-87e7-8b412f8a5a9c",
+                "value": "Database",
+                "position": 2,
+                "color_key": "orange",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-c51d-457f-8c5c-3a70cc6c5b04",
+                "value": "Mobile",
+                "position": 3,
+                "color_key": "black",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-787e-4803-9366-a5758d4a59e5",
+                "value": "Server",
+                "position": 4,
+                "color_key": "sky-blue",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-d2c5-4334-82b2-decc750a8d03",
+                "value": "Web app",
+                "position": 5,
+                "color_key": "purple",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              }
+            ],
+            "field_type": "enum",
+            "position": 0,
+            "canonical_name": "technical-area",
+            "enabled": true,
+            "created_at": "2026-07-12T16:15:36Z"
+          },
+          {
+            "description": "The skills or abilities needed to complete this work.",
+            "entity_type": "custom-field",
+            "name": "Skill Set",
+            "fixed_position": false,
+            "updated_at": "2026-07-12T16:15:36Z",
+            "id": "6a53bda8-4f22-472b-be04-4ca5e1084ee6",
+            "values": [
+              {
+                "id": "6a53bda8-839f-46a0-a8e4-22cecae9ac80",
+                "value": "Frontend",
+                "position": 0,
+                "color_key": "turquoise",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-1e3e-4f5b-bbef-da486ba8ff05",
+                "value": "Backend",
+                "position": 1,
+                "color_key": "gray",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-e7fa-456c-a01e-3840165f6484",
+                "value": "Product",
+                "position": 2,
+                "color_key": "slate",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-5f7c-4d6d-8eed-0f82392adc4f",
+                "value": "Design",
+                "position": 3,
+                "color_key": "brass",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-1848-47e6-9561-d19c63e60475",
+                "value": "Analytics",
+                "position": 4,
+                "color_key": "red",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              }
+            ],
+            "field_type": "enum",
+            "position": 1,
+            "canonical_name": "skill-set",
+            "enabled": true,
+            "created_at": "2026-07-12T16:15:36Z"
+          },
+          {
+            "description": "The impacted area or feature of the product.",
+            "entity_type": "custom-field",
+            "name": "Product Area",
+            "fixed_position": false,
+            "updated_at": "2026-07-12T16:15:36Z",
+            "id": "6a53bda8-c816-4ae3-88b0-66ce1f34f25e",
+            "values": [
+              {
+                "id": "6a53bda8-c9db-44e8-b481-735366b42044",
+                "value": "Onboarding",
+                "position": 0,
+                "color_key": "midnight-blue",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-23d5-400b-9b50-2217d3880477",
+                "value": "Billing",
+                "position": 1,
+                "color_key": "yellow-green",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-e463-401d-ada9-62306b2da06e",
+                "value": "Search",
+                "position": 2,
+                "color_key": "yellow",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-62fe-43fe-ad97-0278a5faed45",
+                "value": "Integrations",
+                "position": 3,
+                "color_key": "fuchsia",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-3215-48cf-8c9f-c76cb290bd31",
+                "value": "Demo",
+                "position": 4,
+                "color_key": "blue",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-60d6-46f8-93b5-d5d538427e06",
+                "value": "Notifications",
+                "position": 5,
+                "color_key": "pink",
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              }
+            ],
+            "field_type": "enum",
+            "position": 2,
+            "canonical_name": "product-area",
+            "enabled": true,
+            "created_at": "2026-07-12T16:15:36Z"
+          },
+          {
+            "description": "Used to filter and sort stories in order of priority.",
+            "entity_type": "custom-field",
+            "name": "Priority",
+            "fixed_position": false,
+            "updated_at": "2026-07-12T16:15:36Z",
+            "id": "6a53bda8-fcc5-4f12-bfb8-a5737fb8d3f3",
+            "values": [
+              {
+                "id": "6a53bda8-0d99-45c9-a17a-532e0ce012a7",
+                "value": "Highest",
+                "position": 0,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-a2e5-44f1-8d7e-8a4909855d51",
+                "value": "High",
+                "position": 1,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-a704-43ea-ba73-7544afba0bea",
+                "value": "Medium",
+                "position": 2,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-3519-496e-9d31-7e6fb3f33316",
+                "value": "Low",
+                "position": 3,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-c1c6-4a14-853c-bd7eacc26d3a",
+                "value": "Lowest",
+                "position": 4,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              }
+            ],
+            "field_type": "enum",
+            "position": 3,
+            "canonical_name": "priority",
+            "enabled": true,
+            "created_at": "2026-07-12T16:15:36Z"
+          },
+          {
+            "description": "Used to describe the severity of bugs. This field is only applied to Bug story types.",
+            "entity_type": "custom-field",
+            "story_types": [
+              "bug"
+            ],
+            "name": "Severity",
+            "fixed_position": true,
+            "updated_at": "2026-07-12T16:15:36Z",
+            "id": "6a53bda8-cce3-4647-96bd-1fe69c413396",
+            "values": [
+              {
+                "id": "6a53bda8-4c55-4f51-9b82-9e45a2dd84eb",
+                "value": "Severity 0",
+                "position": 0,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-37f1-4ff5-b045-58b5aa7ea34b",
+                "value": "Severity 1",
+                "position": 1,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-a976-4dfa-b661-d81dcc931628",
+                "value": "Severity 2",
+                "position": 2,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-4158-496d-939f-fb06477e15bb",
+                "value": "Severity 3",
+                "position": 3,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-9c3f-47b8-8cfd-257974a6e30d",
+                "value": "Severity 4",
+                "position": 4,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-a2d2-4a71-954e-14c7829571c1",
+                "value": "Severity 5",
+                "position": 5,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53bda8-75f2-4ef5-a374-d7cc9fe515ae",
+                "value": "Severity 6",
+                "position": 6,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              }
+            ],
+            "field_type": "enum",
+            "position": 4,
+            "canonical_name": "severity",
+            "enabled": true,
+            "created_at": "2026-07-12T16:15:36Z"
+          },
+          {
+            "entity_type": "custom-field",
+            "name": "Nango Test Custom Field",
+            "fixed_position": false,
+            "updated_at": "2026-07-12T17:12:57Z",
+            "id": "6a53cb19-b697-4cdc-bfc1-705af0b535b2",
+            "values": [
+              {
+                "id": "6a53cb19-ba8c-4e6e-8876-b3a5d6eeab67",
+                "value": "Alpha",
+                "position": 0,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53cb19-2e34-4af6-9bcf-518d3a730c5e",
+                "value": "Beta",
+                "position": 1,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              }
+            ],
+            "field_type": "enum",
+            "position": 5,
+            "enabled": true,
+            "created_at": "2026-07-12T17:12:57Z"
+          },
+          {
+            "entity_type": "custom-field",
+            "name": "Nango Test Custom Field 2",
+            "fixed_position": false,
+            "updated_at": "2026-07-12T17:13:26Z",
+            "id": "6a53cb36-c495-4717-bcf9-2f6d474963a3",
+            "values": [
+              {
+                "id": "6a53cb36-3eaf-4605-8f79-a3f328503b7e",
+                "value": "Alpha",
+                "position": 0,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53cb36-4f0e-4fe7-b155-0e9739d8fb91",
+                "value": "Beta",
+                "position": 1,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              }
+            ],
+            "field_type": "enum",
+            "position": 6,
+            "enabled": true,
+            "created_at": "2026-07-12T17:13:26Z"
+          },
+          {
+            "entity_type": "custom-field",
+            "name": "Nango Test Custom Field 3",
+            "fixed_position": false,
+            "updated_at": "2026-07-12T17:13:41Z",
+            "id": "6a53cb45-3c10-4237-93f6-18a15d70ae29",
+            "values": [
+              {
+                "id": "6a53cb45-e345-458f-b093-e8194ad6985c",
+                "value": "Alpha",
+                "position": 0,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              },
+              {
+                "id": "6a53cb45-bcb2-422e-a800-c1e233ced2f1",
+                "value": "Beta",
+                "position": 1,
+                "color_key": null,
+                "enabled": true,
+                "entity_type": "custom-field-enum-value"
+              }
+            ],
+            "field_type": "enum",
+            "position": 7,
+            "enabled": true,
+            "created_at": "2026-07-12T17:13:41Z"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Sun, 12 Jul 2026 17:18:26 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "7862",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1783876736",
+          "etag": "W/\"1eb6-LVVdxYbmKb4lo5unsQoRKJGN3gI\""
+        },
+        "hash": "4ecac7edca94a0b7d1d66c0fb5eaffd81727cb27",
+        "request": {}
+      }
+    }
+  }
+}

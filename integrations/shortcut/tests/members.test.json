@@ -1,0 +1,78 @@
+{
+  "nango": {
+    "batchSave": {
+      "Member": [
+        {
+          "id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+          "mention_name": "nangodeveloper",
+          "name": "Nango Developer",
+          "email_address": "api@nango.dev",
+          "role": "admin",
+          "state": "full",
+          "disabled": false,
+          "created_at": "2026-07-12T16:15:36Z",
+          "updated_at": "2026-07-12T16:15:36Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Member": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v3/members": {
+        "response": [
+          {
+            "role": "admin",
+            "entity_type": "member",
+            "disabled": false,
+            "global_id": "v2:p:6a53bda8-6d1c-4114-99b8-a3e4515e3381:6a53bda8-4df3-4862-baf5-bf953f932636",
+            "state": "full",
+            "updated_at": "2026-07-12T16:15:36Z",
+            "created_without_invite": false,
+            "group_ids": [
+              "6a53bda8-3374-4172-bb50-8bd4efd9e33f"
+            ],
+            "id": "6a53bda8-4df3-4862-baf5-bf953f932636",
+            "profile": {
+              "entity_type": "profile",
+              "deactivated": false,
+              "two_factor_auth_activated": false,
+              "mention_name": "nangodeveloper",
+              "name": "Nango Developer",
+              "gravatar_hash": "0f8c53293177b8e9f1658ae7951a468e",
+              "id": "6a53bda8-ae4f-45f1-bbf3-4d594c36c988",
+              "display_icon": null,
+              "is_owner": true,
+              "email_address": "api@nango.dev"
+            },
+            "created_at": "2026-07-12T16:15:36Z"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Sun, 12 Jul 2026 17:09:09 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "676",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4904",
+          "x-ratelimit-reset": "1783876159",
+          "etag": "W/\"2a4-E/Pwi2Ybewptu3P2XPTBW7Iixn8\""
+        },
+        "hash": "2513fffc9fff1dd335aeedf32a6cae314b17e115",
+        "request": {}
+      }
+    }
+  }
+}
