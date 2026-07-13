@@ -3140,6 +3140,48 @@ import './paycom/syncs/unified-employees.js';
 // -- Integration: paylocity
 import './paylocity/syncs/users.js';
 
+// -- Integration: paypal-sandbox
+import './paypal-sandbox/syncs/disputes.js';
+import './paypal-sandbox/syncs/invoices.js';
+import './paypal-sandbox/syncs/plans.js';
+import './paypal-sandbox/syncs/products.js';
+import './paypal-sandbox/syncs/subscriptions.js';
+import './paypal-sandbox/syncs/transactions.js';
+import './paypal-sandbox/actions/activate-subscription.js';
+import './paypal-sandbox/actions/add-order-tracking.js';
+import './paypal-sandbox/actions/authorize-order.js';
+import './paypal-sandbox/actions/cancel-invoice.js';
+import './paypal-sandbox/actions/capture-authorized-payment.js';
+import './paypal-sandbox/actions/capture-order.js';
+import './paypal-sandbox/actions/confirm-order-payment-source.js';
+import './paypal-sandbox/actions/create-invoice.js';
+import './paypal-sandbox/actions/create-order.js';
+import './paypal-sandbox/actions/create-plan.js';
+import './paypal-sandbox/actions/create-product.js';
+import './paypal-sandbox/actions/create-subscription.js';
+import './paypal-sandbox/actions/deactivate-plan.js';
+import './paypal-sandbox/actions/delete-invoice.js';
+import './paypal-sandbox/actions/get-authorization.js';
+import './paypal-sandbox/actions/get-capture.js';
+import './paypal-sandbox/actions/get-invoice.js';
+import './paypal-sandbox/actions/get-order.js';
+import './paypal-sandbox/actions/get-plan.js';
+import './paypal-sandbox/actions/get-product.js';
+import './paypal-sandbox/actions/get-refund.js';
+import './paypal-sandbox/actions/get-subscription.js';
+import './paypal-sandbox/actions/list-disputes.js';
+import './paypal-sandbox/actions/list-invoices.js';
+import './paypal-sandbox/actions/list-plans.js';
+import './paypal-sandbox/actions/list-products.js';
+import './paypal-sandbox/actions/record-invoice-payment.js';
+import './paypal-sandbox/actions/refund-capture.js';
+import './paypal-sandbox/actions/send-invoice.js';
+import './paypal-sandbox/actions/update-order-tracking.js';
+import './paypal-sandbox/actions/update-order.js';
+import './paypal-sandbox/actions/update-plan-pricing.js';
+import './paypal-sandbox/actions/update-product.js';
+import './paypal-sandbox/actions/void-authorized-payment.js';
+
 // -- Integration: pennylane
 import './pennylane/syncs/bank-accounts.js';
 import './pennylane/syncs/bank-establishments.js';
