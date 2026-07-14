@@ -1,8 +1,12 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const AmountSchema = z.object({
-    currency_code: z.string().describe('Currency code. Example: "USD"'),
+    currency_code: z
+        .string()
+        .regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.')
+        .describe('Currency code. Example: "USD"'),
     value: z.string().describe('Amount value. Example: "100.00"')
 });
 
@@ -34,7 +38,8 @@ const InputSchema = z.object({
     intent: z.enum(['CAPTURE', 'AUTHORIZE']).describe('The intent to capture or authorize payment.'),
     purchase_units: z.array(PurchaseUnitSchema).describe('An array of purchase units.'),
     payment_source: z.record(z.string(), z.unknown()).optional().describe('The payment source definition.'),
-    application_context: ApplicationContextSchema.optional().describe('Customizes the payer experience during approval.')
+    application_context: ApplicationContextSchema.optional().describe('Customizes the payer experience during approval.'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const LinkSchema = z.object({
@@ -83,6 +88,11 @@ const action = createAction({
                 purchase_units: input.purchase_units,
                 ...(input.payment_source !== undefined && { payment_source: input.payment_source }),
                 ...(input.application_context !== undefined && { application_context: input.application_context })
+            },
+            headers: {
+                // Required by PayPal for single-step create-order calls (e.g. with a payment_source), and
+                // otherwise ensures retries resolve to the same order instead of creating duplicates.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
             },
             retries: 10
         });

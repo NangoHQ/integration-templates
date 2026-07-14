@@ -219,11 +219,36 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://developer.paypal.com/api/invoicing/v2/#invoices_get
-            endpoint: `/v2/invoicing/invoices/${encodeURIComponent(input.invoice_id)}`,
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch We catch 404s from PayPal and convert them to a typed ActionError so callers get a clean not_found response instead of a raw HTTP exception.
+        try {
+            response = await nango.get({
+                // https://developer.paypal.com/api/invoicing/v2/#invoices_get
+                endpoint: `/v2/invoicing/invoices/${encodeURIComponent(input.invoice_id)}`,
+                retries: 3
+            });
+        } catch (err: unknown) {
+            const status =
+                err !== null &&
+                typeof err === 'object' &&
+                'response' in err &&
+                err.response !== null &&
+                typeof err.response === 'object' &&
+                'status' in err.response &&
+                typeof err.response.status === 'number'
+                    ? err.response.status
+                    : undefined;
+
+            if (status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Invoice not found',
+                    invoice_id: input.invoice_id
+                });
+            }
+
+            throw err;
+        }
 
         if (!response.data || typeof response.data !== 'object') {
             throw new nango.ActionError({

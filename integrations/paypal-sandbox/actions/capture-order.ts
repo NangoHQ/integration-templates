@@ -1,8 +1,10 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const InputSchema = z.object({
-    order_id: z.string().describe('Order ID. Example: "8A79039013362943U"')
+    order_id: z.string().describe('Order ID. Example: "8A79039013362943U"'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderCaptureAmountSchema = z
@@ -76,6 +78,12 @@ const action = createAction({
         const response = await nango.post({
             // https://developer.paypal.com/api/orders/v2/#orders_capture
             endpoint: `/v2/checkout/orders/${encodeURIComponent(input.order_id)}/capture`,
+            headers: {
+                // Full representation so capture IDs, amounts and timestamps are returned (not PayPal's minimal default).
+                Prefer: 'return=representation',
+                // One idempotency key per execution so all internal retries resolve to the same capture.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
+            },
             retries: 3
         });
 

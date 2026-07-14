@@ -1,8 +1,12 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const AmountSchema = z.object({
-    currency_code: z.string().describe('The currency code. Example: "USD"'),
+    currency_code: z
+        .string()
+        .regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.')
+        .describe('The currency code. Example: "USD"'),
     value: z.string().describe('The amount value. Example: "10.00"')
 });
 
@@ -11,7 +15,8 @@ const InputSchema = z.object({
     amount: AmountSchema.optional().describe('The amount to capture. If omitted, captures the full authorized amount.'),
     invoice_id: z.string().optional().describe('The API caller-provided external invoice number for this capture.'),
     note_to_payer: z.string().optional().describe('An informational note about this capture displayed to the payer.'),
-    final_capture: z.boolean().optional().describe('Indicates whether this is the final capture for the authorization.')
+    final_capture: z.boolean().optional().describe('Indicates whether this is the final capture for the authorization.'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderCaptureSchema = z
@@ -64,7 +69,9 @@ const action = createAction({
                 ...(input.final_capture !== undefined && { final_capture: input.final_capture })
             },
             headers: {
-                Prefer: 'return=representation'
+                Prefer: 'return=representation',
+                // One idempotency key per execution so all internal retries resolve to the same capture.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
             },
             retries: 10
         });

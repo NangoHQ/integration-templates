@@ -1,15 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const PatchOperationSchema = z.object({
-    op: z.string().describe('Patch operation. Example: "replace"'),
-    path: z.string().describe('JSON Pointer path. Example: "/description"'),
-    value: z.unknown().optional().describe('New value for the path.')
-});
+const PatchablePathSchema = z.enum(['/description', '/category', '/image_url', '/home_url']);
+
+const PatchOperationSchema = z.discriminatedUnion('op', [
+    z.object({ op: z.literal('add'), path: PatchablePathSchema, value: z.string() }),
+    z.object({ op: z.literal('replace'), path: PatchablePathSchema, value: z.string() }),
+    z.object({ op: z.literal('test'), path: PatchablePathSchema, value: z.string() }),
+    z.object({ op: z.literal('remove'), path: PatchablePathSchema }),
+    z.object({ op: z.literal('move'), path: PatchablePathSchema, from: PatchablePathSchema }),
+    z.object({ op: z.literal('copy'), path: PatchablePathSchema, from: PatchablePathSchema })
+]);
 
 const InputSchema = z.object({
     product_id: z.string().describe('The PayPal product ID. Example: "PROD-42B01413RE336243T"'),
-    patch: z.array(PatchOperationSchema).describe('JSON Patch array (RFC 6902). Only description and category are patchable.')
+    patch: z.array(PatchOperationSchema).min(1).describe('JSON Patch array (RFC 6902). Only /description, /category, /image_url, and /home_url are patchable.')
 });
 
 const OutputSchema = z.object({

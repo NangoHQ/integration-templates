@@ -20,7 +20,8 @@ const PlatformFeeSchema = z.object({
     amount: MoneySchema,
     payee: z
         .object({
-            email_address: z.string().optional()
+            email_address: z.string().optional(),
+            merchant_id: z.string().optional()
         })
         .optional()
 });
@@ -58,23 +59,39 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://developer.paypal.com/api/payments/v2/#refunds_get
-            endpoint: `/v2/payments/refunds/${encodeURIComponent(input.refund_id)}`,
-            retries: 3
-        });
-
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Refund not found',
-                refund_id: input.refund_id
+        // @allowTryCatch We catch 404s from PayPal and convert them to a typed ActionError so callers get a clean not_found response instead of a raw HTTP exception.
+        try {
+            const response = await nango.get({
+                // https://developer.paypal.com/api/payments/v2/#refunds_get
+                endpoint: `/v2/payments/refunds/${encodeURIComponent(input.refund_id)}`,
+                retries: 3
             });
+
+            const refund = ProviderRefundSchema.parse(response.data);
+
+            return refund;
+        } catch (err: unknown) {
+            const status =
+                err !== null &&
+                typeof err === 'object' &&
+                'response' in err &&
+                err.response !== null &&
+                typeof err.response === 'object' &&
+                'status' in err.response &&
+                typeof err.response.status === 'number'
+                    ? err.response.status
+                    : undefined;
+
+            if (status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Refund not found',
+                    refund_id: input.refund_id
+                });
+            }
+
+            throw err;
         }
-
-        const refund = ProviderRefundSchema.parse(response.data);
-
-        return refund;
     }
 });
 

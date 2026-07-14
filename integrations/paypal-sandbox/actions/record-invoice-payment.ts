@@ -1,18 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const InputSchema = z.object({
     invoice_id: z.string().describe('The ID of the invoice to record payment against. Example: "INV2-CDNR-4VJ3-R9L3-CKGP"'),
     method: z.enum(['BANK_TRANSFER', 'CASH', 'CHECK', 'CREDIT_CARD', 'DEBIT_CARD', 'PAYPAL', 'WIRE_TRANSFER', 'OTHER']).describe('The payment method.'),
     amount: z
         .object({
-            currency_code: z.string(),
+            currency_code: z.string().regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.'),
             value: z.string()
         })
         .optional()
         .describe('The payment amount.'),
     payment_date: z.string().optional().describe('The payment date in YYYY-MM-DD format.'),
-    note: z.string().optional().describe('A note about the payment.')
+    note: z.string().optional().describe('A note about the payment.'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderResponseSchema = z.object({
@@ -44,6 +46,10 @@ const action = createAction({
                 }),
                 ...(input.payment_date !== undefined && { payment_date: input.payment_date }),
                 ...(input.note !== undefined && { note: input.note })
+            },
+            headers: {
+                // One idempotency key per execution so all internal retries resolve to the same recorded payment.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
             },
             retries: 3
         });

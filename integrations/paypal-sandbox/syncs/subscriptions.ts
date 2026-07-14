@@ -104,7 +104,10 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        let statusUpdatedAfter = checkpoint?.status_updated_after ?? DEFAULT_STATUS_UPDATED_AFTER;
+        // The filter timestamp is held fixed for the entire run (including across a resumed, interrupted
+        // pagination): changing it mid-run would shift which records land on which page and could permanently
+        // skip subscriptions. It's only advanced to the new high-water mark once the full listing completes.
+        const statusUpdatedAfter = checkpoint?.status_updated_after ?? DEFAULT_STATUS_UPDATED_AFTER;
         let page: number | undefined = checkpoint?.page ?? 1;
         let maxStatusUpdateTime: string | undefined;
 
@@ -150,18 +153,6 @@ const sync = createSync({
                 ...(record.plan_overridden != null && { plan_overridden: record.plan_overridden })
             }));
 
-            if (subscriptions.length === 0) {
-                if (page === undefined && maxStatusUpdateTime != null) {
-                    await nango.saveCheckpoint({
-                        status_updated_after: maxStatusUpdateTime,
-                        page: 1
-                    });
-                }
-                continue;
-            }
-
-            await nango.batchSave(subscriptions, 'Subscription');
-
             for (const record of parsed.data) {
                 if (record.status_update_time != null) {
                     if (maxStatusUpdateTime === undefined || record.status_update_time > maxStatusUpdateTime) {
@@ -170,22 +161,25 @@ const sync = createSync({
                 }
             }
 
-            if (page !== undefined) {
-                await nango.saveCheckpoint({
-                    status_updated_after: maxStatusUpdateTime || statusUpdatedAfter,
-                    page
-                });
-                continue;
+            if (subscriptions.length > 0) {
+                await nango.batchSave(subscriptions, 'Subscription');
             }
 
-            if (maxStatusUpdateTime != null) {
-                statusUpdatedAfter = maxStatusUpdateTime;
+            // Mid-run checkpoint: keep the filter timestamp stable and only persist the cursor, so an
+            // interrupted run resumes pagination against the exact same result set instead of a shifted one.
+            if (page !== undefined) {
                 await nango.saveCheckpoint({
-                    status_updated_after: maxStatusUpdateTime,
-                    page: 1
+                    status_updated_after: statusUpdatedAfter,
+                    page
                 });
             }
         }
+
+        // Full listing completed: now it's safe to advance the watermark and reset the cursor for next run.
+        await nango.saveCheckpoint({
+            status_updated_after: maxStatusUpdateTime ?? statusUpdatedAfter,
+            page: 1
+        });
     }
 });
 

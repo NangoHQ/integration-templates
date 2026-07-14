@@ -1,22 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const PatchSchema = z.object({
-    op: z.enum(['replace', 'add', 'remove']),
-    path: z.string(),
-    value: z.unknown().optional()
-});
-
-const InputSchema = z.object({
-    order_id: z.string().describe('PayPal order ID. Example: "8A79039013362943U"'),
-    tracker_id: z.string().describe('PayPal tracker ID. Example: "9YE45958FJ858840B-TRACK555999888"'),
-    patches: z
-        .array(PatchSchema)
-        .describe(
-            'JSON Patch operations to apply to the tracker. Supported paths include /status (replace to CANCELLED), /notify_payer (replace or add), and /items (replace).'
-        )
-});
-
 const TrackerItemSchema = z
     .object({
         name: z.string().optional(),
@@ -24,6 +8,23 @@ const TrackerItemSchema = z
         quantity: z.string().optional()
     })
     .passthrough();
+
+const PatchSchema = z.discriminatedUnion('path', [
+    z.object({ op: z.literal('replace'), path: z.literal('/status'), value: z.literal('CANCELLED') }),
+    z.object({ op: z.enum(['replace', 'add']), path: z.literal('/notify_payer'), value: z.boolean() }),
+    z.object({ op: z.literal('replace'), path: z.literal('/items'), value: z.array(TrackerItemSchema) })
+]);
+
+const InputSchema = z.object({
+    order_id: z.string().describe('PayPal order ID. Example: "8A79039013362943U"'),
+    tracker_id: z.string().describe('PayPal tracker ID. Example: "9YE45958FJ858840B-TRACK555999888"'),
+    patches: z
+        .array(PatchSchema)
+        .min(1)
+        .describe(
+            'JSON Patch operations to apply to the tracker. Supported: replace /status to "CANCELLED", replace or add /notify_payer (boolean), replace /items (full array replacement).'
+        )
+});
 
 const TrackerSchema = z
     .object({

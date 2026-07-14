@@ -1,11 +1,13 @@
 import { z } from 'zod';
 import type { ProxyConfiguration } from 'nango';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const InputSchema = z.object({
     invoice_id: z.string().describe('The ID of the draft invoice to send. Example: "INV2-XXXX-XXXX-XXXX-XXXX"'),
     send_to_recipient: z.boolean().optional().describe('Whether to email the invoice to the recipient. Default: true'),
-    send_to_invoicer: z.boolean().optional().describe('Whether to email a copy to the invoicer. Default: false')
+    send_to_invoicer: z.boolean().optional().describe('Whether to email a copy to the invoicer. Default: false'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const OutputSchema = z.object({
@@ -34,6 +36,10 @@ const action = createAction({
             // https://developer.paypal.com/api/rest/
             endpoint: `/v2/invoicing/invoices/${encodeURIComponent(input.invoice_id)}/send`,
             data,
+            headers: {
+                // One idempotency key per execution so a retried send does not email the recipient twice.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
+            },
             retries: 3
         };
 

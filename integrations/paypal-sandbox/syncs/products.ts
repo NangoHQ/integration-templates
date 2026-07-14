@@ -25,18 +25,29 @@ const ProductSchema = z.object({
     update_time: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync products.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Product: ProductSchema
     },
 
     exec: async (nango) => {
-        // Blocker: PayPal Catalog Products list only supports page-based pagination
-        // with no changed-since filter, no deleted-record endpoint, and no resumable cursor.
+        // Blocker: PayPal Catalog Products list only supports page-based pagination with no changed-since
+        // filter and no deleted-record endpoint, so every run must page through the entire catalog. The page
+        // checkpoint below lets a run that's interrupted (large catalog, execution time limit) resume
+        // pagination instead of restarting from page 1; trackDeletesStart is safe/idempotent to call again on
+        // a resumed run, and trackDeletesEnd only fires once the full catalog has actually been enumerated.
+        const checkpoint = await nango.getCheckpoint();
+        let page = checkpoint?.page ?? 1;
+
         await nango.trackDeletesStart('Product');
 
         const proxyConfig: ProxyConfiguration = {
@@ -46,10 +57,14 @@ const sync = createSync({
                 type: 'offset',
                 offset_name_in_request: 'page',
                 offset_calculation_method: 'per-page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 limit_name_in_request: 'page_size',
                 limit: 20,
-                response_path: 'products'
+                response_path: 'products',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : page;
+                    await nango.saveCheckpoint({ page });
+                }
             },
             retries: 3
         };
@@ -81,6 +96,8 @@ const sync = createSync({
         }
 
         await nango.trackDeletesEnd('Product');
+        // Full catalog enumerated: reset the cursor so the next scheduled run starts a fresh pass from page 1.
+        await nango.saveCheckpoint({ page: 1 });
     }
 });
 

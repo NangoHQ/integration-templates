@@ -1,8 +1,9 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const MoneySchema = z.object({
-    currency_code: z.string(),
+    currency_code: z.string().regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.'),
     value: z.string()
 });
 
@@ -52,7 +53,8 @@ const InputSchema = z.object({
     start_time: z.string().optional().describe('The date and time when the subscription started, in Internet date and time format.'),
     shipping_amount: MoneySchema.optional(),
     subscriber: SubscriberSchema.optional(),
-    application_context: ApplicationContextSchema.optional()
+    application_context: ApplicationContextSchema.optional(),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderLinkSchema = z.object({
@@ -100,7 +102,9 @@ const action = createAction({
             // https://developer.paypal.com/api/subscriptions/v1/#subscriptions_create
             endpoint: '/v1/billing/subscriptions',
             headers: {
-                Prefer: 'return=representation'
+                Prefer: 'return=representation',
+                // One idempotency key per execution so all internal retries resolve to the same subscription.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
             },
             data: {
                 plan_id: input.plan_id,

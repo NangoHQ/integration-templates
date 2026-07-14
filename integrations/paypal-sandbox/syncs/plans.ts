@@ -85,16 +85,29 @@ const PlanSchema = z.object({
     quantity_supported: z.boolean().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync plans.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Plan: PlanSchema
     },
 
     exec: async (nango) => {
+        // PayPal's billing plans list only supports page-based pagination with no changed-since filter, so
+        // every run must page through the whole catalog. The page checkpoint lets an interrupted run (large
+        // number of plans, execution time limit) resume pagination instead of restarting from page 1;
+        // trackDeletesStart is safe/idempotent to call again on a resumed run, and trackDeletesEnd only fires
+        // once the full catalog has actually been enumerated.
+        const checkpoint = await nango.getCheckpoint();
+        let page = checkpoint?.page ?? 1;
+
         const proxyConfig: ProxyConfiguration = {
             // https://developer.paypal.com/docs/api/subscriptions/v1/#plans_list
             endpoint: '/v1/billing/plans',
@@ -104,19 +117,23 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'page_size',
                 limit: 20,
-                response_path: 'plans'
+                response_path: 'plans',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : page;
+                    await nango.saveCheckpoint({ page });
+                }
             },
             retries: 3
         };
 
         await nango.trackDeletesStart('Plan');
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const plans = page.map((item: unknown) => {
+        for await (const pageItems of nango.paginate(proxyConfig)) {
+            const plans = pageItems.map((item: unknown) => {
                 const parsed = ProviderPlanSchema.safeParse(item);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse plan: ${parsed.error.message}`);
@@ -146,6 +163,8 @@ const sync = createSync({
         }
 
         await nango.trackDeletesEnd('Plan');
+        // Full catalog enumerated: reset the cursor so the next scheduled run starts a fresh pass from page 1.
+        await nango.saveCheckpoint({ page: 1 });
     }
 });
 

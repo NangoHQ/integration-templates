@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const LinkSchema = z.object({
     href: z.string(),
@@ -12,7 +13,8 @@ const InputSchema = z.object({
     payment_source: z
         .record(z.string(), z.unknown())
         .describe('The payment source definition. Example: {"paypal":{"experience_context":{"return_url":"https://example.com/return"}}}'),
-    application_context: z.record(z.string(), z.unknown()).optional().describe('Customizes the payer confirmation experience.')
+    application_context: z.record(z.string(), z.unknown()).optional().describe('Customizes the payer confirmation experience.'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const OutputSchema = z
@@ -43,6 +45,10 @@ const action = createAction({
             data: {
                 payment_source: input.payment_source,
                 ...(input.application_context !== undefined && { application_context: input.application_context })
+            },
+            headers: {
+                // One idempotency key per execution so all internal retries resolve to the same confirmation.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
             },
             retries: 3
         });

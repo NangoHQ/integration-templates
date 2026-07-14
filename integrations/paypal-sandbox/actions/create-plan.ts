@@ -1,8 +1,12 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const MoneySchema = z.object({
-    currency_code: z.string().min(3).max(3).describe('The three-character ISO-4217 currency code. Example: "USD"'),
+    currency_code: z
+        .string()
+        .regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.')
+        .describe('The three-character ISO-4217 currency code. Example: "USD"'),
     value: z.string().describe('The amount value. Example: "10.00"')
 });
 
@@ -26,13 +30,36 @@ const PricingSchemeSchema = z.object({
         .describe('An array of pricing tiers for volume/tiered plans.')
 });
 
-const BillingCycleSchema = z.object({
-    frequency: FrequencySchema.describe('The frequency details for this billing cycle.'),
-    tenure_type: z.enum(['REGULAR', 'TRIAL']).describe('The tenure type of the billing cycle.'),
-    sequence: z.number().int().min(1).max(99).describe('The order in which this cycle runs among other billing cycles.'),
-    total_cycles: z.number().int().min(0).max(999).optional().describe('The number of times this billing cycle gets executed. 0 means infinite.'),
-    pricing_scheme: PricingSchemeSchema.optional().describe('The active pricing scheme for this billing cycle.')
-});
+const BillingCycleSchema = z
+    .object({
+        frequency: FrequencySchema.describe('The frequency details for this billing cycle.'),
+        tenure_type: z.enum(['REGULAR', 'TRIAL']).describe('The tenure type of the billing cycle.'),
+        sequence: z.number().int().min(1).max(99).describe('The order in which this cycle runs among other billing cycles.'),
+        total_cycles: z
+            .number()
+            .int()
+            .min(0)
+            .max(999)
+            .optional()
+            .describe('The number of times this billing cycle gets executed. 0 means infinite (REGULAR cycles only).'),
+        pricing_scheme: PricingSchemeSchema.optional().describe('The active pricing scheme for this billing cycle. Required for REGULAR cycles.')
+    })
+    .superRefine((cycle, ctx) => {
+        if (cycle.tenure_type === 'REGULAR' && cycle.pricing_scheme === undefined) {
+            ctx.addIssue({
+                code: 'custom',
+                path: ['pricing_scheme'],
+                message: 'pricing_scheme is required for REGULAR billing cycles.'
+            });
+        }
+        if (cycle.tenure_type === 'TRIAL' && cycle.total_cycles !== undefined && cycle.total_cycles < 1) {
+            ctx.addIssue({
+                code: 'custom',
+                path: ['total_cycles'],
+                message: 'TRIAL billing cycles must run a finite number of times (total_cycles >= 1); 0 (infinite) is only valid for REGULAR cycles.'
+            });
+        }
+    });
 
 const PaymentPreferencesSchema = z.object({
     auto_bill_outstanding: z.boolean().optional().describe('Whether to automatically bill the outstanding amount in the next billing cycle.'),
@@ -46,16 +73,41 @@ const TaxesSchema = z.object({
     inclusive: z.boolean().optional().describe('Whether the tax was already included in the billing amount.')
 });
 
-const InputSchema = z.object({
-    product_id: z.string().min(6).max(50).describe('The ID for the product. Example: "PROD-XXCD1234QWER65782"'),
-    name: z.string().min(1).max(127).describe('The plan name.'),
-    description: z.string().min(1).max(127).optional().describe('The detailed description of the plan.'),
-    status: z.enum(['ACTIVE', 'INACTIVE', 'CREATED']).optional().describe('The initial status of the plan.'),
-    billing_cycles: z.array(BillingCycleSchema).min(1).max(12).describe('An array of billing cycles for trial and regular billing.'),
-    payment_preferences: PaymentPreferencesSchema.optional().describe('The payment preferences for subscriptions.'),
-    taxes: TaxesSchema.optional().describe('The tax details.'),
-    quantity_supported: z.boolean().optional().describe('Whether you can subscribe by providing a quantity.')
-});
+const InputSchema = z
+    .object({
+        product_id: z.string().min(6).max(50).describe('The ID for the product. Example: "PROD-XXCD1234QWER65782"'),
+        name: z.string().min(1).max(127).describe('The plan name.'),
+        description: z.string().min(1).max(127).optional().describe('The detailed description of the plan.'),
+        status: z.enum(['ACTIVE', 'INACTIVE', 'CREATED']).optional().describe('The initial status of the plan.'),
+        billing_cycles: z
+            .array(BillingCycleSchema)
+            .min(1)
+            .max(12)
+            .describe('An array of billing cycles for trial and regular billing. Exactly one REGULAR cycle and at most two TRIAL cycles.'),
+        payment_preferences: PaymentPreferencesSchema.optional().describe('The payment preferences for subscriptions.'),
+        taxes: TaxesSchema.optional().describe('The tax details.'),
+        quantity_supported: z.boolean().optional().describe('Whether you can subscribe by providing a quantity.'),
+        request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    })
+    .superRefine((value, ctx) => {
+        const regularCount = value.billing_cycles.filter((cycle) => cycle.tenure_type === 'REGULAR').length;
+        const trialCount = value.billing_cycles.filter((cycle) => cycle.tenure_type === 'TRIAL').length;
+
+        if (regularCount !== 1) {
+            ctx.addIssue({
+                code: 'custom',
+                path: ['billing_cycles'],
+                message: `A plan must have exactly one REGULAR billing cycle (found ${regularCount}).`
+            });
+        }
+        if (trialCount > 2) {
+            ctx.addIssue({
+                code: 'custom',
+                path: ['billing_cycles'],
+                message: `A plan may have at most two TRIAL billing cycles (found ${trialCount}).`
+            });
+        }
+    });
 
 const LinkSchema = z.object({
     href: z.string(),
@@ -87,6 +139,18 @@ const ProviderPlanSchema = z.object({
                         })
                         .optional(),
                     pricing_model: z.string().optional(),
+                    tiers: z
+                        .array(
+                            z.object({
+                                starting_quantity: z.string(),
+                                ending_quantity: z.string().optional(),
+                                amount: z.object({
+                                    currency_code: z.string(),
+                                    value: z.string()
+                                })
+                            })
+                        )
+                        .optional(),
                     version: z.number().optional(),
                     create_time: z.string().optional(),
                     update_time: z.string().optional()
@@ -143,6 +207,19 @@ const OutputSchema = z.object({
                         })
                         .optional(),
                     pricing_model: z.string().optional(),
+                    tiers: z
+                        .array(
+                            z.object({
+                                starting_quantity: z.string(),
+                                ending_quantity: z.string().optional(),
+                                amount: z.object({
+                                    currency_code: z.string(),
+                                    value: z.string()
+                                })
+                            })
+                        )
+                        .optional()
+                        .describe('The pricing tiers for volume/tiered plans.'),
                     version: z.number().optional(),
                     create_time: z.string().optional(),
                     update_time: z.string().optional()
@@ -187,7 +264,9 @@ const action = createAction({
             // https://developer.paypal.com/docs/api/subscriptions/v1/#plans_create
             endpoint: '/v1/billing/plans',
             headers: {
-                Prefer: 'return=representation'
+                Prefer: 'return=representation',
+                // One idempotency key per execution so all internal retries resolve to the same plan.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
             },
             data: {
                 product_id: input.product_id,
@@ -261,6 +340,7 @@ const action = createAction({
                     ? {
                           fixed_price: cycle.pricing_scheme.fixed_price,
                           pricing_model: cycle.pricing_scheme.pricing_model,
+                          tiers: cycle.pricing_scheme.tiers,
                           version: cycle.pricing_scheme.version,
                           create_time: cycle.pricing_scheme.create_time,
                           update_time: cycle.pricing_scheme.update_time

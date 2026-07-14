@@ -1,8 +1,10 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const InputSchema = z.object({
-    authorization_id: z.string().describe('The PayPal-generated ID for the authorized payment to void. Example: "8SB03390E2732144X"')
+    authorization_id: z.string().describe('The PayPal-generated ID for the authorized payment to void. Example: "8SB03390E2732144X"'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const AmountSchema = z.object({
@@ -57,7 +59,9 @@ const action = createAction({
             // https://developer.paypal.com/docs/api/payments/v2/
             endpoint: `/v2/payments/authorizations/${encodeURIComponent(input.authorization_id)}/void`,
             headers: {
-                Prefer: 'return=representation'
+                Prefer: 'return=representation',
+                // One idempotency key per execution so all internal retries resolve to the same void result.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
             },
             data: {},
             retries: 10

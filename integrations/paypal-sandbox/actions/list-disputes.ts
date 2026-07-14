@@ -2,7 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor (next_page_token) from the previous response. Omit for the first page.')
+    cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
+    page_size: z.number().int().min(1).max(50).optional().describe('Number of disputes to return per page. Maximum 50. Default 10.')
 });
 
 const DisputeAmountSchema = z.object({
@@ -36,7 +37,7 @@ const ProviderResponseSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(DisputeItemSchema),
-    next_page_token: z.string().optional()
+    next_page: z.number().optional()
 });
 
 const action = createAction({
@@ -47,11 +48,27 @@ const action = createAction({
     scopes: ['https://uri.paypal.com/services/disputes/read-seller'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a positive integer page number.'
+            });
+        }
+        const page = input.cursor !== undefined ? Number(input.cursor) : 1;
+        if (page > 50) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: "cursor must not exceed PayPal's maximum page number of 50."
+            });
+        }
+
         // https://developer.paypal.com/api/customer-disputes/v1/#disputes_list
+        // Uses page/page_size (the current pagination contract) rather than the deprecated next_page_token.
         const response = await nango.get({
             endpoint: '/v1/customer/disputes',
             params: {
-                ...(input.cursor !== undefined && { next_page_token: input.cursor })
+                page,
+                page_size: input.page_size ?? 10
             },
             retries: 3
         });
@@ -59,21 +76,11 @@ const action = createAction({
         const providerResponse = ProviderResponseSchema.parse(response.data);
         const items = providerResponse.items ?? [];
 
-        let nextPageToken: string | undefined;
-        if (providerResponse.links) {
-            const nextLink = providerResponse.links.find((link) => link.rel === 'next');
-            if (nextLink) {
-                const url = new URL(nextLink.href);
-                const token = url.searchParams.get('next_page_token');
-                if (token) {
-                    nextPageToken = token;
-                }
-            }
-        }
+        const hasNext = providerResponse.links?.some((link) => link.rel === 'next') ?? false;
 
         return {
             items,
-            ...(nextPageToken !== undefined && { next_page_token: nextPageToken })
+            ...(hasNext && { next_page: page + 1 })
         };
     }
 });

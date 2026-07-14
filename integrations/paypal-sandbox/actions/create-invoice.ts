@@ -1,8 +1,9 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const MoneySchema = z.object({
-    currency_code: z.string(),
+    currency_code: z.string().regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.'),
     value: z.string()
 });
 
@@ -74,7 +75,7 @@ const PaymentTermSchema = z.object({
 const InvoiceDetailSchema = z.object({
     invoice_number: z.string().optional(),
     invoice_date: z.string().optional(),
-    currency_code: z.string(),
+    currency_code: z.string().regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.'),
     note: z.string().optional(),
     term: z.string().optional(),
     memo: z.string().optional(),
@@ -119,7 +120,8 @@ const InputSchema = z.object({
     primary_recipients: z.array(RecipientSchema).optional(),
     additional_recipients: z.array(z.string()).optional(),
     items: z.array(InvoiceItemSchema),
-    configuration: ConfigurationSchema.optional()
+    configuration: ConfigurationSchema.optional(),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderMetadataSchema = z.object({
@@ -184,7 +186,9 @@ const action = createAction({
             // https://developer.paypal.com/api/invoicing/v2/#invoices_create
             endpoint: '/v2/invoicing/invoices',
             headers: {
-                Prefer: 'return=representation'
+                Prefer: 'return=representation',
+                // One idempotency key per execution so all internal retries resolve to the same invoice.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
             },
             data: {
                 detail: input.detail,

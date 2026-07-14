@@ -29,13 +29,13 @@ const action = createAction({
     scopes: ['https://uri.paypal.com/services/subscriptions'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(page) || page < 1) {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a positive integer page number'
             });
         }
+        const page = input.cursor !== undefined ? Number(input.cursor) : 1;
 
         const pageSize = input.page_size ?? 10;
 

@@ -12,7 +12,7 @@ const InvoiceSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    page: z.number()
+    page: z.number().int().positive()
 });
 
 const sync = createSync({
@@ -26,8 +26,13 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.getCheckpoint();
-        const page = 1;
+        // PayPal's invoices list only supports page-based pagination with no changed-since filter, so every
+        // run must page through all invoices. The page checkpoint lets an interrupted run (large number of
+        // invoices, execution time limit) resume pagination instead of restarting from page 1;
+        // trackDeletesStart is safe/idempotent to call again on a resumed run, and trackDeletesEnd only fires
+        // once every invoice has actually been enumerated.
+        const checkpoint = await nango.getCheckpoint();
+        let page = checkpoint?.page ?? 1;
 
         await nango.trackDeletesStart('Invoice');
 
@@ -46,10 +51,8 @@ const sync = createSync({
                 limit: 20,
                 response_path: 'items',
                 on_page: async ({ nextPageParam }) => {
-                    const nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                    if (nextPage !== undefined) {
-                        await nango.saveCheckpoint({ page: nextPage });
-                    }
+                    page = typeof nextPageParam === 'number' ? nextPageParam : page;
+                    await nango.saveCheckpoint({ page });
                 }
             },
             retries: 3
@@ -120,6 +123,8 @@ const sync = createSync({
         }
 
         await nango.trackDeletesEnd('Invoice');
+        // Full listing enumerated: reset the cursor so the next scheduled run starts a fresh pass from page 1.
+        await nango.saveCheckpoint({ page: 1 });
     }
 });
 

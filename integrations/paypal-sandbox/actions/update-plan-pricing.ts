@@ -1,9 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const MoneySchema = z.object({
     value: z.string().describe('The monetary value. Example: "10.00"'),
-    currency_code: z.string().describe('The three-character ISO-4217 currency code. Example: "USD"')
+    currency_code: z
+        .string()
+        .regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.')
+        .describe('The three-character ISO-4217 currency code. Example: "USD"')
 });
 
 const PricingTierSchema = z.object({
@@ -25,7 +29,8 @@ const UpdatePricingSchemeRequestSchema = z.object({
 
 const InputSchema = z.object({
     plan_id: z.string().describe('The PayPal plan ID. Example: "P-3F897353EP795272HNJKULHQ"'),
-    pricing_schemes: z.array(UpdatePricingSchemeRequestSchema).min(1).max(99).describe('One or more billing cycle pricing scheme updates.')
+    pricing_schemes: z.array(UpdatePricingSchemeRequestSchema).min(1).max(99).describe('One or more billing cycle pricing scheme updates.'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const OutputSchema = z.object({
@@ -65,7 +70,11 @@ const action = createAction({
                     }
                 }))
             },
-            retries: 1
+            headers: {
+                // One idempotency key per execution so retries resolve to the same pricing update.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
+            },
+            retries: 3
         });
 
         return {

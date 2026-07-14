@@ -55,7 +55,18 @@ const action = createAction({
 
             return capture;
         } catch (err: unknown) {
-            if (typeof err === 'object' && err !== null && 'status' in err && err.status === 404) {
+            const status =
+                err !== null &&
+                typeof err === 'object' &&
+                'response' in err &&
+                err.response !== null &&
+                typeof err.response === 'object' &&
+                'status' in err.response &&
+                typeof err.response.status === 'number'
+                    ? err.response.status
+                    : undefined;
+
+            if (status === 404) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'Capture not found',

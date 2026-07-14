@@ -1,8 +1,10 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const InputSchema = z.object({
-    order_id: z.string().describe('PayPal order ID. Example: "8A79039013362943U"')
+    order_id: z.string().describe('PayPal order ID. Example: "8A79039013362943U"'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const LinkSchema = z.object({
@@ -50,7 +52,11 @@ const action = createAction({
         const response = await nango.post({
             // https://developer.paypal.com/api/rest/
             endpoint: `/v2/checkout/orders/${encodeURIComponent(input.order_id)}/authorize`,
-            retries: 1
+            headers: {
+                // One idempotency key per execution so all internal retries resolve to the same authorization.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
+            },
+            retries: 3
         });
 
         const order = OutputSchema.parse(response.data);

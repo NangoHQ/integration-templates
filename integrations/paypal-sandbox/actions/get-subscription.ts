@@ -123,18 +123,35 @@ const action = createAction({
     scopes: ['https://uri.paypal.com/services/subscriptions/read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://developer.paypal.com/api/subscriptions/v1/#subscriptions_get
-            endpoint: `/v1/billing/subscriptions/${encodeURIComponent(input.id)}`,
-            retries: 3
-        });
-
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Subscription not found.',
-                id: input.id
+        let response;
+        // @allowTryCatch We catch 404s from PayPal and convert them to a typed ActionError so callers get a clean not_found response instead of a raw HTTP exception.
+        try {
+            response = await nango.get({
+                // https://developer.paypal.com/api/subscriptions/v1/#subscriptions_get
+                endpoint: `/v1/billing/subscriptions/${encodeURIComponent(input.id)}`,
+                retries: 3
             });
+        } catch (err: unknown) {
+            const status =
+                err !== null &&
+                typeof err === 'object' &&
+                'response' in err &&
+                err.response !== null &&
+                typeof err.response === 'object' &&
+                'status' in err.response &&
+                typeof err.response.status === 'number'
+                    ? err.response.status
+                    : undefined;
+
+            if (status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Subscription not found.',
+                    id: input.id
+                });
+            }
+
+            throw err;
         }
 
         const subscription = ProviderSubscriptionSchema.parse(response.data);

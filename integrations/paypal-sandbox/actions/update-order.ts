@@ -1,11 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const PatchOperationSchema = z.object({
-    op: z.enum(['add', 'remove', 'replace', 'move', 'copy', 'test']),
-    path: z.string(),
-    value: z.unknown().optional()
-});
+const PatchOperationSchema = z.discriminatedUnion('op', [
+    z.object({ op: z.literal('add'), path: z.string(), value: z.unknown() }),
+    z.object({ op: z.literal('replace'), path: z.string(), value: z.unknown() }),
+    z.object({ op: z.literal('test'), path: z.string(), value: z.unknown() }),
+    z.object({ op: z.literal('remove'), path: z.string() }),
+    z.object({ op: z.literal('move'), path: z.string(), from: z.string() }),
+    z.object({ op: z.literal('copy'), path: z.string(), from: z.string() })
+]);
 
 const InputSchema = z.object({
     id: z.string().describe('Order ID. Example: "8A79039013362943U"'),

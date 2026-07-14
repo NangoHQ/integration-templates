@@ -1,12 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const InputSchema = z.object({
     order_id: z.string().describe('The ID of the order to add tracking information to. Example: "8A79039013362943U"'),
     capture_id: z.string().describe('The ID of the capture for this order. Example: "3C679366HH908993F"'),
     tracking_number: z.string().describe('The tracking number for the shipment. Example: "443844607820"'),
     carrier: z.string().describe('The carrier for the shipment. Example: "FEDEX"'),
-    status: z.string().describe('The status of the shipment. Example: "SHIPPED"')
+    status: z.string().describe('The status of the shipment. Example: "SHIPPED"'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const LinkSchema = z.object({
@@ -46,7 +48,11 @@ const action = createAction({
                 carrier: input.carrier,
                 status: input.status
             },
-            retries: 1
+            headers: {
+                // One idempotency key per execution so all internal retries resolve to the same tracker.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
+            },
+            retries: 3
         });
 
         const orderData = z

@@ -59,11 +59,23 @@ const action = createAction({
         const items = providerResponse.items ?? [];
         const currentPage = input.page ?? 1;
 
+        // PayPal only includes total_pages when total_required=true, so relying on it would leave callers
+        // without a next_page on default calls even when more invoices exist. The `next` HATEOAS link is
+        // always present when there's another page, regardless of total_required.
+        const nextLink = providerResponse.links?.find((link) => link.rel === 'next');
+        const nextPageFromLink = nextLink?.href ? Number(new URL(nextLink.href).searchParams.get('page')) : undefined;
+        const nextPage =
+            nextPageFromLink !== undefined && Number.isInteger(nextPageFromLink)
+                ? nextPageFromLink
+                : providerResponse.total_pages !== undefined && currentPage < providerResponse.total_pages
+                  ? currentPage + 1
+                  : undefined;
+
         return {
             items,
             ...(providerResponse.total_items !== undefined && { total_items: providerResponse.total_items }),
             ...(providerResponse.total_pages !== undefined && { total_pages: providerResponse.total_pages }),
-            ...(providerResponse.total_pages !== undefined && currentPage < providerResponse.total_pages && { next_page: currentPage + 1 })
+            ...(nextPage !== undefined && { next_page: nextPage })
         };
     }
 });

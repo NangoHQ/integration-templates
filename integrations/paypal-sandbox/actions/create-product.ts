@@ -1,17 +1,27 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { randomUUID } from 'crypto';
 
 const InputSchema = z.object({
-    name: z.string().describe('The product name. Example: "Video Streaming Service"'),
+    name: z.string().min(1).max(127).describe('The product name. Example: "Video Streaming Service"'),
     type: z.enum(['PHYSICAL', 'DIGITAL', 'SERVICE']).describe('The product type. Example: "SERVICE"'),
     id: z
         .string()
+        .min(6)
+        .max(50)
         .optional()
         .describe('The ID of the product. You can specify the SKU. If omitted, the system generates it. Example: "PROD-XYAB12ABSB7868434"'),
-    description: z.string().optional().describe('The product description. Example: "Video streaming service"'),
-    category: z.string().optional().describe('The product category. Example: "SOFTWARE"'),
-    image_url: z.string().optional().describe('The image URL for the product. Example: "https://example.com/streaming.jpg"'),
-    home_url: z.string().optional().describe('The home page URL for the product. Example: "https://example.com/home"')
+    description: z.string().min(1).max(256).optional().describe('The product description. Example: "Video streaming service"'),
+    category: z
+        .string()
+        .min(4)
+        .max(256)
+        .regex(/^[A-Z_]+$/, "category must match PayPal's enumerated categories (uppercase letters and underscores).")
+        .optional()
+        .describe('The product category, from PayPal\'s enumerated list (e.g. "SOFTWARE", "ELECTRONICS"). Example: "SOFTWARE"'),
+    image_url: z.string().url().max(2000).optional().describe('The image URL for the product. Example: "https://example.com/streaming.jpg"'),
+    home_url: z.string().url().max(2000).optional().describe('The home page URL for the product. Example: "https://example.com/home"'),
+    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderProductSchema = z.object({
@@ -77,6 +87,10 @@ const action = createAction({
             // https://developer.paypal.com/docs/api/catalog-products/v1/#products_create
             endpoint: '/v1/catalogs/products',
             data: requestBody,
+            headers: {
+                // One idempotency key per execution so all internal retries resolve to the same product.
+                'PayPal-Request-Id': input.request_id ?? randomUUID()
+            },
             retries: 3
         });
 
