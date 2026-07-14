@@ -59,7 +59,10 @@ const sync = createSync({
             // https://developer.servicenow.com/dev.do#!/reference/api/now/table/change_request
             endpoint: '/api/now/table/change_request',
             params: {
-                sysparm_query: updatedAfter ? `sys_updated_on>${updatedAfter}^ORDERBYsys_updated_on` : 'ORDERBYsys_updated_on',
+                // Inclusive boundary: records sharing the checkpoint timestamp must be re-included, or they
+                // can be permanently skipped after a page/run boundary. batchSave upserts by id, so
+                // re-saving the boundary record(s) is safe.
+                sysparm_query: updatedAfter ? `sys_updated_on>=${updatedAfter}^ORDERBYsys_updated_on` : 'ORDERBYsys_updated_on',
                 sysparm_fields:
                     'sys_id,number,short_description,description,state,priority,impact,urgency,type,approval,active,close_code,close_notes,sys_created_on,sys_updated_on'
             },

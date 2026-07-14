@@ -48,7 +48,23 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 10;
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+
+        let offset = 0;
+        if (input.cursor !== undefined) {
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+            offset = Number(input.cursor);
+            if (!Number.isSafeInteger(offset)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+        }
 
         const params: Record<string, string> = {
             sysparm_limit: String(limit),

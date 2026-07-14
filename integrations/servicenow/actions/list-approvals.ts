@@ -79,7 +79,23 @@ const action = createAction({
 
         const sysparmQuery = queryParts.length > 0 ? queryParts.join('^') : undefined;
         const limit = input.limit ?? 100;
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+
+        let offset = 0;
+        if (input.cursor !== undefined) {
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+            offset = Number(input.cursor);
+            if (!Number.isSafeInteger(offset)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+        }
 
         // https://developer.servicenow.com/dev.do#!/reference/api/now/table/{tableName}
         const response = await nango.get({

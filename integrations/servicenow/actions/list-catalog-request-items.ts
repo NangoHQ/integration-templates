@@ -60,8 +60,21 @@ const action = createAction({
             sysparm_exclude_reference_link: 'true'
         };
 
-        if (input.cursor) {
-            params['sysparm_offset'] = parseInt(input.cursor, 10);
+        if (input.cursor !== undefined) {
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+            const offset = Number(input.cursor);
+            if (!Number.isSafeInteger(offset)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+            params['sysparm_offset'] = offset;
         }
 
         // https://developer.servicenow.com/dev.do#!/reference/api/now/table/sc_req_item

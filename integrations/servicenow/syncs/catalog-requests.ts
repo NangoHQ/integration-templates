@@ -1,35 +1,53 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+// With sysparm_display_value=true, reference fields resolve to a display value. Depending on the ServiceNow
+// version this is either a plain string (display name only, no id) or a { display_value, link } object where
+// the sys_id must be recovered from the trailing path segment of `link` (no `value` key is present).
+const ReferenceFieldSchema = z
+    .union([
+        z.string(),
+        z
+            .object({
+                value: z.string().optional(),
+                display_value: z.string().optional(),
+                link: z.string().optional()
+            })
+            .passthrough()
+    ])
+    .optional()
+    .nullable();
+
+function extractReferenceName(field: z.infer<typeof ReferenceFieldSchema>): string | undefined {
+    if (field == null) {
+        return undefined;
+    }
+    return typeof field === 'string' ? field : field.display_value;
+}
+
+function extractReferenceId(field: z.infer<typeof ReferenceFieldSchema>): string | undefined {
+    if (field == null || typeof field === 'string') {
+        // A plain string is the display value only; it must never be reused as the sys_id.
+        return undefined;
+    }
+    if (field.value) {
+        return field.value;
+    }
+    const match = field.link?.match(/\/([^/]+)$/);
+    return match?.[1];
+}
+
 const ProviderCatalogRequestSchema = z.object({
     sys_id: z.string(),
     number: z.string().optional(),
     request_state: z.string().optional(),
     stage: z.string().optional(),
     price: z.union([z.string(), z.number()]).optional().nullable(),
-    requested_for: z
-        .union([
-            z.string(),
-            z.object({
-                value: z.string().optional(),
-                display_value: z.string().optional()
-            })
-        ])
-        .optional()
-        .nullable(),
+    requested_for: ReferenceFieldSchema,
     sys_updated_on: z.string(),
     sys_created_on: z.string().optional(),
     description: z.string().optional().nullable(),
-    opened_by: z
-        .union([
-            z.string(),
-            z.object({
-                value: z.string().optional(),
-                display_value: z.string().optional()
-            })
-        ])
-        .optional()
-        .nullable(),
+    opened_by: ReferenceFieldSchema,
     approval: z.string().optional().nullable(),
     requested_for_date: z.string().optional().nullable(),
     due_date: z.string().optional().nullable()
@@ -96,7 +114,10 @@ const sync = createSync({
                 sysparm_display_value: 'true',
                 sysparm_fields:
                     'sys_id,number,request_state,stage,price,requested_for,sys_updated_on,sys_created_on,description,opened_by,approval,requested_for_date,due_date',
-                sysparm_query: checkpoint.updated_after ? `sys_updated_on>${checkpoint.updated_after}^ORDERBYsys_updated_on` : 'ORDERBYsys_updated_on'
+                // Inclusive boundary: records sharing the checkpoint timestamp must be re-included, or they
+                // can be permanently skipped after a page/run boundary. batchSave upserts by id, so
+                // re-saving the boundary record(s) is safe.
+                sysparm_query: checkpoint.updated_after ? `sys_updated_on>=${checkpoint.updated_after}^ORDERBYsys_updated_on` : 'ORDERBYsys_updated_on'
             },
             paginate: {
                 type: 'link',
@@ -117,20 +138,10 @@ const sync = createSync({
             const records = parsed.data;
 
             const catalogRequests: CatalogRequest[] = records.map((record) => {
-                const requestedFor =
-                    typeof record.requested_for === 'string'
-                        ? { name: record.requested_for, id: record.requested_for }
-                        : {
-                              name: record.requested_for?.display_value,
-                              id: record.requested_for?.value
-                          };
-                const openedBy =
-                    typeof record.opened_by === 'string'
-                        ? { name: record.opened_by, id: record.opened_by }
-                        : {
-                              name: record.opened_by?.display_value,
-                              id: record.opened_by?.value
-                          };
+                const requestedForName = extractReferenceName(record.requested_for);
+                const requestedForId = extractReferenceId(record.requested_for);
+                const openedByName = extractReferenceName(record.opened_by);
+                const openedById = extractReferenceId(record.opened_by);
 
                 return {
                     id: record.sys_id,
@@ -138,13 +149,13 @@ const sync = createSync({
                     ...(record.request_state != null && { request_state: record.request_state }),
                     ...(record.stage != null && { stage: record.stage }),
                     ...(record.price != null && { price: String(record.price) }),
-                    ...(requestedFor.name != null && { requested_for: requestedFor.name }),
-                    ...(requestedFor.id != null && { requested_for_id: requestedFor.id }),
+                    ...(requestedForName != null && { requested_for: requestedForName }),
+                    ...(requestedForId != null && { requested_for_id: requestedForId }),
                     sys_updated_on: record.sys_updated_on,
                     ...(record.sys_created_on != null && { sys_created_on: record.sys_created_on }),
                     ...(record.description != null && { description: record.description }),
-                    ...(openedBy.name != null && { opened_by: openedBy.name }),
-                    ...(openedBy.id != null && { opened_by_id: openedBy.id }),
+                    ...(openedByName != null && { opened_by: openedByName }),
+                    ...(openedById != null && { opened_by_id: openedById }),
                     ...(record.approval != null && { approval: record.approval }),
                     ...(record.requested_for_date != null && { requested_for_date: record.requested_for_date }),
                     ...(record.due_date != null && { due_date: record.due_date })

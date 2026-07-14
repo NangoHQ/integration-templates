@@ -30,6 +30,13 @@ function extractStringValue(field: unknown): string | undefined {
     return undefined;
 }
 
+const AxiosErrorSchema = z.object({
+    response: z.object({
+        status: z.number(),
+        data: z.unknown().optional()
+    })
+});
+
 const ProviderIncidentSchema = z.object({
     sys_id: z.string(),
     number: z.unknown().optional(),
@@ -78,7 +85,9 @@ const action = createAction({
     scopes: ['itil'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const data = {
+        // Plain fields are safe to overwrite and safe to retry: a retried PATCH just
+        // re-applies the same final value.
+        const safeData = {
             ...(input.short_description !== undefined && { short_description: input.short_description }),
             ...(input.description !== undefined && { description: input.description }),
             ...(input.state !== undefined && { state: input.state }),
@@ -86,35 +95,62 @@ const action = createAction({
             ...(input.urgency !== undefined && { urgency: input.urgency }),
             ...(input.assigned_to !== undefined && { assigned_to: input.assigned_to }),
             ...(input.assignment_group !== undefined && { assignment_group: input.assignment_group }),
-            ...(input.comments !== undefined && { comments: input.comments }),
-            ...(input.work_notes !== undefined && { work_notes: input.work_notes }),
             ...(input.active !== undefined && { active: input.active }),
             ...(input.close_code !== undefined && { close_code: input.close_code }),
             ...(input.close_notes !== undefined && { close_notes: input.close_notes })
         };
 
-        // https://developer.servicenow.com/dev.do#!/reference/api
-        const patchResponse = await nango.patch({
-            endpoint: `/api/now/table/incident/${encodeURIComponent(input.sys_id)}`,
-            data,
-            retries: 1
-        });
+        // comments/work_notes are ServiceNow journal fields: every PATCH appends a new
+        // entry rather than overwriting. They must not be retried automatically, or a
+        // transient failure followed by a retry can duplicate the entry.
+        const journalData = {
+            ...(input.comments !== undefined && { comments: input.comments }),
+            ...(input.work_notes !== undefined && { work_notes: input.work_notes })
+        };
 
-        if (patchResponse.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Incident not found',
-                sys_id: input.sys_id
-            });
-        }
+        const endpoint = `/api/now/table/incident/${encodeURIComponent(input.sys_id)}`;
 
-        if (patchResponse.status >= 400) {
-            throw new nango.ActionError({
-                type: 'provider_error',
-                message: 'Failed to update incident',
-                status: patchResponse.status,
-                body: patchResponse.data
-            });
+        // @allowTryCatch We catch expected 404s from the provider and map them to a typed
+        // ActionError so callers can distinguish "not found" from unexpected failures.
+        try {
+            if (Object.keys(safeData).length > 0) {
+                // https://developer.servicenow.com/dev.do#!/reference/api
+                await nango.patch({
+                    endpoint,
+                    data: safeData,
+                    retries: 1
+                });
+            }
+
+            if (Object.keys(journalData).length > 0) {
+                // https://developer.servicenow.com/dev.do#!/reference/api
+                await nango.patch({
+                    endpoint,
+                    data: journalData,
+                    // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                    retries: 0
+                });
+            }
+        } catch (rawError) {
+            const parsedError = AxiosErrorSchema.safeParse(rawError);
+            if (parsedError.success && parsedError.data.response.status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Incident not found',
+                    sys_id: input.sys_id
+                });
+            }
+
+            if (parsedError.success) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: 'Failed to update incident',
+                    status: parsedError.data.response.status,
+                    body: parsedError.data.response.data
+                });
+            }
+
+            throw rawError;
         }
 
         // https://developer.servicenow.com/dev.do#!/reference/api

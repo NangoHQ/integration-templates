@@ -47,7 +47,10 @@ const sync = createSync({
 
         const queryParts: string[] = ['ORDERBYsys_updated_on'];
         if (checkpoint && checkpoint['updated_after']) {
-            queryParts.unshift(`sys_updated_on>${checkpoint['updated_after']}`);
+            // Inclusive boundary: records sharing the checkpoint timestamp must be re-included, or they can
+            // be permanently skipped after a page/run boundary. batchSave upserts by id, so re-saving the
+            // boundary record(s) is safe.
+            queryParts.unshift(`sys_updated_on>=${checkpoint['updated_after']}`);
         }
 
         const proxyConfig: ProxyConfiguration = {

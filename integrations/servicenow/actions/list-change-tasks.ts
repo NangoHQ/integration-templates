@@ -7,6 +7,8 @@ const InputSchema = z.object({
     limit: z.number().min(1).max(1000).optional().describe('Maximum number of records to return per page. Defaults to 100.')
 });
 
+const SYS_ID_PATTERN = /^[0-9a-f]{32}$/i;
+
 const ChangeTaskSchema = z
     .object({
         sys_id: z.string(),
@@ -66,6 +68,12 @@ const action = createAction({
         };
 
         if (input.change_request) {
+            if (!SYS_ID_PATTERN.test(input.change_request)) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'change_request must be a valid 32-character ServiceNow sys_id.'
+                });
+            }
             params['sysparm_query'] = `change_request=${input.change_request}`;
         }
 

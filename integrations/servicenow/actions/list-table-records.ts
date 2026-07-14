@@ -9,8 +9,8 @@ const InputSchema = z.object({
     table_name: z.string().describe('ServiceNow table name to query. Example: "incident"'),
     sysparm_query: z.string().optional().describe('Encoded query string for filtering records. Example: "active=true"'),
     sysparm_fields: z.string().optional().describe('Comma-separated list of fields to return. Example: "sys_id,number,short_description"'),
-    sysparm_limit: z.number().optional().describe('Maximum number of records to return. Default and maximum is typically 10000.'),
-    sysparm_offset: z.number().optional().describe('Number of records to skip before returning results.')
+    sysparm_limit: z.number().int().min(1).max(10000).optional().describe('Maximum number of records to return. Default and maximum is typically 10000.'),
+    sysparm_offset: z.number().int().min(0).optional().describe('Number of records to skip before returning results.')
 });
 
 const OutputSchema = z.object({

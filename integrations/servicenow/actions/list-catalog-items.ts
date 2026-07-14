@@ -8,8 +8,8 @@ const InputSchema = z.object({
 });
 
 const OutputItemSchema = z.object({
-    sys_id: z.string(),
-    name: z.string(),
+    sys_id: z.string().min(1),
+    name: z.string().min(1),
     short_description: z.string().optional(),
     description: z.string().optional(),
     active: z.string().optional(),
@@ -46,13 +46,22 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 10;
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
 
-        if (Number.isNaN(offset)) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'Invalid pagination cursor.'
-            });
+        let offset = 0;
+        if (input.cursor !== undefined) {
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+            offset = Number(input.cursor);
+            if (!Number.isSafeInteger(offset)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
         }
 
         const config: ProxyConfiguration = {
@@ -76,7 +85,8 @@ const action = createAction({
             });
         }
 
-        const items = parsedResponse.data.result.map((item) => {
+        const items: z.infer<typeof OutputItemSchema>[] = [];
+        for (const item of parsedResponse.data.result) {
             const parsedItem = ProviderItemSchema.safeParse(item);
             if (!parsedItem.success) {
                 throw new nango.ActionError({
@@ -86,19 +96,25 @@ const action = createAction({
             }
 
             const record = parsedItem.data;
-            return {
-                sys_id: typeof record.sys_id === 'string' ? record.sys_id : '',
-                name: typeof record.name === 'string' ? record.name : '',
+            // A catalog item without a valid, non-empty sys_id or name would be unaddressable to callers, so skip it.
+            if (typeof record.sys_id !== 'string' || record.sys_id.length === 0 || typeof record.name !== 'string' || record.name.length === 0) {
+                continue;
+            }
+
+            items.push({
+                sys_id: record.sys_id,
+                name: record.name,
                 ...(typeof record.short_description === 'string' && { short_description: record.short_description }),
                 ...(typeof record.description === 'string' && { description: record.description }),
                 ...(typeof record.active === 'string' && { active: record.active }),
                 ...(typeof record.price === 'string' && { price: record.price }),
                 ...(typeof record.category === 'string' && { category: record.category }),
                 ...(typeof record.sys_class_name === 'string' && { sys_class_name: record.sys_class_name })
-            };
-        });
+            });
+        }
 
-        const linkHeader = response.headers?.['link'];
+        const linkHeader =
+            typeof response.headers === 'object' && response.headers !== null ? (response.headers['link'] ?? response.headers['Link']) : undefined;
         const hasNext = typeof linkHeader === 'string' && linkHeader.includes('rel="next"');
 
         return {

@@ -36,7 +36,10 @@ const sync = createSync({
 
         const queryParts: string[] = [];
         if (checkpoint?.updated_after) {
-            queryParts.push(`sys_updated_on>${checkpoint.updated_after}`);
+            // Inclusive boundary: records sharing the checkpoint timestamp must be re-included, or they can
+            // be permanently skipped after a page/run boundary. batchSave upserts by id, so re-saving the
+            // boundary record(s) is safe.
+            queryParts.push(`sys_updated_on>=${checkpoint.updated_after}`);
         }
         queryParts.push('ORDERBYsys_updated_on');
 
@@ -45,7 +48,8 @@ const sync = createSync({
             endpoint: '/api/now/table/sys_user_group',
             params: {
                 sysparm_query: queryParts.join('^'),
-                sysparm_display_value: 'true'
+                sysparm_display_value: 'true',
+                sysparm_fields: 'sys_id,name,description,active,sys_updated_on'
             },
             paginate: {
                 type: 'link',

@@ -4,7 +4,7 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (offset). Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of records to return per page. Example: 10'),
+    limit: z.number().int().min(1).max(1000).optional().describe('Maximum number of records to return per page. Example: 10'),
     query: z.string().optional().describe('Encoded query string for filtering records. Example: active=true')
 });
 
@@ -39,7 +39,20 @@ const action = createAction({
         };
 
         if (input.cursor !== undefined) {
-            params['sysparm_offset'] = input.cursor;
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+            const offset = Number(input.cursor);
+            if (!Number.isSafeInteger(offset)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+            params['sysparm_offset'] = offset;
         }
 
         if (input.query !== undefined) {

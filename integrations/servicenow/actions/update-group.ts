@@ -79,10 +79,11 @@ const action = createAction({
 
         const response = await nango.patch({
             // https://developer.servicenow.com/dev.do#!/reference/api/now-rest-api/table-api
+            // Group name/description/active/manager/etc. are plain overwrite fields (not
+            // journal-append), so retrying a transient failure is safe.
             endpoint: `/api/now/table/sys_user_group/${encodeURIComponent(input.sys_id)}`,
             data: body,
-            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
-            retries: 0
+            retries: 1
         });
 
         const TableApiResponseSchema = z.object({

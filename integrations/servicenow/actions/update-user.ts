@@ -2,17 +2,31 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
-const InputSchema = z.object({
-    sys_id: z.string().describe('The sys_id of the user to update. Example: "4896c3f9c3ca0310c5a8fc0d05013151"'),
-    user_name: z.string().optional().describe('Unique user name.'),
-    first_name: z.string().optional().describe('First name.'),
-    last_name: z.string().optional().describe('Last name.'),
-    email: z.string().optional().describe('Email address.'),
-    active: z.boolean().optional().describe('Set to false to deactivate the user.'),
-    phone: z.string().optional().describe('Phone number.'),
-    title: z.string().optional().describe('Job title.'),
-    department: z.string().optional().describe('Department name or sys_id.')
-});
+const InputSchema = z
+    .object({
+        sys_id: z.string().describe('The sys_id of the user to update. Example: "4896c3f9c3ca0310c5a8fc0d05013151"'),
+        user_name: z.string().optional().describe('Unique user name.'),
+        first_name: z.string().optional().describe('First name.'),
+        last_name: z.string().optional().describe('Last name.'),
+        email: z.string().optional().describe('Email address.'),
+        active: z.boolean().optional().describe('Set to false to deactivate the user.'),
+        phone: z.string().optional().describe('Phone number.'),
+        title: z.string().optional().describe('Job title.'),
+        department: z
+            .string()
+            .optional()
+            .describe('Department sys_id (reference to cmn_department). Example: "5d7f17f03710200044e0bfc8bcbe5d43". Department names are not accepted.')
+    })
+    .refine((data) => Object.keys(data).some((key) => key !== 'sys_id'), {
+        message: 'At least one mutable field must be provided in addition to sys_id.'
+    });
+
+const ReferenceFieldSchema = z
+    .object({
+        link: z.string().optional(),
+        value: z.string().optional()
+    })
+    .passthrough();
 
 const ProviderUserSchema = z.object({
     sys_id: z.string(),
@@ -23,7 +37,9 @@ const ProviderUserSchema = z.object({
     active: z.string().optional().nullable(),
     phone: z.string().optional().nullable(),
     title: z.string().optional().nullable(),
-    department: z.string().optional().nullable()
+    // Normally a plain sys_id string thanks to sysparm_exclude_reference_link, but accept the
+    // { link, value } reference shape too in case that param isn't honored.
+    department: z.union([z.string(), ReferenceFieldSchema]).optional().nullable()
 });
 
 const OutputSchema = z.object({
@@ -48,6 +64,12 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://developer.servicenow.com/dev.do#!/reference/api/now/rest/table-api#table-PUT
             endpoint: `/api/now/table/sys_user/${encodeURIComponent(input.sys_id)}`,
+            // Reference fields (e.g. department) default to a { link, value } object in the
+            // response. Excluding reference links keeps the response shape a plain string so it
+            // matches ProviderUserSchema.
+            params: {
+                sysparm_exclude_reference_link: 'true'
+            },
             data: {
                 ...(input.user_name !== undefined && { user_name: input.user_name }),
                 ...(input.first_name !== undefined && { first_name: input.first_name }),
@@ -70,6 +92,9 @@ const action = createAction({
             .parse(response.data);
         const providerUser = ProviderUserSchema.parse(rawResponse.result);
 
+        const department =
+            providerUser.department == null ? undefined : typeof providerUser.department === 'string' ? providerUser.department : providerUser.department.value;
+
         return {
             sys_id: providerUser.sys_id,
             ...(providerUser.user_name != null && { user_name: providerUser.user_name }),
@@ -79,7 +104,7 @@ const action = createAction({
             ...(providerUser.active != null && { active: providerUser.active }),
             ...(providerUser.phone != null && { phone: providerUser.phone }),
             ...(providerUser.title != null && { title: providerUser.title }),
-            ...(providerUser.department != null && { department: providerUser.department })
+            ...(department !== undefined && { department })
         };
     }
 });

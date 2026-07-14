@@ -39,12 +39,18 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = 100;
         let offset = 0;
-        if (input.cursor) {
-            const parsedOffset = parseInt(input.cursor, 10);
-            if (isNaN(parsedOffset) || parsedOffset < 0) {
+        if (input.cursor !== undefined) {
+            if (!/^\d+$/.test(input.cursor)) {
                 throw new nango.ActionError({
                     type: 'invalid_cursor',
-                    message: 'Cursor must be a non-negative integer.'
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+            const parsedOffset = Number(input.cursor);
+            if (!Number.isSafeInteger(parsedOffset)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
                 });
             }
             offset = parsedOffset;

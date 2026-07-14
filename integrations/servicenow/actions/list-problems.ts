@@ -48,8 +48,14 @@ const action = createAction({
     exec: async (nango, input) => {
         let offset = 0;
         if (input.cursor !== undefined) {
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
             const parsed = Number(input.cursor);
-            if (!Number.isInteger(parsed) || parsed < 0) {
+            if (!Number.isSafeInteger(parsed)) {
                 throw new nango.ActionError({
                     type: 'invalid_cursor',
                     message: 'cursor must be a non-negative integer string.'

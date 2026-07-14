@@ -8,15 +8,15 @@ const InputSchema = z.object({
 const ProviderCatalogItemSchema = z
     .object({
         sys_id: z.string(),
-        name: z.string().optional(),
-        short_description: z.string().optional(),
-        description: z.string().optional(),
-        picture: z.string().optional(),
-        price: z.string().optional(),
-        category: z.record(z.string(), z.unknown()).optional(),
-        variables: z.array(z.record(z.string(), z.unknown())).optional(),
-        availability: z.string().optional(),
-        request_method: z.string().optional()
+        name: z.string().optional().nullable(),
+        short_description: z.string().optional().nullable(),
+        description: z.string().optional().nullable(),
+        picture: z.string().optional().nullable(),
+        price: z.string().optional().nullable(),
+        category: z.record(z.string(), z.unknown()).optional().nullable(),
+        variables: z.array(z.record(z.string(), z.unknown())).optional().nullable(),
+        availability: z.string().optional().nullable(),
+        request_method: z.string().optional().nullable()
     })
     .passthrough();
 
@@ -35,12 +35,7 @@ const action = createAction({
             retries: 3
         });
 
-        const ResponseWrapperSchema = z.object({
-            result: z.unknown()
-        });
-
-        const parsedWrapper = ResponseWrapperSchema.safeParse(response.data);
-        if (!parsedWrapper.success || !parsedWrapper.data.result) {
+        if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Catalog item not found',
@@ -48,9 +43,38 @@ const action = createAction({
             });
         }
 
-        const providerItem = ProviderCatalogItemSchema.parse(parsedWrapper.data.result);
+        const ResponseWrapperSchema = z.object({
+            result: z.unknown()
+        });
 
-        return providerItem;
+        const parsedWrapper = ResponseWrapperSchema.safeParse(response.data);
+        if (!parsedWrapper.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response structure from ServiceNow',
+                sys_id: input.sys_id
+            });
+        }
+
+        if (!parsedWrapper.data.result) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Catalog item not found',
+                sys_id: input.sys_id
+            });
+        }
+
+        const parsedItem = ProviderCatalogItemSchema.safeParse(parsedWrapper.data.result);
+        if (!parsedItem.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Failed to parse catalog item response',
+                sys_id: input.sys_id,
+                details: parsedItem.error.issues
+            });
+        }
+
+        return parsedItem.data;
     }
 });
 

@@ -27,9 +27,14 @@ const action = createAction({
         // ActionError so callers can distinguish "not found" from unexpected failures.
         try {
             // https://developer.servicenow.com/dev.do#!/reference/api/now/table/incident/{sys_id}
+            // DELETE is not observable-safe: if the response is lost after ServiceNow
+            // completes the delete, an automatic retry's follow-up DELETE would 404 even
+            // though the incident WAS deleted, making a successful delete look like a
+            // failure. Retries are disabled here rather than risk that false negative.
             const response = await nango.delete({
                 endpoint: `/api/now/table/incident/${encodeURIComponent(input.sys_id)}`,
-                retries: 10
+                // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                retries: 0
             });
 
             return {

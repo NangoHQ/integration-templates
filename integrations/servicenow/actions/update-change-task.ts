@@ -50,25 +50,50 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://developer.servicenow.com/dev.do#!/reference/api/now/table/change_task/{sys_id}
-            endpoint: `/api/now/table/change_task/${encodeURIComponent(input.sys_id)}`,
-            data: {
-                ...(input.state !== undefined && { state: input.state }),
-                ...(input.work_notes !== undefined && { work_notes: input.work_notes }),
-                ...(input.description !== undefined && { description: input.description }),
-                ...(input.assigned_to !== undefined && { assigned_to: input.assigned_to }),
-                ...(input.assignment_group !== undefined && { assignment_group: input.assignment_group }),
-                ...(input.short_description !== undefined && { short_description: input.short_description }),
-                ...(input.close_code !== undefined && { close_code: input.close_code }),
-                ...(input.close_notes !== undefined && { close_notes: input.close_notes })
-            },
-            retries: 3
+        const endpoint = `/api/now/table/change_task/${encodeURIComponent(input.sys_id)}`;
+
+        // Plain fields are safe to overwrite and safe to retry: a retried PATCH just
+        // re-applies the same final value.
+        const safeData = {
+            ...(input.state !== undefined && { state: input.state }),
+            ...(input.description !== undefined && { description: input.description }),
+            ...(input.assigned_to !== undefined && { assigned_to: input.assigned_to }),
+            ...(input.assignment_group !== undefined && { assignment_group: input.assignment_group }),
+            ...(input.short_description !== undefined && { short_description: input.short_description }),
+            ...(input.close_code !== undefined && { close_code: input.close_code }),
+            ...(input.close_notes !== undefined && { close_notes: input.close_notes })
         };
 
-        const response = await nango.patch(config);
+        // work_notes is a ServiceNow journal field: every PATCH appends a new entry
+        // rather than overwriting. It must not be retried automatically, or a transient
+        // failure followed by a retry can duplicate the note.
+        const journalData = {
+            ...(input.work_notes !== undefined && { work_notes: input.work_notes })
+        };
 
-        const parsed = ProviderResponseSchema.parse(response.data);
+        let response;
+        if (Object.keys(safeData).length > 0 || Object.keys(journalData).length === 0) {
+            const config: ProxyConfiguration = {
+                // https://developer.servicenow.com/dev.do#!/reference/api/now/table/change_task/{sys_id}
+                endpoint,
+                data: safeData,
+                retries: 1
+            };
+            response = await nango.patch(config);
+        }
+
+        if (Object.keys(journalData).length > 0) {
+            const journalConfig: ProxyConfiguration = {
+                // https://developer.servicenow.com/dev.do#!/reference/api/now/table/change_task/{sys_id}
+                endpoint,
+                data: journalData,
+                // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                retries: 0
+            };
+            response = await nango.patch(journalConfig);
+        }
+
+        const parsed = ProviderResponseSchema.parse(response?.data);
         const result = parsed.result;
 
         const number = toOptionalString(result.number);

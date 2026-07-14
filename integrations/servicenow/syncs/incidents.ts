@@ -66,8 +66,11 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
 
         const queryParts: string[] = [];
-        if (checkpoint?.['updated_after']) {
-            queryParts.push(`sys_updated_on>${checkpoint['updated_after']}`);
+        if (checkpoint?.updated_after) {
+            // Inclusive boundary: records sharing the checkpoint timestamp with the last-seen record must be
+            // re-included, or they can be permanently skipped after a page/run boundary. batchSave upserts by
+            // id, so re-saving the boundary record(s) is safe.
+            queryParts.push(`sys_updated_on>=${checkpoint.updated_after}`);
         }
         queryParts.push('ORDERBYsys_updated_on');
         const sysparmQuery = queryParts.join('^');

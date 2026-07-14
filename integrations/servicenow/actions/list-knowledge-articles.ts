@@ -152,7 +152,9 @@ const action = createAction({
             }
         }
 
-        const linkHeader = parseLinkHeader(response.headers?.['link']);
+        const rawLinkHeader =
+            typeof response.headers === 'object' && response.headers !== null ? (response.headers['link'] ?? response.headers['Link']) : undefined;
+        const linkHeader = parseLinkHeader(typeof rawLinkHeader === 'string' ? rawLinkHeader : undefined);
         const nextCursor = linkHeader.next ? extractOffsetFromUrl(linkHeader.next) : undefined;
 
         return {

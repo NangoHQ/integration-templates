@@ -5,16 +5,26 @@ const InputSchema = z.object({
     sys_id: z.string().describe('Group sys_id. Example: "284687b9c3ca0310c5a8fc0d05013151"')
 });
 
+const ReferenceFieldSchema = z.union([
+    z.string(),
+    z
+        .object({
+            link: z.string().optional(),
+            value: z.string().optional()
+        })
+        .passthrough()
+]);
+
 const ProviderGroupSchema = z
     .object({
         sys_id: z.string(),
-        name: z.string().optional(),
-        description: z.string().optional(),
-        active: z.string().optional(),
-        manager: z.string().optional(),
-        parent: z.string().optional(),
-        sys_created_on: z.string().optional(),
-        sys_updated_on: z.string().optional()
+        name: z.string().optional().nullable(),
+        description: z.string().optional().nullable(),
+        active: z.string().optional().nullable(),
+        manager: ReferenceFieldSchema.optional().nullable(),
+        parent: ReferenceFieldSchema.optional().nullable(),
+        sys_created_on: z.string().optional().nullable(),
+        sys_updated_on: z.string().optional().nullable()
     })
     .passthrough();
 
@@ -51,9 +61,34 @@ const action = createAction({
             });
         }
 
-        const result = ProviderGroupSchema.parse(response.data.result);
+        const providerResult = ProviderGroupSchema.parse(response.data.result);
 
-        return result;
+        const extractReferenceValue = (field: z.infer<typeof ReferenceFieldSchema> | null | undefined): string | undefined => {
+            if (field == null) {
+                return undefined;
+            }
+            if (typeof field === 'string') {
+                return field;
+            }
+            return field.value;
+        };
+
+        const { sys_id, name, description, active, manager: rawManager, parent: rawParent, sys_created_on, sys_updated_on, ...rest } = providerResult;
+
+        const manager = extractReferenceValue(rawManager);
+        const parent = extractReferenceValue(rawParent);
+
+        return {
+            ...rest,
+            sys_id,
+            ...(name != null && { name }),
+            ...(description != null && { description }),
+            ...(active != null && { active }),
+            ...(manager !== undefined && { manager }),
+            ...(parent !== undefined && { parent }),
+            ...(sys_created_on != null && { sys_created_on }),
+            ...(sys_updated_on != null && { sys_updated_on })
+        };
     }
 });
 

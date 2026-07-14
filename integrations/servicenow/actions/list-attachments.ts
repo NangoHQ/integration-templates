@@ -3,8 +3,13 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     table_name: z.string().describe('ServiceNow table name. Example: "incident"'),
-    table_sys_id: z.string().describe('ServiceNow record sys_id. Example: "78058ff5c3ca0310c5a8fc0d0501317d"')
+    table_sys_id: z.string().describe('ServiceNow record sys_id. Example: "78058ff5c3ca0310c5a8fc0d0501317d"'),
+    cursor: z.string().optional().describe('Pagination cursor (sysparm_offset) from the previous response. Omit for the first page.'),
+    limit: z.number().int().min(1).max(1000).optional().describe('Maximum number of records to return per page. Defaults to 100.')
 });
+
+const SYS_ID_PATTERN = /^[0-9a-f]{32}$/i;
+const TABLE_NAME_PATTERN = /^[a-z0-9_]+$/i;
 
 const ProviderAttachmentSchema = z.object({
     sys_id: z.string(),
@@ -35,8 +40,32 @@ const AttachmentOutputSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    attachments: z.array(AttachmentOutputSchema)
+    attachments: z.array(AttachmentOutputSchema),
+    next_cursor: z.string().optional()
 });
+
+function extractNextOffset(linkHeader: string | undefined): string | undefined {
+    if (!linkHeader) {
+        return undefined;
+    }
+    const parts = linkHeader.split(',');
+    for (const part of parts) {
+        const match = part.match(/<([^>]+)>;\s*rel="next"/);
+        if (match && match[1]) {
+            // @allowTryCatch Malformed URLs in the Link header should not fail the entire action.
+            try {
+                const url = new URL(match[1]);
+                const offset = url.searchParams.get('sysparm_offset');
+                if (offset) {
+                    return offset;
+                }
+            } catch {
+                return undefined;
+            }
+        }
+    }
+    return undefined;
+}
 
 const action = createAction({
     description: 'List attachment metadata for a table record',
@@ -46,11 +75,46 @@ const action = createAction({
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!TABLE_NAME_PATTERN.test(input.table_name)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'table_name must contain only letters, numbers, and underscores.'
+            });
+        }
+
+        if (!SYS_ID_PATTERN.test(input.table_sys_id)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'table_sys_id must be a valid 32-character ServiceNow sys_id.'
+            });
+        }
+
+        let offset = 0;
+        if (input.cursor !== undefined) {
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+            offset = Number(input.cursor);
+            if (!Number.isSafeInteger(offset)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string.'
+                });
+            }
+        }
+
+        const limit = input.limit ?? 100;
+
         const response = await nango.get({
             // https://developer.servicenow.com/dev.do#!/reference/api/now/table/Attachment
             endpoint: '/api/now/attachment',
             params: {
-                sysparm_query: `table_name=${input.table_name}^table_sys_id=${input.table_sys_id}`
+                sysparm_query: `table_name=${input.table_name}^table_sys_id=${input.table_sys_id}`,
+                sysparm_limit: String(limit),
+                sysparm_offset: String(offset)
             },
             retries: 3
         });
@@ -79,8 +143,13 @@ const action = createAction({
             };
         });
 
+        const linkHeader =
+            typeof response.headers === 'object' && response.headers !== null ? (response.headers['link'] ?? response.headers['Link']) : undefined;
+        const nextCursor = extractNextOffset(typeof linkHeader === 'string' ? linkHeader : undefined);
+
         return {
-            attachments
+            attachments,
+            ...(nextCursor != null && { next_cursor: nextCursor })
         };
     }
 });

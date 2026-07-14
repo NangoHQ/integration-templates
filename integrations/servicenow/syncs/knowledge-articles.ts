@@ -62,9 +62,12 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint != null ? CheckpointSchema.parse(rawCheckpoint) : null;
 
+        // Inclusive boundary: records sharing the checkpoint timestamp with the last-seen article must be
+        // re-included, or they can be permanently skipped after a page/run boundary. batchSave upserts by
+        // id, so re-saving the boundary record(s) is safe.
         let query = 'workflow_state=published^ORDERBYsys_updated_on';
         if (checkpoint?.updated_after) {
-            query = `sys_updated_on>${checkpoint.updated_after}^${query}`;
+            query = `sys_updated_on>=${checkpoint.updated_after}^${query}`;
         }
 
         const proxyConfig: ProxyConfiguration = {

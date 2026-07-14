@@ -4,14 +4,14 @@ import { z } from 'zod';
 const ProviderApprovalSchema = z.object({
     sys_id: z.string(),
     sys_updated_on: z.string(),
-    sys_created_on: z.string().optional(),
-    state: z.string().optional(),
-    approver: z.string().optional(),
-    document_id: z.string().optional(),
-    source_table: z.string().optional(),
-    comments: z.string().optional(),
-    due_date: z.string().optional(),
-    sysapproval: z.string().optional()
+    sys_created_on: z.string().nullable().optional(),
+    state: z.string().nullable().optional(),
+    approver: z.string().nullable().optional(),
+    document_id: z.string().nullable().optional(),
+    source_table: z.string().nullable().optional(),
+    comments: z.string().nullable().optional(),
+    due_date: z.string().nullable().optional(),
+    sysapproval: z.string().nullable().optional()
 });
 
 const ApprovalSchema = z.object({

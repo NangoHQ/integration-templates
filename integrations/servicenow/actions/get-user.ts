@@ -12,7 +12,7 @@ const ProviderUserSchema = z
         first_name: z.string().optional().nullable(),
         last_name: z.string().optional().nullable(),
         email: z.string().optional().nullable(),
-        active: z.string().optional().nullable(),
+        active: z.union([z.boolean(), z.string()]).optional().nullable(),
         sys_created_on: z.string().optional().nullable(),
         sys_updated_on: z.string().optional().nullable()
     })
@@ -56,7 +56,7 @@ const action = createAction({
             ...(user.first_name != null && { first_name: user.first_name }),
             ...(user.last_name != null && { last_name: user.last_name }),
             ...(user.email != null && { email: user.email }),
-            ...(user.active != null && { active: user.active }),
+            ...(user.active != null && { active: typeof user.active === 'boolean' ? String(user.active) : user.active }),
             ...(user.sys_created_on != null && { sys_created_on: user.sys_created_on }),
             ...(user.sys_updated_on != null && { sys_updated_on: user.sys_updated_on })
         };

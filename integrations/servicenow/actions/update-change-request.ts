@@ -14,6 +14,11 @@ const OutputSchema = z.object({
     result: z.record(z.string(), z.unknown()).optional()
 });
 
+// ServiceNow journal fields append a new entry on every PATCH rather than overwriting.
+// Callers may pass these through the generic `fields` map, so they must be split out and
+// sent without automatic retries to avoid duplicating entries on a retried request.
+const JOURNAL_FIELD_NAMES = new Set(['comments', 'work_notes']);
+
 const action = createAction({
     description: 'Update change request fields.',
     version: '1.0.0',
@@ -21,14 +26,38 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.servicenow.com/dev.do#!/reference/api/rest/table-api
-        const response = await nango.patch({
-            endpoint: `/api/now/table/change_request/${encodeURIComponent(input.sys_id)}`,
-            data: input.fields,
-            retries: 1
-        });
+        const endpoint = `/api/now/table/change_request/${encodeURIComponent(input.sys_id)}`;
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
+        const safeFields: Record<string, unknown> = {};
+        const journalFields: Record<string, unknown> = {};
+        for (const [key, value] of Object.entries(input.fields)) {
+            if (JOURNAL_FIELD_NAMES.has(key)) {
+                journalFields[key] = value;
+            } else {
+                safeFields[key] = value;
+            }
+        }
+
+        let response;
+        // https://developer.servicenow.com/dev.do#!/reference/api/rest/table-api
+        if (Object.keys(safeFields).length > 0 || Object.keys(journalFields).length === 0) {
+            response = await nango.patch({
+                endpoint,
+                data: safeFields,
+                retries: 1
+            });
+        }
+
+        if (Object.keys(journalFields).length > 0) {
+            response = await nango.patch({
+                endpoint,
+                data: journalFields,
+                // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                retries: 0
+            });
+        }
+
+        const providerResponse = ProviderResponseSchema.parse(response?.data);
 
         return {
             result: providerResponse.result

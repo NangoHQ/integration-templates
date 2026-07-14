@@ -30,23 +30,32 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const patchData: { state: string; comments?: string } = {
-            state: input.state
+        const endpoint = `/api/now/table/sysapproval_approver/${encodeURIComponent(input.sys_id)}`;
+        const params = {
+            sysparm_exclude_reference_link: 'true'
         };
 
-        if (input.comments !== undefined) {
-            patchData.comments = input.comments;
-        }
-
-        const response = await nango.patch({
-            // https://developer.servicenow.com/dev.do#!/reference/api/now/table/sysapproval_approver
-            endpoint: `/api/now/table/sysapproval_approver/${encodeURIComponent(input.sys_id)}`,
-            data: patchData,
-            params: {
-                sysparm_exclude_reference_link: 'true'
-            },
-            retries: 3
+        // `state` is a plain overwrite field, safe to retry.
+        // https://developer.servicenow.com/dev.do#!/reference/api/now/table/sysapproval_approver
+        let response = await nango.patch({
+            endpoint,
+            data: { state: input.state },
+            params,
+            retries: 1
         });
+
+        // `comments` is a ServiceNow journal field: every PATCH appends a new entry
+        // rather than overwriting. It must not be retried automatically, or a transient
+        // failure followed by a retry can duplicate the comment.
+        if (input.comments !== undefined) {
+            response = await nango.patch({
+                endpoint,
+                data: { comments: input.comments },
+                params,
+                // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                retries: 0
+            });
+        }
 
         const rawBody = response.data;
         if (!rawBody || typeof rawBody !== 'object' || !('result' in rawBody)) {
