@@ -14,7 +14,11 @@ const InputSchema = z.object({
         .record(z.string(), z.unknown())
         .describe('The payment source definition. Example: {"paypal":{"experience_context":{"return_url":"https://example.com/return"}}}'),
     application_context: z.record(z.string(), z.unknown()).optional().describe('Customizes the payer confirmation experience.'),
-    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    request_id: z
+        .string()
+        .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+        .optional()
+        .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const OutputSchema = z

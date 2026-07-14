@@ -21,7 +21,11 @@ const InputSchema = z.object({
         .describe('The product category, from PayPal\'s enumerated list (e.g. "SOFTWARE", "ELECTRONICS"). Example: "SOFTWARE"'),
     image_url: z.string().url().max(2000).optional().describe('The image URL for the product. Example: "https://example.com/streaming.jpg"'),
     home_url: z.string().url().max(2000).optional().describe('The home page URL for the product. Example: "https://example.com/home"'),
-    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    request_id: z
+        .string()
+        .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+        .optional()
+        .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderProductSchema = z.object({

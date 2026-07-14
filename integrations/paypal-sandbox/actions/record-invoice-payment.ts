@@ -7,14 +7,18 @@ const InputSchema = z.object({
     method: z.enum(['BANK_TRANSFER', 'CASH', 'CHECK', 'CREDIT_CARD', 'DEBIT_CARD', 'PAYPAL', 'WIRE_TRANSFER', 'OTHER']).describe('The payment method.'),
     amount: z
         .object({
-            currency_code: z.string().regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.'),
+            currency_code: z.string().regex(/^[A-Z]{3}$/, 'currency_code must be three uppercase letters.'),
             value: z.string()
         })
         .optional()
         .describe('The payment amount.'),
     payment_date: z.string().optional().describe('The payment date in YYYY-MM-DD format.'),
     note: z.string().optional().describe('A note about the payment.'),
-    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    request_id: z
+        .string()
+        .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+        .optional()
+        .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderResponseSchema = z.object({

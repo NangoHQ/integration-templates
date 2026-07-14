@@ -51,7 +51,9 @@ const sync = createSync({
                 limit: 20,
                 response_path: 'items',
                 on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : page;
+                    // For offset/per-page pagination, nextPageParam is the offset of the page that was just
+                    // fetched and (by the for-await protocol) already saved, so the resume cursor is one past it.
+                    page = typeof nextPageParam === 'number' ? nextPageParam + 1 : page;
                     await nango.saveCheckpoint({ page });
                 }
             },

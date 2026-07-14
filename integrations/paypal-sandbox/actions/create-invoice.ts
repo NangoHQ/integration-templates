@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 import { randomUUID } from 'crypto';
 
 const MoneySchema = z.object({
-    currency_code: z.string().regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.'),
+    currency_code: z.string().regex(/^[A-Z]{3}$/, 'currency_code must be three uppercase letters.'),
     value: z.string()
 });
 
@@ -75,7 +75,7 @@ const PaymentTermSchema = z.object({
 const InvoiceDetailSchema = z.object({
     invoice_number: z.string().optional(),
     invoice_date: z.string().optional(),
-    currency_code: z.string().regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.'),
+    currency_code: z.string().regex(/^[A-Z]{3}$/, 'currency_code must be three uppercase letters.'),
     note: z.string().optional(),
     term: z.string().optional(),
     memo: z.string().optional(),
@@ -121,7 +121,11 @@ const InputSchema = z.object({
     additional_recipients: z.array(z.string()).optional(),
     items: z.array(InvoiceItemSchema),
     configuration: ConfigurationSchema.optional(),
-    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    request_id: z
+        .string()
+        .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+        .optional()
+        .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderMetadataSchema = z.object({

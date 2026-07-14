@@ -3,13 +3,12 @@ import { createAction } from 'nango';
 
 const PatchablePathSchema = z.enum(['/description', '/category', '/image_url', '/home_url']);
 
+// PayPal's Catalog Products patch endpoint only documents add/replace/remove as supported operations for
+// these attributes; move/copy/test are not listed and would be rejected by PayPal at runtime.
 const PatchOperationSchema = z.discriminatedUnion('op', [
     z.object({ op: z.literal('add'), path: PatchablePathSchema, value: z.string() }),
     z.object({ op: z.literal('replace'), path: PatchablePathSchema, value: z.string() }),
-    z.object({ op: z.literal('test'), path: PatchablePathSchema, value: z.string() }),
-    z.object({ op: z.literal('remove'), path: PatchablePathSchema }),
-    z.object({ op: z.literal('move'), path: PatchablePathSchema, from: PatchablePathSchema }),
-    z.object({ op: z.literal('copy'), path: PatchablePathSchema, from: PatchablePathSchema })
+    z.object({ op: z.literal('remove'), path: PatchablePathSchema })
 ]);
 
 const InputSchema = z.object({

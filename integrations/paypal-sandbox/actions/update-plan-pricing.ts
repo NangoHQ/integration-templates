@@ -6,7 +6,7 @@ const MoneySchema = z.object({
     value: z.string().describe('The monetary value. Example: "10.00"'),
     currency_code: z
         .string()
-        .regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.')
+        .regex(/^[A-Z]{3}$/, 'currency_code must be three uppercase letters.')
         .describe('The three-character ISO-4217 currency code. Example: "USD"')
 });
 
@@ -30,7 +30,11 @@ const UpdatePricingSchemeRequestSchema = z.object({
 const InputSchema = z.object({
     plan_id: z.string().describe('The PayPal plan ID. Example: "P-3F897353EP795272HNJKULHQ"'),
     pricing_schemes: z.array(UpdatePricingSchemeRequestSchema).min(1).max(99).describe('One or more billing cycle pricing scheme updates.'),
-    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    request_id: z
+        .string()
+        .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+        .optional()
+        .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const OutputSchema = z.object({

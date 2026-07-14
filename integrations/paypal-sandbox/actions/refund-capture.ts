@@ -8,7 +8,7 @@ const InputSchema = z.object({
         .object({
             currency_code: z
                 .string()
-                .regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.')
+                .regex(/^[A-Z]{3}$/, 'currency_code must be three uppercase letters.')
                 .describe('The three-character ISO-4217 currency code. Example: "USD"'),
             value: z.string().describe('The value, which might be a decimal with two places. Example: "10.99"')
         })
@@ -17,7 +17,11 @@ const InputSchema = z.object({
     invoice_id: z.string().optional().describe('The API caller-provided external invoice ID for this order.'),
     custom_id: z.string().optional().describe('The API caller-provided external ID for reconciling transactions.'),
     note_to_payer: z.string().optional().describe("The reason for the refund. Appears in the payer's transaction history and emails."),
-    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    request_id: z
+        .string()
+        .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+        .optional()
+        .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const MoneySchema = z.object({

@@ -4,7 +4,11 @@ import { randomUUID } from 'crypto';
 
 const InputSchema = z.object({
     order_id: z.string().describe('Order ID. Example: "8A79039013362943U"'),
-    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    request_id: z
+        .string()
+        .regex(/^[\x21-\x7E]{1,108}$/, 'request_id must be 1-108 printable ASCII characters (PayPal-Request-Id limit for this endpoint).')
+        .optional()
+        .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderCaptureAmountSchema = z

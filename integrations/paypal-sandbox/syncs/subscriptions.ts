@@ -126,7 +126,12 @@ const sync = createSync({
                 limit: 20,
                 response_path: 'subscriptions',
                 on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                    // nextPageParam is the offset of the page that was just fetched and (by the for-await
+                    // protocol) already saved, so the resume cursor is one past it.
+                    page = typeof nextPageParam === 'number' ? nextPageParam + 1 : undefined;
+                    if (page !== undefined) {
+                        await nango.saveCheckpoint({ status_updated_after: statusUpdatedAfter, page });
+                    }
                 }
             },
             retries: 3
@@ -163,15 +168,6 @@ const sync = createSync({
 
             if (subscriptions.length > 0) {
                 await nango.batchSave(subscriptions, 'Subscription');
-            }
-
-            // Mid-run checkpoint: keep the filter timestamp stable and only persist the cursor, so an
-            // interrupted run resumes pagination against the exact same result set instead of a shifted one.
-            if (page !== undefined) {
-                await nango.saveCheckpoint({
-                    status_updated_after: statusUpdatedAfter,
-                    page
-                });
             }
         }
 

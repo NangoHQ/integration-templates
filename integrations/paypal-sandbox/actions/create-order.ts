@@ -5,7 +5,7 @@ import { randomUUID } from 'crypto';
 const AmountSchema = z.object({
     currency_code: z
         .string()
-        .regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.')
+        .regex(/^[A-Z]{3}$/, 'currency_code must be three uppercase letters.')
         .describe('Currency code. Example: "USD"'),
     value: z.string().describe('Amount value. Example: "100.00"')
 });
@@ -39,7 +39,11 @@ const InputSchema = z.object({
     purchase_units: z.array(PurchaseUnitSchema).describe('An array of purchase units.'),
     payment_source: z.record(z.string(), z.unknown()).optional().describe('The payment source definition.'),
     application_context: ApplicationContextSchema.optional().describe('Customizes the payer experience during approval.'),
-    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    request_id: z
+        .string()
+        .regex(/^[\x21-\x7E]{1,108}$/, 'request_id must be 1-108 printable ASCII characters (PayPal-Request-Id limit for this endpoint).')
+        .optional()
+        .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const LinkSchema = z.object({

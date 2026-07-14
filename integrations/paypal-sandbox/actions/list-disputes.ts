@@ -37,7 +37,8 @@ const ProviderResponseSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(DisputeItemSchema),
-    next_page: z.number().optional()
+    // A string so the response can be fed directly back into this action's `cursor` input.
+    next_page: z.string().optional()
 });
 
 const action = createAction({
@@ -80,7 +81,7 @@ const action = createAction({
 
         return {
             items,
-            ...(hasNext && { next_page: page + 1 })
+            ...(hasNext && { next_page: String(page + 1) })
         };
     }
 });

@@ -5,7 +5,7 @@ import { randomUUID } from 'crypto';
 const AmountSchema = z.object({
     currency_code: z
         .string()
-        .regex(/^[A-Z]{3}$/, 'currency_code must be a three-letter uppercase ISO-4217 code.')
+        .regex(/^[A-Z]{3}$/, 'currency_code must be three uppercase letters.')
         .describe('The currency code. Example: "USD"'),
     value: z.string().describe('The amount value. Example: "10.00"')
 });
@@ -16,7 +16,11 @@ const InputSchema = z.object({
     invoice_id: z.string().optional().describe('The API caller-provided external invoice number for this capture.'),
     note_to_payer: z.string().optional().describe('An informational note about this capture displayed to the payer.'),
     final_capture: z.boolean().optional().describe('Indicates whether this is the final capture for the authorization.'),
-    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    request_id: z
+        .string()
+        .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+        .optional()
+        .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const ProviderCaptureSchema = z

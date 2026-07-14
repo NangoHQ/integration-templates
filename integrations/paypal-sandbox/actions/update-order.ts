@@ -1,10 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+// A JSON Patch `value` may legitimately be `null` or `false`, so `z.unknown()` alone isn't enough to require it
+// (unknown() also accepts a missing/undefined key). This models any real JSON value, excluding undefined.
+const JsonValueSchema: z.ZodType<unknown> = z.lazy(() =>
+    z.union([z.string(), z.number(), z.boolean(), z.null(), z.array(JsonValueSchema), z.record(z.string(), JsonValueSchema)])
+);
+
 const PatchOperationSchema = z.discriminatedUnion('op', [
-    z.object({ op: z.literal('add'), path: z.string(), value: z.unknown() }),
-    z.object({ op: z.literal('replace'), path: z.string(), value: z.unknown() }),
-    z.object({ op: z.literal('test'), path: z.string(), value: z.unknown() }),
+    z.object({ op: z.literal('add'), path: z.string(), value: JsonValueSchema }),
+    z.object({ op: z.literal('replace'), path: z.string(), value: JsonValueSchema }),
+    z.object({ op: z.literal('test'), path: z.string(), value: JsonValueSchema }),
     z.object({ op: z.literal('remove'), path: z.string() }),
     z.object({ op: z.literal('move'), path: z.string(), from: z.string() }),
     z.object({ op: z.literal('copy'), path: z.string(), from: z.string() })

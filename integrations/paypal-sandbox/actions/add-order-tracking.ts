@@ -8,7 +8,11 @@ const InputSchema = z.object({
     tracking_number: z.string().describe('The tracking number for the shipment. Example: "443844607820"'),
     carrier: z.string().describe('The carrier for the shipment. Example: "FEDEX"'),
     status: z.string().describe('The status of the shipment. Example: "SHIPPED"'),
-    request_id: z.string().optional().describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
+    request_id: z
+        .string()
+        .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+        .optional()
+        .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
 
 const LinkSchema = z.object({
