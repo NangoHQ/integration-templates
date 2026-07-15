@@ -3,7 +3,10 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     customerId: z.string().describe('Customer ID. Example: "1781900691"'),
-    loginCustomerId: z.string().describe('Manager account customer ID used as login-customer-id. Example: "3608201627"'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     campaign: z.string().describe('Campaign resource name. Example: "customers/1781900691/campaigns/24027360183"'),
     geoTargetConstant: z.string().describe('Geo target constant resource name. Example: "geoTargetConstants/21167"'),
     developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
@@ -31,7 +34,7 @@ const action = createAction({
             endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': input.loginCustomerId
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             },
             data: {
                 operations: [

@@ -7,8 +7,11 @@ const MetadataSchema = z.object({
     developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
+// Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
+// is encoded as a comma-separated string rather than an array.
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string(),
+    initialized_customer_ids: z.string()
 });
 
 const CampaignSchema = z.object({
@@ -65,6 +68,38 @@ function formatDate(date: Date): string {
     return `${year}-${month}-${day}`;
 }
 
+function parseDateOnly(dateStr: string): Date {
+    return new Date(`${dateStr}T00:00:00.000Z`);
+}
+
+function addDays(dateStr: string, days: number): string {
+    const date = parseDateOnly(dateStr);
+    date.setUTCDate(date.getUTCDate() + days);
+    return formatDate(date);
+}
+
+function daysBetween(startStr: string, endStr: string): number {
+    return Math.round((parseDateOnly(endStr).getTime() - parseDateOnly(startStr).getTime()) / (24 * 60 * 60 * 1000));
+}
+
+// change_status only guarantees 90 days of retention; a checkpoint older than that must trigger
+// a full refresh instead of an incremental query, or Google Ads rejects the filter.
+// https://developers.google.com/google-ads/api/docs/change-status
+const CHANGE_STATUS_RETENTION_DAYS = 90;
+
+// Walks [startStr, endStr] one calendar day at a time so a single change_status query window can
+// never need to return more than a day's worth of changes, keeping each query well under the
+// mandatory LIMIT 10000 for realistically sized accounts.
+function* eachDayInclusive(startStr: string, endStr: string): Generator<string> {
+    let current = startStr;
+    let iterations = 0;
+    while (current <= endStr && iterations < 3650) {
+        yield current;
+        current = addDays(current, 1);
+        iterations++;
+    }
+}
+
 function extractSearchStreamRows(data: unknown): unknown[] {
     if (Array.isArray(data)) {
         return data.flatMap((chunk: unknown) => {
@@ -109,8 +144,11 @@ const sync = createSync({
             throw new Error('customer_ids is required in metadata');
         }
 
-        const checkpoint = await nango.getCheckpoint();
-        const updatedAfter = checkpoint?.['updated_after'];
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
+        const checkpoint = checkpointResult && checkpointResult.success ? checkpointResult.data : null;
+        const globalUpdatedAfter = checkpoint?.updated_after;
+        const initializedCustomerIds = new Set((checkpoint?.initialized_customer_ids ?? '').split(',').filter(Boolean));
         const now = formatDate(new Date());
 
         async function searchStream(customerId: string, loginCustomerId: string, query: string): Promise<unknown[]> {
@@ -153,9 +191,7 @@ const sync = createSync({
             return campaigns;
         }
 
-        for (const customerId of metadata.customer_ids) {
-            if (!updatedAfter) {
-                const query = `
+        const fullQuery = `
 SELECT
   campaign.resource_name,
   campaign.id,
@@ -172,13 +208,24 @@ SELECT
 FROM campaign
 WHERE campaign.status != 'REMOVED'
 `;
-                const rows = await searchStream(customerId, metadata.login_customer_id, query);
+
+        for (const customerId of metadata.customer_ids) {
+            const isNewAccount = !initializedCustomerIds.has(customerId);
+            const isStaleCheckpoint = globalUpdatedAfter !== undefined && daysBetween(globalUpdatedAfter, now) >= CHANGE_STATUS_RETENTION_DAYS;
+            const needsFullRefresh = !globalUpdatedAfter || isNewAccount || isStaleCheckpoint;
+
+            if (needsFullRefresh) {
+                const rows = await searchStream(customerId, metadata.login_customer_id, fullQuery);
                 const campaigns = parseCampaignRows(rows);
                 if (campaigns.length > 0) {
                     await nango.batchSave(campaigns, 'Campaign');
                 }
             } else {
-                const changeQuery = `
+                const removed: string[] = [];
+                const changed: string[] = [];
+
+                for (const day of eachDayInclusive(globalUpdatedAfter, now)) {
+                    const changeQuery = `
 SELECT
   change_status.resource_name,
   change_status.last_change_date_time,
@@ -186,24 +233,23 @@ SELECT
   change_status.campaign
 FROM change_status
 WHERE change_status.resource_type = 'CAMPAIGN'
-  AND change_status.last_change_date_time >= '${updatedAfter}'
-  AND change_status.last_change_date_time <= '${now}'
+  AND change_status.last_change_date_time >= '${day}'
+  AND change_status.last_change_date_time <= '${day}'
 LIMIT 10000
 `;
-                const changeRows = await searchStream(customerId, metadata.login_customer_id, changeQuery);
-                const removed: string[] = [];
-                const changed: string[] = [];
-                for (const row of changeRows) {
-                    const parsed = ProviderChangeStatusRowSchema.safeParse(row);
-                    if (!parsed.success) {
-                        throw new Error(`Failed to parse change_status row: ${parsed.error.message}`);
-                    }
-                    const cs = parsed.data.changeStatus;
-                    if (cs.campaign) {
-                        if (cs.resourceStatus === 'REMOVED') {
-                            removed.push(cs.campaign);
-                        } else if (cs.resourceStatus === 'ADDED' || cs.resourceStatus === 'CHANGED') {
-                            changed.push(cs.campaign);
+                    const changeRows = await searchStream(customerId, metadata.login_customer_id, changeQuery);
+                    for (const row of changeRows) {
+                        const parsed = ProviderChangeStatusRowSchema.safeParse(row);
+                        if (!parsed.success) {
+                            throw new Error(`Failed to parse change_status row: ${parsed.error.message}`);
+                        }
+                        const cs = parsed.data.changeStatus;
+                        if (cs.campaign) {
+                            if (cs.resourceStatus === 'REMOVED') {
+                                removed.push(cs.campaign);
+                            } else if (cs.resourceStatus === 'ADDED' || cs.resourceStatus === 'CHANGED') {
+                                changed.push(cs.campaign);
+                            }
                         }
                     }
                 }
@@ -242,9 +288,11 @@ WHERE campaign.resource_name IN (${resourceNames})
                     }
                 }
             }
+
+            initializedCustomerIds.add(customerId);
         }
 
-        await nango.saveCheckpoint({ updated_after: now });
+        await nango.saveCheckpoint({ updated_after: now, initialized_customer_ids: [...initializedCustomerIds].join(',') });
     }
 });
 

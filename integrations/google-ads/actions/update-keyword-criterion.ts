@@ -4,7 +4,10 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     customerId: z.string().describe('Google Ads customer ID. Example: "1781900691"'),
-    loginCustomerId: z.string().describe('Manager account ID to use as login-customer-id. Example: "3608201627"'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     resourceName: z.string().describe('Resource name of the ad group criterion. Example: "customers/1781900691/adGroupCriteria/197714341345~2491223357039"'),
     status: z.enum(['ENABLED', 'PAUSED', 'REMOVED']).optional().describe('Keyword status to update.'),
     cpcBidMicros: z.string().optional().describe('CPC bid in micros to update. Example: "1500000"'),
@@ -78,7 +81,7 @@ const action = createAction({
             retries: 0,
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': input.loginCustomerId
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             }
         };
         const response = await nango.post(config);

@@ -10,7 +10,6 @@ const InputSchema = z.object({
     startDate: z.string().optional(),
     endDate: z.string().optional(),
     campaignBudget: z.string().optional(),
-    biddingStrategyType: z.string().optional(),
     manualCpc: z
         .object({
             enhancedCpcEnabled: z.boolean().optional()
@@ -93,6 +92,20 @@ const action = createAction({
             });
         }
 
+        const biddingSchemeFieldsProvided = [
+            input.manualCpc,
+            input.targetCpa,
+            input.targetRoas,
+            input.maximizeConversions,
+            input.maximizeConversionValue
+        ].filter((field) => field !== undefined).length;
+        if (biddingSchemeFieldsProvided > 1) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Only one of manualCpc, targetCpa, targetRoas, maximizeConversions, or maximizeConversionValue may be set at a time.'
+            });
+        }
+
         const resourceName = `customers/${input.customerId}/campaigns/${input.campaignId}`;
 
         const update: Record<string, unknown> = {
@@ -113,9 +126,6 @@ const action = createAction({
         }
         if (input.campaignBudget !== undefined) {
             update['campaignBudget'] = input.campaignBudget;
-        }
-        if (input.biddingStrategyType !== undefined) {
-            update['biddingStrategyType'] = input.biddingStrategyType;
         }
         if (input.manualCpc !== undefined) {
             update['manualCpc'] = input.manualCpc;

@@ -9,7 +9,10 @@ const InputSchema = z.object({
     explicitlyShared: z.boolean().optional().describe('Whether this budget can be shared across campaigns.'),
     deliveryMethod: z.string().optional().describe('Delivery method. Example: "STANDARD" or "ACCELERATED"'),
     totalAmountMicros: z.string().optional().describe('Total budget amount in micros for custom period budgets.'),
-    period: z.string().optional().describe('Budget period. Example: "DAILY" or "CUSTOM_PERIOD"'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
@@ -35,6 +38,20 @@ const action = createAction({
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.amountMicros !== undefined && input.totalAmountMicros !== undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'amountMicros and totalAmountMicros are mutually exclusive; only one may be set.'
+            });
+        }
+
+        if (input.explicitlyShared === true && input.name === undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'name is required when setting explicitlyShared to true (a non-shared budget can only become shared together with a name change).'
+            });
+        }
+
         const resourceName = `customers/${input.customerId}/campaignBudgets/${input.campaignBudgetId}`;
         const updateFields: Record<string, unknown> = {
             resourceName
@@ -61,10 +78,6 @@ const action = createAction({
             updateFields['totalAmountMicros'] = input.totalAmountMicros;
             updateMaskParts.push('totalAmountMicros');
         }
-        if (input.period !== undefined) {
-            updateFields['period'] = input.period;
-            updateMaskParts.push('period');
-        }
 
         if (updateMaskParts.length === 0) {
             throw new nango.ActionError({
@@ -86,7 +99,7 @@ const action = createAction({
             },
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': '3608201627'
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             },
             retries: 1
         });

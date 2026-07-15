@@ -33,6 +33,12 @@ const InputSchema = z.object({
     containsEuPoliticalAdvertising: z
         .enum(['CONTAINS_EU_POLITICAL_ADVERTISING', 'DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING'])
         .describe('EU political advertising flag.'),
+    targetCpaMicros: z.string().optional().describe('Average target CPA in micros. Required when biddingStrategy is "targetCpa". Example: "1000000"'),
+    targetRoas: z.number().optional().describe('Target return on ad spend. Required when biddingStrategy is "targetRoas". Example: 3.5'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
@@ -57,8 +63,27 @@ const action = createAction({
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.biddingStrategy === 'targetCpa' && input.targetCpaMicros === undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'targetCpaMicros is required when biddingStrategy is "targetCpa".'
+            });
+        }
+        if (input.biddingStrategy === 'targetRoas' && input.targetRoas === undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'targetRoas is required when biddingStrategy is "targetRoas".'
+            });
+        }
+
         const biddingStrategyBody: Record<string, unknown> = {};
-        biddingStrategyBody[input.biddingStrategy] = {};
+        if (input.biddingStrategy === 'targetCpa') {
+            biddingStrategyBody[input.biddingStrategy] = { targetCpaMicros: input.targetCpaMicros };
+        } else if (input.biddingStrategy === 'targetRoas') {
+            biddingStrategyBody[input.biddingStrategy] = { targetRoas: input.targetRoas };
+        } else {
+            biddingStrategyBody[input.biddingStrategy] = {};
+        }
 
         // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
         const response = await nango.post({
@@ -80,7 +105,7 @@ const action = createAction({
             },
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': '3608201627'
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             },
             retries: 3
         });

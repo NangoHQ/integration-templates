@@ -100,6 +100,7 @@ const sync = createSync({
         await nango.trackDeletesStart('Customer');
 
         const customers = [];
+        let anyAccountSkipped = false;
 
         for (const resourceName of resourceNames) {
             const customerId = resourceName.replace('customers/', '');
@@ -131,6 +132,7 @@ const sync = createSync({
                     'data' in err.response &&
                     JSON.stringify(err.response.data).includes('DEVELOPER_TOKEN_NOT_APPROVED');
                 if (isDeveloperTokenError) {
+                    anyAccountSkipped = true;
                     continue;
                 }
                 throw err;
@@ -164,7 +166,13 @@ const sync = createSync({
             await nango.batchSave(customers, 'Customer');
         }
 
-        await nango.trackDeletesEnd('Customer');
+        // If any account was skipped (test-only developer token cannot access it), this run only
+        // observed a partial view of accessible customers. Finalizing deletion tracking here would
+        // falsely mark previously-synced, unobserved customers as deleted, so skip finalization and
+        // let a future run with full access reconcile deletes instead.
+        if (!anyAccountSkipped) {
+            await nango.trackDeletesEnd('Customer');
+        }
     }
 });
 

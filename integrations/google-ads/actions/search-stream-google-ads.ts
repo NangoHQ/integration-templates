@@ -4,6 +4,10 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     customerId: z.string().describe('Google Ads customer ID. Example: "1781900691"'),
     query: z.string().describe('GAQL query string. Example: "SELECT campaign.id, campaign.name FROM campaign LIMIT 10"'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through a manager hierarchy. Example: "3608201627"'),
     developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
@@ -30,6 +34,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -41,7 +46,7 @@ const action = createAction({
             retries: 3,
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': '3608201627'
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             }
         });
 

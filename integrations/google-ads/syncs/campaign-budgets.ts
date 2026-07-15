@@ -7,9 +7,11 @@ const MetadataSchema = z.object({
     developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
+// Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
+// is encoded as a comma-separated string rather than an array.
 const CheckpointSchema = z.object({
     updated_after: z.string(),
-    page_token: z.string()
+    initialized_customer_ids: z.string()
 });
 
 const CampaignBudgetSchema = z.object({
@@ -26,8 +28,8 @@ const ChangeStatusResultSchema = z.object({
         .object({
             resourceType: z.string(),
             resourceStatus: z.string(),
-            resourceName: z.string(),
-            lastChangeDateTime: z.string()
+            lastChangeDateTime: z.string(),
+            campaignBudget: z.string().optional()
         })
         .optional()
 });
@@ -44,6 +46,104 @@ const CampaignBudgetResultSchema = z.object({
         })
         .optional()
 });
+
+function isObject(value: unknown): value is Record<string, unknown> {
+    return typeof value === 'object' && value !== null;
+}
+
+// googleAds:searchStream returns every result chunk within a single HTTP response (either a JSON
+// array of chunks, or one chunk object) - it never accepts a pageToken for further HTTP requests.
+// https://developers.google.com/google-ads/api/docs/reporting/streaming
+function extractSearchStreamRows(data: unknown): unknown[] {
+    if (Array.isArray(data)) {
+        return data.flatMap((chunk: unknown) => {
+            if (!isObject(chunk)) {
+                return [];
+            }
+            const results = chunk['results'];
+            return Array.isArray(results) ? results : [];
+        });
+    }
+    if (isObject(data)) {
+        const results = data['results'];
+        if (Array.isArray(results)) {
+            return results;
+        }
+    }
+    return [];
+}
+
+function formatDate(date: Date): string {
+    const year = date.getUTCFullYear();
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+function parseDateOnly(dateStr: string): Date {
+    return new Date(`${dateStr}T00:00:00.000Z`);
+}
+
+function addDays(dateStr: string, days: number): string {
+    const date = parseDateOnly(dateStr);
+    date.setUTCDate(date.getUTCDate() + days);
+    return formatDate(date);
+}
+
+function daysBetween(startStr: string, endStr: string): number {
+    return Math.round((parseDateOnly(endStr).getTime() - parseDateOnly(startStr).getTime()) / (24 * 60 * 60 * 1000));
+}
+
+// change_status only guarantees 90 days of retention; a checkpoint older than that must trigger
+// a full refresh instead of an incremental query, or Google Ads rejects the filter.
+// https://developers.google.com/google-ads/api/docs/change-status
+const CHANGE_STATUS_RETENTION_DAYS = 90;
+
+// Walks [startStr, endStr] one calendar day at a time so a single change_status query window can
+// never need to return more than a day's worth of changes, keeping each query well under the
+// mandatory LIMIT 10000 for realistically sized accounts.
+function* eachDayInclusive(startStr: string, endStr: string): Generator<string> {
+    let current = startStr;
+    let iterations = 0;
+    while (current <= endStr && iterations < 3650) {
+        yield current;
+        current = addDays(current, 1);
+        iterations++;
+    }
+}
+
+function mapCampaignBudgetRows(rows: z.infer<typeof CampaignBudgetResultSchema>[]): Array<{
+    id: string;
+    resourceName: string;
+    amountMicros?: string;
+    explicitlyShared?: boolean;
+    status?: string;
+    name?: string;
+}> {
+    const budgets: Array<{
+        id: string;
+        resourceName: string;
+        amountMicros?: string;
+        explicitlyShared?: boolean;
+        status?: string;
+        name?: string;
+    }> = [];
+    for (const row of rows) {
+        const cb = row.campaignBudget;
+        if (!cb) {
+            continue;
+        }
+        budgets.push({
+            id: cb.resourceName,
+            resourceName: cb.resourceName,
+            ...(cb.amountMicros != null && { amountMicros: cb.amountMicros }),
+            ...(cb.explicitlyShared != null && { explicitlyShared: cb.explicitlyShared }),
+            ...(cb.status != null && { status: cb.status }),
+            ...(cb.name != null && { name: cb.name })
+        });
+    }
+    return budgets;
+}
 
 const sync = createSync({
     description: 'Sync campaign budgets for customer accounts in scope',
@@ -68,10 +168,12 @@ const sync = createSync({
             throw new Error('customer_ids is required in metadata');
         }
 
-        const checkpoint = await nango.getCheckpoint();
-        const now = new Date().toISOString();
-        const updatedAfter = typeof checkpoint?.updated_after === 'string' && checkpoint.updated_after ? checkpoint.updated_after : undefined;
-        const pageTokenFromCheckpoint = typeof checkpoint?.page_token === 'string' && checkpoint.page_token ? checkpoint.page_token : undefined;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
+        const checkpoint = checkpointResult && checkpointResult.success ? checkpointResult.data : null;
+        const now = formatDate(new Date());
+        const globalUpdatedAfter = checkpoint?.updated_after ? checkpoint.updated_after : undefined;
+        const initializedCustomerIds = new Set((checkpoint?.initialized_customer_ids ?? '').split(',').filter(Boolean));
 
         const headers: Record<string, string> = {
             'developer-token': developerToken
@@ -81,22 +183,24 @@ const sync = createSync({
         }
 
         for (const customerId of customerIds) {
-            if (!updatedAfter) {
-                await runFullFetch(nango, customerId, headers, now, pageTokenFromCheckpoint);
+            const isNewAccount = !initializedCustomerIds.has(customerId);
+            const isStaleCheckpoint = globalUpdatedAfter !== undefined && daysBetween(globalUpdatedAfter, now) >= CHANGE_STATUS_RETENTION_DAYS;
+            const needsFullRefresh = !globalUpdatedAfter || isNewAccount || isStaleCheckpoint;
+
+            if (needsFullRefresh) {
+                await runFullFetch(nango, customerId, headers);
             } else {
-                await runIncrementalFetch(nango, customerId, headers, updatedAfter, now);
+                await runIncrementalFetch(nango, customerId, headers, globalUpdatedAfter, now);
             }
+
+            initializedCustomerIds.add(customerId);
         }
+
+        await nango.saveCheckpoint({ updated_after: now, initialized_customer_ids: [...initializedCustomerIds].join(',') });
     }
 });
 
-async function runFullFetch(
-    nango: Parameters<(typeof sync)['exec']>[0],
-    customerId: string,
-    headers: Record<string, string>,
-    now: string,
-    resumePageToken: string | undefined
-): Promise<void> {
+async function runFullFetch(nango: Parameters<(typeof sync)['exec']>[0], customerId: string, headers: Record<string, string>): Promise<void> {
     const fullQuery = `
         SELECT
             campaign_budget.resource_name,
@@ -108,69 +212,26 @@ async function runFullFetch(
         FROM campaign_budget
     `;
 
-    let nextPageToken: string | undefined = resumePageToken;
-
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/reporting/streaming
         endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
-        data: {
-            query: fullQuery,
-            ...(nextPageToken && { pageToken: nextPageToken })
-        },
+        data: { query: fullQuery },
         headers,
-        paginate: {
-            type: 'cursor',
-            cursor_name_in_request: 'pageToken',
-            cursor_path_in_response: 'nextPageToken',
-            response_path: 'results',
-            on_page: async ({ nextPageParam }) => {
-                nextPageToken = typeof nextPageParam === 'string' ? nextPageParam : undefined;
-            }
-        },
         retries: 3
     };
 
-    for await (const page of nango.paginate(proxyConfig)) {
-        const parseResult = z.array(CampaignBudgetResultSchema).safeParse(page);
-        if (!parseResult.success) {
-            throw new Error(`Failed to parse campaign budget page: ${parseResult.error.message}`);
-        }
-
-        const budgets: Array<{
-            id: string;
-            resourceName: string;
-            amountMicros?: string;
-            explicitlyShared?: boolean;
-            status?: string;
-            name?: string;
-        }> = [];
-
-        for (const row of parseResult.data) {
-            const cb = row.campaignBudget;
-            if (!cb) {
-                continue;
-            }
-            budgets.push({
-                id: cb.resourceName,
-                resourceName: cb.resourceName,
-                ...(cb.amountMicros != null && { amountMicros: cb.amountMicros }),
-                ...(cb.explicitlyShared != null && { explicitlyShared: cb.explicitlyShared }),
-                ...(cb.status != null && { status: cb.status }),
-                ...(cb.name != null && { name: cb.name })
-            });
-        }
-
-        if (budgets.length > 0) {
-            await nango.batchSave(budgets, 'CampaignBudget');
-        }
-
-        if (nextPageToken) {
-            await nango.saveCheckpoint({ page_token: nextPageToken, updated_after: '' });
-        }
+    const response = await nango.post(proxyConfig);
+    const rows = extractSearchStreamRows(response.data);
+    const parseResult = z.array(CampaignBudgetResultSchema).safeParse(rows);
+    if (!parseResult.success) {
+        throw new Error(`Failed to parse campaign budget rows: ${parseResult.error.message}`);
     }
 
-    await nango.saveCheckpoint({ updated_after: now, page_token: '' });
+    const budgets = mapCampaignBudgetRows(parseResult.data);
+    if (budgets.length > 0) {
+        await nango.batchSave(budgets, 'CampaignBudget');
+    }
 }
 
 async function runIncrementalFetch(
@@ -180,53 +241,48 @@ async function runIncrementalFetch(
     updatedAfter: string,
     now: string
 ): Promise<void> {
-    const changeStatusQuery = `
-        SELECT
-            change_status.resource_type,
-            change_status.resource_status,
-            change_status.resource_name,
-            change_status.last_change_date_time
-        FROM change_status
-        WHERE change_status.resource_type = 'CAMPAIGN_BUDGET'
-            AND change_status.last_change_date_time > '${updatedAfter}'
-            AND change_status.last_change_date_time < '${now}'
-    `;
+    const changeMap = new Map<string, { resourceStatus: string; lastChangeDateTime: string }>();
 
-    const changeStatuses: Array<{ resourceType: string; resourceStatus: string; resourceName: string; lastChangeDateTime: string }> = [];
+    for (const day of eachDayInclusive(updatedAfter, now)) {
+        const changeStatusQuery = `
+            SELECT
+                change_status.resource_type,
+                change_status.resource_status,
+                change_status.campaign_budget,
+                change_status.last_change_date_time
+            FROM change_status
+            WHERE change_status.resource_type = 'CAMPAIGN_BUDGET'
+                AND change_status.last_change_date_time >= '${day}'
+                AND change_status.last_change_date_time <= '${day}'
+            LIMIT 10000
+        `;
 
-    const changeStatusProxyConfig: ProxyConfiguration = {
-        // https://developers.google.com/google-ads/api/docs/reporting/streaming
-        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
-        method: 'POST',
-        data: { query: changeStatusQuery },
-        headers,
-        paginate: {
-            type: 'cursor',
-            cursor_name_in_request: 'pageToken',
-            cursor_path_in_response: 'nextPageToken',
-            response_path: 'results'
-        },
-        retries: 3
-    };
+        const changeStatusProxyConfig: ProxyConfiguration = {
+            // https://developers.google.com/google-ads/api/docs/reporting/streaming
+            endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+            method: 'POST',
+            data: { query: changeStatusQuery },
+            headers,
+            retries: 3
+        };
 
-    for await (const page of nango.paginate(changeStatusProxyConfig)) {
-        const parseResult = z.array(ChangeStatusResultSchema).safeParse(page);
+        const response = await nango.post(changeStatusProxyConfig);
+        const rows = extractSearchStreamRows(response.data);
+        const parseResult = z.array(ChangeStatusResultSchema).safeParse(rows);
         if (!parseResult.success) {
-            throw new Error(`Failed to parse change_status page: ${parseResult.error.message}`);
+            throw new Error(`Failed to parse change_status rows: ${parseResult.error.message}`);
         }
 
         for (const row of parseResult.data) {
-            if (row.changeStatus) {
-                changeStatuses.push(row.changeStatus);
+            const cs = row.changeStatus;
+            const resourceName = cs?.campaignBudget;
+            if (!cs || !resourceName) {
+                continue;
             }
-        }
-    }
-
-    const changeMap = new Map<string, { resourceStatus: string; lastChangeDateTime: string }>();
-    for (const cs of changeStatuses) {
-        const existing = changeMap.get(cs.resourceName);
-        if (!existing || cs.lastChangeDateTime > existing.lastChangeDateTime) {
-            changeMap.set(cs.resourceName, { resourceStatus: cs.resourceStatus, lastChangeDateTime: cs.lastChangeDateTime });
+            const existing = changeMap.get(resourceName);
+            if (!existing || cs.lastChangeDateTime > existing.lastChangeDateTime) {
+                changeMap.set(resourceName, { resourceStatus: cs.resourceStatus, lastChangeDateTime: cs.lastChangeDateTime });
+            }
         }
     }
 
@@ -249,70 +305,43 @@ async function runIncrementalFetch(
     }
 
     if (changedNames.length > 0) {
-        const budgetQuery = `
-            SELECT
-                campaign_budget.resource_name,
-                campaign_budget.id,
-                campaign_budget.amount_micros,
-                campaign_budget.explicitly_shared,
-                campaign_budget.status,
-                campaign_budget.name
-            FROM campaign_budget
-            WHERE campaign_budget.resource_name IN ('${changedNames.join("','")}')
-        `;
+        const batchSize = 1000;
+        for (let i = 0; i < changedNames.length; i += batchSize) {
+            const batch = changedNames.slice(i, i + batchSize);
+            const budgetQuery = `
+                SELECT
+                    campaign_budget.resource_name,
+                    campaign_budget.id,
+                    campaign_budget.amount_micros,
+                    campaign_budget.explicitly_shared,
+                    campaign_budget.status,
+                    campaign_budget.name
+                FROM campaign_budget
+                WHERE campaign_budget.resource_name IN ('${batch.join("','")}')
+            `;
 
-        const budgetProxyConfig: ProxyConfiguration = {
-            // https://developers.google.com/google-ads/api/docs/reporting/streaming
-            endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
-            method: 'POST',
-            data: { query: budgetQuery },
-            headers,
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'pageToken',
-                cursor_path_in_response: 'nextPageToken',
-                response_path: 'results'
-            },
-            retries: 3
-        };
+            const budgetProxyConfig: ProxyConfiguration = {
+                // https://developers.google.com/google-ads/api/docs/reporting/streaming
+                endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                method: 'POST',
+                data: { query: budgetQuery },
+                headers,
+                retries: 3
+            };
 
-        for await (const page of nango.paginate(budgetProxyConfig)) {
-            const parseResult = z.array(CampaignBudgetResultSchema).safeParse(page);
+            const response = await nango.post(budgetProxyConfig);
+            const rows = extractSearchStreamRows(response.data);
+            const parseResult = z.array(CampaignBudgetResultSchema).safeParse(rows);
             if (!parseResult.success) {
-                throw new Error(`Failed to parse campaign budget refetch page: ${parseResult.error.message}`);
+                throw new Error(`Failed to parse campaign budget refetch rows: ${parseResult.error.message}`);
             }
 
-            const budgets: Array<{
-                id: string;
-                resourceName: string;
-                amountMicros?: string;
-                explicitlyShared?: boolean;
-                status?: string;
-                name?: string;
-            }> = [];
-
-            for (const row of parseResult.data) {
-                const cb = row.campaignBudget;
-                if (!cb) {
-                    continue;
-                }
-                budgets.push({
-                    id: cb.resourceName,
-                    resourceName: cb.resourceName,
-                    ...(cb.amountMicros != null && { amountMicros: cb.amountMicros }),
-                    ...(cb.explicitlyShared != null && { explicitlyShared: cb.explicitlyShared }),
-                    ...(cb.status != null && { status: cb.status }),
-                    ...(cb.name != null && { name: cb.name })
-                });
-            }
-
+            const budgets = mapCampaignBudgetRows(parseResult.data);
             if (budgets.length > 0) {
                 await nango.batchSave(budgets, 'CampaignBudget');
             }
         }
     }
-
-    await nango.saveCheckpoint({ updated_after: now, page_token: '' });
 }
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];

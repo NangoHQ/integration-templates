@@ -13,7 +13,10 @@ const MutateResponseSchema = z.object({
 
 const InputSchema = z.object({
     customerId: z.string().describe('The Google Ads customer ID. Example: "1781900691"'),
-    loginCustomerId: z.string().describe('The manager account ID for login-customer-id header. Example: "3608201627"'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     adGroupId: z.string().describe('The ad group ID where the ad will be created. Example: "197714341345"'),
     headlines: z.array(z.string()).min(3).describe('At least 3 headlines for the responsive search ad.'),
     descriptions: z.array(z.string()).min(2).describe('At least 2 descriptions for the responsive search ad.'),
@@ -61,7 +64,7 @@ const action = createAction({
             endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/adGroupAds:mutate`,
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': input.loginCustomerId
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             },
             data: requestBody,
             retries: 10

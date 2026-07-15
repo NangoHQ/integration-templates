@@ -14,8 +14,11 @@ const KeywordCriterionSchema = z.object({
     status: z.string().optional()
 });
 
+// Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
+// is encoded as a comma-separated string rather than an array.
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string(),
+    initialized_customer_ids: z.string()
 });
 
 const MetadataSchema = z.object({
@@ -52,13 +55,76 @@ const SearchStreamResultSchema = z.object({
 
 const ChangeStatusResultSchema = z.object({
     changeStatus: z.object({
-        resourceName: z.string(),
         resourceStatus: z.string(),
-        lastChangeDateTime: z.string().optional()
+        lastChangeDateTime: z.string().optional(),
+        adGroupCriterion: z.string().optional()
     })
 });
 
-const DEFAULT_LOGIN_CUSTOMER_ID = '3608201627';
+function isObject(value: unknown): value is Record<string, unknown> {
+    return typeof value === 'object' && value !== null;
+}
+
+// googleAds:searchStream returns every result chunk within a single HTTP response (either a JSON
+// array of chunks, or one chunk object) - it never accepts a pageToken for further HTTP requests.
+// https://developers.google.com/google-ads/api/docs/reporting/streaming
+function extractSearchStreamRows(data: unknown): unknown[] {
+    if (Array.isArray(data)) {
+        return data.flatMap((chunk: unknown) => {
+            if (!isObject(chunk)) {
+                return [];
+            }
+            const results = chunk['results'];
+            return Array.isArray(results) ? results : [];
+        });
+    }
+    if (isObject(data)) {
+        const results = data['results'];
+        if (Array.isArray(results)) {
+            return results;
+        }
+    }
+    return [];
+}
+
+function formatDate(date: Date): string {
+    const year = date.getUTCFullYear();
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+function parseDateOnly(dateStr: string): Date {
+    return new Date(`${dateStr}T00:00:00.000Z`);
+}
+
+function addDays(dateStr: string, days: number): string {
+    const date = parseDateOnly(dateStr);
+    date.setUTCDate(date.getUTCDate() + days);
+    return formatDate(date);
+}
+
+function daysBetween(startStr: string, endStr: string): number {
+    return Math.round((parseDateOnly(endStr).getTime() - parseDateOnly(startStr).getTime()) / (24 * 60 * 60 * 1000));
+}
+
+// change_status only guarantees 90 days of retention; a checkpoint older than that must trigger
+// a full refresh instead of an incremental query, or Google Ads rejects the filter.
+// https://developers.google.com/google-ads/api/docs/change-status
+const CHANGE_STATUS_RETENTION_DAYS = 90;
+
+// Walks [startStr, endStr] one calendar day at a time so a single change_status query window can
+// never need to return more than a day's worth of changes, keeping each query well under the
+// mandatory LIMIT 10000 for realistically sized accounts.
+function* eachDayInclusive(startStr: string, endStr: string): Generator<string> {
+    let current = startStr;
+    let iterations = 0;
+    while (current <= endStr && iterations < 3650) {
+        yield current;
+        current = addDays(current, 1);
+        iterations++;
+    }
+}
 
 function extractIdsFromResourceName(resourceName: string) {
     const match = resourceName.match(/customers\/(\d+)\/adGroupCriteria\/(\d+)~(\d+)/);
@@ -97,95 +163,62 @@ function mapResultToKeywordCriterion(result: z.infer<typeof SearchStreamResultSc
     };
 }
 
-async function fetchKeywordCriteriaViaSearchStream(nango: NangoSyncLocal, customerId: string, loginCustomerId: string, developerToken: string, query: string) {
-    // https://developers.google.com/google-ads/api/docs/reporting/streaming
+async function fetchKeywordCriteriaViaSearchStream(nango: NangoSyncLocal, customerId: string, headers: Record<string, string>, query: string) {
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/reporting/streaming
         endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
-        headers: {
-            'developer-token': developerToken,
-            'login-customer-id': loginCustomerId
-        },
-        data: {
-            query
-        },
-        paginate: {
-            type: 'cursor',
-            cursor_name_in_request: 'pageToken',
-            cursor_path_in_response: '0.nextPageToken',
-            response_path: '0.results'
-            // limit_name_in_request intentionally omitted: Google Ads API rejects pageSize in the JSON body
-        },
+        headers,
+        data: { query },
         retries: 3
     };
 
+    const response = await nango.post(proxyConfig);
+    const rows = extractSearchStreamRows(response.data);
+    const parsed = z.array(SearchStreamResultSchema).safeParse(rows);
+    if (!parsed.success) {
+        throw new Error(`Failed to parse SearchStream results: ${parsed.error.message}`);
+    }
+
     const criteria: z.infer<typeof KeywordCriterionSchema>[] = [];
-    for await (const page of nango.paginate(proxyConfig)) {
-        const parsed = z.array(SearchStreamResultSchema).safeParse(page);
-        if (!parsed.success) {
-            throw new Error(`Failed to parse SearchStream results: ${parsed.error.message}`);
-        }
-        for (const result of parsed.data) {
-            const criterion = mapResultToKeywordCriterion(result);
-            if (criterion) {
-                criteria.push(criterion);
-            }
+    for (const result of parsed.data) {
+        const criterion = mapResultToKeywordCriterion(result);
+        if (criterion) {
+            criteria.push(criterion);
         }
     }
     return criteria;
 }
 
-async function fetchChangeStatus(
-    nango: NangoSyncLocal,
-    customerId: string,
-    loginCustomerId: string,
-    developerToken: string,
-    updatedAfter: string,
-    now: string
-) {
-    // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
+async function fetchChangeStatusForDay(nango: NangoSyncLocal, customerId: string, headers: Record<string, string>, day: string) {
     const query = `
         SELECT
-            change_status.resource_name,
             change_status.resource_status,
-            change_status.last_change_date_time
+            change_status.last_change_date_time,
+            change_status.ad_group_criterion
         FROM change_status
-        WHERE change_status.resource_type = AD_GROUP_CRITERION
-            AND change_status.last_change_date_time > '${updatedAfter}'
-            AND change_status.last_change_date_time < '${now}'
+        WHERE change_status.resource_type = 'AD_GROUP_CRITERION'
+            AND change_status.last_change_date_time >= '${day}'
+            AND change_status.last_change_date_time <= '${day}'
+        LIMIT 10000
     `;
 
     const proxyConfig: ProxyConfiguration = {
-        // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
+        // https://developers.google.com/google-ads/api/docs/change-status
         endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
-        headers: {
-            'developer-token': developerToken,
-            'login-customer-id': loginCustomerId
-        },
-        data: {
-            query
-        },
-        paginate: {
-            type: 'cursor',
-            cursor_name_in_request: 'pageToken',
-            cursor_path_in_response: '0.nextPageToken',
-            response_path: '0.results'
-            // limit_name_in_request intentionally omitted: Google Ads API rejects pageSize in the JSON body
-        },
+        headers,
+        data: { query },
         retries: 3
     };
 
-    const changes: z.infer<typeof ChangeStatusResultSchema>[] = [];
-    for await (const page of nango.paginate(proxyConfig)) {
-        const parsed = z.array(ChangeStatusResultSchema).safeParse(page);
-        if (!parsed.success) {
-            throw new Error(`Failed to parse change_status results: ${parsed.error.message}`);
-        }
-        changes.push(...parsed.data);
+    const response = await nango.post(proxyConfig);
+    const rows = extractSearchStreamRows(response.data);
+    const parsed = z.array(ChangeStatusResultSchema).safeParse(rows);
+    if (!parsed.success) {
+        throw new Error(`Failed to parse change_status results: ${parsed.error.message}`);
     }
-    return changes;
+    return parsed.data;
 }
 
 const sync = createSync({
@@ -210,22 +243,28 @@ const sync = createSync({
             throw new Error('customer_ids is required in metadata');
         }
 
-        const loginCustomerId = parsedMetadata.data.login_customer_id ?? DEFAULT_LOGIN_CUSTOMER_ID;
+        const loginCustomerId = parsedMetadata.data.login_customer_id;
         const developerToken = parsedMetadata.data.developer_token;
+        const headers: Record<string, string> = {
+            'developer-token': developerToken,
+            ...(loginCustomerId && { 'login-customer-id': loginCustomerId })
+        };
 
         const checkpoint = await nango.getCheckpoint();
-        let updatedAfter: string | undefined;
-        if (checkpoint) {
-            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
-            if (parsedCheckpoint.success) {
-                updatedAfter = parsedCheckpoint.data.updated_after;
-            }
-        }
+        const parsedCheckpoint = checkpoint ? CheckpointSchema.safeParse(checkpoint) : undefined;
+        const globalUpdatedAfter = parsedCheckpoint && parsedCheckpoint.success ? parsedCheckpoint.data.updated_after : undefined;
+        const initializedCustomerIds = new Set(
+            (parsedCheckpoint && parsedCheckpoint.success ? (parsedCheckpoint.data.initialized_customer_ids ?? '') : '').split(',').filter(Boolean)
+        );
 
-        const now = new Date().toISOString();
+        const now = formatDate(new Date());
 
         for (const customerId of customerIds) {
-            if (!updatedAfter) {
+            const isNewAccount = !initializedCustomerIds.has(customerId);
+            const isStaleCheckpoint = globalUpdatedAfter !== undefined && daysBetween(globalUpdatedAfter, now) >= CHANGE_STATUS_RETENTION_DAYS;
+            const needsFullRefresh = !globalUpdatedAfter || isNewAccount || isStaleCheckpoint;
+
+            if (needsFullRefresh) {
                 const fullQuery = `
                     SELECT
                         ad_group_criterion.resource_name,
@@ -236,51 +275,66 @@ const sync = createSync({
                         ad_group.id,
                         campaign.id
                     FROM ad_group_criterion
-                    WHERE ad_group_criterion.type = KEYWORD
+                    WHERE ad_group_criterion.type = 'KEYWORD'
                 `;
-                const criteria = await fetchKeywordCriteriaViaSearchStream(nango, customerId, loginCustomerId, developerToken, fullQuery);
+                const criteria = await fetchKeywordCriteriaViaSearchStream(nango, customerId, headers, fullQuery);
                 if (criteria.length > 0) {
                     await nango.batchSave(criteria, 'KeywordCriterion');
                 }
             } else {
-                const changes = await fetchChangeStatus(nango, customerId, loginCustomerId, developerToken, updatedAfter, now);
+                const removed: Array<{ id: string }> = [];
+                const changedResourceNames: string[] = [];
 
-                const removed = changes
-                    .filter((change) => change.changeStatus.resourceStatus === 'REMOVED')
-                    .map((change) => ({ id: change.changeStatus.resourceName }));
+                for (const day of eachDayInclusive(globalUpdatedAfter, now)) {
+                    const changes = await fetchChangeStatusForDay(nango, customerId, headers, day);
 
-                const changedResourceNames = changes
-                    .filter((change) => change.changeStatus.resourceStatus === 'ADDED' || change.changeStatus.resourceStatus === 'CHANGED')
-                    .map((change) => change.changeStatus.resourceName);
+                    for (const change of changes) {
+                        const resourceName = change.changeStatus.adGroupCriterion;
+                        if (!resourceName) {
+                            continue;
+                        }
+                        if (change.changeStatus.resourceStatus === 'REMOVED') {
+                            removed.push({ id: resourceName });
+                        } else if (change.changeStatus.resourceStatus === 'ADDED' || change.changeStatus.resourceStatus === 'CHANGED') {
+                            changedResourceNames.push(resourceName);
+                        }
+                    }
+                }
 
                 if (removed.length > 0) {
                     await nango.batchDelete(removed, 'KeywordCriterion');
                 }
 
                 if (changedResourceNames.length > 0) {
-                    const inClause = changedResourceNames.map((name) => `'${name}'`).join(',');
-                    const refetchQuery = `
-                        SELECT
-                            ad_group_criterion.resource_name,
-                            ad_group_criterion.status,
-                            ad_group_criterion.negative,
-                            ad_group_criterion.keyword.text,
-                            ad_group_criterion.keyword.match_type,
-                            ad_group.id,
-                            campaign.id
-                        FROM ad_group_criterion
-                        WHERE ad_group_criterion.type = KEYWORD
-                            AND ad_group_criterion.resource_name IN (${inClause})
-                    `;
-                    const criteria = await fetchKeywordCriteriaViaSearchStream(nango, customerId, loginCustomerId, developerToken, refetchQuery);
-                    if (criteria.length > 0) {
-                        await nango.batchSave(criteria, 'KeywordCriterion');
+                    const batchSize = 1000;
+                    for (let i = 0; i < changedResourceNames.length; i += batchSize) {
+                        const batch = changedResourceNames.slice(i, i + batchSize);
+                        const inClause = batch.map((name) => `'${name}'`).join(',');
+                        const refetchQuery = `
+                            SELECT
+                                ad_group_criterion.resource_name,
+                                ad_group_criterion.status,
+                                ad_group_criterion.negative,
+                                ad_group_criterion.keyword.text,
+                                ad_group_criterion.keyword.match_type,
+                                ad_group.id,
+                                campaign.id
+                            FROM ad_group_criterion
+                            WHERE ad_group_criterion.type = 'KEYWORD'
+                                AND ad_group_criterion.resource_name IN (${inClause})
+                        `;
+                        const criteria = await fetchKeywordCriteriaViaSearchStream(nango, customerId, headers, refetchQuery);
+                        if (criteria.length > 0) {
+                            await nango.batchSave(criteria, 'KeywordCriterion');
+                        }
                     }
                 }
             }
+
+            initializedCustomerIds.add(customerId);
         }
 
-        await nango.saveCheckpoint({ updated_after: now });
+        await nango.saveCheckpoint({ updated_after: now, initialized_customer_ids: [...initializedCustomerIds].join(',') });
     }
 });
 

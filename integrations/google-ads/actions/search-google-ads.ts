@@ -28,6 +28,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input) => {
         // https://developers.google.com/google-ads/api/docs/reporting/streaming

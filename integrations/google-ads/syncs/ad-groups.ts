@@ -7,8 +7,11 @@ const MetadataSchema = z.object({
     developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
+// Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
+// is encoded as a comma-separated string rather than an array.
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string(),
+    initialized_customer_ids: z.string()
 });
 
 const AdGroupSchema = z.object({
@@ -58,12 +61,8 @@ const ChangeStatusRowSchema = z.object({
     changeStatus: z
         .object({
             resourceStatus: z.string().optional(),
-            lastChangeDateTime: z.string().optional()
-        })
-        .optional(),
-    adGroup: z
-        .object({
-            resourceName: z.string().optional()
+            lastChangeDateTime: z.string().optional(),
+            adGroup: z.string().optional()
         })
         .optional()
 });
@@ -81,9 +80,110 @@ const CustomerClientRowSchema = z.object({
         .optional()
 });
 
+const GoogleAdsErrorDetailSchema = z.object({
+    errors: z
+        .array(
+            z.object({
+                errorCode: z
+                    .object({
+                        authorizationError: z.string().optional()
+                    })
+                    .optional(),
+                message: z.string().optional()
+            })
+        )
+        .optional()
+});
+
+const GoogleAdsErrorPayloadSchema = z.object({
+    error: z
+        .object({
+            details: z.array(GoogleAdsErrorDetailSchema).optional()
+        })
+        .optional()
+});
+
+const GoogleAdsErrorSchema = z.object({
+    response: z
+        .object({
+            data: z.union([GoogleAdsErrorPayloadSchema, z.array(GoogleAdsErrorPayloadSchema)]).optional()
+        })
+        .optional()
+});
+
+function isDeveloperTokenNotApprovedError(rawError: unknown): boolean {
+    const parsed = GoogleAdsErrorSchema.safeParse(rawError);
+    if (!parsed.success) {
+        return false;
+    }
+    const data = parsed.data.response?.data;
+    const payload = Array.isArray(data) ? data[0] : data;
+    const details = payload?.error?.details;
+    const authError = details?.[0]?.errors?.[0]?.errorCode?.authorizationError;
+    return authError === 'DEVELOPER_TOKEN_NOT_APPROVED';
+}
+
 function formatDate(date: Date): string {
     const iso = date.toISOString();
     return iso.slice(0, iso.indexOf('T'));
+}
+
+function parseDateOnly(dateStr: string): Date {
+    return new Date(`${dateStr}T00:00:00.000Z`);
+}
+
+function addDays(dateStr: string, days: number): string {
+    const date = parseDateOnly(dateStr);
+    date.setUTCDate(date.getUTCDate() + days);
+    return formatDate(date);
+}
+
+function daysBetween(startStr: string, endStr: string): number {
+    return Math.round((parseDateOnly(endStr).getTime() - parseDateOnly(startStr).getTime()) / (24 * 60 * 60 * 1000));
+}
+
+// change_status only guarantees 90 days of retention; a checkpoint older than that must trigger
+// a full refresh instead of an incremental query, or Google Ads rejects the filter.
+// https://developers.google.com/google-ads/api/docs/change-status
+const CHANGE_STATUS_RETENTION_DAYS = 90;
+
+// Walks [startStr, endStr] one calendar day at a time so a single change_status query window can
+// never need to return more than a day's worth of changes, keeping each query well under the
+// mandatory LIMIT 10000 for realistically sized accounts.
+function* eachDayInclusive(startStr: string, endStr: string): Generator<string> {
+    let current = startStr;
+    let iterations = 0;
+    while (current <= endStr && iterations < 3650) {
+        yield current;
+        current = addDays(current, 1);
+        iterations++;
+    }
+}
+
+function mapStreamRowsToAdGroups(rawResults: unknown[]): Array<z.infer<typeof AdGroupSchema>> {
+    const adGroups: Array<z.infer<typeof AdGroupSchema>> = [];
+    for (const rawResult of rawResults) {
+        const result = SearchStreamRowSchema.parse(rawResult);
+        if (result.adGroup.status === 'REMOVED') {
+            continue;
+        }
+        adGroups.push({
+            id: result.adGroup.resourceName,
+            resource_name: result.adGroup.resourceName,
+            campaign_id: result.campaign?.id,
+            campaign_name: result.campaign?.name,
+            name: result.adGroup.name,
+            status: result.adGroup.status,
+            type: result.adGroup.type,
+            cpc_bid_micros: result.adGroup.cpcBidMicros,
+            cpm_bid_micros: result.adGroup.cpmBidMicros,
+            target_cpa_micros: result.adGroup.targetCpaMicros,
+            target_roas: result.adGroup.targetRoas,
+            tracking_url_template: result.adGroup.trackingUrlTemplate,
+            final_url_suffix: result.adGroup.finalUrlSuffix
+        });
+    }
+    return adGroups;
 }
 
 const sync = createSync({
@@ -150,7 +250,7 @@ const sync = createSync({
                     retries: 3
                 };
 
-                // @allowTryCatch Skip accounts where the developer token is not approved
+                // @allowTryCatch Skip accounts where the developer token is not approved; re-throw everything else.
                 try {
                     const clientResponse = await nango.post(clientConfig);
                     const clientData = z
@@ -168,15 +268,19 @@ const sync = createSync({
                             });
                         }
                     }
-                } catch (_err) {
-                    // Intentionally skip accounts that reject the developer token
+                } catch (err) {
+                    if (isDeveloperTokenNotApprovedError(err)) {
+                        continue;
+                    }
+                    throw err;
                 }
             }
         }
 
         const now = new Date();
-        const updatedAfter = checkpoint?.updated_after;
+        const globalUpdatedAfter = checkpoint?.updated_after;
         const queryUntil = formatDate(now);
+        const initializedCustomerIds = new Set((checkpoint?.initialized_customer_ids ?? '').split(',').filter(Boolean));
 
         for (const account of accountsToProcess) {
             const headers: Record<string, string> = {
@@ -186,8 +290,13 @@ const sync = createSync({
                 headers['login-customer-id'] = account.loginCustomerId;
             }
 
-            if (!updatedAfter) {
-                // Full refresh on first run
+            const isNewAccount = !initializedCustomerIds.has(account.customerId);
+            const isStaleCheckpoint = globalUpdatedAfter !== undefined && daysBetween(globalUpdatedAfter, queryUntil) >= CHANGE_STATUS_RETENTION_DAYS;
+            const needsFullRefresh = !globalUpdatedAfter || isNewAccount || isStaleCheckpoint;
+
+            if (needsFullRefresh) {
+                // Full refresh: first run overall, a newly discovered/added account with no prior
+                // history, or a checkpoint too old for change_status's 90-day retention window.
                 const streamConfig: ProxyConfiguration = {
                     // https://developers.google.com/google-ads/api/docs/reporting/streaming
                     endpoint: `v21/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
@@ -204,74 +313,52 @@ const sync = createSync({
                 const chunks = Array.isArray(streamData) ? streamData : [streamData];
                 const allResults = chunks.flatMap((chunk) => chunk.results ?? []);
 
-                const adGroups = [];
-                for (const rawResult of allResults) {
-                    const result = SearchStreamRowSchema.parse(rawResult);
-                    if (result.adGroup.status === 'REMOVED') {
-                        continue;
-                    }
-                    adGroups.push({
-                        id: result.adGroup.resourceName,
-                        resource_name: result.adGroup.resourceName,
-                        campaign_id: result.campaign?.id,
-                        campaign_name: result.campaign?.name,
-                        name: result.adGroup.name,
-                        status: result.adGroup.status,
-                        type: result.adGroup.type,
-                        cpc_bid_micros: result.adGroup.cpcBidMicros,
-                        cpm_bid_micros: result.adGroup.cpmBidMicros,
-                        target_cpa_micros: result.adGroup.targetCpaMicros,
-                        target_roas: result.adGroup.targetRoas,
-                        tracking_url_template: result.adGroup.trackingUrlTemplate,
-                        final_url_suffix: result.adGroup.finalUrlSuffix
-                    });
-                }
-
+                const adGroups = mapStreamRowsToAdGroups(allResults);
                 if (adGroups.length > 0) {
                     await nango.batchSave(adGroups, 'AdGroup');
                 }
             } else {
-                // Incremental: query change_status for changed/removed ad groups
-                const lowerBound = updatedAfter;
-                const upperBound = queryUntil;
-
-                const changeStatusQuery =
-                    "SELECT change_status.resource_status, change_status.last_change_date_time, ad_group.resource_name FROM change_status WHERE change_status.resource_type = 'AD_GROUP' AND change_status.last_change_date_time >= '" +
-                    lowerBound +
-                    "' AND change_status.last_change_date_time <= '" +
-                    upperBound +
-                    "' LIMIT 10000";
-
-                const changeStatusConfig: ProxyConfiguration = {
-                    // https://developers.google.com/google-ads/api/docs/change-status
-                    endpoint: `v21/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
-                    method: 'POST',
-                    headers,
-                    data: { query: changeStatusQuery },
-                    retries: 3
-                };
-
-                const changeResponse = await nango.post(changeStatusConfig);
-                const changeData = SearchStreamResponseSchema.parse(changeResponse.data);
-                const changeChunks = Array.isArray(changeData) ? changeData : [changeData];
-                const changeResults = changeChunks.flatMap((chunk) => chunk.results ?? []);
-
+                // Incremental: query change_status for changed/removed ad groups, one calendar day
+                // at a time so no single query window can silently exceed the mandatory LIMIT 10000.
                 const removedIds: string[] = [];
                 const changedResourceNames: string[] = [];
 
-                for (const rawResult of changeResults) {
-                    const result = ChangeStatusRowSchema.parse(rawResult);
-                    const status = result.changeStatus?.resourceStatus;
-                    const resourceName = result.adGroup?.resourceName;
+                for (const day of eachDayInclusive(globalUpdatedAfter, queryUntil)) {
+                    const changeStatusQuery =
+                        "SELECT change_status.resource_status, change_status.last_change_date_time, change_status.ad_group FROM change_status WHERE change_status.resource_type = 'AD_GROUP' AND change_status.last_change_date_time >= '" +
+                        day +
+                        "' AND change_status.last_change_date_time <= '" +
+                        day +
+                        "' LIMIT 10000";
 
-                    if (!resourceName) {
-                        continue;
-                    }
+                    const changeStatusConfig: ProxyConfiguration = {
+                        // https://developers.google.com/google-ads/api/docs/change-status
+                        endpoint: `v21/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
+                        method: 'POST',
+                        headers,
+                        data: { query: changeStatusQuery },
+                        retries: 3
+                    };
 
-                    if (status === 'REMOVED') {
-                        removedIds.push(resourceName);
-                    } else if (status === 'ADDED' || status === 'CHANGED') {
-                        changedResourceNames.push(resourceName);
+                    const changeResponse = await nango.post(changeStatusConfig);
+                    const changeData = SearchStreamResponseSchema.parse(changeResponse.data);
+                    const changeChunks = Array.isArray(changeData) ? changeData : [changeData];
+                    const changeResults = changeChunks.flatMap((chunk) => chunk.results ?? []);
+
+                    for (const rawResult of changeResults) {
+                        const result = ChangeStatusRowSchema.parse(rawResult);
+                        const status = result.changeStatus?.resourceStatus;
+                        const resourceName = result.changeStatus?.adGroup;
+
+                        if (!resourceName) {
+                            continue;
+                        }
+
+                        if (status === 'REMOVED') {
+                            removedIds.push(resourceName);
+                        } else if (status === 'ADDED' || status === 'CHANGED') {
+                            changedResourceNames.push(resourceName);
+                        }
                     }
                 }
 
@@ -303,37 +390,17 @@ const sync = createSync({
                     const refetchChunks = Array.isArray(refetchData) ? refetchData : [refetchData];
                     const refetchResults = refetchChunks.flatMap((chunk) => chunk.results ?? []);
 
-                    const adGroups = [];
-                    for (const rawResult of refetchResults) {
-                        const result = SearchStreamRowSchema.parse(rawResult);
-                        if (result.adGroup.status === 'REMOVED') {
-                            continue;
-                        }
-                        adGroups.push({
-                            id: result.adGroup.resourceName,
-                            resource_name: result.adGroup.resourceName,
-                            campaign_id: result.campaign?.id,
-                            campaign_name: result.campaign?.name,
-                            name: result.adGroup.name,
-                            status: result.adGroup.status,
-                            type: result.adGroup.type,
-                            cpc_bid_micros: result.adGroup.cpcBidMicros,
-                            cpm_bid_micros: result.adGroup.cpmBidMicros,
-                            target_cpa_micros: result.adGroup.targetCpaMicros,
-                            target_roas: result.adGroup.targetRoas,
-                            tracking_url_template: result.adGroup.trackingUrlTemplate,
-                            final_url_suffix: result.adGroup.finalUrlSuffix
-                        });
-                    }
-
+                    const adGroups = mapStreamRowsToAdGroups(refetchResults);
                     if (adGroups.length > 0) {
                         await nango.batchSave(adGroups, 'AdGroup');
                     }
                 }
             }
+
+            initializedCustomerIds.add(account.customerId);
         }
 
-        await nango.saveCheckpoint({ updated_after: queryUntil });
+        await nango.saveCheckpoint({ updated_after: queryUntil, initialized_customer_ids: [...initializedCustomerIds].join(',') });
     }
 });
 

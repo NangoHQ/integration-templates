@@ -3,7 +3,10 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     customerId: z.string().describe('The Google Ads customer ID. Example: "1781900691"'),
-    loginCustomerId: z.string().describe('The manager account customer ID for authorization. Example: "3608201627"'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     resourceName: z
         .string()
         .describe('The resource name of the campaign criterion to remove. Example: "customers/1781900691/campaignCriteria/24027360183~2515302470834"'),
@@ -34,6 +37,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -41,7 +45,7 @@ const action = createAction({
             endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': input.loginCustomerId
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             },
             data: {
                 operations: [

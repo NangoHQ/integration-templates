@@ -7,6 +7,10 @@ const InputSchema = z.object({
     type: z.string().describe('Ad group type. Example: "SEARCH_STANDARD"'),
     status: z.string().describe('Ad group status. Example: "ENABLED" or "PAUSED"'),
     cpcBidMicros: z.string().describe('CPC bid in micros. Example: "1000000"'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
@@ -88,7 +92,7 @@ const action = createAction({
             data: requestBody,
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': '3608201627'
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             },
             retries: 3
         });

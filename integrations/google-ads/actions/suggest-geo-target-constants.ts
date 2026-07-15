@@ -20,8 +20,8 @@ const InputSchema = z
             .describe('Geo target constant resource names to filter by.'),
         developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
     })
-    .refine((data) => data.locationNames !== undefined || data.geoTargetConstants !== undefined, {
-        message: 'Either locationNames or geoTargetConstants must be provided.'
+    .refine((data) => (data.locationNames !== undefined ? 1 : 0) + (data.geoTargetConstants !== undefined ? 1 : 0) === 1, {
+        message: 'Exactly one of locationNames or geoTargetConstants must be provided, not both.'
     });
 
 const GeoTargetConstantSchema = z.object({

@@ -3,7 +3,10 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     customer_id: z.string().describe('Customer ID. Example: "1781900691"'),
-    login_customer_id: z.string().describe('Manager account ID for access. Example: "3608201627"'),
+    login_customer_id: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     ad_group_id: z.string().describe('Ad group ID. Example: "197714341345"'),
     text: z.string().describe('Keyword text. Example: "free"'),
     match_type: z.enum(['EXACT', 'PHRASE', 'BROAD']).describe('Keyword match type. Example: "EXACT"'),
@@ -40,7 +43,7 @@ const action = createAction({
             endpoint: `v21/customers/${customerId}/adGroupCriteria:mutate`,
             headers: {
                 'developer-token': input.developer_token,
-                'login-customer-id': input.login_customer_id
+                ...(input.login_customer_id && { 'login-customer-id': input.login_customer_id })
             },
             data: {
                 operations: [

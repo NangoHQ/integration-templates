@@ -6,6 +6,10 @@ const InputSchema = z.object({
     campaignId: z.string().describe('Campaign ID. Example: "24027360183"'),
     text: z.string().describe('Negative keyword text. Example: "free"'),
     matchType: z.enum(['EXACT', 'PHRASE', 'BROAD']).describe('Keyword match type.'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
@@ -38,7 +42,7 @@ const action = createAction({
             endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': '3608201627'
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             },
             data: {
                 operations: [

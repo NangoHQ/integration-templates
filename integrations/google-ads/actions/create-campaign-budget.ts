@@ -4,7 +4,10 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     customerId: z.string().describe('The Google Ads customer ID. Example: "1781900691"'),
-    loginCustomerId: z.string().describe('The manager account ID used as login-customer-id. Example: "3608201627"'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     name: z.string().describe('The name of the campaign budget.'),
     amountMicros: z.string().describe('The budget amount in micros. Example: "1000000"'),
     deliveryMethod: z.enum(['STANDARD', 'ACCELERATED']).describe('The delivery method for the budget.'),
@@ -57,7 +60,7 @@ const action = createAction({
             },
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': input.loginCustomerId
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             },
             retries: 3
         };

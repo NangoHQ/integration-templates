@@ -7,8 +7,11 @@ const MetadataSchema = z.object({
     developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
+// Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
+// is encoded as a comma-separated string rather than an array.
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string(),
+    initialized_customer_ids: z.string()
 });
 
 const CampaignCriterionSchema = z.object({
@@ -74,6 +77,38 @@ function formatDate(date: Date): string {
     return `${year}-${month}-${day}`;
 }
 
+function parseDateOnly(dateStr: string): Date {
+    return new Date(`${dateStr}T00:00:00.000Z`);
+}
+
+function addDays(dateStr: string, days: number): string {
+    const date = parseDateOnly(dateStr);
+    date.setUTCDate(date.getUTCDate() + days);
+    return formatDate(date);
+}
+
+function daysBetween(startStr: string, endStr: string): number {
+    return Math.round((parseDateOnly(endStr).getTime() - parseDateOnly(startStr).getTime()) / (24 * 60 * 60 * 1000));
+}
+
+// change_status only guarantees 90 days of retention; a checkpoint older than that must trigger
+// a full refresh instead of an incremental query, or Google Ads rejects the filter.
+// https://developers.google.com/google-ads/api/docs/change-status
+const CHANGE_STATUS_RETENTION_DAYS = 90;
+
+// Walks [startStr, endStr] one calendar day at a time so a single change_status query window can
+// never need to return more than a day's worth of changes, keeping each day's query (even with
+// page-token pagination) well under the mandatory LIMIT 10000 for realistically sized accounts.
+function* eachDayInclusive(startStr: string, endStr: string): Generator<string> {
+    let current = startStr;
+    let iterations = 0;
+    while (current <= endStr && iterations < 3650) {
+        yield current;
+        current = addDays(current, 1);
+        iterations++;
+    }
+}
+
 function extractCampaignId(resourceName: string): string {
     const parts = resourceName.split('/');
     const lastPart = parts[parts.length - 1];
@@ -124,59 +159,66 @@ const sync = createSync({
 
         const checkpointRaw = await nango.getCheckpoint();
         const checkpoint = checkpointRaw ? CheckpointSchema.parse(checkpointRaw) : undefined;
-        const updatedAfter = checkpoint?.updated_after;
+        const globalUpdatedAfter = checkpoint?.updated_after;
+        const initializedCustomerIds = new Set((checkpoint?.initialized_customer_ids ?? '').split(',').filter(Boolean));
         const queryUntil = formatDate(new Date());
 
         for (const customerId of metadata.customerIds) {
             const headers = buildHeaders(metadata);
 
-            if (updatedAfter) {
+            const isNewAccount = !initializedCustomerIds.has(customerId);
+            const isStaleCheckpoint = globalUpdatedAfter !== undefined && daysBetween(globalUpdatedAfter, queryUntil) >= CHANGE_STATUS_RETENTION_DAYS;
+            const needsFullRefresh = !globalUpdatedAfter || isNewAccount || isStaleCheckpoint;
+
+            if (!needsFullRefresh) {
                 const changedResourceNames: string[] = [];
                 const removedResourceNames: string[] = [];
 
-                let csPageToken: string | undefined;
-                do {
-                    const csQuery = `SELECT
-                        change_status.campaign_criterion,
-                        change_status.resource_status,
-                        change_status.resource_type,
-                        change_status.last_change_date_time
-                    FROM change_status
-                    WHERE change_status.resource_type = 'CAMPAIGN_CRITERION'
-                        AND change_status.last_change_date_time >= '${updatedAfter}'
-                        AND change_status.last_change_date_time <= '${queryUntil}'
-                    LIMIT 10000`;
+                for (const day of eachDayInclusive(globalUpdatedAfter, queryUntil)) {
+                    let csPageToken: string | undefined;
+                    do {
+                        const csQuery = `SELECT
+                            change_status.campaign_criterion,
+                            change_status.resource_status,
+                            change_status.resource_type,
+                            change_status.last_change_date_time
+                        FROM change_status
+                        WHERE change_status.resource_type = 'CAMPAIGN_CRITERION'
+                            AND change_status.last_change_date_time >= '${day}'
+                            AND change_status.last_change_date_time <= '${day}'
+                        LIMIT 10000`;
 
-                    const csConfig: ProxyConfiguration = {
-                        // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:search`,
-                        data: {
-                            query: csQuery,
-                            ...(csPageToken && { pageToken: csPageToken })
-                        },
-                        headers,
-                        retries: 3
-                    };
+                        const csConfig: ProxyConfiguration = {
+                            // https://developers.google.com/google-ads/api/docs/reporting/streaming
+                            endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:search`,
+                            data: {
+                                query: csQuery,
+                                ...(csPageToken && { pageToken: csPageToken })
+                            },
+                            headers,
+                            retries: 3
+                        };
 
-                    const csResponse = await nango.post(csConfig);
-                    const csParsed = SearchResponseSchema.parse(csResponse.data);
-                    const csResults = csParsed.results ?? [];
+                        const csResponse = await nango.post(csConfig);
+                        const csParsed = SearchResponseSchema.parse(csResponse.data);
+                        const csResults = csParsed.results ?? [];
 
-                    for (const row of csResults) {
-                        const status = row.changeStatus?.resourceStatus;
-                        const name = row.changeStatus?.campaignCriterion;
-                        if (!name) {
-                            throw new Error('Missing campaignCriterion in change_status row');
+                        for (const row of csResults) {
+                            const status = row.changeStatus?.resourceStatus;
+                            const name = row.changeStatus?.campaignCriterion;
+                            if (!name) {
+                                throw new Error('Missing campaignCriterion in change_status row');
+                            }
+                            if (status === 'REMOVED') {
+                                removedResourceNames.push(name);
+                            } else if (status === 'ADDED' || status === 'CHANGED') {
+                                changedResourceNames.push(name);
+                            }
                         }
-                        if (status === 'REMOVED') {
-                            removedResourceNames.push(name);
-                        } else if (status === 'ADDED' || status === 'CHANGED') {
-                            changedResourceNames.push(name);
-                        }
-                    }
 
-                    csPageToken = csParsed.nextPageToken;
-                } while (csPageToken);
+                        csPageToken = csParsed.nextPageToken;
+                    } while (csPageToken);
+                }
 
                 if (changedResourceNames.length > 0) {
                     const batchSize = 1000;
@@ -264,10 +306,13 @@ const sync = createSync({
                     pageToken = parsed.nextPageToken;
                 } while (pageToken);
             }
+
+            initializedCustomerIds.add(customerId);
         }
 
         await nango.saveCheckpoint({
-            updated_after: queryUntil
+            updated_after: queryUntil,
+            initialized_customer_ids: [...initializedCustomerIds].join(',')
         });
     }
 });

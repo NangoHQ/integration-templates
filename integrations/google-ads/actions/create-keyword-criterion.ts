@@ -8,6 +8,10 @@ const InputSchema = z.object({
     keywordMatchType: z.enum(['EXACT', 'PHRASE', 'BROAD']).describe('Keyword match type. Example: "EXACT"'),
     status: z.enum(['ENABLED', 'PAUSED']).describe('Criterion status. Example: "ENABLED"'),
     cpcBidMicros: z.number().optional().describe('Optional CPC bid in micros. Example: 1000000'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
@@ -29,6 +33,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const mutateBody: {
@@ -66,7 +71,7 @@ const action = createAction({
             retries: 1,
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': '3608201627'
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             }
         });
 

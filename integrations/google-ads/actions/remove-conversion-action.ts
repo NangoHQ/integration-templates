@@ -4,6 +4,10 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     resourceName: z.string().describe('Resource name of the conversion action to remove. Example: customers/123/conversionActions/456'),
+    loginCustomerId: z
+        .string()
+        .optional()
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
 });
 
@@ -49,7 +53,7 @@ const action = createAction({
             endpoint: `v21/customers/${encodeURIComponent(customerId)}/conversionActions:mutate`,
             headers: {
                 'developer-token': input.developerToken,
-                'login-customer-id': '3608201627'
+                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
             },
             data: {
                 operations: [
