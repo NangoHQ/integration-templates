@@ -62,9 +62,9 @@ function isObject(value: unknown): value is Record<string, unknown> {
 }
 
 function formatDate(date: Date): string {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
+    const year = date.getUTCFullYear();
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
 }
 
@@ -87,9 +87,8 @@ function daysBetween(startStr: string, endStr: string): number {
 // https://developers.google.com/google-ads/api/docs/change-status
 const CHANGE_STATUS_RETENTION_DAYS = 90;
 
-// Walks [startStr, endStr] one calendar day at a time so a single change_status query window can
-// never need to return more than a day's worth of changes, keeping each query well under the
-// mandatory LIMIT 10000 for realistically sized accounts.
+// Walks [startStr, endStr] one calendar day at a time so each change_status window starts no
+// larger than a day; a saturated day is further split by time (see collectChangeStatusRows).
 function* eachDayInclusive(startStr: string, endStr: string): Generator<string> {
     let current = startStr;
     let iterations = 0;
@@ -98,6 +97,69 @@ function* eachDayInclusive(startStr: string, endStr: string): Generator<string> 
         current = addDays(current, 1);
         iterations++;
     }
+}
+
+function parseDateTime(dateTimeStr: string): Date {
+    return new Date(`${dateTimeStr.replace(' ', 'T')}Z`);
+}
+
+function formatDateTime(date: Date): string {
+    return date.toISOString().slice(0, 19).replace('T', ' ');
+}
+
+function midpointDateTime(startStr: string, endStr: string): string {
+    const startMs = parseDateTime(startStr).getTime();
+    const endMs = parseDateTime(endStr).getTime();
+    return formatDateTime(new Date(startMs + Math.floor((endMs - startMs) / 2)));
+}
+
+function addOneSecond(dateTimeStr: string): string {
+    const date = parseDateTime(dateTimeStr);
+    date.setUTCSeconds(date.getUTCSeconds() + 1);
+    return formatDateTime(date);
+}
+
+// A single change_status query is capped at LIMIT 10000. A day that saturates that cap is split
+// in half by time and re-queried recursively, so a high-churn day never silently loses changes
+// beyond the first 10,000. If a window still saturates after MAX_CHANGE_STATUS_SPLIT_DEPTH splits
+// (down to sub-second windows), we fail loudly instead of advancing the checkpoint past unseen
+// changes.
+const MAX_CHANGE_STATUS_SPLIT_DEPTH = 8;
+
+type ChangeStatusRow = { status: string; resourceName: string; lastChangeDateTime: string };
+
+async function collectChangeStatusRows(
+    fetchWindow: (start: string, end: string) => Promise<ChangeStatusRow[]>,
+    startStr: string,
+    endStr: string,
+    depth: number,
+    sink: Map<string, { status: string; lastChangeDateTime: string }>
+): Promise<void> {
+    const rows = await fetchWindow(startStr, endStr);
+    if (rows.length >= 10000) {
+        if (depth >= MAX_CHANGE_STATUS_SPLIT_DEPTH) {
+            throw new Error(
+                `change_status query saturated (>=10000 rows) for window ${startStr}..${endStr} even after ${depth} splits; refusing to advance the checkpoint to avoid silently dropping changes.`
+            );
+        }
+        const mid = midpointDateTime(startStr, endStr);
+        if (mid === startStr || mid === endStr) {
+            throw new Error(`change_status window ${startStr}..${endStr} cannot be split further but is still saturated; refusing to advance the checkpoint.`);
+        }
+        await collectChangeStatusRows(fetchWindow, startStr, mid, depth + 1, sink);
+        await collectChangeStatusRows(fetchWindow, addOneSecond(mid), endStr, depth + 1, sink);
+        return;
+    }
+    for (const row of rows) {
+        const existing = sink.get(row.resourceName);
+        if (!existing || row.lastChangeDateTime > existing.lastChangeDateTime) {
+            sink.set(row.resourceName, { status: row.status, lastChangeDateTime: row.lastChangeDateTime });
+        }
+    }
+}
+
+function extractCustomerId(resourceName: string): string | undefined {
+    return resourceName.match(/^customers\/(\d+)\//)?.[1];
 }
 
 function extractSearchStreamRows(data: unknown): unknown[] {
@@ -148,7 +210,16 @@ const sync = createSync({
         const checkpointResult = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
         const checkpoint = checkpointResult && checkpointResult.success ? checkpointResult.data : null;
         const globalUpdatedAfter = checkpoint?.updated_after;
-        const initializedCustomerIds = new Set((checkpoint?.initialized_customer_ids ?? '').split(',').filter(Boolean));
+        const currentCustomerIds = new Set(metadata.customer_ids);
+        // Prune to customers currently in scope: if a customer was previously removed from
+        // metadata.customer_ids and is now added back, it must not be treated as already
+        // initialized — any changes made while it was out of scope would otherwise be missed.
+        const initializedCustomerIds = new Set(
+            (checkpoint?.initialized_customer_ids ?? '')
+                .split(',')
+                .filter(Boolean)
+                .filter((id) => currentCustomerIds.has(id))
+        );
         const now = formatDate(new Date());
 
         async function searchStream(customerId: string, loginCustomerId: string, query: string): Promise<unknown[]> {
@@ -209,22 +280,66 @@ FROM campaign
 WHERE campaign.status != 'REMOVED'
 `;
 
+        const customerNeedsFullRefresh = new Map<string, boolean>();
         for (const customerId of metadata.customer_ids) {
             const isNewAccount = !initializedCustomerIds.has(customerId);
             const isStaleCheckpoint = globalUpdatedAfter !== undefined && daysBetween(globalUpdatedAfter, now) >= CHANGE_STATUS_RETENTION_DAYS;
-            const needsFullRefresh = !globalUpdatedAfter || isNewAccount || isStaleCheckpoint;
+            customerNeedsFullRefresh.set(customerId, !globalUpdatedAfter || isNewAccount || isStaleCheckpoint);
+        }
+
+        // A full refresh only fetches currently-active campaigns; without this, anything removed
+        // (or removed while the checkpoint was stale/uninitialized) would linger in the model
+        // forever. Build a one-time map of previously-synced IDs per customer so each full-refresh
+        // branch can delete whatever it no longer sees.
+        const previousIdsByCustomer = new Map<string, Set<string>>();
+        if ([...customerNeedsFullRefresh.values()].some(Boolean)) {
+            for await (const record of nango.listRecords('Campaign')) {
+                const id = String(record.id);
+                const custId = extractCustomerId(id);
+                if (!custId) {
+                    continue;
+                }
+                let bucket = previousIdsByCustomer.get(custId);
+                if (!bucket) {
+                    bucket = new Set();
+                    previousIdsByCustomer.set(custId, bucket);
+                }
+                bucket.add(id);
+            }
+        }
+
+        for (const customerId of metadata.customer_ids) {
+            const needsFullRefresh = customerNeedsFullRefresh.get(customerId) ?? true;
 
             if (needsFullRefresh) {
                 const rows = await searchStream(customerId, metadata.login_customer_id, fullQuery);
                 const campaigns = parseCampaignRows(rows);
+
+                const previousIds = previousIdsByCustomer.get(customerId);
+                if (previousIds) {
+                    const currentIds = new Set(campaigns.map((c) => c.id));
+                    const staleIds = [...previousIds].filter((id) => !currentIds.has(id));
+                    if (staleIds.length > 0) {
+                        await nango.batchDelete(
+                            staleIds.map((id) => ({ id })),
+                            'Campaign'
+                        );
+                    }
+                }
+
                 if (campaigns.length > 0) {
                     await nango.batchSave(campaigns, 'Campaign');
                 }
             } else {
+                if (!globalUpdatedAfter) {
+                    throw new Error('Invariant violated: incremental path reached without a checkpoint.');
+                }
+                const updatedAfter = globalUpdatedAfter;
                 const removed: string[] = [];
                 const changed: string[] = [];
+                const changeSink = new Map<string, { status: string; lastChangeDateTime: string }>();
 
-                for (const day of eachDayInclusive(globalUpdatedAfter, now)) {
+                const fetchWindow = async (start: string, end: string): Promise<ChangeStatusRow[]> => {
                     const changeQuery = `
 SELECT
   change_status.resource_name,
@@ -233,11 +348,12 @@ SELECT
   change_status.campaign
 FROM change_status
 WHERE change_status.resource_type = 'CAMPAIGN'
-  AND change_status.last_change_date_time >= '${day}'
-  AND change_status.last_change_date_time <= '${day}'
+  AND change_status.last_change_date_time >= '${start}'
+  AND change_status.last_change_date_time <= '${end}'
 LIMIT 10000
 `;
                     const changeRows = await searchStream(customerId, metadata.login_customer_id, changeQuery);
+                    const rows: ChangeStatusRow[] = [];
                     for (const row of changeRows) {
                         const parsed = ProviderChangeStatusRowSchema.safeParse(row);
                         if (!parsed.success) {
@@ -245,12 +361,21 @@ LIMIT 10000
                         }
                         const cs = parsed.data.changeStatus;
                         if (cs.campaign) {
-                            if (cs.resourceStatus === 'REMOVED') {
-                                removed.push(cs.campaign);
-                            } else if (cs.resourceStatus === 'ADDED' || cs.resourceStatus === 'CHANGED') {
-                                changed.push(cs.campaign);
-                            }
+                            rows.push({ status: cs.resourceStatus, resourceName: cs.campaign, lastChangeDateTime: cs.lastChangeDateTime });
                         }
+                    }
+                    return rows;
+                };
+
+                for (const day of eachDayInclusive(updatedAfter, now)) {
+                    await collectChangeStatusRows(fetchWindow, `${day} 00:00:00`, `${day} 23:59:59`, 0, changeSink);
+                }
+
+                for (const [resourceName, info] of changeSink) {
+                    if (info.status === 'REMOVED') {
+                        removed.push(resourceName);
+                    } else if (info.status === 'ADDED' || info.status === 'CHANGED') {
+                        changed.push(resourceName);
                     }
                 }
 

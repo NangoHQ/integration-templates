@@ -92,7 +92,7 @@ const action = createAction({
             data: requestBody,
             headers: {
                 'developer-token': input.developerToken,
-                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
+                ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             retries: 3
         });

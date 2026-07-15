@@ -64,7 +64,7 @@ const action = createAction({
             endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/adGroupAds:mutate`,
             headers: {
                 'developer-token': input.developerToken,
-                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
+                ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             data: requestBody,
             retries: 10

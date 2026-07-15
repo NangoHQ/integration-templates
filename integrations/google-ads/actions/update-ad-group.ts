@@ -83,7 +83,7 @@ const action = createAction({
             'developer-token': input.developerToken
         };
 
-        if (input.loginCustomerId !== undefined) {
+        if (input.loginCustomerId) {
             headers['login-customer-id'] = input.loginCustomerId;
         }
 

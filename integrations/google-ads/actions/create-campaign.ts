@@ -33,8 +33,17 @@ const InputSchema = z.object({
     containsEuPoliticalAdvertising: z
         .enum(['CONTAINS_EU_POLITICAL_ADVERTISING', 'DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING'])
         .describe('EU political advertising flag.'),
-    targetCpaMicros: z.string().optional().describe('Average target CPA in micros. Required when biddingStrategy is "targetCpa". Example: "1000000"'),
-    targetRoas: z.number().optional().describe('Target return on ad spend. Required when biddingStrategy is "targetRoas". Example: 3.5'),
+    targetCpaMicros: z
+        .string()
+        .regex(/^[1-9]\d*$/, 'targetCpaMicros must be a positive integer (in micros)')
+        .optional()
+        .describe('Average target CPA in micros. Required when biddingStrategy is "targetCpa". Example: "1000000"'),
+    targetRoas: z
+        .number()
+        .min(0.01, 'targetRoas must be between 0.01 and 1000.0')
+        .max(1000, 'targetRoas must be between 0.01 and 1000.0')
+        .optional()
+        .describe('Target return on ad spend. Must be between 0.01 and 1000.0. Required when biddingStrategy is "targetRoas". Example: 3.5'),
     loginCustomerId: z
         .string()
         .optional()
@@ -105,7 +114,7 @@ const action = createAction({
             },
             headers: {
                 'developer-token': input.developerToken,
-                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
+                ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             retries: 3
         });

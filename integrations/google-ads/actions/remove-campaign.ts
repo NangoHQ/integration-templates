@@ -55,7 +55,7 @@ const action = createAction({
             endpoint: `/v21/customers/${encodeURIComponent(customerId)}/campaigns:mutate`,
             headers: {
                 'developer-token': input.developerToken,
-                ...(input.loginCustomerId !== undefined && { 'login-customer-id': input.loginCustomerId })
+                ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             data: {
                 operations: [

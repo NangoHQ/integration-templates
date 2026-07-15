@@ -147,9 +147,8 @@ function daysBetween(startStr: string, endStr: string): number {
 // https://developers.google.com/google-ads/api/docs/change-status
 const CHANGE_STATUS_RETENTION_DAYS = 90;
 
-// Walks [startStr, endStr] one calendar day at a time so a single change_status query window can
-// never need to return more than a day's worth of changes, keeping each query well under the
-// mandatory LIMIT 10000 for realistically sized accounts.
+// Walks [startStr, endStr] one calendar day at a time so each change_status window starts no
+// larger than a day; a saturated day is further split by time (see collectChangeStatusRows).
 function* eachDayInclusive(startStr: string, endStr: string): Generator<string> {
     let current = startStr;
     let iterations = 0;
@@ -157,6 +156,65 @@ function* eachDayInclusive(startStr: string, endStr: string): Generator<string> 
         yield current;
         current = addDays(current, 1);
         iterations++;
+    }
+}
+
+function parseDateTime(dateTimeStr: string): Date {
+    return new Date(`${dateTimeStr.replace(' ', 'T')}Z`);
+}
+
+function formatDateTime(date: Date): string {
+    return date.toISOString().slice(0, 19).replace('T', ' ');
+}
+
+function midpointDateTime(startStr: string, endStr: string): string {
+    const startMs = parseDateTime(startStr).getTime();
+    const endMs = parseDateTime(endStr).getTime();
+    return formatDateTime(new Date(startMs + Math.floor((endMs - startMs) / 2)));
+}
+
+function addOneSecond(dateTimeStr: string): string {
+    const date = parseDateTime(dateTimeStr);
+    date.setUTCSeconds(date.getUTCSeconds() + 1);
+    return formatDateTime(date);
+}
+
+// A single change_status query is capped at LIMIT 10000. A day that saturates that cap is split
+// in half by time and re-queried recursively, so a high-churn day never silently loses changes
+// beyond the first 10,000. If a window still saturates after MAX_CHANGE_STATUS_SPLIT_DEPTH splits
+// (down to sub-second windows), we fail loudly instead of advancing the checkpoint past unseen
+// changes.
+const MAX_CHANGE_STATUS_SPLIT_DEPTH = 8;
+
+type ChangeStatusRow = { status: string; resourceName: string; lastChangeDateTime: string };
+
+async function collectChangeStatusRows(
+    fetchWindow: (start: string, end: string) => Promise<ChangeStatusRow[]>,
+    startStr: string,
+    endStr: string,
+    depth: number,
+    sink: Map<string, { status: string; lastChangeDateTime: string }>
+): Promise<void> {
+    const rows = await fetchWindow(startStr, endStr);
+    if (rows.length >= 10000) {
+        if (depth >= MAX_CHANGE_STATUS_SPLIT_DEPTH) {
+            throw new Error(
+                `change_status query saturated (>=10000 rows) for window ${startStr}..${endStr} even after ${depth} splits; refusing to advance the checkpoint to avoid silently dropping changes.`
+            );
+        }
+        const mid = midpointDateTime(startStr, endStr);
+        if (mid === startStr || mid === endStr) {
+            throw new Error(`change_status window ${startStr}..${endStr} cannot be split further but is still saturated; refusing to advance the checkpoint.`);
+        }
+        await collectChangeStatusRows(fetchWindow, startStr, mid, depth + 1, sink);
+        await collectChangeStatusRows(fetchWindow, addOneSecond(mid), endStr, depth + 1, sink);
+        return;
+    }
+    for (const row of rows) {
+        const existing = sink.get(row.resourceName);
+        if (!existing || row.lastChangeDateTime > existing.lastChangeDateTime) {
+            sink.set(row.resourceName, { status: row.status, lastChangeDateTime: row.lastChangeDateTime });
+        }
     }
 }
 
@@ -184,6 +242,10 @@ function mapStreamRowsToAdGroups(rawResults: unknown[]): Array<z.infer<typeof Ad
         });
     }
     return adGroups;
+}
+
+function extractCustomerId(resourceName: string): string | undefined {
+    return resourceName.match(/^customers\/(\d+)\//)?.[1];
 }
 
 const sync = createSync({
@@ -280,7 +342,45 @@ const sync = createSync({
         const now = new Date();
         const globalUpdatedAfter = checkpoint?.updated_after;
         const queryUntil = formatDate(now);
-        const initializedCustomerIds = new Set((checkpoint?.initialized_customer_ids ?? '').split(',').filter(Boolean));
+        // Prune to accounts currently in scope: if an account was previously removed (from
+        // metadata.customer_ids, or no longer discovered under the manager hierarchy) and is now
+        // back, it must not be treated as already initialized — any changes made while it was out
+        // of scope would otherwise be missed.
+        const currentAccountIds = new Set(accountsToProcess.map((a) => a.customerId));
+        const initializedCustomerIds = new Set(
+            (checkpoint?.initialized_customer_ids ?? '')
+                .split(',')
+                .filter(Boolean)
+                .filter((id) => currentAccountIds.has(id))
+        );
+
+        const accountNeedsFullRefresh = new Map<string, boolean>();
+        for (const account of accountsToProcess) {
+            const isNewAccount = !initializedCustomerIds.has(account.customerId);
+            const isStaleCheckpoint = globalUpdatedAfter !== undefined && daysBetween(globalUpdatedAfter, queryUntil) >= CHANGE_STATUS_RETENTION_DAYS;
+            accountNeedsFullRefresh.set(account.customerId, !globalUpdatedAfter || isNewAccount || isStaleCheckpoint);
+        }
+
+        // A full refresh only fetches currently-active ad groups; without this, anything removed
+        // (or removed while the checkpoint was stale/uninitialized) would linger in the model
+        // forever. Build a one-time map of previously-synced IDs per customer so each full-refresh
+        // branch can delete whatever it no longer sees.
+        const previousIdsByCustomer = new Map<string, Set<string>>();
+        if ([...accountNeedsFullRefresh.values()].some(Boolean)) {
+            for await (const record of nango.listRecords('AdGroup')) {
+                const id = String(record.id);
+                const custId = extractCustomerId(id);
+                if (!custId) {
+                    continue;
+                }
+                let bucket = previousIdsByCustomer.get(custId);
+                if (!bucket) {
+                    bucket = new Set();
+                    previousIdsByCustomer.set(custId, bucket);
+                }
+                bucket.add(id);
+            }
+        }
 
         for (const account of accountsToProcess) {
             const headers: Record<string, string> = {
@@ -290,9 +390,7 @@ const sync = createSync({
                 headers['login-customer-id'] = account.loginCustomerId;
             }
 
-            const isNewAccount = !initializedCustomerIds.has(account.customerId);
-            const isStaleCheckpoint = globalUpdatedAfter !== undefined && daysBetween(globalUpdatedAfter, queryUntil) >= CHANGE_STATUS_RETENTION_DAYS;
-            const needsFullRefresh = !globalUpdatedAfter || isNewAccount || isStaleCheckpoint;
+            const needsFullRefresh = accountNeedsFullRefresh.get(account.customerId) ?? true;
 
             if (needsFullRefresh) {
                 // Full refresh: first run overall, a newly discovered/added account with no prior
@@ -314,21 +412,39 @@ const sync = createSync({
                 const allResults = chunks.flatMap((chunk) => chunk.results ?? []);
 
                 const adGroups = mapStreamRowsToAdGroups(allResults);
+
+                const previousIds = previousIdsByCustomer.get(account.customerId);
+                if (previousIds) {
+                    const currentIds = new Set(adGroups.map((g) => g.id));
+                    const staleIds = [...previousIds].filter((id) => !currentIds.has(id));
+                    if (staleIds.length > 0) {
+                        await nango.batchDelete(
+                            staleIds.map((id) => ({ id })),
+                            'AdGroup'
+                        );
+                    }
+                }
+
                 if (adGroups.length > 0) {
                     await nango.batchSave(adGroups, 'AdGroup');
                 }
             } else {
                 // Incremental: query change_status for changed/removed ad groups, one calendar day
-                // at a time so no single query window can silently exceed the mandatory LIMIT 10000.
+                // at a time; a saturated day is further split by time (see collectChangeStatusRows).
+                if (!globalUpdatedAfter) {
+                    throw new Error('Invariant violated: incremental path reached without a checkpoint.');
+                }
+                const updatedAfter = globalUpdatedAfter;
                 const removedIds: string[] = [];
                 const changedResourceNames: string[] = [];
+                const changeSink = new Map<string, { status: string; lastChangeDateTime: string }>();
 
-                for (const day of eachDayInclusive(globalUpdatedAfter, queryUntil)) {
+                const fetchWindow = async (start: string, end: string): Promise<ChangeStatusRow[]> => {
                     const changeStatusQuery =
                         "SELECT change_status.resource_status, change_status.last_change_date_time, change_status.ad_group FROM change_status WHERE change_status.resource_type = 'AD_GROUP' AND change_status.last_change_date_time >= '" +
-                        day +
+                        start +
                         "' AND change_status.last_change_date_time <= '" +
-                        day +
+                        end +
                         "' LIMIT 10000";
 
                     const changeStatusConfig: ProxyConfiguration = {
@@ -345,20 +461,31 @@ const sync = createSync({
                     const changeChunks = Array.isArray(changeData) ? changeData : [changeData];
                     const changeResults = changeChunks.flatMap((chunk) => chunk.results ?? []);
 
+                    const rows: ChangeStatusRow[] = [];
                     for (const rawResult of changeResults) {
                         const result = ChangeStatusRowSchema.parse(rawResult);
-                        const status = result.changeStatus?.resourceStatus;
                         const resourceName = result.changeStatus?.adGroup;
-
                         if (!resourceName) {
                             continue;
                         }
+                        rows.push({
+                            status: result.changeStatus?.resourceStatus ?? '',
+                            resourceName,
+                            lastChangeDateTime: result.changeStatus?.lastChangeDateTime ?? ''
+                        });
+                    }
+                    return rows;
+                };
 
-                        if (status === 'REMOVED') {
-                            removedIds.push(resourceName);
-                        } else if (status === 'ADDED' || status === 'CHANGED') {
-                            changedResourceNames.push(resourceName);
-                        }
+                for (const day of eachDayInclusive(updatedAfter, queryUntil)) {
+                    await collectChangeStatusRows(fetchWindow, `${day} 00:00:00`, `${day} 23:59:59`, 0, changeSink);
+                }
+
+                for (const [resourceName, info] of changeSink) {
+                    if (info.status === 'REMOVED') {
+                        removedIds.push(resourceName);
+                    } else if (info.status === 'ADDED' || info.status === 'CHANGED') {
+                        changedResourceNames.push(resourceName);
                     }
                 }
 
