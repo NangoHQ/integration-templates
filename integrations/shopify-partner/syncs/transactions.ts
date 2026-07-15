@@ -62,6 +62,10 @@ const EdgeSchema = z.object({
     node: TransactionNodeSchema.nullable().optional()
 });
 
+const GraphQLErrorSchema = z.object({
+    message: z.string()
+});
+
 const TransactionsResponseSchema = z.object({
     data: z.object({
         transactions: z.object({
@@ -70,7 +74,8 @@ const TransactionsResponseSchema = z.object({
                 hasNextPage: z.boolean()
             })
         })
-    })
+    }),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const sync = createSync({
@@ -192,7 +197,7 @@ const sync = createSync({
                 data: {
                     query: transactionQuery,
                     variables: {
-                        first: 5,
+                        first: 50,
                         after: currentCursor ?? null,
                         createdAtMin: resumeCreatedAtMin ?? null
                     }
@@ -204,6 +209,10 @@ const sync = createSync({
             const parsedResponse = TransactionsResponseSchema.safeParse(response.data);
             if (!parsedResponse.success) {
                 throw new Error('Failed to parse transactions response: ' + parsedResponse.error.message);
+            }
+
+            if (parsedResponse.data.errors && parsedResponse.data.errors.length > 0) {
+                throw new Error(`GraphQL errors: ${parsedResponse.data.errors.map((e) => e.message).join(', ')}`);
             }
 
             const edges = parsedResponse.data.data.transactions.edges;

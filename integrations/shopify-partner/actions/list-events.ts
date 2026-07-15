@@ -205,14 +205,23 @@ const action = createAction({
             })
         });
 
-        const parsed = dataSchema.parse(rawBody);
+        const result = dataSchema.safeParse(rawBody);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: `Unexpected response shape from the Partner API: ${result.error.message}`
+            });
+        }
+
+        const parsed = result.data;
         const events = parsed.data.events.edges.map((edge) => PartnerEventSchema.parse(edge.node));
 
         return {
             events,
-            ...(parsed.data.events.pageInfo.endCursor != null && {
-                nextCursor: parsed.data.events.pageInfo.endCursor
-            })
+            ...(parsed.data.events.pageInfo.hasNextPage &&
+                parsed.data.events.pageInfo.endCursor != null && {
+                    nextCursor: parsed.data.events.pageInfo.endCursor
+                })
         };
     }
 });

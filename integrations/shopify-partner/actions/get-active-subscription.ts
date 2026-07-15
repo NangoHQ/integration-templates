@@ -209,7 +209,15 @@ const action = createAction({
             retries: 3
         });
 
-        const payload = GraphQLResponseSchema.parse(response.data);
+        const result = GraphQLResponseSchema.safeParse(response.data);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: `Unexpected response shape from the Partner API: ${result.error.message}`
+            });
+        }
+
+        const payload = result.data;
 
         const errors = payload.errors;
         const firstError = errors?.[0];

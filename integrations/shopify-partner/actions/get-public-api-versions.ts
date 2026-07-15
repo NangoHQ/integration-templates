@@ -9,10 +9,18 @@ const ApiVersionSchema = z.object({
     supported: z.boolean()
 });
 
+const GraphQLErrorSchema = z.object({
+    message: z.string(),
+    extensions: z.record(z.string(), z.unknown()).optional()
+});
+
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        publicApiVersions: z.array(ApiVersionSchema)
-    })
+    data: z
+        .object({
+            publicApiVersions: z.array(ApiVersionSchema)
+        })
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const OutputSchema = z.object({
@@ -49,10 +57,34 @@ const action = createAction({
             retries: 3
         });
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
+        const result = ProviderResponseSchema.safeParse(response.data);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: `Unexpected response shape from the Partner API: ${result.error.message}`
+            });
+        }
+
+        const parsed = result.data;
+
+        const firstError = parsed.errors?.[0];
+        if (firstError) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: firstError.message,
+                errors: parsed.errors
+            });
+        }
+
+        if (!parsed.data) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: 'The Shopify Partner API returned no data and no errors.'
+            });
+        }
 
         return {
-            versions: providerResponse.data.publicApiVersions.map((version) => ({
+            versions: parsed.data.publicApiVersions.map((version) => ({
                 handle: version.handle,
                 displayName: version.displayName,
                 supported: version.supported

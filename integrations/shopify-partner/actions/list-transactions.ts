@@ -19,7 +19,9 @@ const TransactionTypeEnum = z.enum([
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    first: z.number().optional().describe('Number of results to return. Defaults to 50.'),
+    // The transactions connection rejects page sizes over 100 (confirmed against the live API;
+    // unlike events/app.events it does not accept up to 250).
+    first: z.number().int().min(1).max(100).optional().describe('Number of results to return. Defaults to 50, maximum 100.'),
     shopId: z.string().optional().describe('Shop GID filter. Example: gid://partners/Shop/123'),
     myshopifyDomain: z.string().optional().describe('Shop domain filter. Example: my-shop.myshopify.com'),
     appId: z.string().optional().describe('App GID filter. Example: gid://partners/App/123'),
@@ -209,7 +211,15 @@ const action = createAction({
 
         const response = await nango.post(config);
 
-        const parsed = GraphQLResponseSchema.parse(response.data);
+        const result = GraphQLResponseSchema.safeParse(response.data);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: `Unexpected response shape from the Partner API: ${result.error.message}`
+            });
+        }
+
+        const parsed = result.data;
 
         if (parsed.errors && parsed.errors.length > 0) {
             throw new nango.ActionError({

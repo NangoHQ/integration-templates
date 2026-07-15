@@ -74,7 +74,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read_partner_events'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://shopify.dev/docs/api/partner/latest/queries/app
@@ -120,15 +120,24 @@ const action = createAction({
             retries: 3
         });
 
-        if (response.data && Array.isArray(response.data.errors) && response.data.errors.length > 0) {
+        const result = ProviderResponseSchema.safeParse(response.data);
+        if (!result.success) {
             throw new nango.ActionError({
-                type: 'graphql_error',
-                message: response.data.errors[0].message,
-                errors: response.data.errors
+                type: 'invalid_response',
+                message: `Unexpected response shape from the Partner API: ${result.error.message}`
             });
         }
 
-        const parsed = ProviderResponseSchema.parse(response.data);
+        const parsed = result.data;
+
+        const firstError = parsed.errors?.[0];
+        if (firstError) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: firstError.message,
+                errors: parsed.errors
+            });
+        }
 
         if (parsed.data.app == null) {
             await nango.log(`App returned null for ${input.appId}; may not exist or may not be accessible`);
