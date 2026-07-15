@@ -54,23 +54,38 @@ function isObject(value: unknown): value is Record<string, unknown> {
 // googleAds:searchStream returns every result chunk within a single HTTP response (either a JSON
 // array of chunks, or one chunk object) - it never accepts a pageToken for further HTTP requests.
 // https://developers.google.com/google-ads/api/docs/reporting/streaming
+//
+// Throws on a genuinely unrecognized envelope shape rather than silently degrading to an empty
+// result, so a malformed/unexpected response can never be misread as "there is nothing here" —
+// which, combined with full-refresh deletion reconciliation, could otherwise purge every
+// previously-synced budget for a customer based on a bad response.
 function extractSearchStreamRows(data: unknown): unknown[] {
     if (Array.isArray(data)) {
         return data.flatMap((chunk: unknown) => {
             if (!isObject(chunk)) {
-                return [];
+                throw new Error('Unexpected searchStream chunk: expected an object.');
             }
             const results = chunk['results'];
-            return Array.isArray(results) ? results : [];
+            if (results === undefined) {
+                return [];
+            }
+            if (!Array.isArray(results)) {
+                throw new Error('Unexpected searchStream chunk: `results` is present but not an array.');
+            }
+            return results;
         });
     }
     if (isObject(data)) {
         const results = data['results'];
-        if (Array.isArray(results)) {
-            return results;
+        if (results === undefined) {
+            return [];
         }
+        if (!Array.isArray(results)) {
+            throw new Error('Unexpected searchStream response: `results` is present but not an array.');
+        }
+        return results;
     }
-    return [];
+    throw new Error('Unexpected searchStream response: expected an array of chunks or a single chunk object.');
 }
 
 function formatDate(date: Date): string {
@@ -125,18 +140,16 @@ function midpointDateTime(startStr: string, endStr: string): string {
     return formatDateTime(new Date(startMs + Math.floor((endMs - startMs) / 2)));
 }
 
-function addOneSecond(dateTimeStr: string): string {
-    const date = parseDateTime(dateTimeStr);
-    date.setUTCSeconds(date.getUTCSeconds() + 1);
-    return formatDateTime(date);
-}
-
 // A single change_status query is capped at LIMIT 10000. A window that saturates that cap is
 // split in half by time and re-queried recursively, so a high-churn day never silently loses
-// changes beyond the first 10,000. If a window still saturates after
-// MAX_CHANGE_STATUS_SPLIT_DEPTH splits (down to sub-second windows), we fail loudly instead of
-// advancing the checkpoint past unseen changes.
-const MAX_CHANGE_STATUS_SPLIT_DEPTH = 8;
+// changes beyond the first 10,000. Windows are half-open [start, end) — the first half ends
+// exclusively at `mid` and the second half starts inclusively at `mid` — so there is never a gap
+// between them; a change_status literal at exactly the midpoint instant is counted exactly once,
+// even though last_change_date_time carries microsecond precision the query literals can't
+// express directly. A 24-hour window needs at most 17 splits to reach 1-second resolution (the
+// finest the API can filter on); MAX_CHANGE_STATUS_SPLIT_DEPTH gives head room beyond that so a
+// window only fails once it truly cannot be split further (>=10000 changes in a single second).
+const MAX_CHANGE_STATUS_SPLIT_DEPTH = 24;
 
 type ChangeStatusRow = { status: string; resourceName: string; lastChangeDateTime: string };
 
@@ -151,15 +164,17 @@ async function collectChangeStatusRows(
     if (rows.length >= 10000) {
         if (depth >= MAX_CHANGE_STATUS_SPLIT_DEPTH) {
             throw new Error(
-                `change_status query saturated (>=10000 rows) for window ${startStr}..${endStr} even after ${depth} splits; refusing to advance the checkpoint to avoid silently dropping changes.`
+                `change_status query saturated (>=10000 rows) for window [${startStr}, ${endStr}) even after ${depth} splits; refusing to advance the checkpoint to avoid silently dropping changes.`
             );
         }
         const mid = midpointDateTime(startStr, endStr);
         if (mid === startStr || mid === endStr) {
-            throw new Error(`change_status window ${startStr}..${endStr} cannot be split further but is still saturated; refusing to advance the checkpoint.`);
+            throw new Error(
+                `change_status window [${startStr}, ${endStr}) cannot be split further (already at 1-second resolution) but is still saturated; refusing to advance the checkpoint.`
+            );
         }
         await collectChangeStatusRows(fetchWindow, startStr, mid, depth + 1, sink);
-        await collectChangeStatusRows(fetchWindow, addOneSecond(mid), endStr, depth + 1, sink);
+        await collectChangeStatusRows(fetchWindow, mid, endStr, depth + 1, sink);
         return;
     }
     for (const row of rows) {
@@ -333,21 +348,31 @@ async function runFullFetch(
         throw new Error(`Failed to parse campaign budget rows: ${parseResult.error.message}`);
     }
 
-    const budgets = mapCampaignBudgetRows(parseResult.data);
+    const mapped = mapCampaignBudgetRows(parseResult.data);
+    const activeBudgets = mapped.filter((b) => b.status !== 'REMOVED');
+    const activeIds = new Set(activeBudgets.map((b) => b.id));
 
+    // A plain campaign_budget query (no status filter) returns REMOVED budgets too — route those
+    // to delete instead of upserting them. Combine with the previousIds/currentIds reconciliation
+    // via a Set so a budget that is both REMOVED in this fetch and absent from previousIds is
+    // never queued for deletion twice.
+    const idsToDelete = new Set(mapped.filter((b) => b.status === 'REMOVED').map((b) => b.id));
     if (previousIds) {
-        const currentIds = new Set(budgets.map((b) => b.id));
-        const staleIds = [...previousIds].filter((id) => !currentIds.has(id));
-        if (staleIds.length > 0) {
-            await nango.batchDelete(
-                staleIds.map((id) => ({ id })),
-                'CampaignBudget'
-            );
+        for (const id of previousIds) {
+            if (!activeIds.has(id)) {
+                idsToDelete.add(id);
+            }
         }
     }
+    if (idsToDelete.size > 0) {
+        await nango.batchDelete(
+            [...idsToDelete].map((id) => ({ id })),
+            'CampaignBudget'
+        );
+    }
 
-    if (budgets.length > 0) {
-        await nango.batchSave(budgets, 'CampaignBudget');
+    if (activeBudgets.length > 0) {
+        await nango.batchSave(activeBudgets, 'CampaignBudget');
     }
 }
 
@@ -370,7 +395,7 @@ async function runIncrementalFetch(
             FROM change_status
             WHERE change_status.resource_type = 'CAMPAIGN_BUDGET'
                 AND change_status.last_change_date_time >= '${start}'
-                AND change_status.last_change_date_time <= '${end}'
+                AND change_status.last_change_date_time < '${end}'
             LIMIT 10000
         `;
 
@@ -402,8 +427,12 @@ async function runIncrementalFetch(
         return result;
     };
 
-    for (const day of eachDayInclusive(updatedAfter, now)) {
-        await collectChangeStatusRows(fetchWindow, `${day} 00:00:00`, `${day} 23:59:59`, 0, changeMap);
+    // change_status.last_change_date_time is reported in the account's own timezone, not UTC.
+    // Walking one extra day past the UTC "now" watermark (while still checkpointing at the true,
+    // unpadded value) absorbs that skew so a change that Google timestamps as being "ahead" of
+    // UTC is never missed.
+    for (const day of eachDayInclusive(updatedAfter, addDays(now, 1))) {
+        await collectChangeStatusRows(fetchWindow, `${day} 00:00:00`, `${addDays(day, 1)} 00:00:00`, 0, changeMap);
     }
 
     const removedNames: string[] = [];

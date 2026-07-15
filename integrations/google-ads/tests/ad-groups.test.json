@@ -1,0 +1,215 @@
+{
+  "nango": {
+    "getMetadata": {
+      "customer_ids": [
+        "1781900691"
+      ],
+      "login_customer_id": "3608201627",
+      "developer_token": "YOUR_DEVELOPER_TOKEN"
+    },
+    "batchSave": {
+      "AdGroup": [
+        {
+          "id": "customers/1781900691/adGroups/197714341345",
+          "resource_name": "customers/1781900691/adGroups/197714341345",
+          "campaign_id": "24027360183",
+          "campaign_name": "Seed Campaign Keep 1 Updated",
+          "name": "Seed Ad Group Keep 1 - Updated",
+          "status": "PAUSED",
+          "type": "SEARCH_STANDARD",
+          "cpc_bid_micros": "1000000",
+          "cpm_bid_micros": "10000",
+          "target_cpa_micros": "0"
+        },
+        {
+          "id": "customers/1781900691/adGroups/197714341385",
+          "resource_name": "customers/1781900691/adGroups/197714341385",
+          "campaign_id": "24027360186",
+          "campaign_name": "Seed Campaign Keep 2",
+          "name": "Seed Ad Group Keep 2",
+          "status": "PAUSED",
+          "type": "SEARCH_STANDARD",
+          "cpc_bid_micros": "1000000",
+          "cpm_bid_micros": "10000",
+          "target_cpa_micros": "0"
+        },
+        {
+          "id": "customers/1781900691/adGroups/199386323178",
+          "resource_name": "customers/1781900691/adGroups/199386323178",
+          "campaign_id": "24027360183",
+          "campaign_name": "Seed Campaign Keep 1 Updated",
+          "name": "Nango Test Ad Group 2026-07-15",
+          "status": "ENABLED",
+          "type": "SEARCH_STANDARD",
+          "cpc_bid_micros": "1000000",
+          "cpm_bid_micros": "10000",
+          "target_cpa_micros": "0"
+        },
+        {
+          "id": "customers/1781900691/adGroups/199918694042",
+          "resource_name": "customers/1781900691/adGroups/199918694042",
+          "campaign_id": "24027360183",
+          "campaign_name": "Seed Campaign Keep 1 Updated",
+          "name": "Nango Test Ad Group Save 1784077022",
+          "status": "ENABLED",
+          "type": "SEARCH_STANDARD",
+          "cpc_bid_micros": "1000000",
+          "cpm_bid_micros": "10000",
+          "target_cpa_micros": "0"
+        }
+      ]
+    },
+    "batchDelete": {
+      "AdGroup": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v21/customers/1781900691/googleAds:searchStream": {
+        "response": [
+          {
+            "results": [
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24027360183",
+                  "name": "Seed Campaign Keep 1 Updated",
+                  "id": "24027360183"
+                },
+                "adGroup": {
+                  "resourceName": "customers/1781900691/adGroups/197714341345",
+                  "status": "PAUSED",
+                  "type": "SEARCH_STANDARD",
+                  "id": "197714341345",
+                  "name": "Seed Ad Group Keep 1 - Updated",
+                  "cpcBidMicros": "1000000",
+                  "cpmBidMicros": "10000",
+                  "targetCpaMicros": "0"
+                }
+              },
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24027360186",
+                  "name": "Seed Campaign Keep 2",
+                  "id": "24027360186"
+                },
+                "adGroup": {
+                  "resourceName": "customers/1781900691/adGroups/197714341385",
+                  "status": "PAUSED",
+                  "type": "SEARCH_STANDARD",
+                  "id": "197714341385",
+                  "name": "Seed Ad Group Keep 2",
+                  "cpcBidMicros": "1000000",
+                  "cpmBidMicros": "10000",
+                  "targetCpaMicros": "0"
+                }
+              },
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24027360183",
+                  "name": "Seed Campaign Keep 1 Updated",
+                  "id": "24027360183"
+                },
+                "adGroup": {
+                  "resourceName": "customers/1781900691/adGroups/197714341425",
+                  "status": "REMOVED",
+                  "type": "SEARCH_STANDARD",
+                  "id": "197714341425",
+                  "name": "Seed Ad Group Delete 1",
+                  "cpcBidMicros": "1200000",
+                  "cpmBidMicros": "10000",
+                  "targetCpaMicros": "0"
+                }
+              },
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24027360186",
+                  "name": "Seed Campaign Keep 2",
+                  "id": "24027360186"
+                },
+                "adGroup": {
+                  "resourceName": "customers/1781900691/adGroups/197714341585",
+                  "status": "REMOVED",
+                  "type": "SEARCH_STANDARD",
+                  "id": "197714341585",
+                  "name": "Seed Ad Group Delete 2",
+                  "cpcBidMicros": "1000000",
+                  "cpmBidMicros": "10000",
+                  "targetCpaMicros": "0"
+                }
+              },
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24027360183",
+                  "name": "Seed Campaign Keep 1 Updated",
+                  "id": "24027360183"
+                },
+                "adGroup": {
+                  "resourceName": "customers/1781900691/adGroups/199386323178",
+                  "status": "ENABLED",
+                  "type": "SEARCH_STANDARD",
+                  "id": "199386323178",
+                  "name": "Nango Test Ad Group 2026-07-15",
+                  "cpcBidMicros": "1000000",
+                  "cpmBidMicros": "10000",
+                  "targetCpaMicros": "0"
+                }
+              },
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24027360183",
+                  "name": "Seed Campaign Keep 1 Updated",
+                  "id": "24027360183"
+                },
+                "adGroup": {
+                  "resourceName": "customers/1781900691/adGroups/199918694042",
+                  "status": "ENABLED",
+                  "type": "SEARCH_STANDARD",
+                  "id": "199918694042",
+                  "name": "Nango Test Ad Group Save 1784077022",
+                  "cpcBidMicros": "1000000",
+                  "cpmBidMicros": "10000",
+                  "targetCpaMicros": "0"
+                }
+              }
+            ],
+            "fieldMask": "campaign.id,campaign.name,adGroup.id,adGroup.name,adGroup.status,adGroup.type,adGroup.cpcBidMicros,adGroup.cpmBidMicros,adGroup.targetCpaMicros,adGroup.targetRoas,adGroup.trackingUrlTemplate,adGroup.finalUrlSuffix,adGroup.resourceName",
+            "requestId": "elJ5FuXyDitFTRaEAPF3Ig",
+            "queryResourceConsumption": "119"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 08:28:56 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4996",
+          "x-ratelimit-reset": "1784104191",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "5f7fd35103178133b76f10cfaf77a4b6d019e291",
+        "request": {
+          "headers": {
+            "developer-token": "YOUR_DEVELOPER_TOKEN",
+            "login-customer-id": "3608201627"
+          },
+          "data": {
+            "query": "SELECT campaign.id, campaign.name, ad_group.id, ad_group.name, ad_group.status, ad_group.type, ad_group.cpc_bid_micros, ad_group.cpm_bid_micros, ad_group.target_cpa_micros, ad_group.target_roas, ad_group.tracking_url_template, ad_group.final_url_suffix, ad_group.resource_name FROM ad_group"
+          }
+        }
+      }
+    }
+  }
+}
