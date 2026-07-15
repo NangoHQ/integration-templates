@@ -33,8 +33,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /v2/settings/trackers does not support a changed-since filter,
         // so every run walks the full dataset to detect deletions.
-        await nango.trackDeletesStart('Tracker');
-
         const proxyConfig: ProxyConfiguration = {
             // https://help.gong.io/docs/what-the-gong-api-provides
             endpoint: '/v2/settings/trackers',
@@ -47,19 +45,21 @@ const sync = createSync({
             retries: 3
         };
 
+        const allTrackers: z.infer<typeof TrackerSchema>[] = [];
+
         for await (const page of nango.paginate(proxyConfig)) {
             const trackers = page.map((record: unknown) => {
                 const raw = z
                     .object({
-                        trackerId: z.string(),
-                        trackerName: z.string().optional(),
-                        workspaceId: z.string().optional(),
-                        created: z.string().optional(),
-                        updated: z.string().optional(),
-                        affiliation: z.string().optional(),
-                        partOfQuestion: z.boolean().optional(),
-                        saidAt: z.string().optional(),
-                        filterQuery: z.string().optional()
+                        trackerId: z.string().nullable(),
+                        trackerName: z.string().nullish(),
+                        workspaceId: z.string().nullish(),
+                        created: z.string().nullish(),
+                        updated: z.string().nullish(),
+                        affiliation: z.string().nullish(),
+                        partOfQuestion: z.boolean().nullish(),
+                        saidAt: z.string().nullish(),
+                        filterQuery: z.string().nullish()
                     })
                     .safeParse(record);
 
@@ -67,23 +67,31 @@ const sync = createSync({
                     throw new Error(`Invalid tracker record: ${JSON.stringify(raw.error.issues)}`);
                 }
 
+                if (!raw.data.trackerId) {
+                    throw new Error('Expected trackerId to be non-null');
+                }
+
                 return {
                     id: raw.data.trackerId,
                     trackerId: raw.data.trackerId,
-                    ...(raw.data.trackerName != null && { trackerName: raw.data.trackerName }),
-                    ...(raw.data.workspaceId != null && { workspaceId: raw.data.workspaceId }),
-                    ...(raw.data.created != null && { created: raw.data.created }),
-                    ...(raw.data.updated != null && { updated: raw.data.updated }),
-                    ...(raw.data.affiliation != null && { affiliation: raw.data.affiliation }),
-                    ...(raw.data.partOfQuestion != null && { partOfQuestion: raw.data.partOfQuestion }),
-                    ...(raw.data.saidAt != null && { saidAt: raw.data.saidAt }),
-                    ...(raw.data.filterQuery != null && { filterQuery: raw.data.filterQuery })
+                    ...(raw.data.trackerName !== undefined && { trackerName: raw.data.trackerName }),
+                    ...(raw.data.workspaceId !== undefined && { workspaceId: raw.data.workspaceId }),
+                    ...(raw.data.created !== undefined && { created: raw.data.created }),
+                    ...(raw.data.updated !== undefined && { updated: raw.data.updated }),
+                    ...(raw.data.affiliation !== undefined && { affiliation: raw.data.affiliation }),
+                    ...(raw.data.partOfQuestion !== undefined && { partOfQuestion: raw.data.partOfQuestion }),
+                    ...(raw.data.saidAt !== undefined && { saidAt: raw.data.saidAt }),
+                    ...(raw.data.filterQuery !== undefined && { filterQuery: raw.data.filterQuery })
                 };
             });
 
-            if (trackers.length > 0) {
-                await nango.batchSave(trackers, 'Tracker');
-            }
+            allTrackers.push(...trackers);
+        }
+
+        await nango.trackDeletesStart('Tracker');
+
+        if (allTrackers.length > 0) {
+            await nango.batchSave(allTrackers, 'Tracker');
         }
 
         await nango.trackDeletesEnd('Tracker');

@@ -7,25 +7,25 @@ const InputSchema = z.object({
 
 const ProviderCallSchema = z.object({
     id: z.string(),
-    url: z.string().optional(),
-    title: z.string().optional(),
-    scheduled: z.string().optional(),
-    started: z.string().optional(),
-    duration: z.number().optional(),
-    primaryUserId: z.string().optional(),
-    direction: z.string().optional(),
-    system: z.string().optional(),
-    scope: z.string().optional(),
-    media: z.string().optional(),
-    language: z.string().optional(),
-    workspaceId: z.string().optional(),
-    sdrDisposition: z.string().optional(),
-    clientUniqueId: z.string().optional(),
-    customData: z.string().optional(),
-    purpose: z.string().optional(),
-    meetingUrl: z.string().optional(),
-    isPrivate: z.boolean().optional(),
-    calendarEventId: z.string().optional()
+    url: z.string().nullish(),
+    title: z.string().nullish(),
+    scheduled: z.string().nullish(),
+    started: z.string().nullish(),
+    duration: z.number().nullish(),
+    primaryUserId: z.string().nullish(),
+    direction: z.string().nullish(),
+    system: z.string().nullish(),
+    scope: z.string().nullish(),
+    media: z.string().nullish(),
+    language: z.string().nullish(),
+    workspaceId: z.string().nullish(),
+    sdrDisposition: z.string().nullish(),
+    clientUniqueId: z.string().nullish(),
+    customData: z.string().nullish(),
+    purpose: z.string().nullish(),
+    meetingUrl: z.string().nullish(),
+    isPrivate: z.boolean().nullish(),
+    calendarEventId: z.string().nullish()
 });
 
 const OutputSchema = z.object({
@@ -99,7 +99,7 @@ const action = createAction({
             const providerResponse = z
                 .object({
                     requestId: z.string().optional(),
-                    call: ProviderCallSchema.optional()
+                    call: ProviderCallSchema.nullish()
                 })
                 .parse(response.data);
 

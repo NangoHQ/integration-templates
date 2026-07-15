@@ -115,7 +115,7 @@ const action = createAction({
                 ...(user.personalMeetingUrls !== undefined && { personalMeetingUrls: user.personalMeetingUrls }),
                 ...(user.settings !== undefined && { settings: user.settings }),
                 ...(user.managerId !== undefined && { managerId: user.managerId }),
-                ...(user.meetingConsentPageUrl != null && { meetingConsentPageUrl: user.meetingConsentPageUrl }),
+                ...(user.meetingConsentPageUrl !== undefined && { meetingConsentPageUrl: user.meetingConsentPageUrl }),
                 ...(user.spokenLanguages !== undefined && { spokenLanguages: user.spokenLanguages })
             });
         }

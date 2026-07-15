@@ -7,8 +7,8 @@ const InputSchema = z.object({
 
 const ProviderUserSchema = z.object({
     id: z.string(),
-    fullName: z.string().optional(),
-    emailAddress: z.string().optional()
+    fullName: z.string().nullish(),
+    emailAddress: z.string().nullish()
 });
 
 const OutputSchema = z.object({
@@ -63,7 +63,7 @@ const action = createAction({
 
         const ProviderResponseSchema = z.object({
             requestId: z.string().optional(),
-            users: z.array(ProviderUserSchema).optional()
+            users: z.array(ProviderUserSchema).nullish()
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

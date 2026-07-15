@@ -5,12 +5,12 @@ const InputSchema = z.object({});
 
 const WorkspaceSchema = z.object({
     id: z.string().describe('Gong unique identifier for the workspace. Example: "12345678901234567890"'),
-    name: z.string().describe('The name of the workspace. Example: "Sales"').nullable(),
-    description: z.string().describe('The description of the workspace. Example: "Sales workspace"').nullable()
+    name: z.string().describe('The name of the workspace. Example: "Sales"').nullish(),
+    description: z.string().describe('The description of the workspace. Example: "Sales workspace"').nullish()
 });
 
 const OutputSchema = z.object({
-    workspaces: z.array(WorkspaceSchema).nullable()
+    workspaces: z.array(WorkspaceSchema).nullish()
 });
 
 const action = createAction({
@@ -36,22 +36,29 @@ const action = createAction({
 
         const data = z
             .object({
-                workspaces: z.array(
-                    z.object({
-                        id: z.string(),
-                        name: z.string(),
-                        description: z.string()
-                    })
-                )
+                workspaces: z
+                    .array(
+                        z.object({
+                            id: z.string(),
+                            name: z.string().nullish(),
+                            description: z.string().nullish()
+                        })
+                    )
+                    .nullish()
             })
             .parse(response.data);
 
         return {
-            workspaces: data.workspaces.map((workspace) => ({
-                id: workspace.id,
-                name: workspace.name,
-                description: workspace.description
-            }))
+            ...(data.workspaces !== undefined && {
+                workspaces:
+                    data.workspaces === null
+                        ? null
+                        : data.workspaces.map((workspace) => ({
+                              id: workspace.id,
+                              ...(workspace.name !== undefined && { name: workspace.name }),
+                              ...(workspace.description !== undefined && { description: workspace.description })
+                          }))
+            })
         };
     }
 });

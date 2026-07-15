@@ -26,7 +26,7 @@ const ProviderSuccessResponseSchema = z.object({
 
 const ProviderErrorResponseSchema = z.object({
     requestId: z.string().optional(),
-    errors: z.array(z.string()).optional()
+    errors: z.array(z.string()).nullish()
 });
 
 const AssignedFlowSchema = z.object({

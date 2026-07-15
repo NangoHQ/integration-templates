@@ -142,15 +142,14 @@ const sync = createSync({
                     {
                         id: user.id,
                         ...(user.active !== undefined && { active: user.active }),
-                        ...(user.created != null && { created: normalizeToUtc(user.created) }),
+                        ...(user.created !== undefined && { created: user.created === null ? null : normalizeToUtc(user.created) }),
                         ...(user.emailAddress !== undefined && { emailAddress: user.emailAddress }),
                         ...(user.emailAliases !== undefined && { emailAliases: user.emailAliases }),
                         ...(user.extension !== undefined && { extension: user.extension }),
                         ...(user.firstName !== undefined && { firstName: user.firstName }),
                         ...(user.lastName !== undefined && { lastName: user.lastName }),
                         ...(user.managerId !== undefined && { managerId: user.managerId }),
-                        ...(user.meetingConsentPageUrl !== undefined &&
-                            user.meetingConsentPageUrl !== null && { meetingConsentPageUrl: user.meetingConsentPageUrl }),
+                        ...(user.meetingConsentPageUrl !== undefined && { meetingConsentPageUrl: user.meetingConsentPageUrl }),
                         ...(user.personalMeetingUrls !== undefined && { personalMeetingUrls: user.personalMeetingUrls }),
                         ...(user.phoneNumber !== undefined && { phoneNumber: user.phoneNumber }),
                         ...(user.settings !== undefined && { settings: user.settings }),

@@ -50,24 +50,22 @@ const sync = createSync({
             throw new Error(`Failed to parse workspaces response: ${parsed.error.message}`);
         }
 
-        // Start delete tracking only after response validation succeeds so a parse
-        // failure does not leave tracking open without a corresponding trackDeletesEnd.
-        await nango.trackDeletesStart('Workspace');
-
         const workspaces = parsed.data.workspaces ?? [];
-        const records = workspaces.flatMap((workspace) => {
+        const records = workspaces.map((workspace) => {
             if (!workspace.id) {
-                return [];
+                throw new Error('Expected workspace id to be non-null');
             }
 
-            return [
-                {
-                    id: workspace.id,
-                    ...(workspace.name != null && { name: workspace.name }),
-                    ...(workspace.description != null && { description: workspace.description })
-                }
-            ];
+            return {
+                id: workspace.id,
+                ...(workspace.name !== undefined && { name: workspace.name }),
+                ...(workspace.description !== undefined && { description: workspace.description })
+            };
         });
+
+        // Start delete tracking only after response and record identity validation succeeds
+        // so failures do not mark valid records as deleted.
+        await nango.trackDeletesStart('Workspace');
 
         if (records.length > 0) {
             await nango.batchSave(records, 'Workspace');

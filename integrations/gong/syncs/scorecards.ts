@@ -76,29 +76,27 @@ const sync = createSync({
             }
         }
 
-        // Only reach here after a successful full enumeration — safe to open delete tracking.
-        await nango.trackDeletesStart('Scorecard');
-
-        const mapped = allMapped.flatMap((scorecard) => {
+        const mapped = allMapped.map((scorecard) => {
             if (!scorecard.scorecardId) {
-                return [];
+                throw new Error('Expected scorecardId to be non-null');
             }
 
-            return [
-                {
-                    id: scorecard.scorecardId,
-                    scorecardId: scorecard.scorecardId,
-                    scorecardName: scorecard.scorecardName,
-                    ...(scorecard.workspaceId != null && { workspaceId: scorecard.workspaceId }),
-                    enabled: scorecard.enabled,
-                    updaterUserId: scorecard.updaterUserId,
-                    created: scorecard.created,
-                    updated: scorecard.updated,
-                    ...(scorecard.reviewMethod != null && { reviewMethod: scorecard.reviewMethod }),
-                    ...(scorecard.questions != null && { questions: scorecard.questions })
-                }
-            ];
+            return {
+                id: scorecard.scorecardId,
+                scorecardId: scorecard.scorecardId,
+                scorecardName: scorecard.scorecardName,
+                ...(scorecard.workspaceId !== undefined && { workspaceId: scorecard.workspaceId }),
+                enabled: scorecard.enabled,
+                updaterUserId: scorecard.updaterUserId,
+                created: scorecard.created,
+                updated: scorecard.updated,
+                ...(scorecard.reviewMethod !== undefined && { reviewMethod: scorecard.reviewMethod }),
+                ...(scorecard.questions !== undefined && { questions: scorecard.questions })
+            };
         });
+
+        // Only reach here after a successful full enumeration and identity validation.
+        await nango.trackDeletesStart('Scorecard');
 
         if (mapped.length > 0) {
             await nango.batchSave(mapped, 'Scorecard');
