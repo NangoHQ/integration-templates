@@ -10,18 +10,18 @@ const InputSchema = z.object({
 const FolderSchema = z
     .object({
         id: z.string(),
-        name: z.string()
+        name: z.string().nullable()
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    items: z.array(FolderSchema),
-    nextCursor: z.string().optional()
+    items: z.array(FolderSchema).nullable(),
+    nextCursor: z.string().nullish()
 });
 
 const action = createAction({
     description: 'List Gong Engage flow folders',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:read'],

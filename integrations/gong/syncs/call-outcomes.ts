@@ -3,28 +3,28 @@ import { z } from 'zod';
 
 const CallOutcomeSchema = z.object({
     id: z.string().describe('The unique call outcome identifier'),
-    callOutcome: z.string().optional().describe('The call outcome name'),
-    displayOrder: z.number().optional().describe('The display order of the call outcome'),
-    connectStatus: z.string().optional().describe('The connection status of the call outcome'),
-    sentiment: z.string().optional().describe('The sentiment of the call outcome'),
-    todoAction: z.string().optional().describe('The todo action associated with the call outcome'),
-    automation: z.string().nullable().optional().describe('The automation associated with the call outcome'),
-    category: z.string().optional().describe('The category of the call outcome')
+    callOutcome: z.string().nullish().describe('The call outcome name'),
+    displayOrder: z.number().nullish().describe('The display order of the call outcome'),
+    connectStatus: z.string().nullish().describe('The connection status of the call outcome'),
+    sentiment: z.string().nullish().describe('The sentiment of the call outcome'),
+    todoAction: z.string().nullish().describe('The todo action associated with the call outcome'),
+    automation: z.string().nullish().describe('The automation associated with the call outcome'),
+    category: z.string().nullish().describe('The category of the call outcome')
 });
 
 const ProviderCallOutcomeSchema = z.object({
-    callOutcome: z.string().optional(),
-    displayOrder: z.number().optional(),
-    connectStatus: z.string().optional(),
-    sentiment: z.string().optional(),
-    todoAction: z.string().optional(),
-    automation: z.string().nullable().optional(),
-    category: z.string().optional()
+    callOutcome: z.string().nullish(),
+    displayOrder: z.number().nullish(),
+    connectStatus: z.string().nullish(),
+    sentiment: z.string().nullish(),
+    todoAction: z.string().nullish(),
+    automation: z.string().nullish(),
+    category: z.string().nullish()
 });
 
 const sync = createSync({
     description: 'Sync configured call outcomes from Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     models: {

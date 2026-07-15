@@ -3,18 +3,18 @@ import { z } from 'zod';
 
 const LibraryFolderSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    parentFolderId: z.string().optional(),
-    createdBy: z.string().optional(),
-    updated: z.string().optional()
+    name: z.string().nullish(),
+    parentFolderId: z.string().nullish(),
+    createdBy: z.string().nullish(),
+    updated: z.string().nullish()
 });
 
 const LibraryFolderProviderSchema = z.object({
     id: z.string().optional(),
-    name: z.string().optional(),
-    parentFolderId: z.string().optional(),
-    createdBy: z.string().optional(),
-    updated: z.string().optional()
+    name: z.string().nullish(),
+    parentFolderId: z.string().nullish(),
+    createdBy: z.string().nullish(),
+    updated: z.string().nullish()
 });
 
 function isUnavailableError(error: unknown): boolean {
@@ -35,7 +35,7 @@ function isUnavailableError(error: unknown): boolean {
 
 const sync = createSync({
     description: 'Sync Gong library folders',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {

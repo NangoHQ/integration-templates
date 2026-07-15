@@ -12,14 +12,14 @@ const InputSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    clientRequestId: z.string().optional(),
-    errors: z.array(z.string()).optional()
+    clientRequestId: z.string().nullish(),
+    errors: z.array(z.string()).nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    clientRequestId: z.string().optional(),
-    errors: z.array(z.string()).optional()
+    clientRequestId: z.string().nullish(),
+    errors: z.array(z.string()).nullish()
 });
 
 const AxiosErrorSchema = z.object({
@@ -33,7 +33,7 @@ const AxiosErrorSchema = z.object({
 
 const action = createAction({
     description: 'Delete a registered generic CRM integration from Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:crm:integration:delete'],

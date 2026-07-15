@@ -37,138 +37,138 @@ const ProviderListResponseSchema = z.object({
     requestId: z.string().optional(),
     records: z
         .object({
-            totalRecords: z.number().optional(),
-            currentPageSize: z.number().optional(),
-            currentPageNumber: z.number().optional(),
-            cursor: z.string().optional()
+            totalRecords: z.number().nullish(),
+            currentPageSize: z.number().nullish(),
+            currentPageNumber: z.number().nullish(),
+            cursor: z.string().nullish()
         })
-        .optional(),
-    calls: z.array(z.unknown()).optional()
+        .nullish(),
+    calls: z.array(z.unknown()).nullish()
 });
 
 const ProviderExtensiveCallSchema = z.object({
-    metaData: z.object({}).passthrough().optional(),
-    context: z.array(z.object({}).passthrough()).optional(),
+    metaData: z.object({}).passthrough().nullish(),
+    context: z.array(z.object({}).passthrough()).nullish(),
     parties: z
         .array(
             z.object({
-                id: z.string(),
+                id: z.string().nullable(),
                 emailAddress: z.string().nullish(),
                 name: z.string().nullish(),
                 title: z.string().nullish(),
                 userId: z.string().nullish(),
                 speakerId: z.string().nullish(),
-                affiliation: z.string().optional(),
-                methods: z.array(z.string()).optional()
+                affiliation: z.string().nullish(),
+                methods: z.array(z.string()).nullish()
             })
         )
-        .optional(),
+        .nullish(),
     interaction: z
         .object({
-            speakers: z.array(z.object({ id: z.string(), userId: z.string(), talkTime: z.number() })).optional(),
-            interactionStats: z.array(z.object({ name: z.string(), value: z.number() })).optional(),
-            video: z.array(z.object({ name: z.string(), duration: z.number() })).optional(),
-            questions: z.object({ companyCount: z.number().optional(), nonCompanyCount: z.number().optional() }).optional()
+            speakers: z.array(z.object({ id: z.string().nullable(), userId: z.string().nullable(), talkTime: z.number().nullable() })).nullish(),
+            interactionStats: z.array(z.object({ name: z.string().nullable(), value: z.number().nullable() })).nullish(),
+            video: z.array(z.object({ name: z.string().nullable(), duration: z.number().nullable() })).nullish(),
+            questions: z.object({ companyCount: z.number().nullish(), nonCompanyCount: z.number().nullish() }).nullish()
         })
-        .optional(),
+        .nullish(),
     collaboration: z
         .object({
             publicComments: z
                 .array(
                     z.object({
-                        id: z.string(),
-                        audioStartTime: z.number(),
-                        audioEndTime: z.number(),
-                        commenterUserId: z.string(),
-                        comment: z.string(),
-                        posted: z.string(),
-                        duringCall: z.boolean()
+                        id: z.string().nullable(),
+                        audioStartTime: z.number().nullable(),
+                        audioEndTime: z.number().nullable(),
+                        commenterUserId: z.string().nullable(),
+                        comment: z.string().nullable(),
+                        posted: z.string().nullable(),
+                        duringCall: z.boolean().nullable()
                     })
                 )
-                .optional()
+                .nullish()
         })
-        .optional(),
+        .nullish(),
     media: z
         .object({
-            audioUrl: z.string().optional(),
-            videoUrl: z.string().optional()
+            audioUrl: z.string().nullish(),
+            videoUrl: z.string().nullish()
         })
-        .optional()
+        .nullish()
 });
 
 const ProviderExtensiveResponseSchema = z.object({
     requestId: z.string().optional(),
-    records: z.object({ cursor: z.string().optional() }).optional(),
-    calls: z.array(ProviderExtensiveCallSchema).optional()
+    records: z.object({ cursor: z.string().nullish() }).nullish(),
+    calls: z.array(ProviderExtensiveCallSchema).nullish()
 });
 
 const CallSchema = z.object({
     id: z.string(),
-    url: z.string().optional(),
-    title: z.string().optional(),
-    scheduled: z.string().optional(),
-    started: z.string().optional(),
-    duration: z.number().optional(),
-    primaryUserId: z.string().optional(),
-    direction: z.string().optional(),
-    system: z.string().optional(),
-    scope: z.string().optional(),
-    media: z.string().optional(),
-    language: z.string().optional(),
-    workspaceId: z.string().optional(),
-    sdrDisposition: z.string().optional(),
-    clientUniqueId: z.string().optional(),
-    customData: z.string().optional(),
-    purpose: z.string().optional(),
-    meetingUrl: z.string().optional(),
-    isPrivate: z.boolean().optional(),
-    calendarEventId: z.string().optional(),
-    context: z.array(z.object({}).passthrough()).optional(),
+    url: z.string().nullish(),
+    title: z.string().nullish(),
+    scheduled: z.string().nullish(),
+    started: z.string().nullish(),
+    duration: z.number().nullish(),
+    primaryUserId: z.string().nullish(),
+    direction: z.string().nullish(),
+    system: z.string().nullish(),
+    scope: z.string().nullish(),
+    media: z.string().nullish(),
+    language: z.string().nullish(),
+    workspaceId: z.string().nullish(),
+    sdrDisposition: z.string().nullish(),
+    clientUniqueId: z.string().nullish(),
+    customData: z.string().nullish(),
+    purpose: z.string().nullish(),
+    meetingUrl: z.string().nullish(),
+    isPrivate: z.boolean().nullish(),
+    calendarEventId: z.string().nullish(),
+    context: z.array(z.object({}).passthrough()).nullish(),
     parties: z
         .array(
             z.object({
-                id: z.string(),
-                emailAddress: z.string().optional(),
-                name: z.string().optional(),
-                title: z.string().optional(),
-                userId: z.string().optional(),
-                speakerId: z.string().nullable().optional(),
-                affiliation: z.string().optional(),
-                methods: z.array(z.string()).optional()
+                id: z.string().nullable(),
+                emailAddress: z.string().nullish(),
+                name: z.string().nullish(),
+                title: z.string().nullish(),
+                userId: z.string().nullish(),
+                speakerId: z.string().nullish(),
+                affiliation: z.string().nullish(),
+                methods: z.array(z.string()).nullish()
             })
         )
-        .optional(),
+        .nullish(),
     interaction: z
         .object({
-            speakers: z.array(z.object({ id: z.string(), userId: z.string(), talkTime: z.number() })).optional(),
-            interactionStats: z.array(z.object({ name: z.string(), value: z.number() })).optional(),
-            video: z.array(z.object({ name: z.string(), duration: z.number() })).optional(),
-            questions: z.object({ companyCount: z.number().optional(), nonCompanyCount: z.number().optional() }).optional()
+            speakers: z.array(z.object({ id: z.string().nullable(), userId: z.string().nullable(), talkTime: z.number().nullable() })).nullish(),
+            interactionStats: z.array(z.object({ name: z.string().nullable(), value: z.number().nullable() })).nullish(),
+            video: z.array(z.object({ name: z.string().nullable(), duration: z.number().nullable() })).nullish(),
+            questions: z.object({ companyCount: z.number().nullish(), nonCompanyCount: z.number().nullish() }).nullish()
         })
-        .optional(),
+        .nullish(),
     collaboration: z
         .object({
             publicComments: z
                 .array(
                     z.object({
-                        id: z.string(),
-                        audioStartTime: z.number(),
-                        audioEndTime: z.number(),
-                        commenterUserId: z.string(),
-                        comment: z.string(),
-                        posted: z.string(),
-                        duringCall: z.boolean()
+                        id: z.string().nullable(),
+                        audioStartTime: z.number().nullable(),
+                        audioEndTime: z.number().nullable(),
+                        commenterUserId: z.string().nullable(),
+                        comment: z.string().nullable(),
+                        posted: z.string().nullable(),
+                        duringCall: z.boolean().nullable()
                     })
                 )
-                .optional()
+                .nullish()
         })
-        .optional(),
+        .nullish(),
     mediaUrls: z
         .object({
-            audioUrl: z.string().optional(),
-            videoUrl: z.string().optional()
+            audioUrl: z.string().nullish(),
+            videoUrl: z.string().nullish()
         })
-        .optional()
+        .nullish()
 });
 
 const CheckpointSchema = z.object({
@@ -230,7 +230,7 @@ function getWindowEnd(): string {
 
 const sync = createSync({
     description: 'Sync calls from Gong.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -308,7 +308,9 @@ const sync = createSync({
                 if (!callParsed.success) {
                     throw new Error(`Failed to parse call: ${callParsed.error.message}`);
                 }
-                callIds.push(callParsed.data.id);
+                if (callParsed.data.id) {
+                    callIds.push(callParsed.data.id);
+                }
             }
 
             // Fetch extensive details in batches of BATCH_SIZE and save incrementally

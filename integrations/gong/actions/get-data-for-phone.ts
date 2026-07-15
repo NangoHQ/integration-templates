@@ -20,19 +20,19 @@ const ProviderDataSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    calls: z.array(z.unknown()).optional(),
-    customerData: z.array(z.unknown()).optional(),
-    emailAddresses: z.array(z.unknown()).optional(),
-    emails: z.array(z.unknown()).optional(),
-    matchingPhoneNumbers: z.array(z.unknown()).optional(),
-    meetings: z.array(z.unknown()).optional(),
+    calls: z.array(z.unknown()).nullish(),
+    customerData: z.array(z.unknown()).nullish(),
+    emailAddresses: z.array(z.unknown()).nullish(),
+    emails: z.array(z.unknown()).nullish(),
+    matchingPhoneNumbers: z.array(z.unknown()).nullish(),
+    meetings: z.array(z.unknown()).nullish(),
     requestId: z.string().optional(),
-    suppliedPhoneNumber: z.string().optional()
+    suppliedPhoneNumber: z.string().nullish()
 });
 
 const action = createAction({
     description: 'Retrieve all Gong references associated with a specific phone number.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:data-privacy:read'],

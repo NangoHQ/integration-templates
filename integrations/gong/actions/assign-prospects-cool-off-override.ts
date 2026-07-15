@@ -11,43 +11,43 @@ const InputSchema = z.object({
 
 const ProviderAssignedFlowSchema = z.object({
     flowId: z.string().optional(),
-    flowName: z.string().optional(),
-    crmProspectId: z.string().optional(),
-    flowInstanceId: z.string().optional(),
-    flowInstanceOwnerEmail: z.string().optional(),
-    flowInstanceOwnerFullName: z.string().optional(),
-    flowInstanceCreateDate: z.string().optional()
+    flowName: z.string().nullish(),
+    crmProspectId: z.string().nullish(),
+    flowInstanceId: z.string().nullish(),
+    flowInstanceOwnerEmail: z.string().nullish(),
+    flowInstanceOwnerFullName: z.string().nullish(),
+    flowInstanceCreateDate: z.string().nullish()
 });
 
 const ProviderSuccessResponseSchema = z.object({
     requestId: z.string().optional(),
-    prospectsAssigned: z.array(ProviderAssignedFlowSchema).optional()
+    prospectsAssigned: z.array(ProviderAssignedFlowSchema).nullish()
 });
 
 const ProviderErrorResponseSchema = z.object({
     requestId: z.string().optional(),
-    errors: z.array(z.string()).optional()
+    errors: z.array(z.string()).nullish()
 });
 
 const AssignedFlowSchema = z.object({
     flowId: z.string().optional(),
-    flowName: z.string().optional(),
-    crmProspectId: z.string().optional(),
-    flowInstanceId: z.string().optional(),
-    flowInstanceOwnerEmail: z.string().optional(),
-    flowInstanceOwnerFullName: z.string().optional(),
-    flowInstanceCreateDate: z.string().optional()
+    flowName: z.string().nullish(),
+    crmProspectId: z.string().nullish(),
+    flowInstanceId: z.string().nullish(),
+    flowInstanceOwnerEmail: z.string().nullish(),
+    flowInstanceOwnerFullName: z.string().nullish(),
+    flowInstanceCreateDate: z.string().nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    prospectsAssigned: z.array(AssignedFlowSchema).optional(),
-    errors: z.array(z.string()).optional()
+    prospectsAssigned: z.array(AssignedFlowSchema).nullish(),
+    errors: z.array(z.string()).nullish()
 });
 
 const action = createAction({
     description: 'Assign prospects to a Gong Engage flow bypassing the cool-off period restriction.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:write'],

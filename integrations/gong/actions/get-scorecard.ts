@@ -7,43 +7,43 @@ const InputSchema = z.object({
 
 const QuestionOptionSchema = z.object({
     id: z.number().int(),
-    text: z.string()
+    text: z.string().nullable()
 });
 
 const QuestionSchema = z.object({
     questionId: z.string(),
-    questionRevisionId: z.string().optional(),
-    questionText: z.string().optional(),
-    isOverall: z.boolean().optional(),
-    questionType: z.string().optional(),
-    answerGuide: z.string().nullable().optional(),
-    minRange: z.string().nullable().optional(),
-    maxRange: z.string().nullable().optional(),
-    answerOptions: z.array(QuestionOptionSchema).nullable().optional()
+    questionRevisionId: z.string().nullish(),
+    questionText: z.string().nullish(),
+    isOverall: z.boolean().nullish(),
+    questionType: z.string().nullish(),
+    answerGuide: z.string().nullish(),
+    minRange: z.string().nullish(),
+    maxRange: z.string().nullish(),
+    answerOptions: z.array(QuestionOptionSchema).nullish()
 });
 
 const ScorecardSchema = z.object({
     scorecardId: z.string(),
-    scorecardName: z.string().optional(),
-    workspaceId: z.string().optional(),
-    enabled: z.boolean().optional(),
-    updaterUserId: z.string().optional(),
-    created: z.string().optional(),
-    updated: z.string().optional(),
-    reviewMethod: z.string().optional(),
-    questions: z.array(QuestionSchema).optional()
+    scorecardName: z.string().nullish(),
+    workspaceId: z.string().nullish(),
+    enabled: z.boolean().nullish(),
+    updaterUserId: z.string().nullish(),
+    created: z.string().nullish(),
+    updated: z.string().nullish(),
+    reviewMethod: z.string().nullish(),
+    questions: z.array(QuestionSchema).nullish()
 });
 
 const ListResponseSchema = z.object({
     requestId: z.string().optional(),
-    scorecards: z.array(ScorecardSchema).optional()
+    scorecards: z.array(ScorecardSchema).nullish()
 });
 
 const OutputSchema = ScorecardSchema;
 
 const action = createAction({
     description: 'Retrieve a single scorecard from Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:settings:scorecards:read'],

@@ -7,40 +7,38 @@ const InputSchema = z.object({
 
 const ProviderUserSchema = z.object({
     id: z.string(),
-    emailAddress: z.string(),
-    created: z.string(),
-    active: z.boolean(),
-    emailAliases: z.array(z.string()).nullable().optional(),
-    trustedEmailAddress: z.string().nullable().optional(),
-    firstName: z.string().nullable().optional(),
-    lastName: z.string().nullable().optional(),
-    title: z.string().nullable().optional(),
-    phoneNumber: z.string().nullable().optional(),
-    extension: z.string().nullable().optional(),
-    personalMeetingUrls: z.array(z.string()).nullable().optional(),
+    emailAddress: z.string().nullable(),
+    created: z.string().nullable(),
+    active: z.boolean().nullable(),
+    emailAliases: z.array(z.string()).nullish(),
+    trustedEmailAddress: z.string().nullish(),
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish(),
+    title: z.string().nullish(),
+    phoneNumber: z.string().nullish(),
+    extension: z.string().nullish(),
+    personalMeetingUrls: z.array(z.string()).nullish(),
     settings: z
         .object({
-            webConferencesRecorded: z.boolean().optional(),
-            preventWebConferenceRecording: z.boolean().optional(),
-            telephonyCallsImported: z.boolean().optional(),
-            emailsImported: z.boolean().optional(),
-            preventEmailImport: z.boolean().optional(),
-            nonRecordedMeetingsImported: z.boolean().optional(),
-            gongConnectEnabled: z.boolean().optional()
+            webConferencesRecorded: z.boolean().nullish(),
+            preventWebConferenceRecording: z.boolean().nullish(),
+            telephonyCallsImported: z.boolean().nullish(),
+            emailsImported: z.boolean().nullish(),
+            preventEmailImport: z.boolean().nullish(),
+            nonRecordedMeetingsImported: z.boolean().nullish(),
+            gongConnectEnabled: z.boolean().nullish()
         })
-        .nullable()
-        .optional(),
-    managerId: z.string().nullable().optional(),
-    meetingConsentPageUrl: z.string().nullable().optional(),
+        .nullish(),
+    managerId: z.string().nullish(),
+    meetingConsentPageUrl: z.string().nullish(),
     spokenLanguages: z
         .array(
             z.object({
-                language: z.string(),
-                primary: z.boolean().optional()
+                language: z.string().nullable(),
+                primary: z.boolean().nullish()
             })
         )
-        .nullable()
-        .optional()
+        .nullish()
 });
 
 const AxiosErrorSchema = z.object({
@@ -50,48 +48,48 @@ const AxiosErrorSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     requestId: z.string(),
-    user: ProviderUserSchema
+    user: ProviderUserSchema.nullable()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
-    emailAddress: z.string(),
-    created: z.string(),
-    active: z.boolean(),
-    emailAliases: z.array(z.string()).optional(),
-    trustedEmailAddress: z.string().optional(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional(),
-    title: z.string().optional(),
-    phoneNumber: z.string().optional(),
-    extension: z.string().optional(),
-    personalMeetingUrls: z.array(z.string()).optional(),
+    emailAddress: z.string().nullable(),
+    created: z.string().nullable(),
+    active: z.boolean().nullable(),
+    emailAliases: z.array(z.string()).nullish(),
+    trustedEmailAddress: z.string().nullish(),
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish(),
+    title: z.string().nullish(),
+    phoneNumber: z.string().nullish(),
+    extension: z.string().nullish(),
+    personalMeetingUrls: z.array(z.string()).nullish(),
     settings: z
         .object({
-            webConferencesRecorded: z.boolean().optional(),
-            preventWebConferenceRecording: z.boolean().optional(),
-            telephonyCallsImported: z.boolean().optional(),
-            emailsImported: z.boolean().optional(),
-            preventEmailImport: z.boolean().optional(),
-            nonRecordedMeetingsImported: z.boolean().optional(),
-            gongConnectEnabled: z.boolean().optional()
+            webConferencesRecorded: z.boolean().nullish(),
+            preventWebConferenceRecording: z.boolean().nullish(),
+            telephonyCallsImported: z.boolean().nullish(),
+            emailsImported: z.boolean().nullish(),
+            preventEmailImport: z.boolean().nullish(),
+            nonRecordedMeetingsImported: z.boolean().nullish(),
+            gongConnectEnabled: z.boolean().nullish()
         })
-        .optional(),
-    managerId: z.string().optional(),
-    meetingConsentPageUrl: z.string().optional(),
+        .nullish(),
+    managerId: z.string().nullish(),
+    meetingConsentPageUrl: z.string().nullish(),
     spokenLanguages: z
         .array(
             z.object({
-                language: z.string(),
-                primary: z.boolean().optional()
+                language: z.string().nullable(),
+                primary: z.boolean().nullish()
             })
         )
-        .optional()
+        .nullish()
 });
 
 const action = createAction({
     description: 'Retrieve a single user from Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:users:read'],
@@ -107,6 +105,13 @@ const action = createAction({
 
             const providerResponse = ProviderResponseSchema.parse(response.data);
             const user = providerResponse.user;
+            if (user === null) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Gong returned a user response without a user object.',
+                    userId: input.userId
+                });
+            }
 
             return {
                 id: user.id,
@@ -114,15 +119,15 @@ const action = createAction({
                 created: user.created,
                 active: user.active,
                 ...(user.emailAliases != null && { emailAliases: user.emailAliases }),
-                ...(user.trustedEmailAddress != null && { trustedEmailAddress: user.trustedEmailAddress }),
+                ...(user.trustedEmailAddress !== undefined && { trustedEmailAddress: user.trustedEmailAddress }),
                 ...(user.firstName != null && { firstName: user.firstName }),
                 ...(user.lastName != null && { lastName: user.lastName }),
-                ...(user.title != null && { title: user.title }),
-                ...(user.phoneNumber != null && { phoneNumber: user.phoneNumber }),
-                ...(user.extension != null && { extension: user.extension }),
+                ...(user.title !== undefined && { title: user.title }),
+                ...(user.phoneNumber !== undefined && { phoneNumber: user.phoneNumber }),
+                ...(user.extension !== undefined && { extension: user.extension }),
                 ...(user.personalMeetingUrls != null && { personalMeetingUrls: user.personalMeetingUrls }),
                 ...(user.settings != null && { settings: user.settings }),
-                ...(user.managerId != null && { managerId: user.managerId }),
+                ...(user.managerId !== undefined && { managerId: user.managerId }),
                 ...(user.meetingConsentPageUrl != null && { meetingConsentPageUrl: user.meetingConsentPageUrl }),
                 ...(user.spokenLanguages != null && { spokenLanguages: user.spokenLanguages })
             };

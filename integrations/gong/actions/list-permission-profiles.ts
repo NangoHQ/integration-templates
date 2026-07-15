@@ -7,17 +7,17 @@ const InputSchema = z.object({
 
 const PermissionProfileSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    description: z.string().optional()
+    name: z.string().nullish(),
+    description: z.string().nullish()
 });
 
 const OutputSchema = z.object({
-    profiles: z.array(PermissionProfileSchema)
+    profiles: z.array(PermissionProfileSchema).nullable()
 });
 
 const action = createAction({
     description: 'List all permission profiles in a Gong workspace.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:permission-profile:read'],
@@ -62,7 +62,7 @@ const action = createAction({
 
         const profilesArray = 'profiles' in unknownData && Array.isArray(unknownData.profiles) ? unknownData.profiles : [];
 
-        const profiles: { id: string; name?: string; description?: string }[] = [];
+        const profiles: { id: string; name?: string; description?: string | null }[] = [];
         for (const item of profilesArray) {
             if (typeof item !== 'object' || item === null) {
                 continue;
@@ -74,7 +74,7 @@ const action = createAction({
             profiles.push({
                 id,
                 ...('name' in item && typeof item.name === 'string' && { name: item.name }),
-                ...('description' in item && typeof item.description === 'string' && { description: item.description })
+                ...('description' in item && (typeof item.description === 'string' || item.description === null) && { description: item.description })
             });
         }
 
