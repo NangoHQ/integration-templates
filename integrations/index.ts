@@ -723,6 +723,25 @@ import './basecamp/actions/fetch-accounts.js';
 import './basecamp/actions/fetch-projects.js';
 import './basecamp/actions/fetch-todolists.js';
 
+// -- Integration: baserow
+import './baserow/syncs/fields.js';
+import './baserow/syncs/rows.js';
+import './baserow/syncs/tables.js';
+import './baserow/actions/batch-create-rows.js';
+import './baserow/actions/batch-delete-rows.js';
+import './baserow/actions/batch-update-rows.js';
+import './baserow/actions/check-token.js';
+import './baserow/actions/create-row.js';
+import './baserow/actions/delete-row.js';
+import './baserow/actions/get-row.js';
+import './baserow/actions/list-fields.js';
+import './baserow/actions/list-row-names.js';
+import './baserow/actions/list-rows.js';
+import './baserow/actions/list-tables.js';
+import './baserow/actions/move-row.js';
+import './baserow/actions/update-row.js';
+import './baserow/actions/verify-password-field.js';
+
 // -- Integration: bigcommerce
 import './bigcommerce/syncs/brands.js';
 import './bigcommerce/syncs/categories.js';
