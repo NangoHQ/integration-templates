@@ -3938,6 +3938,16 @@ import './shopify/actions/update-url-redirect.js';
 import './shopify/actions/update-webhook-subscription.js';
 import './shopify/actions/upsert-metaobject.js';
 
+// -- Integration: shopify-partner
+import './shopify-partner/syncs/events.js';
+import './shopify-partner/syncs/transactions.js';
+import './shopify-partner/actions/get-active-subscription.js';
+import './shopify-partner/actions/get-public-api-versions.js';
+import './shopify-partner/actions/list-app-events.js';
+import './shopify-partner/actions/list-events.js';
+import './shopify-partner/actions/list-transactions.js';
+import './shopify-partner/actions/query-partner-data.js';
+
 // -- Integration: shortcut
 import './shortcut/syncs/categories.js';
 import './shortcut/syncs/custom-fields.js';
