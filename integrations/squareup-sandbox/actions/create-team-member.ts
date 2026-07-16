@@ -5,7 +5,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     given_name: z.string().describe('The given name (first name) of the team member. Example: "Ada"'),
     family_name: z.string().describe('The family name (last name) of the team member. Example: "Lovelace"'),
-    idempotency_key: z.string().optional().describe('A unique idempotency key. If omitted, a random UUID is generated.'),
+    idempotency_key: z.string().min(1).max(45).optional().describe('A unique idempotency key. Max length 45. If omitted, a random UUID is generated.'),
     reference_id: z.string().optional().describe('A second ID used to associate the team member with an entity in another system.'),
     status: z.enum(['ACTIVE', 'INACTIVE']).optional().describe('The status of the team member.'),
     email_address: z.string().optional().describe('The email address associated with the team member.'),

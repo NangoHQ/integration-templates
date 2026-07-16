@@ -1,5 +1,6 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
+import { isExpiredCursorError, withOverlap } from '../sync-helpers.js';
 
 const MoneySchema = z.object({
     amount: z.number().optional(),
@@ -30,41 +31,9 @@ const CheckpointSchema = z.object({
     cursor: z.string()
 });
 
-// Square's List Payment Refunds cursors expire a few minutes after being issued. A cursor
-// resumed from a checkpoint saved on a previous (failed, delayed, or long-running) run can
-// therefore be rejected by Square as invalid/expired on the next scheduled run. Detect that
-// specific failure so we can restart pagination from `updated_after` instead of failing
-// forever on every subsequent run.
-function isRecord(value: unknown): value is Record<string, unknown> {
-    return typeof value === 'object' && value !== null;
-}
-
-function isExpiredCursorError(error: unknown): boolean {
-    if (!isRecord(error)) {
-        return false;
-    }
-    const httpResponse = isRecord(error['response']) ? error['response'] : undefined;
-    const status = typeof httpResponse?.['status'] === 'number' ? httpResponse['status'] : error['status'];
-    if (status !== 400) {
-        return false;
-    }
-    const message = JSON.stringify(httpResponse?.['data'] ?? '').toLowerCase();
-    return message.includes('cursor');
-}
-
-// Square's data can become consistent with a short delay, so a refund updated just before the
-// max `updated_at` we saw this run might not have been visible yet while we were querying.
-// Keep a small safety overlap on the saved high-water mark so that refund is asked for again
-// next run instead of being skipped forever; re-saving it is safe since batchSave upserts by id.
-const HIGH_WATER_MARK_OVERLAP_MS = 2 * 60 * 1000;
-
-function withOverlap(isoTimestamp: string): string {
-    const asDate = new Date(isoTimestamp);
-    if (Number.isNaN(asDate.getTime())) {
-        return isoTimestamp;
-    }
-    return new Date(asDate.getTime() - HIGH_WATER_MARK_OVERLAP_MS).toISOString();
-}
+const RefundsPageSchema = z.object({
+    refunds: z.array(z.unknown()).optional()
+});
 
 const sync = createSync({
     description: 'Sync refunds.',
@@ -83,8 +52,6 @@ const sync = createSync({
         let lastProcessedUpdatedAt = updatedAfter;
 
         const runPagination = async (startCursor: string | undefined): Promise<void> => {
-            let cursor = startCursor;
-
             const proxyConfig: ProxyConfiguration = {
                 // https://developer.squareup.com/reference/square/refunds-api/list-payment-refunds
                 endpoint: '/v2/refunds',
@@ -92,7 +59,7 @@ const sync = createSync({
                     updated_at_begin_time: updatedAfter,
                     sort_order: 'ASC',
                     sort_field: 'UPDATED_AT',
-                    ...(cursor && { cursor })
+                    ...(startCursor && { cursor: startCursor })
                 },
                 paginate: {
                     type: 'cursor',
@@ -101,34 +68,49 @@ const sync = createSync({
                     response_path: 'refunds',
                     limit_name_in_request: 'limit',
                     limit: 100,
-                    on_page: async (paginationState) => {
-                        cursor = typeof paginationState.nextPageParam === 'string' ? paginationState.nextPageParam : undefined;
+                    // IMPORTANT: `on_page` fires one step "ahead" of the `for await` loop body's
+                    // processing of the same page (see orders.ts for the full explanation). Doing
+                    // the batchSave + checkpoint bookkeeping directly in the loop body using a
+                    // `cursor` variable set by `on_page` would persist the PREVIOUS page's cursor,
+                    // causing a resumed run to re-fetch a page it already processed. Do the real
+                    // work HERE instead, where `response` and `nextPageParam` unambiguously
+                    // correspond to the SAME page.
+                    on_page: async ({ nextPageParam, response }) => {
+                        const parsedPage = RefundsPageSchema.safeParse(response.data);
+                        if (!parsedPage.success) {
+                            throw new Error(`Failed to parse refunds page: ${parsedPage.error.message}`);
+                        }
+
+                        const validRefunds = z.array(RefundSchema).safeParse(parsedPage.data.refunds ?? []);
+                        if (!validRefunds.success) {
+                            throw new Error(`Invalid refund data: ${validRefunds.error.message}`);
+                        }
+
+                        if (validRefunds.data.length > 0) {
+                            await nango.batchSave(validRefunds.data, 'Refund');
+
+                            const lastRefund = validRefunds.data[validRefunds.data.length - 1];
+                            if (lastRefund) {
+                                lastProcessedUpdatedAt = lastRefund.updated_at ?? lastRefund.created_at ?? lastProcessedUpdatedAt;
+                            }
+                        }
+
+                        const cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                        if (cursor) {
+                            await nango.saveCheckpoint({
+                                updated_after: updatedAfter,
+                                cursor
+                            });
+                        }
                     }
                 },
                 retries: 3
             };
 
-            for await (const refunds of nango.paginate(proxyConfig)) {
-                const validRefunds = z.array(RefundSchema).safeParse(refunds);
-                if (!validRefunds.success) {
-                    throw new Error(`Invalid refund data: ${validRefunds.error.message}`);
-                }
-
-                if (validRefunds.data.length > 0) {
-                    await nango.batchSave(validRefunds.data, 'Refund');
-
-                    const lastRefund = validRefunds.data[validRefunds.data.length - 1];
-                    if (lastRefund) {
-                        lastProcessedUpdatedAt = lastRefund.updated_at ?? lastRefund.created_at ?? lastProcessedUpdatedAt;
-                    }
-                }
-
-                if (cursor) {
-                    await nango.saveCheckpoint({
-                        updated_after: updatedAfter,
-                        cursor
-                    });
-                }
+            // Drain the generator to completion; all per-page work happens in `on_page` above.
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            for await (const _page of nango.paginate(proxyConfig)) {
+                // no-op
             }
         };
 

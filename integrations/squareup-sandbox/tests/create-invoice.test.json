@@ -1,0 +1,172 @@
+{
+  "input": {
+    "order_id": "B65R0telSohspoOioutxtmZVyGLZY",
+    "location_id": "L6KAXMZ50WFKS",
+    "customer_id": "QCA4Q0NF3AA3KDQP390Y6VZ7QM",
+    "due_date": "2030-01-24",
+    "accepted_payment_methods": {
+      "card": true,
+      "square_gift_card": false,
+      "bank_account": false,
+      "buy_now_pay_later": false,
+      "cash_app_pay": false
+    }
+  },
+  "output": {
+    "id": "inv:0-ChDgRbUtsz6xWUzG8-oZq_Q0EL4I",
+    "version": 0,
+    "location_id": "L6KAXMZ50WFKS",
+    "order_id": "B65R0telSohspoOioutxtmZVyGLZY",
+    "status": "DRAFT",
+    "created_at": "2026-07-15T20:04:35Z",
+    "updated_at": "2026-07-15T20:04:35Z",
+    "primary_recipient": {
+      "customer_id": "QCA4Q0NF3AA3KDQP390Y6VZ7QM",
+      "given_name": "Grace",
+      "family_name": "Hopper",
+      "email_address": "grace.hopper@example.com"
+    },
+    "accepted_payment_methods": {
+      "card": true,
+      "square_gift_card": false,
+      "bank_account": false,
+      "buy_now_pay_later": false,
+      "cash_app_pay": false
+    },
+    "payment_requests": [
+      {
+        "uid": "2c56455e-8da8-48ae-a458-1f69a69b9230",
+        "request_type": "BALANCE",
+        "due_date": "2030-01-24",
+        "tipping_enabled": false,
+        "automatic_payment_source": "NONE",
+        "computed_amount_money": {
+          "amount": 500,
+          "currency": "USD"
+        },
+        "total_completed_amount_money": {
+          "amount": 0,
+          "currency": "USD"
+        }
+      }
+    ],
+    "invoice_number": "000011",
+    "delivery_method": "EMAIL"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/invoices": {
+        "response": {
+          "invoice": {
+            "id": "inv:0-ChDgRbUtsz6xWUzG8-oZq_Q0EL4I",
+            "version": 0,
+            "location_id": "L6KAXMZ50WFKS",
+            "order_id": "B65R0telSohspoOioutxtmZVyGLZY",
+            "payment_requests": [
+              {
+                "uid": "2c56455e-8da8-48ae-a458-1f69a69b9230",
+                "request_type": "BALANCE",
+                "due_date": "2030-01-24",
+                "tipping_enabled": false,
+                "computed_amount_money": {
+                  "amount": 500,
+                  "currency": "USD"
+                },
+                "total_completed_amount_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                },
+                "automatic_payment_source": "NONE"
+              }
+            ],
+            "primary_recipient": {
+              "customer_id": "QCA4Q0NF3AA3KDQP390Y6VZ7QM",
+              "given_name": "Grace",
+              "family_name": "Hopper",
+              "email_address": "grace.hopper@example.com"
+            },
+            "invoice_number": "000011",
+            "status": "DRAFT",
+            "timezone": "UTC",
+            "created_at": "2026-07-15T20:04:35Z",
+            "updated_at": "2026-07-15T20:04:35Z",
+            "accepted_payment_methods": {
+              "card": true,
+              "square_gift_card": false,
+              "bank_account": false,
+              "buy_now_pay_later": false,
+              "cash_app_pay": false
+            },
+            "delivery_method": "EMAIL",
+            "store_payment_method_enabled": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 20:04:35 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631152000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4962",
+          "x-ratelimit-reset": "1784145895",
+          "cf-ray": "a1bb60862a666289-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-disposition": "inline",
+          "etag": "W/\"2fd96f08e64a98142e869e78855f0b99\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Accept",
+          "content-transfer-encoding": "binary",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "square-version": "2026-07-15",
+          "x-envoy-decorator-operation": "/v2/invoices/**",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "937e95b2-fcd8-44fc-b78d-938ce5e9e672",
+          "x-sq-dc": "aws",
+          "x-sq-region": "us-west-2",
+          "x-square": "S=clinton-sandbox-674c88d4fb-zsq8f",
+          "set-cookie": "__cf_bm=lapYNyV2bNJHgJI7.hs3XDzfjtGSjw7dtlhTCfZY3E4-1784145874.9026196-1.0.1.1-YV_IVWz_KmNIZ6RGUOh_mWr2u9vRyjSNkqPmcYp4XdtkUFlsyX_BGRDczaRVcUSFU7eVB1aTJiq_e35vsfVeugvq2Cp1LkfASZyIuKJc0rqGWF7IpK.24N_8sZNrlwfW; HttpOnly; SameSite=None; Secure; Path=/; Domain=squareupsandbox.com; Expires=Wed, 15 Jul 2026 20:34:35 GMT"
+        },
+        "hash": "b2b99c893d37497e4bbc66ebf0ca2f7d333163ee",
+        "request": {
+          "data": {
+            "idempotency_key": "53987d3b3e4acc2297ee6839ccabd9220f21a38ba4f3ab0e7483982fde2c07c0",
+            "invoice": {
+              "order_id": "B65R0telSohspoOioutxtmZVyGLZY",
+              "location_id": "L6KAXMZ50WFKS",
+              "primary_recipient": {
+                "customer_id": "QCA4Q0NF3AA3KDQP390Y6VZ7QM"
+              },
+              "delivery_method": "EMAIL",
+              "payment_requests": [
+                {
+                  "request_type": "BALANCE",
+                  "due_date": "2030-01-24",
+                  "automatic_payment_source": "NONE"
+                }
+              ],
+              "accepted_payment_methods": {
+                "card": true,
+                "square_gift_card": false,
+                "bank_account": false,
+                "buy_now_pay_later": false,
+                "cash_app_pay": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

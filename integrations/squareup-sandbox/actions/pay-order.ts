@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     order_id: z.string().describe('The ID of the order to pay. Example: "jb5xcmK9WdiTRRDdRetjAmJpxjJZY"'),
     payment_ids: z.array(z.string()).describe('Payment IDs already created against this order.'),
-    idempotency_key: z.string().describe('Unique idempotency key for this request.')
+    idempotency_key: z.string().min(1).max(192).describe('Unique idempotency key for this request. Max length 192.')
 });
 
 const MoneySchema = z.object({

@@ -2,7 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    idempotency_key: z.string().describe('Unique idempotency key for the request. Example: 5d5b7c1c-5c5c-5c5c-5c5c-5c5c5c5c5c5c'),
+    idempotency_key: z
+        .string()
+        .min(1)
+        .max(128)
+        .describe('Unique idempotency key for the request. Max length 128. Example: 5d5b7c1c-5c5c-5c5c-5c5c-5c5c5c5c5c5c'),
     object: z
         .object({
             type: z.string().describe('Catalog object type. Example: ITEM, SUBSCRIPTION_PLAN'),

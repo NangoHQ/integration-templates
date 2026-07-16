@@ -30,6 +30,10 @@ const LocationsResponseSchema = z.object({
     )
 });
 
+const InvoicesPageSchema = z.object({
+    invoices: z.array(z.unknown()).optional()
+});
+
 const sync = createSync({
     description: 'Sync invoices.',
     version: '1.0.0',
@@ -76,15 +80,23 @@ const sync = createSync({
                 continue;
             }
             const locationId = location.id;
-            let cursor = i === locationIndex && checkpoint.cursor ? checkpoint.cursor : undefined;
+            const startCursor = i === locationIndex && checkpoint.cursor ? checkpoint.cursor : undefined;
 
-            for await (const invoices of nango.paginate({
+            // IMPORTANT: `on_page` fires one step "ahead" of the `for await` loop body's
+            // processing of the same page - it advances `cursor` for the NEXT request before the
+            // loop body below has finished with the CURRENT one. Stamping `cursor_saved_at` in the
+            // loop body would therefore record the age of a cursor Square actually issued earlier
+            // (during the PREVIOUS page's on_page call), making the staleness check think the
+            // cursor is younger than it really is. Do the batchSave + checkpoint bookkeeping HERE
+            // instead, where `response` and `nextPageParam` unambiguously correspond to the SAME
+            // page, so `cursor_saved_at` reflects when that cursor was actually received.
+            for await (const _page of nango.paginate({
                 // https://developer.squareup.com/reference/square/invoices-api/list-invoices
                 endpoint: '/v2/invoices',
                 params: {
                     location_id: locationId,
                     limit: 100,
-                    ...(cursor ? { cursor } : {})
+                    ...(startCursor ? { cursor: startCursor } : {})
                 },
                 paginate: {
                     type: 'cursor',
@@ -93,29 +105,36 @@ const sync = createSync({
                     response_path: 'invoices',
                     limit_name_in_request: 'limit',
                     limit: 100,
-                    on_page: async ({ nextPageParam }) => {
-                        cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                    on_page: async ({ nextPageParam, response }) => {
+                        const parsedPage = InvoicesPageSchema.safeParse(response.data);
+                        if (!parsedPage.success) {
+                            throw new Error(`Failed to parse invoices page: ${parsedPage.error.message}`);
+                        }
+
+                        const validInvoices = (parsedPage.data.invoices ?? []).map((invoice: unknown) => {
+                            const parsed = InvoiceSchema.safeParse(invoice);
+                            if (!parsed.success) {
+                                throw new Error(`Failed to parse invoice: ${parsed.error.message}`);
+                            }
+                            return parsed.data;
+                        });
+
+                        if (validInvoices.length > 0) {
+                            await nango.batchSave(validInvoices, 'Invoice');
+                        }
+
+                        const cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                        await nango.saveCheckpoint({
+                            location_index: i,
+                            cursor: cursor ?? '',
+                            cursor_saved_at: cursor ? new Date().toISOString() : ''
+                        });
                     }
                 },
                 retries: 3
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
             })) {
-                const validInvoices = invoices.map((invoice: unknown) => {
-                    const parsed = InvoiceSchema.safeParse(invoice);
-                    if (!parsed.success) {
-                        throw new Error(`Failed to parse invoice: ${parsed.error.message}`);
-                    }
-                    return parsed.data;
-                });
-
-                if (validInvoices.length > 0) {
-                    await nango.batchSave(validInvoices, 'Invoice');
-                }
-
-                await nango.saveCheckpoint({
-                    location_index: i,
-                    cursor: cursor ?? '',
-                    cursor_saved_at: cursor ? new Date().toISOString() : ''
-                });
+                // no-op; all per-page work happens in `on_page` above.
             }
 
             await nango.saveCheckpoint({

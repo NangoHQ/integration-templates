@@ -1,0 +1,870 @@
+{
+  "nango": {
+    "batchSave": {
+      "Payment": [
+        {
+          "id": "dQnXU5gibdePuSyfupH8HiY25XLZY",
+          "status": "COMPLETED",
+          "created_at": "2026-07-15T19:17:07.372Z",
+          "updated_at": "2026-07-15T19:17:08.176Z",
+          "amount_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "total_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "approved_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "location_id": "L6KAXMZ50WFKS",
+          "order_id": "FUlJaC68SZ0OkQVgwHQEKzwyFdPZY",
+          "source_type": "CARD",
+          "card_details": {
+            "status": "CAPTURED",
+            "card": {
+              "card_brand": "VISA",
+              "last_4": "5858",
+              "exp_month": 7,
+              "exp_year": 2028,
+              "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+              "card_type": "CREDIT",
+              "prepaid_type": "NOT_PREPAID",
+              "bin": "453275"
+            },
+            "entry_method": "KEYED",
+            "cvv_status": "CVV_ACCEPTED",
+            "avs_status": "AVS_ACCEPTED",
+            "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+            "card_payment_timeline": {
+              "authorized_at": "2026-07-15T19:17:07.501Z",
+              "captured_at": "2026-07-15T19:17:07.601Z"
+            }
+          },
+          "processing_fee": [
+            {
+              "effective_at": "2026-07-15T21:17:08.000Z",
+              "type": "INITIAL",
+              "amount_money": {
+                "amount": 33,
+                "currency": "USD"
+              }
+            }
+          ],
+          "receipt_number": "dQnX",
+          "receipt_url": "https://squareupsandbox.com/receipt/preview/dQnXU5gibdePuSyfupH8HiY25XLZY",
+          "delay_action": "CANCEL",
+          "delayed_until": "2026-07-22T19:17:07.372Z",
+          "version_token": "TyzcspUv2hiQTUp8uoNrDd3OnqOu3AuZWfDmoYvOP1C6o",
+          "application_details": {
+            "square_product": "ECOMMERCE_API",
+            "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+          }
+        },
+        {
+          "id": "tIdam9E7lfbWhNVrw61XvhCA5gYZY",
+          "status": "CANCELED",
+          "created_at": "2026-07-15T19:36:15.652Z",
+          "updated_at": "2026-07-15T19:36:17.933Z",
+          "amount_money": {
+            "amount": 50,
+            "currency": "USD"
+          },
+          "total_money": {
+            "amount": 50,
+            "currency": "USD"
+          },
+          "approved_money": {
+            "amount": 50,
+            "currency": "USD"
+          },
+          "location_id": "L6KAXMZ50WFKS",
+          "order_id": "bjZysp0mhCUNdY1gzdko2hJi1x5YY",
+          "source_type": "CARD",
+          "card_details": {
+            "status": "VOIDED",
+            "card": {
+              "card_brand": "VISA",
+              "last_4": "5858",
+              "exp_month": 7,
+              "exp_year": 2028,
+              "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+              "card_type": "CREDIT",
+              "prepaid_type": "NOT_PREPAID",
+              "bin": "453275"
+            },
+            "entry_method": "KEYED",
+            "cvv_status": "CVV_ACCEPTED",
+            "avs_status": "AVS_ACCEPTED",
+            "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+            "card_payment_timeline": {
+              "authorized_at": "2026-07-15T19:36:15.797Z",
+              "voided_at": "2026-07-15T19:36:17.168Z"
+            }
+          },
+          "delay_action": "CANCEL",
+          "delayed_until": "2026-07-22T19:36:15.652Z",
+          "version_token": "i5Gur6ScIXS5gpwbtVzG271muOGOA4yLk6R35h16ZoH6o",
+          "application_details": {
+            "square_product": "ECOMMERCE_API",
+            "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+          }
+        },
+        {
+          "id": "BC5A8XpB9k3D5IOVW3R2bR0pCZ9YY",
+          "status": "CANCELED",
+          "created_at": "2026-07-15T19:29:18.238Z",
+          "updated_at": "2026-07-15T19:57:37.981Z",
+          "amount_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "total_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "approved_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "location_id": "L6KAXMZ50WFKS",
+          "order_id": "dS0EELOTPqsLUOSI945YIveikueZY",
+          "source_type": "CARD",
+          "card_details": {
+            "status": "VOIDED",
+            "card": {
+              "card_brand": "VISA",
+              "last_4": "5858",
+              "exp_month": 7,
+              "exp_year": 2028,
+              "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+              "card_type": "CREDIT",
+              "prepaid_type": "NOT_PREPAID",
+              "bin": "453275"
+            },
+            "entry_method": "KEYED",
+            "cvv_status": "CVV_ACCEPTED",
+            "avs_status": "AVS_ACCEPTED",
+            "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+            "card_payment_timeline": {
+              "authorized_at": "2026-07-15T19:29:18.369Z",
+              "voided_at": "2026-07-15T19:57:37.019Z"
+            }
+          },
+          "delay_action": "CANCEL",
+          "delayed_until": "2026-07-22T19:29:18.238Z",
+          "version_token": "lRLZV3EzlZrPGZWvqWSOmthci7EZtrnQ6X0Gm7tj7Li6o",
+          "application_details": {
+            "square_product": "ECOMMERCE_API",
+            "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+          }
+        },
+        {
+          "id": "xQuFYRW1cI0htwrFxs8UsqstMB8YY",
+          "status": "CANCELED",
+          "created_at": "2026-07-15T19:29:19.743Z",
+          "updated_at": "2026-07-15T19:57:44.538Z",
+          "amount_money": {
+            "amount": 150,
+            "currency": "USD"
+          },
+          "total_money": {
+            "amount": 150,
+            "currency": "USD"
+          },
+          "approved_money": {
+            "amount": 150,
+            "currency": "USD"
+          },
+          "location_id": "L6KAXMZ50WFKS",
+          "order_id": "btstO1ETK8UXjo9TFql0tkvK1CHZY",
+          "source_type": "CARD",
+          "card_details": {
+            "status": "VOIDED",
+            "card": {
+              "card_brand": "VISA",
+              "last_4": "5858",
+              "exp_month": 7,
+              "exp_year": 2028,
+              "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+              "card_type": "CREDIT",
+              "prepaid_type": "NOT_PREPAID",
+              "bin": "453275"
+            },
+            "entry_method": "KEYED",
+            "cvv_status": "CVV_ACCEPTED",
+            "avs_status": "AVS_ACCEPTED",
+            "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+            "card_payment_timeline": {
+              "authorized_at": "2026-07-15T19:29:19.884Z",
+              "voided_at": "2026-07-15T19:57:43.461Z"
+            }
+          },
+          "delay_action": "CANCEL",
+          "delayed_until": "2026-07-22T19:29:19.743Z",
+          "version_token": "1zW3LXFaNOvRiyhqkSXhJgV7JRZUbPEHy9LnHzxKkIu6o",
+          "application_details": {
+            "square_product": "ECOMMERCE_API",
+            "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+          }
+        },
+        {
+          "id": "zHXgCX6A83cHphOaIXnzT5XDPk7YY",
+          "status": "APPROVED",
+          "created_at": "2026-07-15T19:57:53.476Z",
+          "updated_at": "2026-07-15T19:57:53.616Z",
+          "amount_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "total_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "approved_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "location_id": "L6KAXMZ50WFKS",
+          "order_id": "n1LO5eMd9Ctx6QuPcfrUiszY7pPZY",
+          "source_type": "CARD",
+          "card_details": {
+            "status": "AUTHORIZED",
+            "card": {
+              "card_brand": "VISA",
+              "last_4": "5858",
+              "exp_month": 7,
+              "exp_year": 2028,
+              "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+              "card_type": "CREDIT",
+              "prepaid_type": "NOT_PREPAID",
+              "bin": "453275"
+            },
+            "entry_method": "KEYED",
+            "cvv_status": "CVV_ACCEPTED",
+            "avs_status": "AVS_ACCEPTED",
+            "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+            "card_payment_timeline": {
+              "authorized_at": "2026-07-15T19:57:53.616Z"
+            }
+          },
+          "receipt_number": "zHXg",
+          "delay_action": "CANCEL",
+          "delayed_until": "2026-07-22T19:57:53.476Z",
+          "version_token": "5gK3o1SqLhsspJjsl7HlDVOHma5VVNQt9O3JcA4KT6l6o",
+          "application_details": {
+            "square_product": "ECOMMERCE_API",
+            "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+          }
+        },
+        {
+          "id": "d8dXu6yFGHDoQ4aGFVEjMF44gnEZY",
+          "status": "COMPLETED",
+          "created_at": "2026-07-15T20:02:12.667Z",
+          "updated_at": "2026-07-15T20:03:33.276Z",
+          "amount_money": {
+            "amount": 315,
+            "currency": "USD"
+          },
+          "total_money": {
+            "amount": 315,
+            "currency": "USD"
+          },
+          "approved_money": {
+            "amount": 315,
+            "currency": "USD"
+          },
+          "location_id": "L6KAXMZ50WFKS",
+          "order_id": "jb5xcmK9WdiTRRDdRetjAmJpxjJZY",
+          "source_type": "CARD",
+          "card_details": {
+            "status": "CAPTURED",
+            "card": {
+              "card_brand": "VISA",
+              "last_4": "5858",
+              "exp_month": 7,
+              "exp_year": 2028,
+              "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+              "card_type": "CREDIT",
+              "prepaid_type": "NOT_PREPAID",
+              "bin": "453275"
+            },
+            "entry_method": "ON_FILE",
+            "cvv_status": "CVV_NOT_CHECKED",
+            "avs_status": "AVS_ACCEPTED",
+            "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+            "card_payment_timeline": {
+              "authorized_at": "2026-07-15T20:02:12.797Z",
+              "captured_at": "2026-07-15T20:03:31.822Z"
+            }
+          },
+          "processing_fee": [
+            {
+              "effective_at": "2026-07-15T22:03:33.000Z",
+              "type": "INITIAL",
+              "amount_money": {
+                "amount": 39,
+                "currency": "USD"
+              }
+            }
+          ],
+          "receipt_number": "d8dX",
+          "receipt_url": "https://squareupsandbox.com/receipt/preview/d8dXu6yFGHDoQ4aGFVEjMF44gnEZY",
+          "delay_action": "CANCEL",
+          "delayed_until": "2026-07-22T20:02:12.667Z",
+          "version_token": "ojbBZDxT0BCfmTbfFWltd63ywbj9hJz4miO3kmSCWfj6o",
+          "application_details": {
+            "square_product": "ECOMMERCE_API",
+            "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+          }
+        },
+        {
+          "id": "f3YEx4hWP1mDncRMtBjc4TM4OKNZY",
+          "status": "COMPLETED",
+          "created_at": "2026-07-15T19:26:18.973Z",
+          "updated_at": "2026-07-15T20:11:22.964Z",
+          "amount_money": {
+            "amount": 1000,
+            "currency": "USD"
+          },
+          "total_money": {
+            "amount": 1000,
+            "currency": "USD"
+          },
+          "approved_money": {
+            "amount": 1000,
+            "currency": "USD"
+          },
+          "location_id": "L6KAXMZ50WFKS",
+          "order_id": "nT6eTFlDa7Ko7PDjNEJX7ij1jpeZY",
+          "source_type": "CARD",
+          "card_details": {
+            "status": "CAPTURED",
+            "card": {
+              "card_brand": "VISA",
+              "last_4": "5858",
+              "exp_month": 7,
+              "exp_year": 2028,
+              "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+              "card_type": "CREDIT",
+              "prepaid_type": "NOT_PREPAID",
+              "bin": "453275"
+            },
+            "entry_method": "KEYED",
+            "cvv_status": "CVV_ACCEPTED",
+            "avs_status": "AVS_ACCEPTED",
+            "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+            "card_payment_timeline": {
+              "authorized_at": "2026-07-15T19:26:19.107Z",
+              "captured_at": "2026-07-15T19:26:19.204Z"
+            }
+          },
+          "processing_fee": [
+            {
+              "effective_at": "2026-07-15T21:26:20.000Z",
+              "type": "INITIAL",
+              "amount_money": {
+                "amount": 59,
+                "currency": "USD"
+              }
+            }
+          ],
+          "receipt_number": "f3YE",
+          "receipt_url": "https://squareupsandbox.com/receipt/preview/f3YEx4hWP1mDncRMtBjc4TM4OKNZY",
+          "delay_action": "CANCEL",
+          "delayed_until": "2026-07-22T19:26:18.973Z",
+          "version_token": "CFP9TCPy5yQ9FmPsrZL3YVYTXuuvSXdLFWRZmunjsSY6o",
+          "application_details": {
+            "square_product": "ECOMMERCE_API",
+            "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Payment": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v2/payments": {
+        "response": {
+          "payments": [
+            {
+              "id": "dQnXU5gibdePuSyfupH8HiY25XLZY",
+              "created_at": "2026-07-15T19:17:07.372Z",
+              "updated_at": "2026-07-15T19:17:08.176Z",
+              "amount_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "status": "COMPLETED",
+              "delay_duration": "PT168H",
+              "source_type": "CARD",
+              "card_details": {
+                "status": "CAPTURED",
+                "card": {
+                  "card_brand": "VISA",
+                  "last_4": "5858",
+                  "exp_month": 7,
+                  "exp_year": 2028,
+                  "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+                  "card_type": "CREDIT",
+                  "prepaid_type": "NOT_PREPAID",
+                  "bin": "453275"
+                },
+                "entry_method": "KEYED",
+                "cvv_status": "CVV_ACCEPTED",
+                "avs_status": "AVS_ACCEPTED",
+                "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+                "card_payment_timeline": {
+                  "authorized_at": "2026-07-15T19:17:07.501Z",
+                  "captured_at": "2026-07-15T19:17:07.601Z"
+                }
+              },
+              "location_id": "L6KAXMZ50WFKS",
+              "order_id": "FUlJaC68SZ0OkQVgwHQEKzwyFdPZY",
+              "risk_evaluation": {
+                "created_at": "2026-07-15T19:17:07.502Z",
+                "risk_level": "NORMAL"
+              },
+              "processing_fee": [
+                {
+                  "effective_at": "2026-07-15T21:17:08.000Z",
+                  "type": "INITIAL",
+                  "amount_money": {
+                    "amount": 33,
+                    "currency": "USD"
+                  }
+                }
+              ],
+              "total_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "approved_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "receipt_number": "dQnX",
+              "receipt_url": "https://squareupsandbox.com/receipt/preview/dQnXU5gibdePuSyfupH8HiY25XLZY",
+              "delay_action": "CANCEL",
+              "delayed_until": "2026-07-22T19:17:07.372Z",
+              "application_details": {
+                "square_product": "ECOMMERCE_API",
+                "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+              },
+              "version_token": "TyzcspUv2hiQTUp8uoNrDd3OnqOu3AuZWfDmoYvOP1C6o"
+            },
+            {
+              "id": "tIdam9E7lfbWhNVrw61XvhCA5gYZY",
+              "created_at": "2026-07-15T19:36:15.652Z",
+              "updated_at": "2026-07-15T19:36:17.933Z",
+              "amount_money": {
+                "amount": 50,
+                "currency": "USD"
+              },
+              "status": "CANCELED",
+              "delay_duration": "PT168H",
+              "source_type": "CARD",
+              "card_details": {
+                "status": "VOIDED",
+                "card": {
+                  "card_brand": "VISA",
+                  "last_4": "5858",
+                  "exp_month": 7,
+                  "exp_year": 2028,
+                  "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+                  "card_type": "CREDIT",
+                  "prepaid_type": "NOT_PREPAID",
+                  "bin": "453275"
+                },
+                "entry_method": "KEYED",
+                "cvv_status": "CVV_ACCEPTED",
+                "avs_status": "AVS_ACCEPTED",
+                "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+                "card_payment_timeline": {
+                  "authorized_at": "2026-07-15T19:36:15.797Z",
+                  "voided_at": "2026-07-15T19:36:17.168Z"
+                }
+              },
+              "location_id": "L6KAXMZ50WFKS",
+              "order_id": "bjZysp0mhCUNdY1gzdko2hJi1x5YY",
+              "risk_evaluation": {
+                "created_at": "2026-07-15T19:36:15.797Z",
+                "risk_level": "NORMAL"
+              },
+              "total_money": {
+                "amount": 50,
+                "currency": "USD"
+              },
+              "approved_money": {
+                "amount": 50,
+                "currency": "USD"
+              },
+              "delay_action": "CANCEL",
+              "delayed_until": "2026-07-22T19:36:15.652Z",
+              "application_details": {
+                "square_product": "ECOMMERCE_API",
+                "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+              },
+              "version_token": "i5Gur6ScIXS5gpwbtVzG271muOGOA4yLk6R35h16ZoH6o"
+            },
+            {
+              "id": "BC5A8XpB9k3D5IOVW3R2bR0pCZ9YY",
+              "created_at": "2026-07-15T19:29:18.238Z",
+              "updated_at": "2026-07-15T19:57:37.981Z",
+              "amount_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "status": "CANCELED",
+              "delay_duration": "PT168H",
+              "source_type": "CARD",
+              "card_details": {
+                "status": "VOIDED",
+                "card": {
+                  "card_brand": "VISA",
+                  "last_4": "5858",
+                  "exp_month": 7,
+                  "exp_year": 2028,
+                  "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+                  "card_type": "CREDIT",
+                  "prepaid_type": "NOT_PREPAID",
+                  "bin": "453275"
+                },
+                "entry_method": "KEYED",
+                "cvv_status": "CVV_ACCEPTED",
+                "avs_status": "AVS_ACCEPTED",
+                "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+                "card_payment_timeline": {
+                  "authorized_at": "2026-07-15T19:29:18.369Z",
+                  "voided_at": "2026-07-15T19:57:37.019Z"
+                }
+              },
+              "location_id": "L6KAXMZ50WFKS",
+              "order_id": "dS0EELOTPqsLUOSI945YIveikueZY",
+              "risk_evaluation": {
+                "created_at": "2026-07-15T19:29:18.370Z",
+                "risk_level": "NORMAL"
+              },
+              "total_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "approved_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "delay_action": "CANCEL",
+              "delayed_until": "2026-07-22T19:29:18.238Z",
+              "application_details": {
+                "square_product": "ECOMMERCE_API",
+                "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+              },
+              "version_token": "lRLZV3EzlZrPGZWvqWSOmthci7EZtrnQ6X0Gm7tj7Li6o"
+            },
+            {
+              "id": "xQuFYRW1cI0htwrFxs8UsqstMB8YY",
+              "created_at": "2026-07-15T19:29:19.743Z",
+              "updated_at": "2026-07-15T19:57:44.538Z",
+              "amount_money": {
+                "amount": 150,
+                "currency": "USD"
+              },
+              "status": "CANCELED",
+              "delay_duration": "PT168H",
+              "source_type": "CARD",
+              "card_details": {
+                "status": "VOIDED",
+                "card": {
+                  "card_brand": "VISA",
+                  "last_4": "5858",
+                  "exp_month": 7,
+                  "exp_year": 2028,
+                  "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+                  "card_type": "CREDIT",
+                  "prepaid_type": "NOT_PREPAID",
+                  "bin": "453275"
+                },
+                "entry_method": "KEYED",
+                "cvv_status": "CVV_ACCEPTED",
+                "avs_status": "AVS_ACCEPTED",
+                "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+                "card_payment_timeline": {
+                  "authorized_at": "2026-07-15T19:29:19.884Z",
+                  "voided_at": "2026-07-15T19:57:43.461Z"
+                }
+              },
+              "location_id": "L6KAXMZ50WFKS",
+              "order_id": "btstO1ETK8UXjo9TFql0tkvK1CHZY",
+              "risk_evaluation": {
+                "created_at": "2026-07-15T19:29:19.884Z",
+                "risk_level": "NORMAL"
+              },
+              "total_money": {
+                "amount": 150,
+                "currency": "USD"
+              },
+              "approved_money": {
+                "amount": 150,
+                "currency": "USD"
+              },
+              "delay_action": "CANCEL",
+              "delayed_until": "2026-07-22T19:29:19.743Z",
+              "application_details": {
+                "square_product": "ECOMMERCE_API",
+                "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+              },
+              "version_token": "1zW3LXFaNOvRiyhqkSXhJgV7JRZUbPEHy9LnHzxKkIu6o"
+            },
+            {
+              "id": "zHXgCX6A83cHphOaIXnzT5XDPk7YY",
+              "created_at": "2026-07-15T19:57:53.476Z",
+              "updated_at": "2026-07-15T19:57:53.616Z",
+              "amount_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "status": "APPROVED",
+              "delay_duration": "PT168H",
+              "source_type": "CARD",
+              "card_details": {
+                "status": "AUTHORIZED",
+                "card": {
+                  "card_brand": "VISA",
+                  "last_4": "5858",
+                  "exp_month": 7,
+                  "exp_year": 2028,
+                  "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+                  "card_type": "CREDIT",
+                  "prepaid_type": "NOT_PREPAID",
+                  "bin": "453275"
+                },
+                "entry_method": "KEYED",
+                "cvv_status": "CVV_ACCEPTED",
+                "avs_status": "AVS_ACCEPTED",
+                "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+                "card_payment_timeline": {
+                  "authorized_at": "2026-07-15T19:57:53.616Z"
+                }
+              },
+              "location_id": "L6KAXMZ50WFKS",
+              "order_id": "n1LO5eMd9Ctx6QuPcfrUiszY7pPZY",
+              "risk_evaluation": {
+                "created_at": "2026-07-15T19:57:53.616Z",
+                "risk_level": "NORMAL"
+              },
+              "total_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "approved_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "capabilities": [
+                "EDIT_AMOUNT_UP",
+                "EDIT_AMOUNT_DOWN",
+                "EDIT_TIP_AMOUNT_UP",
+                "EDIT_TIP_AMOUNT_DOWN",
+                "EDIT_DELAY_ACTION"
+              ],
+              "receipt_number": "zHXg",
+              "delay_action": "CANCEL",
+              "delayed_until": "2026-07-22T19:57:53.476Z",
+              "application_details": {
+                "square_product": "ECOMMERCE_API",
+                "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+              },
+              "version_token": "5gK3o1SqLhsspJjsl7HlDVOHma5VVNQt9O3JcA4KT6l6o"
+            },
+            {
+              "id": "d8dXu6yFGHDoQ4aGFVEjMF44gnEZY",
+              "created_at": "2026-07-15T20:02:12.667Z",
+              "updated_at": "2026-07-15T20:03:33.276Z",
+              "amount_money": {
+                "amount": 315,
+                "currency": "USD"
+              },
+              "status": "COMPLETED",
+              "delay_duration": "PT168H",
+              "source_type": "CARD",
+              "card_details": {
+                "status": "CAPTURED",
+                "card": {
+                  "card_brand": "VISA",
+                  "last_4": "5858",
+                  "exp_month": 7,
+                  "exp_year": 2028,
+                  "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+                  "card_type": "CREDIT",
+                  "prepaid_type": "NOT_PREPAID",
+                  "bin": "453275"
+                },
+                "entry_method": "ON_FILE",
+                "cvv_status": "CVV_NOT_CHECKED",
+                "avs_status": "AVS_ACCEPTED",
+                "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+                "card_payment_timeline": {
+                  "authorized_at": "2026-07-15T20:02:12.797Z",
+                  "captured_at": "2026-07-15T20:03:31.822Z"
+                }
+              },
+              "location_id": "L6KAXMZ50WFKS",
+              "order_id": "jb5xcmK9WdiTRRDdRetjAmJpxjJZY",
+              "risk_evaluation": {
+                "created_at": "2026-07-15T20:02:12.798Z",
+                "risk_level": "NORMAL"
+              },
+              "processing_fee": [
+                {
+                  "effective_at": "2026-07-15T22:03:33.000Z",
+                  "type": "INITIAL",
+                  "amount_money": {
+                    "amount": 39,
+                    "currency": "USD"
+                  }
+                }
+              ],
+              "customer_id": "QCA4Q0NF3AA3KDQP390Y6VZ7QM",
+              "total_money": {
+                "amount": 315,
+                "currency": "USD"
+              },
+              "approved_money": {
+                "amount": 315,
+                "currency": "USD"
+              },
+              "receipt_number": "d8dX",
+              "receipt_url": "https://squareupsandbox.com/receipt/preview/d8dXu6yFGHDoQ4aGFVEjMF44gnEZY",
+              "delay_action": "CANCEL",
+              "delayed_until": "2026-07-22T20:02:12.667Z",
+              "application_details": {
+                "square_product": "ECOMMERCE_API",
+                "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+              },
+              "version_token": "ojbBZDxT0BCfmTbfFWltd63ywbj9hJz4miO3kmSCWfj6o"
+            },
+            {
+              "id": "f3YEx4hWP1mDncRMtBjc4TM4OKNZY",
+              "created_at": "2026-07-15T19:26:18.973Z",
+              "updated_at": "2026-07-15T20:11:22.964Z",
+              "amount_money": {
+                "amount": 1000,
+                "currency": "USD"
+              },
+              "refunded_money": {
+                "amount": 300,
+                "currency": "USD"
+              },
+              "status": "COMPLETED",
+              "delay_duration": "PT168H",
+              "source_type": "CARD",
+              "card_details": {
+                "status": "CAPTURED",
+                "card": {
+                  "card_brand": "VISA",
+                  "last_4": "5858",
+                  "exp_month": 7,
+                  "exp_year": 2028,
+                  "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+                  "card_type": "CREDIT",
+                  "prepaid_type": "NOT_PREPAID",
+                  "bin": "453275"
+                },
+                "entry_method": "KEYED",
+                "cvv_status": "CVV_ACCEPTED",
+                "avs_status": "AVS_ACCEPTED",
+                "statement_description": "SQ *DEFAULT TEST ACCOUNT",
+                "card_payment_timeline": {
+                  "authorized_at": "2026-07-15T19:26:19.107Z",
+                  "captured_at": "2026-07-15T19:26:19.204Z"
+                }
+              },
+              "location_id": "L6KAXMZ50WFKS",
+              "order_id": "nT6eTFlDa7Ko7PDjNEJX7ij1jpeZY",
+              "refund_ids": [
+                "f3YEx4hWP1mDncRMtBjc4TM4OKNZY_Zr3rlLJphp2iwUunle8Wv3SRx7EVwRO0eFaMEt5NR2c",
+                "f3YEx4hWP1mDncRMtBjc4TM4OKNZY_zIbjpnhrcLvBj1ugJlCmTdXCojA0tmqhysMi6pf7mtJ"
+              ],
+              "risk_evaluation": {
+                "created_at": "2026-07-15T19:26:19.108Z",
+                "risk_level": "NORMAL"
+              },
+              "processing_fee": [
+                {
+                  "effective_at": "2026-07-15T21:26:20.000Z",
+                  "type": "INITIAL",
+                  "amount_money": {
+                    "amount": 59,
+                    "currency": "USD"
+                  }
+                }
+              ],
+              "customer_id": "D0W2WW574N4NKXWH7ZATYCF1J0",
+              "total_money": {
+                "amount": 1000,
+                "currency": "USD"
+              },
+              "approved_money": {
+                "amount": 1000,
+                "currency": "USD"
+              },
+              "receipt_number": "f3YE",
+              "receipt_url": "https://squareupsandbox.com/receipt/preview/f3YEx4hWP1mDncRMtBjc4TM4OKNZY",
+              "delay_action": "CANCEL",
+              "delayed_until": "2026-07-22T19:26:18.973Z",
+              "application_details": {
+                "square_product": "ECOMMERCE_API",
+                "application_id": "sandbox-sq0idb-E8doeggyp-6xuqErQNxsvw"
+              },
+              "version_token": "CFP9TCPy5yQ9FmPsrZL3YVYTXuuvSXdLFWRZmunjsSY6o"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 23:58:55 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=631152000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1784159970",
+          "cf-ray": "a1bcb7c92985fef0-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "frame-options": "DENY",
+          "square-version": "2026-07-15",
+          "squareup--connect--v2--common--versionmetadata-bin": "CgoyMDI2LTA3LTE1",
+          "x-envoy-decorator-operation": "/v2/payments/**",
+          "x-sq-dc": "aws",
+          "x-sq-region": "us-west-2",
+          "set-cookie": "__cf_bm=lja1uuiLAxHqtKCUr2kBGS8HWJWY0Icp.EP_PeRsVWk-1784159934.9097698-1.0.1.1-nZo9d2n2NUmKeqz7G0ZtOmmv3bzgzq46vGabxlzRamNvhaONT7n2FLxsTjjB8nkt.22oXIkRTBP8NbEL8vlwVOXDijERsscBq1IrlJ.2OHKbfmraBMezRvcDmWOmOY_x; HttpOnly; SameSite=None; Secure; Path=/; Domain=squareupsandbox.com; Expires=Thu, 16 Jul 2026 00:28:55 GMT"
+        },
+        "hash": "b48268dda41bee997cb2893373d2c28b957d586b",
+        "request": {
+          "params": {
+            "limit": "100",
+            "sort_field": "UPDATED_AT",
+            "sort_order": "ASC",
+            "updated_at_begin_time": "1970-01-01T00:00:00.000Z"
+          }
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,11 @@ const MoneySchema = z.object({
 });
 
 const InputSchema = z.object({
-    idempotency_key: z.string().describe('Unique idempotency key for this request. Example: "7b0f3ec5-086a-4871-8f13-3c81b3875218"'),
+    idempotency_key: z
+        .string()
+        .min(1)
+        .max(45)
+        .describe('Unique idempotency key for this request. Max length 45. Example: "7b0f3ec5-086a-4871-8f13-3c81b3875218"'),
     source_id: z.string().describe('Source of funds for this payment. In sandbox use "cnon:card-nonce-ok". Example: "ccof:GaJGNaZa8x4OgDJn4GB"'),
     amount_money: MoneySchema.describe('Amount to charge, in smallest currency denomination. Example: { amount: 1000, currency: "USD" }'),
     location_id: z.string().optional().describe('Location ID to associate with the payment. Example: "L88917AVBK2S5"'),

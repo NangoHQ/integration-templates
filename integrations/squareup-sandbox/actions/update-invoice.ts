@@ -41,7 +41,7 @@ const UpdateInvoiceResponseSchema = z.object({
 const InputSchema = z.object({
     invoice_id: z.string().describe('The ID of the invoice to update. Example: "inv:0-ChClKzUTL1Ssf3Kybdil5LEXEL4I"'),
     invoice: z.object({}).passthrough().describe('The invoice fields to add, change, or clear.'),
-    idempotency_key: z.string().optional().describe('A unique string that identifies this request for idempotency.')
+    idempotency_key: z.string().min(1).max(128).optional().describe('A unique string that identifies this request for idempotency. Max length 128.')
 });
 
 const OutputSchema = InvoiceSchema;
