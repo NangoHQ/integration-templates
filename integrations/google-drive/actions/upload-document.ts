@@ -71,12 +71,15 @@ const action = createAction({
         // Step 2: Upload content using media upload
         // https://developers.google.com/workspace/drive/api/reference/rest/v3/files/update
         //
-        // Step 1 already created the file, so a failure here would strand an empty file
-        // that a caller retry would then duplicate. Roll the creation back (best-effort —
-        // a failed cleanup must not mask the original error) and rethrow.
-        let file: { id: string; name: string; mimeType: string; webViewLink?: string; webContentLink?: string };
+        // Step 1 already created the file, so a definite rejection here (4xx — bad request,
+        // quota, too large) strands an empty file that a caller retry would then duplicate:
+        // roll the creation back (best-effort — a failed cleanup must not mask the original
+        // error) and rethrow. On an ambiguous failure (network error, timeout, 5xx) the
+        // content may already have been applied, so the file is left in place rather than
+        // risk deleting a successful upload.
+        let contentResponse;
         try {
-            const contentResponse = await nango.patch({
+            contentResponse = await nango.patch({
                 endpoint: `/upload/drive/v3/files/${fileId}`,
                 params: {
                     uploadType: 'media',
@@ -88,25 +91,28 @@ const action = createAction({
                 data: fileContent,
                 retries: 3
             });
-
-            if (!contentResponse.data) {
-                throw new nango.ActionError({
-                    type: 'upload_failed',
-                    message: 'Failed to upload file content to Google Drive'
-                });
+        } catch (error: any) {
+            const status = error?.response?.status;
+            if (typeof status === 'number' && status >= 400 && status < 500) {
+                await nango
+                    .delete({
+                        endpoint: `/drive/v3/files/${fileId}`,
+                        retries: 3
+                    })
+                    .catch(() => undefined);
             }
 
-            file = contentResponse.data;
-        } catch (err) {
-            await nango
-                .delete({
-                    endpoint: `/drive/v3/files/${fileId}`,
-                    retries: 3
-                })
-                .catch(() => undefined);
-
-            throw err;
+            throw error;
         }
+
+        if (!contentResponse.data) {
+            throw new nango.ActionError({
+                type: 'upload_failed',
+                message: 'Failed to upload file content to Google Drive'
+            });
+        }
+
+        const file = contentResponse.data;
 
         return {
             id: file.id,
