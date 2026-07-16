@@ -17,8 +17,28 @@ const OrderSchema = z
     })
     .passthrough();
 
+const SearchOrdersPageSchema = z.object({
+    orders: z.array(z.unknown()).optional()
+});
+
+// Square's SearchOrders endpoint accepts at most 10 location_ids per request.
+const LOCATION_BATCH_SIZE = 10;
+
+// Checkpoint shape:
+// - updated_after: the high-water mark to filter on for the NEXT full run. Only promoted once
+//   every location batch has been fully enumerated for the current run.
+// - run_started_at: the timestamp captured when the current (possibly still in-progress) run
+//   began. Kept stable across retries/resumes of the same run so that it can be safely promoted
+//   to `updated_after` once the run completes, regardless of how many resumes it took. Empty
+//   string means "no run in progress" (i.e. the previous run completed cleanly).
+// - location_batch_index: which chunk of (<=10) location IDs we're currently working through.
+//   Lets a retry resume at the right batch instead of restarting all batches from scratch.
+// - cursor: the pagination cursor to resume the CURRENT location batch from. Empty string means
+//   "start this batch from the beginning".
 const CheckpointSchema = z.object({
     updated_after: z.string(),
+    run_started_at: z.string(),
+    location_batch_index: z.number().int(),
     cursor: z.string()
 });
 
@@ -34,7 +54,12 @@ const sync = createSync({
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
-        let updatedAfter = rawCheckpoint?.updated_after || '';
+        const updatedAfter = rawCheckpoint?.updated_after || '';
+        // Reuse the previously captured run start time when resuming a run that's already in
+        // progress, so the eventual high-water mark reflects when THIS run began, not when a
+        // later resume happened to execute.
+        const runStartedAt = rawCheckpoint?.run_started_at || new Date().toISOString();
+        let locationBatchIndex = rawCheckpoint?.location_batch_index ?? 0;
         let cursor = rawCheckpoint?.cursor || '';
 
         // https://developer.squareup.com/reference/square/locations-api/list-locations
@@ -53,81 +78,126 @@ const sync = createSync({
             return;
         }
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://developer.squareup.com/reference/square/orders-api/search-orders
-            endpoint: '/v2/orders/search',
-            method: 'POST',
-            data: {
-                location_ids: locationIds,
-                ...(cursor && { cursor }),
-                query: {
-                    sort: {
-                        sort_field: 'UPDATED_AT',
-                        sort_order: 'ASC'
-                    },
-                    ...(updatedAfter && {
-                        filter: {
-                            date_time_filter: {
-                                updated_at: {
-                                    start_at: updatedAfter
+        const locationBatches: string[][] = [];
+        for (let i = 0; i < locationIds.length; i += LOCATION_BATCH_SIZE) {
+            locationBatches.push(locationIds.slice(i, i + LOCATION_BATCH_SIZE));
+        }
+
+        // Guard against a stale checkpoint pointing past the current number of batches (e.g. the
+        // merchant removed locations since the last run). Restart batching from the top rather
+        // than skipping the whole sync.
+        if (locationBatchIndex >= locationBatches.length) {
+            locationBatchIndex = 0;
+            cursor = '';
+        }
+
+        for (; locationBatchIndex < locationBatches.length; locationBatchIndex++) {
+            const currentBatchIndex = locationBatchIndex;
+            const currentBatchLocationIds = locationBatches[currentBatchIndex]!;
+
+            const proxyConfig: ProxyConfiguration = {
+                // https://developer.squareup.com/reference/square/orders-api/search-orders
+                endpoint: '/v2/orders/search',
+                method: 'POST',
+                data: {
+                    location_ids: currentBatchLocationIds,
+                    ...(cursor && { cursor }),
+                    query: {
+                        sort: {
+                            sort_field: 'UPDATED_AT',
+                            sort_order: 'ASC'
+                        },
+                        ...(updatedAfter && {
+                            filter: {
+                                date_time_filter: {
+                                    updated_at: {
+                                        start_at: updatedAfter
+                                    }
                                 }
                             }
-                        }
-                    })
+                        })
+                    },
+                    limit: 100
                 },
-                limit: 100
-            },
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'cursor',
-                cursor_path_in_response: 'cursor',
-                response_path: 'orders',
-                limit_name_in_request: 'limit',
-                limit: 100,
-                on_page: async ({ nextPageParam }) => {
-                    if (typeof nextPageParam === 'string') {
-                        cursor = nextPageParam;
-                    } else {
-                        cursor = '';
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'cursor',
+                    cursor_path_in_response: 'cursor',
+                    response_path: 'orders',
+                    limit_name_in_request: 'limit',
+                    limit: 100,
+                    // IMPORTANT: `on_page` fires AFTER a page has been yielded to the `for await`
+                    // loop below, but BEFORE the next page is fetched - i.e. it runs one step
+                    // "ahead" relative to the loop body's processing of that same page. Doing the
+                    // batchSave + checkpoint bookkeeping directly in `for await` (using a `cursor`
+                    // variable updated by `on_page`) would therefore always be reading last
+                    // page's cursor - which is exactly what caused the pre-existing checkpoint bug
+                    // (the wrong/stale cursor gets persisted, so a resumed run either re-fetches a
+                    // page it already processed or never reaches the "pagination complete" state).
+                    // To avoid that lag entirely, do the real work HERE, where `response` (and the
+                    // freshly computed `nextPageParam`) unambiguously correspond to the SAME page.
+                    on_page: async ({ nextPageParam, response }) => {
+                        const parsedPage = SearchOrdersPageSchema.safeParse(response.data);
+                        if (!parsedPage.success) {
+                            throw new Error('Failed to parse orders search response');
+                        }
+
+                        const orders = (parsedPage.data.orders ?? []).map((item) => {
+                            const parsed = OrderSchema.safeParse(item);
+                            if (!parsed.success) {
+                                throw new Error('Failed to parse order');
+                            }
+                            return parsed.data;
+                        });
+
+                        if (orders.length > 0) {
+                            await nango.batchSave(orders, 'Order');
+                        }
+
+                        cursor = typeof nextPageParam === 'string' ? nextPageParam : '';
+
+                        // Mid-batch (or batch-just-completed) checkpoint: persists the cursor
+                        // needed to resume this batch, or - once the batch has no more pages -
+                        // advances location_batch_index and clears the cursor so a resume moves
+                        // on to the next batch instead of restarting this one.
+                        await nango.saveCheckpoint({
+                            updated_after: updatedAfter,
+                            run_started_at: runStartedAt,
+                            location_batch_index: cursor ? currentBatchIndex : currentBatchIndex + 1,
+                            cursor
+                        });
                     }
-                }
-            },
-            retries: 3
-        };
+                },
+                retries: 3
+            };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const orders = page.map((item) => {
-                const parsed = OrderSchema.safeParse(item);
-                if (!parsed.success) {
-                    throw new Error('Failed to parse order');
-                }
-                return parsed.data;
-            });
-
-            if (orders.length === 0) {
-                continue;
+            // Drain the generator to completion; all per-page work happens in `on_page` above.
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            for await (const _page of nango.paginate(proxyConfig)) {
+                // no-op
             }
 
-            await nango.batchSave(orders, 'Order');
-
-            if (cursor) {
-                await nango.saveCheckpoint({
-                    updated_after: updatedAfter,
-                    cursor
-                });
-                continue;
-            }
-
-            const lastOrder = orders[orders.length - 1];
-            if (lastOrder?.updated_at) {
-                updatedAfter = lastOrder.updated_at;
-            }
-
+            // Defensive final save for this batch: guarantees the batch is marked complete even
+            // in the edge case where the very last page of results comes back empty (Square's
+            // pagination generator stops without invoking `on_page` again in that case).
+            cursor = '';
             await nango.saveCheckpoint({
                 updated_after: updatedAfter,
+                run_started_at: runStartedAt,
+                location_batch_index: currentBatchIndex + 1,
                 cursor: ''
             });
         }
+
+        // Every location batch has been fully enumerated for this run: promote run_started_at to
+        // the new high-water mark and clear all in-progress-run state so the next execution
+        // starts a fresh run from batch 0.
+        await nango.saveCheckpoint({
+            updated_after: runStartedAt,
+            run_started_at: '',
+            location_batch_index: 0,
+            cursor: ''
+        });
     }
 });
 

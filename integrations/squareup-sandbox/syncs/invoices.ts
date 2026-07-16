@@ -9,8 +9,16 @@ const InvoiceSchema = z
 
 const CheckpointSchema = z.object({
     location_index: z.number(),
-    cursor: z.string()
+    cursor: z.string(),
+    // When the cursor was saved (empty string when there is no in-flight cursor). Square list/search
+    // cursors generally expire after a few minutes, so if a run is interrupted (crash, timeout) and
+    // resumed later using a stale cursor, Square would reject it. We use this to detect that case
+    // and restart the current location's pagination from scratch instead of failing outright.
+    cursor_saved_at: z.string()
 });
+
+// Conservative threshold below Square's typical ~5 minute cursor TTL.
+const CURSOR_STALE_MS = 4 * 60 * 1000;
 
 const LocationsResponseSchema = z.object({
     locations: z.array(
@@ -34,7 +42,18 @@ const sync = createSync({
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = rawCheckpoint == null ? { location_index: 0, cursor: '' } : CheckpointSchema.parse(rawCheckpoint);
+        let checkpoint = rawCheckpoint == null ? { location_index: 0, cursor: '', cursor_saved_at: '' } : CheckpointSchema.parse(rawCheckpoint);
+
+        // Square list/search cursors generally expire after ~5 minutes. If this run resumed from a
+        // checkpoint saved longer ago than that, the stored cursor is likely no longer valid.
+        // Discard it (but keep location_index) so the current location's pagination restarts from
+        // its first page instead of failing on an expired-cursor error from Square.
+        if (checkpoint.cursor && checkpoint.cursor_saved_at) {
+            const savedAt = Date.parse(checkpoint.cursor_saved_at);
+            if (!Number.isNaN(savedAt) && Date.now() - savedAt > CURSOR_STALE_MS) {
+                checkpoint = { location_index: checkpoint.location_index, cursor: '', cursor_saved_at: '' };
+            }
+        }
 
         // https://developer.squareup.com/reference/square/locations-api/list-locations
         const locationsResponse = await nango.get({
@@ -94,13 +113,15 @@ const sync = createSync({
 
                 await nango.saveCheckpoint({
                     location_index: i,
-                    cursor: cursor ?? ''
+                    cursor: cursor ?? '',
+                    cursor_saved_at: cursor ? new Date().toISOString() : ''
                 });
             }
 
             await nango.saveCheckpoint({
                 location_index: i + 1,
-                cursor: ''
+                cursor: '',
+                cursor_saved_at: ''
             });
         }
 

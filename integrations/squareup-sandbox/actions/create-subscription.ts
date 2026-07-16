@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { z } from 'zod';
 import { createAction } from 'nango';
 
@@ -79,9 +80,11 @@ const action = createAction({
             card_id: input.card_id
         };
 
-        if (input.idempotency_key !== undefined) {
-            requestBody['idempotency_key'] = input.idempotency_key;
-        }
+        // Always send an idempotency key so the retry below can never create a duplicate
+        // subscription if a transport failure occurs after Square has already processed
+        // the request. Use the caller-supplied key when present, otherwise generate one.
+        requestBody['idempotency_key'] = input.idempotency_key ?? randomUUID();
+
         if (input.start_date !== undefined) {
             requestBody['start_date'] = input.start_date;
         }

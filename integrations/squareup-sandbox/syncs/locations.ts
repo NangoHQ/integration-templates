@@ -66,7 +66,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /v2/locations does not expose updated_since, cursor, limit,
         // or pagination. It returns all locations in a single non-paginated response.
-        await nango.trackDeletesStart('Location');
 
         // https://developer.squareup.com/reference/square/locations-api/list-locations
         const response = await nango.get({
@@ -86,6 +85,10 @@ const sync = createSync({
             }
             return parsedLocation.data;
         });
+
+        // Only start delete-tracking once the request has succeeded and the response has been
+        // validated, so a failed/invalid fetch never leaves deletion-tracking permanently "open".
+        await nango.trackDeletesStart('Location');
 
         if (locations.length > 0) {
             await nango.batchSave(locations, 'Location');

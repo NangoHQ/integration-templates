@@ -55,8 +55,19 @@ const ProviderInvoiceSchema = z.object({
     store_payment_method_enabled: z.boolean().optional()
 });
 
+const SquareErrorSchema = z.object({
+    category: z.string().optional(),
+    code: z.string().optional(),
+    detail: z.string().optional(),
+    field: z.string().optional()
+});
+
+// Square error responses (e.g. 409 version mismatch, invoice already canceled) omit `invoice` and
+// return an `errors` array instead, so `invoice` must be optional here to avoid an opaque Zod parse
+// failure when the provider returns an error payload instead of a success payload.
 const ProviderResponseSchema = z.object({
-    invoice: ProviderInvoiceSchema
+    invoice: ProviderInvoiceSchema.optional(),
+    errors: z.array(SquareErrorSchema).optional()
 });
 
 const OutputSchema = z.object({
@@ -82,11 +93,15 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['INVOICES_WRITE'],
+    // https://developer.squareup.com/reference/square/invoices-api/cancel-invoice documents required
+    // permissions as "INVOICES_WRITE, ORDERS_WRITE".
+    scopes: ['INVOICES_WRITE', 'ORDERS_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://developer.squareup.com/reference/square/invoices-api/cancel-invoice
+            // Cancel uses the `version` field for optimistic locking rather than an idempotency_key
+            // (Square does not document idempotency_key support on this endpoint).
             endpoint: `/v2/invoices/${encodeURIComponent(input.invoice_id)}/cancel`,
             data: {
                 version: input.version
@@ -95,6 +110,20 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
+        if (providerResponse.errors && providerResponse.errors.length > 0) {
+            const firstError = providerResponse.errors[0];
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: firstError?.detail || firstError?.code || 'Square API returned an error while canceling the invoice',
+                errors: providerResponse.errors
+            });
+        }
+        if (!providerResponse.invoice) {
+            throw new nango.ActionError({
+                type: 'missing_invoice',
+                message: 'Invoice not returned in the provider response.'
+            });
+        }
         const invoice = providerResponse.invoice;
 
         return {

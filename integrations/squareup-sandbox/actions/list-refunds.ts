@@ -112,9 +112,28 @@ const action = createAction({
         const parsed = z
             .object({
                 refunds: z.array(z.record(z.string(), z.unknown())).optional(),
-                cursor: z.string().optional()
+                cursor: z.string().optional(),
+                errors: z
+                    .array(
+                        z.object({
+                            category: z.string().optional(),
+                            code: z.string().optional(),
+                            detail: z.string().optional(),
+                            field: z.string().optional()
+                        })
+                    )
+                    .optional()
             })
             .parse(rawData);
+
+        if (parsed.errors && parsed.errors.length > 0) {
+            const firstError = parsed.errors[0];
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: firstError?.detail || firstError?.code || 'Square API returned errors',
+                errors: parsed.errors
+            });
+        }
 
         const refunds = (parsed.refunds || []).map((item) => {
             return PaymentRefundSchema.parse(item);

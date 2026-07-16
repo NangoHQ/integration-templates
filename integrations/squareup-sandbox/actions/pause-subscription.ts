@@ -110,7 +110,12 @@ const action = createAction({
             // https://developer.squareup.com/reference/square/subscriptions-api/pause-subscription
             endpoint: `/v2/subscriptions/${encodeURIComponent(input.subscription_id)}/pause`,
             data: body,
-            retries: 1
+            // Pausing schedules a PAUSE action rather than applying immediately, and Square does
+            // not support an idempotency_key for this endpoint. A retry after a timeout could be
+            // rejected because the pause is already scheduled, even though the subscription
+            // state already changed. Do not retry.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

@@ -37,6 +37,26 @@ const CheckpointSchema = z.object({
     cursor: z.string()
 });
 
+// Square pagination cursors expire after roughly 5 minutes. If a sync run is interrupted
+// (crash, timeout) and resumed later from a checkpointed cursor - either via retry or the
+// next hourly run - Square rejects the stale cursor with an INVALID_CURSOR error, and the
+// sync would otherwise fail forever. Detect that specific error so we can restart cleanly.
+const ProviderHttpErrorSchema = z.object({
+    response: z.object({
+        data: z.object({
+            errors: z.array(z.object({ code: z.string().optional() }).passthrough()).optional()
+        })
+    })
+});
+
+function isInvalidCursorError(error: unknown): boolean {
+    const parsed = ProviderHttpErrorSchema.safeParse(error);
+    if (!parsed.success) {
+        return false;
+    }
+    return (parsed.data.response.data.errors ?? []).some((entry) => entry.code === 'INVALID_CURSOR');
+}
+
 const sync = createSync({
     description: 'Sync subscriptions.',
     version: '1.0.0',
@@ -52,63 +72,76 @@ const sync = createSync({
         const checkpoint = rawCheckpoint == null ? { cursor: '' } : CheckpointSchema.parse(rawCheckpoint);
         let cursor = checkpoint.cursor || undefined;
 
-        // https://developer.squareup.com/reference/square/subscriptions-api/search-subscriptions
-        for await (const page of nango.paginate({
-            endpoint: '/v2/subscriptions/search',
-            method: 'POST',
-            data: {
-                ...(cursor && { cursor }),
-                limit: 100
-            },
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'cursor',
-                cursor_path_in_response: 'cursor',
-                response_path: 'subscriptions',
-                limit_name_in_request: 'limit',
-                limit: 100,
-                on_page: async (paginationState) => {
-                    cursor = typeof paginationState.nextPageParam === 'string' ? paginationState.nextPageParam : undefined;
+        // @allowTryCatch Square pagination cursors expire after ~5 minutes, which is shorter
+        // than the time a checkpointed cursor may sit unused across a failed run and the next
+        // hourly trigger. If Square rejects a stale/expired cursor, clear the checkpoint and
+        // fail this run cleanly so the next run restarts pagination from the beginning instead
+        // of retrying the same invalid cursor forever.
+        try {
+            // https://developer.squareup.com/reference/square/subscriptions-api/search-subscriptions
+            for await (const page of nango.paginate({
+                endpoint: '/v2/subscriptions/search',
+                method: 'POST',
+                data: {
+                    ...(cursor && { cursor }),
+                    limit: 100
+                },
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'cursor',
+                    cursor_path_in_response: 'cursor',
+                    response_path: 'subscriptions',
+                    limit_name_in_request: 'limit',
+                    limit: 100,
+                    on_page: async (paginationState) => {
+                        cursor = typeof paginationState.nextPageParam === 'string' ? paginationState.nextPageParam : undefined;
+                    }
+                },
+                retries: 3
+            })) {
+                const parseResult = z.array(SubscriptionSchema).safeParse(page);
+                if (!parseResult.success) {
+                    throw new Error(`Failed to parse subscriptions page: ${parseResult.error.message}`);
                 }
-            },
-            retries: 3
-        })) {
-            const parseResult = z.array(SubscriptionSchema).safeParse(page);
-            if (!parseResult.success) {
-                throw new Error(`Failed to parse subscriptions page: ${parseResult.error.message}`);
-            }
 
-            const subscriptions = parseResult.data;
-            const records = subscriptions.map((sub) => ({
-                id: sub.id,
-                ...(sub.location_id !== undefined && { location_id: sub.location_id }),
-                ...(sub.plan_variation_id !== undefined && { plan_variation_id: sub.plan_variation_id }),
-                ...(sub.customer_id !== undefined && { customer_id: sub.customer_id }),
-                ...(sub.start_date !== undefined && { start_date: sub.start_date }),
-                ...(sub.canceled_date !== undefined && { canceled_date: sub.canceled_date }),
-                ...(sub.charged_through_date !== undefined && { charged_through_date: sub.charged_through_date }),
-                ...(sub.status !== undefined && { status: sub.status }),
-                ...(sub.tax_percentage !== undefined && { tax_percentage: sub.tax_percentage }),
-                ...(sub.invoice_ids !== undefined && { invoice_ids: sub.invoice_ids }),
-                ...(sub.price_override_money !== undefined && { price_override_money: sub.price_override_money }),
-                ...(sub.version !== undefined && { version: sub.version }),
-                ...(sub.created_at !== undefined && { created_at: sub.created_at }),
-                ...(sub.card_id !== undefined && { card_id: sub.card_id }),
-                ...(sub.timezone !== undefined && { timezone: sub.timezone }),
-                ...(sub.source !== undefined && { source: sub.source }),
-                ...(sub.actions !== undefined && { actions: sub.actions }),
-                ...(sub.monthly_billing_anchor_date !== undefined && { monthly_billing_anchor_date: sub.monthly_billing_anchor_date }),
-                ...(sub.phases !== undefined && { phases: sub.phases }),
-                ...(sub.completed_date !== undefined && { completed_date: sub.completed_date })
-            }));
+                const subscriptions = parseResult.data;
+                const records = subscriptions.map((sub) => ({
+                    id: sub.id,
+                    ...(sub.location_id !== undefined && { location_id: sub.location_id }),
+                    ...(sub.plan_variation_id !== undefined && { plan_variation_id: sub.plan_variation_id }),
+                    ...(sub.customer_id !== undefined && { customer_id: sub.customer_id }),
+                    ...(sub.start_date !== undefined && { start_date: sub.start_date }),
+                    ...(sub.canceled_date !== undefined && { canceled_date: sub.canceled_date }),
+                    ...(sub.charged_through_date !== undefined && { charged_through_date: sub.charged_through_date }),
+                    ...(sub.status !== undefined && { status: sub.status }),
+                    ...(sub.tax_percentage !== undefined && { tax_percentage: sub.tax_percentage }),
+                    ...(sub.invoice_ids !== undefined && { invoice_ids: sub.invoice_ids }),
+                    ...(sub.price_override_money !== undefined && { price_override_money: sub.price_override_money }),
+                    ...(sub.version !== undefined && { version: sub.version }),
+                    ...(sub.created_at !== undefined && { created_at: sub.created_at }),
+                    ...(sub.card_id !== undefined && { card_id: sub.card_id }),
+                    ...(sub.timezone !== undefined && { timezone: sub.timezone }),
+                    ...(sub.source !== undefined && { source: sub.source }),
+                    ...(sub.actions !== undefined && { actions: sub.actions }),
+                    ...(sub.monthly_billing_anchor_date !== undefined && { monthly_billing_anchor_date: sub.monthly_billing_anchor_date }),
+                    ...(sub.phases !== undefined && { phases: sub.phases }),
+                    ...(sub.completed_date !== undefined && { completed_date: sub.completed_date })
+                }));
 
-            if (records.length > 0) {
-                await nango.batchSave(records, 'Subscription');
-            }
+                if (records.length > 0) {
+                    await nango.batchSave(records, 'Subscription');
+                }
 
-            if (cursor) {
-                await nango.saveCheckpoint({ cursor });
+                if (cursor) {
+                    await nango.saveCheckpoint({ cursor });
+                }
             }
+        } catch (error) {
+            if (isInvalidCursorError(error)) {
+                await nango.clearCheckpoint();
+                throw new Error('Square subscriptions pagination cursor expired; checkpoint cleared, sync will restart from the beginning on the next run.');
+            }
+            throw error;
         }
 
         await nango.clearCheckpoint();

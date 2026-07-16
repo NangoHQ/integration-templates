@@ -24,22 +24,30 @@ const TeamMemberAssignedLocationsSchema = z.object({
     location_ids: z.array(z.string()).optional()
 });
 
-const TeamMemberSchema = z.object({
+// Provider-response shape: Square can return any of these fields as explicit JSON null
+// (e.g. when they were never set), not merely omit them. Parsing must accept null so it
+// doesn't hard-throw; nulls are normalized away below when building the action output.
+const ProviderTeamMemberAssignedLocationsSchema = z.object({
+    assignment_type: z.string().nullable().optional(),
+    location_ids: z.array(z.string()).nullable().optional()
+});
+
+const ProviderTeamMemberSchema = z.object({
     id: z.string(),
-    reference_id: z.string().optional(),
-    is_owner: z.boolean().optional(),
-    status: z.string().optional(),
-    given_name: z.string().optional(),
-    family_name: z.string().optional(),
-    email_address: z.string().optional(),
-    phone_number: z.string().optional(),
-    created_at: z.string().optional(),
-    updated_at: z.string().optional(),
-    assigned_locations: TeamMemberAssignedLocationsSchema.optional()
+    reference_id: z.string().nullable().optional(),
+    is_owner: z.boolean().nullable().optional(),
+    status: z.string().nullable().optional(),
+    given_name: z.string().nullable().optional(),
+    family_name: z.string().nullable().optional(),
+    email_address: z.string().nullable().optional(),
+    phone_number: z.string().nullable().optional(),
+    created_at: z.string().nullable().optional(),
+    updated_at: z.string().nullable().optional(),
+    assigned_locations: ProviderTeamMemberAssignedLocationsSchema.nullable().optional()
 });
 
 const ProviderResponseSchema = z.object({
-    team_member: TeamMemberSchema.optional(),
+    team_member: ProviderTeamMemberSchema.optional(),
     errors: z
         .array(
             z.object({
@@ -123,16 +131,25 @@ const action = createAction({
 
         return {
             id: parsed.team_member.id,
-            ...(parsed.team_member.reference_id !== undefined && { reference_id: parsed.team_member.reference_id }),
-            ...(parsed.team_member.is_owner !== undefined && { is_owner: parsed.team_member.is_owner }),
-            ...(parsed.team_member.status !== undefined && { status: parsed.team_member.status }),
-            ...(parsed.team_member.given_name !== undefined && { given_name: parsed.team_member.given_name }),
-            ...(parsed.team_member.family_name !== undefined && { family_name: parsed.team_member.family_name }),
-            ...(parsed.team_member.email_address !== undefined && { email_address: parsed.team_member.email_address }),
-            ...(parsed.team_member.phone_number !== undefined && { phone_number: parsed.team_member.phone_number }),
-            ...(parsed.team_member.created_at !== undefined && { created_at: parsed.team_member.created_at }),
-            ...(parsed.team_member.updated_at !== undefined && { updated_at: parsed.team_member.updated_at }),
-            ...(parsed.team_member.assigned_locations !== undefined && { assigned_locations: parsed.team_member.assigned_locations })
+            ...(parsed.team_member.reference_id != null && { reference_id: parsed.team_member.reference_id }),
+            ...(parsed.team_member.is_owner != null && { is_owner: parsed.team_member.is_owner }),
+            ...(parsed.team_member.status != null && { status: parsed.team_member.status }),
+            ...(parsed.team_member.given_name != null && { given_name: parsed.team_member.given_name }),
+            ...(parsed.team_member.family_name != null && { family_name: parsed.team_member.family_name }),
+            ...(parsed.team_member.email_address != null && { email_address: parsed.team_member.email_address }),
+            ...(parsed.team_member.phone_number != null && { phone_number: parsed.team_member.phone_number }),
+            ...(parsed.team_member.created_at != null && { created_at: parsed.team_member.created_at }),
+            ...(parsed.team_member.updated_at != null && { updated_at: parsed.team_member.updated_at }),
+            ...(parsed.team_member.assigned_locations != null && {
+                assigned_locations: {
+                    ...(parsed.team_member.assigned_locations.assignment_type != null && {
+                        assignment_type: parsed.team_member.assigned_locations.assignment_type
+                    }),
+                    ...(parsed.team_member.assigned_locations.location_ids != null && {
+                        location_ids: parsed.team_member.assigned_locations.location_ids
+                    })
+                }
+            })
         };
     }
 });

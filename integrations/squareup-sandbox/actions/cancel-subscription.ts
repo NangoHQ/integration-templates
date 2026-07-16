@@ -7,12 +7,25 @@ const InputSchema = z.object({
 
 const SubscriptionSchema = z.object({}).passthrough();
 
+const SubscriptionActionSchema = z
+    .object({
+        id: z.string().optional(),
+        type: z.string().optional(),
+        effective_date: z.string().optional()
+    })
+    .passthrough();
+
 const OutputSchema = z.object({
-    subscription: SubscriptionSchema
+    subscription: SubscriptionSchema,
+    // https://developer.squareup.com/reference/square/subscriptions-api/cancel-subscription
+    // Cancel schedules a CANCEL action rather than taking effect immediately, and the response
+    // includes it (the same shape returned by pause/resume).
+    actions: z.array(SubscriptionActionSchema).optional()
 });
 
 const ResponseSchema = z.object({
     subscription: z.unknown().optional(),
+    actions: z.array(z.record(z.string(), z.unknown())).optional(),
     errors: z.array(z.record(z.string(), z.unknown())).optional()
 });
 
@@ -27,7 +40,12 @@ const action = createAction({
         const response = await nango.post({
             // https://developer.squareup.com/reference/square/subscriptions-api/cancel-subscription
             endpoint: `/v2/subscriptions/${encodeURIComponent(input.subscription_id)}/cancel`,
-            retries: 3
+            // Cancel schedules a CANCEL action rather than applying immediately, and Square does
+            // not support an idempotency_key for this endpoint. A retry after a timeout could be
+            // rejected because the cancellation is already scheduled, even though the
+            // subscription state already changed. Do not retry.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ResponseSchema.safeParse(response.data);
@@ -57,9 +75,11 @@ const action = createAction({
         }
 
         const subscription = SubscriptionSchema.parse(parsed.data.subscription);
+        const actions = parsed.data.actions ? z.array(SubscriptionActionSchema).parse(parsed.data.actions) : undefined;
 
         return {
-            subscription
+            subscription,
+            ...(actions !== undefined && { actions })
         };
     }
 });

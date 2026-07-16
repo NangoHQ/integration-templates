@@ -56,7 +56,11 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['PAYMENTS_WRITE'],
+    // PAYMENTS_WRITE is required to create the payment itself. MERCHANT_PROFILE_READ is
+    // required for the ListLocations pre-check below (used to resolve/validate the target
+    // location and its CREDIT_CARD_PROCESSING capability before charging).
+    // https://developer.squareup.com/reference/square/locations-api/list-locations
+    scopes: ['PAYMENTS_WRITE', 'MERCHANT_PROFILE_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const locationsConfig: ProxyConfiguration = {

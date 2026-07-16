@@ -7,23 +7,46 @@ const MoneySchema = z.object({
     currency: z.string()
 });
 
-const InputSchema = z.object({
+// Square's RefundPayment endpoint rejects a request that sets both `unlinked: true` and
+// `payment_id` (unlinked refunds must omit payment_id entirely). Modeling this as a
+// discriminated union on `unlinked` makes that constraint structural instead of relying on
+// callers to know it.
+// https://developer.squareup.com/reference/square/refunds-api/refund-payment
+const LinkedRefundInputSchema = z.object({
+    unlinked: z.literal(false).describe('Set to false for a linked refund of an existing Square payment. payment_id is required in this case.'),
     payment_id: z.string().describe('The unique ID of the payment being refunded. Example: "f3YEx4hWP1mDncRMtBjc4TM4OKNZY"'),
     amount_money: MoneySchema.describe('The amount of money to refund in the smallest denomination of the applicable currency.'),
-    reason: z.string().optional().describe('A description of the reason for the refund.'),
     idempotency_key: z.string().describe('A unique string that identifies this RefundPayment request.'),
-    app_fee_money: MoneySchema.optional().describe('The amount of money the developer contributes to help cover the refunded amount.'),
-    destination_id: z.string().optional().describe('The ID indicating where funds will be refunded to.'),
-    unlinked: z.boolean().optional().describe('Indicates that the refund is not linked to a Square payment.'),
-    location_id: z.string().optional().describe('The location ID associated with the unlinked refund.'),
-    customer_id: z.string().optional().describe('The Customer ID of the customer associated with the refund.'),
+    reason: z.string().optional().describe('A description of the reason for the refund.'),
+    app_fee_money: MoneySchema.optional().describe(
+        'The amount of money the developer contributes to help cover the refunded amount. Requires the PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS OAuth permission.'
+    ),
+    destination_id: z.string().optional().describe('Optional ID of a destination to refund to that is different from the original payment source.'),
     team_member_id: z.string().optional().describe('An optional TeamMember ID to associate with this refund.')
 });
+
+const UnlinkedRefundInputSchema = z.object({
+    unlinked: z.literal(true).describe('Indicates this refund is not linked to a Square payment. payment_id must not be set.'),
+    destination_id: z.string().describe('Required for unlinked refunds. The ID indicating where funds will be refunded to, e.g. "CASH" or "EXTERNAL".'),
+    location_id: z.string().describe('Required for unlinked refunds. The location ID associated with the unlinked refund.'),
+    amount_money: MoneySchema.describe('The amount of money to refund in the smallest denomination of the applicable currency.'),
+    idempotency_key: z.string().describe('A unique string that identifies this RefundPayment request.'),
+    reason: z.string().optional().describe('A description of the reason for the refund.'),
+    app_fee_money: MoneySchema.optional().describe(
+        'The amount of money the developer contributes to help cover the refunded amount. Requires the PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS OAuth permission.'
+    ),
+    customer_id: z.string().optional().describe('The Customer ID of the customer associated with the refund. Only allowed for unlinked refunds.'),
+    team_member_id: z.string().optional().describe('An optional TeamMember ID to associate with this refund.'),
+    cash_details: z.record(z.string(), z.unknown()).optional().describe('Required when destination_id is "CASH".'),
+    external_details: z.record(z.string(), z.unknown()).optional().describe('Required when destination_id is "EXTERNAL".')
+});
+
+const InputSchema = z.discriminatedUnion('unlinked', [LinkedRefundInputSchema, UnlinkedRefundInputSchema]);
 
 const ProviderRefundSchema = z
     .object({
         id: z.string(),
-        status: z.string(),
+        status: z.string().optional(),
         amount_money: MoneySchema,
         app_fee_money: MoneySchema.optional(),
         bank_account_details: z.record(z.string(), z.unknown()).optional(),
@@ -43,26 +66,55 @@ const ProviderRefundSchema = z
     })
     .passthrough();
 
+const ProviderResponseSchema = z.object({
+    refund: ProviderRefundSchema.optional(),
+    errors: z
+        .array(
+            z.object({
+                category: z.string().optional(),
+                code: z.string().optional(),
+                detail: z.string().optional(),
+                field: z.string().optional()
+            })
+        )
+        .optional()
+});
+
 const action = createAction({
     description: 'Refund a payment.',
     version: '1.0.0',
     input: InputSchema,
     output: ProviderRefundSchema,
-    scopes: ['PAYMENTS_WRITE'],
+    // PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS is required whenever app_fee_money is set on the
+    // request (marketplace/platform refunds that redistribute funds to a secondary recipient).
+    // https://developer.squareup.com/reference/square/refunds-api/refund-payment
+    scopes: ['PAYMENTS_WRITE', 'PAYMENTS_WRITE_ADDITIONAL_RECIPIENTS'],
 
     exec: async (nango, input) => {
-        const body = {
+        const body: Record<string, unknown> = {
             idempotency_key: input.idempotency_key,
-            payment_id: input.payment_id,
             amount_money: input.amount_money,
+            unlinked: input.unlinked,
             ...(input.reason !== undefined && { reason: input.reason }),
             ...(input.app_fee_money !== undefined && { app_fee_money: input.app_fee_money }),
             ...(input.destination_id !== undefined && { destination_id: input.destination_id }),
-            ...(input.unlinked !== undefined && { unlinked: input.unlinked }),
-            ...(input.location_id !== undefined && { location_id: input.location_id }),
-            ...(input.customer_id !== undefined && { customer_id: input.customer_id }),
             ...(input.team_member_id !== undefined && { team_member_id: input.team_member_id })
         };
+
+        if (input.unlinked) {
+            body['location_id'] = input.location_id;
+            if (input.customer_id !== undefined) {
+                body['customer_id'] = input.customer_id;
+            }
+            if (input.cash_details !== undefined) {
+                body['cash_details'] = input.cash_details;
+            }
+            if (input.external_details !== undefined) {
+                body['external_details'] = input.external_details;
+            }
+        } else {
+            body['payment_id'] = input.payment_id;
+        }
 
         const config: ProxyConfiguration = {
             // https://developer.squareup.com/reference/square/refunds-api/refund-payment
@@ -73,38 +125,25 @@ const action = createAction({
 
         const response = await nango.post(config);
 
-        if (response.data && typeof response.data === 'object' && 'errors' in response.data) {
-            const errorData = z
-                .object({
-                    errors: z.array(z.record(z.string(), z.unknown()))
-                })
-                .safeParse(response.data);
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
-            if (errorData.success && errorData.data.errors.length > 0) {
-                throw new nango.ActionError({
-                    type: 'refund_error',
-                    message: 'Square refund request failed',
-                    errors: errorData.data.errors
-                });
-            }
+        if (providerResponse.errors && providerResponse.errors.length > 0) {
+            const firstError = providerResponse.errors[0];
+            throw new nango.ActionError({
+                type: 'refund_error',
+                message: firstError?.detail || firstError?.code || 'Square refund request failed',
+                errors: providerResponse.errors
+            });
         }
 
-        const refundResponse = z
-            .object({
-                refund: z.unknown()
-            })
-            .safeParse(response.data);
-
-        if (!refundResponse.success || !refundResponse.data.refund) {
+        if (!providerResponse.refund) {
             throw new nango.ActionError({
                 type: 'invalid_response',
                 message: 'Unexpected response from Square refunds API'
             });
         }
 
-        const refund = ProviderRefundSchema.parse(refundResponse.data.refund);
-
-        return refund;
+        return providerResponse.refund;
     }
 });
 

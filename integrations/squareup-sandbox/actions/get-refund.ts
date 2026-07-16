@@ -54,14 +54,46 @@ const action = createAction({
         });
 
         const raw = response.data;
-        if (!raw || typeof raw !== 'object' || Array.isArray(raw) || !('refund' in raw)) {
+        if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
             throw new nango.ActionError({
                 type: 'invalid_response',
                 message: 'Invalid response from Square API'
             });
         }
 
-        const refund = RefundSchema.parse(raw.refund);
+        const parsed = z
+            .object({
+                refund: z.unknown().optional(),
+                errors: z
+                    .array(
+                        z.object({
+                            category: z.string().optional(),
+                            code: z.string().optional(),
+                            detail: z.string().optional(),
+                            field: z.string().optional()
+                        })
+                    )
+                    .optional()
+            })
+            .parse(raw);
+
+        if (parsed.errors && parsed.errors.length > 0) {
+            const firstError = parsed.errors[0];
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: firstError?.detail || firstError?.code || 'Square API returned errors',
+                errors: parsed.errors
+            });
+        }
+
+        if (!parsed.refund) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Invalid response from Square API'
+            });
+        }
+
+        const refund = RefundSchema.parse(parsed.refund);
 
         return {
             refund

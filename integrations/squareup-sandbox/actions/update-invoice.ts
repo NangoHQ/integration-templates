@@ -51,7 +51,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['INVOICES_WRITE', 'ORDERS_WRITE'],
+    // UpdateInvoice itself requires INVOICES_WRITE and ORDERS_WRITE (https://developer.squareup.com/reference/square/invoices-api/update-invoice).
+    // This action also performs a GetInvoice lookup first to fetch the current version, which requires INVOICES_READ
+    // (https://developer.squareup.com/reference/square/invoices-api/get-invoice) - without it that lookup fails.
+    scopes: ['INVOICES_WRITE', 'ORDERS_WRITE', 'INVOICES_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.squareup.com/reference/square/invoices-api/get-invoice
@@ -61,6 +64,14 @@ const action = createAction({
         });
 
         const getData = GetInvoiceResponseSchema.parse(getResponse.data);
+        if (getData.errors && getData.errors.length > 0) {
+            const firstError = getData.errors[0];
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: firstError?.detail || firstError?.code || 'Square API returned an error while fetching the invoice',
+                errors: getData.errors
+            });
+        }
         if (!getData.invoice) {
             throw new nango.ActionError({
                 type: 'not_found',
@@ -85,6 +96,14 @@ const action = createAction({
         });
 
         const updateData = UpdateInvoiceResponseSchema.parse(updateResponse.data);
+        if (updateData.errors && updateData.errors.length > 0) {
+            const firstError = updateData.errors[0];
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: firstError?.detail || firstError?.code || 'Square API returned an error while updating the invoice',
+                errors: updateData.errors
+            });
+        }
         if (!updateData.invoice) {
             throw new nango.ActionError({
                 type: 'update_failed',

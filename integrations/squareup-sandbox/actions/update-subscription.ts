@@ -47,6 +47,20 @@ const SubscriptionSchema = z.object({
     completed_date: z.string().nullable().optional()
 });
 
+const UpdateResponseSchema = z.object({
+    subscription: SubscriptionSchema.optional(),
+    errors: z
+        .array(
+            z.object({
+                category: z.string().optional(),
+                code: z.string().optional(),
+                detail: z.string().optional(),
+                field: z.string().optional()
+            })
+        )
+        .optional()
+});
+
 const action = createAction({
     description: 'Update a subscription (e.g. swap card_id).',
     version: '1.0.0',
@@ -108,7 +122,22 @@ const action = createAction({
             retries: 1
         });
 
-        if (!response.data || !response.data.subscription) {
+        const providerResponse = UpdateResponseSchema.parse(response.data);
+
+        if (providerResponse.errors && providerResponse.errors.length > 0) {
+            const firstError = providerResponse.errors[0];
+            if (firstError) {
+                throw new nango.ActionError({
+                    type: firstError.code ?? 'provider_error',
+                    message: firstError.detail ?? firstError.code ?? 'Failed to update subscription',
+                    category: firstError.category,
+                    field: firstError.field,
+                    subscription_id: input.subscription_id
+                });
+            }
+        }
+
+        if (!providerResponse.subscription) {
             throw new nango.ActionError({
                 type: 'update_failed',
                 message: 'Failed to update subscription',
@@ -116,7 +145,7 @@ const action = createAction({
             });
         }
 
-        return SubscriptionSchema.parse(response.data.subscription);
+        return providerResponse.subscription;
     }
 });
 

@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { z } from 'zod';
 import { createAction } from 'nango';
 
@@ -6,7 +7,11 @@ const InputSchema = z.object({
     version: z.number().int().describe('The current version of the order. Required to avoid VERSION_MISMATCH.'),
     order: z.object({}).passthrough().describe('Sparse order object containing only the fields to update.'),
     fields_to_clear: z.array(z.string()).optional().describe('Dot-notation paths of fields to clear. Example: ["discounts"]'),
-    idempotency_key: z.string().optional().describe('A unique key for idempotency. Max length 192.')
+    idempotency_key: z
+        .string()
+        .max(192)
+        .optional()
+        .describe('A unique key for this request. If omitted, a random UUID is generated so retries are always safe.')
 });
 
 const ProviderResponseSchema = z.object({
@@ -42,10 +47,13 @@ const action = createAction({
     scopes: ['ORDERS_READ', 'ORDERS_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // input.order may itself contain a (possibly stale) `version` field, e.g. when a caller
+        // passes back a full order object it fetched earlier. Spread it FIRST so the explicit,
+        // caller-supplied input.version always wins and can't be silently clobbered.
         const body: Record<string, unknown> = {
             order: {
-                version: input.version,
-                ...input.order
+                ...input.order,
+                version: input.version
             }
         };
 
@@ -53,9 +61,10 @@ const action = createAction({
             body['fields_to_clear'] = input.fields_to_clear;
         }
 
-        if (input.idempotency_key !== undefined) {
-            body['idempotency_key'] = input.idempotency_key;
-        }
+        // Without an idempotency_key, a request that Square already applied (e.g. after a client
+        // timeout) can return 200 with the UNCHANGED order on retry, making the caller believe the
+        // update happened when it silently didn't. Generate one when absent so retries default-safe.
+        body['idempotency_key'] = input.idempotency_key ?? randomUUID();
 
         // https://developer.squareup.com/reference/square/orders-api/update-order
         const response = await nango.put({

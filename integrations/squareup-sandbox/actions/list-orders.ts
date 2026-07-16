@@ -3,7 +3,11 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    location_ids: z.array(z.string()).optional().describe('Location IDs for the orders to query. Example: ["L6KAXMZ50WFKS"]'),
+    location_ids: z
+        .array(z.string())
+        .min(1)
+        .max(10)
+        .describe('Location IDs for the orders to query. Required by Square (1 to 10 IDs per request). Example: ["L6KAXMZ50WFKS"]'),
     limit: z.number().optional().describe('Maximum number of results to return in a single page. Default: 500, Max: 1000.')
 });
 
@@ -65,7 +69,7 @@ const action = createAction({
             endpoint: '/v2/orders/search',
             data: {
                 ...(input.cursor !== undefined && { cursor: input.cursor }),
-                ...(input.location_ids !== undefined && { location_ids: input.location_ids }),
+                location_ids: input.location_ids,
                 ...(input.limit !== undefined && { limit: input.limit }),
                 return_entries: false
             },

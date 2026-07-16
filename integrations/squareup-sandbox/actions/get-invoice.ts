@@ -23,8 +23,19 @@ const ProviderInvoiceSchema = z
     })
     .passthrough();
 
+const SquareErrorSchema = z.object({
+    category: z.string().optional(),
+    code: z.string().optional(),
+    detail: z.string().optional(),
+    field: z.string().optional()
+});
+
+// Square error responses (e.g. 404 invoice not found) omit `invoice` and return an `errors` array
+// instead, so `invoice` must be optional here to avoid an opaque Zod parse failure when the
+// provider returns an error payload instead of a success payload.
 const ProviderResponseSchema = z.object({
-    invoice: ProviderInvoiceSchema
+    invoice: ProviderInvoiceSchema.optional(),
+    errors: z.array(SquareErrorSchema).optional()
 });
 
 const action = createAction({
@@ -49,6 +60,21 @@ const action = createAction({
         }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
+        if (providerResponse.errors && providerResponse.errors.length > 0) {
+            const firstError = providerResponse.errors[0];
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: firstError?.detail || firstError?.code || 'Square API returned an error while fetching the invoice',
+                errors: providerResponse.errors
+            });
+        }
+        if (!providerResponse.invoice) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Invoice not found',
+                invoice_id: input.invoice_id
+            });
+        }
 
         return providerResponse.invoice;
     }

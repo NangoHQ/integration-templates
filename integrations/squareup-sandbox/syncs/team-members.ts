@@ -71,6 +71,14 @@ const sync = createSync({
             retries: 3
         };
 
+        // Full refresh: every team member still returned by Square is re-saved on every run.
+        // Members that are hard-deleted from Square (not merely set to INACTIVE) simply stop
+        // appearing in the search results, so trackDeletesStart/trackDeletesEnd is required to
+        // detect and purge them from the destination. Only start tracking once the first page
+        // has actually been fetched and validated, so a failure on the very first request (e.g.
+        // an auth error) doesn't leave delete-tracking started with nothing enumerated.
+        let deletesStarted = false;
+
         for await (const page of nango.paginate(proxyConfig)) {
             const saves: Array<z.infer<typeof TeamMemberSchema>> = [];
             const deletes: Array<{ id: string }> = [];
@@ -104,6 +112,15 @@ const sync = createSync({
                 }
             }
 
+            // The page above parsed successfully, so enumeration is confirmed to proceed.
+            // Start delete tracking now (only once, on the first page) rather than blindly at
+            // the top of exec, so a failure on the very first request never leaves delete
+            // tracking started with nothing enumerated.
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('TeamMember');
+                deletesStarted = true;
+            }
+
             if (saves.length > 0) {
                 await nango.batchSave(saves, 'TeamMember');
             }
@@ -118,6 +135,13 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
+
+        // Only finalize delete detection if enumeration actually started (and therefore ran to
+        // completion above without throwing) — never on a partial/failed run, otherwise
+        // not-yet-fetched members would be misidentified as deleted.
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('TeamMember');
+        }
     }
 });
 

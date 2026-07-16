@@ -2,41 +2,41 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const CustomerAddressSchema = z.object({
-    address_line_1: z.string().optional(),
-    address_line_2: z.string().optional(),
-    address_line_3: z.string().optional(),
-    locality: z.string().optional(),
-    sublocality: z.string().optional(),
-    sublocality_2: z.string().optional(),
-    sublocality_3: z.string().optional(),
-    administrative_district_level_1: z.string().optional(),
-    administrative_district_level_2: z.string().optional(),
-    administrative_district_level_3: z.string().optional(),
-    postal_code: z.string().optional(),
-    country: z.string().optional(),
-    first_name: z.string().optional(),
-    last_name: z.string().optional()
+    address_line_1: z.string().nullable().optional(),
+    address_line_2: z.string().nullable().optional(),
+    address_line_3: z.string().nullable().optional(),
+    locality: z.string().nullable().optional(),
+    sublocality: z.string().nullable().optional(),
+    sublocality_2: z.string().nullable().optional(),
+    sublocality_3: z.string().nullable().optional(),
+    administrative_district_level_1: z.string().nullable().optional(),
+    administrative_district_level_2: z.string().nullable().optional(),
+    administrative_district_level_3: z.string().nullable().optional(),
+    postal_code: z.string().nullable().optional(),
+    country: z.string().nullable().optional(),
+    first_name: z.string().nullable().optional(),
+    last_name: z.string().nullable().optional()
 });
 
 const CustomerPreferencesSchema = z.object({
-    email_unsubscribed: z.boolean().optional()
+    email_unsubscribed: z.boolean().nullable().optional()
 });
 
 const CustomerSchema = z.object({
     id: z.string(),
     created_at: z.string().optional(),
     updated_at: z.string().optional(),
-    given_name: z.string().optional(),
-    family_name: z.string().optional(),
-    company_name: z.string().optional(),
-    email_address: z.string().optional(),
-    phone_number: z.string().optional(),
-    address: CustomerAddressSchema.optional(),
-    preferences: CustomerPreferencesSchema.optional(),
-    creation_source: z.string().optional(),
-    group_ids: z.array(z.string()).optional(),
-    segment_ids: z.array(z.string()).optional(),
-    version: z.number().optional()
+    given_name: z.string().nullable().optional(),
+    family_name: z.string().nullable().optional(),
+    company_name: z.string().nullable().optional(),
+    email_address: z.string().nullable().optional(),
+    phone_number: z.string().nullable().optional(),
+    address: CustomerAddressSchema.nullable().optional(),
+    preferences: CustomerPreferencesSchema.nullable().optional(),
+    creation_source: z.string().nullable().optional(),
+    group_ids: z.array(z.string()).nullable().optional(),
+    segment_ids: z.array(z.string()).nullable().optional(),
+    version: z.number().nullable().optional()
 });
 
 const InputSchema = z.object({
@@ -140,9 +140,13 @@ const action = createAction({
         if (Array.isArray(rawCustomers)) {
             for (const item of rawCustomers) {
                 const parsed = CustomerSchema.safeParse(item);
-                if (parsed.success) {
-                    customers.push(parsed.data);
+                if (!parsed.success) {
+                    throw new nango.ActionError({
+                        type: 'invalid_customer',
+                        message: 'Failed to parse a customer from the Square API response.'
+                    });
                 }
+                customers.push(parsed.data);
             }
         }
 

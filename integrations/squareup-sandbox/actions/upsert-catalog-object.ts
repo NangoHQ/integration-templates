@@ -6,7 +6,11 @@ const InputSchema = z.object({
     object: z
         .object({
             type: z.string().describe('Catalog object type. Example: ITEM, SUBSCRIPTION_PLAN'),
-            id: z.string().optional().describe('Object ID. Omit to create; include to update. Example: DJXLBF4XHUSECQ4P6UDOB7KE'),
+            id: z
+                .string()
+                .describe(
+                    'Object ID is required for every request. To create a new object, supply a client-generated temporary id starting with "#" (e.g. "#new-item-1"); Square maps it to a real generated id in the response id_mappings. To update an existing object, supply its real, existing object id (e.g. "DJXLBF4XHUSECQ4P6UDOB7KE").'
+                ),
             version: z.number().optional().describe('Version for optimistic locking on updates.'),
             present_at_all_locations: z.boolean().optional(),
             present_at_location_ids: z.array(z.string()).optional(),

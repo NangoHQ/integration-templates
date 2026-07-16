@@ -12,7 +12,17 @@ const InputSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     subscriptions: z.array(z.object({ id: z.string() }).passthrough()).optional(),
-    cursor: z.string().optional()
+    cursor: z.string().optional(),
+    errors: z
+        .array(
+            z.object({
+                category: z.string().optional(),
+                code: z.string().optional(),
+                detail: z.string().optional(),
+                field: z.string().optional()
+            })
+        )
+        .optional()
 });
 
 const OutputSchema = z.object({
@@ -57,6 +67,17 @@ const action = createAction({
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);
+
+        if (parsed.errors && parsed.errors.length > 0) {
+            const firstError = parsed.errors[0];
+            if (firstError) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: firstError.detail ?? firstError.code ?? 'Square API returned an error',
+                    errors: parsed.errors
+                });
+            }
+        }
 
         return {
             subscriptions: parsed.subscriptions ?? [],

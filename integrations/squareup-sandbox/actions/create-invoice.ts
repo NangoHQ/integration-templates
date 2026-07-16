@@ -100,7 +100,9 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['INVOICES_WRITE'],
+    // https://developer.squareup.com/reference/square/invoices-api/create-invoice documents required permissions as
+    // "ORDERS_WRITE, INVOICES_WRITE" because every invoice must be associated with an order.
+    scopes: ['INVOICES_WRITE', 'ORDERS_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const invoiceData: Record<string, unknown> = {

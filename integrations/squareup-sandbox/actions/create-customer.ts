@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { z } from 'zod';
 import { createAction } from 'nango';
 
@@ -28,7 +29,11 @@ const InputSchema = z.object({
     phone_number: z.string().optional().describe('The phone number associated with the customer profile. Must be a valid E.164 number.'),
     reference_id: z.string().optional().describe('An optional second ID used to associate the customer profile with an entity in another system.'),
     note: z.string().optional().describe('A custom note associated with the customer profile.'),
-    birthday: z.string().optional().describe('The birthday associated with the customer profile, in YYYY-MM-DD or MM-DD format.')
+    birthday: z.string().optional().describe('The birthday associated with the customer profile, in YYYY-MM-DD or MM-DD format.'),
+    idempotency_key: z
+        .string()
+        .optional()
+        .describe('A unique idempotency key. If omitted, a random UUID is generated so retries never create duplicate customers.')
 });
 
 const ProviderCustomerSchema = z.object({
@@ -56,7 +61,15 @@ const ProviderCustomerSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    customer: ProviderCustomerSchema
+    errors: z
+        .array(
+            z.object({
+                code: z.string().optional(),
+                detail: z.string().optional()
+            })
+        )
+        .optional(),
+    customer: ProviderCustomerSchema.optional()
 });
 
 const OutputSchema = z.object({
@@ -90,7 +103,13 @@ const action = createAction({
     scopes: ['CUSTOMERS_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Always send an idempotency key so the automatic retries (below) can never create
+        // a duplicate customer if a transport failure/timeout happens after Square already
+        // created one. Callers can supply their own; otherwise one is generated per call.
+        const idempotencyKey = input.idempotency_key ?? randomUUID();
+
         const body: Record<string, unknown> = {
+            idempotency_key: idempotencyKey,
             ...(input.given_name !== undefined && { given_name: input.given_name }),
             ...(input.family_name !== undefined && { family_name: input.family_name }),
             ...(input.company_name !== undefined && { company_name: input.company_name }),
@@ -111,7 +130,17 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
-        const customer = providerResponse.customer;
+
+        if (providerResponse.errors && providerResponse.errors.length > 0) {
+            const firstError = providerResponse.errors[0];
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: firstError?.detail || firstError?.code || 'Square API error',
+                errors: providerResponse.errors
+            });
+        }
+
+        const customer = ProviderCustomerSchema.parse(providerResponse.customer);
 
         return {
             id: customer.id,

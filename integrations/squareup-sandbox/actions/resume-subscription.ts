@@ -33,6 +33,21 @@ const OutputSchema = z.object({
     actions: z.array(SubscriptionActionSchema).optional()
 });
 
+const ProviderResponseSchema = z.object({
+    subscription: SubscriptionSchema.optional(),
+    actions: z.array(SubscriptionActionSchema).optional(),
+    errors: z
+        .array(
+            z.object({
+                category: z.string().optional(),
+                code: z.string().optional(),
+                detail: z.string().optional(),
+                field: z.string().optional()
+            })
+        )
+        .optional()
+});
+
 const action = createAction({
     description: 'Resume a paused or deactivated subscription.',
     version: '1.0.0',
@@ -48,7 +63,11 @@ const action = createAction({
                 resume_change_timing: input.resume_change_timing,
                 ...(input.resume_effective_date !== undefined && { resume_effective_date: input.resume_effective_date })
             },
-            retries: 3
+            // Resuming is not idempotent and Square does not support an idempotency_key for this
+            // endpoint: a retry after a timeout could be rejected because the resume is already
+            // scheduled, even though the subscription state already changed. Do not retry.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const rawData = response.data;
@@ -59,8 +78,30 @@ const action = createAction({
             });
         }
 
-        const parsed = OutputSchema.parse(rawData);
-        return parsed;
+        const providerResponse = ProviderResponseSchema.parse(rawData);
+
+        if (providerResponse.errors && providerResponse.errors.length > 0) {
+            const firstError = providerResponse.errors[0];
+            if (firstError) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: firstError.detail ?? firstError.code ?? 'Unknown provider error',
+                    errors: providerResponse.errors
+                });
+            }
+        }
+
+        if (!providerResponse.subscription) {
+            throw new nango.ActionError({
+                type: 'missing_subscription',
+                message: 'Provider response did not contain a subscription.'
+            });
+        }
+
+        return {
+            subscription: providerResponse.subscription,
+            ...(providerResponse.actions !== undefined && { actions: providerResponse.actions })
+        };
     }
 });
 

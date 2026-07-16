@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { createAction } from 'nango';
 import { z } from 'zod';
 
@@ -53,7 +54,11 @@ const OrderSchema = z
     .passthrough();
 
 const InputSchema = z.object({
-    idempotency_key: z.string().max(192).optional(),
+    idempotency_key: z
+        .string()
+        .max(192)
+        .optional()
+        .describe('A unique key for this request. If omitted, a random UUID is generated so retries are always safe.'),
     order: OrderSchema
 });
 
@@ -68,11 +73,19 @@ export default createAction({
     output: OutputSchema,
     scopes: ['ORDERS_READ', 'ORDERS_WRITE'],
     exec: async (nango, input) => {
+        // A missing idempotency_key would make `retries` unsafe: a request that timed out after
+        // Square already created the order could create a DUPLICATE order on retry. Generate one
+        // when the caller doesn't supply it so retries are always safe by default.
+        const idempotencyKey = input.idempotency_key ?? randomUUID();
+
         const config = {
             // https://developer.squareup.com/reference/square/orders-api/create-order
             endpoint: '/v2/orders',
             retries: 3,
-            data: input
+            data: {
+                idempotency_key: idempotencyKey,
+                order: input.order
+            }
         };
 
         const response = await nango.post(config);

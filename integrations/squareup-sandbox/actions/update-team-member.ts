@@ -3,7 +3,13 @@ import { createAction } from 'nango';
 
 const AssignedLocationsSchema = z.object({
     assignment_type: z.enum(['EXPLICIT_LOCATIONS', 'ALL_CURRENT_AND_FUTURE_LOCATIONS']),
-    explicit_location_ids: z.array(z.string()).optional()
+    location_ids: z.array(z.string()).optional()
+});
+
+const ProviderAssignedLocationsSchema = z.object({
+    assignment_type: z.enum(['EXPLICIT_LOCATIONS', 'ALL_CURRENT_AND_FUTURE_LOCATIONS']),
+    // Square returns location_ids: null when assignment_type is ALL_CURRENT_AND_FUTURE_LOCATIONS.
+    location_ids: z.array(z.string()).nullable().optional()
 });
 
 const InputSchema = z.object({
@@ -23,7 +29,7 @@ const ProviderTeamMemberSchema = z.object({
     email_address: z.string().nullable().optional(),
     phone_number: z.string().nullable().optional(),
     status: z.enum(['ACTIVE', 'INACTIVE']).optional(),
-    assigned_locations: AssignedLocationsSchema.nullable().optional()
+    assigned_locations: ProviderAssignedLocationsSchema.nullable().optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -83,7 +89,12 @@ const action = createAction({
             ...(member.email_address != null && { email_address: member.email_address }),
             ...(member.phone_number != null && { phone_number: member.phone_number }),
             ...(member.status !== undefined && { status: member.status }),
-            ...(member.assigned_locations != null && { assigned_locations: member.assigned_locations })
+            ...(member.assigned_locations != null && {
+                assigned_locations: {
+                    assignment_type: member.assigned_locations.assignment_type,
+                    ...(member.assigned_locations.location_ids != null && { location_ids: member.assigned_locations.location_ids })
+                }
+            })
         };
     }
 });
