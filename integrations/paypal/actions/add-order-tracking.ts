@@ -10,7 +10,7 @@ const InputSchema = z.object({
     status: z.string().describe('The status of the shipment. Example: "SHIPPED"'),
     request_id: z
         .string()
-        .regex(/^[\x21-\x7E]{1,10000}$/, 'request_id must be 1-10000 printable ASCII characters (PayPal-Request-Id limit).')
+        .regex(/^[\x21-\x7E]{1,108}$/, 'request_id must be 1-108 printable ASCII characters (PayPal-Request-Id limit for this endpoint).')
         .optional()
         .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });

@@ -54,9 +54,10 @@ describe('paypal disputes tests', () => {
         }
     });
 
-    it('should get, map correctly the data and batchDelete the result', async () => {
-        // Fixed to match the recorded fixture's request window: this sync computes its lookback window
-        // from the real wall clock, so the mocked HTTP request must be replayed at the same "now".
+    it('should never call batchDelete', async () => {
+        // This sync intentionally does not track deletes: it queries by update_time windows rather than
+        // enumerating the full dispute catalog, so an unseen dispute could simply be outside the current
+        // window rather than actually removed upstream. Tracking deletes here would falsely delete live rows.
         vi.useFakeTimers();
         vi.setSystemTime(new Date('2026-07-13T21:00:00.000Z'));
 
@@ -65,24 +66,6 @@ describe('paypal disputes tests', () => {
 
         await createSync.exec(nangoMock);
 
-        for (const model of models) {
-            const batchDeleteData = await nangoMock.getBatchDeleteData(model);
-            if (batchDeleteData && batchDeleteData.length > 0) {
-                const spiedData = batchDeleteSpy.mock.calls.flatMap((call) => {
-                    if (call[1] === model) {
-                        return call[0];
-                    }
-
-                    return [];
-                });
-
-                // Normalize spy-captured args into plain JSON so they compare cleanly
-                // with fixture data loaded from `*.test.json`.
-                // Removes things like prototypes, undefined values and other non-serializable data.
-                const spied = JSON.parse(JSON.stringify(spiedData));
-
-                expect(spied).toStrictEqual(batchDeleteData);
-            }
-        }
+        expect(batchDeleteSpy).not.toHaveBeenCalled();
     });
 });

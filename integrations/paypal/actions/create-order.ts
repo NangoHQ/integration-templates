@@ -22,7 +22,7 @@ const PurchaseUnitSchema = z
     })
     .passthrough();
 
-const ApplicationContextSchema = z
+const PaypalExperienceContextSchema = z
     .object({
         brand_name: z.string().optional().describe('Brand name.'),
         locale: z.string().optional().describe('Locale.'),
@@ -38,7 +38,9 @@ const InputSchema = z.object({
     intent: z.enum(['CAPTURE', 'AUTHORIZE']).describe('The intent to capture or authorize payment.'),
     purchase_units: z.array(PurchaseUnitSchema).describe('An array of purchase units.'),
     payment_source: z.record(z.string(), z.unknown()).optional().describe('The payment source definition.'),
-    application_context: ApplicationContextSchema.optional().describe('Customizes the payer experience during approval.'),
+    experience_context: PaypalExperienceContextSchema.optional().describe(
+        'Customizes the payer experience during approval. Sent as payment_source.paypal.experience_context, the current Orders v2 field (the older top-level application_context is deprecated).'
+    ),
     request_id: z
         .string()
         .regex(/^[\x21-\x7E]{1,108}$/, 'request_id must be 1-108 printable ASCII characters (PayPal-Request-Id limit for this endpoint).')
@@ -84,14 +86,29 @@ const action = createAction({
     scopes: ['https://uri.paypal.com/services/payments/payment'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Nest under payment_source.paypal.experience_context (the current Orders v2 field) rather than the
+        // deprecated top-level application_context, merging with any paypal payment_source fields the caller
+        // already provided (e.g. vault_id) instead of overwriting them.
+        const existingPaypalSource = input.payment_source?.['paypal'];
+        const paypalSource = existingPaypalSource && typeof existingPaypalSource === 'object' ? existingPaypalSource : {};
+        const paymentSource =
+            input.experience_context !== undefined
+                ? {
+                      ...input.payment_source,
+                      paypal: {
+                          ...paypalSource,
+                          experience_context: input.experience_context
+                      }
+                  }
+                : input.payment_source;
+
         const response = await nango.post({
             // https://developer.paypal.com/api/orders/v2/#orders_create
             endpoint: '/v2/checkout/orders',
             data: {
                 intent: input.intent,
                 purchase_units: input.purchase_units,
-                ...(input.payment_source !== undefined && { payment_source: input.payment_source }),
-                ...(input.application_context !== undefined && { application_context: input.application_context })
+                ...(paymentSource !== undefined && { payment_source: paymentSource })
             },
             headers: {
                 // Required by PayPal for single-step create-order calls (e.g. with a payment_source), and

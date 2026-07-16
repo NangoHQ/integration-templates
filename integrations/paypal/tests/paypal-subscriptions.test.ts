@@ -48,30 +48,15 @@ describe('paypal subscriptions tests', () => {
         }
     });
 
-    it('should get, map correctly the data and batchDelete the result', async () => {
+    it('should never call batchDelete', async () => {
+        // This sync intentionally does not track deletes: it queries by a status/update-time window rather
+        // than enumerating every subscription, so an unseen subscription could simply be outside the current
+        // window rather than actually removed upstream. Tracking deletes here would falsely delete live rows.
         const { nangoMock } = createTestContext();
         const batchDeleteSpy = vi.spyOn(nangoMock, 'batchDelete');
 
         await createSync.exec(nangoMock);
 
-        for (const model of models) {
-            const batchDeleteData = await nangoMock.getBatchDeleteData(model);
-            if (batchDeleteData && batchDeleteData.length > 0) {
-                const spiedData = batchDeleteSpy.mock.calls.flatMap((call) => {
-                    if (call[1] === model) {
-                        return call[0];
-                    }
-
-                    return [];
-                });
-
-                // Normalize spy-captured args into plain JSON so they compare cleanly
-                // with fixture data loaded from `*.test.json`.
-                // Removes things like prototypes, undefined values and other non-serializable data.
-                const spied = JSON.parse(JSON.stringify(spiedData));
-
-                expect(spied).toStrictEqual(batchDeleteData);
-            }
-        }
+        expect(batchDeleteSpy).not.toHaveBeenCalled();
     });
 });

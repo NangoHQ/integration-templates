@@ -54,9 +54,11 @@ describe('paypal transactions tests', () => {
         }
     });
 
-    it('should get, map correctly the data and batchDelete the result', async () => {
-        // Fixed to match the recorded fixture's request windows: this sync computes its date range
-        // from the real wall clock, so the mocked HTTP requests must be replayed at the same "now".
+    it('should never call batchDelete', async () => {
+        // This sync intentionally does not track deletes: it queries by a start_date window rather than
+        // enumerating every transaction, so an unseen transaction could simply be outside the current window
+        // rather than actually removed upstream (transactions aren't deletable in PayPal anyway). Tracking
+        // deletes here would falsely delete live rows.
         vi.useFakeTimers();
         vi.setSystemTime(new Date('2026-07-13T21:00:00.000Z'));
 
@@ -65,24 +67,6 @@ describe('paypal transactions tests', () => {
 
         await createSync.exec(nangoMock);
 
-        for (const model of models) {
-            const batchDeleteData = await nangoMock.getBatchDeleteData(model);
-            if (batchDeleteData && batchDeleteData.length > 0) {
-                const spiedData = batchDeleteSpy.mock.calls.flatMap((call) => {
-                    if (call[1] === model) {
-                        return call[0];
-                    }
-
-                    return [];
-                });
-
-                // Normalize spy-captured args into plain JSON so they compare cleanly
-                // with fixture data loaded from `*.test.json`.
-                // Removes things like prototypes, undefined values and other non-serializable data.
-                const spied = JSON.parse(JSON.stringify(spiedData));
-
-                expect(spied).toStrictEqual(batchDeleteData);
-            }
-        }
+        expect(batchDeleteSpy).not.toHaveBeenCalled();
     });
 });
