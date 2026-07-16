@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    tableId: z.number().describe('The ID of the table to list fields for. Example: 1080602')
+    tableId: z.number().int().positive().describe('The ID of the table to list fields for. Example: 1080602')
 });
 
 const SelectOptionSchema = z.object({

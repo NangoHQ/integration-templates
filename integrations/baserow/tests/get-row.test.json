@@ -1,7 +1,7 @@
 {
   "input": {
-    "table_id": 1080602,
-    "row_id": 1
+    "tableId": 1080602,
+    "rowId": 1
   },
   "output": {
     "id": 1,

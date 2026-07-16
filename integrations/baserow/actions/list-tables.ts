@@ -11,14 +11,7 @@ const ProviderTableSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    tables: z.array(
-        z.object({
-            id: z.number(),
-            name: z.string(),
-            order: z.number(),
-            database_id: z.number()
-        })
-    )
+    tables: z.array(ProviderTableSchema)
 });
 
 const action = createAction({
@@ -37,12 +30,7 @@ const action = createAction({
         const providerTables = z.array(ProviderTableSchema).parse(response.data);
 
         return {
-            tables: providerTables.map((table) => ({
-                id: table.id,
-                name: table.name,
-                order: table.order,
-                database_id: table.database_id
-            }))
+            tables: providerTables
         };
     }
 });

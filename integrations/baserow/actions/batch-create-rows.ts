@@ -2,14 +2,14 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    tableId: z.number().int().describe('Table ID. Example: 1080602'),
+    tableId: z.number().int().positive().describe('Table ID. Example: 1080602'),
     items: z
         .array(z.record(z.string(), z.unknown()))
         .min(1)
         .max(200)
         .describe('Row field objects to create. Each object uses field_<id> keys (or display names when userFieldNames is true). Minimum 1, maximum 200.'),
     userFieldNames: z.boolean().optional().describe('If true, use user-specified field names instead of field_<id> keys in request and response.'),
-    before: z.number().int().optional().describe('If provided, inserts all new rows immediately before the row with this id.')
+    before: z.number().int().positive().optional().describe('If provided, inserts all new rows immediately before the row with this id.')
 });
 
 const ProviderRowSchema = z

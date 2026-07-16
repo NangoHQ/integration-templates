@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    tableId: z.number().int().describe('Table ID. Example: 1080602'),
-    rowId: z.number().int().describe('Row ID. Example: 7')
+    tableId: z.number().int().positive().describe('Table ID. Example: 1080602'),
+    rowId: z.number().int().positive().describe('Row ID. Example: 7')
 });
 
 const OutputSchema = z.object({

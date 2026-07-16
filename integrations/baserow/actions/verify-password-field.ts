@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    field_id: z.number().describe('The ID of the password field to verify against. Example: 9574050'),
-    row_id: z.number().describe('The ID of the row containing the password. Example: 1'),
+    field_id: z.number().int().positive().describe('The ID of the password field to verify against. Example: 9574050'),
+    row_id: z.number().int().positive().describe('The ID of the row containing the password. Example: 1'),
     password: z.string().describe('The plaintext password to verify. Example: "NangoTest123!"')
 });
 
@@ -18,7 +18,11 @@ const ProviderSuccessSchema = z.object({
 const ProxyErrorSchema = z.object({
     response: z.object({
         status: z.number(),
-        data: z.unknown()
+        data: z
+            .object({
+                error: z.string().optional()
+            })
+            .passthrough()
     })
 });
 
@@ -29,8 +33,10 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // @allowTryCatch Baserow returns HTTP 401 for an incorrect password.
-        // We treat that as a normal negative result rather than a thrown error.
+        // @allowTryCatch Baserow returns HTTP 401 with error ERROR_INVALID_PASSWORD_FIELD_PASSWORD
+        // for an incorrect password. We treat only that specific error as a normal negative
+        // result; other errors (e.g. ERROR_NO_PERMISSION_TO_TABLE) are rethrown so callers
+        // can distinguish "wrong password" from "token can't access this table".
         try {
             const response = await nango.post({
                 // https://api.baserow.io/api/redoc/ (POST /database/fields/password-authentication/)
@@ -51,7 +57,11 @@ const action = createAction({
         } catch (error) {
             const parsedError = ProxyErrorSchema.safeParse(error);
 
-            if (parsedError.success && parsedError.data.response.status === 401) {
+            if (
+                parsedError.success &&
+                parsedError.data.response.status === 401 &&
+                parsedError.data.response.data.error === 'ERROR_INVALID_PASSWORD_FIELD_PASSWORD'
+            ) {
                 return {
                     is_correct: false
                 };

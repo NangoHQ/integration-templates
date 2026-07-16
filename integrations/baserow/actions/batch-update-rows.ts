@@ -4,13 +4,13 @@ import type { ProxyConfiguration } from 'nango';
 
 const RowUpdateItemSchema = z
     .object({
-        id: z.number().int().describe('Row ID to update. Example: 17')
+        id: z.number().int().positive().describe('Row ID to update. Example: 17')
     })
     .passthrough()
     .describe('Row update payload. Must include id plus only the fields being changed.');
 
 const InputSchema = z.object({
-    tableId: z.number().int().describe('The table ID. Example: 1080602'),
+    tableId: z.number().int().positive().describe('The table ID. Example: 1080602'),
     items: z.array(RowUpdateItemSchema).min(1).max(200).describe('Rows to update. 1 to 200 items.'),
     userFieldNames: z.boolean().optional().describe('If true, use field display names instead of field_<id> keys in the request and response.')
 });

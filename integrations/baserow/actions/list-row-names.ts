@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     tables: z
-        .record(z.string(), z.array(z.number().int().positive()).min(1))
+        .record(z.string().regex(/^[1-9]\d*$/, 'Table ID key must be a positive integer'), z.array(z.number().int().positive()).min(1))
         .describe('Map of table IDs to arrays of row IDs to look up. Example: {"1080602": [1, 2]}')
 });
 

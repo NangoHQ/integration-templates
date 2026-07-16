@@ -56,51 +56,65 @@ const sync = createSync({
             }
             page = checkpointResult.data.page;
         }
-        const isResuming = checkpointRaw != null && page > 1;
-
         // Full refresh: Baserow rows API has no universal modified-since filter.
         // A last_modified field may exist on some tables but cannot be created
         // via this Database token (field creation requires JWT), so its presence
         // can never be assumed for an arbitrary table.
-        if (!isResuming) {
-            await nango.trackDeletesStart('Row');
-        }
+        //
+        // Deletion tracking spans potentially multiple resumed executions, so it is only
+        // started once - after the first page successfully validates, not before the first
+        // request - and is always closed with trackDeletesEnd (via the finally block below)
+        // if it was open, whether the run finishes normally or a later page fails.
+        let deletesTrackingOpen = checkpointRaw != null && page > 1;
 
-        while (true) {
-            // https://api.baserow.io/api/redoc/
-            // https://baserow.io/user-docs/database-api
-            const response = await nango.get({
-                endpoint: `/database/rows/table/${encodeURIComponent(String(tableId))}/`,
-                params: {
-                    page,
-                    size: PAGE_SIZE
-                },
-                retries: 3
-            });
+        // @allowTryCatch The finally block guarantees trackDeletesEnd runs exactly once,
+        // whether the loop finishes normally or a page fails, so tracking can never be
+        // left open after an error.
+        try {
+            while (true) {
+                // https://api.baserow.io/api/redoc/
+                // https://baserow.io/user-docs/database-api
+                const response = await nango.get({
+                    endpoint: `/database/rows/table/${encodeURIComponent(String(tableId))}/`,
+                    params: {
+                        page,
+                        size: PAGE_SIZE
+                    },
+                    retries: 3
+                });
 
-            const rowsResult = BaserowRowsResponseSchema.safeParse(response.data);
-            if (!rowsResult.success) {
-                throw new Error(`Invalid rows response: ${rowsResult.error.message}`);
+                const rowsResult = BaserowRowsResponseSchema.safeParse(response.data);
+                if (!rowsResult.success) {
+                    throw new Error(`Invalid rows response: ${rowsResult.error.message}`);
+                }
+
+                if (!deletesTrackingOpen) {
+                    await nango.trackDeletesStart('Row');
+                    deletesTrackingOpen = true;
+                }
+
+                const rows = rowsResult.data.results.map((row) => ({
+                    id: String(row.id),
+                    tableId,
+                    data: row
+                }));
+                if (rows.length > 0) {
+                    await nango.batchSave(rows, 'Row');
+                }
+
+                if (rowsResult.data.next) {
+                    page += 1;
+                    await nango.saveCheckpoint({ page });
+                    continue;
+                }
+
+                await nango.clearCheckpoint();
+                break;
             }
-
-            const rows = rowsResult.data.results.map((row) => ({
-                id: String(row.id),
-                tableId,
-                data: row
-            }));
-            if (rows.length > 0) {
-                await nango.batchSave(rows, 'Row');
+        } finally {
+            if (deletesTrackingOpen) {
+                await nango.trackDeletesEnd('Row');
             }
-
-            if (rowsResult.data.next) {
-                page += 1;
-                await nango.saveCheckpoint({ page });
-                continue;
-            }
-
-            await nango.clearCheckpoint();
-            await nango.trackDeletesEnd('Row');
-            break;
         }
     }
 });

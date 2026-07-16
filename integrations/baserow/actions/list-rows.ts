@@ -2,11 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    tableId: z.number().describe('Table ID. Example: 1080602'),
+    tableId: z.number().int().positive().describe('Table ID. Example: 1080602'),
     page: z.number().optional().describe('Page number. Default: 1'),
     size: z.number().optional().describe('Page size. Default: 100, max: 200'),
     search: z.string().optional().describe('Search query string'),
-    searchMode: z.string().optional().describe('Search mode'),
     orderBy: z.string().optional().describe('Comma-separated field ids or display names. Example: field_9571320 or -field_9571320 for descending'),
     filter: z
         .record(z.string(), z.string().or(z.number()))
@@ -14,7 +13,7 @@ const InputSchema = z.object({
         .describe('Filter params. Keys like filter__field_<id>__<type>, values are filter values'),
     filterType: z.enum(['AND', 'OR']).optional().describe('Filter logic when multiple filter params are provided'),
     filters: z.string().optional().describe('JSON-serialized filter tree. If present, all filter__ params are ignored'),
-    viewId: z.number().optional().describe('View ID to inherit stored filters and sorts'),
+    viewId: z.number().int().positive().optional().describe('View ID to inherit stored filters and sorts'),
     include: z.string().optional().describe('Comma-separated field names or field_<id> to include'),
     exclude: z.string().optional().describe('Comma-separated field names or field_<id> to exclude'),
     userFieldNames: z.boolean().optional().describe('When true, response keys and order_by/include/exclude use display names instead of field_<id>')
@@ -38,7 +37,7 @@ const OutputSchema = z.object({
     count: z.number(),
     next: z.string().nullable().optional(),
     previous: z.string().nullable().optional(),
-    results: z.array(z.record(z.string(), z.unknown()))
+    results: z.array(RowSchema)
 });
 
 const action = createAction({
@@ -60,10 +59,6 @@ const action = createAction({
 
         if (input.search !== undefined) {
             params['search'] = input.search;
-        }
-
-        if (input.searchMode !== undefined) {
-            params['search_mode'] = input.searchMode;
         }
 
         if (input.orderBy !== undefined) {

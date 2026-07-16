@@ -24,10 +24,17 @@ const action = createAction({
             retries: 3
         });
 
-        const providerData = ProviderResponseSchema.parse(response.data);
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'validation_error',
+                message: 'Failed to parse provider response.',
+                details: parsed.error.issues
+            });
+        }
 
         return {
-            token: providerData.token
+            token: parsed.data.token
         };
     }
 });

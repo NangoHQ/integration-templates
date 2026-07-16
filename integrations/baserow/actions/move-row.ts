@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    tableId: z.number().describe('Table ID. Example: 1080602'),
-    rowId: z.number().describe('Row ID to move. Example: 12'),
-    beforeId: z.number().optional().describe('Row ID to move immediately before. Omit to move to the end of the table.')
+    tableId: z.number().int().positive().describe('Table ID. Example: 1080602'),
+    rowId: z.number().int().positive().describe('Row ID to move. Example: 12'),
+    beforeId: z.number().int().positive().optional().describe('Row ID to move immediately before. Omit to move to the end of the table.')
 });
 
 const OutputSchema = z

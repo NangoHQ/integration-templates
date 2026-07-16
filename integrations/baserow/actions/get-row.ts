@@ -3,15 +3,15 @@ import type { ProxyConfiguration } from 'nango';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    table_id: z.number().describe('Table ID. Example: 1080602'),
-    row_id: z.number().describe('Row ID. Example: 1'),
-    user_field_names: z.boolean().optional().describe('Return field names instead of field IDs.')
+    tableId: z.number().int().positive().describe('Table ID. Example: 1080602'),
+    rowId: z.number().int().positive().describe('Row ID. Example: 1'),
+    userFieldNames: z.boolean().optional().describe('Return field names instead of field IDs.')
 });
 
 const OutputSchema = z
     .object({
         id: z.number(),
-        order: z.string()
+        order: z.string().optional()
     })
     .passthrough();
 
@@ -24,9 +24,9 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://api.baserow.io/api/redoc/
-            endpoint: `/database/rows/table/${encodeURIComponent(String(input.table_id))}/${encodeURIComponent(String(input.row_id))}/`,
+            endpoint: `/database/rows/table/${encodeURIComponent(String(input.tableId))}/${encodeURIComponent(String(input.rowId))}/`,
             params: {
-                ...(input.user_field_names !== undefined && { user_field_names: String(input.user_field_names) })
+                ...(input.userFieldNames !== undefined && { user_field_names: String(input.userFieldNames) })
             },
             retries: 3
         };
@@ -37,8 +37,8 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Row not found or invalid response from Baserow.',
-                table_id: input.table_id,
-                row_id: input.row_id
+                tableId: input.tableId,
+                rowId: input.rowId
             });
         }
 

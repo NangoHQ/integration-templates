@@ -2,10 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    tableId: z.number().describe('The ID of the table to create the row in. Example: 1080602'),
+    tableId: z.number().int().positive().describe('The ID of the table to create the row in. Example: 1080602'),
     fields: z.record(z.string(), z.unknown()).describe('Field values to set. Keys are field_<id> by default, or display names when userFieldNames is true.'),
     userFieldNames: z.boolean().optional().describe('If true, use field display names as keys in fields and response.'),
-    before: z.number().optional().describe('Row ID to insert the new row immediately before. Omit to append at the end.')
+    before: z.number().int().positive().optional().describe('Row ID to insert the new row immediately before. Omit to append at the end.')
 });
 
 const OutputSchema = z

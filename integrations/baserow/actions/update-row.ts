@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    tableId: z.number().describe('Table ID. Example: 1080602'),
-    rowId: z.number().describe('Row ID. Example: 9'),
+    tableId: z.number().int().positive().describe('Table ID. Example: 1080602'),
+    rowId: z.number().int().positive().describe('Row ID. Example: 9'),
     fields: z.record(z.string(), z.unknown()).describe('Partial row fields to update. Keys are field_<id> or display names when user_field_names is true.'),
     userFieldNames: z.boolean().optional().describe('If true, use display names as field keys instead of field_<id>.')
 });
@@ -11,7 +11,7 @@ const InputSchema = z.object({
 const OutputSchema = z
     .object({
         id: z.number(),
-        order: z.string()
+        order: z.string().optional()
     })
     .passthrough();
 
