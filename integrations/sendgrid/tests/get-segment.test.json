@@ -1,0 +1,137 @@
+{
+  "input": {
+    "segment_id": "01192f73-2ec6-48e3-ad0b-42dbb5bddf4d"
+  },
+  "output": {
+    "id": "01192f73-2ec6-48e3-ad0b-42dbb5bddf4d",
+    "name": "Nango Test Segment Get",
+    "query_dsl": "SELECT contact_id, updated_at FROM contact_data WHERE email = 'seed.contact1@nango.dev'",
+    "contacts_count": 1,
+    "contacts_sample": [
+      {
+        "email": "seed.contact1@nango.dev",
+        "first_name": "Seed",
+        "last_name": "One",
+        "id": "c6491580-2f4a-4339-8812-eb1f86aae6dd",
+        "list_ids": [
+          "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+        ],
+        "segment_ids": [
+          "69c75950-882e-426a-b615-865af8194206",
+          "24763b0e-490f-40d9-aa64-109fd7f21b6e",
+          "a151114d-e3fc-497c-91f2-3dbe97cd3512",
+          "603337ee-6dd9-44c8-b590-7f9a19d81ddc",
+          "1166b00e-a7e0-4867-a64b-1f92887c5d33",
+          "01192f73-2ec6-48e3-ad0b-42dbb5bddf4d"
+        ],
+        "created_at": "2026-07-15T15:00:50Z",
+        "updated_at": "2026-07-15T16:08:48Z",
+        "_metadata": {
+          "self": "https://api.sendgrid.com/v3/marketing/contacts/c6491580-2f4a-4339-8812-eb1f86aae6dd"
+        }
+      }
+    ],
+    "next_sample_update": "2026-07-15T17:08:46Z",
+    "created_at": "2026-07-15T16:08:40Z",
+    "updated_at": "2026-07-15T16:08:40Z",
+    "query_version": "2",
+    "identifier_counts": {
+      "AID": 0,
+      "EID": 1,
+      "EXTID": 0,
+      "PHNID": 0
+    },
+    "sample_updated_at": "2026-07-15T16:08:46Z",
+    "parent_list_ids": null,
+    "status": {
+      "query_validation": "VALID"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/marketing/segments/2.0/01192f73-2ec6-48e3-ad0b-42dbb5bddf4d": {
+        "response": {
+          "id": "01192f73-2ec6-48e3-ad0b-42dbb5bddf4d",
+          "name": "Nango Test Segment Get",
+          "query_dsl": "SELECT contact_id, updated_at FROM contact_data WHERE email = 'seed.contact1@nango.dev'",
+          "query_version": "2",
+          "contacts_count": 1,
+          "identifier_counts": {
+            "AID": 0,
+            "EID": 1,
+            "EXTID": 0,
+            "PHNID": 0
+          },
+          "contacts_sample": [
+            {
+              "email": "seed.contact1@nango.dev",
+              "first_name": "Seed",
+              "id": "c6491580-2f4a-4339-8812-eb1f86aae6dd",
+              "last_name": "One",
+              "list_ids": [
+                "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+              ],
+              "segment_ids": [
+                "69c75950-882e-426a-b615-865af8194206",
+                "24763b0e-490f-40d9-aa64-109fd7f21b6e",
+                "a151114d-e3fc-497c-91f2-3dbe97cd3512",
+                "603337ee-6dd9-44c8-b590-7f9a19d81ddc",
+                "1166b00e-a7e0-4867-a64b-1f92887c5d33",
+                "01192f73-2ec6-48e3-ad0b-42dbb5bddf4d"
+              ],
+              "created_at": "2026-07-15T15:00:50Z",
+              "updated_at": "2026-07-15T16:08:48Z",
+              "_metadata": {
+                "self": "https://api.sendgrid.com/v3/marketing/contacts/c6491580-2f4a-4339-8812-eb1f86aae6dd"
+              }
+            }
+          ],
+          "sample_updated_at": "2026-07-15T16:08:46Z",
+          "next_sample_update": "2026-07-15T17:08:46Z",
+          "created_at": "2026-07-15T16:08:40Z",
+          "updated_at": "2026-07-15T16:08:40Z",
+          "parent_list_ids": null,
+          "status": {
+            "query_validation": "VALID"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 16:09:35 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "599",
+          "x-ratelimit-reset": "25",
+          "server": "nginx",
+          "x-amzn-requestid": "93297ece-27ab-4ab8-ac03-ed89efec0e5d",
+          "x-amzn-remapped-x-amzn-requestid": "6daed465-3b3a-4b86-b5f5-3d614b039535",
+          "x-amzn-remapped-content-length": "1116",
+          "x-sendgrid-pod-id": "1",
+          "x-amz-apigw-id": "AjiOAEHpIAMEVTQ=",
+          "x-amzn-trace-id": "Root=1-6a57b0bf-6f1a87a8558f96db04907d1b;Parent=7b3ecbc76507c18a;Sampled=0;Lineage=1:b9707caa:0",
+          "x-amzn-remapped-date": "Wed, 15 Jul 2026 16:09:35 GMT",
+          "x-sendgrid-podrouter-region": "us-east-1",
+          "x-envoy-upstream-service-time": "455",
+          "content-security-policy": "frame-ancestors 'none'",
+          "cache-control": "no-store",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "powered-by": "SGGateway"
+        },
+        "hash": "81701f16b111949dede43d173ac3a47466c07966",
+        "request": {}
+      }
+    }
+  }
+}

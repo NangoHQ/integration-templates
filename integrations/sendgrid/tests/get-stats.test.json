@@ -1,0 +1,806 @@
+{
+  "input": {
+    "start_date": "2026-07-01",
+    "end_date": "2026-07-15",
+    "aggregated_by": "day"
+  },
+  "output": [
+    {
+      "date": "2026-07-01",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-02",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-03",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-04",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-05",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-06",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-07",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-08",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-10",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-11",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-12",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-13",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-14",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    },
+    {
+      "date": "2026-07-15",
+      "stats": [
+        {
+          "metrics": {
+            "blocks": 0,
+            "bounce_drops": 0,
+            "bounces": 0,
+            "clicks": 0,
+            "deferred": 0,
+            "delivered": 0,
+            "invalid_emails": 0,
+            "opens": 0,
+            "processed": 0,
+            "requests": 0,
+            "spam_report_drops": 0,
+            "spam_reports": 0,
+            "unique_clicks": 0,
+            "unique_opens": 0,
+            "unsubscribe_drops": 0,
+            "unsubscribes": 0
+          }
+        }
+      ]
+    }
+  ],
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/stats": {
+        "response": [
+          {
+            "date": "2026-07-01",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-02",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-03",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-04",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-05",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-06",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-07",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-08",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-09",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-10",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-11",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-12",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-13",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-14",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          },
+          {
+            "date": "2026-07-15",
+            "stats": [
+              {
+                "metrics": {
+                  "blocks": 0,
+                  "bounce_drops": 0,
+                  "bounces": 0,
+                  "clicks": 0,
+                  "deferred": 0,
+                  "delivered": 0,
+                  "invalid_emails": 0,
+                  "opens": 0,
+                  "processed": 0,
+                  "requests": 0,
+                  "spam_report_drops": 0,
+                  "spam_reports": 0,
+                  "unique_clicks": 0,
+                  "unique_opens": 0,
+                  "unsubscribe_drops": 0,
+                  "unsubscribes": 0
+                }
+              }
+            ]
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 16:06:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Link, Location",
+          "x-ratelimit-limit": "25",
+          "x-ratelimit-remaining": "24",
+          "x-ratelimit-reset": "1784131620",
+          "server": "nginx",
+          "access-control-allow-methods": "HEAD, GET, PUT, POST, DELETE, OPTIONS, PATCH",
+          "access-control-max-age": "21600",
+          "access-control-allow-headers": "AUTHORIZATION, Content-Type, On-behalf-of, x-sg-elas-acl, X-Recaptcha, X-Request-Source, Browser-Fingerprint",
+          "content-security-policy": "default-src https://api.sendgrid.com; frame-src 'none'; object-src 'none'",
+          "x-robots-tag": "noindex, nofollow",
+          "x-client-ff": "1000",
+          "x-envoy-upstream-service-time": "144",
+          "powered-by": "Mako",
+          "cache-control": "no-cache",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "a7907d0cef9e75176ad4a756ced81ed04161976a",
+        "request": {
+          "params": {
+            "aggregated_by": "day",
+            "end_date": "2026-07-15",
+            "start_date": "2026-07-01"
+          }
+        }
+      }
+    }
+  }
+}

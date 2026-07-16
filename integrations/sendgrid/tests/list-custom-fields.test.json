@@ -1,0 +1,385 @@
+{
+  "input": {},
+  "output": {
+    "custom_fields": [
+      {
+        "id": "w1_T",
+        "name": "seed_plan_tier",
+        "field_type": "Text"
+      },
+      {
+        "id": "e3_T",
+        "name": "nango_test_field",
+        "field_type": "Text"
+      }
+    ],
+    "reserved_fields": [
+      {
+        "id": "_rf0_T",
+        "name": "first_name",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf1_T",
+        "name": "last_name",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf2_T",
+        "name": "email",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf3_T",
+        "name": "alternate_emails",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf4_T",
+        "name": "address_line_1",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf5_T",
+        "name": "address_line_2",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf6_T",
+        "name": "city",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf7_T",
+        "name": "state_province_region",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf8_T",
+        "name": "postal_code",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf9_T",
+        "name": "country",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf10_T",
+        "name": "phone_number",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf11_T",
+        "name": "whatsapp",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf12_T",
+        "name": "line",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf13_T",
+        "name": "facebook",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf14_T",
+        "name": "unique_name",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf27_T",
+        "name": "list_ids",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf28_T",
+        "name": "segment_ids",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf15_T",
+        "name": "email_domains",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf16_D",
+        "name": "last_clicked",
+        "field_type": "Date"
+      },
+      {
+        "id": "_rf17_D",
+        "name": "last_opened",
+        "field_type": "Date"
+      },
+      {
+        "id": "_rf18_D",
+        "name": "last_emailed",
+        "field_type": "Date"
+      },
+      {
+        "id": "_rf19_T",
+        "name": "singlesend_id",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf20_T",
+        "name": "automation_id",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf21_D",
+        "name": "created_at",
+        "field_type": "Date"
+      },
+      {
+        "id": "_rf22_D",
+        "name": "updated_at",
+        "field_type": "Date"
+      },
+      {
+        "id": "_rf23_T",
+        "name": "contact_id",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf24_T",
+        "name": "phone_number_id",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf25_T",
+        "name": "external_id",
+        "field_type": "Text"
+      },
+      {
+        "id": "_rf26_T",
+        "name": "anonymous_id",
+        "field_type": "Text"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/marketing/field_definitions": {
+        "response": {
+          "custom_fields": [
+            {
+              "id": "w1_T",
+              "name": "seed_plan_tier",
+              "field_type": "Text",
+              "_metadata": {
+                "self": "https://api.sendgrid.com/v3/marketing/field_definitions/w1_T"
+              }
+            },
+            {
+              "id": "e3_T",
+              "name": "nango_test_field",
+              "field_type": "Text",
+              "_metadata": {
+                "self": "https://api.sendgrid.com/v3/marketing/field_definitions/e3_T"
+              }
+            }
+          ],
+          "reserved_fields": [
+            {
+              "id": "_rf0_T",
+              "name": "first_name",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf1_T",
+              "name": "last_name",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf2_T",
+              "name": "email",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf3_T",
+              "name": "alternate_emails",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf4_T",
+              "name": "address_line_1",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf5_T",
+              "name": "address_line_2",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf6_T",
+              "name": "city",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf7_T",
+              "name": "state_province_region",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf8_T",
+              "name": "postal_code",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf9_T",
+              "name": "country",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf10_T",
+              "name": "phone_number",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf11_T",
+              "name": "whatsapp",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf12_T",
+              "name": "line",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf13_T",
+              "name": "facebook",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf14_T",
+              "name": "unique_name",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf27_T",
+              "name": "list_ids",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf28_T",
+              "name": "segment_ids",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf15_T",
+              "name": "email_domains",
+              "field_type": "Text",
+              "read_only": true
+            },
+            {
+              "id": "_rf16_D",
+              "name": "last_clicked",
+              "field_type": "Date",
+              "read_only": true
+            },
+            {
+              "id": "_rf17_D",
+              "name": "last_opened",
+              "field_type": "Date",
+              "read_only": true
+            },
+            {
+              "id": "_rf18_D",
+              "name": "last_emailed",
+              "field_type": "Date",
+              "read_only": true
+            },
+            {
+              "id": "_rf19_T",
+              "name": "singlesend_id",
+              "field_type": "Text",
+              "read_only": true
+            },
+            {
+              "id": "_rf20_T",
+              "name": "automation_id",
+              "field_type": "Text",
+              "read_only": true
+            },
+            {
+              "id": "_rf21_D",
+              "name": "created_at",
+              "field_type": "Date",
+              "read_only": true
+            },
+            {
+              "id": "_rf22_D",
+              "name": "updated_at",
+              "field_type": "Date",
+              "read_only": true
+            },
+            {
+              "id": "_rf23_T",
+              "name": "contact_id",
+              "field_type": "Text",
+              "read_only": true
+            },
+            {
+              "id": "_rf24_T",
+              "name": "phone_number_id",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf25_T",
+              "name": "external_id",
+              "field_type": "Text"
+            },
+            {
+              "id": "_rf26_T",
+              "name": "anonymous_id",
+              "field_type": "Text"
+            }
+          ],
+          "_metadata": {
+            "self": "https://api.sendgrid.com/v3/marketing/field_definitions"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 15:59:36 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "599",
+          "x-ratelimit-reset": "24",
+          "server": "nginx",
+          "x-amzn-requestid": "49ba3349-188e-4668-9bbc-dec82c584a9f",
+          "x-amzn-remapped-x-amzn-requestid": "98f6a9c7-c549-4fb5-8f8c-467e2343eba3",
+          "x-amzn-remapped-content-length": "2226",
+          "x-sendgrid-pod-id": "1",
+          "x-amz-apigw-id": "AjgwXFDfoAMEtqw=",
+          "x-amzn-trace-id": "Root=1-6a57ae68-3a8115ae518f3920772baff2;Parent=47c8abad887e6393;Sampled=0;Lineage=1:3f1f7004:0",
+          "x-amzn-remapped-date": "Wed, 15 Jul 2026 15:59:36 GMT",
+          "x-sendgrid-podrouter-region": "us-east-1",
+          "x-envoy-upstream-service-time": "244",
+          "content-security-policy": "frame-ancestors 'none'",
+          "cache-control": "no-store",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "powered-by": "SGGateway"
+        },
+        "hash": "15af9a76998c8c03efb44cd7d758e63b0ff1bc0c",
+        "request": {}
+      }
+    }
+  }
+}
