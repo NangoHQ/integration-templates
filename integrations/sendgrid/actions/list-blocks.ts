@@ -30,6 +30,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const limit = input.limit ?? 500;
 
         // https://www.twilio.com/docs/sendgrid/api-reference/blocks-api/retrieve-all-blocks
         const response = await nango.get({
@@ -37,7 +38,7 @@ const action = createAction({
             params: {
                 ...(input.start_time !== undefined && { start_time: String(input.start_time) }),
                 ...(input.end_time !== undefined && { end_time: String(input.end_time) }),
-                ...(input.limit !== undefined && { limit: String(input.limit) }),
+                limit: String(limit),
                 ...(input.email !== undefined && { email: input.email }),
                 offset: String(offset)
             },
@@ -46,7 +47,7 @@ const action = createAction({
 
         const items = z.array(BlockSchema).parse(response.data);
 
-        const nextCursor = items.length > 0 ? String(offset + items.length) : undefined;
+        const nextCursor = items.length === limit ? String(offset + items.length) : undefined;
 
         return {
             items,

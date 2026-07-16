@@ -16,7 +16,7 @@ const InputSchema = z.object({
         .boolean()
         .optional()
         .describe(
-            'Defaults to false when plain_content is provided, to avoid overwriting it with auto-generated content. SendGrid defaults this to true otherwise.'
+            'Defaults to false for any update that does not also set html_content, to avoid silently regenerating (and overwriting) the version existing plain_content. SendGrid defaults this to true when omitted, which is only desirable when html_content is being updated and regeneration is intended.'
         )
 });
 
@@ -57,10 +57,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // SendGrid defaults generate_plain_content to true, which would overwrite an explicitly
-        // supplied plain_content with auto-generated text unless we default it to false here.
+        // SendGrid defaults generate_plain_content to true, which would silently regenerate (and
+        // overwrite) the version's existing plain_content on any update that doesn't also set
+        // html_content — e.g. a metadata-only update to just `subject` or `test_data`. Default to
+        // false in that case; only leave it omitted (SendGrid's default) when html_content is being
+        // updated and plain_content regeneration is presumably intended.
         const generatePlainContent =
-            input.generate_plain_content !== undefined ? input.generate_plain_content : input.plain_content !== undefined ? false : undefined;
+            input.generate_plain_content !== undefined ? input.generate_plain_content : input.html_content === undefined ? false : undefined;
 
         const config: ProxyConfiguration = {
             // https://www.twilio.com/docs/sendgrid/api-reference/templates-versions/update-template-version

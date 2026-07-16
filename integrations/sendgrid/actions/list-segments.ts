@@ -39,19 +39,19 @@ const action = createAction({
     scopes: ['marketing.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let endpoint: string;
-        let params: Record<string, string> | undefined;
+        // The endpoint is always the fixed segments collection — only the query parameters from a
+        // previous response's opaque next-page URL are reused, so a caller cannot redirect this
+        // action's authenticated request to an arbitrary SendGrid path via `cursor`.
+        let params: Record<string, string>;
 
         if (input.cursor) {
             const cursorUrl = new URL(input.cursor);
-            endpoint = cursorUrl.pathname;
             const queryParams: Record<string, string> = {};
             cursorUrl.searchParams.forEach((value, key) => {
                 queryParams[key] = value;
             });
             params = queryParams;
         } else {
-            endpoint = '/v3/marketing/segments/2.0';
             params = {
                 ...(input.ids !== undefined && input.ids.length > 0 && { ids: input.ids.join(',') }),
                 ...(input.parent_list_ids !== undefined && input.parent_list_ids.length > 0 && { parent_list_ids: input.parent_list_ids }),
@@ -61,7 +61,7 @@ const action = createAction({
 
         // https://www.twilio.com/docs/sendgrid/api-reference/segmenting-contacts-v2/get-list-of-segments
         const response = await nango.get({
-            endpoint,
+            endpoint: '/v3/marketing/segments/2.0',
             params,
             retries: 3
         });

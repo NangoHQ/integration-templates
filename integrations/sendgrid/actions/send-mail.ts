@@ -77,7 +77,7 @@ const InputSchema = z
         subject: z.string().optional(),
         content: z.array(ContentSchema).optional(),
         attachments: z.array(AttachmentSchema).optional(),
-        template_id: z.string().optional(),
+        template_id: z.string().min(1).optional(),
         sections: z.record(z.string(), z.string()).optional(),
         headers: z.record(z.string(), z.string()).optional(),
         categories: z.array(z.string()).optional(),

@@ -36,6 +36,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const limit = input.limit ?? 500;
 
         // https://www.twilio.com/docs/sendgrid/api-reference/invalid-emails-api/retrieve-all-invalid-emails
         const response = await nango.get({
@@ -43,7 +44,7 @@ const action = createAction({
             params: {
                 ...(input.start_time !== undefined && { start_time: String(input.start_time) }),
                 ...(input.end_time !== undefined && { end_time: String(input.end_time) }),
-                ...(input.limit !== undefined && { limit: String(input.limit) }),
+                limit: String(limit),
                 offset: String(offset)
             },
             retries: 3
@@ -52,7 +53,7 @@ const action = createAction({
         const rawItems = z.array(z.unknown()).parse(response.data);
         const items = rawItems.map((item: unknown) => InvalidEmailSchema.parse(item));
 
-        const nextOffset = items.length > 0 ? String(offset + items.length) : undefined;
+        const nextOffset = items.length === limit ? String(offset + items.length) : undefined;
 
         return {
             items,

@@ -57,7 +57,8 @@
         "hash": "0c1a4b442c850389118e39a44e924eb97212a666",
         "request": {
           "data": {
-            "subject": "Hello {{name}} Updated Again"
+            "subject": "Hello {{name}} Updated Again",
+            "generate_plain_content": false
           }
         }
       }
