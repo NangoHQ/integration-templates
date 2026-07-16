@@ -57,13 +57,19 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
+        let nextCursor: string | undefined;
+        if (providerResponse._metadata.next !== undefined) {
+            const nextUrl = new URL(providerResponse._metadata.next);
+            nextCursor = nextUrl.searchParams.get('page_token') ?? undefined;
+        }
+
         return {
             items: providerResponse.result.map((list) => ({
                 id: list.id,
                 name: list.name,
                 ...(list.contact_count !== undefined && { contact_count: list.contact_count })
             })),
-            ...(providerResponse._metadata.next !== undefined && { next_cursor: providerResponse._metadata.next })
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

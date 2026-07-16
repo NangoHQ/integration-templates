@@ -6,11 +6,11 @@ const InputSchema = z
         emails: z.array(z.string().email()).optional().describe('Array of email addresses to remove from bounce suppressions. Example: ["test@example.com"]'),
         delete_all: z.boolean().optional().describe('Set to true to clear all bounce suppressions.')
     })
-    .refine((data) => data.emails !== undefined || data.delete_all !== undefined, {
-        message: 'Either emails or delete_all must be provided.'
+    .refine((data) => data.delete_all === true || (data.emails !== undefined && data.emails.length > 0), {
+        message: 'Either a non-empty emails array or delete_all: true must be provided.'
     })
-    .refine((data) => !(data.emails !== undefined && data.delete_all !== undefined), {
-        message: 'Cannot specify both emails and delete_all.'
+    .refine((data) => !(data.emails !== undefined && data.emails.length > 0 && data.delete_all === true), {
+        message: 'Cannot specify both a non-empty emails array and delete_all: true.'
     });
 
 const OutputSchema = z.object({

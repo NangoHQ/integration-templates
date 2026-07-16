@@ -9,13 +9,6 @@ const InputSchema = z.object({
     email: z.string().optional().describe('Filter results by email address. Supports % wildcard.')
 });
 
-const ProviderBounceSchema = z.object({
-    created: z.number().optional(),
-    email: z.string().optional(),
-    reason: z.string().optional(),
-    status: z.string().optional()
-});
-
 const BounceSchema = z.object({
     created: z.number().optional(),
     email: z.string().optional(),
@@ -57,7 +50,7 @@ const action = createAction({
             retries: 3
         });
 
-        const providerBounces = z.array(ProviderBounceSchema).parse(response.data);
+        const providerBounces = z.array(BounceSchema).parse(response.data);
 
         const items = providerBounces.map((bounce) => ({
             ...(bounce.created !== undefined && { created: bounce.created }),

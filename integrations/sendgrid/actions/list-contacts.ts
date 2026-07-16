@@ -5,7 +5,7 @@ const InputSchema = z.object({});
 
 const ProviderContactSchema = z.object({
     id: z.string(),
-    email: z.string(),
+    email: z.string().nullable().optional(),
     first_name: z.string().nullable().optional(),
     last_name: z.string().nullable().optional(),
     unique_name: z.string().nullable().optional(),
@@ -32,7 +32,7 @@ const ProviderContactSchema = z.object({
 
 const OutputContactSchema = z.object({
     id: z.string(),
-    email: z.string(),
+    email: z.string().optional(),
     first_name: z.string().optional(),
     last_name: z.string().optional(),
     unique_name: z.string().optional(),
@@ -87,7 +87,7 @@ const action = createAction({
             const raw = ProviderContactSchema.parse(item);
             return {
                 id: raw.id,
-                email: raw.email,
+                ...(raw.email != null && { email: raw.email }),
                 ...(raw.first_name != null && { first_name: raw.first_name }),
                 ...(raw.last_name != null && { last_name: raw.last_name }),
                 ...(raw.unique_name != null && { unique_name: raw.unique_name }),

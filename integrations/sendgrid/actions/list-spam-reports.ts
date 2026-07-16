@@ -5,7 +5,7 @@ const InputSchema = z.object({
     start_time: z.number().optional().describe('The start of the time range when a spam report was created (inclusive). This is a unix timestamp.'),
     end_time: z.number().optional().describe('The end of the time range when a spam report was created (inclusive). This is a unix timestamp.'),
     limit: z.number().min(1).max(500).optional().describe('The number of items to return per page. Maximum is 500.'),
-    cursor: z.string().optional().describe('Pagination cursor (offset) from the previous response. Omit for the first page.')
+    cursor: z.string().regex(/^\d+$/).optional().describe('Pagination cursor (offset) from the previous response. Omit for the first page.')
 });
 
 const SpamReportSchema = z.object({

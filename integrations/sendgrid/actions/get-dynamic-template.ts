@@ -30,7 +30,7 @@ const OutputSchema = z.object({
             message: z.string()
         })
         .optional(),
-    versions: z.array(TemplateVersionSchema)
+    versions: z.array(TemplateVersionSchema).optional()
 });
 
 const action = createAction({

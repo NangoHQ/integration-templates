@@ -5,7 +5,7 @@ const InputSchema = z.object({
     start_time: z.number().optional().describe('Start of the time range in unix timestamp when an unsubscribe email was created (inclusive).'),
     end_time: z.number().optional().describe('End of the time range in unix timestamp when an unsubscribe email was created (inclusive).'),
     limit: z.number().min(1).max(500).optional().describe('Maximum number of items to return per page. Defaults to 500.'),
-    cursor: z.string().optional().describe('Pagination cursor (offset value) from the previous response. Omit for the first page.')
+    cursor: z.string().regex(/^\d+$/).optional().describe('Pagination cursor (offset value) from the previous response. Omit for the first page.')
 });
 
 const SuppressionSchema = z.object({

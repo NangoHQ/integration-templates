@@ -50,12 +50,17 @@ const sync = createSync({
             retries: 3
         };
 
-        await nango.trackDeletesStart('Template');
+        let deleteTrackingStarted = false;
 
         for await (const templates of nango.paginate(proxyConfig)) {
             const listItems = z.array(z.object({ id: z.string() })).safeParse(templates);
             if (!listItems.success) {
                 throw new Error(`Failed to parse template list: ${listItems.error.message}`);
+            }
+
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('Template');
+                deleteTrackingStarted = true;
             }
 
             const details = [];

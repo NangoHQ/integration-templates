@@ -7,7 +7,7 @@ const InputSchema = z.object({
 
 const ContactSampleSchema = z
     .object({
-        contact_id: z.string().optional(),
+        id: z.string().optional(),
         email: z.string().optional(),
         first_name: z.string().optional(),
         last_name: z.string().optional()

@@ -130,10 +130,15 @@ const action = createAction({
             });
 
             const status = ImportStatusSchema.parse(pollResponse.data);
-            const created = status.results?.created_count ?? 0;
-            const updated = status.results?.updated_count ?? 0;
+            const terminalStatuses = ['completed', 'errored', 'failed'];
+            const processedCount =
+                (status.results?.created_count ?? 0) +
+                (status.results?.updated_count ?? 0) +
+                (status.results?.errored_count ?? 0) +
+                (status.results?.unmodified_count ?? 0) +
+                (status.results?.deleted_count ?? 0);
 
-            if (created + updated >= targetCount) {
+            if (processedCount >= targetCount || terminalStatuses.includes(status.status)) {
                 return {
                     job_id: status.id,
                     status: status.status,

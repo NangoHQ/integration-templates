@@ -10,10 +10,6 @@ const OutputSchema = z.object({
     recipient_emails: z.array(z.string()).describe('The email addresses added to the unsubscribe group.')
 });
 
-const ProviderResponseSchema = z.object({
-    recipient_emails: z.array(z.string()).optional()
-});
-
 const action = createAction({
     description: 'Unsubscribe email addresses from a specific group.',
     version: '1.0.0',
@@ -31,11 +27,7 @@ const action = createAction({
             retries: 3
         });
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
-
-        return {
-            recipient_emails: providerResponse.recipient_emails ?? []
-        };
+        return OutputSchema.parse(response.data);
     }
 });
 

@@ -6,17 +6,17 @@ const VerifiedSenderResponseSchema = z.object({
     id: z.number(),
     nickname: z.string(),
     from_email: z.string(),
-    from_name: z.string(),
+    from_name: z.string().optional(),
     reply_to: z.string(),
-    reply_to_name: z.string(),
+    reply_to_name: z.string().optional(),
     address: z.string(),
-    address2: z.string(),
-    state: z.string(),
+    address2: z.string().optional(),
+    state: z.string().optional(),
     city: z.string(),
-    zip: z.string(),
+    zip: z.string().optional(),
     country: z.string(),
     verified: z.boolean(),
-    locked: z.boolean()
+    locked: z.boolean().optional()
 });
 
 const ListResponseSchema = z.object({

@@ -14,7 +14,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['mail.settings.read', 'mail.settings.update'],
+    scopes: ['asm.suppressions.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-global-suppressions/delete-a-globally-suppressed-email-address

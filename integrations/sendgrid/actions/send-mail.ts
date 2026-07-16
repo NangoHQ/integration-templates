@@ -68,26 +68,36 @@ const TrackingSettingsSchema = z.object({
         .optional()
 });
 
-const InputSchema = z.object({
-    personalizations: z.array(PersonalizationSchema).min(1),
-    from: EmailAddressSchema,
-    reply_to: EmailAddressSchema.optional(),
-    reply_to_list: z.array(EmailAddressSchema).optional(),
-    subject: z.string().optional(),
-    content: z.array(ContentSchema).optional(),
-    attachments: z.array(AttachmentSchema).optional(),
-    template_id: z.string().optional(),
-    sections: z.record(z.string(), z.string()).optional(),
-    headers: z.record(z.string(), z.string()).optional(),
-    categories: z.array(z.string()).optional(),
-    custom_args: z.record(z.string(), z.string()).optional(),
-    send_at: z.number().optional(),
-    batch_id: z.string().optional(),
-    asm: AsmSchema.optional(),
-    ip_pool_name: z.string().optional(),
-    mail_settings: MailSettingsSchema.optional(),
-    tracking_settings: TrackingSettingsSchema.optional()
-});
+const InputSchema = z
+    .object({
+        personalizations: z.array(PersonalizationSchema).min(1),
+        from: EmailAddressSchema,
+        reply_to: EmailAddressSchema.optional(),
+        reply_to_list: z.array(EmailAddressSchema).optional(),
+        subject: z.string().optional(),
+        content: z.array(ContentSchema).optional(),
+        attachments: z.array(AttachmentSchema).optional(),
+        template_id: z.string().optional(),
+        sections: z.record(z.string(), z.string()).optional(),
+        headers: z.record(z.string(), z.string()).optional(),
+        categories: z.array(z.string()).optional(),
+        custom_args: z.record(z.string(), z.string()).optional(),
+        send_at: z.number().optional(),
+        batch_id: z.string().optional(),
+        asm: AsmSchema.optional(),
+        ip_pool_name: z.string().optional(),
+        mail_settings: MailSettingsSchema.optional(),
+        tracking_settings: TrackingSettingsSchema.optional()
+    })
+    .refine((data) => !(data.reply_to !== undefined && data.reply_to_list !== undefined), {
+        message: 'reply_to is mutually exclusive with reply_to_list.'
+    })
+    .refine((data) => data.template_id !== undefined || (data.content !== undefined && data.content.length > 0), {
+        message: 'Unless a valid template_id is provided, content is required with at least one entry.'
+    })
+    .refine((data) => data.template_id !== undefined || data.subject !== undefined || data.personalizations.every((p) => p.subject !== undefined), {
+        message: 'subject is required unless template_id is provided or every personalization defines its own subject.'
+    });
 
 const OutputSchema = z.object({
     accepted: z.boolean(),

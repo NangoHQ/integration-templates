@@ -52,7 +52,6 @@ const sync = createSync({
         // Blocker: provider only exposes GET /v3/verified_senders with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor. The resource is small and
         // slowly-changing, so full refresh with delete tracking is appropriate.
-        await nango.trackDeletesStart('SenderIdentity');
 
         // https://docs.sendgrid.com/api-reference/sender-verification/get-all-verified-senders
         const response = await nango.get({
@@ -64,6 +63,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse verified senders response: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('SenderIdentity');
 
         const identities = parsed.data.results.map((sender) => ({
             id: String(sender.id),

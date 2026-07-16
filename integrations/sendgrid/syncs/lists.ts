@@ -4,7 +4,7 @@ import { z } from 'zod';
 const ProviderListSchema = z.object({
     id: z.string(),
     name: z.string(),
-    contact_count: z.number(),
+    contact_count: z.number().optional(),
     _metadata: z
         .object({
             self: z.string()
@@ -15,7 +15,7 @@ const ProviderListSchema = z.object({
 const ListSchema = z.object({
     id: z.string(),
     name: z.string(),
-    contact_count: z.number(),
+    contact_count: z.number().optional(),
     self_url: z.string().optional()
 });
 
@@ -64,7 +64,7 @@ const sync = createSync({
                 return {
                     id: list.id,
                     name: list.name,
-                    contact_count: list.contact_count,
+                    ...(list.contact_count !== undefined && { contact_count: list.contact_count }),
                     ...(list._metadata?.self && { self_url: list._metadata.self })
                 };
             });

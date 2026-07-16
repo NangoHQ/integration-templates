@@ -8,7 +8,7 @@ const InputSchema = z.object({
 const ProviderListSchema = z.object({
     id: z.string(),
     name: z.string(),
-    contact_count: z.number().int(),
+    contact_count: z.number().int().optional(),
     _metadata: z
         .object({
             self: z.string()
@@ -19,7 +19,7 @@ const ProviderListSchema = z.object({
 const OutputSchema = z.object({
     id: z.string(),
     name: z.string(),
-    contact_count: z.number().int(),
+    contact_count: z.number().int().optional(),
     metadata_self: z.string().optional()
 });
 
@@ -44,7 +44,7 @@ const action = createAction({
         return {
             id: providerList.id,
             name: providerList.name,
-            contact_count: providerList.contact_count,
+            ...(providerList.contact_count !== undefined && { contact_count: providerList.contact_count }),
             ...(providerList._metadata?.self != null && { metadata_self: providerList._metadata.self })
         };
     }

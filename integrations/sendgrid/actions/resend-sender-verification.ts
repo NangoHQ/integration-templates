@@ -14,7 +14,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['user.profile'], // Basic SendGrid scope required for sender identity operations
+    scopes: ['sender_verification'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.twilio.com/docs/sendgrid/api-reference/sender-identity/resend-verification

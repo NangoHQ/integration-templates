@@ -2,13 +2,15 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const ContactInputSchema = z.object({
-    email: z.string().email().describe('Contact email address.'),
-    id: z.string().optional().describe('Contact ID. Example: c6491580-2f4a-4339-8812-eb1f86aae6dd')
+    email: z
+        .string()
+        .email()
+        .describe('Contact email address. SendGrid upserts by email: a matching contact is added to the list, otherwise a new contact is created and added.')
 });
 
 const InputSchema = z.object({
     list_id: z.string().describe('The ID of the list to add contacts to. Example: fa1dbbb4-10af-42d7-b07e-d1ab501a805b'),
-    contacts: z.array(ContactInputSchema).min(1).describe('Contacts to add to the list.')
+    contacts: z.array(ContactInputSchema).min(1).max(30000).describe('Contacts to add to the list. Min 1, max 30000.')
 });
 
 const ProviderResponseSchema = z.object({
@@ -32,8 +34,7 @@ const action = createAction({
             data: {
                 list_ids: [input.list_id],
                 contacts: input.contacts.map((contact) => ({
-                    email: contact.email,
-                    ...(contact.id !== undefined && { id: contact.id })
+                    email: contact.email
                 }))
             },
             retries: 1

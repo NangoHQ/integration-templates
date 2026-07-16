@@ -23,11 +23,12 @@ const InputSchema = z.object({
     ids: z.array(z.string()).optional().describe('Segment IDs to retrieve. When included, other filters are ignored.'),
     parent_list_ids: z.string().optional().describe('Comma-separated list IDs to filter segments by parent list.'),
     no_parent_list_id: z.boolean().optional().describe('Include segments with no parent list ID.'),
-    page_size: z.number().optional().describe('Requested page size. Not enforced live by this endpoint.')
+    cursor: z.string().optional().describe('Pagination cursor (the full next-page URL) from the previous response. Omit for the first page.')
 });
 
 const OutputSchema = z.object({
-    results: z.array(SegmentSchema)
+    results: z.array(SegmentSchema),
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
@@ -35,18 +36,33 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['marketing.readonly'],
+    scopes: ['marketing.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.twilio.com/docs/sendgrid/api-reference/segmenting-contacts-v2/get-list-of-segments
-        const response = await nango.get({
-            endpoint: '/v3/marketing/segments/2.0',
-            params: {
+        let endpoint: string;
+        let params: Record<string, string> | undefined;
+
+        if (input.cursor) {
+            const cursorUrl = new URL(input.cursor);
+            endpoint = cursorUrl.pathname;
+            const queryParams: Record<string, string> = {};
+            cursorUrl.searchParams.forEach((value, key) => {
+                queryParams[key] = value;
+            });
+            params = queryParams;
+        } else {
+            endpoint = '/v3/marketing/segments/2.0';
+            params = {
                 ...(input.ids !== undefined && input.ids.length > 0 && { ids: input.ids.join(',') }),
                 ...(input.parent_list_ids !== undefined && input.parent_list_ids.length > 0 && { parent_list_ids: input.parent_list_ids }),
-                ...(input.no_parent_list_id !== undefined && { no_parent_list_id: String(input.no_parent_list_id) }),
-                ...(input.page_size !== undefined && { page_size: String(input.page_size) })
-            },
+                ...(input.no_parent_list_id !== undefined && { no_parent_list_id: String(input.no_parent_list_id) })
+            };
+        }
+
+        // https://www.twilio.com/docs/sendgrid/api-reference/segmenting-contacts-v2/get-list-of-segments
+        const response = await nango.get({
+            endpoint,
+            params,
             retries: 3
         });
 
@@ -61,7 +77,8 @@ const action = createAction({
 
         const providerResponse = z
             .object({
-                results: z.array(z.unknown())
+                results: z.array(z.unknown()),
+                _metadata: z.object({ next: z.string().optional() }).optional()
             })
             .parse(raw);
 
@@ -106,7 +123,10 @@ const action = createAction({
             };
         });
 
-        return { results };
+        return {
+            results,
+            ...(providerResponse._metadata?.next !== undefined && { next_cursor: providerResponse._metadata.next })
+        };
     }
 });
 

@@ -9,7 +9,7 @@ const TemplateVersionSchema = z.object({
     id: z.string(),
     template_id: z.string(),
     active: z.number(),
-    name: z.string(),
+    name: z.string().optional(),
     subject: z.string().optional(),
     updated_at: z.string(),
     generate_plain_content: z.boolean().optional(),

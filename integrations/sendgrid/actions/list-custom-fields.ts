@@ -17,14 +17,15 @@ const ReservedFieldSchema = z.object({
     field_type: z.string()
 });
 
+const ProviderResponseSchema = z.object({
+    custom_fields: z.array(CustomFieldSchema).optional(),
+    reserved_fields: z.array(ReservedFieldSchema).optional()
+});
+
 const OutputSchema = z.object({
     custom_fields: z.array(CustomFieldSchema),
     reserved_fields: z.array(ReservedFieldSchema)
 });
-
-function isNonNullObject(value: unknown): value is Record<string, unknown> {
-    return value !== null && typeof value === 'object';
-}
 
 const action = createAction({
     description: 'List custom contact field definitions.',
@@ -39,50 +40,11 @@ const action = createAction({
             retries: 3
         });
 
-        const data = response.data;
-        if (!isNonNullObject(data)) {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Invalid response from SendGrid API'
-            });
-        }
-
-        const rawCustomFields = Array.isArray(data['custom_fields']) ? data['custom_fields'] : [];
-        const rawReservedFields = Array.isArray(data['reserved_fields']) ? data['reserved_fields'] : [];
-
-        const customFields = rawCustomFields.map((field: unknown) => {
-            if (!isNonNullObject(field)) {
-                throw new nango.ActionError({
-                    type: 'invalid_response',
-                    message: 'Invalid custom field in response'
-                });
-            }
-            return {
-                id: String(field['id'] ?? ''),
-                name: String(field['name'] ?? ''),
-                field_type: String(field['field_type'] ?? ''),
-                ...(field['created_at'] !== undefined && { created_at: String(field['created_at']) }),
-                ...(field['updated_at'] !== undefined && { updated_at: String(field['updated_at']) })
-            };
-        });
-
-        const reservedFields = rawReservedFields.map((field: unknown) => {
-            if (!isNonNullObject(field)) {
-                throw new nango.ActionError({
-                    type: 'invalid_response',
-                    message: 'Invalid reserved field in response'
-                });
-            }
-            return {
-                id: String(field['id'] ?? ''),
-                name: String(field['name'] ?? ''),
-                field_type: String(field['field_type'] ?? '')
-            };
-        });
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            custom_fields: customFields,
-            reserved_fields: reservedFields
+            custom_fields: providerResponse.custom_fields ?? [],
+            reserved_fields: providerResponse.reserved_fields ?? []
         };
     }
 });

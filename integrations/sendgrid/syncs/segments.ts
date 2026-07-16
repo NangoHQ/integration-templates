@@ -38,7 +38,6 @@ const sync = createSync({
         // response with no updated_after, modified_since, cursor, or page token
         // support. page_size is accepted but not enforced live. This is inherently
         // a small full snapshot.
-        await nango.trackDeletesStart('Segment');
 
         // https://www.twilio.com/docs/sendgrid/api-reference/segmenting-contacts-v2/get-list-of-segments
         const response = await nango.get({
@@ -50,6 +49,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse segments response: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('Segment');
 
         const segments = parsed.data.results.map((segment) => ({
             id: segment.id,

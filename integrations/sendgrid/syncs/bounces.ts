@@ -102,8 +102,6 @@ const sync = createSync({
             retries: 3
         };
 
-        let maxCreated: number | undefined;
-
         for await (const page of nango.paginate(proxyConfig)) {
             if (!Array.isArray(page)) {
                 throw new Error('Unexpected response from bounces endpoint: expected array');
@@ -124,17 +122,14 @@ const sync = createSync({
 
             if (bounces.length > 0) {
                 await nango.batchSave(bounces, 'Bounce');
-
-                const pageMaxCreated = Math.max(...parsedPage.data.map((bounce) => bounce.created));
-                maxCreated = maxCreated === undefined ? pageMaxCreated : Math.max(maxCreated, pageMaxCreated);
             }
         }
 
-        if (maxCreated !== undefined) {
-            await nango.saveCheckpoint({
-                start_time: maxCreated
-            });
-        }
+        // Persist the window's end unconditionally so a run with zero new bounces still advances
+        // the start of the next run's window, instead of re-querying an ever-growing range.
+        await nango.saveCheckpoint({
+            start_time: endTime
+        });
     }
 });
 
