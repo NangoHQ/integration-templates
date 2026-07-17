@@ -31,14 +31,27 @@ const action = createAction({
     scopes: ['activity:read_all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://developers.strava.com/docs/reference/#api-Activities-getActivityById
-            endpoint: `/api/v3/activities/${encodeURIComponent(String(input.id))}`,
-            params: {
-                ...(input.include_all_efforts !== undefined && { include_all_efforts: String(input.include_all_efforts) })
-            },
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch Strava returns 404 for a missing activity; convert to a typed ActionError.
+        try {
+            response = await nango.get({
+                // https://developers.strava.com/docs/reference/#api-Activities-getActivityById
+                endpoint: `/api/v3/activities/${encodeURIComponent(String(input.id))}`,
+                params: {
+                    ...(input.include_all_efforts !== undefined && { include_all_efforts: String(input.include_all_efforts) })
+                },
+                retries: 3
+            });
+        } catch (error) {
+            if (error && typeof error === 'object' && 'status' in error && error.status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Activity not found',
+                    id: input.id
+                });
+            }
+            throw error;
+        }
 
         if (!response.data) {
             throw new nango.ActionError({

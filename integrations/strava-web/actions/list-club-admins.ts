@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('The identifier of the club. Example: 1'),
+    id: z.number().int().describe('The identifier of the club. Example: 1'),
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.'),
-    per_page: z.number().optional().describe('Number of items per page. Defaults to 30.')
+    per_page: z.number().int().min(1).max(200).optional().describe('Number of items per page. Defaults to 30.')
 });
 
 const SummaryAthleteSchema = z.object({
@@ -37,7 +37,14 @@ const action = createAction({
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        const page = input.cursor !== undefined ? Number(input.cursor) : 1;
+        if (input.cursor !== undefined && (!Number.isInteger(page) || page < 1)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer representing a page number'
+            });
+        }
+
         const perPage = input.per_page ?? 30;
 
         const response = await nango.get({

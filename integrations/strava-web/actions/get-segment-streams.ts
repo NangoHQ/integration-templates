@@ -1,10 +1,15 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const VALID_STREAM_KEYS = ['distance', 'altitude', 'latlng', 'time', 'velocity_smooth', 'heartrate', 'cadence', 'watts'];
+
 const InputSchema = z.object({
-    id: z.number().describe('The identifier of the segment. Example: 432873'),
-    keys: z.array(z.string()).optional().describe('The types of streams to return. Defaults to distance, altitude, and latlng.'),
-    key_by_type: z.boolean().optional().describe('Must be true to return streams keyed by type. Defaults to true.')
+    id: z.number().int().describe('The identifier of the segment. Example: 432873'),
+    keys: z
+        .array(z.enum(['distance', 'altitude', 'latlng', 'time', 'velocity_smooth', 'heartrate', 'cadence', 'watts']))
+        .min(1)
+        .optional()
+        .describe(`The types of streams to return. One or more of: ${VALID_STREAM_KEYS.join(', ')}. Defaults to distance, altitude, and latlng.`)
 });
 
 const StreamSchema = z
@@ -36,14 +41,14 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const keys = input.keys ?? ['distance', 'altitude', 'latlng'];
-        const keyByType = input.key_by_type ?? true;
 
         const response = await nango.get({
             // https://developers.strava.com/docs/reference/#api-Streams-getSegmentStreams
             endpoint: `/api/v3/segments/${encodeURIComponent(String(input.id))}/streams`,
             params: {
                 keys: keys.join(','),
-                key_by_type: String(keyByType)
+                // The output is always parsed as a type-keyed object, so this must always be true.
+                key_by_type: 'true'
             },
             retries: 3
         });

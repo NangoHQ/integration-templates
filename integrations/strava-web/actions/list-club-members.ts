@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    club_id: z.number().describe('Club ID. Example: 1'),
-    page: z.number().optional().describe('Page number. Defaults to 1.'),
-    per_page: z.number().optional().describe('Number of items per page. Defaults to 30.')
+    club_id: z.number().int().describe('Club ID. Example: 1'),
+    page: z.number().int().min(1).optional().describe('Page number. Defaults to 1.'),
+    per_page: z.number().int().min(1).max(200).optional().describe('Number of items per page. Defaults to 30.')
 });
 
 const ProviderMemberSchema = z

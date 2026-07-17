@@ -99,35 +99,27 @@ const ActivitySchema = z.object({
     map_summary_polyline: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    after: z.number()
-});
-
 const sync = createSync({
     description: 'Sync activities.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Activity: ActivitySchema
     },
     scopes: ['activity:read', 'activity:read_all'],
 
+    // Full refresh with delete tracking on every run: Strava's /athlete/activities only
+    // supports filtering by `after`/`before` activity start time, not by modification time, so
+    // an incremental cursor would miss edits (renames, privacy changes) to already-synced
+    // activities and would never detect deletions. A full snapshot is the only approach that
+    // matches what this endpoint can actually express.
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
-        const after = checkpoint?.after;
-
         const limit = 30;
-        let maxStartDateEpoch: number | undefined;
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities
             endpoint: '/api/v3/athlete/activities',
-            params: {
-                ...(after !== undefined && { after })
-            },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
@@ -139,6 +131,8 @@ const sync = createSync({
             retries: 3
         };
 
+        await nango.trackDeletesStart('Activity');
+
         for await (const page of nango.paginate<z.infer<typeof SummaryActivitySchema>>(proxyConfig)) {
             const activities = page.map((record) => {
                 const parsed = SummaryActivitySchema.safeParse(record);
@@ -147,13 +141,6 @@ const sync = createSync({
                 }
 
                 const activity = parsed.data;
-                if (activity.start_date) {
-                    const epoch = Math.floor(new Date(activity.start_date).getTime() / 1000);
-                    if (maxStartDateEpoch === undefined || epoch > maxStartDateEpoch) {
-                        maxStartDateEpoch = epoch;
-                    }
-                }
-
                 return {
                     id: String(activity.id),
                     name: activity.name ?? undefined,
@@ -195,9 +182,7 @@ const sync = createSync({
             }
         }
 
-        if (maxStartDateEpoch !== undefined) {
-            await nango.saveCheckpoint({ after: maxStartDateEpoch });
-        }
+        await nango.trackDeletesEnd('Activity');
     }
 });
 

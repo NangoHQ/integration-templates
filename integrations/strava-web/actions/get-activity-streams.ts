@@ -34,7 +34,7 @@ const action = createAction({
     scopes: ['activity:read_all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const requestedKeys = input.keys ?? DEFAULT_KEYS;
+        const requestedKeys = input.keys && input.keys.length > 0 ? input.keys : DEFAULT_KEYS;
         const invalidKeys = requestedKeys.filter((key) => !VALID_STREAM_KEYS.includes(key));
 
         if (invalidKeys.length > 0) {

@@ -39,7 +39,14 @@ const action = createAction({
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor && /^\d+$/.test(input.cursor) ? parseInt(input.cursor, 10) : 1;
+        const page = input.cursor !== undefined ? Number(input.cursor) : 1;
+        if (input.cursor !== undefined && (!Number.isInteger(page) || page < 1)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer representing a page number'
+            });
+        }
+
         const perPage = input.per_page ?? 30;
 
         const response = await nango.get({

@@ -52,14 +52,27 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read'],
+    scopes: ['read', 'read_all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://developers.strava.com/docs/reference/#api-Routes-getRouteById
-            endpoint: `/api/v3/routes/${encodeURIComponent(String(input.id))}`,
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch Strava returns 404 for a missing route; convert to a typed ActionError.
+        try {
+            response = await nango.get({
+                // https://developers.strava.com/docs/reference/#api-Routes-getRouteById
+                endpoint: `/api/v3/routes/${encodeURIComponent(String(input.id))}`,
+                retries: 3
+            });
+        } catch (error) {
+            if (error && typeof error === 'object' && 'status' in error && error.status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Route not found',
+                    id: input.id
+                });
+            }
+            throw error;
+        }
 
         if (!response.data) {
             throw new nango.ActionError({

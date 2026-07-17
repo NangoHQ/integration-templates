@@ -53,29 +53,13 @@ const sync = createSync({
         // updated_after, modified_since, or any incremental filter, cursor,
         // or deleted-record endpoint. It always returns the full snapshot of
         // the authenticated athlete's club memberships.
-        await nango.trackDeletesStart('Club');
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://developers.strava.com/docs/reference/#api-Clubs-getLoggedInAthleteClubs
-            endpoint: '/api/v3/athlete/clubs',
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_calculation_method: 'per-page',
-                offset_start_value: 1,
-                limit_name_in_request: 'per_page',
-                limit: 30
-            },
-            retries: 3
-        };
-
-        for await (const clubs of nango.paginate(proxyConfig)) {
+        const toRecords = (clubs: unknown) => {
             const parsed = z.array(ProviderClubSchema).safeParse(clubs);
             if (!parsed.success) {
                 throw new Error(`Failed to parse clubs: ${parsed.error.message}`);
             }
 
-            const records = parsed.data.map((club) => ({
+            return parsed.data.map((club) => ({
                 id: String(club.id),
                 ...(club.resource_state !== undefined && { resource_state: club.resource_state }),
                 ...(club.name !== undefined && { name: club.name }),
@@ -93,7 +77,36 @@ const sync = createSync({
                 ...(club.verified !== undefined && { verified: club.verified }),
                 ...(club.url !== undefined && { url: club.url })
             }));
+        };
 
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.strava.com/docs/reference/#api-Clubs-getLoggedInAthleteClubs
+            endpoint: '/api/v3/athlete/clubs',
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'page',
+                offset_calculation_method: 'per-page',
+                offset_start_value: 1,
+                limit_name_in_request: 'per_page',
+                limit: 30
+            },
+            retries: 3
+        };
+
+        // Validate the first page before opening delete tracking, so a request or schema
+        // failure on it doesn't leave tracking started with nothing ever saved or closed.
+        const pages = nango.paginate(proxyConfig);
+        const firstPage = await pages.next();
+        const firstRecords = firstPage.done ? [] : toRecords(firstPage.value);
+
+        await nango.trackDeletesStart('Club');
+
+        if (firstRecords.length > 0) {
+            await nango.batchSave(firstRecords, 'Club');
+        }
+
+        for await (const clubs of pages) {
+            const records = toRecords(clubs);
             if (records.length > 0) {
                 await nango.batchSave(records, 'Club');
             }

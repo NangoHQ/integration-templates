@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    activity_id: z.number().describe('Activity ID. Example: 19350154255'),
+    activity_id: z.number().int().describe('Activity ID. Example: 19350154255'),
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
-    per_page: z.number().optional().describe('Number of items per page. Default: 30.')
+    per_page: z.number().int().min(1).max(200).optional().describe('Number of items per page. Default: 30.')
 });
 
 const AthleteSchema = z
@@ -37,7 +37,14 @@ const action = createAction({
     scopes: ['activity:read'],
 
     exec: async (nango, input) => {
-        const page = input.cursor ? Number(input.cursor) || 1 : 1;
+        const page = input.cursor !== undefined ? Number(input.cursor) : 1;
+        if (input.cursor !== undefined && (!Number.isInteger(page) || page < 1)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer representing a page number'
+            });
+        }
+
         const perPage = input.per_page ?? 30;
 
         // https://developers.strava.com/docs/reference/#api-Activities-getKudoersByActivityId

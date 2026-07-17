@@ -67,7 +67,10 @@ const action = createAction({
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             data: params.toString(),
-            retries: 3
+            // This POST is not idempotent and Strava has no dedup/idempotency-key mechanism for
+            // it, so retrying a timed-out or failed request could create duplicate activities.
+            // Matches the minimal-retry convention used by update-activity.ts for the same reason.
+            retries: 1
         };
 
         const response = await nango.post(config);

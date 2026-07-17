@@ -57,7 +57,7 @@ const LapSchema = z.object({
 });
 
 const InputSchema = z.object({
-    activity_id: z.number().describe('The identifier of the activity. Example: 19350154255')
+    activity_id: z.number().int().describe('The identifier of the activity. Example: 19350154255')
 });
 
 const OutputSchema = z.object({
@@ -69,7 +69,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['activity:read'],
+    scopes: ['activity:read', 'activity:read_all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

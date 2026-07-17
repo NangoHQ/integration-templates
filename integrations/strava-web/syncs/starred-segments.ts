@@ -82,61 +82,29 @@ const StarredSegmentSchema = z.object({
         .optional()
 });
 
-const CheckpointSchema = z.object({
-    page: z.number()
-});
-
 const sync = createSync({
     description: "Sync the authenticated athlete's starred segments.",
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         StarredSegment: StarredSegmentSchema
     },
 
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        if (rawCheckpoint != null) {
-            CheckpointSchema.parse(rawCheckpoint);
-        }
-        // Reset cursor to page 1 for full-refresh delete tracking.
-        let page: number | undefined = 1;
-
-        await nango.trackDeletesStart('StarredSegment');
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://developers.strava.com/docs/reference/
-            endpoint: '/api/v3/segments/starred',
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 30,
-                on_page: async (paginationState: { nextPageParam?: string | number | undefined; response: unknown }) => {
-                    page = typeof paginationState.nextPageParam === 'number' ? paginationState.nextPageParam : undefined;
-                }
-            },
-            retries: 3
-        };
-
-        for await (const batch of nango.paginate(proxyConfig)) {
+        const toRecords = (batch: unknown) => {
             if (!Array.isArray(batch)) {
                 throw new Error('Unexpected response: batch is not an array');
             }
 
-            const segments = [];
-            for (const raw of batch) {
+            return batch.map((raw) => {
                 const parsed = ProviderStarredSegmentSchema.safeParse(raw);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse segment: ${parsed.error.message}`);
                 }
 
                 const segment = parsed.data;
-                segments.push({
+                return {
                     id: String(segment.id),
                     ...(segment.name != null && { name: segment.name }),
                     ...(segment.activity_type != null && { activity_type: segment.activity_type }),
@@ -162,15 +130,40 @@ const sync = createSync({
                     ...(segment.athlete_count != null && { athlete_count: segment.athlete_count }),
                     ...(segment.star_count != null && { star_count: segment.star_count }),
                     ...(segment.athlete_segment_stats != null && { athlete_segment_stats: segment.athlete_segment_stats })
-                });
-            }
+                };
+            });
+        };
 
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.strava.com/docs/reference/
+            endpoint: '/api/v3/segments/starred',
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'page',
+                offset_start_value: 1,
+                offset_calculation_method: 'per-page',
+                limit_name_in_request: 'per_page',
+                limit: 30
+            },
+            retries: 3
+        };
+
+        // Validate the first page before opening delete tracking, so a request or schema
+        // failure on it doesn't leave tracking started with nothing ever saved or closed.
+        const pages = nango.paginate(proxyConfig);
+        const firstPage = await pages.next();
+        const firstRecords = firstPage.done ? [] : toRecords(firstPage.value);
+
+        await nango.trackDeletesStart('StarredSegment');
+
+        if (firstRecords.length > 0) {
+            await nango.batchSave(firstRecords, 'StarredSegment');
+        }
+
+        for await (const batch of pages) {
+            const segments = toRecords(batch);
             if (segments.length > 0) {
                 await nango.batchSave(segments, 'StarredSegment');
-            }
-
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ page });
             }
         }
 

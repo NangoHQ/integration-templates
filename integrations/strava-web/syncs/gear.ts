@@ -1,8 +1,13 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
-const ProviderActivitySchema = z.object({
-    gear_id: z.string().nullable().optional()
+const SummaryGearSchema = z.object({
+    id: z.string()
+});
+
+const ProviderAthleteSchema = z.object({
+    bikes: z.array(SummaryGearSchema).optional(),
+    shoes: z.array(SummaryGearSchema).optional()
 });
 
 const ProviderGearSchema = z.object({
@@ -29,76 +34,44 @@ const GearSchema = z.object({
     nickname: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    page: z.number()
-});
-
 const sync = createSync({
     description: 'Sync gear.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Gear: GearSchema
     },
+    // Bikes and shoes are only visible on the athlete's own profile.
+    scopes: ['activity:read', 'activity:read_all'],
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        const parsed = CheckpointSchema.safeParse(checkpoint);
-
-        // Blocker: Strava activities have no updated_since or modified_since filter.
-        // Gear has no list endpoint, cursor, or modification timestamp.
-        // The only way to discover gear is to paginate through all athlete activities
-        // and extract gear_id values. Full-refresh delete tracking is required because
-        // gear may be removed from activities or deleted at the provider.
-        let page: number | undefined = parsed.success ? parsed.data.page : 1;
-        page = 1;
-
-        const gearIds = new Set<string>();
-
-        const activitiesConfig: ProxyConfiguration = {
-            // https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities
-            endpoint: '/api/v3/athlete/activities',
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: page ?? 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 30,
-                on_page: async (pagination) => {
-                    page = typeof pagination.nextPageParam === 'number' ? pagination.nextPageParam : undefined;
-                }
-            },
+        // Strava has no gear list endpoint, cursor, or modification timestamp. The
+        // authenticated athlete's profile is the only place that enumerates the athlete's full
+        // gear inventory (bikes/shoes), including gear that was never used in an activity.
+        // Scanning activity history instead would miss unused gear and would flag any gear
+        // that has become disassociated from every activity as deleted even though it still
+        // exists at the provider.
+        const response = await nango.get({
+            // https://developers.strava.com/docs/reference/#api-Athletes-getLoggedInAthlete
+            endpoint: '/api/v3/athlete',
             retries: 3
-        };
+        });
 
-        for await (const activities of nango.paginate(activitiesConfig)) {
-            for (const rawActivity of activities) {
-                const activity = ProviderActivitySchema.parse(rawActivity);
-                if (activity.gear_id) {
-                    gearIds.add(activity.gear_id);
-                }
-            }
+        const athlete = ProviderAthleteSchema.parse(response.data);
+        const gearIds = [...(athlete.bikes ?? []), ...(athlete.shoes ?? [])].map((gear) => gear.id);
 
-            await nango.saveCheckpoint({
-                page
-            });
-        }
-
-        await nango.trackDeletesStart('Gear');
-
+        // Fetch and validate every gear record before opening delete tracking, so a failed
+        // fetch or schema mismatch never leaves tracking started without a matching save/end.
         const gears = [];
-
         for (const gearId of gearIds) {
             // https://developers.strava.com/docs/reference/#api-Gears-getGearById
-            const response = await nango.get({
+            const gearResponse = await nango.get({
                 endpoint: `/api/v3/gear/${encodeURIComponent(gearId)}`,
                 retries: 3
             });
 
-            const gear = ProviderGearSchema.parse(response.data);
+            const gear = ProviderGearSchema.parse(gearResponse.data);
 
             gears.push({
                 id: gear.id,
@@ -112,6 +85,8 @@ const sync = createSync({
                 ...(gear.nickname !== undefined && gear.nickname !== null && { nickname: gear.nickname })
             });
         }
+
+        await nango.trackDeletesStart('Gear');
 
         if (gears.length > 0) {
             await nango.batchSave(gears, 'Gear');

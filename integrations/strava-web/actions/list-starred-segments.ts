@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.'),
-    per_page: z.number().optional().describe('Number of items per page. Defaults to 30.')
+    per_page: z.number().int().min(1).max(200).optional().describe('Number of items per page. Defaults to 30.')
 });
 
 const SegmentMapSchema = z.object({
@@ -71,8 +71,8 @@ const action = createAction({
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(page) || page < 1) {
+        const page = input.cursor !== undefined ? Number(input.cursor) : 1;
+        if (input.cursor !== undefined && (!Number.isInteger(page) || page < 1)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a positive integer page number'

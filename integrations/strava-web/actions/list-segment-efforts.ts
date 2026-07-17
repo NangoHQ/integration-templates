@@ -2,10 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    segment_id: z.number().describe('The identifier of the segment. Example: 432873'),
+    segment_id: z.number().int().describe('The identifier of the segment. Example: 432873'),
     start_date_local: z.string().optional().describe('ISO 8601 formatted date time. Filters efforts after this date.'),
     end_date_local: z.string().optional().describe('ISO 8601 formatted date time. Filters efforts before this date.'),
-    per_page: z.number().optional().describe('Number of items per page. Defaults to 30.')
+    per_page: z.number().int().min(1).max(200).optional().describe('Number of items per page. Defaults to 30.')
 });
 
 const SegmentEffortSchema = z

@@ -3,9 +3,9 @@ import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.'),
-    before: z.number().optional().describe('Seconds since UNIX epoch. Only return activities before this time.'),
-    after: z.number().optional().describe('Seconds since UNIX epoch. Only return activities after this time.'),
-    per_page: z.number().optional().describe('Number of items per page. Maximum 200.')
+    before: z.number().int().optional().describe('Seconds since UNIX epoch. Only return activities before this time.'),
+    after: z.number().int().optional().describe('Seconds since UNIX epoch. Only return activities after this time.'),
+    per_page: z.number().int().min(1).max(200).optional().describe('Number of items per page. Maximum 200.')
 });
 
 const MapSchema = z
@@ -79,11 +79,11 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['activity:read'],
+    scopes: ['activity:read', 'activity:read_all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const currentPage = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (input.cursor && (isNaN(currentPage) || currentPage < 1)) {
+        const currentPage = input.cursor !== undefined ? Number(input.cursor) : 1;
+        if (input.cursor !== undefined && (!Number.isInteger(currentPage) || currentPage < 1)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid positive integer representing a page number'
