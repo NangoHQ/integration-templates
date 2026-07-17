@@ -43,7 +43,9 @@ const ProviderOpportunitySchema = z.object({
     lostReasonId: z.string().optional(),
     customFields: z.array(CustomFieldSchema).optional(),
     followers: z.array(z.unknown()).optional(),
-    externalObjectId: z.string().optional()
+    externalObjectId: z.string().optional(),
+    forecastProbability: z.number().optional(),
+    effectiveProbability: z.number().optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -74,7 +76,9 @@ const OutputSchema = z.object({
     lostReasonId: z.string().optional(),
     customFields: z.array(CustomFieldSchema).optional(),
     followers: z.array(z.unknown()).optional(),
-    externalObjectId: z.string().optional()
+    externalObjectId: z.string().optional(),
+    forecastProbability: z.number().optional(),
+    effectiveProbability: z.number().optional()
 });
 
 const action = createAction({
@@ -129,7 +133,9 @@ const action = createAction({
             ...(opportunity.lostReasonId !== undefined && { lostReasonId: opportunity.lostReasonId }),
             ...(opportunity.customFields !== undefined && { customFields: opportunity.customFields }),
             ...(opportunity.followers !== undefined && { followers: opportunity.followers }),
-            ...(opportunity.externalObjectId !== undefined && { externalObjectId: opportunity.externalObjectId })
+            ...(opportunity.externalObjectId !== undefined && { externalObjectId: opportunity.externalObjectId }),
+            ...(opportunity.forecastProbability !== undefined && { forecastProbability: opportunity.forecastProbability }),
+            ...(opportunity.effectiveProbability !== undefined && { effectiveProbability: opportunity.effectiveProbability })
         };
     }
 });
