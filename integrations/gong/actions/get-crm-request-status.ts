@@ -7,16 +7,16 @@ const InputSchema = z.object({
 });
 
 const LineErrorSchema = z.object({
-    line: z.number().optional(),
-    description: z.string().optional()
+    line: z.number().nullish(),
+    description: z.string().nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().describe('A Gong request reference ID, generated for this request.'),
-    status: z.enum(['PENDING', 'IN_PROGRESS', 'DONE', 'FAILED']).describe('Request status.'),
-    errors: z.array(LineErrorSchema).optional().describe('List of errors when status is FAILED.'),
-    totalErrorCount: z.number().optional().describe('Number of objects that failed parsing.'),
-    totalSuccessCount: z.number().optional().describe('Number of valid objects.')
+    status: z.enum(['PENDING', 'IN_PROGRESS', 'DONE', 'FAILED']).describe('Request status.').nullable(),
+    errors: z.array(LineErrorSchema).nullish().describe('List of errors when status is FAILED.'),
+    totalErrorCount: z.number().nullish().describe('Number of objects that failed parsing.'),
+    totalSuccessCount: z.number().nullish().describe('Number of valid objects.')
 });
 
 const ErrorResponseSchema = z.object({
@@ -26,7 +26,7 @@ const ErrorResponseSchema = z.object({
 
 const action = createAction({
     description: 'Check the status of an async CRM upload request.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:crm:upload'],

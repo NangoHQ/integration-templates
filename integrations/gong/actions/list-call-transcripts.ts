@@ -10,27 +10,27 @@ const InputSchema = z.object({
 });
 
 const SentenceSchema = z.object({
-    start: z.number().optional(),
-    end: z.number().optional(),
-    text: z.string().optional()
+    start: z.number().nullish(),
+    end: z.number().nullish(),
+    text: z.string().nullish()
 });
 
 const MonologueSchema = z.object({
-    speakerId: z.string().optional(),
-    topic: z.string().optional(),
-    sentences: z.array(SentenceSchema).optional()
+    speakerId: z.string().nullish(),
+    topic: z.string().nullish(),
+    sentences: z.array(SentenceSchema).nullish()
 });
 
 const CallTranscriptItemSchema = z.object({
-    callId: z.string().optional(),
-    transcript: z.array(MonologueSchema).optional()
+    callId: z.string().nullish(),
+    transcript: z.array(MonologueSchema).nullish()
 });
 
 const OutputSchema = z.object({
-    callTranscripts: z.array(CallTranscriptItemSchema),
-    nextCursor: z.string().optional(),
-    totalRecords: z.number().optional(),
-    currentPageSize: z.number().optional()
+    callTranscripts: z.array(CallTranscriptItemSchema).nullable(),
+    nextCursor: z.string().nullish(),
+    totalRecords: z.number().nullish(),
+    currentPageSize: z.number().nullish()
 });
 
 const GongErrorSchema = z
@@ -49,19 +49,19 @@ const GongErrorSchema = z
     .passthrough();
 
 const ProviderResponseSchema = z.object({
-    callTranscripts: z.array(CallTranscriptItemSchema).optional(),
+    callTranscripts: z.array(CallTranscriptItemSchema).nullish(),
     records: z
         .object({
-            totalRecords: z.number().optional(),
-            currentPageSize: z.number().optional(),
-            cursor: z.string().optional()
+            totalRecords: z.number().nullish(),
+            currentPageSize: z.number().nullish(),
+            cursor: z.string().nullish()
         })
-        .optional()
+        .nullish()
 });
 
 const action = createAction({
     description: 'List call transcripts from Gong using date-range or other filters.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:read:transcript'],

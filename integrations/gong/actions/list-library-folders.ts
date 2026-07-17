@@ -7,33 +7,35 @@ const InputSchema = z.object({
 
 const ProviderFolderSchema = z.object({
     id: z.string(),
-    name: z.string(),
-    parentFolderId: z.string().nullable().optional(),
-    createdBy: z.string(),
-    updated: z.string()
+    name: z.string().nullable(),
+    parentFolderId: z.string().nullish(),
+    createdBy: z.string().nullish(),
+    updated: z.string().nullable()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    folders: z.array(z.unknown()).optional()
+    folders: z.array(z.unknown()).nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    folders: z.array(
-        z.object({
-            id: z.string(),
-            name: z.string(),
-            parentFolderId: z.string().optional(),
-            createdBy: z.string(),
-            updated: z.string()
-        })
-    )
+    folders: z
+        .array(
+            z.object({
+                id: z.string(),
+                name: z.string().nullable(),
+                parentFolderId: z.string().nullish(),
+                createdBy: z.string().nullish(),
+                updated: z.string().nullable()
+            })
+        )
+        .nullable()
 });
 
 const action = createAction({
     description: 'Retrieve all Gong library folders.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:library:read'],

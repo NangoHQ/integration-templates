@@ -24,10 +24,14 @@
         "affiliation": "Anyone",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       },
       {
         "trackerId": "4895927447719873417",
@@ -65,10 +69,14 @@
         "affiliation": "Company",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{\"sort\": null, \"search\": null}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       },
       {
         "trackerId": "3433665987084373979",
@@ -78,10 +86,14 @@
         "affiliation": "Anyone",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       },
       {
         "trackerId": "1987511254295658658",
@@ -110,10 +122,14 @@
         "affiliation": "Company",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       },
       {
         "trackerId": "6226996245419948388",
@@ -141,10 +157,14 @@
         "affiliation": "Anyone",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       },
       {
         "trackerId": "148781665678327213",
@@ -190,10 +210,14 @@
         "affiliation": "Company",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       },
       {
         "trackerId": "4500554393452976296",
@@ -256,10 +280,14 @@
         "affiliation": "NonCompany",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       },
       {
         "trackerId": "3942855056340407871",
@@ -290,10 +318,14 @@
         "affiliation": "Company",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       },
       {
         "trackerId": "6466585747925934545",
@@ -346,10 +378,14 @@
         "affiliation": "NonCompany",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       },
       {
         "trackerId": "6856857552305310532",
@@ -392,10 +428,14 @@
         "affiliation": "Company",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{\"sort\": null, \"search\": null}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       },
       {
         "trackerId": "6915426129465493238",
@@ -439,10 +479,14 @@
         "affiliation": "Company",
         "partOfQuestion": false,
         "saidAt": "Anytime",
+        "saidAtInterval": null,
+        "saidAtUnit": null,
         "saidInTopics": [],
         "filterQuery": "{}",
         "created": "2023-10-17T21:21:31.816562+02:00",
-        "updated": "2023-10-17T21:21:31.816562+02:00"
+        "creatorUserId": null,
+        "updated": "2023-10-17T21:21:31.816562+02:00",
+        "updaterUserId": null
       }
     ]
   },

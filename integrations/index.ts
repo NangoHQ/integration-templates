@@ -723,6 +723,25 @@ import './basecamp/actions/fetch-accounts.js';
 import './basecamp/actions/fetch-projects.js';
 import './basecamp/actions/fetch-todolists.js';
 
+// -- Integration: baserow
+import './baserow/syncs/fields.js';
+import './baserow/syncs/rows.js';
+import './baserow/syncs/tables.js';
+import './baserow/actions/batch-create-rows.js';
+import './baserow/actions/batch-delete-rows.js';
+import './baserow/actions/batch-update-rows.js';
+import './baserow/actions/check-token.js';
+import './baserow/actions/create-row.js';
+import './baserow/actions/delete-row.js';
+import './baserow/actions/get-row.js';
+import './baserow/actions/list-fields.js';
+import './baserow/actions/list-row-names.js';
+import './baserow/actions/list-rows.js';
+import './baserow/actions/list-tables.js';
+import './baserow/actions/move-row.js';
+import './baserow/actions/update-row.js';
+import './baserow/actions/verify-password-field.js';
+
 // -- Integration: bigcommerce
 import './bigcommerce/syncs/brands.js';
 import './bigcommerce/syncs/categories.js';
@@ -1820,6 +1839,44 @@ import './gong/actions/upload-crm-entity-schema.js';
 import './google/syncs/workspace-org-units.js';
 import './google/syncs/workspace-user-access-tokens.js';
 import './google/syncs/workspace-users.js';
+
+// -- Integration: google-ads
+import './google-ads/syncs/accessible-customers.js';
+import './google-ads/syncs/ad-group-ads.js';
+import './google-ads/syncs/ad-groups.js';
+import './google-ads/syncs/campaign-budgets.js';
+import './google-ads/syncs/campaign-criteria.js';
+import './google-ads/syncs/campaigns.js';
+import './google-ads/syncs/conversion-actions.js';
+import './google-ads/syncs/keyword-criteria.js';
+import './google-ads/actions/create-ad-group-ad.js';
+import './google-ads/actions/create-ad-group.js';
+import './google-ads/actions/create-campaign-budget.js';
+import './google-ads/actions/create-campaign-location-criterion.js';
+import './google-ads/actions/create-campaign-negative-keyword.js';
+import './google-ads/actions/create-campaign.js';
+import './google-ads/actions/create-conversion-action.js';
+import './google-ads/actions/create-keyword-criterion.js';
+import './google-ads/actions/create-negative-keyword.js';
+import './google-ads/actions/generate-keyword-ideas.js';
+import './google-ads/actions/list-accessible-customers.js';
+import './google-ads/actions/remove-ad-group-ad.js';
+import './google-ads/actions/remove-ad-group.js';
+import './google-ads/actions/remove-campaign-budget.js';
+import './google-ads/actions/remove-campaign-criterion.js';
+import './google-ads/actions/remove-campaign.js';
+import './google-ads/actions/remove-conversion-action.js';
+import './google-ads/actions/remove-keyword-criterion.js';
+import './google-ads/actions/search-google-ads.js';
+import './google-ads/actions/search-stream-google-ads.js';
+import './google-ads/actions/suggest-geo-target-constants.js';
+import './google-ads/actions/update-ad-group-ad.js';
+import './google-ads/actions/update-ad-group.js';
+import './google-ads/actions/update-campaign-budget.js';
+import './google-ads/actions/update-campaign.js';
+import './google-ads/actions/update-conversion-action.js';
+import './google-ads/actions/update-keyword-criterion.js';
+import './google-ads/actions/validate-google-ads-mutate.js';
 
 // -- Integration: google-analytics
 import './google-analytics/syncs/accounts.js';

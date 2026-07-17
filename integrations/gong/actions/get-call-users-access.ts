@@ -16,20 +16,20 @@ const ProviderResponseSchema = z.object({
         .array(
             z.object({
                 callId: z.string(),
-                users: z.array(z.object({ userId: z.string() })).optional()
+                users: z.array(z.object({ userId: z.string().nullable() })).nullish()
             })
         )
-        .optional()
+        .nullish()
 });
 
 const OutputSchema = z.object({
     callId: z.string(),
-    users: z.array(z.object({ userId: z.string() })).optional()
+    users: z.array(z.object({ userId: z.string().nullable() })).nullish()
 });
 
 const action = createAction({
     description: 'Retrieve the list of users that have individual access to a specific call.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:call-user-access:read'],

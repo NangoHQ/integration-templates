@@ -9,21 +9,21 @@ const InputSchema = z.object({
 const FlowSchema = z
     .object({
         id: z.string(),
-        name: z.string().optional(),
-        status: z.string().optional(),
-        createdAt: z.string().optional(),
-        updatedAt: z.string().optional()
+        name: z.string().nullish(),
+        status: z.string().nullish(),
+        createdAt: z.string().nullish(),
+        updatedAt: z.string().nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    flows: z.array(FlowSchema),
-    nextCursor: z.string().optional()
+    flows: z.array(FlowSchema).nullable(),
+    nextCursor: z.string().nullish()
 });
 
 const action = createAction({
     description: 'List Gong Engage flows owned by a specific user.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:read'],
