@@ -7,7 +7,7 @@ const InputSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    tags: z.array(z.string()).optional()
+    tags: z.array(z.string())
 });
 
 const OutputSchema = z.object({
@@ -45,7 +45,7 @@ const action = createAction({
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            tags: providerResponse.tags ?? []
+            tags: providerResponse.tags
         };
     }
 });

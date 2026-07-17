@@ -75,7 +75,7 @@ const action = createAction({
             endpoint: '/conversations/search',
             params: {
                 locationId,
-                ...(input.cursor && { startAfterDate: input.cursor }),
+                ...(input.cursor !== undefined && { startAfterDate: input.cursor }),
                 ...(input.contactId && { contactId: input.contactId }),
                 ...(input.assignedTo && { assignedTo: input.assignedTo }),
                 ...(input.status && { status: input.status }),

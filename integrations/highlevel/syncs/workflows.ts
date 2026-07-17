@@ -37,18 +37,27 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes GET /workflows/ with no changed-since filter,
         // no deleted-record endpoint, no resumable cursor, and no pagination.
-        const metadata = await nango.getMetadata();
-        const parsedMetadata = MetadataSchema.safeParse(metadata);
-        if (!parsedMetadata.success) {
-            throw new Error(`Failed to parse metadata: ${parsedMetadata.error.message}`);
-        }
+        const connection = await nango.getConnection();
+        const connectionSchema = z.object({
+            connection_config: z.record(z.string(), z.unknown()).optional(),
+            metadata: z.record(z.string(), z.unknown()).optional()
+        });
+        const parsedConnection = connectionSchema.safeParse(connection);
 
-        const locationId = parsedMetadata.data.locationId;
-        if (!locationId) {
-            throw new Error('locationId is required in connection metadata');
+        let rawLocationId = parsedConnection.success
+            ? (parsedConnection.data.connection_config?.['locationId'] ?? parsedConnection.data.metadata?.['locationId'])
+            : undefined;
+        if (typeof rawLocationId !== 'string') {
+            const metadata = await nango.getMetadata();
+            const parsedMetadata = MetadataSchema.safeParse(metadata);
+            if (parsedMetadata.success) {
+                rawLocationId = parsedMetadata.data.locationId;
+            }
         }
-
-        await nango.trackDeletesStart('Workflow');
+        if (typeof rawLocationId !== 'string') {
+            throw new Error('locationId is required in connection configuration or metadata');
+        }
+        const locationId = rawLocationId;
 
         const config: ProxyConfiguration = {
             // https://highlevel.stoplight.io/docs/integrations/get-workflow
@@ -68,6 +77,10 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse workflows response: ${parsed.error.message}`);
         }
+
+        // trackDeletesStart is deferred until after the response is validated so a request
+        // or parse failure never leaves delete-tracking open without a matching End.
+        await nango.trackDeletesStart('Workflow');
 
         const workflows = parsed.data.workflows.map((workflow) => ({
             id: workflow.id,

@@ -31,7 +31,10 @@ const CalendarSchema = z
         eventColor: z.string().nullable().optional(),
         teamMembers: z.array(z.unknown()).nullable().optional(),
         locationConfigurations: z.array(z.unknown()).nullable().optional(),
-        openHours: z.record(z.string(), z.unknown()).nullable().optional()
+        openHours: z
+            .union([z.record(z.string(), z.unknown()), z.array(z.unknown())])
+            .nullable()
+            .optional()
     })
     .passthrough();
 

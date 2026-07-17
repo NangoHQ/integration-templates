@@ -21,22 +21,22 @@ const CreatedOrUpdatedBySchema = z.object({
 const AppointmentSchema = z.object({
     id: z.string(),
     address: z.string().optional(),
-    title: z.string(),
+    title: z.string().optional(),
     calendarId: z.string(),
     locationId: z.string(),
-    contactId: z.string(),
-    groupId: z.string(),
-    appointmentStatus: z.string(),
-    assignedUserId: z.string(),
-    users: z.array(z.string()),
+    contactId: z.string().optional(),
+    groupId: z.string().optional(),
+    appointmentStatus: z.string().optional(),
+    assignedUserId: z.string().optional(),
+    users: z.array(z.string()).optional(),
     notes: z.string().optional(),
     description: z.string().optional(),
     isRecurring: z.boolean().optional(),
     rrule: z.string().optional(),
-    startTime: z.string(),
-    endTime: z.string(),
-    dateAdded: z.string(),
-    dateUpdated: z.string(),
+    startTime: z.string().optional(),
+    endTime: z.string().optional(),
+    dateAdded: z.string().optional(),
+    dateUpdated: z.string().optional(),
     assignedResources: z.array(z.string()).optional(),
     createdBy: CreatedOrUpdatedBySchema.optional(),
     masterEventId: z.string().optional()
@@ -54,12 +54,20 @@ const action = createAction({
     scopes: ['calendars/events.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata();
-        const parsedMetadata = MetadataSchema.safeParse(metadata);
-        if (!parsedMetadata.success || !parsedMetadata.data.locationId) {
+        const connection = await nango.getConnection();
+        const rawLocationIdFromConfig = connection.connection_config?.['locationId'];
+        let locationId = typeof rawLocationIdFromConfig === 'string' ? rawLocationIdFromConfig : undefined;
+        if (!locationId) {
+            const metadata = await nango.getMetadata();
+            const parsedMetadata = MetadataSchema.safeParse(metadata);
+            if (parsedMetadata.success) {
+                locationId = parsedMetadata.data.locationId;
+            }
+        }
+        if (!locationId) {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
-                message: 'locationId is required in connection metadata.'
+                message: 'locationId is required in connection configuration or metadata.'
             });
         }
 
@@ -71,7 +79,7 @@ const action = createAction({
         }
 
         const params: Record<string, string> = {
-            locationId: parsedMetadata.data.locationId,
+            locationId,
             startTime: input.startTime,
             endTime: input.endTime
         };

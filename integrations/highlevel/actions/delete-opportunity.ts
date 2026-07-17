@@ -6,6 +6,8 @@ const InputSchema = z.object({
 });
 
 const ProviderDeleteResponseSchema = z.object({
+    success: z.boolean().optional(),
+    succeeded: z.boolean().optional(),
     succeded: z.boolean().optional()
 });
 
@@ -43,7 +45,7 @@ const action = createAction({
 
         return {
             id: input.opportunityId,
-            success: providerResponse.succeded ?? true
+            success: providerResponse.success ?? providerResponse.succeeded ?? providerResponse.succeded ?? true
         };
     }
 });

@@ -54,15 +54,22 @@ const action = createAction({
     scopes: ['contacts.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata();
-        const parsedMetadata = MetadataSchema.safeParse(metadata);
-        if (!parsedMetadata.success) {
+        const connection = await nango.getConnection();
+        const rawLocationIdFromConfig = connection.connection_config?.['locationId'];
+        let locationId = typeof rawLocationIdFromConfig === 'string' ? rawLocationIdFromConfig : undefined;
+        if (!locationId) {
+            const metadata = await nango.getMetadata();
+            const parsedMetadata = MetadataSchema.safeParse(metadata);
+            if (parsedMetadata.success) {
+                locationId = parsedMetadata.data.locationId;
+            }
+        }
+        if (!locationId) {
             throw new nango.ActionError({
                 type: 'missing_metadata',
-                message: 'locationId is missing or invalid in metadata.'
+                message: 'locationId is missing from connection configuration and metadata.'
             });
         }
-        const locationId = parsedMetadata.data.locationId;
 
         const params: { locationId: string; email?: string; number?: string } = {
             locationId

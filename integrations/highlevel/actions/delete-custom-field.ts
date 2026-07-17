@@ -7,7 +7,7 @@ const InputSchema = z.object({
 });
 
 const ProviderDeleteResponseSchema = z.object({
-    succeded: z.boolean().optional(),
+    succeded: z.boolean(),
     traceId: z.string().optional()
 });
 
@@ -56,7 +56,7 @@ const action = createAction({
         const providerResponse = ProviderDeleteResponseSchema.parse(response.data);
 
         return {
-            success: providerResponse.succeded ?? true,
+            success: providerResponse.succeded,
             fieldId: input.fieldId
         };
     }

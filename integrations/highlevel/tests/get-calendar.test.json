@@ -1,0 +1,118 @@
+{
+  "input": {
+    "calendarId": "P2fRnEh7s6MuV53bRSih"
+  },
+  "output": {
+    "id": "P2fRnEh7s6MuV53bRSih",
+    "name": "Nango Test Calendar 1784283774744",
+    "locationId": "AYg6rIXHN1fXdXjGcYvI",
+    "teamMembers": [],
+    "calendarType": "event",
+    "eventTitle": "{{contact.name}}",
+    "eventColor": "#039BE5",
+    "slotDuration": 30,
+    "slotDurationUnit": "mins",
+    "slotInterval": 30,
+    "slotIntervalUnit": "mins",
+    "slotBuffer": 0,
+    "slotBufferUnit": "mins",
+    "preBuffer": 0,
+    "preBufferUnit": "mins",
+    "appoinmentPerSlot": 1,
+    "openHours": {},
+    "enableRecurring": false,
+    "autoConfirm": true,
+    "googleInvitationEmails": true,
+    "allowReschedule": true,
+    "allowCancellation": true,
+    "formSubmitType": "ThankYouMessage",
+    "formSubmitThanksMessage": "Thank you for your appointment request. We will contact you shortly to confirm your request. Please call our office at {{contactMethod}} if you have any questions.",
+    "availabilities": [],
+    "guestType": "collect_detail",
+    "consentLabel": "I confirm that I want to receive content from this company using any contact information I provide.",
+    "notifications": [],
+    "isActive": true,
+    "appointmentPerSlot": 1
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/calendars/P2fRnEh7s6MuV53bRSih": {
+        "response": {
+          "calendar": {
+            "id": "P2fRnEh7s6MuV53bRSih",
+            "notifications": [],
+            "locationId": "AYg6rIXHN1fXdXjGcYvI",
+            "teamMembers": [],
+            "name": "Nango Test Calendar 1784283774744",
+            "calendarType": "event",
+            "eventTitle": "{{contact.name}}",
+            "eventColor": "#039BE5",
+            "slotDuration": 30,
+            "slotDurationUnit": "mins",
+            "slotInterval": 30,
+            "slotIntervalUnit": "mins",
+            "slotBuffer": 0,
+            "slotBufferUnit": "mins",
+            "appoinmentPerSlot": 1,
+            "appointmentPerSlot": 1,
+            "openHours": {},
+            "enableRecurring": false,
+            "autoConfirm": true,
+            "googleInvitationEmails": true,
+            "allowReschedule": true,
+            "allowCancellation": true,
+            "formSubmitType": "ThankYouMessage",
+            "formSubmitThanksMessage": "Thank you for your appointment request. We will contact you shortly to confirm your request. Please call our office at {{contactMethod}} if you have any questions.",
+            "availabilities": [],
+            "guestType": "collect_detail",
+            "consentLabel": "I confirm that I want to receive content from this company using any contact information I provide.",
+            "preBuffer": 0,
+            "preBufferUnit": "mins",
+            "isActive": true
+          },
+          "traceId": "9786bd8b-dba6-45b2-81f4-8d124595c947"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 10:24:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "98",
+          "x-ratelimit-reset": "1784283864",
+          "cf-ray": "a1c8891f8bcf75d4-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"40e-gEiVnMY2Ji+MlSvq2zKTC4xeroI\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "access-control-max-age": "31536000",
+          "timing-allow-origin": "*",
+          "x-envoy-upstream-service-time": "46",
+          "x-ratelimit-daily-remaining": "199730",
+          "x-ratelimit-daily-reset": "83384000",
+          "x-ratelimit-interval-milliseconds": "10000",
+          "x-ratelimit-limit-daily": "200000",
+          "x-ratelimit-max": "100",
+          "set-cookie": "__cf_bm=EnIjDwSuBM7.vPD3Hn9nkUmebnpqh1T4u8PNUdMTHt8-1784283852.72811-1.0.1.1-8XljKhE8p86fl2NWRfLj1a8bkpzjlJRFC_omeB3Qs5xgd86EGcxksPFDSz..S1xzPQGBY3DY072NjkKaR3Lp1AdgkK31FbLX.atHbXopxjiqi.WJ1TYe0hzhmnU.ywBe; HttpOnly; SameSite=None; Secure; Path=/; Domain=leadconnectorhq.com; Expires=Fri, 17 Jul 2026 10:54:12 GMT"
+        },
+        "hash": "b72c204d338ab04fd18cfb245950e7a8492d38f0",
+        "request": {
+          "headers": {
+            "Version": "2021-07-28"
+          }
+        }
+      }
+    }
+  }
+}

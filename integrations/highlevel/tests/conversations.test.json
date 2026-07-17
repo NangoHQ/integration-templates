@@ -1,0 +1,607 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "locationId": "AYg6rIXHN1fXdXjGcYvI"
+    },
+    "batchSave": {
+      "Conversation": [
+        {
+          "id": "0dQ72dnIv8RkY8pgZaHa",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "contactId": "E8y1S3JFu8WfhfTDBlNf",
+          "lastMessageType": "TYPE_NO_SHOW",
+          "type": "TYPE_PHONE",
+          "unreadCount": 0,
+          "fullName": "(example) Riley Bennett",
+          "contactName": "(Example) Riley Bennett",
+          "email": "riley.bennett@corporate.net",
+          "phone": "+13141236547",
+          "dateAdded": 1784272302663,
+          "dateUpdated": 1784272302663,
+          "lastMessageDate": 1784272302663,
+          "companyName": "(Example) Goliath National Bank",
+          "tags": [
+            "high priority",
+            "warm lead"
+          ],
+          "followers": [],
+          "mentions": [],
+          "isLastMessageInternalComment": false,
+          "scoring": [],
+          "messageTypes": [
+            100
+          ]
+        },
+        {
+          "id": "mNdO5bp4n6Im5VEOl76G",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "contactId": "HwPHAIHKwQxMHrPyq5p0",
+          "lastMessageType": "TYPE_NO_SHOW",
+          "type": "TYPE_PHONE",
+          "unreadCount": 0,
+          "fullName": "(example) Alex Doe Carter",
+          "contactName": "(Example) Alex Doe Carter",
+          "email": "alex.carter@businessmail.com",
+          "dateAdded": 1784272305097,
+          "dateUpdated": 1784272305097,
+          "lastMessageDate": 1784272305097,
+          "companyName": "(Example) Goliath National Bank",
+          "tags": [
+            "follow-up"
+          ],
+          "followers": [],
+          "mentions": [],
+          "isLastMessageInternalComment": false,
+          "scoring": [],
+          "messageTypes": [
+            100
+          ]
+        },
+        {
+          "id": "IHNOF7OTEGlOKTyXgJIJ",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "contactId": "cRltUA3uXowYiiT2ZI0P",
+          "lastMessageType": "TYPE_NO_SHOW",
+          "type": "TYPE_PHONE",
+          "unreadCount": 0,
+          "fullName": "(example) Jordan Smith",
+          "contactName": "(Example) Jordan Smith",
+          "email": "jordan.smith@example.com",
+          "dateAdded": 1784272309481,
+          "dateUpdated": 1784272309481,
+          "lastMessageDate": 1784272309481,
+          "companyName": "(Example) MacLaren's Pub",
+          "tags": [
+            "follow-up"
+          ],
+          "followers": [],
+          "mentions": [],
+          "isLastMessageInternalComment": false,
+          "scoring": [],
+          "messageTypes": [
+            100
+          ]
+        },
+        {
+          "id": "Mu6iOHFJlQYn5iJDz1Ze",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "contactId": "C0oEKxTxx1bz7036v71B",
+          "lastMessageType": "TYPE_NO_SHOW",
+          "type": "TYPE_PHONE",
+          "unreadCount": 0,
+          "fullName": "(example) Taylor Reynolds",
+          "contactName": "(Example) Taylor Reynolds",
+          "phone": "+178655689546",
+          "dateAdded": 1784272314758,
+          "dateUpdated": 1784272314758,
+          "lastMessageDate": 1784272314758,
+          "companyName": "(Example) MacLaren's Pub",
+          "tags": [
+            "follow-up"
+          ],
+          "followers": [],
+          "mentions": [],
+          "isLastMessageInternalComment": false,
+          "scoring": [],
+          "messageTypes": [
+            100
+          ]
+        },
+        {
+          "id": "GJQfMgWBBBkqoda7a20Z",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "contactId": "YJArGzpIXT8VOxskSWo1",
+          "lastMessageType": "TYPE_NO_SHOW",
+          "type": "TYPE_PHONE",
+          "unreadCount": 0,
+          "fullName": "(example) Casey Morgan",
+          "contactName": "(Example) Casey Morgan",
+          "phone": "+16541234567",
+          "dateAdded": 1784272315169,
+          "dateUpdated": 1784272315169,
+          "lastMessageDate": 1784272315169,
+          "companyName": "(Example) Dunder Mifflin",
+          "tags": [
+            "high priority",
+            "follow-up"
+          ],
+          "followers": [],
+          "mentions": [],
+          "isLastMessageInternalComment": false,
+          "scoring": [],
+          "messageTypes": [
+            100
+          ]
+        },
+        {
+          "id": "F2eKiOuXnkrI1Ob620hk",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "contactId": "jKy701hlSIPdiw0x12WA",
+          "lastMessageType": "TYPE_NO_SHOW",
+          "type": "TYPE_PHONE",
+          "unreadCount": 0,
+          "fullName": "Nangoupdated Testoneupdated",
+          "contactName": "NangoUpdated TestOneUpdated",
+          "email": "nango.test.one@example.com",
+          "phone": "+15550100001",
+          "dateAdded": 1784283564614,
+          "dateUpdated": 1784283564614,
+          "lastMessageDate": 1784283564614,
+          "tags": [],
+          "followers": [],
+          "mentions": [],
+          "isLastMessageInternalComment": false,
+          "attributed": true,
+          "scoring": [],
+          "messageTypes": [
+            100
+          ]
+        },
+        {
+          "id": "Z5yZ4og26U74d8rN8hMm",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "contactId": "nFCzC5XgkkuP1UCBzmAW",
+          "lastMessageType": "TYPE_NO_SHOW",
+          "type": "TYPE_PHONE",
+          "unreadCount": 0,
+          "fullName": "Nango Testtwo",
+          "contactName": "Nango TestTwo",
+          "email": "nango.test.two@example.com",
+          "phone": "+15550100002",
+          "dateAdded": 1784283595639,
+          "dateUpdated": 1784283595639,
+          "lastMessageDate": 1784283595639,
+          "tags": [],
+          "followers": [],
+          "mentions": [],
+          "isLastMessageInternalComment": false,
+          "scoring": [],
+          "messageTypes": [
+            100
+          ]
+        },
+        {
+          "id": "0qJHfdxWNAilccBfEsw3",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "contactId": "hjZLljWg7tNQOm32sUI0",
+          "lastMessageType": "TYPE_NO_SHOW",
+          "type": "TYPE_PHONE",
+          "unreadCount": 0,
+          "fullName": "Temp Opportunityseed",
+          "contactName": "Temp OpportunitySeed",
+          "email": "temp.opportunity.seed@example.com",
+          "phone": "+15550987654",
+          "dateAdded": 1784283629850,
+          "dateUpdated": 1784283629850,
+          "lastMessageDate": 1784283629850,
+          "tags": [],
+          "followers": [],
+          "mentions": [],
+          "isLastMessageInternalComment": false,
+          "scoring": [],
+          "messageTypes": [
+            100
+          ]
+        },
+        {
+          "id": "cJTzny9zF2D5MnfWoZs2",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "contactId": "VVUvdwEvo5azd48FiZzX",
+          "lastMessageType": "TYPE_NO_SHOW",
+          "type": "TYPE_PHONE",
+          "unreadCount": 0,
+          "fullName": "Nango Dryrun",
+          "contactName": "Nango Dryrun",
+          "email": "dryrun-save-2026-07-17@example.com",
+          "dateAdded": 1784283779598,
+          "dateUpdated": 1784284020165,
+          "lastMessageDate": 1784283779598,
+          "tags": [],
+          "followers": [],
+          "mentions": [],
+          "isLastMessageInternalComment": false,
+          "scoring": [],
+          "messageTypes": [
+            100
+          ]
+        },
+        {
+          "id": "3T12GHW4RueLMlsgMjGh",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "contactId": "MB7tx4NBjFJKvmnYjcly",
+          "lastMessageType": "TYPE_NO_SHOW",
+          "type": "TYPE_PHONE",
+          "unreadCount": 0,
+          "fullName": "Nango Dryrun",
+          "contactName": "Nango Dryrun",
+          "email": "dryrun-save-v3-2026-07-17@example.com",
+          "dateAdded": 1784284168361,
+          "dateUpdated": 1784284168361,
+          "lastMessageDate": 1784284168361,
+          "tags": [],
+          "followers": [],
+          "mentions": [],
+          "isLastMessageInternalComment": false,
+          "scoring": [],
+          "messageTypes": [
+            100
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Conversation": []
+    }
+  },
+  "api": {
+    "get": {
+      "/conversations/search": {
+        "response": {
+          "conversations": [
+            {
+              "id": "0dQ72dnIv8RkY8pgZaHa",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "dateAdded": 1784272302663,
+              "dateUpdated": 1784272302663,
+              "lastMessageDate": 1784272302663,
+              "lastMessageType": "TYPE_NO_SHOW",
+              "unreadCount": 0,
+              "followers": [],
+              "mentions": [],
+              "isLastMessageInternalComment": false,
+              "contactId": "E8y1S3JFu8WfhfTDBlNf",
+              "fullName": "(example) Riley Bennett",
+              "contactName": "(Example) Riley Bennett",
+              "companyName": "(Example) Goliath National Bank",
+              "email": "riley.bennett@corporate.net",
+              "phone": "+13141236547",
+              "tags": [
+                "high priority",
+                "warm lead"
+              ],
+              "type": "TYPE_PHONE",
+              "scoring": [],
+              "messageTypes": [
+                100
+              ],
+              "profilePhoto": null,
+              "attributed": null,
+              "sort": [
+                1784272302663
+              ]
+            },
+            {
+              "id": "mNdO5bp4n6Im5VEOl76G",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "dateAdded": 1784272305097,
+              "dateUpdated": 1784272305097,
+              "lastMessageDate": 1784272305097,
+              "lastMessageType": "TYPE_NO_SHOW",
+              "unreadCount": 0,
+              "followers": [],
+              "mentions": [],
+              "isLastMessageInternalComment": false,
+              "contactId": "HwPHAIHKwQxMHrPyq5p0",
+              "fullName": "(example) Alex Doe Carter",
+              "contactName": "(Example) Alex Doe Carter",
+              "companyName": "(Example) Goliath National Bank",
+              "email": "alex.carter@businessmail.com",
+              "tags": [
+                "follow-up"
+              ],
+              "type": "TYPE_PHONE",
+              "scoring": [],
+              "messageTypes": [
+                100
+              ],
+              "profilePhoto": null,
+              "phone": null,
+              "attributed": null,
+              "sort": [
+                1784272305097
+              ]
+            },
+            {
+              "id": "IHNOF7OTEGlOKTyXgJIJ",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "dateAdded": 1784272309481,
+              "dateUpdated": 1784272309481,
+              "lastMessageDate": 1784272309481,
+              "lastMessageType": "TYPE_NO_SHOW",
+              "unreadCount": 0,
+              "followers": [],
+              "mentions": [],
+              "isLastMessageInternalComment": false,
+              "contactId": "cRltUA3uXowYiiT2ZI0P",
+              "fullName": "(example) Jordan Smith",
+              "contactName": "(Example) Jordan Smith",
+              "companyName": "(Example) MacLaren's Pub",
+              "email": "jordan.smith@example.com",
+              "tags": [
+                "follow-up"
+              ],
+              "type": "TYPE_PHONE",
+              "scoring": [],
+              "messageTypes": [
+                100
+              ],
+              "profilePhoto": null,
+              "phone": null,
+              "attributed": null,
+              "sort": [
+                1784272309481
+              ]
+            },
+            {
+              "id": "Mu6iOHFJlQYn5iJDz1Ze",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "dateAdded": 1784272314758,
+              "dateUpdated": 1784272314758,
+              "lastMessageDate": 1784272314758,
+              "lastMessageType": "TYPE_NO_SHOW",
+              "unreadCount": 0,
+              "followers": [],
+              "mentions": [],
+              "isLastMessageInternalComment": false,
+              "contactId": "C0oEKxTxx1bz7036v71B",
+              "fullName": "(example) Taylor Reynolds",
+              "contactName": "(Example) Taylor Reynolds",
+              "companyName": "(Example) MacLaren's Pub",
+              "phone": "+178655689546",
+              "tags": [
+                "follow-up"
+              ],
+              "type": "TYPE_PHONE",
+              "scoring": [],
+              "messageTypes": [
+                100
+              ],
+              "profilePhoto": null,
+              "attributed": null,
+              "email": null,
+              "sort": [
+                1784272314758
+              ]
+            },
+            {
+              "id": "GJQfMgWBBBkqoda7a20Z",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "dateAdded": 1784272315169,
+              "dateUpdated": 1784272315169,
+              "lastMessageDate": 1784272315169,
+              "lastMessageType": "TYPE_NO_SHOW",
+              "unreadCount": 0,
+              "followers": [],
+              "mentions": [],
+              "isLastMessageInternalComment": false,
+              "contactId": "YJArGzpIXT8VOxskSWo1",
+              "fullName": "(example) Casey Morgan",
+              "contactName": "(Example) Casey Morgan",
+              "companyName": "(Example) Dunder Mifflin",
+              "phone": "+16541234567",
+              "tags": [
+                "high priority",
+                "follow-up"
+              ],
+              "type": "TYPE_PHONE",
+              "scoring": [],
+              "messageTypes": [
+                100
+              ],
+              "profilePhoto": null,
+              "attributed": null,
+              "email": null,
+              "sort": [
+                1784272315169
+              ]
+            },
+            {
+              "id": "F2eKiOuXnkrI1Ob620hk",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "dateAdded": 1784283564614,
+              "dateUpdated": 1784283564614,
+              "lastMessageDate": 1784283564614,
+              "lastMessageType": "TYPE_NO_SHOW",
+              "unreadCount": 0,
+              "followers": [],
+              "mentions": [],
+              "isLastMessageInternalComment": false,
+              "contactId": "jKy701hlSIPdiw0x12WA",
+              "fullName": "Nangoupdated Testoneupdated",
+              "contactName": "NangoUpdated TestOneUpdated",
+              "companyName": null,
+              "email": "nango.test.one@example.com",
+              "phone": "+15550100001",
+              "tags": [],
+              "type": "TYPE_PHONE",
+              "scoring": [],
+              "messageTypes": [
+                100
+              ],
+              "profilePhoto": null,
+              "attributed": true,
+              "sort": [
+                1784283564614
+              ]
+            },
+            {
+              "id": "Z5yZ4og26U74d8rN8hMm",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "dateAdded": 1784283595639,
+              "dateUpdated": 1784283595639,
+              "lastMessageDate": 1784283595639,
+              "lastMessageType": "TYPE_NO_SHOW",
+              "unreadCount": 0,
+              "followers": [],
+              "mentions": [],
+              "isLastMessageInternalComment": false,
+              "contactId": "nFCzC5XgkkuP1UCBzmAW",
+              "fullName": "Nango Testtwo",
+              "contactName": "Nango TestTwo",
+              "companyName": null,
+              "email": "nango.test.two@example.com",
+              "phone": "+15550100002",
+              "tags": [],
+              "type": "TYPE_PHONE",
+              "scoring": [],
+              "messageTypes": [
+                100
+              ],
+              "sort": [
+                1784283595639
+              ]
+            },
+            {
+              "id": "0qJHfdxWNAilccBfEsw3",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "dateAdded": 1784283629850,
+              "dateUpdated": 1784283629850,
+              "lastMessageDate": 1784283629850,
+              "lastMessageType": "TYPE_NO_SHOW",
+              "unreadCount": 0,
+              "followers": [],
+              "mentions": [],
+              "isLastMessageInternalComment": false,
+              "contactId": "hjZLljWg7tNQOm32sUI0",
+              "fullName": "Temp Opportunityseed",
+              "contactName": "Temp OpportunitySeed",
+              "companyName": null,
+              "email": "temp.opportunity.seed@example.com",
+              "phone": "+15550987654",
+              "tags": [],
+              "type": "TYPE_PHONE",
+              "scoring": [],
+              "messageTypes": [
+                100
+              ],
+              "sort": [
+                1784283629850
+              ]
+            },
+            {
+              "id": "cJTzny9zF2D5MnfWoZs2",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "dateAdded": 1784283779598,
+              "dateUpdated": 1784284020165,
+              "lastMessageDate": 1784283779598,
+              "lastMessageType": "TYPE_NO_SHOW",
+              "starred": true,
+              "unreadCount": 0,
+              "followers": [],
+              "mentions": [],
+              "isLastMessageInternalComment": false,
+              "contactId": "VVUvdwEvo5azd48FiZzX",
+              "fullName": "Nango Dryrun",
+              "contactName": "Nango Dryrun",
+              "companyName": null,
+              "email": "dryrun-save-2026-07-17@example.com",
+              "tags": [],
+              "type": "TYPE_PHONE",
+              "scoring": [],
+              "messageTypes": [
+                100
+              ],
+              "sort": [
+                1784283779598
+              ]
+            },
+            {
+              "id": "3T12GHW4RueLMlsgMjGh",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "dateAdded": 1784284168361,
+              "dateUpdated": 1784284168361,
+              "lastMessageDate": 1784284168361,
+              "lastMessageType": "TYPE_NO_SHOW",
+              "unreadCount": 0,
+              "followers": [],
+              "mentions": [],
+              "isLastMessageInternalComment": false,
+              "contactId": "MB7tx4NBjFJKvmnYjcly",
+              "fullName": "Nango Dryrun",
+              "contactName": "Nango Dryrun",
+              "companyName": null,
+              "email": "dryrun-save-v3-2026-07-17@example.com",
+              "tags": [],
+              "type": "TYPE_PHONE",
+              "scoring": [],
+              "messageTypes": [
+                100
+              ],
+              "sort": [
+                1784284168361
+              ]
+            }
+          ],
+          "total": 10,
+          "traceId": "f2befad2-a444-47de-82e3-572b761d5446"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 10:30:34 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "99",
+          "x-ratelimit-reset": "1784284248",
+          "cf-ray": "a1c89273ed34c70a-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"16cf-m/gKH7xL2ADq4amsldy9oJ/S6Ic\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "access-control-max-age": "31536000",
+          "timing-allow-origin": "*",
+          "x-envoy-upstream-service-time": "46",
+          "x-ratelimit-daily-remaining": "199571",
+          "x-ratelimit-daily-reset": "83002000",
+          "x-ratelimit-interval-milliseconds": "10000",
+          "x-ratelimit-limit-daily": "200000",
+          "x-ratelimit-max": "100",
+          "set-cookie": "__cf_bm=.dQwHlFScvtu2odK8scSVpwerdYyB0sbaaHQUakG14I-1784284234.8638964-1.0.1.1-rVbvQ0kU.sbVtaX9LDrcLeyFIS0xSeb0eQaYnQO1n2U6TdTeTS0QXgTZOtgQCiiwQfcFehAVTKnvhXydYghjMmz8uzWUAW1kQiAUMNievF4f8hCypCwFxxkm9R6kHnYN; HttpOnly; SameSite=None; Secure; Path=/; Domain=leadconnectorhq.com; Expires=Fri, 17 Jul 2026 11:00:34 GMT"
+        },
+        "hash": "6978251e69bed0fc2f30e299912df5e8ef038f50",
+        "request": {
+          "params": {
+            "limit": "100",
+            "locationId": "AYg6rIXHN1fXdXjGcYvI",
+            "sort": "asc",
+            "sortBy": "last_message_date"
+          },
+          "headers": {
+            "Version": "2021-07-28"
+          }
+        }
+      }
+    }
+  }
+}

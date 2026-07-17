@@ -1,10 +1,80 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const LocationConfigurationInputSchema = z
+    .object({
+        kind: z.string().describe('Meeting location kind. Example: "custom"'),
+        location: z.string().optional().describe('Meeting location value, e.g. an address or URL.'),
+        meetingId: z.string().optional().describe('Meeting ID for video-conferencing locations.')
+    })
+    .passthrough();
+
+const TeamMemberInputSchema = z
+    .object({
+        userId: z.string().describe('Team member user ID. Example: "ocQHyuzHvysMo5N5VsXc"'),
+        priority: z.number().optional().describe('Priority for round-robin distribution. Example: 0.5'),
+        meetingLocationType: z.string().optional(),
+        meetingLocation: z.string().optional(),
+        isPrimary: z.boolean().optional().describe('Whether this member is primary for collective calendars. Example: true'),
+        locationConfigurations: z.array(LocationConfigurationInputSchema).optional()
+    })
+    .passthrough();
+
+const HourInputSchema = z
+    .object({
+        openHour: z.number().describe('Opening hour (0-23). Example: 9'),
+        openMinute: z.number().describe('Opening minute (0-60). Example: 0'),
+        closeHour: z.number().describe('Closing hour (0-23). Example: 17'),
+        closeMinute: z.number().describe('Closing minute (0-60). Example: 0')
+    })
+    .passthrough();
+
+const OpenHourInputSchema = z
+    .object({
+        daysOfTheWeek: z.array(z.number()).describe('Days of the week (0=Sunday, 6=Saturday). Example: [1, 2, 3, 4, 5]'),
+        hours: z.array(HourInputSchema).describe('Available time slots for these days')
+    })
+    .passthrough();
+
+const RecurringInputSchema = z
+    .object({
+        freq: z.string().optional().describe('Recurrence frequency. Example: "DAILY"'),
+        count: z.number().optional().describe('Number of occurrences. Example: 24'),
+        bookingOption: z.string().optional().describe('Booking option for recurring bookings. Example: "skip"'),
+        bookingOverlapDefaultStatus: z.string().optional().describe('Default status for overlapping bookings. Example: "confirmed"')
+    })
+    .passthrough();
+
+const AvailabilityInputSchema = z
+    .object({
+        date: z.string().describe('Date this override applies to, in ISO 8601 format. Example: "2026-08-01"'),
+        hours: z.array(HourInputSchema),
+        deleted: z.boolean().optional()
+    })
+    .passthrough();
+
+const CalendarNotificationInputSchema = z
+    .object({
+        type: z.string().optional().describe('Notification channel. Example: "email"'),
+        shouldSendToContact: z.boolean(),
+        shouldSendToGuest: z.boolean(),
+        shouldSendToUser: z.boolean(),
+        shouldSendToSelectedUsers: z.boolean(),
+        selectedUsers: z.string()
+    })
+    .passthrough();
+
+const LookBusyConfigInputSchema = z
+    .object({
+        enabled: z.boolean(),
+        LookBusyPercentage: z.number().optional()
+    })
+    .passthrough();
+
 const InputSchema = z.object({
     calendarId: z.string().describe('Calendar ID. Example: "ocQHyuzHvysMo5N5VsXc"'),
     groupId: z.string().optional().describe('Group Id'),
-    teamMembers: z.array(z.record(z.string(), z.unknown())).optional(),
+    teamMembers: z.array(TeamMemberInputSchema).optional(),
     eventType: z.string().optional(),
     name: z.string().optional(),
     description: z.string().optional(),
@@ -13,7 +83,7 @@ const InputSchema = z.object({
     widgetType: z.string().optional(),
     eventTitle: z.string().optional(),
     eventColor: z.string().optional(),
-    locationConfigurations: z.array(z.record(z.string(), z.unknown())).optional(),
+    locationConfigurations: z.array(LocationConfigurationInputSchema).optional(),
     slotDuration: z.number().optional(),
     slotDurationUnit: z.string().optional(),
     preBufferUnit: z.string().optional(),
@@ -27,8 +97,9 @@ const InputSchema = z.object({
     allowBookingAfterUnit: z.string().optional(),
     allowBookingFor: z.number().optional(),
     allowBookingForUnit: z.string().optional(),
-    openHours: z.array(z.record(z.string(), z.unknown())).optional(),
+    openHours: z.array(OpenHourInputSchema).optional(),
     enableRecurring: z.boolean().optional(),
+    recurring: RecurringInputSchema.optional().describe('Recurring-calendar configuration, used when enableRecurring is true.'),
     formId: z.string().optional(),
     stickyContact: z.boolean().optional(),
     isLivePaymentMode: z.boolean().optional(),
@@ -46,11 +117,12 @@ const InputSchema = z.object({
     formSubmitRedirectURL: z.string().optional(),
     formSubmitThanksMessage: z.string().optional(),
     availabilityType: z.number().optional(),
-    availabilities: z.array(z.record(z.string(), z.unknown())).optional(),
+    availabilities: z.array(AvailabilityInputSchema).optional(),
+    notifications: z.array(CalendarNotificationInputSchema).optional(),
     guestType: z.string().optional(),
     consentLabel: z.string().optional(),
     calendarCoverImage: z.string().optional(),
-    lookBusyConfig: z.record(z.string(), z.unknown()).optional(),
+    lookBusyConfig: LookBusyConfigInputSchema.optional(),
     isActive: z.boolean().optional()
 });
 
@@ -153,6 +225,7 @@ const action = createAction({
         if (input.allowBookingForUnit !== undefined) data['allowBookingForUnit'] = input.allowBookingForUnit;
         if (input.openHours !== undefined) data['openHours'] = input.openHours;
         if (input.enableRecurring !== undefined) data['enableRecurring'] = input.enableRecurring;
+        if (input.recurring !== undefined) data['recurring'] = input.recurring;
         if (input.formId !== undefined) data['formId'] = input.formId;
         if (input.stickyContact !== undefined) data['stickyContact'] = input.stickyContact;
         if (input.isLivePaymentMode !== undefined) data['isLivePaymentMode'] = input.isLivePaymentMode;
@@ -173,6 +246,7 @@ const action = createAction({
         if (input.formSubmitThanksMessage !== undefined) data['formSubmitThanksMessage'] = input.formSubmitThanksMessage;
         if (input.availabilityType !== undefined) data['availabilityType'] = input.availabilityType;
         if (input.availabilities !== undefined) data['availabilities'] = input.availabilities;
+        if (input.notifications !== undefined) data['notifications'] = input.notifications;
         if (input.guestType !== undefined) data['guestType'] = input.guestType;
         if (input.consentLabel !== undefined) data['consentLabel'] = input.consentLabel;
         if (input.calendarCoverImage !== undefined) data['calendarCoverImage'] = input.calendarCoverImage;

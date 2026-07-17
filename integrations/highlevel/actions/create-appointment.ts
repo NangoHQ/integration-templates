@@ -26,16 +26,16 @@ const ProviderAppointmentSchema = z.object({
     calendarId: z.string(),
     locationId: z.string(),
     contactId: z.string(),
-    startTime: z.string().optional(),
-    endTime: z.string().optional(),
-    title: z.string().optional(),
-    meetingLocationType: z.string().optional(),
-    status: z.string().optional(),
-    appointmentStatus: z.string().optional(),
-    assignedUserId: z.string().optional(),
-    address: z.string().optional(),
-    isRecurring: z.boolean().optional(),
-    rrule: z.string().optional()
+    startTime: z.string().nullish(),
+    endTime: z.string().nullish(),
+    title: z.string().nullish(),
+    meetingLocationType: z.string().nullish(),
+    status: z.string().nullish(),
+    appointmentStatus: z.string().nullish(),
+    assignedUserId: z.string().nullish(),
+    address: z.string().nullish(),
+    isRecurring: z.boolean().nullish(),
+    rrule: z.string().nullish()
 });
 
 const OutputSchema = z.object({
@@ -98,16 +98,16 @@ const action = createAction({
             calendarId: providerAppointment.calendarId,
             locationId: providerAppointment.locationId,
             contactId: providerAppointment.contactId,
-            ...(providerAppointment.startTime !== undefined && { startTime: providerAppointment.startTime }),
-            ...(providerAppointment.endTime !== undefined && { endTime: providerAppointment.endTime }),
-            ...(providerAppointment.title !== undefined && { title: providerAppointment.title }),
-            ...(providerAppointment.meetingLocationType !== undefined && { meetingLocationType: providerAppointment.meetingLocationType }),
-            ...(providerAppointment.status !== undefined && { status: providerAppointment.status }),
-            ...(providerAppointment.appointmentStatus !== undefined && { appointmentStatus: providerAppointment.appointmentStatus }),
-            ...(providerAppointment.assignedUserId !== undefined && { assignedUserId: providerAppointment.assignedUserId }),
-            ...(providerAppointment.address !== undefined && { address: providerAppointment.address }),
-            ...(providerAppointment.isRecurring !== undefined && { isRecurring: providerAppointment.isRecurring }),
-            ...(providerAppointment.rrule !== undefined && { rrule: providerAppointment.rrule })
+            ...(providerAppointment.startTime != null && { startTime: providerAppointment.startTime }),
+            ...(providerAppointment.endTime != null && { endTime: providerAppointment.endTime }),
+            ...(providerAppointment.title != null && { title: providerAppointment.title }),
+            ...(providerAppointment.meetingLocationType != null && { meetingLocationType: providerAppointment.meetingLocationType }),
+            ...(providerAppointment.status != null && { status: providerAppointment.status }),
+            ...(providerAppointment.appointmentStatus != null && { appointmentStatus: providerAppointment.appointmentStatus }),
+            ...(providerAppointment.assignedUserId != null && { assignedUserId: providerAppointment.assignedUserId }),
+            ...(providerAppointment.address != null && { address: providerAppointment.address }),
+            ...(providerAppointment.isRecurring != null && { isRecurring: providerAppointment.isRecurring }),
+            ...(providerAppointment.rrule != null && { rrule: providerAppointment.rrule })
         };
     }
 });

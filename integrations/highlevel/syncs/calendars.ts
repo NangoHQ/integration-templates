@@ -9,7 +9,7 @@ const CalendarSchema = z
     .object({
         id: z.string(),
         locationId: z.string().optional(),
-        groupId: z.string().optional(),
+        groupId: z.string().nullable().optional(),
         name: z.string().optional(),
         widgetSlug: z.string().optional(),
         calendarType: z.string().optional(),
@@ -25,7 +25,7 @@ const CalendarSchema = z
         preBuffer: z.number().optional(),
         preBufferUnit: z.string().optional(),
         appoinmentPerSlot: z.number().optional(),
-        appointmentPerDay: z.number().optional(),
+        appoinmentPerDay: z.number().optional(),
         allowBookingAfter: z.number().optional(),
         allowBookingAfterUnit: z.string().optional(),
         allowBookingFor: z.number().optional(),
@@ -67,8 +67,6 @@ const sync = createSync({
 
         const locationId = configParse.data.locationId;
 
-        await nango.trackDeletesStart('Calendar');
-
         // https://github.com/GoHighLevel/highlevel-api-docs/blob/main/apps/calendars.json
         const response = await nango.get({
             endpoint: '/calendars/',
@@ -85,6 +83,10 @@ const sync = createSync({
         if (!parseResult.success) {
             throw new Error(`Invalid response from GET /calendars/: ${parseResult.error.message}`);
         }
+
+        // trackDeletesStart is deferred until after the response is validated so a request
+        // or parse failure never leaves delete-tracking open without a matching End.
+        await nango.trackDeletesStart('Calendar');
 
         const calendars = parseResult.data.calendars;
 

@@ -158,6 +158,11 @@ const sync = createSync({
 
         const now = Date.now();
         const endTime = 4102444800000;
+        // HighLevel's calendar events endpoint filters by event start time, not update time, so
+        // an appointment that is edited or cancelled without its startTime changing would never
+        // be re-fetched once the checkpoint moves past it. Keep the next checkpoint trailing
+        // behind `now` so recently-started appointments stay in the fetch window on every run.
+        const OVERLAP_MS = 24 * 60 * 60 * 1000;
 
         for (const calendar of calendars) {
             if (!calendar.id || typeof calendar.id !== 'string') {
@@ -219,7 +224,7 @@ const sync = createSync({
             calendarCheckpoints = {
                 ...calendarCheckpoints,
                 [calendarId]: {
-                    startTime: now
+                    startTime: Math.max(0, now - OVERLAP_MS)
                 }
             };
 

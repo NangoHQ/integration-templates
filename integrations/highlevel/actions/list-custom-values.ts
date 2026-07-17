@@ -34,11 +34,25 @@ const action = createAction({
             retries: 3
         });
 
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected empty response from HighLevel.'
+            });
+        }
+
         const providerResponseSchema = z.object({
             customValues: z.array(CustomValueSchema)
         });
 
-        const providerResponse = providerResponseSchema.parse(response.data);
+        const parsedResponse = providerResponseSchema.safeParse(response.data);
+        if (!parsedResponse.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from HighLevel.'
+            });
+        }
+        const providerResponse = parsedResponse.data;
 
         return {
             items: providerResponse.customValues.map((item) => ({

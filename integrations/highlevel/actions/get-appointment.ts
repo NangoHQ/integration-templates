@@ -18,11 +18,11 @@ const AppointmentMetaSchema = z
 
 const OutputSchema = z.object({
     id: z.string(),
-    title: z.string(),
+    title: z.string().nullish(),
     calendarId: z.string(),
     locationId: z.string(),
-    contactId: z.string(),
-    appointmentStatus: z.string(),
+    contactId: z.string().nullish(),
+    appointmentStatus: z.string().nullish(),
     startTime: z.string().nullish(),
     endTime: z.string().nullish(),
     dateAdded: z.string().nullish(),
@@ -94,11 +94,11 @@ const action = createAction({
 
         return {
             id: appointment.id,
-            title: appointment.title,
             calendarId: appointment.calendarId,
             locationId: appointment.locationId,
-            contactId: appointment.contactId,
-            appointmentStatus: appointment.appointmentStatus,
+            ...(appointment.title != null && { title: appointment.title }),
+            ...(appointment.contactId != null && { contactId: appointment.contactId }),
+            ...(appointment.appointmentStatus != null && { appointmentStatus: appointment.appointmentStatus }),
             ...(appointment.startTime != null && { startTime: appointment.startTime }),
             ...(appointment.endTime != null && { endTime: appointment.endTime }),
             ...(appointment.dateAdded != null && { dateAdded: appointment.dateAdded }),

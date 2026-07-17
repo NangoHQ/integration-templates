@@ -51,14 +51,27 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const rawMetadata = await nango.getMetadata();
-        const metadataResult = ConnectionMetadataSchema.safeParse(rawMetadata);
-        if (!metadataResult.success || !metadataResult.data.locationId) {
-            throw new Error('locationId is required in connection metadata');
-        }
-        const locationId = metadataResult.data.locationId;
+        const connection = await nango.getConnection();
+        const connectionSchema = z.object({
+            connection_config: z.record(z.string(), z.unknown()).optional(),
+            metadata: z.record(z.string(), z.unknown()).optional()
+        });
+        const parsedConnection = connectionSchema.safeParse(connection);
 
-        await nango.trackDeletesStart('CustomField');
+        let rawLocationId = parsedConnection.success
+            ? (parsedConnection.data.connection_config?.['locationId'] ?? parsedConnection.data.metadata?.['locationId'])
+            : undefined;
+        if (typeof rawLocationId !== 'string') {
+            const rawMetadata = await nango.getMetadata();
+            const metadataResult = ConnectionMetadataSchema.safeParse(rawMetadata);
+            if (metadataResult.success) {
+                rawLocationId = metadataResult.data.locationId;
+            }
+        }
+        if (typeof rawLocationId !== 'string') {
+            throw new Error('locationId is required in connection configuration or metadata');
+        }
+        const locationId = rawLocationId;
 
         // https://highlevel.stoplight.io/docs/integrations/
         const response = await nango.get({
@@ -73,6 +86,10 @@ const sync = createSync({
         if (!parsedResponse.success) {
             throw new Error(`Failed to parse custom fields response: ${parsedResponse.error.message}`);
         }
+
+        // trackDeletesStart is deferred until after the response is validated so a request
+        // or parse failure never leaves delete-tracking open without a matching End.
+        await nango.trackDeletesStart('CustomField');
 
         const customFields = parsedResponse.data.customFields ?? [];
         if (customFields.length > 0) {

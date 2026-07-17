@@ -25,15 +25,22 @@ const action = createAction({
     scopes: ['locations/customValues.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata();
-        const parsedMetadata = MetadataSchema.safeParse(metadata);
-        if (!parsedMetadata.success) {
+        const connection = await nango.getConnection();
+        const rawLocationIdFromConfig = connection.connection_config?.['locationId'];
+        let locationId = typeof rawLocationIdFromConfig === 'string' ? rawLocationIdFromConfig : undefined;
+        if (!locationId) {
+            const metadata = await nango.getMetadata();
+            const parsedMetadata = MetadataSchema.safeParse(metadata);
+            if (parsedMetadata.success) {
+                locationId = parsedMetadata.data.locationId;
+            }
+        }
+        if (!locationId) {
             throw new nango.ActionError({
                 type: 'invalid_metadata',
-                message: 'locationId is required in metadata.'
+                message: 'locationId is required in connection configuration or metadata.'
             });
         }
-        const locationId = parsedMetadata.data.locationId;
 
         const response = await nango.delete({
             // https://highlevel.stoplight.io/docs/integrations/

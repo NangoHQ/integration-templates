@@ -18,7 +18,9 @@ const RawOpportunitySchema = z.object({
     contactId: z.string().nullish(),
     locationId: z.string().nullish(),
     lostReasonId: z.string().nullish(),
-    externalObjectId: z.string().nullish()
+    externalObjectId: z.string().nullish(),
+    forecastProbability: z.number().nullish(),
+    effectiveProbability: z.number().nullish()
 });
 
 type RawOpportunity = z.infer<typeof RawOpportunitySchema>;
@@ -40,7 +42,9 @@ const OpportunitySchema = z.object({
     contactId: z.string().optional(),
     locationId: z.string().optional(),
     lostReasonId: z.string().optional(),
-    externalObjectId: z.string().optional()
+    externalObjectId: z.string().optional(),
+    forecastProbability: z.number().optional(),
+    effectiveProbability: z.number().optional()
 });
 
 type Opportunity = z.infer<typeof OpportunitySchema>;
@@ -110,6 +114,12 @@ function mapOpportunity(raw: RawOpportunity): Opportunity {
     if (raw.externalObjectId !== undefined && raw.externalObjectId !== null) {
         record.externalObjectId = raw.externalObjectId;
     }
+    if (raw.forecastProbability !== undefined && raw.forecastProbability !== null) {
+        record.forecastProbability = raw.forecastProbability;
+    }
+    if (raw.effectiveProbability !== undefined && raw.effectiveProbability !== null) {
+        record.effectiveProbability = raw.effectiveProbability;
+    }
 
     return record;
 }
@@ -126,30 +136,41 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const metadata = await nango.getMetadata();
-        const locationId = typeof metadata['locationId'] === 'string' ? metadata['locationId'] : undefined;
+        const connection = await nango.getConnection();
+        const connectionSchema = z.object({
+            connection_config: z.record(z.string(), z.unknown()).optional(),
+            metadata: z.record(z.string(), z.unknown()).optional()
+        });
+        const parsedConnection = connectionSchema.safeParse(connection);
 
-        if (!locationId) {
-            throw new Error('locationId is required in connection metadata');
+        let rawLocationId = parsedConnection.success
+            ? (parsedConnection.data.connection_config?.['locationId'] ?? parsedConnection.data.metadata?.['locationId'])
+            : undefined;
+        if (typeof rawLocationId !== 'string') {
+            const metadata = await nango.getMetadata();
+            const parsedMetadata = z.record(z.string(), z.unknown()).safeParse(metadata);
+            if (parsedMetadata.success) {
+                rawLocationId = parsedMetadata.data['locationId'];
+            }
         }
+        if (typeof rawLocationId !== 'string') {
+            throw new Error('locationId is required in connection configuration or metadata');
+        }
+        const locationId = rawLocationId;
 
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint ?? {});
         const checkpoint = checkpointResult.success ? checkpointResult.data : undefined;
-        let page = checkpoint?.page ?? 1;
+        let page = checkpoint?.in_progress === true ? checkpoint.page : 1;
+        // in_progress is only ever persisted as true right after the page whose
+        // trackDeletesStart already succeeded, so it doubles as the "deletes started" signal.
+        let deletesStarted = checkpoint?.in_progress === true;
 
-        // Blocker: /opportunities/search exposes full-refresh pagination state (`page`) but no
-        // documented changed-since filter or explicit ascending updated cursor, so we only
-        // checkpoint the page number to resume an in-progress full refresh safely.
-        if (checkpoint?.in_progress !== true) {
-            await nango.trackDeletesStart('Opportunity');
-            page = 1;
-            await nango.saveCheckpoint({
-                page,
-                in_progress: true
-            });
-        }
-
+        // HighLevel's /opportunities/search only supports page-number pagination with no
+        // documented changed-since filter, so nango.paginate's generator can't defer
+        // trackDeletesStart until after the first page is validated without hiding empty
+        // first-page responses. A manual loop keeps that validate-then-track ordering explicit.
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
         while (true) {
             // https://highlevel.stoplight.io/docs/integrations/opportunities/search-opportunities-advanced
             const response = await nango.post({
@@ -175,6 +196,11 @@ const sync = createSync({
             const parsedResponse = OpportunitiesResponseSchema.safeParse(response.data);
             if (!parsedResponse.success) {
                 throw new Error(`Invalid response from POST /opportunities/search: ${parsedResponse.error.message}`);
+            }
+
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Opportunity');
+                deletesStarted = true;
             }
 
             const opportunities = parsedResponse.data.opportunities ?? [];

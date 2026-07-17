@@ -1,0 +1,73 @@
+{
+  "nango": {
+    "getConnection": {
+      "connectionId": "bdeaffa2-87ab-4fdf-a54b-7afe91a93f59",
+      "provider": "highlevel",
+      "connection_config": {
+        "companyId": "aPteVQcnOkaYXzSWPUYC",
+        "locationId": "AYg6rIXHN1fXdXjGcYvI"
+      }
+    },
+    "getMetadata": {
+      "locationId": "AYg6rIXHN1fXdXjGcYvI"
+    },
+    "batchSave": {
+      "User": []
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/users/": {
+        "response": {
+          "users": [],
+          "traceId": "f7f78990-f7e2-4e6a-be3b-3743ca2c5e98"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 10:26:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "98",
+          "x-ratelimit-reset": "1784283985",
+          "cf-ray": "a1c88c3d4c10b9bb-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"3d-32k0Wzf9EjSPpMg7RBHtcNUcUfo\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "access-control-max-age": "31536000",
+          "timing-allow-origin": "*",
+          "x-envoy-upstream-service-time": "22",
+          "x-ratelimit-daily-remaining": "199652",
+          "x-ratelimit-daily-reset": "83256000",
+          "x-ratelimit-interval-milliseconds": "10000",
+          "x-ratelimit-limit-daily": "200000",
+          "x-ratelimit-max": "100",
+          "set-cookie": "__cf_bm=mKERplo9HYXhQdRJ8Wklss6jVq75glV03cdvzco90SA-1784283980.3637524-1.0.1.1-w4Y5B3cwYbSFqLUE7t5xRWXt81kUFjM4qkf1_e9ZJBTxNmswqPk9qfcTMwnIXFZ8nMg2ME4URyv825csb9_0iWx30Qti4oCr_z8JNaznWByJRZFfYEMCRdZ_uA5A1T6h; HttpOnly; SameSite=None; Secure; Path=/; Domain=leadconnectorhq.com; Expires=Fri, 17 Jul 2026 10:56:20 GMT"
+        },
+        "hash": "befa6eec0f5c7c84f17c64dd38ef9f1924270afb",
+        "request": {
+          "params": {
+            "locationId": "AYg6rIXHN1fXdXjGcYvI"
+          },
+          "headers": {
+            "Version": "2021-07-28"
+          }
+        }
+      }
+    }
+  }
+}

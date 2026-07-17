@@ -1,0 +1,96 @@
+{
+  "input": {
+    "locationId": "AYg6rIXHN1fXdXjGcYvI",
+    "name": "Nango Test Calendar",
+    "calendarType": "event"
+  },
+  "output": {
+    "id": "0aCVfraqNlX5PrPs7hDb",
+    "locationId": "AYg6rIXHN1fXdXjGcYvI",
+    "name": "Nango Test Calendar",
+    "calendarType": "event",
+    "slotDuration": 30,
+    "slotInterval": 30,
+    "slotDurationUnit": "mins",
+    "slotIntervalUnit": "mins",
+    "isActive": true,
+    "autoConfirm": true,
+    "eventTitle": "{{contact.name}}",
+    "eventColor": "#039BE5",
+    "enableRecurring": false,
+    "googleInvitationEmails": true,
+    "allowReschedule": true,
+    "allowCancellation": true,
+    "formSubmitType": "ThankYouMessage",
+    "formSubmitThanksMessage": "Thank you for your appointment request. We will contact you shortly to confirm your request. Please call our office at {{contactMethod}} if you have any questions.",
+    "consentLabel": "I confirm that I want to receive content from this company using any contact information I provide."
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/calendars/": {
+        "response": {
+          "calendar": {
+            "id": "0aCVfraqNlX5PrPs7hDb",
+            "locationId": "AYg6rIXHN1fXdXjGcYvI",
+            "name": "Nango Test Calendar",
+            "calendarType": "event",
+            "eventTitle": "{{contact.name}}",
+            "eventColor": "#039BE5",
+            "slotDuration": 30,
+            "slotDurationUnit": "mins",
+            "slotInterval": 30,
+            "slotIntervalUnit": "mins",
+            "slotBufferUnit": "mins",
+            "appoinmentPerSlot": 1,
+            "appointmentPerSlot": 1,
+            "openHours": {},
+            "enableRecurring": false,
+            "autoConfirm": true,
+            "googleInvitationEmails": true,
+            "allowReschedule": true,
+            "allowCancellation": true,
+            "formSubmitType": "ThankYouMessage",
+            "formSubmitThanksMessage": "Thank you for your appointment request. We will contact you shortly to confirm your request. Please call our office at {{contactMethod}} if you have any questions.",
+            "availabilities": [],
+            "consentLabel": "I confirm that I want to receive content from this company using any contact information I provide.",
+            "preBufferUnit": "mins",
+            "isActive": true
+          },
+          "traceId": "9338729f-6397-42b1-a2ab-c1f8388c680e"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 10:23:01 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "930",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4880",
+          "x-ratelimit-reset": "1784283804",
+          "etag": "W/\"3a2-uS/PfoUMy1EFDIQ1ubSIjBKb3Zw\""
+        },
+        "hash": "22f11d4d4e5baf2b3d8cf4bcbc73d00784fd2929",
+        "request": {
+          "headers": {
+            "Version": "2021-07-28"
+          },
+          "data": {
+            "locationId": "AYg6rIXHN1fXdXjGcYvI",
+            "name": "Nango Test Calendar",
+            "calendarType": "event"
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,28 +3,28 @@ import { z } from 'zod';
 
 const ProviderConversationSchema = z.object({
     id: z.string(),
-    locationId: z.string(),
-    contactId: z.string(),
-    lastMessageBody: z.string().optional(),
-    lastMessageType: z.string(),
-    type: z.string(),
-    unreadCount: z.number(),
-    fullName: z.string(),
-    contactName: z.string(),
+    locationId: z.string().nullish(),
+    contactId: z.string().nullish(),
+    lastMessageBody: z.string().nullish(),
+    lastMessageType: z.string().nullish(),
+    type: z.string().nullish(),
+    unreadCount: z.number().nullish(),
+    fullName: z.string().nullish(),
+    contactName: z.string().nullish(),
     email: z.string().nullable().optional(),
     phone: z.string().nullable().optional(),
-    dateAdded: z.number(),
-    dateUpdated: z.number(),
-    lastMessageDate: z.number(),
+    dateAdded: z.number().nullish(),
+    dateUpdated: z.number().nullish(),
+    lastMessageDate: z.number().nullish(),
     companyName: z.string().nullable().optional(),
-    tags: z.array(z.string()),
-    followers: z.array(z.unknown()),
-    mentions: z.array(z.unknown()),
-    isLastMessageInternalComment: z.boolean(),
+    tags: z.array(z.string()).nullish(),
+    followers: z.array(z.unknown()).nullish(),
+    mentions: z.array(z.unknown()).nullish(),
+    isLastMessageInternalComment: z.boolean().nullish(),
     profilePhoto: z.string().nullable().optional(),
     attributed: z.boolean().nullable().optional(),
-    scoring: z.array(z.unknown()),
-    messageTypes: z.array(z.number()),
+    scoring: z.array(z.unknown()).nullish(),
+    messageTypes: z.array(z.number()).nullish(),
     sort: z.array(z.number())
 });
 
@@ -68,6 +68,11 @@ const CheckpointParseSchema = z.object({
 });
 
 const LIMIT = 100;
+// Re-scan a trailing window on every run: HighLevel's conversation search only supports
+// filtering/sorting by last_message_date, so a conversation that is edited (tags, assignment,
+// read state) without a new message never gets a fresh last_message_date and would otherwise
+// never be re-fetched once the cursor passes it.
+const OVERLAP_MS = 60 * 60 * 1000;
 
 const sync = createSync({
     description: 'Sync conversations from HighLevel',
@@ -84,16 +89,27 @@ const sync = createSync({
         const checkpoint = CheckpointParseSchema.parse(rawCheckpoint || {});
         const startAfterDate = checkpoint.start_after_date;
 
-        const rawMetadata = await nango.getMetadata();
-        const metadata = z
-            .object({
-                locationId: z.string()
-            })
-            .parse(rawMetadata);
-        const locationId = metadata.locationId;
-        if (!locationId) {
-            throw new Error('locationId is required in metadata');
+        const connection = await nango.getConnection();
+        const connectionSchema = z.object({
+            connection_config: z.record(z.string(), z.unknown()).optional(),
+            metadata: z.record(z.string(), z.unknown()).optional()
+        });
+        const parsedConnection = connectionSchema.safeParse(connection);
+
+        let rawLocationId = parsedConnection.success
+            ? (parsedConnection.data.connection_config?.['locationId'] ?? parsedConnection.data.metadata?.['locationId'])
+            : undefined;
+        if (typeof rawLocationId !== 'string') {
+            const rawMetadata = await nango.getMetadata();
+            const parsedMetadata = z.record(z.string(), z.unknown()).safeParse(rawMetadata);
+            if (parsedMetadata.success) {
+                rawLocationId = parsedMetadata.data['locationId'];
+            }
         }
+        if (typeof rawLocationId !== 'string') {
+            throw new Error('locationId is required in connection configuration or metadata');
+        }
+        const locationId = rawLocationId;
 
         let cursor = startAfterDate;
         let hasMore = true;
@@ -125,30 +141,30 @@ const sync = createSync({
 
             const records = conversations.map((conversation) => ({
                 id: conversation.id,
-                ...(conversation.locationId !== undefined && { locationId: conversation.locationId }),
-                ...(conversation.contactId !== undefined && { contactId: conversation.contactId }),
-                ...(conversation.lastMessageBody !== undefined && { lastMessageBody: conversation.lastMessageBody }),
-                ...(conversation.lastMessageType !== undefined && { lastMessageType: conversation.lastMessageType }),
-                ...(conversation.type !== undefined && { type: conversation.type }),
-                ...(conversation.unreadCount !== undefined && { unreadCount: conversation.unreadCount }),
-                ...(conversation.fullName !== undefined && { fullName: conversation.fullName }),
-                ...(conversation.contactName !== undefined && { contactName: conversation.contactName }),
+                ...(conversation.locationId != null && { locationId: conversation.locationId }),
+                ...(conversation.contactId != null && { contactId: conversation.contactId }),
+                ...(conversation.lastMessageBody != null && { lastMessageBody: conversation.lastMessageBody }),
+                ...(conversation.lastMessageType != null && { lastMessageType: conversation.lastMessageType }),
+                ...(conversation.type != null && { type: conversation.type }),
+                ...(conversation.unreadCount != null && { unreadCount: conversation.unreadCount }),
+                ...(conversation.fullName != null && { fullName: conversation.fullName }),
+                ...(conversation.contactName != null && { contactName: conversation.contactName }),
                 ...(conversation.email != null && { email: conversation.email }),
                 ...(conversation.phone != null && { phone: conversation.phone }),
-                ...(conversation.dateAdded !== undefined && { dateAdded: conversation.dateAdded }),
-                ...(conversation.dateUpdated !== undefined && { dateUpdated: conversation.dateUpdated }),
-                ...(conversation.lastMessageDate !== undefined && { lastMessageDate: conversation.lastMessageDate }),
+                ...(conversation.dateAdded != null && { dateAdded: conversation.dateAdded }),
+                ...(conversation.dateUpdated != null && { dateUpdated: conversation.dateUpdated }),
+                ...(conversation.lastMessageDate != null && { lastMessageDate: conversation.lastMessageDate }),
                 ...(conversation.companyName != null && { companyName: conversation.companyName }),
-                ...(conversation.tags !== undefined && { tags: conversation.tags }),
-                ...(conversation.followers !== undefined && { followers: conversation.followers }),
-                ...(conversation.mentions !== undefined && { mentions: conversation.mentions }),
-                ...(conversation.isLastMessageInternalComment !== undefined && {
+                ...(conversation.tags != null && { tags: conversation.tags }),
+                ...(conversation.followers != null && { followers: conversation.followers }),
+                ...(conversation.mentions != null && { mentions: conversation.mentions }),
+                ...(conversation.isLastMessageInternalComment != null && {
                     isLastMessageInternalComment: conversation.isLastMessageInternalComment
                 }),
                 ...(conversation.profilePhoto != null && { profilePhoto: conversation.profilePhoto }),
                 ...(conversation.attributed != null && { attributed: conversation.attributed }),
-                ...(conversation.scoring !== undefined && { scoring: conversation.scoring }),
-                ...(conversation.messageTypes !== undefined && { messageTypes: conversation.messageTypes })
+                ...(conversation.scoring != null && { scoring: conversation.scoring }),
+                ...(conversation.messageTypes != null && { messageTypes: conversation.messageTypes })
             }));
 
             await nango.batchSave(records, 'Conversation');
@@ -173,6 +189,14 @@ const sync = createSync({
             if (conversations.length < LIMIT) {
                 hasMore = false;
             }
+        }
+
+        // Seed the next run's cursor with a trailing overlap so recently active conversations
+        // that were edited without a new message get re-fetched and re-saved with their latest state.
+        if (cursor !== undefined) {
+            await nango.saveCheckpoint({
+                start_after_date: Math.max(0, cursor - OVERLAP_MS)
+            });
         }
     }
 });

@@ -39,6 +39,19 @@ const action = createAction({
     scopes: ['contacts.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (
+            input.title === undefined &&
+            input.body === undefined &&
+            input.dueDate === undefined &&
+            input.completed === undefined &&
+            input.assignedTo === undefined
+        ) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one of title, body, dueDate, completed, or assignedTo must be provided.'
+            });
+        }
+
         const response = await nango.put({
             // https://highlevel.stoplight.io/docs/integrations/844ebf6a65c8d-update-task
             endpoint: `/contacts/${encodeURIComponent(input.contactId)}/tasks/${encodeURIComponent(input.taskId)}`,

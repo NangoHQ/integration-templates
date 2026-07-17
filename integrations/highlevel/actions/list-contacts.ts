@@ -68,23 +68,29 @@ const action = createAction({
     scopes: ['contacts.readonly'],
 
     exec: async (nango, input) => {
-        const metadata = await nango.getMetadata();
-
-        const MetadataSchema = z.object({
-            locationId: z.string()
-        });
-        const parsedMetadata = MetadataSchema.safeParse(metadata);
-        if (!parsedMetadata.success) {
+        const connection = await nango.getConnection();
+        const rawLocationIdFromConfig = connection.connection_config?.['locationId'];
+        let locationId = typeof rawLocationIdFromConfig === 'string' ? rawLocationIdFromConfig : undefined;
+        if (!locationId) {
+            const metadata = await nango.getMetadata();
+            const MetadataSchema = z.object({
+                locationId: z.string()
+            });
+            const parsedMetadata = MetadataSchema.safeParse(metadata);
+            if (parsedMetadata.success) {
+                locationId = parsedMetadata.data.locationId;
+            }
+        }
+        if (!locationId) {
             throw new nango.ActionError({
                 type: 'missing_metadata',
-                message: 'locationId is required in connection metadata.'
+                message: 'locationId is required in connection configuration or metadata.'
             });
         }
-        const locationId = parsedMetadata.data.locationId;
 
-        const pageLimit = input.limit !== undefined && input.limit > 0 ? input.limit : 100;
+        const pageLimit = input.limit !== undefined && Number.isInteger(input.limit) && input.limit > 0 ? input.limit : 100;
         const page = input.cursor !== undefined ? Number(input.cursor) : 1;
-        if (Number.isNaN(page) || page < 1) {
+        if (Number.isNaN(page) || !Number.isInteger(page) || page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a positive integer string.'

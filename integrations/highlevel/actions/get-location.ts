@@ -96,22 +96,21 @@ const action = createAction({
     scopes: ['locations.readonly'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata();
-
-        if (!metadata) {
-            throw new nango.ActionError({
-                type: 'missing_metadata',
-                message: 'locationId is required in connection metadata.'
-            });
+        const connection = await nango.getConnection();
+        const rawLocationIdFromConfig = connection.connection_config?.['locationId'];
+        let locationId = typeof rawLocationIdFromConfig === 'string' ? rawLocationIdFromConfig : undefined;
+        if (!locationId) {
+            const metadata = await nango.getMetadata();
+            const parsedMetadata = MetadataSchema.safeParse(metadata);
+            if (parsedMetadata.success) {
+                locationId = parsedMetadata.data.locationId;
+            }
         }
-
-        const parsedMetadata = MetadataSchema.parse(metadata);
-        const locationId = parsedMetadata.locationId;
 
         if (!locationId) {
             throw new nango.ActionError({
                 type: 'missing_metadata',
-                message: 'locationId is required in connection metadata.'
+                message: 'locationId is required in connection configuration or metadata.'
             });
         }
 

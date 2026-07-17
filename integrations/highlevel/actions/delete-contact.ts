@@ -7,7 +7,8 @@ const InputSchema = z.object({
 
 const ProviderResponseSchema = z
     .object({
-        success: z.boolean().optional()
+        succeeded: z.boolean().optional(),
+        succeded: z.boolean().optional()
     })
     .passthrough();
 
@@ -36,7 +37,7 @@ const action = createAction({
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            success: providerResponse.success ?? true,
+            success: providerResponse.succeeded ?? providerResponse.succeded ?? true,
             contactId: input.contactId
         };
     }

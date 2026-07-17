@@ -79,19 +79,33 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every 5 minutes',
     autoStart: true,
-    metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {
         Contact: ContactSchema
     },
 
     exec: async (nango) => {
-        const metadata = await nango.getMetadata();
-        const parsedMetadata = MetadataSchema.safeParse(metadata);
-        if (!parsedMetadata.success) {
-            throw new Error('locationId is required in metadata');
+        const connection = await nango.getConnection();
+        const connectionSchema = z.object({
+            connection_config: z.record(z.string(), z.unknown()).optional(),
+            metadata: z.record(z.string(), z.unknown()).optional()
+        });
+        const parsedConnection = connectionSchema.safeParse(connection);
+
+        let rawLocationId = parsedConnection.success
+            ? (parsedConnection.data.connection_config?.['locationId'] ?? parsedConnection.data.metadata?.['locationId'])
+            : undefined;
+        if (typeof rawLocationId !== 'string') {
+            const metadata = await nango.getMetadata();
+            const parsedMetadata = MetadataSchema.safeParse(metadata);
+            if (parsedMetadata.success) {
+                rawLocationId = parsedMetadata.data.locationId;
+            }
         }
-        const locationId = parsedMetadata.data.locationId;
+        if (typeof rawLocationId !== 'string') {
+            throw new Error('locationId is required in connection configuration or metadata');
+        }
+        const locationId = rawLocationId;
 
         const checkpoint = await nango.getCheckpoint();
         let updatedAfter = '1970-01-01T00:00:00.000Z';

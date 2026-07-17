@@ -54,9 +54,22 @@ const action = createAction({
     scopes: ['locations/customFields.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const rawMetadata = await nango.getMetadata();
-        const metadata = MetadataSchema.parse(rawMetadata);
-        const locationId = metadata.locationId;
+        const connection = await nango.getConnection();
+        const rawLocationIdFromConfig = connection.connection_config?.['locationId'];
+        let locationId = typeof rawLocationIdFromConfig === 'string' ? rawLocationIdFromConfig : undefined;
+        if (!locationId) {
+            const rawMetadata = await nango.getMetadata();
+            const parsedMetadata = MetadataSchema.safeParse(rawMetadata);
+            if (parsedMetadata.success) {
+                locationId = parsedMetadata.data.locationId;
+            }
+        }
+        if (!locationId) {
+            throw new nango.ActionError({
+                type: 'invalid_metadata',
+                message: 'locationId is required in connection configuration or metadata.'
+            });
+        }
 
         const response = await nango.get({
             // https://github.com/GoHighLevel/highlevel-api-docs/blob/main/apps/locations.json
