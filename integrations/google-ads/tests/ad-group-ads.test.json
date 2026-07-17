@@ -1,0 +1,183 @@
+{
+  "nango": {
+    "getMetadata": {
+      "customer_ids": [
+        "1781900691"
+      ],
+      "login_customer_id": "3608201627",
+      "developer_token": "YOUR_DEVELOPER_TOKEN"
+    },
+    "batchSave": {
+      "AdGroupAd": [
+        {
+          "id": "customers/1781900691/adGroupAds/197714341345~816877972684",
+          "status": "ENABLED",
+          "ad_type": "RESPONSIVE_SEARCH_AD",
+          "ad_group": "customers/1781900691/adGroups/197714341345",
+          "ad_group_name": "Seed Ad Group Keep 1 - Updated",
+          "campaign": "customers/1781900691/campaigns/24027360183",
+          "campaign_name": "Seed Campaign Keep 1 Updated",
+          "updated_at": "2026-07-15"
+        },
+        {
+          "id": "customers/1781900691/adGroupAds/197714341345~816946667438",
+          "status": "PAUSED",
+          "ad_type": "RESPONSIVE_SEARCH_AD",
+          "ad_group": "customers/1781900691/adGroups/197714341345",
+          "ad_group_name": "Seed Ad Group Keep 1 - Updated",
+          "campaign": "customers/1781900691/campaigns/24027360183",
+          "campaign_name": "Seed Campaign Keep 1 Updated",
+          "updated_at": "2026-07-15"
+        },
+        {
+          "id": "customers/1781900691/adGroupAds/197714341345~816948922766",
+          "status": "ENABLED",
+          "ad_type": "RESPONSIVE_SEARCH_AD",
+          "ad_group": "customers/1781900691/adGroups/197714341345",
+          "ad_group_name": "Seed Ad Group Keep 1 - Updated",
+          "campaign": "customers/1781900691/campaigns/24027360183",
+          "campaign_name": "Seed Campaign Keep 1 Updated",
+          "updated_at": "2026-07-15"
+        },
+        {
+          "id": "customers/1781900691/adGroupAds/197714341385~816946667441",
+          "status": "PAUSED",
+          "ad_type": "RESPONSIVE_SEARCH_AD",
+          "ad_group": "customers/1781900691/adGroups/197714341385",
+          "ad_group_name": "Seed Ad Group Keep 2",
+          "campaign": "customers/1781900691/campaigns/24027360186",
+          "campaign_name": "Seed Campaign Keep 2",
+          "updated_at": "2026-07-15"
+        }
+      ]
+    },
+    "batchDelete": {
+      "AdGroupAd": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v21/customers/1781900691/googleAds:searchStream": [
+        {
+          "response": [
+            {
+              "results": [
+                {
+                  "campaign": {
+                    "resourceName": "customers/1781900691/campaigns/24027360183",
+                    "name": "Seed Campaign Keep 1 Updated"
+                  },
+                  "adGroup": {
+                    "resourceName": "customers/1781900691/adGroups/197714341345",
+                    "name": "Seed Ad Group Keep 1 - Updated"
+                  },
+                  "adGroupAd": {
+                    "resourceName": "customers/1781900691/adGroupAds/197714341345~816877972684",
+                    "status": "ENABLED",
+                    "ad": {
+                      "type": "RESPONSIVE_SEARCH_AD",
+                      "resourceName": "customers/1781900691/ads/816877972684"
+                    },
+                    "adGroup": "customers/1781900691/adGroups/197714341345"
+                  }
+                },
+                {
+                  "campaign": {
+                    "resourceName": "customers/1781900691/campaigns/24027360183",
+                    "name": "Seed Campaign Keep 1 Updated"
+                  },
+                  "adGroup": {
+                    "resourceName": "customers/1781900691/adGroups/197714341345",
+                    "name": "Seed Ad Group Keep 1 - Updated"
+                  },
+                  "adGroupAd": {
+                    "resourceName": "customers/1781900691/adGroupAds/197714341345~816946667438",
+                    "status": "PAUSED",
+                    "ad": {
+                      "type": "RESPONSIVE_SEARCH_AD",
+                      "resourceName": "customers/1781900691/ads/816946667438"
+                    },
+                    "adGroup": "customers/1781900691/adGroups/197714341345"
+                  }
+                },
+                {
+                  "campaign": {
+                    "resourceName": "customers/1781900691/campaigns/24027360183",
+                    "name": "Seed Campaign Keep 1 Updated"
+                  },
+                  "adGroup": {
+                    "resourceName": "customers/1781900691/adGroups/197714341345",
+                    "name": "Seed Ad Group Keep 1 - Updated"
+                  },
+                  "adGroupAd": {
+                    "resourceName": "customers/1781900691/adGroupAds/197714341345~816948922766",
+                    "status": "ENABLED",
+                    "ad": {
+                      "type": "RESPONSIVE_SEARCH_AD",
+                      "resourceName": "customers/1781900691/ads/816948922766"
+                    },
+                    "adGroup": "customers/1781900691/adGroups/197714341345"
+                  }
+                },
+                {
+                  "campaign": {
+                    "resourceName": "customers/1781900691/campaigns/24027360186",
+                    "name": "Seed Campaign Keep 2"
+                  },
+                  "adGroup": {
+                    "resourceName": "customers/1781900691/adGroups/197714341385",
+                    "name": "Seed Ad Group Keep 2"
+                  },
+                  "adGroupAd": {
+                    "resourceName": "customers/1781900691/adGroupAds/197714341385~816946667441",
+                    "status": "PAUSED",
+                    "ad": {
+                      "type": "RESPONSIVE_SEARCH_AD",
+                      "resourceName": "customers/1781900691/ads/816946667441"
+                    },
+                    "adGroup": "customers/1781900691/adGroups/197714341385"
+                  }
+                }
+              ],
+              "fieldMask": "adGroupAd.resourceName,adGroupAd.status,adGroupAd.ad.name,adGroupAd.ad.type,adGroupAd.adGroup,adGroup.name,campaign.resourceName,campaign.name",
+              "requestId": "U-6ZkoPFlw0UpfQfpbJ8Aw",
+              "queryResourceConsumption": "156"
+            }
+          ],
+          "status": 200,
+          "headers": {
+            "date": "Wed, 15 Jul 2026 01:07:28 GMT",
+            "content-type": "application/json; charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4996",
+            "x-ratelimit-reset": "1784077705",
+            "vary": "Origin, X-Origin, Referer",
+            "server": "ESF",
+            "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+          },
+          "hash": "70fd0d85e32458b8ac9a77984ba7aefe35d6d2aa",
+          "request": {
+            "headers": {
+              "developer-token": "YOUR_DEVELOPER_TOKEN",
+              "login-customer-id": "3608201627"
+            },
+            "data": {
+              "query": "\n    SELECT\n        ad_group_ad.resource_name,\n        ad_group_ad.status,\n        ad_group_ad.ad.name,\n        ad_group_ad.ad.type,\n        ad_group_ad.ad_group,\n        ad_group.name,\n        campaign.resource_name,\n        campaign.name\n    FROM ad_group_ad\n"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

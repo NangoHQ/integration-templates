@@ -1,0 +1,354 @@
+{
+  "input": {
+    "sys_id": "1c741bd70b2322007518478d83673af3",
+    "work_notes": "Nango test work note"
+  },
+  "output": {
+    "sys_id": "1c741bd70b2322007518478d83673af3",
+    "number": "INC0000060",
+    "short_description": "Unable to connect to email",
+    "description": "I am unable to connect to the email server. It appears to be down.",
+    "state": "Closed",
+    "impact": "2 - Medium",
+    "urgency": "2 - Medium",
+    "priority": "3 - Moderate",
+    "assigned_to": "David Loo",
+    "assignment_group": "Network",
+    "comments": "2016-12-13 12:30:14 - Joe Employee (Comments)\nHi David, \nThat must be it. I was on phone calls at all three of those times and must not have had any activity on my computer. Please close this incident.\n\n2016-12-13 10:42:25 - David Loo (Comments)\nHi Joe,\nI've checked in network logs and you were timed out from the VPN at 9:25AM, 10:42AM and 2:28PM. These three times coincide with entries in the exchange server logs showing you lost connection at those same times. The VPN policy is to time out a connection if it hasn't been active in 30 minutes. Please ensure the next time you lose connectivity you are still connected to the VPN.\n\nI'm going to update this incident to resolved. Please let me know if you need any more assistance.\n\n2016-12-13 07:53:01 - Joe Employee (Comments)\nHi David,\nThank you! I use the corporate VPN and was also unable to connect to the email server at 9:30AM and 10:45AM.\n\n2016-12-13 06:43:17 - David Loo (Comments)\nHi Joe,\nMy name is David. I'll be assisting you with this incident. Can you confirm which VPN you have been using today? I also see you were having this issue at 2:30PM. Were there any other times you can recall you had issues connecting to the email?\n\n2016-12-12 16:56:57 - Beth Anglin (Comments)\nHi Joe, \nAs per discussion on call, Workaround has been provided and it has worked for you. I have verified with the Exchange team we haven't had an issue with the email server today. I'm going to assign this issue to the network team for further investigation.\n\n2016-12-12 12:43:50 - Joe Employee (Comments)\nHi Beth,\nYes, I'm connected to the VPN, although I've had to reconnect to it a couple of times. The last time I was unable to connect was 2:30PM.\n\n2016-12-12 10:52:42 - Beth Anglin (Comments)\nHi Joe, \nAre you connected to the VPN when you're having this issue? Can you identify a specific time you were unable to connect to email?\n\n2016-12-12 08:30:49 - Beth Anglin (Comments)\nHi Joe, \nMy name is Beth and I'll be assisting you with your issue.\n\n2016-12-12 07:19:57 - Joe Employee (Comments)\nI am unable to connect to the email server. It appears to be down.\n\n",
+    "work_notes": "2026-07-13 17:28:40 - System Administrator (Work notes)\nNango test work note\n\n2026-07-13 17:28:33 - System Administrator (Work notes)\nNango test work note\n\n2026-07-13 17:27:13 - System Administrator (Work notes)\nNango test work note\n\n2026-07-13 17:26:32 - System Administrator (Work notes)\nNango test work note\n\n2016-12-12 16:56:57 - Beth Anglin (Work notes)\nUpdating priority as workaround for incident has been provided.\n\n2016-12-12 09:57:00 - Beth Anglin (Work notes)\nIncreasing priority as this incident is affecting more number of users\n\n2016-12-12 09:01:24 - Beth Anglin (Work notes)\nUpdating incident with correct Configuration item\n\n",
+    "active": "false",
+    "close_code": "Solved (Permanently)",
+    "close_notes": "This incident is resolved.",
+    "sys_updated_on": "2026-07-13 17:28:40",
+    "sys_created_on": "2016-12-12 07:19:57"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/api/now/table/incident/1c741bd70b2322007518478d83673af3": {
+        "response": {
+          "result": {
+            "parent": "",
+            "made_sla": "true",
+            "caused_by": "",
+            "watch_list": "",
+            "upon_reject": "cancel",
+            "sys_updated_on": "2026-07-14 00:28:40",
+            "child_incidents": "0",
+            "hold_reason": "",
+            "origin_table": "",
+            "task_effective_number": "INC0000060",
+            "approval_history": "",
+            "number": "INC0000060",
+            "resolved_by": {
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/5137153cc611227c000bbd1bd8cd2007",
+              "value": "5137153cc611227c000bbd1bd8cd2007"
+            },
+            "sys_updated_by": "admin",
+            "opened_by": {
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/681ccaf9c0a8016400b98a06818d57c7",
+              "value": "681ccaf9c0a8016400b98a06818d57c7"
+            },
+            "user_input": "",
+            "sys_created_on": "2016-12-12 15:19:57",
+            "sys_domain": {
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user_group/global",
+              "value": "global"
+            },
+            "state": "7",
+            "route_reason": "",
+            "sys_created_by": "employee",
+            "knowledge": "false",
+            "order": "",
+            "calendar_stc": "102197",
+            "closed_at": "2016-12-14 02:46:44",
+            "cmdb_ci": {
+              "link": "https://dev405491.service-now.com/api/now/table/cmdb_ci/109562a3c611227500a7b7ff98cc0dc7",
+              "value": "109562a3c611227500a7b7ff98cc0dc7"
+            },
+            "delivery_plan": "",
+            "contract": "",
+            "impact": "2",
+            "active": "false",
+            "work_notes_list": "",
+            "business_service": {
+              "link": "https://dev405491.service-now.com/api/now/table/cmdb_ci_service/27d32778c0a8000b00db970eeaa60f16",
+              "value": "27d32778c0a8000b00db970eeaa60f16"
+            },
+            "business_impact": "",
+            "priority": "3",
+            "sys_domain_path": "/",
+            "rfc": "",
+            "time_worked": "",
+            "expected_start": "",
+            "opened_at": "2016-12-12 15:19:57",
+            "business_duration": "1970-01-01 08:00:00",
+            "group_list": "",
+            "work_end": "",
+            "caller_id": {
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/681ccaf9c0a8016400b98a06818d57c7",
+              "value": "681ccaf9c0a8016400b98a06818d57c7"
+            },
+            "reopened_time": "",
+            "resolved_at": "2016-12-13 21:43:14",
+            "approval_set": "",
+            "subcategory": "email",
+            "work_notes": "",
+            "universal_request": "",
+            "short_description": "Unable to connect to email",
+            "close_code": "Solved (Permanently)",
+            "correlation_display": "",
+            "delivery_task": "",
+            "work_start": "",
+            "assignment_group": {
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user_group/287ebd7da9fe198100f92cc8d1d2154e",
+              "value": "287ebd7da9fe198100f92cc8d1d2154e"
+            },
+            "additional_assignee_list": "",
+            "business_stc": "28800",
+            "cause": "",
+            "description": "I am unable to connect to the email server. It appears to be down.",
+            "origin_id": "",
+            "calendar_duration": "1970-01-02 04:23:17",
+            "close_notes": "This incident is resolved.",
+            "notify": "1",
+            "service_offering": "",
+            "sys_class_name": "incident",
+            "closed_by": {
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/681ccaf9c0a8016400b98a06818d57c7",
+              "value": "681ccaf9c0a8016400b98a06818d57c7"
+            },
+            "follow_up": "",
+            "parent_incident": "",
+            "sys_id": "1c741bd70b2322007518478d83673af3",
+            "contact_type": "self-service",
+            "reopened_by": "",
+            "incident_state": "7",
+            "urgency": "2",
+            "problem_id": "",
+            "company": {
+              "link": "https://dev405491.service-now.com/api/now/table/core_company/31bea3d53790200044e0bfc8bcbe5dec",
+              "value": "31bea3d53790200044e0bfc8bcbe5dec"
+            },
+            "reassignment_count": "2",
+            "activity_due": "2016-12-13 01:26:36",
+            "assigned_to": {
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/5137153cc611227c000bbd1bd8cd2007",
+              "value": "5137153cc611227c000bbd1bd8cd2007"
+            },
+            "severity": "3",
+            "comments": "",
+            "approval": "not requested",
+            "sla_due": "",
+            "comments_and_work_notes": "",
+            "due_date": "",
+            "sys_mod_count": "19",
+            "reopen_count": "0",
+            "sys_tags": "",
+            "escalation": "0",
+            "upon_approval": "proceed",
+            "correlation_id": "",
+            "location": "",
+            "category": "inquiry"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 14 Jul 2026 00:28:41 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4937",
+          "x-ratelimit-reset": "1783988957",
+          "server": "snow_adc",
+          "set-cookie": "JSESSIONID=AFD0048D45B37076AD7798FAA08C6EB9; Path=/; HttpOnly, glide_user=; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly, glide_user_session=; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly, glide_user_route=glide.f5d065711039bff0f751b68c63db8033; Max-Age=2147483647; Expires=Sun, 01-Aug-2094 03:42:47 GMT; Path=/; Secure; HttpOnly, glide_node_id_for_js=0be40a8c932a021330c1616f3236c63d016b8523c58089c44e0947d4ad8e4836; Path=/; Secure, glide_session_store=63B90F31C30E0310C5A8FC0D050131A9; Max-Age=300; Expires=Tue, 14-Jul-2026 00:33:40 GMT; Path=/; Secure; HttpOnly",
+          "server-timing": "t;desc=\"e7b94b31c30e\", sem_wait;dur=1, sesh_wait;dur=0",
+          "x-is-logged-in": "true",
+          "x-transaction-id": "e7b94b31c30e",
+          "pragma": "no-store,no-cache",
+          "cache-control": "no-cache,no-store,must-revalidate,max-age=-1",
+          "expires": "0"
+        },
+        "hash": "5e33362316e41d557ee76298d6e278343c501fde",
+        "request": {
+          "data": {
+            "work_notes": "Nango test work note"
+          }
+        }
+      }
+    },
+    "get": {
+      "/api/now/table/incident/1c741bd70b2322007518478d83673af3": {
+        "response": {
+          "result": {
+            "parent": "",
+            "made_sla": "true",
+            "caused_by": "",
+            "watch_list": "",
+            "upon_reject": "Cancel all future Tasks",
+            "sys_updated_on": "2026-07-13 17:28:40",
+            "child_incidents": "0",
+            "hold_reason": "",
+            "origin_table": "",
+            "task_effective_number": "INC0000060",
+            "approval_history": "",
+            "number": "INC0000060",
+            "resolved_by": {
+              "display_value": "David Loo",
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/5137153cc611227c000bbd1bd8cd2007"
+            },
+            "sys_updated_by": "admin",
+            "opened_by": {
+              "display_value": "Joe Employee",
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/681ccaf9c0a8016400b98a06818d57c7"
+            },
+            "user_input": "",
+            "sys_created_on": "2016-12-12 07:19:57",
+            "sys_domain": {
+              "display_value": "global",
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user_group/global"
+            },
+            "state": "Closed",
+            "route_reason": "",
+            "sys_created_by": "employee",
+            "knowledge": "false",
+            "order": "",
+            "calendar_stc": "102,197",
+            "closed_at": "2016-12-13 18:46:44",
+            "cmdb_ci": {
+              "display_value": "Storage Area Network 001",
+              "link": "https://dev405491.service-now.com/api/now/table/cmdb_ci/109562a3c611227500a7b7ff98cc0dc7"
+            },
+            "delivery_plan": "",
+            "contract": "",
+            "impact": "2 - Medium",
+            "active": "false",
+            "work_notes_list": "",
+            "business_service": {
+              "display_value": "Email",
+              "link": "https://dev405491.service-now.com/api/now/table/cmdb_ci_service/27d32778c0a8000b00db970eeaa60f16"
+            },
+            "business_impact": "",
+            "priority": "3 - Moderate",
+            "sys_domain_path": "/",
+            "rfc": "",
+            "time_worked": "",
+            "expected_start": "",
+            "opened_at": "2016-12-12 07:19:57",
+            "business_duration": "8 Hours",
+            "group_list": "",
+            "work_end": "",
+            "caller_id": {
+              "display_value": "Joe Employee",
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/681ccaf9c0a8016400b98a06818d57c7"
+            },
+            "reopened_time": "",
+            "resolved_at": "2016-12-13 13:43:14",
+            "approval_set": "",
+            "subcategory": "Email",
+            "work_notes": "2026-07-13 17:28:40 - System Administrator (Work notes)\nNango test work note\n\n2026-07-13 17:28:33 - System Administrator (Work notes)\nNango test work note\n\n2026-07-13 17:27:13 - System Administrator (Work notes)\nNango test work note\n\n2026-07-13 17:26:32 - System Administrator (Work notes)\nNango test work note\n\n2016-12-12 16:56:57 - Beth Anglin (Work notes)\nUpdating priority as workaround for incident has been provided.\n\n2016-12-12 09:57:00 - Beth Anglin (Work notes)\nIncreasing priority as this incident is affecting more number of users\n\n2016-12-12 09:01:24 - Beth Anglin (Work notes)\nUpdating incident with correct Configuration item\n\n",
+            "universal_request": "",
+            "short_description": "Unable to connect to email",
+            "close_code": "Solved (Permanently)",
+            "correlation_display": "",
+            "delivery_task": "",
+            "work_start": "",
+            "assignment_group": {
+              "display_value": "Network",
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user_group/287ebd7da9fe198100f92cc8d1d2154e"
+            },
+            "additional_assignee_list": "",
+            "business_stc": "28,800",
+            "cause": "",
+            "description": "I am unable to connect to the email server. It appears to be down.",
+            "origin_id": "",
+            "calendar_duration": "1 Day 4 Hours 23 Minutes",
+            "close_notes": "This incident is resolved.",
+            "notify": "Do Not Notify",
+            "service_offering": "",
+            "sys_class_name": "Incident",
+            "closed_by": {
+              "display_value": "Joe Employee",
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/681ccaf9c0a8016400b98a06818d57c7"
+            },
+            "follow_up": "",
+            "parent_incident": "",
+            "sys_id": "1c741bd70b2322007518478d83673af3",
+            "contact_type": "Self-service",
+            "reopened_by": "",
+            "incident_state": "Closed",
+            "urgency": "2 - Medium",
+            "problem_id": "",
+            "company": {
+              "display_value": "ACME North America",
+              "link": "https://dev405491.service-now.com/api/now/table/core_company/31bea3d53790200044e0bfc8bcbe5dec"
+            },
+            "reassignment_count": "2",
+            "activity_due": "2016-12-12 17:26:36",
+            "assigned_to": {
+              "display_value": "David Loo",
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/5137153cc611227c000bbd1bd8cd2007"
+            },
+            "severity": "3 - Low",
+            "comments": "2016-12-13 12:30:14 - Joe Employee (Comments)\nHi David, \nThat must be it. I was on phone calls at all three of those times and must not have had any activity on my computer. Please close this incident.\n\n2016-12-13 10:42:25 - David Loo (Comments)\nHi Joe,\nI've checked in network logs and you were timed out from the VPN at 9:25AM, 10:42AM and 2:28PM. These three times coincide with entries in the exchange server logs showing you lost connection at those same times. The VPN policy is to time out a connection if it hasn't been active in 30 minutes. Please ensure the next time you lose connectivity you are still connected to the VPN.\n\nI'm going to update this incident to resolved. Please let me know if you need any more assistance.\n\n2016-12-13 07:53:01 - Joe Employee (Comments)\nHi David,\nThank you! I use the corporate VPN and was also unable to connect to the email server at 9:30AM and 10:45AM.\n\n2016-12-13 06:43:17 - David Loo (Comments)\nHi Joe,\nMy name is David. I'll be assisting you with this incident. Can you confirm which VPN you have been using today? I also see you were having this issue at 2:30PM. Were there any other times you can recall you had issues connecting to the email?\n\n2016-12-12 16:56:57 - Beth Anglin (Comments)\nHi Joe, \nAs per discussion on call, Workaround has been provided and it has worked for you. I have verified with the Exchange team we haven't had an issue with the email server today. I'm going to assign this issue to the network team for further investigation.\n\n2016-12-12 12:43:50 - Joe Employee (Comments)\nHi Beth,\nYes, I'm connected to the VPN, although I've had to reconnect to it a couple of times. The last time I was unable to connect was 2:30PM.\n\n2016-12-12 10:52:42 - Beth Anglin (Comments)\nHi Joe, \nAre you connected to the VPN when you're having this issue? Can you identify a specific time you were unable to connect to email?\n\n2016-12-12 08:30:49 - Beth Anglin (Comments)\nHi Joe, \nMy name is Beth and I'll be assisting you with your issue.\n\n2016-12-12 07:19:57 - Joe Employee (Comments)\nI am unable to connect to the email server. It appears to be down.\n\n",
+            "approval": "Not Yet Requested",
+            "sla_due": "UNKNOWN",
+            "comments_and_work_notes": "2026-07-13 17:28:40 - System Administrator (Work notes)\nNango test work note\n\n2026-07-13 17:28:33 - System Administrator (Work notes)\nNango test work note\n\n2026-07-13 17:27:13 - System Administrator (Work notes)\nNango test work note\n\n2026-07-13 17:26:32 - System Administrator (Work notes)\nNango test work note\n\n2016-12-13 12:30:14 - Joe Employee (Comments)\nHi David, \nThat must be it. I was on phone calls at all three of those times and must not have had any activity on my computer. Please close this incident.\n\n2016-12-13 10:42:25 - David Loo (Comments)\nHi Joe,\nI've checked in network logs and you were timed out from the VPN at 9:25AM, 10:42AM and 2:28PM. These three times coincide with entries in the exchange server logs showing you lost connection at those same times. The VPN policy is to time out a connection if it hasn't been active in 30 minutes. Please ensure the next time you lose connectivity you are still connected to the VPN.\n\nI'm going to update this incident to resolved. Please let me know if you need any more assistance.\n\n2016-12-13 07:53:01 - Joe Employee (Comments)\nHi David,\nThank you! I use the corporate VPN and was also unable to connect to the email server at 9:30AM and 10:45AM.\n\n2016-12-13 06:43:17 - David Loo (Comments)\nHi Joe,\nMy name is David. I'll be assisting you with this incident. Can you confirm which VPN you have been using today? I also see you were having this issue at 2:30PM. Were there any other times you can recall you had issues connecting to the email?\n\n2016-12-12 16:56:57 - Beth Anglin (Work notes)\nUpdating priority as workaround for incident has been provided.\n\n2016-12-12 16:56:57 - Beth Anglin (Comments)\nHi Joe, \nAs per discussion on call, Workaround has been provided and it has worked for you. I have verified with the Exchange team we haven't had an issue with the email server today. I'm going to assign this issue to the network team for further investigation.\n\n2016-12-12 12:43:50 - Joe Employee (Comments)\nHi Beth,\nYes, I'm connected to the VPN, although I've had to reconnect to it a couple of times. The last time I was unable to connect was 2:30PM.\n\n2016-12-12 10:52:42 - Beth Anglin (Comments)\nHi Joe, \nAre you connected to the VPN when you're having this issue? Can you identify a specific time you were unable to connect to email?\n\n2016-12-12 09:57:00 - Beth Anglin (Work notes)\nIncreasing priority as this incident is affecting more number of users\n\n2016-12-12 09:01:24 - Beth Anglin (Work notes)\nUpdating incident with correct Configuration item\n\n2016-12-12 08:30:49 - Beth Anglin (Comments)\nHi Joe, \nMy name is Beth and I'll be assisting you with your issue.\n\n2016-12-12 07:19:57 - Joe Employee (Comments)\nI am unable to connect to the email server. It appears to be down.\n\n",
+            "due_date": "",
+            "sys_mod_count": "19",
+            "reopen_count": "0",
+            "sys_tags": "",
+            "escalation": "Normal",
+            "upon_approval": "Proceed to Next Task",
+            "correlation_id": "",
+            "location": "",
+            "category": "Inquiry / Help"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 14 Jul 2026 00:28:42 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4934",
+          "x-ratelimit-reset": "1783988957",
+          "server": "snow_adc",
+          "set-cookie": "JSESSIONID=5F934733F8BDFCABEC20E0289887A6E0; Path=/; HttpOnly, glide_user=; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly, glide_user_session=; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly, glide_user_route=glide.f5d065711039bff0f751b68c63db8033; Max-Age=2147483647; Expires=Sun, 01-Aug-2094 03:42:49 GMT; Path=/; Secure; HttpOnly, glide_node_id_for_js=0be40a8c932a021330c1616f3236c63d016b8523c58089c44e0947d4ad8e4836; Path=/; Secure, glide_session_store=48C903B1C30E0310C5A8FC0D050131B8; Max-Age=300; Expires=Tue, 14-Jul-2026 00:33:42 GMT; Path=/; Secure; HttpOnly",
+          "server-timing": "t;desc=\"ccc90bb1c30e\", sem_wait;dur=3, sesh_wait;dur=0",
+          "x-is-logged-in": "true",
+          "x-transaction-id": "ccc90bb1c30e",
+          "pragma": "no-store,no-cache",
+          "cache-control": "no-cache,no-store,must-revalidate,max-age=-1",
+          "expires": "0"
+        },
+        "hash": "569de8ea62bae5d1ef08b94416590d759f3e1c90",
+        "request": {
+          "params": {
+            "sysparm_display_value": "true"
+          }
+        }
+      }
+    }
+  }
+}

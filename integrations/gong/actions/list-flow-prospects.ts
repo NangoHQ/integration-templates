@@ -7,43 +7,43 @@ const InputSchema = z.object({
 });
 
 const ProviderProspectSchema = z.object({
-    flowId: z.string().optional(),
-    flowName: z.string().optional(),
-    crmProspectId: z.string().optional(),
-    flowInstanceId: z.string().optional(),
-    flowInstanceOwnerEmail: z.string().optional(),
-    flowInstanceOwnerFullName: z.string().optional(),
-    flowInstanceCreateDate: z.string().optional(),
-    flowInstanceStatus: z.string().optional(),
-    workspaceId: z.string().optional(),
-    exclusive: z.boolean().optional()
+    flowId: z.string().nullish(),
+    flowName: z.string().nullish(),
+    crmProspectId: z.string().nullish(),
+    flowInstanceId: z.string().nullish(),
+    flowInstanceOwnerEmail: z.string().nullish(),
+    flowInstanceOwnerFullName: z.string().nullish(),
+    flowInstanceCreateDate: z.string().nullish(),
+    flowInstanceStatus: z.string().nullish(),
+    workspaceId: z.string().nullish(),
+    exclusive: z.boolean().nullish()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    prospectsAssigned: z.array(ProviderProspectSchema).optional()
+    prospectsAssigned: z.array(ProviderProspectSchema).nullish()
 });
 
 const ProspectOutputSchema = z.object({
-    flowId: z.string().optional(),
-    flowName: z.string().optional(),
-    crmProspectId: z.string().optional(),
-    flowInstanceId: z.string().optional(),
-    flowInstanceOwnerEmail: z.string().optional(),
-    flowInstanceOwnerFullName: z.string().optional(),
-    flowInstanceCreateDate: z.string().optional(),
-    flowInstanceStatus: z.string().optional(),
-    workspaceId: z.string().optional(),
-    exclusive: z.boolean().optional()
+    flowId: z.string().nullish(),
+    flowName: z.string().nullish(),
+    crmProspectId: z.string().nullish(),
+    flowInstanceId: z.string().nullish(),
+    flowInstanceOwnerEmail: z.string().nullish(),
+    flowInstanceOwnerFullName: z.string().nullish(),
+    flowInstanceCreateDate: z.string().nullish(),
+    flowInstanceStatus: z.string().nullish(),
+    workspaceId: z.string().nullish(),
+    exclusive: z.boolean().nullish()
 });
 
 const OutputSchema = z.object({
-    items: z.array(ProspectOutputSchema)
+    items: z.array(ProspectOutputSchema).nullable()
 });
 
 const action = createAction({
     description: 'List prospects and their current flow assignment status.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:read'],

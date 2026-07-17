@@ -10,76 +10,76 @@ const InputSchema = z.object({
 });
 
 const ProviderAnswerSchema = z.object({
-    questionId: z.union([z.string(), z.number()]).transform(String),
-    questionRevisionId: z.union([z.string(), z.number()]).transform(String).optional(),
-    isOverall: z.boolean().optional(),
-    score: z.number().optional(),
-    answerText: z.string().optional(),
-    notApplicable: z.boolean().optional(),
-    selectedOptions: z.array(z.string()).optional()
+    questionId: z.union([z.string(), z.number()]).transform(String).nullable(),
+    questionRevisionId: z.union([z.string(), z.number()]).transform(String).nullish(),
+    isOverall: z.boolean().nullish(),
+    score: z.number().nullish(),
+    answerText: z.string().nullish(),
+    notApplicable: z.boolean().nullish(),
+    selectedOptions: z.array(z.string()).nullish()
 });
 
 const ProviderAnsweredScorecardSchema = z.object({
-    answeredScorecardId: z.union([z.string(), z.number()]).transform(String),
-    scorecardId: z.union([z.string(), z.number()]).transform(String),
-    scorecardName: z.string(),
-    callId: z.union([z.string(), z.number()]).transform(String),
-    callStartTime: z.string().optional(),
-    reviewedUserId: z.union([z.string(), z.number()]).transform(String).optional(),
-    reviewerUserId: z.union([z.string(), z.number()]).transform(String).nullable().optional(),
-    reviewMethod: z.string().optional(),
-    editorUserId: z.union([z.string(), z.number()]).transform(String).nullable().optional(),
-    reviewTime: z.string().optional(),
-    visibilityType: z.string().optional(),
-    answers: z.array(ProviderAnswerSchema).optional()
+    answeredScorecardId: z.union([z.string(), z.number()]).transform(String).nullable(),
+    scorecardId: z.union([z.string(), z.number()]).transform(String).nullable(),
+    scorecardName: z.string().nullable(),
+    callId: z.union([z.string(), z.number()]).transform(String).nullable(),
+    callStartTime: z.string().nullish(),
+    reviewedUserId: z.union([z.string(), z.number()]).transform(String).nullish(),
+    reviewerUserId: z.union([z.string(), z.number()]).transform(String).nullish(),
+    reviewMethod: z.string().nullish(),
+    editorUserId: z.union([z.string(), z.number()]).transform(String).nullish(),
+    reviewTime: z.string().nullish(),
+    visibilityType: z.string().nullish(),
+    answers: z.array(ProviderAnswerSchema).nullish()
 });
 
 const OutputAnswerSchema = z.object({
-    questionId: z.string(),
-    questionRevisionId: z.string().optional(),
-    isOverall: z.boolean().optional(),
-    score: z.number().optional(),
-    answerText: z.string().optional(),
-    notApplicable: z.boolean().optional(),
-    selectedOptions: z.array(z.string()).optional()
+    questionId: z.string().nullable(),
+    questionRevisionId: z.string().nullish(),
+    isOverall: z.boolean().nullish(),
+    score: z.number().nullish(),
+    answerText: z.string().nullish(),
+    notApplicable: z.boolean().nullish(),
+    selectedOptions: z.array(z.string()).nullish()
 });
 
 const OutputAnsweredScorecardSchema = z.object({
-    answeredScorecardId: z.string(),
-    scorecardId: z.string(),
-    scorecardName: z.string(),
-    callId: z.string(),
-    callStartTime: z.string().optional(),
-    reviewedUserId: z.string().optional(),
-    reviewerUserId: z.string().nullable().optional(),
-    reviewMethod: z.string().optional(),
-    editorUserId: z.string().nullable().optional(),
-    reviewTime: z.string().optional(),
-    visibilityType: z.string().optional(),
-    answers: z.array(OutputAnswerSchema).optional()
+    answeredScorecardId: z.string().nullable(),
+    scorecardId: z.string().nullable(),
+    scorecardName: z.string().nullable(),
+    callId: z.string().nullable(),
+    callStartTime: z.string().nullish(),
+    reviewedUserId: z.string().nullish(),
+    reviewerUserId: z.string().nullish(),
+    reviewMethod: z.string().nullish(),
+    editorUserId: z.string().nullish(),
+    reviewTime: z.string().nullish(),
+    visibilityType: z.string().nullish(),
+    answers: z.array(OutputAnswerSchema).nullish()
 });
 
 const RecordsSchema = z.object({
-    totalRecords: z.number().optional(),
-    currentPageSize: z.number().optional(),
-    currentPageNumber: z.number().optional(),
-    cursor: z.string().optional()
+    totalRecords: z.number().nullish(),
+    currentPageSize: z.number().nullish(),
+    currentPageNumber: z.number().nullish(),
+    cursor: z.string().nullish()
 });
 
 const ResponseSchema = z.object({
     requestId: z.string().optional(),
-    records: RecordsSchema.optional(),
-    answeredScorecards: z.array(ProviderAnsweredScorecardSchema).optional()
+    records: RecordsSchema.nullish(),
+    answeredScorecards: z.array(ProviderAnsweredScorecardSchema).nullish()
 });
 
 const OutputSchema = z.object({
-    answeredScorecards: z.array(OutputAnsweredScorecardSchema).optional(),
-    cursor: z.string().optional()
+    answeredScorecards: z.array(OutputAnsweredScorecardSchema).nullish(),
+    cursor: z.string().nullish()
 });
 
 const action = createAction({
     description: 'Retrieve answered scorecard statistics for reviewed users or specific scorecards over a date range.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:stats:scorecards'],

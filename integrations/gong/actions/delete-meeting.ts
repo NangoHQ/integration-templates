@@ -7,16 +7,16 @@ const InputSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    organizerEmail: z.string().optional()
+    organizerEmail: z.string().nullish()
 });
 
 const OutputSchema = z.object({
-    organizerEmail: z.string().optional()
+    organizerEmail: z.string().nullish()
 });
 
 const action = createAction({
     description: 'Delete a Gong meeting (Beta).',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:meetings:user:delete'],

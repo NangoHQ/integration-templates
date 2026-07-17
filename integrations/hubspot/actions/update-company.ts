@@ -31,7 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a company record',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: InputSchema,
     output: OutputSchema,
@@ -40,15 +40,17 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const properties: Record<string, string> = {};
 
-        if (input.name) properties['name'] = input.name;
-        if (input.domain) properties['domain'] = input.domain;
-        if (input.city) properties['city'] = input.city;
-        if (input.state) properties['state'] = input.state;
-        if (input.country) properties['country'] = input.country;
-        if (input.industry) properties['industry'] = input.industry;
-        if (input.phone) properties['phone'] = input.phone;
-        if (input.website) properties['website'] = input.website;
-        if (input.description) properties['description'] = input.description;
+        // Presence check, not truthiness: HubSpot clears a property when sent '',
+        // so an explicitly-supplied empty string must reach the request body.
+        if (input.name !== undefined) properties['name'] = input.name;
+        if (input.domain !== undefined) properties['domain'] = input.domain;
+        if (input.city !== undefined) properties['city'] = input.city;
+        if (input.state !== undefined) properties['state'] = input.state;
+        if (input.country !== undefined) properties['country'] = input.country;
+        if (input.industry !== undefined) properties['industry'] = input.industry;
+        if (input.phone !== undefined) properties['phone'] = input.phone;
+        if (input.website !== undefined) properties['website'] = input.website;
+        if (input.description !== undefined) properties['description'] = input.description;
 
         // https://developers.hubspot.com/docs/api-reference/crm-companies-v3/basic/patch-crm-v3-objects-companies-companyId
         const response = await nango.patch({

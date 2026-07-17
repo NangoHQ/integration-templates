@@ -10,30 +10,30 @@ const InputSchema = z.object({
 
 const CoachingUserSchema = z.object({
     id: z.string(),
-    emailAddress: z.string().optional(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional(),
-    title: z.string().optional()
+    emailAddress: z.string().nullish(),
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish(),
+    title: z.string().nullish()
 });
 
 const CoachingRepDataSchema = z.object({
-    report: CoachingUserSchema,
-    metrics: z.record(z.string(), z.array(z.string())).optional()
+    report: CoachingUserSchema.nullable(),
+    metrics: z.record(z.string(), z.array(z.string())).nullish()
 });
 
 const CoachingMetricsDataSchema = z.object({
-    manager: CoachingUserSchema,
-    directReportsMetrics: z.array(CoachingRepDataSchema).optional()
+    manager: CoachingUserSchema.nullable(),
+    directReportsMetrics: z.array(CoachingRepDataSchema).nullish()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    coachingData: z.array(CoachingMetricsDataSchema).optional()
+    coachingData: z.array(CoachingMetricsDataSchema).nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    coachingData: z.array(CoachingMetricsDataSchema).optional()
+    coachingData: z.array(CoachingMetricsDataSchema).nullish()
 });
 
 const UnavailableErrorSchema = z.object({
@@ -58,7 +58,7 @@ function isUnavailableError(error: unknown): boolean {
 
 const action = createAction({
     description: 'Retrieve all coaching metrics from Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:coaching:read'],

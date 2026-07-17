@@ -6,101 +6,102 @@ const InputSchema = z.object({
 });
 
 const PermissionLevelSchema = z.object({
-    permissionLevel: z.string().optional(),
-    teamLeadIds: z.array(z.string()).nullable().optional()
+    permissionLevel: z.string().nullish(),
+    teamLeadIds: z.array(z.string()).nullish()
 });
 
 const LibraryFolderAccessSchema = z.object({
-    permissionLevel: z.string().optional(),
-    libraryFolderIds: z.array(z.string()).nullable().optional(),
-    managePublicFolder: z.boolean().optional(),
-    manageStreams: z.boolean().optional(),
-    manageFolderCalls: z.boolean().optional(),
-    shareFoldersAndStreams: z.boolean().optional()
+    permissionLevel: z.string().nullish(),
+    libraryFolderIds: z.array(z.string()).nullish(),
+    managePublicFolder: z.boolean().nullish(),
+    manageStreams: z.boolean().nullish(),
+    manageFolderCalls: z.boolean().nullish(),
+    shareFoldersAndStreams: z.boolean().nullish()
 });
 
 const ForecastAccessSchema = z.object({
-    permissionLevel: z.string().optional(),
-    teamLeadIds: z.array(z.string()).nullable().optional()
+    permissionLevel: z.string().nullish(),
+    teamLeadIds: z.array(z.string()).nullish()
 });
 
 const ForecastPermissionsSchema = z.object({
-    forecastAccess: ForecastAccessSchema.optional(),
-    forecastEditSubmissions: ForecastAccessSchema.optional(),
-    forecastEditTargets: ForecastAccessSchema.optional()
+    forecastAccess: ForecastAccessSchema.nullish(),
+    forecastEditSubmissions: ForecastAccessSchema.nullish(),
+    forecastEditTargets: ForecastAccessSchema.nullish()
 });
 
 const ProviderProfileSchema = z
     .object({
         id: z.string(),
-        name: z.string().optional(),
-        description: z.string().optional(),
-        callsAccess: PermissionLevelSchema.optional(),
-        libraryFolderAccess: LibraryFolderAccessSchema.optional(),
-        dealsAccess: PermissionLevelSchema.optional(),
-        forecastPermissions: ForecastPermissionsSchema.optional(),
-        coachingAccess: PermissionLevelSchema.optional(),
-        insightsAccess: PermissionLevelSchema.optional(),
-        usageAccess: PermissionLevelSchema.optional(),
-        emailsAccess: PermissionLevelSchema.optional(),
-        scoreCalls: z.boolean().optional(),
-        overrideScore: z.boolean().optional(),
-        downloadCallMedia: z.boolean().optional(),
-        shareCallsWithCustomers: z.boolean().optional(),
-        manuallyScheduleAndUploadCalls: z.boolean().optional(),
-        privateCalls: z.boolean().optional(),
-        deleteCalls: z.boolean().optional(),
-        trimCalls: z.boolean().optional(),
-        listenInCalls: z.boolean().optional(),
-        deleteEmails: z.boolean().optional(),
-        callsAndSearch: z.boolean().optional(),
-        library: z.boolean().optional(),
-        deals: z.boolean().optional(),
-        createEditAndDeleteDealsBoards: z.boolean().optional(),
-        dealsInlineEditing: z.boolean().optional(),
-        account: z.boolean().optional(),
-        coaching: z.boolean().optional(),
-        usage: z.boolean().optional(),
-        teamStats: z.boolean().optional(),
-        initiatives: z.boolean().optional(),
-        market: z.boolean().optional(),
-        activity: z.boolean().optional(),
-        forecast: z.boolean().optional(),
-        forecastManage: z.boolean().optional(),
-        engageManageCompanyTemplates: z.boolean().optional(),
-        engageManageCompanySequences: z.boolean().optional(),
-        engageCreateAndManageRulesets: z.boolean().optional(),
-        engageSnoozeFlowToDosForOthers: z.boolean().optional(),
-        engageAllowCrmFieldsViewChange: z.boolean().optional(),
-        viewEngageAnalyticsActivity: z.boolean().optional(),
-        viewEngageAnalyticsPerformance: z.boolean().optional(),
-        viewEngageAnalyticsFlows: z.boolean().optional(),
-        manageGeneralBusinessSettings: z.boolean().optional(),
-        manageScorecards: z.boolean().optional(),
-        exportCallsAndCoachingDataToCSV: z.boolean().optional(),
-        crmDataInlineEditing: z.boolean().optional(),
-        crmDataImport: z.boolean().optional(),
-        viewRevenueAnalytics: z.boolean().optional(),
-        manageRevenueAnalytics: z.boolean().optional(),
-        engageReassignFlowToDosToOthers: z.boolean().optional(),
-        engageAssignFlowToDosToOthers: z.boolean().optional(),
-        dealsDataExport: z.boolean().optional()
+        name: z.string().nullish(),
+        description: z.string().nullish(),
+        callsAccess: PermissionLevelSchema.nullish(),
+        libraryFolderAccess: LibraryFolderAccessSchema.nullish(),
+        dealsAccess: PermissionLevelSchema.nullish(),
+        forecastPermissions: ForecastPermissionsSchema.nullish(),
+        coachingAccess: PermissionLevelSchema.nullish(),
+        insightsAccess: PermissionLevelSchema.nullish(),
+        usageAccess: PermissionLevelSchema.nullish(),
+        emailsAccess: PermissionLevelSchema.nullish(),
+        scoreCalls: z.boolean().nullish(),
+        overrideScore: z.boolean().nullish(),
+        downloadCallMedia: z.boolean().nullish(),
+        shareCallsWithCustomers: z.boolean().nullish(),
+        manuallyScheduleAndUploadCalls: z.boolean().nullish(),
+        privateCalls: z.boolean().nullish(),
+        deleteCalls: z.boolean().nullish(),
+        trimCalls: z.boolean().nullish(),
+        listenInCalls: z.boolean().nullish(),
+        deleteEmails: z.boolean().nullish(),
+        callsAndSearch: z.boolean().nullish(),
+        library: z.boolean().nullish(),
+        deals: z.boolean().nullish(),
+        createEditAndDeleteDealsBoards: z.boolean().nullish(),
+        dealsInlineEditing: z.boolean().nullish(),
+        account: z.boolean().nullish(),
+        coaching: z.boolean().nullish(),
+        usage: z.boolean().nullish(),
+        teamStats: z.boolean().nullish(),
+        initiatives: z.boolean().nullish(),
+        market: z.boolean().nullish(),
+        activity: z.boolean().nullish(),
+        forecast: z.boolean().nullish(),
+        forecastManage: z.boolean().nullish(),
+        engageManageCompanyTemplates: z.boolean().nullish(),
+        engageManageCompanySequences: z.boolean().nullish(),
+        engageCreateAndManageRulesets: z.boolean().nullish(),
+        engageSnoozeFlowToDosForOthers: z.boolean().nullish(),
+        engageAllowCrmFieldsViewChange: z.boolean().nullish(),
+        viewEngageAnalyticsActivity: z.boolean().nullish(),
+        viewEngageAnalyticsPerformance: z.boolean().nullish(),
+        viewEngageAnalyticsFlows: z.boolean().nullish(),
+        manageGeneralBusinessSettings: z.boolean().nullish(),
+        manageScorecards: z.boolean().nullish(),
+        exportCallsAndCoachingDataToCSV: z.boolean().nullish(),
+        crmDataInlineEditing: z.boolean().nullish(),
+        crmDataImport: z.boolean().nullish(),
+        viewRevenueAnalytics: z.boolean().nullish(),
+        manageRevenueAnalytics: z.boolean().nullish(),
+        engageReassignFlowToDosToOthers: z.boolean().nullish(),
+        engageAssignFlowToDosToOthers: z.boolean().nullish(),
+        dealsDataExport: z.boolean().nullish(),
+        orchestrateCreateAndManagePlays: z.boolean().nullish()
     })
     .passthrough();
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    profile: ProviderProfileSchema.optional()
+    profile: ProviderProfileSchema.nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    profile: ProviderProfileSchema.optional()
+    profile: ProviderProfileSchema.nullish()
 });
 
 const action = createAction({
     description: 'Retrieve a specific Gong permission profile by ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:permission-profile:read'],

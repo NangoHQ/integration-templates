@@ -23,18 +23,18 @@ const InputSchema = z.object({
 const ProviderResponseSchema = z.object({
     callId: z.string().describe('Gong-generated call ID. Example: "123456789"'),
     requestId: z.string().optional().describe('Request ID for tracking. Example: "4al018gzaztcr8nbukw"'),
-    url: z.string().optional().describe('URL to view the call in Gong. Example: "https://app.gong.io/call?id=123456789"')
+    url: z.string().nullish().describe('URL to view the call in Gong. Example: "https://app.gong.io/call?id=123456789"')
 });
 
 const OutputSchema = z.object({
     callId: z.string().describe('Gong-generated call ID. Example: "123456789"'),
     requestId: z.string().optional().describe('Request ID for tracking. Example: "4al018gzaztcr8nbukw"'),
-    url: z.string().optional().describe('URL to view the call in Gong. Example: "https://app.gong.io/call?id=123456789"')
+    url: z.string().nullish().describe('URL to view the call in Gong. Example: "https://app.gong.io/call?id=123456789"')
 });
 
 const action = createAction({
     description: 'Create a call record in Gong from an external telephony or recording system (step 1 of the two-step ingestion flow)',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:create'],
