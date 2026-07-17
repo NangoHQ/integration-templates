@@ -1,0 +1,152 @@
+{
+  "input": {
+    "sys_id": "01b7a0d69fd4521065fe946eda0a1cb8",
+    "state": "rejected",
+    "comments": "Rejected via Nango dryrun"
+  },
+  "output": {
+    "sys_id": "01b7a0d69fd4521065fe946eda0a1cb8",
+    "state": "rejected",
+    "comments": "",
+    "sys_updated_on": "2026-07-14 00:28:44",
+    "document_id": "dacdb552db252200a6a2b31be0b8f5e7"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/api/now/table/sysapproval_approver/01b7a0d69fd4521065fe946eda0a1cb8": [
+      {
+        "response": {
+          "result": {
+            "approval_reason": "",
+            "approver": "62d78687c0a8010e00b3d84178adc913",
+            "comments": "",
+            "sysapproval": "dacdb552db252200a6a2b31be0b8f5e7",
+            "due_date": "2024-08-30 13:34:19",
+            "sys_mod_count": "2",
+            "approval_journal_column": "approval_history",
+            "approval_column": "approval",
+            "sys_updated_on": "2026-07-14 00:28:44",
+            "document_id": "dacdb552db252200a6a2b31be0b8f5e7",
+            "process_step": "",
+            "sys_tags": "",
+            "expected_start": "2024-08-30 13:34:19",
+            "sys_id": "01b7a0d69fd4521065fe946eda0a1cb8",
+            "state_binding": "",
+            "sys_updated_by": "admin",
+            "sys_created_on": "2024-08-30 13:34:19",
+            "iteration": "1",
+            "state": "rejected",
+            "approval_source": "ui.desktop",
+            "source_table": "change_request",
+            "sys_created_by": "admin",
+            "group": "30b7a0d69fd4521065fe946eda0a1ca3",
+            "order": ""
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 14 Jul 2026 00:28:44 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4921",
+          "x-ratelimit-reset": "1783988957",
+          "server": "snow_adc",
+          "set-cookie": "<redacted>",
+          "server-timing": "t;desc=\"28c903b1c30e\", sem_wait;dur=0, sesh_wait;dur=0",
+          "x-is-logged-in": "true",
+          "x-transaction-id": "28c903b1c30e",
+          "pragma": "no-store,no-cache",
+          "cache-control": "no-cache,no-store,must-revalidate,max-age=-1",
+          "expires": "0"
+        },
+        "hash": "7d2fc4ecfea4730ed8f33571bb50e6873aa09100-state",
+        "request": {
+          "params": {
+            "sysparm_exclude_reference_link": "true"
+          },
+          "data": {
+            "state": "rejected"
+          }
+        }
+      },
+      {
+        "response": {
+          "result": {
+            "approval_reason": "",
+            "approver": "62d78687c0a8010e00b3d84178adc913",
+            "comments": "",
+            "sysapproval": "dacdb552db252200a6a2b31be0b8f5e7",
+            "due_date": "2024-08-30 13:34:19",
+            "sys_mod_count": "3",
+            "approval_journal_column": "approval_history",
+            "approval_column": "approval",
+            "sys_updated_on": "2026-07-14 00:28:44",
+            "document_id": "dacdb552db252200a6a2b31be0b8f5e7",
+            "process_step": "",
+            "sys_tags": "",
+            "expected_start": "2024-08-30 13:34:19",
+            "sys_id": "01b7a0d69fd4521065fe946eda0a1cb8",
+            "state_binding": "",
+            "sys_updated_by": "admin",
+            "sys_created_on": "2024-08-30 13:34:19",
+            "iteration": "1",
+            "state": "rejected",
+            "approval_source": "ui.desktop",
+            "source_table": "change_request",
+            "sys_created_by": "admin",
+            "group": "30b7a0d69fd4521065fe946eda0a1ca3",
+            "order": ""
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 14 Jul 2026 00:28:44 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4920",
+          "x-ratelimit-reset": "1783988957",
+          "server": "snow_adc",
+          "set-cookie": "<redacted>",
+          "server-timing": "t;desc=\"28c903b1c30f\", sem_wait;dur=0, sesh_wait;dur=0",
+          "x-is-logged-in": "true",
+          "x-transaction-id": "28c903b1c30f",
+          "pragma": "no-store,no-cache",
+          "cache-control": "no-cache,no-store,must-revalidate,max-age=-1",
+          "expires": "0"
+        },
+        "hash": "7d2fc4ecfea4730ed8f33571bb50e6873aa09100-comments",
+        "request": {
+          "params": {
+            "sysparm_exclude_reference_link": "true"
+          },
+          "data": {
+            "comments": "Rejected via Nango dryrun"
+          }
+        }
+      }
+      ]
+    }
+  }
+}
