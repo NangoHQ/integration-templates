@@ -1,0 +1,46 @@
+{
+  "input": {
+    "contactId": "713492963559",
+    "firstName": "Updated",
+    "email": ""
+  },
+  "output": {
+    "id": "713492963559",
+    "firstName": "Updated",
+    "email": "",
+    "createdAt": "2026-02-25T16:23:49.023Z",
+    "updatedAt": "2026-03-12T07:36:21.334Z"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/crm/v3/objects/contacts/713492963559": {
+        "request": {
+          "data": {
+            "properties": {
+              "firstname": "Updated",
+              "email": ""
+            }
+          }
+        },
+        "response": {
+          "id": "713492963559",
+          "properties": {
+            "createdate": "2026-02-25T16:23:49.023Z",
+            "firstname": "Updated",
+            "email": "",
+            "hs_object_id": "713492963559",
+            "lastmodifieddate": "2026-03-12T07:36:21.334Z"
+          },
+          "createdAt": "2026-02-25T16:23:49.023Z",
+          "updatedAt": "2026-03-12T07:36:21.334Z",
+          "archived": false
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=utf-8"
+        }
+      }
+    }
+  }
+}
