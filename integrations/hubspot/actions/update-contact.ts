@@ -25,7 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a contact record',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: InputSchema,
     output: OutputSchema,
@@ -34,12 +34,14 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const properties: Record<string, string> = {};
 
-        if (input.firstName) properties['firstname'] = input.firstName;
-        if (input.lastName) properties['lastname'] = input.lastName;
-        if (input.email) properties['email'] = input.email;
-        if (input.phone) properties['phone'] = input.phone;
-        if (input.company) properties['company'] = input.company;
-        if (input.jobTitle) properties['jobtitle'] = input.jobTitle;
+        // Presence check, not truthiness: HubSpot clears a property when sent '',
+        // so an explicitly-supplied empty string must reach the request body.
+        if (input.firstName !== undefined) properties['firstname'] = input.firstName;
+        if (input.lastName !== undefined) properties['lastname'] = input.lastName;
+        if (input.email !== undefined) properties['email'] = input.email;
+        if (input.phone !== undefined) properties['phone'] = input.phone;
+        if (input.company !== undefined) properties['company'] = input.company;
+        if (input.jobTitle !== undefined) properties['jobtitle'] = input.jobTitle;
 
         const response = await nango.patch({
             // https://developers.hubspot.com/docs/api/crm/contacts

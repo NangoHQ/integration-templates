@@ -1,0 +1,46 @@
+{
+  "input": {
+    "dealId": "28871116646",
+    "dealname": "Acme Renewal",
+    "closedate": ""
+  },
+  "output": {
+    "id": "28871116646",
+    "dealname": "Acme Renewal",
+    "closedate": "",
+    "createdAt": "2026-02-25T16:23:49.023Z",
+    "updatedAt": "2026-03-12T07:36:21.334Z"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/crm/v3/objects/deals/28871116646": {
+        "request": {
+          "data": {
+            "properties": {
+              "dealname": "Acme Renewal",
+              "closedate": ""
+            }
+          }
+        },
+        "response": {
+          "id": "28871116646",
+          "properties": {
+            "createdate": "2026-02-25T16:23:49.023Z",
+            "dealname": "Acme Renewal",
+            "closedate": "",
+            "hs_object_id": "28871116646",
+            "hs_lastmodifieddate": "2026-03-12T07:36:21.334Z"
+          },
+          "createdAt": "2026-02-25T16:23:49.023Z",
+          "updatedAt": "2026-03-12T07:36:21.334Z",
+          "archived": false
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=utf-8"
+        }
+      }
+    }
+  }
+}
