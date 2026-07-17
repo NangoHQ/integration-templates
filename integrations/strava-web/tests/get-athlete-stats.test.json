@@ -1,0 +1,185 @@
+{
+  "input": {
+    "athlete_id": 943379048
+  },
+  "output": {
+    "recent_ride_totals": {
+      "count": 0,
+      "distance": 0,
+      "moving_time": 0,
+      "elapsed_time": 0,
+      "elevation_gain": 0,
+      "achievement_count": 0
+    },
+    "recent_run_totals": {
+      "count": 5,
+      "distance": 25000,
+      "moving_time": 9000,
+      "elapsed_time": 9000,
+      "elevation_gain": 0,
+      "achievement_count": 0
+    },
+    "recent_swim_totals": {
+      "count": 0,
+      "distance": 0,
+      "moving_time": 0,
+      "elapsed_time": 0,
+      "elevation_gain": 0,
+      "achievement_count": 0
+    },
+    "ytd_ride_totals": {
+      "count": 0,
+      "distance": 0,
+      "moving_time": 0,
+      "elapsed_time": 0,
+      "elevation_gain": 0
+    },
+    "ytd_run_totals": {
+      "count": 9,
+      "distance": 45057,
+      "moving_time": 16240,
+      "elapsed_time": 16240,
+      "elevation_gain": 0
+    },
+    "ytd_swim_totals": {
+      "count": 0,
+      "distance": 0,
+      "moving_time": 0,
+      "elapsed_time": 0,
+      "elevation_gain": 0
+    },
+    "all_ride_totals": {
+      "count": 0,
+      "distance": 0,
+      "moving_time": 0,
+      "elapsed_time": 0,
+      "elevation_gain": 0
+    },
+    "all_run_totals": {
+      "count": 9,
+      "distance": 45056.7,
+      "moving_time": 16240,
+      "elapsed_time": 16240,
+      "elevation_gain": 0
+    },
+    "all_swim_totals": {
+      "count": 0,
+      "distance": 0,
+      "moving_time": 0,
+      "elapsed_time": 0,
+      "elevation_gain": 0
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v3/athletes/943379048/stats": {
+        "response": {
+          "recent_ride_totals": {
+            "count": 0,
+            "distance": 0,
+            "moving_time": 0,
+            "elapsed_time": 0,
+            "elevation_gain": 0,
+            "achievement_count": 0
+          },
+          "all_ride_totals": {
+            "count": 0,
+            "distance": 0,
+            "moving_time": 0,
+            "elapsed_time": 0,
+            "elevation_gain": 0
+          },
+          "recent_run_totals": {
+            "count": 5,
+            "distance": 25000,
+            "moving_time": 9000,
+            "elapsed_time": 9000,
+            "elevation_gain": 0,
+            "achievement_count": 0
+          },
+          "all_run_totals": {
+            "count": 9,
+            "distance": 45056.7,
+            "moving_time": 16240,
+            "elapsed_time": 16240,
+            "elevation_gain": 0
+          },
+          "recent_swim_totals": {
+            "count": 0,
+            "distance": 0,
+            "moving_time": 0,
+            "elapsed_time": 0,
+            "elevation_gain": 0,
+            "achievement_count": 0
+          },
+          "all_swim_totals": {
+            "count": 0,
+            "distance": 0,
+            "moving_time": 0,
+            "elapsed_time": 0,
+            "elevation_gain": 0
+          },
+          "ytd_ride_totals": {
+            "count": 0,
+            "distance": 0,
+            "moving_time": 0,
+            "elapsed_time": 0,
+            "elevation_gain": 0
+          },
+          "ytd_run_totals": {
+            "count": 9,
+            "distance": 45057,
+            "moving_time": 16240,
+            "elapsed_time": 16240,
+            "elevation_gain": 0
+          },
+          "ytd_swim_totals": {
+            "count": 0,
+            "distance": 0,
+            "moving_time": 0,
+            "elapsed_time": 0,
+            "elevation_gain": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 14:04:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200,2000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1784297121",
+          "x-envoy-upstream-service-time": "92",
+          "server": "istio-envoy",
+          "status": "200 OK",
+          "x-ratelimit-usage": "33,98",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "vary": "Origin",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "0b716218-6507-4fc9-a2c4-6c19b7e652ee",
+          "x-readratelimit-limit": "100,1000",
+          "etag": "W/\"ba7c030bd4fbbaacbd467896ee15d4aa\"",
+          "x-readratelimit-usage": "29,81",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 d30f4a165486dd51ac7a7bdc41487d7c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "0bWli12KFC0QzMcgllTBvVbXFGhtQlTyDR4DhtPWDL-_LAJkoJPY4Q=="
+        },
+        "hash": "fd67c0f525d6de3e68910ec9a912f4282eb8a7c9",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "input": {
+    "id": 19350154661,
+    "description": "Updated by Nango QA on 2026-07-17"
+  },
+  "output": {
+    "id": 19350154661,
+    "name": "Nango QA Run 2 (keep - read/update)",
+    "type": "Run",
+    "sport_type": "Run",
+    "description": "Updated by Nango QA on 2026-07-17",
+    "trainer": false,
+    "commute": false,
+    "hide_from_home": false,
+    "resource_state": 3,
+    "athlete": {
+      "id": 943379048,
+      "id_str": "943379048",
+      "resource_state": 1
+    },
+    "distance": 5000,
+    "moving_time": 1800,
+    "elapsed_time": 1800,
+    "total_elevation_gain": 0,
+    "workout_type": null,
+    "id_str": "19350154661",
+    "start_date": "2026-07-11T04:00:00Z",
+    "start_date_local": "2026-07-11T07:00:00Z",
+    "timezone": "(GMT+03:00) Africa/Nairobi",
+    "utc_offset": 10800,
+    "location_city": null,
+    "location_state": null,
+    "location_country": null,
+    "achievement_count": 0,
+    "kudos_count": 0,
+    "comment_count": 0,
+    "athlete_count": 1,
+    "photo_count": 0,
+    "map": {
+      "id": "a19350154661",
+      "polyline": "",
+      "resource_state": 3,
+      "summary_polyline": ""
+    },
+    "manual": true,
+    "private": false,
+    "visibility": "everyone",
+    "flagged": false,
+    "start_latlng": [],
+    "end_latlng": [],
+    "average_speed": 2.778,
+    "max_speed": 0,
+    "has_heartrate": false,
+    "heartrate_opt_out": false,
+    "display_hide_heartrate_option": false,
+    "upload_id": null,
+    "external_id": null,
+    "from_accepted_tag": false,
+    "pr_count": 0,
+    "total_photo_count": 0,
+    "has_kudoed": false,
+    "calories": 430,
+    "perceived_exertion": null,
+    "prefer_perceived_exertion": null,
+    "segment_efforts": [],
+    "best_efforts": [],
+    "photos": {
+      "primary": null,
+      "count": 0
+    },
+    "stats_visibility": [
+      {
+        "type": "heart_rate",
+        "visibility": "everyone"
+      },
+      {
+        "type": "pace",
+        "visibility": "everyone"
+      },
+      {
+        "type": "power",
+        "visibility": "everyone"
+      },
+      {
+        "type": "speed",
+        "visibility": "everyone"
+      },
+      {
+        "type": "calories",
+        "visibility": "everyone"
+      },
+      {
+        "type": "weight_lifted",
+        "visibility": "everyone"
+      }
+    ],
+    "sport_image_visibility": "everyone",
+    "embed_token": "0d2812aeeb01b8d1a0e6b2ebb1dfb2f5d60eb868",
+    "similar_activities": {
+      "effort_count": 0,
+      "average_speed": 0,
+      "min_average_speed": 0,
+      "mid_average_speed": 0,
+      "max_average_speed": 0,
+      "pr_rank": null,
+      "frequency_milestone": null,
+      "trend": {
+        "speeds": [],
+        "current_activity_index": null,
+        "min_speed": 0,
+        "mid_speed": 0,
+        "max_speed": 0,
+        "direction": 0
+      },
+      "resource_state": 2
+    },
+    "available_zones": [
+      "pace"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/v3/activities/19350154661": {
+        "response": {
+          "resource_state": 3,
+          "athlete": {
+            "id": 943379048,
+            "id_str": "943379048",
+            "resource_state": 1
+          },
+          "name": "Nango QA Run 2 (keep - read/update)",
+          "distance": 5000,
+          "moving_time": 1800,
+          "elapsed_time": 1800,
+          "total_elevation_gain": 0,
+          "type": "Run",
+          "sport_type": "Run",
+          "workout_type": null,
+          "id": 19350154661,
+          "id_str": "19350154661",
+          "start_date": "2026-07-11T04:00:00Z",
+          "start_date_local": "2026-07-11T07:00:00Z",
+          "timezone": "(GMT+03:00) Africa/Nairobi",
+          "utc_offset": 10800,
+          "location_city": null,
+          "location_state": null,
+          "location_country": null,
+          "achievement_count": 0,
+          "kudos_count": 0,
+          "comment_count": 0,
+          "athlete_count": 1,
+          "photo_count": 0,
+          "map": {
+            "id": "a19350154661",
+            "polyline": "",
+            "resource_state": 3,
+            "summary_polyline": ""
+          },
+          "trainer": false,
+          "commute": false,
+          "manual": true,
+          "private": false,
+          "visibility": "everyone",
+          "flagged": false,
+          "gear_id": null,
+          "start_latlng": [],
+          "end_latlng": [],
+          "average_speed": 2.778,
+          "max_speed": 0,
+          "has_heartrate": false,
+          "heartrate_opt_out": false,
+          "display_hide_heartrate_option": false,
+          "upload_id": null,
+          "external_id": null,
+          "from_accepted_tag": false,
+          "pr_count": 0,
+          "total_photo_count": 0,
+          "has_kudoed": false,
+          "description": "Updated by Nango QA on 2026-07-17",
+          "calories": 430,
+          "perceived_exertion": null,
+          "prefer_perceived_exertion": null,
+          "segment_efforts": [],
+          "best_efforts": [],
+          "photos": {
+            "primary": null,
+            "count": 0
+          },
+          "stats_visibility": [
+            {
+              "type": "heart_rate",
+              "visibility": "everyone"
+            },
+            {
+              "type": "pace",
+              "visibility": "everyone"
+            },
+            {
+              "type": "power",
+              "visibility": "everyone"
+            },
+            {
+              "type": "speed",
+              "visibility": "everyone"
+            },
+            {
+              "type": "calories",
+              "visibility": "everyone"
+            },
+            {
+              "type": "weight_lifted",
+              "visibility": "everyone"
+            }
+          ],
+          "hide_from_home": false,
+          "sport_image_visibility": "everyone",
+          "embed_token": "0d2812aeeb01b8d1a0e6b2ebb1dfb2f5d60eb868",
+          "similar_activities": {
+            "effort_count": 0,
+            "average_speed": 0,
+            "min_average_speed": 0,
+            "mid_average_speed": 0,
+            "max_average_speed": 0,
+            "pr_rank": null,
+            "frequency_milestone": null,
+            "trend": {
+              "speeds": [],
+              "current_activity_index": null,
+              "min_speed": 0,
+              "mid_speed": 0,
+              "max_speed": 0,
+              "direction": 0
+            },
+            "resource_state": 2
+          },
+          "available_zones": [
+            "pace"
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 14:06:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200,2000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1784297247",
+          "x-envoy-upstream-service-time": "310",
+          "server": "istio-envoy",
+          "status": "200 OK",
+          "x-ratelimit-usage": "68,133",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "vary": "Origin",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "fde6f392-3955-42dd-b7e8-95af3dfdc643",
+          "x-readratelimit-limit": "100,1000",
+          "etag": "W/\"0d65f990da11bf85d6f3b06d19042c19\"",
+          "x-readratelimit-usage": "64,116",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 63227cf14d6d2219c6d94e402898004a.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "ItwR8r1khE4_o7PlTmOxuSET7QRdcOfyfz-TYCU8bMPjN6_Ljbi5qg=="
+        },
+        "hash": "a1f7ebdb818f3c4b79f31b2353567880ac147170",
+        "request": {
+          "data": "description=Updated+by+Nango+QA+on+2026-07-17"
+        }
+      }
+    }
+  }
+}

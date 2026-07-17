@@ -1,0 +1,118 @@
+{
+  "input": {
+    "id": 1
+  },
+  "output": {
+    "id": 1,
+    "resource_state": 3,
+    "name": "Team Strava Cycling",
+    "profile_medium": "https://dgalywyr863hv.cloudfront.net/pictures/clubs/1/1582/4/medium.jpg",
+    "cover_photo": "https://dgalywyr863hv.cloudfront.net/pictures/clubs/1/4328276/10/large.jpg",
+    "cover_photo_small": "https://dgalywyr863hv.cloudfront.net/pictures/clubs/1/4328276/10/small.jpg",
+    "sport_type": "cycling",
+    "activity_types": [
+      "Handcycle",
+      "EBikeRide",
+      "VirtualRide",
+      "Velomobile",
+      "Ride"
+    ],
+    "city": "San Francisco",
+    "state": "California",
+    "country": "United States",
+    "private": true,
+    "member_count": 100,
+    "featured": false,
+    "verified": true,
+    "url": "team-strava-bike",
+    "admin": false,
+    "owner": false,
+    "following_count": 0
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v3/clubs/1": {
+        "response": {
+          "id": 1,
+          "resource_state": 3,
+          "name": "Team Strava Cycling",
+          "profile_medium": "https://dgalywyr863hv.cloudfront.net/pictures/clubs/1/1582/4/medium.jpg",
+          "profile": "https://dgalywyr863hv.cloudfront.net/pictures/clubs/1/1582/4/large.jpg",
+          "cover_photo": "https://dgalywyr863hv.cloudfront.net/pictures/clubs/1/4328276/10/large.jpg",
+          "cover_photo_small": "https://dgalywyr863hv.cloudfront.net/pictures/clubs/1/4328276/10/small.jpg",
+          "activity_types": [
+            "Handcycle",
+            "EBikeRide",
+            "VirtualRide",
+            "Velomobile",
+            "Ride"
+          ],
+          "activity_types_icon": "sports_bike_normal",
+          "dimensions": [
+            "distance",
+            "num_activities",
+            "best_activities_distance",
+            "velocity",
+            "elev_gain",
+            "moving_time"
+          ],
+          "sport_type": "cycling",
+          "localized_sport_type": "Cycling",
+          "city": "San Francisco",
+          "state": "California",
+          "country": "United States",
+          "private": true,
+          "member_count": 100,
+          "featured": false,
+          "verified": true,
+          "url": "team-strava-bike",
+          "membership": null,
+          "admin": false,
+          "owner": false,
+          "description": "Private club for Cyclists who work at Strava.",
+          "club_type": "company",
+          "following_count": 0,
+          "website": "http://www.strava.com"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 14:05:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200,2000",
+          "x-ratelimit-remaining": "4942",
+          "x-ratelimit-reset": "1784297121",
+          "x-envoy-upstream-service-time": "68",
+          "server": "istio-envoy",
+          "status": "200 OK",
+          "x-ratelimit-usage": "46,111",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "vary": "Origin",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "dbc5c9d0-13fb-4627-ba41-d746d1d095ea",
+          "x-readratelimit-limit": "100,1000",
+          "etag": "W/\"f799c084e7fe096ba6ca150e6eb22323\"",
+          "x-readratelimit-usage": "42,94",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 d30f4a165486dd51ac7a7bdc41487d7c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "cZf3MKmmQO0UZiFW4EhHQsQB5YkkYyFJQlTEoYAMlhPB3JE7xS-JXw=="
+        },
+        "hash": "60bd404280f55587d8554bca1bd167251e9c8004",
+        "request": {}
+      }
+    }
+  }
+}

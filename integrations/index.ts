@@ -4179,6 +4179,41 @@ import './spotify/actions/transfer-playback.js';
 import './spotify/actions/unfollow-playlist.js';
 import './spotify/actions/update-playlist.js';
 
+// -- Integration: strava-web
+import './strava-web/syncs/activities.js';
+import './strava-web/syncs/club-activities.js';
+import './strava-web/syncs/clubs.js';
+import './strava-web/syncs/gear.js';
+import './strava-web/syncs/routes.js';
+import './strava-web/syncs/starred-segments.js';
+import './strava-web/actions/create-activity.js';
+import './strava-web/actions/explore-segments.js';
+import './strava-web/actions/get-activity-streams.js';
+import './strava-web/actions/get-activity-zones.js';
+import './strava-web/actions/get-activity.js';
+import './strava-web/actions/get-athlete-stats.js';
+import './strava-web/actions/get-athlete-zones.js';
+import './strava-web/actions/get-athlete.js';
+import './strava-web/actions/get-club.js';
+import './strava-web/actions/get-route-streams.js';
+import './strava-web/actions/get-route.js';
+import './strava-web/actions/get-segment-streams.js';
+import './strava-web/actions/get-segment.js';
+import './strava-web/actions/get-upload-status.js';
+import './strava-web/actions/list-activity-comments.js';
+import './strava-web/actions/list-activity-kudoers.js';
+import './strava-web/actions/list-activity-laps.js';
+import './strava-web/actions/list-athlete-activities.js';
+import './strava-web/actions/list-athlete-clubs.js';
+import './strava-web/actions/list-athlete-routes.js';
+import './strava-web/actions/list-club-admins.js';
+import './strava-web/actions/list-club-members.js';
+import './strava-web/actions/list-segment-efforts.js';
+import './strava-web/actions/list-starred-segments.js';
+import './strava-web/actions/star-segment.js';
+import './strava-web/actions/update-activity.js';
+import './strava-web/actions/update-athlete.js';
+
 // -- Integration: stripe
 import './stripe/syncs/checkout-sessions.js';
 import './stripe/syncs/credit-notes.js';

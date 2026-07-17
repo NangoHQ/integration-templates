@@ -1,0 +1,134 @@
+{
+  "nango": {
+    "batchSave": {
+      "Route": []
+    },
+    "batchDelete": {
+      "Route": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v3/athlete": {
+        "response": {
+          "id": 943379048,
+          "id_str": "943379048",
+          "username": "nango_developer",
+          "resource_state": 3,
+          "firstname": "Nango",
+          "lastname": "Developer",
+          "bio": null,
+          "city": "Nairobi",
+          "state": "Nairobi County",
+          "country": "Kenya",
+          "sex": "M",
+          "premium": true,
+          "summit": true,
+          "created_at": "2026-07-17T13:17:24Z",
+          "updated_at": "2026-07-17T13:50:01Z",
+          "badge_type_id": 1,
+          "weight": 70,
+          "profile_medium": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s96-c",
+          "profile": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s96-c",
+          "friend": null,
+          "follower": null,
+          "blocked": false,
+          "can_follow": true,
+          "follower_count": 0,
+          "friend_count": 0,
+          "mutual_friend_count": 0,
+          "athlete_type": 1,
+          "date_preference": "%m/%d/%Y",
+          "measurement_preference": "meters",
+          "clubs": [],
+          "postable_clubs_count": 0,
+          "ftp": null,
+          "bikes": [],
+          "shoes": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 14:12:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200,2000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1784297600",
+          "x-envoy-upstream-service-time": "108",
+          "server": "istio-envoy",
+          "status": "200 OK",
+          "x-ratelimit-usage": "95,160",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "vary": "Origin",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "9dae2152-166f-4310-bcd9-16eb9f8cf175",
+          "x-readratelimit-limit": "100,1000",
+          "etag": "W/\"3e88bdb40761592d436312ebc7c1d1e8\"",
+          "x-readratelimit-usage": "91,143",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 b023cfb0f6ff8e2669cab3ce8c9f51f0.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "OYgZ4xWRUVBu-dILA9XdYoiQcDIvXqUQlEMmsIgo9BviqjFb5E4E2g=="
+        },
+        "hash": "98f4757c236732a7d4dc99b9eea6675236ac88f6",
+        "request": {}
+      },
+      "/api/v3/athletes/943379048/routes": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 14:12:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200,2000",
+          "x-ratelimit-remaining": "4982",
+          "x-ratelimit-reset": "1784297600",
+          "x-envoy-upstream-service-time": "55",
+          "server": "istio-envoy",
+          "status": "200 OK",
+          "x-ratelimit-usage": "96,161",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "vary": "Origin",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "184f5389-8060-4b86-a8a6-181d47aa5e88",
+          "x-readratelimit-limit": "100,1000",
+          "etag": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\"",
+          "x-readratelimit-usage": "92,144",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 318fe93142e3d774ccec57a011070fba.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "t8LhvNrxHUYNSP7MpERJnbdXLDZWVFl6myYEwxs8SvGZr-h7lI2Aow=="
+        },
+        "hash": "7e58ec652fd3735ac939a1060a1e7917ea5d38fd",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "30"
+          }
+        }
+      }
+    }
+  }
+}
