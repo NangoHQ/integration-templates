@@ -1,0 +1,218 @@
+{
+  "input": {
+    "object_ids": [
+      "DJXLBF4XHUSECQ4P6UDOB7KE",
+      "OQFBXZMQ72SI4LJI5D2YNTJ2"
+    ],
+    "include_related_objects": true
+  },
+  "output": {
+    "objects": [
+      {
+        "type": "ITEM",
+        "id": "DJXLBF4XHUSECQ4P6UDOB7KE",
+        "updated_at": "2026-07-15T19:25:31.759Z",
+        "created_at": "2026-07-15T19:25:31.759Z",
+        "version": 1784143531759,
+        "is_deleted": false,
+        "present_at_all_locations": true,
+        "item_data": {
+          "name": "Seed Coffee",
+          "description": "A seeded catalog item for testing.",
+          "is_taxable": true,
+          "variations": [
+            {
+              "type": "ITEM_VARIATION",
+              "id": "KNE7SHMPLXXA6ZMIPY6GWJSK",
+              "updated_at": "2026-07-15T19:25:31.759Z",
+              "created_at": "2026-07-15T19:25:31.759Z",
+              "version": 1784143531759,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "DJXLBF4XHUSECQ4P6UDOB7KE",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 500,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            }
+          ],
+          "product_type": "REGULAR",
+          "description_html": "<p>A seeded catalog item for testing.</p>",
+          "description_plaintext": "A seeded catalog item for testing.",
+          "is_archived": false
+        }
+      },
+      {
+        "type": "ITEM",
+        "id": "OQFBXZMQ72SI4LJI5D2YNTJ2",
+        "updated_at": "2026-07-15T19:25:33.198Z",
+        "created_at": "2026-07-15T19:25:33.198Z",
+        "version": 1784143533198,
+        "is_deleted": false,
+        "present_at_all_locations": true,
+        "item_data": {
+          "name": "Seed Muffin",
+          "description": "A second seeded catalog item for testing.",
+          "is_taxable": true,
+          "variations": [
+            {
+              "type": "ITEM_VARIATION",
+              "id": "7TSJIUXUSGTQQQ6CHCJXA4CL",
+              "updated_at": "2026-07-15T19:25:33.198Z",
+              "created_at": "2026-07-15T19:25:33.198Z",
+              "version": 1784143533198,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "OQFBXZMQ72SI4LJI5D2YNTJ2",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 350,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            }
+          ],
+          "product_type": "REGULAR",
+          "description_html": "<p>A second seeded catalog item for testing.</p>",
+          "description_plaintext": "A second seeded catalog item for testing.",
+          "is_archived": false
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/catalog/batch-retrieve": {
+        "response": {
+          "objects": [
+            {
+              "type": "ITEM",
+              "id": "DJXLBF4XHUSECQ4P6UDOB7KE",
+              "updated_at": "2026-07-15T19:25:31.759Z",
+              "created_at": "2026-07-15T19:25:31.759Z",
+              "version": 1784143531759,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Seed Coffee",
+                "description": "A seeded catalog item for testing.",
+                "is_taxable": true,
+                "variations": [
+                  {
+                    "type": "ITEM_VARIATION",
+                    "id": "KNE7SHMPLXXA6ZMIPY6GWJSK",
+                    "updated_at": "2026-07-15T19:25:31.759Z",
+                    "created_at": "2026-07-15T19:25:31.759Z",
+                    "version": 1784143531759,
+                    "is_deleted": false,
+                    "present_at_all_locations": true,
+                    "item_variation_data": {
+                      "item_id": "DJXLBF4XHUSECQ4P6UDOB7KE",
+                      "name": "Regular",
+                      "ordinal": 0,
+                      "pricing_type": "FIXED_PRICING",
+                      "price_money": {
+                        "amount": 500,
+                        "currency": "USD"
+                      },
+                      "sellable": true,
+                      "stockable": true
+                    }
+                  }
+                ],
+                "product_type": "REGULAR",
+                "description_html": "<p>A seeded catalog item for testing.</p>",
+                "description_plaintext": "A seeded catalog item for testing.",
+                "is_archived": false
+              }
+            },
+            {
+              "type": "ITEM",
+              "id": "OQFBXZMQ72SI4LJI5D2YNTJ2",
+              "updated_at": "2026-07-15T19:25:33.198Z",
+              "created_at": "2026-07-15T19:25:33.198Z",
+              "version": 1784143533198,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Seed Muffin",
+                "description": "A second seeded catalog item for testing.",
+                "is_taxable": true,
+                "variations": [
+                  {
+                    "type": "ITEM_VARIATION",
+                    "id": "7TSJIUXUSGTQQQ6CHCJXA4CL",
+                    "updated_at": "2026-07-15T19:25:33.198Z",
+                    "created_at": "2026-07-15T19:25:33.198Z",
+                    "version": 1784143533198,
+                    "is_deleted": false,
+                    "present_at_all_locations": true,
+                    "item_variation_data": {
+                      "item_id": "OQFBXZMQ72SI4LJI5D2YNTJ2",
+                      "name": "Regular",
+                      "ordinal": 0,
+                      "pricing_type": "FIXED_PRICING",
+                      "price_money": {
+                        "amount": 350,
+                        "currency": "USD"
+                      },
+                      "sellable": true,
+                      "stockable": true
+                    }
+                  }
+                ],
+                "product_type": "REGULAR",
+                "description_html": "<p>A second seeded catalog item for testing.</p>",
+                "description_plaintext": "A second seeded catalog item for testing.",
+                "is_archived": false
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 20:02:01 GMT",
+          "content-type": "application/json",
+          "content-length": "1882",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1784145770",
+          "etag": "W/\"75a-2zJxvS9putgKkm9pXqvnvJ9275w\""
+        },
+        "hash": "c83f2d58de36767c04cefdc8c188dbc47e7812a1",
+        "request": {
+          "data": {
+            "object_ids": [
+              "DJXLBF4XHUSECQ4P6UDOB7KE",
+              "OQFBXZMQ72SI4LJI5D2YNTJ2"
+            ],
+            "include_related_objects": true
+          }
+        }
+      }
+    }
+  }
+}

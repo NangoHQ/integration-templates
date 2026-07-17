@@ -1,0 +1,326 @@
+{
+  "input": {
+    "order_ids": [
+      "nT6eTFlDa7Ko7PDjNEJX7ij1jpeZY"
+    ]
+  },
+  "output": {
+    "orders": [
+      {
+        "id": "nT6eTFlDa7Ko7PDjNEJX7ij1jpeZY",
+        "location_id": "L6KAXMZ50WFKS",
+        "state": "COMPLETED",
+        "version": 8,
+        "total_money": {
+          "amount": 1000,
+          "currency": "USD"
+        },
+        "line_items": [
+          {
+            "uid": "mUMJ5qLtu6YldyeyOrhnZD",
+            "catalog_object_id": "KNE7SHMPLXXA6ZMIPY6GWJSK",
+            "catalog_version": 1784143533198,
+            "quantity": "2",
+            "name": "Seed Coffee",
+            "variation_name": "Regular",
+            "base_price_money": {
+              "amount": 500,
+              "currency": "USD"
+            },
+            "gross_sales_money": {
+              "amount": 1000,
+              "currency": "USD"
+            },
+            "total_tax_money": {
+              "amount": 0,
+              "currency": "USD"
+            },
+            "total_discount_money": {
+              "amount": 0,
+              "currency": "USD"
+            },
+            "total_money": {
+              "amount": 1000,
+              "currency": "USD"
+            },
+            "variation_total_price_money": {
+              "amount": 1000,
+              "currency": "USD"
+            },
+            "item_type": "ITEM",
+            "total_service_charge_money": {
+              "amount": 0,
+              "currency": "USD"
+            },
+            "total_card_surcharge_money": {
+              "amount": 0,
+              "currency": "USD"
+            }
+          }
+        ],
+        "created_at": "2026-07-15T19:25:48.847Z",
+        "updated_at": "2026-07-15T19:26:40.287Z",
+        "total_tax_money": {
+          "amount": 0,
+          "currency": "USD"
+        },
+        "total_discount_money": {
+          "amount": 0,
+          "currency": "USD"
+        },
+        "total_tip_money": {
+          "amount": 0,
+          "currency": "USD"
+        },
+        "closed_at": "2026-07-15T19:26:19.256Z",
+        "tenders": [
+          {
+            "id": "f3YEx4hWP1mDncRMtBjc4TM4OKNZY",
+            "location_id": "L6KAXMZ50WFKS",
+            "transaction_id": "nT6eTFlDa7Ko7PDjNEJX7ij1jpeZY",
+            "created_at": "2026-07-15T19:26:18Z",
+            "amount_money": {
+              "amount": 1000,
+              "currency": "USD"
+            },
+            "type": "CARD",
+            "card_details": {
+              "status": "CAPTURED",
+              "card": {
+                "card_brand": "VISA",
+                "last_4": "5858",
+                "exp_month": 7,
+                "exp_year": 2028,
+                "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+                "card_type": "CREDIT",
+                "prepaid_type": "NOT_PREPAID",
+                "bin": "453275"
+              },
+              "entry_method": "KEYED"
+            },
+            "payment_id": "f3YEx4hWP1mDncRMtBjc4TM4OKNZY"
+          }
+        ],
+        "total_service_charge_money": {
+          "amount": 0,
+          "currency": "USD"
+        },
+        "net_amounts": {
+          "total_money": {
+            "amount": 1000,
+            "currency": "USD"
+          },
+          "tax_money": {
+            "amount": 0,
+            "currency": "USD"
+          },
+          "discount_money": {
+            "amount": 0,
+            "currency": "USD"
+          },
+          "tip_money": {
+            "amount": 0,
+            "currency": "USD"
+          },
+          "service_charge_money": {
+            "amount": 0,
+            "currency": "USD"
+          },
+          "card_surcharge_money": {
+            "amount": 0,
+            "currency": "USD"
+          }
+        },
+        "source": {
+          "name": "Sandbox for sq0idp-abdGXRLHHhdFa-WLYwHG3Q"
+        },
+        "customer_id": "D0W2WW574N4NKXWH7ZATYCF1J0",
+        "net_amount_due_money": {
+          "amount": 0,
+          "currency": "USD"
+        },
+        "total_card_surcharge_money": {
+          "amount": 0,
+          "currency": "USD"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/orders/batch-retrieve": {
+        "response": {
+          "orders": [
+            {
+              "id": "nT6eTFlDa7Ko7PDjNEJX7ij1jpeZY",
+              "location_id": "L6KAXMZ50WFKS",
+              "line_items": [
+                {
+                  "uid": "mUMJ5qLtu6YldyeyOrhnZD",
+                  "catalog_object_id": "KNE7SHMPLXXA6ZMIPY6GWJSK",
+                  "catalog_version": 1784143533198,
+                  "quantity": "2",
+                  "name": "Seed Coffee",
+                  "variation_name": "Regular",
+                  "base_price_money": {
+                    "amount": 500,
+                    "currency": "USD"
+                  },
+                  "gross_sales_money": {
+                    "amount": 1000,
+                    "currency": "USD"
+                  },
+                  "total_tax_money": {
+                    "amount": 0,
+                    "currency": "USD"
+                  },
+                  "total_discount_money": {
+                    "amount": 0,
+                    "currency": "USD"
+                  },
+                  "total_money": {
+                    "amount": 1000,
+                    "currency": "USD"
+                  },
+                  "variation_total_price_money": {
+                    "amount": 1000,
+                    "currency": "USD"
+                  },
+                  "item_type": "ITEM",
+                  "total_service_charge_money": {
+                    "amount": 0,
+                    "currency": "USD"
+                  },
+                  "total_card_surcharge_money": {
+                    "amount": 0,
+                    "currency": "USD"
+                  }
+                }
+              ],
+              "created_at": "2026-07-15T19:25:48.847Z",
+              "updated_at": "2026-07-15T19:26:40.287Z",
+              "state": "COMPLETED",
+              "version": 8,
+              "total_tax_money": {
+                "amount": 0,
+                "currency": "USD"
+              },
+              "total_discount_money": {
+                "amount": 0,
+                "currency": "USD"
+              },
+              "total_tip_money": {
+                "amount": 0,
+                "currency": "USD"
+              },
+              "total_money": {
+                "amount": 1000,
+                "currency": "USD"
+              },
+              "closed_at": "2026-07-15T19:26:19.256Z",
+              "tenders": [
+                {
+                  "id": "f3YEx4hWP1mDncRMtBjc4TM4OKNZY",
+                  "location_id": "L6KAXMZ50WFKS",
+                  "transaction_id": "nT6eTFlDa7Ko7PDjNEJX7ij1jpeZY",
+                  "created_at": "2026-07-15T19:26:18Z",
+                  "amount_money": {
+                    "amount": 1000,
+                    "currency": "USD"
+                  },
+                  "type": "CARD",
+                  "card_details": {
+                    "status": "CAPTURED",
+                    "card": {
+                      "card_brand": "VISA",
+                      "last_4": "5858",
+                      "exp_month": 7,
+                      "exp_year": 2028,
+                      "fingerprint": "sq-1-43P019xet2Uk4l4mN5zkX9fBAxx1EcFX5ZaMObExOzZFmT24ZjewIS0KQE6elGb0og",
+                      "card_type": "CREDIT",
+                      "prepaid_type": "NOT_PREPAID",
+                      "bin": "453275"
+                    },
+                    "entry_method": "KEYED"
+                  },
+                  "payment_id": "f3YEx4hWP1mDncRMtBjc4TM4OKNZY"
+                }
+              ],
+              "total_service_charge_money": {
+                "amount": 0,
+                "currency": "USD"
+              },
+              "net_amounts": {
+                "total_money": {
+                  "amount": 1000,
+                  "currency": "USD"
+                },
+                "tax_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                },
+                "discount_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                },
+                "tip_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                },
+                "service_charge_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                },
+                "card_surcharge_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                }
+              },
+              "source": {
+                "name": "Sandbox for sq0idp-abdGXRLHHhdFa-WLYwHG3Q"
+              },
+              "customer_id": "D0W2WW574N4NKXWH7ZATYCF1J0",
+              "net_amount_due_money": {
+                "amount": 0,
+                "currency": "USD"
+              },
+              "total_card_surcharge_money": {
+                "amount": 0,
+                "currency": "USD"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 20:01:59 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "2313",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1784145770",
+          "etag": "W/\"909-LUuhF+M4IKQ3LAYhsmhigHOsoaU\""
+        },
+        "hash": "43b885f419e20a02466c673c868e69d59813468c",
+        "request": {
+          "data": {
+            "order_ids": [
+              "nT6eTFlDa7Ko7PDjNEJX7ij1jpeZY"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
