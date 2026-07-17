@@ -3,85 +3,85 @@ import { z } from 'zod';
 
 const UserSchema = z.object({
     id: z.string().describe('Gong user ID. Example: "234599484848423"'),
-    active: z.boolean().optional(),
-    created: z.string().optional().describe('Creation time in ISO-8601 format. Example: "2018-02-17T02:30:00-08:00"'),
-    emailAddress: z.string().optional().describe('Email address. Example: "test@test.com"'),
-    emailAliases: z.array(z.string()).optional(),
-    extension: z.string().optional(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional(),
-    managerId: z.string().optional().describe('Manager ID. Example: "563515258458745"'),
-    meetingConsentPageUrl: z.string().optional(),
-    personalMeetingUrls: z.array(z.string()).optional(),
-    phoneNumber: z.string().optional(),
+    active: z.boolean().nullish(),
+    created: z.string().nullish().describe('Creation time in ISO-8601 format. Example: "2018-02-17T02:30:00-08:00"'),
+    emailAddress: z.string().nullish().describe('Email address. Example: "test@test.com"'),
+    emailAliases: z.array(z.string()).nullish(),
+    extension: z.string().nullish(),
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish(),
+    managerId: z.string().nullish().describe('Manager ID. Example: "563515258458745"'),
+    meetingConsentPageUrl: z.string().nullish(),
+    personalMeetingUrls: z.array(z.string()).nullish(),
+    phoneNumber: z.string().nullish(),
     settings: z
         .object({
-            emailsImported: z.boolean().optional(),
-            nonRecordedMeetingsImported: z.boolean().optional(),
-            preventEmailImport: z.boolean().optional(),
-            preventWebConferenceRecording: z.boolean().optional(),
-            telephonyCallsImported: z.boolean().optional(),
-            webConferencesRecorded: z.boolean().optional()
+            emailsImported: z.boolean().nullish(),
+            nonRecordedMeetingsImported: z.boolean().nullish(),
+            preventEmailImport: z.boolean().nullish(),
+            preventWebConferenceRecording: z.boolean().nullish(),
+            telephonyCallsImported: z.boolean().nullish(),
+            webConferencesRecorded: z.boolean().nullish()
         })
         .passthrough()
-        .optional(),
+        .nullish(),
     spokenLanguages: z
         .array(
             z.object({
-                language: z.string().optional(),
-                primary: z.boolean().optional()
+                language: z.string().nullish(),
+                primary: z.boolean().nullish()
             })
         )
-        .optional(),
-    title: z.string().optional()
+        .nullish(),
+    title: z.string().nullish()
 });
 
 const ProviderUserSchema = z.object({
     id: z.string(),
-    active: z.boolean().optional(),
-    created: z.string().optional(),
-    emailAddress: z.string().optional(),
-    emailAliases: z.array(z.string()).optional(),
-    extension: z.string().nullable().optional(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional(),
-    managerId: z.string().nullable().optional(),
-    meetingConsentPageUrl: z.string().nullable().optional(),
-    personalMeetingUrls: z.array(z.string()).optional(),
-    phoneNumber: z.string().nullable().optional(),
+    active: z.boolean().nullish(),
+    created: z.string().nullish(),
+    emailAddress: z.string().nullish(),
+    emailAliases: z.array(z.string()).nullish(),
+    extension: z.string().nullish(),
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish(),
+    managerId: z.string().nullish(),
+    meetingConsentPageUrl: z.string().nullish(),
+    personalMeetingUrls: z.array(z.string()).nullish(),
+    phoneNumber: z.string().nullish(),
     settings: z
         .object({
-            emailsImported: z.boolean().optional(),
-            nonRecordedMeetingsImported: z.boolean().optional(),
-            preventEmailImport: z.boolean().optional(),
-            preventWebConferenceRecording: z.boolean().optional(),
-            telephonyCallsImported: z.boolean().optional(),
-            webConferencesRecorded: z.boolean().optional()
+            emailsImported: z.boolean().nullish(),
+            nonRecordedMeetingsImported: z.boolean().nullish(),
+            preventEmailImport: z.boolean().nullish(),
+            preventWebConferenceRecording: z.boolean().nullish(),
+            telephonyCallsImported: z.boolean().nullish(),
+            webConferencesRecorded: z.boolean().nullish()
         })
         .passthrough()
-        .optional(),
+        .nullish(),
     spokenLanguages: z
         .array(
             z.object({
-                language: z.string().optional(),
-                primary: z.boolean().optional()
+                language: z.string().nullish(),
+                primary: z.boolean().nullish()
             })
         )
-        .optional(),
-    title: z.string().nullable().optional()
+        .nullish(),
+    title: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
     records: z
         .object({
-            totalRecords: z.number().optional(),
-            currentPageSize: z.number().optional(),
-            currentPageNumber: z.number().optional(),
-            cursor: z.string().optional()
+            totalRecords: z.number().nullish(),
+            currentPageSize: z.number().nullish(),
+            currentPageNumber: z.number().nullish(),
+            cursor: z.string().nullish()
         })
-        .optional(),
-    users: z.array(ProviderUserSchema).optional()
+        .nullish(),
+    users: z.array(ProviderUserSchema).nullish()
 });
 
 const CheckpointSchema = z.object({
@@ -95,7 +95,7 @@ function normalizeToUtc(isoString: string): string {
 
 const sync = createSync({
     description: 'Sync users from Gong',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -133,23 +133,31 @@ const sync = createSync({
             const parsed = ProviderResponseSchema.parse(response.data);
             const users = parsed.users ?? [];
 
-            const mappedUsers = users.map((user) => ({
-                id: user.id,
-                ...(user.active !== undefined && { active: user.active }),
-                ...(user.created !== undefined && { created: normalizeToUtc(user.created) }),
-                ...(user.emailAddress !== undefined && { emailAddress: user.emailAddress }),
-                ...(user.emailAliases !== undefined && { emailAliases: user.emailAliases }),
-                ...(user.extension !== undefined && user.extension !== null && { extension: user.extension }),
-                ...(user.firstName !== undefined && { firstName: user.firstName }),
-                ...(user.lastName !== undefined && { lastName: user.lastName }),
-                ...(user.managerId !== undefined && user.managerId !== null && { managerId: user.managerId }),
-                ...(user.meetingConsentPageUrl !== undefined && user.meetingConsentPageUrl !== null && { meetingConsentPageUrl: user.meetingConsentPageUrl }),
-                ...(user.personalMeetingUrls !== undefined && { personalMeetingUrls: user.personalMeetingUrls }),
-                ...(user.phoneNumber !== undefined && user.phoneNumber !== null && { phoneNumber: user.phoneNumber }),
-                ...(user.settings !== undefined && { settings: user.settings }),
-                ...(user.spokenLanguages !== undefined && { spokenLanguages: user.spokenLanguages }),
-                ...(user.title !== undefined && user.title !== null && { title: user.title })
-            }));
+            const mappedUsers = users.flatMap((user) => {
+                if (!user.id) {
+                    return [];
+                }
+
+                return [
+                    {
+                        id: user.id,
+                        ...(user.active !== undefined && { active: user.active }),
+                        ...(user.created !== undefined && { created: user.created === null ? null : normalizeToUtc(user.created) }),
+                        ...(user.emailAddress !== undefined && { emailAddress: user.emailAddress }),
+                        ...(user.emailAliases !== undefined && { emailAliases: user.emailAliases }),
+                        ...(user.extension !== undefined && { extension: user.extension }),
+                        ...(user.firstName !== undefined && { firstName: user.firstName }),
+                        ...(user.lastName !== undefined && { lastName: user.lastName }),
+                        ...(user.managerId !== undefined && { managerId: user.managerId }),
+                        ...(user.meetingConsentPageUrl !== undefined && { meetingConsentPageUrl: user.meetingConsentPageUrl }),
+                        ...(user.personalMeetingUrls !== undefined && { personalMeetingUrls: user.personalMeetingUrls }),
+                        ...(user.phoneNumber !== undefined && { phoneNumber: user.phoneNumber }),
+                        ...(user.settings !== undefined && { settings: user.settings }),
+                        ...(user.spokenLanguages !== undefined && { spokenLanguages: user.spokenLanguages }),
+                        ...(user.title !== undefined && { title: user.title })
+                    }
+                ];
+            });
 
             if (mappedUsers.length > 0) {
                 await nango.batchSave(mappedUsers, 'User');

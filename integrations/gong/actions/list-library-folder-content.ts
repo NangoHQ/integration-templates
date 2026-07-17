@@ -8,27 +8,27 @@ const InputSchema = z.object({
 const OutputSchema = z.object({
     requestId: z.string().optional(),
     id: z.string().optional(),
-    name: z.string().optional(),
-    createdBy: z.string().optional(),
-    updated: z.string().optional(),
+    name: z.string().nullish(),
+    createdBy: z.string().nullish(),
+    updated: z.string().nullish(),
     calls: z
         .array(
             z.object({
                 id: z.string().optional(),
-                title: z.string().optional(),
-                note: z.string().optional(),
-                addedBy: z.string().optional(),
-                created: z.string().optional(),
-                url: z.string().optional(),
-                snippet: z.record(z.string(), z.unknown()).optional()
+                title: z.string().nullish(),
+                note: z.string().nullish(),
+                addedBy: z.string().nullish(),
+                created: z.string().nullish(),
+                url: z.string().nullish(),
+                snippet: z.record(z.string(), z.unknown()).nullish()
             })
         )
-        .optional()
+        .nullish()
 });
 
 export default createAction({
     description: 'List calls within a specific Gong library folder',
-    version: '0.0.1',
+    version: '0.0.2',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango: NangoAction, input) => {

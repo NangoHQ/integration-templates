@@ -10,15 +10,15 @@ const InputSchema = z.object({
 
 const LogEntrySchema = z
     .object({
-        userId: z.string().optional(),
-        userEmailAddress: z.string().optional(),
-        userFullName: z.string().optional(),
-        impersonatorUserId: z.string().optional(),
-        impersonatorEmailAddress: z.string().optional(),
-        impersonatorFullName: z.string().optional(),
-        impersonatorCompanyId: z.string().optional(),
-        eventTime: z.string().optional(),
-        logRecord: z.record(z.string(), z.unknown()).optional()
+        userId: z.string().nullish(),
+        userEmailAddress: z.string().nullish(),
+        userFullName: z.string().nullish(),
+        impersonatorUserId: z.string().nullish(),
+        impersonatorEmailAddress: z.string().nullish(),
+        impersonatorFullName: z.string().nullish(),
+        impersonatorCompanyId: z.string().nullish(),
+        eventTime: z.string().nullish(),
+        logRecord: z.record(z.string(), z.unknown()).nullish()
     })
     .passthrough();
 
@@ -27,28 +27,28 @@ const ProviderResponseSchema = z
         requestId: z.string().optional(),
         records: z
             .object({
-                totalRecords: z.number().optional(),
-                currentPageSize: z.number().optional(),
-                currentPageNumber: z.number().optional(),
-                cursor: z.string().optional()
+                totalRecords: z.number().nullish(),
+                currentPageSize: z.number().nullish(),
+                currentPageNumber: z.number().nullish(),
+                cursor: z.string().nullish()
             })
-            .optional(),
-        logEntries: z.array(LogEntrySchema).optional()
+            .nullish(),
+        logEntries: z.array(LogEntrySchema).nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    totalRecords: z.number().optional(),
-    currentPageSize: z.number().optional(),
-    currentPageNumber: z.number().optional(),
-    logEntries: z.array(LogEntrySchema),
-    nextCursor: z.string().optional()
+    totalRecords: z.number().nullish(),
+    currentPageSize: z.number().nullish(),
+    currentPageNumber: z.number().nullish(),
+    logEntries: z.array(LogEntrySchema).nullable(),
+    nextCursor: z.string().nullish()
 });
 
 const action = createAction({
     description: 'Retrieve Gong audit logs by type and time range.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:logs:read'],

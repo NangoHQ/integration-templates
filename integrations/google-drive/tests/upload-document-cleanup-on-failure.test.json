@@ -1,0 +1,60 @@
+{
+  "input": {
+    "name": "test-upload.txt",
+    "content": "Hello from Nango!",
+    "mimeType": "text/plain"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/drive/v3/files": {
+        "response": {
+          "id": "13gagWd0Y0_VacCQDVBqTxj_n7mlvBh5i",
+          "name": "test-upload.txt",
+          "mimeType": "text/plain",
+          "webContentLink": "https://drive.google.com/uc?id=13gagWd0Y0_VacCQDVBqTxj_n7mlvBh5i&export=download",
+          "webViewLink": "https://drive.google.com/file/d/13gagWd0Y0_VacCQDVBqTxj_n7mlvBh5i/view?usp=drivesdk"
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "request": {
+          "params": {
+            "fields": "id,name,mimeType,webViewLink,webContentLink"
+          },
+          "data": {
+            "name": "test-upload.txt",
+            "mimeType": "text/plain"
+          }
+        }
+      }
+    },
+    "patch": {
+      "/upload/drive/v3/files/13gagWd0Y0_VacCQDVBqTxj_n7mlvBh5i": {
+        "response": null,
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "request": {
+          "params": {
+            "fields": "id,name,mimeType,webViewLink,webContentLink",
+            "uploadType": "media"
+          },
+          "headers": {
+            "Content-Type": "text/plain"
+          },
+          "data": "Hello from Nango!"
+        }
+      }
+    },
+    "delete": {
+      "/drive/v3/files/13gagWd0Y0_VacCQDVBqTxj_n7mlvBh5i": {
+        "response": "",
+        "status": 204,
+        "headers": {}
+      }
+    }
+  }
+}

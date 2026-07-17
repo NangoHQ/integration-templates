@@ -88,17 +88,17 @@ const InputSchema = z.object({
 
 const ProviderProfileResponseSchema = z.object({
     requestId: z.string(),
-    profile: z.record(z.string(), z.unknown()).optional()
+    profile: z.record(z.string(), z.unknown()).nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string(),
-    profile: z.record(z.string(), z.unknown()).optional()
+    profile: z.record(z.string(), z.unknown()).nullish()
 });
 
 const action = createAction({
     description: 'Create a new permission profile in a Gong workspace',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:permission-profile:write'],

@@ -1,0 +1,46 @@
+{
+  "input": {
+    "id": "39684243917",
+    "name": "Acme Corp",
+    "description": ""
+  },
+  "output": {
+    "id": "39684243917",
+    "name": "Acme Corp",
+    "description": "",
+    "createdAt": "2026-02-25T16:23:49.023Z",
+    "updatedAt": "2026-03-12T07:36:21.334Z"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/crm/v3/objects/companies/39684243917": {
+        "request": {
+          "data": {
+            "properties": {
+              "name": "Acme Corp",
+              "description": ""
+            }
+          }
+        },
+        "response": {
+          "id": "39684243917",
+          "properties": {
+            "createdate": "2026-02-25T16:23:49.023Z",
+            "name": "Acme Corp",
+            "description": "",
+            "hs_object_id": "39684243917",
+            "hs_lastmodifieddate": "2026-03-12T07:36:21.334Z"
+          },
+          "createdAt": "2026-02-25T16:23:49.023Z",
+          "updatedAt": "2026-03-12T07:36:21.334Z",
+          "archived": false
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=utf-8"
+        }
+      }
+    }
+  }
+}

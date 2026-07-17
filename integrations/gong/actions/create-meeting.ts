@@ -18,22 +18,22 @@ const InputSchema = z.object({
 });
 
 const MeetingInviteeResponseSchema = z.object({
-    email: z.string().email(),
-    displayName: z.string().optional(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional()
+    email: z.string().email().nullable(),
+    displayName: z.string().nullish(),
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().describe('A Gong request reference Id.'),
     meetingId: z.string().describe("Gong's unique identifier for the meeting."),
-    meetingUrl: z.string().describe('The Gong URL of the meeting.'),
-    additionalInvitees: z.array(MeetingInviteeResponseSchema).optional().describe('Attendees added to the invitation.')
+    meetingUrl: z.string().describe('The Gong URL of the meeting.').nullable(),
+    additionalInvitees: z.array(MeetingInviteeResponseSchema).nullish().describe('Attendees added to the invitation.')
 });
 
 const action = createAction({
     description: 'Create a new Gong meeting (Beta).',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:meetings:user:create'],
