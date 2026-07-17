@@ -3197,6 +3197,48 @@ import './paycom/syncs/unified-employees.js';
 // -- Integration: paylocity
 import './paylocity/syncs/users.js';
 
+// -- Integration: paypal
+import './paypal/syncs/disputes.js';
+import './paypal/syncs/invoices.js';
+import './paypal/syncs/plans.js';
+import './paypal/syncs/products.js';
+import './paypal/syncs/subscriptions.js';
+import './paypal/syncs/transactions.js';
+import './paypal/actions/activate-subscription.js';
+import './paypal/actions/add-order-tracking.js';
+import './paypal/actions/authorize-order.js';
+import './paypal/actions/cancel-invoice.js';
+import './paypal/actions/capture-authorized-payment.js';
+import './paypal/actions/capture-order.js';
+import './paypal/actions/confirm-order-payment-source.js';
+import './paypal/actions/create-invoice.js';
+import './paypal/actions/create-order.js';
+import './paypal/actions/create-plan.js';
+import './paypal/actions/create-product.js';
+import './paypal/actions/create-subscription.js';
+import './paypal/actions/deactivate-plan.js';
+import './paypal/actions/delete-invoice.js';
+import './paypal/actions/get-authorization.js';
+import './paypal/actions/get-capture.js';
+import './paypal/actions/get-invoice.js';
+import './paypal/actions/get-order.js';
+import './paypal/actions/get-plan.js';
+import './paypal/actions/get-product.js';
+import './paypal/actions/get-refund.js';
+import './paypal/actions/get-subscription.js';
+import './paypal/actions/list-disputes.js';
+import './paypal/actions/list-invoices.js';
+import './paypal/actions/list-plans.js';
+import './paypal/actions/list-products.js';
+import './paypal/actions/record-invoice-payment.js';
+import './paypal/actions/refund-capture.js';
+import './paypal/actions/send-invoice.js';
+import './paypal/actions/update-order-tracking.js';
+import './paypal/actions/update-order.js';
+import './paypal/actions/update-plan-pricing.js';
+import './paypal/actions/update-product.js';
+import './paypal/actions/void-authorized-payment.js';
+
 // -- Integration: pennylane
 import './pennylane/syncs/bank-accounts.js';
 import './pennylane/syncs/bank-establishments.js';

@@ -1,0 +1,134 @@
+{
+  "input": {
+    "authorization_id": "9NU97900US2037535",
+    "request_id": "test-request-id"
+  },
+  "output": {
+    "id": "07D85129WC8536151",
+    "status": "COMPLETED",
+    "amount": {
+      "currency_code": "USD",
+      "value": "10.00"
+    },
+    "final_capture": true,
+    "seller_protection_status": "NOT_ELIGIBLE",
+    "seller_receivable_breakdown": {
+      "gross_amount": {
+        "currency_code": "USD",
+        "value": "10.00"
+      },
+      "paypal_fee": {
+        "currency_code": "USD",
+        "value": "0.75"
+      },
+      "net_amount": {
+        "currency_code": "USD",
+        "value": "9.25"
+      },
+      "exchange_rate": {}
+    },
+    "create_time": "2026-07-13T20:51:08Z",
+    "update_time": "2026-07-13T20:51:08Z",
+    "links": [
+      {
+        "href": "https://api.sandbox.paypal.com/v2/payments/captures/07D85129WC8536151",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://api.sandbox.paypal.com/v2/payments/captures/07D85129WC8536151/refund",
+        "rel": "refund",
+        "method": "POST"
+      },
+      {
+        "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/9NU97900US2037535",
+        "rel": "up",
+        "method": "GET"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/payments/authorizations/9NU97900US2037535/capture": {
+        "response": {
+          "id": "07D85129WC8536151",
+          "amount": {
+            "currency_code": "USD",
+            "value": "10.00"
+          },
+          "final_capture": true,
+          "seller_protection": {
+            "status": "NOT_ELIGIBLE"
+          },
+          "seller_receivable_breakdown": {
+            "gross_amount": {
+              "currency_code": "USD",
+              "value": "10.00"
+            },
+            "paypal_fee": {
+              "currency_code": "USD",
+              "value": "0.75"
+            },
+            "net_amount": {
+              "currency_code": "USD",
+              "value": "9.25"
+            },
+            "exchange_rate": {}
+          },
+          "status": "COMPLETED",
+          "create_time": "2026-07-13T20:51:08Z",
+          "update_time": "2026-07-13T20:51:08Z",
+          "links": [
+            {
+              "href": "https://api.sandbox.paypal.com/v2/payments/captures/07D85129WC8536151",
+              "rel": "self",
+              "method": "GET"
+            },
+            {
+              "href": "https://api.sandbox.paypal.com/v2/payments/captures/07D85129WC8536151/refund",
+              "rel": "refund",
+              "method": "POST"
+            },
+            {
+              "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/9NU97900US2037535",
+              "rel": "up",
+              "method": "GET"
+            }
+          ],
+          "network_transaction_reference": {
+            "id": "287017901528260",
+            "network": "VISA"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 13 Jul 2026 20:51:09 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "872",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4972",
+          "x-ratelimit-reset": "1783975892",
+          "etag": "W/\"368-IRw3DFsqOa4g8XkR5ruDNGoYrKw\""
+        },
+        "hash": "ec9c052370153d8c5bc8d7671383924c7d9ebd29",
+        "request": {
+          "headers": {
+            "Prefer": "return=representation"
+          },
+          "data": {}
+        }
+      }
+    }
+  }
+}
