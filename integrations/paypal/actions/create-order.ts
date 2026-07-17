@@ -89,6 +89,16 @@ const action = createAction({
         // Nest under payment_source.paypal.experience_context (the current Orders v2 field) rather than the
         // deprecated top-level application_context, merging with any paypal payment_source fields the caller
         // already provided (e.g. vault_id) instead of overwriting them.
+        if (input.experience_context !== undefined && input.payment_source !== undefined) {
+            const otherSourceKeys = Object.keys(input.payment_source).filter((key) => key !== 'paypal');
+            if (otherSourceKeys.length > 0) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: `experience_context only applies to a "paypal" payment_source, but payment_source also specifies: ${otherSourceKeys.join(', ')}. Remove experience_context or the other payment source(s).`
+                });
+            }
+        }
+
         const existingPaypalSource = input.payment_source?.['paypal'];
         const paypalSource = existingPaypalSource && typeof existingPaypalSource === 'object' ? existingPaypalSource : {};
         const paymentSource =

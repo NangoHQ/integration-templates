@@ -23,7 +23,7 @@ const InputSchema = z.object({
     home_url: z.string().url().max(2000).optional().describe('The home page URL for the product. Example: "https://example.com/home"'),
     request_id: z
         .string()
-        .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+        .regex(/^[\x21-\x7E]{1,38}$/, 'request_id must be 1-38 printable ASCII characters (PayPal-Request-Id limit).')
         .optional()
         .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });

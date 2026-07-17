@@ -89,7 +89,7 @@ const InputSchema = z
         quantity_supported: z.boolean().optional().describe('Whether you can subscribe by providing a quantity.'),
         request_id: z
             .string()
-            .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+            .regex(/^[\x21-\x7E]{1,38}$/, 'request_id must be 1-38 printable ASCII characters (PayPal-Request-Id limit).')
             .optional()
             .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
     })

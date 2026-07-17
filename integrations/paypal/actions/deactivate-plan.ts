@@ -6,7 +6,7 @@ const InputSchema = z.object({
     plan_id: z.string().describe('PayPal billing plan ID to deactivate. Example: "P-3F897353EP795272HNJKULHQ"'),
     request_id: z
         .string()
-        .regex(/^[\x21-\x7E]{1,256}$/, 'request_id must be 1-256 printable ASCII characters.')
+        .regex(/^[\x21-\x7E]{1,38}$/, 'request_id must be 1-38 printable ASCII characters (PayPal-Request-Id limit).')
         .optional()
         .describe('Optional idempotency key sent as PayPal-Request-Id. If omitted, a random one is generated per execution.')
 });
