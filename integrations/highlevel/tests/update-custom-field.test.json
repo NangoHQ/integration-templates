@@ -1,0 +1,84 @@
+{
+  "input": {
+    "locationId": "AYg6rIXHN1fXdXjGcYvI",
+    "id": "6Mh9UM2rC15NFbUdZ3Zv",
+    "name": "Nango Update Test"
+  },
+  "output": {
+    "id": "6Mh9UM2rC15NFbUdZ3Zv",
+    "name": "Nango Update Test",
+    "fieldKey": "contact.temp_create_test",
+    "placeholder": "",
+    "dataType": "TEXT",
+    "position": 50,
+    "locationId": "AYg6rIXHN1fXdXjGcYvI",
+    "model": "contact"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/locations/AYg6rIXHN1fXdXjGcYvI/customFields/6Mh9UM2rC15NFbUdZ3Zv": {
+        "response": {
+          "customField": {
+            "id": "6Mh9UM2rC15NFbUdZ3Zv",
+            "model": "contact",
+            "name": "Nango Update Test",
+            "fieldKey": "contact.temp_create_test",
+            "placeholder": "",
+            "dataType": "TEXT",
+            "position": 50,
+            "documentType": "field",
+            "parentId": "7DcVqzvRQwnMmPpRCwow",
+            "locationId": "AYg6rIXHN1fXdXjGcYvI",
+            "dateAdded": "2026-07-17T10:21:56.481Z",
+            "standard": false,
+            "scopes": []
+          },
+          "traceId": "98e6995c-4a62-4fcc-977d-33fed5538bbe"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 10:23:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "93",
+          "x-ratelimit-reset": "1784283804",
+          "cf-ray": "a1c88777ca457571-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"183-/XTr4c2CcH6XtyQCCslUhTcTWCc\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "access-control-max-age": "31536000",
+          "timing-allow-origin": "*",
+          "x-envoy-upstream-service-time": "85",
+          "x-ratelimit-daily-remaining": "199753",
+          "x-ratelimit-daily-reset": "83452000",
+          "x-ratelimit-interval-milliseconds": "10000",
+          "x-ratelimit-limit-daily": "200000",
+          "x-ratelimit-max": "100",
+          "set-cookie": "__cf_bm=6IFX1AXZPOXKt3tiLm5vz.AAom.3UlQsyS_BlHG22r0-1784283784.9219685-1.0.1.1-Cwr0863Z39IehPTU6uEDvKuNMXobwt0lmEyxG056ve5oWNwdlZLyeJYuo7txbPRYD46_xboM8nEsI0vQzmN0MoqdjTJ1e9bQKrWEnac.wdvP4diC26z_MEtZLny3iAlc; HttpOnly; SameSite=None; Secure; Path=/; Domain=leadconnectorhq.com; Expires=Fri, 17 Jul 2026 10:53:05 GMT"
+        },
+        "hash": "837a2c86067f06bdd9514a53130f7ac6f1dee1e0",
+        "request": {
+          "headers": {
+            "Version": "2021-07-28"
+          },
+          "data": {
+            "name": "Nango Update Test"
+          }
+        }
+      }
+    }
+  }
+}

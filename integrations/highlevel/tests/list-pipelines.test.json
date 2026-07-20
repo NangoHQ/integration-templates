@@ -1,0 +1,163 @@
+{
+  "input": {
+    "locationId": "AYg6rIXHN1fXdXjGcYvI"
+  },
+  "output": {
+    "pipelines": [
+      {
+        "id": "alX8AvUfLBKkXH2pZNkl",
+        "name": "Marketing Pipeline",
+        "stages": [
+          {
+            "id": "2c4fdab1-a812-4255-a833-6c9287b12866",
+            "name": "New Lead",
+            "position": 0
+          },
+          {
+            "id": "abb8ed63-e066-4b3c-9186-23ddaa3dcde1",
+            "name": "Contacted",
+            "position": 1
+          },
+          {
+            "id": "2027a4f1-9261-4a2e-877e-da135b057b37",
+            "name": "Qualified",
+            "position": 2
+          },
+          {
+            "id": "12bc64c6-c285-4b1f-892c-d816370b5a6c",
+            "name": "Proposal Sent",
+            "position": 3
+          },
+          {
+            "id": "69e34ee6-c87d-4e07-9567-5b895c13341a",
+            "name": "Negotiation",
+            "position": 4
+          },
+          {
+            "id": "d60ff903-b097-442c-a4e4-dca3a950677f",
+            "name": "Closed",
+            "position": 5
+          }
+        ],
+        "showInFunnel": true,
+        "showInPieChart": true,
+        "locationId": "AYg6rIXHN1fXdXjGcYvI"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/opportunities/pipelines": {
+        "response": {
+          "pipelines": [
+            {
+              "id": "alX8AvUfLBKkXH2pZNkl",
+              "name": "Marketing Pipeline",
+              "showInFunnel": true,
+              "showInPieChart": true,
+              "useOpportunityProbability": false,
+              "dateAdded": "2026-07-17T07:11:57.813Z",
+              "dateUpdated": "2026-07-17T07:11:57.813Z",
+              "stages": [
+                {
+                  "id": "2c4fdab1-a812-4255-a833-6c9287b12866",
+                  "name": "New Lead",
+                  "showInFunnel": true,
+                  "showInPieChart": true,
+                  "position": 0,
+                  "stageWinProbability": 14.29
+                },
+                {
+                  "id": "abb8ed63-e066-4b3c-9186-23ddaa3dcde1",
+                  "name": "Contacted",
+                  "showInFunnel": true,
+                  "showInPieChart": true,
+                  "position": 1,
+                  "stageWinProbability": 28.57
+                },
+                {
+                  "id": "2027a4f1-9261-4a2e-877e-da135b057b37",
+                  "name": "Qualified",
+                  "showInFunnel": true,
+                  "showInPieChart": true,
+                  "position": 2,
+                  "stageWinProbability": 42.86
+                },
+                {
+                  "id": "12bc64c6-c285-4b1f-892c-d816370b5a6c",
+                  "name": "Proposal Sent",
+                  "showInFunnel": true,
+                  "showInPieChart": true,
+                  "position": 3,
+                  "stageWinProbability": 57.14
+                },
+                {
+                  "id": "69e34ee6-c87d-4e07-9567-5b895c13341a",
+                  "name": "Negotiation",
+                  "showInFunnel": true,
+                  "showInPieChart": true,
+                  "position": 4,
+                  "stageWinProbability": 71.43
+                },
+                {
+                  "id": "d60ff903-b097-442c-a4e4-dca3a950677f",
+                  "name": "Closed",
+                  "showInFunnel": true,
+                  "showInPieChart": true,
+                  "position": 5,
+                  "stageWinProbability": 85.71
+                }
+              ],
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "position": "ZyyrrRZ"
+            }
+          ],
+          "traceId": "dc70f9b9-25df-4bd5-822f-dbca2c9939db"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 10:21:46 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "87",
+          "x-ratelimit-reset": "1784283724",
+          "cf-ray": "a1c8858ea9beb9bb-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"4d4-YvChE38qMj0otgejTFGnl2ogjBI\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "access-control-max-age": "31536000",
+          "timing-allow-origin": "*",
+          "x-envoy-upstream-service-time": "9",
+          "x-ratelimit-daily-remaining": "199822",
+          "x-ratelimit-daily-reset": "83530000",
+          "x-ratelimit-interval-milliseconds": "10000",
+          "x-ratelimit-limit-daily": "200000",
+          "x-ratelimit-max": "100",
+          "set-cookie": "__cf_bm=_YR1xOpVlf8Ym5JHaao80Us6YFx9Kpbdimef02R9Ucc-1784283706.6631-1.0.1.1-4pk4rUqRfwlyjiPA5Gl9fmfQ0rKoP.COcQyVgXJu7AHRV10uYxyj66Mgaq21bnVYQ_yqePBgH1k7zYmKpdKtKyf8JlWJRBtwMGiZM1m7gVIROGYN3Z038c88rTv8b9TN; HttpOnly; SameSite=None; Secure; Path=/; Domain=leadconnectorhq.com; Expires=Fri, 17 Jul 2026 10:51:46 GMT"
+        },
+        "hash": "9f68c0f546b7c8154233a18e27e595956ae71700",
+        "request": {
+          "params": {
+            "locationId": "AYg6rIXHN1fXdXjGcYvI"
+          },
+          "headers": {
+            "Version": "2021-07-28"
+          }
+        }
+      }
+    }
+  }
+}
