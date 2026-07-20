@@ -113,6 +113,7 @@ const sync = createSync({
 
         let cursor = startAfterDate;
         let hasMore = true;
+        let advanced = false;
 
         while (hasMore) {
             const response = await nango.get({
@@ -185,6 +186,7 @@ const sync = createSync({
                 start_after_date: lastSort
             });
             cursor = lastSort;
+            advanced = true;
 
             if (conversations.length < LIMIT) {
                 hasMore = false;
@@ -193,7 +195,9 @@ const sync = createSync({
 
         // Seed the next run's cursor with a trailing overlap so recently active conversations
         // that were edited without a new message get re-fetched and re-saved with their latest state.
-        if (cursor !== undefined) {
+        // Only do this when the cursor actually advanced this run — otherwise an idle connection
+        // would rewind its checkpoint by OVERLAP_MS on every run and eventually force a full resync.
+        if (advanced && cursor !== undefined) {
             await nango.saveCheckpoint({
                 start_after_date: Math.max(0, cursor - OVERLAP_MS)
             });

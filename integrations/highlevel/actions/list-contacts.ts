@@ -88,7 +88,13 @@ const action = createAction({
             });
         }
 
-        const pageLimit = input.limit !== undefined && Number.isInteger(input.limit) && input.limit > 0 ? input.limit : 100;
+        if (input.limit !== undefined && (!Number.isInteger(input.limit) || input.limit <= 0)) {
+            throw new nango.ActionError({
+                type: 'invalid_limit',
+                message: 'limit must be a positive integer.'
+            });
+        }
+        const pageLimit = input.limit ?? 100;
         const page = input.cursor !== undefined ? Number(input.cursor) : 1;
         if (Number.isNaN(page) || !Number.isInteger(page) || page < 1) {
             throw new nango.ActionError({

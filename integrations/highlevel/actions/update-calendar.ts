@@ -67,7 +67,7 @@ const CalendarNotificationInputSchema = z
 const LookBusyConfigInputSchema = z
     .object({
         enabled: z.boolean(),
-        LookBusyPercentage: z.number().optional()
+        LookBusyPercentage: z.number()
     })
     .passthrough();
 

@@ -62,7 +62,8 @@ const AppointmentModelSchema = z.object({
 });
 
 const CalendarCheckpointSchema = z.object({
-    startTime: z.number().optional()
+    startTime: z.number().optional(),
+    lastFullResyncAt: z.number().optional()
 });
 
 const StateSchema = z.object({
@@ -163,6 +164,10 @@ const sync = createSync({
         // be re-fetched once the checkpoint moves past it. Keep the next checkpoint trailing
         // behind `now` so recently-started appointments stay in the fetch window on every run.
         const OVERLAP_MS = 24 * 60 * 60 * 1000;
+        // The trailing overlap only catches edits to appointments that started within the last
+        // day. Periodically do a full historical walk per calendar so edits/cancellations to
+        // older appointments still eventually get reconciled.
+        const FULL_RESYNC_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000;
 
         for (const calendar of calendars) {
             if (!calendar.id || typeof calendar.id !== 'string') {
@@ -171,7 +176,9 @@ const sync = createSync({
 
             const calendarId = calendar.id;
             const calendarCheckpoint = calendarCheckpoints[calendarId] ?? {};
-            const startTime = calendarCheckpoint.startTime ?? 0;
+            const lastFullResyncAt = calendarCheckpoint.lastFullResyncAt ?? 0;
+            const dueForFullResync = now - lastFullResyncAt >= FULL_RESYNC_INTERVAL_MS;
+            const startTime = dueForFullResync ? 0 : (calendarCheckpoint.startTime ?? 0);
 
             // https://highlevel.stoplight.io/docs/integrations/get-calendar-events
             const eventsResponse = await nango.get({
@@ -224,7 +231,8 @@ const sync = createSync({
             calendarCheckpoints = {
                 ...calendarCheckpoints,
                 [calendarId]: {
-                    startTime: Math.max(0, now - OVERLAP_MS)
+                    startTime: Math.max(0, now - OVERLAP_MS),
+                    lastFullResyncAt: dueForFullResync ? now : lastFullResyncAt
                 }
             };
 
