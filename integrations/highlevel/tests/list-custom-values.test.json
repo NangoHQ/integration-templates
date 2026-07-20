@@ -1,0 +1,120 @@
+{
+  "input": {
+    "locationId": "AYg6rIXHN1fXdXjGcYvI"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "q2ErlDWBKWLBqTp0eVDy",
+        "name": "Nango Test Value",
+        "fieldKey": "{{ custom_values.nango_test_value }}",
+        "value": "test-value-123",
+        "locationId": "AYg6rIXHN1fXdXjGcYvI"
+      },
+      {
+        "id": "moFqjmlRXBVtUr4Qzujt",
+        "name": "Nango Test Value Save",
+        "fieldKey": "{{ custom_values.nango_test_value_save }}",
+        "value": "test-value-save-123",
+        "locationId": "AYg6rIXHN1fXdXjGcYvI"
+      },
+      {
+        "id": "tntXIBPtUh4c88mRllOy",
+        "name": "Nango Test",
+        "fieldKey": "{{ custom_values.nango_test }}",
+        "value": "test-value-123",
+        "locationId": "AYg6rIXHN1fXdXjGcYvI"
+      },
+      {
+        "id": "2hBP4dogy4o8sA86rQLw",
+        "name": "Nango Test CV Updated",
+        "fieldKey": "{{ custom_values.nango_test_cv }}",
+        "value": "Updated Value",
+        "locationId": "AYg6rIXHN1fXdXjGcYvI"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/locations/AYg6rIXHN1fXdXjGcYvI/customValues": {
+        "response": {
+          "customValues": [
+            {
+              "id": "q2ErlDWBKWLBqTp0eVDy",
+              "name": "Nango Test Value",
+              "fieldKey": "{{ custom_values.nango_test_value }}",
+              "value": "test-value-123",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "documentType": "field"
+            },
+            {
+              "id": "moFqjmlRXBVtUr4Qzujt",
+              "name": "Nango Test Value Save",
+              "fieldKey": "{{ custom_values.nango_test_value_save }}",
+              "value": "test-value-save-123",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "documentType": "field"
+            },
+            {
+              "id": "tntXIBPtUh4c88mRllOy",
+              "name": "Nango Test",
+              "fieldKey": "{{ custom_values.nango_test }}",
+              "value": "test-value-123",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "documentType": "field"
+            },
+            {
+              "id": "2hBP4dogy4o8sA86rQLw",
+              "name": "Nango Test CV Updated",
+              "fieldKey": "{{ custom_values.nango_test_cv }}",
+              "value": "Updated Value",
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "documentType": "field"
+            }
+          ],
+          "traceId": "984a5f4b-1bec-4989-ad68-e6a260dfb9df"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 10:24:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "98",
+          "x-ratelimit-reset": "1784283924",
+          "cf-ray": "a1c889dde9e875d4-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"33f-2OgphVyXRLqbAjLPdVXfjgr3Wmo\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "access-control-max-age": "31536000",
+          "timing-allow-origin": "*",
+          "x-envoy-upstream-service-time": "14",
+          "x-ratelimit-daily-remaining": "199699",
+          "x-ratelimit-daily-reset": "83354000",
+          "x-ratelimit-interval-milliseconds": "10000",
+          "x-ratelimit-limit-daily": "200000",
+          "x-ratelimit-max": "100",
+          "set-cookie": "__cf_bm=BiJUyJs9sNKtZmzoHXuBzCdU.MG1ZhPno16PZWQIRWo-1784283883.1839623-1.0.1.1-yQReZ9OjRrGoxg06rucxJ5G_gTuYo2PUx6B2LEMeW9WMHm0EpwkfL.fMIhrHX.XmZTh6rHG57H_EdLt.SZHLsfRteZJYeh47IxGsV36yOaY2RaIlFfKePeKV.aouziX9; HttpOnly; SameSite=None; Secure; Path=/; Domain=leadconnectorhq.com; Expires=Fri, 17 Jul 2026 10:54:43 GMT"
+        },
+        "hash": "77a7ac3667ed40557a5eb92b61eab00be053b2c6",
+        "request": {
+          "headers": {
+            "Version": "2021-07-28"
+          }
+        }
+      }
+    }
+  }
+}

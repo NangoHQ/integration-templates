@@ -1,0 +1,218 @@
+{
+  "input": {},
+  "output": {
+    "id": "AYg6rIXHN1fXdXjGcYvI",
+    "companyId": "aPteVQcnOkaYXzSWPUYC",
+    "name": "Nango",
+    "domain": "",
+    "address": "1111B S Governors Ave suite 3801, South Governors Avenue",
+    "city": "Dover",
+    "logoUrl": "",
+    "country": "US",
+    "postalCode": "19904",
+    "website": "https://www.nango.dev",
+    "timezone": "Europe/Zurich",
+    "firstName": "Robin",
+    "lastName": "Guldener",
+    "email": "api@nango.dev",
+    "phone": "+14152343787",
+    "business": {
+      "name": "Nango",
+      "address": "1111B S Governors Ave suite 3801, South Governors Avenue",
+      "city": "Dover",
+      "state": "DE",
+      "country": "US",
+      "postalCode": "19904",
+      "website": "https://www.nango.dev",
+      "timezone": "Europe/Zurich"
+    },
+    "social": {
+      "facebookUrl": "",
+      "googlePlus": "",
+      "linkedIn": "",
+      "foursquare": "",
+      "twitter": "",
+      "yelp": "",
+      "instagram": "",
+      "youtube": "",
+      "pinterest": "",
+      "blogRss": "",
+      "googlePlacesId": ""
+    },
+    "settings": {
+      "allowDuplicateContact": false,
+      "allowDuplicateOpportunity": false,
+      "allowFacebookNameMerge": false,
+      "disableContactTimezone": false
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "locationId": "AYg6rIXHN1fXdXjGcYvI"
+    }
+  },
+  "api": {
+    "get": {
+      "/locations/AYg6rIXHN1fXdXjGcYvI": {
+        "response": {
+          "location": {
+            "id": "AYg6rIXHN1fXdXjGcYvI",
+            "brandId": "HSRtOU3OoueEghvp9RMl",
+            "companyId": "aPteVQcnOkaYXzSWPUYC",
+            "name": "Nango",
+            "address": "1111B S Governors Ave suite 3801, South Governors Avenue",
+            "city": "Dover",
+            "state": "DE",
+            "country": "US",
+            "postalCode": "19904",
+            "website": "https://www.nango.dev",
+            "timezone": "Europe/Zurich",
+            "firstName": "Robin",
+            "lastName": "Guldener",
+            "email": "api@nango.dev",
+            "phone": "+14152343787",
+            "logoUrl": "",
+            "automaticMobileAppInvite": false,
+            "business": {
+              "name": "Nango",
+              "address": "1111B S Governors Ave suite 3801, South Governors Avenue",
+              "city": "Dover",
+              "state": "DE",
+              "country": "US",
+              "postalCode": "19904",
+              "website": "https://www.nango.dev",
+              "timezone": "Europe/Zurich",
+              "email": "api@nango.dev"
+            },
+            "social": {
+              "facebookUrl": "",
+              "googlePlus": "",
+              "linkedIn": "",
+              "foursquare": "",
+              "twitter": "",
+              "yelp": "",
+              "instagram": "",
+              "youtube": "",
+              "pinterest": "",
+              "blogRss": "",
+              "googlePlacesId": ""
+            },
+            "settings": {
+              "allowDuplicateContact": false,
+              "allowDuplicateOpportunity": false,
+              "allowFacebookNameMerge": false,
+              "disableContactTimezone": false,
+              "contactUniqueIdentifiers": [
+                "email",
+                "phone"
+              ],
+              "crmSettings": {
+                "deSyncOwners": true,
+                "syncFollowers": {
+                  "contact": true,
+                  "opportunity": true
+                }
+              },
+              "saasSettings": {
+                "saasMode": "not_activated",
+                "twilioRebilling": {
+                  "markup": 10,
+                  "enabled": false
+                }
+              }
+            },
+            "dateAdded": "2026-07-17T07:11:30.783Z",
+            "domain": "",
+            "currency": "",
+            "isAgencySubAccount": false,
+            "defaultEmailService": "",
+            "permissions": {
+              "dashboardStatsEnabled": true,
+              "funnelsEnabled": true,
+              "phoneCallEnabled": true,
+              "formsEnabled": true,
+              "quizzesEnabled": true,
+              "textToPayEnabled": true,
+              "gmbMessagingEnabled": true,
+              "htmlBuilderEnabled": true,
+              "contactsEnabled": true,
+              "tagsEnabled": true,
+              "botServiceEnabled": true,
+              "websitesEnabled": true,
+              "appointmentsEnabled": true,
+              "proposalsEnabled": true,
+              "qrCodesEnabled": true,
+              "webChatEnabled": true,
+              "facebookMessengerEnabled": true,
+              "launchpadEnabled": true,
+              "affiliateManagerEnabled": true,
+              "gmbCallTrackingEnabled": true,
+              "marketingEnabled": true,
+              "emailBuilderEnabled": true,
+              "attributionsReportingEnabled": true,
+              "triggerLinksEnabled": true,
+              "membershipEnabled": true,
+              "settingsEnabled": true,
+              "surveysEnabled": true,
+              "opportunitiesEnabled": true,
+              "reviewsEnabled": true,
+              "smsEmailTemplatesEnabled": true,
+              "facebookAdsReportingEnabled": true,
+              "adManagerEnabled": true,
+              "bloggingEnabled": true,
+              "workflowsEnabled": true,
+              "campaignsEnabled": true,
+              "conversationsEnabled": true,
+              "adwordsReportingEnabled": true,
+              "bulkRequestsEnabled": true,
+              "agentReportingEnabled": true,
+              "triggersEnabled": true
+            },
+            "snapshotId": ""
+          },
+          "traceId": "173c6fec-4c1d-4283-84dd-53423378053e"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 10:24:39 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "89",
+          "x-ratelimit-reset": "1784283924",
+          "cf-ray": "a1c889c3598075d4-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"9a1-XwTveXOveRu8zRgUBaXzdXkCyZ4\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "access-control-max-age": "31536000",
+          "timing-allow-origin": "*",
+          "x-envoy-upstream-service-time": "7",
+          "x-ratelimit-daily-remaining": "199705",
+          "x-ratelimit-daily-reset": "83358000",
+          "x-ratelimit-interval-milliseconds": "10000",
+          "x-ratelimit-limit-daily": "200000",
+          "x-ratelimit-max": "100",
+          "set-cookie": "__cf_bm=3s13rcqamPGq5GAeCksbOVGdC97EF6PeZT4U7TaXOAk-1784283878.9406328-1.0.1.1-igREusnJMFTh9NskHqKn.GssdX5YwrMKSVqkNlgcYiP6LZRRftCwcQ5adDIRn7.1Betf94bAHU8sgQyIYzKz_SUPnLj3uqHTuvFfCEIab0PCYprc7.9gZr_ESTV6Ffzs; HttpOnly; SameSite=None; Secure; Path=/; Domain=leadconnectorhq.com; Expires=Fri, 17 Jul 2026 10:54:39 GMT"
+        },
+        "hash": "55357766881ec50b875137692b8680dbe9f32906",
+        "request": {
+          "headers": {
+            "Version": "2021-07-28"
+          }
+        }
+      }
+    }
+  }
+}
