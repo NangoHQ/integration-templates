@@ -1,0 +1,673 @@
+{
+  "input": {
+    "locale": "en",
+    "countryCode": "US",
+    "locationNames": {
+      "names": [
+        "New York"
+      ]
+    },
+    "developerToken": "YOUR_DEVELOPER_TOKEN"
+  },
+  "output": {
+    "geoTargetConstantSuggestions": [
+      {
+        "geoTargetConstant": {
+          "resourceName": "geoTargetConstants/21167",
+          "id": "21167",
+          "name": "New York",
+          "countryCode": "US",
+          "targetType": "State",
+          "status": "ENABLED",
+          "canonicalName": "New York,United States"
+        },
+        "geoTargetConstantParents": [
+          {
+            "resourceName": "geoTargetConstants/2840",
+            "id": "2840",
+            "name": "United States",
+            "countryCode": "US",
+            "targetType": "Country",
+            "status": "ENABLED"
+          }
+        ],
+        "locale": "en",
+        "reach": "38500000",
+        "searchTerm": "New York"
+      },
+      {
+        "geoTargetConstant": {
+          "resourceName": "geoTargetConstants/1023191",
+          "id": "1023191",
+          "name": "New York",
+          "countryCode": "US",
+          "targetType": "City",
+          "status": "ENABLED",
+          "canonicalName": "New York,New York,United States"
+        },
+        "geoTargetConstantParents": [
+          {
+            "resourceName": "geoTargetConstants/21167",
+            "id": "21167",
+            "name": "New York",
+            "countryCode": "US",
+            "targetType": "State",
+            "status": "ENABLED"
+          },
+          {
+            "resourceName": "geoTargetConstants/2840",
+            "id": "2840",
+            "name": "United States",
+            "countryCode": "US",
+            "targetType": "Country",
+            "status": "ENABLED"
+          }
+        ],
+        "locale": "en",
+        "reach": "30200000",
+        "searchTerm": "New York"
+      },
+      {
+        "geoTargetConstant": {
+          "resourceName": "geoTargetConstants/200501",
+          "id": "200501",
+          "name": "New York NY",
+          "countryCode": "US",
+          "targetType": "DMA Region",
+          "status": "ENABLED",
+          "canonicalName": "New York, NY,United States"
+        },
+        "geoTargetConstantParents": [
+          {
+            "resourceName": "geoTargetConstants/2840",
+            "id": "2840",
+            "name": "United States",
+            "countryCode": "US",
+            "targetType": "Country",
+            "status": "ENABLED"
+          }
+        ],
+        "locale": "en",
+        "reach": "40100000",
+        "searchTerm": "New York"
+      },
+      {
+        "geoTargetConstant": {
+          "resourceName": "geoTargetConstants/9058761",
+          "id": "9058761",
+          "name": "New York County",
+          "countryCode": "US",
+          "targetType": "County",
+          "status": "ENABLED",
+          "canonicalName": "New York County,New York,United States"
+        },
+        "geoTargetConstantParents": [
+          {
+            "resourceName": "geoTargetConstants/21167",
+            "id": "21167",
+            "name": "New York",
+            "countryCode": "US",
+            "targetType": "State",
+            "status": "ENABLED"
+          },
+          {
+            "resourceName": "geoTargetConstants/2840",
+            "id": "2840",
+            "name": "United States",
+            "countryCode": "US",
+            "targetType": "Country",
+            "status": "ENABLED"
+          }
+        ],
+        "locale": "en",
+        "reach": "26600000",
+        "searchTerm": "New York"
+      },
+      {
+        "geoTargetConstant": {
+          "resourceName": "geoTargetConstants/200555",
+          "id": "200555",
+          "name": "Syracuse NY",
+          "countryCode": "US",
+          "targetType": "DMA Region",
+          "status": "ENABLED",
+          "canonicalName": "Syracuse, NY,New York,United States"
+        },
+        "geoTargetConstantParents": [
+          {
+            "resourceName": "geoTargetConstants/21167",
+            "id": "21167",
+            "name": "New York",
+            "countryCode": "US",
+            "targetType": "State",
+            "status": "ENABLED"
+          },
+          {
+            "resourceName": "geoTargetConstants/2840",
+            "id": "2840",
+            "name": "United States",
+            "countryCode": "US",
+            "targetType": "Country",
+            "status": "ENABLED"
+          }
+        ],
+        "locale": "en",
+        "reach": "1940000",
+        "searchTerm": "New York"
+      },
+      {
+        "geoTargetConstant": {
+          "resourceName": "geoTargetConstants/200538",
+          "id": "200538",
+          "name": "Rochester NY",
+          "countryCode": "US",
+          "targetType": "DMA Region",
+          "status": "ENABLED",
+          "canonicalName": "Rochester, NY,New York,United States"
+        },
+        "geoTargetConstantParents": [
+          {
+            "resourceName": "geoTargetConstants/21167",
+            "id": "21167",
+            "name": "New York",
+            "countryCode": "US",
+            "targetType": "State",
+            "status": "ENABLED"
+          },
+          {
+            "resourceName": "geoTargetConstants/2840",
+            "id": "2840",
+            "name": "United States",
+            "countryCode": "US",
+            "targetType": "Country",
+            "status": "ENABLED"
+          }
+        ],
+        "locale": "en",
+        "reach": "1370000",
+        "searchTerm": "New York"
+      },
+      {
+        "geoTargetConstant": {
+          "resourceName": "geoTargetConstants/200502",
+          "id": "200502",
+          "name": "Binghamton NY",
+          "countryCode": "US",
+          "targetType": "DMA Region",
+          "status": "ENABLED",
+          "canonicalName": "Binghamton, NY,New York,United States"
+        },
+        "geoTargetConstantParents": [
+          {
+            "resourceName": "geoTargetConstants/21167",
+            "id": "21167",
+            "name": "New York",
+            "countryCode": "US",
+            "targetType": "State",
+            "status": "ENABLED"
+          },
+          {
+            "resourceName": "geoTargetConstants/2840",
+            "id": "2840",
+            "name": "United States",
+            "countryCode": "US",
+            "targetType": "Country",
+            "status": "ENABLED"
+          }
+        ],
+        "locale": "en",
+        "reach": "538000",
+        "searchTerm": "New York"
+      },
+      {
+        "geoTargetConstant": {
+          "resourceName": "geoTargetConstants/9073489",
+          "id": "9073489",
+          "name": "Greenwich Village",
+          "countryCode": "US",
+          "targetType": "Neighborhood",
+          "status": "ENABLED",
+          "canonicalName": "Greenwich Village,New York,United States"
+        },
+        "geoTargetConstantParents": [
+          {
+            "resourceName": "geoTargetConstants/21167",
+            "id": "21167",
+            "name": "New York",
+            "countryCode": "US",
+            "targetType": "State",
+            "status": "ENABLED"
+          },
+          {
+            "resourceName": "geoTargetConstants/2840",
+            "id": "2840",
+            "name": "United States",
+            "countryCode": "US",
+            "targetType": "Country",
+            "status": "ENABLED"
+          }
+        ],
+        "locale": "en",
+        "reach": "584000",
+        "searchTerm": "New York"
+      },
+      {
+        "geoTargetConstant": {
+          "resourceName": "geoTargetConstants/9004338",
+          "id": "9004338",
+          "name": "11201",
+          "countryCode": "US",
+          "targetType": "Postal Code",
+          "status": "ENABLED",
+          "canonicalName": "11201,New York,United States"
+        },
+        "geoTargetConstantParents": [
+          {
+            "resourceName": "geoTargetConstants/21167",
+            "id": "21167",
+            "name": "New York",
+            "countryCode": "US",
+            "targetType": "State",
+            "status": "ENABLED"
+          },
+          {
+            "resourceName": "geoTargetConstants/2840",
+            "id": "2840",
+            "name": "United States",
+            "countryCode": "US",
+            "targetType": "Country",
+            "status": "ENABLED"
+          }
+        ],
+        "locale": "en",
+        "reach": "3570000",
+        "searchTerm": "New York"
+      },
+      {
+        "geoTargetConstant": {
+          "resourceName": "geoTargetConstants/9005554",
+          "id": "9005554",
+          "name": "14225",
+          "countryCode": "US",
+          "targetType": "Postal Code",
+          "status": "ENABLED",
+          "canonicalName": "14225,New York,United States"
+        },
+        "geoTargetConstantParents": [
+          {
+            "resourceName": "geoTargetConstants/21167",
+            "id": "21167",
+            "name": "New York",
+            "countryCode": "US",
+            "targetType": "State",
+            "status": "ENABLED"
+          },
+          {
+            "resourceName": "geoTargetConstants/2840",
+            "id": "2840",
+            "name": "United States",
+            "countryCode": "US",
+            "targetType": "Country",
+            "status": "ENABLED"
+          }
+        ],
+        "locale": "en",
+        "reach": "279000",
+        "searchTerm": "New York"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v21/geoTargetConstants:suggest": {
+        "response": {
+          "geoTargetConstantSuggestions": [
+            {
+              "geoTargetConstant": {
+                "resourceName": "geoTargetConstants/21167",
+                "status": "ENABLED",
+                "id": "21167",
+                "name": "New York",
+                "countryCode": "US",
+                "targetType": "State",
+                "canonicalName": "New York,United States"
+              },
+              "geoTargetConstantParents": [
+                {
+                  "resourceName": "geoTargetConstants/2840",
+                  "status": "ENABLED",
+                  "id": "2840",
+                  "name": "United States",
+                  "countryCode": "US",
+                  "targetType": "Country"
+                }
+              ],
+              "locale": "en",
+              "reach": "38500000",
+              "searchTerm": "New York"
+            },
+            {
+              "geoTargetConstant": {
+                "resourceName": "geoTargetConstants/1023191",
+                "status": "ENABLED",
+                "id": "1023191",
+                "name": "New York",
+                "countryCode": "US",
+                "targetType": "City",
+                "canonicalName": "New York,New York,United States"
+              },
+              "geoTargetConstantParents": [
+                {
+                  "resourceName": "geoTargetConstants/21167",
+                  "status": "ENABLED",
+                  "id": "21167",
+                  "name": "New York",
+                  "countryCode": "US",
+                  "targetType": "State"
+                },
+                {
+                  "resourceName": "geoTargetConstants/2840",
+                  "status": "ENABLED",
+                  "id": "2840",
+                  "name": "United States",
+                  "countryCode": "US",
+                  "targetType": "Country"
+                }
+              ],
+              "locale": "en",
+              "reach": "30200000",
+              "searchTerm": "New York"
+            },
+            {
+              "geoTargetConstant": {
+                "resourceName": "geoTargetConstants/200501",
+                "status": "ENABLED",
+                "id": "200501",
+                "name": "New York NY",
+                "countryCode": "US",
+                "targetType": "DMA Region",
+                "canonicalName": "New York, NY,United States"
+              },
+              "geoTargetConstantParents": [
+                {
+                  "resourceName": "geoTargetConstants/2840",
+                  "status": "ENABLED",
+                  "id": "2840",
+                  "name": "United States",
+                  "countryCode": "US",
+                  "targetType": "Country"
+                }
+              ],
+              "locale": "en",
+              "reach": "40100000",
+              "searchTerm": "New York"
+            },
+            {
+              "geoTargetConstant": {
+                "resourceName": "geoTargetConstants/9058761",
+                "status": "ENABLED",
+                "id": "9058761",
+                "name": "New York County",
+                "countryCode": "US",
+                "targetType": "County",
+                "canonicalName": "New York County,New York,United States"
+              },
+              "geoTargetConstantParents": [
+                {
+                  "resourceName": "geoTargetConstants/21167",
+                  "status": "ENABLED",
+                  "id": "21167",
+                  "name": "New York",
+                  "countryCode": "US",
+                  "targetType": "State"
+                },
+                {
+                  "resourceName": "geoTargetConstants/2840",
+                  "status": "ENABLED",
+                  "id": "2840",
+                  "name": "United States",
+                  "countryCode": "US",
+                  "targetType": "Country"
+                }
+              ],
+              "locale": "en",
+              "reach": "26600000",
+              "searchTerm": "New York"
+            },
+            {
+              "geoTargetConstant": {
+                "resourceName": "geoTargetConstants/200555",
+                "status": "ENABLED",
+                "id": "200555",
+                "name": "Syracuse NY",
+                "countryCode": "US",
+                "targetType": "DMA Region",
+                "canonicalName": "Syracuse, NY,New York,United States"
+              },
+              "geoTargetConstantParents": [
+                {
+                  "resourceName": "geoTargetConstants/21167",
+                  "status": "ENABLED",
+                  "id": "21167",
+                  "name": "New York",
+                  "countryCode": "US",
+                  "targetType": "State"
+                },
+                {
+                  "resourceName": "geoTargetConstants/2840",
+                  "status": "ENABLED",
+                  "id": "2840",
+                  "name": "United States",
+                  "countryCode": "US",
+                  "targetType": "Country"
+                }
+              ],
+              "locale": "en",
+              "reach": "1940000",
+              "searchTerm": "New York"
+            },
+            {
+              "geoTargetConstant": {
+                "resourceName": "geoTargetConstants/200538",
+                "status": "ENABLED",
+                "id": "200538",
+                "name": "Rochester NY",
+                "countryCode": "US",
+                "targetType": "DMA Region",
+                "canonicalName": "Rochester, NY,New York,United States"
+              },
+              "geoTargetConstantParents": [
+                {
+                  "resourceName": "geoTargetConstants/21167",
+                  "status": "ENABLED",
+                  "id": "21167",
+                  "name": "New York",
+                  "countryCode": "US",
+                  "targetType": "State"
+                },
+                {
+                  "resourceName": "geoTargetConstants/2840",
+                  "status": "ENABLED",
+                  "id": "2840",
+                  "name": "United States",
+                  "countryCode": "US",
+                  "targetType": "Country"
+                }
+              ],
+              "locale": "en",
+              "reach": "1370000",
+              "searchTerm": "New York"
+            },
+            {
+              "geoTargetConstant": {
+                "resourceName": "geoTargetConstants/200502",
+                "status": "ENABLED",
+                "id": "200502",
+                "name": "Binghamton NY",
+                "countryCode": "US",
+                "targetType": "DMA Region",
+                "canonicalName": "Binghamton, NY,New York,United States"
+              },
+              "geoTargetConstantParents": [
+                {
+                  "resourceName": "geoTargetConstants/21167",
+                  "status": "ENABLED",
+                  "id": "21167",
+                  "name": "New York",
+                  "countryCode": "US",
+                  "targetType": "State"
+                },
+                {
+                  "resourceName": "geoTargetConstants/2840",
+                  "status": "ENABLED",
+                  "id": "2840",
+                  "name": "United States",
+                  "countryCode": "US",
+                  "targetType": "Country"
+                }
+              ],
+              "locale": "en",
+              "reach": "538000",
+              "searchTerm": "New York"
+            },
+            {
+              "geoTargetConstant": {
+                "resourceName": "geoTargetConstants/9073489",
+                "status": "ENABLED",
+                "id": "9073489",
+                "name": "Greenwich Village",
+                "countryCode": "US",
+                "targetType": "Neighborhood",
+                "canonicalName": "Greenwich Village,New York,United States"
+              },
+              "geoTargetConstantParents": [
+                {
+                  "resourceName": "geoTargetConstants/21167",
+                  "status": "ENABLED",
+                  "id": "21167",
+                  "name": "New York",
+                  "countryCode": "US",
+                  "targetType": "State"
+                },
+                {
+                  "resourceName": "geoTargetConstants/2840",
+                  "status": "ENABLED",
+                  "id": "2840",
+                  "name": "United States",
+                  "countryCode": "US",
+                  "targetType": "Country"
+                }
+              ],
+              "locale": "en",
+              "reach": "584000",
+              "searchTerm": "New York"
+            },
+            {
+              "geoTargetConstant": {
+                "resourceName": "geoTargetConstants/9004338",
+                "status": "ENABLED",
+                "id": "9004338",
+                "name": "11201",
+                "countryCode": "US",
+                "targetType": "Postal Code",
+                "canonicalName": "11201,New York,United States"
+              },
+              "geoTargetConstantParents": [
+                {
+                  "resourceName": "geoTargetConstants/21167",
+                  "status": "ENABLED",
+                  "id": "21167",
+                  "name": "New York",
+                  "countryCode": "US",
+                  "targetType": "State"
+                },
+                {
+                  "resourceName": "geoTargetConstants/2840",
+                  "status": "ENABLED",
+                  "id": "2840",
+                  "name": "United States",
+                  "countryCode": "US",
+                  "targetType": "Country"
+                }
+              ],
+              "locale": "en",
+              "reach": "3570000",
+              "searchTerm": "New York"
+            },
+            {
+              "geoTargetConstant": {
+                "resourceName": "geoTargetConstants/9005554",
+                "status": "ENABLED",
+                "id": "9005554",
+                "name": "14225",
+                "countryCode": "US",
+                "targetType": "Postal Code",
+                "canonicalName": "14225,New York,United States"
+              },
+              "geoTargetConstantParents": [
+                {
+                  "resourceName": "geoTargetConstants/21167",
+                  "status": "ENABLED",
+                  "id": "21167",
+                  "name": "New York",
+                  "countryCode": "US",
+                  "targetType": "State"
+                },
+                {
+                  "resourceName": "geoTargetConstants/2840",
+                  "status": "ENABLED",
+                  "id": "2840",
+                  "name": "United States",
+                  "countryCode": "US",
+                  "targetType": "Country"
+                }
+              ],
+              "locale": "en",
+              "reach": "279000",
+              "searchTerm": "New York"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 01:03:01 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4980",
+          "x-ratelimit-reset": "1784077394",
+          "request-id": "yeW-JklL6GxStTMkqqEcPA",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "1da97dbeb611ccad6877f5f99ce3e683428ede2d",
+        "request": {
+          "headers": {
+            "developer-token": "YOUR_DEVELOPER_TOKEN"
+          },
+          "data": {
+            "locale": "en",
+            "countryCode": "US",
+            "locationNames": {
+              "names": [
+                "New York"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

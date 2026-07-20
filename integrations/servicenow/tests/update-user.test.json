@@ -1,0 +1,129 @@
+{
+  "input": {
+    "sys_id": "4896c3f9c3ca0310c5a8fc0d05013151",
+    "title": "Nango Test Title"
+  },
+  "output": {
+    "sys_id": "4896c3f9c3ca0310c5a8fc0d05013151",
+    "user_name": "nango.seed.user",
+    "first_name": "Nango",
+    "last_name": "SeedUser",
+    "email": "nango.seed.user@example-nango.com",
+    "active": "true",
+    "phone": "",
+    "title": "Nango Test Title",
+    "department": ""
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/api/now/table/sys_user/4896c3f9c3ca0310c5a8fc0d05013151": {
+        "response": {
+          "result": {
+            "calendar_integration": "1",
+            "country": "",
+            "user_password": "",
+            "last_login_time": "",
+            "source": "",
+            "sys_updated_on": "2026-07-14 02:32:36",
+            "building": "",
+            "web_service_access_only": "false",
+            "notification": "2",
+            "enable_multifactor_authn": "false",
+            "sys_updated_by": "admin",
+            "sys_created_on": "2026-07-14 00:14:46",
+            "sys_domain": {
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user_group/global",
+              "value": "global"
+            },
+            "state": "",
+            "fax": "",
+            "identity_type": "unclassified",
+            "vip": "false",
+            "sys_created_by": "admin",
+            "zip": "",
+            "home_phone": "",
+            "time_format": "",
+            "last_login": "",
+            "default_perspective": "",
+            "active": "true",
+            "sys_domain_path": "/",
+            "cost_center": "",
+            "phone": "",
+            "name": "Nango SeedUser",
+            "employee_number": "",
+            "password_needs_reset": "false",
+            "gender": "",
+            "city": "",
+            "failed_attempts": "",
+            "user_name": "nango.seed.user",
+            "roles": "",
+            "manager_hp1": "/-?7V@",
+            "title": "Nango Test Title",
+            "sys_class_name": "sys_user",
+            "sys_id": "4896c3f9c3ca0310c5a8fc0d05013151",
+            "federated_id": "E7S6ofwP8cZ1uIFPTtgcIo7BywM/Z2Zz1oM7BoTX/UM=",
+            "internal_integration_user": "false",
+            "ldap_server": "",
+            "mobile_phone": "",
+            "street": "",
+            "company": "",
+            "department": "",
+            "first_name": "Nango",
+            "email": "nango.seed.user@example-nango.com",
+            "introduction": "",
+            "preferred_language": "",
+            "manager": "",
+            "locked_out": "false",
+            "sys_mod_count": "3",
+            "last_name": "SeedUser",
+            "photo": "",
+            "avatar": "",
+            "middle_name": "",
+            "sys_tags": "",
+            "time_zone": "",
+            "schedule": "",
+            "date_format": "",
+            "location": ""
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 14 Jul 2026 02:32:44 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4988",
+          "x-ratelimit-reset": "1783996413",
+          "server": "snow_adc",
+          "set-cookie": "<redacted>",
+          "server-timing": "t;desc=\"7c26ebb5c30e\", sem_wait;dur=0, sesh_wait;dur=0",
+          "x-is-logged-in": "true",
+          "x-transaction-id": "7c26ebb5c30e",
+          "pragma": "no-store,no-cache",
+          "cache-control": "no-cache,no-store,must-revalidate,max-age=-1",
+          "expires": "0"
+        },
+        "hash": "af3a2c3c60c9ee9ebb80ce4d9d9405e18b587705",
+        "request": {
+          "params": {
+            "sysparm_exclude_reference_link": "true"
+          },
+          "data": {
+            "title": "Nango Test Title"
+          }
+        }
+      }
+    }
+  }
+}

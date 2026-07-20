@@ -20,7 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Upload plain text or base64 file content up to 5 MB, optionally into a folder with a description; defaults to root',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: InputSchema,
     output: OutputSchema,
@@ -70,18 +70,40 @@ const action = createAction({
 
         // Step 2: Upload content using media upload
         // https://developers.google.com/workspace/drive/api/reference/rest/v3/files/update
-        const contentResponse = await nango.patch({
-            endpoint: `/upload/drive/v3/files/${fileId}`,
-            params: {
-                uploadType: 'media',
-                fields: 'id,name,mimeType,webViewLink,webContentLink'
-            },
-            headers: {
-                'Content-Type': input.mimeType
-            },
-            data: fileContent,
-            retries: 3
-        });
+        //
+        // Step 1 already created the file, so a definite rejection here (4xx — bad request,
+        // quota, too large) strands an empty file that a caller retry would then duplicate:
+        // roll the creation back (best-effort — a failed cleanup must not mask the original
+        // error) and rethrow. On an ambiguous failure (network error, timeout, 5xx) the
+        // content may already have been applied, so the file is left in place rather than
+        // risk deleting a successful upload.
+        let contentResponse;
+        try {
+            contentResponse = await nango.patch({
+                endpoint: `/upload/drive/v3/files/${fileId}`,
+                params: {
+                    uploadType: 'media',
+                    fields: 'id,name,mimeType,webViewLink,webContentLink'
+                },
+                headers: {
+                    'Content-Type': input.mimeType
+                },
+                data: fileContent,
+                retries: 3
+            });
+        } catch (error: any) {
+            const status = error?.response?.status;
+            if (typeof status === 'number' && status >= 400 && status < 500) {
+                await nango
+                    .delete({
+                        endpoint: `/drive/v3/files/${fileId}`,
+                        retries: 3
+                    })
+                    .catch(() => undefined);
+            }
+
+            throw error;
+        }
 
         if (!contentResponse.data) {
             throw new nango.ActionError({

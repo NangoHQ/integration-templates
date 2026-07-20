@@ -1,0 +1,25 @@
+{
+  "input": {
+    "intent": "CAPTURE",
+    "purchase_units": [
+      {
+        "amount": {
+          "currency_code": "USD",
+          "value": "10.00"
+        }
+      }
+    ],
+    "payment_source": {
+      "card": {
+        "vault_id": "8kk9britpsm"
+      }
+    },
+    "experience_context": {
+      "return_url": "https://example.com/return"
+    },
+    "request_id": "test-request-id"
+  },
+  "output": {},
+  "nango": {},
+  "api": {}
+}

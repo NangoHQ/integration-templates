@@ -1,0 +1,150 @@
+{
+  "input": {
+    "order_id": "9K285460BS744263L",
+    "request_id": "test-request-id"
+  },
+  "output": {
+    "id": "9K285460BS744263L",
+    "status": "COMPLETED",
+    "purchase_units": [
+      {
+        "reference_id": "default",
+        "payments": {
+          "authorizations": [
+            {
+              "id": "6SM03041SJ687873P",
+              "status": "CREATED",
+              "amount": {
+                "currency_code": "USD",
+                "value": "1.00"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "links": [
+      {
+        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/9K285460BS744263L",
+        "rel": "self",
+        "method": "GET"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/checkout/orders/9K285460BS744263L/authorize": {
+        "response": {
+          "id": "9K285460BS744263L",
+          "status": "COMPLETED",
+          "payment_source": {
+            "card": {
+              "name": "John Doe",
+              "last_digits": "1868",
+              "expiry": "2028-12",
+              "brand": "VISA",
+              "available_networks": [
+                "VISA"
+              ],
+              "type": "CREDIT",
+              "bin_details": {
+                "bin": "403203",
+                "issuing_bank": "Baxter Credit Union",
+                "bin_country_code": "US"
+              }
+            }
+          },
+          "purchase_units": [
+            {
+              "reference_id": "default",
+              "payments": {
+                "authorizations": [
+                  {
+                    "status": "CREATED",
+                    "id": "6SM03041SJ687873P",
+                    "amount": {
+                      "currency_code": "USD",
+                      "value": "1.00"
+                    },
+                    "seller_protection": {
+                      "status": "NOT_ELIGIBLE"
+                    },
+                    "processor_response": {
+                      "avs_code": "A",
+                      "cvv_code": "M",
+                      "response_code": "0000"
+                    },
+                    "expiration_time": "2026-08-11T20:55:08Z",
+                    "links": [
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/6SM03041SJ687873P",
+                        "rel": "self",
+                        "method": "GET"
+                      },
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/6SM03041SJ687873P/capture",
+                        "rel": "capture",
+                        "method": "POST"
+                      },
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/6SM03041SJ687873P/void",
+                        "rel": "void",
+                        "method": "POST"
+                      },
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/6SM03041SJ687873P/reauthorize",
+                        "rel": "reauthorize",
+                        "method": "POST"
+                      },
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/9K285460BS744263L",
+                        "rel": "up",
+                        "method": "GET"
+                      }
+                    ],
+                    "create_time": "2026-07-13T20:55:08Z",
+                    "update_time": "2026-07-13T20:55:08Z",
+                    "network_transaction_reference": {
+                      "id": "272238187869840",
+                      "network": "VISA"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "links": [
+            {
+              "href": "https://api.sandbox.paypal.com/v2/checkout/orders/9K285460BS744263L",
+              "rel": "self",
+              "method": "GET"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 13 Jul 2026 20:55:09 GMT",
+          "content-type": "application/json",
+          "content-length": "1499",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4984",
+          "x-ratelimit-reset": "1783976137",
+          "etag": "W/\"5db-2DmG8HNRpKexGL9GZ/j8mWBvsfE\""
+        },
+        "hash": "108c096a4905b7cd2ba08020b1b964d9b803b74d",
+        "request": {}
+      }
+    }
+  }
+}
