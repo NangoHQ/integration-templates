@@ -1,0 +1,144 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "d-1623fe100a49460a852450bb2dc4479c",
+        "name": "Nango Dynamic Template Test",
+        "generation": "dynamic",
+        "updated_at": "2026-07-15 15:59:35",
+        "versions": []
+      },
+      {
+        "id": "d-f7a13cbb3a5c4b7cb4c8acf98dc81785",
+        "name": "Nango Dynamic Template Test",
+        "generation": "dynamic",
+        "updated_at": "2026-07-15 15:59:29",
+        "versions": []
+      },
+      {
+        "id": "d-0331074d69814e249a53ab93302cd9ed",
+        "name": "Seed Template B",
+        "generation": "dynamic",
+        "updated_at": "2026-07-15 15:24:14",
+        "versions": []
+      },
+      {
+        "id": "d-e6adcea686a0410aa1f6d05879bf935d",
+        "name": "Seed Template A Renamed Again",
+        "generation": "dynamic",
+        "updated_at": "2026-07-15 16:01:34",
+        "versions": [
+          {
+            "id": "a7212169-c965-4808-b0ee-f9728250515d",
+            "template_id": "d-e6adcea686a0410aa1f6d05879bf935d",
+            "active": 1,
+            "name": "v1",
+            "subject": "Hello {{name}} Updated Again",
+            "updated_at": "2026-07-15 16:01:32",
+            "generate_plain_content": false,
+            "editor": "code",
+            "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/e8419d36d2b6b0953e8e7a01f0bd28b11a1c530c9afef1adc41df68cb7a46bef.png"
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/templates": {
+        "response": {
+          "result": [
+            {
+              "id": "d-1623fe100a49460a852450bb2dc4479c",
+              "name": "Nango Dynamic Template Test",
+              "generation": "dynamic",
+              "updated_at": "2026-07-15 15:59:35",
+              "versions": []
+            },
+            {
+              "id": "d-f7a13cbb3a5c4b7cb4c8acf98dc81785",
+              "name": "Nango Dynamic Template Test",
+              "generation": "dynamic",
+              "updated_at": "2026-07-15 15:59:29",
+              "versions": []
+            },
+            {
+              "id": "d-0331074d69814e249a53ab93302cd9ed",
+              "name": "Seed Template B",
+              "generation": "dynamic",
+              "updated_at": "2026-07-15 15:24:14",
+              "versions": []
+            },
+            {
+              "id": "d-e6adcea686a0410aa1f6d05879bf935d",
+              "name": "Seed Template A Renamed Again",
+              "generation": "dynamic",
+              "updated_at": "2026-07-15 16:01:34",
+              "versions": [
+                {
+                  "id": "a7212169-c965-4808-b0ee-f9728250515d",
+                  "template_id": "d-e6adcea686a0410aa1f6d05879bf935d",
+                  "active": 1,
+                  "name": "v1",
+                  "generate_plain_content": false,
+                  "subject": "Hello {{name}} Updated Again",
+                  "updated_at": "2026-07-15 16:01:32",
+                  "editor": "code",
+                  "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/e8419d36d2b6b0953e8e7a01f0bd28b11a1c530c9afef1adc41df68cb7a46bef.png"
+                }
+              ]
+            }
+          ],
+          "_metadata": {
+            "self": "https://api.sendgrid.com/v3/templates?page_token=sM3BrzXDg5UQJIMYo3dpe2IMSvOW7pk60wRY6_YMcTdcXlng&generations=dynamic",
+            "count": 4
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 16:01:59 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Link, Location",
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "598",
+          "x-ratelimit-reset": "1784131320",
+          "server": "nginx",
+          "x-amzn-requestid": "7f8fc8b8-8fbf-4431-8467-0c5cc2e36a12",
+          "x-amzn-remapped-content-length": "1152",
+          "x-amz-apigw-id": "AjhGqFGIiYcEtNg=",
+          "x-amzn-trace-id": "Root=1-6a57aef6-7cbaaab4477e6b200467ef88;Parent=429cfa3f92327b60;Sampled=0;Lineage=1:3cdc86de:0",
+          "x-amzn-remapped-date": "Wed, 15 Jul 2026 16:01:58 GMT",
+          "access-control-allow-methods": "HEAD, GET, PUT, POST, DELETE, OPTIONS, PATCH",
+          "access-control-max-age": "21600",
+          "access-control-allow-headers": "AUTHORIZATION, Content-Type, On-behalf-of, x-sg-elas-acl, X-Recaptcha, X-Request-Source, Browser-Fingerprint",
+          "content-security-policy": "default-src https://api.sendgrid.com; frame-src 'none'; object-src 'none'",
+          "x-robots-tag": "noindex, nofollow",
+          "x-client-ff": "1000",
+          "x-envoy-upstream-service-time": "115",
+          "powered-by": "Mako",
+          "cache-control": "no-cache",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "03cde08f02a2a0158b398fb545c275e30945aef9",
+        "request": {
+          "params": {
+            "generations": "dynamic",
+            "page_size": "50"
+          }
+        }
+      }
+    }
+  }
+}

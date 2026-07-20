@@ -1,0 +1,356 @@
+{
+  "nango": {
+    "batchSave": {
+      "Contact": [
+        {
+          "id": "ec3fdd39-27c7-494e-88fb-8b8d699693c0",
+          "first_name": "Agent",
+          "last_name": "",
+          "unique_name": "",
+          "email": "nango.upsert.test.1784132045@nango.dev",
+          "address_line_1": "",
+          "address_line_2": "",
+          "city": "",
+          "state_province_region": "",
+          "country": "",
+          "postal_code": "",
+          "phone_number": "",
+          "whatsapp": "",
+          "line": "",
+          "facebook": "",
+          "list_ids": [
+            "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+          ],
+          "custom_fields": {},
+          "created_at": "2026-07-15T16:14:56Z",
+          "updated_at": "2026-07-15T16:15:26.656902638Z"
+        },
+        {
+          "id": "47458c28-a0aa-4c4b-ba79-20266bfb2786",
+          "first_name": "Agent",
+          "last_name": "",
+          "unique_name": "",
+          "email": "nango.upsert.test.1784132048@nango.dev",
+          "address_line_1": "",
+          "address_line_2": "",
+          "city": "",
+          "state_province_region": "",
+          "country": "",
+          "postal_code": "",
+          "phone_number": "",
+          "whatsapp": "",
+          "line": "",
+          "facebook": "",
+          "list_ids": [
+            "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+          ],
+          "custom_fields": {},
+          "created_at": "2026-07-15T16:14:13Z",
+          "updated_at": "2026-07-15T16:14:43.822482719Z"
+        },
+        {
+          "id": "21a61627-0878-4907-a1b2-c192bb4e4323",
+          "first_name": "Agent",
+          "last_name": "",
+          "unique_name": "",
+          "email": "nango.upsert.test.1784132320@nango.dev",
+          "address_line_1": "",
+          "address_line_2": "",
+          "city": "",
+          "state_province_region": "",
+          "country": "",
+          "postal_code": "",
+          "phone_number": "",
+          "whatsapp": "",
+          "line": "",
+          "facebook": "",
+          "list_ids": [
+            "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+          ],
+          "custom_fields": {},
+          "created_at": "2026-07-15T16:18:45Z",
+          "updated_at": "2026-07-15T16:19:15.416613895Z"
+        },
+        {
+          "id": "32e4674c-b2c6-46e2-964b-9c9a4f005187",
+          "first_name": "Agent",
+          "last_name": "",
+          "unique_name": "",
+          "email": "nango.upsert.test.1784132363@nango.dev",
+          "address_line_1": "",
+          "address_line_2": "",
+          "city": "",
+          "state_province_region": "",
+          "country": "",
+          "postal_code": "",
+          "phone_number": "",
+          "whatsapp": "",
+          "line": "",
+          "facebook": "",
+          "list_ids": [
+            "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+          ],
+          "custom_fields": {},
+          "created_at": "2026-07-15T16:19:27Z",
+          "updated_at": "2026-07-15T16:19:57.942802455Z"
+        },
+        {
+          "id": "c6491580-2f4a-4339-8812-eb1f86aae6dd",
+          "first_name": "Updated",
+          "last_name": "One",
+          "unique_name": "",
+          "email": "seed.contact1@nango.dev",
+          "address_line_1": "",
+          "address_line_2": "",
+          "city": "",
+          "state_province_region": "",
+          "country": "",
+          "postal_code": "",
+          "phone_number": "",
+          "whatsapp": "",
+          "line": "",
+          "facebook": "",
+          "list_ids": [],
+          "custom_fields": {},
+          "created_at": "2026-07-15T15:00:50Z",
+          "updated_at": "2026-07-15T16:18:00.979147849Z"
+        },
+        {
+          "id": "e4a2a803-717e-4542-9bc9-ead94962858d",
+          "first_name": "Seed",
+          "last_name": "Two",
+          "unique_name": "",
+          "email": "seed.contact2@nango.dev",
+          "address_line_1": "",
+          "address_line_2": "",
+          "city": "",
+          "state_province_region": "",
+          "country": "",
+          "postal_code": "",
+          "phone_number": "",
+          "whatsapp": "",
+          "line": "",
+          "facebook": "",
+          "list_ids": [
+            "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+          ],
+          "custom_fields": {},
+          "created_at": "2026-07-15T15:00:50Z",
+          "updated_at": "2026-07-15T16:24:38.286536679Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Contact": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v3/marketing/contacts": {
+        "response": {
+          "result": [
+            {
+              "address_line_1": "",
+              "address_line_2": "",
+              "alternate_emails": null,
+              "city": "",
+              "country": "",
+              "email": "nango.upsert.test.1784132045@nango.dev",
+              "first_name": "Agent",
+              "id": "ec3fdd39-27c7-494e-88fb-8b8d699693c0",
+              "last_name": "",
+              "list_ids": [
+                "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+              ],
+              "postal_code": "",
+              "state_province_region": "",
+              "phone_number": "",
+              "whatsapp": "",
+              "line": "",
+              "facebook": "",
+              "unique_name": "",
+              "_metadata": {
+                "self": "https://api.sendgrid.com/v3/marketing/contact/ec3fdd39-27c7-494e-88fb-8b8d699693c0"
+              },
+              "custom_fields": {},
+              "created_at": "2026-07-15T16:14:56Z",
+              "updated_at": "2026-07-15T16:15:26.656902638Z"
+            },
+            {
+              "address_line_1": "",
+              "address_line_2": "",
+              "alternate_emails": null,
+              "city": "",
+              "country": "",
+              "email": "nango.upsert.test.1784132048@nango.dev",
+              "first_name": "Agent",
+              "id": "47458c28-a0aa-4c4b-ba79-20266bfb2786",
+              "last_name": "",
+              "list_ids": [
+                "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+              ],
+              "postal_code": "",
+              "state_province_region": "",
+              "phone_number": "",
+              "whatsapp": "",
+              "line": "",
+              "facebook": "",
+              "unique_name": "",
+              "_metadata": {
+                "self": "https://api.sendgrid.com/v3/marketing/contact/47458c28-a0aa-4c4b-ba79-20266bfb2786"
+              },
+              "custom_fields": {},
+              "created_at": "2026-07-15T16:14:13Z",
+              "updated_at": "2026-07-15T16:14:43.822482719Z"
+            },
+            {
+              "address_line_1": "",
+              "address_line_2": "",
+              "alternate_emails": null,
+              "city": "",
+              "country": "",
+              "email": "nango.upsert.test.1784132320@nango.dev",
+              "first_name": "Agent",
+              "id": "21a61627-0878-4907-a1b2-c192bb4e4323",
+              "last_name": "",
+              "list_ids": [
+                "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+              ],
+              "postal_code": "",
+              "state_province_region": "",
+              "phone_number": "",
+              "whatsapp": "",
+              "line": "",
+              "facebook": "",
+              "unique_name": "",
+              "_metadata": {
+                "self": "https://api.sendgrid.com/v3/marketing/contact/21a61627-0878-4907-a1b2-c192bb4e4323"
+              },
+              "custom_fields": {},
+              "created_at": "2026-07-15T16:18:45Z",
+              "updated_at": "2026-07-15T16:19:15.416613895Z"
+            },
+            {
+              "address_line_1": "",
+              "address_line_2": "",
+              "alternate_emails": null,
+              "city": "",
+              "country": "",
+              "email": "nango.upsert.test.1784132363@nango.dev",
+              "first_name": "Agent",
+              "id": "32e4674c-b2c6-46e2-964b-9c9a4f005187",
+              "last_name": "",
+              "list_ids": [
+                "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+              ],
+              "postal_code": "",
+              "state_province_region": "",
+              "phone_number": "",
+              "whatsapp": "",
+              "line": "",
+              "facebook": "",
+              "unique_name": "",
+              "_metadata": {
+                "self": "https://api.sendgrid.com/v3/marketing/contact/32e4674c-b2c6-46e2-964b-9c9a4f005187"
+              },
+              "custom_fields": {},
+              "created_at": "2026-07-15T16:19:27Z",
+              "updated_at": "2026-07-15T16:19:57.942802455Z"
+            },
+            {
+              "address_line_1": "",
+              "address_line_2": "",
+              "alternate_emails": null,
+              "city": "",
+              "country": "",
+              "email": "seed.contact1@nango.dev",
+              "first_name": "Updated",
+              "id": "c6491580-2f4a-4339-8812-eb1f86aae6dd",
+              "last_name": "One",
+              "list_ids": [],
+              "postal_code": "",
+              "state_province_region": "",
+              "phone_number": "",
+              "whatsapp": "",
+              "line": "",
+              "facebook": "",
+              "unique_name": "",
+              "_metadata": {
+                "self": "https://api.sendgrid.com/v3/marketing/contact/c6491580-2f4a-4339-8812-eb1f86aae6dd"
+              },
+              "custom_fields": {},
+              "created_at": "2026-07-15T15:00:50Z",
+              "updated_at": "2026-07-15T16:18:00.979147849Z"
+            },
+            {
+              "address_line_1": "",
+              "address_line_2": "",
+              "alternate_emails": null,
+              "city": "",
+              "country": "",
+              "email": "seed.contact2@nango.dev",
+              "first_name": "Seed",
+              "id": "e4a2a803-717e-4542-9bc9-ead94962858d",
+              "last_name": "Two",
+              "list_ids": [
+                "fa1dbbb4-10af-42d7-b07e-d1ab501a805b"
+              ],
+              "postal_code": "",
+              "state_province_region": "",
+              "phone_number": "",
+              "whatsapp": "",
+              "line": "",
+              "facebook": "",
+              "unique_name": "",
+              "_metadata": {
+                "self": "https://api.sendgrid.com/v3/marketing/contact/e4a2a803-717e-4542-9bc9-ead94962858d"
+              },
+              "custom_fields": {},
+              "created_at": "2026-07-15T15:00:50Z",
+              "updated_at": "2026-07-15T16:24:38.286536679Z"
+            }
+          ],
+          "contact_count": 6,
+          "_metadata": {
+            "self": "https://api.sendgrid.com/v3/marketing/contacts"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 16:56:51 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "598",
+          "x-ratelimit-reset": "9",
+          "server": "nginx",
+          "x-amzn-requestid": "9fece624-6bc7-41c1-8dd9-e4e6db9709d0",
+          "x-amzn-remapped-x-amzn-requestid": "e2d76e22-2899-4c80-8849-9d40479357e0",
+          "x-amzn-remapped-content-length": "3604",
+          "x-sendgrid-pod-id": "1",
+          "x-amz-apigw-id": "AjpJGH6BoAMEdTQ=",
+          "x-amzn-trace-id": "Root=1-6a57bbd3-084bcfda2369b60f068b5e43;Parent=546bd5045edc5069;Sampled=0;Lineage=1:22521fcc:0",
+          "x-amzn-remapped-date": "Wed, 15 Jul 2026 16:56:51 GMT",
+          "x-sendgrid-podrouter-region": "us-east-1",
+          "x-envoy-upstream-service-time": "473",
+          "content-security-policy": "frame-ancestors 'none'",
+          "cache-control": "no-store",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "powered-by": "SGGateway"
+        },
+        "hash": "ba88ddc4b78e4aaee4249752cb891c9982bf6acf",
+        "request": {}
+      }
+    }
+  }
+}
