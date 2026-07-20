@@ -32,7 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Airtable records from a table with view, filter, and pagination options.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['data.records:read'],
@@ -78,7 +78,7 @@ const action = createAction({
 
         // https://airtable.com/developers/web/api/list-records
         const response = await nango.get({
-            endpoint: `/v0/${input.baseId}/${input.tableIdOrName}`,
+            endpoint: `/v0/${encodeURIComponent(input.baseId)}/${encodeURIComponent(input.tableIdOrName)}`,
             params,
             retries: 3
         });

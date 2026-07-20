@@ -1,0 +1,101 @@
+{
+  "input": {
+    "contactId": "jKy701hlSIPdiw0x12WA",
+    "lastName": "TestOneUpdated"
+  },
+  "output": {
+    "id": "jKy701hlSIPdiw0x12WA",
+    "locationId": "AYg6rIXHN1fXdXjGcYvI",
+    "firstName": "NangoUpdated",
+    "lastName": "TestOneUpdated",
+    "email": "nango.test.one@example.com",
+    "phone": "+15550100001",
+    "type": "lead",
+    "country": "US",
+    "tags": [],
+    "dateAdded": "2026-07-17T09:39:04.169Z",
+    "dateUpdated": "2026-07-17T10:20:50.581Z",
+    "customFields": []
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/contacts/jKy701hlSIPdiw0x12WA": {
+        "response": {
+          "succeded": true,
+          "succeeded": true,
+          "contact": {
+            "id": "jKy701hlSIPdiw0x12WA",
+            "dateAdded": "2026-07-17T09:39:04.169Z",
+            "type": "lead",
+            "locationId": "AYg6rIXHN1fXdXjGcYvI",
+            "email": "nango.test.one@example.com",
+            "emailLowerCase": "nango.test.one@example.com",
+            "phone": "+15550100001",
+            "country": "US",
+            "createdBy": {
+              "source": "INTEGRATION",
+              "channel": "OAUTH",
+              "sourceId": "6a59dd2042648f15f1f9d4b7-mroq0gmn",
+              "timestamp": "2026-07-17T09:39:04.169Z"
+            },
+            "firstName": "NangoUpdated",
+            "firstNameLowerCase": "nangoupdated",
+            "tags": [],
+            "dateUpdated": "2026-07-17T10:20:50.581Z",
+            "fullNameLowerCase": "nangoupdated testoneupdated",
+            "lastName": "TestOneUpdated",
+            "lastNameLowerCase": "testoneupdated",
+            "followers": [],
+            "customFields": [],
+            "additionalEmails": [],
+            "additionalPhones": []
+          },
+          "traceId": "fecdaeb4-def3-4589-a3ce-49dc86e4c3f6"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 10:20:50 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "97",
+          "x-ratelimit-reset": "1784283664",
+          "cf-ray": "a1c8842e6c5db9b0-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"30c-DhlmW4abpF8Vf8gGhL4ZEDuZdJM\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "access-control-max-age": "31536000",
+          "timing-allow-origin": "*",
+          "x-envoy-upstream-service-time": "278",
+          "x-ratelimit-daily-remaining": "199853",
+          "x-ratelimit-daily-reset": "83586000",
+          "x-ratelimit-interval-milliseconds": "10000",
+          "x-ratelimit-limit-daily": "200000",
+          "x-ratelimit-max": "100",
+          "set-cookie": "__cf_bm=ydBiH7drJKfOvGsawewGLkW6OYU_VU05E5aF0xabcSU-1784283650.3097503-1.0.1.1-THJ3kjD9YKdyNakZgHhSiXtGpmW8Ga4w6LZRZ..kCMoAHkHPYIwDePnzaiH2HjI0O_ZDEHMNgzsXwcyjMjV0sipOvHqLeSDNQSeNWHETn8s_k50ncC8CRegMqdAs.aE5; HttpOnly; SameSite=None; Secure; Path=/; Domain=leadconnectorhq.com; Expires=Fri, 17 Jul 2026 10:50:50 GMT"
+        },
+        "hash": "86a12524a0d7b44238b7f5a8d034402156fca73e",
+        "request": {
+          "headers": {
+            "Version": "2021-07-28"
+          },
+          "data": {
+            "lastName": "TestOneUpdated"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "nango": {
+    "batchSave": {
+      "SenderIdentity": [
+        {
+          "id": "9389986",
+          "nickname": "Seed Sender",
+          "from_email": "seed.sender@nango.dev",
+          "from_name": "Seed Sender",
+          "reply_to": "seed.sender@nango.dev",
+          "reply_to_name": "",
+          "address": "123 Main St",
+          "address2": "",
+          "state": "",
+          "city": "SF",
+          "zip": "",
+          "country": "US",
+          "verified": false,
+          "locked": false
+        },
+        {
+          "id": "9389987",
+          "nickname": "Seed Sender B",
+          "from_email": "seed.sender.b@nango.dev",
+          "from_name": "Seed Sender B",
+          "reply_to": "seed.sender.b@nango.dev",
+          "reply_to_name": "",
+          "address": "123 Main St",
+          "address2": "",
+          "state": "",
+          "city": "SF",
+          "zip": "",
+          "country": "US",
+          "verified": false,
+          "locked": false
+        },
+        {
+          "id": "9390078",
+          "nickname": "Nango Dryrun Sender",
+          "from_email": "nango.dryrun.1784131200@nango.dev",
+          "from_name": "Nango Dryrun",
+          "reply_to": "nango.dryrun.1784131200@nango.dev",
+          "reply_to_name": "",
+          "address": "123 Test St",
+          "address2": "",
+          "state": "CA",
+          "city": "San Francisco",
+          "zip": "94105",
+          "country": "United States",
+          "verified": false,
+          "locked": false
+        },
+        {
+          "id": "9390080",
+          "nickname": "Nango Dryrun Sender 1784131201",
+          "from_email": "nango.dryrun.1784131201@nango.dev",
+          "from_name": "Nango Dryrun",
+          "reply_to": "nango.dryrun.1784131201@nango.dev",
+          "reply_to_name": "",
+          "address": "123 Test St",
+          "address2": "",
+          "state": "CA",
+          "city": "San Francisco",
+          "zip": "94105",
+          "country": "United States",
+          "verified": false,
+          "locked": false
+        }
+      ]
+    },
+    "batchDelete": {
+      "SenderIdentity": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v3/verified_senders": {
+        "response": {
+          "results": [
+            {
+              "id": 9389986,
+              "nickname": "Seed Sender",
+              "from_email": "seed.sender@nango.dev",
+              "from_name": "Seed Sender",
+              "reply_to": "seed.sender@nango.dev",
+              "reply_to_name": "",
+              "address": "123 Main St",
+              "address2": "",
+              "state": "",
+              "city": "SF",
+              "country": "US",
+              "zip": "",
+              "verified": false,
+              "locked": false
+            },
+            {
+              "id": 9389987,
+              "nickname": "Seed Sender B",
+              "from_email": "seed.sender.b@nango.dev",
+              "from_name": "Seed Sender B",
+              "reply_to": "seed.sender.b@nango.dev",
+              "reply_to_name": "",
+              "address": "123 Main St",
+              "address2": "",
+              "state": "",
+              "city": "SF",
+              "country": "US",
+              "zip": "",
+              "verified": false,
+              "locked": false
+            },
+            {
+              "id": 9390078,
+              "nickname": "Nango Dryrun Sender",
+              "from_email": "nango.dryrun.1784131200@nango.dev",
+              "from_name": "Nango Dryrun",
+              "reply_to": "nango.dryrun.1784131200@nango.dev",
+              "reply_to_name": "",
+              "address": "123 Test St",
+              "address2": "",
+              "state": "CA",
+              "city": "San Francisco",
+              "country": "United States",
+              "zip": "94105",
+              "verified": false,
+              "locked": false
+            },
+            {
+              "id": 9390080,
+              "nickname": "Nango Dryrun Sender 1784131201",
+              "from_email": "nango.dryrun.1784131201@nango.dev",
+              "from_name": "Nango Dryrun",
+              "reply_to": "nango.dryrun.1784131201@nango.dev",
+              "reply_to_name": "",
+              "address": "123 Test St",
+              "address2": "",
+              "state": "CA",
+              "city": "San Francisco",
+              "country": "United States",
+              "zip": "94105",
+              "verified": false,
+              "locked": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 16:00:25 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Link, Location",
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "598",
+          "x-ratelimit-reset": "1784131260",
+          "server": "nginx",
+          "t-request-id": "718925e2df9697fa29523786d81f4cc3",
+          "user-agent": "axios/1.18.0makoapi;senderauth;",
+          "access-control-allow-methods": "HEAD, GET, PUT, POST, DELETE, OPTIONS, PATCH",
+          "access-control-max-age": "21600",
+          "access-control-allow-headers": "AUTHORIZATION, Content-Type, On-behalf-of, x-sg-elas-acl, X-Recaptcha, X-Request-Source, Browser-Fingerprint",
+          "content-security-policy": "default-src https://api.sendgrid.com; frame-src 'none'; object-src 'none'",
+          "x-robots-tag": "noindex, nofollow",
+          "x-client-ff": "1000",
+          "x-envoy-upstream-service-time": "236",
+          "powered-by": "Mako"
+        },
+        "hash": "9a51d4bcb01a0547fda7e593f3a6857e8e82b082",
+        "request": {}
+      }
+    }
+  }
+}

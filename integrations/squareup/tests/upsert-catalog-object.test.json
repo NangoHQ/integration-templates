@@ -1,0 +1,180 @@
+{
+  "input": {
+    "idempotency_key": "dryrun-test-key-001",
+    "object": {
+      "type": "ITEM",
+      "id": "#test-item-2",
+      "item_data": {
+        "name": "Dryrun Test Item 2",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "#test-variation-2",
+            "item_variation_data": {
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": {
+                "amount": 499,
+                "currency": "USD"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "output": {
+    "catalog_object": {
+      "type": "ITEM",
+      "id": "JEFRMDBUKQA4KLDMSTD4RZRM",
+      "updated_at": "2026-07-15T19:58:09.286Z",
+      "version": 1784145489286,
+      "is_deleted": false,
+      "present_at_all_locations": true,
+      "created_at": "2026-07-15T19:58:09.286Z",
+      "item_data": {
+        "name": "Dryrun Test Item 2",
+        "is_taxable": true,
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "YQEAGJJBLCLY2VSN6QRHVEU5",
+            "updated_at": "2026-07-15T19:58:09.286Z",
+            "created_at": "2026-07-15T19:58:09.286Z",
+            "version": 1784145489286,
+            "is_deleted": false,
+            "present_at_all_locations": true,
+            "item_variation_data": {
+              "item_id": "JEFRMDBUKQA4KLDMSTD4RZRM",
+              "name": "Regular",
+              "ordinal": 0,
+              "pricing_type": "FIXED_PRICING",
+              "price_money": {
+                "amount": 499,
+                "currency": "USD"
+              },
+              "sellable": true,
+              "stockable": true
+            }
+          }
+        ],
+        "product_type": "REGULAR",
+        "is_archived": false
+      }
+    },
+    "id_mappings": [
+      {
+        "client_object_id": "#test-item-2",
+        "object_id": "JEFRMDBUKQA4KLDMSTD4RZRM"
+      },
+      {
+        "client_object_id": "#test-variation-2",
+        "object_id": "YQEAGJJBLCLY2VSN6QRHVEU5"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/catalog/object": {
+        "response": {
+          "catalog_object": {
+            "type": "ITEM",
+            "id": "JEFRMDBUKQA4KLDMSTD4RZRM",
+            "updated_at": "2026-07-15T19:58:09.286Z",
+            "created_at": "2026-07-15T19:58:09.286Z",
+            "version": 1784145489286,
+            "is_deleted": false,
+            "present_at_all_locations": true,
+            "item_data": {
+              "name": "Dryrun Test Item 2",
+              "is_taxable": true,
+              "variations": [
+                {
+                  "type": "ITEM_VARIATION",
+                  "id": "YQEAGJJBLCLY2VSN6QRHVEU5",
+                  "updated_at": "2026-07-15T19:58:09.286Z",
+                  "created_at": "2026-07-15T19:58:09.286Z",
+                  "version": 1784145489286,
+                  "is_deleted": false,
+                  "present_at_all_locations": true,
+                  "item_variation_data": {
+                    "item_id": "JEFRMDBUKQA4KLDMSTD4RZRM",
+                    "name": "Regular",
+                    "ordinal": 0,
+                    "pricing_type": "FIXED_PRICING",
+                    "price_money": {
+                      "amount": 499,
+                      "currency": "USD"
+                    },
+                    "sellable": true,
+                    "stockable": true
+                  }
+                }
+              ],
+              "product_type": "REGULAR",
+              "is_archived": false
+            }
+          },
+          "id_mappings": [
+            {
+              "client_object_id": "#test-item-2",
+              "object_id": "JEFRMDBUKQA4KLDMSTD4RZRM"
+            },
+            {
+              "client_object_id": "#test-variation-2",
+              "object_id": "YQEAGJJBLCLY2VSN6QRHVEU5"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 19:58:17 GMT",
+          "content-type": "application/json",
+          "content-length": "925",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4925",
+          "x-ratelimit-reset": "1784145509",
+          "etag": "W/\"39d-QzxliqoakRT6znjMbn7XyOGmc1s\""
+        },
+        "hash": "7a4d9dfba0f48496dfacb05c1c2d7dad0bfcd979",
+        "request": {
+          "data": {
+            "idempotency_key": "dryrun-test-key-001",
+            "object": {
+              "type": "ITEM",
+              "id": "#test-item-2",
+              "item_data": {
+                "name": "Dryrun Test Item 2",
+                "variations": [
+                  {
+                    "type": "ITEM_VARIATION",
+                    "id": "#test-variation-2",
+                    "item_variation_data": {
+                      "name": "Regular",
+                      "pricing_type": "FIXED_PRICING",
+                      "price_money": {
+                        "amount": 499,
+                        "currency": "USD"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

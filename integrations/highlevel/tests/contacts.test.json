@@ -1,0 +1,1024 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "locationId": "AYg6rIXHN1fXdXjGcYvI"
+    },
+    "batchSave": {
+      "Contact": [
+        {
+          "id": "C0oEKxTxx1bz7036v71B",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "(Example) Taylor",
+          "lastName": "Reynolds",
+          "phone": "+178655689546",
+          "country": "US",
+          "companyName": "(Example) MacLaren's Pub",
+          "dateAdded": "2026-07-17T07:11:54.324Z",
+          "dateUpdated": "2026-07-17T07:11:57.939Z",
+          "tags": [
+            "follow-up"
+          ],
+          "customFields": [],
+          "type": "lead"
+        },
+        {
+          "id": "HwPHAIHKwQxMHrPyq5p0",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "(Example) Alex",
+          "lastName": "Doe Carter",
+          "email": "alex.carter@businessmail.com",
+          "country": "US",
+          "companyName": "(Example) Goliath National Bank",
+          "dateAdded": "2026-07-17T07:11:44.549Z",
+          "dateUpdated": "2026-07-17T07:11:57.947Z",
+          "tags": [
+            "follow-up"
+          ],
+          "customFields": [],
+          "type": "lead"
+        },
+        {
+          "id": "cRltUA3uXowYiiT2ZI0P",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "(Example) Jordan",
+          "lastName": "Smith",
+          "email": "jordan.smith@example.com",
+          "country": "US",
+          "companyName": "(Example) MacLaren's Pub",
+          "dateAdded": "2026-07-17T07:11:49.021Z",
+          "dateUpdated": "2026-07-17T07:11:58.083Z",
+          "tags": [
+            "follow-up"
+          ],
+          "customFields": [],
+          "type": "customer"
+        },
+        {
+          "id": "E8y1S3JFu8WfhfTDBlNf",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "(Example) Riley",
+          "lastName": "Bennett",
+          "email": "riley.bennett@corporate.net",
+          "phone": "+13141236547",
+          "country": "US",
+          "companyName": "(Example) Goliath National Bank",
+          "dateAdded": "2026-07-17T07:11:42.004Z",
+          "dateUpdated": "2026-07-17T07:11:58.105Z",
+          "tags": [
+            "high priority",
+            "warm lead"
+          ],
+          "customFields": [],
+          "type": "customer"
+        },
+        {
+          "id": "YJArGzpIXT8VOxskSWo1",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "(Example) Casey",
+          "lastName": "Morgan",
+          "phone": "+16541234567",
+          "country": "US",
+          "companyName": "(Example) Dunder Mifflin",
+          "dateAdded": "2026-07-17T07:11:54.691Z",
+          "dateUpdated": "2026-07-17T07:11:58.706Z",
+          "tags": [
+            "high priority",
+            "follow-up"
+          ],
+          "customFields": [],
+          "type": "lead"
+        },
+        {
+          "id": "hjZLljWg7tNQOm32sUI0",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "Temp",
+          "lastName": "OpportunitySeed",
+          "email": "temp.opportunity.seed@example.com",
+          "phone": "+15550987654",
+          "country": "US",
+          "dateAdded": "2026-07-17T10:20:25.511Z",
+          "dateUpdated": "2026-07-17T10:20:25.511Z",
+          "tags": [],
+          "customFields": [],
+          "type": "lead"
+        },
+        {
+          "id": "Q5HioiCTwJtYyZOCp2X2",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "Nango Dryrun",
+          "email": "dryrun@example.com",
+          "country": "US",
+          "dateAdded": "2026-07-17T10:21:32.517Z",
+          "dateUpdated": "2026-07-17T10:21:32.517Z",
+          "tags": [],
+          "customFields": [],
+          "type": "lead"
+        },
+        {
+          "id": "VVUvdwEvo5azd48FiZzX",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "Nango Dryrun",
+          "email": "dryrun-save-2026-07-17@example.com",
+          "country": "US",
+          "dateAdded": "2026-07-17T10:21:46.026Z",
+          "dateUpdated": "2026-07-17T10:22:59.177Z",
+          "tags": [],
+          "customFields": [],
+          "type": "lead"
+        },
+        {
+          "id": "MB7tx4NBjFJKvmnYjcly",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "Nango Dryrun",
+          "email": "dryrun-save-v3-2026-07-17@example.com",
+          "country": "US",
+          "dateAdded": "2026-07-17T10:26:20.635Z",
+          "dateUpdated": "2026-07-17T10:26:20.635Z",
+          "tags": [],
+          "customFields": [],
+          "type": "lead"
+        },
+        {
+          "id": "TY3NATG3hLN1tlJtZ6pg",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "Nango",
+          "lastName": "UpsertTest",
+          "email": "nango-test-upsert@example.com",
+          "phone": "+15551234567",
+          "country": "US",
+          "dateAdded": "2026-07-17T10:38:22.661Z",
+          "dateUpdated": "2026-07-17T10:38:28.964Z",
+          "tags": [],
+          "customFields": [],
+          "type": "lead"
+        },
+        {
+          "id": "Ko3FNoWcNTzgtiaBKBMK",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "Nango",
+          "lastName": "TestContact",
+          "email": "nango-test-10670@example.com",
+          "country": "US",
+          "dateAdded": "2026-07-17T10:57:18.856Z",
+          "dateUpdated": "2026-07-17T10:57:25.559Z",
+          "tags": [],
+          "customFields": [],
+          "type": "lead"
+        },
+        {
+          "id": "G5o416ExpefphW2NwydB",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "Test",
+          "lastName": "Contact",
+          "email": "test-contact-abc123@example.com",
+          "country": "US",
+          "dateAdded": "2026-07-17T11:03:57.028Z",
+          "dateUpdated": "2026-07-17T11:03:57.028Z",
+          "tags": [],
+          "customFields": [],
+          "type": "lead"
+        },
+        {
+          "id": "ixw9DGyO5G7AronGPbHD",
+          "locationId": "AYg6rIXHN1fXdXjGcYvI",
+          "firstName": "Nango",
+          "lastName": "WorkflowTest",
+          "email": "nango.workflow.test@example.com",
+          "phone": "+15550100050",
+          "country": "US",
+          "dateAdded": "2026-07-17T12:47:52.386Z",
+          "dateUpdated": "2026-07-17T12:47:52.386Z",
+          "tags": [],
+          "customFields": [],
+          "type": "lead"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Contact": []
+    }
+  },
+  "api": {
+    "post": {
+      "/contacts/search": [
+        {
+          "response": {
+            "contacts": [
+              {
+                "id": "C0oEKxTxx1bz7036v71B",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": true,
+                "state": null,
+                "businessName": "(Example) MacLarens Pub",
+                "customFields": [],
+                "tags": [
+                  "follow-up"
+                ],
+                "dateAdded": "2026-07-17T07:11:54.324Z",
+                "additionalEmails": [],
+                "phone": "+178655689546",
+                "companyName": "(Example) MacLaren's Pub",
+                "additionalPhones": [
+                  {
+                    "phone": "+19060001111"
+                  },
+                  {
+                    "phone": "+1807654321"
+                  }
+                ],
+                "dateUpdated": "2026-07-17T07:11:57.939Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "(example) taylor",
+                "lastNameLowerCase": "reynolds",
+                "firstName": "(Example) Taylor",
+                "lastName": "Reynolds",
+                "contactName": "(example) taylor reynolds",
+                "email": null,
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {
+                  "Call": {
+                    "status": "inactive",
+                    "code": "103"
+                  },
+                  "Email": {
+                    "status": "inactive",
+                    "code": "103"
+                  },
+                  "SMS": {
+                    "status": "inactive",
+                    "code": "103"
+                  }
+                },
+                "opportunities": [
+                  {
+                    "pipelineId": "alX8AvUfLBKkXH2pZNkl",
+                    "id": "Jys24jXPdv5MBXKdjzY0",
+                    "monetaryValue": 4549,
+                    "pipelineStageId": "2c4fdab1-a812-4255-a833-6c9287b12866",
+                    "status": "open"
+                  }
+                ],
+                "postalCode": null,
+                "businessId": "6a59d5ac9c11104155404fb9",
+                "searchAfter": [
+                  1784272317939,
+                  "C0oEKxTxx1bz7036v71B"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "HwPHAIHKwQxMHrPyq5p0",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": true,
+                "state": null,
+                "businessName": "(Example) MacLarens Pub",
+                "customFields": [],
+                "tags": [
+                  "follow-up"
+                ],
+                "dateAdded": "2026-07-17T07:11:44.549Z",
+                "additionalEmails": [],
+                "phone": null,
+                "companyName": "(Example) Goliath National Bank",
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T07:11:57.947Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "(example) alex",
+                "lastNameLowerCase": "doe carter",
+                "firstName": "(Example) Alex",
+                "lastName": "Doe Carter",
+                "contactName": "(example) alex doe carter",
+                "email": "alex.carter@businessmail.com",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {
+                  "Call": {
+                    "status": "inactive",
+                    "code": "103"
+                  },
+                  "Email": {
+                    "status": "inactive",
+                    "code": "103"
+                  },
+                  "SMS": {
+                    "status": "inactive",
+                    "code": "103"
+                  }
+                },
+                "opportunities": [
+                  {
+                    "pipelineId": "alX8AvUfLBKkXH2pZNkl",
+                    "id": "UU14fINw2ATYmQkY2hFs",
+                    "monetaryValue": 1554,
+                    "pipelineStageId": "d60ff903-b097-442c-a4e4-dca3a950677f",
+                    "status": "abandoned"
+                  }
+                ],
+                "postalCode": null,
+                "businessId": "6a59d5ac9c11104155404fb9",
+                "searchAfter": [
+                  1784272317947,
+                  "HwPHAIHKwQxMHrPyq5p0"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "cRltUA3uXowYiiT2ZI0P",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "customer",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": true,
+                "state": null,
+                "businessName": "(Example) Goliath National Bank",
+                "customFields": [],
+                "tags": [
+                  "follow-up"
+                ],
+                "dateAdded": "2026-07-17T07:11:49.021Z",
+                "additionalEmails": [
+                  {
+                    "email": "jordan.office@example.com"
+                  },
+                  {
+                    "email": "jordan@corporate.net"
+                  },
+                  {
+                    "email": "jsmith@email.com"
+                  }
+                ],
+                "phone": null,
+                "companyName": "(Example) MacLaren's Pub",
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T07:11:58.083Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "(example) jordan",
+                "lastNameLowerCase": "smith",
+                "firstName": "(Example) Jordan",
+                "lastName": "Smith",
+                "contactName": "(example) jordan smith",
+                "email": "jordan.smith@example.com",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {
+                  "Call": {
+                    "status": "inactive",
+                    "code": "103"
+                  },
+                  "Email": {
+                    "status": "inactive",
+                    "code": "103"
+                  },
+                  "SMS": {
+                    "status": "inactive",
+                    "code": "103"
+                  }
+                },
+                "opportunities": [
+                  {
+                    "pipelineId": "alX8AvUfLBKkXH2pZNkl",
+                    "id": "CudFBWLeawSjDYn3CFa2",
+                    "monetaryValue": 3934,
+                    "pipelineStageId": "69e34ee6-c87d-4e07-9567-5b895c13341a",
+                    "status": "won"
+                  }
+                ],
+                "postalCode": null,
+                "businessId": "6a59d5ad0caf214b719b22a5",
+                "searchAfter": [
+                  1784272318083,
+                  "cRltUA3uXowYiiT2ZI0P"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "E8y1S3JFu8WfhfTDBlNf",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "customer",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": true,
+                "state": null,
+                "businessName": "(Example) Goliath National Bank",
+                "customFields": [],
+                "tags": [
+                  "high priority",
+                  "warm lead"
+                ],
+                "dateAdded": "2026-07-17T07:11:42.004Z",
+                "additionalEmails": [],
+                "phone": "+13141236547",
+                "companyName": "(Example) Goliath National Bank",
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T07:11:58.105Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "(example) riley",
+                "lastNameLowerCase": "bennett",
+                "firstName": "(Example) Riley",
+                "lastName": "Bennett",
+                "contactName": "(example) riley bennett",
+                "email": "riley.bennett@corporate.net",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {
+                  "Call": {
+                    "status": "inactive",
+                    "code": "103"
+                  },
+                  "Email": {
+                    "status": "inactive",
+                    "code": "103"
+                  },
+                  "SMS": {
+                    "status": "inactive",
+                    "code": "103"
+                  }
+                },
+                "postalCode": null,
+                "businessId": "6a59d5ad0caf214b719b22a5",
+                "searchAfter": [
+                  1784272318105,
+                  "E8y1S3JFu8WfhfTDBlNf"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "YJArGzpIXT8VOxskSWo1",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": true,
+                "state": null,
+                "businessName": "(Example) Dunder Mifflin",
+                "customFields": [],
+                "tags": [
+                  "high priority",
+                  "follow-up"
+                ],
+                "dateAdded": "2026-07-17T07:11:54.691Z",
+                "additionalEmails": [],
+                "phone": "+16541234567",
+                "companyName": "(Example) Dunder Mifflin",
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T07:11:58.706Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "(example) casey",
+                "lastNameLowerCase": "morgan",
+                "firstName": "(Example) Casey",
+                "lastName": "Morgan",
+                "contactName": "(example) casey morgan",
+                "email": null,
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {
+                  "Call": {
+                    "status": "inactive",
+                    "code": "103"
+                  },
+                  "Email": {
+                    "status": "inactive",
+                    "code": "103"
+                  },
+                  "SMS": {
+                    "status": "inactive",
+                    "code": "103"
+                  }
+                },
+                "opportunities": [
+                  {
+                    "pipelineId": "alX8AvUfLBKkXH2pZNkl",
+                    "id": "3jmx4viWcUHhYYLTe7A2",
+                    "monetaryValue": 883,
+                    "pipelineStageId": "2027a4f1-9261-4a2e-877e-da135b057b37",
+                    "status": "open"
+                  }
+                ],
+                "postalCode": null,
+                "businessId": "6a59d5ad1c5abb798ef74626",
+                "searchAfter": [
+                  1784272318706,
+                  "YJArGzpIXT8VOxskSWo1"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "hjZLljWg7tNQOm32sUI0",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": false,
+                "state": null,
+                "businessName": null,
+                "customFields": [],
+                "tags": [],
+                "dateAdded": "2026-07-17T10:20:25.511Z",
+                "additionalEmails": [],
+                "phone": "+15550987654",
+                "companyName": null,
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T10:20:25.511Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "temp",
+                "lastNameLowerCase": "opportunityseed",
+                "firstName": "Temp",
+                "lastName": "OpportunitySeed",
+                "contactName": "temp opportunityseed",
+                "email": "temp.opportunity.seed@example.com",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {},
+                "opportunities": [],
+                "postalCode": null,
+                "businessId": null,
+                "searchAfter": [
+                  1784283625511,
+                  "hjZLljWg7tNQOm32sUI0"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "Q5HioiCTwJtYyZOCp2X2",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": false,
+                "state": null,
+                "businessName": null,
+                "customFields": [],
+                "tags": [],
+                "dateAdded": "2026-07-17T10:21:32.517Z",
+                "additionalEmails": [],
+                "phone": null,
+                "companyName": null,
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T10:21:32.517Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "nango dryrun",
+                "lastNameLowerCase": null,
+                "firstName": "Nango Dryrun",
+                "lastName": null,
+                "contactName": "nango dryrun",
+                "email": "dryrun@example.com",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {},
+                "postalCode": null,
+                "businessId": null,
+                "searchAfter": [
+                  1784283692517,
+                  "Q5HioiCTwJtYyZOCp2X2"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "VVUvdwEvo5azd48FiZzX",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": false,
+                "state": null,
+                "businessName": null,
+                "customFields": [],
+                "tags": [],
+                "dateAdded": "2026-07-17T10:21:46.026Z",
+                "additionalEmails": [],
+                "phone": null,
+                "companyName": null,
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T10:22:59.177Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "nango dryrun",
+                "lastNameLowerCase": null,
+                "firstName": "Nango Dryrun",
+                "lastName": null,
+                "contactName": "nango dryrun",
+                "email": "dryrun-save-2026-07-17@example.com",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {},
+                "postalCode": null,
+                "businessId": null,
+                "searchAfter": [
+                  1784283779177,
+                  "VVUvdwEvo5azd48FiZzX"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "MB7tx4NBjFJKvmnYjcly",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": false,
+                "state": null,
+                "businessName": null,
+                "customFields": [],
+                "tags": [],
+                "dateAdded": "2026-07-17T10:26:20.635Z",
+                "additionalEmails": [],
+                "phone": null,
+                "companyName": null,
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T10:26:20.635Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "nango dryrun",
+                "lastNameLowerCase": null,
+                "firstName": "Nango Dryrun",
+                "lastName": null,
+                "contactName": "nango dryrun",
+                "email": "dryrun-save-v3-2026-07-17@example.com",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {},
+                "opportunities": [
+                  {
+                    "pipelineId": "alX8AvUfLBKkXH2pZNkl",
+                    "id": "97nqCw0m1pCj2Uo6CiGu",
+                    "monetaryValue": 100,
+                    "pipelineStageId": "2c4fdab1-a812-4255-a833-6c9287b12866",
+                    "status": "open"
+                  }
+                ],
+                "postalCode": null,
+                "businessId": null,
+                "searchAfter": [
+                  1784283980635,
+                  "MB7tx4NBjFJKvmnYjcly"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "TY3NATG3hLN1tlJtZ6pg",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": false,
+                "state": null,
+                "businessName": null,
+                "customFields": [],
+                "tags": [],
+                "dateAdded": "2026-07-17T10:38:22.661Z",
+                "additionalEmails": [],
+                "phone": "+15551234567",
+                "companyName": null,
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T10:38:28.964Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "nango",
+                "lastNameLowerCase": "upserttest",
+                "firstName": "Nango",
+                "lastName": "UpsertTest",
+                "contactName": "nango upserttest",
+                "email": "nango-test-upsert@example.com",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {},
+                "postalCode": null,
+                "businessId": null,
+                "searchAfter": [
+                  1784284708964,
+                  "TY3NATG3hLN1tlJtZ6pg"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "Ko3FNoWcNTzgtiaBKBMK",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": false,
+                "state": null,
+                "businessName": null,
+                "customFields": [],
+                "tags": [],
+                "dateAdded": "2026-07-17T10:57:18.856Z",
+                "additionalEmails": [],
+                "phone": null,
+                "companyName": null,
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T10:57:25.559Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "nango",
+                "lastNameLowerCase": "testcontact",
+                "firstName": "Nango",
+                "lastName": "TestContact",
+                "contactName": "nango testcontact",
+                "email": "nango-test-10670@example.com",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {},
+                "postalCode": null,
+                "businessId": null,
+                "searchAfter": [
+                  1784285845559,
+                  "Ko3FNoWcNTzgtiaBKBMK"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "G5o416ExpefphW2NwydB",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": false,
+                "state": null,
+                "businessName": null,
+                "customFields": [],
+                "tags": [],
+                "dateAdded": "2026-07-17T11:03:57.028Z",
+                "additionalEmails": [],
+                "phone": null,
+                "companyName": null,
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T11:03:57.028Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "test",
+                "lastNameLowerCase": "contact",
+                "firstName": "Test",
+                "lastName": "Contact",
+                "contactName": "test contact",
+                "email": "test-contact-abc123@example.com",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {},
+                "postalCode": null,
+                "businessId": null,
+                "searchAfter": [
+                  1784286237028,
+                  "G5o416ExpefphW2NwydB"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              },
+              {
+                "id": "ixw9DGyO5G7AronGPbHD",
+                "phoneLabel": null,
+                "country": "US",
+                "address": null,
+                "source": null,
+                "type": "lead",
+                "locationId": "AYg6rIXHN1fXdXjGcYvI",
+                "website": null,
+                "dnd": false,
+                "state": null,
+                "businessName": null,
+                "customFields": [],
+                "tags": [],
+                "dateAdded": "2026-07-17T12:47:52.386Z",
+                "additionalEmails": [],
+                "phone": "+15550100050",
+                "companyName": null,
+                "additionalPhones": [],
+                "dateUpdated": "2026-07-17T12:47:52.386Z",
+                "city": null,
+                "dateOfBirth": null,
+                "firstNameLowerCase": "nango",
+                "lastNameLowerCase": "workflowtest",
+                "firstName": "Nango",
+                "lastName": "WorkflowTest",
+                "contactName": "nango workflowtest",
+                "email": "nango.workflow.test@example.com",
+                "assignedTo": null,
+                "followers": [],
+                "validEmail": null,
+                "dndSettings": {},
+                "postalCode": null,
+                "businessId": null,
+                "searchAfter": [
+                  1784292472386,
+                  "ixw9DGyO5G7AronGPbHD"
+                ],
+                "timezone": null,
+                "inboundDndSettings": {},
+                "attributionSource": {},
+                "lastAttributionSource": {}
+              }
+            ],
+            "total": 13,
+            "traceId": "465a7c07-dc5c-4c03-8e6c-17d9e6fe17af"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 17 Jul 2026 13:21:26 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff, nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "90",
+            "x-ratelimit-reset": "1784294541",
+            "cf-ray": "a1c98cbd6a7c0abe-SEA",
+            "cf-cache-status": "DYNAMIC",
+            "etag": "W/\"33d8-WQGHHuCzCwOjsqJptxu+3we67Ys\"",
+            "server": "cloudflare",
+            "vary": "Accept-Encoding",
+            "access-control-max-age": "31536000",
+            "timing-allow-origin": "*",
+            "x-envoy-upstream-service-time": "96",
+            "x-ratelimit-daily-remaining": "199417",
+            "x-ratelimit-daily-reset": "72750000",
+            "x-ratelimit-interval-milliseconds": "10000",
+            "x-ratelimit-limit-daily": "200000",
+            "x-ratelimit-max": "100",
+            "set-cookie": "__cf_bm=.0FC7iJFN_SpwrAykPv6t1v0apU4H5xeHN1JkWZevv8-1784294486.621858-1.0.1.1-iDAlur3TsvdLiufyqzxxq2PMjIufu9TOsrTkyszhBnZYeLsH9QPDXnMhmpoxC1LmhJGvmCE19.sZ5r92t99wV4e4Z41i0Eq9xXuqQLPHHfrR.BpjsilK8xO2pL4v5w8.; HttpOnly; SameSite=None; Secure; Path=/; Domain=leadconnectorhq.com; Expires=Fri, 17 Jul 2026 13:51:26 GMT"
+          },
+          "hash": "7b50365b6db8f987b2838fb687ab0176c8cefd74",
+          "request": {
+            "headers": {
+              "Version": "2021-07-28"
+            },
+            "data": {
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "pageLimit": 100,
+              "sort": [
+                {
+                  "field": "dateUpdated",
+                  "direction": "asc"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "response": {
+            "contacts": [],
+            "total": 13,
+            "traceId": "97e9af00-f1ee-4330-a69a-ab4d08e2eb3f"
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 17 Jul 2026 13:21:27 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff, nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "88",
+            "x-ratelimit-reset": "1784294541",
+            "cf-ray": "a1c98cc0af047540-SEA",
+            "cf-cache-status": "DYNAMIC",
+            "etag": "W/\"4b-2xIr8ivds/Nf6eaQRn1V+MyrsIk\"",
+            "server": "cloudflare",
+            "vary": "Accept-Encoding",
+            "access-control-max-age": "31536000",
+            "timing-allow-origin": "*",
+            "x-envoy-upstream-service-time": "64",
+            "x-ratelimit-daily-remaining": "199415",
+            "x-ratelimit-daily-reset": "72750000",
+            "x-ratelimit-interval-milliseconds": "10000",
+            "x-ratelimit-limit-daily": "200000",
+            "x-ratelimit-max": "100",
+            "set-cookie": "__cf_bm=r36wrYmKm1C6LTDgoSGWqjeOftm.GlzrXBbU1.NwMvA-1784294487.1443636-1.0.1.1-Iz6oMmmevwou5L.Hl7VNoepfgcnFz2ll2WZS8OU8kBZG3LwXSaGUrrwc8WC.zhBSFeHa1XZ0dzQoDPDigM0qyCk09yZLmBTKnzufg8sefou4k1rkeixuy.R34tu7A0mq; HttpOnly; SameSite=None; Secure; Path=/; Domain=leadconnectorhq.com; Expires=Fri, 17 Jul 2026 13:51:27 GMT"
+          },
+          "hash": "ad0437fd4c6640d88d8a6a1c9ecb535b7f8fb6a6",
+          "request": {
+            "headers": {
+              "Version": "2021-07-28"
+            },
+            "data": {
+              "locationId": "AYg6rIXHN1fXdXjGcYvI",
+              "pageLimit": 100,
+              "sort": [
+                {
+                  "field": "dateUpdated",
+                  "direction": "asc"
+                }
+              ],
+              "searchAfter": [
+                1784292472386,
+                "ixw9DGyO5G7AronGPbHD"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

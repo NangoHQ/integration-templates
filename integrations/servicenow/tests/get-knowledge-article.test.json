@@ -1,0 +1,139 @@
+{
+  "input": {
+    "sys_id": "13bbf73987110300b66b5cdac5cb0bc5"
+  },
+  "output": {
+    "sys_id": "13bbf73987110300b66b5cdac5cb0bc5",
+    "number": "KB0010004",
+    "short_description": "Feedback Mechanisms  in Knowledge (demo data for a \"What is\" template)",
+    "text": "",
+    "sys_created_on": "2017-09-20 10:23:52",
+    "sys_updated_on": "2017-09-20 10:24:38",
+    "workflow_state": "published",
+    "published": "2017-09-20",
+    "author": "6816f79cc0a8016401c5a33be04be441",
+    "kb_category": "728c8519db89030064dd36cb7c9619f4",
+    "kb_knowledge_base": "0aa3ffa7db7c030064dd36cb7c96197f"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/now/table/kb_knowledge/13bbf73987110300b66b5cdac5cb0bc5": {
+        "response": {
+          "result": {
+            "wiki": null,
+            "rating": "",
+            "source": "",
+            "sys_updated_on": "2017-09-20 10:24:38",
+            "number": "KB0010004",
+            "sys_updated_by": "admin",
+            "latest_aqi": "",
+            "sys_created_on": "2017-09-20 10:23:52",
+            "sys_domain": {
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user_group/global",
+              "value": "global"
+            },
+            "workflow_state": "published",
+            "text": "",
+            "editor_type": "",
+            "sys_created_by": "admin",
+            "scheduled_publish_date": "",
+            "image": "",
+            "cmdb_ci": "",
+            "author": {
+              "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441",
+              "value": "6816f79cc0a8016401c5a33be04be441"
+            },
+            "can_read_user_criteria": "",
+            "active": "true",
+            "cannot_read_user_criteria": "",
+            "published": "2017-09-20",
+            "helpful_count": "",
+            "sys_domain_path": "/",
+            "version": {
+              "link": "https://dev405491.service-now.com/api/now/table/kb_version/447c7f3987110300b66b5cdac5cb0ba4",
+              "value": "447c7f3987110300b66b5cdac5cb0ba4"
+            },
+            "meta_description": "",
+            "kb_knowledge_base": {
+              "link": "https://dev405491.service-now.com/api/now/table/kb_knowledge_base/0aa3ffa7db7c030064dd36cb7c96197f",
+              "value": "0aa3ffa7db7c030064dd36cb7c96197f"
+            },
+            "meta": "",
+            "topic": "General",
+            "display_number": "KB0010004 v1.0",
+            "base_version": "",
+            "short_description": "Feedback Mechanisms  in Knowledge (demo data for a \"What is\" template)",
+            "roles": "",
+            "direct": "false",
+            "description": "",
+            "generated_with_now_assist": "false",
+            "disable_suggesting": "false",
+            "sys_class_name": "kb_template_what_is",
+            "article_id": "13bbf73987110300b66b5cdac5cb0bc5",
+            "sys_id": "13bbf73987110300b66b5cdac5cb0bc5",
+            "use_count": "0",
+            "flagged": "false",
+            "disable_commenting": "false",
+            "valid_to": "2100-01-01",
+            "retired": "",
+            "display_attachments": "false",
+            "latest": "true",
+            "summary": {
+              "link": "https://dev405491.service-now.com/api/now/table/kb_knowledge_summary/4d4cfb3987110300b66b5cdac5cb0bc0",
+              "value": "4d4cfb3987110300b66b5cdac5cb0bc0"
+            },
+            "sys_view_count": "0",
+            "revised_by": "",
+            "article_type": "text",
+            "sys_mod_count": "3",
+            "sys_tags": "",
+            "instrumentation_metadata": "",
+            "replacement_article": "",
+            "taxonomy_topic": "",
+            "view_as_allowed": "false",
+            "ownership_group": "",
+            "category": "",
+            "kb_category": {
+              "link": "https://dev405491.service-now.com/api/now/table/kb_category/728c8519db89030064dd36cb7c9619f4",
+              "value": "728c8519db89030064dd36cb7c9619f4"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 14 Jul 2026 00:26:11 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1783988825",
+          "server": "snow_adc",
+          "set-cookie": "<redacted>",
+          "server-timing": "t;desc=\"53290f79c386\", sem_wait;dur=0, sesh_wait;dur=0",
+          "x-is-logged-in": "true",
+          "x-transaction-id": "53290f79c386",
+          "pragma": "no-store,no-cache",
+          "cache-control": "no-cache,no-store,must-revalidate,max-age=-1",
+          "expires": "0"
+        },
+        "hash": "420920f5b144dc777442b93c3ae08b62af11acad",
+        "request": {
+          "params": {
+            "sysparm_display_value": "false"
+          }
+        }
+      }
+    }
+  }
+}

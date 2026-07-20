@@ -1,0 +1,98 @@
+{
+  "input": {
+    "query": "query { publicApiVersions { handle } }"
+  },
+  "output": {
+    "data": {
+      "publicApiVersions": [
+        {
+          "handle": "2025-10"
+        },
+        {
+          "handle": "2026-01"
+        },
+        {
+          "handle": "2026-04"
+        },
+        {
+          "handle": "2026-07"
+        },
+        {
+          "handle": "unstable"
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/2026-07/graphql.json": {
+        "response": {
+          "data": {
+            "publicApiVersions": [
+              {
+                "handle": "2025-10"
+              },
+              {
+                "handle": "2026-01"
+              },
+              {
+                "handle": "2026-04"
+              },
+              {
+                "handle": "2026-07"
+              },
+              {
+                "handle": "unstable"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 10:49:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1784112633",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "origin-when-cross-origin",
+          "x-shopify-api-version": "2026-07",
+          "x-robots-tag": "noindex,nofollow",
+          "etag": "W/\"ffe811901de21f5a171007f8c3fed4b1\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "default-src 'self'; style-src 'self' cdn.shopifycloud.com cdn.shopify.com 'unsafe-inline' blob: cdn.shopifycdn.net fonts.googleapis.com cdn.jsdelivr.net; img-src 'self' cdn.shopifycloud.com cdn.shopify.com data: blob: partners.shopify.com proxy.shopifycdn.com www.facebook.com www.google-analytics.com www.googletagmanager.com stats.g.doubleclick.net www.gravatar.com v.shopify.com cdn.shopifycdn.net shopify-assets.shopifycdn.com help.shopify.com beta.help.shopify.com www.google.com www.google.ca notify.bugsnag.com storage.googleapis.com apps.shopify.com apps.shopifycdn.com googleads.g.doubleclick.net i.ytimg.com img.youtube.com px.ads.linkedin.com; upgrade-insecure-requests; connect-src 'self' cdn.shopify.com atlas.shopifysvc.com monorail-edge.shopifysvc.com partners.shopify.com sessions.bugsnag.com us-central1-shopify-instrumentat-ff788286.cloudfunctions.net www.google-analytics.com stats.g.doubleclick.net www.google.com storage.googleapis.com cdn.shopifycloud.com cdn.shopifycdn.net support.shopify.com notify.bugsnag.com geo.qualaroo.com autocomplete-service.shopifycloud.com rs.fullstory.com api.paylution.com uat-api.paylution.com; font-src 'self' cdn.shopifycloud.com cdn.shopifycdn.net cdn.shopify.com; frame-src 'self' *.shopifyinc.com checkout.shopifycs.com checkout.us.shopifycs.com shopify-live.streamshark.io www.youtube.com bid.g.doubleclick.net merchant-feedback.shopify.com; script-src 'self' https://cdn.shopify.com/shopifycloud/partners/ 'unsafe-inline' 'nonce-gjtml8uV5oQA5jRKlychMg=='; report-to csp-reports",
+          "x-runtime": "0.042846",
+          "set-cookie": "_partners_session=; domain=.shopify.com; path=/4965228; expires=Thu, 01 Jan 1970 00:00:00 GMT, _partners_session=; domain=.shopify.com; path=/4965228/api; expires=Thu, 01 Jan 1970 00:00:00 GMT, _partners_session=; domain=.shopify.com; path=/4965228/api/2026-07; expires=Thu, 01 Jan 1970 00:00:00 GMT",
+          "server-timing": "processing;dur=44, socket_queue;dur=3.507, util;dur=0.1",
+          "reporting-endpoints": "csp-reports=\"https://security-reports.shopifysvc.com/reporting-api?source_app=Partners&policy_id=45766&controller=api/partner_api/graphql&action=execute\", other=\"https://security-reports.shopifysvc.com/reporting-api?source_app=Partners&policy_id=45766&controller=api/partner_api/graphql&action=execute\"",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=CjMVPgRmWXzGCmmhuEeqv%2FwVnh6GNkglDV2rTvkPuB1shunHoGBUrODXoxjSEBbQwr3SJmrLP0xcqUDGLo7rfCI1JYo4AXN5xCs3NfxS5Op71ujQcAsWL841Daa0ZGqlkKBC7USJ\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "x-dc": "gcp-us-central1,gcp-us-east1",
+          "x-request-id": "2e6d3639-d330-4eff-96d2-2bde5d217360-1784112584",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a1b833c5abd85509-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "a3fa7005441daac3957049f727e232bc4b7671af",
+        "request": {
+          "data": {
+            "query": "query { publicApiVersions { handle } }"
+          }
+        }
+      }
+    }
+  }
+}

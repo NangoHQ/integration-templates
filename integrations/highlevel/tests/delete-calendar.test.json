@@ -1,0 +1,127 @@
+{
+  "input": {
+    "calendarId": "5VqFq4004eedBuQ5FXJt"
+  },
+  "output": {
+    "success": true
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/calendars/5VqFq4004eedBuQ5FXJt": {
+        "response": {
+          "message": "calendar deleted",
+          "calendar": {
+            "id": "5VqFq4004eedBuQ5FXJt",
+            "addServiceActiveStep": "Complete",
+            "allowCancellation": true,
+            "allowReschedule": true,
+            "appoinmentPerSlot": 1,
+            "autoConfirm": true,
+            "calendarType": "event",
+            "consentLabel": "I confirm that I want to receive content from this company using any contact information I provide.",
+            "createdBy": {
+              "channel": "OAUTH",
+              "source": "INTEGRATION",
+              "timestamp": "2026-07-17T10:21:41.000Z",
+              "traceId": "44666336-ce84-422c-b29e-8d0c1a632b43"
+            },
+            "dateAdded": "2026-07-17T10:21:41.000Z",
+            "dateUpdated": "2026-07-17T10:21:41.000Z",
+            "deleted": false,
+            "enableConsentCheck": true,
+            "enableOfficeHours": true,
+            "enableRecurring": false,
+            "enableSameUserAssignment": false,
+            "enableSameUserAssignmentForReschedule": false,
+            "eventColor": "#039BE5",
+            "eventTitle": "{{contact.name}}",
+            "formSubmitThanksMessage": "Thank you for your appointment request. We will contact you shortly to confirm your request. Please call our office at {{contactMethod}} if you have any questions.",
+            "formSubmitType": "ThankYouMessage",
+            "googleInvitationEmails": true,
+            "guestType": "collect_detail",
+            "isSystemGenerated": false,
+            "isActive": true,
+            "lastUpdatedBy": {
+              "channel": "OAUTH",
+              "source": "INTEGRATION",
+              "timestamp": "2026-07-17T10:23:04.209Z",
+              "traceId": "512d207a-60f3-4611-99e9-7a2c47b27a21"
+            },
+            "linkedCalendars": {
+              "clio": {},
+              "drchrono": {},
+              "google": {},
+              "calendly": {}
+            },
+            "locationId": "AYg6rIXHN1fXdXjGcYvI",
+            "locationConfigurations": [
+              {
+                "kind": "custom",
+                "position": 0,
+                "meetingId": "custom_0"
+              }
+            ],
+            "name": "Nango Test Calendar",
+            "openHours": {},
+            "order": 9999,
+            "preBuffer": 0,
+            "preBufferUnit": "mins",
+            "reserveService": false,
+            "showSeatsPerSlot": false,
+            "slotBuffer": 0,
+            "slotBufferUnit": "mins",
+            "slotDuration": 30,
+            "slotDurationUnit": "mins",
+            "slotInterval": 30,
+            "slotIntervalUnit": "mins",
+            "stripe": {},
+            "teamMembers": [],
+            "version": 2,
+            "appointmentPerSlot": 1
+          },
+          "traceId": "512d207a-60f3-4611-99e9-7a2c47b27a21"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 10:23:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "94",
+          "x-ratelimit-reset": "1784283804",
+          "cf-ray": "a1c887729dff75d4-SEA",
+          "cf-cache-status": "DYNAMIC",
+          "etag": "W/\"722-6UMSejuJT3k+HqqjAwkUvgdX6xo\"",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "access-control-max-age": "31536000",
+          "timing-allow-origin": "*",
+          "x-envoy-upstream-service-time": "272",
+          "x-ratelimit-daily-remaining": "199754",
+          "x-ratelimit-daily-reset": "83453000",
+          "x-ratelimit-interval-milliseconds": "10000",
+          "x-ratelimit-limit-daily": "200000",
+          "x-ratelimit-max": "100",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "90da504f36dac6752abf363434c6930487a5dc26",
+        "request": {
+          "headers": {
+            "Version": "2021-07-28"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "input": {
+    "baseId": "appNangoTest01",
+    "tableIdOrName": "Q4/2026 Pipeline",
+    "fields": {
+      "Name": "Deal A"
+    }
+  },
+  "output": {
+    "id": "recAAA111BBB222",
+    "createdTime": "2026-07-01T12:00:00.000Z",
+    "fields": {
+      "Name": "Deal A"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v0/appNangoTest01/Q4%2F2026%20Pipeline": {
+        "response": {
+          "records": [
+            {
+              "id": "recAAA111BBB222",
+              "createdTime": "2026-07-01T12:00:00.000Z",
+              "fields": {
+                "Name": "Deal A"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        }
+      }
+    }
+  }
+}

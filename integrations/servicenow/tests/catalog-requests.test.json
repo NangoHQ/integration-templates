@@ -1,0 +1,238 @@
+{
+  "nango": {
+    "batchSave": {
+      "CatalogRequest": [
+        {
+          "id": "6eed229047801200e0ef563dbb9a71c2",
+          "number": "REQ0000001",
+          "request_state": "Approved",
+          "stage": "Requested",
+          "price": "$600.00",
+          "requested_for": "System Administrator",
+          "requested_for_id": "6816f79cc0a8016401c5a33be04be441",
+          "sys_updated_on": "2026-01-29 12:58:44",
+          "sys_created_on": "2026-01-29 12:58:44",
+          "description": "",
+          "opened_by": "System Administrator",
+          "opened_by_id": "6816f79cc0a8016401c5a33be04be441",
+          "approval": "Approved",
+          "due_date": "2026-01-31 12:58:43"
+        },
+        {
+          "id": "a8d6cbf9c3ca0310c5a8fc0d050131f5",
+          "number": "REQ0010001",
+          "request_state": "Approved",
+          "stage": "Request Approved",
+          "price": "$1,100.00",
+          "requested_for": "System Administrator",
+          "requested_for_id": "6816f79cc0a8016401c5a33be04be441",
+          "sys_updated_on": "2026-07-13 17:16:50",
+          "sys_created_on": "2026-07-13 17:15:54",
+          "description": "",
+          "opened_by": "System Administrator",
+          "opened_by_id": "6816f79cc0a8016401c5a33be04be441",
+          "approval": "Approved",
+          "due_date": "2026-07-22 17:15:54"
+        },
+        {
+          "id": "ad17c73dc3ca0310c5a8fc0d050131ba",
+          "number": "REQ0010002",
+          "request_state": "Approved",
+          "stage": "Request Approved",
+          "price": "$0.00",
+          "requested_for": "System Administrator",
+          "requested_for_id": "6816f79cc0a8016401c5a33be04be441",
+          "sys_updated_on": "2026-07-13 17:17:05",
+          "sys_created_on": "2026-07-13 17:17:03",
+          "description": "",
+          "opened_by": "System Administrator",
+          "opened_by_id": "6816f79cc0a8016401c5a33be04be441",
+          "approval": "Approved",
+          "due_date": "2026-07-13 17:17:03"
+        },
+        {
+          "id": "6769cb71c30e0310c5a8fc0d05013194",
+          "number": "REQ0010003",
+          "request_state": "Pending Approval",
+          "stage": "Waiting for Approval",
+          "price": "$1,100.00",
+          "requested_for": "System Administrator",
+          "requested_for_id": "6816f79cc0a8016401c5a33be04be441",
+          "sys_updated_on": "2026-07-13 17:27:20",
+          "sys_created_on": "2026-07-13 17:27:19",
+          "description": "",
+          "opened_by": "System Administrator",
+          "opened_by_id": "6816f79cc0a8016401c5a33be04be441",
+          "approval": "Requested",
+          "due_date": "2026-07-22 17:27:18"
+        },
+        {
+          "id": "85798f71c30e0310c5a8fc0d0501310b",
+          "number": "REQ0010004",
+          "request_state": "Pending Approval",
+          "stage": "Waiting for Approval",
+          "price": "$1,100.00",
+          "requested_for": "System Administrator",
+          "requested_for_id": "6816f79cc0a8016401c5a33be04be441",
+          "sys_updated_on": "2026-07-13 17:27:26",
+          "sys_created_on": "2026-07-13 17:27:25",
+          "description": "",
+          "opened_by": "System Administrator",
+          "opened_by_id": "6816f79cc0a8016401c5a33be04be441",
+          "approval": "Requested",
+          "due_date": "2026-07-22 17:27:24"
+        }
+      ]
+    },
+    "batchDelete": {
+      "CatalogRequest": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/now/table/sc_request": {
+        "response": {
+          "result": [
+            {
+              "sys_id": "6eed229047801200e0ef563dbb9a71c2",
+              "number": "REQ0000001",
+              "request_state": "Approved",
+              "stage": "Requested",
+              "opened_by": {
+                "display_value": "System Administrator",
+                "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441"
+              },
+              "price": "$600.00",
+              "sys_created_on": "2026-01-29 12:58:44",
+              "approval": "Approved",
+              "due_date": "2026-01-31 12:58:43",
+              "description": "",
+              "requested_for": {
+                "display_value": "System Administrator",
+                "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441"
+              },
+              "sys_updated_on": "2026-01-29 12:58:44"
+            },
+            {
+              "sys_id": "a8d6cbf9c3ca0310c5a8fc0d050131f5",
+              "number": "REQ0010001",
+              "request_state": "Approved",
+              "stage": "Request Approved",
+              "opened_by": {
+                "display_value": "System Administrator",
+                "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441"
+              },
+              "price": "$1,100.00",
+              "sys_created_on": "2026-07-13 17:15:54",
+              "approval": "Approved",
+              "due_date": "2026-07-22 17:15:54",
+              "description": "",
+              "requested_for": {
+                "display_value": "System Administrator",
+                "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441"
+              },
+              "sys_updated_on": "2026-07-13 17:16:50"
+            },
+            {
+              "sys_id": "ad17c73dc3ca0310c5a8fc0d050131ba",
+              "number": "REQ0010002",
+              "request_state": "Approved",
+              "stage": "Request Approved",
+              "opened_by": {
+                "display_value": "System Administrator",
+                "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441"
+              },
+              "price": "$0.00",
+              "sys_created_on": "2026-07-13 17:17:03",
+              "approval": "Approved",
+              "due_date": "2026-07-13 17:17:03",
+              "description": "",
+              "requested_for": {
+                "display_value": "System Administrator",
+                "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441"
+              },
+              "sys_updated_on": "2026-07-13 17:17:05"
+            },
+            {
+              "sys_id": "6769cb71c30e0310c5a8fc0d05013194",
+              "number": "REQ0010003",
+              "request_state": "Pending Approval",
+              "stage": "Waiting for Approval",
+              "opened_by": {
+                "display_value": "System Administrator",
+                "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441"
+              },
+              "price": "$1,100.00",
+              "sys_created_on": "2026-07-13 17:27:19",
+              "approval": "Requested",
+              "due_date": "2026-07-22 17:27:18",
+              "description": "",
+              "requested_for": {
+                "display_value": "System Administrator",
+                "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441"
+              },
+              "sys_updated_on": "2026-07-13 17:27:20"
+            },
+            {
+              "sys_id": "85798f71c30e0310c5a8fc0d0501310b",
+              "number": "REQ0010004",
+              "request_state": "Pending Approval",
+              "stage": "Waiting for Approval",
+              "opened_by": {
+                "display_value": "System Administrator",
+                "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441"
+              },
+              "price": "$1,100.00",
+              "sys_created_on": "2026-07-13 17:27:25",
+              "approval": "Requested",
+              "due_date": "2026-07-22 17:27:24",
+              "description": "",
+              "requested_for": {
+                "display_value": "System Administrator",
+                "link": "https://dev405491.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441"
+              },
+              "sys_updated_on": "2026-07-13 17:27:26"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 14 Jul 2026 00:27:51 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4771",
+          "x-ratelimit-reset": "1783988885",
+          "server": "snow_adc",
+          "set-cookie": "JSESSIONID=F5ED8F696EEEFE87E67B9656330047A3; Path=/; HttpOnly, glide_user=; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly, glide_user_session=; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; Secure; HttpOnly, glide_user_route=glide.f5d065711039bff0f751b68c63db8033; Max-Age=2147483647; Expires=Sun, 01-Aug-2094 03:41:58 GMT; Path=/; Secure; HttpOnly, glide_node_id_for_js=0be40a8c932a021330c1616f3236c63d016b8523c58089c44e0947d4ad8e4836; Path=/; Secure, glide_session_store=AB89CF31C30E0310C5A8FC0D050131B8; Max-Age=300; Expires=Tue, 14-Jul-2026 00:32:51 GMT; Path=/; Secure; HttpOnly",
+          "server-timing": "t;desc=\"23894b31c30e\", sem_wait;dur=1, sesh_wait;dur=0",
+          "x-is-logged-in": "true",
+          "x-transaction-id": "23894b31c30e",
+          "x-total-count": "5",
+          "pragma": "no-store,no-cache",
+          "cache-control": "no-cache,no-store,must-revalidate,max-age=-1",
+          "expires": "0"
+        },
+        "hash": "d0a50729993adb3872b568835ba9c50651af4895",
+        "request": {
+          "params": {
+            "sysparm_display_value": "true",
+            "sysparm_fields": "sys_id,number,request_state,stage,price,requested_for,sys_updated_on,sys_created_on,description,opened_by,approval,requested_for_date,due_date",
+            "sysparm_limit": "100",
+            "sysparm_query": "ORDERBYsys_updated_on"
+          }
+        }
+      }
+    }
+  }
+}

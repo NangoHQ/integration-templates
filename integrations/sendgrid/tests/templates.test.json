@@ -1,0 +1,457 @@
+{
+  "nango": {
+    "batchSave": {
+      "Template": [
+        {
+          "id": "d-1623fe100a49460a852450bb2dc4479c",
+          "name": "Nango Dynamic Template Test",
+          "generation": "dynamic",
+          "updated_at": "2026-07-15 15:59:35",
+          "versions": []
+        },
+        {
+          "id": "d-f7a13cbb3a5c4b7cb4c8acf98dc81785",
+          "name": "Nango Dynamic Template Test",
+          "generation": "dynamic",
+          "updated_at": "2026-07-15 15:59:29",
+          "versions": []
+        },
+        {
+          "id": "d-0331074d69814e249a53ab93302cd9ed",
+          "name": "Seed Template B",
+          "generation": "dynamic",
+          "updated_at": "2026-07-15 15:24:14",
+          "versions": [
+            {
+              "id": "59dc4511-5b16-40e6-906f-0a2772fea9dc",
+              "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+              "active": 1,
+              "name": "Test Version",
+              "subject": "Hello World",
+              "updated_at": "2026-07-15 16:11:11",
+              "html_content": "<p>Hello</p>",
+              "plain_content": "Hello",
+              "generate_plain_content": false,
+              "editor": "code",
+              "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+            },
+            {
+              "id": "851787da-be33-44a8-947b-5a0c06ad0b3d",
+              "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+              "active": 0,
+              "name": "Test Version",
+              "subject": "Hello World",
+              "updated_at": "2026-07-15 16:12:18",
+              "html_content": "<p>Hello</p>",
+              "plain_content": "Hello",
+              "generate_plain_content": false,
+              "editor": "code",
+              "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+            },
+            {
+              "id": "1b77a827-2ca6-47f0-914b-70c539bbc3e6",
+              "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+              "active": 0,
+              "name": "Test Version",
+              "subject": "Hello World",
+              "updated_at": "2026-07-15 16:12:10",
+              "html_content": "<p>Hello</p>",
+              "plain_content": "Hello",
+              "generate_plain_content": false,
+              "editor": "code",
+              "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+            },
+            {
+              "id": "4cb0df39-1c2a-41c2-a03d-70c20b9c001c",
+              "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+              "active": 0,
+              "name": "Test Version",
+              "subject": "Hello World",
+              "updated_at": "2026-07-15 16:11:17",
+              "html_content": "<p>Hello</p>",
+              "plain_content": "Hello",
+              "generate_plain_content": false,
+              "editor": "code",
+              "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+            }
+          ]
+        },
+        {
+          "id": "d-e6adcea686a0410aa1f6d05879bf935d",
+          "name": "Seed Template A Renamed Again",
+          "generation": "dynamic",
+          "updated_at": "2026-07-15 16:01:34",
+          "versions": [
+            {
+              "id": "a7212169-c965-4808-b0ee-f9728250515d",
+              "template_id": "d-e6adcea686a0410aa1f6d05879bf935d",
+              "active": 1,
+              "name": "v1",
+              "subject": "Hello {{name}} Updated Again",
+              "updated_at": "2026-07-15 16:10:12",
+              "html_content": "<p>Hi {{name}}</p>",
+              "plain_content": "Hi {{name}}",
+              "generate_plain_content": false,
+              "editor": "code",
+              "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/e8419d36d2b6b0953e8e7a01f0bd28b11a1c530c9afef1adc41df68cb7a46bef.png"
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Template": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v3/templates": {
+        "response": {
+          "result": [
+            {
+              "id": "d-1623fe100a49460a852450bb2dc4479c",
+              "name": "Nango Dynamic Template Test",
+              "generation": "dynamic",
+              "updated_at": "2026-07-15 15:59:35",
+              "versions": []
+            },
+            {
+              "id": "d-f7a13cbb3a5c4b7cb4c8acf98dc81785",
+              "name": "Nango Dynamic Template Test",
+              "generation": "dynamic",
+              "updated_at": "2026-07-15 15:59:29",
+              "versions": []
+            },
+            {
+              "id": "d-0331074d69814e249a53ab93302cd9ed",
+              "name": "Seed Template B",
+              "generation": "dynamic",
+              "updated_at": "2026-07-15 15:24:14",
+              "versions": [
+                {
+                  "id": "851787da-be33-44a8-947b-5a0c06ad0b3d",
+                  "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+                  "active": 0,
+                  "name": "Test Version",
+                  "generate_plain_content": false,
+                  "subject": "Hello World",
+                  "updated_at": "2026-07-15 16:12:18",
+                  "editor": "code",
+                  "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+                },
+                {
+                  "id": "1b77a827-2ca6-47f0-914b-70c539bbc3e6",
+                  "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+                  "active": 0,
+                  "name": "Test Version",
+                  "generate_plain_content": false,
+                  "subject": "Hello World",
+                  "updated_at": "2026-07-15 16:12:10",
+                  "editor": "code",
+                  "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+                },
+                {
+                  "id": "4cb0df39-1c2a-41c2-a03d-70c20b9c001c",
+                  "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+                  "active": 0,
+                  "name": "Test Version",
+                  "generate_plain_content": false,
+                  "subject": "Hello World",
+                  "updated_at": "2026-07-15 16:11:17",
+                  "editor": "code",
+                  "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+                },
+                {
+                  "id": "59dc4511-5b16-40e6-906f-0a2772fea9dc",
+                  "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+                  "active": 1,
+                  "name": "Test Version",
+                  "generate_plain_content": false,
+                  "subject": "Hello World",
+                  "updated_at": "2026-07-15 16:11:11",
+                  "editor": "code",
+                  "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+                }
+              ]
+            },
+            {
+              "id": "d-e6adcea686a0410aa1f6d05879bf935d",
+              "name": "Seed Template A Renamed Again",
+              "generation": "dynamic",
+              "updated_at": "2026-07-15 16:01:34",
+              "versions": [
+                {
+                  "id": "a7212169-c965-4808-b0ee-f9728250515d",
+                  "template_id": "d-e6adcea686a0410aa1f6d05879bf935d",
+                  "active": 1,
+                  "name": "v1",
+                  "generate_plain_content": false,
+                  "subject": "Hello {{name}} Updated Again",
+                  "updated_at": "2026-07-15 16:10:12",
+                  "editor": "code",
+                  "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/e8419d36d2b6b0953e8e7a01f0bd28b11a1c530c9afef1adc41df68cb7a46bef.png"
+                }
+              ]
+            }
+          ],
+          "_metadata": {
+            "self": "https://api.sendgrid.com/v3/templates?page_token=aJMxAU76icOSa72eTAvBmOzTUsAalvI0Bz7-Zbi2Gnx6CLQ0&generations=dynamic",
+            "count": 4
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 16:25:39 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Link, Location",
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "596",
+          "x-ratelimit-reset": "1784132760",
+          "server": "nginx",
+          "x-amzn-requestid": "38411ef7-ebea-4b98-b62d-db16d39da7ec",
+          "x-amz-apigw-id": "AjkkjGGuiYcEP9w=",
+          "x-amzn-trace-id": "Root=1-6a57b483-5ecf98e537c67dfc6e27d14c;Parent=4b2b90587834d441;Sampled=0;Lineage=1:3cdc86de:0",
+          "x-amzn-remapped-date": "Wed, 15 Jul 2026 16:25:39 GMT",
+          "access-control-allow-methods": "HEAD, GET, PUT, POST, DELETE, OPTIONS, PATCH",
+          "access-control-max-age": "21600",
+          "access-control-allow-headers": "AUTHORIZATION, Content-Type, On-behalf-of, x-sg-elas-acl, X-Recaptcha, X-Request-Source, Browser-Fingerprint",
+          "content-security-policy": "default-src https://api.sendgrid.com; frame-src 'none'; object-src 'none'",
+          "x-robots-tag": "noindex, nofollow",
+          "x-client-ff": "1000",
+          "x-envoy-upstream-service-time": "107",
+          "powered-by": "Mako",
+          "cache-control": "no-cache",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "3c5e3678dbb77b1e27799ba0894972fda7e570c1",
+        "request": {
+          "params": {
+            "generations": "dynamic",
+            "page_size": "10"
+          }
+        }
+      },
+      "/v3/templates/d-1623fe100a49460a852450bb2dc4479c": {
+        "response": {
+          "id": "d-1623fe100a49460a852450bb2dc4479c",
+          "name": "Nango Dynamic Template Test",
+          "generation": "dynamic",
+          "updated_at": "2026-07-15 15:59:35",
+          "versions": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 16:25:39 GMT",
+          "content-type": "application/json",
+          "content-length": "153",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4974",
+          "x-ratelimit-reset": "1784132767",
+          "etag": "W/\"99-yy/moyIQfGTVL9+2QmAwlmQtp0o\""
+        },
+        "hash": "64366ab3592b66eca09eb11380c0857babfa4406",
+        "request": {}
+      },
+      "/v3/templates/d-f7a13cbb3a5c4b7cb4c8acf98dc81785": {
+        "response": {
+          "id": "d-f7a13cbb3a5c4b7cb4c8acf98dc81785",
+          "name": "Nango Dynamic Template Test",
+          "generation": "dynamic",
+          "updated_at": "2026-07-15 15:59:29",
+          "versions": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 16:25:39 GMT",
+          "content-type": "application/json",
+          "content-length": "153",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4973",
+          "x-ratelimit-reset": "1784132767",
+          "etag": "W/\"99-Zrs5A/y0DzSR+bBXb04+Vn5jDUY\""
+        },
+        "hash": "fd3311c365c34344ee9a92ba8ac5907ba931d90e",
+        "request": {}
+      },
+      "/v3/templates/d-0331074d69814e249a53ab93302cd9ed": {
+        "response": {
+          "id": "d-0331074d69814e249a53ab93302cd9ed",
+          "name": "Seed Template B",
+          "generation": "dynamic",
+          "updated_at": "2026-07-15 15:24:14",
+          "versions": [
+            {
+              "id": "59dc4511-5b16-40e6-906f-0a2772fea9dc",
+              "user_id": 110805194,
+              "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+              "active": 1,
+              "name": "Test Version",
+              "html_content": "<p>Hello</p>",
+              "plain_content": "Hello",
+              "generate_plain_content": false,
+              "subject": "Hello World",
+              "updated_at": "2026-07-15 16:11:11",
+              "editor": "code",
+              "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+            },
+            {
+              "id": "851787da-be33-44a8-947b-5a0c06ad0b3d",
+              "user_id": 110805194,
+              "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+              "active": 0,
+              "name": "Test Version",
+              "html_content": "<p>Hello</p>",
+              "plain_content": "Hello",
+              "generate_plain_content": false,
+              "subject": "Hello World",
+              "updated_at": "2026-07-15 16:12:18",
+              "editor": "code",
+              "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+            },
+            {
+              "id": "1b77a827-2ca6-47f0-914b-70c539bbc3e6",
+              "user_id": 110805194,
+              "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+              "active": 0,
+              "name": "Test Version",
+              "html_content": "<p>Hello</p>",
+              "plain_content": "Hello",
+              "generate_plain_content": false,
+              "subject": "Hello World",
+              "updated_at": "2026-07-15 16:12:10",
+              "editor": "code",
+              "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+            },
+            {
+              "id": "4cb0df39-1c2a-41c2-a03d-70c20b9c001c",
+              "user_id": 110805194,
+              "template_id": "d-0331074d69814e249a53ab93302cd9ed",
+              "active": 0,
+              "name": "Test Version",
+              "html_content": "<p>Hello</p>",
+              "plain_content": "Hello",
+              "generate_plain_content": false,
+              "subject": "Hello World",
+              "updated_at": "2026-07-15 16:11:17",
+              "editor": "code",
+              "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/d0a26d23e9d8e0538fd47e7bc502d26cf6c320e8daaec7c8521d4769530f5900.png"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 16:25:39 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Link, Location",
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "597",
+          "x-ratelimit-reset": "1784132760",
+          "server": "nginx",
+          "x-amzn-requestid": "95790b6f-8bd9-4689-b0b5-054012d6ea40",
+          "x-amzn-remapped-content-length": "1956",
+          "x-amz-apigw-id": "AjkkqFCRiYcEiFA=",
+          "x-amzn-trace-id": "Root=1-6a57b483-4d135b071e38cecf29ccb90b;Parent=68617c1285a2db37;Sampled=0;Lineage=1:3cdc86de:0",
+          "x-amzn-remapped-date": "Wed, 15 Jul 2026 16:25:39 GMT",
+          "access-control-allow-methods": "HEAD, GET, PATCH, PUT, POST, OPTIONS, DELETE",
+          "access-control-max-age": "21600",
+          "access-control-allow-headers": "AUTHORIZATION, Content-Type, On-behalf-of, x-sg-elas-acl, X-Recaptcha, X-Request-Source, Browser-Fingerprint",
+          "content-security-policy": "default-src https://api.sendgrid.com; frame-src 'none'; object-src 'none'",
+          "x-robots-tag": "noindex, nofollow",
+          "x-client-ff": "1000",
+          "x-envoy-upstream-service-time": "108",
+          "powered-by": "Mako",
+          "cache-control": "no-cache",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "80121ec9a8a47aeb997a38cd1bf5314b78ea2464",
+        "request": {}
+      },
+      "/v3/templates/d-e6adcea686a0410aa1f6d05879bf935d": {
+        "response": {
+          "id": "d-e6adcea686a0410aa1f6d05879bf935d",
+          "name": "Seed Template A Renamed Again",
+          "generation": "dynamic",
+          "updated_at": "2026-07-15 16:01:34",
+          "versions": [
+            {
+              "id": "a7212169-c965-4808-b0ee-f9728250515d",
+              "user_id": 110805194,
+              "template_id": "d-e6adcea686a0410aa1f6d05879bf935d",
+              "active": 1,
+              "name": "v1",
+              "html_content": "<p>Hi {{name}}</p>",
+              "plain_content": "Hi {{name}}",
+              "generate_plain_content": false,
+              "subject": "Hello {{name}} Updated Again",
+              "updated_at": "2026-07-15 16:10:12",
+              "editor": "code",
+              "thumbnail_url": "//us-east-2-production-thumbnail-bucket.s3.amazonaws.com/e8419d36d2b6b0953e8e7a01f0bd28b11a1c530c9afef1adc41df68cb7a46bef.png"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 16:25:40 GMT",
+          "content-type": "application/json",
+          "content-length": "627",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4971",
+          "x-ratelimit-reset": "1784132767",
+          "etag": "W/\"273-in1wqIqH1yBbVz63ikuJgMdnsd4\""
+        },
+        "hash": "4e41c65091ef7e4a4f99e095c47e7fc88668dcd3",
+        "request": {}
+      }
+    }
+  }
+}
