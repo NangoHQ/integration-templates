@@ -1,0 +1,262 @@
+{
+  "input": {
+    "order_id": "8A79039013362943U",
+    "tracker_id": "9YE45958FJ858840B-TRACK777333444",
+    "patches": [
+      {
+        "op": "replace",
+        "path": "/status",
+        "value": "CANCELLED"
+      }
+    ]
+  },
+  "output": {
+    "order_id": "8A79039013362943U",
+    "tracker": {
+      "id": "9YE45958FJ858840B-TRACK777333444",
+      "status": "CANCELLED",
+      "notify_payer": false,
+      "items": []
+    }
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v2/checkout/orders/8A79039013362943U/trackers/9YE45958FJ858840B-TRACK777333444": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Mon, 13 Jul 2026 20:53:18 GMT",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4928",
+          "x-ratelimit-reset": "1783976015"
+        },
+        "hash": "066f4070d97ba7ef57a137a589a8151db02b31a6",
+        "request": {
+          "data": [
+            {
+              "op": "replace",
+              "path": "/status",
+              "value": "CANCELLED"
+            }
+          ]
+        }
+      }
+    },
+    "get": {
+      "/v2/checkout/orders/8A79039013362943U": {
+        "response": {
+          "id": "8A79039013362943U",
+          "intent": "CAPTURE",
+          "status": "COMPLETED",
+          "payment_source": {
+            "paypal": {}
+          },
+          "purchase_units": [
+            {
+              "reference_id": "default",
+              "amount": {
+                "currency_code": "USD",
+                "value": "25.00"
+              },
+              "payee": {
+                "email_address": "sb-mppuh50932527@business.example.com",
+                "merchant_id": "V58TVTDQEAVDC"
+              },
+              "description": "Seed order for Nango testing",
+              "soft_descriptor": "TEST STORE",
+              "shipping": {
+                "trackers": [
+                  {
+                    "id": "9YE45958FJ858840B-TRACK123456789",
+                    "status": "CANCELLED",
+                    "items": [],
+                    "links": [
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/8A79039013362943U",
+                        "rel": "up",
+                        "method": "GET"
+                      },
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/8A79039013362943U/trackers/9YE45958FJ858840B-TRACK123456789",
+                        "rel": "update",
+                        "method": "PATCH"
+                      }
+                    ],
+                    "notify_payer": true
+                  },
+                  {
+                    "id": "9YE45958FJ858840B-TRACK987654321",
+                    "status": "CANCELLED",
+                    "items": [],
+                    "links": [
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/8A79039013362943U",
+                        "rel": "up",
+                        "method": "GET"
+                      },
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/8A79039013362943U/trackers/9YE45958FJ858840B-TRACK987654321",
+                        "rel": "update",
+                        "method": "PATCH"
+                      }
+                    ],
+                    "notify_payer": false
+                  },
+                  {
+                    "id": "9YE45958FJ858840B-TRACK555999888",
+                    "status": "CANCELLED",
+                    "items": [],
+                    "links": [
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/8A79039013362943U",
+                        "rel": "up",
+                        "method": "GET"
+                      },
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/8A79039013362943U/trackers/9YE45958FJ858840B-TRACK555999888",
+                        "rel": "update",
+                        "method": "PATCH"
+                      }
+                    ],
+                    "notify_payer": true
+                  },
+                  {
+                    "id": "9YE45958FJ858840B-TRACK777333444",
+                    "status": "CANCELLED",
+                    "items": [],
+                    "links": [
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/8A79039013362943U",
+                        "rel": "up",
+                        "method": "GET"
+                      },
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/8A79039013362943U/trackers/9YE45958FJ858840B-TRACK777333444",
+                        "rel": "update",
+                        "method": "PATCH"
+                      }
+                    ],
+                    "notify_payer": false
+                  }
+                ]
+              },
+              "payments": {
+                "captures": [
+                  {
+                    "id": "9YE45958FJ858840B",
+                    "status": "COMPLETED",
+                    "amount": {
+                      "currency_code": "USD",
+                      "value": "25.00"
+                    },
+                    "final_capture": true,
+                    "seller_protection": {
+                      "status": "NOT_ELIGIBLE"
+                    },
+                    "seller_receivable_breakdown": {
+                      "gross_amount": {
+                        "currency_code": "USD",
+                        "value": "25.00"
+                      },
+                      "paypal_fee": {
+                        "currency_code": "USD",
+                        "value": "1.14"
+                      },
+                      "net_amount": {
+                        "currency_code": "USD",
+                        "value": "23.86"
+                      }
+                    },
+                    "links": [
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/payments/captures/9YE45958FJ858840B",
+                        "rel": "self",
+                        "method": "GET"
+                      },
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/payments/captures/9YE45958FJ858840B/refund",
+                        "rel": "refund",
+                        "method": "POST"
+                      },
+                      {
+                        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/8A79039013362943U",
+                        "rel": "up",
+                        "method": "GET"
+                      }
+                    ],
+                    "create_time": "2026-07-13T20:47:13Z",
+                    "update_time": "2026-07-13T20:53:18Z",
+                    "network_transaction_reference": {
+                      "id": "826922129167458",
+                      "network": "VISA"
+                    },
+                    "processor_response": {
+                      "avs_code": "A",
+                      "cvv_code": "M",
+                      "response_code": "0000"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "create_time": "2026-07-13T20:47:13Z",
+          "update_time": "2026-07-13T20:53:18Z",
+          "links": [
+            {
+              "href": "https://api.sandbox.paypal.com/v2/checkout/orders/8A79039013362943U",
+              "rel": "self",
+              "method": "GET"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 13 Jul 2026 20:53:19 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Server-Timing",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4925",
+          "x-ratelimit-reset": "1783976015",
+          "server-timing": "traceparent;desc=\"00-0000000000000000000f49080132ec3e-bd58a4a7156c5fcd-01\"",
+          "http_x_pp_az_locator": "ccg18.slc",
+          "paypal-debug-id": "f49080132ec3e",
+          "server": "nginx",
+          "cache-control": "max-age=0, no-cache, no-store, must-revalidate",
+          "x-backend-info": "v=1;name=2k1u3gOGb2cebCyZJujTUN--F_ccg18_wju_origin_api_m_2_sandbox_paypal_com;ip=34.106.111.220;port=443;ssl=1;max=200;mr=0;ka_ns=0;ml_ns=0;tka_s=300;tki_s=10;tkp=3;host=api-m.sandbox.paypal.com;min_tls=;max_tls=;sni=edge.sandbox.paypal.com;cert_host=edge.sandbox.paypal.com;ciphers=;check_cert=1;no_reneg=1;to_ns=1000000000;fbto_ns=59000000000;bbto_ns=10000000000;fto_ns=0",
+          "accept-ranges": "none",
+          "via": "1.1 varnish, 1.1 varnish",
+          "edge-control": "max-age=0",
+          "x-served-by": "cache-sjc10050-SJC, cache-sjc10050-SJC, cache-bfi-kbfi7400077-BFI",
+          "x-cache": "MISS, MISS, MISS",
+          "x-cache-hits": "0, 0, 0",
+          "x-timer": "S1783975999.531108,VS0,VE663",
+          "vary": "Accept-Encoding"
+        },
+        "hash": "d9b2ce2078df85f5e6990dc965b8dc5a3c7ef71b",
+        "request": {}
+      }
+    }
+  }
+}

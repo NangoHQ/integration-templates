@@ -8,8 +8,12 @@
     "created": "2023-10-17T21:21:39.277+02:00",
     "active": true,
     "emailAliases": [],
+    "trustedEmailAddress": null,
     "firstName": "Bastien",
     "lastName": "Beurier",
+    "title": null,
+    "phoneNumber": null,
+    "extension": null,
     "personalMeetingUrls": [],
     "settings": {
       "webConferencesRecorded": false,
@@ -20,6 +24,7 @@
       "nonRecordedMeetingsImported": false,
       "gongConnectEnabled": false
     },
+    "managerId": null,
     "spokenLanguages": []
   },
   "nango": {},

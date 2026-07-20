@@ -33,40 +33,40 @@ const InputSchema = z
 const ProviderBriefSchema = z
     .object({
         requestId: z.string().optional(),
-        brief: z.string().optional(),
+        brief: z.string().nullish(),
         sections: z
             .array(
                 z
                     .object({
-                        title: z.string().optional(),
-                        content: z.string().optional()
+                        title: z.string().nullish(),
+                        content: z.string().nullish()
                     })
                     .passthrough()
             )
-            .optional(),
-        errors: z.array(z.string()).optional()
+            .nullish(),
+        errors: z.array(z.string()).nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    brief: z.string().optional(),
+    brief: z.string().nullish(),
     sections: z
         .array(
             z
                 .object({
-                    title: z.string().optional(),
-                    content: z.string().optional()
+                    title: z.string().nullish(),
+                    content: z.string().nullish()
                 })
                 .passthrough()
         )
-        .optional(),
-    errors: z.array(z.string()).optional()
+        .nullish(),
+    errors: z.array(z.string()).nullish()
 });
 
 const action = createAction({
     description: "Generate an AI brief for a CRM entity using Gong's AI briefer",
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:ai-briefer:read'],

@@ -12,16 +12,16 @@ const InputSchema = z.object({
 
 const OutputSchema = z.object({
     id: z.string().optional(),
-    userId: z.string().optional(),
-    status: z.string().optional(),
-    dueDate: z.string().optional(),
-    priority: z.string().optional(),
+    userId: z.string().nullish(),
+    status: z.string().nullish(),
+    dueDate: z.string().nullish(),
+    priority: z.string().nullish(),
     error: z
         .object({
-            type: z.string(),
-            message: z.string()
+            type: z.string().nullable(),
+            message: z.string().nullable()
         })
-        .optional()
+        .nullish()
 });
 
 const HttpErrorSchema = z.object({
@@ -35,7 +35,7 @@ const HttpErrorSchema = z.object({
 
 const action = createAction({
     description: 'Update a Gong task for the current user.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:tasks:write'],

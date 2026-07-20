@@ -7,24 +7,24 @@ const InputSchema = z.object({
 
 const ProviderWorkspaceSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    description: z.string().optional()
+    name: z.string().nullish(),
+    description: z.string().nullish()
 });
 
 const ProviderListSchema = z.object({
     requestId: z.string().optional(),
-    workspaces: z.array(ProviderWorkspaceSchema)
+    workspaces: z.array(ProviderWorkspaceSchema).nullable()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    description: z.string().optional()
+    name: z.string().nullish(),
+    description: z.string().nullish()
 });
 
 const action = createAction({
     description: 'Retrieve a single Gong workspace by ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:workspaces:read'],
@@ -45,7 +45,7 @@ const action = createAction({
         }
 
         const providerList = ProviderListSchema.parse(response.data);
-        const providerWorkspace = providerList.workspaces.find((workspace) => workspace.id === input.workspaceId);
+        const providerWorkspace = (providerList.workspaces ?? []).find((workspace) => workspace.id === input.workspaceId);
 
         if (!providerWorkspace) {
             throw new nango.ActionError({

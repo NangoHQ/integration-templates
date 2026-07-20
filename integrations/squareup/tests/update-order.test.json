@@ -1,0 +1,335 @@
+{
+  "input": {
+    "order_id": "DzxnItnp9mqB3koqKm9FK37WoBbZY",
+    "version": 1,
+    "order": {
+      "service_charges": [
+        {
+          "name": "Delivery Fee",
+          "amount_money": {
+            "amount": 100,
+            "currency": "USD"
+          },
+          "calculation_phase": "SUBTOTAL_PHASE"
+        }
+      ]
+    },
+    "idempotency_key": "nango-test-update-order-001"
+  },
+  "output": {
+    "id": "DzxnItnp9mqB3koqKm9FK37WoBbZY",
+    "location_id": "L6KAXMZ50WFKS",
+    "state": "OPEN",
+    "version": 2,
+    "total_money": {
+      "amount": 600,
+      "currency": "USD"
+    },
+    "line_items": [
+      {
+        "uid": "lcEt3w8FTu1dQP8rNQmp",
+        "catalog_object_id": "KNE7SHMPLXXA6ZMIPY6GWJSK",
+        "catalog_version": 1784145489286,
+        "quantity": "1",
+        "name": "Seed Coffee",
+        "variation_name": "Regular",
+        "base_price_money": {
+          "amount": 500,
+          "currency": "USD"
+        },
+        "gross_sales_money": {
+          "amount": 500,
+          "currency": "USD"
+        },
+        "total_tax_money": {
+          "amount": 0,
+          "currency": "USD"
+        },
+        "total_discount_money": {
+          "amount": 0,
+          "currency": "USD"
+        },
+        "total_money": {
+          "amount": 500,
+          "currency": "USD"
+        },
+        "variation_total_price_money": {
+          "amount": 500,
+          "currency": "USD"
+        },
+        "item_type": "ITEM",
+        "total_service_charge_money": {
+          "amount": 0,
+          "currency": "USD"
+        },
+        "total_card_surcharge_money": {
+          "amount": 0,
+          "currency": "USD"
+        }
+      }
+    ],
+    "service_charges": [
+      {
+        "uid": "tQZuWacb8oLlpRvShcdjkC",
+        "name": "Delivery Fee",
+        "amount_money": {
+          "amount": 100,
+          "currency": "USD"
+        },
+        "applied_money": {
+          "amount": 100,
+          "currency": "USD"
+        },
+        "calculation_phase": "SUBTOTAL_PHASE",
+        "taxable": false,
+        "total_money": {
+          "amount": 100,
+          "currency": "USD"
+        },
+        "total_tax_money": {
+          "amount": 0,
+          "currency": "USD"
+        },
+        "type": "CUSTOM",
+        "treatment_type": "LINE_ITEM_TREATMENT"
+      }
+    ],
+    "created_at": "2026-07-15T20:08:55.545Z",
+    "updated_at": "2026-07-15T20:09:03.774Z",
+    "total_tax_money": {
+      "amount": 0,
+      "currency": "USD"
+    },
+    "total_discount_money": {
+      "amount": 0,
+      "currency": "USD"
+    },
+    "total_tip_money": {
+      "amount": 0,
+      "currency": "USD"
+    },
+    "total_service_charge_money": {
+      "amount": 100,
+      "currency": "USD"
+    },
+    "net_amounts": {
+      "total_money": {
+        "amount": 600,
+        "currency": "USD"
+      },
+      "tax_money": {
+        "amount": 0,
+        "currency": "USD"
+      },
+      "discount_money": {
+        "amount": 0,
+        "currency": "USD"
+      },
+      "tip_money": {
+        "amount": 0,
+        "currency": "USD"
+      },
+      "service_charge_money": {
+        "amount": 100,
+        "currency": "USD"
+      },
+      "card_surcharge_money": {
+        "amount": 0,
+        "currency": "USD"
+      }
+    },
+    "source": {
+      "name": "Sandbox for sq0idp-abdGXRLHHhdFa-WLYwHG3Q"
+    },
+    "net_amount_due_money": {
+      "amount": 600,
+      "currency": "USD"
+    },
+    "total_card_surcharge_money": {
+      "amount": 0,
+      "currency": "USD"
+    }
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v2/orders/DzxnItnp9mqB3koqKm9FK37WoBbZY": {
+        "response": {
+          "order": {
+            "id": "DzxnItnp9mqB3koqKm9FK37WoBbZY",
+            "location_id": "L6KAXMZ50WFKS",
+            "line_items": [
+              {
+                "uid": "lcEt3w8FTu1dQP8rNQmp",
+                "catalog_object_id": "KNE7SHMPLXXA6ZMIPY6GWJSK",
+                "catalog_version": 1784145489286,
+                "quantity": "1",
+                "name": "Seed Coffee",
+                "variation_name": "Regular",
+                "base_price_money": {
+                  "amount": 500,
+                  "currency": "USD"
+                },
+                "gross_sales_money": {
+                  "amount": 500,
+                  "currency": "USD"
+                },
+                "total_tax_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                },
+                "total_discount_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                },
+                "total_money": {
+                  "amount": 500,
+                  "currency": "USD"
+                },
+                "variation_total_price_money": {
+                  "amount": 500,
+                  "currency": "USD"
+                },
+                "item_type": "ITEM",
+                "total_service_charge_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                },
+                "total_card_surcharge_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                }
+              }
+            ],
+            "created_at": "2026-07-15T20:08:55.545Z",
+            "updated_at": "2026-07-15T20:09:03.774Z",
+            "state": "OPEN",
+            "version": 2,
+            "total_tax_money": {
+              "amount": 0,
+              "currency": "USD"
+            },
+            "total_discount_money": {
+              "amount": 0,
+              "currency": "USD"
+            },
+            "total_tip_money": {
+              "amount": 0,
+              "currency": "USD"
+            },
+            "total_money": {
+              "amount": 600,
+              "currency": "USD"
+            },
+            "service_charges": [
+              {
+                "uid": "tQZuWacb8oLlpRvShcdjkC",
+                "name": "Delivery Fee",
+                "amount_money": {
+                  "amount": 100,
+                  "currency": "USD"
+                },
+                "applied_money": {
+                  "amount": 100,
+                  "currency": "USD"
+                },
+                "calculation_phase": "SUBTOTAL_PHASE",
+                "taxable": false,
+                "total_money": {
+                  "amount": 100,
+                  "currency": "USD"
+                },
+                "total_tax_money": {
+                  "amount": 0,
+                  "currency": "USD"
+                },
+                "type": "CUSTOM",
+                "treatment_type": "LINE_ITEM_TREATMENT"
+              }
+            ],
+            "total_service_charge_money": {
+              "amount": 100,
+              "currency": "USD"
+            },
+            "net_amounts": {
+              "total_money": {
+                "amount": 600,
+                "currency": "USD"
+              },
+              "tax_money": {
+                "amount": 0,
+                "currency": "USD"
+              },
+              "discount_money": {
+                "amount": 0,
+                "currency": "USD"
+              },
+              "tip_money": {
+                "amount": 0,
+                "currency": "USD"
+              },
+              "service_charge_money": {
+                "amount": 100,
+                "currency": "USD"
+              },
+              "card_surcharge_money": {
+                "amount": 0,
+                "currency": "USD"
+              }
+            },
+            "source": {
+              "name": "Sandbox for sq0idp-abdGXRLHHhdFa-WLYwHG3Q"
+            },
+            "net_amount_due_money": {
+              "amount": 600,
+              "currency": "USD"
+            },
+            "total_card_surcharge_money": {
+              "amount": 0,
+              "currency": "USD"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 20:09:03 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "2028",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4993",
+          "x-ratelimit-reset": "1784146201",
+          "etag": "W/\"7ec-SS5LwKJNPpOCGwkPzixutRAO3i4\""
+        },
+        "hash": "2c54562723b449cbea1df433e5eb26dd7a64a6b2",
+        "request": {
+          "data": {
+            "order": {
+              "service_charges": [
+                {
+                  "name": "Delivery Fee",
+                  "amount_money": {
+                    "amount": 100,
+                    "currency": "USD"
+                  },
+                  "calculation_phase": "SUBTOTAL_PHASE"
+                }
+              ],
+              "version": 1
+            },
+            "idempotency_key": "nango-test-update-order-001"
+          }
+        }
+      }
+    }
+  }
+}

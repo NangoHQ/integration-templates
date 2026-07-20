@@ -7,61 +7,61 @@ const InputSchema = z.object({
 });
 
 const LanguageKeywordSchema = z.object({
-    language: z.string(),
-    keywords: z.array(z.string()),
-    includeRelatedForms: z.boolean()
+    language: z.string().nullable(),
+    keywords: z.array(z.string()).nullable(),
+    includeRelatedForms: z.boolean().nullable()
 });
 
 const ProviderTrackerSchema = z.object({
-    trackerId: z.string(),
-    trackerName: z.string().optional(),
-    workspaceId: z.string().optional(),
-    languageKeywords: z.array(LanguageKeywordSchema).optional(),
-    affiliation: z.string().optional(),
-    partOfQuestion: z.boolean().optional(),
-    saidAt: z.string().optional(),
-    saidAtInterval: z.number().nullable().optional(),
-    saidAtUnit: z.string().nullable().optional(),
-    saidInTopics: z.array(z.string()).optional(),
-    filterQuery: z.string().optional(),
-    created: z.string().optional(),
-    creatorUserId: z.string().nullable().optional(),
-    updated: z.string().optional(),
-    updaterUserId: z.string().nullable().optional()
+    trackerId: z.string().nullable(),
+    trackerName: z.string().nullish(),
+    workspaceId: z.string().nullish(),
+    languageKeywords: z.array(LanguageKeywordSchema).nullish(),
+    affiliation: z.string().nullish(),
+    partOfQuestion: z.boolean().nullish(),
+    saidAt: z.string().nullish(),
+    saidAtInterval: z.number().nullish(),
+    saidAtUnit: z.string().nullish(),
+    saidInTopics: z.array(z.string()).nullish(),
+    filterQuery: z.string().nullish(),
+    created: z.string().nullish(),
+    creatorUserId: z.string().nullish(),
+    updated: z.string().nullish(),
+    updaterUserId: z.string().nullish()
 });
 
 const TrackerSchema = z.object({
-    trackerId: z.string(),
-    trackerName: z.string().optional(),
-    workspaceId: z.string().optional(),
-    languageKeywords: z.array(LanguageKeywordSchema).optional(),
-    affiliation: z.string().optional(),
-    partOfQuestion: z.boolean().optional(),
-    saidAt: z.string().optional(),
-    saidAtInterval: z.number().optional(),
-    saidAtUnit: z.string().optional(),
-    saidInTopics: z.array(z.string()).optional(),
-    filterQuery: z.string().optional(),
-    created: z.string().optional(),
-    creatorUserId: z.string().optional(),
-    updated: z.string().optional(),
-    updaterUserId: z.string().optional()
+    trackerId: z.string().nullable(),
+    trackerName: z.string().nullish(),
+    workspaceId: z.string().nullish(),
+    languageKeywords: z.array(LanguageKeywordSchema).nullish(),
+    affiliation: z.string().nullish(),
+    partOfQuestion: z.boolean().nullish(),
+    saidAt: z.string().nullish(),
+    saidAtInterval: z.number().nullish(),
+    saidAtUnit: z.string().nullish(),
+    saidInTopics: z.array(z.string()).nullish(),
+    filterQuery: z.string().nullish(),
+    created: z.string().nullish(),
+    creatorUserId: z.string().nullish(),
+    updated: z.string().nullish(),
+    updaterUserId: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    keywordTrackers: z.array(ProviderTrackerSchema).optional(),
-    records: z.object({ cursor: z.string().optional() }).optional()
+    keywordTrackers: z.array(ProviderTrackerSchema).nullish(),
+    records: z.object({ cursor: z.string().nullish() }).nullish()
 });
 
 const OutputSchema = z.object({
-    trackers: z.array(TrackerSchema),
-    nextCursor: z.string().optional().describe('Pagination cursor for the next page.')
+    trackers: z.array(TrackerSchema).nullable(),
+    nextCursor: z.string().nullish().describe('Pagination cursor for the next page.')
 });
 
 const action = createAction({
     description: 'List keyword trackers from Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 
@@ -100,14 +100,14 @@ const action = createAction({
                 ...(tracker.affiliation !== undefined && { affiliation: tracker.affiliation }),
                 ...(tracker.partOfQuestion !== undefined && { partOfQuestion: tracker.partOfQuestion }),
                 ...(tracker.saidAt !== undefined && { saidAt: tracker.saidAt }),
-                ...(tracker.saidAtInterval !== null && tracker.saidAtInterval !== undefined && { saidAtInterval: tracker.saidAtInterval }),
-                ...(tracker.saidAtUnit !== null && tracker.saidAtUnit !== undefined && { saidAtUnit: tracker.saidAtUnit }),
+                ...(tracker.saidAtInterval !== undefined && { saidAtInterval: tracker.saidAtInterval }),
+                ...(tracker.saidAtUnit !== undefined && { saidAtUnit: tracker.saidAtUnit }),
                 ...(tracker.saidInTopics !== undefined && { saidInTopics: tracker.saidInTopics }),
                 ...(tracker.filterQuery !== undefined && { filterQuery: tracker.filterQuery }),
                 ...(tracker.created !== undefined && { created: tracker.created }),
-                ...(tracker.creatorUserId !== null && tracker.creatorUserId !== undefined && { creatorUserId: tracker.creatorUserId }),
+                ...(tracker.creatorUserId !== undefined && { creatorUserId: tracker.creatorUserId }),
                 ...(tracker.updated !== undefined && { updated: tracker.updated }),
-                ...(tracker.updaterUserId !== null && tracker.updaterUserId !== undefined && { updaterUserId: tracker.updaterUserId })
+                ...(tracker.updaterUserId !== undefined && { updaterUserId: tracker.updaterUserId })
             };
         });
 

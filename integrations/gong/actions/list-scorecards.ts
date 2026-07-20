@@ -9,60 +9,60 @@ const InputSchema = z.object({
 const QuestionOptionSchema = z
     .object({
         id: z.number().optional(),
-        text: z.string().optional()
+        text: z.string().nullish()
     })
     .passthrough();
 
 const QuestionSchema = z
     .object({
-        questionId: z.string().optional(),
-        questionRevisionId: z.string().optional(),
-        questionText: z.string().optional(),
-        isOverall: z.boolean().optional(),
-        questionType: z.string().optional(),
-        answerGuide: z.string().nullable().optional(),
-        minRange: z.union([z.string(), z.number()]).nullable().optional(),
-        maxRange: z.union([z.string(), z.number()]).nullable().optional(),
-        answerOptions: z.array(QuestionOptionSchema).nullable().optional()
+        questionId: z.string().nullish(),
+        questionRevisionId: z.string().nullish(),
+        questionText: z.string().nullish(),
+        isOverall: z.boolean().nullish(),
+        questionType: z.string().nullish(),
+        answerGuide: z.string().nullish(),
+        minRange: z.union([z.string(), z.number()]).nullish(),
+        maxRange: z.union([z.string(), z.number()]).nullish(),
+        answerOptions: z.array(QuestionOptionSchema).nullish()
     })
     .passthrough();
 
 const ScorecardSchema = z
     .object({
-        scorecardId: z.string(),
-        scorecardName: z.string().optional(),
-        workspaceId: z.string().optional(),
-        enabled: z.boolean().optional(),
-        updaterUserId: z.string().optional(),
-        created: z.string().optional(),
-        updated: z.string().optional(),
-        reviewMethod: z.string().optional(),
-        questions: z.array(QuestionSchema).optional()
+        scorecardId: z.string().nullable(),
+        scorecardName: z.string().nullish(),
+        workspaceId: z.string().nullish(),
+        enabled: z.boolean().nullish(),
+        updaterUserId: z.string().nullish(),
+        created: z.string().nullish(),
+        updated: z.string().nullish(),
+        reviewMethod: z.string().nullish(),
+        questions: z.array(QuestionSchema).nullish()
     })
     .passthrough();
 
 const ProviderResponseSchema = z
     .object({
         requestId: z.string().optional(),
-        scorecards: z.array(ScorecardSchema).optional(),
+        scorecards: z.array(ScorecardSchema).nullish(),
         records: z
             .object({
-                totalRecords: z.number().optional(),
-                currentPageSize: z.number().optional()
+                totalRecords: z.number().nullish(),
+                currentPageSize: z.number().nullish()
             })
-            .optional(),
-        cursor: z.string().optional()
+            .nullish(),
+        cursor: z.string().nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    items: z.array(ScorecardSchema),
-    nextCursor: z.string().optional()
+    items: z.array(ScorecardSchema).nullable(),
+    nextCursor: z.string().nullish()
 });
 
 const action = createAction({
     description: 'List scorecards from Gong',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:settings:scorecards:read'],
