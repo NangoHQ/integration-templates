@@ -1,0 +1,147 @@
+{
+  "input": {},
+  "output": {
+    "team_members": [
+      {
+        "id": "TMAj3tlDagDQmCFz",
+        "given_name": "Ida B.",
+        "family_name": "Tarbell",
+        "email_address": "ida.tarbell@example.com",
+        "assigned_locations": {
+          "assignment_type": "EXPLICIT_LOCATIONS",
+          "location_ids": [
+            "L6KAXMZ50WFKS"
+          ]
+        },
+        "status": "ACTIVE",
+        "created_at": "2026-07-15T19:19:12Z",
+        "updated_at": "2026-07-15T19:34:22Z"
+      },
+      {
+        "id": "TMXqOgqP1Y-mhL0n",
+        "given_name": "Nellie",
+        "family_name": "Bly",
+        "email_address": "nellie.bly@example.com",
+        "assigned_locations": {
+          "assignment_type": "EXPLICIT_LOCATIONS",
+          "location_ids": [
+            "L6KAXMZ50WFKS"
+          ]
+        },
+        "status": "ACTIVE",
+        "created_at": "2026-07-15T19:19:50Z",
+        "updated_at": "2026-07-15T19:19:50Z"
+      },
+      {
+        "id": "TMfPeg1jySZ53VRN",
+        "given_name": "Sandbox",
+        "family_name": "Seller",
+        "email_address": "sandbox-merchant+zp08rkcilx3nzkhh51etj1mronp4jf7e@squareup.com",
+        "assigned_locations": {
+          "assignment_type": "ALL_CURRENT_AND_FUTURE_LOCATIONS"
+        },
+        "status": "ACTIVE",
+        "created_at": "2026-07-15T12:37:31Z",
+        "updated_at": "2026-07-15T12:37:31Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/team-members/search": {
+        "response": {
+          "team_members": [
+            {
+              "id": "TMAj3tlDagDQmCFz",
+              "is_owner": false,
+              "status": "ACTIVE",
+              "given_name": "Ida B.",
+              "family_name": "Tarbell",
+              "email_address": "ida.tarbell@example.com",
+              "created_at": "2026-07-15T19:19:12Z",
+              "updated_at": "2026-07-15T19:34:22Z",
+              "assigned_locations": {
+                "assignment_type": "EXPLICIT_LOCATIONS",
+                "location_ids": [
+                  "L6KAXMZ50WFKS"
+                ]
+              },
+              "merchant_id": "MLX3Q2FKWWR6M"
+            },
+            {
+              "id": "TMXqOgqP1Y-mhL0n",
+              "is_owner": false,
+              "status": "ACTIVE",
+              "given_name": "Nellie",
+              "family_name": "Bly",
+              "email_address": "nellie.bly@example.com",
+              "created_at": "2026-07-15T19:19:50Z",
+              "updated_at": "2026-07-15T19:19:50Z",
+              "assigned_locations": {
+                "assignment_type": "EXPLICIT_LOCATIONS",
+                "location_ids": [
+                  "L6KAXMZ50WFKS"
+                ]
+              },
+              "merchant_id": "MLX3Q2FKWWR6M"
+            },
+            {
+              "id": "TMfPeg1jySZ53VRN",
+              "is_owner": true,
+              "status": "ACTIVE",
+              "given_name": "Sandbox",
+              "family_name": "Seller",
+              "email_address": "sandbox-merchant+zp08rkcilx3nzkhh51etj1mronp4jf7e@squareup.com",
+              "created_at": "2026-07-15T12:37:31Z",
+              "updated_at": "2026-07-15T12:37:31Z",
+              "assigned_locations": {
+                "assignment_type": "ALL_CURRENT_AND_FUTURE_LOCATIONS"
+              },
+              "permission_set_id": "Z4N9X17VSWPP",
+              "merchant_id": "MLX3Q2FKWWR6M",
+              "wage_setting": {
+                "team_member_id": "TMfPeg1jySZ53VRN",
+                "job_assignments": [
+                  {
+                    "job_title": "Owner",
+                    "pay_type": "NONE",
+                    "job_id": "FuZxXSzdYtVCCtdVyw8S9dJE"
+                  }
+                ],
+                "is_overtime_exempt": false,
+                "version": 1,
+                "created_at": "2026-07-15T12:37:33+00:00",
+                "updated_at": "2026-07-15T12:37:33+00:00"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 19:56:44 GMT",
+          "content-type": "application/json",
+          "content-length": "1423",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1784145448",
+          "etag": "W/\"58f-WO3KB//9LKRYz1YBno5K3fXTqq4\""
+        },
+        "hash": "633df93d49529ce91ca84293db433d6627729504",
+        "request": {
+          "data": {}
+        }
+      }
+    }
+  }
+}

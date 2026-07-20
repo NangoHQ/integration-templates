@@ -8,33 +8,45 @@ const InputSchema = z.object({
 const ProviderCallOutcomeSchema = z
     .object({
         id: z.string().optional(),
-        category: z.string().optional(),
-        name: z.string().optional()
+        category: z.string().nullish(),
+        name: z.string().nullish(),
+        callOutcome: z.string().nullish(),
+        displayOrder: z.number().nullish(),
+        connectStatus: z.string().nullish(),
+        sentiment: z.string().nullish(),
+        todoAction: z.string().nullish(),
+        automation: z.string().nullish()
     })
     .passthrough();
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    outcomes: z.array(ProviderCallOutcomeSchema).optional(),
-    cursor: z.string().optional()
+    outcomes: z.array(ProviderCallOutcomeSchema).nullish(),
+    cursor: z.string().nullish()
 });
 
 const CallOutcomeItemSchema = z
     .object({
         id: z.string().optional(),
-        category: z.string().optional(),
-        name: z.string().optional()
+        category: z.string().nullish(),
+        name: z.string().nullish(),
+        callOutcome: z.string().nullish(),
+        displayOrder: z.number().nullish(),
+        connectStatus: z.string().nullish(),
+        sentiment: z.string().nullish(),
+        todoAction: z.string().nullish(),
+        automation: z.string().nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    items: z.array(CallOutcomeItemSchema),
-    nextCursor: z.string().optional()
+    items: z.array(CallOutcomeItemSchema).nullable(),
+    nextCursor: z.string().nullish()
 });
 
 const action = createAction({
     description: 'List all configured call outcomes in Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:call-outcomes:read'],

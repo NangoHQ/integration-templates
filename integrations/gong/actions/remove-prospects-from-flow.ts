@@ -7,12 +7,12 @@ const InputSchema = z.object({
 
 const UnassignResponseSchema = z.object({
     requestId: z.string(),
-    unassignedFlowInstanceIds: z.array(z.string())
+    unassignedFlowInstanceIds: z.array(z.string()).nullable()
 });
 
 const OutputSchema = z.object({
     requestId: z.string(),
-    unassignedFlowInstanceIds: z.array(z.string())
+    unassignedFlowInstanceIds: z.array(z.string()).nullable()
 });
 
 const ErrorResponseSchema = z.object({
@@ -22,7 +22,7 @@ const ErrorResponseSchema = z.object({
 
 const action = createAction({
     description: 'Unassign prospects from an Engage flow by their flow instance IDs.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:write'],

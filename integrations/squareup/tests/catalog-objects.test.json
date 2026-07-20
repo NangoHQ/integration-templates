@@ -1,0 +1,928 @@
+{
+  "nango": {
+    "batchSave": {
+      "CatalogObject": [
+        {
+          "id": "DJXLBF4XHUSECQ4P6UDOB7KE",
+          "type": "ITEM",
+          "updated_at": "2026-07-15T19:25:31.759Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:25:31.759Z",
+          "version": 1784143531759,
+          "present_at_all_locations": true,
+          "item_data": {
+            "name": "Seed Coffee",
+            "description": "A seeded catalog item for testing.",
+            "is_taxable": true,
+            "variations": [
+              {
+                "type": "ITEM_VARIATION",
+                "id": "KNE7SHMPLXXA6ZMIPY6GWJSK",
+                "updated_at": "2026-07-15T19:25:31.759Z",
+                "created_at": "2026-07-15T19:25:31.759Z",
+                "version": 1784143531759,
+                "is_deleted": false,
+                "present_at_all_locations": true,
+                "item_variation_data": {
+                  "item_id": "DJXLBF4XHUSECQ4P6UDOB7KE",
+                  "name": "Regular",
+                  "ordinal": 0,
+                  "pricing_type": "FIXED_PRICING",
+                  "price_money": {
+                    "amount": 500,
+                    "currency": "USD"
+                  },
+                  "sellable": true,
+                  "stockable": true
+                }
+              }
+            ],
+            "product_type": "REGULAR",
+            "description_html": "<p>A seeded catalog item for testing.</p>",
+            "description_plaintext": "A seeded catalog item for testing.",
+            "is_archived": false
+          }
+        },
+        {
+          "id": "OQFBXZMQ72SI4LJI5D2YNTJ2",
+          "type": "ITEM",
+          "updated_at": "2026-07-15T19:25:33.198Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:25:33.198Z",
+          "version": 1784143533198,
+          "present_at_all_locations": true,
+          "item_data": {
+            "name": "Seed Muffin",
+            "description": "A second seeded catalog item for testing.",
+            "is_taxable": true,
+            "variations": [
+              {
+                "type": "ITEM_VARIATION",
+                "id": "7TSJIUXUSGTQQQ6CHCJXA4CL",
+                "updated_at": "2026-07-15T19:25:33.198Z",
+                "created_at": "2026-07-15T19:25:33.198Z",
+                "version": 1784143533198,
+                "is_deleted": false,
+                "present_at_all_locations": true,
+                "item_variation_data": {
+                  "item_id": "OQFBXZMQ72SI4LJI5D2YNTJ2",
+                  "name": "Regular",
+                  "ordinal": 0,
+                  "pricing_type": "FIXED_PRICING",
+                  "price_money": {
+                    "amount": 350,
+                    "currency": "USD"
+                  },
+                  "sellable": true,
+                  "stockable": true
+                }
+              }
+            ],
+            "product_type": "REGULAR",
+            "description_html": "<p>A second seeded catalog item for testing.</p>",
+            "description_plaintext": "A second seeded catalog item for testing.",
+            "is_archived": false
+          }
+        },
+        {
+          "id": "ABM246XYDU3QCDS3HOBBAEUT",
+          "type": "ITEM",
+          "updated_at": "2026-07-15T19:57:19.227Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:57:19.227Z",
+          "version": 1784145439227,
+          "present_at_all_locations": true,
+          "item_data": {
+            "name": "Dryrun Test Item",
+            "is_taxable": true,
+            "variations": [
+              {
+                "type": "ITEM_VARIATION",
+                "id": "HMYGV2JV5BV4OIBXSO3PGCGY",
+                "updated_at": "2026-07-15T19:57:19.227Z",
+                "created_at": "2026-07-15T19:57:19.227Z",
+                "version": 1784145439227,
+                "is_deleted": false,
+                "present_at_all_locations": true,
+                "item_variation_data": {
+                  "item_id": "ABM246XYDU3QCDS3HOBBAEUT",
+                  "name": "Regular",
+                  "ordinal": 0,
+                  "pricing_type": "FIXED_PRICING",
+                  "price_money": {
+                    "amount": 499,
+                    "currency": "USD"
+                  },
+                  "sellable": true,
+                  "stockable": true
+                }
+              }
+            ],
+            "product_type": "REGULAR",
+            "is_archived": false
+          }
+        },
+        {
+          "id": "KMKVMV5WAMQVCCTBTAN6T7GS",
+          "type": "ITEM",
+          "updated_at": "2026-07-15T19:57:25.717Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:57:25.717Z",
+          "version": 1784145445717,
+          "present_at_all_locations": true,
+          "item_data": {
+            "name": "Dryrun Test Item",
+            "is_taxable": true,
+            "variations": [
+              {
+                "type": "ITEM_VARIATION",
+                "id": "O6OXMGQWJQURZBJFIJKZXCQ3",
+                "updated_at": "2026-07-15T19:57:25.717Z",
+                "created_at": "2026-07-15T19:57:25.717Z",
+                "version": 1784145445717,
+                "is_deleted": false,
+                "present_at_all_locations": true,
+                "item_variation_data": {
+                  "item_id": "KMKVMV5WAMQVCCTBTAN6T7GS",
+                  "name": "Regular",
+                  "ordinal": 0,
+                  "pricing_type": "FIXED_PRICING",
+                  "price_money": {
+                    "amount": 499,
+                    "currency": "USD"
+                  },
+                  "sellable": true,
+                  "stockable": true
+                }
+              }
+            ],
+            "product_type": "REGULAR",
+            "is_archived": false
+          }
+        },
+        {
+          "id": "JEFRMDBUKQA4KLDMSTD4RZRM",
+          "type": "ITEM",
+          "updated_at": "2026-07-15T19:58:09.286Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:58:09.286Z",
+          "version": 1784145489286,
+          "present_at_all_locations": true,
+          "item_data": {
+            "name": "Dryrun Test Item 2",
+            "is_taxable": true,
+            "variations": [
+              {
+                "type": "ITEM_VARIATION",
+                "id": "YQEAGJJBLCLY2VSN6QRHVEU5",
+                "updated_at": "2026-07-15T19:58:09.286Z",
+                "created_at": "2026-07-15T19:58:09.286Z",
+                "version": 1784145489286,
+                "is_deleted": false,
+                "present_at_all_locations": true,
+                "item_variation_data": {
+                  "item_id": "JEFRMDBUKQA4KLDMSTD4RZRM",
+                  "name": "Regular",
+                  "ordinal": 0,
+                  "pricing_type": "FIXED_PRICING",
+                  "price_money": {
+                    "amount": 499,
+                    "currency": "USD"
+                  },
+                  "sellable": true,
+                  "stockable": true
+                }
+              }
+            ],
+            "product_type": "REGULAR",
+            "is_archived": false
+          }
+        },
+        {
+          "id": "KNE7SHMPLXXA6ZMIPY6GWJSK",
+          "type": "ITEM_VARIATION",
+          "updated_at": "2026-07-15T19:25:31.759Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:25:31.803Z",
+          "version": 1784143531759,
+          "present_at_all_locations": true,
+          "item_variation_data": {
+            "item_id": "DJXLBF4XHUSECQ4P6UDOB7KE",
+            "name": "Regular",
+            "ordinal": 0,
+            "pricing_type": "FIXED_PRICING",
+            "price_money": {
+              "amount": 500,
+              "currency": "USD"
+            },
+            "sellable": true,
+            "stockable": true
+          }
+        },
+        {
+          "id": "7TSJIUXUSGTQQQ6CHCJXA4CL",
+          "type": "ITEM_VARIATION",
+          "updated_at": "2026-07-15T19:25:33.198Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:25:33.238Z",
+          "version": 1784143533198,
+          "present_at_all_locations": true,
+          "item_variation_data": {
+            "item_id": "OQFBXZMQ72SI4LJI5D2YNTJ2",
+            "name": "Regular",
+            "ordinal": 0,
+            "pricing_type": "FIXED_PRICING",
+            "price_money": {
+              "amount": 350,
+              "currency": "USD"
+            },
+            "sellable": true,
+            "stockable": true
+          }
+        },
+        {
+          "id": "HMYGV2JV5BV4OIBXSO3PGCGY",
+          "type": "ITEM_VARIATION",
+          "updated_at": "2026-07-15T19:57:19.227Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:57:19.227Z",
+          "version": 1784145439227,
+          "present_at_all_locations": true,
+          "item_variation_data": {
+            "item_id": "ABM246XYDU3QCDS3HOBBAEUT",
+            "name": "Regular",
+            "ordinal": 0,
+            "pricing_type": "FIXED_PRICING",
+            "price_money": {
+              "amount": 499,
+              "currency": "USD"
+            },
+            "sellable": true,
+            "stockable": true
+          }
+        },
+        {
+          "id": "O6OXMGQWJQURZBJFIJKZXCQ3",
+          "type": "ITEM_VARIATION",
+          "updated_at": "2026-07-15T19:57:25.717Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:57:25.717Z",
+          "version": 1784145445717,
+          "present_at_all_locations": true,
+          "item_variation_data": {
+            "item_id": "KMKVMV5WAMQVCCTBTAN6T7GS",
+            "name": "Regular",
+            "ordinal": 0,
+            "pricing_type": "FIXED_PRICING",
+            "price_money": {
+              "amount": 499,
+              "currency": "USD"
+            },
+            "sellable": true,
+            "stockable": true
+          }
+        },
+        {
+          "id": "YQEAGJJBLCLY2VSN6QRHVEU5",
+          "type": "ITEM_VARIATION",
+          "updated_at": "2026-07-15T19:58:09.286Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:58:09.286Z",
+          "version": 1784145489286,
+          "present_at_all_locations": true,
+          "item_variation_data": {
+            "item_id": "JEFRMDBUKQA4KLDMSTD4RZRM",
+            "name": "Regular",
+            "ordinal": 0,
+            "pricing_type": "FIXED_PRICING",
+            "price_money": {
+              "amount": 499,
+              "currency": "USD"
+            },
+            "sellable": true,
+            "stockable": true
+          }
+        },
+        {
+          "id": "6BB6CXUMMYFOVAOYYESF5DVF",
+          "type": "SUBSCRIPTION_PLAN",
+          "updated_at": "2026-07-15T19:20:45.118Z",
+          "is_deleted": false,
+          "created_at": "2026-07-15T19:20:45.149Z",
+          "version": 1784143245118,
+          "present_at_all_locations": true,
+          "subscription_plan_data": {
+            "name": "Seed Monthly Plan",
+            "subscription_plan_variations": [
+              {
+                "type": "SUBSCRIPTION_PLAN_VARIATION",
+                "id": "XTTOYNNHNPXUJNNBFM5KVCAX",
+                "updated_at": "2026-07-15T19:20:45.118Z",
+                "created_at": "2026-07-15T19:20:45.149Z",
+                "version": 1784143245118,
+                "is_deleted": false,
+                "present_at_all_locations": true,
+                "subscription_plan_variation_data": {
+                  "name": "Monthly",
+                  "phases": [
+                    {
+                      "uid": "KOASSJQ4QOPREYC2O4EHLAEQ",
+                      "cadence": "MONTHLY",
+                      "ordinal": 0,
+                      "pricing": {
+                        "type": "STATIC",
+                        "price": {
+                          "amount": 1999,
+                          "currency": "USD"
+                        },
+                        "price_money": {
+                          "amount": 1999,
+                          "currency": "USD"
+                        }
+                      }
+                    }
+                  ],
+                  "subscription_plan_id": "6BB6CXUMMYFOVAOYYESF5DVF"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "CatalogObject": [
+        {
+          "id": "PGMCXHVQV7RFDJXZCWW6AVHH"
+        },
+        {
+          "id": "D6TI4VSN5MEOTHGCFKMIFK25"
+        },
+        {
+          "id": "Y2RUOMS6NWE7YXDOPBOI3MRJ"
+        },
+        {
+          "id": "GTYD7H75V6WDB2O74BJMMQ4Z"
+        },
+        {
+          "id": "43CB5UHCM2BCEQLKMNSO5FEC"
+        },
+        {
+          "id": "62KMFPMZB6BH4CQ3TSYRH5CQ"
+        },
+        {
+          "id": "B736N363ATZT4OK34GJNN4KE"
+        },
+        {
+          "id": "47C2GTZRTCH33H2CSIBS2X6K"
+        }
+      ]
+    }
+  },
+  "api": {
+    "post": {
+      "/v2/catalog/search": {
+        "response": {
+          "objects": [
+            {
+              "type": "ITEM",
+              "id": "PGMCXHVQV7RFDJXZCWW6AVHH",
+              "updated_at": "2026-07-15T19:21:11.346Z",
+              "created_at": "2026-07-15T19:17:03.789Z",
+              "version": 1784143271346,
+              "is_deleted": true,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Probe2",
+                "is_taxable": true,
+                "product_type": "REGULAR",
+                "is_archived": false
+              }
+            },
+            {
+              "type": "ITEM",
+              "id": "DJXLBF4XHUSECQ4P6UDOB7KE",
+              "updated_at": "2026-07-15T19:25:31.759Z",
+              "created_at": "2026-07-15T19:25:31.759Z",
+              "version": 1784143531759,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Seed Coffee",
+                "description": "A seeded catalog item for testing.",
+                "is_taxable": true,
+                "variations": [
+                  {
+                    "type": "ITEM_VARIATION",
+                    "id": "KNE7SHMPLXXA6ZMIPY6GWJSK",
+                    "updated_at": "2026-07-15T19:25:31.759Z",
+                    "created_at": "2026-07-15T19:25:31.759Z",
+                    "version": 1784143531759,
+                    "is_deleted": false,
+                    "present_at_all_locations": true,
+                    "item_variation_data": {
+                      "item_id": "DJXLBF4XHUSECQ4P6UDOB7KE",
+                      "name": "Regular",
+                      "ordinal": 0,
+                      "pricing_type": "FIXED_PRICING",
+                      "price_money": {
+                        "amount": 500,
+                        "currency": "USD"
+                      },
+                      "sellable": true,
+                      "stockable": true
+                    }
+                  }
+                ],
+                "product_type": "REGULAR",
+                "description_html": "<p>A seeded catalog item for testing.</p>",
+                "description_plaintext": "A seeded catalog item for testing.",
+                "is_archived": false
+              }
+            },
+            {
+              "type": "ITEM",
+              "id": "OQFBXZMQ72SI4LJI5D2YNTJ2",
+              "updated_at": "2026-07-15T19:25:33.198Z",
+              "created_at": "2026-07-15T19:25:33.198Z",
+              "version": 1784143533198,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Seed Muffin",
+                "description": "A second seeded catalog item for testing.",
+                "is_taxable": true,
+                "variations": [
+                  {
+                    "type": "ITEM_VARIATION",
+                    "id": "7TSJIUXUSGTQQQ6CHCJXA4CL",
+                    "updated_at": "2026-07-15T19:25:33.198Z",
+                    "created_at": "2026-07-15T19:25:33.198Z",
+                    "version": 1784143533198,
+                    "is_deleted": false,
+                    "present_at_all_locations": true,
+                    "item_variation_data": {
+                      "item_id": "OQFBXZMQ72SI4LJI5D2YNTJ2",
+                      "name": "Regular",
+                      "ordinal": 0,
+                      "pricing_type": "FIXED_PRICING",
+                      "price_money": {
+                        "amount": 350,
+                        "currency": "USD"
+                      },
+                      "sellable": true,
+                      "stockable": true
+                    }
+                  }
+                ],
+                "product_type": "REGULAR",
+                "description_html": "<p>A second seeded catalog item for testing.</p>",
+                "description_plaintext": "A second seeded catalog item for testing.",
+                "is_archived": false
+              }
+            },
+            {
+              "type": "ITEM",
+              "id": "D6TI4VSN5MEOTHGCFKMIFK25",
+              "updated_at": "2026-07-15T19:56:38.601Z",
+              "created_at": "2026-07-15T19:33:54.344Z",
+              "version": 1784145398601,
+              "is_deleted": true,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Deletable Item One",
+                "is_taxable": true,
+                "product_type": "REGULAR",
+                "is_archived": false
+              }
+            },
+            {
+              "type": "ITEM",
+              "id": "Y2RUOMS6NWE7YXDOPBOI3MRJ",
+              "updated_at": "2026-07-15T19:56:51.093Z",
+              "created_at": "2026-07-15T19:33:55.59Z",
+              "version": 1784145411093,
+              "is_deleted": true,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Deletable Item Two",
+                "is_taxable": true,
+                "product_type": "REGULAR",
+                "is_archived": false
+              }
+            },
+            {
+              "type": "ITEM",
+              "id": "GTYD7H75V6WDB2O74BJMMQ4Z",
+              "updated_at": "2026-07-15T19:36:14.11Z",
+              "created_at": "2026-07-15T19:36:12.771Z",
+              "version": 1784144174110,
+              "is_deleted": true,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Throwaway",
+                "is_taxable": true,
+                "product_type": "REGULAR",
+                "is_archived": false
+              }
+            },
+            {
+              "type": "ITEM",
+              "id": "ABM246XYDU3QCDS3HOBBAEUT",
+              "updated_at": "2026-07-15T19:57:19.227Z",
+              "created_at": "2026-07-15T19:57:19.227Z",
+              "version": 1784145439227,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Dryrun Test Item",
+                "is_taxable": true,
+                "variations": [
+                  {
+                    "type": "ITEM_VARIATION",
+                    "id": "HMYGV2JV5BV4OIBXSO3PGCGY",
+                    "updated_at": "2026-07-15T19:57:19.227Z",
+                    "created_at": "2026-07-15T19:57:19.227Z",
+                    "version": 1784145439227,
+                    "is_deleted": false,
+                    "present_at_all_locations": true,
+                    "item_variation_data": {
+                      "item_id": "ABM246XYDU3QCDS3HOBBAEUT",
+                      "name": "Regular",
+                      "ordinal": 0,
+                      "pricing_type": "FIXED_PRICING",
+                      "price_money": {
+                        "amount": 499,
+                        "currency": "USD"
+                      },
+                      "sellable": true,
+                      "stockable": true
+                    }
+                  }
+                ],
+                "product_type": "REGULAR",
+                "is_archived": false
+              }
+            },
+            {
+              "type": "ITEM",
+              "id": "KMKVMV5WAMQVCCTBTAN6T7GS",
+              "updated_at": "2026-07-15T19:57:25.717Z",
+              "created_at": "2026-07-15T19:57:25.717Z",
+              "version": 1784145445717,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Dryrun Test Item",
+                "is_taxable": true,
+                "variations": [
+                  {
+                    "type": "ITEM_VARIATION",
+                    "id": "O6OXMGQWJQURZBJFIJKZXCQ3",
+                    "updated_at": "2026-07-15T19:57:25.717Z",
+                    "created_at": "2026-07-15T19:57:25.717Z",
+                    "version": 1784145445717,
+                    "is_deleted": false,
+                    "present_at_all_locations": true,
+                    "item_variation_data": {
+                      "item_id": "KMKVMV5WAMQVCCTBTAN6T7GS",
+                      "name": "Regular",
+                      "ordinal": 0,
+                      "pricing_type": "FIXED_PRICING",
+                      "price_money": {
+                        "amount": 499,
+                        "currency": "USD"
+                      },
+                      "sellable": true,
+                      "stockable": true
+                    }
+                  }
+                ],
+                "product_type": "REGULAR",
+                "is_archived": false
+              }
+            },
+            {
+              "type": "ITEM",
+              "id": "JEFRMDBUKQA4KLDMSTD4RZRM",
+              "updated_at": "2026-07-15T19:58:09.286Z",
+              "created_at": "2026-07-15T19:58:09.286Z",
+              "version": 1784145489286,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_data": {
+                "name": "Dryrun Test Item 2",
+                "is_taxable": true,
+                "variations": [
+                  {
+                    "type": "ITEM_VARIATION",
+                    "id": "YQEAGJJBLCLY2VSN6QRHVEU5",
+                    "updated_at": "2026-07-15T19:58:09.286Z",
+                    "created_at": "2026-07-15T19:58:09.286Z",
+                    "version": 1784145489286,
+                    "is_deleted": false,
+                    "present_at_all_locations": true,
+                    "item_variation_data": {
+                      "item_id": "JEFRMDBUKQA4KLDMSTD4RZRM",
+                      "name": "Regular",
+                      "ordinal": 0,
+                      "pricing_type": "FIXED_PRICING",
+                      "price_money": {
+                        "amount": 499,
+                        "currency": "USD"
+                      },
+                      "sellable": true,
+                      "stockable": true
+                    }
+                  }
+                ],
+                "product_type": "REGULAR",
+                "is_archived": false
+              }
+            },
+            {
+              "type": "ITEM_VARIATION",
+              "id": "43CB5UHCM2BCEQLKMNSO5FEC",
+              "updated_at": "2026-07-15T19:21:11.346Z",
+              "created_at": "2026-07-15T19:17:03.789Z",
+              "version": 1784143271346,
+              "is_deleted": true,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "PGMCXHVQV7RFDJXZCWW6AVHH",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 100,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            },
+            {
+              "type": "ITEM_VARIATION",
+              "id": "KNE7SHMPLXXA6ZMIPY6GWJSK",
+              "updated_at": "2026-07-15T19:25:31.759Z",
+              "created_at": "2026-07-15T19:25:31.803Z",
+              "version": 1784143531759,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "DJXLBF4XHUSECQ4P6UDOB7KE",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 500,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            },
+            {
+              "type": "ITEM_VARIATION",
+              "id": "7TSJIUXUSGTQQQ6CHCJXA4CL",
+              "updated_at": "2026-07-15T19:25:33.198Z",
+              "created_at": "2026-07-15T19:25:33.238Z",
+              "version": 1784143533198,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "OQFBXZMQ72SI4LJI5D2YNTJ2",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 350,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            },
+            {
+              "type": "ITEM_VARIATION",
+              "id": "62KMFPMZB6BH4CQ3TSYRH5CQ",
+              "updated_at": "2026-07-15T19:56:38.601Z",
+              "created_at": "2026-07-15T19:33:54.344Z",
+              "version": 1784145398601,
+              "is_deleted": true,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "D6TI4VSN5MEOTHGCFKMIFK25",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 100,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            },
+            {
+              "type": "ITEM_VARIATION",
+              "id": "B736N363ATZT4OK34GJNN4KE",
+              "updated_at": "2026-07-15T19:56:51.093Z",
+              "created_at": "2026-07-15T19:33:55.59Z",
+              "version": 1784145411093,
+              "is_deleted": true,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "Y2RUOMS6NWE7YXDOPBOI3MRJ",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 150,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            },
+            {
+              "type": "ITEM_VARIATION",
+              "id": "47C2GTZRTCH33H2CSIBS2X6K",
+              "updated_at": "2026-07-15T19:36:14.11Z",
+              "created_at": "2026-07-15T19:36:12.771Z",
+              "version": 1784144174110,
+              "is_deleted": true,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "GTYD7H75V6WDB2O74BJMMQ4Z",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 100,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            },
+            {
+              "type": "ITEM_VARIATION",
+              "id": "HMYGV2JV5BV4OIBXSO3PGCGY",
+              "updated_at": "2026-07-15T19:57:19.227Z",
+              "created_at": "2026-07-15T19:57:19.227Z",
+              "version": 1784145439227,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "ABM246XYDU3QCDS3HOBBAEUT",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 499,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            },
+            {
+              "type": "ITEM_VARIATION",
+              "id": "O6OXMGQWJQURZBJFIJKZXCQ3",
+              "updated_at": "2026-07-15T19:57:25.717Z",
+              "created_at": "2026-07-15T19:57:25.717Z",
+              "version": 1784145445717,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "KMKVMV5WAMQVCCTBTAN6T7GS",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 499,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            },
+            {
+              "type": "ITEM_VARIATION",
+              "id": "YQEAGJJBLCLY2VSN6QRHVEU5",
+              "updated_at": "2026-07-15T19:58:09.286Z",
+              "created_at": "2026-07-15T19:58:09.286Z",
+              "version": 1784145489286,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "item_variation_data": {
+                "item_id": "JEFRMDBUKQA4KLDMSTD4RZRM",
+                "name": "Regular",
+                "ordinal": 0,
+                "pricing_type": "FIXED_PRICING",
+                "price_money": {
+                  "amount": 499,
+                  "currency": "USD"
+                },
+                "sellable": true,
+                "stockable": true
+              }
+            },
+            {
+              "type": "SUBSCRIPTION_PLAN",
+              "id": "6BB6CXUMMYFOVAOYYESF5DVF",
+              "updated_at": "2026-07-15T19:20:45.118Z",
+              "created_at": "2026-07-15T19:20:45.149Z",
+              "version": 1784143245118,
+              "is_deleted": false,
+              "present_at_all_locations": true,
+              "subscription_plan_data": {
+                "name": "Seed Monthly Plan",
+                "subscription_plan_variations": [
+                  {
+                    "type": "SUBSCRIPTION_PLAN_VARIATION",
+                    "id": "XTTOYNNHNPXUJNNBFM5KVCAX",
+                    "updated_at": "2026-07-15T19:20:45.118Z",
+                    "created_at": "2026-07-15T19:20:45.149Z",
+                    "version": 1784143245118,
+                    "is_deleted": false,
+                    "present_at_all_locations": true,
+                    "subscription_plan_variation_data": {
+                      "name": "Monthly",
+                      "phases": [
+                        {
+                          "uid": "KOASSJQ4QOPREYC2O4EHLAEQ",
+                          "cadence": "MONTHLY",
+                          "ordinal": 0,
+                          "pricing": {
+                            "type": "STATIC",
+                            "price": {
+                              "amount": 1999,
+                              "currency": "USD"
+                            },
+                            "price_money": {
+                              "amount": 1999,
+                              "currency": "USD"
+                            }
+                          }
+                        }
+                      ],
+                      "subscription_plan_id": "6BB6CXUMMYFOVAOYYESF5DVF"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "latest_time": "2026-07-15T19:58:09.286Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 20:25:47 GMT",
+          "content-type": "application/json",
+          "content-length": "9870",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1784147176",
+          "etag": "W/\"268e-MllXW32RG2KF6PC8QNpbOry3H+0\""
+        },
+        "hash": "45235c4ff17fe23adefb1dd41c99a56e21fdf420",
+        "request": {
+          "data": {
+            "object_types": [
+              "ITEM",
+              "CATEGORY",
+              "TAX",
+              "DISCOUNT",
+              "MODIFIER_LIST",
+              "PRICING_RULE",
+              "PRODUCT_SET",
+              "TIME_PERIOD",
+              "MEASUREMENT_UNIT",
+              "SUBSCRIPTION_PLAN",
+              "ITEM_OPTION",
+              "CUSTOM_ATTRIBUTE_DEFINITION",
+              "IMAGE",
+              "ITEM_OPTION_VAL",
+              "ITEM_VARIATION",
+              "MODIFIER"
+            ],
+            "include_deleted_objects": true,
+            "limit": 100
+          }
+        }
+      }
+    }
+  }
+}

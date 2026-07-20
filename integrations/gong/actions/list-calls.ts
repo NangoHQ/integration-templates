@@ -11,72 +11,72 @@ const InputSchema = z.object({
 const ProviderCallSchema = z
     .object({
         id: z.string(),
-        url: z.string().optional(),
-        title: z.string().optional(),
-        started: z.string().optional(),
-        duration: z.number().optional(),
-        primaryUserId: z.string().optional(),
-        workspaceId: z.string().optional(),
-        direction: z.string().optional(),
-        disposition: z.string().optional(),
-        customData: z.string().optional(),
-        scheduledStart: z.string().optional(),
-        system: z.string().optional(),
-        scope: z.string().optional(),
-        media: z.string().optional(),
-        language: z.string().optional(),
-        sdrDisposition: z.string().optional(),
-        clientUniqueId: z.string().optional(),
-        purpose: z.string().optional(),
-        meetingUrl: z.string().optional(),
-        isPrivate: z.boolean().optional(),
-        calendarEventId: z.string().optional()
+        url: z.string().nullish(),
+        title: z.string().nullish(),
+        started: z.string().nullish(),
+        duration: z.number().nullish(),
+        primaryUserId: z.string().nullish(),
+        workspaceId: z.string().nullish(),
+        direction: z.string().nullish(),
+        disposition: z.string().nullish(),
+        customData: z.string().nullish(),
+        scheduledStart: z.string().nullish(),
+        system: z.string().nullish(),
+        scope: z.string().nullish(),
+        media: z.string().nullish(),
+        language: z.string().nullish(),
+        sdrDisposition: z.string().nullish(),
+        clientUniqueId: z.string().nullish(),
+        purpose: z.string().nullish(),
+        meetingUrl: z.string().nullish(),
+        isPrivate: z.boolean().nullish(),
+        calendarEventId: z.string().nullish()
     })
     .passthrough();
 
 const ProviderResponseSchema = z.object({
-    calls: z.array(z.unknown()).optional(),
+    calls: z.array(z.unknown()).nullish(),
     records: z
         .object({
-            totalRecords: z.number().optional(),
-            currentPageSize: z.number().optional(),
-            cursor: z.string().optional()
+            totalRecords: z.number().nullish(),
+            currentPageSize: z.number().nullish(),
+            cursor: z.string().nullish()
         })
-        .optional()
+        .nullish()
 });
 
 const CallSchema = z.object({
     id: z.string(),
-    url: z.string().optional(),
-    title: z.string().optional(),
-    started: z.string().optional(),
-    duration: z.number().optional(),
-    primaryUserId: z.string().optional(),
-    workspaceId: z.string().optional(),
-    direction: z.string().optional(),
-    disposition: z.string().optional(),
-    customData: z.string().optional(),
-    scheduledStart: z.string().optional(),
-    system: z.string().optional(),
-    scope: z.string().optional(),
-    media: z.string().optional(),
-    language: z.string().optional(),
-    sdrDisposition: z.string().optional(),
-    clientUniqueId: z.string().optional(),
-    purpose: z.string().optional(),
-    meetingUrl: z.string().optional(),
-    isPrivate: z.boolean().optional(),
-    calendarEventId: z.string().optional()
+    url: z.string().nullish(),
+    title: z.string().nullish(),
+    started: z.string().nullish(),
+    duration: z.number().nullish(),
+    primaryUserId: z.string().nullish(),
+    workspaceId: z.string().nullish(),
+    direction: z.string().nullish(),
+    disposition: z.string().nullish(),
+    customData: z.string().nullish(),
+    scheduledStart: z.string().nullish(),
+    system: z.string().nullish(),
+    scope: z.string().nullish(),
+    media: z.string().nullish(),
+    language: z.string().nullish(),
+    sdrDisposition: z.string().nullish(),
+    clientUniqueId: z.string().nullish(),
+    purpose: z.string().nullish(),
+    meetingUrl: z.string().nullish(),
+    isPrivate: z.boolean().nullish(),
+    calendarEventId: z.string().nullish()
 });
 
 const OutputSchema = z.object({
-    calls: z.array(CallSchema),
-    nextCursor: z.string().optional()
+    calls: z.array(CallSchema).nullable(),
+    nextCursor: z.string().nullish()
 });
 
 const action = createAction({
     description: 'List calls from Gong with optional date-range filters.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:calls:read'],

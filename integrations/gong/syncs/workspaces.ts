@@ -3,8 +3,8 @@ import { z } from 'zod';
 
 const WorkspaceSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    description: z.string().optional()
+    name: z.string().nullish(),
+    description: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({
@@ -12,17 +12,17 @@ const ProviderResponseSchema = z.object({
     workspaces: z
         .array(
             z.object({
-                id: z.string(),
-                name: z.string().optional(),
-                description: z.string().optional()
+                id: z.string().nullable(),
+                name: z.string().nullish(),
+                description: z.string().nullish()
             })
         )
-        .optional()
+        .nullish()
 });
 
 const sync = createSync({
     description: 'Sync workspaces from Gong.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -50,16 +50,22 @@ const sync = createSync({
             throw new Error(`Failed to parse workspaces response: ${parsed.error.message}`);
         }
 
-        // Start delete tracking only after response validation succeeds so a parse
-        // failure does not leave tracking open without a corresponding trackDeletesEnd.
-        await nango.trackDeletesStart('Workspace');
-
         const workspaces = parsed.data.workspaces ?? [];
-        const records = workspaces.map((workspace) => ({
-            id: workspace.id,
-            ...(workspace.name != null && { name: workspace.name }),
-            ...(workspace.description != null && { description: workspace.description })
-        }));
+        const records = workspaces.map((workspace) => {
+            if (!workspace.id) {
+                throw new Error('Expected workspace id to be non-null');
+            }
+
+            return {
+                id: workspace.id,
+                ...(workspace.name !== undefined && { name: workspace.name }),
+                ...(workspace.description !== undefined && { description: workspace.description })
+            };
+        });
+
+        // Start delete tracking only after response and record identity validation succeeds
+        // so failures do not mark valid records as deleted.
+        await nango.trackDeletesStart('Workspace');
 
         if (records.length > 0) {
             await nango.batchSave(records, 'Workspace');

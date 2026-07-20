@@ -1,0 +1,146 @@
+{
+  "input": {
+    "authorization_id": "5TA289796B0267517"
+  },
+  "output": {
+    "id": "5TA289796B0267517",
+    "status": "CREATED",
+    "amount": {
+      "currency_code": "USD",
+      "value": "10.00"
+    },
+    "seller_protection": {
+      "status": "NOT_ELIGIBLE"
+    },
+    "payee": {
+      "email_address": "sb-mppuh50932527@business.example.com",
+      "merchant_id": "V58TVTDQEAVDC"
+    },
+    "expiration_time": "2026-08-11T20:49:17Z",
+    "create_time": "2026-07-13T20:49:17Z",
+    "update_time": "2026-07-13T20:49:17Z",
+    "links": [
+      {
+        "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/5TA289796B0267517",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/5TA289796B0267517/capture",
+        "rel": "capture",
+        "method": "POST"
+      },
+      {
+        "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/5TA289796B0267517/void",
+        "rel": "void",
+        "method": "POST"
+      },
+      {
+        "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/5TA289796B0267517/reauthorize",
+        "rel": "reauthorize",
+        "method": "POST"
+      },
+      {
+        "href": "https://api.sandbox.paypal.com/v2/checkout/orders/2W833583NB867205P",
+        "rel": "up",
+        "method": "GET"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/payments/authorizations/5TA289796B0267517": {
+        "response": {
+          "id": "5TA289796B0267517",
+          "status": "CREATED",
+          "amount": {
+            "currency_code": "USD",
+            "value": "10.00"
+          },
+          "seller_protection": {
+            "status": "NOT_ELIGIBLE"
+          },
+          "processor_response": {
+            "avs_code": "",
+            "cvv_code": "M",
+            "response_code": "0000"
+          },
+          "supplementary_data": {
+            "related_ids": {
+              "order_id": "2W833583NB867205P"
+            }
+          },
+          "payee": {
+            "email_address": "sb-mppuh50932527@business.example.com",
+            "merchant_id": "V58TVTDQEAVDC"
+          },
+          "expiration_time": "2026-08-11T20:49:17Z",
+          "create_time": "2026-07-13T20:49:17Z",
+          "update_time": "2026-07-13T20:49:17Z",
+          "links": [
+            {
+              "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/5TA289796B0267517",
+              "rel": "self",
+              "method": "GET"
+            },
+            {
+              "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/5TA289796B0267517/capture",
+              "rel": "capture",
+              "method": "POST"
+            },
+            {
+              "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/5TA289796B0267517/void",
+              "rel": "void",
+              "method": "POST"
+            },
+            {
+              "href": "https://api.sandbox.paypal.com/v2/payments/authorizations/5TA289796B0267517/reauthorize",
+              "rel": "reauthorize",
+              "method": "POST"
+            },
+            {
+              "href": "https://api.sandbox.paypal.com/v2/checkout/orders/2W833583NB867205P",
+              "rel": "up",
+              "method": "GET"
+            }
+          ],
+          "network_transaction_reference": {
+            "id": "121879378195400",
+            "network": "VISA"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 13 Jul 2026 20:49:32 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Server-Timing",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4995",
+          "x-ratelimit-reset": "1783975831",
+          "server": "cloudflare",
+          "cache-control": "max-age=0, no-cache, no-store, must-revalidate",
+          "paypal-debug-id": "ca1ab279f8956",
+          "cf-cache-status": "DYNAMIC",
+          "server-timing": "traceparent;desc=\"00-0000000000000000000ca1ab279f8956-ad368a80a6af2a96-01\"",
+          "set-cookie": "__cf_bm=0XpdeWiyjxLYCUm3DSUKH1a1C8pGWIsQhFMur_8sN_Y-1783975772.0860577-1.0.1.1-04b0F3AFfP5Gwd8QPszGCgyEoWR_QseA2qRTZQCP18ShbnNZ5QgA.VLzdQ5gYaQYTG71rpSM84irFvZevbUzR7Se0.qSCO1nsVYMGKxMoVK6MJcFRf.lbUl4ZIy4kq0W; HttpOnly; SameSite=None; Secure; Path=/; Domain=api-m.sandbox.paypal.com; Expires=Mon, 13 Jul 2026 21:19:32 GMT",
+          "vary": "Accept-Encoding",
+          "http_x_pp_az_locator": "ccg18.slc",
+          "cf-ray": "a1ab279f89566289-PDX"
+        },
+        "hash": "5ca54c0762871799642fbe31febbc92a9b2d6224",
+        "request": {}
+      }
+    }
+  }
+}
