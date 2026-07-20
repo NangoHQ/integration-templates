@@ -21,45 +21,45 @@ const InputSchema = z.object({
 const ProviderTaskSchema = z
     .object({
         id: z.union([z.string(), z.number()]).transform(String).optional(),
-        userId: z.union([z.string(), z.number()]).transform(String).optional(),
-        created: z.string().optional(),
-        updated: z.string().optional(),
-        status: z.string().optional(),
-        type: z.string().optional(),
-        actions: z.array(z.string()).optional(),
-        dueDate: z.string().optional(),
-        title: z.string().optional()
+        userId: z.union([z.string(), z.number()]).transform(String).nullish(),
+        created: z.string().nullish(),
+        updated: z.string().nullish(),
+        status: z.string().nullish(),
+        type: z.string().nullish(),
+        actions: z.array(z.string()).nullish(),
+        dueDate: z.string().nullish(),
+        title: z.string().nullish()
     })
     .passthrough();
 
 const ProviderResponseSchema = z
     .object({
         requestId: z.string().optional(),
-        tasks: z.array(z.unknown()).optional()
+        tasks: z.array(z.unknown()).nullish()
     })
     .passthrough();
 
 const OutputTaskSchema = z
     .object({
         id: z.string().optional(),
-        userId: z.string().optional(),
-        created: z.string().optional(),
-        updated: z.string().optional(),
-        status: z.string().optional(),
-        type: z.string().optional(),
-        actions: z.array(z.string()).optional(),
-        dueDate: z.string().optional(),
-        title: z.string().optional()
+        userId: z.string().nullish(),
+        created: z.string().nullish(),
+        updated: z.string().nullish(),
+        status: z.string().nullish(),
+        type: z.string().nullish(),
+        actions: z.array(z.string()).nullish(),
+        dueDate: z.string().nullish(),
+        title: z.string().nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    items: z.array(OutputTaskSchema)
+    items: z.array(OutputTaskSchema).nullable()
 });
 
 const action = createAction({
     description: 'List tasks for the current Gong user.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:tasks:read'],

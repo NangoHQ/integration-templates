@@ -1,0 +1,197 @@
+{
+  "input": {
+    "product_id": "PROD-42B01413RE336243T",
+    "name": "Nango Test Plan",
+    "billing_cycles": [
+      {
+        "frequency": {
+          "interval_unit": "MONTH",
+          "interval_count": 1
+        },
+        "tenure_type": "REGULAR",
+        "sequence": 1,
+        "pricing_scheme": {
+          "fixed_price": {
+            "currency_code": "USD",
+            "value": "10.00"
+          }
+        }
+      }
+    ],
+    "payment_preferences": {
+      "auto_bill_outstanding": true
+    },
+    "request_id": "test-request-id"
+  },
+  "output": {
+    "id": "P-83M24117UB232234YNJKVALY",
+    "product_id": "PROD-42B01413RE336243T",
+    "name": "Nango Test Plan",
+    "status": "ACTIVE",
+    "billing_cycles": [
+      {
+        "frequency": {
+          "interval_unit": "MONTH",
+          "interval_count": 1
+        },
+        "tenure_type": "REGULAR",
+        "sequence": 1,
+        "total_cycles": 1,
+        "pricing_scheme": {
+          "fixed_price": {
+            "currency_code": "USD",
+            "value": "10.0"
+          },
+          "version": 1,
+          "create_time": "2026-07-13T20:53:03Z",
+          "update_time": "2026-07-13T20:53:03Z"
+        }
+      }
+    ],
+    "payment_preferences": {
+      "auto_bill_outstanding": true,
+      "setup_fee": {
+        "currency_code": "USD",
+        "value": "0.0"
+      },
+      "setup_fee_failure_action": "CANCEL",
+      "payment_failure_threshold": 0
+    },
+    "quantity_supported": false,
+    "create_time": "2026-07-13T20:53:03Z",
+    "update_time": "2026-07-13T20:53:03Z",
+    "links": [
+      {
+        "href": "https://api.sandbox.paypal.com/v1/billing/plans/P-83M24117UB232234YNJKVALY",
+        "rel": "self",
+        "method": "GET"
+      },
+      {
+        "href": "https://api.sandbox.paypal.com/v1/billing/plans/P-83M24117UB232234YNJKVALY",
+        "rel": "edit",
+        "method": "PATCH"
+      },
+      {
+        "href": "https://api.sandbox.paypal.com/v1/billing/plans/P-83M24117UB232234YNJKVALY/deactivate",
+        "rel": "self",
+        "method": "POST"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/billing/plans": {
+        "response": {
+          "id": "P-83M24117UB232234YNJKVALY",
+          "product_id": "PROD-42B01413RE336243T",
+          "name": "Nango Test Plan",
+          "status": "ACTIVE",
+          "usage_type": "LICENSED",
+          "billing_cycles": [
+            {
+              "pricing_scheme": {
+                "version": 1,
+                "fixed_price": {
+                  "currency_code": "USD",
+                  "value": "10.0"
+                },
+                "create_time": "2026-07-13T20:53:03Z",
+                "update_time": "2026-07-13T20:53:03Z"
+              },
+              "frequency": {
+                "interval_unit": "MONTH",
+                "interval_count": 1
+              },
+              "tenure_type": "REGULAR",
+              "sequence": 1,
+              "total_cycles": 1
+            }
+          ],
+          "payment_preferences": {
+            "service_type": "PREPAID",
+            "auto_bill_outstanding": true,
+            "setup_fee": {
+              "currency_code": "USD",
+              "value": "0.0"
+            },
+            "setup_fee_failure_action": "CANCEL",
+            "payment_failure_threshold": 0
+          },
+          "quantity_supported": false,
+          "create_time": "2026-07-13T20:53:03Z",
+          "update_time": "2026-07-13T20:53:03Z",
+          "links": [
+            {
+              "href": "https://api.sandbox.paypal.com/v1/billing/plans/P-83M24117UB232234YNJKVALY",
+              "rel": "self",
+              "method": "GET",
+              "encType": "application/json"
+            },
+            {
+              "href": "https://api.sandbox.paypal.com/v1/billing/plans/P-83M24117UB232234YNJKVALY",
+              "rel": "edit",
+              "method": "PATCH",
+              "encType": "application/json"
+            },
+            {
+              "href": "https://api.sandbox.paypal.com/v1/billing/plans/P-83M24117UB232234YNJKVALY/deactivate",
+              "rel": "self",
+              "method": "POST",
+              "encType": "application/json"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 13 Jul 2026 20:53:03 GMT",
+          "content-type": "application/json",
+          "content-length": "1178",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4950",
+          "x-ratelimit-reset": "1783976015",
+          "etag": "W/\"49a-HpP0/JM0pV/TrGFkvsGh3PaXxFY\""
+        },
+        "hash": "298ffb642252331fe987578ef1a564e37d6fc2b9",
+        "request": {
+          "headers": {
+            "Prefer": "return=representation"
+          },
+          "data": {
+            "product_id": "PROD-42B01413RE336243T",
+            "name": "Nango Test Plan",
+            "billing_cycles": [
+              {
+                "frequency": {
+                  "interval_unit": "MONTH",
+                  "interval_count": 1
+                },
+                "tenure_type": "REGULAR",
+                "sequence": 1,
+                "pricing_scheme": {
+                  "fixed_price": {
+                    "currency_code": "USD",
+                    "value": "10.00"
+                  }
+                }
+              }
+            ],
+            "payment_preferences": {
+              "auto_bill_outstanding": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

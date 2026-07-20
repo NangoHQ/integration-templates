@@ -8,30 +8,30 @@ const InputSchema = z.object({
 });
 
 const InteractionStatSchema = z.object({
-    name: z.string(),
-    value: z.number()
+    name: z.string().nullable(),
+    value: z.number().nullable()
 });
 
 const PersonInteractionStatsSchema = z.object({
     userId: z.string(),
-    userEmailAddress: z.string().optional(),
-    personInteractionStats: z.array(InteractionStatSchema).optional(),
-    timeZone: z.string().optional(),
-    fromDateTime: z.string().optional(),
-    toDateTime: z.string().optional()
+    userEmailAddress: z.string().nullish(),
+    personInteractionStats: z.array(InteractionStatSchema).nullish(),
+    timeZone: z.string().nullish(),
+    fromDateTime: z.string().nullish(),
+    toDateTime: z.string().nullish()
 });
 
 const RecordsSchema = z.object({
-    totalRecords: z.number().optional(),
-    currentPageSize: z.number().optional(),
-    currentPageNumber: z.number().optional(),
-    cursor: z.string().optional()
+    totalRecords: z.number().nullish(),
+    currentPageSize: z.number().nullish(),
+    currentPageNumber: z.number().nullish(),
+    cursor: z.string().nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    peopleInteractionStats: z.array(PersonInteractionStatsSchema).optional(),
-    records: RecordsSchema.optional()
+    peopleInteractionStats: z.array(PersonInteractionStatsSchema).nullish(),
+    records: RecordsSchema.nullish()
 });
 
 const AxiosErrorSchema = z.object({
@@ -41,7 +41,7 @@ const AxiosErrorSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve interaction statistics for users on a specific date',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:stats:interaction'],

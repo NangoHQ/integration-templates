@@ -723,6 +723,25 @@ import './basecamp/actions/fetch-accounts.js';
 import './basecamp/actions/fetch-projects.js';
 import './basecamp/actions/fetch-todolists.js';
 
+// -- Integration: baserow
+import './baserow/syncs/fields.js';
+import './baserow/syncs/rows.js';
+import './baserow/syncs/tables.js';
+import './baserow/actions/batch-create-rows.js';
+import './baserow/actions/batch-delete-rows.js';
+import './baserow/actions/batch-update-rows.js';
+import './baserow/actions/check-token.js';
+import './baserow/actions/create-row.js';
+import './baserow/actions/delete-row.js';
+import './baserow/actions/get-row.js';
+import './baserow/actions/list-fields.js';
+import './baserow/actions/list-row-names.js';
+import './baserow/actions/list-rows.js';
+import './baserow/actions/list-tables.js';
+import './baserow/actions/move-row.js';
+import './baserow/actions/update-row.js';
+import './baserow/actions/verify-password-field.js';
+
 // -- Integration: bigcommerce
 import './bigcommerce/syncs/brands.js';
 import './bigcommerce/syncs/categories.js';
@@ -1820,6 +1839,44 @@ import './gong/actions/upload-crm-entity-schema.js';
 import './google/syncs/workspace-org-units.js';
 import './google/syncs/workspace-user-access-tokens.js';
 import './google/syncs/workspace-users.js';
+
+// -- Integration: google-ads
+import './google-ads/syncs/accessible-customers.js';
+import './google-ads/syncs/ad-group-ads.js';
+import './google-ads/syncs/ad-groups.js';
+import './google-ads/syncs/campaign-budgets.js';
+import './google-ads/syncs/campaign-criteria.js';
+import './google-ads/syncs/campaigns.js';
+import './google-ads/syncs/conversion-actions.js';
+import './google-ads/syncs/keyword-criteria.js';
+import './google-ads/actions/create-ad-group-ad.js';
+import './google-ads/actions/create-ad-group.js';
+import './google-ads/actions/create-campaign-budget.js';
+import './google-ads/actions/create-campaign-location-criterion.js';
+import './google-ads/actions/create-campaign-negative-keyword.js';
+import './google-ads/actions/create-campaign.js';
+import './google-ads/actions/create-conversion-action.js';
+import './google-ads/actions/create-keyword-criterion.js';
+import './google-ads/actions/create-negative-keyword.js';
+import './google-ads/actions/generate-keyword-ideas.js';
+import './google-ads/actions/list-accessible-customers.js';
+import './google-ads/actions/remove-ad-group-ad.js';
+import './google-ads/actions/remove-ad-group.js';
+import './google-ads/actions/remove-campaign-budget.js';
+import './google-ads/actions/remove-campaign-criterion.js';
+import './google-ads/actions/remove-campaign.js';
+import './google-ads/actions/remove-conversion-action.js';
+import './google-ads/actions/remove-keyword-criterion.js';
+import './google-ads/actions/search-google-ads.js';
+import './google-ads/actions/search-stream-google-ads.js';
+import './google-ads/actions/suggest-geo-target-constants.js';
+import './google-ads/actions/update-ad-group-ad.js';
+import './google-ads/actions/update-ad-group.js';
+import './google-ads/actions/update-campaign-budget.js';
+import './google-ads/actions/update-campaign.js';
+import './google-ads/actions/update-conversion-action.js';
+import './google-ads/actions/update-keyword-criterion.js';
+import './google-ads/actions/validate-google-ads-mutate.js';
 
 // -- Integration: google-analytics
 import './google-analytics/syncs/accounts.js';
@@ -3140,6 +3197,48 @@ import './paycom/syncs/unified-employees.js';
 // -- Integration: paylocity
 import './paylocity/syncs/users.js';
 
+// -- Integration: paypal
+import './paypal/syncs/disputes.js';
+import './paypal/syncs/invoices.js';
+import './paypal/syncs/plans.js';
+import './paypal/syncs/products.js';
+import './paypal/syncs/subscriptions.js';
+import './paypal/syncs/transactions.js';
+import './paypal/actions/activate-subscription.js';
+import './paypal/actions/add-order-tracking.js';
+import './paypal/actions/authorize-order.js';
+import './paypal/actions/cancel-invoice.js';
+import './paypal/actions/capture-authorized-payment.js';
+import './paypal/actions/capture-order.js';
+import './paypal/actions/confirm-order-payment-source.js';
+import './paypal/actions/create-invoice.js';
+import './paypal/actions/create-order.js';
+import './paypal/actions/create-plan.js';
+import './paypal/actions/create-product.js';
+import './paypal/actions/create-subscription.js';
+import './paypal/actions/deactivate-plan.js';
+import './paypal/actions/delete-invoice.js';
+import './paypal/actions/get-authorization.js';
+import './paypal/actions/get-capture.js';
+import './paypal/actions/get-invoice.js';
+import './paypal/actions/get-order.js';
+import './paypal/actions/get-plan.js';
+import './paypal/actions/get-product.js';
+import './paypal/actions/get-refund.js';
+import './paypal/actions/get-subscription.js';
+import './paypal/actions/list-disputes.js';
+import './paypal/actions/list-invoices.js';
+import './paypal/actions/list-plans.js';
+import './paypal/actions/list-products.js';
+import './paypal/actions/record-invoice-payment.js';
+import './paypal/actions/refund-capture.js';
+import './paypal/actions/send-invoice.js';
+import './paypal/actions/update-order-tracking.js';
+import './paypal/actions/update-order.js';
+import './paypal/actions/update-plan-pricing.js';
+import './paypal/actions/update-product.js';
+import './paypal/actions/void-authorized-payment.js';
+
 // -- Integration: pennylane
 import './pennylane/syncs/bank-accounts.js';
 import './pennylane/syncs/bank-establishments.js';
@@ -3715,6 +3814,58 @@ import './sap-success-factors/syncs/employees.js';
 import './sap-success-factors/syncs/groups.js';
 import './sap-success-factors/syncs/locations.js';
 import './sap-success-factors/syncs/unified-employees.js';
+
+// -- Integration: servicenow
+import './servicenow/syncs/approvals.js';
+import './servicenow/syncs/catalog-requests.js';
+import './servicenow/syncs/change-requests.js';
+import './servicenow/syncs/change-tasks.js';
+import './servicenow/syncs/cmdb-ci.js';
+import './servicenow/syncs/groups.js';
+import './servicenow/syncs/incidents.js';
+import './servicenow/syncs/knowledge-articles.js';
+import './servicenow/syncs/problems.js';
+import './servicenow/syncs/users.js';
+import './servicenow/actions/create-change-request.js';
+import './servicenow/actions/create-change-task.js';
+import './servicenow/actions/create-group.js';
+import './servicenow/actions/create-incident.js';
+import './servicenow/actions/create-problem.js';
+import './servicenow/actions/create-user.js';
+import './servicenow/actions/delete-change-request.js';
+import './servicenow/actions/delete-group.js';
+import './servicenow/actions/delete-incident.js';
+import './servicenow/actions/delete-problem.js';
+import './servicenow/actions/get-catalog-item.js';
+import './servicenow/actions/get-catalog-request.js';
+import './servicenow/actions/get-change-request.js';
+import './servicenow/actions/get-change-task.js';
+import './servicenow/actions/get-group.js';
+import './servicenow/actions/get-incident.js';
+import './servicenow/actions/get-knowledge-article.js';
+import './servicenow/actions/get-problem.js';
+import './servicenow/actions/get-table-record.js';
+import './servicenow/actions/get-user.js';
+import './servicenow/actions/list-approvals.js';
+import './servicenow/actions/list-attachments.js';
+import './servicenow/actions/list-catalog-items.js';
+import './servicenow/actions/list-catalog-request-items.js';
+import './servicenow/actions/list-change-requests.js';
+import './servicenow/actions/list-change-tasks.js';
+import './servicenow/actions/list-groups.js';
+import './servicenow/actions/list-incidents.js';
+import './servicenow/actions/list-knowledge-articles.js';
+import './servicenow/actions/list-problems.js';
+import './servicenow/actions/list-table-records.js';
+import './servicenow/actions/list-users.js';
+import './servicenow/actions/order-catalog-item.js';
+import './servicenow/actions/update-approval.js';
+import './servicenow/actions/update-change-request.js';
+import './servicenow/actions/update-change-task.js';
+import './servicenow/actions/update-group.js';
+import './servicenow/actions/update-incident.js';
+import './servicenow/actions/update-problem.js';
+import './servicenow/actions/update-user.js';
 
 // -- Integration: sharepoint-online
 import './sharepoint-online/syncs/content-types.js';

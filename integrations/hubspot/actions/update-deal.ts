@@ -23,7 +23,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a deal record in HubSpot CRM',
-    version: '3.0.1',
+    version: '3.0.2',
 
     input: InputSchema,
     output: OutputSchema,
@@ -33,11 +33,13 @@ const action = createAction({
         // https://developers.hubspot.com/docs/api/crm/deals
         const properties: Record<string, string | number> = {};
 
-        if (input.dealname) properties['dealname'] = input.dealname;
+        // Presence check, not truthiness: HubSpot clears a property when sent '',
+        // so an explicitly-supplied empty string must reach the request body.
+        if (input.dealname !== undefined) properties['dealname'] = input.dealname;
         if (input.amount !== undefined) properties['amount'] = input.amount;
-        if (input.closedate) properties['closedate'] = input.closedate;
-        if (input.dealstage) properties['dealstage'] = input.dealstage;
-        if (input.pipeline) properties['pipeline'] = input.pipeline;
+        if (input.closedate !== undefined) properties['closedate'] = input.closedate;
+        if (input.dealstage !== undefined) properties['dealstage'] = input.dealstage;
+        if (input.pipeline !== undefined) properties['pipeline'] = input.pipeline;
 
         const response = await nango.patch({
             endpoint: `/crm/v3/objects/deals/${input.dealId}`,

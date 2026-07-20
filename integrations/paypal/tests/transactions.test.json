@@ -1,0 +1,227 @@
+{
+  "nango": {
+    "batchSave": {
+      "Transaction": [
+        {
+          "id": "20V28231T91572413_2026-04-30T16:45:54Z",
+          "transaction_id": "20V28231T91572413",
+          "transaction_event_code": "T1900",
+          "transaction_initiation_date": "2026-04-30T16:45:54Z",
+          "transaction_updated_date": "2026-04-30T16:45:54Z",
+          "transaction_amount_currency_code": "USD",
+          "transaction_amount_value": "5000.00",
+          "transaction_status": "S",
+          "transaction_subject": "Initial balance",
+          "protection_eligibility": "02",
+          "instrument_type": "PayPal"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Transaction": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/reporting/transactions": [
+        {
+          "response": {
+            "transaction_details": [
+              {
+                "transaction_info": {
+                  "transaction_id": "20V28231T91572413",
+                  "transaction_event_code": "T1900",
+                  "transaction_initiation_date": "2026-04-30T16:45:54Z",
+                  "transaction_updated_date": "2026-04-30T16:45:54Z",
+                  "transaction_amount": {
+                    "currency_code": "USD",
+                    "value": "5000.00"
+                  },
+                  "transaction_status": "S",
+                  "transaction_subject": "Initial balance",
+                  "ending_balance": {
+                    "currency_code": "USD",
+                    "value": "5000.00"
+                  },
+                  "available_balance": {
+                    "currency_code": "USD",
+                    "value": "5000.00"
+                  },
+                  "protection_eligibility": "02",
+                  "instrument_type": "PayPal",
+                  "instrument_sub_type": "PayPal Wallet"
+                }
+              }
+            ],
+            "account_number": "V58TVTDQEAVDC",
+            "start_date": "2026-04-14T21:00:00Z",
+            "end_date": "2026-05-15T21:00:00Z",
+            "last_refreshed_datetime": "2026-07-13T19:59:59Z",
+            "page": 1,
+            "total_items": 1,
+            "total_pages": 1,
+            "links": [
+              {
+                "href": "https://api.sandbox.paypal.com/v1/reporting/transactions?end_date=2026-05-15T21%3A00%3A00.000Z&start_date=2026-04-14T21%3A00%3A00.000Z&page_size=100&page=1",
+                "rel": "self",
+                "method": "GET"
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Mon, 13 Jul 2026 21:28:13 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Server-Timing",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4996",
+            "x-ratelimit-reset": "1783978151",
+            "server": "cloudflare",
+            "cache-control": "max-age=0, no-cache, no-store, must-revalidate",
+            "paypal-debug-id": "ca1ab604c6b7e",
+            "cf-cache-status": "DYNAMIC",
+            "server-timing": "traceparent;desc=\"00-0000000000000000000ca1ab604c6b7e-92a5a86ce7dc7f38-01\"",
+            "set-cookie": "<redacted>",
+            "vary": "Accept-Encoding",
+            "http_x_pp_az_locator": "ccg18.slc",
+            "cf-ray": "a1ab604c6b7e884d-PDX"
+          },
+          "hash": "505c12910432d3cbef12edcffbbe9aab9e4b0f45",
+          "request": {
+            "params": {
+              "end_date": "2026-05-15T21:00:00.000Z",
+              "page": "1",
+              "page_size": "100",
+              "start_date": "2026-04-14T21:00:00.000Z"
+            }
+          }
+        },
+        {
+          "response": {
+            "account_number": "V58TVTDQEAVDC",
+            "start_date": "2026-05-15T21:00:00Z",
+            "end_date": "2026-06-15T21:00:00Z",
+            "last_refreshed_datetime": "2026-07-13T19:59:59Z",
+            "page": 1,
+            "total_items": 0,
+            "total_pages": 0,
+            "links": [
+              {
+                "href": "https://api.sandbox.paypal.com/v1/reporting/transactions?end_date=2026-06-15T21%3A00%3A00.000Z&start_date=2026-05-15T21%3A00%3A00.000Z&page_size=100&page=1",
+                "rel": "self",
+                "method": "GET"
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Mon, 13 Jul 2026 21:28:14 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Server-Timing",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4995",
+            "x-ratelimit-reset": "1783978151",
+            "http_x_pp_az_locator": "ccg18.slc",
+            "paypal-debug-id": "f768030f50226",
+            "server": "nginx",
+            "cache-control": "max-age=0, no-cache, no-store, must-revalidate",
+            "server-timing": "traceparent;desc=\"00-0000000000000000000f768030f50226-890f633312cad954-01\"",
+            "x-backend-info": "v=1;name=2k1u3gOGb2cebCyZJujTUN--F_ccg18_wju_origin_api_m_1_sandbox_paypal_com;ip=34.106.238.133;port=443;ssl=1;max=200;mr=0;ka_ns=0;ml_ns=0;tka_s=300;tki_s=10;tkp=3;host=api-m.sandbox.paypal.com;min_tls=;max_tls=;sni=edge.sandbox.paypal.com;cert_host=edge.sandbox.paypal.com;ciphers=;check_cert=1;no_reneg=1;to_ns=1000000000;fbto_ns=180000000000;bbto_ns=10000000000;fto_ns=0",
+            "accept-ranges": "none",
+            "via": "1.1 varnish, 1.1 varnish",
+            "edge-control": "max-age=0",
+            "x-served-by": "cache-sjc1000113-SJC, cache-sjc1000113-SJC, cache-bfi-krnt7300075-BFI",
+            "x-cache": "MISS, MISS, MISS",
+            "x-cache-hits": "0, 0, 0",
+            "x-timer": "S1783978094.897761,VS0,VE187",
+            "vary": "Accept-Encoding"
+          },
+          "hash": "2e0dbbe1dc9bf81dc0556e70be2663f9a61c8d21",
+          "request": {
+            "params": {
+              "end_date": "2026-06-15T21:00:00.000Z",
+              "page": "1",
+              "page_size": "100",
+              "start_date": "2026-05-15T21:00:00.000Z"
+            }
+          }
+        },
+        {
+          "response": {
+            "account_number": "V58TVTDQEAVDC",
+            "start_date": "2026-06-15T21:00:00Z",
+            "end_date": "2026-07-13T19:59:59Z",
+            "last_refreshed_datetime": "2026-07-13T19:59:59Z",
+            "page": 1,
+            "total_items": 0,
+            "total_pages": 0,
+            "links": [
+              {
+                "href": "https://api.sandbox.paypal.com/v1/reporting/transactions?end_date=2026-07-13T21%3A00%3A00.000Z&start_date=2026-06-15T21%3A00%3A00.000Z&page_size=100&page=1",
+                "rel": "self",
+                "method": "GET"
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Mon, 13 Jul 2026 21:28:14 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Server-Timing",
+            "x-ratelimit-limit": "5000",
+            "x-ratelimit-remaining": "4994",
+            "x-ratelimit-reset": "1783978151",
+            "server": "cloudflare",
+            "cache-control": "max-age=0, no-cache, no-store, must-revalidate",
+            "paypal-debug-id": "ca1ab60510ff7",
+            "cf-cache-status": "DYNAMIC",
+            "server-timing": "traceparent;desc=\"00-0000000000000000000ca1ab60510ff7-eadedcdad18deb12-01\"",
+            "set-cookie": "<redacted>",
+            "vary": "Accept-Encoding",
+            "http_x_pp_az_locator": "ccg18.slc",
+            "cf-ray": "a1ab60510ff7fef1-PDX"
+          },
+          "hash": "2f443181c0d2216a88f2d8d8306b3fba7dc084f8",
+          "request": {
+            "params": {
+              "end_date": "2026-07-13T21:00:00.000Z",
+              "page": "1",
+              "page_size": "100",
+              "start_date": "2026-06-15T21:00:00.000Z"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

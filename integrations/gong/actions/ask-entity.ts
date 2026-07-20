@@ -9,18 +9,18 @@ const InputSchema = z.object({
 
 const ProviderResponseSchema = z
     .object({
-        answer: z.string().optional(),
-        response: z.string().optional()
+        answer: z.string().nullish(),
+        response: z.string().nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    answer: z.string().describe('AI-generated answer to the question.')
+    answer: z.string().describe('AI-generated answer to the question.').nullable()
 });
 
 const action = createAction({
     description: 'Ask a natural language question about a Gong entity using AI.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

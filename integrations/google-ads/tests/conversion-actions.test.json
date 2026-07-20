@@ -1,0 +1,215 @@
+{
+  "nango": {
+    "getMetadata": {
+      "customerIds": [
+        "1781900691"
+      ],
+      "loginCustomerId": "3608201627",
+      "developerToken": "YOUR_DEVELOPER_TOKEN"
+    },
+    "batchSave": {
+      "ConversionAction": [
+        {
+          "id": "customers/1781900691/conversionActions/7684893491",
+          "name": "Nango Test Conversion 1784076888",
+          "type": "WEBPAGE",
+          "category": "DEFAULT",
+          "status": "ENABLED",
+          "valueSettings": {
+            "defaultValue": 10.5,
+            "alwaysUseDefaultValue": true
+          }
+        },
+        {
+          "id": "customers/1781900691/conversionActions/7685274465",
+          "name": "Seed Conversion Action Keep 1",
+          "type": "WEBPAGE",
+          "category": "DEFAULT",
+          "status": "ENABLED",
+          "valueSettings": {
+            "defaultValue": 15,
+            "alwaysUseDefaultValue": false
+          }
+        },
+        {
+          "id": "customers/1781900691/conversionActions/7685274468",
+          "name": "Seed Conversion Action Delete 1",
+          "type": "WEBPAGE",
+          "category": "DEFAULT",
+          "status": "REMOVED",
+          "valueSettings": {
+            "defaultValue": 10,
+            "alwaysUseDefaultValue": false
+          }
+        },
+        {
+          "id": "customers/1781900691/conversionActions/7685274471",
+          "name": "Seed Conversion Action Delete 2",
+          "type": "WEBPAGE",
+          "category": "DEFAULT",
+          "status": "REMOVED",
+          "valueSettings": {
+            "defaultValue": 10,
+            "alwaysUseDefaultValue": false
+          }
+        },
+        {
+          "id": "customers/1781900691/conversionActions/7685281095",
+          "name": "Nango Test Conversion 1784076979",
+          "type": "WEBPAGE",
+          "category": "DEFAULT",
+          "status": "ENABLED",
+          "valueSettings": {
+            "defaultValue": 10.5,
+            "alwaysUseDefaultValue": true
+          }
+        },
+        {
+          "id": "customers/1781900691/conversionActions/7685330602",
+          "name": "Nango Test Conversion 1784076900",
+          "type": "WEBPAGE",
+          "category": "DEFAULT",
+          "status": "ENABLED",
+          "valueSettings": {
+            "defaultValue": 10.5,
+            "alwaysUseDefaultValue": true
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "ConversionAction": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v21/customers/1781900691/googleAds:searchStream": {
+        "response": [
+          {
+            "results": [
+              {
+                "conversionAction": {
+                  "resourceName": "customers/1781900691/conversionActions/7684893491",
+                  "status": "ENABLED",
+                  "type": "WEBPAGE",
+                  "category": "DEFAULT",
+                  "valueSettings": {
+                    "defaultValue": 10.5,
+                    "alwaysUseDefaultValue": true
+                  },
+                  "id": "7684893491",
+                  "name": "Nango Test Conversion 1784076888"
+                }
+              },
+              {
+                "conversionAction": {
+                  "resourceName": "customers/1781900691/conversionActions/7685274465",
+                  "status": "ENABLED",
+                  "type": "WEBPAGE",
+                  "category": "DEFAULT",
+                  "valueSettings": {
+                    "defaultValue": 15,
+                    "alwaysUseDefaultValue": false
+                  },
+                  "id": "7685274465",
+                  "name": "Seed Conversion Action Keep 1"
+                }
+              },
+              {
+                "conversionAction": {
+                  "resourceName": "customers/1781900691/conversionActions/7685274468",
+                  "status": "REMOVED",
+                  "type": "WEBPAGE",
+                  "category": "DEFAULT",
+                  "valueSettings": {
+                    "defaultValue": 10,
+                    "alwaysUseDefaultValue": false
+                  },
+                  "id": "7685274468",
+                  "name": "Seed Conversion Action Delete 1"
+                }
+              },
+              {
+                "conversionAction": {
+                  "resourceName": "customers/1781900691/conversionActions/7685274471",
+                  "status": "REMOVED",
+                  "type": "WEBPAGE",
+                  "category": "DEFAULT",
+                  "valueSettings": {
+                    "defaultValue": 10,
+                    "alwaysUseDefaultValue": false
+                  },
+                  "id": "7685274471",
+                  "name": "Seed Conversion Action Delete 2"
+                }
+              },
+              {
+                "conversionAction": {
+                  "resourceName": "customers/1781900691/conversionActions/7685281095",
+                  "status": "ENABLED",
+                  "type": "WEBPAGE",
+                  "category": "DEFAULT",
+                  "valueSettings": {
+                    "defaultValue": 10.5,
+                    "alwaysUseDefaultValue": true
+                  },
+                  "id": "7685281095",
+                  "name": "Nango Test Conversion 1784076979"
+                }
+              },
+              {
+                "conversionAction": {
+                  "resourceName": "customers/1781900691/conversionActions/7685330602",
+                  "status": "ENABLED",
+                  "type": "WEBPAGE",
+                  "category": "DEFAULT",
+                  "valueSettings": {
+                    "defaultValue": 10.5,
+                    "alwaysUseDefaultValue": true
+                  },
+                  "id": "7685330602",
+                  "name": "Nango Test Conversion 1784076900"
+                }
+              }
+            ],
+            "fieldMask": "conversionAction.id,conversionAction.name,conversionAction.type,conversionAction.category,conversionAction.status,conversionAction.valueSettings.defaultValue,conversionAction.valueSettings.alwaysUseDefaultValue",
+            "requestId": "Mc9NsTjTdsiO-YWT2sIYBw",
+            "queryResourceConsumption": "959"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 01:00:07 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4983",
+          "x-ratelimit-reset": "1784077238",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "4be66d948e637c31b90109e5a46a3f2fefdbbfab",
+        "request": {
+          "headers": {
+            "developer-token": "YOUR_DEVELOPER_TOKEN",
+            "login-customer-id": "3608201627"
+          },
+          "data": {
+            "query": "SELECT conversion_action.id, conversion_action.name, conversion_action.type, conversion_action.category, conversion_action.status, conversion_action.value_settings.default_value, conversion_action.value_settings.always_use_default_value FROM conversion_action"
+          }
+        }
+      }
+    }
+  }
+}

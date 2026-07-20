@@ -7,40 +7,40 @@ const InputSchema = z.object({
 });
 
 const ProviderFieldSchema = z.object({
-    name: z.string().optional(),
-    uniqueName: z.string().optional(),
-    label: z.string(),
-    type: z.string(),
-    lastModified: z.string().nullable().optional(),
-    isDeleted: z.boolean(),
-    referenceTo: z.string().nullable().optional(),
-    orderedValueList: z.array(z.string()).nullable().optional()
+    name: z.string().nullish(),
+    uniqueName: z.string().nullish(),
+    label: z.string().nullable(),
+    type: z.string().nullable(),
+    lastModified: z.string().nullish(),
+    isDeleted: z.boolean().nullable(),
+    referenceTo: z.string().nullish(),
+    orderedValueList: z.array(z.string()).nullish()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string(),
-    objectTypeToSelectedFields: z.record(z.string(), z.array(ProviderFieldSchema))
+    objectTypeToSelectedFields: z.record(z.string(), z.array(ProviderFieldSchema)).nullable()
 });
 
 const OutputFieldSchema = z.object({
-    name: z.string().optional(),
-    uniqueName: z.string().optional(),
-    label: z.string(),
-    type: z.string(),
-    lastModified: z.string().optional(),
-    isDeleted: z.boolean(),
-    referenceTo: z.string().optional(),
-    orderedValueList: z.array(z.string()).optional()
+    name: z.string().nullish(),
+    uniqueName: z.string().nullish(),
+    label: z.string().nullable(),
+    type: z.string().nullable(),
+    lastModified: z.string().nullish(),
+    isDeleted: z.boolean().nullable(),
+    referenceTo: z.string().nullish(),
+    orderedValueList: z.array(z.string()).nullish()
 });
 
 const OutputSchema = z.object({
     requestId: z.string(),
-    objectTypeToSelectedFields: z.record(z.string(), z.array(OutputFieldSchema))
+    objectTypeToSelectedFields: z.record(z.string(), z.array(OutputFieldSchema)).nullable()
 });
 
 const action = createAction({
     description: 'List CRM entity schema fields registered in Gong',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:crm:schema'],
@@ -71,6 +71,13 @@ const action = createAction({
             }
 
             const providerResponse = ProviderResponseSchema.parse(response.data);
+
+            if (providerResponse.objectTypeToSelectedFields === null) {
+                return {
+                    requestId: providerResponse.requestId,
+                    objectTypeToSelectedFields: null
+                };
+            }
 
             const objectTypeToSelectedFields: Record<string, z.infer<typeof OutputFieldSchema>[]> = {};
 

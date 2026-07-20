@@ -8,44 +8,44 @@ const InputSchema = z.object({
 const ProviderBulkAssignmentResultSchema = z
     .object({
         requestId: z.string().optional(),
-        bulkAssignmentId: z.string().optional(),
-        status: z.string().optional(),
-        totalProspects: z.number().optional(),
-        succeeded: z.number().optional(),
-        failed: z.number().optional(),
+        bulkAssignmentId: z.string().nullish(),
+        status: z.string().nullish(),
+        totalProspects: z.number().nullish(),
+        succeeded: z.number().nullish(),
+        failed: z.number().nullish(),
         errors: z
             .array(
                 z
                     .object({
-                        prospectId: z.string().optional(),
-                        error: z.string().optional()
+                        prospectId: z.string().nullish(),
+                        error: z.string().nullish()
                     })
                     .passthrough()
             )
-            .optional()
+            .nullish()
     })
     .passthrough();
 
 const OutputSchema = z.object({
     requestId: z.string().optional(),
-    bulkAssignmentId: z.string().optional(),
-    status: z.string().optional(),
-    totalProspects: z.number().optional(),
-    succeeded: z.number().optional(),
-    failed: z.number().optional(),
+    bulkAssignmentId: z.string().nullish(),
+    status: z.string().nullish(),
+    totalProspects: z.number().nullish(),
+    succeeded: z.number().nullish(),
+    failed: z.number().nullish(),
     errors: z
         .array(
             z.object({
-                prospectId: z.string().optional(),
-                error: z.string().optional()
+                prospectId: z.string().nullish(),
+                error: z.string().nullish()
             })
         )
-        .optional()
+        .nullish()
 });
 
 const action = createAction({
     description: 'Poll the results of a bulk prospect-to-flow assignment job.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:read'],
@@ -98,7 +98,7 @@ const action = createAction({
             ...(providerResult.totalProspects !== undefined && { totalProspects: providerResult.totalProspects }),
             ...(providerResult.succeeded !== undefined && { succeeded: providerResult.succeeded }),
             ...(providerResult.failed !== undefined && { failed: providerResult.failed }),
-            ...(providerResult.errors !== undefined && {
+            ...(providerResult.errors != null && {
                 errors: providerResult.errors.map((error) => ({
                     ...(error.prospectId !== undefined && { prospectId: error.prospectId }),
                     ...(error.error !== undefined && { error: error.error })

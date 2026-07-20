@@ -13,33 +13,33 @@ const MetadataSchema = z.object({
 });
 
 const SentenceSchema = z.object({
-    start: z.number().optional(),
-    end: z.number().optional(),
-    text: z.string().optional()
+    start: z.number().nullish(),
+    end: z.number().nullish(),
+    text: z.string().nullish()
 });
 
 const MonologueSchema = z.object({
-    speakerId: z.string().optional(),
-    topic: z.string().optional(),
-    sentences: z.array(SentenceSchema).optional()
+    speakerId: z.string().nullish(),
+    topic: z.string().nullish(),
+    sentences: z.array(SentenceSchema).nullish()
 });
 
 const ProviderCallTranscriptSchema = z.object({
-    callId: z.string().optional(),
-    transcript: z.array(MonologueSchema).optional()
+    callId: z.string().nullish(),
+    transcript: z.array(MonologueSchema).nullish()
 });
 
 const RecordsSchema = z.object({
-    totalRecords: z.number().optional(),
-    currentPageSize: z.number().optional(),
-    currentPageNumber: z.number().optional(),
-    cursor: z.string().optional()
+    totalRecords: z.number().nullish(),
+    currentPageSize: z.number().nullish(),
+    currentPageNumber: z.number().nullish(),
+    cursor: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({
     requestId: z.string().optional(),
-    records: RecordsSchema.optional(),
-    callTranscripts: z.array(ProviderCallTranscriptSchema).optional()
+    records: RecordsSchema.nullish(),
+    callTranscripts: z.array(ProviderCallTranscriptSchema).nullish()
 });
 
 const CallTranscriptSchema = z.object({
@@ -48,20 +48,20 @@ const CallTranscriptSchema = z.object({
     transcript: z
         .array(
             z.object({
-                speakerId: z.string().optional(),
-                topic: z.string().optional(),
+                speakerId: z.string().nullish(),
+                topic: z.string().nullish(),
                 sentences: z
                     .array(
                         z.object({
-                            start: z.number().optional(),
-                            end: z.number().optional(),
-                            text: z.string().optional()
+                            start: z.number().nullish(),
+                            end: z.number().nullish(),
+                            text: z.string().nullish()
                         })
                     )
-                    .optional()
+                    .nullish()
             })
         )
-        .optional()
+        .nullish()
 });
 
 const CheckpointSchema = z.object({
@@ -99,7 +99,7 @@ function getWindowEnd(): string {
 
 const sync = createSync({
     description: 'Sync call transcripts from Gong',
-    version: '4.0.0',
+    version: '4.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

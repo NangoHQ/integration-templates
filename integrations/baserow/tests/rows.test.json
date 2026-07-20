@@ -1,0 +1,741 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tableId": 1080602
+    },
+    "batchSave": {
+      "Row": [
+        {
+          "id": "11",
+          "tableId": 1080602,
+          "data": {
+            "id": 11,
+            "order": "0.50000000000000000000",
+            "field_9571320": "Seed Test Move A",
+            "field_9571327": "Disposable row for move-row action testing",
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "1",
+          "tableId": 1080602,
+          "data": {
+            "id": 1,
+            "order": "1.00000000000000000000",
+            "field_9571320": "Design UI",
+            "field_9571327": "Design homepage and product pages.",
+            "field_9571328": {
+              "id": 6834393,
+              "value": "Planned",
+              "color": "blue"
+            },
+            "field_9571329": {
+              "id": 6834399,
+              "value": "High",
+              "color": "cyan"
+            },
+            "field_9571330": "2024-03-15",
+            "field_9571331": [
+              {
+                "id": 1,
+                "value": "Alpha",
+                "order": "1.00000000000000000000"
+              }
+            ],
+            "field_9571333": [
+              {
+                "id": 1,
+                "value": "Alice Johnson",
+                "order": "1.00000000000000000000"
+              }
+            ],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "2",
+          "tableId": 1080602,
+          "data": {
+            "id": 2,
+            "order": "2.00000000000000000000",
+            "field_9571320": "Configure CRM",
+            "field_9571327": "Set up CRM database schema and migration scripts.",
+            "field_9571328": {
+              "id": 6834394,
+              "value": "In Progress",
+              "color": "green"
+            },
+            "field_9571329": {
+              "id": 6834398,
+              "value": "Medium",
+              "color": "green"
+            },
+            "field_9571330": "2024-04-10",
+            "field_9571331": [
+              {
+                "id": 2,
+                "value": "Beta",
+                "order": "2.00000000000000000000"
+              }
+            ],
+            "field_9571333": [
+              {
+                "id": 2,
+                "value": "Bob Smith",
+                "order": "2.00000000000000000000"
+              }
+            ],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "3",
+          "tableId": 1080602,
+          "data": {
+            "id": 3,
+            "order": "3.00000000000000000000",
+            "field_9571320": "Develop Mobile App",
+            "field_9571327": "Implement core mobile app features and authentication.",
+            "field_9571328": {
+              "id": 6834393,
+              "value": "Planned",
+              "color": "blue"
+            },
+            "field_9571329": {
+              "id": 6834400,
+              "value": "Critical",
+              "color": "orange"
+            },
+            "field_9571330": "2024-07-20",
+            "field_9571331": [
+              {
+                "id": 3,
+                "value": "Gamma",
+                "order": "3.00000000000000000000"
+              }
+            ],
+            "field_9571333": [
+              {
+                "id": 3,
+                "value": "Carol Lee",
+                "order": "3.00000000000000000000"
+              }
+            ],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "4",
+          "tableId": 1080602,
+          "data": {
+            "id": 4,
+            "order": "4.00000000000000000000",
+            "field_9571320": "Cloud Migration",
+            "field_9571327": "Transfer existing servers to AWS and test performance.",
+            "field_9571328": {
+              "id": 6834396,
+              "value": "On Hold",
+              "color": "orange"
+            },
+            "field_9571329": {
+              "id": 6834397,
+              "value": "Low",
+              "color": "blue"
+            },
+            "field_9571330": "2024-12-15",
+            "field_9571331": [
+              {
+                "id": 4,
+                "value": "Delta",
+                "order": "4.00000000000000000000"
+              }
+            ],
+            "field_9571333": [
+              {
+                "id": 4,
+                "value": "David Kim",
+                "order": "4.00000000000000000000"
+              }
+            ],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "5",
+          "tableId": 1080602,
+          "data": {
+            "id": 5,
+            "order": "5.00000000000000000000",
+            "field_9571320": "AI Analytics",
+            "field_9571327": "Create predictive models for sales forecasting.",
+            "field_9571328": {
+              "id": 6834393,
+              "value": "Planned",
+              "color": "blue"
+            },
+            "field_9571329": {
+              "id": 6834399,
+              "value": "High",
+              "color": "cyan"
+            },
+            "field_9571330": "2025-02-28",
+            "field_9571331": [
+              {
+                "id": 5,
+                "value": "Epsilon",
+                "order": "5.00000000000000000000"
+              }
+            ],
+            "field_9571333": [
+              {
+                "id": 5,
+                "value": "Eva Martinez",
+                "order": "5.00000000000000000000"
+              }
+            ],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "9",
+          "tableId": 1080602,
+          "data": {
+            "id": 9,
+            "order": "9.00000000000000000000",
+            "field_9571320": "Seed Test Update A",
+            "field_9571327": "Updated via update-row action test run",
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "10",
+          "tableId": 1080602,
+          "data": {
+            "id": 10,
+            "order": "10.00000000000000000000",
+            "field_9571320": "Seed Test Update B",
+            "field_9571327": "Disposable row for update-row action testing",
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "17",
+          "tableId": 1080602,
+          "data": {
+            "id": 17,
+            "order": "17.00000000000000000000",
+            "field_9571320": "Seed Test Batch Update A",
+            "field_9571327": "Batch update test A",
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "18",
+          "tableId": 1080602,
+          "data": {
+            "id": 18,
+            "order": "18.00000000000000000000",
+            "field_9571320": "Seed Test Batch Update B",
+            "field_9571327": "Batch update test B",
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "12",
+          "tableId": 1080602,
+          "data": {
+            "id": 12,
+            "order": "20.00000000000000000000",
+            "field_9571320": "Seed Test Move B",
+            "field_9571327": "Disposable row for move-row action testing",
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "19",
+          "tableId": 1080602,
+          "data": {
+            "id": 19,
+            "order": "21.00000000000000000000",
+            "field_9571320": "Test Create Row Action",
+            "field_9571327": null,
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "20",
+          "tableId": 1080602,
+          "data": {
+            "id": 20,
+            "order": "22.00000000000000000000",
+            "field_9571320": "Test Create Row Action",
+            "field_9571327": null,
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "21",
+          "tableId": 1080602,
+          "data": {
+            "id": 21,
+            "order": "23.00000000000000000000",
+            "field_9571320": "Batch Create Test A",
+            "field_9571327": null,
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "22",
+          "tableId": 1080602,
+          "data": {
+            "id": 22,
+            "order": "24.00000000000000000000",
+            "field_9571320": "Batch Create Test B",
+            "field_9571327": null,
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "23",
+          "tableId": 1080602,
+          "data": {
+            "id": 23,
+            "order": "25.00000000000000000000",
+            "field_9571320": "Batch Create Test A",
+            "field_9571327": null,
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        },
+        {
+          "id": "24",
+          "tableId": 1080602,
+          "data": {
+            "id": 24,
+            "order": "26.00000000000000000000",
+            "field_9571320": "Batch Create Test B",
+            "field_9571327": null,
+            "field_9571328": null,
+            "field_9571329": null,
+            "field_9571330": null,
+            "field_9571331": [],
+            "field_9571333": [],
+            "field_9571335": []
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Row": []
+    }
+  },
+  "api": {
+    "get": {
+      "/database/rows/table/1080602/": {
+        "response": {
+          "count": 17,
+          "next": null,
+          "previous": null,
+          "results": [
+            {
+              "id": 11,
+              "order": "0.50000000000000000000",
+              "field_9571320": "Seed Test Move A",
+              "field_9571327": "Disposable row for move-row action testing",
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 1,
+              "order": "1.00000000000000000000",
+              "field_9571320": "Design UI",
+              "field_9571327": "Design homepage and product pages.",
+              "field_9571328": {
+                "id": 6834393,
+                "value": "Planned",
+                "color": "blue"
+              },
+              "field_9571329": {
+                "id": 6834399,
+                "value": "High",
+                "color": "cyan"
+              },
+              "field_9571330": "2024-03-15",
+              "field_9571331": [
+                {
+                  "id": 1,
+                  "value": "Alpha",
+                  "order": "1.00000000000000000000"
+                }
+              ],
+              "field_9571333": [
+                {
+                  "id": 1,
+                  "value": "Alice Johnson",
+                  "order": "1.00000000000000000000"
+                }
+              ],
+              "field_9571335": []
+            },
+            {
+              "id": 2,
+              "order": "2.00000000000000000000",
+              "field_9571320": "Configure CRM",
+              "field_9571327": "Set up CRM database schema and migration scripts.",
+              "field_9571328": {
+                "id": 6834394,
+                "value": "In Progress",
+                "color": "green"
+              },
+              "field_9571329": {
+                "id": 6834398,
+                "value": "Medium",
+                "color": "green"
+              },
+              "field_9571330": "2024-04-10",
+              "field_9571331": [
+                {
+                  "id": 2,
+                  "value": "Beta",
+                  "order": "2.00000000000000000000"
+                }
+              ],
+              "field_9571333": [
+                {
+                  "id": 2,
+                  "value": "Bob Smith",
+                  "order": "2.00000000000000000000"
+                }
+              ],
+              "field_9571335": []
+            },
+            {
+              "id": 3,
+              "order": "3.00000000000000000000",
+              "field_9571320": "Develop Mobile App",
+              "field_9571327": "Implement core mobile app features and authentication.",
+              "field_9571328": {
+                "id": 6834393,
+                "value": "Planned",
+                "color": "blue"
+              },
+              "field_9571329": {
+                "id": 6834400,
+                "value": "Critical",
+                "color": "orange"
+              },
+              "field_9571330": "2024-07-20",
+              "field_9571331": [
+                {
+                  "id": 3,
+                  "value": "Gamma",
+                  "order": "3.00000000000000000000"
+                }
+              ],
+              "field_9571333": [
+                {
+                  "id": 3,
+                  "value": "Carol Lee",
+                  "order": "3.00000000000000000000"
+                }
+              ],
+              "field_9571335": []
+            },
+            {
+              "id": 4,
+              "order": "4.00000000000000000000",
+              "field_9571320": "Cloud Migration",
+              "field_9571327": "Transfer existing servers to AWS and test performance.",
+              "field_9571328": {
+                "id": 6834396,
+                "value": "On Hold",
+                "color": "orange"
+              },
+              "field_9571329": {
+                "id": 6834397,
+                "value": "Low",
+                "color": "blue"
+              },
+              "field_9571330": "2024-12-15",
+              "field_9571331": [
+                {
+                  "id": 4,
+                  "value": "Delta",
+                  "order": "4.00000000000000000000"
+                }
+              ],
+              "field_9571333": [
+                {
+                  "id": 4,
+                  "value": "David Kim",
+                  "order": "4.00000000000000000000"
+                }
+              ],
+              "field_9571335": []
+            },
+            {
+              "id": 5,
+              "order": "5.00000000000000000000",
+              "field_9571320": "AI Analytics",
+              "field_9571327": "Create predictive models for sales forecasting.",
+              "field_9571328": {
+                "id": 6834393,
+                "value": "Planned",
+                "color": "blue"
+              },
+              "field_9571329": {
+                "id": 6834399,
+                "value": "High",
+                "color": "cyan"
+              },
+              "field_9571330": "2025-02-28",
+              "field_9571331": [
+                {
+                  "id": 5,
+                  "value": "Epsilon",
+                  "order": "5.00000000000000000000"
+                }
+              ],
+              "field_9571333": [
+                {
+                  "id": 5,
+                  "value": "Eva Martinez",
+                  "order": "5.00000000000000000000"
+                }
+              ],
+              "field_9571335": []
+            },
+            {
+              "id": 9,
+              "order": "9.00000000000000000000",
+              "field_9571320": "Seed Test Update A",
+              "field_9571327": "Updated via update-row action test run",
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 10,
+              "order": "10.00000000000000000000",
+              "field_9571320": "Seed Test Update B",
+              "field_9571327": "Disposable row for update-row action testing",
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 17,
+              "order": "17.00000000000000000000",
+              "field_9571320": "Seed Test Batch Update A",
+              "field_9571327": "Batch update test A",
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 18,
+              "order": "18.00000000000000000000",
+              "field_9571320": "Seed Test Batch Update B",
+              "field_9571327": "Batch update test B",
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 12,
+              "order": "20.00000000000000000000",
+              "field_9571320": "Seed Test Move B",
+              "field_9571327": "Disposable row for move-row action testing",
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 19,
+              "order": "21.00000000000000000000",
+              "field_9571320": "Test Create Row Action",
+              "field_9571327": null,
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 20,
+              "order": "22.00000000000000000000",
+              "field_9571320": "Test Create Row Action",
+              "field_9571327": null,
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 21,
+              "order": "23.00000000000000000000",
+              "field_9571320": "Batch Create Test A",
+              "field_9571327": null,
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 22,
+              "order": "24.00000000000000000000",
+              "field_9571320": "Batch Create Test B",
+              "field_9571327": null,
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 23,
+              "order": "25.00000000000000000000",
+              "field_9571320": "Batch Create Test A",
+              "field_9571327": null,
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 24,
+              "order": "26.00000000000000000000",
+              "field_9571320": "Batch Create Test B",
+              "field_9571327": null,
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 16 Jul 2026 08:35:28 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4992",
+          "x-ratelimit-reset": "1784190982",
+          "server": "cloudflare",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "referrer-policy": "same-origin",
+          "cross-origin-opener-policy": "same-origin",
+          "vary": "origin",
+          "x-envoy-upstream-service-time": "276",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=LxzMvbutfdaf%2BPgvAxbFvspHWJn0s1lLFn7K678NDevwVdtD406XomM3oKllqLMPZZQujR7eNa5EmtRxLgKV93I91q3zM3ozIPXXV0%2BhbffwuPlSVKktzLwDZuPTvNwZYg%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "cf-ray": "a1bfac72ec27afe8-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "88af8607da7a7bcd406f057e2ce69a10e591ff24",
+        "request": {
+          "params": {
+            "page": "1",
+            "size": "100"
+          }
+        }
+      }
+    }
+  }
+}

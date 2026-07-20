@@ -1,0 +1,119 @@
+{
+  "input": {
+    "tableId": 1080602,
+    "items": [
+      {
+        "field_9571320": "Batch Create Test A"
+      },
+      {
+        "field_9571320": "Batch Create Test B"
+      }
+    ]
+  },
+  "output": {
+    "items": [
+      {
+        "id": 23,
+        "order": "25.00000000000000000000",
+        "field_9571320": "Batch Create Test A",
+        "field_9571327": null,
+        "field_9571328": null,
+        "field_9571329": null,
+        "field_9571330": null,
+        "field_9571331": [],
+        "field_9571333": [],
+        "field_9571335": []
+      },
+      {
+        "id": 24,
+        "order": "26.00000000000000000000",
+        "field_9571320": "Batch Create Test B",
+        "field_9571327": null,
+        "field_9571328": null,
+        "field_9571329": null,
+        "field_9571330": null,
+        "field_9571331": [],
+        "field_9571333": [],
+        "field_9571335": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/database/rows/table/1080602/batch/": {
+        "response": {
+          "items": [
+            {
+              "id": 23,
+              "order": "25.00000000000000000000",
+              "field_9571320": "Batch Create Test A",
+              "field_9571327": null,
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            },
+            {
+              "id": 24,
+              "order": "26.00000000000000000000",
+              "field_9571320": "Batch Create Test B",
+              "field_9571327": null,
+              "field_9571328": null,
+              "field_9571329": null,
+              "field_9571330": null,
+              "field_9571331": [],
+              "field_9571333": [],
+              "field_9571335": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 16 Jul 2026 00:26:22 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4976",
+          "x-ratelimit-reset": "1784161614",
+          "server": "cloudflare",
+          "allow": "POST, PATCH, OPTIONS",
+          "referrer-policy": "same-origin",
+          "cross-origin-opener-policy": "same-origin",
+          "vary": "origin",
+          "x-envoy-upstream-service-time": "826",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=SobHZC7gb7440KmSFWSyqfc1LI9Ec2kshteJ1Lw%2FiwXMEV%2Ftt11vJHh%2Figa0YXuD30JrT5qSKql9mejeouO1UXO%2F8y8SU06b3VHsL3urJWcAXPsMVFu%2F3rcwjFnLff5rYA%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "cf-ray": "a1bcdffb9ae93016-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "5e15124dbf4fb061d8a2ac08e61ff2e9d21e0fb7",
+        "request": {
+          "data": {
+            "items": [
+              {
+                "field_9571320": "Batch Create Test A"
+              },
+              {
+                "field_9571320": "Batch Create Test B"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "nango": {
+    "getMetadata": {
+      "customer_ids": [
+        "1781900691"
+      ],
+      "login_customer_id": "3608201627",
+      "developer_token": "YOUR_DEVELOPER_TOKEN"
+    },
+    "batchSave": {
+      "Campaign": [
+        {
+          "id": "customers/1781900691/campaigns/24027360183",
+          "name": "Seed Campaign Keep 1 Updated",
+          "status": "PAUSED",
+          "advertisingChannelType": "SEARCH",
+          "startDate": "2026-07-14",
+          "endDate": "2037-12-30",
+          "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING",
+          "campaignBudgetResourceName": "customers/1781900691/campaignBudgets/15717542877",
+          "budgetAmountMicros": "600000",
+          "budgetStatus": "ENABLED"
+        },
+        {
+          "id": "customers/1781900691/campaigns/24027360186",
+          "name": "Seed Campaign Keep 2",
+          "status": "PAUSED",
+          "advertisingChannelType": "SEARCH",
+          "startDate": "2026-07-14",
+          "endDate": "2037-12-30",
+          "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING",
+          "campaignBudgetResourceName": "customers/1781900691/campaignBudgets/15717543000",
+          "budgetAmountMicros": "10000000",
+          "budgetStatus": "ENABLED"
+        },
+        {
+          "id": "customers/1781900691/campaigns/24027380295",
+          "name": "Test Campaign Proxy Debug",
+          "status": "PAUSED",
+          "advertisingChannelType": "SEARCH",
+          "startDate": "2026-07-14",
+          "endDate": "2037-12-30",
+          "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING",
+          "campaignBudgetResourceName": "customers/1781900691/campaignBudgets/15712625501",
+          "budgetAmountMicros": "1000000",
+          "budgetStatus": "ENABLED"
+        },
+        {
+          "id": "customers/1781900691/campaigns/24036880705",
+          "name": "Test Campaign Create Campaign 2026-07-15",
+          "status": "PAUSED",
+          "advertisingChannelType": "SEARCH",
+          "startDate": "2026-07-14",
+          "endDate": "2037-12-30",
+          "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING",
+          "campaignBudgetResourceName": "customers/1781900691/campaignBudgets/15712625501",
+          "budgetAmountMicros": "1000000",
+          "budgetStatus": "ENABLED"
+        },
+        {
+          "id": "customers/1781900691/campaigns/24036880939",
+          "name": "Test Campaign Save Mock",
+          "status": "PAUSED",
+          "advertisingChannelType": "SEARCH",
+          "startDate": "2026-07-14",
+          "endDate": "2037-12-30",
+          "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING",
+          "campaignBudgetResourceName": "customers/1781900691/campaignBudgets/15712625501",
+          "budgetAmountMicros": "1000000",
+          "budgetStatus": "ENABLED"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Campaign": []
+    }
+  },
+  "api": {
+    "post": {
+      "/v21/customers/1781900691/googleAds:searchStream": {
+        "response": [
+          {
+            "results": [
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24027360183",
+                  "status": "PAUSED",
+                  "advertisingChannelType": "SEARCH",
+                  "name": "Seed Campaign Keep 1 Updated",
+                  "id": "24027360183",
+                  "campaignBudget": "customers/1781900691/campaignBudgets/15717542877",
+                  "startDate": "2026-07-14",
+                  "endDate": "2037-12-30",
+                  "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING"
+                },
+                "campaignBudget": {
+                  "resourceName": "customers/1781900691/campaignBudgets/15717542877",
+                  "status": "ENABLED",
+                  "amountMicros": "600000"
+                }
+              },
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24027360186",
+                  "status": "PAUSED",
+                  "advertisingChannelType": "SEARCH",
+                  "name": "Seed Campaign Keep 2",
+                  "id": "24027360186",
+                  "campaignBudget": "customers/1781900691/campaignBudgets/15717543000",
+                  "startDate": "2026-07-14",
+                  "endDate": "2037-12-30",
+                  "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING"
+                },
+                "campaignBudget": {
+                  "resourceName": "customers/1781900691/campaignBudgets/15717543000",
+                  "status": "ENABLED",
+                  "amountMicros": "10000000"
+                }
+              },
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24027380295",
+                  "status": "PAUSED",
+                  "advertisingChannelType": "SEARCH",
+                  "name": "Test Campaign Proxy Debug",
+                  "id": "24027380295",
+                  "campaignBudget": "customers/1781900691/campaignBudgets/15712625501",
+                  "startDate": "2026-07-14",
+                  "endDate": "2037-12-30",
+                  "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING"
+                },
+                "campaignBudget": {
+                  "resourceName": "customers/1781900691/campaignBudgets/15712625501",
+                  "status": "ENABLED",
+                  "amountMicros": "1000000"
+                }
+              },
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24036880705",
+                  "status": "PAUSED",
+                  "advertisingChannelType": "SEARCH",
+                  "name": "Test Campaign Create Campaign 2026-07-15",
+                  "id": "24036880705",
+                  "campaignBudget": "customers/1781900691/campaignBudgets/15712625501",
+                  "startDate": "2026-07-14",
+                  "endDate": "2037-12-30",
+                  "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING"
+                },
+                "campaignBudget": {
+                  "resourceName": "customers/1781900691/campaignBudgets/15712625501",
+                  "status": "ENABLED",
+                  "amountMicros": "1000000"
+                }
+              },
+              {
+                "campaign": {
+                  "resourceName": "customers/1781900691/campaigns/24036880939",
+                  "status": "PAUSED",
+                  "advertisingChannelType": "SEARCH",
+                  "name": "Test Campaign Save Mock",
+                  "id": "24036880939",
+                  "campaignBudget": "customers/1781900691/campaignBudgets/15712625501",
+                  "startDate": "2026-07-14",
+                  "endDate": "2037-12-30",
+                  "containsEuPoliticalAdvertising": "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING"
+                },
+                "campaignBudget": {
+                  "resourceName": "customers/1781900691/campaignBudgets/15712625501",
+                  "status": "ENABLED",
+                  "amountMicros": "1000000"
+                }
+              }
+            ],
+            "fieldMask": "campaign.resourceName,campaign.id,campaign.name,campaign.status,campaign.advertisingChannelType,campaign.startDate,campaign.endDate,campaign.campaignBudget,campaign.containsEuPoliticalAdvertising,campaignBudget.resourceName,campaignBudget.amountMicros,campaignBudget.status",
+            "requestId": "_FS1O3wCoy2hXs6mfFYmrg",
+            "queryResourceConsumption": "164"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 15 Jul 2026 01:01:54 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4975",
+          "x-ratelimit-reset": "1784077318",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "031058d1b1953ec89d2c1dfaa3f8f8f95e243d84",
+        "request": {
+          "headers": {
+            "developer-token": "YOUR_DEVELOPER_TOKEN",
+            "login-customer-id": "3608201627"
+          },
+          "data": {
+            "query": "\nSELECT\n  campaign.resource_name,\n  campaign.id,\n  campaign.name,\n  campaign.status,\n  campaign.advertising_channel_type,\n  campaign.start_date,\n  campaign.end_date,\n  campaign.campaign_budget,\n  campaign.contains_eu_political_advertising,\n  campaign_budget.resource_name,\n  campaign_budget.amount_micros,\n  campaign_budget.status\nFROM campaign\nWHERE campaign.status != 'REMOVED'\n"
+          }
+        }
+      }
+    }
+  }
+}
