@@ -1,0 +1,167 @@
+{
+  "input": {
+    "id": 432873,
+    "starred": false
+  },
+  "output": {
+    "id": 432873,
+    "name": "GGP Polo Field Lap",
+    "activity_type": "Ride",
+    "distance": 1094.55,
+    "average_grade": -0.1,
+    "maximum_grade": 2.2,
+    "elevation_high": 31.6,
+    "elevation_low": 28.9,
+    "start_latlng": [
+      37.768904,
+      -122.492895
+    ],
+    "end_latlng": [
+      37.768876,
+      -122.492974
+    ],
+    "climb_category": 0,
+    "city": "San Francisco",
+    "state": "CA",
+    "country": "United States",
+    "private": false,
+    "hazardous": false,
+    "starred": false,
+    "created_at": "2010-01-22T19:30:15Z",
+    "updated_at": "2021-05-20T08:02:03Z",
+    "total_elevation_gain": 2.049,
+    "effort_count": 2365420,
+    "athlete_count": 16843,
+    "star_count": 1001,
+    "map": {
+      "id": "s432873",
+      "polyline": "svoeFrksjVdBvINf@HPX^NJNJ`@J`@@`@ING\\WJOZw@DU@i@G}@qDaRSy@Q_@W[[Q]Ka@?a@F]PMLMLS`@GRGj@Aj@Fj@`@~Br@lD",
+      "resource_state": 3
+    },
+    "athlete_segment_stats": {
+      "pr_elapsed_time": null,
+      "pr_date": null,
+      "effort_count": 0
+    },
+    "resource_state": 3
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/v3/segments/432873/starred": {
+        "response": {
+          "id": 432873,
+          "resource_state": 3,
+          "name": "GGP Polo Field Lap",
+          "activity_type": "Ride",
+          "distance": 1094.55,
+          "average_grade": -0.1,
+          "maximum_grade": 2.2,
+          "elevation_high": 31.6,
+          "elevation_low": 28.9,
+          "start_latlng": [
+            37.768904,
+            -122.492895
+          ],
+          "end_latlng": [
+            37.768876,
+            -122.492974
+          ],
+          "elevation_profile": null,
+          "elevation_profiles": null,
+          "climb_category": 0,
+          "city": "San Francisco",
+          "state": "CA",
+          "country": "United States",
+          "private": false,
+          "hazardous": false,
+          "starred": false,
+          "created_at": "2010-01-22T19:30:15Z",
+          "updated_at": "2021-05-20T08:02:03Z",
+          "total_elevation_gain": 2.049,
+          "map": {
+            "id": "s432873",
+            "polyline": "svoeFrksjVdBvINf@HPX^NJNJ`@J`@@`@ING\\WJOZw@DU@i@G}@qDaRSy@Q_@W[[Q]Ka@?a@F]PMLMLS`@GRGj@Aj@Fj@`@~Br@lD",
+            "resource_state": 3
+          },
+          "effort_count": 2365420,
+          "athlete_count": 16843,
+          "star_count": 1001,
+          "athlete_segment_stats": {
+            "pr_elapsed_time": null,
+            "pr_date": null,
+            "pr_visibility": null,
+            "pr_activity_id": null,
+            "pr_activity_id_str": null,
+            "pr_activity_visibility": null,
+            "effort_count": 0
+          },
+          "xoms": {
+            "kom": "1:07",
+            "qom": "1:15",
+            "overall": "1:07",
+            "destination": {
+              "href": "strava://segments/432873/leaderboard",
+              "type": "overall",
+              "name": "All-Time"
+            }
+          },
+          "local_legend": {
+            "athlete_id": 20589154,
+            "athlete_id_str": "20589154",
+            "title": "German David",
+            "profile": "https://dgalywyr863hv.cloudfront.net/pictures/athletes/20589154/31059973/4/large.jpg",
+            "effort_description": "636 efforts in the last 90 days",
+            "effort_count": "636",
+            "effort_counts": {
+              "overall": "636 efforts",
+              "female": "564 efforts"
+            },
+            "destination": "strava://segments/432873/local_legend?categories%5B%5D=overall"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 14:00:48 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200,2000",
+          "x-ratelimit-remaining": "4952",
+          "x-ratelimit-reset": "1784296849",
+          "x-envoy-upstream-service-time": "709",
+          "server": "istio-envoy",
+          "status": "200 OK",
+          "x-ratelimit-usage": "9,74",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "vary": "Origin",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "5f0c9c32-2c07-4cdb-a047-4dce6129350f",
+          "x-readratelimit-limit": "100,1000",
+          "etag": "W/\"11d07e96b208785619da27e1038e4138\"",
+          "x-readratelimit-usage": "6,58",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 63227cf14d6d2219c6d94e402898004a.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "6EJIOqwBr5ddSvc-o6wHYS46JeWAFtDl48XWTpZlGIs0AFVhTHP3jQ=="
+        },
+        "hash": "d5d27189b33966f2db6658af384fee0e06c0e689",
+        "request": {
+          "params": {
+            "starred": "false"
+          }
+        }
+      }
+    }
+  }
+}

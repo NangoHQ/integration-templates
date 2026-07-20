@@ -1,0 +1,43 @@
+{
+  "nango": {
+    "batchSave": {
+      "Gear": []
+    },
+    "batchDelete": {
+      "Gear": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v3/athlete": {
+        "response": {
+          "id": 943379048,
+          "id_str": "943379048",
+          "username": "nango_developer",
+          "resource_state": 3,
+          "firstname": "Nango",
+          "lastname": "Developer",
+          "bio": null,
+          "city": "Nairobi",
+          "state": "Nairobi County",
+          "country": "Kenya",
+          "sex": "M",
+          "premium": true,
+          "summit": true,
+          "created_at": "2026-07-17T13:17:24Z",
+          "updated_at": "2026-07-17T13:50:01Z",
+          "badge_type_id": 1,
+          "weight": 70.0,
+          "profile_medium": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s96-c",
+          "profile": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s96-c",
+          "clubs": [],
+          "postable_clubs_count": 3,
+          "ftp": null,
+          "bikes": [],
+          "shoes": []
+        },
+        "status": 200
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "input": {
+    "id": 1
+  },
+  "output": {
+    "id": 1,
+    "name": "To MJ's",
+    "distance": 4121.92155285822,
+    "elevation_gain": 5.0710601806640625,
+    "description": "first route",
+    "map": {
+      "id": "r1",
+      "polyline": "ip}wDtmpsQzK`GlBlA~GrDtTvLj@AzAu@vXjAVIvOr@?FlR|@d@?vBP|HZzBr@pRjFtNvDvr@jR",
+      "summary_polyline": "ip}wDpmpsQ~m@~\\tC_AblApFzyA`a@"
+    },
+    "type": 1,
+    "sub_type": 1,
+    "created_at": "2013-06-19T17:35:02Z",
+    "updated_at": "2024-09-07T02:50:25Z",
+    "estimated_moving_time": 614,
+    "private": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v3/routes/1": {
+        "response": {
+          "athlete": {
+            "id": 1033,
+            "id_str": "1033",
+            "username": "liam",
+            "resource_state": 2,
+            "firstname": "Liam",
+            "lastname": "Stewart",
+            "bio": "",
+            "city": "Saint Paul",
+            "state": "Minnesota",
+            "country": "United States",
+            "sex": "M",
+            "premium": true,
+            "summit": true,
+            "created_at": "2009-08-17T17:07:58Z",
+            "updated_at": "2026-07-09T12:53:21Z",
+            "badge_type_id": 1,
+            "profile_medium": "avatar/athlete/medium.png",
+            "profile": "avatar/athlete/large.png",
+            "friend": null,
+            "follower": null
+          },
+          "description": "first route",
+          "distance": 4121.92155285822,
+          "elevation_gain": 5.0710601806640625,
+          "id": 1,
+          "id_str": "1",
+          "map": {
+            "id": "r1",
+            "summary_polyline": "ip}wDpmpsQ~m@~\\tC_AblApFzyA`a@",
+            "resource_state": 3,
+            "polyline": "ip}wDtmpsQzK`GlBlA~GrDtTvLj@AzAu@vXjAVIvOr@?FlR|@d@?vBP|HZzBr@pRjFtNvDvr@jR"
+          },
+          "map_urls": {
+            "url": "https://d3o5xota0a1fcr.cloudfront.net/v6/maps/OKRHVFI6AWJW4ZMTWWONFGP4JRCJ6AWQIMNYZ6OUKLABLTDR35DWWU3ZKLBM3DFCG6J6KEOFQL5J77KLHIWGZPF6IM======",
+            "retina_url": "https://d3o5xota0a1fcr.cloudfront.net/v6/maps/LPVZCHAWXSQHVBR43GZY6AX7BROB6B4UMDKER2S6FZGTH6DY2ODSDEOQZQS3FRABPISQ5XUVDBI4HBNWL5SEBKDKIM======",
+            "light_url": "https://d3o5xota0a1fcr.cloudfront.net/v6/maps/LPVZCHAWXSQHVBR43GZY6AX7BROB6B4UMDKER2S6FZGTH6DY2ODSDEOQZQS3FRABPISQ5XUVDBI4HBNWL5SEBKDKIM======",
+            "dark_url": "https://d3o5xota0a1fcr.cloudfront.net/v6/maps/CJIYMELP34SEQLEOILOGZKS2BZOMSE2JRFEWLJZF7XKBXU2BICTLYZHTTKTMESDFR3KKYCJCOBL22ABH6ZPKETFEFQ======"
+          },
+          "name": "To MJ's",
+          "private": false,
+          "resource_state": 3,
+          "starred": false,
+          "sub_type": 1,
+          "created_at": "2013-06-19T17:35:02Z",
+          "updated_at": "2024-09-07T02:50:25Z",
+          "timestamp": 1371663302,
+          "type": 1,
+          "estimated_moving_time": 614,
+          "waypoints": [],
+          "segments": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 17 Jul 2026 13:58:55 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200,2000",
+          "x-ratelimit-remaining": "4989",
+          "x-ratelimit-reset": "1784296788",
+          "x-envoy-upstream-service-time": "117",
+          "server": "istio-envoy",
+          "status": "200 OK",
+          "x-ratelimit-usage": "43,43",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "vary": "Origin",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "2cad34cd-de6a-4987-aa9b-d5ce8bb1500e",
+          "x-readratelimit-limit": "100,1000",
+          "etag": "W/\"ef089d93296bf1aa6e442744b2958e91\"",
+          "x-readratelimit-usage": "38,38",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 33f44c5d40d98734c5ae4147ce95d00c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "VtGwONWtD0KpiGaSqhESezLpLCcgGDhP3PqvB6J-nXElahOZvHBr-g=="
+        },
+        "hash": "548dd0e3dabdbe2c8f9bd594d20a650873a93c3e",
+        "request": {}
+      }
+    }
+  }
+}
