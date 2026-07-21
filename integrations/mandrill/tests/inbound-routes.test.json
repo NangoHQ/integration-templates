@@ -1,0 +1,124 @@
+{
+  "nango": {
+    "batchSave": {
+      "InboundRoute": [
+        {
+          "id": "test-inbound.example.com:80.217795",
+          "domain": "test-inbound.example.com",
+          "route_id": "80.217795",
+          "pattern": "mailbox-*",
+          "url": "https://jsonplaceholder.typicode.com/posts"
+        },
+        {
+          "id": "test-inbound.example.com:6.217691",
+          "domain": "test-inbound.example.com",
+          "route_id": "6.217691",
+          "pattern": "mailbox-*",
+          "url": "https://jsonplaceholder.typicode.com/posts"
+        }
+      ]
+    },
+    "batchDelete": {
+      "InboundRoute": []
+    }
+  },
+  "api": {
+    "post": {
+      "/1.4/inbound/domains.json": {
+        "response": [
+          {
+            "domain": "test-inbound.example.com",
+            "created_at": "2026-07-21 13:22:04.11127",
+            "valid_mx": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 13:25:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "76",
+          "x-ratelimit-reset": "1784640323",
+          "server": "nginx",
+          "access-control-allow-methods": "POST, GET, OPTIONS",
+          "access-control-allow-headers": "Content-Type",
+          "access-control-allow-credentials": "false",
+          "vary": "Accept-Encoding",
+          "x-envoy-upstream-service-time": "62",
+          "x-envoy-decorator-operation": "mandrill-app-desired-service.mctx-mandrillapp-usw2-prd.svc.cluster.local:8090/*",
+          "x-request-id": "Self=1-6a5f7333-47788bbe09791f477c202cfc;Root=1-6a5f7333-33764a310eb8640d7ae3a7db",
+          "x-intuit-upstream-locality-region": "us-west-2",
+          "x-amzn-trace-id": "Self=1-6a5f7333-47788bbe09791f477c202cfc;Root=1-6a5f7333-33764a310eb8640d7ae3a7db",
+          "x-spanid": "3047392f-37f6-6471-5929-1b9574fd1985",
+          "intuit_tid": "Self=1-6a5f7333-47788bbe09791f477c202cfc;Root=1-6a5f7333-33764a310eb8640d7ae3a7db"
+        },
+        "hash": "736ee557bc30f333010fb5556c7507d9ea7e7d21",
+        "request": {
+          "data": {}
+        }
+      },
+      "/1.4/inbound/routes.json": {
+        "response": [
+          {
+            "id": "80.217795",
+            "pattern": "mailbox-*",
+            "url": "https://jsonplaceholder.typicode.com/posts"
+          },
+          {
+            "id": "6.217691",
+            "pattern": "mailbox-*",
+            "url": "https://jsonplaceholder.typicode.com/posts"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 13:25:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "75",
+          "x-ratelimit-reset": "1784640323",
+          "server": "nginx",
+          "access-control-allow-methods": "POST, GET, OPTIONS",
+          "access-control-allow-headers": "Content-Type",
+          "access-control-allow-credentials": "false",
+          "vary": "Accept-Encoding",
+          "x-envoy-upstream-service-time": "69",
+          "x-envoy-decorator-operation": "mandrill-app-desired-service.mctx-mandrillapp-usw2-prd.svc.cluster.local:8090/*",
+          "x-request-id": "Self=1-6a5f7333-7f9b52283acb1fb56ad453b1;Root=1-6a5f7333-7fd256e0512bb55654b84895",
+          "x-intuit-upstream-locality-region": "us-west-2",
+          "x-spanid": "aac7e868-ec3b-acb8-e1e1-f02202ea14dd",
+          "x-amzn-trace-id": "Self=1-6a5f7333-7f9b52283acb1fb56ad453b1;Root=1-6a5f7333-7fd256e0512bb55654b84895",
+          "intuit_tid": "Self=1-6a5f7333-7f9b52283acb1fb56ad453b1;Root=1-6a5f7333-7fd256e0512bb55654b84895"
+        },
+        "hash": "bc2984cf020c11e663e0feeb6cd5391ffd022ab6",
+        "request": {
+          "data": {
+            "domain": "test-inbound.example.com"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "input": {
+    "id": "f3a7c9e2b1d4406a8f52e6c1a9d7b3e4"
+  },
+  "output": {
+    "id": "f3a7c9e2b1d4406a8f52e6c1a9d7b3e4",
+    "attachments": [],
+    "from_email": "sender@nango-test-domain.example.com",
+    "from_name": "Nango Test Sender",
+    "headers": {
+      "Reply-To": "sender@nango-test-domain.example.com"
+    },
+    "html": "<p>This is a test message.</p>",
+    "subject": "Test message for content retrieval",
+    "tags": [],
+    "text": "This is a test message.",
+    "to": {
+      "email": "api@nango.dev",
+      "name": "API Test Recipient"
+    },
+    "ts": 1784645634
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/messages/content.json": {
+        "response": {
+          "_id": "f3a7c9e2b1d4406a8f52e6c1a9d7b3e4",
+          "ts": 1784645634,
+          "from_email": "sender@nango-test-domain.example.com",
+          "from_name": "Nango Test Sender",
+          "subject": "Test message for content retrieval",
+          "to": {
+            "email": "api@nango.dev",
+            "name": "API Test Recipient"
+          },
+          "tags": [],
+          "headers": {
+            "Reply-To": "sender@nango-test-domain.example.com"
+          },
+          "text": "This is a test message.",
+          "html": "<p>This is a test message.</p>",
+          "attachments": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 14:53:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "97",
+          "x-ratelimit-reset": "1784645692",
+          "server": "nginx",
+          "access-control-allow-methods": "POST, GET, OPTIONS",
+          "access-control-allow-headers": "Content-Type",
+          "access-control-allow-credentials": "false",
+          "vary": "Accept-Encoding"
+        },
+        "hash": "7177dbdf01448d0cbd4bf1c67452f38340da712c",
+        "request": {
+          "data": {
+            "id": "f3a7c9e2b1d4406a8f52e6c1a9d7b3e4"
+          }
+        }
+      }
+    }
+  }
+}

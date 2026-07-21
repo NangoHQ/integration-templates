@@ -1,0 +1,248 @@
+{
+  "nango": {
+    "batchSave": {
+      "Webhook": [
+        {
+          "id": "1",
+          "url": "https://httpbin.org/post",
+          "auth_key": "YtVUsezPdLMKqt-OZ-CdoA",
+          "description": "Updated test webhook for dryrun",
+          "events": [
+            "send",
+            "delivered",
+            "open"
+          ],
+          "created_at": "2026-07-21 13:22:05.45205",
+          "batches_sent": 0,
+          "events_sent": 0
+        },
+        {
+          "id": "2",
+          "url": "https://jsonplaceholder.typicode.com/posts",
+          "auth_key": "PELO8QuNZD8qag4v8xsQtA",
+          "description": "Inbound email for mailbox-*@test-inbound.example.com",
+          "events": [],
+          "created_at": "2026-07-21 13:22:29.90079",
+          "last_sent_at": "2026-07-21 13:31:45",
+          "batches_sent": 2,
+          "events_sent": 2
+        },
+        {
+          "id": "3",
+          "url": "https://jsonplaceholder.typicode.com/posts",
+          "auth_key": "_MgJ_jK_VNLplILd-AAlbA",
+          "description": "Inbound email for mailbox-*@test-inbound.example.com",
+          "events": [],
+          "created_at": "2026-07-21 13:22:35.84253",
+          "last_sent_at": "2026-07-21 13:31:44",
+          "batches_sent": 2,
+          "events_sent": 2
+        },
+        {
+          "id": "4",
+          "url": "https://jsonplaceholder.typicode.com/posts",
+          "auth_key": "gfhbP5WSZJVI1YhbucvDcA",
+          "description": "Inbound email for mailbox-*@test-inbound.example.com",
+          "events": [],
+          "created_at": "2026-07-21 13:28:10.64039",
+          "last_sent_at": "2026-07-21 13:31:44",
+          "batches_sent": 2,
+          "events_sent": 2
+        },
+        {
+          "id": "5",
+          "url": "https://jsonplaceholder.typicode.com/posts",
+          "auth_key": "GMZW4IDmxFmpZWUucvSs1A",
+          "description": "Inbound email for mailbox-*@test-inbound.example.com",
+          "events": [],
+          "created_at": "2026-07-21 13:28:16.80681",
+          "last_sent_at": "2026-07-21 13:31:44",
+          "batches_sent": 2,
+          "events_sent": 2
+        },
+        {
+          "id": "7",
+          "url": "https://httpbin.org/post",
+          "auth_key": "-WIToyrQVGfZN9rerSpWRw",
+          "description": "Test webhook for Nango integration",
+          "events": [
+            "send",
+            "open",
+            "click"
+          ],
+          "created_at": "2026-07-21 13:28:35.50949",
+          "batches_sent": 0,
+          "events_sent": 0
+        },
+        {
+          "id": "8",
+          "url": "https://httpbin.org/post",
+          "auth_key": "U85ksYRTpHFbeA8yOOJh_g",
+          "description": "Test webhook for Nango integration",
+          "events": [
+            "send",
+            "open",
+            "click"
+          ],
+          "created_at": "2026-07-21 13:29:14.17774",
+          "batches_sent": 0,
+          "events_sent": 0
+        },
+        {
+          "id": "9",
+          "url": "https://jsonplaceholder.typicode.com/posts",
+          "auth_key": "84vEKIYJpO2pc3othU6wMQ",
+          "description": "Temp webhook for delete test 2",
+          "events": [
+            "send"
+          ],
+          "created_at": "2026-07-21 13:32:28.44708",
+          "batches_sent": 0,
+          "events_sent": 0
+        }
+      ]
+    },
+    "batchDelete": {
+      "Webhook": []
+    }
+  },
+  "api": {
+    "post": {
+      "/webhooks/list.json": {
+        "response": [
+          {
+            "id": 1,
+            "url": "https://httpbin.org/post",
+            "description": "Updated test webhook for dryrun",
+            "created_at": "2026-07-21 13:22:05.45205",
+            "batches_sent": 0,
+            "events_sent": 0,
+            "auth_key": "YtVUsezPdLMKqt-OZ-CdoA",
+            "events": [
+              "send",
+              "delivered",
+              "open"
+            ]
+          },
+          {
+            "id": 2,
+            "url": "https://jsonplaceholder.typicode.com/posts",
+            "description": "Inbound email for mailbox-*@test-inbound.example.com",
+            "created_at": "2026-07-21 13:22:29.90079",
+            "last_sent_at": "2026-07-21 13:31:45",
+            "batches_sent": 2,
+            "events_sent": 2,
+            "auth_key": "PELO8QuNZD8qag4v8xsQtA",
+            "events": []
+          },
+          {
+            "id": 3,
+            "url": "https://jsonplaceholder.typicode.com/posts",
+            "description": "Inbound email for mailbox-*@test-inbound.example.com",
+            "created_at": "2026-07-21 13:22:35.84253",
+            "last_sent_at": "2026-07-21 13:31:44",
+            "batches_sent": 2,
+            "events_sent": 2,
+            "auth_key": "_MgJ_jK_VNLplILd-AAlbA",
+            "events": []
+          },
+          {
+            "id": 4,
+            "url": "https://jsonplaceholder.typicode.com/posts",
+            "description": "Inbound email for mailbox-*@test-inbound.example.com",
+            "created_at": "2026-07-21 13:28:10.64039",
+            "last_sent_at": "2026-07-21 13:31:44",
+            "batches_sent": 2,
+            "events_sent": 2,
+            "auth_key": "gfhbP5WSZJVI1YhbucvDcA",
+            "events": []
+          },
+          {
+            "id": 5,
+            "url": "https://jsonplaceholder.typicode.com/posts",
+            "description": "Inbound email for mailbox-*@test-inbound.example.com",
+            "created_at": "2026-07-21 13:28:16.80681",
+            "last_sent_at": "2026-07-21 13:31:44",
+            "batches_sent": 2,
+            "events_sent": 2,
+            "auth_key": "GMZW4IDmxFmpZWUucvSs1A",
+            "events": []
+          },
+          {
+            "id": 7,
+            "url": "https://httpbin.org/post",
+            "description": "Test webhook for Nango integration",
+            "created_at": "2026-07-21 13:28:35.50949",
+            "batches_sent": 0,
+            "events_sent": 0,
+            "auth_key": "-WIToyrQVGfZN9rerSpWRw",
+            "events": [
+              "send",
+              "open",
+              "click"
+            ]
+          },
+          {
+            "id": 8,
+            "url": "https://httpbin.org/post",
+            "description": "Test webhook for Nango integration",
+            "created_at": "2026-07-21 13:29:14.17774",
+            "batches_sent": 0,
+            "events_sent": 0,
+            "auth_key": "U85ksYRTpHFbeA8yOOJh_g",
+            "events": [
+              "send",
+              "open",
+              "click"
+            ]
+          },
+          {
+            "id": 9,
+            "url": "https://jsonplaceholder.typicode.com/posts",
+            "description": "Temp webhook for delete test 2",
+            "created_at": "2026-07-21 13:32:28.44708",
+            "batches_sent": 0,
+            "events_sent": 0,
+            "auth_key": "84vEKIYJpO2pc3othU6wMQ",
+            "events": [
+              "send"
+            ]
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 13:33:57 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "160",
+          "x-ratelimit-reset": "1784640869",
+          "server": "nginx",
+          "access-control-allow-methods": "POST, GET, OPTIONS",
+          "access-control-allow-headers": "Content-Type",
+          "access-control-allow-credentials": "false",
+          "vary": "Accept-Encoding",
+          "x-envoy-upstream-service-time": "62",
+          "x-envoy-decorator-operation": "mandrill-app-desired-service.mctx-mandrillapp-usw2-prd.svc.cluster.local:8090/*",
+          "x-request-id": "Self=1-6a5f7545-40f135dd1cdce07879e8f7c2;Root=1-6a5f7545-6fbb074c5f59fc54600bf19d",
+          "x-intuit-upstream-locality-region": "us-west-2",
+          "intuit_tid": "Self=1-6a5f7545-40f135dd1cdce07879e8f7c2;Root=1-6a5f7545-6fbb074c5f59fc54600bf19d",
+          "x-spanid": "b38161bc-8185-88a7-420b-4b3ee2ba2d05",
+          "x-amzn-trace-id": "Self=1-6a5f7545-40f135dd1cdce07879e8f7c2;Root=1-6a5f7545-6fbb074c5f59fc54600bf19d"
+        },
+        "hash": "4b5b3c06702d9f10132492238c60bb4fdc1d7577",
+        "request": {}
+      }
+    }
+  }
+}
