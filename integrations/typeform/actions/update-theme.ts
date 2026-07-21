@@ -11,6 +11,7 @@ const ColorsSchema = z.object({
 const BackgroundSchema = z.object({
     brightness: z.number().optional(),
     href: z.string().optional(),
+    image_id: z.union([z.string(), z.number()]).transform(String).optional(),
     layout: z.string().optional()
 });
 
@@ -44,7 +45,7 @@ const ProviderThemeSchema = z.object({
     fields: FieldsSchema.optional(),
     font: z.string().optional(),
     has_transparent_button: z.boolean().optional(),
-    id: z.string(),
+    id: z.union([z.string(), z.number()]).transform(String),
     name: z.string().optional(),
     origin: z.string().optional(),
     rounded_corners: z.string().optional(),

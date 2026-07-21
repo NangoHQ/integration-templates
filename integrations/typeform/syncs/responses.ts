@@ -56,6 +56,7 @@ const sync = createSync({
     models: {
         Response: ResponseSchema
     },
+    scopes: ['responses:read'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
@@ -98,9 +99,12 @@ const sync = createSync({
 
                 let hasMore = true;
                 while (hasMore) {
+                    // Only completed responses are immutable, so they are safe to page through with an
+                    // exclusive `after` token. Partial/started responses can later be updated or completed,
+                    // and once their token is checkpointed past, that update would never be re-fetched.
                     const params: Record<string, string | number> = {
                         page_size: 1000,
-                        response_type: 'completed,partial,started'
+                        response_type: 'completed'
                     };
                     if (afterToken) {
                         params['after'] = afterToken;

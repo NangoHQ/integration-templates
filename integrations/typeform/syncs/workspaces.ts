@@ -57,6 +57,7 @@ const sync = createSync({
     models: {
         Workspace: WorkspaceSchema
     },
+    scopes: ['workspaces:read'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
@@ -67,10 +68,15 @@ const sync = createSync({
         // only finish delete tracking after the full crawl succeeds.
         let nextPage: number | undefined = checkpoint?.page ?? 1;
         const isResumed = checkpoint != null && checkpoint.page > 1;
+        let deleteTrackingStarted = isResumed;
+        let receivedAnyPage = false;
 
-        if (!isResumed) {
-            await nango.trackDeletesStart('Workspace');
-        }
+        const ensureDeleteTrackingStarted = async () => {
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('Workspace');
+                deleteTrackingStarted = true;
+            }
+        };
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.typeform.com/developers/create/reference/retrieve-workspaces/
@@ -110,6 +116,9 @@ const sync = createSync({
                 };
             });
 
+            receivedAnyPage = true;
+            await ensureDeleteTrackingStarted();
+
             if (workspaces.length > 0) {
                 await nango.batchSave(workspaces, 'Workspace');
             }
@@ -119,6 +128,9 @@ const sync = createSync({
             }
         }
 
+        if (!receivedAnyPage) {
+            await ensureDeleteTrackingStarted();
+        }
         await nango.trackDeletesEnd('Workspace');
         await nango.saveCheckpoint({ page: 1 });
     }

@@ -12,8 +12,7 @@ const InputSchema = z.object({
     secret: z
         .string()
         .optional()
-        .describe('If specified, will be used to sign the webhook payload with HMAC SHA256, so that you can verify that it came from Typeform.'),
-    verify_ssl: z.boolean().optional().describe('True if you want Typeform to verify SSL certificates when delivering payloads.')
+        .describe('If specified, will be used to sign the webhook payload with HMAC SHA256, so that you can verify that it came from Typeform.')
 });
 
 const ProviderWebhookSchema = z.object({
@@ -29,18 +28,7 @@ const ProviderWebhookSchema = z.object({
     verify_ssl: z.boolean().optional()
 });
 
-const OutputSchema = z.object({
-    created_at: z.string(),
-    enabled: z.boolean(),
-    event_types: z.record(z.string(), z.boolean()),
-    form_id: z.string(),
-    id: z.string(),
-    secret: z.string().optional(),
-    tag: z.string(),
-    updated_at: z.string(),
-    url: z.string(),
-    verify_ssl: z.boolean().optional()
-});
+const OutputSchema = ProviderWebhookSchema;
 
 const action = createAction({
     description: 'Create or update a webhook.',
@@ -57,26 +45,14 @@ const action = createAction({
                 url: input.url,
                 enabled: input.enabled,
                 event_types: input.event_types,
-                ...(input.secret !== undefined && { secret: input.secret }),
-                ...(input.verify_ssl !== undefined && { verify_ssl: input.verify_ssl })
+                ...(input.secret !== undefined && { secret: input.secret })
             },
             retries: 10
         });
 
         const webhook = ProviderWebhookSchema.parse(response.data);
 
-        return {
-            created_at: webhook.created_at,
-            enabled: webhook.enabled,
-            event_types: webhook.event_types,
-            form_id: webhook.form_id,
-            id: webhook.id,
-            ...(webhook.secret !== undefined && { secret: webhook.secret }),
-            tag: webhook.tag,
-            updated_at: webhook.updated_at,
-            url: webhook.url,
-            ...(webhook.verify_ssl !== undefined && { verify_ssl: webhook.verify_ssl })
-        };
+        return webhook;
     }
 });
 

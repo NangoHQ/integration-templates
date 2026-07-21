@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const JsonPatchOperationSchema = z.object({
-    op: z.string().describe('Operation type. Example: "replace"'),
+    op: z.literal('replace').describe('Operation type. Typeform only supports "replace".'),
     path: z.string().describe('JSON Pointer path. Example: "/title"'),
     value: z.unknown().optional().describe('New value for the operation')
 });

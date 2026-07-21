@@ -22,21 +22,23 @@ const MemberSchema = z.object({
     permissions: z.array(z.string()).optional()
 });
 
+const FormsSchema = z.object({
+    count: z.number().optional(),
+    href: z.string().optional()
+});
+
+const SelfSchema = z.object({
+    href: z.string().optional()
+});
+
 const ProviderWorkspaceSchema = z.object({
     id: z.string().describe('Workspace ID. Example: "wCjDgv"'),
     name: z.string(),
     account_id: z.string().optional(),
     members: z.array(MemberSchema).optional(),
-    self: z
-        .object({
-            href: z.string().optional()
-        })
-        .optional(),
-    share: z
-        .object({
-            href: z.string().optional()
-        })
-        .optional()
+    forms: z.union([FormsSchema, z.array(FormsSchema)]).optional(),
+    self: z.union([SelfSchema, z.array(SelfSchema)]).optional(),
+    shared: z.boolean().optional()
 });
 
 const OutputSchema = z.object({
@@ -44,16 +46,9 @@ const OutputSchema = z.object({
     name: z.string(),
     account_id: z.string().optional(),
     members: z.array(MemberSchema).optional(),
-    self: z
-        .object({
-            href: z.string().optional()
-        })
-        .optional(),
-    share: z
-        .object({
-            href: z.string().optional()
-        })
-        .optional()
+    forms: z.union([FormsSchema, z.array(FormsSchema)]).optional(),
+    self: z.union([SelfSchema, z.array(SelfSchema)]).optional(),
+    shared: z.boolean().optional()
 });
 
 const action = createAction({
@@ -87,8 +82,9 @@ const action = createAction({
             name: workspace.name,
             ...(workspace.account_id !== undefined && { account_id: workspace.account_id }),
             ...(workspace.members !== undefined && { members: workspace.members }),
+            ...(workspace.forms !== undefined && { forms: workspace.forms }),
             ...(workspace.self !== undefined && { self: workspace.self }),
-            ...(workspace.share !== undefined && { share: workspace.share })
+            ...(workspace.shared !== undefined && { shared: workspace.shared })
         };
     }
 });

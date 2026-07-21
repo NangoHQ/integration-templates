@@ -25,7 +25,7 @@ const ProviderFormSchema = z
             })
             .optional(),
         logic: z.array(z.unknown()).optional(),
-        variables: z.array(z.unknown()).optional(),
+        variables: z.record(z.string(), z.unknown()).optional(),
         links: z.record(z.string(), z.unknown()).optional(),
         self: z.record(z.string(), z.unknown()).optional(),
         _links: z.record(z.string(), z.unknown()).optional()
@@ -50,7 +50,7 @@ const OutputSchema = z.object({
         })
         .optional(),
     logic: z.array(z.unknown()).optional(),
-    variables: z.array(z.unknown()).optional(),
+    variables: z.record(z.string(), z.unknown()).optional(),
     links: z.record(z.string(), z.unknown()).optional(),
     self: z.record(z.string(), z.unknown()).optional(),
     _links: z.record(z.string(), z.unknown()).optional()

@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    page: z.number().optional(),
-    page_size: z.number().optional(),
+    page: z.number().int().positive().optional(),
+    page_size: z.number().int().min(1).max(200).optional(),
     search: z.string().optional(),
     workspace_id: z.string().optional(),
     sort_by: z.enum(['created_at', 'last_updated_at']).optional(),

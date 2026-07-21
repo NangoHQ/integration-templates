@@ -132,6 +132,7 @@ const sync = createSync({
     models: {
         Theme: ThemeSchema
     },
+    scopes: ['themes:read'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

@@ -1,21 +1,26 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    form_id: z.string().describe('Form ID. Example: "WMpBq4vc"'),
-    page_size: z.number().max(1000).optional().describe('Number of responses per page. Default 25, max 1000.'),
-    since: z.string().optional().describe('Include responses submitted on or after this timestamp (ISO 8601 or unix).'),
-    until: z.string().optional().describe('Include responses submitted on or before this timestamp (ISO 8601 or unix).'),
-    after: z.string().optional().describe('Include responses submitted after this response token (exclusive).'),
-    included_response_ids: z.string().optional().describe('Comma-separated response IDs to include.'),
-    excluded_response_ids: z.string().optional().describe('Comma-separated response IDs to exclude.'),
-    response_type: z.string().optional().describe('Types to include: started, partial, completed. Defaults to completed only.'),
-    sort: z.string().optional().describe('Sort order: {field_id},{asc|desc}. Cannot be combined with after/before/cursor.'),
-    query: z.string().optional().describe('Free-text search across answers.'),
-    fields: z.string().optional().describe('Comma-separated field IDs to include in answers.'),
-    answered_fields: z.string().optional().describe('Comma-separated field IDs that must have answers.'),
-    cursor: z.string().optional().describe('Pagination cursor from a previous response. Maps to the before parameter.')
-});
+const InputSchema = z
+    .object({
+        form_id: z.string().describe('Form ID. Example: "WMpBq4vc"'),
+        page_size: z.number().max(1000).optional().describe('Number of responses per page. Default 25, max 1000.'),
+        since: z.string().optional().describe('Include responses submitted on or after this timestamp (ISO 8601 or unix).'),
+        until: z.string().optional().describe('Include responses submitted on or before this timestamp (ISO 8601 or unix).'),
+        after: z.string().optional().describe('Include responses submitted after this response token (exclusive). Cannot be combined with sort.'),
+        included_response_ids: z.string().optional().describe('Comma-separated response IDs to include.'),
+        excluded_response_ids: z.string().optional().describe('Comma-separated response IDs to exclude.'),
+        response_type: z.string().optional().describe('Types to include: started, partial, completed. Defaults to completed only.'),
+        sort: z.string().optional().describe('Sort order: {field_id},{asc|desc}. Cannot be combined with after/before/cursor.'),
+        query: z.string().optional().describe('Free-text search across answers.'),
+        fields: z.string().optional().describe('Comma-separated field IDs to include in answers.'),
+        answered_fields: z.string().optional().describe('Comma-separated field IDs that must have answers.'),
+        cursor: z.string().optional().describe('Pagination cursor from a previous response. Maps to the before parameter. Cannot be combined with sort.')
+    })
+    .refine((data) => !(data.sort !== undefined && (data.after !== undefined || data.cursor !== undefined)), {
+        message: 'sort cannot be combined with after or cursor',
+        path: ['sort']
+    });
 
 const FieldSchema = z.object({
     id: z.string(),
@@ -67,6 +72,13 @@ const action = createAction({
     scopes: ['responses:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.sort !== undefined && (input.after !== undefined || input.cursor !== undefined)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'sort cannot be combined with after or cursor'
+            });
+        }
+
         const pageSize = input.page_size ?? 25;
 
         const response = await nango.get({

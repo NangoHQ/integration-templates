@@ -49,6 +49,7 @@ const sync = createSync({
     models: {
         Webhook: WebhookSchema
     },
+    scopes: ['forms:read', 'webhooks:read'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
@@ -65,7 +66,7 @@ const sync = createSync({
         const proxyConfig: ProxyConfiguration = {
             // https://www.typeform.com/developers/create/reference/retrieve-forms/
             endpoint: '/forms',
-            params: { page_size: pageSize },
+            params: { page_size: pageSize, sort_by: 'last_updated_at', order_by: 'asc' },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',

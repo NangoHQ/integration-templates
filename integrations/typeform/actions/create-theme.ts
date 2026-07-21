@@ -22,6 +22,7 @@ const ThemeScreensSchema = z.object({
 const ThemeBackgroundSchema = z.object({
     brightness: z.number().optional(),
     href: z.string().optional(),
+    image_id: z.union([z.string(), z.number()]).transform(String).optional(),
     layout: z.string().optional()
 });
 
@@ -37,7 +38,7 @@ const InputSchema = z.object({
 });
 
 const ProviderThemeSchema = z.object({
-    id: z.string(),
+    id: z.union([z.string(), z.number()]).transform(String),
     name: z.string(),
     font: z.string(),
     colors: ThemeColorsSchema,

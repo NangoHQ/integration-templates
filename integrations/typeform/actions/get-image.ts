@@ -16,16 +16,7 @@ const ProviderImageSchema = z.object({
     avg_color: z.string()
 });
 
-const OutputSchema = z.object({
-    id: z.string(),
-    src: z.string(),
-    file_name: z.string(),
-    width: z.number(),
-    height: z.number(),
-    media_type: z.string(),
-    has_alpha: z.boolean(),
-    avg_color: z.string()
-});
+const OutputSchema = ProviderImageSchema;
 
 const action = createAction({
     description: 'Retrieve image metadata',
@@ -54,16 +45,7 @@ const action = createAction({
 
         const providerImage = ProviderImageSchema.parse(response.data);
 
-        return {
-            id: providerImage.id,
-            src: providerImage.src,
-            file_name: providerImage.file_name,
-            width: providerImage.width,
-            height: providerImage.height,
-            media_type: providerImage.media_type,
-            has_alpha: providerImage.has_alpha,
-            avg_color: providerImage.avg_color
-        };
+        return providerImage;
     }
 });
 

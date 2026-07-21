@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of results per page. Default ~30, max 200.')
+    page_size: z.number().int().min(1).max(200).optional().describe('Number of results per page. Default 10, max 200.')
 });
 
 const ThemeSchema = z
@@ -12,6 +12,7 @@ const ThemeSchema = z
             .object({
                 brightness: z.number().optional(),
                 href: z.string().optional(),
+                image_id: z.union([z.string(), z.number()]).transform(String).optional(),
                 layout: z.string().optional()
             })
             .optional(),
@@ -31,7 +32,7 @@ const ThemeSchema = z
             .optional(),
         font: z.string().optional(),
         has_transparent_button: z.boolean().optional(),
-        id: z.string(),
+        id: z.union([z.string(), z.number()]).transform(String),
         name: z.string().optional(),
         origin: z.string().optional(),
         rounded_corners: z.string().optional(),
@@ -58,8 +59,16 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['themes:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a positive integer representing a page number'
+            });
+        }
+
         const params: Record<string, string | number> = {};
         if (input.cursor !== undefined) {
             params['page'] = input.cursor;

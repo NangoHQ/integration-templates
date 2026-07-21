@@ -1,16 +1,31 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const JsonPatchOperationSchema = z.object({
-    op: z.enum(['add', 'remove', 'replace', 'move', 'copy', 'test']),
-    path: z.string(),
-    value: z.unknown().optional(),
-    from: z.string().optional()
+const MemberOperationValueSchema = z.object({
+    email: z.string().describe('Email of the member to add or remove. Example: "jane@example.com"'),
+    role: z.string().optional().describe('Member role. Required when adding a member. Example: "owner"')
 });
+
+const JsonPatchOperationSchema = z.discriminatedUnion('path', [
+    z.object({
+        op: z.literal('replace'),
+        path: z.literal('/name'),
+        value: z.string().describe('New workspace name. Example: "Marketing workspace"')
+    }),
+    z.object({
+        op: z.enum(['add', 'remove']),
+        path: z.literal('/members'),
+        value: MemberOperationValueSchema
+    })
+]);
 
 const InputSchema = z.object({
     workspace_id: z.string().describe('The workspace ID to update. Example: "wCjDgv"'),
-    operations: z.array(JsonPatchOperationSchema).describe('JSON Patch operations per RFC 6902. Example: [{ op: "replace", path: "/name", value: "New name" }]')
+    operations: z
+        .array(JsonPatchOperationSchema)
+        .describe(
+            'JSON Patch operations Typeform supports for workspaces. Example: [{ op: "replace", path: "/name", value: "New name" }] or [{ op: "add", path: "/members", value: { email: "jane@example.com", role: "owner" } }]'
+        )
 });
 
 const OutputSchema = z.object({

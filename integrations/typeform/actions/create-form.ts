@@ -47,6 +47,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: FormSchema,
+    scopes: ['forms:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof FormSchema>> => {
         const response = await nango.post({

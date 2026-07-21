@@ -29,6 +29,7 @@ const sync = createSync({
     models: {
         Image: ImageSchema
     },
+    scopes: ['images:read'],
 
     exec: async (nango) => {
         // Blocker: GET /images returns a bare array with no updated/modified

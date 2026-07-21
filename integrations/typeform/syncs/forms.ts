@@ -82,6 +82,7 @@ const sync = createSync({
     models: {
         Form: FormSchema
     },
+    scopes: ['forms:read'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
@@ -92,10 +93,15 @@ const sync = createSync({
         // only close delete tracking after the full crawl completes.
         let page: number | undefined = checkpoint?.page ?? 1;
         const isResumed = checkpoint != null && checkpoint.page > 1;
+        let deleteTrackingStarted = isResumed;
+        let receivedAnyPage = false;
 
-        if (!isResumed) {
-            await nango.trackDeletesStart('Form');
-        }
+        const ensureDeleteTrackingStarted = async () => {
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('Form');
+                deleteTrackingStarted = true;
+            }
+        };
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.typeform.com/developers/create/reference/retrieve-forms/
@@ -128,6 +134,9 @@ const sync = createSync({
             if (!parsed.success) {
                 throw new Error(`Failed to parse forms list page: ${parsed.error.message}`);
             }
+
+            receivedAnyPage = true;
+            await ensureDeleteTrackingStarted();
 
             const forms = parsed.data.map((item) => ({
                 id: item.id,
@@ -166,6 +175,9 @@ const sync = createSync({
             }
         }
 
+        if (!receivedAnyPage) {
+            await ensureDeleteTrackingStarted();
+        }
         await nango.trackDeletesEnd('Form');
         await nango.saveCheckpoint({ page: 1 });
     }

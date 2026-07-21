@@ -3,25 +3,25 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of results to retrieve per page. Default is 10, maximum is 200.'),
+    page_size: z.number().int().min(1).max(200).optional().describe('Number of results to retrieve per page. Default is 10, maximum is 200.'),
     search: z.string().optional().describe('Returns items that contain the specified string.')
 });
 
 const WorkspaceFormsSchema = z.object({
-    count: z.number(),
-    href: z.string()
+    count: z.number().optional(),
+    href: z.string().optional()
 });
 
 const WorkspaceSelfSchema = z.object({
-    href: z.string()
+    href: z.string().optional()
 });
 
 const WorkspaceSchema = z.object({
     account_id: z.string(),
-    forms: WorkspaceFormsSchema.optional(),
+    forms: z.union([WorkspaceFormsSchema, z.array(WorkspaceFormsSchema)]).optional(),
     id: z.string(),
     name: z.string(),
-    self: WorkspaceSelfSchema.optional(),
+    self: z.union([WorkspaceSelfSchema, z.array(WorkspaceSelfSchema)]).optional(),
     shared: z.boolean()
 });
 
@@ -46,13 +46,13 @@ const action = createAction({
     scopes: ['workspaces:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const currentPage = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(currentPage) || currentPage < 1) {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a positive integer representing a page number'
             });
         }
+        const currentPage = input.cursor ? parseInt(input.cursor, 10) : 1;
 
         const response = await nango.get({
             // https://www.typeform.com/developers/create/reference/retrieve-workspaces/

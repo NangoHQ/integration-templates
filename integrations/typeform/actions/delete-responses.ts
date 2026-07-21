@@ -15,7 +15,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['offline'],
+    scopes: ['responses:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedFormId = encodeURIComponent(input.form_id);
