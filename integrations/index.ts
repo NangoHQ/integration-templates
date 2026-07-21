@@ -4894,6 +4894,40 @@ import './twitter-v2/actions/unfollow-user.js';
 import './twitter-v2/actions/unlike-tweet.js';
 import './twitter-v2/actions/update-list.js';
 
+// -- Integration: typeform
+import './typeform/syncs/forms.js';
+import './typeform/syncs/images.js';
+import './typeform/syncs/responses.js';
+import './typeform/syncs/themes.js';
+import './typeform/syncs/webhooks.js';
+import './typeform/syncs/workspaces.js';
+import './typeform/actions/create-form.js';
+import './typeform/actions/create-image.js';
+import './typeform/actions/create-theme.js';
+import './typeform/actions/create-webhook.js';
+import './typeform/actions/create-workspace.js';
+import './typeform/actions/delete-form.js';
+import './typeform/actions/delete-image.js';
+import './typeform/actions/delete-responses.js';
+import './typeform/actions/delete-theme.js';
+import './typeform/actions/delete-webhook.js';
+import './typeform/actions/delete-workspace.js';
+import './typeform/actions/get-form.js';
+import './typeform/actions/get-image.js';
+import './typeform/actions/get-theme.js';
+import './typeform/actions/get-webhook.js';
+import './typeform/actions/get-workspace.js';
+import './typeform/actions/list-forms.js';
+import './typeform/actions/list-images.js';
+import './typeform/actions/list-responses.js';
+import './typeform/actions/list-themes.js';
+import './typeform/actions/list-webhooks.js';
+import './typeform/actions/list-workspaces.js';
+import './typeform/actions/patch-form.js';
+import './typeform/actions/update-form.js';
+import './typeform/actions/update-theme.js';
+import './typeform/actions/update-workspace.js';
+
 // -- Integration: ukg-pro
 import './ukg-pro/syncs/unified-employees.js';
 

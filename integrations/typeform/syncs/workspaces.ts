@@ -18,6 +18,7 @@ const ProviderWorkspaceSchema = z.object({
                 })
             )
         ])
+        .nullable()
         .optional(),
     self: z
         .union([

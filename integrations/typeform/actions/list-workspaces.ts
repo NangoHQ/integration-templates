@@ -18,7 +18,10 @@ const WorkspaceSelfSchema = z.object({
 
 const WorkspaceSchema = z.object({
     account_id: z.string(),
-    forms: z.union([WorkspaceFormsSchema, z.array(WorkspaceFormsSchema)]).optional(),
+    forms: z
+        .union([WorkspaceFormsSchema, z.array(WorkspaceFormsSchema)])
+        .nullable()
+        .optional(),
     id: z.string(),
     name: z.string(),
     self: z.union([WorkspaceSelfSchema, z.array(WorkspaceSelfSchema)]).optional(),
