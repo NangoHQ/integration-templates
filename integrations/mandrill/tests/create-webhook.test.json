@@ -1,0 +1,89 @@
+{
+  "input": {
+    "url": "https://httpbin.org/post",
+    "description": "Test webhook for Nango integration",
+    "events": [
+      "send",
+      "open",
+      "click"
+    ]
+  },
+  "output": {
+    "id": 8,
+    "url": "https://httpbin.org/post",
+    "auth_key": "U85ksYRTpHFbeA8yOOJh_g",
+    "description": "Test webhook for Nango integration",
+    "events": [
+      "send",
+      "open",
+      "click"
+    ],
+    "created_at": "2026-07-21 13:29:14.17774",
+    "batches_sent": 0,
+    "events_sent": 0
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/1.0/webhooks/add": {
+        "response": {
+          "url": "https://httpbin.org/post",
+          "description": "Test webhook for Nango integration",
+          "created_at": "2026-07-21 13:29:14.17774",
+          "batches_sent": 0,
+          "events_sent": 0,
+          "auth_key": "U85ksYRTpHFbeA8yOOJh_g",
+          "id": 8,
+          "events": [
+            "send",
+            "open",
+            "click"
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 13:29:14 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "108",
+          "x-ratelimit-reset": "1784640565",
+          "server": "nginx",
+          "access-control-allow-methods": "POST, GET, OPTIONS",
+          "access-control-allow-headers": "Content-Type",
+          "access-control-allow-credentials": "false",
+          "vary": "Accept-Encoding",
+          "x-envoy-upstream-service-time": "696",
+          "x-envoy-decorator-operation": "mandrill-app-desired-service.mctx-mandrillapp-usw2-prd.svc.cluster.local:8090/*",
+          "x-request-id": "Self=1-6a5f7429-48e5884b1eb20a8b1dc7158d;Root=1-6a5f7429-4e9392527dc53c192cf05eac",
+          "x-intuit-upstream-locality-region": "us-west-2",
+          "intuit_tid": "Self=1-6a5f7429-48e5884b1eb20a8b1dc7158d;Root=1-6a5f7429-4e9392527dc53c192cf05eac",
+          "x-spanid": "fd659f9f-b28d-f08f-5adf-a18e94f5376f",
+          "x-amzn-trace-id": "Self=1-6a5f7429-48e5884b1eb20a8b1dc7158d;Root=1-6a5f7429-4e9392527dc53c192cf05eac"
+        },
+        "hash": "da1cf88051974a59565f9b6a32a2b34abbdf62c8",
+        "request": {
+          "data": {
+            "url": "https://httpbin.org/post",
+            "description": "Test webhook for Nango integration",
+            "events": [
+              "send",
+              "open",
+              "click"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
