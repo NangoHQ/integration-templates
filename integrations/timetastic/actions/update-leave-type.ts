@@ -1,9 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return typeof value === 'object' && value !== null;
+}
+
 const InputSchema = z.object({
-    id: z.number().describe('Leave type ID. Example: 586883'),
-    name: z.string().optional().describe('Name of the leave type. Example: "Updated Leave Type"'),
+    id: z.number().int().positive().describe('Leave type ID. Example: 586883'),
+    name: z.string().min(1).describe('Name of the leave type. Required by the provider on every update. Example: "Updated Leave Type"'),
     deducted: z.boolean().optional().describe('Whether this leave type deducts from allowance.'),
     requiresApproval: z.boolean().optional().describe('Whether leave requests of this type require approval.'),
     includeMaxOff: z.boolean().optional().describe('Whether this leave type counts towards the maximum off limit.'),
@@ -26,11 +30,10 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const body: Record<string, unknown> = {};
+        const body: Record<string, unknown> = {
+            name: input.name
+        };
 
-        if (input.name !== undefined) {
-            body['name'] = input.name;
-        }
         if (input.deducted !== undefined) {
             body['deducted'] = input.deducted;
         }
@@ -60,34 +63,22 @@ const action = createAction({
         }
 
         // https://help.timetastic.co.uk/en/articles/13193377-timetastic-api
-        const response = await nango.put({
-            endpoint: `/leavetypes/${encodeURIComponent(input.id)}`,
-            data: body,
-            retries: 3
-        });
-
-        const parsed = z.number().safeParse(response.data);
-
-        if (parsed.success) {
-            return {
-                id: parsed.data
-            };
-        }
-
-        const stringParsed = z.string().safeParse(response.data);
-
-        if (stringParsed.success) {
-            const trimmed = stringParsed.data.trim();
-
-            if (trimmed !== '') {
-                const numeric = Number(trimmed);
-
-                if (!Number.isNaN(numeric)) {
-                    return {
-                        id: numeric
-                    };
-                }
-            }
+        // PUT /leavetypes/{id} returns 200 with an empty body on success and no ID;
+        // failures (e.g. invalid color, permission denied) return 400 with { errorStatus, errorMessage }.
+        try {
+            await nango.put({
+                endpoint: `/leavetypes/${encodeURIComponent(input.id)}`,
+                data: body,
+                retries: 3
+            });
+        } catch (err: unknown) {
+            const data = isRecord(err) && isRecord(err['response']) ? err['response']['data'] : undefined;
+            const errorMessage = isRecord(data) && typeof data['errorMessage'] === 'string' ? data['errorMessage'] : undefined;
+            throw new nango.ActionError({
+                type: 'update_failed',
+                message: errorMessage ?? 'Failed to update leave type',
+                id: input.id
+            });
         }
 
         return {

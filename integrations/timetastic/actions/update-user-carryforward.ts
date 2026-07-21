@@ -19,19 +19,28 @@ const action = createAction({
     scopes: ['allowances:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.put({
-            // https://timetastic.co.uk/api/
-            endpoint: `/users/${encodeURIComponent(String(input.userId))}/allowances/${encodeURIComponent(String(input.year))}/carryforward`,
-            data: {
-                amount: input.amount
-            },
-            retries: 1
-        });
-
-        if (response.status !== 200) {
+        try {
+            await nango.put({
+                // https://timetastic.co.uk/api/
+                endpoint: `/users/${encodeURIComponent(String(input.userId))}/allowances/${encodeURIComponent(String(input.year))}/carryforward`,
+                data: {
+                    amount: input.amount
+                },
+                retries: 1
+            });
+        } catch (err: unknown) {
+            const status =
+                typeof err === 'object' &&
+                err !== null &&
+                'response' in err &&
+                typeof err.response === 'object' &&
+                err.response !== null &&
+                'status' in err.response
+                    ? err.response.status
+                    : undefined;
             throw new nango.ActionError({
                 type: 'api_error',
-                message: `Unexpected status code: ${response.status}`
+                message: `Failed to update carry-forward: ${status ?? 'unknown error'}`
             });
         }
 

@@ -3,6 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({});
 
+const RECORD_TYPES: readonly ['Organisation', 'Department', 'User'] = ['Organisation', 'Department', 'User'];
+
 const ProviderLockedDateSchema = z.object({
     id: z.number(),
     createdAt: z.string().optional(),
@@ -12,7 +14,15 @@ const ProviderLockedDateSchema = z.object({
     endTime: z.string().optional(),
     organisationId: z.number().optional(),
     recordId: z.number().optional(),
-    recordType: z.number().optional()
+    recordType: z
+        .union([z.enum(RECORD_TYPES), z.literal(0), z.literal(1), z.literal(2)])
+        .optional()
+        .transform((v) => {
+            if (v === undefined || typeof v === 'string') {
+                return v;
+            }
+            return RECORD_TYPES[v];
+        })
 });
 
 const LockedDateSchema = z.object({
@@ -24,7 +34,7 @@ const LockedDateSchema = z.object({
     endTime: z.string().optional(),
     organisationId: z.number().optional(),
     recordId: z.number().optional(),
-    recordType: z.number().optional()
+    recordType: z.enum(['Organisation', 'Department', 'User']).optional()
 });
 
 const OutputSchema = z.object({

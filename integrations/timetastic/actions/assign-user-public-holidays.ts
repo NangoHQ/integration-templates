@@ -35,16 +35,25 @@ const action = createAction({
 
         // https://timetastic.co.uk/api/ (interactive OpenAPI reference)
         // https://app.timetastic.co.uk/swagger/v1/swagger.json
-        const response = await nango.patch({
-            endpoint: `/users/${encodeURIComponent(input.userId)}/publicholidays`,
-            data: body,
-            retries: 3
-        });
-
-        if (response.status !== 200) {
+        try {
+            await nango.patch({
+                endpoint: `/users/${encodeURIComponent(input.userId)}/publicholidays`,
+                data: body,
+                retries: 3
+            });
+        } catch (err: unknown) {
+            const status =
+                typeof err === 'object' &&
+                err !== null &&
+                'response' in err &&
+                typeof err.response === 'object' &&
+                err.response !== null &&
+                'status' in err.response
+                    ? err.response.status
+                    : undefined;
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: `Timetastic returned status ${response.status}`
+                message: `Timetastic returned status ${status ?? 'unknown error'}`
             });
         }
 

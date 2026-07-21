@@ -15,8 +15,12 @@ const OutputSchema = z.object({
 
 const ErrorResponseSchema = z.object({
     errorStatus: z.number(),
-    errorMessage: z.string().optional()
+    errorMessage: z.string().nullable().optional()
 });
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return typeof value === 'object' && value !== null;
+}
 
 const action = createAction({
     description: "Update a department's settings.",
@@ -25,27 +29,37 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.post({
-            // https://timetastic.co.uk/api/ (interactive OpenAPI reference)
-            // https://help.timetastic.co.uk/en/articles/13193377-timetastic-api
-            endpoint: `/departments/edit/${encodeURIComponent(String(input.id))}`,
-            data: {
-                ...(input.name !== undefined && { name: input.name }),
-                ...(input.managerId !== undefined && { managerId: input.managerId }),
-                ...(input.maxOff !== undefined && { maxOff: input.maxOff })
-            },
-            retries: 3
-        });
+        let response;
+        try {
+            response = await nango.post({
+                // https://timetastic.co.uk/api/ (interactive OpenAPI reference)
+                // https://help.timetastic.co.uk/en/articles/13193377-timetastic-api
+                endpoint: `/departments/edit/${encodeURIComponent(String(input.id))}`,
+                data: {
+                    ...(input.name !== undefined && { name: input.name }),
+                    ...(input.managerId !== undefined && { managerId: input.managerId }),
+                    ...(input.maxOff !== undefined && { maxOff: input.maxOff })
+                },
+                retries: 3
+            });
+        } catch (err: unknown) {
+            const data = isRecord(err) && isRecord(err['response']) ? err['response']['data'] : undefined;
+            const parsed = ErrorResponseSchema.safeParse(data);
+            throw new nango.ActionError({
+                type: 'edit_failed',
+                message: (parsed.success && parsed.data.errorMessage) || 'Department edit failed',
+                departmentId: input.id
+            });
+        }
 
-        if (response.data && typeof response.data === 'object' && response.data !== null) {
-            const parsed = ErrorResponseSchema.safeParse(response.data);
-            if (parsed.success && parsed.data.errorStatus !== 0) {
-                throw new nango.ActionError({
-                    type: 'edit_failed',
-                    message: parsed.data.errorMessage || `Department edit failed with errorStatus ${parsed.data.errorStatus}`,
-                    departmentId: input.id
-                });
-            }
+        // Timetastic can also report a failed edit in the body of a 200 response.
+        const parsed = ErrorResponseSchema.safeParse(response.data);
+        if (parsed.success && parsed.data.errorStatus !== 0) {
+            throw new nango.ActionError({
+                type: 'edit_failed',
+                message: parsed.data.errorMessage || `Department edit failed with errorStatus ${parsed.data.errorStatus}`,
+                departmentId: input.id
+            });
         }
 
         return {

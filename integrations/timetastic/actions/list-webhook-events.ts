@@ -6,21 +6,21 @@ const InputSchema = z.object({
 });
 
 const WebhookEventSchema = z.object({
-    id: z.number().int().optional(),
-    organisationId: z.number().int().optional(),
-    recordId: z.number().int().optional(),
-    userId: z.number().int().optional(),
-    retryCount: z.number().int().optional(),
-    eventType: z.string().optional(),
-    expiresAt: z.string().optional(),
-    timestamp: z.string().optional(),
-    isProcessed: z.boolean().optional(),
-    lastProcessedAt: z.string().optional(),
-    lastResponseCode: z.number().int().optional(),
-    lastResponseDetail: z.string().optional(),
-    nextAttempt: z.string().optional(),
-    url: z.string().optional(),
-    type: z.string().optional()
+    id: z.number().int(),
+    organisationId: z.number().int(),
+    recordId: z.number().int(),
+    userId: z.number().int(),
+    retryCount: z.number().int(),
+    eventType: z.enum(['TestEvent', 'AbsenceRequested', 'AbsenceApproved', 'AbsenceDeclined', 'AbsenceCancelled', 'AbsenceBooked', 'AbsenceUpdated']),
+    expiresAt: z.string(),
+    timestamp: z.string(),
+    isProcessed: z.boolean(),
+    lastProcessedAt: z.string().nullable().optional(),
+    lastResponseCode: z.number().int(),
+    lastResponseDetail: z.string().nullable().optional(),
+    nextAttempt: z.string(),
+    url: z.string().nullable().optional(),
+    type: z.string()
 });
 
 const OutputSchema = z.object({

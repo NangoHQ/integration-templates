@@ -62,11 +62,11 @@ const CheckpointSchema = z.object({
 });
 
 const ProviderHolidayPageSchema = z.object({
-    holidays: z.array(ProviderHolidaySchema),
+    holidays: z.array(ProviderHolidaySchema).nullable().optional(),
     totalRecords: z.number().int().optional(),
     pageNumber: z.number().int(),
-    nextPageLink: z.string(),
-    previousPageLink: z.string().optional()
+    nextPageLink: z.string().nullable().optional(),
+    previousPageLink: z.string().nullable().optional()
 });
 
 const sync = createSync({
@@ -107,7 +107,7 @@ const sync = createSync({
                 throw new Error(`Failed to parse holidays page: ${parsedPage.error.message}`);
             }
 
-            const records = parsedPage.data.holidays.map((holiday) => ({
+            const records = (parsedPage.data.holidays ?? []).map((holiday) => ({
                 id: String(holiday.id),
                 startDate: holiday.startDate,
                 endDate: holiday.endDate,
@@ -139,7 +139,7 @@ const sync = createSync({
                 await nango.batchSave(records, 'Holiday');
             }
 
-            if (parsedPage.data.nextPageLink === '') {
+            if (!parsedPage.data.nextPageLink) {
                 await nango.clearCheckpoint();
                 await nango.trackDeletesEnd('Holiday');
                 break;

@@ -19,14 +19,38 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.post({
-            // https://help.timetastic.co.uk/en/articles/13193377-timetastic-api
-            endpoint: `/users/archive/${encodeURIComponent(input.id)}`,
-            data: {
-                archiveDate: input.archiveDate
-            },
-            retries: 3
-        });
+        let response;
+        try {
+            response = await nango.post({
+                // https://help.timetastic.co.uk/en/articles/13193377-timetastic-api
+                endpoint: `/users/archive/${encodeURIComponent(input.id)}`,
+                data: {
+                    archiveDate: input.archiveDate
+                },
+                retries: 3
+            });
+        } catch (err: unknown) {
+            const data =
+                typeof err === 'object' &&
+                err !== null &&
+                'response' in err &&
+                typeof err.response === 'object' &&
+                err.response !== null &&
+                'data' in err.response
+                    ? err.response.data
+                    : undefined;
+            const parsedError = z
+                .object({
+                    errorStatus: z.number().optional(),
+                    errorMessage: z.string().nullable().optional()
+                })
+                .safeParse(data);
+            throw new nango.ActionError({
+                type: 'archive_failed',
+                message: (parsedError.success && parsedError.data.errorMessage) || 'User could not be archived',
+                ...(parsedError.success && parsedError.data.errorStatus !== undefined && { errorStatus: parsedError.data.errorStatus })
+            });
+        }
 
         let parsedData: unknown = response.data;
         if (typeof response.data === 'string' && response.data.trim().length > 0) {
@@ -42,11 +66,11 @@ const action = createAction({
         const providerResponse = z
             .object({
                 errorStatus: z.number().optional(),
-                errorMessage: z.string().optional()
+                errorMessage: z.string().nullable().optional()
             })
             .safeParse(parsedData);
 
-        if (providerResponse.success) {
+        if (providerResponse.success && providerResponse.data.errorStatus !== undefined) {
             const success = providerResponse.data.errorStatus === 0;
 
             if (!success) {
@@ -59,7 +83,7 @@ const action = createAction({
 
             return {
                 success: true,
-                ...(providerResponse.data.errorMessage !== undefined && { message: providerResponse.data.errorMessage })
+                ...(providerResponse.data.errorMessage != null && { message: providerResponse.data.errorMessage })
             };
         }
 

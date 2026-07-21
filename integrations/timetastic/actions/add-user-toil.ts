@@ -29,7 +29,7 @@ const action = createAction({
             retries: 3
         });
 
-        const toilId = z.coerce.number().int().parse(response.data);
+        const toilId = z.number().int().parse(response.data);
 
         return {
             id: toilId

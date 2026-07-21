@@ -3,10 +3,11 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('The ID of the locked date to delete. Example: 142802')
+    id: z.number().int().positive().describe('The ID of the locked date to delete. Example: 142802')
 });
 
 const ProviderResultSchema = z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3), z.literal(4)]);
+const RESULT_MESSAGES = ['Succeeded', 'Failed', 'InvalidValue', 'NothingToDo', 'NotPermitted'];
 
 const OutputSchema = z.object({
     id: z.number(),
@@ -26,15 +27,33 @@ const action = createAction({
             retries: 10
         };
 
-        const response = await nango.delete(config);
+        let response;
+        try {
+            response = await nango.delete(config);
+        } catch (err: unknown) {
+            const data =
+                typeof err === 'object' &&
+                err !== null &&
+                'response' in err &&
+                typeof err.response === 'object' &&
+                err.response !== null &&
+                'data' in err.response
+                    ? err.response.data
+                    : undefined;
+            const parsedResult = ProviderResultSchema.safeParse(data);
+            throw new nango.ActionError({
+                type: 'delete_failed',
+                message: `Failed to delete locked date: ${parsedResult.success ? RESULT_MESSAGES[parsedResult.data] : 'unknown error'}`,
+                id: input.id
+            });
+        }
 
         const result = ProviderResultSchema.parse(response.data);
 
         if (result !== 0) {
-            const messages = ['Succeeded', 'Failed', 'InvalidValue', 'NothingToDo', 'NotPermitted'];
             throw new nango.ActionError({
                 type: 'delete_failed',
-                message: `Failed to delete locked date: ${messages[result]}`,
+                message: `Failed to delete locked date: ${RESULT_MESSAGES[result]}`,
                 id: input.id,
                 result
             });

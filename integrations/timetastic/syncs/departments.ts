@@ -4,7 +4,7 @@ import { z } from 'zod';
 const ProviderDepartmentSchema = z.object({
     id: z.number(),
     organisationId: z.number().optional(),
-    name: z.string().optional(),
+    name: z.string().nullable().optional(),
     managerId: z.number().optional(),
     bossId: z.number().optional(),
     createdAt: z.string().optional(),
@@ -65,7 +65,7 @@ const sync = createSync({
             departments.push({
                 id: String(parsed.data.id),
                 ...(parsed.data.organisationId !== undefined && { organisationId: parsed.data.organisationId }),
-                ...(parsed.data.name !== undefined && { name: parsed.data.name }),
+                ...(parsed.data.name != null && { name: parsed.data.name }),
                 ...(parsed.data.managerId !== undefined && { managerId: parsed.data.managerId }),
                 ...(parsed.data.bossId !== undefined && { bossId: parsed.data.bossId }),
                 ...(parsed.data.createdAt !== undefined && { createdAt: parsed.data.createdAt }),

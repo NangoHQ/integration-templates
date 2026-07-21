@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.number().describe('The id of the user to query. Example: 1522999'),
-    year: z.number().describe('The year to query. Example: 2026')
+    userId: z.number().int().positive().describe('The id of the user to query. Example: 1522999'),
+    year: z.number().int().describe('The year to query. Example: 2026')
 });
 
 const ToilSchema = z.object({

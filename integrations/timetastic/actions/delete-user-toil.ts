@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.number().describe('User ID. Example: 1522999'),
-    year: z.number().describe('Year for the allowance. Example: 2026'),
-    id: z.number().describe('TOIL entry ID. Example: 51015844')
+    userId: z.number().int().positive().describe('User ID. Example: 1522999'),
+    year: z.number().int().describe('Year for the allowance. Example: 2026'),
+    id: z.number().int().positive().describe('TOIL entry ID. Example: 51015844')
 });
 
 const OutputSchema = z.object({
@@ -19,23 +19,31 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.delete({
-            // https://timetastic.co.uk/api/
-            endpoint: `/users/${encodeURIComponent(input.userId)}/allowances/${encodeURIComponent(input.year)}/toil/${encodeURIComponent(input.id)}`,
-            retries: 1
-        });
-
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: `TOIL entry ${input.id} not found for user ${input.userId} in year ${input.year}`
+        try {
+            await nango.delete({
+                // https://timetastic.co.uk/api/
+                endpoint: `/users/${encodeURIComponent(input.userId)}/allowances/${encodeURIComponent(input.year)}/toil/${encodeURIComponent(input.id)}`,
+                retries: 1
             });
-        }
-
-        if (response.status >= 400) {
+        } catch (err: unknown) {
+            const status =
+                typeof err === 'object' &&
+                err !== null &&
+                'response' in err &&
+                typeof err.response === 'object' &&
+                err.response !== null &&
+                'status' in err.response
+                    ? err.response.status
+                    : undefined;
+            if (status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: `TOIL entry ${input.id} not found for user ${input.userId} in year ${input.year}`
+                });
+            }
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: `Failed to delete TOIL entry: ${response.status}`
+                message: `Failed to delete TOIL entry: ${status ?? 'unknown error'}`
             });
         }
 

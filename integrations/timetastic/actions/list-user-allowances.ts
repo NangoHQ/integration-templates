@@ -65,9 +65,16 @@ const action = createAction({
             retries: 3
         });
 
-        const rawItems = z.array(ProviderUsersAllowancesResponseSchema).parse(response.data);
+        const parsed = z.array(ProviderUsersAllowancesResponseSchema).safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'The provider returned an unexpected response shape.',
+                details: parsed.error.issues
+            });
+        }
 
-        return rawItems.map((item) => ({
+        return parsed.data.map((item) => ({
             ...(item.userId != null && { userId: item.userId }),
             ...(item.userAllowances != null && {
                 userAllowances: item.userAllowances.map((ua) => ({

@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.number().describe('User ID. Example: 1522999'),
-    year: z.number().describe('Year. Example: 2026'),
-    id: z.number().describe('TOIL entry ID. Example: 51015765'),
+    userId: z.number().int().positive().describe('User ID. Example: 1522999'),
+    year: z.number().int().describe('Year. Example: 2026'),
+    id: z.number().int().positive().describe('TOIL entry ID. Example: 51015765'),
     amount: z.number().describe('TOIL amount in days. Example: 2.0'),
     description: z.string().optional().describe('Optional description for the TOIL entry.')
 });

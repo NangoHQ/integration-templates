@@ -7,14 +7,14 @@ const InputSchema = z.object({
 
 const ProviderPublicHolidaySchema = z.object({
     id: z.number().int(),
-    name: z.string().nullable(),
+    name: z.string().nullable().optional(),
     date: z.string(),
-    formattedDate: z.string().nullable(),
+    formattedDate: z.string().nullable().optional(),
     createdAt: z.string(),
     updatedAt: z.string(),
-    countryCode: z.string().nullable(),
+    countryCode: z.string().nullable().optional(),
     bankHolidaySetId: z.number().int(),
-    bankHolidaySetName: z.string().nullable()
+    bankHolidaySetName: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({

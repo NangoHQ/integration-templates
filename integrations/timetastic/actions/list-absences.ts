@@ -7,27 +7,42 @@ const InputSchema = z.object({
     absenceQueryType: z.enum(['AllEvents', 'AllAbsences', 'Bookings', 'PublicHolidays']).optional().describe('Filter for the type of absences to return.')
 });
 
+const ABSENCE_TYPES: readonly ['Booking', 'PublicHoliday', 'NonWorkingDay', 'LockedDate', 'Birthday', 'WorkAnniversary'] = [
+    'Booking',
+    'PublicHoliday',
+    'NonWorkingDay',
+    'LockedDate',
+    'Birthday',
+    'WorkAnniversary'
+];
+
 const ProviderAbsenceSchema = z.object({
-    absenceType: z.enum(['Booking', 'PublicHoliday', 'NonWorkingDay', 'WorkAnniversary']),
+    absenceType: z.enum(ABSENCE_TYPES),
     start: z.string(),
     end: z.string(),
-    userId: z.number(),
-    userName: z.string(),
-    entityId: z.number()
+    detail: z.string().nullable().optional(),
+    entityId: z.number().nullable().optional(),
+    userId: z.number().nullable().optional(),
+    userName: z.string().nullable().optional(),
+    startUtc: z.string().nullable().optional(),
+    endUtc: z.string().nullable().optional()
 });
 
 const ProviderDaySchema = z.object({
     date: z.string(),
-    absences: z.array(ProviderAbsenceSchema)
+    absences: z.array(ProviderAbsenceSchema).nullable().optional()
 });
 
 const OutputAbsenceSchema = z.object({
-    absenceType: z.enum(['Booking', 'PublicHoliday', 'NonWorkingDay', 'WorkAnniversary']),
+    absenceType: z.enum(ABSENCE_TYPES),
     start: z.string(),
     end: z.string(),
-    userId: z.number(),
-    userName: z.string(),
-    entityId: z.number()
+    detail: z.string().optional(),
+    entityId: z.number().optional(),
+    userId: z.number().optional(),
+    userName: z.string().optional(),
+    startUtc: z.string().optional(),
+    endUtc: z.string().optional()
 });
 
 const OutputDaySchema = z.object({
@@ -63,13 +78,16 @@ const action = createAction({
         return {
             days: providerDays.map((day) => ({
                 date: day.date,
-                absences: day.absences.map((absence) => ({
+                absences: (day.absences ?? []).map((absence) => ({
                     absenceType: absence.absenceType,
                     start: absence.start,
                     end: absence.end,
-                    userId: absence.userId,
-                    userName: absence.userName,
-                    entityId: absence.entityId
+                    ...(absence.detail != null && { detail: absence.detail }),
+                    ...(absence.entityId != null && { entityId: absence.entityId }),
+                    ...(absence.userId != null && { userId: absence.userId }),
+                    ...(absence.userName != null && { userName: absence.userName }),
+                    ...(absence.startUtc != null && { startUtc: absence.startUtc }),
+                    ...(absence.endUtc != null && { endUtc: absence.endUtc })
                 }))
             }))
         };

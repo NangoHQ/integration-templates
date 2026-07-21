@@ -23,7 +23,7 @@ const LeaveTypeSchema = z.object({
 const ProviderLeaveTypeSchema = z.object({
     id: z.number().int(),
     name: z.string().nullable().optional(),
-    organisationId: z.number().int().optional(),
+    organisationId: z.number().int(),
     deducted: z.boolean().optional(),
     requiresApproval: z.boolean().optional(),
     includeMaxOff: z.boolean().optional(),
@@ -34,7 +34,10 @@ const ProviderLeaveTypeSchema = z.object({
     updatedAt: z.string().optional(),
     color: z.string().nullable().optional(),
     icon: z.string().nullable().optional(),
-    calendarVisibility: z.number().int().nullable().optional(),
+    calendarVisibility: z
+        .union([z.literal(0), z.literal(1), z.literal(2)])
+        .nullable()
+        .optional(),
     limitHours: z.number().nullable().optional(),
     limitDays: z.number().nullable().optional()
 });
@@ -77,7 +80,7 @@ const sync = createSync({
         const leaveTypes = parsed.data.map((raw) => ({
             id: String(raw.id),
             ...(raw.name != null && { name: raw.name }),
-            ...(raw.organisationId !== undefined && { organisationId: raw.organisationId }),
+            organisationId: raw.organisationId,
             ...(raw.deducted !== undefined && { deducted: raw.deducted }),
             ...(raw.requiresApproval !== undefined && { requiresApproval: raw.requiresApproval }),
             ...(raw.includeMaxOff !== undefined && { includeMaxOff: raw.includeMaxOff }),

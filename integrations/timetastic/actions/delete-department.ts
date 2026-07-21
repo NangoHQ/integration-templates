@@ -1,8 +1,12 @@
 import { z } from 'zod';
 import { createAction, type ProxyConfiguration } from 'nango';
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return typeof value === 'object' && value !== null;
+}
+
 const InputSchema = z.object({
-    id: z.number().describe('Department ID to delete. Example: 248822')
+    id: z.number().int().positive().describe('Department ID to delete. Example: 248822')
 });
 
 const OutputSchema = z.object({
@@ -24,7 +28,19 @@ const action = createAction({
             retries: 3
         };
 
-        await nango.post(config);
+        // Failures (e.g. deleting a department with users, or lacking permission) return 400
+        // with a numeric { errorStatus, errorMessage } body.
+        try {
+            await nango.post(config);
+        } catch (err: unknown) {
+            const data = isRecord(err) && isRecord(err['response']) ? err['response']['data'] : undefined;
+            const errorMessage = isRecord(data) && typeof data['errorMessage'] === 'string' ? data['errorMessage'] : undefined;
+            throw new nango.ActionError({
+                type: 'delete_failed',
+                message: errorMessage ?? 'Failed to delete department',
+                id: input.id
+            });
+        }
 
         return {
             id: input.id,

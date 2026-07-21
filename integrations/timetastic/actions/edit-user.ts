@@ -67,12 +67,31 @@ const action = createAction({
             body['hasPublicHolidays'] = input.hasPublicHolidays;
         }
 
-        const response = await nango.post({
-            // https://timetastic.co.uk/api/
-            endpoint: `/users/edit/${encodeURIComponent(String(input.id))}`,
-            data: body,
-            retries: 1
-        });
+        let response;
+        try {
+            response = await nango.post({
+                // https://timetastic.co.uk/api/
+                endpoint: `/users/edit/${encodeURIComponent(String(input.id))}`,
+                data: body,
+                retries: 1
+            });
+        } catch (err: unknown) {
+            const data =
+                typeof err === 'object' &&
+                err !== null &&
+                'response' in err &&
+                typeof err.response === 'object' &&
+                err.response !== null &&
+                'data' in err.response
+                    ? err.response.data
+                    : undefined;
+            const parsedError = ProviderResponseSchema.safeParse(data);
+            throw new nango.ActionError({
+                type: 'edit_failed',
+                message: (parsedError.success && parsedError.data.errorMessage) || 'User edit failed',
+                ...(parsedError.success && { errorStatus: parsedError.data.errorStatus })
+            });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 

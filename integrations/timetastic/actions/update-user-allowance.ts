@@ -22,14 +22,30 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://timetastic.co.uk/api/ (interactive OpenAPI reference)
         // https://help.timetastic.co.uk/en/articles/13193377-timetastic-api
-        await nango.put({
-            // https://timetastic.co.uk/api/
-            endpoint: `/users/${encodeURIComponent(String(input.userId))}/allowances/${encodeURIComponent(String(input.year))}/allowance`,
-            data: {
-                amount: input.amount
-            },
-            retries: 3
-        });
+        try {
+            await nango.put({
+                // https://timetastic.co.uk/api/
+                endpoint: `/users/${encodeURIComponent(String(input.userId))}/allowances/${encodeURIComponent(String(input.year))}/allowance`,
+                data: {
+                    amount: input.amount
+                },
+                retries: 3
+            });
+        } catch (err: unknown) {
+            const status =
+                typeof err === 'object' &&
+                err !== null &&
+                'response' in err &&
+                typeof err.response === 'object' &&
+                err.response !== null &&
+                'status' in err.response
+                    ? err.response.status
+                    : undefined;
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: `Failed to update allowance: ${status ?? 'unknown error'}`
+            });
+        }
 
         return {
             userId: input.userId,

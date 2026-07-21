@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('The ID of the holiday to retrieve. Example: 39587653'),
+    id: z.number().int().positive().describe('The ID of the holiday to retrieve. Example: 39587653'),
     filter: z.string().optional().describe('Optional filter string.')
 });
 
