@@ -1,0 +1,231 @@
+{
+  "input": {
+    "task_id": "6h78Phpj8jH59jWq"
+  },
+  "output": {
+    "results": [
+      {
+        "id": "6h78PmPWvxqw3H8q",
+        "posted_uid": "59820153",
+        "content": "Nango seed comment - keep (updated by dryrun)",
+        "file_attachment": null,
+        "uids_to_notify": null,
+        "is_deleted": false,
+        "posted_at": "2026-07-21T05:42:07.985520Z",
+        "reactions": null,
+        "item_id": "6h78Phpj8jH59jWq"
+      },
+      {
+        "id": "6h78PqQc9PPwR4xH",
+        "posted_uid": "59820153",
+        "content": "Nango seed comment - delete 2",
+        "file_attachment": null,
+        "uids_to_notify": null,
+        "is_deleted": false,
+        "posted_at": "2026-07-21T05:42:30.152594Z",
+        "reactions": null,
+        "item_id": "6h78Phpj8jH59jWq"
+      },
+      {
+        "id": "6h78W8pwRGHW8ggH",
+        "posted_uid": "59820153",
+        "content": "Test comment from Nango dryrun",
+        "file_attachment": null,
+        "uids_to_notify": null,
+        "is_deleted": false,
+        "posted_at": "2026-07-21T06:02:39.817845Z",
+        "reactions": null,
+        "item_id": "6h78Phpj8jH59jWq"
+      },
+      {
+        "id": "6h78W9W5MJ3PWqMq",
+        "posted_uid": "59820153",
+        "content": "Test comment from Nango dryrun",
+        "file_attachment": null,
+        "uids_to_notify": null,
+        "is_deleted": false,
+        "posted_at": "2026-07-21T06:02:47.626940Z",
+        "reactions": null,
+        "item_id": "6h78Phpj8jH59jWq"
+      },
+      {
+        "id": "6h78WR7Gj48VWgXq",
+        "posted_uid": "59820153",
+        "content": "Test comment from Nango dryrun",
+        "file_attachment": null,
+        "uids_to_notify": null,
+        "is_deleted": false,
+        "posted_at": "2026-07-21T06:04:24.723779Z",
+        "reactions": null,
+        "item_id": "6h78Phpj8jH59jWq"
+      },
+      {
+        "id": "6h78WRgQ8h5FH9Vq",
+        "posted_uid": "59820153",
+        "content": "Test comment from Nango dryrun",
+        "file_attachment": null,
+        "uids_to_notify": null,
+        "is_deleted": false,
+        "posted_at": "2026-07-21T06:04:30.596784Z",
+        "reactions": null,
+        "item_id": "6h78Phpj8jH59jWq"
+      },
+      {
+        "id": "6h78Wc47p4wXFxvq",
+        "posted_uid": "59820153",
+        "content": "Test comment from Nango dryrun",
+        "file_attachment": null,
+        "uids_to_notify": null,
+        "is_deleted": false,
+        "posted_at": "2026-07-21T06:05:08.396023Z",
+        "reactions": null,
+        "item_id": "6h78Phpj8jH59jWq"
+      },
+      {
+        "id": "6h78Wcp6Cm7C3hrH",
+        "posted_uid": "59820153",
+        "content": "Test comment from Nango dryrun",
+        "file_attachment": null,
+        "uids_to_notify": null,
+        "is_deleted": false,
+        "posted_at": "2026-07-21T06:05:16.190966Z",
+        "reactions": null,
+        "item_id": "6h78Phpj8jH59jWq"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/comments": {
+        "response": {
+          "results": [
+            {
+              "id": "6h78PmPWvxqw3H8q",
+              "posted_uid": "59820153",
+              "content": "Nango seed comment - keep (updated by dryrun)",
+              "file_attachment": null,
+              "uids_to_notify": null,
+              "is_deleted": false,
+              "posted_at": "2026-07-21T05:42:07.985520Z",
+              "reactions": null,
+              "item_id": "6h78Phpj8jH59jWq"
+            },
+            {
+              "id": "6h78PqQc9PPwR4xH",
+              "posted_uid": "59820153",
+              "content": "Nango seed comment - delete 2",
+              "file_attachment": null,
+              "uids_to_notify": null,
+              "is_deleted": false,
+              "posted_at": "2026-07-21T05:42:30.152594Z",
+              "reactions": null,
+              "item_id": "6h78Phpj8jH59jWq"
+            },
+            {
+              "id": "6h78W8pwRGHW8ggH",
+              "posted_uid": "59820153",
+              "content": "Test comment from Nango dryrun",
+              "file_attachment": null,
+              "uids_to_notify": null,
+              "is_deleted": false,
+              "posted_at": "2026-07-21T06:02:39.817845Z",
+              "reactions": null,
+              "item_id": "6h78Phpj8jH59jWq"
+            },
+            {
+              "id": "6h78W9W5MJ3PWqMq",
+              "posted_uid": "59820153",
+              "content": "Test comment from Nango dryrun",
+              "file_attachment": null,
+              "uids_to_notify": null,
+              "is_deleted": false,
+              "posted_at": "2026-07-21T06:02:47.626940Z",
+              "reactions": null,
+              "item_id": "6h78Phpj8jH59jWq"
+            },
+            {
+              "id": "6h78WR7Gj48VWgXq",
+              "posted_uid": "59820153",
+              "content": "Test comment from Nango dryrun",
+              "file_attachment": null,
+              "uids_to_notify": null,
+              "is_deleted": false,
+              "posted_at": "2026-07-21T06:04:24.723779Z",
+              "reactions": null,
+              "item_id": "6h78Phpj8jH59jWq"
+            },
+            {
+              "id": "6h78WRgQ8h5FH9Vq",
+              "posted_uid": "59820153",
+              "content": "Test comment from Nango dryrun",
+              "file_attachment": null,
+              "uids_to_notify": null,
+              "is_deleted": false,
+              "posted_at": "2026-07-21T06:04:30.596784Z",
+              "reactions": null,
+              "item_id": "6h78Phpj8jH59jWq"
+            },
+            {
+              "id": "6h78Wc47p4wXFxvq",
+              "posted_uid": "59820153",
+              "content": "Test comment from Nango dryrun",
+              "file_attachment": null,
+              "uids_to_notify": null,
+              "is_deleted": false,
+              "posted_at": "2026-07-21T06:05:08.396023Z",
+              "reactions": null,
+              "item_id": "6h78Phpj8jH59jWq"
+            },
+            {
+              "id": "6h78Wcp6Cm7C3hrH",
+              "posted_uid": "59820153",
+              "content": "Test comment from Nango dryrun",
+              "file_attachment": null,
+              "uids_to_notify": null,
+              "is_deleted": false,
+              "posted_at": "2026-07-21T06:05:16.190966Z",
+              "reactions": null,
+              "item_id": "6h78Phpj8jH59jWq"
+            }
+          ],
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 06:12:57 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "160",
+          "x-ratelimit-reset": "1784614384",
+          "vary": "Accept-Encoding",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "server": "gunicorn",
+          "set-cookie": "csrf=ebf7a6f96bdb4671b08c46ba46067f9f; Expires=Fri, 18-Jul-2036 06:12:57 GMT; Secure; Path=/; SameSite=None, tduser=v4.public.eyJ1c2VyX2lkIjogNTk4MjAxNTMsICJleHAiOiAiMjAyNi0wOC0wNFQwNjoxMjo1NyswMDowMCJ9O7pXVF1MEd4PbtqiHcrgGMk0bM3zNqLe_uErP1k23VEwFtfYiBXdSIzfRFjjml0CYDFb-dO_NzKtLQa6QLu3Cg; Domain=.todoist.com; Expires=Tue, 04-Aug-2026 06:12:57 GMT; Max-Age=1209600; Secure; HttpOnly; Path=/",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 a454a679efa1e16833b77cb6af61e11c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "BpvmWqgyEuJjBUw9UBVNCvvz2fb4L_Hg2lFSrD4jMXXY1UcUaQALHQ=="
+        },
+        "hash": "894c79e0faf072a26ec115b7697b242e9ea27062",
+        "request": {
+          "params": {
+            "task_id": "6h78Phpj8jH59jWq"
+          }
+        }
+      }
+    }
+  }
+}

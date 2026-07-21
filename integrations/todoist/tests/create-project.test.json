@@ -1,0 +1,89 @@
+{
+  "input": {
+    "name": "Nango Test Project"
+  },
+  "output": {
+    "id": "6h78c5qRhC9J2Mmf",
+    "can_assign_tasks": false,
+    "can_comment": true,
+    "child_order": 8,
+    "is_collapsed": false,
+    "color": "charcoal",
+    "creator_uid": "59820153",
+    "created_at": "2026-07-21T06:14:06.672554Z",
+    "is_archived": false,
+    "is_deleted": false,
+    "is_favorite": false,
+    "is_frozen": false,
+    "name": "Nango Test Project",
+    "is_shared": false,
+    "updated_at": "2026-07-21T06:14:06.672570Z",
+    "view_style": "list",
+    "default_order": 0,
+    "description": "",
+    "inbox_project": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v1/projects": {
+        "response": {
+          "id": "6h78c5qRhC9J2Mmf",
+          "can_assign_tasks": false,
+          "can_comment": true,
+          "child_order": 8,
+          "is_collapsed": false,
+          "color": "charcoal",
+          "creator_uid": "59820153",
+          "created_at": "2026-07-21T06:14:06.672554Z",
+          "is_archived": false,
+          "is_deleted": false,
+          "is_favorite": false,
+          "is_frozen": false,
+          "name": "Nango Test Project",
+          "is_shared": false,
+          "updated_at": "2026-07-21T06:14:06.672570Z",
+          "view_style": "list",
+          "default_order": 0,
+          "description": "",
+          "public_access": false,
+          "public_key": "a7fd149c-e203-4b2a-a658-56e0b13efd5a",
+          "access": {
+            "visibility": "restricted",
+            "configuration": {}
+          },
+          "role": "CREATOR",
+          "goal_ids": [],
+          "parent_id": null,
+          "inbox_project": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 06:14:07 GMT",
+          "content-type": "application/json",
+          "content-length": "701",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "197",
+          "x-ratelimit-reset": "1784614506",
+          "etag": "W/\"2bd-7X8F4Sa6ivZsGMIAZpmlWck9CjY\""
+        },
+        "hash": "ba22834c5f7d8b3fddf3568ba0183c6424eac120",
+        "request": {
+          "data": {
+            "name": "Nango Test Project"
+          }
+        }
+      }
+    }
+  }
+}
