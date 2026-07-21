@@ -13,7 +13,7 @@ const AttachmentSchema = z
 const InputSchema = z.object({
     task_id: z.string().optional().describe('Task ID to attach the comment to. Example: "6h78Phpj8jH59jWq"'),
     project_id: z.string().optional().describe('Project ID to attach the comment to. Example: "6h78PW84RjxxRW8q"'),
-    content: z.string().describe('Comment content. Example: "This is a comment"'),
+    content: z.string().min(1).max(15000).describe('Comment content. Example: "This is a comment"'),
     attachment: AttachmentSchema.optional()
 });
 
@@ -48,6 +48,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['data:read_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if ((input['task_id'] === undefined && input['project_id'] === undefined) || (input['task_id'] !== undefined && input['project_id'] !== undefined)) {

@@ -46,10 +46,15 @@ const TaskSchema = z
             })
             .nullable(),
         is_collapsed: z.boolean().optional(),
-        order: z.number().int().optional(),
+        child_order: z.number().int().optional(),
         url: z.string().optional()
     })
     .passthrough();
+
+const ProviderResponseSchema = z.object({
+    results: z.array(z.unknown()),
+    next_cursor: z.string().nullable().optional()
+});
 
 const OutputSchema = z.object({
     results: z.array(TaskSchema),
@@ -78,22 +83,22 @@ const action = createAction({
             retries: 3
         });
 
-        if (response.data === null || typeof response.data !== 'object') {
-            throw new Error('Unexpected response from Todoist API: non-object response');
+        const parsedResponse = ProviderResponseSchema.safeParse(response.data);
+        if (!parsedResponse.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Response failed schema validation',
+                details: parsedResponse.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`)
+            });
         }
 
-        const data = response.data;
-
-        const results = 'results' in data && Array.isArray(data.results) ? data.results : [];
-        const nextCursor = 'next_cursor' in data && typeof data.next_cursor === 'string' ? data.next_cursor : undefined;
-
-        const parsedResults = results.map((item: unknown) => {
+        const parsedResults = parsedResponse.data.results.map((item: unknown) => {
             return TaskSchema.parse(item);
         });
 
         return {
             results: parsedResults,
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            ...(parsedResponse.data.next_cursor != null && { next_cursor: parsedResponse.data.next_cursor })
         };
     }
 });

@@ -1,13 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    label_id: z.string().describe('The ID of the personal label to update. Example: "2184371051"'),
-    name: z.string().optional().describe('New name for the label.'),
-    color: z.string().optional().describe('New color for the label.'),
-    order: z.number().optional().describe('New order index for the label.'),
-    is_favorite: z.boolean().optional().describe('Whether the label should be marked as favorite.')
-});
+const InputSchema = z
+    .object({
+        label_id: z.string().describe('The ID of the personal label to update. Example: "2184371051"'),
+        name: z.string().optional().describe('New name for the label.'),
+        color: z.string().optional().describe('New color for the label.'),
+        order: z.number().int().optional().describe('New order index for the label.'),
+        is_favorite: z.boolean().optional().describe('Whether the label should be marked as favorite.')
+    })
+    .refine((input) => input.name !== undefined || input.color !== undefined || input.order !== undefined || input.is_favorite !== undefined, {
+        message: 'At least one of name, color, order, or is_favorite must be provided.'
+    });
 
 const ProviderLabelSchema = z.object({
     id: z.string(),
@@ -30,6 +34,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['data:read_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: Record<string, unknown> = {};

@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     name: z.string().describe('Label name. Example: "Urgent"'),
-    color: z.string().optional().describe('Label color name or legacy color code. Example: "charcoal"'),
+    color: z.union([z.string(), z.number()]).optional().describe('Label color name or legacy numeric color code. Example: "charcoal"'),
     order: z.number().optional().describe('Custom label order value. Example: 0'),
     is_favorite: z.boolean().optional().describe('Whether the label should be marked as favorite. Example: false')
 });

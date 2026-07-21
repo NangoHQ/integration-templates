@@ -10,14 +10,14 @@ const ProviderSectionSchema = z.object({
     id: z.string(),
     name: z.string(),
     project_id: z.string(),
-    order: z.number().optional()
+    section_order: z.number().optional()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
     name: z.string(),
     project_id: z.string(),
-    order: z.number().optional()
+    section_order: z.number().optional()
 });
 
 const action = createAction({
@@ -25,6 +25,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['data:read_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -42,7 +43,7 @@ const action = createAction({
             id: providerSection.id,
             name: providerSection.name,
             project_id: providerSection.project_id,
-            ...(providerSection.order !== undefined && { order: providerSection.order })
+            ...(providerSection.section_order !== undefined && { section_order: providerSection.section_order })
         };
     }
 });

@@ -94,7 +94,7 @@ const InputSchema = z.object({
     filter_query: z.string().optional().describe('Filter expression matching supported Todoist filters.'),
     filter_lang: z.string().optional().describe('Language for interpreting filter_query. Example: "en"'),
     cursor: z.string().optional().describe('Pagination cursor from a previous response. Omit for the first page.'),
-    limit: z.number().int().optional().describe('Maximum items per page. Default: 50.')
+    limit: z.number().int().min(1).max(200).optional().describe('Maximum items per page. Default: 50.')
 });
 
 const OutputSchema = z.object({

@@ -20,14 +20,7 @@ const ProviderResponseSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    results: z.array(
-        z.object({
-            id: z.string(),
-            name: z.string(),
-            project_id: z.string(),
-            section_order: z.number().int().optional()
-        })
-    ),
+    results: z.array(SectionSchema),
     next_cursor: z.string().optional()
 });
 

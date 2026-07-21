@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    name: z.string().describe('The label name to remove from all tasks. Example: "nango-seed-keep"')
+    name: z.string().trim().min(1).describe('The label name to remove from all tasks. Example: "nango-seed-keep"')
 });
 
 const OutputSchema = z.object({
@@ -14,7 +14,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['data:write'],
+    scopes: ['data:read_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

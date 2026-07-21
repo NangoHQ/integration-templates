@@ -2,8 +2,17 @@ import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const LIMIT = 100;
+const COMPLETED_TASK_LOOKBACK_DAYS = 366;
+// Todoist rejects a since/until range wider than 3 months ("completion date range must not exceed 3 months").
+const COMPLETED_TASK_WINDOW_DAYS = 84;
 
 const ProviderTaskSchema = z
+    .object({
+        id: z.string()
+    })
+    .passthrough();
+
+const ProviderCompletedTaskSchema = z
     .object({
         id: z.string()
     })
@@ -130,16 +139,59 @@ const sync = createSync({
             retries: 3
         };
 
-        const tasks: string[] = [];
+        const taskIds = new Set<string>();
         for await (const page of nango.paginate(taskConfig)) {
             for (const raw of page) {
                 const parsed = ProviderTaskSchema.safeParse(raw);
                 if (!parsed.success) {
                     throw new Error(`Invalid task record: ${JSON.stringify(raw)}`);
                 }
-                tasks.push(parsed.data.id);
+                taskIds.add(parsed.data.id);
             }
         }
+
+        // GET /api/v1/tasks only returns active tasks, so a task's comments would
+        // fall out of this sync (and get soft-deleted) as soon as it's completed.
+        // The completed-tasks endpoints require a bounded since/until window, so we
+        // walk back COMPLETED_TASK_LOOKBACK_DAYS in windows to also cover recently
+        // completed tasks; comments on tasks completed further back than that remain
+        // exposed to this same limitation.
+        let windowEnd = new Date();
+        const cutoff = new Date(windowEnd.getTime() - COMPLETED_TASK_LOOKBACK_DAYS * 24 * 60 * 60 * 1000);
+        while (windowEnd > cutoff) {
+            const windowStart = new Date(Math.max(windowEnd.getTime() - COMPLETED_TASK_WINDOW_DAYS * 24 * 60 * 60 * 1000, cutoff.getTime()));
+
+            const completedTaskConfig: ProxyConfiguration = {
+                // https://developer.todoist.com/api/v1/#get-tasks-completed-by-completion-date
+                endpoint: '/api/v1/tasks/completed/by_completion_date',
+                params: {
+                    since: windowStart.toISOString(),
+                    until: windowEnd.toISOString()
+                },
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'cursor',
+                    cursor_path_in_response: 'next_cursor',
+                    response_path: 'items',
+                    limit_name_in_request: 'limit',
+                    limit: LIMIT
+                },
+                retries: 3
+            };
+
+            for await (const page of nango.paginate(completedTaskConfig)) {
+                for (const raw of page) {
+                    const parsed = ProviderCompletedTaskSchema.safeParse(raw);
+                    if (parsed.success) {
+                        taskIds.add(parsed.data.id);
+                    }
+                }
+            }
+
+            windowEnd = windowStart;
+        }
+
+        const tasks = [...taskIds];
 
         const syncCommentsForScopes = async ({
             phase,

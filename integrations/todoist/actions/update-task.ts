@@ -11,9 +11,9 @@ const InputSchema = z.object({
     due_date: z.string().optional().describe('Due date in YYYY-MM-DD format.'),
     due_datetime: z.string().optional().describe('Due date and time in RFC 3339 format.'),
     due_lang: z.string().optional().describe('Language code for due date parsing.'),
-    duration: z.union([z.number().int(), z.null()]).optional().describe('Task duration amount, or null to clear.'),
-    duration_unit: z.union([z.string(), z.null()]).optional().describe('Duration unit (minute or day), or null to clear.'),
-    deadline_date: z.union([z.string(), z.null()]).optional().describe('Deadline date in YYYY-MM-DD format, or null to clear.')
+    duration: z.number().int().nullable().optional().describe('Task duration amount, or null to clear.'),
+    duration_unit: z.enum(['minute', 'day']).nullable().optional().describe('Duration unit (minute or day), or null to clear.'),
+    deadline_date: z.string().nullable().optional().describe('Deadline date in YYYY-MM-DD format, or null to clear.')
 });
 
 const DueSchema = z.object({

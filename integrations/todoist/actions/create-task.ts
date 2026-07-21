@@ -11,7 +11,7 @@ const InputSchema = z
         order: z.number().optional().describe('Position of the task in the project or section'),
         labels: z.array(z.string()).optional().describe('List of label names. Example: ["nango-seed-keep"]'),
         priority: z.number().int().min(1).max(4).optional().describe('Task priority from 1 (normal) to 4 (urgent). UI P1 corresponds to API priority 4.'),
-        assignee_id: z.number().optional().describe('ID of the user to assign the task to'),
+        assignee_id: z.string().optional().describe('ID of the user to assign the task to'),
         due_string: z.string().optional().describe('Human-readable due date. Example: "tomorrow at 10am"'),
         due_date: z.string().optional().describe('Due date in YYYY-MM-DD format'),
         due_datetime: z.string().optional().describe('Due date and time in RFC 3339 format'),
@@ -35,7 +35,7 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         id: z.string(),
-        user_id: z.string(),
+        user_id: z.string().optional(),
         project_id: z.string(),
         section_id: z.string().nullable().optional(),
         parent_id: z.string().nullable().optional(),

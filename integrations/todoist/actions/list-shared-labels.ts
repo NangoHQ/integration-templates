@@ -4,7 +4,12 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     omit_personal: z.boolean().optional().describe('Whether to exclude labels that are also personal labels.'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of labels to return per page.')
+    limit: z.number().int().min(1).max(200).optional().describe('Maximum number of labels to return per page.')
+});
+
+const ProviderResponseSchema = z.object({
+    results: z.array(z.string()),
+    next_cursor: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -17,6 +22,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['data:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -30,21 +36,18 @@ const action = createAction({
             retries: 3
         });
 
-        const rawData = response.data;
-
-        if (!rawData || typeof rawData !== 'object') {
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
             throw new nango.ActionError({
                 type: 'invalid_response',
-                message: 'Unexpected response from Todoist API.'
+                message: 'Response failed schema validation',
+                details: parsed.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`)
             });
         }
 
-        const results = Array.isArray(rawData.results) ? rawData.results : [];
-        const nextCursor = rawData.next_cursor != null ? String(rawData.next_cursor) : undefined;
-
         return {
-            results: results.filter((item: unknown): item is string => typeof item === 'string'),
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            results: parsed.data.results,
+            ...(parsed.data.next_cursor != null && { next_cursor: parsed.data.next_cursor })
         };
     }
 });

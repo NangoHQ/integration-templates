@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Number of items to return per page.')
+    limit: z.number().int().min(1).max(200).optional().describe('Number of items to return per page.')
 });
 
 const ProjectSchema = z
@@ -12,7 +12,7 @@ const ProjectSchema = z
         name: z.string().optional(),
         color: z.string().optional(),
         parent_id: z.string().nullable().optional(),
-        order: z.number().optional(),
+        child_order: z.number().optional(),
         comment_count: z.number().optional(),
         is_shared: z.boolean().optional(),
         is_favorite: z.boolean().optional(),

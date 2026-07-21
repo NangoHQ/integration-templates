@@ -7,8 +7,9 @@ const InputSchema = z.object({
     workspace_id: z.string().optional().describe('Workspace ID to filter by.'),
     project_id: z.string().optional().describe('Project ID to filter by.'),
     section_id: z.string().optional().describe('Section ID to filter by.'),
+    parent_id: z.string().optional().describe('Parent task ID to filter completed subtasks by.'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().int().optional().describe('Maximum number of items to return per page.')
+    limit: z.number().int().min(1).max(200).optional().describe('Maximum number of items to return per page.')
 });
 
 const ProviderDueSchema = z.object({
@@ -25,7 +26,8 @@ const ProviderDurationSchema = z.object({
 });
 
 const ProviderDeadlineSchema = z.object({
-    date: z.string().optional()
+    date: z.string().optional(),
+    lang: z.string().optional()
 });
 
 const ProviderCompletedTaskSchema = z.object({
@@ -38,15 +40,15 @@ const ProviderCompletedTaskSchema = z.object({
     assigned_by_uid: z.string().nullable().optional(),
     responsible_uid: z.string().nullable().optional(),
     labels: z.array(z.string()),
-    deadline: z.union([ProviderDeadlineSchema, z.null()]).optional(),
-    duration: z.union([ProviderDurationSchema, z.null()]).optional(),
+    deadline: ProviderDeadlineSchema.nullable().optional(),
+    duration: ProviderDurationSchema.nullable().optional(),
     checked: z.boolean(),
     is_deleted: z.boolean(),
     added_at: z.string().nullable().optional(),
     completed_at: z.string().nullable().optional(),
     completed_by_uid: z.string().nullable().optional(),
     updated_at: z.string().nullable().optional(),
-    due: z.union([ProviderDueSchema, z.null()]).optional(),
+    due: ProviderDueSchema.nullable().optional(),
     priority: z.number().int(),
     child_order: z.number().int(),
     content: z.string(),
@@ -80,7 +82,8 @@ const DurationSchema = z
 
 const DeadlineSchema = z
     .object({
-        date: z.string().optional()
+        date: z.string().optional(),
+        lang: z.string().optional()
     })
     .optional();
 
@@ -144,6 +147,7 @@ const action = createAction({
             workspace_id?: string;
             project_id?: string;
             section_id?: string;
+            parent_id?: string;
             cursor?: string;
             limit?: number;
         } = {
@@ -161,6 +165,10 @@ const action = createAction({
 
         if (input.section_id !== undefined) {
             params.section_id = input.section_id;
+        }
+
+        if (input.parent_id !== undefined) {
+            params.parent_id = input.parent_id;
         }
 
         if (input.cursor !== undefined) {

@@ -14,10 +14,10 @@ const ProviderTaskSchema = z.object({
     priority: z.number(),
     due: z.record(z.string(), z.unknown()).nullable().optional(),
     duration: z.record(z.string(), z.unknown()).nullable().optional(),
-    assignee_id: z.string().nullable().optional(),
-    assigner_id: z.string().nullable().optional(),
-    creator_id: z.string().optional(),
-    created_at: z.string().optional(),
+    responsible_uid: z.string().nullable().optional(),
+    assigned_by_uid: z.string().nullable().optional(),
+    added_by_uid: z.string().optional(),
+    added_at: z.string().optional(),
     updated_at: z.string().nullable().optional()
 });
 
@@ -32,10 +32,10 @@ const TaskModelSchema = z.object({
     priority: z.number(),
     due: z.record(z.string(), z.unknown()).optional(),
     duration: z.record(z.string(), z.unknown()).optional(),
-    assignee_id: z.string().optional(),
-    assigner_id: z.string().optional(),
-    creator_id: z.string().optional(),
-    created_at: z.string().optional(),
+    responsible_uid: z.string().optional(),
+    assigned_by_uid: z.string().optional(),
+    added_by_uid: z.string().optional(),
+    added_at: z.string().optional(),
     updated_at: z.string().optional()
 });
 
@@ -98,10 +98,10 @@ const sync = createSync({
                     priority: parsed.priority,
                     ...(parsed.due != null && { due: parsed.due }),
                     ...(parsed.duration != null && { duration: parsed.duration }),
-                    ...(parsed.assignee_id != null && { assignee_id: parsed.assignee_id }),
-                    ...(parsed.assigner_id != null && { assigner_id: parsed.assigner_id }),
-                    ...(parsed.creator_id != null && { creator_id: parsed.creator_id }),
-                    ...(parsed.created_at != null && { created_at: parsed.created_at }),
+                    ...(parsed.responsible_uid != null && { responsible_uid: parsed.responsible_uid }),
+                    ...(parsed.assigned_by_uid != null && { assigned_by_uid: parsed.assigned_by_uid }),
+                    ...(parsed.added_by_uid != null && { added_by_uid: parsed.added_by_uid }),
+                    ...(parsed.added_at != null && { added_at: parsed.added_at }),
                     ...(parsed.updated_at != null && { updated_at: parsed.updated_at })
                 };
             });
