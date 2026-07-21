@@ -58,8 +58,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: POST /senders/domains accepts no params and returns the full collection
         // in a single call with no pagination and no modified-since filter documented.
-        await nango.trackDeletesStart('SenderDomain');
-
         // https://mailchimp.com/developer/transactional/api/senders/list-sender-domains/
         const response = await nango.post({
             endpoint: '/1.0/senders/domains',
@@ -103,6 +101,7 @@ const sync = createSync({
             });
         }
 
+        await nango.trackDeletesStart('SenderDomain');
         if (domains.length > 0) {
             await nango.batchSave(domains, 'SenderDomain');
         }

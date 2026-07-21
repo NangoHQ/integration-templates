@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    name: z.string().max(64).describe('The unique identifier of the metadata field to delete. Example: "group_id"')
+    name: z.string().min(1).max(64).describe('The unique identifier of the metadata field to delete. Example: "group_id"')
 });
 
 const ProviderMetadataSchema = z.object({

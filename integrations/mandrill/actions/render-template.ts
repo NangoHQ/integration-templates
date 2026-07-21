@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const TemplateContentSchema = z.object({
-    name: z.string().nullable().optional().describe('Name of the mc:edit editable region to inject into. Example: "editable"'),
-    content: z.string().nullable().optional().describe('Content to inject into the editable region. Example: "content"')
+    name: z.string().describe('Name of the mc:edit editable region to inject into. Example: "editable"'),
+    content: z.string().describe('Content to inject into the editable region. Example: "content"')
 });
 
 const MergeVarSchema = z.object({

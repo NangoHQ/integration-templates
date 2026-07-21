@@ -56,7 +56,7 @@ const action = createAction({
                 ...(input.notes !== undefined && { notes: input.notes }),
                 ...(input.custom_quota !== undefined && { custom_quota: input.custom_quota })
             },
-            retries: 10
+            retries: 3
         });
 
         const providerSubaccount = ProviderSubaccountSchema.parse(response.data);

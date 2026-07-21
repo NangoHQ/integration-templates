@@ -6,7 +6,7 @@ const InputSchema = z.object({
 });
 
 const ProviderScheduledMessageSchema = z.object({
-    _id: z.string().optional(),
+    _id: z.string(),
     created_at: z.string().optional(),
     send_at: z.string().optional(),
     from_email: z.string().optional(),
@@ -17,7 +17,7 @@ const ProviderScheduledMessageSchema = z.object({
 const OutputSchema = z.object({
     items: z.array(
         z.object({
-            _id: z.string().optional(),
+            _id: z.string(),
             created_at: z.string().optional(),
             send_at: z.string().optional(),
             from_email: z.string().optional(),
@@ -47,7 +47,7 @@ const action = createAction({
         const providerMessages = z.array(ProviderScheduledMessageSchema).parse(response.data);
 
         const items = providerMessages.map((msg) => ({
-            ...(msg._id != null && { _id: msg._id }),
+            _id: msg._id,
             ...(msg.created_at != null && { created_at: msg.created_at }),
             ...(msg.send_at != null && { send_at: msg.send_at }),
             ...(msg.from_email != null && { from_email: msg.from_email }),

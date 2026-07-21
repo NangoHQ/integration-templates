@@ -41,7 +41,7 @@ const action = createAction({
                 send_at: input.send_at
             },
             baseUrlOverride: 'https://mandrillapp.com/api/1.0',
-            retries: 10
+            retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

@@ -34,7 +34,7 @@ const action = createAction({
                 ...(input.comment !== undefined && { comment: input.comment }),
                 ...(input.subaccount !== undefined && { subaccount: input.subaccount })
             },
-            retries: 10
+            retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

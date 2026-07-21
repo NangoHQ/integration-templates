@@ -39,7 +39,7 @@ const ProviderMessageSchema = z.object({
     clicks: z.number().nullish(),
     clicks_detail: z.array(ProviderClickDetailSchema).nullish(),
     state: z.string().nullish(),
-    metadata: z.record(z.string(), z.string()).nullish()
+    metadata: z.record(z.string(), z.union([z.string(), z.number(), z.boolean(), z.null()])).nullish()
 });
 
 const MessageSchema = z.object({
@@ -74,7 +74,7 @@ const MessageSchema = z.object({
         )
         .optional(),
     state: z.string().optional(),
-    metadata: z.record(z.string(), z.string()).optional()
+    metadata: z.record(z.string(), z.union([z.string(), z.number(), z.boolean(), z.null()])).optional()
 });
 
 const OutputSchema = z.array(MessageSchema);

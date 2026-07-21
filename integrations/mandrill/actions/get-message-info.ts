@@ -32,7 +32,7 @@ const ProviderResendSchema = z.object({
 
 const ProviderMessageDetailSchema = z.object({
     ts: z.number().nullish(),
-    _id: z.string().nullish(),
+    _id: z.string(),
     sender: z.string().nullish(),
     template: z.string().nullish(),
     subject: z.string().nullish(),
@@ -43,7 +43,7 @@ const ProviderMessageDetailSchema = z.object({
     clicks: z.number().nullish(),
     clicks_detail: z.array(ProviderClickDetailSchema).nullish(),
     state: z.string().nullish(),
-    metadata: z.record(z.string(), z.string()).nullish(),
+    metadata: z.record(z.string(), z.union([z.string(), z.number(), z.boolean(), z.null()])).nullish(),
     smtp_events: z.array(ProviderSmtpEventSchema).nullish(),
     resends: z.array(ProviderResendSchema).nullish()
 });
@@ -80,7 +80,7 @@ const OutputSchema = z.object({
         )
         .optional(),
     state: z.string().optional(),
-    metadata: z.record(z.string(), z.string()).optional(),
+    metadata: z.record(z.string(), z.union([z.string(), z.number(), z.boolean(), z.null()])).optional(),
     smtp_events: z
         .array(
             z.object({
@@ -99,6 +99,17 @@ const OutputSchema = z.object({
         .optional()
 });
 
+const MandrillErrorSchema = z.object({
+    response: z.object({
+        data: z.object({
+            status: z.string(),
+            code: z.number(),
+            name: z.string(),
+            message: z.string()
+        })
+    })
+});
+
 const action = createAction({
     description: 'Get delivery/tracking information for a single recently sent message.',
     version: '1.0.0',
@@ -106,21 +117,28 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://mailchimp.com/developer/transactional/api/messages/get-message-info/
-        const response = await nango.post({
-            endpoint: '1.3/messages/info.json',
-            data: {
-                id: input.id
-            },
-            retries: 3
-        });
-
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Message not found',
-                id: input.id
+        let response;
+        // @allowTryCatch Mandrill returns a 404 with a JSON error body for unknown message ids;
+        // we map it to a descriptive ActionError instead of letting the raw provider error leak through.
+        try {
+            // https://mailchimp.com/developer/transactional/api/messages/get-message-info/
+            response = await nango.post({
+                endpoint: '1.3/messages/info.json',
+                data: {
+                    id: input.id
+                },
+                retries: 3
             });
+        } catch (error) {
+            const parsedError = MandrillErrorSchema.safeParse(error);
+            if (parsedError.success && parsedError.data.response.data.name === 'Unknown_Message') {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: parsedError.data.response.data.message,
+                    id: input.id
+                });
+            }
+            throw error;
         }
 
         const raw = ProviderMessageDetailSchema.parse(response.data);

@@ -26,7 +26,8 @@ const SenderSchema = z.object({
     opens: z.number().optional(),
     clicks: z.number().optional(),
     unique_clicks: z.number().optional(),
-    unique_opens: z.number().optional()
+    unique_opens: z.number().optional(),
+    reputation: z.number().optional()
 });
 
 const OutputSchema = SenderSchema.merge(

@@ -6,7 +6,7 @@ const InputSchema = z.object({
 });
 
 const ProviderTemplateInfoSchema = z.object({
-    slug: z.string().nullable().optional(),
+    slug: z.string(),
     name: z.string().nullable().optional(),
     labels: z.array(z.string()).nullable().optional(),
     code: z.string().nullable().optional(),
@@ -26,7 +26,7 @@ const ProviderTemplateInfoSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    slug: z.string().optional(),
+    slug: z.string(),
     name: z.string().optional(),
     labels: z.array(z.string()).optional(),
     code: z.string().optional(),
@@ -64,7 +64,7 @@ const action = createAction({
         const providerTemplate = ProviderTemplateInfoSchema.parse(response.data);
 
         return {
-            ...(providerTemplate.slug !== undefined && providerTemplate.slug != null && { slug: providerTemplate.slug }),
+            slug: providerTemplate.slug,
             ...(providerTemplate.name !== undefined && providerTemplate.name != null && { name: providerTemplate.name }),
             ...(providerTemplate.labels !== undefined && providerTemplate.labels != null && { labels: providerTemplate.labels }),
             ...(providerTemplate.code !== undefined && providerTemplate.code != null && { code: providerTemplate.code }),

@@ -26,8 +26,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes POST /inbound/domains with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor. Treat as full-refresh snapshot.
-        await nango.trackDeletesStart('InboundDomain');
-
         // https://mailchimp.com/developer/transactional/api/inbound/list-inbound-domains/
         const response = await nango.post({
             endpoint: '/1.3/inbound/domains',
@@ -46,6 +44,7 @@ const sync = createSync({
             ...(item.valid_mx != null && { valid_mx: item.valid_mx })
         }));
 
+        await nango.trackDeletesStart('InboundDomain');
         if (domains.length > 0) {
             await nango.batchSave(domains, 'InboundDomain');
         }

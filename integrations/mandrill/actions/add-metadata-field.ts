@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    name: z.string().max(64).describe('Unique identifier for the metadata field. Example: "group_id"'),
+    name: z.string().min(1).max(64).describe('Unique identifier for the metadata field. Example: "group_id"'),
     view_template: z.string().max(1024).optional().describe('Optional Mustache template to control how the metadata is rendered in your activity log.')
 });
 

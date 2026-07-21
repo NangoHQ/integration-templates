@@ -63,8 +63,6 @@ const sync = createSync({
         // Blocker: POST /ips/list-pools returns the full collection in a single
         // call with no pagination parameters and no modified-since/updated-after
         // filter documented. Full refresh is required.
-        await nango.trackDeletesStart('IpPool');
-
         // https://mailchimp.com/developer/transactional/api/ips/list-ip-pools/
         const response = await nango.post({
             endpoint: '/1.0/ips/list-pools.json',
@@ -99,6 +97,7 @@ const sync = createSync({
             }))
         }));
 
+        await nango.trackDeletesStart('IpPool');
         if (records.length > 0) {
             await nango.batchSave(records, 'IpPool');
         }

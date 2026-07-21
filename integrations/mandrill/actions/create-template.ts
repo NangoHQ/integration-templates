@@ -34,7 +34,7 @@ const ProviderTemplateSchema = z.object({
     published_at: z.string().nullable().optional(),
     created_at: z.string(),
     updated_at: z.string(),
-    draft_updated_at: z.string().optional(),
+    draft_updated_at: z.string().nullable().optional(),
     is_broken_template: z.boolean()
 });
 
@@ -111,7 +111,7 @@ const action = createAction({
             ...(providerTemplate.published_at != null && { published_at: providerTemplate.published_at }),
             created_at: providerTemplate.created_at,
             updated_at: providerTemplate.updated_at,
-            ...(providerTemplate.draft_updated_at !== undefined && { draft_updated_at: providerTemplate.draft_updated_at }),
+            ...(providerTemplate.draft_updated_at != null && { draft_updated_at: providerTemplate.draft_updated_at }),
             is_broken_template: providerTemplate.is_broken_template
         };
     }

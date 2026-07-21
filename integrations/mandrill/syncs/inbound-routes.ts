@@ -45,7 +45,7 @@ const sync = createSync({
 
         const domains = parsedDomains.data;
 
-        await nango.trackDeletesStart('InboundRoute');
+        const recordsByDomain: { domain: string; records: z.infer<typeof InboundRouteModelSchema>[] }[] = [];
 
         for (const domain of domains) {
             // https://mailchimp.com/developer/transactional/api/inbound/list-routes/
@@ -62,17 +62,21 @@ const sync = createSync({
                 throw new Error(`Failed to parse inbound routes for domain ${domain.domain}: ${parsedRoutes.error.message}`);
             }
 
-            const routes = parsedRoutes.data;
+            const records = parsedRoutes.data.map((route) => ({
+                id: `${domain.domain}:${route.id}`,
+                domain: domain.domain,
+                route_id: route.id,
+                pattern: route.pattern,
+                url: route.url
+            }));
 
-            if (routes.length > 0) {
-                const records = routes.map((route) => ({
-                    id: `${domain.domain}:${route.id}`,
-                    domain: domain.domain,
-                    route_id: route.id,
-                    pattern: route.pattern,
-                    url: route.url
-                }));
+            recordsByDomain.push({ domain: domain.domain, records });
+        }
 
+        await nango.trackDeletesStart('InboundRoute');
+
+        for (const { records } of recordsByDomain) {
+            if (records.length > 0) {
                 await nango.batchSave(records, 'InboundRoute');
             }
         }

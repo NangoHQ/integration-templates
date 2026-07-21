@@ -29,8 +29,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: /senders/list returns the full collection in a single call
         // with no pagination parameters and no modified-since/updated-after filter documented.
-        await nango.trackDeletesStart('Sender');
-
         const config: ProxyConfiguration = {
             // https://mailchimp.com/developer/transactional/api/senders/
             endpoint: '/senders/list.json',
@@ -77,6 +75,7 @@ const sync = createSync({
             };
         });
 
+        await nango.trackDeletesStart('Sender');
         if (senders.length > 0) {
             await nango.batchSave(senders, 'Sender');
         }

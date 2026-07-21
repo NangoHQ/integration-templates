@@ -39,8 +39,6 @@ const sync = createSync({
             throw new Error('Unexpected response from /rejects/list: expected array');
         }
 
-        await nango.trackDeletesStart('Reject');
-
         const rejects = response.data.map((record: unknown) => {
             const parsed = z
                 .object({
@@ -82,6 +80,7 @@ const sync = createSync({
             };
         });
 
+        await nango.trackDeletesStart('Reject');
         if (rejects.length > 0) {
             await nango.batchSave(rejects, 'Reject');
         }

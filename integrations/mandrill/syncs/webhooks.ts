@@ -39,8 +39,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes POST /webhooks/list with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor.
-        await nango.trackDeletesStart('Webhook');
-
         // https://mailchimp.com/developer/transactional/api/webhooks/
         const response = await nango.post({
             endpoint: '/webhooks/list.json',
@@ -66,6 +64,7 @@ const sync = createSync({
             ...(webhook.last_error != null && { last_error: webhook.last_error })
         }));
 
+        await nango.trackDeletesStart('Webhook');
         if (webhooks.length > 0) {
             await nango.batchSave(webhooks, 'Webhook');
         }

@@ -19,6 +19,13 @@ const ProviderTrackingDomainSchema = z.object({
     valid_tracking: z.boolean()
 });
 
+const ProviderErrorEnvelopeSchema = z.object({
+    status: z.literal('error'),
+    code: z.number(),
+    name: z.string(),
+    message: z.string()
+});
+
 const OutputSchema = z.object({
     domain: z.string(),
     created_at: z.string(),
@@ -82,6 +89,16 @@ const action = createAction({
             }
 
             throw err;
+        }
+
+        const errorEnvelope = ProviderErrorEnvelopeSchema.safeParse(response.data);
+        if (errorEnvelope.success) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Unexpected provider error: ${errorEnvelope.data.message}`,
+                domain: input.domain,
+                providerResponse: errorEnvelope.data
+            });
         }
 
         const providerDomain = ProviderTrackingDomainSchema.parse(response.data);

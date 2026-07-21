@@ -30,7 +30,7 @@ const action = createAction({
                 email: input.email,
                 ...(input.comment !== undefined && { comment: input.comment })
             },
-            retries: 10
+            retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

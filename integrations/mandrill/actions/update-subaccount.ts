@@ -15,12 +15,12 @@ const InputSchema = z.object({
 
 const ProviderSubaccountSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
+    name: z.string().nullable().optional(),
     custom_quota: z.number().int().optional(),
     status: z.enum(['active', 'paused']),
     reputation: z.number().int(),
     created_at: z.string().optional(),
-    first_sent_at: z.string().optional(),
+    first_sent_at: z.string().nullable().optional(),
     sent_weekly: z.number().int().optional(),
     sent_monthly: z.number().int().optional(),
     sent_total: z.number().int().optional()
@@ -70,12 +70,12 @@ const action = createAction({
 
         return {
             id: subaccount.id,
-            ...(subaccount.name !== undefined && { name: subaccount.name }),
+            ...(subaccount.name != null && { name: subaccount.name }),
             ...(subaccount.custom_quota !== undefined && { custom_quota: subaccount.custom_quota }),
             status: subaccount.status,
             reputation: subaccount.reputation,
             ...(subaccount.created_at !== undefined && { created_at: subaccount.created_at }),
-            ...(subaccount.first_sent_at !== undefined && { first_sent_at: subaccount.first_sent_at }),
+            ...(subaccount.first_sent_at != null && { first_sent_at: subaccount.first_sent_at }),
             ...(subaccount.sent_weekly !== undefined && { sent_weekly: subaccount.sent_weekly }),
             ...(subaccount.sent_monthly !== undefined && { sent_monthly: subaccount.sent_monthly }),
             ...(subaccount.sent_total !== undefined && { sent_total: subaccount.sent_total })

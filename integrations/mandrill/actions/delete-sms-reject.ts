@@ -2,7 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    phone_number: z.string().describe('The phone number to remove from the SMS rejection denylist, in E.164 format. Example: "+12025551234"'),
+    phone_number: z
+        .string()
+        .regex(/^\+[1-9]\d{1,14}$/, 'Phone number must be in E.164 format, e.g. "+12025551234"')
+        .describe('The phone number to remove from the SMS rejection denylist, in E.164 format. Example: "+12025551234"'),
     subaccount: z.string().optional().describe('An optional unique identifier for the subaccount to limit the denylist deletion. Example: "cust-123"')
 });
 

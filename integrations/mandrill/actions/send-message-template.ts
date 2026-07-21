@@ -67,10 +67,7 @@ const MessageSchema = z.object({
     tags: z.array(z.string()).optional(),
     subaccount: z.string().optional().nullable(),
     google_analytics_domains: z.array(z.string()).optional(),
-    google_analytics_campaign: z
-        .union([z.string(), z.array(z.string())])
-        .optional()
-        .nullable(),
+    google_analytics_campaign: z.string().optional().nullable(),
     metadata: z.record(z.string(), z.unknown()).optional(),
     recipient_metadata: z.array(RecipientMetadataSchema).optional(),
     attachments: z.array(AttachmentSchema).optional(),

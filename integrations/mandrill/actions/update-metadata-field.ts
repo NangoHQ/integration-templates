@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    name: z.string().describe('The unique identifier of the metadata field to update. Example: "customer_id"'),
+    name: z.string().min(1).describe('The unique identifier of the metadata field to update. Example: "customer_id"'),
     view_template: z.string().optional().describe('A Mustache template to control how the metadata is rendered in your activity log.')
 });
 
@@ -15,7 +15,7 @@ const ErrorResponseSchema = z.object({
 const ProviderMetadataSchema = z.object({
     name: z.string(),
     state: z.string(),
-    view_template: z.string().optional()
+    view_template: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -57,7 +57,7 @@ const action = createAction({
         return {
             name: providerMetadata.name,
             state: providerMetadata.state,
-            ...(providerMetadata.view_template !== undefined && { view_template: providerMetadata.view_template })
+            ...(providerMetadata.view_template != null && { view_template: providerMetadata.view_template })
         };
     }
 });

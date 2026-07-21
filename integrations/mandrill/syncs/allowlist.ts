@@ -26,8 +26,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: POST /allowlists/list returns the full collection in a single
         // call with no pagination parameters and no modified-since filter documented.
-        await nango.trackDeletesStart('AllowlistEntry');
-
         // https://mailchimp.com/developer/transactional/api/allowlists/list-allowlist/
         const response = await nango.post({
             endpoint: '/1.0/allowlists/list.json',
@@ -43,6 +41,7 @@ const sync = createSync({
             ...(entry.created_at != null && { created_at: entry.created_at })
         }));
 
+        await nango.trackDeletesStart('AllowlistEntry');
         if (entries.length > 0) {
             await nango.batchSave(entries, 'AllowlistEntry');
         }

@@ -42,8 +42,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('DedicatedIp');
-
         // https://mailchimp.com/developer/transactional/api/ips/
         const response = await nango.post({
             endpoint: '1.0/ips/list.json',
@@ -66,6 +64,7 @@ const sync = createSync({
             warmup: ip.warmup
         }));
 
+        await nango.trackDeletesStart('DedicatedIp');
         if (ips.length > 0) {
             await nango.batchSave(ips, 'DedicatedIp');
         }

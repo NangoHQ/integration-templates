@@ -30,8 +30,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /rejects/list-sms with no changed-since
         // filter, no deleted-record endpoint, no pagination, and no resumable cursor.
-        await nango.trackDeletesStart('SmsReject');
-
         // https://mailchimp.com/developer/transactional/api/rejects/
         const response = await nango.post({
             endpoint: '1.4/rejects/list-sms',
@@ -45,15 +43,19 @@ const sync = createSync({
             throw new Error(`Invalid response from /rejects/list-sms: ${parsed.error.message}`);
         }
 
-        const records = parsed.data.map((item) => ({
-            id: item.phone,
-            phone: item.phone,
-            created_at: item.created_at,
-            ...(item.expires_at != null && { expires_at: item.expires_at }),
-            expired: item.expired,
-            ...(item.subaccount != null && { subaccount: item.subaccount })
-        }));
+        const records = parsed.data.map((item) => {
+            const id = item.subaccount != null ? `${item.phone}:${item.subaccount}` : item.phone;
+            return {
+                id,
+                phone: item.phone,
+                created_at: item.created_at,
+                ...(item.expires_at != null && { expires_at: item.expires_at }),
+                expired: item.expired,
+                ...(item.subaccount != null && { subaccount: item.subaccount })
+            };
+        });
 
+        await nango.trackDeletesStart('SmsReject');
         if (records.length > 0) {
             await nango.batchSave(records, 'SmsReject');
         }

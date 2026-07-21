@@ -52,8 +52,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Tag');
-
         // https://mailchimp.com/developer/transactional/api/tags/list-tags/
         const response = await nango.post({
             endpoint: '1.0/tags/list',
@@ -86,6 +84,7 @@ const sync = createSync({
             confidence: record.confidence
         }));
 
+        await nango.trackDeletesStart('Tag');
         if (tags.length > 0) {
             await nango.batchSave(tags, 'Tag');
         }

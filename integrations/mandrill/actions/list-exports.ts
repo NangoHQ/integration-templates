@@ -12,7 +12,7 @@ const ProviderExportSchema = z.object({
         .nullable()
         .optional()
         .describe('Date and time the export job finished in UTC YYYY-MM-DD HH:MM:SS format, or null if not finished. Example: "2013-01-01 12:35:28"'),
-    state: z.enum(['waiting', 'working', 'complete', 'error']).describe('Current state of the export job. Example: "waiting"'),
+    state: z.enum(['waiting', 'working', 'complete', 'error', 'expired']).describe('Current state of the export job. Example: "waiting"'),
     result_url: z
         .string()
         .nullable()
@@ -25,7 +25,7 @@ const ExportSchema = z.object({
     created_at: z.string(),
     type: z.enum(['reject', 'whitelist', 'allowlist', 'activity']),
     finished_at: z.string().optional(),
-    state: z.enum(['waiting', 'working', 'complete', 'error']),
+    state: z.enum(['waiting', 'working', 'complete', 'error', 'expired']),
     result_url: z.string().optional()
 });
 

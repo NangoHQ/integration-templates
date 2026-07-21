@@ -10,7 +10,7 @@ const ProviderExportSchema = z.object({
     created_at: z.string(),
     type: z.enum(['reject', 'whitelist', 'allowlist', 'activity']),
     finished_at: z.string().nullable().optional(),
-    state: z.enum(['waiting', 'working', 'complete', 'error']),
+    state: z.enum(['waiting', 'working', 'complete', 'error', 'expired']),
     result_url: z.string().nullable().optional()
 });
 

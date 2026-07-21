@@ -44,7 +44,7 @@ const action = createAction({
             data: {
                 id: input.id
             },
-            retries: 10
+            retries: 3
         });
 
         const providerSubaccount = ProviderSubaccountSchema.parse(response.data);

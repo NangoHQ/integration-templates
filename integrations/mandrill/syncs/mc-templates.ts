@@ -31,8 +31,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('McTemplate');
-
         // https://mailchimp.com/developer/transactional/api/mailchimp-templates/
         const response = await nango.post({
             endpoint: '/1.3/mctemplates/list.json',
@@ -63,6 +61,7 @@ const sync = createSync({
             };
         });
 
+        await nango.trackDeletesStart('McTemplate');
         if (templates.length > 0) {
             await nango.batchSave(templates, 'McTemplate');
         }

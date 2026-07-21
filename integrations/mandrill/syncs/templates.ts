@@ -56,8 +56,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: POST /templates/list returns the full collection in a single call
         // with no pagination parameters and no modified-since/updated-after filter documented.
-        await nango.trackDeletesStart('Template');
-
         // https://mailchimp.com/developer/transactional/api/templates/list-templates/
         const response = await nango.post({
             endpoint: '/1.0/templates/list.json',
@@ -92,6 +90,7 @@ const sync = createSync({
             ...(template.is_broken_template != null && { is_broken_template: template.is_broken_template })
         }));
 
+        await nango.trackDeletesStart('Template');
         if (templates.length > 0) {
             await nango.batchSave(templates, 'Template');
         }

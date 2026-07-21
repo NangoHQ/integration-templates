@@ -48,7 +48,7 @@ const action = createAction({
                 ...(input.date_from !== undefined && { date_from: input.date_from }),
                 ...(input.date_to !== undefined && { date_to: input.date_to })
             },
-            retries: 10
+            retries: 3
         });
 
         const providerExport = ProviderExportSchema.parse(response.data);
