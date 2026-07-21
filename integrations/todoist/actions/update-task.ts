@@ -20,7 +20,9 @@ const DueSchema = z.object({
     date: z.string().optional(),
     is_recurring: z.boolean().optional(),
     lang: z.string().optional(),
-    string: z.string().optional()
+    string: z.string().optional(),
+    datetime: z.string().nullable().optional(),
+    timezone: z.string().nullable().optional()
 });
 
 const DeadlineSchema = z.object({

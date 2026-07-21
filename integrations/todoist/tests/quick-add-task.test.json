@@ -1,0 +1,160 @@
+{
+  "input": {
+    "text": "Quick add dryrun test task p2",
+    "note": "Test note",
+    "auto_reminder": false,
+    "meta": true
+  },
+  "output": {
+    "id": "6h78WgMqMqM2RwWf",
+    "content": "Quick add dryrun test task",
+    "description": "",
+    "project_id": "6h78Cw66XccFR4c7",
+    "section_id": null,
+    "parent_id": null,
+    "labels": [],
+    "priority": 3,
+    "due": null,
+    "deadline": null,
+    "duration": null,
+    "is_collapsed": false,
+    "is_deleted": false,
+    "child_order": 4,
+    "day_order": -1,
+    "note_count": 0,
+    "goal_ids": [],
+    "completed_count": 0,
+    "postponed_count": 0,
+    "responsible_uid": null,
+    "assigned_by_uid": null,
+    "completed_at": null,
+    "completed_by_uid": null,
+    "added_by_uid": "59820153",
+    "added_at": "2026-07-21T06:05:34.552204Z",
+    "updated_at": "2026-07-21T06:05:34.552226Z",
+    "meta": {
+      "project": [
+        null,
+        null
+      ],
+      "section": [
+        null,
+        null
+      ],
+      "assignee": [
+        null,
+        null
+      ],
+      "labels": {},
+      "due": null,
+      "deadline": null
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v1/tasks/quick": {
+        "response": {
+          "added_at": "2026-07-21T06:05:34.552204Z",
+          "added_by_uid": "59820153",
+          "assigned_by_uid": null,
+          "checked": false,
+          "child_order": 4,
+          "completed_at": null,
+          "completed_by_uid": null,
+          "completed_count": 0,
+          "content": "Quick add dryrun test task",
+          "day_order": -1,
+          "deadline": null,
+          "description": "",
+          "due": null,
+          "duration": null,
+          "goal_ids": [],
+          "id": "6h78WgMqMqM2RwWf",
+          "is_collapsed": false,
+          "is_deleted": false,
+          "labels": [],
+          "meta": {
+            "assignee": [
+              null,
+              null
+            ],
+            "deadline": null,
+            "description": "",
+            "due": null,
+            "labels": {},
+            "priority": 3,
+            "project": [
+              null,
+              null
+            ],
+            "reminders": [],
+            "section": [
+              null,
+              null
+            ],
+            "text": "Quick add dryrun test task"
+          },
+          "note": {
+            "content": "Test note",
+            "file_attachment": null,
+            "id": "6h78WgPMwM47mjxf",
+            "is_deleted": false,
+            "item_id": "6h78WgMqMqM2RwWf",
+            "posted_at": "2026-07-21T06:05:34.809359Z",
+            "posted_uid": "59820153",
+            "reactions": null,
+            "uids_to_notify": null
+          },
+          "note_count": 0,
+          "parent_id": null,
+          "postponed_count": 0,
+          "priority": 3,
+          "project_id": "6h78Cw66XccFR4c7",
+          "responsible_uid": null,
+          "section_id": null,
+          "updated_at": "2026-07-21T06:05:34.552226Z",
+          "user_id": "59820153"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 06:05:35 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "195",
+          "x-ratelimit-reset": "1784613991",
+          "vary": "Accept-Encoding",
+          "cache-control": "no-cache",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "server": "gunicorn",
+          "set-cookie": "csrf=2d80e363f07b4addaeb562871bd41022; Expires=Fri, 18-Jul-2036 06:05:34 GMT; Secure; Path=/; SameSite=None, tduser=v4.public.eyJ1c2VyX2lkIjogNTk4MjAxNTMsICJleHAiOiAiMjAyNi0wOC0wNFQwNjowNTozNCswMDowMCJ9lCBeV5G6fxvlIEU0c8yc3txyT1BQLsaOrgH0rmOvVHkUcRdO9oaUtOKJdwGtfsPiK1L2r8PcrGC0omZaSv9wCw; Domain=.todoist.com; Expires=Tue, 04-Aug-2026 06:05:34 GMT; Max-Age=1209600; Secure; HttpOnly; Path=/",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 bc4e0a32a1893d7693b91555def3133e.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "E6cSvjs6I6DbrASvb1q27NRb_aZa0wRL3EgyneQ84IsVPmcp6liUiw=="
+        },
+        "hash": "a6293a9b71c1c02080d8a73f0e2742c9de904bff",
+        "request": {
+          "data": {
+            "text": "Quick add dryrun test task p2",
+            "note": "Test note",
+            "auto_reminder": false,
+            "meta": true
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "input": {
+    "project_id": "6h78PXxH9pJ49j47"
+  },
+  "output": {
+    "id": "6h78PXxH9pJ49j47",
+    "name": "Nango Seed - Delete 2",
+    "color": "charcoal",
+    "parent_id": null,
+    "child_order": 0,
+    "default_order": 0,
+    "is_favorite": false,
+    "is_archived": true,
+    "view_style": "list",
+    "is_collapsed": false,
+    "is_deleted": false,
+    "is_frozen": false,
+    "is_shared": false,
+    "inbox_project": false,
+    "public_access": false,
+    "description": "",
+    "creator_uid": "59820153",
+    "created_at": "2026-07-21T05:41:05.589790Z",
+    "updated_at": "2026-07-21T06:04:14.593968Z",
+    "can_assign_tasks": false,
+    "can_comment": true,
+    "public_key": "b49847fd-f580-4c7c-983b-4be65e42d415",
+    "access": {
+      "visibility": "restricted",
+      "configuration": {}
+    },
+    "role": "CREATOR",
+    "goal_ids": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v1/projects/6h78PXxH9pJ49j47/archive": {
+        "response": {
+          "id": "6h78PXxH9pJ49j47",
+          "can_assign_tasks": false,
+          "can_comment": true,
+          "child_order": 7,
+          "is_collapsed": false,
+          "color": "charcoal",
+          "creator_uid": "59820153",
+          "created_at": "2026-07-21T05:41:05.589790Z",
+          "is_archived": false,
+          "is_deleted": false,
+          "is_favorite": false,
+          "is_frozen": false,
+          "name": "Nango Seed - Delete 2",
+          "is_shared": false,
+          "updated_at": "2026-07-21T06:04:04.648395Z",
+          "view_style": "list",
+          "default_order": 0,
+          "description": "",
+          "public_access": false,
+          "public_key": "b49847fd-f580-4c7c-983b-4be65e42d415",
+          "access": {
+            "visibility": "restricted",
+            "configuration": {}
+          },
+          "role": "CREATOR",
+          "goal_ids": [],
+          "parent_id": null,
+          "inbox_project": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 06:04:14 GMT",
+          "content-type": "application/json",
+          "content-length": "704",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "178",
+          "x-ratelimit-reset": "1784613869",
+          "etag": "W/\"2c0-qbCrd542uYNwNUcIByUWPN8CAOw\""
+        },
+        "hash": "05c3ec9919d3e58e595e262719c61014699fbfb9",
+        "request": {}
+      }
+    },
+    "get": {
+      "/api/v1/projects/6h78PXxH9pJ49j47": {
+        "response": {
+          "id": "6h78PXxH9pJ49j47",
+          "can_assign_tasks": false,
+          "can_comment": true,
+          "child_order": 0,
+          "is_collapsed": false,
+          "color": "charcoal",
+          "creator_uid": "59820153",
+          "created_at": "2026-07-21T05:41:05.589790Z",
+          "is_archived": true,
+          "is_deleted": false,
+          "is_favorite": false,
+          "is_frozen": false,
+          "name": "Nango Seed - Delete 2",
+          "is_shared": false,
+          "updated_at": "2026-07-21T06:04:14.593968Z",
+          "view_style": "list",
+          "default_order": 0,
+          "description": "",
+          "public_access": false,
+          "public_key": "b49847fd-f580-4c7c-983b-4be65e42d415",
+          "access": {
+            "visibility": "restricted",
+            "configuration": {}
+          },
+          "role": "CREATOR",
+          "goal_ids": [],
+          "parent_id": null,
+          "inbox_project": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 06:04:16 GMT",
+          "content-type": "application/json",
+          "content-length": "703",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "172",
+          "x-ratelimit-reset": "1784613869",
+          "etag": "W/\"2bf-b/HHr6s8b9fCkgY2rMCrwnTu6Mw\""
+        },
+        "hash": "412ce2b962871ee98788dfd396ad73ea77435b10",
+        "request": {}
+      }
+    }
+  }
+}

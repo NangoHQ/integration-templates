@@ -28,7 +28,9 @@ const ProviderTaskSchema = z.object({
             date: z.string().optional(),
             string: z.string().optional(),
             lang: z.string().optional(),
-            is_recurring: z.boolean().optional()
+            is_recurring: z.boolean().optional(),
+            datetime: z.string().nullable().optional(),
+            timezone: z.string().nullable().optional()
         })
         .nullable()
         .optional(),
@@ -79,7 +81,9 @@ const OutputSchema = z.object({
             date: z.string().optional(),
             string: z.string().optional(),
             lang: z.string().optional(),
-            is_recurring: z.boolean().optional()
+            is_recurring: z.boolean().optional(),
+            datetime: z.string().optional(),
+            timezone: z.string().optional()
         })
         .optional(),
     duration: z
@@ -155,7 +159,9 @@ const action = createAction({
                     ...(providerTask.due.date !== undefined && { date: providerTask.due.date }),
                     ...(providerTask.due.string !== undefined && { string: providerTask.due.string }),
                     ...(providerTask.due.lang !== undefined && { lang: providerTask.due.lang }),
-                    ...(providerTask.due.is_recurring !== undefined && { is_recurring: providerTask.due.is_recurring })
+                    ...(providerTask.due.is_recurring !== undefined && { is_recurring: providerTask.due.is_recurring }),
+                    ...(providerTask.due.datetime != null && { datetime: providerTask.due.datetime }),
+                    ...(providerTask.due.timezone != null && { timezone: providerTask.due.timezone })
                 }
             }),
             ...(providerTask.duration != null && {

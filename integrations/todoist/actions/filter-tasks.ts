@@ -21,7 +21,9 @@ const RawTaskSchema = z.object({
             date: z.string().optional(),
             string: z.string().optional(),
             lang: z.string().optional(),
-            is_recurring: z.boolean().optional()
+            is_recurring: z.boolean().optional(),
+            datetime: z.string().nullable().optional(),
+            timezone: z.string().nullable().optional()
         })
         .nullable()
         .optional(),
@@ -72,7 +74,9 @@ const TaskSchema = z.object({
             date: z.string().optional(),
             string: z.string().optional(),
             lang: z.string().optional(),
-            is_recurring: z.boolean().optional()
+            is_recurring: z.boolean().optional(),
+            datetime: z.string().optional(),
+            timezone: z.string().optional()
         })
         .optional(),
     duration: z
@@ -189,7 +193,9 @@ const action = createAction({
                         ...(task.due.date !== undefined && { date: task.due.date }),
                         ...(task.due.string !== undefined && { string: task.due.string }),
                         ...(task.due.lang !== undefined && { lang: task.due.lang }),
-                        ...(task.due.is_recurring !== undefined && { is_recurring: task.due.is_recurring })
+                        ...(task.due.is_recurring !== undefined && { is_recurring: task.due.is_recurring }),
+                        ...(task.due.datetime != null && { datetime: task.due.datetime }),
+                        ...(task.due.timezone != null && { timezone: task.due.timezone })
                     }
                 }),
                 ...(task.duration != null && {

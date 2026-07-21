@@ -25,7 +25,9 @@ const TaskSchema = z
                 date: z.string().optional(),
                 string: z.string().optional(),
                 lang: z.string().optional(),
-                is_recurring: z.boolean().optional()
+                is_recurring: z.boolean().optional(),
+                datetime: z.string().nullable().optional(),
+                timezone: z.string().nullable().optional()
             })
             .nullable(),
         assignee_id: z.string().nullable().optional(),

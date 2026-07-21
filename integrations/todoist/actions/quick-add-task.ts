@@ -7,6 +7,7 @@ const DueSchema = z.object({
     string: z.string(),
     lang: z.string(),
     is_recurring: z.boolean(),
+    datetime: z.string().nullable(),
     timezone: z.string().nullable()
 });
 
