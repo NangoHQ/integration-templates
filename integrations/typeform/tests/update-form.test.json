@@ -1,0 +1,282 @@
+{
+  "input": {
+    "form_id": "VaoMqukV",
+    "title": "Updated Temp Delete Target"
+  },
+  "output": {
+    "id": "VaoMqukV",
+    "title": "Updated Temp Delete Target",
+    "type": "quiz",
+    "workspace": {
+      "href": "https://api.typeform.com/workspaces/wCjDgv"
+    },
+    "settings": {
+      "language": "en",
+      "progress_bar": "proportion",
+      "meta": {
+        "allow_indexing": false
+      },
+      "hide_navigation": false,
+      "is_public": true,
+      "is_trial": false,
+      "show_progress_bar": true,
+      "show_typeform_branding": true,
+      "are_uploads_public": false,
+      "show_time_to_complete": true,
+      "show_number_of_submissions": false,
+      "show_cookie_consent": false,
+      "show_question_number": true,
+      "hide_required_indicator": false,
+      "show_key_hint_on_choices": true,
+      "autosave_progress": true,
+      "free_form_navigation": false,
+      "use_lead_qualification": false,
+      "pro_subdomain_enabled": false,
+      "email_consent_notifications_config": {
+        "send_email_copy": true
+      },
+      "auto_translate": true,
+      "partial_responses_to_all_integrations": true
+    },
+    "fields": [
+      {
+        "id": "TKZ5iR1h2eMH",
+        "title": "Name?",
+        "ref": "01KY2MPNM36F29319Z1J5KR235",
+        "validations": {
+          "required": false
+        },
+        "type": "short_text"
+      }
+    ],
+    "thankyou_screens": [
+      {
+        "id": "DefaultTyScreen",
+        "ref": "default_tys",
+        "title": "Thanks for completing this typeform\nNow *create your own* — it's free, easy, & beautiful",
+        "type": "thankyou_screen",
+        "properties": {
+          "show_button": true,
+          "share_icons": false,
+          "button_mode": "default_redirect",
+          "button_text": "Create a *typeform*"
+        },
+        "attachment": {
+          "type": "image",
+          "href": "https://public-assets.typeform.com/public/admin/2dpnUBBkz2VN.gif"
+        }
+      }
+    ],
+    "theme": {
+      "href": "https://api.typeform.com/themes/qHWOQ7"
+    },
+    "_links": {
+      "display": "https://form.typeform.com/to/VaoMqukV",
+      "responses": "https://api.typeform.com/forms/VaoMqukV/responses"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/forms/VaoMqukV": {
+        "response": {
+          "id": "VaoMqukV",
+          "type": "quiz",
+          "title": "Updated Temp Delete Target",
+          "workspace": {
+            "href": "https://api.typeform.com/workspaces/wCjDgv"
+          },
+          "theme": {
+            "href": "https://api.typeform.com/themes/qHWOQ7"
+          },
+          "settings": {
+            "language": "en",
+            "progress_bar": "proportion",
+            "meta": {
+              "allow_indexing": false
+            },
+            "hide_navigation": false,
+            "is_public": true,
+            "is_trial": false,
+            "show_progress_bar": true,
+            "show_typeform_branding": true,
+            "are_uploads_public": false,
+            "show_time_to_complete": true,
+            "show_number_of_submissions": false,
+            "show_cookie_consent": false,
+            "show_question_number": true,
+            "hide_required_indicator": false,
+            "show_key_hint_on_choices": true,
+            "autosave_progress": true,
+            "free_form_navigation": false,
+            "use_lead_qualification": false,
+            "pro_subdomain_enabled": false,
+            "email_consent_notifications_config": {
+              "send_email_copy": true
+            },
+            "auto_translate": true,
+            "partial_responses_to_all_integrations": true
+          },
+          "thankyou_screens": [
+            {
+              "id": "DefaultTyScreen",
+              "ref": "default_tys",
+              "title": "Thanks for completing this typeform\nNow *create your own* — it's free, easy, & beautiful",
+              "type": "thankyou_screen",
+              "properties": {
+                "show_button": true,
+                "share_icons": false,
+                "button_mode": "default_redirect",
+                "button_text": "Create a *typeform*"
+              },
+              "attachment": {
+                "type": "image",
+                "href": "https://public-assets.typeform.com/public/admin/2dpnUBBkz2VN.gif"
+              }
+            }
+          ],
+          "fields": [
+            {
+              "id": "TKZ5iR1h2eMH",
+              "title": "Name?",
+              "ref": "01KY2MPNM36F29319Z1J5KR235",
+              "validations": {
+                "required": false
+              },
+              "type": "short_text"
+            }
+          ],
+          "created_at": "2026-07-21T15:28:54+00:00",
+          "last_updated_at": "2026-07-21T15:31:42+00:00",
+          "published_at": "2026-07-21T15:28:54+00:00",
+          "_links": {
+            "display": "https://form.typeform.com/to/VaoMqukV",
+            "responses": "https://api.typeform.com/forms/VaoMqukV/responses"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 15:31:49 GMT",
+          "content-type": "application/json",
+          "content-length": "1666",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "170",
+          "x-ratelimit-reset": "1784647933",
+          "etag": "W/\"682-dif8vRwKUteMS36S15Q5Ilvt9/w\""
+        },
+        "hash": "c31a824962bcbdcb1134bcb8038ee10009e86002",
+        "request": {}
+      }
+    },
+    "put": {
+      "/forms/VaoMqukV": {
+        "response": {
+          "id": "VaoMqukV",
+          "type": "quiz",
+          "title": "Updated Temp Delete Target",
+          "workspace": {
+            "href": "https://api.typeform.com/workspaces/wCjDgv"
+          },
+          "theme": {
+            "href": "https://api.typeform.com/themes/qHWOQ7"
+          },
+          "settings": {
+            "language": "en",
+            "progress_bar": "proportion",
+            "meta": {
+              "allow_indexing": false
+            },
+            "hide_navigation": false,
+            "is_public": true,
+            "is_trial": false,
+            "show_progress_bar": true,
+            "show_typeform_branding": true,
+            "are_uploads_public": false,
+            "show_time_to_complete": true,
+            "show_number_of_submissions": false,
+            "show_cookie_consent": false,
+            "show_question_number": true,
+            "hide_required_indicator": false,
+            "show_key_hint_on_choices": true,
+            "autosave_progress": true,
+            "free_form_navigation": false,
+            "use_lead_qualification": false,
+            "pro_subdomain_enabled": false,
+            "email_consent_notifications_config": {
+              "send_email_copy": true
+            },
+            "auto_translate": true,
+            "partial_responses_to_all_integrations": true
+          },
+          "thankyou_screens": [
+            {
+              "id": "DefaultTyScreen",
+              "ref": "default_tys",
+              "title": "Thanks for completing this typeform\nNow *create your own* — it's free, easy, & beautiful",
+              "type": "thankyou_screen",
+              "properties": {
+                "show_button": true,
+                "share_icons": false,
+                "button_mode": "default_redirect",
+                "button_text": "Create a *typeform*"
+              },
+              "attachment": {
+                "type": "image",
+                "href": "https://public-assets.typeform.com/public/admin/2dpnUBBkz2VN.gif"
+              }
+            }
+          ],
+          "fields": [
+            {
+              "id": "TKZ5iR1h2eMH",
+              "title": "Name?",
+              "ref": "01KY2MPNM36F29319Z1J5KR235",
+              "validations": {
+                "required": false
+              },
+              "type": "short_text"
+            }
+          ],
+          "_links": {
+            "display": "https://form.typeform.com/to/VaoMqukV",
+            "responses": "https://api.typeform.com/forms/VaoMqukV/responses"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 15:31:50 GMT",
+          "content-type": "application/json",
+          "content-length": "1536",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "169",
+          "x-ratelimit-reset": "1784647933",
+          "etag": "W/\"600-q0t8SyBzubRXYPgaxT4U5l0PjW0\""
+        },
+        "hash": "b5192a99beb33645bad05f14476d3d2c5f9f8ae1",
+        "request": {
+          "data": "sha1:bd013ab5a73e806fcf0ccc7c0647b93d7b71184f"
+        }
+      }
+    }
+  }
+}
