@@ -9,7 +9,9 @@ const InputSchema = z.object({
 const ProviderCreatorSchema = z.object({
     email: z.string(),
     id: z.string(),
-    username: z.string()
+    username: z.string(),
+    customerId: z.string().nullable().optional(),
+    isDomainReseller: z.boolean().optional()
 });
 
 const ProviderDomainSchema = z.object({
@@ -52,7 +54,9 @@ const DomainSchema = z.object({
     creator: z.object({
         id: z.string(),
         username: z.string(),
-        email: z.string()
+        email: z.string(),
+        customerId: z.string().nullable().optional(),
+        isDomainReseller: z.boolean().optional()
     }),
     intendedNameservers: z.array(z.string()),
     nameservers: z.array(z.string()),

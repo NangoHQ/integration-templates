@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const VercelProjectSchema = z.object({
@@ -14,7 +14,7 @@ const VercelProjectSchema = z.object({
                 id: z.string(),
                 url: z.string().optional(),
                 createdAt: z.number().optional(),
-                state: z.string().optional()
+                readyState: z.string().optional()
             })
         )
         .optional(),
@@ -47,13 +47,16 @@ const CheckpointSchema = z.object({
     until: z.number()
 });
 
+// `pagination` and `pagination.next` are required (next is nullable, not optional): Vercel
+// signals "no more pages" via `next: null`, not by omitting the field or the whole object.
+// If a response is missing pagination info entirely, parsing must fail loudly instead of
+// silently being treated as the last page, which would close out trackDeletesEnd() based on
+// an incomplete crawl.
 const ProjectsListResponseSchema = z.object({
     projects: z.array(VercelProjectSchema),
-    pagination: z
-        .object({
-            next: z.number().nullable().optional()
-        })
-        .optional()
+    pagination: z.object({
+        next: z.number().nullable()
+    })
 });
 
 export default createSync({
@@ -73,33 +76,47 @@ export default createSync({
         // cursor for resume only; a full crawl is still required for delete tracking.
         await nango.trackDeletesStart('VercelProject');
 
-        while (true) {
+        const proxyConfig: ProxyConfiguration = {
             // https://vercel.com/docs/rest-api/reference/endpoints/projects#get-project-list
-            const response = await nango.get({
-                endpoint: '/v9/projects',
-                params: {
-                    limit: 100,
-                    ...(until !== undefined && { until })
-                },
-                retries: 3
-            });
+            endpoint: '/v9/projects',
+            params: {
+                limit: 100,
+                ...(until !== undefined && { until })
+            },
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'until',
+                cursor_path_in_response: 'pagination.next',
+                response_path: 'projects',
+                limit_name_in_request: 'limit',
+                limit: 100,
+                on_page: async ({ nextPageParam, response }) => {
+                    // Validate the full raw response (not just the extracted `projects` page)
+                    // so a malformed/truncated response missing `pagination` throws instead
+                    // of silently being treated as "no more pages".
+                    const parsedPage = ProjectsListResponseSchema.safeParse(response.data);
+                    if (!parsedPage.success) {
+                        throw new Error(`Failed to parse projects response: ${parsedPage.error.message}`);
+                    }
+                    until = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
+            },
+            retries: 3
+        };
 
-            const parsed = ProjectsListResponseSchema.safeParse(response.data);
+        for await (const page of nango.paginate(proxyConfig)) {
+            const parsed = z.array(VercelProjectSchema).safeParse(page);
             if (!parsed.success) {
                 throw new Error(`Failed to parse projects response: ${parsed.error.message}`);
             }
 
-            if (parsed.data.projects.length > 0) {
-                await nango.batchSave(parsed.data.projects, 'VercelProject');
+            if (parsed.data.length > 0) {
+                await nango.batchSave(parsed.data, 'VercelProject');
             }
 
-            const nextUntil = parsed.data.pagination?.next ?? undefined;
-            if (nextUntil === undefined) {
-                break;
+            if (until !== undefined) {
+                await nango.saveCheckpoint({ until });
             }
-
-            until = nextUntil;
-            await nango.saveCheckpoint({ until });
         }
 
         await nango.clearCheckpoint();

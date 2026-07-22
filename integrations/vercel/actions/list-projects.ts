@@ -23,7 +23,7 @@ const ProviderObjectResponseSchema = z.object({
     pagination: z
         .object({
             count: z.number(),
-            next: z.string().nullable().optional(),
+            next: z.number().nullable().optional(),
             prev: z.union([z.string(), z.number()]).nullable().optional()
         })
         .optional()
@@ -68,7 +68,7 @@ const action = createAction({
 
         return {
             projects: providerResponse.projects,
-            ...(providerResponse.pagination?.next != null && { nextCursor: providerResponse.pagination.next })
+            ...(providerResponse.pagination?.next != null && { nextCursor: String(providerResponse.pagination.next) })
         };
     }
 });

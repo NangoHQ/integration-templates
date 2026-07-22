@@ -10,12 +10,19 @@ const ProviderTeamSchema = z.object({
     slug: z.string(),
     name: z.string(),
     description: z.string().nullable().optional(),
-    plan: z.string().nullable().optional(),
     createdAt: z.number().nullable().optional(),
     updatedAt: z.number().nullable().optional(),
     membersCount: z.number().nullable().optional(),
     billingPeriodStart: z.number().nullable().optional(),
-    billingPeriodEnd: z.number().nullable().optional()
+    billingPeriodEnd: z.number().nullable().optional(),
+    // The "Get a Team" endpoint has no top-level `plan` field; plan lives under `billing.plan`.
+    billing: z
+        .object({
+            plan: z.string().nullable().optional()
+        })
+        .passthrough()
+        .nullable()
+        .optional()
 });
 
 const OutputSchema = z.object({
@@ -54,7 +61,7 @@ const action = createAction({
             slug: providerTeam.slug,
             name: providerTeam.name,
             ...(providerTeam.description != null && { description: providerTeam.description }),
-            ...(providerTeam.plan != null && { plan: providerTeam.plan })
+            ...(providerTeam.billing?.plan != null && { plan: providerTeam.billing.plan })
         };
     }
 });

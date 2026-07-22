@@ -2,51 +2,52 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    domain: z.string().describe('Domain name to check DNS configuration for. Example: "example.com"')
+    domain: z.string().describe('Domain name to check DNS configuration for. Example: "example.com"'),
+    projectIdOrName: z
+        .string()
+        .optional()
+        .describe(
+            'The project id or name that will be associated with the domain. Use this when the domain is not yet associated with a project. Example: "prj_fiK50Ju3SQDsgotdoOz0Hj0jHypU"'
+        ),
+    strict: z
+        .boolean()
+        .optional()
+        .describe(
+            "When true, the response will only include the nameservers assigned directly to the specified domain. When false and there are no nameservers assigned directly to the specified domain, the response will include the nameservers of the domain's parent zone."
+        ),
+    teamId: z.string().optional().describe('The Team identifier to perform the request on behalf of.'),
+    slug: z.string().optional().describe('The Team slug to perform the request on behalf of.')
 });
 
-const VerificationRecordSchema = z.object({
-    type: z.string(),
-    domain: z.string(),
-    value: z.string(),
-    reason: z.string()
-});
-
+// Response shape per https://vercel.com/docs/rest-api/domains/get-a-domain-s-configuration
 const ProviderDomainConfigSchema = z
     .object({
+        configuredBy: z.enum(['A', 'CNAME', 'dns-01', 'http']).nullable(),
         misconfigured: z.boolean(),
-        configuredBy: z.string().nullable().optional(),
+        acceptedChallenges: z.array(z.enum(['dns-01', 'http-01'])),
+        recommendedIPv4: z.array(
+            z.object({
+                rank: z.number(),
+                value: z.array(z.string())
+            })
+        ),
+        recommendedCNAME: z.array(
+            z.object({
+                rank: z.number(),
+                value: z.string()
+            })
+        ),
+        // Undocumented, but observed live: keep as optional passthrough-friendly fields.
         nameservers: z.array(z.string()).optional(),
-        cdnEnabled: z.boolean().optional(),
+        serviceType: z.string().optional(),
+        cnames: z.array(z.string()).optional(),
         aValues: z.array(z.string()).optional(),
-        cnameValue: z.string().nullable().optional(),
-        verification: z.array(VerificationRecordSchema).optional(),
-        hasARecords: z.boolean().optional(),
-        hasCnameRecords: z.boolean().optional(),
-        hasTxtRecords: z.boolean().optional(),
-        hasMxRecords: z.boolean().optional(),
-        hasNsRecords: z.boolean().optional(),
-        hasSrvRecords: z.boolean().optional()
+        conflicts: z.array(z.unknown()).optional(),
+        ipStatus: z.string().nullable().optional()
     })
     .passthrough();
 
-const OutputSchema = z
-    .object({
-        misconfigured: z.boolean(),
-        configuredBy: z.string().optional(),
-        nameservers: z.array(z.string()).optional(),
-        cdnEnabled: z.boolean().optional(),
-        aValues: z.array(z.string()).optional(),
-        cnameValue: z.string().optional(),
-        verification: z.array(VerificationRecordSchema).optional(),
-        hasARecords: z.boolean().optional(),
-        hasCnameRecords: z.boolean().optional(),
-        hasTxtRecords: z.boolean().optional(),
-        hasMxRecords: z.boolean().optional(),
-        hasNsRecords: z.boolean().optional(),
-        hasSrvRecords: z.boolean().optional()
-    })
-    .passthrough();
+const OutputSchema = ProviderDomainConfigSchema;
 
 const action = createAction({
     description: 'Retrieve DNS configuration and diagnostic info for a domain.',
@@ -57,28 +58,18 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://vercel.com/docs/rest-api/reference
+            // https://vercel.com/docs/rest-api/domains/get-a-domain-s-configuration
             endpoint: `/v6/domains/${encodeURIComponent(input.domain)}/config`,
+            params: {
+                ...(input.projectIdOrName !== undefined && { projectIdOrName: input.projectIdOrName }),
+                ...(input.strict !== undefined && { strict: String(input.strict) }),
+                ...(input.teamId !== undefined && { teamId: input.teamId }),
+                ...(input.slug !== undefined && { slug: input.slug })
+            },
             retries: 3
         });
 
-        const config = ProviderDomainConfigSchema.parse(response.data);
-
-        return {
-            misconfigured: config.misconfigured,
-            ...(config.configuredBy != null && { configuredBy: config.configuredBy }),
-            ...(config.nameservers !== undefined && { nameservers: config.nameservers }),
-            ...(config.cdnEnabled !== undefined && { cdnEnabled: config.cdnEnabled }),
-            ...(config.aValues !== undefined && { aValues: config.aValues }),
-            ...(config.cnameValue != null && { cnameValue: config.cnameValue }),
-            ...(config.verification !== undefined && { verification: config.verification }),
-            ...(config.hasARecords !== undefined && { hasARecords: config.hasARecords }),
-            ...(config.hasCnameRecords !== undefined && { hasCnameRecords: config.hasCnameRecords }),
-            ...(config.hasTxtRecords !== undefined && { hasTxtRecords: config.hasTxtRecords }),
-            ...(config.hasMxRecords !== undefined && { hasMxRecords: config.hasMxRecords }),
-            ...(config.hasNsRecords !== undefined && { hasNsRecords: config.hasNsRecords }),
-            ...(config.hasSrvRecords !== undefined && { hasSrvRecords: config.hasSrvRecords })
-        };
+        return ProviderDomainConfigSchema.parse(response.data);
     }
 });
 

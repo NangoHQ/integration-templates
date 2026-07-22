@@ -10,7 +10,7 @@ const InputSchema = z.object({
         .optional()
         .describe('The target environment(s) of the environment variable.'),
     key: z.string().optional().describe('The name of the environment variable.'),
-    type: z.enum(['system', 'encrypted', 'plain', 'secret', 'sensitive']).optional().describe('The type of environment variable.'),
+    type: z.enum(['system', 'encrypted', 'plain', 'sensitive']).optional().describe('The type of environment variable.'),
     gitBranch: z.string().nullable().optional().describe('If defined, the git branch of the environment variable (must have target=preview).'),
     comment: z.string().optional().describe('A comment to add context on what this env var is for.'),
     customEnvironmentIds: z.array(z.string()).optional().describe('The custom environments that the environment variable should be synced to.')

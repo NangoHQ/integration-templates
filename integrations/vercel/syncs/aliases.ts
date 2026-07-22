@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ProviderCreatorSchema = z.object({
@@ -29,13 +29,16 @@ const ProviderAliasSchema = z.object({
     microfrontends: z.record(z.string(), z.unknown()).optional()
 });
 
+// `pagination` and `pagination.next` are required (next is nullable, not optional): Vercel
+// signals "no more pages" via `next: null`, not by omitting the field or the whole object.
+// If a response is missing pagination info entirely, parsing must fail loudly instead of
+// silently being treated as the last page, which would close out trackDeletesEnd() based on
+// an incomplete crawl.
 const AliasListResponseSchema = z.object({
     aliases: z.array(ProviderAliasSchema),
-    pagination: z
-        .object({
-            next: z.number().nullable().optional()
-        })
-        .optional()
+    pagination: z.object({
+        next: z.number().nullable()
+    })
 });
 
 const AliasSchema = z.object({
@@ -75,23 +78,41 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Alias');
 
-        while (true) {
+        const proxyConfig: ProxyConfiguration = {
             // https://vercel.com/docs/rest-api/reference/endpoints/aliases/list-aliases
-            const response = await nango.get({
-                endpoint: '/v4/aliases',
-                params: {
-                    limit: 100,
-                    ...(until !== undefined && { until })
-                },
-                retries: 3
-            });
+            endpoint: '/v4/aliases',
+            params: {
+                limit: 100,
+                ...(until !== undefined && { until })
+            },
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'until',
+                cursor_path_in_response: 'pagination.next',
+                response_path: 'aliases',
+                limit_name_in_request: 'limit',
+                limit: 100,
+                on_page: async ({ nextPageParam, response }) => {
+                    // Validate the full raw response (not just the extracted `aliases` page)
+                    // so a malformed/truncated response missing `pagination` throws instead
+                    // of silently being treated as "no more pages".
+                    const parsedPage = AliasListResponseSchema.safeParse(response.data);
+                    if (!parsedPage.success) {
+                        throw new Error(`Failed to parse aliases response: ${parsedPage.error.message}`);
+                    }
+                    until = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
+            },
+            retries: 3
+        };
 
-            const parsed = AliasListResponseSchema.safeParse(response.data);
+        for await (const page of nango.paginate(proxyConfig)) {
+            const parsed = z.array(ProviderAliasSchema).safeParse(page);
             if (!parsed.success) {
                 throw new Error(`Failed to parse aliases response: ${parsed.error.message}`);
             }
 
-            const aliases = parsed.data.aliases.map((alias) => ({
+            const aliases = parsed.data.map((alias) => ({
                 id: alias.uid,
                 alias: alias.alias,
                 ...(alias.deploymentId != null && { deploymentId: alias.deploymentId }),
@@ -108,13 +129,9 @@ const sync = createSync({
                 await nango.batchSave(aliases, 'Alias');
             }
 
-            const nextUntil = parsed.data.pagination?.next ?? undefined;
-            if (nextUntil === undefined) {
-                break;
+            if (until !== undefined) {
+                await nango.saveCheckpoint({ until });
             }
-
-            until = nextUntil;
-            await nango.saveCheckpoint({ until });
         }
 
         await nango.clearCheckpoint();

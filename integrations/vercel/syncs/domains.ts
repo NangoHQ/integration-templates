@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ProviderDomainSchema = z.object({
@@ -53,13 +53,16 @@ const CheckpointSchema = z.object({
     until: z.number()
 });
 
+// `pagination` and `pagination.next` are required (next is nullable, not optional): Vercel
+// signals "no more pages" via `next: null`, not by omitting the field or the whole object.
+// If a response is missing pagination info entirely, parsing must fail loudly instead of
+// silently being treated as the last page, which would close out trackDeletesEnd() based on
+// an incomplete crawl.
 const DomainListResponseSchema = z.object({
     domains: z.array(ProviderDomainSchema),
-    pagination: z
-        .object({
-            next: z.number().nullable().optional()
-        })
-        .optional()
+    pagination: z.object({
+        next: z.number().nullable()
+    })
 });
 
 const sync = createSync({
@@ -81,23 +84,41 @@ const sync = createSync({
         // cursor only to resume interrupted runs.
         await nango.trackDeletesStart('Domain');
 
-        while (true) {
+        const proxyConfig: ProxyConfiguration = {
             // https://vercel.com/docs/rest-api/domains/list-all-the-domains
-            const response = await nango.get({
-                endpoint: '/v5/domains',
-                params: {
-                    limit: 100,
-                    ...(until !== undefined && { until })
-                },
-                retries: 3
-            });
+            endpoint: '/v5/domains',
+            params: {
+                limit: 100,
+                ...(until !== undefined && { until })
+            },
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'until',
+                cursor_path_in_response: 'pagination.next',
+                response_path: 'domains',
+                limit_name_in_request: 'limit',
+                limit: 100,
+                on_page: async ({ nextPageParam, response }) => {
+                    // Validate the full raw response (not just the extracted `domains` page)
+                    // so a malformed/truncated response missing `pagination` throws instead of
+                    // silently being treated as "no more pages".
+                    const parsedPage = DomainListResponseSchema.safeParse(response.data);
+                    if (!parsedPage.success) {
+                        throw new Error(`Failed to parse domains response: ${parsedPage.error.message}`);
+                    }
+                    until = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
+            },
+            retries: 3
+        };
 
-            const parsed = DomainListResponseSchema.safeParse(response.data);
+        for await (const page of nango.paginate(proxyConfig)) {
+            const parsed = z.array(ProviderDomainSchema).safeParse(page);
             if (!parsed.success) {
                 throw new Error(`Failed to parse domains response: ${parsed.error.message}`);
             }
 
-            const domains = parsed.data.domains.map((domain) => ({
+            const domains = parsed.data.map((domain) => ({
                 id: domain.id,
                 name: domain.name,
                 createdAt: domain.createdAt,
@@ -120,13 +141,9 @@ const sync = createSync({
                 await nango.batchSave(domains, 'Domain');
             }
 
-            const nextUntil = parsed.data.pagination?.next ?? undefined;
-            if (nextUntil === undefined) {
-                break;
+            if (until !== undefined) {
+                await nango.saveCheckpoint({ until });
             }
-
-            until = nextUntil;
-            await nango.saveCheckpoint({ until });
         }
 
         await nango.clearCheckpoint();

@@ -1,18 +1,23 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const EnvVarInputSchema = z.object({
-    key: z.string().describe('The name of the environment variable. Example: "MY_VAR"'),
-    value: z.string().describe('The value of the environment variable. Example: "my-value"'),
-    type: z.enum(['system', 'encrypted', 'plain', 'sensitive']).describe('The type of environment variable. Example: "encrypted"'),
-    target: z
-        .array(z.enum(['production', 'preview', 'development']))
-        .optional()
-        .describe('The target environment of the environment variable. Example: ["development"]'),
-    gitBranch: z.string().nullable().optional().describe('If defined, the git branch of the environment variable (must have target=preview).'),
-    comment: z.string().optional().describe('A comment to add context on what this environment variable is for.'),
-    customEnvironmentIds: z.array(z.string()).optional().describe('The custom environment IDs associated with the environment variable.')
-});
+const EnvVarInputSchema = z
+    .object({
+        key: z.string().describe('The name of the environment variable. Example: "MY_VAR"'),
+        value: z.string().describe('The value of the environment variable. Example: "my-value"'),
+        type: z.enum(['system', 'encrypted', 'plain', 'sensitive']).describe('The type of environment variable. Example: "encrypted"'),
+        target: z
+            .array(z.enum(['production', 'preview', 'development']))
+            .optional()
+            .describe('The target environment of the environment variable. Example: ["development"]'),
+        gitBranch: z.string().nullable().optional().describe('If defined, the git branch of the environment variable (must have target=preview).'),
+        comment: z.string().optional().describe('A comment to add context on what this environment variable is for.'),
+        customEnvironmentIds: z.array(z.string()).optional().describe('The custom environment IDs associated with the environment variable.')
+    })
+    .refine((data) => (data.target && data.target.length > 0) || (data.customEnvironmentIds && data.customEnvironmentIds.length > 0), {
+        message: 'At least one of target or customEnvironmentIds must be provided.',
+        path: ['target']
+    });
 
 const InputSchema = z.object({
     projectId: z.string().describe('The unique project identifier or the project name. Example: "prj_123" or "my-project"'),
@@ -25,7 +30,7 @@ const ProviderEnvVarSchema = z.object({
     key: z.string(),
     value: z.string(),
     type: z.string(),
-    target: z.unknown().optional(),
+    target: z.array(z.enum(['production', 'preview', 'development'])).optional(),
     createdAt: z.number().optional(),
     updatedAt: z.number().optional(),
     gitBranch: z.string().optional(),
@@ -43,12 +48,18 @@ const ProviderEnvVarSchema = z.object({
 const ProviderFailedSchema = z.object({
     error: z.object({
         code: z.string(),
-        message: z.string()
+        message: z.string(),
+        // Undocumented in Vercel's public API reference, but present on live ENV_CONFLICT
+        // (duplicate key) failures - lets batch callers map a failure back to its input.
+        key: z.string().optional(),
+        envVarKey: z.string().optional()
     })
 });
 
 const ProviderResponseSchema = z.object({
-    created: z.union([ProviderEnvVarSchema, z.array(ProviderEnvVarSchema)]),
+    // Optional: when every item in the batch fails, Vercel returns only `{ error, failed }`
+    // with no `created` field at all (observed live on a single-item duplicate-key request).
+    created: z.union([ProviderEnvVarSchema, z.array(ProviderEnvVarSchema)]).optional(),
     failed: z.union([ProviderFailedSchema, z.array(ProviderFailedSchema)]).optional()
 });
 

@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ProviderTeamSchema = z.object({
@@ -33,13 +33,16 @@ const CheckpointSchema = z.object({
     next: z.number()
 });
 
+// `pagination` and `pagination.next` are required (next is nullable, not optional): Vercel
+// signals "no more pages" via `next: null`, not by omitting the field or the whole object.
+// If a response is missing pagination info entirely, parsing must fail loudly instead of
+// silently being treated as the last page, which would close out trackDeletesEnd() based on
+// an incomplete crawl.
 const TeamListResponseSchema = z.object({
     teams: z.array(ProviderTeamSchema),
-    pagination: z
-        .object({
-            next: z.number().nullable().optional()
-        })
-        .optional()
+    pagination: z.object({
+        next: z.number().nullable()
+    })
 });
 
 const sync = createSync({
@@ -62,23 +65,41 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Team');
 
-        while (true) {
+        const proxyConfig: ProxyConfiguration = {
             // https://vercel.com/docs/rest-api/teams/list-all-teams
-            const response = await nango.get({
-                endpoint: '/v2/teams',
-                params: {
-                    limit: 100,
-                    ...(until !== undefined && { until })
-                },
-                retries: 3
-            });
+            endpoint: '/v2/teams',
+            params: {
+                limit: 100,
+                ...(until !== undefined && { until })
+            },
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'until',
+                cursor_path_in_response: 'pagination.next',
+                response_path: 'teams',
+                limit_name_in_request: 'limit',
+                limit: 100,
+                on_page: async ({ nextPageParam, response }) => {
+                    // Validate the full raw response (not just the extracted `teams` page)
+                    // so a malformed/truncated response missing `pagination` throws instead
+                    // of silently being treated as "no more pages".
+                    const parsedPage = TeamListResponseSchema.safeParse(response.data);
+                    if (!parsedPage.success) {
+                        throw new Error(`Failed to parse teams response: ${parsedPage.error.message}`);
+                    }
+                    until = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
+            },
+            retries: 3
+        };
 
-            const parsed = TeamListResponseSchema.safeParse(response.data);
+        for await (const page of nango.paginate(proxyConfig)) {
+            const parsed = z.array(ProviderTeamSchema).safeParse(page);
             if (!parsed.success) {
                 throw new Error(`Failed to parse teams response: ${parsed.error.message}`);
             }
 
-            const teams = parsed.data.teams.map((team) => ({
+            const teams = parsed.data.map((team) => ({
                 id: team.id,
                 ...(team.name != null && { name: team.name }),
                 slug: team.slug,
@@ -96,13 +117,9 @@ const sync = createSync({
                 await nango.batchSave(teams, 'Team');
             }
 
-            const next = parsed.data.pagination?.next ?? undefined;
-            if (next === undefined) {
-                break;
+            if (until !== undefined) {
+                await nango.saveCheckpoint({ next: until });
             }
-
-            until = next;
-            await nango.saveCheckpoint({ next: until });
         }
 
         await nango.clearCheckpoint();

@@ -13,13 +13,49 @@ const OutputSchema = z
         createdAt: z.number().optional(),
         updatedAt: z.number().optional(),
         framework: z.string().nullable().optional(),
-        link: z.object({}).passthrough().nullable().optional(),
+        // Git provider info lives here (link.type, e.g. "github"/"gitlab"/"bitbucket") -
+        // Vercel's project response has no top-level `gitProvider` field.
+        link: z
+            .object({
+                type: z.string().optional(),
+                org: z.string().optional(),
+                repo: z.string().optional(),
+                repoId: z.number().optional(),
+                gitCredentialId: z.string().optional(),
+                createdAt: z.number().optional(),
+                deployHooks: z
+                    .array(
+                        z
+                            .object({
+                                id: z.string(),
+                                name: z.string(),
+                                ref: z.string(),
+                                url: z.string(),
+                                createdAt: z.number().optional()
+                            })
+                            .passthrough()
+                    )
+                    .optional()
+            })
+            .passthrough()
+            .nullable()
+            .optional(),
         nodeVersion: z.string().optional(),
         rootDirectory: z.string().nullable().optional(),
-        gitProvider: z.string().nullable().optional(),
         description: z.string().nullable().optional(),
-        targets: z.object({}).passthrough().optional(),
-        latestDeployments: z.array(z.object({}).passthrough()).optional()
+        targets: z.record(z.string(), z.unknown()).optional(),
+        latestDeployments: z
+            .array(
+                z
+                    .object({
+                        id: z.string(),
+                        url: z.string().optional(),
+                        createdAt: z.number().optional(),
+                        readyState: z.string().optional()
+                    })
+                    .passthrough()
+            )
+            .optional()
     })
     .passthrough();
 

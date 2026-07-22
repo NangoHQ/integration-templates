@@ -10,7 +10,8 @@ const InputSchema = z.object({
         .union([z.literal(301), z.literal(302), z.literal(307), z.literal(308)])
         .nullable()
         .optional()
-        .describe('Status code for domain redirect')
+        .describe('Status code for domain redirect'),
+    customEnvironmentId: z.string().optional().describe('The unique custom environment identifier within the project')
 });
 
 const VerificationChallengeSchema = z.object({
@@ -76,6 +77,10 @@ const action = createAction({
 
         if (input.redirectStatusCode !== undefined) {
             body['redirectStatusCode'] = input.redirectStatusCode;
+        }
+
+        if (input.customEnvironmentId !== undefined) {
+            body['customEnvironmentId'] = input.customEnvironmentId;
         }
 
         const response = await nango.post({

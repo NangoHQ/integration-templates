@@ -14,7 +14,7 @@ const OutputSchema = z
         type: z.string().optional(),
         createdAt: z.number().optional(),
         buildingAt: z.number().optional(),
-        readyAt: z.number().optional(),
+        ready: z.number().optional(),
         target: z.string().nullable().optional(),
         projectId: z.string().optional(),
         ownerId: z.string().optional(),

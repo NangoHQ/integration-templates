@@ -30,22 +30,9 @@ const ProviderProjectDomainSchema = z.object({
     verification: z.array(VerificationChallengeSchema).optional()
 });
 
-const OutputSchema = z.object({
-    name: z.string(),
-    apexName: z.string(),
-    projectId: z.string(),
-    redirect: z.string().nullable().optional(),
-    redirectStatusCode: z
-        .union([z.literal(301), z.literal(302), z.literal(307), z.literal(308)])
-        .nullable()
-        .optional(),
-    gitBranch: z.string().nullable().optional(),
-    customEnvironmentId: z.string().nullable().optional(),
-    updatedAt: z.number().optional(),
-    createdAt: z.number().optional(),
-    verified: z.boolean(),
-    verification: z.array(VerificationChallengeSchema).optional()
-});
+// Output reuses the provider schema directly (same shape) instead of hand-duplicating every
+// field, so a future Vercel schema change only needs to be made in one place.
+const OutputSchema = ProviderProjectDomainSchema;
 
 const action = createAction({
     description: 'Retrieve a single project domain.',
@@ -76,10 +63,10 @@ const action = createAction({
             apexName: providerDomain.apexName,
             projectId: providerDomain.projectId,
             verified: providerDomain.verified,
-            ...(providerDomain.redirect !== undefined && { redirect: providerDomain.redirect }),
-            ...(providerDomain.redirectStatusCode !== undefined && { redirectStatusCode: providerDomain.redirectStatusCode }),
-            ...(providerDomain.gitBranch !== undefined && { gitBranch: providerDomain.gitBranch }),
-            ...(providerDomain.customEnvironmentId !== undefined && { customEnvironmentId: providerDomain.customEnvironmentId }),
+            ...(providerDomain.redirect != null && { redirect: providerDomain.redirect }),
+            ...(providerDomain.redirectStatusCode != null && { redirectStatusCode: providerDomain.redirectStatusCode }),
+            ...(providerDomain.gitBranch != null && { gitBranch: providerDomain.gitBranch }),
+            ...(providerDomain.customEnvironmentId != null && { customEnvironmentId: providerDomain.customEnvironmentId }),
             ...(providerDomain.updatedAt !== undefined && { updatedAt: providerDomain.updatedAt }),
             ...(providerDomain.createdAt !== undefined && { createdAt: providerDomain.createdAt }),
             ...(providerDomain.verification !== undefined && { verification: providerDomain.verification })

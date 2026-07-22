@@ -28,11 +28,15 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // A bare subdomain (no ".") is normalized to a ".vercel.app" alias. Custom domains
+        // and aliases that already carry a suffix (e.g. ".vercel.app") are passed through unchanged.
+        const alias = input.alias.includes('.') ? input.alias : `${input.alias}.vercel.app`;
+
         const response = await nango.post({
             // https://vercel.com/docs/rest-api/aliases/assign-an-alias
             endpoint: `/v2/deployments/${encodeURIComponent(input.deploymentId)}/aliases`,
             data: {
-                alias: input.alias
+                alias
             },
             retries: 1
         });

@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     name: z.string().describe('The desired name for the project. Example: "my-project"'),
-    framework: z.string().optional().describe('The framework for this project. When null is used no framework is selected. Example: "nextjs"'),
+    framework: z.string().nullable().optional().describe('The framework for this project. When null is used no framework is selected. Example: "nextjs"'),
     buildCommand: z.string().nullable().optional().describe('The build command for this project. When null is used this value will be automatically detected'),
     devCommand: z.string().nullable().optional().describe('The dev command for this project. When null is used this value will be automatically detected'),
     installCommand: z
@@ -65,7 +65,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: {
             name: string;
-            framework?: string;
+            framework?: string | null;
             buildCommand?: string | null;
             devCommand?: string | null;
             installCommand?: string | null;

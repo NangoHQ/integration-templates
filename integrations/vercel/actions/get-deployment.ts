@@ -4,7 +4,9 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     idOrUrl: z
         .string()
-        .describe('The unique identifier or hostname of the deployment. Example: "dpl_xxxxxxxxxxxxxxxxxxxxxxxxxxxx" or "my-deployment.vercel.app"')
+        .describe('The unique identifier or hostname of the deployment. Example: "dpl_xxxxxxxxxxxxxxxxxxxxxxxxxxxx" or "my-deployment.vercel.app"'),
+    teamId: z.string().optional().describe('The Team identifier to perform the request on behalf of.'),
+    slug: z.string().optional().describe('The Team slug to perform the request on behalf of.')
 });
 
 const CreatorSchema = z.object({
@@ -67,6 +69,10 @@ const action = createAction({
         // https://vercel.com/docs/rest-api/deployments/get-a-deployment-by-id-or-url
         const response = await nango.get({
             endpoint: `/v13/deployments/${encodeURIComponent(input.idOrUrl)}`,
+            params: {
+                ...(input.teamId !== undefined && { teamId: input.teamId }),
+                ...(input.slug !== undefined && { slug: input.slug })
+            },
             retries: 3
         });
 

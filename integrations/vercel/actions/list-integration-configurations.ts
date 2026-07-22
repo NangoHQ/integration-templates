@@ -29,10 +29,12 @@ const ConfigurationSchema = z
         updatedAt: z.number(),
         status: z.enum(['error', 'onboarding', 'pending', 'ready', 'resumed', 'suspended', 'uninstalled']).optional(),
         externalId: z.string().optional(),
-        projects: z.array(z.unknown()).optional(),
+        // Project IDs (e.g. "prj_..."); undefined means the configuration has full access to all projects.
+        projects: z.array(z.string()).optional(),
         source: z.enum(['backoffice', 'cli', 'deploy-button', 'external', 'marketplace', 'oauth', 'resource-claims', 'v0']).optional(),
         teamId: z.string().nullable().optional(),
-        scopes: z.array(z.unknown()).optional(),
+        // Permission-scope strings (e.g. "read:project", "read-write:log-drain").
+        scopes: z.array(z.string()).optional(),
         completedAt: z.number().optional(),
         disabledAt: z.number().optional(),
         deletedAt: z.number().nullable().optional(),

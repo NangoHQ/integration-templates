@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ProviderDeploymentSchema = z
@@ -93,13 +93,16 @@ const CheckpointSchema = z.object({
     until: z.number()
 });
 
+// `pagination` and `pagination.next` are required (next is nullable, not optional): Vercel
+// signals "no more pages" via `next: null`, not by omitting the field or the whole object.
+// If a response is missing pagination info entirely, parsing must fail loudly instead of
+// silently being treated as the last page, which would close out trackDeletesEnd() based on
+// an incomplete crawl.
 const DeploymentListResponseSchema = z.object({
     deployments: z.array(ProviderDeploymentSchema),
-    pagination: z
-        .object({
-            next: z.number().nullable().optional()
-        })
-        .optional()
+    pagination: z.object({
+        next: z.number().nullable()
+    })
 });
 
 const sync = createSync({
@@ -122,23 +125,41 @@ const sync = createSync({
         // to resume an interrupted crawl.
         await nango.trackDeletesStart('Deployment');
 
-        while (true) {
+        const proxyConfig: ProxyConfiguration = {
             // https://vercel.com/docs/rest-api/deployments/list-deployments
-            const response = await nango.get({
-                endpoint: '/v6/deployments',
-                params: {
-                    limit: 100,
-                    ...(until !== undefined && { until })
-                },
-                retries: 3
-            });
+            endpoint: '/v6/deployments',
+            params: {
+                limit: 100,
+                ...(until !== undefined && { until })
+            },
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'until',
+                cursor_path_in_response: 'pagination.next',
+                response_path: 'deployments',
+                limit_name_in_request: 'limit',
+                limit: 100,
+                on_page: async ({ nextPageParam, response }) => {
+                    // Validate the full raw response (not just the extracted `deployments`
+                    // page) so a malformed/truncated response missing `pagination` throws
+                    // instead of silently being treated as "no more pages".
+                    const parsedPage = DeploymentListResponseSchema.safeParse(response.data);
+                    if (!parsedPage.success) {
+                        throw new Error(`Failed to parse deployments response: ${parsedPage.error.message}`);
+                    }
+                    until = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
+            },
+            retries: 3
+        };
 
-            const parsed = DeploymentListResponseSchema.safeParse(response.data);
+        for await (const page of nango.paginate(proxyConfig)) {
+            const parsed = z.array(ProviderDeploymentSchema).safeParse(page);
             if (!parsed.success) {
                 throw new Error(`Failed to parse deployments response: ${parsed.error.message}`);
             }
 
-            const deployments = parsed.data.deployments.map((data) => ({
+            const deployments = parsed.data.map((data) => ({
                 id: data.uid,
                 name: data.name,
                 url: data.url ?? undefined,
@@ -184,13 +205,9 @@ const sync = createSync({
                 await nango.batchSave(deployments, 'Deployment');
             }
 
-            const nextUntil = parsed.data.pagination?.next ?? undefined;
-            if (nextUntil === undefined) {
-                break;
+            if (until !== undefined) {
+                await nango.saveCheckpoint({ until });
             }
-
-            until = nextUntil;
-            await nango.saveCheckpoint({ until });
         }
 
         await nango.clearCheckpoint();

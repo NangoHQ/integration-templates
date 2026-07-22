@@ -10,7 +10,7 @@ const ProviderEnvVarSchema = z.object({
     key: z.string(),
     type: z.string(),
     value: z.string().nullish(),
-    target: z.array(z.string()).nullish(),
+    target: z.union([z.string(), z.array(z.string())]).nullish(),
     createdAt: z.number().nullish(),
     updatedAt: z.number().nullish(),
     createdBy: z.string().nullish(),
@@ -30,7 +30,7 @@ const OutputEnvVarSchema = z.object({
     key: z.string(),
     type: z.string(),
     value: z.string().optional(),
-    target: z.array(z.string()).optional(),
+    target: z.union([z.string(), z.array(z.string())]).optional(),
     createdAt: z.number().optional(),
     updatedAt: z.number().optional(),
     createdBy: z.string().optional(),
@@ -65,11 +65,11 @@ const action = createAction({
 
         const raw = z
             .object({
-                envs: z.array(ProviderEnvVarSchema).optional()
+                envs: z.array(ProviderEnvVarSchema)
             })
             .parse(response.data);
 
-        const envs = (raw.envs ?? []).map((item) => ({
+        const envs = raw.envs.map((item) => ({
             id: item.id,
             key: item.key,
             type: item.type,

@@ -52,10 +52,16 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const files: Array<{ file: string; data: string; encoding: 'base64' }> = input.files.map((f) => ({
+            file: f.file,
+            data: f.data,
+            encoding: 'base64'
+        }));
+
         const body = {
             name: input.name,
             project: input.project,
-            files: input.files,
+            files,
             projectSettings: input.projectSettings ?? { framework: null },
             ...(input.target === 'production' && { target: 'production' })
         };

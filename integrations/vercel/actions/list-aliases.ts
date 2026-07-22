@@ -37,8 +37,9 @@ const AliasSchema = z
         microfrontends: z
             .object({
                 applications: z.array(z.object({}).passthrough()),
-                defaultApp: z.string()
+                defaultApp: z.object({ projectId: z.string() }).passthrough()
             })
+            .passthrough()
             .optional()
     })
     .passthrough();

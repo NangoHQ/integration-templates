@@ -18,7 +18,10 @@ const ProviderDomainSchema = z.object({
     apexName: z.string(),
     projectId: z.string(),
     redirect: z.string().nullable().optional(),
-    redirectStatusCode: z.number().nullable().optional(),
+    redirectStatusCode: z
+        .union([z.literal(301), z.literal(302), z.literal(307), z.literal(308)])
+        .nullable()
+        .optional(),
     gitBranch: z.string().nullable().optional(),
     customEnvironmentId: z.string().nullable().optional(),
     updatedAt: z.number().optional(),
@@ -32,7 +35,7 @@ const DomainSchema = z.object({
     apexName: z.string(),
     projectId: z.string(),
     redirect: z.string().optional(),
-    redirectStatusCode: z.number().optional(),
+    redirectStatusCode: z.union([z.literal(301), z.literal(302), z.literal(307), z.literal(308)]).optional(),
     gitBranch: z.string().optional(),
     customEnvironmentId: z.string().optional(),
     updatedAt: z.number().optional(),

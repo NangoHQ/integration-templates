@@ -36,8 +36,8 @@ const action = createAction({
     output: OutputSchema,
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://vercel.com/docs/rest-api/reference/endpoints/projects#get-project-environment-variable
-            endpoint: `/v10/projects/${encodeURIComponent(input.projectId)}/env/${encodeURIComponent(input.envId)}`,
+            // https://vercel.com/docs/rest-api/projects/retrieve-the-decrypted-value-of-an-environment-variable-of-a-project-by-id
+            endpoint: `/v1/projects/${encodeURIComponent(input.projectId)}/env/${encodeURIComponent(input.envId)}`,
             retries: 3
         });
 

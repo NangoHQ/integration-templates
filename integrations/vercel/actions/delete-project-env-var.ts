@@ -26,8 +26,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://vercel.com/docs/rest-api/reference#delete-project-environment-variable
-            endpoint: `/v10/projects/${encodeURIComponent(input.projectId)}/env/${encodeURIComponent(input.envId)}`,
+            // https://vercel.com/docs/rest-api/projects/remove-an-environment-variable
+            endpoint: `/v9/projects/${encodeURIComponent(input.projectId)}/env/${encodeURIComponent(input.envId)}`,
             data: {},
             retries: 3
         });
