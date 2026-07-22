@@ -1,0 +1,2536 @@
+{
+  "input": {},
+  "output": {
+    "countries": [
+      {
+        "code": "AF",
+        "name": "Afghanistan",
+        "hasRegions": true
+      },
+      {
+        "code": "AX",
+        "name": "Åland Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "AL",
+        "name": "Albania",
+        "hasRegions": true
+      },
+      {
+        "code": "DZ",
+        "name": "Algeria",
+        "hasRegions": true
+      },
+      {
+        "code": "AS",
+        "name": "American Samoa",
+        "hasRegions": false
+      },
+      {
+        "code": "AD",
+        "name": "Andorra",
+        "hasRegions": true
+      },
+      {
+        "code": "AO",
+        "name": "Angola",
+        "hasRegions": true
+      },
+      {
+        "code": "AI",
+        "name": "Anguilla",
+        "hasRegions": false
+      },
+      {
+        "code": "AG",
+        "name": "Antigua and Barbuda",
+        "hasRegions": true
+      },
+      {
+        "code": "AR",
+        "name": "Argentina",
+        "hasRegions": true
+      },
+      {
+        "code": "AM",
+        "name": "Armenia",
+        "hasRegions": true
+      },
+      {
+        "code": "AW",
+        "name": "Aruba",
+        "hasRegions": false
+      },
+      {
+        "code": "AU",
+        "name": "Australia",
+        "hasRegions": true
+      },
+      {
+        "code": "AT",
+        "name": "Austria",
+        "hasRegions": true
+      },
+      {
+        "code": "AZ",
+        "name": "Azerbaijan",
+        "hasRegions": true
+      },
+      {
+        "code": "BS",
+        "name": "Bahamas",
+        "hasRegions": true
+      },
+      {
+        "code": "BH",
+        "name": "Bahrain",
+        "hasRegions": true
+      },
+      {
+        "code": "BD",
+        "name": "Bangladesh",
+        "hasRegions": true
+      },
+      {
+        "code": "BB",
+        "name": "Barbados",
+        "hasRegions": true
+      },
+      {
+        "code": "BY",
+        "name": "Belarus",
+        "hasRegions": true
+      },
+      {
+        "code": "BE",
+        "name": "Belgium",
+        "hasRegions": true
+      },
+      {
+        "code": "BZ",
+        "name": "Belize",
+        "hasRegions": true
+      },
+      {
+        "code": "BJ",
+        "name": "Benin",
+        "hasRegions": true
+      },
+      {
+        "code": "BM",
+        "name": "Bermuda",
+        "hasRegions": false
+      },
+      {
+        "code": "BT",
+        "name": "Bhutan",
+        "hasRegions": true
+      },
+      {
+        "code": "BO",
+        "name": "Bolivia",
+        "hasRegions": true
+      },
+      {
+        "code": "BA",
+        "name": "Bosnia and Herzegovina",
+        "hasRegions": true
+      },
+      {
+        "code": "BW",
+        "name": "Botswana",
+        "hasRegions": true
+      },
+      {
+        "code": "BV",
+        "name": "Bouvet Island",
+        "hasRegions": false
+      },
+      {
+        "code": "BR",
+        "name": "Brazil",
+        "hasRegions": true
+      },
+      {
+        "code": "IO",
+        "name": "British Indian Ocean Territory",
+        "hasRegions": false
+      },
+      {
+        "code": "VG",
+        "name": "British Virgin Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "BN",
+        "name": "Brunei Darussalam",
+        "hasRegions": true
+      },
+      {
+        "code": "BG",
+        "name": "Bulgaria",
+        "hasRegions": true
+      },
+      {
+        "code": "BF",
+        "name": "Burkina Faso",
+        "hasRegions": true
+      },
+      {
+        "code": "BI",
+        "name": "Burundi",
+        "hasRegions": true
+      },
+      {
+        "code": "KH",
+        "name": "Cambodia",
+        "hasRegions": true
+      },
+      {
+        "code": "CM",
+        "name": "Cameroon",
+        "hasRegions": true
+      },
+      {
+        "code": "CA",
+        "name": "Canada",
+        "hasRegions": true
+      },
+      {
+        "code": "CV",
+        "name": "Cape Verde",
+        "hasRegions": true
+      },
+      {
+        "code": "BQ",
+        "name": "Caribbean Netherlands",
+        "hasRegions": true
+      },
+      {
+        "code": "KY",
+        "name": "Cayman Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "CF",
+        "name": "Central African Republic",
+        "hasRegions": true
+      },
+      {
+        "code": "TD",
+        "name": "Chad",
+        "hasRegions": true
+      },
+      {
+        "code": "CL",
+        "name": "Chile",
+        "hasRegions": true
+      },
+      {
+        "code": "CN",
+        "name": "China",
+        "hasRegions": true
+      },
+      {
+        "code": "CX",
+        "name": "Christmas Island",
+        "hasRegions": false
+      },
+      {
+        "code": "CC",
+        "name": "Cocos (Keeling) Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "CO",
+        "name": "Colombia",
+        "hasRegions": true
+      },
+      {
+        "code": "KM",
+        "name": "Comoros",
+        "hasRegions": true
+      },
+      {
+        "code": "CK",
+        "name": "Cook Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "CR",
+        "name": "Costa Rica",
+        "hasRegions": true
+      },
+      {
+        "code": "HR",
+        "name": "Croatia",
+        "hasRegions": true
+      },
+      {
+        "code": "CU",
+        "name": "Cuba",
+        "hasRegions": true
+      },
+      {
+        "code": "CW",
+        "name": "Curaçao",
+        "hasRegions": false
+      },
+      {
+        "code": "CY",
+        "name": "Cyprus",
+        "hasRegions": true
+      },
+      {
+        "code": "CZ",
+        "name": "Czechia",
+        "hasRegions": true
+      },
+      {
+        "code": "CD",
+        "name": "Democratic Republic of the Congo",
+        "hasRegions": true
+      },
+      {
+        "code": "DK",
+        "name": "Denmark",
+        "hasRegions": true
+      },
+      {
+        "code": "DJ",
+        "name": "Djibouti",
+        "hasRegions": true
+      },
+      {
+        "code": "DM",
+        "name": "Dominica",
+        "hasRegions": true
+      },
+      {
+        "code": "DO",
+        "name": "Dominican Republic",
+        "hasRegions": true
+      },
+      {
+        "code": "EC",
+        "name": "Ecuador",
+        "hasRegions": true
+      },
+      {
+        "code": "EG",
+        "name": "Egypt",
+        "hasRegions": true
+      },
+      {
+        "code": "SV",
+        "name": "El Salvador",
+        "hasRegions": true
+      },
+      {
+        "code": "GQ",
+        "name": "Equatorial Guinea",
+        "hasRegions": true
+      },
+      {
+        "code": "ER",
+        "name": "Eritrea",
+        "hasRegions": true
+      },
+      {
+        "code": "EE",
+        "name": "Estonia",
+        "hasRegions": true
+      },
+      {
+        "code": "SZ",
+        "name": "Eswatini",
+        "hasRegions": true
+      },
+      {
+        "code": "ET",
+        "name": "Ethiopia",
+        "hasRegions": true
+      },
+      {
+        "code": "FK",
+        "name": "Falkland Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "FO",
+        "name": "Faroe Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "FJ",
+        "name": "Fiji",
+        "hasRegions": true
+      },
+      {
+        "code": "FI",
+        "name": "Finland",
+        "hasRegions": true
+      },
+      {
+        "code": "FR",
+        "name": "France",
+        "hasRegions": true
+      },
+      {
+        "code": "GF",
+        "name": "French Guiana",
+        "hasRegions": false
+      },
+      {
+        "code": "PF",
+        "name": "French Polynesia",
+        "hasRegions": false
+      },
+      {
+        "code": "TF",
+        "name": "French Southern Territories",
+        "hasRegions": false
+      },
+      {
+        "code": "GA",
+        "name": "Gabon",
+        "hasRegions": true
+      },
+      {
+        "code": "GM",
+        "name": "Gambia",
+        "hasRegions": true
+      },
+      {
+        "code": "GE",
+        "name": "Georgia",
+        "hasRegions": true
+      },
+      {
+        "code": "DE",
+        "name": "Germany",
+        "hasRegions": true
+      },
+      {
+        "code": "GH",
+        "name": "Ghana",
+        "hasRegions": true
+      },
+      {
+        "code": "GI",
+        "name": "Gibraltar",
+        "hasRegions": false
+      },
+      {
+        "code": "GR",
+        "name": "Greece",
+        "hasRegions": true
+      },
+      {
+        "code": "GL",
+        "name": "Greenland",
+        "hasRegions": true
+      },
+      {
+        "code": "GD",
+        "name": "Grenada",
+        "hasRegions": true
+      },
+      {
+        "code": "GP",
+        "name": "Guadeloupe",
+        "hasRegions": false
+      },
+      {
+        "code": "GU",
+        "name": "Guam",
+        "hasRegions": false
+      },
+      {
+        "code": "GT",
+        "name": "Guatemala",
+        "hasRegions": true
+      },
+      {
+        "code": "GG",
+        "name": "Guernsey",
+        "hasRegions": false
+      },
+      {
+        "code": "GN",
+        "name": "Guinea",
+        "hasRegions": true
+      },
+      {
+        "code": "GW",
+        "name": "Guinea-Bissau",
+        "hasRegions": true
+      },
+      {
+        "code": "GY",
+        "name": "Guyana",
+        "hasRegions": true
+      },
+      {
+        "code": "HT",
+        "name": "Haiti",
+        "hasRegions": true
+      },
+      {
+        "code": "HM",
+        "name": "Heard Island and McDonald Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "HN",
+        "name": "Honduras",
+        "hasRegions": true
+      },
+      {
+        "code": "HK",
+        "name": "Hong Kong",
+        "hasRegions": false
+      },
+      {
+        "code": "HU",
+        "name": "Hungary",
+        "hasRegions": true
+      },
+      {
+        "code": "IS",
+        "name": "Iceland",
+        "hasRegions": true
+      },
+      {
+        "code": "IN",
+        "name": "India",
+        "hasRegions": true
+      },
+      {
+        "code": "ID",
+        "name": "Indonesia",
+        "hasRegions": true
+      },
+      {
+        "code": "IR",
+        "name": "Iran",
+        "hasRegions": true
+      },
+      {
+        "code": "IQ",
+        "name": "Iraq",
+        "hasRegions": true
+      },
+      {
+        "code": "IE",
+        "name": "Ireland",
+        "hasRegions": true
+      },
+      {
+        "code": "IM",
+        "name": "Isle of Man",
+        "hasRegions": false
+      },
+      {
+        "code": "IL",
+        "name": "Israel",
+        "hasRegions": true
+      },
+      {
+        "code": "IT",
+        "name": "Italy",
+        "hasRegions": true
+      },
+      {
+        "code": "CI",
+        "name": "Ivory Coast",
+        "hasRegions": true
+      },
+      {
+        "code": "JM",
+        "name": "Jamaica",
+        "hasRegions": true
+      },
+      {
+        "code": "JP",
+        "name": "Japan",
+        "hasRegions": true
+      },
+      {
+        "code": "JE",
+        "name": "Jersey",
+        "hasRegions": false
+      },
+      {
+        "code": "JO",
+        "name": "Jordan",
+        "hasRegions": true
+      },
+      {
+        "code": "KZ",
+        "name": "Kazakhstan",
+        "hasRegions": true
+      },
+      {
+        "code": "KE",
+        "name": "Kenya",
+        "hasRegions": true
+      },
+      {
+        "code": "KI",
+        "name": "Kiribati",
+        "hasRegions": true
+      },
+      {
+        "code": "XK",
+        "name": "Kosovo",
+        "hasRegions": false
+      },
+      {
+        "code": "KW",
+        "name": "Kuwait",
+        "hasRegions": true
+      },
+      {
+        "code": "KG",
+        "name": "Kyrgyzstan",
+        "hasRegions": true
+      },
+      {
+        "code": "LA",
+        "name": "Laos",
+        "hasRegions": true
+      },
+      {
+        "code": "LV",
+        "name": "Latvia",
+        "hasRegions": true
+      },
+      {
+        "code": "LB",
+        "name": "Lebanon",
+        "hasRegions": true
+      },
+      {
+        "code": "LS",
+        "name": "Lesotho",
+        "hasRegions": true
+      },
+      {
+        "code": "LR",
+        "name": "Liberia",
+        "hasRegions": true
+      },
+      {
+        "code": "LY",
+        "name": "Libya",
+        "hasRegions": true
+      },
+      {
+        "code": "LI",
+        "name": "Liechtenstein",
+        "hasRegions": true
+      },
+      {
+        "code": "LT",
+        "name": "Lithuania",
+        "hasRegions": true
+      },
+      {
+        "code": "LU",
+        "name": "Luxembourg",
+        "hasRegions": true
+      },
+      {
+        "code": "MO",
+        "name": "Macao",
+        "hasRegions": false
+      },
+      {
+        "code": "MG",
+        "name": "Madagascar",
+        "hasRegions": true
+      },
+      {
+        "code": "MW",
+        "name": "Malawi",
+        "hasRegions": true
+      },
+      {
+        "code": "MY",
+        "name": "Malaysia",
+        "hasRegions": true
+      },
+      {
+        "code": "MV",
+        "name": "Maldives",
+        "hasRegions": true
+      },
+      {
+        "code": "ML",
+        "name": "Mali",
+        "hasRegions": true
+      },
+      {
+        "code": "MT",
+        "name": "Malta",
+        "hasRegions": true
+      },
+      {
+        "code": "MH",
+        "name": "Marshall Islands",
+        "hasRegions": true
+      },
+      {
+        "code": "MQ",
+        "name": "Martinique",
+        "hasRegions": false
+      },
+      {
+        "code": "MR",
+        "name": "Mauritania",
+        "hasRegions": true
+      },
+      {
+        "code": "MU",
+        "name": "Mauritius",
+        "hasRegions": true
+      },
+      {
+        "code": "YT",
+        "name": "Mayotte",
+        "hasRegions": false
+      },
+      {
+        "code": "MX",
+        "name": "Mexico",
+        "hasRegions": true
+      },
+      {
+        "code": "FM",
+        "name": "Micronesia",
+        "hasRegions": true
+      },
+      {
+        "code": "MD",
+        "name": "Moldova",
+        "hasRegions": true
+      },
+      {
+        "code": "MC",
+        "name": "Monaco",
+        "hasRegions": true
+      },
+      {
+        "code": "MN",
+        "name": "Mongolia",
+        "hasRegions": true
+      },
+      {
+        "code": "ME",
+        "name": "Montenegro",
+        "hasRegions": true
+      },
+      {
+        "code": "MS",
+        "name": "Montserrat",
+        "hasRegions": false
+      },
+      {
+        "code": "MA",
+        "name": "Morocco",
+        "hasRegions": true
+      },
+      {
+        "code": "MZ",
+        "name": "Mozambique",
+        "hasRegions": true
+      },
+      {
+        "code": "MM",
+        "name": "Myanmar",
+        "hasRegions": true
+      },
+      {
+        "code": "NA",
+        "name": "Namibia",
+        "hasRegions": true
+      },
+      {
+        "code": "NR",
+        "name": "Nauru",
+        "hasRegions": true
+      },
+      {
+        "code": "NP",
+        "name": "Nepal",
+        "hasRegions": true
+      },
+      {
+        "code": "NL",
+        "name": "Netherlands",
+        "hasRegions": true
+      },
+      {
+        "code": "NC",
+        "name": "New Caledonia",
+        "hasRegions": false
+      },
+      {
+        "code": "NZ",
+        "name": "New Zealand",
+        "hasRegions": true
+      },
+      {
+        "code": "NI",
+        "name": "Nicaragua",
+        "hasRegions": true
+      },
+      {
+        "code": "NE",
+        "name": "Niger",
+        "hasRegions": true
+      },
+      {
+        "code": "NG",
+        "name": "Nigeria",
+        "hasRegions": true
+      },
+      {
+        "code": "NU",
+        "name": "Niue",
+        "hasRegions": false
+      },
+      {
+        "code": "NF",
+        "name": "Norfolk Island",
+        "hasRegions": false
+      },
+      {
+        "code": "KP",
+        "name": "North Korea",
+        "hasRegions": true
+      },
+      {
+        "code": "MK",
+        "name": "North Macedonia",
+        "hasRegions": true
+      },
+      {
+        "code": "MP",
+        "name": "Northern Mariana Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "NO",
+        "name": "Norway",
+        "hasRegions": true
+      },
+      {
+        "code": "OM",
+        "name": "Oman",
+        "hasRegions": true
+      },
+      {
+        "code": "PK",
+        "name": "Pakistan",
+        "hasRegions": true
+      },
+      {
+        "code": "PW",
+        "name": "Palau",
+        "hasRegions": true
+      },
+      {
+        "code": "PS",
+        "name": "Palestine",
+        "hasRegions": true
+      },
+      {
+        "code": "PA",
+        "name": "Panama",
+        "hasRegions": true
+      },
+      {
+        "code": "PG",
+        "name": "Papua New Guinea",
+        "hasRegions": true
+      },
+      {
+        "code": "PY",
+        "name": "Paraguay",
+        "hasRegions": true
+      },
+      {
+        "code": "PE",
+        "name": "Peru",
+        "hasRegions": true
+      },
+      {
+        "code": "PH",
+        "name": "Philippines",
+        "hasRegions": true
+      },
+      {
+        "code": "PN",
+        "name": "Pitcairn Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "PL",
+        "name": "Poland",
+        "hasRegions": true
+      },
+      {
+        "code": "PT",
+        "name": "Portugal",
+        "hasRegions": true
+      },
+      {
+        "code": "PR",
+        "name": "Puerto Rico",
+        "hasRegions": false
+      },
+      {
+        "code": "QA",
+        "name": "Qatar",
+        "hasRegions": true
+      },
+      {
+        "code": "CG",
+        "name": "Republic of the Congo",
+        "hasRegions": true
+      },
+      {
+        "code": "RE",
+        "name": "Réunion",
+        "hasRegions": false
+      },
+      {
+        "code": "RO",
+        "name": "Romania",
+        "hasRegions": true
+      },
+      {
+        "code": "RU",
+        "name": "Russian Federation",
+        "hasRegions": true
+      },
+      {
+        "code": "RW",
+        "name": "Rwanda",
+        "hasRegions": true
+      },
+      {
+        "code": "BL",
+        "name": "Saint Barthélemy",
+        "hasRegions": false
+      },
+      {
+        "code": "SH",
+        "name": "Saint Helena, Ascension and Tristan da Cunha",
+        "hasRegions": true
+      },
+      {
+        "code": "KN",
+        "name": "Saint Kitts and Nevis",
+        "hasRegions": true
+      },
+      {
+        "code": "LC",
+        "name": "Saint Lucia",
+        "hasRegions": true
+      },
+      {
+        "code": "MF",
+        "name": "Saint Martin",
+        "hasRegions": false
+      },
+      {
+        "code": "PM",
+        "name": "Saint Pierre and Miquelon",
+        "hasRegions": false
+      },
+      {
+        "code": "VC",
+        "name": "Saint Vincent and the Grenadines",
+        "hasRegions": true
+      },
+      {
+        "code": "WS",
+        "name": "Samoa",
+        "hasRegions": true
+      },
+      {
+        "code": "SM",
+        "name": "San Marino",
+        "hasRegions": true
+      },
+      {
+        "code": "ST",
+        "name": "Sao Tome and Principe",
+        "hasRegions": true
+      },
+      {
+        "code": "SA",
+        "name": "Saudi Arabia",
+        "hasRegions": true
+      },
+      {
+        "code": "SN",
+        "name": "Senegal",
+        "hasRegions": true
+      },
+      {
+        "code": "RS",
+        "name": "Serbia",
+        "hasRegions": true
+      },
+      {
+        "code": "SC",
+        "name": "Seychelles",
+        "hasRegions": true
+      },
+      {
+        "code": "SL",
+        "name": "Sierra Leone",
+        "hasRegions": true
+      },
+      {
+        "code": "SG",
+        "name": "Singapore",
+        "hasRegions": true
+      },
+      {
+        "code": "SX",
+        "name": "Sint Maarten",
+        "hasRegions": false
+      },
+      {
+        "code": "SK",
+        "name": "Slovakia",
+        "hasRegions": true
+      },
+      {
+        "code": "SI",
+        "name": "Slovenia",
+        "hasRegions": true
+      },
+      {
+        "code": "SB",
+        "name": "Solomon Islands",
+        "hasRegions": true
+      },
+      {
+        "code": "SO",
+        "name": "Somalia",
+        "hasRegions": true
+      },
+      {
+        "code": "ZA",
+        "name": "South Africa",
+        "hasRegions": true
+      },
+      {
+        "code": "GS",
+        "name": "South Georgia and the South Sandwich Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "KR",
+        "name": "South Korea",
+        "hasRegions": true
+      },
+      {
+        "code": "SS",
+        "name": "South Sudan",
+        "hasRegions": true
+      },
+      {
+        "code": "ES",
+        "name": "Spain",
+        "hasRegions": true
+      },
+      {
+        "code": "LK",
+        "name": "Sri Lanka",
+        "hasRegions": true
+      },
+      {
+        "code": "SD",
+        "name": "Sudan",
+        "hasRegions": true
+      },
+      {
+        "code": "SR",
+        "name": "Suriname",
+        "hasRegions": true
+      },
+      {
+        "code": "SJ",
+        "name": "Svalbard and Jan Mayen",
+        "hasRegions": false
+      },
+      {
+        "code": "SE",
+        "name": "Sweden",
+        "hasRegions": true
+      },
+      {
+        "code": "CH",
+        "name": "Switzerland",
+        "hasRegions": true
+      },
+      {
+        "code": "SY",
+        "name": "Syrian Arab Republic",
+        "hasRegions": true
+      },
+      {
+        "code": "TW",
+        "name": "Taiwan",
+        "hasRegions": true
+      },
+      {
+        "code": "TJ",
+        "name": "Tajikistan",
+        "hasRegions": true
+      },
+      {
+        "code": "TZ",
+        "name": "Tanzania",
+        "hasRegions": true
+      },
+      {
+        "code": "TH",
+        "name": "Thailand",
+        "hasRegions": true
+      },
+      {
+        "code": "TL",
+        "name": "Timor-Leste",
+        "hasRegions": true
+      },
+      {
+        "code": "TG",
+        "name": "Togo",
+        "hasRegions": true
+      },
+      {
+        "code": "TK",
+        "name": "Tokelau",
+        "hasRegions": false
+      },
+      {
+        "code": "TO",
+        "name": "Tonga",
+        "hasRegions": true
+      },
+      {
+        "code": "TT",
+        "name": "Trinidad and Tobago",
+        "hasRegions": true
+      },
+      {
+        "code": "TN",
+        "name": "Tunisia",
+        "hasRegions": true
+      },
+      {
+        "code": "TR",
+        "name": "Turkey",
+        "hasRegions": true
+      },
+      {
+        "code": "TM",
+        "name": "Turkmenistan",
+        "hasRegions": true
+      },
+      {
+        "code": "TC",
+        "name": "Turks and Caicos Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "TV",
+        "name": "Tuvalu",
+        "hasRegions": true
+      },
+      {
+        "code": "UG",
+        "name": "Uganda",
+        "hasRegions": true
+      },
+      {
+        "code": "UA",
+        "name": "Ukraine",
+        "hasRegions": true
+      },
+      {
+        "code": "AE",
+        "name": "United Arab Emirates",
+        "hasRegions": true
+      },
+      {
+        "code": "GB",
+        "name": "United Kingdom",
+        "hasRegions": true
+      },
+      {
+        "code": "US",
+        "name": "United States",
+        "hasRegions": true
+      },
+      {
+        "code": "UM",
+        "name": "United States Minor Outlying Islands",
+        "hasRegions": true
+      },
+      {
+        "code": "VI",
+        "name": "United States Virgin Islands",
+        "hasRegions": false
+      },
+      {
+        "code": "UY",
+        "name": "Uruguay",
+        "hasRegions": true
+      },
+      {
+        "code": "UZ",
+        "name": "Uzbekistan",
+        "hasRegions": true
+      },
+      {
+        "code": "VU",
+        "name": "Vanuatu",
+        "hasRegions": true
+      },
+      {
+        "code": "VA",
+        "name": "Vatican City",
+        "hasRegions": false
+      },
+      {
+        "code": "VE",
+        "name": "Venezuela",
+        "hasRegions": true
+      },
+      {
+        "code": "VN",
+        "name": "Vietnam",
+        "hasRegions": true
+      },
+      {
+        "code": "WF",
+        "name": "Wallis and Futuna",
+        "hasRegions": false
+      },
+      {
+        "code": "EH",
+        "name": "Western Sahara",
+        "hasRegions": false
+      },
+      {
+        "code": "YE",
+        "name": "Yemen",
+        "hasRegions": true
+      },
+      {
+        "code": "ZM",
+        "name": "Zambia",
+        "hasRegions": true
+      },
+      {
+        "code": "ZW",
+        "name": "Zimbabwe",
+        "hasRegions": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/publicholidays/countries": {
+        "response": [
+          {
+            "code": "AF",
+            "name": "Afghanistan",
+            "hasRegions": true
+          },
+          {
+            "code": "AX",
+            "name": "Åland Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "AL",
+            "name": "Albania",
+            "hasRegions": true
+          },
+          {
+            "code": "DZ",
+            "name": "Algeria",
+            "hasRegions": true
+          },
+          {
+            "code": "AS",
+            "name": "American Samoa",
+            "hasRegions": false
+          },
+          {
+            "code": "AD",
+            "name": "Andorra",
+            "hasRegions": true
+          },
+          {
+            "code": "AO",
+            "name": "Angola",
+            "hasRegions": true
+          },
+          {
+            "code": "AI",
+            "name": "Anguilla",
+            "hasRegions": false
+          },
+          {
+            "code": "AG",
+            "name": "Antigua and Barbuda",
+            "hasRegions": true
+          },
+          {
+            "code": "AR",
+            "name": "Argentina",
+            "hasRegions": true
+          },
+          {
+            "code": "AM",
+            "name": "Armenia",
+            "hasRegions": true
+          },
+          {
+            "code": "AW",
+            "name": "Aruba",
+            "hasRegions": false
+          },
+          {
+            "code": "AU",
+            "name": "Australia",
+            "hasRegions": true
+          },
+          {
+            "code": "AT",
+            "name": "Austria",
+            "hasRegions": true
+          },
+          {
+            "code": "AZ",
+            "name": "Azerbaijan",
+            "hasRegions": true
+          },
+          {
+            "code": "BS",
+            "name": "Bahamas",
+            "hasRegions": true
+          },
+          {
+            "code": "BH",
+            "name": "Bahrain",
+            "hasRegions": true
+          },
+          {
+            "code": "BD",
+            "name": "Bangladesh",
+            "hasRegions": true
+          },
+          {
+            "code": "BB",
+            "name": "Barbados",
+            "hasRegions": true
+          },
+          {
+            "code": "BY",
+            "name": "Belarus",
+            "hasRegions": true
+          },
+          {
+            "code": "BE",
+            "name": "Belgium",
+            "hasRegions": true
+          },
+          {
+            "code": "BZ",
+            "name": "Belize",
+            "hasRegions": true
+          },
+          {
+            "code": "BJ",
+            "name": "Benin",
+            "hasRegions": true
+          },
+          {
+            "code": "BM",
+            "name": "Bermuda",
+            "hasRegions": false
+          },
+          {
+            "code": "BT",
+            "name": "Bhutan",
+            "hasRegions": true
+          },
+          {
+            "code": "BO",
+            "name": "Bolivia",
+            "hasRegions": true
+          },
+          {
+            "code": "BA",
+            "name": "Bosnia and Herzegovina",
+            "hasRegions": true
+          },
+          {
+            "code": "BW",
+            "name": "Botswana",
+            "hasRegions": true
+          },
+          {
+            "code": "BV",
+            "name": "Bouvet Island",
+            "hasRegions": false
+          },
+          {
+            "code": "BR",
+            "name": "Brazil",
+            "hasRegions": true
+          },
+          {
+            "code": "IO",
+            "name": "British Indian Ocean Territory",
+            "hasRegions": false
+          },
+          {
+            "code": "VG",
+            "name": "British Virgin Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "BN",
+            "name": "Brunei Darussalam",
+            "hasRegions": true
+          },
+          {
+            "code": "BG",
+            "name": "Bulgaria",
+            "hasRegions": true
+          },
+          {
+            "code": "BF",
+            "name": "Burkina Faso",
+            "hasRegions": true
+          },
+          {
+            "code": "BI",
+            "name": "Burundi",
+            "hasRegions": true
+          },
+          {
+            "code": "KH",
+            "name": "Cambodia",
+            "hasRegions": true
+          },
+          {
+            "code": "CM",
+            "name": "Cameroon",
+            "hasRegions": true
+          },
+          {
+            "code": "CA",
+            "name": "Canada",
+            "hasRegions": true
+          },
+          {
+            "code": "CV",
+            "name": "Cape Verde",
+            "hasRegions": true
+          },
+          {
+            "code": "BQ",
+            "name": "Caribbean Netherlands",
+            "hasRegions": true
+          },
+          {
+            "code": "KY",
+            "name": "Cayman Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "CF",
+            "name": "Central African Republic",
+            "hasRegions": true
+          },
+          {
+            "code": "TD",
+            "name": "Chad",
+            "hasRegions": true
+          },
+          {
+            "code": "CL",
+            "name": "Chile",
+            "hasRegions": true
+          },
+          {
+            "code": "CN",
+            "name": "China",
+            "hasRegions": true
+          },
+          {
+            "code": "CX",
+            "name": "Christmas Island",
+            "hasRegions": false
+          },
+          {
+            "code": "CC",
+            "name": "Cocos (Keeling) Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "CO",
+            "name": "Colombia",
+            "hasRegions": true
+          },
+          {
+            "code": "KM",
+            "name": "Comoros",
+            "hasRegions": true
+          },
+          {
+            "code": "CK",
+            "name": "Cook Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "CR",
+            "name": "Costa Rica",
+            "hasRegions": true
+          },
+          {
+            "code": "HR",
+            "name": "Croatia",
+            "hasRegions": true
+          },
+          {
+            "code": "CU",
+            "name": "Cuba",
+            "hasRegions": true
+          },
+          {
+            "code": "CW",
+            "name": "Curaçao",
+            "hasRegions": false
+          },
+          {
+            "code": "CY",
+            "name": "Cyprus",
+            "hasRegions": true
+          },
+          {
+            "code": "CZ",
+            "name": "Czechia",
+            "hasRegions": true
+          },
+          {
+            "code": "CD",
+            "name": "Democratic Republic of the Congo",
+            "hasRegions": true
+          },
+          {
+            "code": "DK",
+            "name": "Denmark",
+            "hasRegions": true
+          },
+          {
+            "code": "DJ",
+            "name": "Djibouti",
+            "hasRegions": true
+          },
+          {
+            "code": "DM",
+            "name": "Dominica",
+            "hasRegions": true
+          },
+          {
+            "code": "DO",
+            "name": "Dominican Republic",
+            "hasRegions": true
+          },
+          {
+            "code": "EC",
+            "name": "Ecuador",
+            "hasRegions": true
+          },
+          {
+            "code": "EG",
+            "name": "Egypt",
+            "hasRegions": true
+          },
+          {
+            "code": "SV",
+            "name": "El Salvador",
+            "hasRegions": true
+          },
+          {
+            "code": "GQ",
+            "name": "Equatorial Guinea",
+            "hasRegions": true
+          },
+          {
+            "code": "ER",
+            "name": "Eritrea",
+            "hasRegions": true
+          },
+          {
+            "code": "EE",
+            "name": "Estonia",
+            "hasRegions": true
+          },
+          {
+            "code": "SZ",
+            "name": "Eswatini",
+            "hasRegions": true
+          },
+          {
+            "code": "ET",
+            "name": "Ethiopia",
+            "hasRegions": true
+          },
+          {
+            "code": "FK",
+            "name": "Falkland Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "FO",
+            "name": "Faroe Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "FJ",
+            "name": "Fiji",
+            "hasRegions": true
+          },
+          {
+            "code": "FI",
+            "name": "Finland",
+            "hasRegions": true
+          },
+          {
+            "code": "FR",
+            "name": "France",
+            "hasRegions": true
+          },
+          {
+            "code": "GF",
+            "name": "French Guiana",
+            "hasRegions": false
+          },
+          {
+            "code": "PF",
+            "name": "French Polynesia",
+            "hasRegions": false
+          },
+          {
+            "code": "TF",
+            "name": "French Southern Territories",
+            "hasRegions": false
+          },
+          {
+            "code": "GA",
+            "name": "Gabon",
+            "hasRegions": true
+          },
+          {
+            "code": "GM",
+            "name": "Gambia",
+            "hasRegions": true
+          },
+          {
+            "code": "GE",
+            "name": "Georgia",
+            "hasRegions": true
+          },
+          {
+            "code": "DE",
+            "name": "Germany",
+            "hasRegions": true
+          },
+          {
+            "code": "GH",
+            "name": "Ghana",
+            "hasRegions": true
+          },
+          {
+            "code": "GI",
+            "name": "Gibraltar",
+            "hasRegions": false
+          },
+          {
+            "code": "GR",
+            "name": "Greece",
+            "hasRegions": true
+          },
+          {
+            "code": "GL",
+            "name": "Greenland",
+            "hasRegions": true
+          },
+          {
+            "code": "GD",
+            "name": "Grenada",
+            "hasRegions": true
+          },
+          {
+            "code": "GP",
+            "name": "Guadeloupe",
+            "hasRegions": false
+          },
+          {
+            "code": "GU",
+            "name": "Guam",
+            "hasRegions": false
+          },
+          {
+            "code": "GT",
+            "name": "Guatemala",
+            "hasRegions": true
+          },
+          {
+            "code": "GG",
+            "name": "Guernsey",
+            "hasRegions": false
+          },
+          {
+            "code": "GN",
+            "name": "Guinea",
+            "hasRegions": true
+          },
+          {
+            "code": "GW",
+            "name": "Guinea-Bissau",
+            "hasRegions": true
+          },
+          {
+            "code": "GY",
+            "name": "Guyana",
+            "hasRegions": true
+          },
+          {
+            "code": "HT",
+            "name": "Haiti",
+            "hasRegions": true
+          },
+          {
+            "code": "HM",
+            "name": "Heard Island and McDonald Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "HN",
+            "name": "Honduras",
+            "hasRegions": true
+          },
+          {
+            "code": "HK",
+            "name": "Hong Kong",
+            "hasRegions": false
+          },
+          {
+            "code": "HU",
+            "name": "Hungary",
+            "hasRegions": true
+          },
+          {
+            "code": "IS",
+            "name": "Iceland",
+            "hasRegions": true
+          },
+          {
+            "code": "IN",
+            "name": "India",
+            "hasRegions": true
+          },
+          {
+            "code": "ID",
+            "name": "Indonesia",
+            "hasRegions": true
+          },
+          {
+            "code": "IR",
+            "name": "Iran",
+            "hasRegions": true
+          },
+          {
+            "code": "IQ",
+            "name": "Iraq",
+            "hasRegions": true
+          },
+          {
+            "code": "IE",
+            "name": "Ireland",
+            "hasRegions": true
+          },
+          {
+            "code": "IM",
+            "name": "Isle of Man",
+            "hasRegions": false
+          },
+          {
+            "code": "IL",
+            "name": "Israel",
+            "hasRegions": true
+          },
+          {
+            "code": "IT",
+            "name": "Italy",
+            "hasRegions": true
+          },
+          {
+            "code": "CI",
+            "name": "Ivory Coast",
+            "hasRegions": true
+          },
+          {
+            "code": "JM",
+            "name": "Jamaica",
+            "hasRegions": true
+          },
+          {
+            "code": "JP",
+            "name": "Japan",
+            "hasRegions": true
+          },
+          {
+            "code": "JE",
+            "name": "Jersey",
+            "hasRegions": false
+          },
+          {
+            "code": "JO",
+            "name": "Jordan",
+            "hasRegions": true
+          },
+          {
+            "code": "KZ",
+            "name": "Kazakhstan",
+            "hasRegions": true
+          },
+          {
+            "code": "KE",
+            "name": "Kenya",
+            "hasRegions": true
+          },
+          {
+            "code": "KI",
+            "name": "Kiribati",
+            "hasRegions": true
+          },
+          {
+            "code": "XK",
+            "name": "Kosovo",
+            "hasRegions": false
+          },
+          {
+            "code": "KW",
+            "name": "Kuwait",
+            "hasRegions": true
+          },
+          {
+            "code": "KG",
+            "name": "Kyrgyzstan",
+            "hasRegions": true
+          },
+          {
+            "code": "LA",
+            "name": "Laos",
+            "hasRegions": true
+          },
+          {
+            "code": "LV",
+            "name": "Latvia",
+            "hasRegions": true
+          },
+          {
+            "code": "LB",
+            "name": "Lebanon",
+            "hasRegions": true
+          },
+          {
+            "code": "LS",
+            "name": "Lesotho",
+            "hasRegions": true
+          },
+          {
+            "code": "LR",
+            "name": "Liberia",
+            "hasRegions": true
+          },
+          {
+            "code": "LY",
+            "name": "Libya",
+            "hasRegions": true
+          },
+          {
+            "code": "LI",
+            "name": "Liechtenstein",
+            "hasRegions": true
+          },
+          {
+            "code": "LT",
+            "name": "Lithuania",
+            "hasRegions": true
+          },
+          {
+            "code": "LU",
+            "name": "Luxembourg",
+            "hasRegions": true
+          },
+          {
+            "code": "MO",
+            "name": "Macao",
+            "hasRegions": false
+          },
+          {
+            "code": "MG",
+            "name": "Madagascar",
+            "hasRegions": true
+          },
+          {
+            "code": "MW",
+            "name": "Malawi",
+            "hasRegions": true
+          },
+          {
+            "code": "MY",
+            "name": "Malaysia",
+            "hasRegions": true
+          },
+          {
+            "code": "MV",
+            "name": "Maldives",
+            "hasRegions": true
+          },
+          {
+            "code": "ML",
+            "name": "Mali",
+            "hasRegions": true
+          },
+          {
+            "code": "MT",
+            "name": "Malta",
+            "hasRegions": true
+          },
+          {
+            "code": "MH",
+            "name": "Marshall Islands",
+            "hasRegions": true
+          },
+          {
+            "code": "MQ",
+            "name": "Martinique",
+            "hasRegions": false
+          },
+          {
+            "code": "MR",
+            "name": "Mauritania",
+            "hasRegions": true
+          },
+          {
+            "code": "MU",
+            "name": "Mauritius",
+            "hasRegions": true
+          },
+          {
+            "code": "YT",
+            "name": "Mayotte",
+            "hasRegions": false
+          },
+          {
+            "code": "MX",
+            "name": "Mexico",
+            "hasRegions": true
+          },
+          {
+            "code": "FM",
+            "name": "Micronesia",
+            "hasRegions": true
+          },
+          {
+            "code": "MD",
+            "name": "Moldova",
+            "hasRegions": true
+          },
+          {
+            "code": "MC",
+            "name": "Monaco",
+            "hasRegions": true
+          },
+          {
+            "code": "MN",
+            "name": "Mongolia",
+            "hasRegions": true
+          },
+          {
+            "code": "ME",
+            "name": "Montenegro",
+            "hasRegions": true
+          },
+          {
+            "code": "MS",
+            "name": "Montserrat",
+            "hasRegions": false
+          },
+          {
+            "code": "MA",
+            "name": "Morocco",
+            "hasRegions": true
+          },
+          {
+            "code": "MZ",
+            "name": "Mozambique",
+            "hasRegions": true
+          },
+          {
+            "code": "MM",
+            "name": "Myanmar",
+            "hasRegions": true
+          },
+          {
+            "code": "NA",
+            "name": "Namibia",
+            "hasRegions": true
+          },
+          {
+            "code": "NR",
+            "name": "Nauru",
+            "hasRegions": true
+          },
+          {
+            "code": "NP",
+            "name": "Nepal",
+            "hasRegions": true
+          },
+          {
+            "code": "NL",
+            "name": "Netherlands",
+            "hasRegions": true
+          },
+          {
+            "code": "NC",
+            "name": "New Caledonia",
+            "hasRegions": false
+          },
+          {
+            "code": "NZ",
+            "name": "New Zealand",
+            "hasRegions": true
+          },
+          {
+            "code": "NI",
+            "name": "Nicaragua",
+            "hasRegions": true
+          },
+          {
+            "code": "NE",
+            "name": "Niger",
+            "hasRegions": true
+          },
+          {
+            "code": "NG",
+            "name": "Nigeria",
+            "hasRegions": true
+          },
+          {
+            "code": "NU",
+            "name": "Niue",
+            "hasRegions": false
+          },
+          {
+            "code": "NF",
+            "name": "Norfolk Island",
+            "hasRegions": false
+          },
+          {
+            "code": "KP",
+            "name": "North Korea",
+            "hasRegions": true
+          },
+          {
+            "code": "MK",
+            "name": "North Macedonia",
+            "hasRegions": true
+          },
+          {
+            "code": "MP",
+            "name": "Northern Mariana Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "NO",
+            "name": "Norway",
+            "hasRegions": true
+          },
+          {
+            "code": "OM",
+            "name": "Oman",
+            "hasRegions": true
+          },
+          {
+            "code": "PK",
+            "name": "Pakistan",
+            "hasRegions": true
+          },
+          {
+            "code": "PW",
+            "name": "Palau",
+            "hasRegions": true
+          },
+          {
+            "code": "PS",
+            "name": "Palestine",
+            "hasRegions": true
+          },
+          {
+            "code": "PA",
+            "name": "Panama",
+            "hasRegions": true
+          },
+          {
+            "code": "PG",
+            "name": "Papua New Guinea",
+            "hasRegions": true
+          },
+          {
+            "code": "PY",
+            "name": "Paraguay",
+            "hasRegions": true
+          },
+          {
+            "code": "PE",
+            "name": "Peru",
+            "hasRegions": true
+          },
+          {
+            "code": "PH",
+            "name": "Philippines",
+            "hasRegions": true
+          },
+          {
+            "code": "PN",
+            "name": "Pitcairn Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "PL",
+            "name": "Poland",
+            "hasRegions": true
+          },
+          {
+            "code": "PT",
+            "name": "Portugal",
+            "hasRegions": true
+          },
+          {
+            "code": "PR",
+            "name": "Puerto Rico",
+            "hasRegions": false
+          },
+          {
+            "code": "QA",
+            "name": "Qatar",
+            "hasRegions": true
+          },
+          {
+            "code": "CG",
+            "name": "Republic of the Congo",
+            "hasRegions": true
+          },
+          {
+            "code": "RE",
+            "name": "Réunion",
+            "hasRegions": false
+          },
+          {
+            "code": "RO",
+            "name": "Romania",
+            "hasRegions": true
+          },
+          {
+            "code": "RU",
+            "name": "Russian Federation",
+            "hasRegions": true
+          },
+          {
+            "code": "RW",
+            "name": "Rwanda",
+            "hasRegions": true
+          },
+          {
+            "code": "BL",
+            "name": "Saint Barthélemy",
+            "hasRegions": false
+          },
+          {
+            "code": "SH",
+            "name": "Saint Helena, Ascension and Tristan da Cunha",
+            "hasRegions": true
+          },
+          {
+            "code": "KN",
+            "name": "Saint Kitts and Nevis",
+            "hasRegions": true
+          },
+          {
+            "code": "LC",
+            "name": "Saint Lucia",
+            "hasRegions": true
+          },
+          {
+            "code": "MF",
+            "name": "Saint Martin",
+            "hasRegions": false
+          },
+          {
+            "code": "PM",
+            "name": "Saint Pierre and Miquelon",
+            "hasRegions": false
+          },
+          {
+            "code": "VC",
+            "name": "Saint Vincent and the Grenadines",
+            "hasRegions": true
+          },
+          {
+            "code": "WS",
+            "name": "Samoa",
+            "hasRegions": true
+          },
+          {
+            "code": "SM",
+            "name": "San Marino",
+            "hasRegions": true
+          },
+          {
+            "code": "ST",
+            "name": "Sao Tome and Principe",
+            "hasRegions": true
+          },
+          {
+            "code": "SA",
+            "name": "Saudi Arabia",
+            "hasRegions": true
+          },
+          {
+            "code": "SN",
+            "name": "Senegal",
+            "hasRegions": true
+          },
+          {
+            "code": "RS",
+            "name": "Serbia",
+            "hasRegions": true
+          },
+          {
+            "code": "SC",
+            "name": "Seychelles",
+            "hasRegions": true
+          },
+          {
+            "code": "SL",
+            "name": "Sierra Leone",
+            "hasRegions": true
+          },
+          {
+            "code": "SG",
+            "name": "Singapore",
+            "hasRegions": true
+          },
+          {
+            "code": "SX",
+            "name": "Sint Maarten",
+            "hasRegions": false
+          },
+          {
+            "code": "SK",
+            "name": "Slovakia",
+            "hasRegions": true
+          },
+          {
+            "code": "SI",
+            "name": "Slovenia",
+            "hasRegions": true
+          },
+          {
+            "code": "SB",
+            "name": "Solomon Islands",
+            "hasRegions": true
+          },
+          {
+            "code": "SO",
+            "name": "Somalia",
+            "hasRegions": true
+          },
+          {
+            "code": "ZA",
+            "name": "South Africa",
+            "hasRegions": true
+          },
+          {
+            "code": "GS",
+            "name": "South Georgia and the South Sandwich Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "KR",
+            "name": "South Korea",
+            "hasRegions": true
+          },
+          {
+            "code": "SS",
+            "name": "South Sudan",
+            "hasRegions": true
+          },
+          {
+            "code": "ES",
+            "name": "Spain",
+            "hasRegions": true
+          },
+          {
+            "code": "LK",
+            "name": "Sri Lanka",
+            "hasRegions": true
+          },
+          {
+            "code": "SD",
+            "name": "Sudan",
+            "hasRegions": true
+          },
+          {
+            "code": "SR",
+            "name": "Suriname",
+            "hasRegions": true
+          },
+          {
+            "code": "SJ",
+            "name": "Svalbard and Jan Mayen",
+            "hasRegions": false
+          },
+          {
+            "code": "SE",
+            "name": "Sweden",
+            "hasRegions": true
+          },
+          {
+            "code": "CH",
+            "name": "Switzerland",
+            "hasRegions": true
+          },
+          {
+            "code": "SY",
+            "name": "Syrian Arab Republic",
+            "hasRegions": true
+          },
+          {
+            "code": "TW",
+            "name": "Taiwan",
+            "hasRegions": true
+          },
+          {
+            "code": "TJ",
+            "name": "Tajikistan",
+            "hasRegions": true
+          },
+          {
+            "code": "TZ",
+            "name": "Tanzania",
+            "hasRegions": true
+          },
+          {
+            "code": "TH",
+            "name": "Thailand",
+            "hasRegions": true
+          },
+          {
+            "code": "TL",
+            "name": "Timor-Leste",
+            "hasRegions": true
+          },
+          {
+            "code": "TG",
+            "name": "Togo",
+            "hasRegions": true
+          },
+          {
+            "code": "TK",
+            "name": "Tokelau",
+            "hasRegions": false
+          },
+          {
+            "code": "TO",
+            "name": "Tonga",
+            "hasRegions": true
+          },
+          {
+            "code": "TT",
+            "name": "Trinidad and Tobago",
+            "hasRegions": true
+          },
+          {
+            "code": "TN",
+            "name": "Tunisia",
+            "hasRegions": true
+          },
+          {
+            "code": "TR",
+            "name": "Turkey",
+            "hasRegions": true
+          },
+          {
+            "code": "TM",
+            "name": "Turkmenistan",
+            "hasRegions": true
+          },
+          {
+            "code": "TC",
+            "name": "Turks and Caicos Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "TV",
+            "name": "Tuvalu",
+            "hasRegions": true
+          },
+          {
+            "code": "UG",
+            "name": "Uganda",
+            "hasRegions": true
+          },
+          {
+            "code": "UA",
+            "name": "Ukraine",
+            "hasRegions": true
+          },
+          {
+            "code": "AE",
+            "name": "United Arab Emirates",
+            "hasRegions": true
+          },
+          {
+            "code": "GB",
+            "name": "United Kingdom",
+            "hasRegions": true
+          },
+          {
+            "code": "US",
+            "name": "United States",
+            "hasRegions": true
+          },
+          {
+            "code": "UM",
+            "name": "United States Minor Outlying Islands",
+            "hasRegions": true
+          },
+          {
+            "code": "VI",
+            "name": "United States Virgin Islands",
+            "hasRegions": false
+          },
+          {
+            "code": "UY",
+            "name": "Uruguay",
+            "hasRegions": true
+          },
+          {
+            "code": "UZ",
+            "name": "Uzbekistan",
+            "hasRegions": true
+          },
+          {
+            "code": "VU",
+            "name": "Vanuatu",
+            "hasRegions": true
+          },
+          {
+            "code": "VA",
+            "name": "Vatican City",
+            "hasRegions": false
+          },
+          {
+            "code": "VE",
+            "name": "Venezuela",
+            "hasRegions": true
+          },
+          {
+            "code": "VN",
+            "name": "Vietnam",
+            "hasRegions": true
+          },
+          {
+            "code": "WF",
+            "name": "Wallis and Futuna",
+            "hasRegions": false
+          },
+          {
+            "code": "EH",
+            "name": "Western Sahara",
+            "hasRegions": false
+          },
+          {
+            "code": "YE",
+            "name": "Yemen",
+            "hasRegions": true
+          },
+          {
+            "code": "ZM",
+            "name": "Zambia",
+            "hasRegions": true
+          },
+          {
+            "code": "ZW",
+            "name": "Zimbabwe",
+            "hasRegions": true
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 20:39:09 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "177",
+          "x-ratelimit-reset": "1784666402",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "request-context": "appId=cid-v1:ca508330-27ce-4d5f-9968-44cb12faec11",
+          "cross-origin-opener-policy": "unsafe-none",
+          "x-powered-by": "ASP.NET",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cflb=02DiuJPTRgBRbdJVVzQxH6Ld7Hw9BJT2fZssF96xRTYoE; HttpOnly; SameSite=None; Secure; Path=/; Expires=Wed, 22 Jul 2026 19:39:09 GMT",
+          "cf-ray": "a1ed036bfd02dab7-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "1827824a5cf4a6737743cfdbee579f5ead2f65cd",
+        "request": {}
+      }
+    }
+  }
+}

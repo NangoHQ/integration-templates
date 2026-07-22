@@ -1,0 +1,145 @@
+{
+  "input": {
+    "userId": 1522999
+  },
+  "output": {
+    "userId": 1522999,
+    "allowances": [
+      {
+        "year": 2025,
+        "allowance": 25,
+        "carryForward": 0,
+        "toils": {
+          "total": 0,
+          "toil": []
+        }
+      },
+      {
+        "year": 2026,
+        "allowance": 25,
+        "carryForward": 0,
+        "toils": {
+          "total": 3,
+          "toil": [
+            {
+              "id": 51015765,
+              "amount": 1.5,
+              "description": "Nango Delete Test TOIL A (updated)"
+            },
+            {
+              "id": 51015768,
+              "amount": 0.5,
+              "description": "Nango Delete Test TOIL B"
+            },
+            {
+              "id": 51016023,
+              "amount": 0.5,
+              "description": "Nango dryrun validate TOIL"
+            },
+            {
+              "id": 51016026,
+              "amount": 0.5,
+              "description": "Nango dryrun validate TOIL"
+            }
+          ]
+        }
+      },
+      {
+        "year": 2027,
+        "allowance": 25,
+        "carryForward": 0,
+        "toils": {
+          "total": 0,
+          "toil": []
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/users/1522999/allowances": {
+        "response": [
+          {
+            "year": 2025,
+            "allowance": 25,
+            "toils": {
+              "total": 0,
+              "toil": []
+            },
+            "carryForward": 0
+          },
+          {
+            "year": 2026,
+            "allowance": 25,
+            "toils": {
+              "total": 3,
+              "toil": [
+                {
+                  "id": 51015765,
+                  "amount": 1.5,
+                  "description": "Nango Delete Test TOIL A (updated)"
+                },
+                {
+                  "id": 51015768,
+                  "amount": 0.5,
+                  "description": "Nango Delete Test TOIL B"
+                },
+                {
+                  "id": 51016023,
+                  "amount": 0.5,
+                  "description": "Nango dryrun validate TOIL"
+                },
+                {
+                  "id": 51016026,
+                  "amount": 0.5,
+                  "description": "Nango dryrun validate TOIL"
+                }
+              ]
+            },
+            "carryForward": 0
+          },
+          {
+            "year": 2027,
+            "allowance": 25,
+            "toils": {
+              "total": 0,
+              "toil": []
+            },
+            "carryForward": 0
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 20:43:27 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "155",
+          "x-ratelimit-reset": "1784666626",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "request-context": "appId=cid-v1:ca508330-27ce-4d5f-9968-44cb12faec11",
+          "cross-origin-opener-policy": "unsafe-none",
+          "x-powered-by": "ASP.NET",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "cf-ray": "a1ed09b93863abbf-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "9006dff253f50a67330f58229571a8d0864f9bd1",
+        "request": {}
+      }
+    }
+  }
+}
