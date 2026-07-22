@@ -1,6 +1,11 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const Many2oneSchema = z.union([z.tuple([z.number().int(), z.string()]), z.literal(false)]);
 
 const ProviderProductSchema = z.object({
@@ -35,33 +40,46 @@ const ProductSchema = z.object({
 
 const CheckpointSchema = z.object({
     updated_after: z.string(),
-    offset: z.number().int().nonnegative()
+    last_id: z.number().int().nonnegative()
 });
+
+type Checkpoint = z.infer<typeof CheckpointSchema>;
+
+function buildDomain(checkpoint: Checkpoint): Array<unknown> {
+    if (!checkpoint.updated_after) {
+        return [];
+    }
+
+    if ((checkpoint.last_id ?? 0) > 0) {
+        return ['|', ['write_date', '>', checkpoint.updated_after], '&', ['write_date', '=', checkpoint.updated_after], ['id', '>', checkpoint.last_id]];
+    }
+
+    return [['write_date', '>', checkpoint.updated_after]];
+}
 
 const sync = createSync({
     description: 'Sync Odoo products.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     checkpoint: CheckpointSchema,
     models: {
         Product: ProductSchema
     },
 
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : { updated_after: '', offset: 0 };
-        let updatedAfter = checkpoint.updated_after || undefined;
-        let offset = checkpoint.offset || 0;
-        let lastProcessedWriteDate: string | undefined;
+        let checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { updated_after: '', last_id: 0 });
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
         const limit = 100;
 
         while (true) {
             const response = await nango.post({
                 // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
-                endpoint: '/2/product.template/search_read',
+                endpoint: '/json/2/product.template/search_read',
                 data: {
-                    domain: updatedAfter ? [['write_date', '>', updatedAfter]] : [],
+                    domain: buildDomain(checkpoint),
                     fields: [
                         'id',
                         'name',
@@ -77,21 +95,15 @@ const sync = createSync({
                         'uom_id'
                     ],
                     order: 'write_date asc, id asc',
-                    limit,
-                    offset
+                    limit
                 },
+                baseUrlOverride,
+                headers,
                 retries: 3
             });
 
             const records = z.array(z.unknown()).parse(response.data);
-
             if (records.length === 0) {
-                if (lastProcessedWriteDate) {
-                    await nango.saveCheckpoint({
-                        updated_after: lastProcessedWriteDate,
-                        offset: 0
-                    });
-                }
                 break;
             }
 
@@ -122,26 +134,21 @@ const sync = createSync({
             });
 
             await nango.batchSave(products, 'Product');
-            const lastProduct = products[products.length - 1];
-            if (lastProduct === undefined) {
-                throw new Error('Expected at least one product after length check');
+
+            const lastProduct = products.at(-1);
+            if (!lastProduct) {
+                throw new Error('Expected at least one product after parsing the response page');
             }
-            lastProcessedWriteDate = lastProduct.write_date;
+
+            checkpoint = {
+                updated_after: lastProduct.write_date,
+                last_id: Number(lastProduct.id)
+            };
+            await nango.saveCheckpoint(checkpoint);
 
             if (records.length < limit) {
-                updatedAfter = lastProcessedWriteDate;
-                await nango.saveCheckpoint({
-                    updated_after: updatedAfter,
-                    offset: 0
-                });
                 break;
             }
-
-            offset += records.length;
-            await nango.saveCheckpoint({
-                updated_after: updatedAfter ?? '',
-                offset
-            });
         }
     }
 });

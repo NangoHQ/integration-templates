@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const InputSchema = z.object({
     model: z.string().describe('Odoo model name. Example: "res.partner"'),
     domain: z.array(z.unknown()).optional().describe('Odoo search domain filter. Example: [["name","like","Nango Test"]]'),
@@ -22,16 +27,22 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {
-            ...(input.domain !== undefined && { domain: input.domain }),
+            domain: input.domain ?? [],
             ...(input.limit !== undefined && { limit: input.limit }),
             ...(input.offset !== undefined && { offset: input.offset }),
             ...(input.order !== undefined && { order: input.order })
         };
 
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
+
         const response = await nango.post({
             // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
-            endpoint: `/2/${encodeURIComponent(input.model)}/search`,
+            endpoint: `/json/2/${encodeURIComponent(input.model)}/search`,
             data: body,
+            baseUrlOverride,
+            headers,
             retries: 3
         });
 

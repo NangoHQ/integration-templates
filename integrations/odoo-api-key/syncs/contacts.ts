@@ -1,6 +1,11 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const ContactSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
@@ -70,7 +75,7 @@ const sync = createSync({
     description: 'Sync Odoo contacts and companies.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     checkpoint: CheckpointSchema,
     models: {
         Contact: ContactSchema
@@ -79,8 +84,9 @@ const sync = createSync({
     exec: async (nango) => {
         let checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { updated_after: '', last_id: 0 });
 
-        const metadata = await nango.getMetadata();
-        const serverUrl = typeof metadata?.['serverUrl'] === 'string' ? metadata['serverUrl'] : '';
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
         const limit = 100;
 
         while (true) {
@@ -93,7 +99,8 @@ const sync = createSync({
                     order: 'write_date asc, id asc',
                     limit
                 },
-                baseUrlOverride: serverUrl ? `https://${serverUrl}` : undefined,
+                baseUrlOverride,
+                headers,
                 retries: 3
             });
 

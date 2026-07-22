@@ -1,9 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const InputSchema = z.object({
     model: z.string().describe('Odoo model name. Example: "res.partner"'),
-    id: z.number().describe('Record ID to update. Example: 9'),
+    id: z.number().int().positive().describe('Record ID to update. Example: 9'),
     vals: z.record(z.string(), z.unknown()).describe('Field values to write. Example: {"phone": "555-1234"}')
 });
 
@@ -20,13 +25,19 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
+
         const response = await nango.post({
             // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
-            endpoint: `2/${encodeURIComponent(input.model)}/write`,
+            endpoint: `/json/2/${encodeURIComponent(input.model)}/write`,
             data: {
                 ids: [input.id],
                 vals: input.vals
             },
+            baseUrlOverride,
+            headers,
             retries: 1
         });
 

@@ -1,0 +1,234 @@
+{
+  "nango": {
+    "batchSave": {
+      "SaleOrder": [
+        {
+          "id": "1",
+          "name": "S00001",
+          "partner_id": "9",
+          "partner_name": "Nango Test Contact A",
+          "state": "draft",
+          "amount_total": 0,
+          "amount_untaxed": 0,
+          "amount_tax": 0,
+          "currency_id": "93",
+          "currency_name": "KES",
+          "user_id": "2",
+          "user_name": "Victor Nango",
+          "team_id": "1",
+          "team_name": "Sales",
+          "date_order": "2026-07-22 11:42:41",
+          "validity_date": "2026-08-21",
+          "create_date": "2026-07-22 11:42:41",
+          "write_date": "2026-07-22 11:42:41",
+          "invoice_status": "no",
+          "company_id": "1",
+          "company_name": "nangodeveloper",
+          "partner_invoice_id": "9",
+          "partner_invoice_name": "Nango Test Contact A",
+          "partner_shipping_id": "9",
+          "partner_shipping_name": "Nango Test Contact A"
+        },
+        {
+          "id": "2",
+          "name": "S00002",
+          "partner_id": "9",
+          "partner_name": "Nango Test Contact A",
+          "state": "draft",
+          "amount_total": 0,
+          "amount_untaxed": 0,
+          "amount_tax": 0,
+          "currency_id": "93",
+          "currency_name": "KES",
+          "user_id": "2",
+          "user_name": "Victor Nango",
+          "team_id": "1",
+          "team_name": "Sales",
+          "date_order": "2026-07-22 11:54:50",
+          "validity_date": "2026-08-21",
+          "create_date": "2026-07-22 11:54:50",
+          "write_date": "2026-07-22 11:54:50",
+          "invoice_status": "no",
+          "company_id": "1",
+          "company_name": "nangodeveloper",
+          "partner_invoice_id": "9",
+          "partner_invoice_name": "Nango Test Contact A",
+          "partner_shipping_id": "9",
+          "partner_shipping_name": "Nango Test Contact A"
+        }
+      ]
+    },
+    "batchDelete": {
+      "SaleOrder": []
+    },
+    "getMetadata": {
+      "database": "nangodeveloper",
+      "serverUrl": "nangodeveloper.odoo.com"
+    }
+  },
+  "api": {
+    "post": {
+      "/json/2/sale.order/search_read": {
+        "response": [
+          {
+            "id": 1,
+            "name": "S00001",
+            "partner_id": [
+              9,
+              "Nango Test Contact A"
+            ],
+            "state": "draft",
+            "amount_total": 0,
+            "amount_untaxed": 0,
+            "amount_tax": 0,
+            "currency_id": [
+              93,
+              "KES"
+            ],
+            "user_id": [
+              2,
+              "Victor Nango"
+            ],
+            "team_id": [
+              1,
+              "Sales"
+            ],
+            "date_order": "2026-07-22 11:42:41",
+            "validity_date": "2026-08-21",
+            "create_date": "2026-07-22 11:42:41",
+            "write_date": "2026-07-22 11:42:41",
+            "invoice_status": "no",
+            "delivery_status": false,
+            "payment_term_id": false,
+            "pricelist_id": false,
+            "company_id": [
+              1,
+              "nangodeveloper"
+            ],
+            "origin": false,
+            "client_order_ref": false,
+            "partner_invoice_id": [
+              9,
+              "Nango Test Contact A"
+            ],
+            "partner_shipping_id": [
+              9,
+              "Nango Test Contact A"
+            ],
+            "commitment_date": false,
+            "expected_date": false,
+            "note": false
+          },
+          {
+            "id": 2,
+            "name": "S00002",
+            "partner_id": [
+              9,
+              "Nango Test Contact A"
+            ],
+            "state": "draft",
+            "amount_total": 0,
+            "amount_untaxed": 0,
+            "amount_tax": 0,
+            "currency_id": [
+              93,
+              "KES"
+            ],
+            "user_id": [
+              2,
+              "Victor Nango"
+            ],
+            "team_id": [
+              1,
+              "Sales"
+            ],
+            "date_order": "2026-07-22 11:54:50",
+            "validity_date": "2026-08-21",
+            "create_date": "2026-07-22 11:54:50",
+            "write_date": "2026-07-22 11:54:50",
+            "invoice_status": "no",
+            "delivery_status": false,
+            "payment_term_id": false,
+            "pricelist_id": false,
+            "company_id": [
+              1,
+              "nangodeveloper"
+            ],
+            "origin": false,
+            "client_order_ref": false,
+            "partner_invoice_id": [
+              9,
+              "Nango Test Contact A"
+            ],
+            "partner_shipping_id": [
+              9,
+              "Nango Test Contact A"
+            ],
+            "commitment_date": false,
+            "expected_date": false,
+            "note": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Jul 2026 12:17:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "177",
+          "x-ratelimit-reset": "1784722676",
+          "server": "nginx",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "request": {
+          "data": {
+            "domain": [],
+            "fields": [
+              "id",
+              "name",
+              "partner_id",
+              "state",
+              "amount_total",
+              "amount_untaxed",
+              "amount_tax",
+              "currency_id",
+              "user_id",
+              "team_id",
+              "date_order",
+              "validity_date",
+              "create_date",
+              "write_date",
+              "invoice_status",
+              "delivery_status",
+              "payment_term_id",
+              "pricelist_id",
+              "company_id",
+              "origin",
+              "client_order_ref",
+              "partner_invoice_id",
+              "partner_shipping_id",
+              "commitment_date",
+              "expected_date",
+              "note"
+            ],
+            "order": "write_date asc, id asc",
+            "limit": 100
+          },
+          "headers": {
+            "x-odoo-database": "nangodeveloper"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,341 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "database": "nangodeveloper",
+      "serverUrl": "nangodeveloper.odoo.com"
+    },
+    "batchSave": {
+      "Contact": [
+        {
+          "id": "1",
+          "name": "nangodeveloper",
+          "email": "api@nango.dev",
+          "phone": "",
+          "is_company": false,
+          "write_date": "2026-07-22 10:30:14",
+          "create_date": "2026-07-22 10:30:11"
+        },
+        {
+          "id": "3",
+          "name": "Victor Nango",
+          "email": "api@nango.dev",
+          "is_company": false,
+          "write_date": "2026-07-22 11:50:33",
+          "create_date": "2026-07-22 10:30:11"
+        },
+        {
+          "id": "12",
+          "name": "Test Node",
+          "is_company": false,
+          "write_date": "2026-07-22 12:05:33",
+          "create_date": "2026-07-22 12:05:33"
+        },
+        {
+          "id": "13",
+          "name": "Test Empty DB",
+          "is_company": false,
+          "write_date": "2026-07-22 12:07:06",
+          "create_date": "2026-07-22 12:07:06"
+        },
+        {
+          "id": "14",
+          "name": "Test Direct 404",
+          "is_company": false,
+          "write_date": "2026-07-22 12:07:39",
+          "create_date": "2026-07-22 12:07:39"
+        },
+        {
+          "id": "15",
+          "name": "Nango Dryrun Contact",
+          "is_company": false,
+          "write_date": "2026-07-22 12:09:00",
+          "create_date": "2026-07-22 12:09:00"
+        },
+        {
+          "id": "16",
+          "name": "Nango Dryrun Contact",
+          "is_company": false,
+          "write_date": "2026-07-22 12:09:14",
+          "create_date": "2026-07-22 12:09:14"
+        },
+        {
+          "id": "17",
+          "name": "Nango Test Contact A (copy)",
+          "email": "nango-test-a@example.com",
+          "phone": "555-1234",
+          "is_company": false,
+          "write_date": "2026-07-22 12:11:03",
+          "create_date": "2026-07-22 12:11:03"
+        },
+        {
+          "id": "18",
+          "name": "Nango Test Contact A (copy)",
+          "email": "nango-test-a@example.com",
+          "phone": "555-1234",
+          "is_company": false,
+          "write_date": "2026-07-22 12:14:25",
+          "create_date": "2026-07-22 12:14:25"
+        },
+        {
+          "id": "19",
+          "name": "Nango Test Contact A (copy)",
+          "email": "nango-test-a@example.com",
+          "phone": "555-1234",
+          "is_company": false,
+          "write_date": "2026-07-22 12:15:15",
+          "create_date": "2026-07-22 12:15:15"
+        },
+        {
+          "id": "20",
+          "name": "Nango Test Contact A (copy)",
+          "email": "nango-test-a@example.com",
+          "phone": "555-1234",
+          "is_company": false,
+          "write_date": "2026-07-22 12:16:45",
+          "create_date": "2026-07-22 12:16:45"
+        },
+        {
+          "id": "21",
+          "name": "Nango Test Contact A (copy)",
+          "email": "nango-test-a@example.com",
+          "phone": "555-1234",
+          "is_company": false,
+          "write_date": "2026-07-22 12:17:29",
+          "create_date": "2026-07-22 12:17:29"
+        },
+        {
+          "id": "22",
+          "name": "Nango Test Contact A (copy)",
+          "email": "nango-test-a@example.com",
+          "phone": "555-1234",
+          "is_company": false,
+          "write_date": "2026-07-22 12:18:21",
+          "create_date": "2026-07-22 12:18:21"
+        },
+        {
+          "id": "23",
+          "name": "Nango Test Contact A (copy)",
+          "email": "nango-test-a@example.com",
+          "phone": "555-1234",
+          "is_company": false,
+          "write_date": "2026-07-22 12:19:10",
+          "create_date": "2026-07-22 12:19:10"
+        },
+        {
+          "id": "24",
+          "name": "Nango Test Contact A (copy)",
+          "email": "nango-test-a@example.com",
+          "phone": "555-1234",
+          "is_company": false,
+          "write_date": "2026-07-22 12:19:17",
+          "create_date": "2026-07-22 12:19:17"
+        },
+        {
+          "id": "9",
+          "name": "Nango Test Contact A",
+          "email": "nango-test-a@example.com",
+          "phone": "555-5678",
+          "is_company": false,
+          "write_date": "2026-07-22 12:43:54",
+          "create_date": "2026-07-22 11:32:49"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Contact": []
+    }
+  },
+  "api": {
+    "post": {
+      "/json/2/res.partner/search_read": {
+        "response": [
+          {
+            "id": 1,
+            "name": "nangodeveloper",
+            "email": "api@nango.dev",
+            "phone": "",
+            "is_company": false,
+            "write_date": "2026-07-22 10:30:14",
+            "create_date": "2026-07-22 10:30:11"
+          },
+          {
+            "id": 3,
+            "name": "Victor Nango",
+            "email": "api@nango.dev",
+            "phone": false,
+            "is_company": false,
+            "write_date": "2026-07-22 11:50:33",
+            "create_date": "2026-07-22 10:30:11"
+          },
+          {
+            "id": 12,
+            "name": "Test Node",
+            "email": false,
+            "phone": false,
+            "is_company": false,
+            "write_date": "2026-07-22 12:05:33",
+            "create_date": "2026-07-22 12:05:33"
+          },
+          {
+            "id": 13,
+            "name": "Test Empty DB",
+            "email": false,
+            "phone": false,
+            "is_company": false,
+            "write_date": "2026-07-22 12:07:06",
+            "create_date": "2026-07-22 12:07:06"
+          },
+          {
+            "id": 14,
+            "name": "Test Direct 404",
+            "email": false,
+            "phone": false,
+            "is_company": false,
+            "write_date": "2026-07-22 12:07:39",
+            "create_date": "2026-07-22 12:07:39"
+          },
+          {
+            "id": 15,
+            "name": "Nango Dryrun Contact",
+            "email": false,
+            "phone": false,
+            "is_company": false,
+            "write_date": "2026-07-22 12:09:00",
+            "create_date": "2026-07-22 12:09:00"
+          },
+          {
+            "id": 16,
+            "name": "Nango Dryrun Contact",
+            "email": false,
+            "phone": false,
+            "is_company": false,
+            "write_date": "2026-07-22 12:09:14",
+            "create_date": "2026-07-22 12:09:14"
+          },
+          {
+            "id": 17,
+            "name": "Nango Test Contact A (copy)",
+            "email": "nango-test-a@example.com",
+            "phone": "555-1234",
+            "is_company": false,
+            "write_date": "2026-07-22 12:11:03",
+            "create_date": "2026-07-22 12:11:03"
+          },
+          {
+            "id": 18,
+            "name": "Nango Test Contact A (copy)",
+            "email": "nango-test-a@example.com",
+            "phone": "555-1234",
+            "is_company": false,
+            "write_date": "2026-07-22 12:14:25",
+            "create_date": "2026-07-22 12:14:25"
+          },
+          {
+            "id": 19,
+            "name": "Nango Test Contact A (copy)",
+            "email": "nango-test-a@example.com",
+            "phone": "555-1234",
+            "is_company": false,
+            "write_date": "2026-07-22 12:15:15",
+            "create_date": "2026-07-22 12:15:15"
+          },
+          {
+            "id": 20,
+            "name": "Nango Test Contact A (copy)",
+            "email": "nango-test-a@example.com",
+            "phone": "555-1234",
+            "is_company": false,
+            "write_date": "2026-07-22 12:16:45",
+            "create_date": "2026-07-22 12:16:45"
+          },
+          {
+            "id": 21,
+            "name": "Nango Test Contact A (copy)",
+            "email": "nango-test-a@example.com",
+            "phone": "555-1234",
+            "is_company": false,
+            "write_date": "2026-07-22 12:17:29",
+            "create_date": "2026-07-22 12:17:29"
+          },
+          {
+            "id": 22,
+            "name": "Nango Test Contact A (copy)",
+            "email": "nango-test-a@example.com",
+            "phone": "555-1234",
+            "is_company": false,
+            "write_date": "2026-07-22 12:18:21",
+            "create_date": "2026-07-22 12:18:21"
+          },
+          {
+            "id": 23,
+            "name": "Nango Test Contact A (copy)",
+            "email": "nango-test-a@example.com",
+            "phone": "555-1234",
+            "is_company": false,
+            "write_date": "2026-07-22 12:19:10",
+            "create_date": "2026-07-22 12:19:10"
+          },
+          {
+            "id": 24,
+            "name": "Nango Test Contact A (copy)",
+            "email": "nango-test-a@example.com",
+            "phone": "555-1234",
+            "is_company": false,
+            "write_date": "2026-07-22 12:19:17",
+            "create_date": "2026-07-22 12:19:17"
+          },
+          {
+            "id": 9,
+            "name": "Nango Test Contact A",
+            "email": "nango-test-a@example.com",
+            "phone": "555-5678",
+            "is_company": false,
+            "write_date": "2026-07-22 12:43:54",
+            "create_date": "2026-07-22 11:32:49"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Jul 2026 13:14:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "148",
+          "x-ratelimit-reset": "1784726088",
+          "server": "nginx",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "request": {
+          "data": {
+            "domain": [],
+            "fields": [
+              "id",
+              "name",
+              "email",
+              "phone",
+              "is_company",
+              "write_date",
+              "create_date"
+            ],
+            "order": "write_date asc, id asc",
+            "limit": 100
+          },
+          "headers": {
+            "x-odoo-database": "nangodeveloper"
+          }
+        }
+      }
+    }
+  }
+}

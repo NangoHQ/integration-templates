@@ -1,6 +1,11 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const Many2OneSchema = z.union([z.tuple([z.number().int(), z.string()]), z.literal(false)]);
 
 const OdooOptionalString = z.union([z.string(), z.literal(false)]).optional();
@@ -77,8 +82,10 @@ const SaleOrderSchema = z.object({
 
 const CheckpointSchema = z.object({
     updated_after: z.string(),
-    last_id: z.number().int()
+    last_id: z.number().int().nonnegative()
 });
+
+type Checkpoint = z.infer<typeof CheckpointSchema>;
 
 function extractMany2One(value: unknown): { id?: string; name?: string } {
     const parsed = Many2OneSchema.safeParse(value);
@@ -88,43 +95,42 @@ function extractMany2One(value: unknown): { id?: string; name?: string } {
     return {};
 }
 
-function buildDomain(checkpoint: { updated_after: string; last_id: number } | null): unknown[] {
-    const updatedAfter = checkpoint?.updated_after || '1970-01-01 00:00:00';
-    const lastId = checkpoint?.last_id ?? 0;
-
-    if (lastId > 0) {
-        return ['|', ['write_date', '>', updatedAfter], '&', ['write_date', '=', updatedAfter], ['id', '>', lastId]];
+function buildDomain(checkpoint: Checkpoint): unknown[] {
+    if (!checkpoint.updated_after) {
+        return [];
     }
 
-    return [['write_date', '>', updatedAfter]];
+    if ((checkpoint.last_id ?? 0) > 0) {
+        return ['|', ['write_date', '>', checkpoint.updated_after], '&', ['write_date', '=', checkpoint.updated_after], ['id', '>', checkpoint.last_id]];
+    }
+
+    return [['write_date', '>', checkpoint.updated_after]];
 }
 
 const sync = createSync({
     description: 'Sync Odoo sale orders.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     checkpoint: CheckpointSchema,
     models: {
         SaleOrder: SaleOrderSchema
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let offset = 0;
-        let lastWriteDate: string | undefined;
-        let lastId = 0;
+        let checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { updated_after: '', last_id: 0 });
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
         const limit = 100;
-        let hasMore = true;
 
         // Using a manual loop because nango.paginate() requires the provider template
         // to be present in the runner's provider cache, which is not yet available for
         // odoo-api-key on the current Nango server version.
-        while (hasMore) {
+        while (true) {
             // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
             const response = await nango.post({
-                // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
-                endpoint: '/2/sale.order/search_read',
+                endpoint: '/json/2/sale.order/search_read',
                 data: {
                     domain: buildDomain(checkpoint),
                     fields: [
@@ -156,19 +162,20 @@ const sync = createSync({
                         'note'
                     ],
                     order: 'write_date asc, id asc',
-                    limit: limit,
-                    offset: offset
+                    limit
                 },
+                baseUrlOverride,
+                headers,
                 retries: 3
             });
 
-            const records = Array.isArray(response.data) ? response.data : [];
+            const records = z.array(z.unknown()).parse(response.data);
             if (records.length === 0) {
-                hasMore = false;
-                continue;
+                break;
             }
 
             const saleOrders = [];
+            let lastRecord: z.infer<typeof ProviderSaleOrderSchema> | undefined;
 
             for (const raw of records) {
                 const parsed = ProviderSaleOrderSchema.safeParse(raw);
@@ -177,6 +184,7 @@ const sync = createSync({
                 }
 
                 const providerRecord = parsed.data;
+                lastRecord = providerRecord;
                 const partner = extractMany2One(providerRecord.partner_id);
                 const currency = extractMany2One(providerRecord.currency_id);
                 const user = extractMany2One(providerRecord.user_id);
@@ -224,25 +232,22 @@ const sync = createSync({
                     ...(typeof providerRecord.expected_date === 'string' && { expected_date: providerRecord.expected_date }),
                     ...(typeof providerRecord.note === 'string' && { note: providerRecord.note })
                 });
-
-                lastWriteDate = providerRecord.write_date;
-                lastId = providerRecord.id;
             }
 
-            if (saleOrders.length > 0) {
-                await nango.batchSave(saleOrders, 'SaleOrder');
+            await nango.batchSave(saleOrders, 'SaleOrder');
+
+            if (!lastRecord) {
+                throw new Error('Expected at least one sale order after parsing the response page');
             }
 
-            if (lastWriteDate !== undefined) {
-                await nango.saveCheckpoint({
-                    updated_after: lastWriteDate,
-                    last_id: lastId
-                });
-            }
+            checkpoint = {
+                updated_after: lastRecord.write_date,
+                last_id: lastRecord.id
+            };
+            await nango.saveCheckpoint(checkpoint);
 
-            offset += records.length;
             if (records.length < limit) {
-                hasMore = false;
+                break;
             }
         }
     }

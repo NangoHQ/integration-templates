@@ -1,6 +1,11 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const Many2oneSchema = z.union([z.tuple([z.number(), z.string()]), z.literal(false)]);
 
 const RawCrmLeadSchema = z.object({
@@ -38,11 +43,6 @@ const CheckpointSchema = z.object({
 
 type Checkpoint = z.infer<typeof CheckpointSchema>;
 
-const ConnectionMetadataSchema = z.object({
-    serverUrl: z.string(),
-    database: z.string()
-});
-
 function extractMany2oneId(value: z.infer<typeof Many2oneSchema> | undefined): number | undefined {
     if (Array.isArray(value) && value.length > 0) {
         return value[0];
@@ -73,7 +73,7 @@ const sync = createSync({
     description: 'Sync Odoo CRM leads and opportunities.',
     version: '1.0.0',
     frequency: 'every 5 minutes',
-    autoStart: true,
+    autoStart: false,
     checkpoint: CheckpointSchema,
     models: {
         CrmLead: CrmLeadSchema
@@ -82,12 +82,9 @@ const sync = createSync({
     exec: async (nango) => {
         let checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { updated_after: '', last_id: 0 });
 
-        const metadata = await nango.getMetadata();
-        const parsedMetadata = ConnectionMetadataSchema.safeParse(metadata);
-        if (!parsedMetadata.success) {
-            throw new Error(`Missing serverUrl or database in connection metadata: ${parsedMetadata.error.message}`);
-        }
-        const baseUrlOverride = `https://${parsedMetadata.data.serverUrl}`;
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
 
         const model = 'crm.lead';
         const method = 'search_read';
@@ -104,7 +101,8 @@ const sync = createSync({
                     limit
                 },
                 retries: 3,
-                baseUrlOverride
+                baseUrlOverride,
+                headers
             });
 
             const rawRecords = z.array(RawCrmLeadSchema).parse(response.data);

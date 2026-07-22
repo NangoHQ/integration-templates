@@ -1,6 +1,11 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const ProviderInvoiceSchema = z.object({
     id: z.number(),
     name: z.union([z.string(), z.literal(false)]).optional(),
@@ -48,7 +53,7 @@ const sync = createSync({
     description: 'Sync Odoo invoices and bills',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     checkpoint: CheckpointSchema,
     models: {
         Invoice: InvoiceSchema
@@ -56,18 +61,23 @@ const sync = createSync({
 
     exec: async (nango) => {
         let checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { updated_after: '', last_id: 0 });
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
         const limit = 100;
 
         while (true) {
             const response = await nango.post({
                 // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
-                endpoint: '/2/account.move/search_read',
+                endpoint: '/json/2/account.move/search_read',
                 data: {
                     domain: buildDomain(checkpoint),
                     fields: ['id', 'name', 'move_type', 'partner_id', 'amount_total', 'state', 'write_date'],
                     order: 'write_date asc, id asc',
                     limit
                 },
+                baseUrlOverride,
+                headers,
                 retries: 3
             });
 

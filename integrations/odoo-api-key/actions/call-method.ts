@@ -1,10 +1,15 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const InputSchema = z.object({
     model: z.string().describe('Odoo model name. Example: "res.partner"'),
     method: z.string().describe('Odoo model method to call. Example: "default_get"'),
-    ids: z.array(z.number()).optional().describe('Record IDs for instance methods. Example: [9]'),
+    ids: z.array(z.number().int().positive()).optional().describe('Record IDs for instance methods. Example: [9]'),
     kwargs: z
         .record(z.string(), z.unknown())
         .optional()
@@ -35,10 +40,16 @@ const action = createAction({
             }
         }
 
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
+
         const response = await nango.post({
             // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
-            endpoint: `/2/${encodeURIComponent(input.model)}/${encodeURIComponent(input.method)}`,
+            endpoint: `/json/2/${encodeURIComponent(input.model)}/${encodeURIComponent(input.method)}`,
             data: body,
+            baseUrlOverride,
+            headers,
             retries: 3
         });
 

@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const InputSchema = z.object({
     model: z.string().describe('Odoo model name. Example: "res.partner"'),
     domain: z.array(z.unknown()).optional().describe('Search domain filter. Example: [["name", "ilike", "Nango"]]'),
@@ -32,10 +37,16 @@ const action = createAction({
             body['offset'] = input.offset;
         }
 
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
+
         // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
         const response = await nango.post({
-            endpoint: `2/${encodeURIComponent(input.model)}/search_read`,
+            endpoint: `/json/2/${encodeURIComponent(input.model)}/search_read`,
             data: body,
+            baseUrlOverride,
+            headers,
             retries: 3
         });
 

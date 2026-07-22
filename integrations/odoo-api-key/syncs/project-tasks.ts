@@ -1,6 +1,11 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const ProjectTaskSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
@@ -22,11 +27,16 @@ const CheckpointSchema = z.object({
 
 type Checkpoint = z.infer<typeof CheckpointSchema>;
 
+const OdooOptionalString = z
+    .union([z.string(), z.literal(false)])
+    .optional()
+    .nullable();
+
 const RawProjectTaskSchema = z.object({
     id: z.number().int(),
-    name: z.string().optional().nullable(),
+    name: OdooOptionalString,
     write_date: z.string(),
-    create_date: z.string().optional().nullable(),
+    create_date: OdooOptionalString,
     project_id: z
         .union([z.tuple([z.number().int(), z.string()]), z.literal(false)])
         .optional()
@@ -43,10 +53,17 @@ const RawProjectTaskSchema = z.object({
         .union([z.tuple([z.number().int(), z.string()]), z.literal(false)])
         .optional()
         .nullable(),
-    priority: z.string().optional().nullable(),
-    state: z.string().optional().nullable(),
-    description: z.string().optional().nullable()
+    priority: OdooOptionalString,
+    state: OdooOptionalString,
+    description: OdooOptionalString
 });
+
+function normalizeStringOrFalse(value: string | false | null | undefined): string | undefined {
+    if (value === false || value === undefined || value === null) {
+        return undefined;
+    }
+    return value;
+}
 
 function buildDomain(checkpoint: Checkpoint): Array<unknown> {
     if (!checkpoint.updated_after) {
@@ -64,7 +81,7 @@ const sync = createSync({
     description: 'Sync Odoo project tasks.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     checkpoint: CheckpointSchema,
     models: {
         ProjectTask: ProjectTaskSchema
@@ -72,18 +89,23 @@ const sync = createSync({
 
     exec: async (nango) => {
         let checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { updated_after: '', last_id: 0 });
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
         const limit = 100;
 
         while (true) {
             // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
             const response = await nango.post({
-                endpoint: '/2/project.task/search_read',
+                endpoint: '/json/2/project.task/search_read',
                 data: {
                     domain: buildDomain(checkpoint),
                     fields: ['id', 'name', 'write_date', 'create_date', 'project_id', 'user_ids', 'partner_id', 'stage_id', 'priority', 'state', 'description'],
                     limit,
                     order: 'write_date asc, id asc'
                 },
+                baseUrlOverride,
+                headers,
                 retries: 3
             });
 
@@ -98,18 +120,24 @@ const sync = createSync({
             }
 
             const tasks = rawRecords.map((record) => {
+                const name = normalizeStringOrFalse(record.name);
+                const createDate = normalizeStringOrFalse(record.create_date);
+                const priority = normalizeStringOrFalse(record.priority);
+                const state = normalizeStringOrFalse(record.state);
+                const description = normalizeStringOrFalse(record.description);
+
                 return {
                     id: String(record.id),
-                    ...(record.name != null && { name: record.name }),
+                    ...(name !== undefined && { name }),
                     write_date: record.write_date,
-                    ...(record.create_date != null && { create_date: record.create_date }),
+                    ...(createDate !== undefined && { create_date: createDate }),
                     ...(record.project_id && Array.isArray(record.project_id) && { project_id: record.project_id[0] }),
                     ...(record.user_ids && Array.isArray(record.user_ids) && { user_ids: record.user_ids }),
                     ...(record.partner_id && Array.isArray(record.partner_id) && { partner_id: record.partner_id[0] }),
                     ...(record.stage_id && Array.isArray(record.stage_id) && { stage_id: record.stage_id[0] }),
-                    ...(record.priority != null && { priority: record.priority }),
-                    ...(record.state != null && { state: record.state }),
-                    ...(record.description != null && { description: record.description })
+                    ...(priority !== undefined && { priority }),
+                    ...(state !== undefined && { state }),
+                    ...(description !== undefined && { description })
                 };
             });
 

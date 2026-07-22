@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const InputSchema = z.object({
     model: z.string().describe('Odoo model name. Example: "res.partner"'),
     vals_list: z.array(z.record(z.string(), z.unknown())).describe('List of value dictionaries to create records with. Example: [{"name": "Test Contact"}]')
@@ -17,12 +22,18 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
+
         const response = await nango.post({
             // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
-            endpoint: `2/${encodeURIComponent(input.model)}/create`,
+            endpoint: `/json/2/${encodeURIComponent(input.model)}/create`,
             data: {
                 vals_list: input.vals_list
             },
+            baseUrlOverride,
+            headers,
             retries: 3
         });
 

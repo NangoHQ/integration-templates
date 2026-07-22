@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const OdooConnectionMetadataSchema = z.object({
+    serverUrl: z.string().min(1),
+    database: z.string().min(1)
+});
+
 const InputSchema = z.object({
     model: z.string().describe('Odoo model name. Example: "res.partner"')
 });
@@ -22,31 +27,14 @@ const action = createAction({
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const metadata = await nango.getMetadata();
-        const database = metadata?.['database'];
-
-        if (!database || typeof database !== 'string') {
-            throw new nango.ActionError({
-                type: 'missing_connection_config',
-                message: 'Missing required database in connection metadata.'
-            });
-        }
-
-        const connection = await nango.getConnection();
-        const serverUrl = connection.connection_config?.['serverUrl'];
-        const apiKey = connection.credentials?.type === 'API_KEY' ? connection.credentials.apiKey : undefined;
-
-        const headers: Record<string, string> = {
-            'x-odoo-database': database
-        };
-        if (apiKey) {
-            headers['Authorization'] = `Bearer ${apiKey}`;
-        }
+        const odooMetadata = OdooConnectionMetadataSchema.parse(await nango.getMetadata());
+        const baseUrlOverride = `https://${odooMetadata.serverUrl}`;
+        const headers = { 'x-odoo-database': odooMetadata.database };
 
         const response = await nango.post({
             // https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
-            endpoint: `json/2/${encodeURIComponent(input.model)}/fields_get`,
-            ...(serverUrl && { baseUrlOverride: `https://${serverUrl}` }),
+            endpoint: `/json/2/${encodeURIComponent(input.model)}/fields_get`,
+            baseUrlOverride,
             data: {
                 attributes: ['string', 'type']
             },

@@ -1,0 +1,1686 @@
+{
+  "input": {
+    "model": "res.partner"
+  },
+  "output": {
+    "id": {
+      "string": "ID",
+      "type": "integer"
+    },
+    "display_name": {
+      "string": "Display Name",
+      "type": "char"
+    },
+    "website_id": {
+      "string": "Website",
+      "type": "many2one"
+    },
+    "website_url": {
+      "string": "Website URL",
+      "type": "char"
+    },
+    "website_absolute_url": {
+      "string": "Website Absolute URL",
+      "type": "char"
+    },
+    "website_published": {
+      "string": "Visible on current website",
+      "type": "boolean"
+    },
+    "is_published": {
+      "string": "Is Published",
+      "type": "boolean"
+    },
+    "publish_on": {
+      "string": "Auto publish on",
+      "type": "datetime"
+    },
+    "published_date": {
+      "string": "Published date",
+      "type": "datetime"
+    },
+    "can_publish": {
+      "string": "Can Publish",
+      "type": "boolean"
+    },
+    "activity_ids": {
+      "string": "Activities",
+      "type": "one2many"
+    },
+    "activity_state": {
+      "string": "Activity State",
+      "type": "selection"
+    },
+    "activity_user_id": {
+      "string": "Responsible User",
+      "type": "many2one"
+    },
+    "activity_type_id": {
+      "string": "Next Activity Type",
+      "type": "many2one"
+    },
+    "activity_type_icon": {
+      "string": "Activity Type Icon",
+      "type": "char"
+    },
+    "activity_date_deadline": {
+      "string": "Next Activity Deadline",
+      "type": "date"
+    },
+    "my_activity_date_deadline": {
+      "string": "My Activity Deadline",
+      "type": "date"
+    },
+    "activity_summary": {
+      "string": "Next Activity Summary",
+      "type": "char"
+    },
+    "activity_exception_decoration": {
+      "string": "Activity Exception Decoration",
+      "type": "selection"
+    },
+    "activity_exception_icon": {
+      "string": "Icon",
+      "type": "char"
+    },
+    "activity_plans_ids": {
+      "string": "Activity Plans",
+      "type": "many2many"
+    },
+    "activity_calendar_event_id": {
+      "string": "Next Activity Calendar Event",
+      "type": "many2one"
+    },
+    "properties": {
+      "string": "Properties",
+      "type": "properties"
+    },
+    "properties_base_definition_id": {
+      "string": "Properties Base Definition",
+      "type": "many2one"
+    },
+    "image_1920": {
+      "string": "Image",
+      "type": "binary"
+    },
+    "image_1024": {
+      "string": "Image 1024",
+      "type": "binary"
+    },
+    "image_512": {
+      "string": "Image 512",
+      "type": "binary"
+    },
+    "image_256": {
+      "string": "Image 256",
+      "type": "binary"
+    },
+    "image_128": {
+      "string": "Image 128",
+      "type": "binary"
+    },
+    "avatar_1920": {
+      "string": "Avatar",
+      "type": "binary"
+    },
+    "avatar_1024": {
+      "string": "Avatar 1024",
+      "type": "binary"
+    },
+    "avatar_512": {
+      "string": "Avatar 512",
+      "type": "binary"
+    },
+    "avatar_256": {
+      "string": "Avatar 256",
+      "type": "binary"
+    },
+    "avatar_128": {
+      "string": "Avatar 128",
+      "type": "binary"
+    },
+    "name": {
+      "string": "Name",
+      "type": "char"
+    },
+    "complete_name": {
+      "string": "Complete Name",
+      "type": "char"
+    },
+    "parent_id": {
+      "string": "Related Company",
+      "type": "many2one"
+    },
+    "parent_name": {
+      "string": "Parent name",
+      "type": "char"
+    },
+    "child_ids": {
+      "string": "Related Contacts",
+      "type": "one2many"
+    },
+    "ref": {
+      "string": "Reference",
+      "type": "char"
+    },
+    "lang": {
+      "string": "Language",
+      "type": "selection"
+    },
+    "active_lang_count": {
+      "string": "Active Lang Count",
+      "type": "integer"
+    },
+    "tz": {
+      "string": "Timezone",
+      "type": "selection"
+    },
+    "tz_offset": {
+      "string": "Timezone offset",
+      "type": "char"
+    },
+    "user_id": {
+      "string": "Salesperson",
+      "type": "many2one"
+    },
+    "vat": {
+      "string": "Tax ID",
+      "type": "char"
+    },
+    "additional_identifiers": {
+      "string": "Additional Identifiers",
+      "type": "json"
+    },
+    "available_additional_identifiers_metadata": {
+      "string": "Available Additional Identifiers Metadata",
+      "type": "json"
+    },
+    "vat_label": {
+      "string": "Tax ID Label",
+      "type": "char"
+    },
+    "same_vat_partner_id": {
+      "string": "Partner with same Tax ID",
+      "type": "many2one"
+    },
+    "bank_ids": {
+      "string": "Banks",
+      "type": "one2many"
+    },
+    "website": {
+      "string": "Website Link",
+      "type": "char"
+    },
+    "comment": {
+      "string": "Notes",
+      "type": "html"
+    },
+    "category_id": {
+      "string": "Tags",
+      "type": "many2many"
+    },
+    "active": {
+      "string": "Active",
+      "type": "boolean"
+    },
+    "employee": {
+      "string": "Employee",
+      "type": "boolean"
+    },
+    "function": {
+      "string": "Job Position",
+      "type": "char"
+    },
+    "type": {
+      "string": "Address Type",
+      "type": "selection"
+    },
+    "type_address_label": {
+      "string": "Address Type Description",
+      "type": "char"
+    },
+    "street": {
+      "string": "Street",
+      "type": "char"
+    },
+    "street2": {
+      "string": "Street2",
+      "type": "char"
+    },
+    "zip": {
+      "string": "Zip",
+      "type": "char"
+    },
+    "city": {
+      "string": "City",
+      "type": "char"
+    },
+    "state_id": {
+      "string": "State",
+      "type": "many2one"
+    },
+    "country_id": {
+      "string": "Country",
+      "type": "many2one"
+    },
+    "country_code": {
+      "string": "Country Code",
+      "type": "char"
+    },
+    "partner_latitude": {
+      "string": "Latitude",
+      "type": "float"
+    },
+    "partner_longitude": {
+      "string": "Longitude",
+      "type": "float"
+    },
+    "email": {
+      "string": "Email",
+      "type": "char"
+    },
+    "email_formatted": {
+      "string": "Formatted Email",
+      "type": "char"
+    },
+    "phone": {
+      "string": "Phone",
+      "type": "char"
+    },
+    "is_company": {
+      "string": "Is a Company",
+      "type": "boolean"
+    },
+    "is_public": {
+      "string": "Is Public",
+      "type": "boolean"
+    },
+    "industry_id": {
+      "string": "Industry",
+      "type": "many2one"
+    },
+    "company_id": {
+      "string": "Company",
+      "type": "many2one"
+    },
+    "color": {
+      "string": "Color Index",
+      "type": "integer"
+    },
+    "user_ids": {
+      "string": "Users",
+      "type": "one2many"
+    },
+    "main_user_id": {
+      "string": "Main User",
+      "type": "many2one"
+    },
+    "partner_share": {
+      "string": "Share Partner",
+      "type": "boolean"
+    },
+    "contact_address": {
+      "string": "Complete Address",
+      "type": "char"
+    },
+    "address": {
+      "string": "Address (without name)",
+      "type": "char"
+    },
+    "contact_address_inline": {
+      "string": "Complete Address inline",
+      "type": "char"
+    },
+    "address_inline": {
+      "string": "Address inline (without name)",
+      "type": "char"
+    },
+    "commercial_partner_id": {
+      "string": "Commercial Entity",
+      "type": "many2one"
+    },
+    "commercial_company_name": {
+      "string": "Company Name Entity",
+      "type": "char"
+    },
+    "barcode": {
+      "string": "Barcode",
+      "type": "char"
+    },
+    "self": {
+      "string": "Self",
+      "type": "many2one"
+    },
+    "application_statistics": {
+      "string": "Stats",
+      "type": "json"
+    },
+    "create_uid": {
+      "string": "Created by",
+      "type": "many2one"
+    },
+    "create_date": {
+      "string": "Created on",
+      "type": "datetime"
+    },
+    "write_uid": {
+      "string": "Last Updated by",
+      "type": "many2one"
+    },
+    "write_date": {
+      "string": "Last Updated on",
+      "type": "datetime"
+    },
+    "contact_address_complete": {
+      "string": "Contact Address Complete",
+      "type": "char"
+    },
+    "channel_ids": {
+      "string": "Channels",
+      "type": "many2many"
+    },
+    "channel_member_ids": {
+      "string": "Channel Member",
+      "type": "one2many"
+    },
+    "is_in_call": {
+      "string": "Is In Call",
+      "type": "boolean"
+    },
+    "rtc_session_ids": {
+      "string": "Rtc Session",
+      "type": "one2many"
+    },
+    "message_is_follower": {
+      "string": "Is Follower",
+      "type": "boolean"
+    },
+    "message_follower_ids": {
+      "string": "Followers",
+      "type": "one2many"
+    },
+    "message_partner_ids": {
+      "string": "Followers (Partners)",
+      "type": "many2many"
+    },
+    "message_ids": {
+      "string": "Messages",
+      "type": "one2many"
+    },
+    "has_message": {
+      "string": "Has Message",
+      "type": "boolean"
+    },
+    "message_needaction": {
+      "string": "Action Needed",
+      "type": "boolean"
+    },
+    "message_needaction_counter": {
+      "string": "Number of Actions",
+      "type": "integer"
+    },
+    "message_has_error": {
+      "string": "Message Delivery error",
+      "type": "boolean"
+    },
+    "message_has_error_counter": {
+      "string": "Number of errors",
+      "type": "integer"
+    },
+    "message_attachment_count": {
+      "string": "Attachment Count",
+      "type": "integer"
+    },
+    "rating_ids": {
+      "string": "Ratings",
+      "type": "one2many"
+    },
+    "message_has_sms_error": {
+      "string": "SMS Delivery error",
+      "type": "boolean"
+    },
+    "email_normalized": {
+      "string": "Normalized Email",
+      "type": "char"
+    },
+    "is_blacklisted": {
+      "string": "Blacklist",
+      "type": "boolean"
+    },
+    "message_bounce": {
+      "string": "Bounce",
+      "type": "integer"
+    },
+    "image_medium": {
+      "string": "Medium-sized image",
+      "type": "binary"
+    },
+    "agent_ids": {
+      "string": "Agent",
+      "type": "one2many"
+    },
+    "signup_type": {
+      "string": "Signup Token Type",
+      "type": "char"
+    },
+    "meeting_count": {
+      "string": "# Meetings",
+      "type": "integer"
+    },
+    "meeting_ids": {
+      "string": "Meetings",
+      "type": "many2many"
+    },
+    "calendar_last_notif_ack": {
+      "string": "Last notification marked as read from base Calendar",
+      "type": "datetime"
+    },
+    "phone_sanitized": {
+      "string": "Sanitized Number",
+      "type": "char"
+    },
+    "phone_formatted": {
+      "string": "Formatted Number",
+      "type": "char"
+    },
+    "phone_sanitized_blacklisted": {
+      "string": "Phone Blacklisted",
+      "type": "boolean"
+    },
+    "phone_blacklisted": {
+      "string": "Blacklisted Phone is Phone",
+      "type": "boolean"
+    },
+    "phone_mobile_search": {
+      "string": "Phone Number",
+      "type": "char"
+    },
+    "property_product_pricelist": {
+      "string": "Pricelist",
+      "type": "many2one"
+    },
+    "specific_property_product_pricelist": {
+      "string": "Assigned Pricelist",
+      "type": "many2one"
+    },
+    "is_pricelist_manually_set": {
+      "string": "Is Pricelist Manually Set",
+      "type": "boolean"
+    },
+    "ocn_token": {
+      "string": "OCN Token",
+      "type": "char"
+    },
+    "payment_token_ids": {
+      "string": "Payment Tokens",
+      "type": "one2many"
+    },
+    "payment_token_count": {
+      "string": "Payment Token Count",
+      "type": "integer"
+    },
+    "fiscal_country_codes": {
+      "string": "Fiscal Country Codes",
+      "type": "char"
+    },
+    "fiscal_country_group_codes": {
+      "string": "Fiscal Country Group Codes",
+      "type": "json"
+    },
+    "partner_vat_placeholder": {
+      "string": "Partner Vat Placeholder",
+      "type": "char"
+    },
+    "duplicate_bank_partner_ids": {
+      "string": "Duplicate Bank Partner",
+      "type": "many2many"
+    },
+    "credit": {
+      "string": "Total Receivable",
+      "type": "monetary"
+    },
+    "credit_to_invoice": {
+      "string": "Credit To Invoice",
+      "type": "monetary"
+    },
+    "credit_limit": {
+      "string": "Credit Limit",
+      "type": "float"
+    },
+    "use_partner_credit_limit": {
+      "string": "Partner Limit",
+      "type": "boolean"
+    },
+    "show_credit_limit": {
+      "string": "Show Credit Limit",
+      "type": "boolean"
+    },
+    "days_sales_outstanding": {
+      "string": "Days Sales Outstanding (DSO)",
+      "type": "float"
+    },
+    "debit": {
+      "string": "Total Payable",
+      "type": "monetary"
+    },
+    "total_invoiced": {
+      "string": "Total Invoiced",
+      "type": "monetary"
+    },
+    "currency_id": {
+      "string": "Currency",
+      "type": "many2one"
+    },
+    "property_account_payable_id": {
+      "string": "Account Payable",
+      "type": "many2one"
+    },
+    "property_account_payable_active": {
+      "string": "Account Payable Active",
+      "type": "boolean"
+    },
+    "property_account_receivable_id": {
+      "string": "Account Receivable",
+      "type": "many2one"
+    },
+    "property_account_receivable_active": {
+      "string": "Account Receivable Active",
+      "type": "boolean"
+    },
+    "property_account_position_id": {
+      "string": "Fiscal Position",
+      "type": "many2one"
+    },
+    "property_payment_term_id": {
+      "string": "Customer Payment Terms",
+      "type": "many2one"
+    },
+    "property_supplier_payment_term_id": {
+      "string": "Vendor Payment Terms",
+      "type": "many2one"
+    },
+    "ref_company_ids": {
+      "string": "Companies that refers to partner",
+      "type": "one2many"
+    },
+    "supplier_invoice_count": {
+      "string": "# Vendor Bills",
+      "type": "integer"
+    },
+    "account_move_count": {
+      "string": "Account Move Count",
+      "type": "integer"
+    },
+    "invoice_ids": {
+      "string": "Invoices",
+      "type": "one2many"
+    },
+    "contract_ids": {
+      "string": "Partner Contracts",
+      "type": "one2many"
+    },
+    "bank_account_count": {
+      "string": "Bank",
+      "type": "integer"
+    },
+    "trust": {
+      "string": "Degree of trust you have in this debtor",
+      "type": "selection"
+    },
+    "ignore_abnormal_invoice_date": {
+      "string": "Ignore Abnormal Invoice Date",
+      "type": "boolean"
+    },
+    "ignore_abnormal_invoice_amount": {
+      "string": "Ignore Abnormal Invoice Amount",
+      "type": "boolean"
+    },
+    "global_location_number": {
+      "string": "GLN",
+      "type": "char"
+    },
+    "invoice_sending_method": {
+      "string": "Invoice sending",
+      "type": "selection"
+    },
+    "invoice_edi_format": {
+      "string": "eInvoice format",
+      "type": "selection"
+    },
+    "invoice_edi_format_store": {
+      "string": "Invoice Edi Format Store",
+      "type": "char"
+    },
+    "display_invoice_edi_format": {
+      "string": "Display Invoice Edi Format",
+      "type": "boolean"
+    },
+    "invoice_template_pdf_report_id": {
+      "string": "Invoice report",
+      "type": "many2one"
+    },
+    "available_invoice_template_pdf_report_ids": {
+      "string": "Available Invoice Template Pdf Report",
+      "type": "one2many"
+    },
+    "display_invoice_template_pdf_report_id": {
+      "string": "Display Invoice Template Pdf Report",
+      "type": "boolean"
+    },
+    "supplier_rank": {
+      "string": "Supplier Rank",
+      "type": "integer"
+    },
+    "customer_rank": {
+      "string": "Customer Rank",
+      "type": "integer"
+    },
+    "autopost_bills": {
+      "string": "Auto-post bills",
+      "type": "selection"
+    },
+    "property_outbound_payment_method_line_id": {
+      "string": "Property Outbound Payment Method Line",
+      "type": "many2one"
+    },
+    "property_inbound_payment_method_line_id": {
+      "string": "Property Inbound Payment Method Line",
+      "type": "many2one"
+    },
+    "opportunity_ids": {
+      "string": "Opportunities",
+      "type": "one2many"
+    },
+    "opportunity_count": {
+      "string": "Opportunity Count",
+      "type": "integer"
+    },
+    "project_ids": {
+      "string": "Projects",
+      "type": "one2many"
+    },
+    "task_ids": {
+      "string": "Tasks",
+      "type": "one2many"
+    },
+    "task_count": {
+      "string": "# Tasks",
+      "type": "integer"
+    },
+    "visitor_ids": {
+      "string": "Visitors",
+      "type": "one2many"
+    },
+    "is_ubl_format": {
+      "string": "Is Ubl Format",
+      "type": "boolean"
+    },
+    "routing_scheme": {
+      "string": "Routing ID",
+      "type": "selection"
+    },
+    "routing_endpoint": {
+      "string": "Routing Endpoint",
+      "type": "char"
+    },
+    "routing_identifier": {
+      "string": "EDI Routing Address",
+      "type": "char"
+    },
+    "available_routing_schemes": {
+      "string": "Available Routing Schemes",
+      "type": "json"
+    },
+    "account_represented_company_ids": {
+      "string": "Account Represented Company",
+      "type": "one2many"
+    },
+    "l10n_ke_branch_code": {
+      "string": "eTIMS Branch Code",
+      "type": "char"
+    },
+    "sale_order_count": {
+      "string": "Sale Order Count",
+      "type": "integer"
+    },
+    "sale_order_ids": {
+      "string": "Sales Order",
+      "type": "one2many"
+    },
+    "sale_warn_msg": {
+      "string": "Message for Sales Order",
+      "type": "text"
+    },
+    "incoterm_id": {
+      "string": "Incoterm",
+      "type": "many2one"
+    },
+    "incoterm_location": {
+      "string": "Incoterm Location",
+      "type": "char"
+    },
+    "unreconciled_aml_ids": {
+      "string": "Unreconciled Aml",
+      "type": "one2many"
+    },
+    "total_all_due": {
+      "string": "Total All Due",
+      "type": "monetary"
+    },
+    "total_all_due_abs": {
+      "string": "Total All Due Abs",
+      "type": "monetary"
+    },
+    "total_all_overdue": {
+      "string": "Total All Overdue",
+      "type": "monetary"
+    },
+    "total_due": {
+      "string": "Total Due",
+      "type": "monetary"
+    },
+    "total_due_followup": {
+      "string": "Total Due Followup",
+      "type": "monetary"
+    },
+    "total_due_currency_followup": {
+      "string": "Total Due Currency Followup",
+      "type": "monetary"
+    },
+    "total_overdue": {
+      "string": "Total Overdue",
+      "type": "monetary"
+    },
+    "total_overdue_followup": {
+      "string": "Total Overdue Followup",
+      "type": "monetary"
+    },
+    "total_overdue_currency_followup": {
+      "string": "Total Overdue Currency Followup",
+      "type": "monetary"
+    },
+    "followup_single_currency_id": {
+      "string": "Followup Single Currency",
+      "type": "many2one"
+    },
+    "followup_line_id": {
+      "string": "Follow-up Level",
+      "type": "many2one"
+    },
+    "has_moves": {
+      "string": "Has Moves",
+      "type": "boolean"
+    },
+    "last_reminder": {
+      "string": "Last Reminder Date",
+      "type": "date"
+    },
+    "is_created_by_ocr": {
+      "string": "Is Created By Ocr",
+      "type": "boolean"
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "database": "nangodeveloper",
+      "serverUrl": "nangodeveloper.odoo.com"
+    }
+  },
+  "api": {
+    "post": {
+      "/json/2/res.partner/fields_get": {
+        "response": {
+          "id": {
+            "string": "ID",
+            "type": "integer"
+          },
+          "display_name": {
+            "string": "Display Name",
+            "type": "char"
+          },
+          "website_id": {
+            "string": "Website",
+            "type": "many2one"
+          },
+          "website_url": {
+            "string": "Website URL",
+            "type": "char"
+          },
+          "website_absolute_url": {
+            "string": "Website Absolute URL",
+            "type": "char"
+          },
+          "website_published": {
+            "string": "Visible on current website",
+            "type": "boolean"
+          },
+          "is_published": {
+            "string": "Is Published",
+            "type": "boolean"
+          },
+          "publish_on": {
+            "string": "Auto publish on",
+            "type": "datetime"
+          },
+          "published_date": {
+            "string": "Published date",
+            "type": "datetime"
+          },
+          "can_publish": {
+            "string": "Can Publish",
+            "type": "boolean"
+          },
+          "activity_ids": {
+            "string": "Activities",
+            "type": "one2many"
+          },
+          "activity_state": {
+            "string": "Activity State",
+            "type": "selection"
+          },
+          "activity_user_id": {
+            "string": "Responsible User",
+            "type": "many2one"
+          },
+          "activity_type_id": {
+            "string": "Next Activity Type",
+            "type": "many2one"
+          },
+          "activity_type_icon": {
+            "string": "Activity Type Icon",
+            "type": "char"
+          },
+          "activity_date_deadline": {
+            "string": "Next Activity Deadline",
+            "type": "date"
+          },
+          "my_activity_date_deadline": {
+            "string": "My Activity Deadline",
+            "type": "date"
+          },
+          "activity_summary": {
+            "string": "Next Activity Summary",
+            "type": "char"
+          },
+          "activity_exception_decoration": {
+            "string": "Activity Exception Decoration",
+            "type": "selection"
+          },
+          "activity_exception_icon": {
+            "string": "Icon",
+            "type": "char"
+          },
+          "activity_plans_ids": {
+            "string": "Activity Plans",
+            "type": "many2many"
+          },
+          "activity_calendar_event_id": {
+            "string": "Next Activity Calendar Event",
+            "type": "many2one"
+          },
+          "properties": {
+            "string": "Properties",
+            "type": "properties"
+          },
+          "properties_base_definition_id": {
+            "string": "Properties Base Definition",
+            "type": "many2one"
+          },
+          "image_1920": {
+            "string": "Image",
+            "type": "binary"
+          },
+          "image_1024": {
+            "string": "Image 1024",
+            "type": "binary"
+          },
+          "image_512": {
+            "string": "Image 512",
+            "type": "binary"
+          },
+          "image_256": {
+            "string": "Image 256",
+            "type": "binary"
+          },
+          "image_128": {
+            "string": "Image 128",
+            "type": "binary"
+          },
+          "avatar_1920": {
+            "string": "Avatar",
+            "type": "binary"
+          },
+          "avatar_1024": {
+            "string": "Avatar 1024",
+            "type": "binary"
+          },
+          "avatar_512": {
+            "string": "Avatar 512",
+            "type": "binary"
+          },
+          "avatar_256": {
+            "string": "Avatar 256",
+            "type": "binary"
+          },
+          "avatar_128": {
+            "string": "Avatar 128",
+            "type": "binary"
+          },
+          "name": {
+            "string": "Name",
+            "type": "char"
+          },
+          "complete_name": {
+            "string": "Complete Name",
+            "type": "char"
+          },
+          "parent_id": {
+            "string": "Related Company",
+            "type": "many2one"
+          },
+          "parent_name": {
+            "string": "Parent name",
+            "type": "char"
+          },
+          "child_ids": {
+            "string": "Related Contacts",
+            "type": "one2many"
+          },
+          "ref": {
+            "string": "Reference",
+            "type": "char"
+          },
+          "lang": {
+            "string": "Language",
+            "type": "selection"
+          },
+          "active_lang_count": {
+            "string": "Active Lang Count",
+            "type": "integer"
+          },
+          "tz": {
+            "string": "Timezone",
+            "type": "selection"
+          },
+          "tz_offset": {
+            "string": "Timezone offset",
+            "type": "char"
+          },
+          "user_id": {
+            "string": "Salesperson",
+            "type": "many2one"
+          },
+          "vat": {
+            "string": "Tax ID",
+            "type": "char"
+          },
+          "additional_identifiers": {
+            "string": "Additional Identifiers",
+            "type": "json"
+          },
+          "available_additional_identifiers_metadata": {
+            "string": "Available Additional Identifiers Metadata",
+            "type": "json"
+          },
+          "vat_label": {
+            "string": "Tax ID Label",
+            "type": "char"
+          },
+          "same_vat_partner_id": {
+            "string": "Partner with same Tax ID",
+            "type": "many2one"
+          },
+          "bank_ids": {
+            "string": "Banks",
+            "type": "one2many"
+          },
+          "website": {
+            "string": "Website Link",
+            "type": "char"
+          },
+          "comment": {
+            "string": "Notes",
+            "type": "html"
+          },
+          "category_id": {
+            "string": "Tags",
+            "type": "many2many"
+          },
+          "active": {
+            "string": "Active",
+            "type": "boolean"
+          },
+          "employee": {
+            "string": "Employee",
+            "type": "boolean"
+          },
+          "function": {
+            "string": "Job Position",
+            "type": "char"
+          },
+          "type": {
+            "string": "Address Type",
+            "type": "selection"
+          },
+          "type_address_label": {
+            "string": "Address Type Description",
+            "type": "char"
+          },
+          "street": {
+            "string": "Street",
+            "type": "char"
+          },
+          "street2": {
+            "string": "Street2",
+            "type": "char"
+          },
+          "zip": {
+            "string": "Zip",
+            "type": "char"
+          },
+          "city": {
+            "string": "City",
+            "type": "char"
+          },
+          "state_id": {
+            "string": "State",
+            "type": "many2one"
+          },
+          "country_id": {
+            "string": "Country",
+            "type": "many2one"
+          },
+          "country_code": {
+            "string": "Country Code",
+            "type": "char"
+          },
+          "partner_latitude": {
+            "string": "Latitude",
+            "type": "float"
+          },
+          "partner_longitude": {
+            "string": "Longitude",
+            "type": "float"
+          },
+          "email": {
+            "string": "Email",
+            "type": "char"
+          },
+          "email_formatted": {
+            "string": "Formatted Email",
+            "type": "char"
+          },
+          "phone": {
+            "string": "Phone",
+            "type": "char"
+          },
+          "is_company": {
+            "string": "Is a Company",
+            "type": "boolean"
+          },
+          "is_public": {
+            "string": "Is Public",
+            "type": "boolean"
+          },
+          "industry_id": {
+            "string": "Industry",
+            "type": "many2one"
+          },
+          "company_id": {
+            "string": "Company",
+            "type": "many2one"
+          },
+          "color": {
+            "string": "Color Index",
+            "type": "integer"
+          },
+          "user_ids": {
+            "string": "Users",
+            "type": "one2many"
+          },
+          "main_user_id": {
+            "string": "Main User",
+            "type": "many2one"
+          },
+          "partner_share": {
+            "string": "Share Partner",
+            "type": "boolean"
+          },
+          "contact_address": {
+            "string": "Complete Address",
+            "type": "char"
+          },
+          "address": {
+            "string": "Address (without name)",
+            "type": "char"
+          },
+          "contact_address_inline": {
+            "string": "Complete Address inline",
+            "type": "char"
+          },
+          "address_inline": {
+            "string": "Address inline (without name)",
+            "type": "char"
+          },
+          "commercial_partner_id": {
+            "string": "Commercial Entity",
+            "type": "many2one"
+          },
+          "commercial_company_name": {
+            "string": "Company Name Entity",
+            "type": "char"
+          },
+          "barcode": {
+            "string": "Barcode",
+            "type": "char"
+          },
+          "self": {
+            "string": "Self",
+            "type": "many2one"
+          },
+          "application_statistics": {
+            "string": "Stats",
+            "type": "json"
+          },
+          "create_uid": {
+            "string": "Created by",
+            "type": "many2one"
+          },
+          "create_date": {
+            "string": "Created on",
+            "type": "datetime"
+          },
+          "write_uid": {
+            "string": "Last Updated by",
+            "type": "many2one"
+          },
+          "write_date": {
+            "string": "Last Updated on",
+            "type": "datetime"
+          },
+          "contact_address_complete": {
+            "string": "Contact Address Complete",
+            "type": "char"
+          },
+          "channel_ids": {
+            "string": "Channels",
+            "type": "many2many"
+          },
+          "channel_member_ids": {
+            "string": "Channel Member",
+            "type": "one2many"
+          },
+          "is_in_call": {
+            "string": "Is In Call",
+            "type": "boolean"
+          },
+          "rtc_session_ids": {
+            "string": "Rtc Session",
+            "type": "one2many"
+          },
+          "message_is_follower": {
+            "string": "Is Follower",
+            "type": "boolean"
+          },
+          "message_follower_ids": {
+            "string": "Followers",
+            "type": "one2many"
+          },
+          "message_partner_ids": {
+            "string": "Followers (Partners)",
+            "type": "many2many"
+          },
+          "message_ids": {
+            "string": "Messages",
+            "type": "one2many"
+          },
+          "has_message": {
+            "string": "Has Message",
+            "type": "boolean"
+          },
+          "message_needaction": {
+            "string": "Action Needed",
+            "type": "boolean"
+          },
+          "message_needaction_counter": {
+            "string": "Number of Actions",
+            "type": "integer"
+          },
+          "message_has_error": {
+            "string": "Message Delivery error",
+            "type": "boolean"
+          },
+          "message_has_error_counter": {
+            "string": "Number of errors",
+            "type": "integer"
+          },
+          "message_attachment_count": {
+            "string": "Attachment Count",
+            "type": "integer"
+          },
+          "rating_ids": {
+            "string": "Ratings",
+            "type": "one2many"
+          },
+          "message_has_sms_error": {
+            "string": "SMS Delivery error",
+            "type": "boolean"
+          },
+          "email_normalized": {
+            "string": "Normalized Email",
+            "type": "char"
+          },
+          "is_blacklisted": {
+            "string": "Blacklist",
+            "type": "boolean"
+          },
+          "message_bounce": {
+            "string": "Bounce",
+            "type": "integer"
+          },
+          "image_medium": {
+            "string": "Medium-sized image",
+            "type": "binary"
+          },
+          "agent_ids": {
+            "string": "Agent",
+            "type": "one2many"
+          },
+          "signup_type": {
+            "string": "Signup Token Type",
+            "type": "char"
+          },
+          "meeting_count": {
+            "string": "# Meetings",
+            "type": "integer"
+          },
+          "meeting_ids": {
+            "string": "Meetings",
+            "type": "many2many"
+          },
+          "calendar_last_notif_ack": {
+            "string": "Last notification marked as read from base Calendar",
+            "type": "datetime"
+          },
+          "phone_sanitized": {
+            "string": "Sanitized Number",
+            "type": "char"
+          },
+          "phone_formatted": {
+            "string": "Formatted Number",
+            "type": "char"
+          },
+          "phone_sanitized_blacklisted": {
+            "string": "Phone Blacklisted",
+            "type": "boolean"
+          },
+          "phone_blacklisted": {
+            "string": "Blacklisted Phone is Phone",
+            "type": "boolean"
+          },
+          "phone_mobile_search": {
+            "string": "Phone Number",
+            "type": "char"
+          },
+          "property_product_pricelist": {
+            "string": "Pricelist",
+            "type": "many2one"
+          },
+          "specific_property_product_pricelist": {
+            "string": "Assigned Pricelist",
+            "type": "many2one"
+          },
+          "is_pricelist_manually_set": {
+            "string": "Is Pricelist Manually Set",
+            "type": "boolean"
+          },
+          "ocn_token": {
+            "string": "OCN Token",
+            "type": "char"
+          },
+          "payment_token_ids": {
+            "string": "Payment Tokens",
+            "type": "one2many"
+          },
+          "payment_token_count": {
+            "string": "Payment Token Count",
+            "type": "integer"
+          },
+          "fiscal_country_codes": {
+            "string": "Fiscal Country Codes",
+            "type": "char"
+          },
+          "fiscal_country_group_codes": {
+            "string": "Fiscal Country Group Codes",
+            "type": "json"
+          },
+          "partner_vat_placeholder": {
+            "string": "Partner Vat Placeholder",
+            "type": "char"
+          },
+          "duplicate_bank_partner_ids": {
+            "string": "Duplicate Bank Partner",
+            "type": "many2many"
+          },
+          "credit": {
+            "string": "Total Receivable",
+            "type": "monetary"
+          },
+          "credit_to_invoice": {
+            "string": "Credit To Invoice",
+            "type": "monetary"
+          },
+          "credit_limit": {
+            "string": "Credit Limit",
+            "type": "float"
+          },
+          "use_partner_credit_limit": {
+            "string": "Partner Limit",
+            "type": "boolean"
+          },
+          "show_credit_limit": {
+            "string": "Show Credit Limit",
+            "type": "boolean"
+          },
+          "days_sales_outstanding": {
+            "string": "Days Sales Outstanding (DSO)",
+            "type": "float"
+          },
+          "debit": {
+            "string": "Total Payable",
+            "type": "monetary"
+          },
+          "total_invoiced": {
+            "string": "Total Invoiced",
+            "type": "monetary"
+          },
+          "currency_id": {
+            "string": "Currency",
+            "type": "many2one"
+          },
+          "property_account_payable_id": {
+            "string": "Account Payable",
+            "type": "many2one"
+          },
+          "property_account_payable_active": {
+            "string": "Account Payable Active",
+            "type": "boolean"
+          },
+          "property_account_receivable_id": {
+            "string": "Account Receivable",
+            "type": "many2one"
+          },
+          "property_account_receivable_active": {
+            "string": "Account Receivable Active",
+            "type": "boolean"
+          },
+          "property_account_position_id": {
+            "string": "Fiscal Position",
+            "type": "many2one"
+          },
+          "property_payment_term_id": {
+            "string": "Customer Payment Terms",
+            "type": "many2one"
+          },
+          "property_supplier_payment_term_id": {
+            "string": "Vendor Payment Terms",
+            "type": "many2one"
+          },
+          "ref_company_ids": {
+            "string": "Companies that refers to partner",
+            "type": "one2many"
+          },
+          "supplier_invoice_count": {
+            "string": "# Vendor Bills",
+            "type": "integer"
+          },
+          "account_move_count": {
+            "string": "Account Move Count",
+            "type": "integer"
+          },
+          "invoice_ids": {
+            "string": "Invoices",
+            "type": "one2many"
+          },
+          "contract_ids": {
+            "string": "Partner Contracts",
+            "type": "one2many"
+          },
+          "bank_account_count": {
+            "string": "Bank",
+            "type": "integer"
+          },
+          "trust": {
+            "string": "Degree of trust you have in this debtor",
+            "type": "selection"
+          },
+          "ignore_abnormal_invoice_date": {
+            "string": "Ignore Abnormal Invoice Date",
+            "type": "boolean"
+          },
+          "ignore_abnormal_invoice_amount": {
+            "string": "Ignore Abnormal Invoice Amount",
+            "type": "boolean"
+          },
+          "global_location_number": {
+            "string": "GLN",
+            "type": "char"
+          },
+          "invoice_sending_method": {
+            "string": "Invoice sending",
+            "type": "selection"
+          },
+          "invoice_edi_format": {
+            "string": "eInvoice format",
+            "type": "selection"
+          },
+          "invoice_edi_format_store": {
+            "string": "Invoice Edi Format Store",
+            "type": "char"
+          },
+          "display_invoice_edi_format": {
+            "string": "Display Invoice Edi Format",
+            "type": "boolean"
+          },
+          "invoice_template_pdf_report_id": {
+            "string": "Invoice report",
+            "type": "many2one"
+          },
+          "available_invoice_template_pdf_report_ids": {
+            "string": "Available Invoice Template Pdf Report",
+            "type": "one2many"
+          },
+          "display_invoice_template_pdf_report_id": {
+            "string": "Display Invoice Template Pdf Report",
+            "type": "boolean"
+          },
+          "supplier_rank": {
+            "string": "Supplier Rank",
+            "type": "integer"
+          },
+          "customer_rank": {
+            "string": "Customer Rank",
+            "type": "integer"
+          },
+          "autopost_bills": {
+            "string": "Auto-post bills",
+            "type": "selection"
+          },
+          "property_outbound_payment_method_line_id": {
+            "string": "Property Outbound Payment Method Line",
+            "type": "many2one"
+          },
+          "property_inbound_payment_method_line_id": {
+            "string": "Property Inbound Payment Method Line",
+            "type": "many2one"
+          },
+          "opportunity_ids": {
+            "string": "Opportunities",
+            "type": "one2many"
+          },
+          "opportunity_count": {
+            "string": "Opportunity Count",
+            "type": "integer"
+          },
+          "project_ids": {
+            "string": "Projects",
+            "type": "one2many"
+          },
+          "task_ids": {
+            "string": "Tasks",
+            "type": "one2many"
+          },
+          "task_count": {
+            "string": "# Tasks",
+            "type": "integer"
+          },
+          "visitor_ids": {
+            "string": "Visitors",
+            "type": "one2many"
+          },
+          "is_ubl_format": {
+            "string": "Is Ubl Format",
+            "type": "boolean"
+          },
+          "routing_scheme": {
+            "string": "Routing ID",
+            "type": "selection"
+          },
+          "routing_endpoint": {
+            "string": "Routing Endpoint",
+            "type": "char"
+          },
+          "routing_identifier": {
+            "string": "EDI Routing Address",
+            "type": "char"
+          },
+          "available_routing_schemes": {
+            "string": "Available Routing Schemes",
+            "type": "json"
+          },
+          "account_represented_company_ids": {
+            "string": "Account Represented Company",
+            "type": "one2many"
+          },
+          "l10n_ke_branch_code": {
+            "string": "eTIMS Branch Code",
+            "type": "char"
+          },
+          "sale_order_count": {
+            "string": "Sale Order Count",
+            "type": "integer"
+          },
+          "sale_order_ids": {
+            "string": "Sales Order",
+            "type": "one2many"
+          },
+          "sale_warn_msg": {
+            "string": "Message for Sales Order",
+            "type": "text"
+          },
+          "incoterm_id": {
+            "string": "Incoterm",
+            "type": "many2one"
+          },
+          "incoterm_location": {
+            "string": "Incoterm Location",
+            "type": "char"
+          },
+          "unreconciled_aml_ids": {
+            "string": "Unreconciled Aml",
+            "type": "one2many"
+          },
+          "total_all_due": {
+            "string": "Total All Due",
+            "type": "monetary"
+          },
+          "total_all_due_abs": {
+            "string": "Total All Due Abs",
+            "type": "monetary"
+          },
+          "total_all_overdue": {
+            "string": "Total All Overdue",
+            "type": "monetary"
+          },
+          "total_due": {
+            "string": "Total Due",
+            "type": "monetary"
+          },
+          "total_due_followup": {
+            "string": "Total Due Followup",
+            "type": "monetary"
+          },
+          "total_due_currency_followup": {
+            "string": "Total Due Currency Followup",
+            "type": "monetary"
+          },
+          "total_overdue": {
+            "string": "Total Overdue",
+            "type": "monetary"
+          },
+          "total_overdue_followup": {
+            "string": "Total Overdue Followup",
+            "type": "monetary"
+          },
+          "total_overdue_currency_followup": {
+            "string": "Total Overdue Currency Followup",
+            "type": "monetary"
+          },
+          "followup_single_currency_id": {
+            "string": "Followup Single Currency",
+            "type": "many2one"
+          },
+          "followup_line_id": {
+            "string": "Follow-up Level",
+            "type": "many2one"
+          },
+          "has_moves": {
+            "string": "Has Moves",
+            "type": "boolean"
+          },
+          "last_reminder": {
+            "string": "Last Reminder Date",
+            "type": "date"
+          },
+          "is_created_by_ocr": {
+            "string": "Is Created By Ocr",
+            "type": "boolean"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 22 Jul 2026 12:15:08 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "178",
+          "x-ratelimit-reset": "1784722536",
+          "server": "nginx",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "request": {
+          "headers": {
+            "x-odoo-database": "nangodeveloper"
+          },
+          "data": {
+            "attributes": [
+              "string",
+              "type"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
