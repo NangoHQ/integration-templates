@@ -42,16 +42,20 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        if (skip === 0) {
-            await nango.trackDeletesStart('Vendor');
-        }
+        // trackDeletesStart is called once the very next page (fresh or resumed) has been
+        // fetched and validated below — on every execution, not just when skip === 0 — so a
+        // resumed execution still (re-)opens the delete-tracking window, and a failed/invalid
+        // page never leaves tracking "started" with nothing validated. Safe/idempotent to call
+        // again if a prior execution already started it while the window is open.
+        let shouldStartTracking = true;
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/VendorsV2',
             params: {
-                $orderby: 'VendorAccountNumber asc'
+                'cross-company': 'true',
+                $orderby: 'dataAreaId asc,VendorAccountNumber asc'
             },
             paginate: {
                 type: 'offset',
@@ -74,7 +78,10 @@ const sync = createSync({
                 }
 
                 const data = parsed.data;
-                const id = `${data.dataAreaId ?? 'unknown'}_${data.VendorAccountNumber}`;
+                if (!data.dataAreaId) {
+                    throw new Error(`Vendor record missing required dataAreaId: ${JSON.stringify(data)}`);
+                }
+                const id = `${data.dataAreaId}_${data.VendorAccountNumber}`;
 
                 vendors.push({
                     id,
@@ -87,6 +94,11 @@ const sync = createSync({
                     ...(data.PrimaryContactEmail != null && { primaryContactEmail: data.PrimaryContactEmail }),
                     ...(data.dataAreaId != null && { dataAreaId: data.dataAreaId })
                 });
+            }
+
+            if (shouldStartTracking) {
+                await nango.trackDeletesStart('Vendor');
+                shouldStartTracking = false;
             }
 
             if (vendors.length > 0) {

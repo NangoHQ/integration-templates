@@ -19,7 +19,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const endpoint = `/data/SalesQuotationHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',SalesQuotationNumber='${encodeURIComponent(input.salesQuotationNumber)}')`;
+        const endpoint = `/data/SalesQuotationHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId).replace(/'/g, "''")}',SalesQuotationNumber='${encodeURIComponent(input.salesQuotationNumber).replace(/'/g, "''")}')`;
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         await nango.delete({

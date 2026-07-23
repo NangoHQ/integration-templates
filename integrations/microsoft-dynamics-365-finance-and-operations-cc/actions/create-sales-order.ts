@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+// Note: SalesOrderNumber is intentionally NOT an input field. Empirically (see
+// tests/create-sales-order.test.json, a real recorded create against the sandbox tenant), D365
+// auto-generates SalesOrderNumber on create for this entity/tenant configuration when it is
+// omitted from the request body, and RequestedShipDate is not required either (the response
+// contains no requestedShipDate when it wasn't supplied). Both fields are kept optional here.
 const InputSchema = z.object({
     dataAreaId: z.string().describe('Company code / legal entity. Example: "dat"'),
     OrderingCustomerAccountNumber: z.string().describe('Customer account number that places the order. Example: "DAT-000004"'),

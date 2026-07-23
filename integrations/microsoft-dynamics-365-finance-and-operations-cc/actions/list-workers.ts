@@ -92,7 +92,8 @@ const action = createAction({
                 $top: String(PAGE_SIZE),
                 $skip: String(skip),
                 $select:
-                    'PersonnelNumber,Name,FirstName,MiddleName,LastName,WorkerStatus,WorkerType,OriginalHireDateTime,BirthDate,PrimaryContactEmail,PrimaryContactPhone,PrimaryContactPhoneExtension,Gender,MaritalStatus,TitleId,ProfessionalTitle,LanguageId,OfficeLocation,AddressCity,AddressCountryRegionId,AddressStreet,AddressZipCode,PartyNumber,NameAlias,KnownAs'
+                    'PersonnelNumber,Name,FirstName,MiddleName,LastName,WorkerStatus,WorkerType,OriginalHireDateTime,BirthDate,PrimaryContactEmail,PrimaryContactPhone,PrimaryContactPhoneExtension,Gender,MaritalStatus,TitleId,ProfessionalTitle,LanguageId,OfficeLocation,AddressCity,AddressCountryRegionId,AddressStreet,AddressZipCode,PartyNumber,NameAlias,KnownAs',
+                $orderby: 'PersonnelNumber asc'
             },
             retries: 3
         });
@@ -135,11 +136,20 @@ const action = createAction({
             };
         });
 
-        const hasMore = providerResponse['@odata.nextLink'] !== undefined;
+        let nextCursor: string | undefined;
+        if (providerResponse['@odata.nextLink'] != null) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const nextUrl = new URL(providerResponse['@odata.nextLink']);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === PAGE_SIZE) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + PAGE_SIZE);
+        }
 
         return {
             items,
-            ...(hasMore && { next_cursor: String(skip + PAGE_SIZE) })
+            ...(nextCursor != null && { next_cursor: nextCursor })
         };
     }
 });

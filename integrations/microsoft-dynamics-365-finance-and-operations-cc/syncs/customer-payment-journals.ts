@@ -69,8 +69,11 @@ const sync = createSync({
                 }
 
                 const raw = parsed.data;
-                const dataAreaId = raw.dataAreaId ?? 'unknown';
-                const journalBatchNumber = raw.JournalBatchNumber ?? 'unknown';
+                if (!raw.dataAreaId || !raw.JournalBatchNumber) {
+                    throw new Error('Missing required key fields in CustomerPaymentJournalHeader record');
+                }
+                const dataAreaId = raw.dataAreaId;
+                const journalBatchNumber = raw.JournalBatchNumber;
                 return {
                     id: `${dataAreaId}-${journalBatchNumber}`,
                     dataAreaId: raw.dataAreaId,

@@ -13,7 +13,8 @@ const ProviderLegalEntitySchema = z
     .passthrough();
 
 const ODataListResponseSchema = z.object({
-    value: z.array(z.unknown())
+    value: z.array(z.unknown()),
+    '@odata.nextLink': z.string().optional()
 });
 
 const OutputSchema = z.object({
@@ -61,8 +62,16 @@ const action = createAction({
             return parsed.data;
         });
 
-        const hasMore = items.length === top;
-        const nextCursor = hasMore ? String(skip + top) : undefined;
+        let nextCursor: string | undefined;
+        if (parsedResponse['@odata.nextLink'] != null) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const nextUrl = new URL(parsedResponse['@odata.nextLink']);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === top) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + top);
+        }
 
         return {
             items,

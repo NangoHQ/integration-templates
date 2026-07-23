@@ -54,10 +54,13 @@ const action = createAction({
         };
 
         if (input.data_area_id) {
-            params['$filter'] = `dataAreaId eq '${input.data_area_id}'`;
+            params['$filter'] = `dataAreaId eq '${input.data_area_id.replace(/'/g, "''")}'`;
         }
 
-        if (input.cross_company) {
+        // A company filter is scoped to the caller's default legal entity unless cross-company
+        // is enabled, so requesting a specific (potentially non-default) data_area_id must also
+        // enable cross-company, in addition to the caller's explicit cross_company flag.
+        if (input.cross_company || input.data_area_id) {
             params['cross-company'] = 'true';
         }
 

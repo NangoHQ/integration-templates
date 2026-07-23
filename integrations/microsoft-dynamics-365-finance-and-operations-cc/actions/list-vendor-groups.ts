@@ -3,7 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of items to return. Default: 100.')
+    limit: z.number().optional().describe('Maximum number of items to return. Default: 100.'),
+    cross_company: z.boolean().optional().describe('If true, query across all companies instead of just the default company.')
 });
 
 const ProviderVendorGroupSchema = z
@@ -49,6 +50,10 @@ const action = createAction({
             params['$skip'] = String(skip);
         }
 
+        if (input.cross_company) {
+            params['cross-company'] = 'true';
+        }
+
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/VendorGroups',
@@ -58,8 +63,15 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
         const items = providerResponse.value;
-        const hasNextLink = providerResponse['@odata.nextLink'] != null;
-        const nextCursor = hasNextLink ? String(skip + limit) : undefined;
+
+        let nextCursor: string | undefined;
+        const nextLink = providerResponse['@odata.nextLink'];
+        if (nextLink != null) {
+            // Server explicitly says there's more — trust it, and extract the real $skip it wants us to use next.
+            const nextUrl = new URL(nextLink);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + limit);
+        }
 
         return {
             items,

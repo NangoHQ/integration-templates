@@ -4,7 +4,8 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response (skip offset). Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of records to return. Defaults to 100.')
+    limit: z.number().optional().describe('Maximum number of records to return. Defaults to 100.'),
+    cross_company: z.boolean().optional().describe('If true, query across all companies instead of just the default company.')
 });
 
 const ProviderPaymentTermSchema = z
@@ -34,7 +35,8 @@ const action = createAction({
             endpoint: '/data/PaymentTerms',
             params: {
                 $top: String(limit),
-                $skip: String(skip)
+                $skip: String(skip),
+                ...(input.cross_company && { 'cross-company': 'true' })
             },
             retries: 3
         };
@@ -50,7 +52,16 @@ const action = createAction({
 
         const items = providerResponse.value.map((item) => ProviderPaymentTermSchema.parse(item));
 
-        const nextCursor = items.length === limit ? String(skip + limit) : undefined;
+        let nextCursor: string | undefined;
+        if (providerResponse['@odata.nextLink'] != null) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const nextUrl = new URL(providerResponse['@odata.nextLink']);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === limit) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + limit);
+        }
 
         return {
             items,

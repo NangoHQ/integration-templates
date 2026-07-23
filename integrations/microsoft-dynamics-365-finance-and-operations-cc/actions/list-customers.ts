@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (OData $skip value). Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of customers to return. Defaults to 100.'),
+    limit: z.number().int().positive().optional().describe('Maximum number of customers to return. Defaults to 100.'),
     cross_company: z.boolean().optional().describe('When true, query across all companies using cross-company=true.')
 });
 
@@ -45,6 +45,13 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 100;
+        if (input.limit !== undefined && (!Number.isInteger(input.limit) || input.limit <= 0)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'limit must be a positive integer.'
+            });
+        }
+
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         if (Number.isNaN(skip)) {
@@ -77,7 +84,15 @@ const action = createAction({
             .passthrough()
             .safeParse(response.data);
 
-        const rawItems: unknown[] = responseData.success && responseData.data.value ? responseData.data.value : [];
+        if (!responseData.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Failed to parse the provider response for customers.',
+                details: responseData.error.message
+            });
+        }
+
+        const rawItems: unknown[] = responseData.data.value ?? [];
 
         if (!Array.isArray(rawItems)) {
             throw new nango.ActionError({

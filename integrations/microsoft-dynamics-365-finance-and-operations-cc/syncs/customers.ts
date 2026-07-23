@@ -44,15 +44,19 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        if (skip === 0) {
-            await nango.trackDeletesStart('Customer');
-        }
+        // trackDeletesStart is called once the very next page (fresh or resumed) has been
+        // fetched and validated below — on every execution, not just when skip === 0 — so a
+        // resumed execution still (re-)opens the delete-tracking window, and a failed/invalid
+        // page never leaves tracking "started" with nothing validated. Safe/idempotent to call
+        // again if a prior execution already started it while the window is open.
+        let shouldStartTracking = true;
 
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/CustomersV3',
             params: {
-                $orderby: 'CustomerAccount asc'
+                'cross-company': 'true',
+                $orderby: 'dataAreaId asc,CustomerAccount asc'
             },
             paginate: {
                 type: 'offset',
@@ -70,7 +74,9 @@ const sync = createSync({
             const customers = page.map((record: unknown) => {
                 const parsed = ProviderCustomerSchema.parse(record);
                 return {
-                    id: parsed.CustomerAccount,
+                    // Composite id: customer account numbers can repeat across legal entities, so dataAreaId
+                    // must be part of the persisted id to avoid collisions/overwrites between companies.
+                    id: `${parsed.dataAreaId}|${parsed.CustomerAccount}`,
                     customerAccount: parsed.CustomerAccount,
                     dataAreaId: parsed.dataAreaId,
                     ...(parsed.OrganizationName != null && { organizationName: parsed.OrganizationName }),
@@ -81,6 +87,11 @@ const sync = createSync({
                     ...(parsed.PartyNumber != null && { partyNumber: parsed.PartyNumber })
                 };
             });
+
+            if (shouldStartTracking) {
+                await nango.trackDeletesStart('Customer');
+                shouldStartTracking = false;
+            }
 
             if (customers.length > 0) {
                 await nango.batchSave(customers, 'Customer');

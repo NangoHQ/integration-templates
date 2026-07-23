@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    top: z.number().optional().describe('Maximum number of records to return per page. Default: 100.')
+    top: z.number().int().positive().optional().describe('Maximum number of records to return per page. Default: 100.')
 });
 
 const ProviderResponseSchema = z.object({
@@ -24,6 +24,12 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input) => {
+        if (input.top !== undefined && (!Number.isInteger(input.top) || input.top <= 0)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'top must be a positive integer.'
+            });
+        }
         const top = input.top ?? 100;
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 

@@ -255,10 +255,7 @@ const sync = createSync({
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
         const limit = 10;
         let hasMore = true;
-
-        if (skip === 0) {
-            await nango.trackDeletesStart('PurchaseOrder');
-        }
+        let trackingStarted = false;
 
         while (hasMore) {
             const response = await nango.get({
@@ -276,6 +273,11 @@ const sync = createSync({
             const envelope = OdataEnvelopeSchema.safeParse(response.data);
             if (!envelope.success) {
                 throw new Error(`Failed to parse OData response: ${envelope.error.message}`);
+            }
+
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('PurchaseOrder');
+                trackingStarted = true;
             }
 
             const pageRecords: z.infer<typeof PurchaseOrderSchema>[] = [];

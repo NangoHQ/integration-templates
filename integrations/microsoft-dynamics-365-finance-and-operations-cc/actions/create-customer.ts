@@ -52,7 +52,10 @@ const action = createAction({
             OrganizationName: raw['OrganizationName'],
             CustomerGroupId: raw['CustomerGroupId'],
             SalesCurrencyCode: raw['SalesCurrencyCode'],
-            PartyNumber: raw['PartyNumber']
+            // PartyNumber can come back as `null` from the provider for an unset value; omit it
+            // rather than passing `null` into a schema that only declares `.optional()` (string |
+            // undefined), which would otherwise fail parsing after the customer was already created.
+            ...(raw['PartyNumber'] != null && { PartyNumber: raw['PartyNumber'] })
         });
 
         if (!parsed.success) {

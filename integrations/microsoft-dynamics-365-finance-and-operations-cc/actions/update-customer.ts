@@ -87,7 +87,7 @@ const action = createAction({
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         await nango.patch({
-            endpoint: `/data/CustomersV3(dataAreaId='${encodeURIComponent(input.dataAreaId)}',CustomerAccount='${encodeURIComponent(input.customerAccount)}')`,
+            endpoint: `/data/CustomersV3(dataAreaId='${encodeURIComponent(input.dataAreaId).replace(/'/g, "''")}',CustomerAccount='${encodeURIComponent(input.customerAccount).replace(/'/g, "''")}')`,
             data: patchBody,
             retries: 3
         });

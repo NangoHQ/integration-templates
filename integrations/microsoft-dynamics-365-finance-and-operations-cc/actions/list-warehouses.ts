@@ -26,6 +26,12 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 100;
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (Number.isNaN(skip) || skip < 0) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Cursor must be a non-negative integer string.'
+            });
+        }
 
         const params: Record<string, string | number> = {
             $top: limit,

@@ -30,6 +30,10 @@ const OutputSchema = z.object({
 
 const PAGE_SIZE = 100;
 
+const odataStringLiteral = (value: string): string => {
+    return `'${value.replace(/'/g, "''")}'`;
+};
+
 const action = createAction({
     description: 'List purchase order lines, optionally scoped to a parent purchase order.',
     version: '1.0.0',
@@ -46,9 +50,9 @@ const action = createAction({
             });
         }
 
-        const filters = [`dataAreaId eq '${input.dataAreaId}'`];
+        const filters = [`dataAreaId eq ${odataStringLiteral(input.dataAreaId)}`];
         if (input.purchaseOrderNumber) {
-            filters.push(`PurchaseOrderNumber eq '${input.purchaseOrderNumber}'`);
+            filters.push(`PurchaseOrderNumber eq ${odataStringLiteral(input.purchaseOrderNumber)}`);
         }
 
         const config: ProxyConfiguration = {
@@ -57,7 +61,8 @@ const action = createAction({
             params: {
                 $top: PAGE_SIZE,
                 $skip: skip,
-                $filter: filters.join(' and ')
+                $filter: filters.join(' and '),
+                'cross-company': 'true'
             },
             retries: 3
         };

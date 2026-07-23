@@ -27,8 +27,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider exposes no filterable modified-timestamp field on LegalEntities,
         // so this sync uses full-refresh with delete tracking.
-        await nango.trackDeletesStart('LegalEntity');
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/LegalEntities',
@@ -46,8 +44,20 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const records = z.array(ProviderLegalEntitySchema).parse(page);
+        // Fetch and validate the first page before starting delete tracking, so a failed/invalid
+        // first response doesn't leave delete-tracking open with zero records enumerated.
+        const iterator = nango.paginate(proxyConfig)[Symbol.asyncIterator]();
+        let result = await iterator.next();
+        let trackingStarted = false;
+
+        while (!result.done) {
+            const records = z.array(ProviderLegalEntitySchema).parse(result.value);
+
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('LegalEntity');
+                trackingStarted = true;
+            }
+
             const legalEntities = records.map((record) => ({
                 id: record.LegalEntityId,
                 ...(record.Name != null && { name: record.Name }),
@@ -58,9 +68,13 @@ const sync = createSync({
             if (legalEntities.length > 0) {
                 await nango.batchSave(legalEntities, 'LegalEntity');
             }
+
+            result = await iterator.next();
         }
 
-        await nango.trackDeletesEnd('LegalEntity');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('LegalEntity');
+        }
     }
 });
 

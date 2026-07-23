@@ -63,7 +63,10 @@ const action = createAction({
         };
 
         if (input.data_area_id !== undefined) {
-            params['$filter'] = `DataAreaId eq '${input.data_area_id}'`;
+            params['$filter'] = `DataAreaId eq '${input.data_area_id.replace(/'/g, "''")}'`;
+            // A company filter is scoped to the caller's default legal entity unless cross-company
+            // is enabled, so requesting a specific (potentially non-default) company must also enable it.
+            params['cross-company'] = 'true';
         }
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
@@ -90,13 +93,17 @@ const action = createAction({
 
         let next_cursor: string | undefined;
         if (providerList['@odata.nextLink'] !== undefined) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
             const nextLink = providerList['@odata.nextLink'];
             const skipMatch = nextLink.match(/\$skip=(\d+)/);
             if (skipMatch !== null && skipMatch[1] !== undefined) {
                 next_cursor = skipMatch[1];
             } else {
-                next_cursor = String(skip + limit);
+                next_cursor = String(skip + items.length);
             }
+        } else if (items.length === limit) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            next_cursor = String(skip + limit);
         }
 
         return {

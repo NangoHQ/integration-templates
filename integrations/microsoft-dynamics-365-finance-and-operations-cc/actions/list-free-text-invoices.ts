@@ -38,6 +38,12 @@ const action = createAction({
 
         if (input.cursor) {
             const cursorUrl = new URL(input.cursor, 'https://dummy.example');
+            if (cursorUrl.pathname !== '/data/FreeTextInvoiceHeaders') {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: "cursor must be a continuation from this action's own previous response."
+                });
+            }
             endpoint = cursorUrl.pathname;
             cursorUrl.searchParams.forEach((value, key) => {
                 params[key] = value;

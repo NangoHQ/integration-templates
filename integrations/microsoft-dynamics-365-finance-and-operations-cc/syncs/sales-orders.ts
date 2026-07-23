@@ -110,15 +110,19 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        if (skip === 0) {
-            await nango.trackDeletesStart('SalesOrder');
-        }
+        // trackDeletesStart is called once the very next page (fresh or resumed) has been
+        // fetched and validated below — on every execution, not just when skip === 0 — so a
+        // resumed execution still (re-)opens the delete-tracking window, and a failed/invalid
+        // page never leaves tracking "started" with nothing validated. Safe/idempotent to call
+        // again if a prior execution already started it while the window is open.
+        let shouldStartTracking = true;
 
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/SalesOrderHeadersV2',
             params: {
-                $orderby: 'SalesOrderNumber asc'
+                'cross-company': 'true',
+                $orderby: 'dataAreaId asc,SalesOrderNumber asc'
             },
             paginate: {
                 type: 'offset',
@@ -144,6 +148,11 @@ const sync = createSync({
                     id: `${record.dataAreaId}-${record.SalesOrderNumber}`
                 };
             });
+
+            if (shouldStartTracking) {
+                await nango.trackDeletesStart('SalesOrder');
+                shouldStartTracking = false;
+            }
 
             if (salesOrders.length > 0) {
                 await nango.batchSave(salesOrders, 'SalesOrder');

@@ -43,12 +43,9 @@ const sync = createSync({
         // Blocker: PurchaseOrderLinesV2 does not expose a modified timestamp
         // in this environment; no changed-since filter or deleted-record endpoint
         // exists, so full refresh with delete tracking is required.
-        if (offset === 0) {
-            await nango.trackDeletesStart('PurchaseOrderLine');
-        }
-
         let hasMore = true;
         const limit = 1000;
+        let trackingStarted = false;
 
         while (hasMore) {
             const proxyConfig: ProxyConfiguration = {
@@ -67,6 +64,11 @@ const sync = createSync({
             const envelope = ODataEnvelopeSchema.safeParse(response.data);
             if (!envelope.success) {
                 throw new Error('Unexpected response shape from PurchaseOrderLinesV2');
+            }
+
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('PurchaseOrderLine');
+                trackingStarted = true;
             }
 
             const page = envelope.data.value;
@@ -105,7 +107,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('PurchaseOrderLine');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('PurchaseOrderLine');
+        }
     }
 });
 

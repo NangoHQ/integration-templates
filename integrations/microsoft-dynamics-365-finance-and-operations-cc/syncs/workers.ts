@@ -44,10 +44,6 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        if (skip === 0) {
-            await nango.trackDeletesStart('Worker');
-        }
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/Workers',
@@ -68,7 +64,14 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
+        // Fetch and validate the first page before starting delete tracking, so a failed/invalid
+        // first response doesn't leave delete-tracking open with zero records enumerated.
+        const iterator = nango.paginate(proxyConfig)[Symbol.asyncIterator]();
+        let result = await iterator.next();
+        let trackingStarted = false;
+
+        while (!result.done) {
+            const page = result.value;
             const workers = page.map((record: unknown) => {
                 const parsed = WorkerResponseSchema.safeParse(record);
                 if (!parsed.success) {
@@ -100,16 +103,25 @@ const sync = createSync({
                 };
             });
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Worker');
+                trackingStarted = true;
+            }
+
             if (workers.length > 0) {
                 await nango.batchSave(workers, 'Worker');
             }
 
             skip += page.length;
             await nango.saveCheckpoint({ skip });
+
+            result = await iterator.next();
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Worker');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('Worker');
+        }
     }
 });
 

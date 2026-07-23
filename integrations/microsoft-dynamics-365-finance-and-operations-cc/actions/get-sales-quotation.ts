@@ -33,9 +33,11 @@ const action = createAction({
         const encodedDataAreaId = encodeURIComponent(input.dataAreaId).replace(/'/g, "''");
         const encodedQuotationNumber = encodeURIComponent(input.salesQuotationNumber).replace(/'/g, "''");
 
+        // This is a $filter-based collection query (not key-addressing), so it is scoped to the
+        // caller's default legal entity unless cross-company is enabled.
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const response = await nango.get({
-            endpoint: `/data/SalesQuotationHeadersV2?$top=1&$filter=dataAreaId eq '${encodedDataAreaId}' and SalesQuotationNumber eq '${encodedQuotationNumber}'`,
+            endpoint: `/data/SalesQuotationHeadersV2?$top=1&$filter=dataAreaId eq '${encodedDataAreaId}' and SalesQuotationNumber eq '${encodedQuotationNumber}'&cross-company=true`,
             retries: 3
         });
 

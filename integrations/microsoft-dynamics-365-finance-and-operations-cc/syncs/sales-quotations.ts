@@ -8,7 +8,7 @@ const ProviderRecordSchema = z
         InvoiceCustomerAccountNumber: z.string().nullish(),
         SalesQuotationStatus: z.string().nullish(),
         CurrencyCode: z.string().nullish(),
-        dataAreaId: z.string().nullish()
+        dataAreaId: z.string()
     })
     .passthrough();
 
@@ -19,7 +19,7 @@ const SalesQuotationSchema = z.object({
     customerAccount: z.string().optional(),
     status: z.string().optional(),
     currencyCode: z.string().optional(),
-    dataAreaId: z.string().optional()
+    dataAreaId: z.string()
 });
 
 const CheckpointSchema = z.object({
@@ -40,15 +40,19 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        if (skip === 0) {
-            await nango.trackDeletesStart('SalesQuotation');
-        }
+        // trackDeletesStart is called once the very next page (fresh or resumed) has been
+        // fetched and validated below — on every execution, not just when skip === 0 — so a
+        // resumed execution still (re-)opens the delete-tracking window, and a failed/invalid
+        // page never leaves tracking "started" with nothing validated. Safe/idempotent to call
+        // again if a prior execution already started it while the window is open.
+        let shouldStartTracking = true;
 
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/SalesQuotationHeadersV2',
             params: {
-                $orderby: 'SalesQuotationNumber asc'
+                'cross-company': 'true',
+                $orderby: 'dataAreaId asc,SalesQuotationNumber asc'
             },
             paginate: {
                 type: 'offset',
@@ -76,8 +80,11 @@ const sync = createSync({
 
                 const record = parsed.data;
                 quotations.push({
-                    id: record.SalesQuotationNumber,
+                    // Composite id: quotation numbers can repeat across legal entities, so dataAreaId
+                    // must be part of the persisted id to avoid collisions/overwrites between companies.
+                    id: `${record.dataAreaId}|${record.SalesQuotationNumber}`,
                     salesQuotationNumber: record.SalesQuotationNumber,
+                    dataAreaId: record.dataAreaId,
                     ...(record.SalesQuotationName != null && {
                         quotationName: record.SalesQuotationName
                     }),
@@ -89,11 +96,13 @@ const sync = createSync({
                     }),
                     ...(record.CurrencyCode != null && {
                         currencyCode: record.CurrencyCode
-                    }),
-                    ...(record.dataAreaId != null && {
-                        dataAreaId: record.dataAreaId
                     })
                 });
+            }
+
+            if (shouldStartTracking) {
+                await nango.trackDeletesStart('SalesQuotation');
+                shouldStartTracking = false;
             }
 
             if (quotations.length > 0) {

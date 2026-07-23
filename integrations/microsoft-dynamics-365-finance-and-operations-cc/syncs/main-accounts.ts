@@ -2,45 +2,45 @@ import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ProviderMainAccountSchema = z.object({
-    ChartOfAccounts: z.string().optional(),
-    MainAccountId: z.string().optional(),
+    ChartOfAccounts: z.string().nullish(),
+    MainAccountId: z.string().nullish(),
     MainAccountRecId: z.number(),
-    SRUCode: z.string().optional(),
-    MainAccountType: z.string().optional(),
-    Name: z.string().optional(),
-    ReportingExchangeAdjustmentRateType: z.string().optional(),
-    User: z.string().optional(),
-    Closing: z.string().optional(),
-    AccountCategoryDescription: z.string().optional(),
-    ForeignCurrencyRevaluation: z.string().optional(),
-    InflationAdjustment: z.string().optional(),
-    OffsetAccountDisplayValue: z.string().optional(),
-    ParentMainAccountId: z.string().optional(),
-    FinancialReportingCurrencyTranslationType: z.string().optional(),
-    DefaultCurrency: z.string().optional(),
-    DebitCreditDefault: z.string().optional(),
-    ActiveTo: z.string().optional(),
-    MandatoryPaymentReference: z.string().optional(),
-    Monetary: z.string().optional(),
-    BalanceControl: z.string().optional(),
-    OpeningAccountId: z.string().optional(),
-    ValidatePostingType: z.string().optional(),
-    RepomoType: z.string().optional(),
-    ExchangeAdjustmentRateType: z.string().optional(),
-    IsSuspended: z.string().optional(),
-    AdjustmentMethod: z.string().optional(),
-    PostingType: z.string().optional(),
+    SRUCode: z.string().nullish(),
+    MainAccountType: z.string().nullish(),
+    Name: z.string().nullish(),
+    ReportingExchangeAdjustmentRateType: z.string().nullish(),
+    User: z.string().nullish(),
+    Closing: z.string().nullish(),
+    AccountCategoryDescription: z.string().nullish(),
+    ForeignCurrencyRevaluation: z.string().nullish(),
+    InflationAdjustment: z.string().nullish(),
+    OffsetAccountDisplayValue: z.string().nullish(),
+    ParentMainAccountId: z.string().nullish(),
+    FinancialReportingCurrencyTranslationType: z.string().nullish(),
+    DefaultCurrency: z.string().nullish(),
+    DebitCreditDefault: z.string().nullish(),
+    ActiveTo: z.string().nullish(),
+    MandatoryPaymentReference: z.string().nullish(),
+    Monetary: z.string().nullish(),
+    BalanceControl: z.string().nullish(),
+    OpeningAccountId: z.string().nullish(),
+    ValidatePostingType: z.string().nullish(),
+    RepomoType: z.string().nullish(),
+    ExchangeAdjustmentRateType: z.string().nullish(),
+    IsSuspended: z.string().nullish(),
+    AdjustmentMethod: z.string().nullish(),
+    PostingType: z.string().nullish(),
     ChartOfAccountsRecId: z.number().optional(),
-    ValidateCurrency: z.string().optional(),
-    MainAccountCategory: z.string().optional(),
-    ReportingAccountType: z.string().optional(),
-    FinancialReportingExchangeRateType: z.string().optional(),
-    DefaultConsolidationAccount: z.string().optional(),
-    DoNotAllowManualEntry: z.string().optional(),
-    DebitCreditRequirement: z.string().optional(),
-    ValidateUser: z.string().optional(),
-    ActiveFrom: z.string().optional(),
-    NatureCode_BR: z.string().optional()
+    ValidateCurrency: z.string().nullish(),
+    MainAccountCategory: z.string().nullish(),
+    ReportingAccountType: z.string().nullish(),
+    FinancialReportingExchangeRateType: z.string().nullish(),
+    DefaultConsolidationAccount: z.string().nullish(),
+    DoNotAllowManualEntry: z.string().nullish(),
+    DebitCreditRequirement: z.string().nullish(),
+    ValidateUser: z.string().nullish(),
+    ActiveFrom: z.string().nullish(),
+    NatureCode_BR: z.string().nullish()
 });
 
 const MainAccountsResponseSchema = z.object({
@@ -108,12 +108,9 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        if (skip === 0) {
-            await nango.trackDeletesStart('MainAccount');
-        }
-
         let hasMore = true;
         const limit = 100;
+        let trackingStarted = false;
 
         while (hasMore) {
             const proxyConfig: ProxyConfiguration = {
@@ -133,6 +130,11 @@ const sync = createSync({
                 throw new Error(`Failed to parse MainAccounts response: ${parsedResponse.error.message}`);
             }
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('MainAccount');
+                trackingStarted = true;
+            }
+
             const page = parsedResponse.data.value;
             if (page.length === 0) {
                 hasMore = false;
@@ -149,51 +151,51 @@ const sync = createSync({
 
                 return {
                     id: String(data.MainAccountRecId),
-                    ...(data.ChartOfAccounts !== undefined && { ChartOfAccounts: data.ChartOfAccounts }),
-                    ...(data.MainAccountId !== undefined && { MainAccountId: data.MainAccountId }),
+                    ...(data.ChartOfAccounts != null && { ChartOfAccounts: data.ChartOfAccounts }),
+                    ...(data.MainAccountId != null && { MainAccountId: data.MainAccountId }),
                     ...(data.MainAccountRecId !== undefined && { MainAccountRecId: data.MainAccountRecId }),
-                    ...(data.SRUCode !== undefined && { SRUCode: data.SRUCode }),
-                    ...(data.MainAccountType !== undefined && { MainAccountType: data.MainAccountType }),
-                    ...(data.Name !== undefined && { Name: data.Name }),
-                    ...(data.ReportingExchangeAdjustmentRateType !== undefined && {
+                    ...(data.SRUCode != null && { SRUCode: data.SRUCode }),
+                    ...(data.MainAccountType != null && { MainAccountType: data.MainAccountType }),
+                    ...(data.Name != null && { Name: data.Name }),
+                    ...(data.ReportingExchangeAdjustmentRateType != null && {
                         ReportingExchangeAdjustmentRateType: data.ReportingExchangeAdjustmentRateType
                     }),
-                    ...(data.User !== undefined && { User: data.User }),
-                    ...(data.Closing !== undefined && { Closing: data.Closing }),
-                    ...(data.AccountCategoryDescription !== undefined && { AccountCategoryDescription: data.AccountCategoryDescription }),
-                    ...(data.ForeignCurrencyRevaluation !== undefined && { ForeignCurrencyRevaluation: data.ForeignCurrencyRevaluation }),
-                    ...(data.InflationAdjustment !== undefined && { InflationAdjustment: data.InflationAdjustment }),
-                    ...(data.OffsetAccountDisplayValue !== undefined && { OffsetAccountDisplayValue: data.OffsetAccountDisplayValue }),
-                    ...(data.ParentMainAccountId !== undefined && { ParentMainAccountId: data.ParentMainAccountId }),
-                    ...(data.FinancialReportingCurrencyTranslationType !== undefined && {
+                    ...(data.User != null && { User: data.User }),
+                    ...(data.Closing != null && { Closing: data.Closing }),
+                    ...(data.AccountCategoryDescription != null && { AccountCategoryDescription: data.AccountCategoryDescription }),
+                    ...(data.ForeignCurrencyRevaluation != null && { ForeignCurrencyRevaluation: data.ForeignCurrencyRevaluation }),
+                    ...(data.InflationAdjustment != null && { InflationAdjustment: data.InflationAdjustment }),
+                    ...(data.OffsetAccountDisplayValue != null && { OffsetAccountDisplayValue: data.OffsetAccountDisplayValue }),
+                    ...(data.ParentMainAccountId != null && { ParentMainAccountId: data.ParentMainAccountId }),
+                    ...(data.FinancialReportingCurrencyTranslationType != null && {
                         FinancialReportingCurrencyTranslationType: data.FinancialReportingCurrencyTranslationType
                     }),
-                    ...(data.DefaultCurrency !== undefined && { DefaultCurrency: data.DefaultCurrency }),
-                    ...(data.DebitCreditDefault !== undefined && { DebitCreditDefault: data.DebitCreditDefault }),
-                    ...(data.ActiveTo !== undefined && { ActiveTo: data.ActiveTo }),
-                    ...(data.MandatoryPaymentReference !== undefined && { MandatoryPaymentReference: data.MandatoryPaymentReference }),
-                    ...(data.Monetary !== undefined && { Monetary: data.Monetary }),
-                    ...(data.BalanceControl !== undefined && { BalanceControl: data.BalanceControl }),
-                    ...(data.OpeningAccountId !== undefined && { OpeningAccountId: data.OpeningAccountId }),
-                    ...(data.ValidatePostingType !== undefined && { ValidatePostingType: data.ValidatePostingType }),
-                    ...(data.RepomoType !== undefined && { RepomoType: data.RepomoType }),
-                    ...(data.ExchangeAdjustmentRateType !== undefined && { ExchangeAdjustmentRateType: data.ExchangeAdjustmentRateType }),
-                    ...(data.IsSuspended !== undefined && { IsSuspended: data.IsSuspended }),
-                    ...(data.AdjustmentMethod !== undefined && { AdjustmentMethod: data.AdjustmentMethod }),
-                    ...(data.PostingType !== undefined && { PostingType: data.PostingType }),
+                    ...(data.DefaultCurrency != null && { DefaultCurrency: data.DefaultCurrency }),
+                    ...(data.DebitCreditDefault != null && { DebitCreditDefault: data.DebitCreditDefault }),
+                    ...(data.ActiveTo != null && { ActiveTo: data.ActiveTo }),
+                    ...(data.MandatoryPaymentReference != null && { MandatoryPaymentReference: data.MandatoryPaymentReference }),
+                    ...(data.Monetary != null && { Monetary: data.Monetary }),
+                    ...(data.BalanceControl != null && { BalanceControl: data.BalanceControl }),
+                    ...(data.OpeningAccountId != null && { OpeningAccountId: data.OpeningAccountId }),
+                    ...(data.ValidatePostingType != null && { ValidatePostingType: data.ValidatePostingType }),
+                    ...(data.RepomoType != null && { RepomoType: data.RepomoType }),
+                    ...(data.ExchangeAdjustmentRateType != null && { ExchangeAdjustmentRateType: data.ExchangeAdjustmentRateType }),
+                    ...(data.IsSuspended != null && { IsSuspended: data.IsSuspended }),
+                    ...(data.AdjustmentMethod != null && { AdjustmentMethod: data.AdjustmentMethod }),
+                    ...(data.PostingType != null && { PostingType: data.PostingType }),
                     ...(data.ChartOfAccountsRecId !== undefined && { ChartOfAccountsRecId: data.ChartOfAccountsRecId }),
-                    ...(data.ValidateCurrency !== undefined && { ValidateCurrency: data.ValidateCurrency }),
-                    ...(data.MainAccountCategory !== undefined && { MainAccountCategory: data.MainAccountCategory }),
-                    ...(data.ReportingAccountType !== undefined && { ReportingAccountType: data.ReportingAccountType }),
-                    ...(data.FinancialReportingExchangeRateType !== undefined && {
+                    ...(data.ValidateCurrency != null && { ValidateCurrency: data.ValidateCurrency }),
+                    ...(data.MainAccountCategory != null && { MainAccountCategory: data.MainAccountCategory }),
+                    ...(data.ReportingAccountType != null && { ReportingAccountType: data.ReportingAccountType }),
+                    ...(data.FinancialReportingExchangeRateType != null && {
                         FinancialReportingExchangeRateType: data.FinancialReportingExchangeRateType
                     }),
-                    ...(data.DefaultConsolidationAccount !== undefined && { DefaultConsolidationAccount: data.DefaultConsolidationAccount }),
-                    ...(data.DoNotAllowManualEntry !== undefined && { DoNotAllowManualEntry: data.DoNotAllowManualEntry }),
-                    ...(data.DebitCreditRequirement !== undefined && { DebitCreditRequirement: data.DebitCreditRequirement }),
-                    ...(data.ValidateUser !== undefined && { ValidateUser: data.ValidateUser }),
-                    ...(data.ActiveFrom !== undefined && { ActiveFrom: data.ActiveFrom }),
-                    ...(data.NatureCode_BR !== undefined && { NatureCode_BR: data.NatureCode_BR })
+                    ...(data.DefaultConsolidationAccount != null && { DefaultConsolidationAccount: data.DefaultConsolidationAccount }),
+                    ...(data.DoNotAllowManualEntry != null && { DoNotAllowManualEntry: data.DoNotAllowManualEntry }),
+                    ...(data.DebitCreditRequirement != null && { DebitCreditRequirement: data.DebitCreditRequirement }),
+                    ...(data.ValidateUser != null && { ValidateUser: data.ValidateUser }),
+                    ...(data.ActiveFrom != null && { ActiveFrom: data.ActiveFrom }),
+                    ...(data.NatureCode_BR != null && { NatureCode_BR: data.NatureCode_BR })
                 };
             });
 
@@ -210,7 +212,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('MainAccount');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('MainAccount');
+        }
     }
 });
 

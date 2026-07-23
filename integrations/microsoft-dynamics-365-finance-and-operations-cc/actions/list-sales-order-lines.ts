@@ -50,9 +50,9 @@ const action = createAction({
         const limit = input.limit ?? 1000;
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 
-        const filters: string[] = [`dataAreaId eq '${dataAreaId}'`];
+        const filters: string[] = [`dataAreaId eq '${dataAreaId.replace(/'/g, "''")}'`];
         if (input.salesOrderNumber) {
-            filters.push(`SalesOrderNumber eq '${input.salesOrderNumber}'`);
+            filters.push(`SalesOrderNumber eq '${input.salesOrderNumber.replace(/'/g, "''")}'`);
         }
 
         const filterString = filters.join(' and ');
@@ -63,7 +63,8 @@ const action = createAction({
             params: {
                 $filter: filterString,
                 $top: String(limit),
-                $skip: String(skip)
+                $skip: String(skip),
+                'cross-company': 'true'
             },
             retries: 3
         });

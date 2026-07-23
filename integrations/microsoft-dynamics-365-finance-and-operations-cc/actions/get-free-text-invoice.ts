@@ -45,9 +45,22 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const invoiceIdentifier = typeof input.invoiceIdentifier === 'number' ? String(input.invoiceIdentifier) : input.invoiceIdentifier;
 
+        // InvoiceIdentifier is a raw numeric OData key segment (no surrounding quotes), so it must be
+        // restricted to digits only. Otherwise a crafted string could alter/break out of the URL
+        // instead of identifying a single invoice.
+        if (!/^\d+$/.test(invoiceIdentifier)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'invoiceIdentifier must contain only decimal digits.',
+                invoiceIdentifier: input.invoiceIdentifier
+            });
+        }
+
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId).replace(/'/g, "''");
+
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const response = await nango.get({
-            endpoint: `/data/FreeTextInvoiceHeaders(dataAreaId='${encodeURIComponent(input.dataAreaId)}',InvoiceIdentifier=${encodeURIComponent(invoiceIdentifier)})`,
+            endpoint: `/data/FreeTextInvoiceHeaders(dataAreaId='${encodedDataAreaId}',InvoiceIdentifier=${invoiceIdentifier})`,
             retries: 3
         });
 

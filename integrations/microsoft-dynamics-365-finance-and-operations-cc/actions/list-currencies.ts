@@ -49,7 +49,8 @@ const action = createAction({
 
         const raw = z
             .object({
-                value: z.array(z.unknown())
+                value: z.array(z.unknown()),
+                '@odata.nextLink': z.string().optional()
             })
             .parse(response.data);
 
@@ -61,7 +62,16 @@ const action = createAction({
             };
         });
 
-        const nextCursor = items.length === 100 ? String(skip + 100) : undefined;
+        let nextCursor: string | undefined;
+        if (raw['@odata.nextLink'] != null) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const nextUrl = new URL(raw['@odata.nextLink']);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === 100) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + 100);
+        }
 
         return {
             items,

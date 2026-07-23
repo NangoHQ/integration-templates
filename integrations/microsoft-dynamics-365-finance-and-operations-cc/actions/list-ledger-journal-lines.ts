@@ -42,9 +42,10 @@ const action = createAction({
         }
 
         const pageLimit = input.limit ?? 100;
-        const params: { $filter: string; $top: number; $skip?: number } = {
+        const params: { $filter: string; $top: number; $skip?: number; 'cross-company': string } = {
             $filter: filterParts.join(' and '),
-            $top: pageLimit
+            $top: pageLimit,
+            'cross-company': 'true'
         };
 
         if (input.cursor) {

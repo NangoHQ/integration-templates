@@ -66,7 +66,9 @@ const action = createAction({
     scopes: ['openid', 'api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const endpoint = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',PurchaseOrderNumber='${encodeURIComponent(input.purchaseOrderNumber)}')`;
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId).replace(/'/g, "''");
+        const encodedPurchaseOrderNumber = encodeURIComponent(input.purchaseOrderNumber).replace(/'/g, "''");
+        const endpoint = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodedDataAreaId}',PurchaseOrderNumber='${encodedPurchaseOrderNumber}')`;
 
         const patchBody: Record<string, unknown> = {};
 
@@ -133,15 +135,22 @@ const action = createAction({
         }
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+        // cross-company is required so that purchase orders in a non-default dataAreaId can be updated.
         await nango.patch({
             endpoint,
             data: patchBody,
+            params: {
+                'cross-company': 'true'
+            },
             retries: 1
         });
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const response = await nango.get({
             endpoint,
+            params: {
+                'cross-company': 'true'
+            },
             retries: 3
         });
 

@@ -11,7 +11,7 @@ const ProviderVendorPaymentJournalSchema = z
         dataAreaId: z.string().optional(),
         JournalBatchNumber: z.string().optional(),
         JournalName: z.string().optional(),
-        Description: z.string().optional(),
+        Description: z.string().nullish(),
         IsPosted: z.string().optional(),
         OverrideSalesTax: z.string().optional(),
         ChargeBearer: z.number().optional(),
@@ -26,7 +26,7 @@ const OutputSchema = z
         dataAreaId: z.string().optional(),
         JournalBatchNumber: z.string().optional(),
         JournalName: z.string().optional(),
-        Description: z.string().optional(),
+        Description: z.string().nullish(),
         IsPosted: z.string().optional(),
         OverrideSalesTax: z.string().optional(),
         ChargeBearer: z.number().optional(),
@@ -43,9 +43,12 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId).replace(/'/g, "''");
+        const encodedJournalBatchNumber = encodeURIComponent(input.journalBatchNumber).replace(/'/g, "''");
+
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: `/data/VendorPaymentJournalHeaders(dataAreaId='${encodeURIComponent(input.dataAreaId)}',JournalBatchNumber='${encodeURIComponent(input.journalBatchNumber)}')`,
+            endpoint: `/data/VendorPaymentJournalHeaders(dataAreaId='${encodedDataAreaId}',JournalBatchNumber='${encodedJournalBatchNumber}')`,
             retries: 3
         });
 

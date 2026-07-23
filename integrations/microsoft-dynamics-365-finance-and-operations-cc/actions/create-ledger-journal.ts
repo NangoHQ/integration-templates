@@ -2,19 +2,22 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    dataAreaId: z.string().describe("Company code / data area ID. Example: 'dat'"),
     JournalName: z.string().describe('Journal name/setup. Example: "EXPJRN"')
 });
 
 const ProviderResponseSchema = z
     .object({
         JournalBatchNumber: z.string(),
-        JournalName: z.string()
+        JournalName: z.string(),
+        dataAreaId: z.string()
     })
     .passthrough();
 
 const OutputSchema = z.object({
     JournalBatchNumber: z.string(),
-    JournalName: z.string()
+    JournalName: z.string(),
+    dataAreaId: z.string()
 });
 
 const action = createAction({
@@ -28,6 +31,7 @@ const action = createAction({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/LedgerJournalHeaders',
             data: {
+                dataAreaId: input.dataAreaId,
                 JournalName: input.JournalName
             },
             retries: 1
@@ -37,7 +41,8 @@ const action = createAction({
 
         return {
             JournalBatchNumber: providerData.JournalBatchNumber,
-            JournalName: providerData.JournalName
+            JournalName: providerData.JournalName,
+            dataAreaId: providerData.dataAreaId
         };
     }
 });

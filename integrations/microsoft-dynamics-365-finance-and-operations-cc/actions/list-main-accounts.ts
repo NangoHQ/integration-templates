@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (OData $skip value). Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of records to return. Defaults to 100.')
+    limit: z.number().int().positive().optional().describe('Maximum number of records to return. Defaults to 100.')
 });
 
 const ProviderMainAccountSchema = z
@@ -38,6 +38,12 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.limit !== undefined && (!Number.isInteger(input.limit) || input.limit <= 0)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'limit must be a positive integer.'
+            });
+        }
         const limit = input.limit ?? 100;
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 
@@ -54,7 +60,8 @@ const action = createAction({
 
         const responseData = z
             .object({
-                value: z.array(z.unknown())
+                value: z.array(z.unknown()),
+                '@odata.nextLink': z.string().optional()
             })
             .parse(response.data);
 
@@ -70,7 +77,16 @@ const action = createAction({
             };
         });
 
-        const nextCursor = items.length === limit ? String(skip + limit) : undefined;
+        let nextCursor: string | undefined;
+        if (responseData['@odata.nextLink'] != null) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const nextUrl = new URL(responseData['@odata.nextLink']);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === limit) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + limit);
+        }
 
         return {
             items,

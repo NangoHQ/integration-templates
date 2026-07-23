@@ -23,7 +23,8 @@ const OutputSchema = z.object({
 });
 
 const ListResponseSchema = z.object({
-    value: z.array(z.record(z.string(), z.unknown()))
+    value: z.array(z.record(z.string(), z.unknown())),
+    '@odata.nextLink': z.string().optional()
 });
 
 const odataStringLiteral = (value: string): string => {
@@ -50,7 +51,13 @@ const action = createAction({
         if (filters.length > 0) {
             params['$filter'] = filters.join(' and ');
         }
-        if (input.cursor) {
+        // A dataAreaId filter is scoped to the caller's default legal entity unless cross-company
+        // is enabled, so requesting a specific (potentially non-default) company must also enable it.
+        if (input.dataAreaId) {
+            params['cross-company'] = 'true';
+        }
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (input.cursor !== undefined) {
             params['$skip'] = input.cursor;
         }
 
@@ -63,11 +70,21 @@ const action = createAction({
 
         const parsed = ListResponseSchema.parse(response.data);
         const items = parsed.value.map((item) => ProviderSalesQuotationLineSchema.parse(item));
-        const nextCursor = items.length === PAGE_SIZE ? String((input.cursor ? parseInt(input.cursor, 10) : 0) + PAGE_SIZE) : undefined;
+
+        let nextCursor: string | undefined;
+        if (parsed['@odata.nextLink'] != null) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const nextUrl = new URL(parsed['@odata.nextLink']);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === PAGE_SIZE) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + PAGE_SIZE);
+        }
 
         return {
             items,
-            next_cursor: nextCursor
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

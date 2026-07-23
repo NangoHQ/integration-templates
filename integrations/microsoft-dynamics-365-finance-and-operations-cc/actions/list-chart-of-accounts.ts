@@ -2,8 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    dataAreaId: z.string().optional().describe('Company code / data area ID. Example: "dat"')
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
 const ProviderItemSchema = z
@@ -37,19 +36,15 @@ const action = createAction({
             });
         }
 
-        const params: Record<string, string | number> = {
-            $top: pageSize,
-            $skip: skip
-        };
-
-        if (input.dataAreaId) {
-            params['$filter'] = `dataAreaId eq '${input.dataAreaId}'`;
-        }
-
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+            // ChartOfAccounts is a shared entity (not legal-entity-scoped): it has no dataAreaId
+            // property, so there is nothing to filter by company and no cross-company param is needed.
             endpoint: '/data/ChartOfAccounts',
-            params,
+            params: {
+                $top: pageSize,
+                $skip: skip
+            },
             retries: 3
         });
 
@@ -65,7 +60,16 @@ const action = createAction({
             return parsed;
         });
 
-        const nextCursor = providerResponse['@odata.nextLink'] != null ? String(skip + pageSize) : undefined;
+        let nextCursor: string | undefined;
+        if (providerResponse['@odata.nextLink'] != null) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const nextUrl = new URL(providerResponse['@odata.nextLink']);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === pageSize) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + pageSize);
+        }
 
         return {
             items,

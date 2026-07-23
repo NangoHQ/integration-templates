@@ -7,6 +7,7 @@ const CheckpointSchema = z.object({
 
 const ReleasedProductsV2ItemSchema = z
     .object({
+        dataAreaId: z.string(),
         ItemNumber: z.string(),
         ProductNumber: z.unknown().optional(),
         SearchName: z.unknown().optional(),
@@ -26,6 +27,7 @@ const ReleasedProductsV2ItemSchema = z
 
 const ReleasedProductSchema = z.object({
     id: z.string(),
+    data_area_id: z.string(),
     item_number: z.string(),
     product_number: z.string().optional(),
     search_name: z.string().optional(),
@@ -79,15 +81,12 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        if (skip === 0) {
-            await nango.trackDeletesStart('ReleasedProduct');
-        }
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/ReleasedProductsV2',
             params: {
-                $orderby: 'ItemNumber asc'
+                'cross-company': 'true',
+                $orderby: 'dataAreaId asc,ItemNumber asc'
             },
             paginate: {
                 type: 'offset',
@@ -101,7 +100,14 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
+        // Fetch and validate the first page before starting delete tracking, so a failed/invalid
+        // first response doesn't leave delete-tracking open with zero records enumerated.
+        const iterator = nango.paginate(proxyConfig)[Symbol.asyncIterator]();
+        let result = await iterator.next();
+        let trackingStarted = false;
+
+        while (!result.done) {
+            const page = result.value;
             if (!Array.isArray(page)) {
                 throw new Error('Expected paginated page to be an array');
             }
@@ -114,7 +120,8 @@ const sync = createSync({
 
                 const item = parsed.data;
                 return {
-                    id: item.ItemNumber,
+                    id: `${item.dataAreaId}|${item.ItemNumber}`,
+                    data_area_id: item.dataAreaId,
                     item_number: item.ItemNumber,
                     product_number: toOptionalString(item.ProductNumber),
                     search_name: toOptionalString(item.SearchName),
@@ -132,16 +139,25 @@ const sync = createSync({
                 };
             });
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('ReleasedProduct');
+                trackingStarted = true;
+            }
+
             if (releasedProducts.length > 0) {
                 await nango.batchSave(releasedProducts, 'ReleasedProduct');
             }
 
             skip += page.length;
             await nango.saveCheckpoint({ skip });
+
+            result = await iterator.next();
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('ReleasedProduct');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('ReleasedProduct');
+        }
     }
 });
 

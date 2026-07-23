@@ -3,7 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().min(1).max(10000).optional().describe('Maximum number of items to return per page. Defaults to 100.')
+    limit: z.number().min(1).max(10000).optional().describe('Maximum number of items to return per page. Defaults to 100.'),
+    cross_company: z.boolean().optional().describe('If true, query across all companies instead of just the default company.')
 });
 
 const VendorPaymentJournalHeaderSchema = z
@@ -43,7 +44,8 @@ const action = createAction({
             endpoint: '/data/VendorPaymentJournalHeaders',
             params: {
                 $top: String(limit),
-                ...(skip > 0 && { $skip: String(skip) })
+                ...(skip > 0 && { $skip: String(skip) }),
+                ...(input.cross_company && { 'cross-company': 'true' })
             },
             retries: 3
         });
@@ -57,12 +59,23 @@ const action = createAction({
 
         const providerResponse = z
             .object({
-                value: z.array(z.unknown())
+                value: z.array(z.unknown()),
+                '@odata.nextLink': z.string().optional()
             })
             .parse(response.data);
 
         const items = providerResponse.value.map((item: unknown) => VendorPaymentJournalHeaderSchema.parse(item));
-        const nextCursor = items.length === limit ? String(skip + limit) : undefined;
+
+        let nextCursor: string | undefined;
+        if (providerResponse['@odata.nextLink'] != null) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const nextUrl = new URL(providerResponse['@odata.nextLink']);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === limit) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + limit);
+        }
 
         return {
             items,

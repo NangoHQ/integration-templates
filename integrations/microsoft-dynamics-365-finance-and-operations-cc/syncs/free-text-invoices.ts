@@ -62,10 +62,6 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        if (skip === 0) {
-            await nango.trackDeletesStart('FreeTextInvoice');
-        }
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/FreeTextInvoiceHeaders',
@@ -85,7 +81,14 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
+        // Fetch and validate the first page before starting delete tracking, so a failed/invalid
+        // first response doesn't leave delete-tracking open with zero records enumerated.
+        const iterator = nango.paginate(proxyConfig)[Symbol.asyncIterator]();
+        let result = await iterator.next();
+        let trackingStarted = false;
+
+        while (!result.done) {
+            const page = result.value;
             const invoices = page.map((record: unknown) => {
                 const parsed = ProviderInvoiceSchema.safeParse(record);
                 if (!parsed.success) {
@@ -116,16 +119,25 @@ const sync = createSync({
                 };
             });
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('FreeTextInvoice');
+                trackingStarted = true;
+            }
+
             if (invoices.length > 0) {
                 await nango.batchSave(invoices, 'FreeTextInvoice');
             }
 
             skip += page.length;
             await nango.saveCheckpoint({ skip });
+
+            result = await iterator.next();
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('FreeTextInvoice');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('FreeTextInvoice');
+        }
     }
 });
 

@@ -63,11 +63,12 @@ const action = createAction({
             $skip: skip
         };
 
-        const filters: string[] = [`dataAreaId eq '${input.dataAreaId}'`];
+        const filters: string[] = [`dataAreaId eq '${input.dataAreaId.replace(/'/g, "''")}'`];
         if (input.journalBatchNumber) {
-            filters.push(`JournalBatchNumber eq '${input.journalBatchNumber}'`);
+            filters.push(`JournalBatchNumber eq '${input.journalBatchNumber.replace(/'/g, "''")}'`);
         }
         params['$filter'] = filters.join(' and ');
+        params['cross-company'] = 'true';
 
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata

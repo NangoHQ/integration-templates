@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    dataAreaId: z.string().describe('Company/data area ID. Example: "dat"'),
     orderVendorAccountNumber: z.string().describe('Vendor account number for the ordering party. Example: "DAT-0000000002"'),
     invoiceVendorAccountNumber: z.string().describe('Vendor account number for invoicing. Example: "DAT-0000000002"'),
     currencyCode: z.string().describe('Currency code for the purchase order. Example: "USD"'),
@@ -9,6 +10,7 @@ const InputSchema = z.object({
 });
 
 const ProviderPurchaseOrderHeaderSchema = z.object({
+    dataAreaId: z.string(),
     PurchaseOrderNumber: z.string(),
     OrderVendorAccountNumber: z.string(),
     InvoiceVendorAccountNumber: z.string(),
@@ -17,6 +19,7 @@ const ProviderPurchaseOrderHeaderSchema = z.object({
 });
 
 const OutputSchema = z.object({
+    dataAreaId: z.string(),
     purchaseOrderNumber: z.string(),
     orderVendorAccountNumber: z.string(),
     invoiceVendorAccountNumber: z.string(),
@@ -31,6 +34,7 @@ const action = createAction({
     output: OutputSchema,
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {
+            dataAreaId: input.dataAreaId,
             OrderVendorAccountNumber: input.orderVendorAccountNumber,
             InvoiceVendorAccountNumber: input.invoiceVendorAccountNumber,
             CurrencyCode: input.currencyCode,
@@ -47,6 +51,7 @@ const action = createAction({
         const providerHeader = ProviderPurchaseOrderHeaderSchema.parse(response.data);
 
         return {
+            dataAreaId: providerHeader.dataAreaId,
             purchaseOrderNumber: providerHeader.PurchaseOrderNumber,
             orderVendorAccountNumber: providerHeader.OrderVendorAccountNumber,
             invoiceVendorAccountNumber: providerHeader.InvoiceVendorAccountNumber,

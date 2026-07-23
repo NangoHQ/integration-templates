@@ -56,14 +56,15 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 100;
 
-        const filters = [`dataAreaId eq '${input.data_area_id}'`];
+        const filters = [`dataAreaId eq '${input.data_area_id.replace(/'/g, "''")}'`];
         if (input.journal_batch_number) {
-            filters.push(`JournalBatchNumber eq '${input.journal_batch_number}'`);
+            filters.push(`JournalBatchNumber eq '${input.journal_batch_number.replace(/'/g, "''")}'`);
         }
 
         const params: Record<string, string | number> = {
             $filter: filters.join(' and '),
-            $top: limit
+            $top: limit,
+            'cross-company': 'true'
         };
 
         if (input.cursor) {

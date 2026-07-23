@@ -35,7 +35,9 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const endpoint = `/data/VendorsV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',VendorAccountNumber='${encodeURIComponent(input.vendorAccountNumber)}')`;
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId).replace(/'/g, "''");
+        const encodedVendorAccountNumber = encodeURIComponent(input.vendorAccountNumber).replace(/'/g, "''");
+        const endpoint = `/data/VendorsV2(dataAreaId='${encodedDataAreaId}',VendorAccountNumber='${encodedVendorAccountNumber}')`;
 
         const patchBody: Record<string, unknown> = {};
         if (input.vendorOrganizationName !== undefined) {
@@ -49,6 +51,13 @@ const action = createAction({
         }
         if (input.primaryContactEmail !== undefined) {
             patchBody['PrimaryContactEmail'] = input.primaryContactEmail;
+        }
+
+        if (Object.keys(patchBody).length === 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one field to update must be provided.'
+            });
         }
 
         const patchResponse = await nango.patch({

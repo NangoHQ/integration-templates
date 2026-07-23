@@ -10,7 +10,8 @@ const InputSchema = z.object({
 const FreeTextInvoiceLineSchema = z.object({}).passthrough();
 
 const ODataResponseSchema = z.object({
-    value: z.array(FreeTextInvoiceLineSchema)
+    value: z.array(FreeTextInvoiceLineSchema),
+    '@odata.nextLink': z.string().optional()
 });
 
 const OutputSchema = z.object({
@@ -29,9 +30,19 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const filters: string[] = [];
         if (input.dataAreaId) {
-            filters.push(`dataAreaId eq '${input.dataAreaId}'`);
+            filters.push(`dataAreaId eq '${input.dataAreaId.replace(/'/g, "''")}'`);
         }
         if (input.parentRecId) {
+            // ParentRecId is a raw numeric OData literal (no surrounding quotes), so it must be
+            // restricted to digits only. Otherwise a crafted string could alter/break out of the
+            // filter instead of scoping to a single parent record.
+            if (!/^\d+$/.test(input.parentRecId)) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'parentRecId must contain only decimal digits.',
+                    parentRecId: input.parentRecId
+                });
+            }
             filters.push(`ParentRecId eq ${input.parentRecId}`);
         }
 
@@ -50,6 +61,11 @@ const action = createAction({
         if (filters.length > 0) {
             params['$filter'] = filters.join(' and ');
         }
+        // A dataAreaId filter is scoped to the caller's default legal entity unless cross-company
+        // is enabled, so requesting a specific (potentially non-default) company must also enable it.
+        if (input.dataAreaId) {
+            params['cross-company'] = 'true';
+        }
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const response = await nango.get({
@@ -61,7 +77,16 @@ const action = createAction({
         const data = ODataResponseSchema.parse(response.data);
         const items = data.value;
 
-        const nextCursor = items.length === PAGE_SIZE ? String(skip + PAGE_SIZE) : undefined;
+        let nextCursor: string | undefined;
+        if (data['@odata.nextLink'] != null) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const nextUrl = new URL(data['@odata.nextLink']);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === PAGE_SIZE) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + PAGE_SIZE);
+        }
 
         return {
             items,

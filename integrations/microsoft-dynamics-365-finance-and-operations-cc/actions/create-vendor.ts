@@ -18,15 +18,15 @@ const InputSchema = z.object({
 const ProviderVendorSchema = z.object({
     dataAreaId: z.string(),
     VendorAccountNumber: z.string(),
-    VendorOrganizationName: z.string().optional(),
-    VendorGroupId: z.string().optional(),
-    AddressCity: z.string().optional(),
-    AddressStreet: z.string().optional(),
-    AddressStateId: z.string().optional(),
-    AddressZipCode: z.string().optional(),
-    AddressCountryRegionId: z.string().optional(),
-    PrimaryEmailAddress: z.string().optional(),
-    PrimaryPhoneNumber: z.string().optional()
+    VendorOrganizationName: z.string().nullish(),
+    VendorGroupId: z.string().nullish(),
+    AddressCity: z.string().nullish(),
+    AddressStreet: z.string().nullish(),
+    AddressStateId: z.string().nullish(),
+    AddressZipCode: z.string().nullish(),
+    AddressCountryRegionId: z.string().nullish(),
+    PrimaryEmailAddress: z.string().nullish(),
+    PrimaryPhoneNumber: z.string().nullish()
 });
 
 const OutputSchema = z.object({
@@ -101,15 +101,15 @@ const action = createAction({
         return {
             data_area_id: providerData.dataAreaId,
             vendor_account_number: providerData.VendorAccountNumber,
-            ...(providerData.VendorOrganizationName !== undefined && { vendor_organization_name: providerData.VendorOrganizationName }),
-            ...(providerData.VendorGroupId !== undefined && { vendor_group_id: providerData.VendorGroupId }),
-            ...(providerData.AddressCity !== undefined && { address_city: providerData.AddressCity }),
-            ...(providerData.AddressStreet !== undefined && { address_street: providerData.AddressStreet }),
-            ...(providerData.AddressStateId !== undefined && { address_state_id: providerData.AddressStateId }),
-            ...(providerData.AddressZipCode !== undefined && { address_zip_code: providerData.AddressZipCode }),
-            ...(providerData.AddressCountryRegionId !== undefined && { address_country_region_id: providerData.AddressCountryRegionId }),
-            ...(providerData.PrimaryEmailAddress !== undefined && { primary_email_address: providerData.PrimaryEmailAddress }),
-            ...(providerData.PrimaryPhoneNumber !== undefined && { primary_phone_number: providerData.PrimaryPhoneNumber })
+            ...(providerData.VendorOrganizationName != null && { vendor_organization_name: providerData.VendorOrganizationName }),
+            ...(providerData.VendorGroupId != null && { vendor_group_id: providerData.VendorGroupId }),
+            ...(providerData.AddressCity != null && { address_city: providerData.AddressCity }),
+            ...(providerData.AddressStreet != null && { address_street: providerData.AddressStreet }),
+            ...(providerData.AddressStateId != null && { address_state_id: providerData.AddressStateId }),
+            ...(providerData.AddressZipCode != null && { address_zip_code: providerData.AddressZipCode }),
+            ...(providerData.AddressCountryRegionId != null && { address_country_region_id: providerData.AddressCountryRegionId }),
+            ...(providerData.PrimaryEmailAddress != null && { primary_email_address: providerData.PrimaryEmailAddress }),
+            ...(providerData.PrimaryPhoneNumber != null && { primary_phone_number: providerData.PrimaryPhoneNumber })
         };
     }
 });

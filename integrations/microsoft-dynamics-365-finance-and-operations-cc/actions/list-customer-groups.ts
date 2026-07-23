@@ -28,6 +28,13 @@ const action = createAction({
         const limit = input.limit ?? 100;
         const skip = input.cursor ? Number(input.cursor) : 0;
 
+        if (input.cursor != null && (Number.isNaN(skip) || skip < 0 || !Number.isInteger(skip))) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a non-negative integer string'
+            });
+        }
+
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/CustomerGroups',
@@ -40,7 +47,8 @@ const action = createAction({
 
         const providerResponse = z
             .object({
-                value: z.array(z.unknown())
+                value: z.array(z.unknown()),
+                '@odata.nextLink': z.string().optional()
             })
             .parse(response.data);
 
@@ -48,7 +56,16 @@ const action = createAction({
             return ProviderCustomerGroupSchema.parse(item);
         });
 
-        const nextCursor = items.length === limit ? String(skip + limit) : undefined;
+        let nextCursor: string | undefined;
+        if (providerResponse['@odata.nextLink'] != null) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const nextUrl = new URL(providerResponse['@odata.nextLink']);
+            const skipParam = nextUrl.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === limit) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + limit);
+        }
 
         return {
             items,

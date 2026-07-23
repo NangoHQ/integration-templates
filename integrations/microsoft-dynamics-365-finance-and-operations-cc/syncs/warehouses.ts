@@ -32,21 +32,32 @@ const sync = createSync({
         // so a plain full refresh is simpler than persisting resume state.
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-        await nango.trackDeletesStart('Warehouse');
+        // Fetch and validate the first page before starting delete tracking, so a failed/invalid
+        // first response doesn't leave delete-tracking open with zero records enumerated.
+        const iterator = nango
+            .paginate({
+                endpoint: '/data/Warehouses',
+                params: {
+                    'cross-company': 'true',
+                    $orderby: 'dataAreaId asc,WarehouseId asc'
+                },
+                paginate: {
+                    type: 'offset',
+                    offset_name_in_request: '$skip',
+                    offset_start_value: 0,
+                    offset_calculation_method: 'by-response-size',
+                    limit_name_in_request: '$top',
+                    limit: 100,
+                    response_path: 'value'
+                },
+                retries: 3
+            })
+            [Symbol.asyncIterator]();
+        let result = await iterator.next();
+        let trackingStarted = false;
 
-        for await (const page of nango.paginate({
-            endpoint: '/data/Warehouses',
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: '$skip',
-                offset_start_value: 0,
-                offset_calculation_method: 'by-response-size',
-                limit_name_in_request: '$top',
-                limit: 100,
-                response_path: 'value'
-            },
-            retries: 3
-        })) {
+        while (!result.done) {
+            const page = result.value;
             const warehouses = [];
 
             for (const record of page) {
@@ -65,12 +76,21 @@ const sync = createSync({
                 });
             }
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Warehouse');
+                trackingStarted = true;
+            }
+
             if (warehouses.length > 0) {
                 await nango.batchSave(warehouses, 'Warehouse');
             }
+
+            result = await iterator.next();
         }
 
-        await nango.trackDeletesEnd('Warehouse');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('Warehouse');
+        }
     }
 });
 

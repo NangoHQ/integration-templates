@@ -12,7 +12,7 @@ const InputSchema = z
 
 const ProviderResponseSchema = z
     .object({
-        InvoiceIdentifier: z.union([z.string(), z.number()]).optional(),
+        InvoiceIdentifier: z.union([z.string(), z.number()]),
         FreeTextNumber: z.string().optional(),
         CustomerAccount: z.string().optional(),
         InvoiceDate: z.string().optional(),
