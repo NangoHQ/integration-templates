@@ -1,0 +1,75 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+    limit: z.number().min(1).max(10000).optional().describe('Maximum number of items to return per page. Defaults to 100.')
+});
+
+const VendorPaymentJournalHeaderSchema = z
+    .object({
+        dataAreaId: z.string().optional(),
+        JournalBatchNumber: z.string().optional(),
+        Description: z.string().optional().nullable(),
+        JournalName: z.string().optional(),
+        IsPosted: z.string().optional()
+    })
+    .passthrough();
+
+const OutputSchema = z.object({
+    items: z.array(VendorPaymentJournalHeaderSchema),
+    next_cursor: z.string().optional()
+});
+
+const action = createAction({
+    description: 'List vendor (AP) payment journal headers',
+    version: '1.0.0',
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['data.execute'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const limit = input.limit ?? 100;
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (Number.isNaN(skip) || skip < 0) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Cursor must be a valid non-negative integer.'
+            });
+        }
+
+        const response = await nango.get({
+            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+            endpoint: '/data/VendorPaymentJournalHeaders',
+            params: {
+                $top: String(limit),
+                ...(skip > 0 && { $skip: String(skip) })
+            },
+            retries: 3
+        });
+
+        if (!response.data || typeof response.data !== 'object') {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Invalid response from provider.'
+            });
+        }
+
+        const providerResponse = z
+            .object({
+                value: z.array(z.unknown())
+            })
+            .parse(response.data);
+
+        const items = providerResponse.value.map((item: unknown) => VendorPaymentJournalHeaderSchema.parse(item));
+        const nextCursor = items.length === limit ? String(skip + limit) : undefined;
+
+        return {
+            items,
+            ...(nextCursor && { next_cursor: nextCursor })
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
