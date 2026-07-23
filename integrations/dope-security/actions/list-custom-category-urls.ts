@@ -7,6 +7,7 @@ const InputSchema = z.object({
         .min(1)
         .max(32)
         .regex(/^[^#!@$%^*?./\\]+$/)
+        .refine((value) => value.trim() === value, { message: 'must not have leading, trailing, or only whitespace' })
         .describe('Name of the custom category. Must be 1-32 characters and must not contain: # ! @ $ % ^ * ? . / \\. Example: "RegistrySeedCategory1"')
 });
 

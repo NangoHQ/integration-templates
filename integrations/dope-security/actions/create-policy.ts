@@ -40,8 +40,9 @@ const action = createAction({
             endpoint: `/v1/policies/${encodeURIComponent(input.policyName)}`,
             data: {},
             // Creating a policy is not documented as idempotent: replaying after a
-            // successful create returns "Policy already exists" instead of Success.
-            retries: 10
+            // successful create returns "Policy already exists" instead of Success, so a
+            // retry after a lost response would surface as a false failure. Don't retry.
+            retries: 0 // eslint-disable-line @nangohq/custom-integrations-linting/proxy-call-retries
         };
         const response = await nango.post(config);
 

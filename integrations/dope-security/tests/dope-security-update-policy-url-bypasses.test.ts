@@ -16,4 +16,22 @@ describe('dope-security update-policy-url-bypasses tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('should reject inheritsFromBase combined with custom/default and make no PUT request', async () => {
+        const invalidNangoMock = new global.vitest.NangoActionMock({
+            dirname: __dirname,
+            name: 'update-policy-url-bypasses',
+            Model: 'ActionOutput_dope_security_updatepolicyurlbypasses'
+        });
+
+        await expect(
+            createAction.exec(invalidNangoMock, {
+                policyName: 'RegistrySeedPolicy1',
+                inheritsFromBase: true,
+                custom: [{ name: '*.example.com' }]
+            })
+        ).rejects.toThrow();
+
+        expect(invalidNangoMock.put).not.toHaveBeenCalled();
+    });
 });

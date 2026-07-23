@@ -35,6 +35,18 @@ const EndpointSchema = ProviderEndpointSchema.extend({
     id: z.string()
 });
 
+const PageInfoSchema = z.object({
+    endCursor: z.string().nullable().optional(),
+    hasNextPage: z.boolean()
+});
+
+const EndpointsPageResponseSchema = z.object({
+    data: z.object({
+        endpoints: z.array(z.unknown()),
+        pageInfo: PageInfoSchema
+    })
+});
+
 const CheckpointSchema = z.object({
     cursor: z.string()
 });
@@ -73,7 +85,15 @@ const sync = createSync({
                 response_path: 'data.endpoints',
                 limit_name_in_request: 'first',
                 limit: 100,
-                on_page: async ({ nextPageParam }) => {
+                on_page: async ({ nextPageParam, response }) => {
+                    // A response missing data.endpoints/pageInfo would otherwise look
+                    // identical to "no more data" and end the crawl early, causing
+                    // trackDeletesEnd to delete every previously cached endpoint.
+                    const parsed = EndpointsPageResponseSchema.safeParse(response.data);
+                    if (!parsed.success) {
+                        throw new Error(`Malformed endpoints response from provider: ${parsed.error.message}`);
+                    }
+
                     after = typeof nextPageParam === 'string' ? nextPageParam : undefined;
                 }
             },

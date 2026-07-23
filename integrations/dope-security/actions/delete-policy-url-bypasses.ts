@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     policyName: z.string().min(1).describe('Policy name. Example: "RegistrySeedPolicy1"'),
-    urls: z.array(z.string()).min(1).describe('Array of custom URL bypass entries to remove. Example: ["*.example.com"]')
+    urls: z.array(z.string().min(1)).min(1).describe('Array of custom URL bypass entries to remove. Example: ["*.example.com"]')
 });
 
 const CustomBypassEntrySchema = z.object({

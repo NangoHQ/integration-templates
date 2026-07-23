@@ -9,6 +9,7 @@ const InputSchema = z.object({
         .min(1)
         .max(32)
         .regex(/^[^#!@$%^*?./\\]+$/)
+        .refine((value) => value.trim() === value, { message: 'must not have leading, trailing, or only whitespace' })
         .describe('Policy name. Max 32 characters, no special characters (#!@$%^*?./\\). Example: "RegistrySeedPolicy1"'),
     categories: z.record(z.string(), RestrictionValue).describe('Map of category names to restriction values.')
 });

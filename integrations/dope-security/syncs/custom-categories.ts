@@ -53,12 +53,13 @@ const sync = createSync({
                     const parsedResponse = z.object({ data: z.object({ pageInfo: PageInfoSchema }) }).parse(response.data);
                     const pageInfo = parsedResponse.data.pageInfo;
                     const hasCursor = typeof nextPageParam === 'string' && nextPageParam.length > 0;
-                    if (pageInfo.hasNextPage !== hasCursor) {
-                        throw new Error(
-                            `Inconsistent pageInfo from provider: hasNextPage=${pageInfo.hasNextPage} but endCursor=${JSON.stringify(pageInfo.endCursor)}`
-                        );
+                    // A final page can still carry a non-null endCursor (e.g. pointing at the
+                    // last item), so only the inverse is a real problem: hasNextPage=true with
+                    // no cursor would silently end pagination early and lose data.
+                    if (pageInfo.hasNextPage && !hasCursor) {
+                        throw new Error('Inconsistent pageInfo from provider: hasNextPage=true but no endCursor was returned');
                     }
-                    nextCursor = typeof nextPageParam === 'string' && nextPageParam.length > 0 ? nextPageParam : undefined;
+                    nextCursor = hasCursor ? nextPageParam : undefined;
                 }
             },
             retries: 3
