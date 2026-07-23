@@ -1,0 +1,63 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "dat|DAT-000007",
+        "journal_batch_number": "DAT-000007",
+        "journal_name": "ARPay",
+        "description": "RootFi test customer payment",
+        "is_posted": "Yes",
+        "data_area_id": "dat"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/data/CustomerPaymentJournalHeaders": {
+        "response": {
+          "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#CustomerPaymentJournalHeaders",
+          "value": [
+            {
+              "@odata.etag": "W/\"JzY3NzA3NDYyNSw1NjM3MTQ1MzI2Jw==\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000007",
+              "JournalName": "ARPay",
+              "OverrideSalesTax": "No",
+              "Description": "RootFi test customer payment",
+              "IsPosted": "Yes"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 00:26:08 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "372",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1932",
+          "x-ratelimit-reset": "1784766394",
+          "etag": "W/\"174-qA8PHs2VTR7Bt8denP3kNedXACE\""
+        },
+        "hash": "81903ee30594893711e368e96d90dcffba0fae0b",
+        "request": {
+          "params": {
+            "$skip": "0",
+            "$top": "100"
+          }
+        }
+      }
+    }
+  }
+}
