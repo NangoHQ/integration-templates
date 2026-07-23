@@ -4,7 +4,7 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response (skip offset). Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of records to return. Defaults to 100.'),
+    limit: z.number().int().positive().optional().describe('Maximum number of records to return. Defaults to 100.'),
     cross_company: z.boolean().optional().describe('If true, query across all companies instead of just the default company.')
 });
 
@@ -54,8 +54,10 @@ const action = createAction({
 
         let nextCursor: string | undefined;
         if (providerResponse['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
-            const nextUrl = new URL(providerResponse['@odata.nextLink']);
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it
+            // wants us to use next. nextLink may be an absolute URL or a relative path, so parse it
+            // against a fixed base to support both.
+            const nextUrl = new URL(providerResponse['@odata.nextLink'], 'https://dynamics.local');
             const skipParam = nextUrl.searchParams.get('$skip');
             nextCursor = skipParam ?? String(skip + items.length);
         } else if (items.length === limit) {

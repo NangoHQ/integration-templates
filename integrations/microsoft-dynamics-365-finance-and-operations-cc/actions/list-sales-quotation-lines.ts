@@ -56,9 +56,15 @@ const action = createAction({
         if (input.dataAreaId) {
             params['cross-company'] = 'true';
         }
+        if (input.cursor !== undefined && (!/^\d+$/.test(input.cursor) || !Number.isSafeInteger(parseInt(input.cursor, 10)))) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer string'
+            });
+        }
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
         if (input.cursor !== undefined) {
-            params['$skip'] = input.cursor;
+            params['$skip'] = String(skip);
         }
 
         const response = await nango.get({
@@ -73,8 +79,10 @@ const action = createAction({
 
         let nextCursor: string | undefined;
         if (parsed['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
-            const nextUrl = new URL(parsed['@odata.nextLink']);
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it
+            // wants us to use next. nextLink may be an absolute URL or a relative path, so parse it
+            // against a fixed base to support both.
+            const nextUrl = new URL(parsed['@odata.nextLink'], 'https://dynamics.local');
             const skipParam = nextUrl.searchParams.get('$skip');
             nextCursor = skipParam ?? String(skip + items.length);
         } else if (items.length === PAGE_SIZE) {

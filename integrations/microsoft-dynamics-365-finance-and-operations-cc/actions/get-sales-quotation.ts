@@ -30,8 +30,8 @@ const action = createAction({
     scopes: ['OData.Full'],
 
     exec: async (nango, input) => {
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId).replace(/'/g, "''");
-        const encodedQuotationNumber = encodeURIComponent(input.salesQuotationNumber).replace(/'/g, "''");
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
+        const encodedQuotationNumber = encodeURIComponent(input.salesQuotationNumber.replace(/'/g, "''"));
 
         // This is a $filter-based collection query (not key-addressing), so it is scoped to the
         // caller's default legal entity unless cross-company is enabled.

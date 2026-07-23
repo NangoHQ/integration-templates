@@ -44,12 +44,16 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        // trackDeletesStart is called once the very next page (fresh or resumed) has been
-        // fetched and validated below — on every execution, not just when skip === 0 — so a
-        // resumed execution still (re-)opens the delete-tracking window, and a failed/invalid
-        // page never leaves tracking "started" with nothing validated. Safe/idempotent to call
-        // again if a prior execution already started it while the window is open.
-        let shouldStartTracking = true;
+        // skip can only be > 0 if an earlier execution already advanced past at least one
+        // non-empty page (see the trackingStarted-gating below), which means that earlier
+        // execution must have already called trackDeletesStart. On a resumed execution we must
+        // NOT call trackDeletesStart again — that would open a fresh window covering only the
+        // remaining pages, and trackDeletesEnd would then treat every customer from the
+        // already-processed pages as missing and delete it. trackDeletesStart is only actually
+        // called once we've seen a validated page that contains records, so an empty/anomalous
+        // response never opens (and therefore never completes) a window that would wipe the
+        // whole cache.
+        let trackingStarted = skip > 0;
 
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
@@ -88,9 +92,9 @@ const sync = createSync({
                 };
             });
 
-            if (shouldStartTracking) {
+            if (!trackingStarted && customers.length > 0) {
                 await nango.trackDeletesStart('Customer');
-                shouldStartTracking = false;
+                trackingStarted = true;
             }
 
             if (customers.length > 0) {
@@ -102,7 +106,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Customer');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('Customer');
+        }
     }
 });
 

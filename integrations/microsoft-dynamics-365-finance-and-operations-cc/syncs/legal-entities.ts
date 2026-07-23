@@ -53,17 +53,17 @@ const sync = createSync({
         while (!result.done) {
             const records = z.array(ProviderLegalEntitySchema).parse(result.value);
 
-            if (!trackingStarted) {
-                await nango.trackDeletesStart('LegalEntity');
-                trackingStarted = true;
-            }
-
             const legalEntities = records.map((record) => ({
                 id: record.LegalEntityId,
                 ...(record.Name != null && { name: record.Name }),
                 ...(record.NameAlias != null && { name_alias: record.NameAlias }),
                 ...(record.PartyNumber != null && { party_number: record.PartyNumber })
             }));
+
+            if (!trackingStarted && legalEntities.length > 0) {
+                await nango.trackDeletesStart('LegalEntity');
+                trackingStarted = true;
+            }
 
             if (legalEntities.length > 0) {
                 await nango.batchSave(legalEntities, 'LegalEntity');

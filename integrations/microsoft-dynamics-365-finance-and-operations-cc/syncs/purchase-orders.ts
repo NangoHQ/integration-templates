@@ -255,7 +255,16 @@ const sync = createSync({
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
         const limit = 10;
         let hasMore = true;
-        let trackingStarted = false;
+        // skip can only be > 0 if an earlier execution already advanced past at least one
+        // non-empty page (see the trackingStarted-gating below), which means that earlier
+        // execution must have already called trackDeletesStart. On a resumed execution we must
+        // NOT call trackDeletesStart again — that would open a fresh window covering only the
+        // remaining pages, and trackDeletesEnd would then treat every purchase order from the
+        // already-processed pages as missing and delete it. trackDeletesStart is only actually
+        // called once we've seen a validated page that contains records, so an empty/anomalous
+        // response never opens (and therefore never completes) a window that would wipe the
+        // whole cache.
+        let trackingStarted = skip > 0;
 
         while (hasMore) {
             const response = await nango.get({
@@ -273,11 +282,6 @@ const sync = createSync({
             const envelope = OdataEnvelopeSchema.safeParse(response.data);
             if (!envelope.success) {
                 throw new Error(`Failed to parse OData response: ${envelope.error.message}`);
-            }
-
-            if (!trackingStarted) {
-                await nango.trackDeletesStart('PurchaseOrder');
-                trackingStarted = true;
             }
 
             const pageRecords: z.infer<typeof PurchaseOrderSchema>[] = [];
@@ -409,6 +413,11 @@ const sync = createSync({
                 });
             }
 
+            if (!trackingStarted && pageRecords.length > 0) {
+                await nango.trackDeletesStart('PurchaseOrder');
+                trackingStarted = true;
+            }
+
             if (pageRecords.length > 0) {
                 await nango.batchSave(pageRecords, 'PurchaseOrder');
             }
@@ -420,7 +429,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('PurchaseOrder');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('PurchaseOrder');
+        }
     }
 });
 

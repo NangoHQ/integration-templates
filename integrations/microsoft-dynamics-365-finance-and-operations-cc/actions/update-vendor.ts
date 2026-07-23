@@ -35,8 +35,8 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId).replace(/'/g, "''");
-        const encodedVendorAccountNumber = encodeURIComponent(input.vendorAccountNumber).replace(/'/g, "''");
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
+        const encodedVendorAccountNumber = encodeURIComponent(input.vendorAccountNumber.replace(/'/g, "''"));
         const endpoint = `/data/VendorsV2(dataAreaId='${encodedDataAreaId}',VendorAccountNumber='${encodedVendorAccountNumber}')`;
 
         const patchBody: Record<string, unknown> = {};

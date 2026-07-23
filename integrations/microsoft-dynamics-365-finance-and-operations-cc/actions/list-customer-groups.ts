@@ -26,9 +26,17 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const limit = input.limit ?? 100;
+
+        if (input.cursor != null && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a non-negative integer string'
+            });
+        }
+
         const skip = input.cursor ? Number(input.cursor) : 0;
 
-        if (input.cursor != null && (Number.isNaN(skip) || skip < 0 || !Number.isInteger(skip))) {
+        if (input.cursor != null && !Number.isSafeInteger(skip)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a non-negative integer string'
@@ -58,8 +66,10 @@ const action = createAction({
 
         let nextCursor: string | undefined;
         if (providerResponse['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
-            const nextUrl = new URL(providerResponse['@odata.nextLink']);
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it
+            // wants us to use next. nextLink may be an absolute URL or a relative path, so parse it
+            // against a fixed base to support both.
+            const nextUrl = new URL(providerResponse['@odata.nextLink'], 'https://dynamics.local');
             const skipParam = nextUrl.searchParams.get('$skip');
             nextCursor = skipParam ?? String(skip + items.length);
         } else if (items.length === limit) {

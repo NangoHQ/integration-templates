@@ -37,7 +37,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof ReleasedProductSchema>> => {
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: `/data/ReleasedProductsV2(dataAreaId='${encodeURIComponent(input.dataAreaId).replace(/'/g, "''")}',ItemNumber='${encodeURIComponent(input.itemNumber).replace(/'/g, "''")}')`,
+            endpoint: `/data/ReleasedProductsV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',ItemNumber='${encodeURIComponent(input.itemNumber.replace(/'/g, "''"))}')`,
             retries: 3
         });
 

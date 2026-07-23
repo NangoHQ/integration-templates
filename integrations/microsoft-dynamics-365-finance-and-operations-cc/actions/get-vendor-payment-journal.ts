@@ -43,8 +43,8 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId).replace(/'/g, "''");
-        const encodedJournalBatchNumber = encodeURIComponent(input.journalBatchNumber).replace(/'/g, "''");
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
+        const encodedJournalBatchNumber = encodeURIComponent(input.journalBatchNumber.replace(/'/g, "''"));
 
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata

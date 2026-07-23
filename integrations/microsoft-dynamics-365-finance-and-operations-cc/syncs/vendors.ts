@@ -42,12 +42,16 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        // trackDeletesStart is called once the very next page (fresh or resumed) has been
-        // fetched and validated below — on every execution, not just when skip === 0 — so a
-        // resumed execution still (re-)opens the delete-tracking window, and a failed/invalid
-        // page never leaves tracking "started" with nothing validated. Safe/idempotent to call
-        // again if a prior execution already started it while the window is open.
-        let shouldStartTracking = true;
+        // skip can only be > 0 if an earlier execution already advanced past at least one
+        // non-empty page (see the trackingStarted-gating below), which means that earlier
+        // execution must have already called trackDeletesStart. So on a resumed execution we
+        // assume the window is already open and must NOT call trackDeletesStart again ourselves
+        // — otherwise we'd open a fresh window covering only the remaining (suffix) pages, and
+        // trackDeletesEnd would then treat every vendor from the already-processed pages as
+        // missing and delete it. trackDeletesStart is only actually called once we've seen a
+        // validated page that contains records, so an empty/anomalous response never opens (and
+        // therefore never completes) a delete-tracking window that would wipe the whole cache.
+        let trackingStarted = skip > 0;
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const proxyConfig: ProxyConfiguration = {
@@ -79,7 +83,7 @@ const sync = createSync({
 
                 const data = parsed.data;
                 if (!data.dataAreaId) {
-                    throw new Error(`Vendor record missing required dataAreaId: ${JSON.stringify(data)}`);
+                    throw new Error(`Vendor record missing required dataAreaId (VendorAccountNumber: ${data.VendorAccountNumber})`);
                 }
                 const id = `${data.dataAreaId}_${data.VendorAccountNumber}`;
 
@@ -96,9 +100,9 @@ const sync = createSync({
                 });
             }
 
-            if (shouldStartTracking) {
+            if (!trackingStarted && vendors.length > 0) {
                 await nango.trackDeletesStart('Vendor');
-                shouldStartTracking = false;
+                trackingStarted = true;
             }
 
             if (vendors.length > 0) {
@@ -110,7 +114,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Vendor');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('Vendor');
+        }
     }
 });
 

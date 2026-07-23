@@ -66,9 +66,18 @@ const sync = createSync({
 
         // Fetch and validate the first page before starting delete tracking, so a failed/invalid
         // first response doesn't leave delete-tracking open with zero records enumerated.
+        // skip can only be > 0 if an earlier execution already advanced past at least one
+        // non-empty page (see the trackingStarted-gating below), which means that earlier
+        // execution must have already called trackDeletesStart. On a resumed execution we must
+        // NOT call trackDeletesStart again — that would open a fresh window covering only the
+        // remaining pages, and trackDeletesEnd would then treat every worker from the
+        // already-processed pages as missing and delete it. trackDeletesStart is only actually
+        // called once we've seen a validated page that contains records, so an empty/anomalous
+        // response never opens (and therefore never completes) a window that would wipe the
+        // whole cache.
         const iterator = nango.paginate(proxyConfig)[Symbol.asyncIterator]();
         let result = await iterator.next();
-        let trackingStarted = false;
+        let trackingStarted = skip > 0;
 
         while (!result.done) {
             const page = result.value;
@@ -103,7 +112,7 @@ const sync = createSync({
                 };
             });
 
-            if (!trackingStarted) {
+            if (!trackingStarted && workers.length > 0) {
                 await nango.trackDeletesStart('Worker');
                 trackingStarted = true;
             }

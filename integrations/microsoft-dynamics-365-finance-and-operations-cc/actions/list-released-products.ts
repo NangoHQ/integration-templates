@@ -32,8 +32,16 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.top ?? 100;
+
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Cursor must be a valid integer representing the skip offset.'
+            });
+        }
+
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (input.cursor !== undefined && Number.isNaN(skip)) {
+        if (input.cursor !== undefined && !Number.isSafeInteger(skip)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'Cursor must be a valid integer representing the skip offset.'
@@ -47,7 +55,7 @@ const action = createAction({
             params['cross-company'] = 'true';
         }
         if (input.cursor !== undefined) {
-            params['$skip'] = input.cursor;
+            params['$skip'] = String(skip);
         }
 
         const response = await nango.get({

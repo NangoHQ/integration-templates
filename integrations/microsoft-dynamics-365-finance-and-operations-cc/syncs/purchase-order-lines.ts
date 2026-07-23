@@ -45,7 +45,16 @@ const sync = createSync({
         // exists, so full refresh with delete tracking is required.
         let hasMore = true;
         const limit = 1000;
-        let trackingStarted = false;
+        // offset can only be > 0 if an earlier execution already advanced past at least one
+        // non-empty page (see the trackingStarted-gating below), which means that earlier
+        // execution must have already called trackDeletesStart. On a resumed execution we must
+        // NOT call trackDeletesStart again — that would open a fresh window covering only the
+        // remaining pages, and trackDeletesEnd would then treat every line from the
+        // already-processed pages as missing and delete it. trackDeletesStart is only actually
+        // called once we've seen a validated page that contains records, so an empty/anomalous
+        // response never opens (and therefore never completes) a window that would wipe the
+        // whole cache.
+        let trackingStarted = offset > 0;
 
         while (hasMore) {
             const proxyConfig: ProxyConfiguration = {
@@ -64,11 +73,6 @@ const sync = createSync({
             const envelope = ODataEnvelopeSchema.safeParse(response.data);
             if (!envelope.success) {
                 throw new Error('Unexpected response shape from PurchaseOrderLinesV2');
-            }
-
-            if (!trackingStarted) {
-                await nango.trackDeletesStart('PurchaseOrderLine');
-                trackingStarted = true;
             }
 
             const page = envelope.data.value;
@@ -93,6 +97,11 @@ const sync = createSync({
                     LineNumber: lineNumber
                 };
             });
+
+            if (!trackingStarted && lines.length > 0) {
+                await nango.trackDeletesStart('PurchaseOrderLine');
+                trackingStarted = true;
+            }
 
             if (lines.length > 0) {
                 await nango.batchSave(lines, 'PurchaseOrderLine');

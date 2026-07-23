@@ -30,7 +30,7 @@ const action = createAction({
             });
         }
 
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId).replace(/'/g, "''");
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
 
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata

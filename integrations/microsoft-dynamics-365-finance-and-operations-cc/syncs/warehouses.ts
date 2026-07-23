@@ -76,7 +76,7 @@ const sync = createSync({
                 });
             }
 
-            if (!trackingStarted) {
+            if (!trackingStarted && warehouses.length > 0) {
                 await nango.trackDeletesStart('Warehouse');
                 trackingStarted = true;
             }

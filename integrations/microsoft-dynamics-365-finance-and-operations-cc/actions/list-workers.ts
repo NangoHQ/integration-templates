@@ -3,8 +3,13 @@ import { createAction } from 'nango';
 
 const PAGE_SIZE = 100;
 
+const SKIPTOKEN_CURSOR_PREFIX = 'skiptoken:';
+
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor (skip value) from the previous response. Omit for the first page.')
+    cursor: z
+        .string()
+        .optional()
+        .describe('Pagination cursor from the previous response ($skip value, or a $skiptoken-derived cursor). Omit for the first page.')
 });
 
 const ProviderWorkerSchema = z
@@ -77,12 +82,21 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (isNaN(skip) || skip < 0) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'cursor must be a non-negative integer string'
-            });
+        let skip = 0;
+        let skiptoken: string | undefined;
+
+        if (input.cursor) {
+            if (input.cursor.startsWith(SKIPTOKEN_CURSOR_PREFIX)) {
+                skiptoken = input.cursor.slice(SKIPTOKEN_CURSOR_PREFIX.length);
+            } else {
+                skip = parseInt(input.cursor, 10);
+                if (isNaN(skip) || skip < 0) {
+                    throw new nango.ActionError({
+                        type: 'invalid_cursor',
+                        message: 'cursor must be a non-negative integer string'
+                    });
+                }
+            }
         }
 
         const response = await nango.get({
@@ -90,7 +104,10 @@ const action = createAction({
             endpoint: '/data/Workers',
             params: {
                 $top: String(PAGE_SIZE),
-                $skip: String(skip),
+                // Only one of $skip/$skiptoken is sent: once the provider hands back a $skiptoken,
+                // that opaque continuation must be replayed as-is rather than switched back to an
+                // offset, since offset and token-based paging are not interchangeable mid-scan.
+                ...(skiptoken != null ? { $skiptoken: skiptoken } : { $skip: String(skip) }),
                 $select:
                     'PersonnelNumber,Name,FirstName,MiddleName,LastName,WorkerStatus,WorkerType,OriginalHireDateTime,BirthDate,PrimaryContactEmail,PrimaryContactPhone,PrimaryContactPhoneExtension,Gender,MaritalStatus,TitleId,ProfessionalTitle,LanguageId,OfficeLocation,AddressCity,AddressCountryRegionId,AddressStreet,AddressZipCode,PartyNumber,NameAlias,KnownAs',
                 $orderby: 'PersonnelNumber asc'
@@ -138,10 +155,17 @@ const action = createAction({
 
         let nextCursor: string | undefined;
         if (providerResponse['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
-            const nextUrl = new URL(providerResponse['@odata.nextLink']);
-            const skipParam = nextUrl.searchParams.get('$skip');
-            nextCursor = skipParam ?? String(skip + items.length);
+            // Server explicitly says there's more — trust it, and preserve whichever continuation
+            // mechanism it used. nextLink may be an absolute URL or a relative path, so parse it
+            // against a fixed base to support both.
+            const nextUrl = new URL(providerResponse['@odata.nextLink'], 'https://dynamics.local');
+            const nextSkiptoken = nextUrl.searchParams.get('$skiptoken');
+            const nextSkip = nextUrl.searchParams.get('$skip');
+            if (nextSkiptoken != null) {
+                nextCursor = `${SKIPTOKEN_CURSOR_PREFIX}${nextSkiptoken}`;
+            } else {
+                nextCursor = nextSkip ?? String(skip + items.length);
+            }
         } else if (items.length === PAGE_SIZE) {
             // No explicit nextLink, but we got a full page — assume there may be more.
             nextCursor = String(skip + PAGE_SIZE);

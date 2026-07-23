@@ -64,8 +64,10 @@ const action = createAction({
 
         let nextCursor: string | undefined;
         if (parsedResponse['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
-            const nextUrl = new URL(parsedResponse['@odata.nextLink']);
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it
+            // wants us to use next. nextLink may be an absolute URL or a relative path, so parse it
+            // against a fixed base to support both.
+            const nextUrl = new URL(parsedResponse['@odata.nextLink'], 'https://dynamics.local');
             const skipParam = nextUrl.searchParams.get('$skip');
             nextCursor = skipParam ?? String(skip + items.length);
         } else if (items.length === top) {

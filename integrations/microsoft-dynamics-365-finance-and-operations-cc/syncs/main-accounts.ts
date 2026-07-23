@@ -110,7 +110,16 @@ const sync = createSync({
 
         let hasMore = true;
         const limit = 100;
-        let trackingStarted = false;
+        // skip can only be > 0 if an earlier execution already advanced past at least one
+        // non-empty page (see the trackingStarted-gating below), which means that earlier
+        // execution must have already called trackDeletesStart. On a resumed execution we must
+        // NOT call trackDeletesStart again — that would open a fresh window covering only the
+        // remaining pages, and trackDeletesEnd would then treat every account from the
+        // already-processed pages as missing and delete it. trackDeletesStart is only actually
+        // called once we've seen a validated page that contains records, so an empty/anomalous
+        // response never opens (and therefore never completes) a window that would wipe the
+        // whole cache.
+        let trackingStarted = skip > 0;
 
         while (hasMore) {
             const proxyConfig: ProxyConfiguration = {
@@ -130,15 +139,15 @@ const sync = createSync({
                 throw new Error(`Failed to parse MainAccounts response: ${parsedResponse.error.message}`);
             }
 
-            if (!trackingStarted) {
-                await nango.trackDeletesStart('MainAccount');
-                trackingStarted = true;
-            }
-
             const page = parsedResponse.data.value;
             if (page.length === 0) {
                 hasMore = false;
                 break;
+            }
+
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('MainAccount');
+                trackingStarted = true;
             }
 
             const mainAccounts = page.map((record: unknown) => {

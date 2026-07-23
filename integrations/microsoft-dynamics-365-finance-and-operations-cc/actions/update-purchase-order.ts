@@ -66,8 +66,8 @@ const action = createAction({
     scopes: ['openid', 'api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId).replace(/'/g, "''");
-        const encodedPurchaseOrderNumber = encodeURIComponent(input.purchaseOrderNumber).replace(/'/g, "''");
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
+        const encodedPurchaseOrderNumber = encodeURIComponent(input.purchaseOrderNumber.replace(/'/g, "''"));
         const endpoint = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodedDataAreaId}',PurchaseOrderNumber='${encodedPurchaseOrderNumber}')`;
 
         const patchBody: Record<string, unknown> = {};
