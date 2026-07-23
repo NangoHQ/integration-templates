@@ -5,34 +5,31 @@ const InputSchema = z.object({
     policyName: z.string().describe('Policy name. Example: "RegistrySeedPolicy1"')
 });
 
-const BypassEntrySchema = z.object({
+const CustomBypassEntrySchema = z.object({
     name: z.string(),
-    state: z.string()
+    note: z.string().optional(),
+    updatedBy: z.string().optional(),
+    updatedAt: z.string().optional()
+});
+
+const DefaultBypassEntrySchema = z.object({
+    name: z.string(),
+    state: z.enum(['applied', 'ignored'])
 });
 
 const ProviderResponseSchema = z.object({
     data: z.object({
         inheritsFromBase: z.boolean(),
-        custom: z.array(BypassEntrySchema),
-        default: z.array(BypassEntrySchema)
+        custom: z.array(CustomBypassEntrySchema),
+        default: z.array(DefaultBypassEntrySchema)
     })
 });
 
 const OutputSchema = z.object({
     data: z.object({
         inheritsFromBase: z.boolean(),
-        custom: z.array(
-            z.object({
-                name: z.string(),
-                state: z.string()
-            })
-        ),
-        default: z.array(
-            z.object({
-                name: z.string(),
-                state: z.string()
-            })
-        )
+        custom: z.array(CustomBypassEntrySchema),
+        default: z.array(DefaultBypassEntrySchema)
     })
 });
 
@@ -55,14 +52,8 @@ const action = createAction({
         return {
             data: {
                 inheritsFromBase: parsed.data.inheritsFromBase,
-                custom: parsed.data.custom.map((entry) => ({
-                    name: entry.name,
-                    state: entry.state
-                })),
-                default: parsed.data.default.map((entry) => ({
-                    name: entry.name,
-                    state: entry.state
-                }))
+                custom: parsed.data.custom,
+                default: parsed.data.default
             }
         };
     }

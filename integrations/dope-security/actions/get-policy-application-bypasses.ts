@@ -5,28 +5,40 @@ const InputSchema = z.object({
     policyName: z.string().describe('Policy name. Example: "RegistrySeedPolicy1"')
 });
 
-const ApplicationEntrySchema = z.object({
+const CustomApplicationEntrySchema = z.object({
     name: z.string(),
-    state: z.string().optional()
+    note: z.string().optional(),
+    updatedBy: z.string().optional(),
+    updatedAt: z.string().optional()
 });
 
-const PlatformApplicationsSchema = z.object({
-    mac: z.array(ApplicationEntrySchema).optional(),
-    windows: z.array(ApplicationEntrySchema).optional()
+const DefaultApplicationEntrySchema = z.object({
+    name: z.string(),
+    state: z.enum(['applied', 'ignored'])
+});
+
+const CustomPlatformApplicationsSchema = z.object({
+    mac: z.array(CustomApplicationEntrySchema).optional(),
+    windows: z.array(CustomApplicationEntrySchema).optional()
+});
+
+const DefaultPlatformApplicationsSchema = z.object({
+    mac: z.array(DefaultApplicationEntrySchema).optional(),
+    windows: z.array(DefaultApplicationEntrySchema).optional()
 });
 
 const ProviderResponseSchema = z.object({
     data: z.object({
         inheritsFromBase: z.boolean(),
-        custom: PlatformApplicationsSchema.optional(),
-        default: PlatformApplicationsSchema.optional()
+        custom: CustomPlatformApplicationsSchema.optional(),
+        default: DefaultPlatformApplicationsSchema.optional()
     })
 });
 
 const OutputSchema = z.object({
     inheritsFromBase: z.boolean(),
-    custom: PlatformApplicationsSchema.optional(),
-    default: PlatformApplicationsSchema.optional()
+    custom: CustomPlatformApplicationsSchema.optional(),
+    default: DefaultPlatformApplicationsSchema.optional()
 });
 
 const action = createAction({

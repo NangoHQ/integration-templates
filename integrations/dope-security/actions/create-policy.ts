@@ -2,40 +2,16 @@ import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    policyName: z.string().max(32).describe('The name of the policy to create. Max 32 characters, no special characters (#!@$%^*?./\\).')
+    policyName: z.string().min(1).max(32).describe('The name of the policy to create. Max 32 characters, no special characters (#!@$%^*?./\\).')
 });
 
-const ProviderPolicySchema = z
-    .object({
-        policyName: z.string().optional(),
-        updatedAt: z.string().optional(),
-        sslInspection: z
-            .object({
-                state: z.string().optional(),
-                inheritsFromBase: z.boolean().optional()
-            })
-            .optional(),
-        clashCount: z.number().optional()
-    })
-    .passthrough();
+const ProviderSuccessSchema = z.object({
+    message: z.string()
+});
 
 const OutputSchema = z.object({
-    policyName: z.string().optional(),
-    updatedAt: z.string().optional(),
-    sslInspection: z
-        .object({
-            state: z.string().optional(),
-            inheritsFromBase: z.boolean().optional()
-        })
-        .optional(),
-    clashCount: z.number().optional()
+    message: z.string()
 });
-
-const WrappedResponseSchema = z
-    .object({
-        data: ProviderPolicySchema
-    })
-    .passthrough();
 
 const action = createAction({
     description: 'Create a custom policy.',
@@ -46,10 +22,10 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const invalidCharsRegex = /[#!@$%^*?./\\]/;
-        if (input.policyName.length > 32) {
+        if (input.policyName.trim() !== input.policyName) {
             throw new nango.ActionError({
                 type: 'invalid_input',
-                message: 'policyName must be 32 characters or fewer.'
+                message: 'policyName must not have leading or trailing whitespace.'
             });
         }
         if (invalidCharsRegex.test(input.policyName)) {
@@ -63,18 +39,16 @@ const action = createAction({
             // https://inflight.dope.security/dope.apis/public-api-specification
             endpoint: `/v1/policies/${encodeURIComponent(input.policyName)}`,
             data: {},
-            retries: 1
+            // Creating a policy is not documented as idempotent: replaying after a
+            // successful create returns "Policy already exists" instead of Success.
+            retries: 10
         };
         const response = await nango.post(config);
 
-        const wrapped = WrappedResponseSchema.safeParse(response.data);
-        const providerPolicy = wrapped.success ? wrapped.data.data : ProviderPolicySchema.parse(response.data);
+        const providerResponse = ProviderSuccessSchema.parse(response.data);
 
         return {
-            ...(providerPolicy.policyName !== undefined && { policyName: providerPolicy.policyName }),
-            ...(providerPolicy.updatedAt !== undefined && { updatedAt: providerPolicy.updatedAt }),
-            ...(providerPolicy.sslInspection !== undefined && { sslInspection: providerPolicy.sslInspection }),
-            ...(providerPolicy.clashCount !== undefined && { clashCount: providerPolicy.clashCount })
+            message: providerResponse.message
         };
     }
 });

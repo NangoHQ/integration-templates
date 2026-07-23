@@ -60,6 +60,14 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedPolicyName = encodeURIComponent(input.policyName);
 
+        if (input.inheritsFromBase === true && (input.custom !== undefined || input.default !== undefined)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message:
+                    'inheritsFromBase is mutually exclusive with custom and default; it resets all URL bypass configuration to inherit from the base policy.'
+            });
+        }
+
         if (input.inheritsFromBase === true) {
             await nango.put({
                 // https://inflight.dope.security/dope.apis/public-api-specification
@@ -69,7 +77,7 @@ const action = createAction({
                         inheritsFromBase: true
                     }
                 },
-                retries: 10
+                retries: 3
             });
         } else if (input.custom !== undefined || input.default !== undefined) {
             const payload: { custom?: Array<{ name: string; note?: string }>; default?: Array<{ name: string; state: string }> } = {};
@@ -91,7 +99,7 @@ const action = createAction({
                 data: {
                     data: payload
                 },
-                retries: 10
+                retries: 3
             });
         } else {
             throw new nango.ActionError({

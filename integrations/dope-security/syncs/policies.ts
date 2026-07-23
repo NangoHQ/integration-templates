@@ -4,7 +4,7 @@ import { z } from 'zod';
 const ProviderPolicySchema = z.object({
     policyName: z.string(),
     updatedAt: z.string(),
-    sslInspection: z.string(),
+    sslInspection: z.enum(['enabled', 'disabled']),
     clashCount: z.number().optional()
 });
 
@@ -12,8 +12,13 @@ const PolicySchema = z.object({
     id: z.string(),
     policyName: z.string(),
     updatedAt: z.string(),
-    sslInspection: z.string(),
+    sslInspection: z.enum(['enabled', 'disabled']),
     clashCount: z.number().optional()
+});
+
+const PageInfoSchema = z.object({
+    endCursor: z.string().nullable().optional(),
+    hasNextPage: z.boolean()
 });
 
 const CheckpointSchema = z.object({
@@ -54,8 +59,16 @@ const sync = createSync({
                 response_path: 'data.policies',
                 limit_name_in_request: 'first',
                 limit: 100,
-                on_page: async ({ nextPageParam }) => {
-                    nextCursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                on_page: async ({ nextPageParam, response }) => {
+                    const parsedResponse = z.object({ data: z.object({ pageInfo: PageInfoSchema }) }).parse(response.data);
+                    const pageInfo = parsedResponse.data.pageInfo;
+                    const hasCursor = typeof nextPageParam === 'string' && nextPageParam.length > 0;
+                    if (pageInfo.hasNextPage !== hasCursor) {
+                        throw new Error(
+                            `Inconsistent pageInfo from provider: hasNextPage=${pageInfo.hasNextPage} but endCursor=${JSON.stringify(pageInfo.endCursor)}`
+                        );
+                    }
+                    nextCursor = typeof nextPageParam === 'string' && nextPageParam.length > 0 ? nextPageParam : undefined;
                 }
             },
             retries: 3

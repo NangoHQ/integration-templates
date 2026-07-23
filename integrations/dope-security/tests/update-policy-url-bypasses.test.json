@@ -1,0 +1,1954 @@
+{
+  "input": {
+    "policyName": "RegistrySeedPolicy1",
+    "custom": [
+      {
+        "name": "*.dryrun-test.example.com"
+      }
+    ]
+  },
+  "output": {
+    "inheritsFromBase": false,
+    "custom": [
+      {
+        "name": "*.dryrun-test.example.com",
+        "note": "",
+        "updatedBy": "API Policy Update (client id - f94fc42004aa9a0fd46ee8eef96fc2f2)",
+        "updatedAt": "2026-07-23T13:08:35+00:00"
+      }
+    ],
+    "default": [
+      {
+        "name": "*.8x8.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.aadcdn.msauthimages.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.aadcdn.msftauthimages.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.acrobat.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.adminbyrequest.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.adobe.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.akadns.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.akamai.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.akamai-access.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.akamai-zt.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.amazonaws.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.amazontrust.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.anaconda.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.anaconda.org",
+        "state": "applied"
+      },
+      {
+        "name": "*.announce.evernote.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.anydesk.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.api.openai.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.apis.google.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.apple-cloudkit.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.apple-livephotoskit.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.apple-mapkit.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.apple-relay.cloudflare.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.apple-relay.fastly-edge.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.apple.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.appsforoffice.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.appspot.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.atlassian.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.atlassian.org",
+        "state": "applied"
+      },
+      {
+        "name": "*.attest.azure.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.auth0.openai.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.auth.openai.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.automox.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.avasecurity.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.avast.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.aws.amazon.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.axm-usercontent-apple.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.azure-automation.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.azureedge.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.bam.nr-data.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.banyanops.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.base64.ai",
+        "state": "applied"
+      },
+      {
+        "name": "*.beyondtrustcloud.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.bit.ly",
+        "state": "applied"
+      },
+      {
+        "name": "*.bitdefender.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.bitdefender.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.bugsnag.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.catonetworks.com ",
+        "state": "applied"
+      },
+      {
+        "name": "*.cd1.evernote.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.cdn-apple.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.cert-manager.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.challenges.cloudflare.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.checkappexec.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.cifas.org.uk",
+        "state": "applied"
+      },
+      {
+        "name": "*.claris.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.claudeusercontent.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.cloudflare-dns.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.config.office.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.core.windows.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.crl.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.cutt.ly",
+        "state": "applied"
+      },
+      {
+        "name": "*.cyberark.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.cybercrucible.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.darkbytes.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.darkbytes.io",
+        "state": "applied"
+      },
+      {
+        "name": "*.data.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.dell.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.delltrusteddevicesecurity.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.device.login.microsoftonline.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.dgsecure.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.digitalguardian.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.dl-ssl.google.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.dl.google.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.dns.google",
+        "state": "applied"
+      },
+      {
+        "name": "*.docker.io",
+        "state": "applied"
+      },
+      {
+        "name": "*.docs.live.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.download.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.dm.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.drive.usercontent.google.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.druva.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.echocdn.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.echosign.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.ecwcloud.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.edge.jazz",
+        "state": "applied"
+      },
+      {
+        "name": "*.egnyte.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.enterprise.activity.windows.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.enterpriseregistration.windows.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.entra.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.events.data.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.evernote-a.akamaihd.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.filezilla-project.org",
+        "state": "applied"
+      },
+      {
+        "name": "*.forticloud.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.fortinet.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.gcloud.compute.start-iap-tunnel",
+        "state": "applied"
+      },
+      {
+        "name": "*.ghcr.io",
+        "state": "applied"
+      },
+      {
+        "name": "*.github.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.githubcopilot.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.githubusercontent.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.googleapis.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.gradle.org",
+        "state": "applied"
+      },
+      {
+        "name": "*.graph.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.graph.windows.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.hashicorp.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.hitmanpro.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.icloud-content.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.icloud.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.ifmcloud.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.imap.gmail.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.intelligonetworks.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.intellij.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.intune.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.island.io",
+        "state": "applied"
+      },
+      {
+        "name": "*.jamf.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.jamfcloud.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.jazznetworks.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.jetbrains.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.kandji.io",
+        "state": "applied"
+      },
+      {
+        "name": "*.lenovo.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.logitech.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.logitech.io",
+        "state": "applied"
+      },
+      {
+        "name": "*.logitechg.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.logmeinrescue.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.m.google.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.manage.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.manageengine.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.maven.apache.org",
+        "state": "applied"
+      },
+      {
+        "name": "*.me.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.mimecast.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.mp.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.msecnd.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.msftncsi.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.msn.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.msp360.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.mzstatic.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.networking.apple",
+        "state": "applied"
+      },
+      {
+        "name": "*.newrelic.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.nextdlp.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.notify.windows.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.northghost.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.npmjs.org",
+        "state": "applied"
+      },
+      {
+        "name": "*.ntservicepack.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.nvidia.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.officecdn-microsoft-com.akamaized.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.officeconfig.msocdn.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.okta.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.oktapreview.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.opendns.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.opsinsights.azure.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.osquery.vanta.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.outlook.office365.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.outlook.office.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.pack.google.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.packages.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.paloaltonetworks.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.pcpitstop.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.pdq.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.powerapps.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.printercloud.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.protection.outlook.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.pypi.org",
+        "state": "applied"
+      },
+      {
+        "name": "*.pythonhosted.org",
+        "state": "applied"
+      },
+      {
+        "name": "*.rapid7.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.releases.hashicorp.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.reports.vizydrop.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.reveal.ava.uk",
+        "state": "applied"
+      },
+      {
+        "name": "*.reveal.qush.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.safebrowsing-cache.google.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.safebrowsing.apple",
+        "state": "applied"
+      },
+      {
+        "name": "*.safebrowsing.google.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.scaleft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.screenmeet.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.secureframe.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.servicebus.windows.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.sharepoint.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.smartscreen.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.smartscreen-prod.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.smtp-relay.gmail.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.smtp.gmail.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.snip.ly",
+        "state": "applied"
+      },
+      {
+        "name": "*.sophos.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.sophosupd.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.sophosupd.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.sophosxl.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.sophosxl.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.splashtop.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.t.co",
+        "state": "applied"
+      },
+      {
+        "name": "*.talon-sec.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.teams.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.telemetry.mozilla.org",
+        "state": "applied"
+      },
+      {
+        "name": "*.tenable.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.tinyurl.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.tools.google.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.trendmicro.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.tunnel.cloudproxy.app",
+        "state": "applied"
+      },
+      {
+        "name": "*.update.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.urldefense.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.urs.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.vertexsmb.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.video.google.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.visualstudio.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.vpn.azure.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.vsax.net",
+        "state": "applied"
+      },
+      {
+        "name": "*.wd.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-cus3.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-eus3.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-cus.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-eus.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-neu.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-neu3.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-usgt.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-usgv.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-uks.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-ukw.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-usmt.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-usmv.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-weu.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "winatp-gw-weu3.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.wdcp.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.wdcpalt.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.windowsupdate.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.windowsupdate.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.wns.windows.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.wustat.windows.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.wvd.microsoft.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.xfinity.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.yarnpkg.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.zoho.com",
+        "state": "applied"
+      },
+      {
+        "name": "*.zoom.us",
+        "state": "applied"
+      },
+      {
+        "name": "*.rubygems.org",
+        "state": "applied"
+      },
+      {
+        "name": "*.rubyonrails.org",
+        "state": "applied"
+      },
+      {
+        "name": "www.evernote.com",
+        "state": "applied"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v1/policies/RegistrySeedPolicy1/bypass/urls": {
+        "response": {
+          "message": "Success"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 13:08:35 GMT",
+          "content-type": "application/json",
+          "content-length": "21",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1977",
+          "x-ratelimit-reset": "1784812159",
+          "etag": "W/\"15-uFFjCr0SbbbFb/CsC0M2sF++swo\""
+        },
+        "hash": "dc3b05fb5c1931d1963bcf355c3ca098876be770",
+        "request": {
+          "data": {
+            "data": {
+              "custom": [
+                {
+                  "name": "*.dryrun-test.example.com"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "/v1/policies/RegistrySeedPolicy1/bypass/urls": {
+        "response": {
+          "data": {
+            "inheritsFromBase": false,
+            "custom": [
+              {
+                "name": "*.dryrun-test.example.com",
+                "note": "",
+                "updatedBy": "API Policy Update (client id - f94fc42004aa9a0fd46ee8eef96fc2f2)",
+                "updatedAt": "2026-07-23T13:08:35+00:00"
+              }
+            ],
+            "default": [
+              {
+                "name": "*.8x8.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.aadcdn.msauthimages.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.aadcdn.msftauthimages.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.acrobat.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.adminbyrequest.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.adobe.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.akadns.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.akamai.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.akamai-access.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.akamai-zt.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.amazonaws.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.amazontrust.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.anaconda.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.anaconda.org",
+                "state": "applied"
+              },
+              {
+                "name": "*.announce.evernote.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.anydesk.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.api.openai.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.apis.google.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.apple-cloudkit.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.apple-livephotoskit.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.apple-mapkit.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.apple-relay.cloudflare.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.apple-relay.fastly-edge.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.apple.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.appsforoffice.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.appspot.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.atlassian.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.atlassian.org",
+                "state": "applied"
+              },
+              {
+                "name": "*.attest.azure.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.auth0.openai.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.auth.openai.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.automox.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.avasecurity.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.avast.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.aws.amazon.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.axm-usercontent-apple.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.azure-automation.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.azureedge.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.bam.nr-data.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.banyanops.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.base64.ai",
+                "state": "applied"
+              },
+              {
+                "name": "*.beyondtrustcloud.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.bit.ly",
+                "state": "applied"
+              },
+              {
+                "name": "*.bitdefender.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.bitdefender.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.bugsnag.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.catonetworks.com ",
+                "state": "applied"
+              },
+              {
+                "name": "*.cd1.evernote.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.cdn-apple.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.cert-manager.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.challenges.cloudflare.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.checkappexec.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.cifas.org.uk",
+                "state": "applied"
+              },
+              {
+                "name": "*.claris.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.claudeusercontent.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.cloudflare-dns.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.config.office.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.core.windows.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.crl.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.cutt.ly",
+                "state": "applied"
+              },
+              {
+                "name": "*.cyberark.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.cybercrucible.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.darkbytes.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.darkbytes.io",
+                "state": "applied"
+              },
+              {
+                "name": "*.data.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.dell.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.delltrusteddevicesecurity.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.device.login.microsoftonline.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.dgsecure.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.digitalguardian.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.dl-ssl.google.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.dl.google.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.dns.google",
+                "state": "applied"
+              },
+              {
+                "name": "*.docker.io",
+                "state": "applied"
+              },
+              {
+                "name": "*.docs.live.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.download.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.dm.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.drive.usercontent.google.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.druva.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.echocdn.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.echosign.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.ecwcloud.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.edge.jazz",
+                "state": "applied"
+              },
+              {
+                "name": "*.egnyte.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.enterprise.activity.windows.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.enterpriseregistration.windows.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.entra.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.events.data.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.evernote-a.akamaihd.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.filezilla-project.org",
+                "state": "applied"
+              },
+              {
+                "name": "*.forticloud.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.fortinet.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.gcloud.compute.start-iap-tunnel",
+                "state": "applied"
+              },
+              {
+                "name": "*.ghcr.io",
+                "state": "applied"
+              },
+              {
+                "name": "*.github.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.githubcopilot.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.githubusercontent.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.googleapis.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.gradle.org",
+                "state": "applied"
+              },
+              {
+                "name": "*.graph.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.graph.windows.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.hashicorp.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.hitmanpro.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.icloud-content.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.icloud.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.ifmcloud.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.imap.gmail.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.intelligonetworks.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.intellij.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.intune.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.island.io",
+                "state": "applied"
+              },
+              {
+                "name": "*.jamf.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.jamfcloud.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.jazznetworks.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.jetbrains.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.kandji.io",
+                "state": "applied"
+              },
+              {
+                "name": "*.lenovo.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.logitech.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.logitech.io",
+                "state": "applied"
+              },
+              {
+                "name": "*.logitechg.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.logmeinrescue.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.m.google.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.manage.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.manageengine.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.maven.apache.org",
+                "state": "applied"
+              },
+              {
+                "name": "*.me.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.mimecast.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.mp.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.msecnd.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.msftncsi.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.msn.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.msp360.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.mzstatic.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.networking.apple",
+                "state": "applied"
+              },
+              {
+                "name": "*.newrelic.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.nextdlp.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.notify.windows.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.northghost.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.npmjs.org",
+                "state": "applied"
+              },
+              {
+                "name": "*.ntservicepack.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.nvidia.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.officecdn-microsoft-com.akamaized.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.officeconfig.msocdn.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.okta.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.oktapreview.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.opendns.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.opsinsights.azure.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.osquery.vanta.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.outlook.office365.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.outlook.office.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.pack.google.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.packages.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.paloaltonetworks.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.pcpitstop.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.pdq.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.powerapps.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.printercloud.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.protection.outlook.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.pypi.org",
+                "state": "applied"
+              },
+              {
+                "name": "*.pythonhosted.org",
+                "state": "applied"
+              },
+              {
+                "name": "*.rapid7.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.releases.hashicorp.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.reports.vizydrop.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.reveal.ava.uk",
+                "state": "applied"
+              },
+              {
+                "name": "*.reveal.qush.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.safebrowsing-cache.google.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.safebrowsing.apple",
+                "state": "applied"
+              },
+              {
+                "name": "*.safebrowsing.google.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.scaleft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.screenmeet.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.secureframe.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.servicebus.windows.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.sharepoint.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.smartscreen.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.smartscreen-prod.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.smtp-relay.gmail.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.smtp.gmail.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.snip.ly",
+                "state": "applied"
+              },
+              {
+                "name": "*.sophos.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.sophosupd.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.sophosupd.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.sophosxl.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.sophosxl.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.splashtop.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.t.co",
+                "state": "applied"
+              },
+              {
+                "name": "*.talon-sec.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.teams.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.telemetry.mozilla.org",
+                "state": "applied"
+              },
+              {
+                "name": "*.tenable.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.tinyurl.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.tools.google.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.trendmicro.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.tunnel.cloudproxy.app",
+                "state": "applied"
+              },
+              {
+                "name": "*.update.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.urldefense.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.urs.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.vertexsmb.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.video.google.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.visualstudio.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.vpn.azure.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.vsax.net",
+                "state": "applied"
+              },
+              {
+                "name": "*.wd.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-cus3.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-eus3.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-cus.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-eus.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-neu.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-neu3.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-usgt.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-usgv.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-uks.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-ukw.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-usmt.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-usmv.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-weu.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "winatp-gw-weu3.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.wdcp.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.wdcpalt.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.windowsupdate.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.windowsupdate.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.wns.windows.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.wustat.windows.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.wvd.microsoft.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.xfinity.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.yarnpkg.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.zoho.com",
+                "state": "applied"
+              },
+              {
+                "name": "*.zoom.us",
+                "state": "applied"
+              },
+              {
+                "name": "*.rubygems.org",
+                "state": "applied"
+              },
+              {
+                "name": "*.rubyonrails.org",
+                "state": "applied"
+              },
+              {
+                "name": "www.evernote.com",
+                "state": "applied"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 13:08:35 GMT",
+          "content-type": "application/json",
+          "content-length": "11333",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1973",
+          "x-ratelimit-reset": "1784812159",
+          "etag": "W/\"2c45-HDuOtq7ohxfQHi24fPQB+pZqC34\""
+        },
+        "hash": "d679daa9a4bac99c0f02bb63b67381da06ab260b",
+        "request": {}
+      }
+    }
+  }
+}

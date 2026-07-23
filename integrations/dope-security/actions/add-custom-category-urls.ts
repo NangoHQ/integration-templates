@@ -2,7 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    customCategoryName: z.string().min(1).max(32).describe('Custom category name. Example: "RegistrySeedCategory1"'),
+    customCategoryName: z
+        .string()
+        .min(1)
+        .max(32)
+        .regex(/^[^#!@$%^*?./\\]+$/)
+        .describe('Custom category name. Must be 1-32 characters and must not contain: # ! @ $ % ^ * ? . / \\. Example: "RegistrySeedCategory1"'),
     urls: z.array(z.string().min(1)).min(1).describe('URLs to add. Example: ["*.example.com"]')
 });
 

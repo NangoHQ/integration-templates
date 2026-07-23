@@ -62,6 +62,21 @@ const OutputSchema = z.object({
     nextCursor: z.string().optional()
 });
 
+// https://inflight.dope.security/dope.apis/public-api-specification: /v1/endpoints/search
+// accepts only one of these search parameters per request; first/cursor are pagination-only.
+const SEARCH_FILTER_FIELDS: Array<keyof z.infer<typeof InputSchema>> = [
+    'id',
+    'emailId',
+    'deviceName',
+    'userId',
+    'osVersion',
+    'status',
+    'debugState',
+    'fallbackMode',
+    'locationId',
+    'agentVersion'
+];
+
 const action = createAction({
     description: 'List and search endpoints (managed devices) with filtering.',
     version: '1.0.0',
@@ -70,6 +85,14 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const providedFilters = SEARCH_FILTER_FIELDS.filter((field) => input[field] !== undefined);
+        if (providedFilters.length > 1) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: `Only one search parameter can be specified at a time. Received: ${providedFilters.join(', ')}`
+            });
+        }
+
         const params: Record<string, string | number | string[]> = {
             ...(input.id !== undefined && { id: input.id }),
             ...(input.emailId !== undefined && { emailId: input.emailId }),

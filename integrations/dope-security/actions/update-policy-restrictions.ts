@@ -4,23 +4,18 @@ import { createAction } from 'nango';
 const RestrictionValue = z.enum(['ALLOW', 'BLOCK', 'WARNING']);
 
 const InputSchema = z.object({
-    policyName: z.string().describe('Policy name. Max 32 characters, no special characters. Example: "RegistrySeedPolicy1"'),
+    policyName: z
+        .string()
+        .min(1)
+        .max(32)
+        .regex(/^[^#!@$%^*?./\\]+$/)
+        .describe('Policy name. Max 32 characters, no special characters (#!@$%^*?./\\). Example: "RegistrySeedPolicy1"'),
     categories: z.record(z.string(), RestrictionValue).describe('Map of category names to restriction values.')
 });
 
-const ProviderCategoryEntrySchema = z.object({
-    restriction: z.string().optional()
+const ProviderSuccessSchema = z.object({
+    message: z.string()
 });
-
-const ProviderResponseSchema = z
-    .object({
-        data: z
-            .object({
-                categories: z.record(z.string(), ProviderCategoryEntrySchema).optional()
-            })
-            .passthrough()
-    })
-    .passthrough();
 
 const OutputSchema = z.object({
     policyName: z.string(),
@@ -58,22 +53,9 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = ProviderResponseSchema.safeParse(response.data);
-        if (parsed.success) {
-            const categoriesData = parsed.data.data.categories;
-            if (categoriesData !== undefined) {
-                const categories: Record<string, { restriction: string }> = {};
-                for (const [name, entry] of Object.entries(categoriesData)) {
-                    if (entry.restriction !== undefined) {
-                        categories[name] = { restriction: entry.restriction };
-                    }
-                }
-                return {
-                    policyName: input.policyName,
-                    categories
-                };
-            }
-        }
+        // The provider's successful PUT response is just a success message; it does
+        // not echo back the applied restrictions, so we return what was requested.
+        ProviderSuccessSchema.parse(response.data);
 
         return {
             policyName: input.policyName,

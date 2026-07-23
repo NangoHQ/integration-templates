@@ -2,16 +2,17 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    customCategoryName: z.string().describe('Custom category name. Example: "RegistrySeedCategory1"'),
+    customCategoryName: z
+        .string()
+        .min(1)
+        .max(32)
+        .regex(/^[^#!@$%^*?./\\]+$/)
+        .describe('Custom category name. Must be 1-32 characters and must not contain: # ! @ $ % ^ * ? . / \\. Example: "RegistrySeedCategory1"'),
     urls: z.array(z.string()).describe('URLs to replace in the category. Example: ["*.example.com", "*.other.com"]')
 });
 
-const ProviderResponseSchema = z.object({
-    data: z
-        .object({
-            urls: z.array(z.string()).optional()
-        })
-        .optional()
+const ProviderSuccessSchema = z.object({
+    message: z.string()
 });
 
 const OutputSchema = z.object({
@@ -34,16 +35,12 @@ const action = createAction({
                     urls: input.urls
                 }
             },
-            retries: 10
+            retries: 3
         });
 
-        const parsed = ProviderResponseSchema.safeParse(response.data);
-        if (parsed.success && parsed.data.data && parsed.data.data.urls) {
-            return {
-                customCategoryName: input.customCategoryName,
-                urls: parsed.data.data.urls
-            };
-        }
+        // The provider's successful PUT response is just a success message; it
+        // does not echo back the URLs, so we return what was requested.
+        ProviderSuccessSchema.parse(response.data);
 
         return {
             customCategoryName: input.customCategoryName,

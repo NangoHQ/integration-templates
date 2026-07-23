@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    first: z.number().optional().describe('Number of records to request. Defaults to 50.'),
+    first: z.number().int().min(1).optional().describe('Number of records to request. Defaults to 50.'),
     order: z.enum(['asc', 'desc']).optional().describe('Sort order for policy names. Defaults to asc.')
 });
 

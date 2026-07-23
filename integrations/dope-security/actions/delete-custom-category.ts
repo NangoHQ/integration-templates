@@ -2,7 +2,14 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    customCategoryName: z.string().describe('The name of the custom category to delete. Example: "RegistrySeedCategory2"')
+    customCategoryName: z
+        .string()
+        .min(1)
+        .max(32)
+        .regex(/^[^#!@$%^*?./\\]+$/)
+        .describe(
+            'The name of the custom category to delete. Must be 1-32 characters and must not contain: # ! @ $ % ^ * ? . / \\. Example: "RegistrySeedCategory2"'
+        )
 });
 
 const OutputSchema = z.object({

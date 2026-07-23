@@ -58,6 +58,14 @@ const action = createAction({
             });
         }
 
+        if (input.inheritsFromBase && (input.custom || input.default)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message:
+                    'inheritsFromBase is mutually exclusive with custom and default; it resets all application bypass configuration to inherit from the base policy.'
+            });
+        }
+
         const payload: BypassPayload = {};
 
         if (input.inheritsFromBase) {

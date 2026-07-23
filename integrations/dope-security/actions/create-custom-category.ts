@@ -29,7 +29,9 @@ const action = createAction({
             // https://inflight.dope.security/dope.apis/public-api-specification.md
             endpoint: `/v1/custom_categories/${encodeURIComponent(input.name)}`,
             data: {},
-            retries: 3
+            // Creating a category is not documented as idempotent: replaying after a
+            // successful create returns "Custom category already exists" instead of Success.
+            retries: 10
         });
 
         const providerResponse = ProviderSuccessSchema.parse(response.data);

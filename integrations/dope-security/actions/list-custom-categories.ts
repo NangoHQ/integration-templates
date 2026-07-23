@@ -6,7 +6,8 @@ const InputSchema = z.object({
 });
 
 const PageInfoSchema = z.object({
-    endCursor: z.string().nullable().optional()
+    endCursor: z.string().nullable().optional(),
+    hasNextPage: z.boolean()
 });
 
 const ProviderResponseSchema = z.object({
@@ -32,7 +33,7 @@ const action = createAction({
         const response = await nango.get({
             endpoint: '/v1/custom_categories',
             params: {
-                ...(input.cursor !== undefined && { cursor: input.cursor })
+                ...(input.cursor !== undefined && { after: input.cursor })
             },
             retries: 3
         });
@@ -41,7 +42,7 @@ const action = createAction({
 
         return {
             categories: parsed.data.customCategories,
-            ...(parsed.data.pageInfo.endCursor != null && { nextCursor: parsed.data.pageInfo.endCursor })
+            ...(parsed.data.pageInfo.hasNextPage && parsed.data.pageInfo.endCursor != null && { nextCursor: parsed.data.pageInfo.endCursor })
         };
     }
 });

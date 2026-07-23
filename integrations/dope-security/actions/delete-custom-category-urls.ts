@@ -2,7 +2,14 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    customCategoryName: z.string().min(1).max(32).describe('Name of the custom category to clear URLs from. Example: "RegistrySeedCategory1"')
+    customCategoryName: z
+        .string()
+        .min(1)
+        .max(32)
+        .regex(/^[^#!@$%^*?./\\]+$/)
+        .describe(
+            'Name of the custom category to clear URLs from. Must be 1-32 characters and must not contain: # ! @ $ % ^ * ? . / \\. Example: "RegistrySeedCategory1"'
+        )
 });
 
 const OutputSchema = z.object({

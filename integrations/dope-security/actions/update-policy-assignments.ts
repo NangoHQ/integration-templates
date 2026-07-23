@@ -68,7 +68,7 @@ const action = createAction({
         await nango.put({
             endpoint: `/v1/policies/${encodedPolicyName}/assignments`,
             data: requestBody,
-            retries: 10
+            retries: 3
         });
 
         // https://inflight.dope.security/dope.apis/public-api-specification
