@@ -27,30 +27,26 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
 
-        let apiKey: string | undefined;
         const credentialsResult = z
             .object({
                 apiKey: z.string()
             })
             .safeParse(connection.credentials);
 
-        if (credentialsResult.success) {
-            apiKey = credentialsResult.data.apiKey;
+        if (!credentialsResult.success) {
+            throw new nango.ActionError({
+                type: 'missing_credentials',
+                message: 'API key is missing from the connection.'
+            });
         }
 
-        // Fallback for test environments where getConnection returns stripped credentials.
-        if (apiKey === undefined) {
-            apiKey = 'sUNP7MED5Nh53nz8SgvLvvY9e';
-        }
+        const apiKey = credentialsResult.data.apiKey;
 
         const params: Record<string, string> = {
+            key: apiKey,
             file_id: input.file_id,
             filter: input.filter
         };
-
-        if (apiKey !== undefined) {
-            params['key'] = apiKey;
-        }
 
         if (input['statuses'] !== undefined) {
             params['statuses'] = input['statuses'];

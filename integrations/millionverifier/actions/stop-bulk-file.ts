@@ -5,10 +5,10 @@ const InputSchema = z.object({
     file_id: z.string().describe('The ID of the bulk file to stop processing. Example: "940"')
 });
 
-const ProviderResponseSchema = z.object({
-    result: z.string().optional(),
-    error: z.string().optional()
-});
+const ProviderResponseSchema = z.union([
+    z.object({ result: z.string(), error: z.string().optional() }),
+    z.object({ result: z.string().optional(), error: z.string() })
+]);
 
 const OutputSchema = z.object({
     success: z.boolean(),

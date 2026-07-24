@@ -5,11 +5,7 @@ const InputSchema = z.object({
     file_id: z.string().describe('The ID of the bulk file to delete. Example: "12345"')
 });
 
-const ProviderResponseSchema = z
-    .object({
-        error: z.string().optional()
-    })
-    .passthrough();
+const ProviderResponseSchema = z.union([z.object({ result: z.literal('ok') }).passthrough(), z.object({ error: z.string() }).passthrough()]);
 
 const OutputSchema = z.object({
     success: z.boolean(),
@@ -48,7 +44,15 @@ const action = createAction({
         });
 
         const parsed = ProviderResponseSchema.safeParse(response.data);
-        if (parsed.success && parsed.data.error) {
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'unexpected_response',
+                message: 'Provider returned an unexpected response shape.',
+                raw_response: JSON.stringify(response.data)
+            });
+        }
+
+        if ('error' in parsed.data) {
             throw new nango.ActionError({
                 type: 'provider_error',
                 message: parsed.data.error,

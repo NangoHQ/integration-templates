@@ -57,66 +57,26 @@ const ConnectionSchema = z
     })
     .passthrough();
 
-const getApiKeyFromMock = async (): Promise<string | null> => {
-    // @allowTryCatch Reading the local test mock file is a best-effort fallback
-    // to retrieve the API key when the test mock does not include connection credentials.
-    // In production the catch branch is taken because the sandbox lacks fs.
-    try {
-        const fs = await import('node:fs');
-        const url = await import('node:url');
-        const path = await import('node:path');
-        const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-        const mockPath = path.resolve(__dirname, '../tests/bulk-files.test.json');
-        const content = fs.readFileSync(mockPath, 'utf-8');
-        const mock = JSON.parse(content);
-        const key = mock.api?.get?.['/bulkapi/v2/filelist']?.request?.params?.key;
-
-        if (typeof key === 'string') {
-            return key;
-        }
-    } catch {
-        // ignore
-    }
-
-    return null;
-};
-
-const CheckpointSchema = z.object({
-    updated_after: z.string()
-});
-
 const sync = createSync({
     description: 'Sync uploaded bulk verification file records (job history).',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         BulkFile: BulkFileSchema
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let latestUpdatedAt = checkpoint?.updated_after;
-        let apiKey = await getApiKeyFromMock();
-
-        if (!apiKey) {
-            const connection = ConnectionSchema.parse(await nango.getConnection());
-            apiKey = connection.credentials.apiKey;
-        }
-
-        const params: Record<string, string | number> = {
-            key: apiKey
-        };
-        if (checkpoint?.['updated_after']) {
-            params['updated_at_from'] = checkpoint['updated_after'];
-        }
+        const connection = ConnectionSchema.parse(await nango.getConnection());
+        const apiKey = connection.credentials.apiKey;
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.millionverifier.com/#operation/bulk-filelist
             endpoint: '/bulkapi/v2/filelist',
             baseUrlOverride: 'https://bulkapi.millionverifier.com',
-            params,
+            params: {
+                key: apiKey
+            },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
@@ -127,6 +87,10 @@ const sync = createSync({
             },
             retries: 3
         };
+
+        // MillionVerifier's filelist endpoint has no incremental delta or deletion feed,
+        // so every run re-enumerates the full list and relies on trackDeletes to reconcile removals.
+        await nango.trackDeletesStart('BulkFile');
 
         for await (const page of nango.paginate(proxyConfig)) {
             const records = z.array(ProviderFileSchema).parse(page);
@@ -159,20 +123,9 @@ const sync = createSync({
             }
 
             await nango.batchSave(files, 'BulkFile');
-
-            // Keep the checkpoint monotonic even when the API returns newest-first pages.
-            for (const record of records) {
-                if (!latestUpdatedAt || record.updated_at > latestUpdatedAt) {
-                    latestUpdatedAt = record.updated_at;
-                }
-            }
         }
 
-        if (latestUpdatedAt && latestUpdatedAt !== checkpoint?.updated_after) {
-            await nango.saveCheckpoint({
-                updated_after: latestUpdatedAt
-            });
-        }
+        await nango.trackDeletesEnd('BulkFile');
     }
 });
 

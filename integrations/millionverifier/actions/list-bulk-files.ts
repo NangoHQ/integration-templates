@@ -1,28 +1,19 @@
 import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
+const DATE_TIME_FORMAT_REGEX = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/;
+const dateTimeFilter = () => z.string().regex(DATE_TIME_FORMAT_REGEX, 'Must match format yyyy-MM-dd HH:mm:ss').optional();
+
 const InputSchema = z.object({
-    offset: z.number().optional().describe('Offset for pagination. Example: 0'),
-    limit: z.number().optional().describe('The amount of files to show on one page. Defaults to 50, max 50. Example: 25'),
+    offset: z.number().int().nonnegative().optional().describe('Offset for pagination. Example: 0'),
+    limit: z.number().int().min(1).max(50).optional().describe('The amount of files to show on one page. Defaults to 50, max 50. Example: 25'),
     id: z.string().optional().describe('Filter for file IDs. Comma separated values allowed. Example: "1,2,3"'),
     name: z.string().optional().describe('Filter for file name. Example: "myfile.txt"'),
     status: z.string().optional().describe('Filter for file state. Example: "in_progress,finished"'),
-    updated_at_from: z
-        .string()
-        .optional()
-        .describe('Filter for files updated after the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
-    updated_at_to: z
-        .string()
-        .optional()
-        .describe('Filter for files updated before the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
-    createdate_from: z
-        .string()
-        .optional()
-        .describe('Filter for files created after the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
-    createdate_to: z
-        .string()
-        .optional()
-        .describe('Filter for files created before the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
+    updated_at_from: dateTimeFilter().describe('Filter for files updated after the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
+    updated_at_to: dateTimeFilter().describe('Filter for files updated before the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
+    createdate_from: dateTimeFilter().describe('Filter for files created after the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
+    createdate_to: dateTimeFilter().describe('Filter for files created before the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
     percent_from: z.number().optional().describe('Filter for files with progress over the given percentage. Example: 50'),
     percent_to: z.number().optional().describe('Filter for files with progress below the given percentage. Example: 75'),
     has_error: z.string().optional().describe('Filter for files that had or did not have errors. Example: "true" or "false"')
@@ -57,28 +48,6 @@ const ProviderResponseSchema = z.object({
 
 const OutputSchema = ProviderResponseSchema;
 
-const getApiKeyFromMock = async (): Promise<string | null> => {
-    // @allowTryCatch Reading the local test mock file is a best-effort fallback
-    // to retrieve the API key when the test mock does not include connection credentials.
-    // In production the catch branch is taken because the sandbox lacks fs.
-    try {
-        const fs = await import('node:fs');
-        const url = await import('node:url');
-        const path = await import('node:path');
-        const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-        const mockPath = path.resolve(__dirname, '../tests/list-bulk-files.test.json');
-        const content = fs.readFileSync(mockPath, 'utf-8');
-        const mock = JSON.parse(content);
-        const key = mock.api?.get?.['/bulkapi/v2/filelist']?.request?.params?.key;
-        if (typeof key === 'string') {
-            return key;
-        }
-    } catch {
-        // ignore
-    }
-    return null;
-};
-
 const action = createAction({
     description: 'List uploaded bulk verification files, with filtering.',
     version: '1.0.0',
@@ -87,20 +56,16 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let apiKey = await getApiKeyFromMock();
+        const connection = await nango.getConnection();
 
-        if (!apiKey) {
-            const connection = await nango.getConnection();
-
-            if (connection.credentials.type !== 'API_KEY') {
-                throw new nango.ActionError({
-                    type: 'invalid_credentials',
-                    message: 'Connection credentials are not API_KEY type.'
-                });
-            }
-
-            apiKey = connection.credentials.apiKey;
+        if (connection.credentials.type !== 'API_KEY') {
+            throw new nango.ActionError({
+                type: 'invalid_credentials',
+                message: 'Connection credentials are not API_KEY type.'
+            });
         }
+
+        const apiKey = connection.credentials.apiKey;
 
         const config: ProxyConfiguration = {
             // https://developer.millionverifier.com/#operation/bulk-filelist
