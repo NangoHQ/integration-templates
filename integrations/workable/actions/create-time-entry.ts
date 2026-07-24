@@ -45,8 +45,8 @@ function getHttpErrorData(err: unknown): { status: number | undefined; payload: 
     if (!isUnknownRecord(err)) {
         return undefined;
     }
-    const status = typeof err['status'] === 'number' ? err['status'] : undefined;
     const response = isUnknownRecord(err['response']) ? err['response'] : undefined;
+    const status = typeof err['status'] === 'number' ? err['status'] : typeof response?.['status'] === 'number' ? response['status'] : undefined;
     const data = response && isUnknownRecord(response['data']) ? response['data'] : err;
     return { status, payload: data };
 }
@@ -86,7 +86,10 @@ const action = createAction({
                     ...(input.note !== undefined && { note: input.note }),
                     ...(input.override_overlapping !== undefined && { override_overlapping: input.override_overlapping })
                 },
-                retries: 10
+                // Creating a time entry is a non-idempotent write with no provider-supported
+                // idempotency key, so retries are kept minimal to avoid duplicating the entry if
+                // a request times out after Workable has already committed it.
+                retries: 1
             });
         } catch (err) {
             const errorInfo = getHttpErrorData(err);

@@ -20,8 +20,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /spi/v3/permission_sets with no changed-since filter,
         // no pagination, and no deleted-record endpoint.
-        await nango.trackDeletesStart('PermissionSet');
-
         // https://workable.readme.io/reference/permission-sets
         const response = await nango.get({
             endpoint: '/spi/v3/permission_sets',
@@ -40,6 +38,10 @@ const sync = createSync({
             ...(record.label && { label: record.label }),
             ...(record.description && { description: record.description })
         }));
+
+        // Only start delete-tracking once the request has succeeded and the response has been
+        // validated, so a failed/invalid fetch never leaves deletion-tracking permanently "open".
+        await nango.trackDeletesStart('PermissionSet');
 
         if (permissionSets.length > 0) {
             await nango.batchSave(permissionSets, 'PermissionSet');

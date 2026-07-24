@@ -12,6 +12,7 @@ const OutputSchema = z.object({
 });
 
 const ErrorWithResponseSchema = z.object({
+    status: z.number().optional(),
     response: z
         .object({
             status: z.number(),
@@ -43,8 +44,8 @@ const action = createAction({
             };
         } catch (error: unknown) {
             const parsed = ErrorWithResponseSchema.safeParse(error);
-            if (parsed.success && parsed.data.response) {
-                const status = parsed.data.response.status;
+            if (parsed.success) {
+                const status = parsed.data.status ?? parsed.data.response?.status;
 
                 if (status === 403) {
                     throw new nango.ActionError({

@@ -136,12 +136,15 @@ const sync = createSync({
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 
 function getErrorStatus(error: unknown): number | undefined {
-    if (error && typeof error === 'object' && 'response' in error) {
-        const response = error.response;
-        if (response && typeof response === 'object' && 'status' in response) {
-            const status = response.status;
-            return typeof status === 'number' ? status : undefined;
-        }
+    if (!error || typeof error !== 'object') {
+        return undefined;
+    }
+    if ('status' in error && typeof error.status === 'number') {
+        return error.status;
+    }
+    if ('response' in error && typeof error.response === 'object' && error.response !== null && 'status' in error.response) {
+        const status = error.response.status;
+        return typeof status === 'number' ? status : undefined;
     }
     return undefined;
 }

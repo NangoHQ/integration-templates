@@ -33,6 +33,20 @@ const OutputSchema = z.object({
     next_cursor: z.string().optional()
 });
 
+function getErrorStatus(error: unknown): number | undefined {
+    if (!error || typeof error !== 'object') {
+        return undefined;
+    }
+    if ('status' in error && typeof error.status === 'number') {
+        return error.status;
+    }
+    if ('response' in error && typeof error.response === 'object' && error.response !== null && 'status' in error.response) {
+        const status = error.response.status;
+        return typeof status === 'number' ? status : undefined;
+    }
+    return undefined;
+}
+
 const action = createAction({
     description: 'List active webhook subscriptions.',
     version: '1.0.0',
@@ -67,15 +81,7 @@ const action = createAction({
             });
             response = res;
         } catch (err) {
-            if (
-                err &&
-                typeof err === 'object' &&
-                'response' in err &&
-                err.response &&
-                typeof err.response === 'object' &&
-                'status' in err.response &&
-                err.response.status === 404
-            ) {
+            if (getErrorStatus(err) === 404) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: 'No webhook subscriptions found.'

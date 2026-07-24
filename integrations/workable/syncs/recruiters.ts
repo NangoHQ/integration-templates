@@ -21,8 +21,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /spi/v3/recruiters has no changed-since filter,
         // no pagination, and no deleted-record endpoint.
-        await nango.trackDeletesStart('Recruiter');
-
         const config: ProxyConfiguration = {
             // https://workable.readme.io/reference/recruiters
             endpoint: '/spi/v3/recruiters',
@@ -44,6 +42,10 @@ const sync = createSync({
             name: recruiter.name,
             email: recruiter.email
         }));
+
+        // Only start delete-tracking once the request has succeeded and the response has been
+        // validated, so a failed/invalid fetch never leaves deletion-tracking permanently "open".
+        await nango.trackDeletesStart('Recruiter');
 
         if (records.length > 0) {
             await nango.batchSave(records, 'Recruiter');

@@ -16,6 +16,17 @@ const ProviderBalancesResponseSchema = z.object({
     balances: z.array(ProviderBalanceSchema)
 });
 
+const MemberSchema = z.object({
+    id: z.string(),
+    active: z.boolean().optional().nullable(),
+    role: z.string().optional().nullable(),
+    hris_role: z.string().optional().nullable()
+});
+
+const MembersResponseSchema = z.object({
+    members: z.array(MemberSchema)
+});
+
 const TimeoffBalanceSchema = z.object({
     id: z.string(),
     employee_id: z.string(),
@@ -40,6 +51,23 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
+        // https://workable.readme.io/reference/members.md
+        const membersResponse = await nango.get({
+            endpoint: '/spi/v3/members',
+            params: {
+                limit: 100
+            },
+            retries: 3
+        });
+
+        const membersParsed = MembersResponseSchema.safeParse(membersResponse.data);
+        if (!membersParsed.success) {
+            throw new Error(`Failed to parse members response: ${membersParsed.error.message}`);
+        }
+
+        const adminMember = membersParsed.data.members.find((m) => m.active === true && (m.hris_role === 'hris_admin' || m.role === 'admin'));
+        const memberId = adminMember?.id;
+
         const employees: { id: string }[] = [];
 
         // https://workable.readme.io/reference/employees
@@ -47,7 +75,7 @@ const sync = createSync({
             // https://workable.readme.io/reference/employees
             endpoint: '/spi/v3/employees',
             params: {
-                member_id: '1f395d'
+                ...(memberId && { member_id: memberId })
             },
             paginate: {
                 type: 'offset',
@@ -102,12 +130,15 @@ const sync = createSync({
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 
 function getErrorStatus(error: unknown): number | undefined {
-    if (error && typeof error === 'object' && 'response' in error) {
-        const response = error.response;
-        if (response && typeof response === 'object' && 'status' in response) {
-            const status = response.status;
-            return typeof status === 'number' ? status : undefined;
-        }
+    if (!error || typeof error !== 'object') {
+        return undefined;
+    }
+    if ('status' in error && typeof error.status === 'number') {
+        return error.status;
+    }
+    if ('response' in error && typeof error.response === 'object' && error.response !== null && 'status' in error.response) {
+        const status = error.response.status;
+        return typeof status === 'number' ? status : undefined;
     }
     return undefined;
 }

@@ -29,6 +29,20 @@ const ProviderSubscriptionSchema = z.object({
     id: z.number()
 });
 
+function getErrorStatus(error: unknown): number | undefined {
+    if (!error || typeof error !== 'object') {
+        return undefined;
+    }
+    if ('status' in error && typeof error.status === 'number') {
+        return error.status;
+    }
+    if ('response' in error && typeof error.response === 'object' && error.response !== null && 'status' in error.response) {
+        const status = error.response.status;
+        return typeof status === 'number' ? status : undefined;
+    }
+    return undefined;
+}
+
 const OutputSchema = z.object({
     id: z.number()
 });
@@ -73,15 +87,8 @@ const action = createAction({
                 retries: 1
             });
         } catch (err) {
-            if (
-                typeof err === 'object' &&
-                err !== null &&
-                'response' in err &&
-                typeof err.response === 'object' &&
-                err.response !== null &&
-                'status' in err.response &&
-                err.response.status === 409
-            ) {
+            const status = getErrorStatus(err);
+            if (status === 409) {
                 throw new nango.ActionError({
                     type: 'conflict',
                     message: 'The target URL is already registered for this event.'

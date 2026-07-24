@@ -29,7 +29,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: "Create a comment on the applicant's timeline.",
-    version: '1.0.0',
+    version: '2.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_candidates'],

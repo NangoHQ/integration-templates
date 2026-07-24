@@ -36,7 +36,8 @@ const action = createAction({
         } catch (error) {
             const response = isRecord(error) ? error['response'] : undefined;
             const errorRecord = isRecord(response) ? response : undefined;
-            const status = typeof errorRecord?.['status'] === 'number' ? errorRecord['status'] : undefined;
+            const topLevelStatus = isRecord(error) && typeof error['status'] === 'number' ? error['status'] : undefined;
+            const status = topLevelStatus ?? (typeof errorRecord?.['status'] === 'number' ? errorRecord['status'] : undefined);
             const data = errorRecord?.['data'];
 
             if (status === 404) {

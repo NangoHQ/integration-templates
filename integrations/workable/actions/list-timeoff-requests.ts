@@ -110,17 +110,19 @@ const action = createAction({
 
         const requests = rawData.requests.map((item: unknown) => TimeoffRequestSchema.parse(item));
 
-        const responseLimit = rawData.limit ?? input.limit ?? 50;
         const responseOffset = rawData.offset ?? input.offset ?? 0;
-        const hasMore = responseOffset + responseLimit < rawData.total_count;
-        const next_offset = hasMore ? responseOffset + responseLimit : undefined;
+        // Workable does not always echo back `limit` (its unbounded default page size is 10, not 50),
+        // so advance by the number of records actually returned rather than a fallback limit value,
+        // otherwise offsets between the true page size and the fallback would be silently skipped.
+        const nextOffset = responseOffset + requests.length;
+        const hasMore = nextOffset < rawData.total_count;
 
         return {
             requests,
             total_count: rawData.total_count,
-            limit: responseLimit,
+            limit: rawData.limit ?? input.limit ?? requests.length,
             offset: responseOffset,
-            ...(next_offset !== undefined && { next_offset })
+            ...(hasMore && { next_offset: nextOffset })
         };
     }
 });

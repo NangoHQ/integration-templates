@@ -100,8 +100,11 @@ const CheckpointSchema = z.object({
 });
 
 const WebhookPayloadSchema = z.object({
-    event: z.string().optional(),
-    candidate: z
+    // https://workable.readme.io/reference/candidate-events.md
+    // Workable's candidate event webhooks use "event_type" (not "event") at the top level, and
+    // nest the candidate under "data" (not "candidate").
+    event_type: z.string().optional(),
+    data: z
         .object({
             id: z.string().optional()
         })
@@ -110,7 +113,7 @@ const WebhookPayloadSchema = z.object({
 
 const sync = createSync({
     description: 'Sync candidates across all jobs and the talent pool',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -233,8 +236,8 @@ const sync = createSync({
             return;
         }
 
-        if (parsed.data.event === 'candidate_deleted' && parsed.data.candidate?.id) {
-            await nango.batchDelete([{ id: parsed.data.candidate.id }], 'Candidate');
+        if (parsed.data.event_type === 'candidate_deleted' && parsed.data.data?.id) {
+            await nango.batchDelete([{ id: parsed.data.data.id }], 'Candidate');
         }
     }
 });

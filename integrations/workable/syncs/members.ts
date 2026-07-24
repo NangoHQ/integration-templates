@@ -34,7 +34,10 @@ const sync = createSync({
         // Blocker: /members has no updated_after/modified_since filter.
         // since_id only filters by ID order, not modification time,
         // so edits and deactivations of existing members would be missed.
-        await nango.trackDeletesStart('Member');
+        // Only start tracking once the first page has actually been fetched and validated, so a
+        // failure on the very first request doesn't leave delete-tracking started with nothing
+        // enumerated.
+        let deletesStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://workable.readme.io/reference/members.md
@@ -76,12 +79,20 @@ const sync = createSync({
                 });
             }
 
+            // The page above parsed successfully, so enumeration is confirmed to proceed.
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Member');
+                deletesStarted = true;
+            }
+
             if (members.length > 0) {
                 await nango.batchSave(members, 'Member');
             }
         }
 
-        await nango.trackDeletesEnd('Member');
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('Member');
+        }
     }
 });
 

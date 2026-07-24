@@ -17,7 +17,7 @@ const OfferResponseSchema = z
         state: z.string().optional(),
         created_at: z.string().optional(),
         documents: z.array(z.object({}).passthrough()).optional(),
-        document_variables: z.record(z.string(), z.unknown()).optional()
+        document_variables: z.array(z.unknown()).optional()
     })
     .passthrough();
 
@@ -28,7 +28,7 @@ const CandidateOfferSchema = z.object({
     state: z.string().optional(),
     created_at: z.string().optional(),
     documents: z.array(z.object({}).passthrough()).optional(),
-    document_variables: z.record(z.string(), z.unknown()).optional()
+    document_variables: z.array(z.unknown()).optional()
 });
 
 const sync = createSync({
@@ -43,7 +43,10 @@ const sync = createSync({
     exec: async (nango) => {
         // The supplied context does not justify using candidate updated_at as a
         // reliable offer delta, so this sync performs a full snapshot each run.
-        await nango.trackDeletesStart('CandidateOffer');
+        // Only start delete tracking once the first page has actually been fetched and
+        // validated, so a failure on the very first request doesn't leave delete-tracking
+        // started with nothing enumerated.
+        let deletesStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://workable.readme.io/reference/list-candidates
@@ -95,24 +98,38 @@ const sync = createSync({
                 }
             }
 
+            // The page above parsed successfully, so enumeration is confirmed to proceed.
+            // Start delete tracking now (only once, on the first page).
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('CandidateOffer');
+                deletesStarted = true;
+            }
+
             if (offers.length > 0) {
                 await nango.batchSave(offers, 'CandidateOffer');
             }
         }
 
-        await nango.trackDeletesEnd('CandidateOffer');
+        // Only finalize delete detection if enumeration actually started (and therefore ran to
+        // completion above without throwing) — never on a partial/failed run.
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('CandidateOffer');
+        }
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 
 function getErrorStatus(error: unknown): number | undefined {
-    if (error && typeof error === 'object' && 'response' in error) {
-        const response = error.response;
-        if (response && typeof response === 'object' && 'status' in response) {
-            const status = response.status;
-            return typeof status === 'number' ? status : undefined;
-        }
+    if (!error || typeof error !== 'object') {
+        return undefined;
+    }
+    if ('status' in error && typeof error.status === 'number') {
+        return error.status;
+    }
+    if ('response' in error && typeof error.response === 'object' && error.response !== null && 'status' in error.response) {
+        const status = error.response.status;
+        return typeof status === 'number' ? status : undefined;
     }
     return undefined;
 }

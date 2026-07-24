@@ -30,11 +30,11 @@ const EventSchema = z.object({
     type: z.string(),
     starts_at: z.string(),
     ends_at: z.string(),
-    cancelled: z.boolean(),
-    job: JobSchema.optional(),
+    cancelled: z.boolean().optional(),
+    job: JobSchema.nullish(),
     members: z.array(MemberSchema).optional(),
-    candidate: CandidateSchema.optional(),
-    conference: ConferenceSchema.optional()
+    candidate: CandidateSchema.nullish(),
+    conference: ConferenceSchema.nullish()
 });
 
 const CheckpointSchema = z.object({

@@ -94,7 +94,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a candidate at a specific job.',
-    version: '1.0.0',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_candidates', 'w_candidates'],

@@ -92,6 +92,14 @@ const sync = createSync({
             retries: 3
         };
 
+        // Full refresh: /spi/v3/employees has no updated_after/modified_since filter, so every
+        // employee still returned by Workable is re-saved on every run. Employees removed from
+        // Workable simply stop appearing, so trackDeletesStart/trackDeletesEnd is required to
+        // detect and purge them. Only start tracking once the first page has actually been
+        // fetched and validated, so a failure on the very first request doesn't leave
+        // delete-tracking started with nothing enumerated.
+        let deletesStarted = false;
+
         for await (const page of nango.paginate(proxyConfig)) {
             const employees = page.map((record) => {
                 const parsed = EmployeeSchema.safeParse(record);
@@ -130,9 +138,21 @@ const sync = createSync({
                 };
             });
 
+            // The page above parsed successfully, so enumeration is confirmed to proceed.
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Employee');
+                deletesStarted = true;
+            }
+
             if (employees.length > 0) {
                 await nango.batchSave(employees, 'Employee');
             }
+        }
+
+        // Only finalize delete detection if enumeration actually started (and therefore ran to
+        // completion above without throwing) — never on a partial/failed run.
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('Employee');
         }
     }
 });

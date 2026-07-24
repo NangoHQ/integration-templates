@@ -27,6 +27,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['r_jobs'],
     checkpoint: CheckpointSchema,
     models: {
         Stage: StageSchema
@@ -38,8 +39,6 @@ const sync = createSync({
         // Blocker: the /stages endpoint has no changed-since filter, no pagination,
         // and no deleted-record endpoint. The dataset is small and low-churn,
         // so a full snapshot with delete tracking is appropriate.
-        await nango.trackDeletesStart('Stage');
-
         // https://workable.readme.io/reference/stages
         const response = await nango.get({
             endpoint: '/spi/v3/stages',
@@ -58,6 +57,10 @@ const sync = createSync({
             kind: stage.kind,
             position: stage.position
         }));
+
+        // Only start delete-tracking once the request has succeeded and the response has been
+        // validated, so a failed/invalid fetch never leaves deletion-tracking permanently "open".
+        await nango.trackDeletesStart('Stage');
 
         if (stages.length > 0) {
             await nango.batchSave(stages, 'Stage');
