@@ -1,0 +1,155 @@
+{
+  "input": {
+    "name": "Test Workspace 2"
+  },
+  "output": {
+    "id": "mf23gK",
+    "name": "Test Workspace 2",
+    "account_id": "01KY2F7T9098GVJG09EKNGPTMP",
+    "members": [
+      {
+        "id": "WMI01KY2X0D79EQT2AQYMEKFZY8QW",
+        "type": "user",
+        "name": "Nango Developer",
+        "email": "api@nango.dev",
+        "role": "owner",
+        "user": {
+          "id": "01KY2F7T849ZRGMAYSS3TY0JN3",
+          "email": "api@nango.dev",
+          "name": "Nango Developer"
+        },
+        "account_member_id": "01KY2F7T9WAWCGCTRFTGZZM6AQ",
+        "permissions": [
+          "workspace:delete",
+          "workspace:update",
+          "workspace:write_members",
+          "workspace:read_members",
+          "workspace:read_forms",
+          "workspace:write_forms",
+          "workspace:update_forms",
+          "workspace:delete_forms",
+          "workspace:publish_forms",
+          "workspace:move_forms",
+          "workspace:read_pages",
+          "workspace:write_pages",
+          "workspace:update_pages",
+          "workspace:publish_pages",
+          "workspace:delete_pages",
+          "workspace:move_pages",
+          "workspace:read_responses",
+          "workspace:download_responses",
+          "workspace:delete_responses",
+          "workspace:tag_responses",
+          "workspace:read_integrations",
+          "workspace:write_integrations",
+          "workspace:delete_integrations",
+          "workspace:read_webhooks",
+          "workspace:write_webhooks",
+          "workspace:delete_webhooks",
+          "workspace:read_share",
+          "workspace:write_share"
+        ]
+      }
+    ],
+    "forms": {
+      "count": 0,
+      "href": "https://api.typeform.com/forms?workspace_id=mf23gK"
+    },
+    "self": {
+      "href": "https://api.typeform.com/workspaces/mf23gK"
+    },
+    "shared": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/workspaces": {
+        "response": {
+          "account_id": "01KY2F7T9098GVJG09EKNGPTMP",
+          "default": false,
+          "forms": {
+            "count": 0,
+            "href": "https://api.typeform.com/forms?workspace_id=mf23gK"
+          },
+          "id": "mf23gK",
+          "members": [
+            {
+              "id": "WMI01KY2X0D79EQT2AQYMEKFZY8QW",
+              "type": "user",
+              "email": "api@nango.dev",
+              "name": "Nango Developer",
+              "role": "owner",
+              "user": {
+                "id": "01KY2F7T849ZRGMAYSS3TY0JN3",
+                "email": "api@nango.dev",
+                "name": "Nango Developer"
+              },
+              "account_member_id": "01KY2F7T9WAWCGCTRFTGZZM6AQ",
+              "permissions": [
+                "workspace:delete",
+                "workspace:update",
+                "workspace:write_members",
+                "workspace:read_members",
+                "workspace:read_forms",
+                "workspace:write_forms",
+                "workspace:update_forms",
+                "workspace:delete_forms",
+                "workspace:publish_forms",
+                "workspace:move_forms",
+                "workspace:read_pages",
+                "workspace:write_pages",
+                "workspace:update_pages",
+                "workspace:publish_pages",
+                "workspace:delete_pages",
+                "workspace:move_pages",
+                "workspace:read_responses",
+                "workspace:download_responses",
+                "workspace:delete_responses",
+                "workspace:tag_responses",
+                "workspace:read_integrations",
+                "workspace:write_integrations",
+                "workspace:delete_integrations",
+                "workspace:read_webhooks",
+                "workspace:write_webhooks",
+                "workspace:delete_webhooks",
+                "workspace:read_share",
+                "workspace:write_share"
+              ]
+            }
+          ],
+          "name": "Test Workspace 2",
+          "self": {
+            "href": "https://api.typeform.com/workspaces/mf23gK"
+          },
+          "shared": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 17:54:02 GMT",
+          "content-type": "application/json",
+          "content-length": "1257",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "196",
+          "x-ratelimit-reset": "1784656458",
+          "etag": "W/\"4e9-qyQzI2tfiq9yn5UlmvgMRxwQt/k\""
+        },
+        "hash": "a5662ad1fcc51a356680e348086c701cec3b07a2",
+        "request": {
+          "data": {
+            "name": "Test Workspace 2"
+          }
+        }
+      }
+    }
+  }
+}
