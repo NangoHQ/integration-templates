@@ -1,90 +1,243 @@
-import { createSync } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { WorkableCandidate } from '../models.js';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+const CandidateSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    firstname: z.string().optional(),
+    lastname: z.string().optional(),
+    headline: z.string().optional(),
+    account: z
+        .object({
+            subdomain: z.string().optional(),
+            name: z.string().optional()
+        })
+        .optional(),
+    job: z
+        .object({
+            shortcode: z.string().optional(),
+            title: z.string().optional()
+        })
+        .optional(),
+    stage: z.string().optional(),
+    stage_kind: z.string().optional(),
+    disqualified: z.boolean().optional(),
+    withdrew: z.boolean().optional(),
+    disqualification_reason: z.string().optional(),
+    sourced: z.boolean().optional(),
+    profile_url: z.string().optional(),
+    email: z.string().optional(),
+    domain: z.string().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional(),
+    hired_at: z.string().optional(),
+    address: z.string().optional(),
+    phone: z.string().optional(),
+    resume_metadata: z
+        .object({
+            filename: z.string().optional(),
+            filetype: z.string().optional(),
+            created_at: z.string().optional(),
+            updated_at: z.string().optional()
+        })
+        .optional()
+});
+
+const CandidateListSchema = z.object({
+    id: z.string(),
+    name: z.string().nullish(),
+    firstname: z.string().nullish(),
+    lastname: z.string().nullish(),
+    headline: z.string().nullish(),
+    account: z
+        .object({
+            subdomain: z.string().nullish(),
+            name: z.string().nullish()
+        })
+        .nullish(),
+    job: z
+        .object({
+            shortcode: z.string().nullish(),
+            title: z.string().nullish()
+        })
+        .nullish(),
+    stage: z.string().nullish(),
+    stage_kind: z.string().nullish(),
+    disqualified: z.boolean().nullish(),
+    withdrew: z.boolean().nullish(),
+    disqualification_reason: z.string().nullish(),
+    sourced: z.boolean().nullish(),
+    profile_url: z.string().nullish(),
+    email: z.string().nullish(),
+    domain: z.string().nullish(),
+    created_at: z.string().nullish(),
+    updated_at: z.string().nullish(),
+    hired_at: z.string().nullish(),
+    address: z.string().nullish(),
+    phone: z.string().nullish(),
+    resume_metadata: z
+        .object({
+            filename: z.string().nullish(),
+            filetype: z.string().nullish(),
+            created_at: z.string().nullish(),
+            updated_at: z.string().nullish()
+        })
+        .nullish()
+});
+
+const CandidatesPageSchema = z.object({
+    candidates: z.array(CandidateListSchema),
+    paging: z
+        .object({
+            next: z.string().optional()
+        })
+        .optional()
+});
+
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string(),
+    since_id: z.string()
+});
+
+const WebhookPayloadSchema = z.object({
+    event: z.string().optional(),
+    candidate: z
+        .object({
+            id: z.string().optional()
+        })
+        .optional()
 });
 
 const sync = createSync({
-    description: 'Fetches a list of candidates from workable',
-    version: '2.1.0',
-    frequency: 'every 6 hours',
+    description: 'Sync candidates across all jobs and the talent pool',
+    version: '1.0.0',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/candidates',
-            group: 'Candidates'
-        }
-    ],
-
-    scopes: ['r_candidates'],
-
     models: {
-        WorkableCandidate: WorkableCandidate
+        Candidate: CandidateSchema
     },
-
-    metadata: z.object({}),
-
+    webhookSubscriptions: ['candidate_deleted'],
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
-        const checkpointUpdatedAfter = checkpoint?.updated_after ? new Date(checkpoint.updated_after) : undefined;
-        const runStartedAt = new Date().toISOString();
+        const checkpoint = await nango.getCheckpoint();
+        const updatedAfter: string | undefined = checkpoint && checkpoint['updated_after'] !== '' ? checkpoint['updated_after'] : undefined;
+        let sinceId: string | undefined = checkpoint && checkpoint['since_id'] !== '' ? checkpoint['since_id'] : undefined;
 
-        let totalRecords = 0;
+        let maxUpdatedAt: string | undefined;
+        let hasMore = true;
 
-        const config: ProxyConfiguration = {
-            // https://workable.readme.io/reference/job-candidates-index
-            endpoint: '/spi/v3/candidates',
-            ...(checkpointUpdatedAfter ? { params: { created_after: checkpointUpdatedAfter?.toISOString() } } : {}),
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'paging.next',
-                limit_name_in_request: 'limit',
-                response_path: 'candidates',
-                limit: 100
+        while (hasMore) {
+            const proxyConfig: ProxyConfiguration = {
+                // https://workable.readme.io/reference/job-candidates-index.md
+                endpoint: '/spi/v3/candidates',
+                params: {
+                    limit: 100,
+                    ...(updatedAfter ? { updated_after: updatedAfter } : {}),
+                    ...(sinceId ? { since_id: sinceId } : {})
+                },
+                retryOn: [404, 429],
+                retries: 3
+            };
+
+            const response = await nango.get(proxyConfig);
+
+            const parsedPage = CandidatesPageSchema.safeParse(response.data);
+            if (!parsedPage.success) {
+                throw new Error(`Invalid candidates page: ${parsedPage.error.message}`);
             }
-        };
-        for await (const candidate of nango.paginate(config)) {
-            const mappedCandidate: WorkableCandidate[] = candidate.map(mapCandidate) || [];
 
-            const batchSize: number = mappedCandidate.length;
-            totalRecords += batchSize;
-            await nango.log(`Saving batch of ${batchSize} candidate(s) (total candidate(s): ${totalRecords})`);
-            await nango.batchSave(mappedCandidate, 'WorkableCandidate');
+            const page = parsedPage.data.candidates;
+
+            const candidates = page.map((record) => {
+                const candidate = {
+                    id: record.id,
+                    ...(record.name != null && { name: record.name }),
+                    ...(record.firstname != null && { firstname: record.firstname }),
+                    ...(record.lastname != null && { lastname: record.lastname }),
+                    ...(record.headline != null && { headline: record.headline }),
+                    ...(record.account != null && {
+                        account: {
+                            ...(record.account.subdomain != null && { subdomain: record.account.subdomain }),
+                            ...(record.account.name != null && { name: record.account.name })
+                        }
+                    }),
+                    ...(record.job != null && {
+                        job: {
+                            ...(record.job.shortcode != null && { shortcode: record.job.shortcode }),
+                            ...(record.job.title != null && { title: record.job.title })
+                        }
+                    }),
+                    ...(record.stage != null && { stage: record.stage }),
+                    ...(record.stage_kind != null && { stage_kind: record.stage_kind }),
+                    ...(record.disqualified != null && { disqualified: record.disqualified }),
+                    ...(record.withdrew != null && { withdrew: record.withdrew }),
+                    ...(record.disqualification_reason != null && { disqualification_reason: record.disqualification_reason }),
+                    ...(record.sourced != null && { sourced: record.sourced }),
+                    ...(record.profile_url != null && { profile_url: record.profile_url }),
+                    ...(record.email != null && { email: record.email }),
+                    ...(record.domain != null && { domain: record.domain }),
+                    ...(record.created_at != null && { created_at: record.created_at }),
+                    ...(record.updated_at != null && { updated_at: record.updated_at }),
+                    ...(record.hired_at != null && { hired_at: record.hired_at }),
+                    ...(record.address != null && { address: record.address }),
+                    ...(record.phone != null && { phone: record.phone }),
+                    ...(record.resume_metadata != null && {
+                        resume_metadata: {
+                            ...(record.resume_metadata.filename != null && { filename: record.resume_metadata.filename }),
+                            ...(record.resume_metadata.filetype != null && { filetype: record.resume_metadata.filetype }),
+                            ...(record.resume_metadata.created_at != null && { created_at: record.resume_metadata.created_at }),
+                            ...(record.resume_metadata.updated_at != null && { updated_at: record.resume_metadata.updated_at })
+                        }
+                    })
+                };
+
+                if (record.updated_at != null && (maxUpdatedAt === undefined || record.updated_at > maxUpdatedAt)) {
+                    maxUpdatedAt = record.updated_at;
+                }
+
+                return candidate;
+            });
+
+            if (candidates.length > 0) {
+                await nango.batchSave(candidates, 'Candidate');
+            }
+
+            const nextUrl = parsedPage.data.paging?.next;
+            if (nextUrl) {
+                const nextUrlObj = new URL(nextUrl);
+                const nextSinceId = nextUrlObj.searchParams.get('since_id');
+                if (nextSinceId) {
+                    sinceId = nextSinceId;
+                    await nango.saveCheckpoint({
+                        updated_after: updatedAfter || '',
+                        since_id: sinceId
+                    });
+                } else {
+                    hasMore = false;
+                }
+            } else {
+                hasMore = false;
+            }
         }
-        await nango.saveCheckpoint({ updated_after: runStartedAt });
+
+        if (maxUpdatedAt !== undefined) {
+            await nango.saveCheckpoint({
+                updated_after: maxUpdatedAt,
+                since_id: ''
+            });
+        }
+    },
+    onWebhook: async (nango, payload: unknown) => {
+        const parsed = WebhookPayloadSchema.safeParse(payload);
+        if (!parsed.success) {
+            return;
+        }
+
+        if (parsed.data.event === 'candidate_deleted' && parsed.data.candidate?.id) {
+            await nango.batchDelete([{ id: parsed.data.candidate.id }], 'Candidate');
+        }
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-function mapCandidate(candidate: any): WorkableCandidate {
-    return {
-        id: candidate.id,
-        name: candidate.name,
-        firstname: candidate.firstname,
-        lastname: candidate.lastname,
-        headline: candidate.headline,
-        account: candidate.account,
-        job: candidate.job,
-        stage: candidate.stage,
-        disqualified: candidate.disqualified,
-        disqualification_reason: candidate.disqualification_reason,
-        hired_at: candidate.hired_at,
-        sourced: candidate.sourced,
-        profile_url: candidate.profile_url,
-        address: candidate.address,
-        phone: candidate.phone,
-        email: candidate.email,
-        domain: candidate.domain,
-        created_at: candidate.created_at,
-        updated_at: candidate.updated_after
-    };
-}
