@@ -10,10 +10,18 @@ const InputSchema = z.object({
     id: z.string().optional().describe('Filter for file IDs. Comma separated values allowed. Example: "1,2,3"'),
     name: z.string().optional().describe('Filter for file name. Example: "myfile.txt"'),
     status: z.string().optional().describe('Filter for file state. Example: "in_progress,finished"'),
-    updated_at_from: dateTimeFilter().describe('Filter for files updated after the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
-    updated_at_to: dateTimeFilter().describe('Filter for files updated before the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
-    createdate_from: dateTimeFilter().describe('Filter for files created after the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
-    createdate_to: dateTimeFilter().describe('Filter for files created before the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'),
+    updated_at_from: dateTimeFilter().describe(
+        'Filter for files updated after the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'
+    ),
+    updated_at_to: dateTimeFilter().describe(
+        'Filter for files updated before the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'
+    ),
+    createdate_from: dateTimeFilter().describe(
+        'Filter for files created after the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'
+    ),
+    createdate_to: dateTimeFilter().describe(
+        'Filter for files created before the given date time. Format: yyyy-MM-dd HH:mm:ss. Example: "2023-01-01 15:00:05"'
+    ),
     percent_from: z.number().optional().describe('Filter for files with progress over the given percentage. Example: 50'),
     percent_to: z.number().optional().describe('Filter for files with progress below the given percentage. Example: 75'),
     has_error: z.string().optional().describe('Filter for files that had or did not have errors. Example: "true" or "false"')
