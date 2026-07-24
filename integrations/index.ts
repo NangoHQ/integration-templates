@@ -3039,6 +3039,26 @@ import './notion/actions/update-database.js';
 import './notion/actions/update-page-markdown.js';
 import './notion/actions/update-page.js';
 
+// -- Integration: odoo-api-key
+import './odoo-api-key/syncs/contacts.js';
+import './odoo-api-key/syncs/crm-leads.js';
+import './odoo-api-key/syncs/invoices.js';
+import './odoo-api-key/syncs/payments.js';
+import './odoo-api-key/syncs/products.js';
+import './odoo-api-key/syncs/project-tasks.js';
+import './odoo-api-key/syncs/sale-orders.js';
+import './odoo-api-key/actions/call-method.js';
+import './odoo-api-key/actions/count-records.js';
+import './odoo-api-key/actions/create-record.js';
+import './odoo-api-key/actions/delete-record.js';
+import './odoo-api-key/actions/duplicate-record.js';
+import './odoo-api-key/actions/find-records-by-name.js';
+import './odoo-api-key/actions/get-record-fields.js';
+import './odoo-api-key/actions/read-record.js';
+import './odoo-api-key/actions/search-read-records.js';
+import './odoo-api-key/actions/search-records.js';
+import './odoo-api-key/actions/update-record.js';
+
 // -- Integration: odoo-cc
 import './odoo-cc/syncs/crm-leads.js';
 import './odoo-cc/syncs/invoices.js';
@@ -4739,6 +4759,50 @@ import './tiktok-personal/actions/init-video-upload.js';
 import './tiktok-personal/actions/list-videos.js';
 import './tiktok-personal/actions/query-videos.js';
 
+// -- Integration: todoist
+import './todoist/syncs/comments.js';
+import './todoist/syncs/labels.js';
+import './todoist/syncs/projects.js';
+import './todoist/syncs/sections.js';
+import './todoist/syncs/tasks.js';
+import './todoist/actions/archive-project.js';
+import './todoist/actions/close-task.js';
+import './todoist/actions/create-comment.js';
+import './todoist/actions/create-label.js';
+import './todoist/actions/create-project.js';
+import './todoist/actions/create-section.js';
+import './todoist/actions/create-task.js';
+import './todoist/actions/delete-comment.js';
+import './todoist/actions/delete-label.js';
+import './todoist/actions/delete-project.js';
+import './todoist/actions/delete-section.js';
+import './todoist/actions/delete-task.js';
+import './todoist/actions/filter-tasks.js';
+import './todoist/actions/get-comment.js';
+import './todoist/actions/get-label.js';
+import './todoist/actions/get-project.js';
+import './todoist/actions/get-section.js';
+import './todoist/actions/get-task.js';
+import './todoist/actions/list-comments.js';
+import './todoist/actions/list-completed-tasks-by-completion-date.js';
+import './todoist/actions/list-completed-tasks-by-due-date.js';
+import './todoist/actions/list-labels.js';
+import './todoist/actions/list-projects.js';
+import './todoist/actions/list-sections.js';
+import './todoist/actions/list-shared-labels.js';
+import './todoist/actions/list-tasks.js';
+import './todoist/actions/move-task.js';
+import './todoist/actions/quick-add-task.js';
+import './todoist/actions/remove-shared-label.js';
+import './todoist/actions/rename-shared-label.js';
+import './todoist/actions/reopen-task.js';
+import './todoist/actions/unarchive-project.js';
+import './todoist/actions/update-comment.js';
+import './todoist/actions/update-label.js';
+import './todoist/actions/update-project.js';
+import './todoist/actions/update-section.js';
+import './todoist/actions/update-task.js';
+
 // -- Integration: twilio
 import './twilio/syncs/api-keys.js';
 import './twilio/syncs/calls.js';
@@ -4893,6 +4957,40 @@ import './twitter-v2/actions/remove-bookmark.js';
 import './twitter-v2/actions/unfollow-user.js';
 import './twitter-v2/actions/unlike-tweet.js';
 import './twitter-v2/actions/update-list.js';
+
+// -- Integration: typeform
+import './typeform/syncs/forms.js';
+import './typeform/syncs/images.js';
+import './typeform/syncs/responses.js';
+import './typeform/syncs/themes.js';
+import './typeform/syncs/webhooks.js';
+import './typeform/syncs/workspaces.js';
+import './typeform/actions/create-form.js';
+import './typeform/actions/create-image.js';
+import './typeform/actions/create-theme.js';
+import './typeform/actions/create-webhook.js';
+import './typeform/actions/create-workspace.js';
+import './typeform/actions/delete-form.js';
+import './typeform/actions/delete-image.js';
+import './typeform/actions/delete-responses.js';
+import './typeform/actions/delete-theme.js';
+import './typeform/actions/delete-webhook.js';
+import './typeform/actions/delete-workspace.js';
+import './typeform/actions/get-form.js';
+import './typeform/actions/get-image.js';
+import './typeform/actions/get-theme.js';
+import './typeform/actions/get-webhook.js';
+import './typeform/actions/get-workspace.js';
+import './typeform/actions/list-forms.js';
+import './typeform/actions/list-images.js';
+import './typeform/actions/list-responses.js';
+import './typeform/actions/list-themes.js';
+import './typeform/actions/list-webhooks.js';
+import './typeform/actions/list-workspaces.js';
+import './typeform/actions/patch-form.js';
+import './typeform/actions/update-form.js';
+import './typeform/actions/update-theme.js';
+import './typeform/actions/update-workspace.js';
 
 // -- Integration: ukg-pro
 import './ukg-pro/syncs/unified-employees.js';
