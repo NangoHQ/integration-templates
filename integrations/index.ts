@@ -2871,6 +2871,16 @@ import './microsoft-teams/actions/remove-team-member.js';
 import './microsoft-teams/actions/reply-to-channel-message.js';
 import './microsoft-teams/actions/update-channel.js';
 
+// -- Integration: millionverifier
+import './millionverifier/syncs/bulk-files.js';
+import './millionverifier/actions/delete-bulk-file.js';
+import './millionverifier/actions/download-bulk-file-report.js';
+import './millionverifier/actions/get-bulk-file-info.js';
+import './millionverifier/actions/get-credits.js';
+import './millionverifier/actions/list-bulk-files.js';
+import './millionverifier/actions/stop-bulk-file.js';
+import './millionverifier/actions/verify-email.js';
+
 // -- Integration: mixpanel
 import './mixpanel/syncs/annotations.js';
 import './mixpanel/syncs/events.js';
