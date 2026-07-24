@@ -1,0 +1,98 @@
+{
+  "input": {
+    "id": "10e0d9a"
+  },
+  "output": {
+    "id": "10e0d9a",
+    "title": "Skype call with Lennert Rossler",
+    "description": "We will call you on your cell",
+    "type": "CallEvent",
+    "starts_at": "2026-04-17T03:36:46.000Z",
+    "ends_at": "2026-04-17T04:06:46.000Z",
+    "cancelled": false,
+    "job": {
+      "shortcode": "9CD658E13E",
+      "title": "Account Executive"
+    },
+    "members": [
+      {
+        "id": "1f3961",
+        "name": "Natalie Sung",
+        "status": "accepted"
+      }
+    ],
+    "candidate": {
+      "id": "27270276",
+      "name": "Lennert Rossler"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/events/10e0d9a": {
+        "response": {
+          "id": "10e0d9a",
+          "title": "Skype call with Lennert Rossler",
+          "description": "We will call you on your cell",
+          "type": "CallEvent",
+          "starts_at": "2026-04-17T03:36:46.000Z",
+          "ends_at": "2026-04-17T04:06:46.000Z",
+          "cancelled": false,
+          "job": {
+            "shortcode": "9CD658E13E",
+            "title": "Account Executive"
+          },
+          "members": [
+            {
+              "id": "1f3961",
+              "name": "Natalie Sung",
+              "type": "Member",
+              "status": "accepted"
+            }
+          ],
+          "candidate": {
+            "id": "27270276",
+            "name": "Lennert Rossler"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:45:26 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1939",
+          "x-ratelimit-reset": "1784839564",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "4",
+          "x-rate-limit-reset": "1784839536",
+          "etag": "W/\"fe5db6a6365973c2124d1a24ed1695bb\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "0e2de0e5-daf6-95c8-b7d9-e2f62190e847",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "_workable_visitor=BAhJIilhYzAzYmI0OS1lNDYyLTQ3NzgtYTBlMS00YjQzZGZjNmY1MjAGOgZFRg%3D%3D--f163df07755dc50648adbeb6f43fc94142d36ee3; domain=workable.com; path=/; expires=Mon, 23 Jul 2046 20:45:26 GMT; secure, wmc=%7B%22cookie_id%22%3A%22ff8badb0-c057-4f64-8395-2dd447a62df6%22%7D; domain=.workable.com; path=/; expires=Mon, 23 Jul 2046 20:45:26 GMT; secure, __cf_bm=wmuceDAU_HF8Sjct7kXtsy2q9hthl8McChfW54iURLA-1784839526.313764-1.0.1.1-tjENLKpW1Bt8qnCsk2Uh3aDs1jtd9UlNJgHfpG3OEONyYwro1H488S3Fdx.bzqKvpsvTzQkklbna1ohZ3kw4wiHl1mQ6o1Kx4J4DpJCiPIpLZiUcpdrU9jp4yLU3zhQV; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:15:26 GMT",
+          "x-kb": "false",
+          "cf-ray": "a1fd875f78271f9b-PDX"
+        },
+        "hash": "ea5c0c0a82417fd4e27b8a409fa64f6d4220304c",
+        "request": {}
+      }
+    }
+  }
+}

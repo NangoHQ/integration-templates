@@ -1,0 +1,456 @@
+{
+  "input": {},
+  "output": {
+    "nodes": [
+      {
+        "id": "19ff2e",
+        "parent_id": "19ff10",
+        "direct_reports_count": 2,
+        "content": {
+          "id": "19ff2e",
+          "name": "Farrell, Imogene",
+          "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/women/7.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=2ebe32ab42bf090b649027508cef06954cca2b71d5ad1bba18e94d698d33795f&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+          "initials": "IF",
+          "title": "CTO",
+          "state": "published",
+          "department": "Engineering",
+          "entity": "London Office",
+          "email": "imogene_farrell@sampleemployee.com",
+          "employee_number": "12",
+          "hire_date": "2022-09-16T00:00:00.000Z",
+          "manager": "Manoj, Ash"
+        }
+      },
+      {
+        "id": "19ff32",
+        "parent_id": "19ff10",
+        "direct_reports_count": 4,
+        "content": {
+          "id": "19ff32",
+          "name": "Johns, Ephraim",
+          "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/men/5.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=4df3bdb861ff38b28958b320932e09f646ed1d0ed1386395f67f8a88260cdd7b&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+          "initials": "EJ",
+          "title": "COO",
+          "state": "published",
+          "department": "Commercial",
+          "entity": "London Office",
+          "email": "ephraim_johns@sampleemployee.com",
+          "employee_number": "11",
+          "hire_date": "2022-09-16T00:00:00.000Z",
+          "manager": "Manoj, Ash"
+        }
+      },
+      {
+        "id": "19ff10",
+        "direct_reports_count": 4,
+        "content": {
+          "id": "19ff10",
+          "name": "Manoj, Ash",
+          "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/men/3.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=543337f9a1b8f400719ce4231dd30fbcc3e252f4c9cd0291facef79282d5e462&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+          "initials": "AM",
+          "title": "CEO",
+          "state": "published",
+          "entity": "Boston HQ",
+          "email": "ash_manoj@sampleemployee.com",
+          "employee_number": "8",
+          "hire_date": "2022-03-19T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "19ff7e",
+        "direct_reports_count": 0,
+        "content": {
+          "id": "19ff7e",
+          "name": "SeedEmployee, Nango",
+          "initials": "NS",
+          "title": "Senior QA Engineer",
+          "state": "published",
+          "email": "nango.seedemployee@example.com",
+          "employee_number": "74",
+          "hire_date": "2026-01-01T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "19ff7f",
+        "direct_reports_count": 0,
+        "content": {
+          "id": "19ff7f",
+          "name": "SeedEmployeeTwo, Nango",
+          "initials": "NS",
+          "title": "QA Engineer II",
+          "state": "published",
+          "email": "nango.seedemployeetwo@example.com",
+          "employee_number": "75",
+          "hire_date": "2026-01-01T00:00:00.000Z"
+        }
+      },
+      {
+        "id": "19ff42",
+        "parent_id": "19ff10",
+        "direct_reports_count": 3,
+        "content": {
+          "id": "19ff42",
+          "name": "Turner, Johnathon",
+          "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/men/4.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=056ab10e512b916f391af283209868d79d6e2edf88feefb68b23c6fd129e121b&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+          "initials": "JT",
+          "title": "CFO",
+          "state": "published",
+          "department": "Finance",
+          "entity": "Boston HQ",
+          "email": "johnathon_turner@sampleemployee.com",
+          "employee_number": "9",
+          "hire_date": "2022-06-17T00:00:00.000Z",
+          "manager": "Manoj, Ash"
+        }
+      },
+      {
+        "id": "19ff40",
+        "parent_id": "19ff10",
+        "direct_reports_count": 2,
+        "content": {
+          "id": "19ff40",
+          "name": "Will, Luz",
+          "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/women/6.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=a59717f1aa14aa0651bc5f3ae1e0f5abad394f54f002499007f07b527becb82a&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+          "initials": "LW",
+          "title": "CHRO ",
+          "state": "published",
+          "department": "HR",
+          "entity": "London Office",
+          "email": "luz_will@sampleemployee.com",
+          "employee_number": "10",
+          "hire_date": "2022-09-16T00:00:00.000Z",
+          "manager": "Manoj, Ash"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/employees/orgchart": {
+        "response": [
+          {
+            "id": "19ff2e",
+            "type": "employee",
+            "content": {
+              "id": "19ff2e",
+              "name": "Farrell, Imogene",
+              "initials": "IF",
+              "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/women/7.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=2ebe32ab42bf090b649027508cef06954cca2b71d5ad1bba18e94d698d33795f&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+              "title": "CTO",
+              "state": "published",
+              "department": "Engineering",
+              "entity": "London Office",
+              "email": "imogene_farrell@sampleemployee.com",
+              "employee_number": "12",
+              "hire_date": "2022-09-16T00:00:00.000Z",
+              "manager": "Manoj, Ash",
+              "minimal_employee": {
+                "id": 1702492,
+                "name": "Farrell, Imogene",
+                "firstname": "Imogene",
+                "lastname": "Farrell",
+                "preferred_name": null,
+                "informal_name": "Imogene Farrell",
+                "legal_name": "Farrell, Imogene",
+                "job_title": "CTO",
+                "initials": "IF",
+                "email": "imogene_farrell@sampleemployee.com",
+                "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/women/7.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=2ebe32ab42bf090b649027508cef06954cca2b71d5ad1bba18e94d698d33795f&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+                "state": "published",
+                "is_on_leave": null,
+                "department": {
+                  "id": 599719,
+                  "name": "Engineering"
+                },
+                "legal_entity": {
+                  "id": "fc49c738-c167-4c63-a537-9e52cfbc89a0",
+                  "name": "UK Entity | London, United Kingdom | London Office"
+                },
+                "sample": true,
+                "can_link_to_profile": true
+              }
+            },
+            "parent_id": "19ff10",
+            "direct_reports_count": 2
+          },
+          {
+            "id": "19ff32",
+            "type": "employee",
+            "content": {
+              "id": "19ff32",
+              "name": "Johns, Ephraim",
+              "initials": "EJ",
+              "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/men/5.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=4df3bdb861ff38b28958b320932e09f646ed1d0ed1386395f67f8a88260cdd7b&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+              "title": "COO",
+              "state": "published",
+              "department": "Commercial",
+              "entity": "London Office",
+              "email": "ephraim_johns@sampleemployee.com",
+              "employee_number": "11",
+              "hire_date": "2022-09-16T00:00:00.000Z",
+              "manager": "Manoj, Ash",
+              "minimal_employee": {
+                "id": 1702496,
+                "name": "Johns, Ephraim",
+                "firstname": "Ephraim",
+                "lastname": "Johns",
+                "preferred_name": null,
+                "informal_name": "Ephraim Johns",
+                "legal_name": "Johns, Ephraim",
+                "job_title": "COO",
+                "initials": "EJ",
+                "email": "ephraim_johns@sampleemployee.com",
+                "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/men/5.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=4df3bdb861ff38b28958b320932e09f646ed1d0ed1386395f67f8a88260cdd7b&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+                "state": "published",
+                "is_on_leave": null,
+                "department": {
+                  "id": 599711,
+                  "name": "Commercial"
+                },
+                "legal_entity": {
+                  "id": "fc49c738-c167-4c63-a537-9e52cfbc89a0",
+                  "name": "UK Entity | London, United Kingdom | London Office"
+                },
+                "sample": true,
+                "can_link_to_profile": true
+              }
+            },
+            "parent_id": "19ff10",
+            "direct_reports_count": 4
+          },
+          {
+            "id": "19ff10",
+            "type": "employee",
+            "content": {
+              "id": "19ff10",
+              "name": "Manoj, Ash",
+              "initials": "AM",
+              "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/men/3.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=543337f9a1b8f400719ce4231dd30fbcc3e252f4c9cd0291facef79282d5e462&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+              "title": "CEO",
+              "state": "published",
+              "entity": "Boston HQ",
+              "email": "ash_manoj@sampleemployee.com",
+              "employee_number": "8",
+              "hire_date": "2022-03-19T00:00:00.000Z",
+              "minimal_employee": {
+                "id": 1702462,
+                "name": "Manoj, Ash",
+                "firstname": "Ash",
+                "lastname": "Manoj",
+                "preferred_name": null,
+                "informal_name": "Ash Manoj",
+                "legal_name": "Manoj, Ash",
+                "job_title": "CEO",
+                "initials": "AM",
+                "email": "ash_manoj@sampleemployee.com",
+                "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/men/3.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=543337f9a1b8f400719ce4231dd30fbcc3e252f4c9cd0291facef79282d5e462&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+                "state": "published",
+                "is_on_leave": null,
+                "department": null,
+                "legal_entity": {
+                  "id": "968c0af9-cc91-4a75-9f79-c6a5ee17d1b4",
+                  "name": "US Entity | Boston, Massachusetts, United States | Boston HQ"
+                },
+                "sample": true,
+                "can_link_to_profile": true
+              }
+            },
+            "parent_id": null,
+            "direct_reports_count": 4
+          },
+          {
+            "id": "19ff7e",
+            "type": "employee",
+            "content": {
+              "id": "19ff7e",
+              "name": "SeedEmployee, Nango",
+              "initials": "NS",
+              "title": "Senior QA Engineer",
+              "state": "published",
+              "email": "nango.seedemployee@example.com",
+              "employee_number": "74",
+              "hire_date": "2026-01-01T00:00:00.000Z",
+              "minimal_employee": {
+                "id": 1702572,
+                "name": "SeedEmployee, Nango",
+                "firstname": "Nango",
+                "lastname": "SeedEmployee",
+                "preferred_name": null,
+                "informal_name": "Nango SeedEmployee",
+                "legal_name": "SeedEmployee, Nango",
+                "job_title": "Senior QA Engineer",
+                "initials": "NS",
+                "email": "nango.seedemployee@example.com",
+                "state": "published",
+                "is_on_leave": null,
+                "department": null,
+                "legal_entity": null,
+                "sample": false,
+                "can_link_to_profile": true
+              }
+            },
+            "parent_id": null,
+            "direct_reports_count": 0
+          },
+          {
+            "id": "19ff7f",
+            "type": "employee",
+            "content": {
+              "id": "19ff7f",
+              "name": "SeedEmployeeTwo, Nango",
+              "initials": "NS",
+              "title": "QA Engineer II",
+              "state": "published",
+              "email": "nango.seedemployeetwo@example.com",
+              "employee_number": "75",
+              "hire_date": "2026-01-01T00:00:00.000Z",
+              "minimal_employee": {
+                "id": 1702573,
+                "name": "SeedEmployeeTwo, Nango",
+                "firstname": "Nango",
+                "lastname": "SeedEmployeeTwo",
+                "preferred_name": null,
+                "informal_name": "Nango SeedEmployeeTwo",
+                "legal_name": "SeedEmployeeTwo, Nango",
+                "job_title": "QA Engineer II",
+                "initials": "NS",
+                "email": "nango.seedemployeetwo@example.com",
+                "state": "published",
+                "is_on_leave": null,
+                "department": null,
+                "legal_entity": null,
+                "sample": false,
+                "can_link_to_profile": true
+              }
+            },
+            "parent_id": null,
+            "direct_reports_count": 0
+          },
+          {
+            "id": "19ff42",
+            "type": "employee",
+            "content": {
+              "id": "19ff42",
+              "name": "Turner, Johnathon",
+              "initials": "JT",
+              "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/men/4.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=056ab10e512b916f391af283209868d79d6e2edf88feefb68b23c6fd129e121b&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+              "title": "CFO",
+              "state": "published",
+              "department": "Finance",
+              "entity": "Boston HQ",
+              "email": "johnathon_turner@sampleemployee.com",
+              "employee_number": "9",
+              "hire_date": "2022-06-17T00:00:00.000Z",
+              "manager": "Manoj, Ash",
+              "minimal_employee": {
+                "id": 1702512,
+                "name": "Turner, Johnathon",
+                "firstname": "Johnathon",
+                "lastname": "Turner",
+                "preferred_name": null,
+                "informal_name": "Johnathon Turner",
+                "legal_name": "Turner, Johnathon",
+                "job_title": "CFO",
+                "initials": "JT",
+                "email": "johnathon_turner@sampleemployee.com",
+                "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/men/4.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=056ab10e512b916f391af283209868d79d6e2edf88feefb68b23c6fd129e121b&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+                "state": "published",
+                "is_on_leave": null,
+                "department": {
+                  "id": 599720,
+                  "name": "Finance"
+                },
+                "legal_entity": {
+                  "id": "968c0af9-cc91-4a75-9f79-c6a5ee17d1b4",
+                  "name": "US Entity | Boston, Massachusetts, United States | Boston HQ"
+                },
+                "sample": true,
+                "can_link_to_profile": true
+              }
+            },
+            "parent_id": "19ff10",
+            "direct_reports_count": 3
+          },
+          {
+            "id": "19ff40",
+            "type": "employee",
+            "content": {
+              "id": "19ff40",
+              "name": "Will, Luz",
+              "initials": "LW",
+              "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/women/6.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=a59717f1aa14aa0651bc5f3ae1e0f5abad394f54f002499007f07b527becb82a&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+              "title": "CHRO ",
+              "state": "published",
+              "department": "HR",
+              "entity": "London Office",
+              "email": "luz_will@sampleemployee.com",
+              "employee_number": "10",
+              "hire_date": "2022-09-16T00:00:00.000Z",
+              "manager": "Manoj, Ash",
+              "minimal_employee": {
+                "id": 1702510,
+                "name": "Will, Luz",
+                "firstname": "Luz",
+                "lastname": "Will",
+                "preferred_name": null,
+                "informal_name": "Luz Will",
+                "legal_name": "Will, Luz",
+                "job_title": "CHRO ",
+                "initials": "LW",
+                "email": "luz_will@sampleemployee.com",
+                "avatar": "https://production-hris.s3.us-east-1.amazonaws.com/demo/avatars/women/6.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA27KPZUMHLRCP5U4M%2F20260720%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260720T000000Z&X-Amz-Expires=604800&X-Amz-Signature=a59717f1aa14aa0651bc5f3ae1e0f5abad394f54f002499007f07b527becb82a&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+                "state": "published",
+                "is_on_leave": null,
+                "department": {
+                  "id": 599721,
+                  "name": "HR"
+                },
+                "legal_entity": {
+                  "id": "fc49c738-c167-4c63-a537-9e52cfbc89a0",
+                  "name": "UK Entity | London, United Kingdom | London Office"
+                },
+                "sample": true,
+                "can_link_to_profile": true
+              }
+            },
+            "parent_id": "19ff10",
+            "direct_reports_count": 2
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:49:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.workable.com/; report-uri https://browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pubcbe8d2ef0966e8645a91099cfac490bb&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=%40http.headers.cfray%3Aa1fd8c1eee65dab7",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1913",
+          "x-ratelimit-reset": "1784839746",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "9",
+          "x-rate-limit-reset": "1784839730",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd8c1eee65dab7-PDX"
+        },
+        "hash": "39d6359faea3a7944b45b588bcb7558469162454",
+        "request": {}
+      }
+    }
+  }
+}

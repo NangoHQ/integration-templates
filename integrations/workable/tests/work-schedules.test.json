@@ -1,0 +1,329 @@
+{
+  "nango": {
+    "batchSave": {
+      "WorkSchedule": [
+        {
+          "id": "66e8",
+          "name": "Full time | 9:00 AM - 6:00 PM",
+          "status": "active",
+          "work_days": [
+            {
+              "day_of_week": "monday",
+              "work_hours": "8.00",
+              "break_duration": "01:00",
+              "work_intervals": [
+                {
+                  "from_time": "09:00",
+                  "to_time": "18:00"
+                }
+              ],
+              "break_intervals": []
+            },
+            {
+              "day_of_week": "tuesday",
+              "work_hours": "8.00",
+              "break_duration": "01:00",
+              "work_intervals": [
+                {
+                  "from_time": "09:00",
+                  "to_time": "18:00"
+                }
+              ],
+              "break_intervals": []
+            },
+            {
+              "day_of_week": "wednesday",
+              "work_hours": "8.00",
+              "break_duration": "01:00",
+              "work_intervals": [
+                {
+                  "from_time": "09:00",
+                  "to_time": "18:00"
+                }
+              ],
+              "break_intervals": []
+            },
+            {
+              "day_of_week": "thursday",
+              "work_hours": "8.00",
+              "break_duration": "01:00",
+              "work_intervals": [
+                {
+                  "from_time": "09:00",
+                  "to_time": "18:00"
+                }
+              ],
+              "break_intervals": []
+            },
+            {
+              "day_of_week": "friday",
+              "work_hours": "8.00",
+              "break_duration": "01:00",
+              "work_intervals": [
+                {
+                  "from_time": "09:00",
+                  "to_time": "18:00"
+                }
+              ],
+              "break_intervals": []
+            }
+          ],
+          "week_starts_on": "monday",
+          "work_hours": "40.00"
+        },
+        {
+          "id": "66e9",
+          "name": "Part time | 9:00 AM - 1:30 PM",
+          "status": "active",
+          "work_days": [
+            {
+              "day_of_week": "monday",
+              "work_hours": "4.00",
+              "break_duration": "00:30",
+              "work_intervals": [
+                {
+                  "from_time": "09:00",
+                  "to_time": "13:30"
+                }
+              ],
+              "break_intervals": []
+            },
+            {
+              "day_of_week": "tuesday",
+              "work_hours": "4.00",
+              "break_duration": "00:30",
+              "work_intervals": [
+                {
+                  "from_time": "09:00",
+                  "to_time": "13:30"
+                }
+              ],
+              "break_intervals": []
+            },
+            {
+              "day_of_week": "wednesday",
+              "work_hours": "4.00",
+              "break_duration": "00:30",
+              "work_intervals": [
+                {
+                  "from_time": "09:00",
+                  "to_time": "13:30"
+                }
+              ],
+              "break_intervals": []
+            },
+            {
+              "day_of_week": "thursday",
+              "work_hours": "4.00",
+              "break_duration": "00:30",
+              "work_intervals": [
+                {
+                  "from_time": "09:00",
+                  "to_time": "13:30"
+                }
+              ],
+              "break_intervals": []
+            },
+            {
+              "day_of_week": "friday",
+              "work_hours": "4.00",
+              "break_duration": "00:30",
+              "work_intervals": [
+                {
+                  "from_time": "09:00",
+                  "to_time": "13:30"
+                }
+              ],
+              "break_intervals": []
+            }
+          ],
+          "week_starts_on": "monday",
+          "work_hours": "20.00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "WorkSchedule": []
+    }
+  },
+  "api": {
+    "get": {
+      "/spi/v3/work_schedules": {
+        "response": [
+          {
+            "id": "66e8",
+            "name": "Full time | 9:00 AM - 6:00 PM",
+            "status": "active",
+            "work_days": [
+              {
+                "day_of_week": "monday",
+                "work_hours": "8.00",
+                "break_duration": "01:00",
+                "work_intervals": [
+                  {
+                    "to_time": "18:00",
+                    "from_time": "09:00"
+                  }
+                ],
+                "break_intervals": []
+              },
+              {
+                "day_of_week": "tuesday",
+                "work_hours": "8.00",
+                "break_duration": "01:00",
+                "work_intervals": [
+                  {
+                    "to_time": "18:00",
+                    "from_time": "09:00"
+                  }
+                ],
+                "break_intervals": []
+              },
+              {
+                "day_of_week": "wednesday",
+                "work_hours": "8.00",
+                "break_duration": "01:00",
+                "work_intervals": [
+                  {
+                    "to_time": "18:00",
+                    "from_time": "09:00"
+                  }
+                ],
+                "break_intervals": []
+              },
+              {
+                "day_of_week": "thursday",
+                "work_hours": "8.00",
+                "break_duration": "01:00",
+                "work_intervals": [
+                  {
+                    "to_time": "18:00",
+                    "from_time": "09:00"
+                  }
+                ],
+                "break_intervals": []
+              },
+              {
+                "day_of_week": "friday",
+                "work_hours": "8.00",
+                "break_duration": "01:00",
+                "work_intervals": [
+                  {
+                    "to_time": "18:00",
+                    "from_time": "09:00"
+                  }
+                ],
+                "break_intervals": []
+              }
+            ],
+            "week_starts_on": "monday",
+            "work_hours": "40.00",
+            "sample": true
+          },
+          {
+            "id": "66e9",
+            "name": "Part time | 9:00 AM - 1:30 PM",
+            "status": "active",
+            "work_days": [
+              {
+                "day_of_week": "monday",
+                "work_hours": "4.00",
+                "break_duration": "00:30",
+                "work_intervals": [
+                  {
+                    "to_time": "13:30",
+                    "from_time": "09:00"
+                  }
+                ],
+                "break_intervals": []
+              },
+              {
+                "day_of_week": "tuesday",
+                "work_hours": "4.00",
+                "break_duration": "00:30",
+                "work_intervals": [
+                  {
+                    "to_time": "13:30",
+                    "from_time": "09:00"
+                  }
+                ],
+                "break_intervals": []
+              },
+              {
+                "day_of_week": "wednesday",
+                "work_hours": "4.00",
+                "break_duration": "00:30",
+                "work_intervals": [
+                  {
+                    "to_time": "13:30",
+                    "from_time": "09:00"
+                  }
+                ],
+                "break_intervals": []
+              },
+              {
+                "day_of_week": "thursday",
+                "work_hours": "4.00",
+                "break_duration": "00:30",
+                "work_intervals": [
+                  {
+                    "to_time": "13:30",
+                    "from_time": "09:00"
+                  }
+                ],
+                "break_intervals": []
+              },
+              {
+                "day_of_week": "friday",
+                "work_hours": "4.00",
+                "break_duration": "00:30",
+                "work_intervals": [
+                  {
+                    "to_time": "13:30",
+                    "from_time": "09:00"
+                  }
+                ],
+                "break_intervals": []
+              }
+            ],
+            "week_starts_on": "monday",
+            "work_hours": "20.00",
+            "sample": true
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:40:34 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.workable.com/; report-uri https://browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pubcbe8d2ef0966e8645a91099cfac490bb&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=%40http.headers.cfray%3Aa1fd803c7ee40d87",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1962",
+          "x-ratelimit-reset": "1784839264",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "4",
+          "x-rate-limit-reset": "1784839244",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=DNl6S3rvE5mRRE2MPw8CpKu3y97HPgCd9SjHg3HvJ40-1784839233.995514-1.0.1.1-gVVgeZ6w4OAM_G1F3tKOEfziT80ohNQq1P1gEHjaOkZxukq3LXXRDvrZkEhmxV5a972_r6wZdbYJDmMzFR0HXym7WB3zlMKqxKAmLFQgq1QTwTP8fwOgsvseRdii3Bqt; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:10:34 GMT",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd803c7ee40d87-PDX"
+        },
+        "hash": "19c4c3182745f9b55d6c58434dac7263e0648d1d",
+        "request": {}
+      }
+    }
+  }
+}

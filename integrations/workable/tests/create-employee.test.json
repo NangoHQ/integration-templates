@@ -1,0 +1,112 @@
+{
+  "input": {
+    "member_id": "1f395d",
+    "state": "draft",
+    "employee": {
+      "firstname": "Nango",
+      "lastname": "Test",
+      "work_email": "nango.seed.dryrun.2749@example.com",
+      "job_title": "QA Engineer",
+      "start_date": "2026-07-23T00:00:00.000Z",
+      "employment_group": [
+        {
+          "is_primary": true,
+          "value": {
+            "employment_effective_date": "2026-07-23T00:00:00.000Z",
+            "employment_status": "employement_type_full_time"
+          }
+        }
+      ]
+    }
+  },
+  "output": {
+    "id": "19ffa2",
+    "firstname": "Nango",
+    "lastname": "Test",
+    "start_date": "2026-07-23T00:00:00.000Z",
+    "state": "draft",
+    "employee_number": "77",
+    "job_title": "QA Engineer",
+    "work_email": "nango.seed.dryrun.2749@example.com"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/spi/v3/employees": {
+        "response": {
+          "id": "19ffa2",
+          "firstname": "Nango",
+          "lastname": "Test",
+          "email": null,
+          "start_date": "2026-07-23T00:00:00.000Z",
+          "state": "draft",
+          "employee_number": "77",
+          "phone": null,
+          "job_title": "QA Engineer",
+          "manager_id": null,
+          "department_id": null,
+          "template_id": null,
+          "division_id": null,
+          "candidate_id": null,
+          "legal_entity_id": null,
+          "work_schedule_id": null,
+          "work_email": "nango.seed.dryrun.2749@example.com",
+          "preferred_name": null,
+          "onboarding_member_id": null,
+          "sample": false,
+          "holiday_calendar_id": null,
+          "avatar_processed": false,
+          "status_semantic_type": "status_draft",
+          "reporting_line": [],
+          "birthdate": null,
+          "cache": {
+            "employee_values_map": {}
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:44:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "605",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1968",
+          "x-ratelimit-reset": "1784839504",
+          "etag": "W/\"25d-jwTuA3ikDUtTy+88zkN5jvgsTpo\""
+        },
+        "hash": "5172a9a0ad01ffb8d3f356d9c6583ec496c878df",
+        "request": {
+          "data": {
+            "member_id": "1f395d",
+            "state": "draft",
+            "employee": {
+              "firstname": "Nango",
+              "lastname": "Test",
+              "work_email": "nango.seed.dryrun.2749@example.com",
+              "job_title": "QA Engineer",
+              "start_date": "2026-07-23T00:00:00.000Z",
+              "employment_group": [
+                {
+                  "is_primary": true,
+                  "value": {
+                    "employment_effective_date": "2026-07-23T00:00:00.000Z",
+                    "employment_status": "employement_type_full_time"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

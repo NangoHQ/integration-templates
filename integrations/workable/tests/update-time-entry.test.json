@@ -1,0 +1,64 @@
+{
+  "input": {
+    "employee_id": "19ff54",
+    "time_entry_id": "9b51c331-b1ff-405e-a42a-5678fa05bf96",
+    "note": "Nango seed time entry A (patched again via action)"
+  },
+  "output": {
+    "uuid": "9b51c331-b1ff-405e-a42a-5678fa05bf96",
+    "clock_in_time": "2026-07-06T09:00:00.000Z",
+    "clock_out_time": "2026-07-06T17:00:00.000Z",
+    "note": "Nango seed time entry A (patched again via action)",
+    "type": "manual"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/spi/v3/time-tracking/employees/19ff54/time-entries/9b51c331-b1ff-405e-a42a-5678fa05bf96": {
+        "response": {
+          "type": "manual",
+          "clock_in_time": "2026-07-06T09:00:00.000Z",
+          "clock_out_time": "2026-07-06T17:00:00.000Z",
+          "uuid": "9b51c331-b1ff-405e-a42a-5678fa05bf96",
+          "note": "Nango seed time entry A (patched again via action)"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:45:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.workable.com/; report-uri https://browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pubcbe8d2ef0966e8645a91099cfac490bb&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=%40http.headers.cfray%3Aa1fd879b69321a0b",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1907",
+          "x-ratelimit-reset": "1784839564",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "2",
+          "x-rate-limit-reset": "1784839546",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd879b69321a0b-PDX"
+        },
+        "hash": "f88cadf46477894a650ab92f08ca1167f0330f75",
+        "request": {
+          "data": {
+            "note": "Nango seed time entry A (patched again via action)"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "input": {
+    "id": "1f395d",
+    "roles": [
+      "workable.superadmin",
+      "ats.admin",
+      "hris.admin"
+    ]
+  },
+  "output": {
+    "id": "1f395d",
+    "name": "Nango Developer",
+    "email": "api@nango.dev",
+    "roles": [
+      "ats.admin",
+      "hris.admin",
+      "workable.superadmin"
+    ],
+    "collaboration_rules": []
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/spi/v3/members": {
+        "response": {
+          "id": "1f395d",
+          "name": "Nango Developer",
+          "headline": null,
+          "email": "api@nango.dev",
+          "role": "admin",
+          "type": "Member",
+          "hris_role": "hris_admin",
+          "roles": [
+            "ats.admin",
+            "hris.admin",
+            "workable.superadmin"
+          ],
+          "collaboration_rules": [],
+          "hris_member_scope": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:46:49 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1880",
+          "x-ratelimit-reset": "1784839626",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "3",
+          "x-rate-limit-reset": "1784839619",
+          "etag": "W/\"7e05b047c8b146a478caa1bb8c144b61\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "3908e98a-a596-9237-ab40-ba416ce7b7ad",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "__cf_bm=MMobRVwviAOYcjjyLVTgqlOFOm_M2OgJKPLggcDzCDM-1784839609.0470552-1.0.1.1-Q5MOtEU5fOgLIDOnDnS2BXQ9i6pmfpAYt79AMrVkSQKv6i.r0PNbVsNrXF52WAM5f0PnsuYuFxSJjIo6twt4gp6C5Shc1vEMWapRsWuKvTkJfUd.P2A2YzVDYkJ6fzIN; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:16:49 GMT",
+          "x-kb": "false",
+          "cf-ray": "a1fd89648c20a60a-PDX"
+        },
+        "hash": "0c13f39f2cd45d3730dfa97923b146b61a7d2f35",
+        "request": {
+          "data": {
+            "id": "1f395d",
+            "roles": [
+              "workable.superadmin",
+              "ats.admin",
+              "hris.admin"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

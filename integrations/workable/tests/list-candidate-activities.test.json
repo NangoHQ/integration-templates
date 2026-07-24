@@ -1,0 +1,259 @@
+{
+  "input": {
+    "candidate_id": "272731b1"
+  },
+  "output": {
+    "activities": [
+      {
+        "action": "uploaded",
+        "created_at": "2026-07-23T19:21:46.175Z",
+        "updated_at": "2026-07-23T19:21:46.175Z",
+        "id": "9075283b",
+        "stage_name": "Sourced",
+        "action_stage": {
+          "id": 5272269,
+          "name": "Sourced"
+        }
+      },
+      {
+        "action": "interview",
+        "created_at": "2026-07-23T19:23:20.411Z",
+        "updated_at": "2026-07-23T19:23:20.411Z",
+        "id": "907533be",
+        "stage_name": "Sourced",
+        "action_stage": {
+          "id": 5272269,
+          "name": "Sourced"
+        },
+        "target_stage": {
+          "id": 5272273,
+          "name": "Interview"
+        },
+        "member": {
+          "id": "1f395d",
+          "name": "Nango Developer"
+        }
+      },
+      {
+        "action": "assessment",
+        "created_at": "2026-07-23T20:49:01.179Z",
+        "updated_at": "2026-07-23T20:49:01.179Z",
+        "id": "9077450a",
+        "stage_name": "Interview",
+        "action_stage": {
+          "id": 5272273,
+          "name": "Interview"
+        },
+        "target_stage": {
+          "id": 5272272,
+          "name": "Assessment"
+        },
+        "member": {
+          "id": "1f395d",
+          "name": "Nango Developer"
+        }
+      },
+      {
+        "action": "interview",
+        "created_at": "2026-07-23T20:53:56.010Z",
+        "updated_at": "2026-07-23T20:53:56.010Z",
+        "id": "90775b43",
+        "stage_name": "Assessment",
+        "action_stage": {
+          "id": 5272272,
+          "name": "Assessment"
+        },
+        "target_stage": {
+          "id": 5272273,
+          "name": "Interview"
+        },
+        "member": {
+          "id": "1f395d",
+          "name": "Nango Developer"
+        }
+      },
+      {
+        "action": "assessment",
+        "created_at": "2026-07-23T20:54:21.084Z",
+        "updated_at": "2026-07-23T20:54:21.084Z",
+        "id": "90775cff",
+        "stage_name": "Interview",
+        "action_stage": {
+          "id": 5272273,
+          "name": "Interview"
+        },
+        "target_stage": {
+          "id": 5272272,
+          "name": "Assessment"
+        },
+        "member": {
+          "id": "1f395d",
+          "name": "Nango Developer"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/candidates/272731b1/activities": {
+        "response": {
+          "activities": [
+            {
+              "id": "9075283b",
+              "action": "uploaded",
+              "stage_name": "Sourced",
+              "action_stage": {
+                "id": 5272269,
+                "identifier": "50779f",
+                "name": "Sourced",
+                "slug": "sourced"
+              },
+              "target_stage": null,
+              "created_at": "2026-07-23T19:21:46.175Z",
+              "updated_at": "2026-07-23T19:21:46.175Z",
+              "body": null
+            },
+            {
+              "id": "907533be",
+              "action": "interview",
+              "stage_name": "Sourced",
+              "action_stage": {
+                "id": 5272269,
+                "identifier": "50779f",
+                "name": "Sourced",
+                "slug": "sourced"
+              },
+              "target_stage": {
+                "id": 5272273,
+                "identifier": "5077a3",
+                "name": "Interview",
+                "slug": "interview"
+              },
+              "created_at": "2026-07-23T19:23:20.411Z",
+              "updated_at": "2026-07-23T19:23:20.411Z",
+              "member": {
+                "id": "1f395d",
+                "name": "Nango Developer",
+                "type": "Member"
+              },
+              "body": null
+            },
+            {
+              "id": "9077450a",
+              "action": "assessment",
+              "stage_name": "Interview",
+              "action_stage": {
+                "id": 5272273,
+                "identifier": "5077a3",
+                "name": "Interview",
+                "slug": "interview"
+              },
+              "target_stage": {
+                "id": 5272272,
+                "identifier": "5077a2",
+                "name": "Assessment",
+                "slug": "assessment"
+              },
+              "created_at": "2026-07-23T20:49:01.179Z",
+              "updated_at": "2026-07-23T20:49:01.179Z",
+              "member": {
+                "id": "1f395d",
+                "name": "Nango Developer",
+                "type": "Member"
+              },
+              "body": null
+            },
+            {
+              "id": "90775b43",
+              "action": "interview",
+              "stage_name": "Assessment",
+              "action_stage": {
+                "id": 5272272,
+                "identifier": "5077a2",
+                "name": "Assessment",
+                "slug": "assessment"
+              },
+              "target_stage": {
+                "id": 5272273,
+                "identifier": "5077a3",
+                "name": "Interview",
+                "slug": "interview"
+              },
+              "created_at": "2026-07-23T20:53:56.010Z",
+              "updated_at": "2026-07-23T20:53:56.010Z",
+              "member": {
+                "id": "1f395d",
+                "name": "Nango Developer",
+                "type": "Member"
+              },
+              "body": null
+            },
+            {
+              "id": "90775cff",
+              "action": "assessment",
+              "stage_name": "Interview",
+              "action_stage": {
+                "id": 5272273,
+                "identifier": "5077a3",
+                "name": "Interview",
+                "slug": "interview"
+              },
+              "target_stage": {
+                "id": 5272272,
+                "identifier": "5077a2",
+                "name": "Assessment",
+                "slug": "assessment"
+              },
+              "created_at": "2026-07-23T20:54:21.084Z",
+              "updated_at": "2026-07-23T20:54:21.084Z",
+              "member": {
+                "id": "1f395d",
+                "name": "Nango Developer",
+                "type": "Member"
+              },
+              "body": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:56:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1949",
+          "x-ratelimit-reset": "1784840174",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "1",
+          "x-rate-limit-reset": "1784840176",
+          "etag": "W/\"60e73705304ec127845675e64243a5bd\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "daa12260-1074-96f8-9669-c214a14e6bfb",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "<redacted>",
+          "x-kb": "false",
+          "cf-ray": "a1fd9701bb741a0b-PDX"
+        },
+        "hash": "16359632cb1dd673e50df9f5efc0853845e9eef0",
+        "request": {}
+      }
+    }
+  }
+}
