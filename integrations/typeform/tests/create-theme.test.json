@@ -1,0 +1,114 @@
+{
+  "input": {
+    "name": "Test Theme",
+    "font": "Karla",
+    "colors": {
+      "question": "#FFFFFF",
+      "answer": "#4FB0AE",
+      "button": "#4FB0AE",
+      "background": "#000000"
+    },
+    "fields": {
+      "alignment": "left",
+      "font_size": "medium"
+    },
+    "screens": {
+      "alignment": "center",
+      "font_size": "small"
+    }
+  },
+  "output": {
+    "id": "g7Eyke8u",
+    "name": "Test Theme",
+    "font": "Karla",
+    "colors": {
+      "question": "#FFFFFF",
+      "answer": "#4FB0AE",
+      "button": "#4FB0AE",
+      "background": "#000000"
+    },
+    "fields": {
+      "alignment": "left",
+      "font_size": "medium"
+    },
+    "screens": {
+      "alignment": "center",
+      "font_size": "small"
+    },
+    "visibility": "private",
+    "has_transparent_button": false,
+    "rounded_corners": "small"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/themes": {
+        "response": {
+          "id": "g7Eyke8u",
+          "font": "Karla",
+          "name": "Test Theme",
+          "created_at": "2026-07-21T15:29:14.267089Z",
+          "updated_at": "2026-07-21T15:29:14.267089Z",
+          "has_transparent_button": false,
+          "colors": {
+            "question": "#FFFFFF",
+            "answer": "#4FB0AE",
+            "button": "#4FB0AE",
+            "background": "#000000"
+          },
+          "visibility": "private",
+          "screens": {
+            "font_size": "small",
+            "alignment": "center"
+          },
+          "fields": {
+            "font_size": "medium",
+            "alignment": "left"
+          },
+          "rounded_corners": "small"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 15:29:14 GMT",
+          "content-type": "application/json",
+          "content-length": "416",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "188",
+          "x-ratelimit-reset": "1784647808",
+          "etag": "W/\"1a0-/Xd03Qd3aOEk7XxiYYELm8JuSFw\""
+        },
+        "hash": "3843e1836fee78a272d92632eb14925d15933157",
+        "request": {
+          "data": {
+            "name": "Test Theme",
+            "font": "Karla",
+            "colors": {
+              "question": "#FFFFFF",
+              "answer": "#4FB0AE",
+              "button": "#4FB0AE",
+              "background": "#000000"
+            },
+            "fields": {
+              "alignment": "left",
+              "font_size": "medium"
+            },
+            "screens": {
+              "alignment": "center",
+              "font_size": "small"
+            }
+          }
+        }
+      }
+    }
+  }
+}
