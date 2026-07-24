@@ -31,4 +31,9 @@ jobs:
 
             - name: Compile
               working-directory: integrations
+              # `nango compile` type-checks every integration as a single TS program, so memory use
+              # grows with the size of this repo. Default V8 heap (~4GB) is no longer enough and the
+              # step intermittently OOMs (exit 134) even on PRs unrelated to the one that tips it over.
+              env:
+                  NODE_OPTIONS: '--max-old-space-size=8192'
               run: npx nango compile
