@@ -1,0 +1,58 @@
+{
+  "input": {
+    "file_id": "31560956",
+    "filter": "all"
+  },
+  "output": {
+    "content": "\"email\",\"quality\",\"result\",\"free\",\"role\"\r\n\"test@gmail.com\",\"bad\",\"invalid\",\"yes\",\"yes\"\r\n\"postmaster@gmail.com\",\"good\",\"ok\",\"yes\",\"yes\"\r\n\"registrytest@mailinator.com\",\"bad\",\"disposable\",\"yes\",\"no\"\r\n",
+    "content_type": "application/octet-stream"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {}
+  },
+  "api": {
+    "get": {
+      "/bulkapi/v2/download": {
+        "response": "\"email\",\"quality\",\"result\",\"free\",\"role\"\r\n\"test@gmail.com\",\"bad\",\"invalid\",\"yes\",\"yes\"\r\n\"postmaster@gmail.com\",\"good\",\"ok\",\"yes\",\"yes\"\r\n\"registrytest@mailinator.com\",\"bad\",\"disposable\",\"yes\",\"no\"\r\n",
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 23:14:44 GMT",
+          "content-type": "application/octet-stream",
+          "content-length": "197",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1998",
+          "x-ratelimit-reset": "1784848544",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "cache-control": "must-revalidate",
+          "content-disposition": "attachment; filename=\"test_emails_FULL_REPORT_MILLIONVERIFIER.COM.csv\"",
+          "expires": "0",
+          "hubuco-server": "mv",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2Bk4dN%2BabrOa0bBLhK99h0nuJXz2eej%2Fzq2F%2B4hgyXgur18hofR327Ov1kuqCjoWUcjOwr3i%2FqMVEvqRsAcDtjh7dSzcIjARR2488OvM%2FoJyCt5rc16nBXCkrszrU0VFpMnRTQfOEi53vlDW47YM%3D\"}]}",
+          "cf-ray": "a1fe6211c9daff19-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "d60d6ea3fe0544233e4186542c0478c76212d1f9",
+        "request": {
+          "params": {
+            "file_id": "31560956",
+            "filter": "all",
+            "key": "sUNP7MED5Nh53nz8SgvLvvY9e"
+          }
+        }
+      }
+    }
+  }
+}
