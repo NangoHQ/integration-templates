@@ -1,0 +1,100 @@
+{
+  "input": {
+    "content": "Nango action create task test",
+    "project_id": "6h78PW84RjxxRW8q"
+  },
+  "output": {
+    "id": "6h78WRG9MpQ5f4MH",
+    "user_id": "59820153",
+    "project_id": "6h78PW84RjxxRW8q",
+    "section_id": null,
+    "parent_id": null,
+    "added_by_uid": "59820153",
+    "assigned_by_uid": null,
+    "responsible_uid": null,
+    "labels": [],
+    "deadline": null,
+    "duration": null,
+    "is_collapsed": false,
+    "checked": false,
+    "is_deleted": false,
+    "added_at": "2026-07-21T06:04:25.324095Z",
+    "completed_at": null,
+    "completed_by_uid": null,
+    "updated_at": "2026-07-21T06:04:25.324119Z",
+    "due": null,
+    "priority": 1,
+    "child_order": 8,
+    "content": "Nango action create task test",
+    "description": "",
+    "note_count": 0,
+    "day_order": -1,
+    "goal_ids": [],
+    "completed_count": 0,
+    "postponed_count": 0
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v1/tasks": {
+        "response": {
+          "user_id": "59820153",
+          "id": "6h78WRG9MpQ5f4MH",
+          "project_id": "6h78PW84RjxxRW8q",
+          "section_id": null,
+          "parent_id": null,
+          "added_by_uid": "59820153",
+          "assigned_by_uid": null,
+          "responsible_uid": null,
+          "labels": [],
+          "deadline": null,
+          "duration": null,
+          "is_collapsed": false,
+          "checked": false,
+          "is_deleted": false,
+          "added_at": "2026-07-21T06:04:25.324095Z",
+          "completed_at": null,
+          "completed_by_uid": null,
+          "updated_at": "2026-07-21T06:04:25.324119Z",
+          "due": null,
+          "priority": 1,
+          "child_order": 8,
+          "content": "Nango action create task test",
+          "description": "",
+          "note_count": 0,
+          "day_order": -1,
+          "goal_ids": [],
+          "completed_count": 0,
+          "postponed_count": 0
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 06:04:25 GMT",
+          "content-type": "application/json",
+          "content-length": "682",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "153",
+          "x-ratelimit-reset": "1784613869",
+          "etag": "W/\"2aa-Q99kiYdB8zn96laGOPbiptWrzvU\""
+        },
+        "hash": "e970c2d671b00864de8bdf517ea1aeb0aa213e28",
+        "request": {
+          "data": {
+            "content": "Nango action create task test",
+            "project_id": "6h78PW84RjxxRW8q"
+          }
+        }
+      }
+    }
+  }
+}
