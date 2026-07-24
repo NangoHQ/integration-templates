@@ -1,0 +1,98 @@
+{
+  "input": {
+    "since": "2026-04-21T00:00:00Z",
+    "until": "2026-07-21T23:59:59Z"
+  },
+  "output": {
+    "items": [
+      {
+        "user_id": "59820153",
+        "id": "6h78Pj92jVFp2Xcq",
+        "project_id": "6h78PW84RjxxRW8q",
+        "added_by_uid": "59820153",
+        "labels": [],
+        "checked": true,
+        "is_deleted": false,
+        "added_at": "2026-07-21T05:41:53.897319Z",
+        "completed_at": "2026-07-21T06:02:09.487887Z",
+        "completed_by_uid": "59820153",
+        "updated_at": "2026-07-21T06:02:09.496839Z",
+        "priority": 1,
+        "child_order": 7,
+        "content": "Nango Seed Task - Close Test 1",
+        "description": "",
+        "note_count": 0,
+        "day_order": -1,
+        "is_collapsed": false
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/tasks/completed/by_completion_date": {
+        "response": {
+          "items": [
+            {
+              "added_at": "2026-07-21T05:41:53.897319Z",
+              "added_by_uid": "59820153",
+              "assigned_by_uid": null,
+              "checked": true,
+              "child_order": 7,
+              "completed_at": "2026-07-21T06:02:09.487887Z",
+              "completed_by_uid": "59820153",
+              "completed_count": 3,
+              "content": "Nango Seed Task - Close Test 1",
+              "day_order": -1,
+              "deadline": null,
+              "description": "",
+              "due": null,
+              "duration": null,
+              "goal_ids": [],
+              "id": "6h78Pj92jVFp2Xcq",
+              "is_collapsed": false,
+              "is_deleted": false,
+              "labels": [],
+              "note_count": 0,
+              "parent_id": null,
+              "postponed_count": 0,
+              "priority": 1,
+              "project_id": "6h78PW84RjxxRW8q",
+              "responsible_uid": null,
+              "section_id": null,
+              "updated_at": "2026-07-21T06:02:09.496839Z",
+              "user_id": "59820153"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 06:02:57 GMT",
+          "content-type": "application/json",
+          "content-length": "639",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "135",
+          "x-ratelimit-reset": "1784613808",
+          "etag": "W/\"27f-CRmMjF91rwzUoFVSNeRkkok0GQE\""
+        },
+        "hash": "ff6c760896717189a29502af63b1d0a76b6edbae",
+        "request": {
+          "params": {
+            "since": "2026-04-21T00:00:00Z",
+            "until": "2026-07-21T23:59:59Z"
+          }
+        }
+      }
+    }
+  }
+}
