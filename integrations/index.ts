@@ -3039,6 +3039,26 @@ import './notion/actions/update-database.js';
 import './notion/actions/update-page-markdown.js';
 import './notion/actions/update-page.js';
 
+// -- Integration: odoo-api-key
+import './odoo-api-key/syncs/contacts.js';
+import './odoo-api-key/syncs/crm-leads.js';
+import './odoo-api-key/syncs/invoices.js';
+import './odoo-api-key/syncs/payments.js';
+import './odoo-api-key/syncs/products.js';
+import './odoo-api-key/syncs/project-tasks.js';
+import './odoo-api-key/syncs/sale-orders.js';
+import './odoo-api-key/actions/call-method.js';
+import './odoo-api-key/actions/count-records.js';
+import './odoo-api-key/actions/create-record.js';
+import './odoo-api-key/actions/delete-record.js';
+import './odoo-api-key/actions/duplicate-record.js';
+import './odoo-api-key/actions/find-records-by-name.js';
+import './odoo-api-key/actions/get-record-fields.js';
+import './odoo-api-key/actions/read-record.js';
+import './odoo-api-key/actions/search-read-records.js';
+import './odoo-api-key/actions/search-records.js';
+import './odoo-api-key/actions/update-record.js';
+
 // -- Integration: odoo-cc
 import './odoo-cc/syncs/crm-leads.js';
 import './odoo-cc/syncs/invoices.js';
