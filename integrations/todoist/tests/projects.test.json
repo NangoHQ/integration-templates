@@ -1,0 +1,259 @@
+{
+  "nango": {
+    "batchSave": {
+      "Project": [
+        {
+          "id": "6h78Cw66XccFR4c7",
+          "name": "Inbox",
+          "color": "charcoal",
+          "is_archived": false,
+          "is_favorite": false,
+          "view_style": "list",
+          "created_at": "2026-07-21T05:06:58.273707Z",
+          "updated_at": "2026-07-21T05:06:58.273725Z",
+          "is_shared": false,
+          "is_frozen": false,
+          "is_collapsed": false,
+          "child_order": 0,
+          "default_order": 0,
+          "creator_uid": "59820153",
+          "can_assign_tasks": false,
+          "can_comment": true,
+          "inbox_project": true
+        },
+        {
+          "id": "6h78F4qq5XJrvxcc",
+          "name": "Team Setup Guide",
+          "color": "charcoal",
+          "is_archived": false,
+          "is_favorite": false,
+          "view_style": "list",
+          "created_at": "2026-07-21T05:07:51.952110Z",
+          "updated_at": "2026-07-21T05:07:51.952127Z",
+          "is_shared": true,
+          "is_frozen": false,
+          "is_collapsed": false,
+          "child_order": 1,
+          "default_order": 1,
+          "creator_uid": "59820153",
+          "can_assign_tasks": true,
+          "can_comment": true
+        },
+        {
+          "id": "6h78PW84RjxxRW8q",
+          "name": "Nango Seed - Keep",
+          "color": "charcoal",
+          "is_archived": false,
+          "is_favorite": false,
+          "view_style": "list",
+          "created_at": "2026-07-21T05:40:45.654046Z",
+          "updated_at": "2026-07-21T06:02:37.229497Z",
+          "description": "Updated description via dryrun",
+          "is_shared": false,
+          "is_frozen": false,
+          "is_collapsed": false,
+          "child_order": 5,
+          "default_order": 0,
+          "creator_uid": "59820153",
+          "can_assign_tasks": false,
+          "can_comment": true,
+          "inbox_project": false
+        },
+        {
+          "id": "6h78PXjmJfqpxmQV",
+          "name": "Nango Seed - Delete 1",
+          "color": "charcoal",
+          "is_archived": false,
+          "is_favorite": false,
+          "view_style": "list",
+          "created_at": "2026-07-21T05:41:03.739089Z",
+          "updated_at": "2026-07-21T06:03:15.787496Z",
+          "is_shared": false,
+          "is_frozen": false,
+          "is_collapsed": false,
+          "child_order": 6,
+          "default_order": 0,
+          "creator_uid": "59820153",
+          "can_assign_tasks": false,
+          "can_comment": true,
+          "inbox_project": false
+        }
+      ]
+    },
+    "batchDelete": {
+      "Project": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v1/projects": {
+        "response": {
+          "results": [
+            {
+              "id": "6h78Cw66XccFR4c7",
+              "can_assign_tasks": false,
+              "can_comment": true,
+              "child_order": 0,
+              "is_collapsed": false,
+              "color": "charcoal",
+              "creator_uid": "59820153",
+              "created_at": "2026-07-21T05:06:58.273707Z",
+              "is_archived": false,
+              "is_deleted": false,
+              "is_favorite": false,
+              "is_frozen": false,
+              "name": "Inbox",
+              "is_shared": false,
+              "updated_at": "2026-07-21T05:06:58.273725Z",
+              "view_style": "list",
+              "default_order": 0,
+              "description": "",
+              "public_access": false,
+              "public_key": "161a6cee-2bbb-43b6-84e8-b34436b8bb00",
+              "access": {
+                "visibility": "restricted",
+                "configuration": {}
+              },
+              "role": "CREATOR",
+              "goal_ids": [],
+              "parent_id": null,
+              "inbox_project": true
+            },
+            {
+              "id": "6h78F4qq5XJrvxcc",
+              "can_assign_tasks": true,
+              "can_comment": true,
+              "child_order": 1,
+              "is_collapsed": false,
+              "color": "charcoal",
+              "creator_uid": "59820153",
+              "created_at": "2026-07-21T05:07:51.952110Z",
+              "is_archived": false,
+              "is_deleted": false,
+              "is_favorite": false,
+              "is_frozen": false,
+              "name": "Team Setup Guide",
+              "is_shared": true,
+              "updated_at": "2026-07-21T05:07:51.952127Z",
+              "view_style": "list",
+              "default_order": 1,
+              "description": "",
+              "public_access": false,
+              "public_key": "76ff131c-3d88-433b-894a-00edb2ed18dd",
+              "access": {
+                "visibility": "team",
+                "configuration": {}
+              },
+              "role": "CREATOR",
+              "goal_ids": [],
+              "collaborator_role_default": "READ_WRITE",
+              "folder_id": null,
+              "is_invite_only": false,
+              "is_link_sharing_enabled": false,
+              "status": "IN_PROGRESS",
+              "workspace_id": "720666",
+              "is_pending_default_collaborator_invites": false,
+              "is_project_insights_enabled": true,
+              "parent_id": null
+            },
+            {
+              "id": "6h78PW84RjxxRW8q",
+              "can_assign_tasks": false,
+              "can_comment": true,
+              "child_order": 5,
+              "is_collapsed": false,
+              "color": "charcoal",
+              "creator_uid": "59820153",
+              "created_at": "2026-07-21T05:40:45.654046Z",
+              "is_archived": false,
+              "is_deleted": false,
+              "is_favorite": false,
+              "is_frozen": false,
+              "name": "Nango Seed - Keep",
+              "is_shared": false,
+              "updated_at": "2026-07-21T06:02:37.229497Z",
+              "view_style": "list",
+              "default_order": 0,
+              "description": "Updated description via dryrun",
+              "public_access": false,
+              "public_key": "22d98f84-4ee2-44eb-86db-9903bfa35bf1",
+              "access": {
+                "visibility": "restricted",
+                "configuration": {}
+              },
+              "role": "CREATOR",
+              "goal_ids": [],
+              "parent_id": null,
+              "inbox_project": false
+            },
+            {
+              "id": "6h78PXjmJfqpxmQV",
+              "can_assign_tasks": false,
+              "can_comment": true,
+              "child_order": 6,
+              "is_collapsed": false,
+              "color": "charcoal",
+              "creator_uid": "59820153",
+              "created_at": "2026-07-21T05:41:03.739089Z",
+              "is_archived": false,
+              "is_deleted": false,
+              "is_favorite": false,
+              "is_frozen": false,
+              "name": "Nango Seed - Delete 1",
+              "is_shared": false,
+              "updated_at": "2026-07-21T06:03:15.787496Z",
+              "view_style": "list",
+              "default_order": 0,
+              "description": "",
+              "public_access": false,
+              "public_key": "8e59011d-49aa-432c-b723-e50cda310eb1",
+              "access": {
+                "visibility": "restricted",
+                "configuration": {}
+              },
+              "role": "CREATOR",
+              "goal_ids": [],
+              "parent_id": null,
+              "inbox_project": false
+            }
+          ],
+          "next_cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 06:04:48 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "175",
+          "x-ratelimit-reset": "1784613929",
+          "vary": "Accept-Encoding",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "server": "gunicorn",
+          "set-cookie": "csrf=71a04e8fe70849358f8dcbe959cae345; Expires=Fri, 18-Jul-2036 06:04:44 GMT; Secure; Path=/; SameSite=None, tduser=v4.public.eyJ1c2VyX2lkIjogNTk4MjAxNTMsICJleHAiOiAiMjAyNi0wOC0wNFQwNjowNDo0NiswMDowMCJ9Fk1freJzgb2dWXLbW6HJmvqzyXi8FoMtEMIBV4jRswU36YzGTGOyYJOBypiyJjWrp7GEQ3JUYOLhK3Vssu8JDA; Domain=.todoist.com; Expires=Tue, 04-Aug-2026 06:04:46 GMT; Max-Age=1209600; Secure; HttpOnly; Path=/",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 38789cdd14ddea5c4c609cb0e6656396.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "k2S6imYPx-y3C3T7ACC66V-z1R6v2iN6nXZUzvEHKoLxBrP6qhfJlQ=="
+        },
+        "hash": "5c0997ce6897ca788e4dd8113934d74ffc68bc7e",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}
