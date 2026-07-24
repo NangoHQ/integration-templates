@@ -12,8 +12,11 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "nango": "0.70.9",
+    "nango": "0.71.2",
     "vitest": "4.0.15",
     "zod": "4.3.6"
+  },
+  "dependencies": {
+    "@nangohq/providers": "^0.71.2"
   }
 }
