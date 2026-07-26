@@ -1,0 +1,77 @@
+{
+  "input": {
+    "id": "nango-test-2026-07-21-k",
+    "name": "Test Subaccount",
+    "notes": "Created via Nango dryrun",
+    "custom_quota": 100
+  },
+  "output": {
+    "id": "nango-test-2026-07-21-k",
+    "name": "Test Subaccount",
+    "created_at": "2026-07-21 13:38:10.82905",
+    "status": "active",
+    "reputation": 33,
+    "sent_weekly": 0,
+    "sent_monthly": 0,
+    "sent_total": 0,
+    "custom_quota": 100
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/1.0/subaccounts/add.json": {
+        "response": {
+          "id": "nango-test-2026-07-21-k",
+          "name": "Test Subaccount",
+          "custom_quota": 100,
+          "created_at": "2026-07-21 13:38:10.82905",
+          "status": "active",
+          "sent_total": 0,
+          "sent_monthly": 0,
+          "sent_weekly": 0,
+          "reputation": 33
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 13:38:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "129",
+          "x-ratelimit-reset": "1784641118",
+          "server": "nginx",
+          "access-control-allow-methods": "POST, GET, OPTIONS",
+          "access-control-allow-headers": "Content-Type",
+          "access-control-allow-credentials": "false",
+          "vary": "Accept-Encoding",
+          "x-envoy-upstream-service-time": "84",
+          "x-envoy-decorator-operation": "mandrill-app-desired-service.mctx-mandrillapp-usw2-prd.svc.cluster.local:8090/*",
+          "x-request-id": "Self=1-6a5f7642-07655e016160960c36b3360a;Root=1-6a5f7642-09324a0b53a9b7b46d505252",
+          "x-intuit-upstream-locality-region": "us-west-2",
+          "x-spanid": "472b9499-95d0-b04b-99d9-e9cf39981de1",
+          "x-amzn-trace-id": "Self=1-6a5f7642-07655e016160960c36b3360a;Root=1-6a5f7642-09324a0b53a9b7b46d505252",
+          "intuit_tid": "Self=1-6a5f7642-07655e016160960c36b3360a;Root=1-6a5f7642-09324a0b53a9b7b46d505252"
+        },
+        "hash": "7075b1ea0235b7a1f5f34060355262c4ba5be331",
+        "request": {
+          "data": {
+            "id": "nango-test-2026-07-21-k",
+            "name": "Test Subaccount",
+            "notes": "Created via Nango dryrun",
+            "custom_quota": 100
+          }
+        }
+      }
+    }
+  }
+}
