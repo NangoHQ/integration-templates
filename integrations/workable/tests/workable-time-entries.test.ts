@@ -1,9 +1,19 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/time-entries.js';
 
+// Fixture requests were recorded against `from_date`/`to_date` computed from
+// 2026-07-24 (see request params in time-entries.test.json); pin system time
+// there so the sync computes matching dates.
+const FIXTURE_NOW = new Date('2026-07-24T12:00:00.000Z').getTime();
+
 describe('workable time-entries tests', () => {
   const models = 'TimeEntry'.split(',');
+
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.setSystemTime(FIXTURE_NOW);
+  });
 
   const createTestContext = () => {
     const nangoMock = new global.vitest.NangoSyncMock({
@@ -21,6 +31,7 @@ describe('workable time-entries tests', () => {
   afterEach(() => {
     vi.clearAllMocks();
     vi.restoreAllMocks();
+    vi.useRealTimers();
   });
 
   it('should get, map correctly the data and batchSave the result', async () => {
