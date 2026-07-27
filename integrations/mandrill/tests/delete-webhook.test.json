@@ -1,0 +1,73 @@
+{
+  "input": {
+    "id": 15
+  },
+  "output": {
+    "id": 15,
+    "url": "https://jsonplaceholder.typicode.com/posts",
+    "events": [
+      "send"
+    ],
+    "created_at": "2026-07-21 13:51:01.42558",
+    "batches_sent": 0,
+    "events_sent": 0,
+    "auth_key": "7uiJUCDC1HLKKpNXiszanw",
+    "description": "Temp webhook for delete test 4"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/1.0/webhooks/delete": {
+        "response": {
+          "id": 15,
+          "url": "https://jsonplaceholder.typicode.com/posts",
+          "description": "Temp webhook for delete test 4",
+          "created_at": "2026-07-21 13:51:01.42558",
+          "batches_sent": 0,
+          "events_sent": 0,
+          "auth_key": "7uiJUCDC1HLKKpNXiszanw",
+          "events": [
+            "send"
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 13:51:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "192",
+          "x-ratelimit-reset": "1784641916",
+          "server": "nginx",
+          "access-control-allow-methods": "POST, GET, OPTIONS",
+          "access-control-allow-headers": "Content-Type",
+          "access-control-allow-credentials": "false",
+          "vary": "Accept-Encoding",
+          "x-envoy-upstream-service-time": "78",
+          "x-envoy-decorator-operation": "mandrill-app-desired-service.mctx-mandrillapp-usw2-prd.svc.cluster.local:8090/*",
+          "x-request-id": "Self=1-6a5f794b-2ec072f620fe5dcc2e15c92b;Root=1-6a5f794b-425907fd566c53c170d4fad3",
+          "x-intuit-upstream-locality-region": "us-west-2",
+          "x-spanid": "d313380f-0e83-f9ab-06eb-035ae1a13d32",
+          "x-amzn-trace-id": "Self=1-6a5f794b-2ec072f620fe5dcc2e15c92b;Root=1-6a5f794b-425907fd566c53c170d4fad3",
+          "intuit_tid": "Self=1-6a5f794b-2ec072f620fe5dcc2e15c92b;Root=1-6a5f794b-425907fd566c53c170d4fad3"
+        },
+        "hash": "fb85d9209ebbec6b9f20cf4646c1e452516bcadc",
+        "request": {
+          "data": {
+            "id": 15
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1160 @@
+{
+  "input": {
+    "policyName": "RegistrySeedPolicy1"
+  },
+  "output": {
+    "categories": {
+      "inheritsFromBase": false,
+      "restrictions": {
+        "Promotional Compensation": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Sites that promise a potential reward for user input or activity",
+          "exceptions": {}
+        },
+        "Chat/Messaging": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Messaging clients and services",
+          "exceptions": {}
+        },
+        "Child Pornography/Abuse": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Sexual exploitation/abuse of a minor",
+          "exceptions": {}
+        },
+        "CDN/Content Servers": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Hosting of files for accelerating web sites and services",
+          "exceptions": {}
+        },
+        "Dating": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Dating, romance, matchmaking",
+          "exceptions": {}
+        },
+        "Digital Postcards": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Greeting cards",
+          "exceptions": {}
+        },
+        "Controlled Substances": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Information or promotion of illegal drugs",
+          "exceptions": {}
+        },
+        "Education": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Educational institutions, training courses and tools, and learning topics",
+          "exceptions": {}
+        },
+        "Email": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Email services",
+          "exceptions": {}
+        },
+        "General Entertainment": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "All forms of entertainment",
+          "exceptions": {}
+        },
+        "Extreme/Gruesome": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Gory, perverse, gross or horrific content",
+          "exceptions": {}
+        },
+        "Unknown": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Unknown categorization",
+          "exceptions": {}
+        },
+        "Abortion": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Abortion topic and positions for or against",
+          "exceptions": {}
+        },
+        "Ads/Analytics": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Ad networks and analytics services",
+          "exceptions": {}
+        },
+        "Adult/Mature": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Adult themes not in another more specific category. Not kid-friendly",
+          "exceptions": {}
+        },
+        "Alcohol": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Promotes alcoholic consumptions",
+          "exceptions": {}
+        },
+        "Arts/Culture": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Fine arts and museums",
+          "exceptions": {}
+        },
+        "Auctions/Classifieds": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Product or service listings from individuals",
+          "exceptions": {}
+        },
+        "Music/Audio": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Live streams or downloaded audio clips",
+          "exceptions": {}
+        },
+        "Brokerage/Trading": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Stock trading and information",
+          "exceptions": {}
+        },
+        "Business/Economy": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "General business",
+          "exceptions": {}
+        },
+        "File Storage": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Storage and sharing of files and other data",
+          "exceptions": {}
+        },
+        "Finance": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Financial institutions (banking, insurance) or related financial topics",
+          "exceptions": {}
+        },
+        "For Kids": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Family-safe sites designed for kids",
+          "exceptions": {}
+        },
+        "Forums": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Newsgroups, forums or bulletin boards that have many topics",
+          "exceptions": {}
+        },
+        "Gambling": {
+          "restriction": "WARNING",
+          "page": "defaultwarning",
+          "description": "Services or information related to gambling",
+          "exceptions": {}
+        },
+        "Games": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Game playing, downloading or discussion",
+          "exceptions": {}
+        },
+        "Government/Legal": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Government agencies and legal firms (lawyers)",
+          "exceptions": {}
+        },
+        "Hacking Tools": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Information or tools for unauthorized access to computer systems.",
+          "exceptions": {}
+        },
+        "Hate/Discrimination": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Promotes hostility toward a grouping of individuals",
+          "exceptions": {}
+        },
+        "General Health": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Health and wellness, including medical personnel, facilities and medicines, and fitness-related",
+          "exceptions": {}
+        },
+        "Hobbies/Recreation": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Hobbies and recreational activities, including collecting, gardening, hunting/fishing, etc.",
+          "exceptions": {}
+        },
+        "Hosting": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Hosting of web sites for organizations and individuals",
+          "exceptions": {}
+        },
+        "Humor/Comics": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Comedy, jokes, fun",
+          "exceptions": {}
+        },
+        "Alternative Ideology": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Belief systems and practices including occult, paranormal, folklore, etc.",
+          "exceptions": {}
+        },
+        "Information Technology": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Computing, electronics and general technology",
+          "exceptions": {}
+        },
+        "Cybersecurity Technology": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Computer security firms or tools",
+          "exceptions": {}
+        },
+        "Infrastructure/IOT": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Internet infrastructure and devices",
+          "exceptions": {}
+        },
+        "Job Search": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Job search",
+          "exceptions": {}
+        },
+        "Lingerie/Swimsuit": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Intimate apparel, swimsuits, and suggestive clothing",
+          "exceptions": {}
+        },
+        "Malicious": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Malicious intent to harm users or steal IP, includes malicious software and websites",
+          "exceptions": {}
+        },
+        "Marijuana": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Promotion of marijuana/cannabis and paraphernalia",
+          "exceptions": {}
+        },
+        "Marketing/Merchandising": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Direct marketing services",
+          "exceptions": {}
+        },
+        "Media Sharing": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Allow users to upload, search for, and share media files",
+          "exceptions": {}
+        },
+        "Military": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Armed forces",
+          "exceptions": {}
+        },
+        "Mixed Content": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "General image/video sites that may return adult content along with non-offensive content",
+          "exceptions": {}
+        },
+        "News": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "News sources",
+          "exceptions": {}
+        },
+        "Non-Profit/Advocacy": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Charitable and non-profit organizations promoting and supporting a cause",
+          "exceptions": {}
+        },
+        "Nudity": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Nude or seminude representations of the human body, including art, nudist or naturist",
+          "exceptions": {}
+        },
+        "Parked Site": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Parked, site for sale, monetized placeholders or no meaningful content",
+          "exceptions": {}
+        },
+        "Torrents/P2P": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Torrent clients/trackers and other peer-to-peer file sharing",
+          "exceptions": {}
+        },
+        "Personal Sites/Blogs": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Personal blogs and websites",
+          "exceptions": {}
+        },
+        "Phishing": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Counterfeit web pages that steal private information from users",
+          "exceptions": {}
+        },
+        "Piracy/Plagiarism": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Illegal sharing of copyrighted media (software, music, etc.) and school cheating information",
+          "exceptions": {}
+        },
+        "Politics/Opinion": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Political parties, groups or individuals promoting a point of view on a topic or issue",
+          "exceptions": {}
+        },
+        "Pornography": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Sexually explicit material",
+          "exceptions": {}
+        },
+        "Potentially Unwanted Applications": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "User tracking, spyware, and adware",
+          "exceptions": {}
+        },
+        "Productivity Applications": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Business-related web applications",
+          "exceptions": {}
+        },
+        "Proxy Avoidance": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Bypass web filtering controls by loading sites via proxy or VPN",
+          "exceptions": {}
+        },
+        "Real Estate": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Real estate (buildings, homes, apartments)",
+          "exceptions": {}
+        },
+        "Reference/Encylopedia": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Encyclopedias/dictionaries/etc for reference & research",
+          "exceptions": {}
+        },
+        "Major Religions": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Organized, traditional beliefs and practices, typically major global religions",
+          "exceptions": {}
+        },
+        "Remote Desktop": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Remote access to another computer",
+          "exceptions": {}
+        },
+        "Restaurants/Food": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Restaurants and food-related topics",
+          "exceptions": {}
+        },
+        "Scam/Illegal/Unethical": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Fraudulent sites or information promoting breaking the law",
+          "exceptions": {}
+        },
+        "Search Engines": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "General Internet search or directories",
+          "exceptions": {}
+        },
+        "Sex Education": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Non-pornographic information on reproduction, sex practices, sexually transmitted diseases, sexuality, abstinence, birth control, etc.",
+          "exceptions": {}
+        },
+        "Stores": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Stores for product or services",
+          "exceptions": {}
+        },
+        "Social Media": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Social communities",
+          "exceptions": {}
+        },
+        "Personal Lifestyle": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Daily life, beauty & fashion, home & garden, pets",
+          "exceptions": {}
+        },
+        "Software Downloads": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Software and app downloads",
+          "exceptions": {}
+        },
+        "Spam": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Associated with email spam campaigns",
+          "exceptions": {}
+        },
+        "Sports": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Sports news and information",
+          "exceptions": {}
+        },
+        "Suspicious": {
+          "restriction": "BLOCK",
+          "page": "defaultblock",
+          "description": "Elevated, but unconfirmed security risk",
+          "exceptions": {}
+        },
+        "VOIP/Telephone": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "VOIP and digital calling services",
+          "exceptions": {}
+        },
+        "Tobacco": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Promotes use of tobacco",
+          "exceptions": {}
+        },
+        "Translation": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Allows translation of a web site or text to another language",
+          "exceptions": {}
+        },
+        "Travel": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Travel and related topics (vacations, lodging, activities)",
+          "exceptions": {}
+        },
+        "URL Redirect": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Doesn't provide content, only redirects to another location",
+          "exceptions": {}
+        },
+        "Vehicles": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Vehicles, including autos, boats, motorcycles, etc",
+          "exceptions": {}
+        },
+        "Video Streaming": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Live streams or downloaded video clips",
+          "exceptions": {}
+        },
+        "Violence": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Encourages, glorifies or displays graphic violence against others or self (suicide)",
+          "exceptions": {}
+        },
+        "Video Conferencing": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Virtual meeting services",
+          "exceptions": {}
+        },
+        "Weapons": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Sales, reviews, or descriptions of weapons and modifications",
+          "exceptions": {}
+        },
+        "AI/ML Applications": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Sites with generative apps that take user input",
+          "exceptions": {}
+        },
+        "Alternative Currency": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Sites related to cryptocurrency, game tokens or other exchangeable digital goods that are not government issued legal tender",
+          "exceptions": {}
+        },
+        "Dynamic DNS": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Services that offer unique hosts on previously registered domains for personal use, and may regularly change IPs",
+          "exceptions": {}
+        },
+        "Login/Challenge": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Sites that have a homepage that is a generic login page or challenge (e.g. CAPTCHA), with no indication of what’s behind",
+          "exceptions": {}
+        },
+        "Newly Registered": {
+          "restriction": "ALLOW",
+          "page": "defaultblock",
+          "description": "Domains registered in last 30 days",
+          "exceptions": {}
+        }
+      }
+    },
+    "customCategories": {
+      "inheritsFromBase": true,
+      "restrictions": {
+        "RegistrySeedCategory1": {
+          "restriction": "IGNORE",
+          "exceptions": {}
+        },
+        "RegistrySeedCategory2": {
+          "restriction": "IGNORE",
+          "exceptions": {}
+        },
+        "TestCategory01": {
+          "restriction": "IGNORE",
+          "exceptions": {}
+        },
+        "TestCategory02": {
+          "restriction": "IGNORE",
+          "exceptions": {}
+        }
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/policies/RegistrySeedPolicy1/content": {
+        "response": {
+          "data": {
+            "categories": {
+              "inheritsFromBase": false,
+              "restrictions": {
+                "Promotional Compensation": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Sites that promise a potential reward for user input or activity",
+                  "exceptions": {}
+                },
+                "Chat/Messaging": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Messaging clients and services",
+                  "exceptions": {}
+                },
+                "Child Pornography/Abuse": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Sexual exploitation/abuse of a minor",
+                  "exceptions": {}
+                },
+                "CDN/Content Servers": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Hosting of files for accelerating web sites and services",
+                  "exceptions": {}
+                },
+                "Dating": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Dating, romance, matchmaking",
+                  "exceptions": {}
+                },
+                "Digital Postcards": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Greeting cards",
+                  "exceptions": {}
+                },
+                "Controlled Substances": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Information or promotion of illegal drugs",
+                  "exceptions": {}
+                },
+                "Education": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Educational institutions, training courses and tools, and learning topics",
+                  "exceptions": {}
+                },
+                "Email": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Email services",
+                  "exceptions": {}
+                },
+                "General Entertainment": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "All forms of entertainment",
+                  "exceptions": {}
+                },
+                "Extreme/Gruesome": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Gory, perverse, gross or horrific content",
+                  "exceptions": {}
+                },
+                "Unknown": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Unknown categorization",
+                  "exceptions": {}
+                },
+                "Abortion": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Abortion topic and positions for or against",
+                  "exceptions": {}
+                },
+                "Ads/Analytics": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Ad networks and analytics services",
+                  "exceptions": {}
+                },
+                "Adult/Mature": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Adult themes not in another more specific category. Not kid-friendly",
+                  "exceptions": {}
+                },
+                "Alcohol": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Promotes alcoholic consumptions",
+                  "exceptions": {}
+                },
+                "Arts/Culture": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Fine arts and museums",
+                  "exceptions": {}
+                },
+                "Auctions/Classifieds": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Product or service listings from individuals",
+                  "exceptions": {}
+                },
+                "Music/Audio": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Live streams or downloaded audio clips",
+                  "exceptions": {}
+                },
+                "Brokerage/Trading": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Stock trading and information",
+                  "exceptions": {}
+                },
+                "Business/Economy": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "General business",
+                  "exceptions": {}
+                },
+                "File Storage": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Storage and sharing of files and other data",
+                  "exceptions": {}
+                },
+                "Finance": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Financial institutions (banking, insurance) or related financial topics",
+                  "exceptions": {}
+                },
+                "For Kids": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Family-safe sites designed for kids",
+                  "exceptions": {}
+                },
+                "Forums": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Newsgroups, forums or bulletin boards that have many topics",
+                  "exceptions": {}
+                },
+                "Gambling": {
+                  "restriction": "WARNING",
+                  "page": "defaultwarning",
+                  "description": "Services or information related to gambling",
+                  "exceptions": {}
+                },
+                "Games": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Game playing, downloading or discussion",
+                  "exceptions": {}
+                },
+                "Government/Legal": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Government agencies and legal firms (lawyers)",
+                  "exceptions": {}
+                },
+                "Hacking Tools": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Information or tools for unauthorized access to computer systems.",
+                  "exceptions": {}
+                },
+                "Hate/Discrimination": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Promotes hostility toward a grouping of individuals",
+                  "exceptions": {}
+                },
+                "General Health": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Health and wellness, including medical personnel, facilities and medicines, and fitness-related",
+                  "exceptions": {}
+                },
+                "Hobbies/Recreation": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Hobbies and recreational activities, including collecting, gardening, hunting/fishing, etc.",
+                  "exceptions": {}
+                },
+                "Hosting": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Hosting of web sites for organizations and individuals",
+                  "exceptions": {}
+                },
+                "Humor/Comics": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Comedy, jokes, fun",
+                  "exceptions": {}
+                },
+                "Alternative Ideology": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Belief systems and practices including occult, paranormal, folklore, etc.",
+                  "exceptions": {}
+                },
+                "Information Technology": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Computing, electronics and general technology",
+                  "exceptions": {}
+                },
+                "Cybersecurity Technology": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Computer security firms or tools",
+                  "exceptions": {}
+                },
+                "Infrastructure/IOT": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Internet infrastructure and devices",
+                  "exceptions": {}
+                },
+                "Job Search": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Job search",
+                  "exceptions": {}
+                },
+                "Lingerie/Swimsuit": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Intimate apparel, swimsuits, and suggestive clothing",
+                  "exceptions": {}
+                },
+                "Malicious": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Malicious intent to harm users or steal IP, includes malicious software and websites",
+                  "exceptions": {}
+                },
+                "Marijuana": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Promotion of marijuana/cannabis and paraphernalia",
+                  "exceptions": {}
+                },
+                "Marketing/Merchandising": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Direct marketing services",
+                  "exceptions": {}
+                },
+                "Media Sharing": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Allow users to upload, search for, and share media files",
+                  "exceptions": {}
+                },
+                "Military": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Armed forces",
+                  "exceptions": {}
+                },
+                "Mixed Content": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "General image/video sites that may return adult content along with non-offensive content",
+                  "exceptions": {}
+                },
+                "News": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "News sources",
+                  "exceptions": {}
+                },
+                "Non-Profit/Advocacy": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Charitable and non-profit organizations promoting and supporting a cause",
+                  "exceptions": {}
+                },
+                "Nudity": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Nude or seminude representations of the human body, including art, nudist or naturist",
+                  "exceptions": {}
+                },
+                "Parked Site": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Parked, site for sale, monetized placeholders or no meaningful content",
+                  "exceptions": {}
+                },
+                "Torrents/P2P": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Torrent clients/trackers and other peer-to-peer file sharing",
+                  "exceptions": {}
+                },
+                "Personal Sites/Blogs": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Personal blogs and websites",
+                  "exceptions": {}
+                },
+                "Phishing": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Counterfeit web pages that steal private information from users",
+                  "exceptions": {}
+                },
+                "Piracy/Plagiarism": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Illegal sharing of copyrighted media (software, music, etc.) and school cheating information",
+                  "exceptions": {}
+                },
+                "Politics/Opinion": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Political parties, groups or individuals promoting a point of view on a topic or issue",
+                  "exceptions": {}
+                },
+                "Pornography": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Sexually explicit material",
+                  "exceptions": {}
+                },
+                "Potentially Unwanted Applications": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "User tracking, spyware, and adware",
+                  "exceptions": {}
+                },
+                "Productivity Applications": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Business-related web applications",
+                  "exceptions": {}
+                },
+                "Proxy Avoidance": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Bypass web filtering controls by loading sites via proxy or VPN",
+                  "exceptions": {}
+                },
+                "Real Estate": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Real estate (buildings, homes, apartments)",
+                  "exceptions": {}
+                },
+                "Reference/Encylopedia": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Encyclopedias/dictionaries/etc for reference & research",
+                  "exceptions": {}
+                },
+                "Major Religions": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Organized, traditional beliefs and practices, typically major global religions",
+                  "exceptions": {}
+                },
+                "Remote Desktop": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Remote access to another computer",
+                  "exceptions": {}
+                },
+                "Restaurants/Food": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Restaurants and food-related topics",
+                  "exceptions": {}
+                },
+                "Scam/Illegal/Unethical": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Fraudulent sites or information promoting breaking the law",
+                  "exceptions": {}
+                },
+                "Search Engines": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "General Internet search or directories",
+                  "exceptions": {}
+                },
+                "Sex Education": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Non-pornographic information on reproduction, sex practices, sexually transmitted diseases, sexuality, abstinence, birth control, etc.",
+                  "exceptions": {}
+                },
+                "Stores": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Stores for product or services",
+                  "exceptions": {}
+                },
+                "Social Media": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Social communities",
+                  "exceptions": {}
+                },
+                "Personal Lifestyle": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Daily life, beauty & fashion, home & garden, pets",
+                  "exceptions": {}
+                },
+                "Software Downloads": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Software and app downloads",
+                  "exceptions": {}
+                },
+                "Spam": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Associated with email spam campaigns",
+                  "exceptions": {}
+                },
+                "Sports": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Sports news and information",
+                  "exceptions": {}
+                },
+                "Suspicious": {
+                  "restriction": "BLOCK",
+                  "page": "defaultblock",
+                  "description": "Elevated, but unconfirmed security risk",
+                  "exceptions": {}
+                },
+                "VOIP/Telephone": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "VOIP and digital calling services",
+                  "exceptions": {}
+                },
+                "Tobacco": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Promotes use of tobacco",
+                  "exceptions": {}
+                },
+                "Translation": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Allows translation of a web site or text to another language",
+                  "exceptions": {}
+                },
+                "Travel": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Travel and related topics (vacations, lodging, activities)",
+                  "exceptions": {}
+                },
+                "URL Redirect": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Doesn't provide content, only redirects to another location",
+                  "exceptions": {}
+                },
+                "Vehicles": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Vehicles, including autos, boats, motorcycles, etc",
+                  "exceptions": {}
+                },
+                "Video Streaming": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Live streams or downloaded video clips",
+                  "exceptions": {}
+                },
+                "Violence": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Encourages, glorifies or displays graphic violence against others or self (suicide)",
+                  "exceptions": {}
+                },
+                "Video Conferencing": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Virtual meeting services",
+                  "exceptions": {}
+                },
+                "Weapons": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Sales, reviews, or descriptions of weapons and modifications",
+                  "exceptions": {}
+                },
+                "AI/ML Applications": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Sites with generative apps that take user input",
+                  "exceptions": {}
+                },
+                "Alternative Currency": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Sites related to cryptocurrency, game tokens or other exchangeable digital goods that are not government issued legal tender",
+                  "exceptions": {}
+                },
+                "Dynamic DNS": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Services that offer unique hosts on previously registered domains for personal use, and may regularly change IPs",
+                  "exceptions": {}
+                },
+                "Login/Challenge": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Sites that have a homepage that is a generic login page or challenge (e.g. CAPTCHA), with no indication of what’s behind",
+                  "exceptions": {}
+                },
+                "Newly Registered": {
+                  "restriction": "ALLOW",
+                  "page": "defaultblock",
+                  "description": "Domains registered in last 30 days",
+                  "exceptions": {}
+                }
+              }
+            },
+            "customCategories": {
+              "inheritsFromBase": true,
+              "restrictions": {
+                "RegistrySeedCategory1": {
+                  "restriction": "IGNORE",
+                  "exceptions": {}
+                },
+                "RegistrySeedCategory2": {
+                  "restriction": "IGNORE",
+                  "exceptions": {}
+                },
+                "TestCategory01": {
+                  "restriction": "IGNORE",
+                  "exceptions": {}
+                },
+                "TestCategory02": {
+                  "restriction": "IGNORE",
+                  "exceptions": {}
+                }
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 13:17:15 GMT",
+          "content-type": "application/json",
+          "content-length": "13279",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1784812684",
+          "etag": "W/\"33df-FqK2658z67WvUxr75q9uON72RQw\""
+        },
+        "hash": "2c8572256d798bc2da1616bd654add8b2b013b08",
+        "request": {}
+      }
+    }
+  }
+}

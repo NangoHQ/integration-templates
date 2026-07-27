@@ -1,0 +1,135 @@
+{
+  "input": {
+    "dataAreaId": "dat",
+    "parentRecId": "5637144576"
+  },
+  "output": {
+    "items": [
+      {
+        "@odata.etag": "W/\"JzEsNTYzNzE0NDU3Nic=\"",
+        "dataAreaId": "dat",
+        "LineNumber": 1,
+        "ParentRecId": 5637144576,
+        "SalesTaxAmount": 0,
+        "FixedAssetNumber": "",
+        "EInvoiceAccountCode": "",
+        "ProjectID": "",
+        "StateOfOrigin": "",
+        "IsServiceInvoice": "No",
+        "PrintCode": "",
+        "TransactionID": "",
+        "TotalWeight": 0,
+        "BillingCode": "",
+        "NGPCode": 0,
+        "AssetId": "",
+        "ExternalInvoiceId": "",
+        "Description": "Steel package milestone 1",
+        "TransactionCurrencyAmount": 2500,
+        "ValueModel": "",
+        "AmountDetails": "",
+        "CurrencyCode": "",
+        "CFOPCode": "",
+        "FiscalInformationServiceCode": "",
+        "CategoryId": "",
+        "SalesTaxGroupId": "",
+        "SalesTaxItemGroupId": "",
+        "SalesUnit": "",
+        "PropertyNumber": "",
+        "InvoiceText": "Steel package milestone 1",
+        "UnitPrice": 2500,
+        "OverrideSalesTax": "No",
+        "CountryRegionId": "",
+        "WithholdingTaxGroup": "",
+        "TransactionCode": "",
+        "InvoiceGTD": "",
+        "MainAccountDisplayValue": "400100",
+        "CountryName": "",
+        "DefaultDimensionDisplayValue": "",
+        "Quantity": 1
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/data/FreeTextInvoiceLines": {
+        "response": {
+          "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#FreeTextInvoiceLines",
+          "value": [
+            {
+              "@odata.etag": "W/\"JzEsNTYzNzE0NDU3Nic=\"",
+              "dataAreaId": "dat",
+              "LineNumber": 1,
+              "ParentRecId": 5637144576,
+              "SalesTaxAmount": 0,
+              "FixedAssetNumber": "",
+              "EInvoiceAccountCode": "",
+              "ProjectID": "",
+              "StateOfOrigin": "",
+              "IsServiceInvoice": "No",
+              "PrintCode": "",
+              "TransactionID": "",
+              "TotalWeight": 0,
+              "BillingCode": "",
+              "NGPCode": 0,
+              "AssetId": "",
+              "ExternalInvoiceId": "",
+              "Description": "Steel package milestone 1",
+              "TransactionCurrencyAmount": 2500,
+              "ValueModel": "",
+              "AmountDetails": "",
+              "CurrencyCode": "",
+              "CFOPCode": "",
+              "FiscalInformationServiceCode": "",
+              "CategoryId": "",
+              "SalesTaxGroupId": "",
+              "SalesTaxItemGroupId": "",
+              "SalesUnit": "",
+              "PropertyNumber": "",
+              "InvoiceText": "Steel package milestone 1",
+              "UnitPrice": 2500,
+              "OverrideSalesTax": "No",
+              "CountryRegionId": "",
+              "WithholdingTaxGroup": "",
+              "TransactionCode": "",
+              "InvoiceGTD": "",
+              "MainAccountDisplayValue": "400100",
+              "CountryName": "",
+              "DefaultDimensionDisplayValue": "",
+              "Quantity": 1
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 10:10:26 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "1026",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1784801485",
+          "etag": "W/\"402-3oyR+FAHaSWflybBGApbGtc2v84\""
+        },
+        "hash": "5b92c1a488c0874eb353670094a5a63856d6f77a",
+        "request": {
+          "params": {
+            "$filter": "dataAreaId eq 'dat' and ParentRecId eq 5637144576",
+            "$skip": "0",
+            "$top": "100",
+            "cross-company": "true"
+          }
+        }
+      }
+    }
+  }
+}

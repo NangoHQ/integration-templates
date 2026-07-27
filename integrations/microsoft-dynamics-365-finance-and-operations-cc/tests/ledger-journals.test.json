@@ -1,0 +1,219 @@
+{
+  "nango": {
+    "batchSave": {
+      "LedgerJournal": [
+        {
+          "id": "dat-DAT-000010",
+          "JournalBatchNumber": "DAT-000010",
+          "dataAreaId": "dat",
+          "JournalName": "EXPJRN",
+          "Description": "RootFi test expense",
+          "IsPosted": "Yes"
+        },
+        {
+          "id": "dat-DAT-000018",
+          "JournalBatchNumber": "DAT-000018",
+          "dataAreaId": "dat",
+          "JournalName": "EXPJRN",
+          "Description": "Expense journal",
+          "IsPosted": "No"
+        },
+        {
+          "id": "dat-DAT-000019",
+          "JournalBatchNumber": "DAT-000019",
+          "dataAreaId": "dat",
+          "JournalName": "EXPJRN",
+          "Description": "Expense journal",
+          "IsPosted": "No"
+        },
+        {
+          "id": "dat-DAT-000020",
+          "JournalBatchNumber": "DAT-000020",
+          "dataAreaId": "dat",
+          "JournalName": "EXPJRN",
+          "Description": "Expense journal",
+          "IsPosted": "No"
+        },
+        {
+          "id": "dat-DAT-000021",
+          "JournalBatchNumber": "DAT-000021",
+          "dataAreaId": "dat",
+          "JournalName": "EXPJRN",
+          "Description": "Expense journal",
+          "IsPosted": "No"
+        },
+        {
+          "id": "dat-DAT-000022",
+          "JournalBatchNumber": "DAT-000022",
+          "dataAreaId": "dat",
+          "JournalName": "EXPJRN",
+          "Description": "Expense journal",
+          "IsPosted": "No"
+        },
+        {
+          "id": "dat-DAT-000023",
+          "JournalBatchNumber": "DAT-000023",
+          "dataAreaId": "dat",
+          "JournalName": "EXPJRN",
+          "Description": "Expense journal",
+          "IsPosted": "No"
+        },
+        {
+          "id": "dat-DAT-000024",
+          "JournalBatchNumber": "DAT-000024",
+          "dataAreaId": "dat",
+          "JournalName": "EXPJRN",
+          "Description": "Expense journal",
+          "IsPosted": "No"
+        }
+      ]
+    },
+    "batchDelete": {
+      "LedgerJournal": []
+    }
+  },
+  "api": {
+    "get": {
+      "/data/LedgerJournalHeaders": {
+        "response": {
+          "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#LedgerJournalHeaders",
+          "value": [
+            {
+              "@odata.etag": "W/\"JzkwMTc3NTM5Miw1NjM3MTQ1MzI4Jw==\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000010",
+              "AccountingCurrency": "USD",
+              "JournalName": "EXPJRN",
+              "IntegrationKey": "",
+              "Description": "RootFi test expense",
+              "PostingLayer": "Current",
+              "IsPosted": "Yes",
+              "JournalTotalCredit": 750,
+              "JournalTotalDebit": 750
+            },
+            {
+              "@odata.etag": "W/\"JzEsNTYzNzE0NTMzMyc=\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000018",
+              "AccountingCurrency": "USD",
+              "JournalName": "EXPJRN",
+              "IntegrationKey": "",
+              "Description": "Expense journal",
+              "PostingLayer": "Current",
+              "IsPosted": "No",
+              "JournalTotalCredit": 0,
+              "JournalTotalDebit": 0
+            },
+            {
+              "@odata.etag": "W/\"JzEsNTYzNzE0NTMzNCc=\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000019",
+              "AccountingCurrency": "USD",
+              "JournalName": "EXPJRN",
+              "IntegrationKey": "",
+              "Description": "Expense journal",
+              "PostingLayer": "Current",
+              "IsPosted": "No",
+              "JournalTotalCredit": 0,
+              "JournalTotalDebit": 0
+            },
+            {
+              "@odata.etag": "W/\"JzEsNTYzNzE0NTMzNSc=\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000020",
+              "AccountingCurrency": "USD",
+              "JournalName": "EXPJRN",
+              "IntegrationKey": "",
+              "Description": "Expense journal",
+              "PostingLayer": "Current",
+              "IsPosted": "No",
+              "JournalTotalCredit": 0,
+              "JournalTotalDebit": 0
+            },
+            {
+              "@odata.etag": "W/\"JzEsNTYzNzE0NTMzNic=\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000021",
+              "AccountingCurrency": "USD",
+              "JournalName": "EXPJRN",
+              "IntegrationKey": "",
+              "Description": "Expense journal",
+              "PostingLayer": "Current",
+              "IsPosted": "No",
+              "JournalTotalCredit": 0,
+              "JournalTotalDebit": 0
+            },
+            {
+              "@odata.etag": "W/\"JzEsNTYzNzE0NTMzNyc=\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000022",
+              "AccountingCurrency": "USD",
+              "JournalName": "EXPJRN",
+              "IntegrationKey": "",
+              "Description": "Expense journal",
+              "PostingLayer": "Current",
+              "IsPosted": "No",
+              "JournalTotalCredit": 0,
+              "JournalTotalDebit": 0
+            },
+            {
+              "@odata.etag": "W/\"JzEsNTYzNzE0NTMzOCc=\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000023",
+              "AccountingCurrency": "USD",
+              "JournalName": "EXPJRN",
+              "IntegrationKey": "",
+              "Description": "Expense journal",
+              "PostingLayer": "Current",
+              "IsPosted": "No",
+              "JournalTotalCredit": 0,
+              "JournalTotalDebit": 0
+            },
+            {
+              "@odata.etag": "W/\"JzEsNTYzNzE0NTMzOSc=\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000024",
+              "AccountingCurrency": "USD",
+              "JournalName": "EXPJRN",
+              "IntegrationKey": "",
+              "Description": "Expense journal",
+              "PostingLayer": "Current",
+              "IsPosted": "No",
+              "JournalTotalCredit": 0,
+              "JournalTotalDebit": 0
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 12:21:52 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "2552",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1784809370",
+          "etag": "W/\"9f8-3qREJzDohbL2lTyuUal6RXMk58E\""
+        },
+        "hash": "2d3ee726818601784130a5c486e1f0527ea22413",
+        "request": {
+          "params": {
+            "$orderby": "dataAreaId asc,JournalBatchNumber asc",
+            "$skip": "0",
+            "$top": "1000",
+            "cross-company": "true"
+          }
+        }
+      }
+    }
+  }
+}
