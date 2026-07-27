@@ -1,0 +1,101 @@
+{
+  "nango": {
+    "batchSave": {
+      "TimeOffCategory": [
+        {
+          "id": "10013",
+          "name": "Paid time off",
+          "type": "paid",
+          "description": "For vacations, holidays and other paid time away from work."
+        },
+        {
+          "id": "10014",
+          "name": "Sick leave",
+          "type": "paid",
+          "description": "For paid time away from work due to illness or sickness."
+        },
+        {
+          "id": "10015",
+          "name": "Unpaid leave",
+          "type": "unpaid",
+          "description": "For unpaid time away from work."
+        },
+        {
+          "id": "10016",
+          "name": "Sabbatical",
+          "type": "paid",
+          "description": "A long time-off period as an award for employees' loyalty to our company."
+        }
+      ]
+    },
+    "batchDelete": {
+      "TimeOffCategory": []
+    }
+  },
+  "api": {
+    "get": {
+      "/spi/v3/timeoff/categories": {
+        "response": {
+          "categories": [
+            {
+              "id": "10013",
+              "name": "Paid time off",
+              "type": "paid",
+              "description": "For vacations, holidays and other paid time away from work."
+            },
+            {
+              "id": "10014",
+              "name": "Sick leave",
+              "type": "paid",
+              "description": "For paid time away from work due to illness or sickness."
+            },
+            {
+              "id": "10015",
+              "name": "Unpaid leave",
+              "type": "unpaid",
+              "description": "For unpaid time away from work."
+            },
+            {
+              "id": "10016",
+              "name": "Sabbatical",
+              "type": "paid",
+              "description": "A long time-off period as an award for employees' loyalty to our company."
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:46:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.workable.com/; report-uri https://browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pubcbe8d2ef0966e8645a91099cfac490bb&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=%40http.headers.cfray%3Aa1fd8879dde0758f",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1980",
+          "x-ratelimit-reset": "1784839626",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "7",
+          "x-rate-limit-reset": "1784839581",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd8879dde0758f-PDX"
+        },
+        "hash": "9308c1b85702b8322f4c8c18dc732380818ea9e4",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "nango": {
+    "batchSave": {
+      "LegalEntity": [
+        {
+          "id": "9123429f-28d7-4c7d-bd92-bf870d2f9415",
+          "name": "AU Entity",
+          "legal_name": "",
+          "type": "entity",
+          "parent_id": null,
+          "display_name": "AU Entity"
+        },
+        {
+          "id": "e50e897c-ac9e-40e4-a646-38d11d66cd93",
+          "name": "Sydney, New South Wales, Australia",
+          "type": "location",
+          "parent_id": "9123429f-28d7-4c7d-bd92-bf870d2f9415",
+          "display_name": "AU Entity | Sydney, New South Wales, Australia"
+        },
+        {
+          "id": "5fb3b3c6-6742-4a6e-9fb7-f6936d08e910",
+          "name": "UK Entity",
+          "legal_name": "",
+          "type": "entity",
+          "parent_id": null,
+          "display_name": "UK Entity"
+        },
+        {
+          "id": "51e8363f-2a9f-466b-85f8-ebe69da2ebf0",
+          "name": "London, United Kingdom",
+          "type": "location",
+          "parent_id": "5fb3b3c6-6742-4a6e-9fb7-f6936d08e910",
+          "display_name": "UK Entity | London, United Kingdom"
+        },
+        {
+          "id": "fc49c738-c167-4c63-a537-9e52cfbc89a0",
+          "name": "London Office",
+          "type": "site",
+          "parent_id": "51e8363f-2a9f-466b-85f8-ebe69da2ebf0",
+          "display_name": "UK Entity | London, United Kingdom | London Office"
+        },
+        {
+          "id": "8898a8a6-37c5-47ea-80c8-04d4067dcc63",
+          "name": "US Entity",
+          "legal_name": "",
+          "type": "entity",
+          "parent_id": null,
+          "display_name": "US Entity"
+        },
+        {
+          "id": "8cbb5f82-6da9-4b03-b919-2cbe48aadf2e",
+          "name": "Boston, Massachusetts, United States",
+          "type": "location",
+          "parent_id": "8898a8a6-37c5-47ea-80c8-04d4067dcc63",
+          "display_name": "US Entity | Boston, Massachusetts, United States"
+        },
+        {
+          "id": "968c0af9-cc91-4a75-9f79-c6a5ee17d1b4",
+          "name": "Boston HQ",
+          "type": "site",
+          "parent_id": "8cbb5f82-6da9-4b03-b919-2cbe48aadf2e",
+          "display_name": "US Entity | Boston, Massachusetts, United States | Boston HQ"
+        }
+      ]
+    },
+    "batchDelete": {
+      "LegalEntity": []
+    }
+  },
+  "api": {
+    "get": {
+      "/spi/v3/legal_entities": {
+        "response": [
+          {
+            "id": "9123429f-28d7-4c7d-bd92-bf870d2f9415",
+            "name": "AU Entity",
+            "legal_name": "",
+            "type": "entity",
+            "parent_id": null,
+            "display_name": "AU Entity",
+            "sample": true,
+            "timezone": null,
+            "geofencing_settings": null
+          },
+          {
+            "id": "e50e897c-ac9e-40e4-a646-38d11d66cd93",
+            "name": "Sydney, New South Wales, Australia",
+            "legal_name": null,
+            "type": "location",
+            "parent_id": "9123429f-28d7-4c7d-bd92-bf870d2f9415",
+            "display_name": "AU Entity | Sydney, New South Wales, Australia",
+            "sample": true,
+            "timezone": "Australia/Sydney",
+            "geofencing_settings": null
+          },
+          {
+            "id": "5fb3b3c6-6742-4a6e-9fb7-f6936d08e910",
+            "name": "UK Entity",
+            "legal_name": "",
+            "type": "entity",
+            "parent_id": null,
+            "display_name": "UK Entity",
+            "sample": true,
+            "timezone": null,
+            "geofencing_settings": null
+          },
+          {
+            "id": "51e8363f-2a9f-466b-85f8-ebe69da2ebf0",
+            "name": "London, United Kingdom",
+            "legal_name": null,
+            "type": "location",
+            "parent_id": "5fb3b3c6-6742-4a6e-9fb7-f6936d08e910",
+            "display_name": "UK Entity | London, United Kingdom",
+            "sample": true,
+            "timezone": "Europe/London",
+            "geofencing_settings": null
+          },
+          {
+            "id": "fc49c738-c167-4c63-a537-9e52cfbc89a0",
+            "name": "London Office",
+            "legal_name": null,
+            "type": "site",
+            "parent_id": "51e8363f-2a9f-466b-85f8-ebe69da2ebf0",
+            "display_name": "UK Entity | London, United Kingdom | London Office",
+            "sample": true,
+            "timezone": "Europe/London",
+            "geofencing_settings": {}
+          },
+          {
+            "id": "8898a8a6-37c5-47ea-80c8-04d4067dcc63",
+            "name": "US Entity",
+            "legal_name": "",
+            "type": "entity",
+            "parent_id": null,
+            "display_name": "US Entity",
+            "sample": true,
+            "timezone": null,
+            "geofencing_settings": null
+          },
+          {
+            "id": "8cbb5f82-6da9-4b03-b919-2cbe48aadf2e",
+            "name": "Boston, Massachusetts, United States",
+            "legal_name": null,
+            "type": "location",
+            "parent_id": "8898a8a6-37c5-47ea-80c8-04d4067dcc63",
+            "display_name": "US Entity | Boston, Massachusetts, United States",
+            "sample": true,
+            "timezone": "America/New_York",
+            "geofencing_settings": null
+          },
+          {
+            "id": "968c0af9-cc91-4a75-9f79-c6a5ee17d1b4",
+            "name": "Boston HQ",
+            "legal_name": null,
+            "type": "site",
+            "parent_id": "8cbb5f82-6da9-4b03-b919-2cbe48aadf2e",
+            "display_name": "US Entity | Boston, Massachusetts, United States | Boston HQ",
+            "sample": true,
+            "timezone": "America/New_York",
+            "geofencing_settings": {}
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:46:52 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.workable.com/; report-uri https://browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pubcbe8d2ef0966e8645a91099cfac490bb&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=%40http.headers.cfray%3Aa1fd8976ae0add76",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1853",
+          "x-ratelimit-reset": "1784839626",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "1",
+          "x-rate-limit-reset": "1784839622",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=6b.B74rYbzvE2la8TkNPf9JkidJ8bTdDDmy7aseFxNw-1784839611.9465892-1.0.1.1-EkaeyfvrohfPOGFKKT6E3qDu0JdoAkIdwIt_bjou0CXQN0FpuUMDEZqLuok.2W4HFUU0YYQPq1.Ef3SZKj4195TA_VJybs4gY7QdmLTX9HbK3cjWtkKHAR83b54EzxM2; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:16:52 GMT",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd8976ae0add76-PDX"
+        },
+        "hash": "899e6ffabdee7a95cb95af4532262d09b941550b",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "input": {
+    "name": "Nango Seed Department Three"
+  },
+  "output": {
+    "id": "92b8c",
+    "name": "Nango Seed Department Three",
+    "sample": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/spi/v3/departments": {
+        "response": {
+          "id": "92b8c",
+          "name": "Nango Seed Department Three",
+          "parent_id": null,
+          "sample": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:45:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1836",
+          "x-ratelimit-reset": "1784839504",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "6",
+          "x-rate-limit-reset": "1784839513",
+          "etag": "W/\"0835cb7baaad296785673056b98ef29e\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "2d195102-8736-9f39-b586-1972d16af8e9",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "__cf_bm=TfP_u92pM6VDKgcEZeuDVcQwNi6CmcAfgvGVTUR3cWg-1784839503.56922-1.0.1.1-G14718XFX0wFLskzDwXEr7PmJFy3J5Pw8rYr6_U6SxzB.f_xxUHl9KA8J7gQQUPW_nJxS.sVb5_gJmZI7G2OihVI7Ckdvut.jrTr6hiacaXkNtJGpls6glUn7FWe_Wg.; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:15:03 GMT",
+          "x-kb": "false",
+          "cf-ray": "a1fd86d14ca43abd-PDX"
+        },
+        "hash": "d0cf77169f315fcaaf7386275d9e149f681015c7",
+        "request": {
+          "data": {
+            "name": "Nango Seed Department Three"
+          }
+        }
+      }
+    }
+  }
+}

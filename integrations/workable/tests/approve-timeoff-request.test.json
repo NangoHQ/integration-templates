@@ -1,0 +1,82 @@
+{
+  "input": {
+    "key": "d38fc",
+    "state": "approved",
+    "approver_id": "57d87371-d64b-4caa-99d8-442c8d4ef5bc",
+    "member_id": "1f395d"
+  },
+  "output": {
+    "id": "72745",
+    "employee_id": "19ff54",
+    "from_date": "2026-08-05T00:00:00.000",
+    "to_date": "2026-08-06T00:00:00.000",
+    "formatted_period": "05 August 2026 - 06 August 2026",
+    "state": "approved",
+    "requesting_total": 2,
+    "timeoff_tracking_unit": "half_days",
+    "half_days": [],
+    "updated_by": "Nango Developer",
+    "category_name": "Paid time off",
+    "pending_approvals": []
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/spi/v3/timeoff/approvals/d38fc": {
+        "response": {
+          "id": "72745",
+          "employee_id": "19ff54",
+          "from_date": "2026-08-05T00:00:00.000",
+          "to_date": "2026-08-06T00:00:00.000",
+          "formatted_period": "05 August 2026 - 06 August 2026",
+          "state": "approved",
+          "requesting_total": 2,
+          "timeoff_tracking_unit": "half_days",
+          "half_days": [],
+          "updated_by": "Nango Developer",
+          "updated_at": "2026-07-23T20:45:33.526Z",
+          "category_name": "Paid time off",
+          "pending_approvals": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:45:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.workable.com/; report-uri https://browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pubcbe8d2ef0966e8645a91099cfac490bb&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=%40http.headers.cfray%3Aa1fd87878b491f9b",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1915",
+          "x-ratelimit-reset": "1784839564",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "6",
+          "x-rate-limit-reset": "1784839542",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=XEFkD1MMC9VB2XJtWir39.OHS7AW4KFFDdOujYPsCPw-1784839532.7233546-1.0.1.1-bJNdVkbm1WgEd.38uiBLW543bxC7Dvl2xH6THE8B07pFmcM2TFpC6SORo2yzflkUgqyC3g9cB9RWRc6HtXwmHDK6jNPOGUbwMtDxGFVuk4g8UYLe2XMgxBXdyGUkJg1L; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:15:33 GMT",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd87878b491f9b-PDX"
+        },
+        "hash": "1c1274c99426f7c9a3af27ec8e0e390aa77a654d",
+        "request": {
+          "data": {
+            "state": "approved",
+            "approver_id": "57d87371-d64b-4caa-99d8-442c8d4ef5bc",
+            "member_id": "1f395d"
+          }
+        }
+      }
+    }
+  }
+}

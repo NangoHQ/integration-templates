@@ -1,0 +1,266 @@
+{
+  "input": {
+    "from_date": "2026-01-01",
+    "to_date": "2026-12-31",
+    "employee_id": "19ff54",
+    "limit": 10
+  },
+  "output": {
+    "requests": [
+      {
+        "id": "72742",
+        "employee_id": "19ff54",
+        "state": "pending",
+        "category_name": "Sick leave",
+        "updated_at": "2026-07-23T20:43:57.328Z",
+        "from_date": "2026-07-27T00:00:00.000",
+        "to_date": "2026-07-27T23:59:59.000",
+        "requesting_total": 8,
+        "timeoff_tracking_unit": "hours",
+        "pending_approvals": [
+          {
+            "id": "d38fa",
+            "approver_id": "57d87371-d64b-4caa-99d8-442c8d4ef5bc"
+          }
+        ],
+        "formatted_period": "27 July 2026 (00:00) - 27 July 2026 (23:59)",
+        "half_days": [],
+        "updated_by": "Nango Developer"
+      },
+      {
+        "id": "72746",
+        "employee_id": "19ff54",
+        "state": "pending",
+        "category_name": "Sick leave",
+        "updated_at": "2026-07-23T20:45:01.425Z",
+        "from_date": "2026-07-28T00:00:00.000",
+        "to_date": "2026-07-28T23:59:59.000",
+        "requesting_total": 8,
+        "timeoff_tracking_unit": "hours",
+        "pending_approvals": [
+          {
+            "id": "d38fd",
+            "approver_id": "57d87371-d64b-4caa-99d8-442c8d4ef5bc"
+          }
+        ],
+        "formatted_period": "28 July 2026 (00:00) - 28 July 2026 (23:59)",
+        "half_days": [],
+        "updated_by": "Nango Developer"
+      },
+      {
+        "id": "72743",
+        "employee_id": "19ff54",
+        "state": "approved",
+        "category_name": "Paid time off",
+        "updated_at": "2026-07-23T20:45:24.295Z",
+        "from_date": "2026-08-03T00:00:00.000",
+        "to_date": "2026-08-04T00:00:00.000",
+        "requesting_total": 2,
+        "timeoff_tracking_unit": "half_days",
+        "pending_approvals": [],
+        "formatted_period": "03 August 2026 - 04 August 2026",
+        "half_days": [],
+        "updated_by": "Nango Developer"
+      },
+      {
+        "id": "72745",
+        "employee_id": "19ff54",
+        "state": "approved",
+        "category_name": "Paid time off",
+        "updated_at": "2026-07-23T20:45:33.526Z",
+        "from_date": "2026-08-05T00:00:00.000",
+        "to_date": "2026-08-06T00:00:00.000",
+        "requesting_total": 2,
+        "timeoff_tracking_unit": "half_days",
+        "pending_approvals": [],
+        "formatted_period": "05 August 2026 - 06 August 2026",
+        "half_days": [],
+        "updated_by": "Nango Developer"
+      },
+      {
+        "id": "72736",
+        "employee_id": "19ff54",
+        "state": "approved",
+        "category_name": "Paid time off",
+        "updated_at": "2026-07-23T19:55:10.224Z",
+        "from_date": "2026-09-01T00:00:00.000",
+        "to_date": "2026-09-02T00:00:00.000",
+        "requesting_total": 2,
+        "timeoff_tracking_unit": "half_days",
+        "pending_approvals": [],
+        "formatted_period": "01 September 2026 - 02 September 2026",
+        "half_days": [],
+        "updated_by": "Nango Developer"
+      },
+      {
+        "id": "72737",
+        "employee_id": "19ff54",
+        "state": "approved",
+        "category_name": "Sick leave",
+        "updated_at": "2026-07-23T20:43:10.264Z",
+        "from_date": "2026-09-10T00:00:00.000",
+        "to_date": "2026-09-11T00:00:00.000",
+        "requesting_total": 8,
+        "timeoff_tracking_unit": "hours",
+        "pending_approvals": [],
+        "formatted_period": "10 September 2026 (00:00) - 11 September 2026 (00:00)",
+        "half_days": [],
+        "updated_by": "Nango Developer"
+      }
+    ],
+    "total_count": 6,
+    "limit": 10,
+    "offset": 0
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/timeoff/requests": {
+        "response": {
+          "total_count": 6,
+          "requests": [
+            {
+              "id": "72742",
+              "employee_id": "19ff54",
+              "from_date": "2026-07-27T00:00:00.000",
+              "to_date": "2026-07-27T23:59:59.000",
+              "formatted_period": "27 July 2026 (00:00) - 27 July 2026 (23:59)",
+              "state": "pending",
+              "requesting_total": 8,
+              "timeoff_tracking_unit": "hours",
+              "half_days": [],
+              "updated_by": "Nango Developer",
+              "updated_at": "2026-07-23T20:43:57.328Z",
+              "category_name": "Sick leave",
+              "pending_approvals": [
+                {
+                  "id": "d38fa",
+                  "approver_id": "57d87371-d64b-4caa-99d8-442c8d4ef5bc"
+                }
+              ]
+            },
+            {
+              "id": "72746",
+              "employee_id": "19ff54",
+              "from_date": "2026-07-28T00:00:00.000",
+              "to_date": "2026-07-28T23:59:59.000",
+              "formatted_period": "28 July 2026 (00:00) - 28 July 2026 (23:59)",
+              "state": "pending",
+              "requesting_total": 8,
+              "timeoff_tracking_unit": "hours",
+              "half_days": [],
+              "updated_by": "Nango Developer",
+              "updated_at": "2026-07-23T20:45:01.425Z",
+              "category_name": "Sick leave",
+              "pending_approvals": [
+                {
+                  "id": "d38fd",
+                  "approver_id": "57d87371-d64b-4caa-99d8-442c8d4ef5bc"
+                }
+              ]
+            },
+            {
+              "id": "72743",
+              "employee_id": "19ff54",
+              "from_date": "2026-08-03T00:00:00.000",
+              "to_date": "2026-08-04T00:00:00.000",
+              "formatted_period": "03 August 2026 - 04 August 2026",
+              "state": "approved",
+              "requesting_total": 2,
+              "timeoff_tracking_unit": "half_days",
+              "half_days": [],
+              "updated_by": "Nango Developer",
+              "updated_at": "2026-07-23T20:45:24.295Z",
+              "category_name": "Paid time off",
+              "pending_approvals": []
+            },
+            {
+              "id": "72745",
+              "employee_id": "19ff54",
+              "from_date": "2026-08-05T00:00:00.000",
+              "to_date": "2026-08-06T00:00:00.000",
+              "formatted_period": "05 August 2026 - 06 August 2026",
+              "state": "approved",
+              "requesting_total": 2,
+              "timeoff_tracking_unit": "half_days",
+              "half_days": [],
+              "updated_by": "Nango Developer",
+              "updated_at": "2026-07-23T20:45:33.526Z",
+              "category_name": "Paid time off",
+              "pending_approvals": []
+            },
+            {
+              "id": "72736",
+              "employee_id": "19ff54",
+              "from_date": "2026-09-01T00:00:00.000",
+              "to_date": "2026-09-02T00:00:00.000",
+              "formatted_period": "01 September 2026 - 02 September 2026",
+              "state": "approved",
+              "requesting_total": 2,
+              "timeoff_tracking_unit": "half_days",
+              "half_days": [],
+              "updated_by": "Nango Developer",
+              "updated_at": "2026-07-23T19:55:10.224Z",
+              "category_name": "Paid time off",
+              "pending_approvals": []
+            },
+            {
+              "id": "72737",
+              "employee_id": "19ff54",
+              "from_date": "2026-09-10T00:00:00.000",
+              "to_date": "2026-09-11T00:00:00.000",
+              "formatted_period": "10 September 2026 (00:00) - 11 September 2026 (00:00)",
+              "state": "approved",
+              "requesting_total": 8,
+              "timeoff_tracking_unit": "hours",
+              "half_days": [],
+              "updated_by": "Nango Developer",
+              "updated_at": "2026-07-23T20:43:10.264Z",
+              "category_name": "Sick leave",
+              "pending_approvals": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:47:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.workable.com/; report-uri https://browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pubcbe8d2ef0966e8645a91099cfac490bb&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=%40http.headers.cfray%3Aa1fd89f6b83dff16",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1991",
+          "x-ratelimit-reset": "1784839686",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "6",
+          "x-rate-limit-reset": "1784839642",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd89f6b83dff16-PDX"
+        },
+        "hash": "11b46ecf99a0294d87f303ec9b976a586f94869e",
+        "request": {
+          "params": {
+            "employee_id": "19ff54",
+            "from_date": "2026-01-01",
+            "limit": "10",
+            "to_date": "2026-12-31"
+          }
+        }
+      }
+    }
+  }
+}

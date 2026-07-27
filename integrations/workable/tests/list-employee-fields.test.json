@@ -1,0 +1,4148 @@
+{
+  "input": {
+    "member_id": "1f395d"
+  },
+  "output": [
+    {
+      "id": "firstname",
+      "label": "First name",
+      "hint": null,
+      "type": "text",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "middle_name",
+      "label": "Middle name",
+      "hint": null,
+      "type": "text",
+      "editable_by": "employee",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "lastname",
+      "label": "Last name",
+      "hint": null,
+      "type": "text",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "employee_number",
+      "label": "Employee ID",
+      "hint": null,
+      "type": "text",
+      "editable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": false,
+      "is_multiple": false,
+      "autogenerate": true
+    },
+    {
+      "id": "preferred_name",
+      "label": "Preferred name",
+      "hint": null,
+      "type": "text",
+      "editable_by": "employee",
+      "viewable_by": "all",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "status",
+      "label": "Status",
+      "hint": null,
+      "type": "dropdown",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": true,
+      "is_multiple": false,
+      "choices": [
+        {
+          "id": "status_active",
+          "label": "Active",
+          "position": 0
+        },
+        {
+          "id": "status_draft",
+          "label": "Draft",
+          "position": 1
+        },
+        {
+          "id": "status_inactive",
+          "label": "Inactive",
+          "position": 2
+        }
+      ]
+    },
+    {
+      "id": "country",
+      "label": "Country",
+      "hint": null,
+      "type": "country",
+      "editable_by": "employee",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": false
+    },
+    {
+      "id": "address",
+      "label": "Address",
+      "hint": null,
+      "type": "location",
+      "editable_by": "employee",
+      "viewable_by": "employee",
+      "keep_history": true,
+      "is_multiple": false
+    },
+    {
+      "id": "gender",
+      "label": "Gender",
+      "hint": null,
+      "type": "dropdown",
+      "editable_by": "employee",
+      "viewable_by": "employee",
+      "keep_history": false,
+      "is_multiple": false,
+      "choices": [
+        {
+          "id": "gender_male",
+          "label": "Male",
+          "position": 0
+        },
+        {
+          "id": "gender_female",
+          "label": "Female",
+          "position": 1
+        },
+        {
+          "id": "gender_non_binary",
+          "label": "Non-binary",
+          "position": 2
+        }
+      ]
+    },
+    {
+      "id": "marital_status_group",
+      "label": "Marital status",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "employee",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": true,
+      "is_multiple": false,
+      "subfields": [
+        {
+          "id": "marital_status",
+          "label": "Status",
+          "hint": null,
+          "type": "dropdown",
+          "position": 0,
+          "choices": [
+            {
+              "id": "marital_status_single",
+              "label": "Single",
+              "position": 0
+            },
+            {
+              "id": "marital_status_married",
+              "label": "Married",
+              "position": 1
+            },
+            {
+              "id": "marital_status_common_law",
+              "label": "Common Law",
+              "position": 2
+            },
+            {
+              "id": "marital_status_domestic_partnership",
+              "label": "Domestic Partnership",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "id": "marital_status_certificate",
+          "label": "Certificate",
+          "hint": null,
+          "type": "file",
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "birthdate",
+      "label": "Birthdate",
+      "hint": null,
+      "type": "date",
+      "editable_by": "employee",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": false,
+      "is_multiple": false,
+      "date_format": "fullDate"
+    },
+    {
+      "id": "phone_group",
+      "label": "Phone",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "employee",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "phone_type",
+          "label": "Type",
+          "hint": null,
+          "type": "dropdown",
+          "position": 0,
+          "choices": [
+            {
+              "id": "phone_type_work",
+              "label": "Work",
+              "position": 0
+            },
+            {
+              "id": "phone_type_mobile",
+              "label": "Mobile",
+              "position": 1
+            },
+            {
+              "id": "phone_type_home",
+              "label": "Home",
+              "position": 2
+            },
+            {
+              "id": "phone_type_other",
+              "label": "Other",
+              "position": 3
+            }
+          ]
+        },
+        {
+          "id": "phone",
+          "label": "Phone",
+          "hint": null,
+          "type": "phone",
+          "position": 1
+        },
+        {
+          "id": "phone_ext",
+          "label": "Extension",
+          "hint": null,
+          "type": "numeric",
+          "position": 2
+        }
+      ]
+    },
+    {
+      "id": "chat_group",
+      "label": "Chat & video call",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "employee",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "chat_type",
+          "label": "Type",
+          "hint": null,
+          "type": "dropdown",
+          "position": 0,
+          "choices": [
+            {
+              "id": "chat_type_skype",
+              "label": "Skype",
+              "position": 0
+            },
+            {
+              "id": "chat_type_zoom",
+              "label": "Zoom",
+              "position": 1
+            },
+            {
+              "id": "chat_type_whatsapp",
+              "label": "WhatsApp",
+              "position": 2
+            },
+            {
+              "id": "chat_type_messenger",
+              "label": "Messenger",
+              "position": 3
+            },
+            {
+              "id": "chat_type_google_meet",
+              "label": "Google meet",
+              "position": 4
+            },
+            {
+              "id": "chat_type_slack",
+              "label": "Slack",
+              "position": 5
+            }
+          ]
+        },
+        {
+          "id": "chat_username",
+          "label": "Username",
+          "hint": null,
+          "type": "text",
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "work_email",
+      "label": "Work email",
+      "hint": null,
+      "type": "email",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "personal_email",
+      "label": "Personal email",
+      "hint": null,
+      "type": "email",
+      "editable_by": "employee",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": true
+    },
+    {
+      "id": "social_group",
+      "label": "Social media",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "employee",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "social_type",
+          "label": "Type",
+          "hint": null,
+          "type": "dropdown",
+          "position": 0,
+          "choices": [
+            {
+              "id": "social_type_facebook",
+              "label": "Facebook",
+              "position": 0
+            },
+            {
+              "id": "social_type_twitter",
+              "label": "Twitter",
+              "position": 1
+            },
+            {
+              "id": "social_type_linkedin",
+              "label": "LinkedIn",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "id": "social_url",
+          "label": "URL",
+          "hint": null,
+          "type": "text",
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "allergies",
+      "label": "Allergies",
+      "hint": null,
+      "type": "text",
+      "editable_by": "admin_or_employee",
+      "viewable_by": "admin_or_employee",
+      "keep_history": false,
+      "is_multiple": true
+    },
+    {
+      "id": "dietary_restrictions",
+      "label": "Dietary restrictions",
+      "hint": null,
+      "type": "text",
+      "editable_by": "admin_or_employee",
+      "viewable_by": "admin_or_employee",
+      "keep_history": false,
+      "is_multiple": true
+    },
+    {
+      "id": "garment_size_group",
+      "label": "Clothing size",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin_or_employee",
+      "viewable_by": "admin_or_employee",
+      "keep_history": false,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "garment_size_type",
+          "label": "Clothing type",
+          "hint": null,
+          "type": "dropdown",
+          "position": 0,
+          "choices": [
+            {
+              "id": "garment_type_shirt",
+              "label": "shirt",
+              "position": 0
+            },
+            {
+              "id": "garment_type_t_shirt",
+              "label": "t-shirt",
+              "position": 1
+            },
+            {
+              "id": "garment_type_jacket",
+              "label": "jacket",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "id": "garment_size",
+          "label": "Size",
+          "hint": null,
+          "type": "text",
+          "position": 1
+        }
+      ]
+    },
+    {
+      "id": "job_title",
+      "label": "Job title",
+      "hint": null,
+      "type": "text",
+      "editable_by": "manager",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": false
+    },
+    {
+      "id": "hire_date",
+      "label": "Hire date",
+      "hint": null,
+      "type": "date",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": false,
+      "is_multiple": false,
+      "date_format": "fullDate"
+    },
+    {
+      "id": "start_date",
+      "label": "Start date",
+      "hint": null,
+      "type": "date",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": false,
+      "date_format": "fullDate"
+    },
+    {
+      "id": "legal_entity",
+      "label": "Entity",
+      "hint": null,
+      "type": "legalEntity",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": false
+    },
+    {
+      "id": "department",
+      "label": "Department",
+      "hint": null,
+      "type": "department",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": false
+    },
+    {
+      "id": "division",
+      "label": "Division",
+      "hint": null,
+      "type": "dropdown",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": false,
+      "choices": []
+    },
+    {
+      "id": "team",
+      "label": "Team",
+      "hint": null,
+      "type": "dropdown",
+      "editable_by": "manager",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": false,
+      "choices": []
+    },
+    {
+      "id": "reports_to",
+      "label": "Manager",
+      "hint": null,
+      "type": "employee",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": true,
+      "is_multiple": false
+    },
+    {
+      "id": "direct_reports",
+      "label": "Direct reports",
+      "hint": null,
+      "type": "directReports",
+      "editable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "notice_period",
+      "label": "Notice period in days",
+      "hint": null,
+      "type": "numeric",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "probation_group",
+      "label": "Probation",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "probation_start_date",
+          "label": "Start date",
+          "hint": null,
+          "type": "date",
+          "position": 0,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "probation_end_date",
+          "label": "End date",
+          "hint": null,
+          "type": "date",
+          "position": 1,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "probation_note",
+          "label": "Note",
+          "hint": null,
+          "type": "text",
+          "position": 2
+        }
+      ]
+    },
+    {
+      "id": "employment_group",
+      "label": "Contract details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "employment_effective_date",
+          "label": "Effective date",
+          "hint": null,
+          "type": "date",
+          "position": 0,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "employment_status",
+          "label": "Employment type",
+          "hint": null,
+          "type": "dropdown",
+          "position": 1,
+          "choices": [
+            {
+              "id": "employement_type_contractor",
+              "label": "Contractor",
+              "position": 0
+            },
+            {
+              "id": "employement_type_full_time",
+              "label": "Full-Time",
+              "position": 1
+            },
+            {
+              "id": "employement_type_part_time",
+              "label": "Part-Time",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "id": "employment_work_place",
+          "label": "Workplace",
+          "hint": null,
+          "type": "dropdown",
+          "position": 2,
+          "choices": [
+            {
+              "id": "employment_work_place_onsite",
+              "label": "Onsite",
+              "position": 0
+            },
+            {
+              "id": "employment_work_place_remote",
+              "label": "Remote",
+              "position": 1
+            },
+            {
+              "id": "employment_work_place_hybrid",
+              "label": "Hybrid",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "id": "employment_expiry_date",
+          "label": "Expiry date",
+          "hint": null,
+          "type": "date",
+          "position": 3,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "employment_note",
+          "label": "Note",
+          "hint": null,
+          "type": "text",
+          "position": 4
+        }
+      ]
+    },
+    {
+      "id": "work_schedule",
+      "label": "Work schedule",
+      "hint": null,
+      "type": "workSchedule",
+      "editable_by": "manager",
+      "approvable_by": "admin",
+      "viewable_by": "all",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "salary_group",
+      "label": "Salary details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "manager",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "salary_effective_date",
+          "label": "Effective date",
+          "hint": null,
+          "type": "date",
+          "position": 0,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "salary_pay_type",
+          "label": "Pay type",
+          "hint": null,
+          "type": "dropdown",
+          "position": 1,
+          "choices": [
+            {
+              "id": "salary_pay_type_salary",
+              "label": "Salary",
+              "position": 0
+            },
+            {
+              "id": "salary_pay_type_hourly",
+              "label": "Hourly",
+              "position": 1
+            },
+            {
+              "id": "salary_pay_type_commission_only",
+              "label": "Commission Only",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "id": "salary_pay_rate",
+          "label": "Pay rate",
+          "hint": null,
+          "type": "payRate",
+          "position": 2
+        },
+        {
+          "id": "salary_pay_schedule",
+          "label": "Pay schedule",
+          "hint": null,
+          "type": "dropdown",
+          "position": 3,
+          "choices": [
+            {
+              "id": "salary_pay_schedule_monthly",
+              "label": "Monthly",
+              "position": 0
+            },
+            {
+              "id": "salary_pay_schedule_every_15_days",
+              "label": "Every 15 days",
+              "position": 1
+            },
+            {
+              "id": "salary_pay_schedule_annually",
+              "label": "Annually",
+              "position": 2
+            },
+            {
+              "id": "salary_pay_schedule_weekly",
+              "label": "Weekly",
+              "position": 3
+            },
+            {
+              "id": "salary_pay_schedule_daily",
+              "label": "Daily",
+              "position": 4
+            }
+          ]
+        },
+        {
+          "id": "salary_overtime_status",
+          "label": "Overtime status",
+          "hint": null,
+          "type": "dropdown",
+          "position": 4,
+          "choices": [
+            {
+              "id": "salary_overtime_status_exempt",
+              "label": "Exempt",
+              "position": 0
+            },
+            {
+              "id": "salary_overtime_status_non_exempt",
+              "label": "Non-exempt",
+              "position": 1
+            }
+          ]
+        },
+        {
+          "id": "salary_justification",
+          "label": "Reason",
+          "hint": null,
+          "type": "dropdown",
+          "position": 5,
+          "choices": [
+            {
+              "id": "salary_justification_new_hire",
+              "label": "New Hire",
+              "position": 0
+            },
+            {
+              "id": "salary_justification_adjustment",
+              "label": "Adjustment",
+              "position": 1
+            },
+            {
+              "id": "salary_justification_new_role",
+              "label": "New Role",
+              "position": 2
+            },
+            {
+              "id": "salary_justification_promotion",
+              "label": "Promotion",
+              "position": 3
+            },
+            {
+              "id": "salary_justification_other",
+              "label": "Other",
+              "position": 4
+            }
+          ]
+        },
+        {
+          "id": "salary_note",
+          "label": "Note",
+          "hint": null,
+          "type": "text",
+          "position": 6
+        }
+      ]
+    },
+    {
+      "id": "commission_group",
+      "label": "Commission details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "manager",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "commission_percentage",
+          "label": "Commission %",
+          "hint": null,
+          "type": "percentage",
+          "position": 0
+        },
+        {
+          "id": "commission_tier",
+          "label": "Tier",
+          "hint": null,
+          "type": "numeric",
+          "position": 1
+        },
+        {
+          "id": "commission_effective_date",
+          "label": "Effective date",
+          "hint": null,
+          "type": "date",
+          "position": 2,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "commission_pay_schedule",
+          "label": "Pay schedule",
+          "hint": null,
+          "type": "dropdown",
+          "position": 3,
+          "choices": [
+            {
+              "id": "commission_pay_schedule_montly",
+              "label": "Monthly",
+              "position": 0
+            },
+            {
+              "id": "commission_pay_schedule_every_15_days",
+              "label": "Every 15 days",
+              "position": 1
+            },
+            {
+              "id": "commission_pay_schedule_annually",
+              "label": "Annually",
+              "position": 2
+            },
+            {
+              "id": "commission_pay_schedule_weekly",
+              "label": "Weekly",
+              "position": 3
+            },
+            {
+              "id": "commission_pay_schedule_daily",
+              "label": "Daily",
+              "position": 4
+            }
+          ]
+        },
+        {
+          "id": "commission_reason",
+          "label": "Reason",
+          "hint": null,
+          "type": "dropdown",
+          "position": 4,
+          "choices": []
+        },
+        {
+          "id": "commission_note",
+          "label": "Note",
+          "hint": null,
+          "type": "text",
+          "position": 5
+        }
+      ]
+    },
+    {
+      "id": "bonus_group",
+      "label": "Bonus details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "manager",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "bonus_amount",
+          "label": "Amount",
+          "hint": null,
+          "type": "currency",
+          "position": 0
+        },
+        {
+          "id": "bonus_salary_percentage",
+          "label": "Salary %",
+          "hint": null,
+          "type": "percentage",
+          "position": 1
+        },
+        {
+          "id": "bonus_effective_date",
+          "label": "Effective date",
+          "hint": null,
+          "type": "date",
+          "position": 2,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "bonus_pay_schedule",
+          "label": "Pay schedule",
+          "hint": null,
+          "type": "dropdown",
+          "position": 3,
+          "choices": [
+            {
+              "id": "bonus_pay_schedule_monthly",
+              "label": "Monthly",
+              "position": 0
+            },
+            {
+              "id": "bonus_pay_schedule_every_15_days",
+              "label": "Every 15 days",
+              "position": 1
+            },
+            {
+              "id": "bonus_pay_schedule_annually",
+              "label": "Annually",
+              "position": 2
+            },
+            {
+              "id": "bonus_pay_schedule_weekly",
+              "label": "Weekly",
+              "position": 3
+            },
+            {
+              "id": "bonus_pay_schedule_daily",
+              "label": "Daily",
+              "position": 4
+            }
+          ]
+        },
+        {
+          "id": "bonus_reason",
+          "label": "Reason",
+          "hint": null,
+          "type": "dropdown",
+          "position": 4,
+          "choices": []
+        },
+        {
+          "id": "bonus_note",
+          "label": "Note",
+          "hint": null,
+          "type": "text",
+          "position": 5
+        }
+      ]
+    },
+    {
+      "id": "stock_options_group",
+      "label": "Stock options",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "manager",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "stock_options_price",
+          "label": "Stock option price",
+          "hint": null,
+          "type": "currency",
+          "position": 0
+        },
+        {
+          "id": "stock_options_grant_date",
+          "label": "Grant date",
+          "hint": null,
+          "type": "date",
+          "position": 1,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "stock_options_vesting_date",
+          "label": "Vesting date",
+          "hint": null,
+          "type": "date",
+          "position": 2,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "stock_options_plan",
+          "label": "Plan",
+          "hint": null,
+          "type": "dropdown",
+          "position": 3,
+          "choices": []
+        },
+        {
+          "id": "stock_options_note",
+          "label": "Note",
+          "hint": null,
+          "type": "text",
+          "position": 4
+        }
+      ]
+    },
+    {
+      "id": "assets_group",
+      "label": "Asset details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "manager",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "assets_name",
+          "label": "Asset name",
+          "hint": null,
+          "type": "text",
+          "position": 0
+        },
+        {
+          "id": "assets_grant_date",
+          "label": "Issue date",
+          "hint": null,
+          "type": "date",
+          "position": 1,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "assets_expiry_date",
+          "label": "Expiry date",
+          "hint": null,
+          "type": "date",
+          "position": 2,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "assets_note",
+          "label": "Note",
+          "hint": null,
+          "type": "text",
+          "position": 3
+        }
+      ]
+    },
+    {
+      "id": "credit_card_group",
+      "label": "Card details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "credit_card_number",
+          "label": "Card number (last 4 digits)",
+          "hint": null,
+          "type": "text",
+          "position": 0
+        },
+        {
+          "id": "credit_card_type",
+          "label": "Card type",
+          "hint": null,
+          "type": "dropdown",
+          "position": 1,
+          "choices": [
+            {
+              "id": "credit_card_type_visa",
+              "label": "Visa",
+              "position": 0
+            },
+            {
+              "id": "credit_card_type_mastercard",
+              "label": "Mastercard",
+              "position": 1
+            },
+            {
+              "id": "credit_card_type_amex",
+              "label": "Amex",
+              "position": 2
+            }
+          ]
+        },
+        {
+          "id": "credit_card_expiration_date",
+          "label": "Expiry date",
+          "hint": null,
+          "type": "date",
+          "position": 2,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "credit_card_cardholder",
+          "label": "Cardholder name",
+          "hint": null,
+          "type": "text",
+          "position": 3
+        },
+        {
+          "id": "credit_card_grant_date",
+          "label": "Issue date",
+          "hint": null,
+          "type": "date",
+          "position": 4,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "credit_card_note",
+          "label": "Note",
+          "hint": null,
+          "type": "text",
+          "position": 5
+        }
+      ]
+    },
+    {
+      "id": "bank_details_group",
+      "label": "Bank details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": true,
+      "is_multiple": false,
+      "subfields": [
+        {
+          "id": "bank_details_bank_name",
+          "label": "Bank name",
+          "hint": null,
+          "type": "text",
+          "position": 0
+        },
+        {
+          "id": "bank_details_iban",
+          "label": "IBAN",
+          "hint": null,
+          "type": "text",
+          "position": 1
+        },
+        {
+          "id": "bank_details_account_number",
+          "label": "Account number",
+          "hint": null,
+          "type": "text",
+          "position": 2
+        },
+        {
+          "id": "bank_details_bic",
+          "label": "BIC (SWIFT)",
+          "hint": null,
+          "type": "text",
+          "position": 3
+        },
+        {
+          "id": "bank_details_transit_number",
+          "label": "ABA/Transit number",
+          "hint": null,
+          "type": "text",
+          "position": 4
+        },
+        {
+          "id": "bank_details_bank_state_branch",
+          "label": "Bank State Branch (BSB)",
+          "hint": null,
+          "type": "text",
+          "position": 5
+        },
+        {
+          "id": "bank_details_routing_number",
+          "label": "Routing number",
+          "hint": null,
+          "type": "text",
+          "position": 6
+        },
+        {
+          "id": "bank_details_sort_code",
+          "label": "Sort code",
+          "hint": null,
+          "type": "text",
+          "position": 7
+        }
+      ]
+    },
+    {
+      "id": "social_security_number_group",
+      "label": "Social security number",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": true,
+      "is_multiple": false,
+      "subfields": [
+        {
+          "id": "social_security_number_number",
+          "label": "Number",
+          "hint": null,
+          "type": "text",
+          "position": 0
+        },
+        {
+          "id": "social_security_number_issue_date",
+          "label": "Issue date",
+          "hint": null,
+          "type": "date",
+          "position": 1,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "social_security_number_file",
+          "label": "File",
+          "hint": null,
+          "type": "file",
+          "position": 2
+        }
+      ]
+    },
+    {
+      "id": "national_identification_number_group",
+      "label": "National identification number",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": true,
+      "is_multiple": false,
+      "subfields": [
+        {
+          "id": "national_identification_number_number",
+          "label": "Number",
+          "hint": null,
+          "type": "text",
+          "position": 0
+        },
+        {
+          "id": "national_identification_number_issue_date",
+          "label": "Issue date",
+          "hint": null,
+          "type": "date",
+          "position": 1,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "national_identification_number_file",
+          "label": "File",
+          "hint": null,
+          "type": "file",
+          "position": 2
+        }
+      ]
+    },
+    {
+      "id": "social_insurance_number_group",
+      "label": "Social insurance number",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "social_insurance_number_number",
+          "label": "Number",
+          "hint": null,
+          "type": "text",
+          "position": 0
+        },
+        {
+          "id": "social_insurance_number_issue_date",
+          "label": "Issue date",
+          "hint": null,
+          "type": "date",
+          "position": 1,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "social_insurance_number_insurance_carrier",
+          "label": "Insurance carrier",
+          "hint": null,
+          "type": "dropdown",
+          "position": 2,
+          "choices": []
+        },
+        {
+          "id": "social_insurance_number_file",
+          "label": "File",
+          "hint": null,
+          "type": "file",
+          "position": 3
+        }
+      ]
+    },
+    {
+      "id": "tax_identification_number_group",
+      "label": "Tax identification number",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": true,
+      "is_multiple": false,
+      "subfields": [
+        {
+          "id": "tax_identification_number_number",
+          "label": "Number",
+          "hint": null,
+          "type": "text",
+          "position": 0
+        },
+        {
+          "id": "tax_identification_number_issue_date",
+          "label": "Issue date",
+          "hint": null,
+          "type": "date",
+          "position": 1,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "tax_identification_number_file",
+          "label": "File",
+          "hint": null,
+          "type": "file",
+          "position": 2
+        }
+      ]
+    },
+    {
+      "id": "nationality",
+      "label": "Nationality",
+      "hint": null,
+      "type": "country",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "birthPlace",
+      "label": "Birthplace",
+      "hint": null,
+      "type": "location",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "citizenship",
+      "label": "Citizenship",
+      "hint": null,
+      "type": "country",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": false,
+      "is_multiple": true
+    },
+    {
+      "id": "passport_group",
+      "label": "Passport details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "passport_country",
+          "label": "Country",
+          "hint": null,
+          "type": "country",
+          "position": 0
+        },
+        {
+          "id": "passport_number",
+          "label": "Number",
+          "hint": null,
+          "type": "text",
+          "position": 1
+        },
+        {
+          "id": "passport_issue_date",
+          "label": "Issue date",
+          "hint": null,
+          "type": "date",
+          "position": 2,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "passport_expiration_date",
+          "label": "Expiry date",
+          "hint": null,
+          "type": "date",
+          "position": 3,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "passport_attachment",
+          "label": "File",
+          "hint": null,
+          "type": "file",
+          "position": 4
+        }
+      ]
+    },
+    {
+      "id": "visa_group",
+      "label": "Visa details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": true,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "visa_country",
+          "label": "Country",
+          "hint": null,
+          "type": "country",
+          "position": 0
+        },
+        {
+          "id": "visa_type",
+          "label": "Type",
+          "hint": null,
+          "type": "dropdown",
+          "position": 1,
+          "choices": []
+        },
+        {
+          "id": "visa_number",
+          "label": "Number",
+          "hint": null,
+          "type": "text",
+          "position": 2
+        },
+        {
+          "id": "visa_issue_date",
+          "label": "Issue date",
+          "hint": null,
+          "type": "date",
+          "position": 3,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "visa_expiration_date",
+          "label": "Expiry date",
+          "hint": null,
+          "type": "date",
+          "position": 4,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "visa_attachment",
+          "label": "File",
+          "hint": null,
+          "type": "file",
+          "position": 5
+        }
+      ]
+    },
+    {
+      "id": "driver_license_group",
+      "label": "License details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "admin_or_employee",
+      "approvable_by": "admin",
+      "viewable_by": "admin_or_employee",
+      "keep_history": false,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "driver_license_country",
+          "label": "Country",
+          "hint": null,
+          "type": "country",
+          "position": 0
+        },
+        {
+          "id": "driver_license_state",
+          "label": "State",
+          "hint": null,
+          "type": "text",
+          "position": 1
+        },
+        {
+          "id": "driver_license_number",
+          "label": "Number",
+          "hint": null,
+          "type": "text",
+          "position": 2
+        },
+        {
+          "id": "driver_license_class",
+          "label": "Class",
+          "hint": null,
+          "type": "text",
+          "position": 3
+        },
+        {
+          "id": "driver_license_issue_date",
+          "label": "Issue date",
+          "hint": null,
+          "type": "date",
+          "position": 4,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "driver_license_expiration_date",
+          "label": "Expiry date",
+          "hint": null,
+          "type": "date",
+          "position": 5,
+          "date_format": "fullDate"
+        },
+        {
+          "id": "driver_license_attachment",
+          "label": "File",
+          "hint": null,
+          "type": "file",
+          "position": 6
+        }
+      ]
+    },
+    {
+      "id": "education_group",
+      "label": "Education details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "employee",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": false,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "education_start_date",
+          "label": "Start date",
+          "hint": null,
+          "type": "date",
+          "position": 0,
+          "date_format": "monthYear"
+        },
+        {
+          "id": "education_end_date",
+          "label": "End date",
+          "hint": null,
+          "type": "date",
+          "position": 1,
+          "date_format": "monthYear"
+        },
+        {
+          "id": "education_degree",
+          "label": "Degree",
+          "hint": null,
+          "type": "text",
+          "position": 2
+        },
+        {
+          "id": "education_field_of_study",
+          "label": "Field of study",
+          "hint": null,
+          "type": "text",
+          "position": 3
+        },
+        {
+          "id": "education_school",
+          "label": "School",
+          "hint": null,
+          "type": "text",
+          "position": 4
+        }
+      ]
+    },
+    {
+      "id": "work_experience_group",
+      "label": "Job details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "employee",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": false,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "work_experience_start_date",
+          "label": "Start date",
+          "hint": null,
+          "type": "date",
+          "position": 0,
+          "date_format": "monthYear"
+        },
+        {
+          "id": "work_experience_end_date",
+          "label": "End date",
+          "hint": null,
+          "type": "date",
+          "position": 1,
+          "date_format": "monthYear"
+        },
+        {
+          "id": "work_experience_job_title",
+          "label": "Job title",
+          "hint": null,
+          "type": "text",
+          "position": 2
+        },
+        {
+          "id": "work_experience_company",
+          "label": "Company",
+          "hint": null,
+          "type": "text",
+          "position": 3
+        },
+        {
+          "id": "work_experience_summary",
+          "label": "Summary",
+          "hint": null,
+          "type": "paragraph",
+          "position": 4
+        },
+        {
+          "id": "work_experience_present",
+          "label": "Present",
+          "hint": null,
+          "type": "boolean",
+          "position": 5
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "label": "Skill",
+      "hint": null,
+      "type": "text",
+      "editable_by": "employee",
+      "viewable_by": "employee",
+      "keep_history": false,
+      "is_multiple": true
+    },
+    {
+      "id": "language",
+      "label": "Language",
+      "hint": null,
+      "type": "text",
+      "editable_by": "employee",
+      "viewable_by": "employee",
+      "keep_history": false,
+      "is_multiple": true
+    },
+    {
+      "id": "resume",
+      "label": "File",
+      "hint": null,
+      "type": "file",
+      "editable_by": "employee",
+      "approvable_by": "admin",
+      "viewable_by": "employee",
+      "keep_history": false,
+      "is_multiple": false
+    },
+    {
+      "id": "contact_group",
+      "label": "Contact details",
+      "hint": null,
+      "type": "composite",
+      "editable_by": "employee",
+      "viewable_by": "employee",
+      "keep_history": false,
+      "is_multiple": true,
+      "subfields": [
+        {
+          "id": "contact_name",
+          "label": "Name",
+          "hint": null,
+          "type": "text",
+          "position": 0
+        },
+        {
+          "id": "contact_relationship",
+          "label": "Relationship",
+          "hint": null,
+          "type": "dropdown",
+          "position": 1,
+          "choices": [
+            {
+              "id": "contact_relationship_type_husband",
+              "label": "Husband",
+              "position": 0
+            },
+            {
+              "id": "contact_relationship_type_wife",
+              "label": "Wife",
+              "position": 1
+            },
+            {
+              "id": "contact_relationship_type_partner",
+              "label": "Partner",
+              "position": 2
+            },
+            {
+              "id": "contact_relationship_type_mother",
+              "label": "Mother",
+              "position": 3
+            },
+            {
+              "id": "contact_relationship_type_father",
+              "label": "Father",
+              "position": 4
+            },
+            {
+              "id": "contact_relationship_type_brother",
+              "label": "Brother",
+              "position": 5
+            },
+            {
+              "id": "contact_relationship_type_sister",
+              "label": "Sister",
+              "position": 6
+            },
+            {
+              "id": "contact_relationship_type_son",
+              "label": "Son",
+              "position": 7
+            },
+            {
+              "id": "contact_relationship_type_daughter",
+              "label": "Daughter",
+              "position": 8
+            },
+            {
+              "id": "contact_relationship_type_friend",
+              "label": "Friend",
+              "position": 9
+            },
+            {
+              "id": "contact_relationship_type_other",
+              "label": "Other",
+              "position": 10
+            }
+          ]
+        },
+        {
+          "id": "contact_phone",
+          "label": "Phone",
+          "hint": null,
+          "type": "phone",
+          "position": 2
+        },
+        {
+          "id": "contact_email",
+          "label": "Email",
+          "hint": null,
+          "type": "email",
+          "position": 3
+        },
+        {
+          "id": "contact_country",
+          "label": "Country",
+          "hint": null,
+          "type": "country",
+          "position": 4
+        },
+        {
+          "id": "contact_address",
+          "label": "Address",
+          "hint": null,
+          "type": "location",
+          "position": 5
+        }
+      ]
+    }
+  ],
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/employee_fields": {
+        "response": [
+          {
+            "id": "firstname",
+            "label": "First name",
+            "hint": null,
+            "type": "text",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 15,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "middle_name",
+            "label": "Middle name",
+            "hint": null,
+            "type": "text",
+            "approvable_by": "admin",
+            "editable_by_new": 7,
+            "viewable_by_new": 15,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "lastname",
+            "label": "Last name",
+            "hint": null,
+            "type": "text",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 15,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "employee_number",
+            "label": "Employee ID",
+            "hint": null,
+            "type": "text",
+            "editable_by_new": 4,
+            "viewable_by_new": 15,
+            "keep_history": false,
+            "is_multiple": false,
+            "autogenerate": true,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "preferred_name",
+            "label": "Preferred name",
+            "hint": null,
+            "type": "text",
+            "editable_by_new": 7,
+            "viewable_by_new": 15,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "status",
+            "label": "Status",
+            "hint": null,
+            "type": "dropdown",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 7,
+            "choices": [
+              {
+                "id": "status_active",
+                "label": "Active",
+                "position": 0
+              },
+              {
+                "id": "status_draft",
+                "label": "Draft",
+                "position": 1
+              },
+              {
+                "id": "status_inactive",
+                "label": "Inactive",
+                "position": 2
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "country",
+            "label": "Country",
+            "hint": null,
+            "type": "country",
+            "approvable_by": "admin",
+            "editable_by_new": 7,
+            "viewable_by_new": 15,
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "address",
+            "label": "Address",
+            "hint": null,
+            "type": "location",
+            "editable_by_new": 7,
+            "viewable_by_new": 7,
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "gender",
+            "label": "Gender",
+            "hint": null,
+            "type": "dropdown",
+            "editable_by_new": 7,
+            "viewable_by_new": 7,
+            "choices": [
+              {
+                "id": "gender_male",
+                "label": "Male",
+                "position": 0
+              },
+              {
+                "id": "gender_female",
+                "label": "Female",
+                "position": 1
+              },
+              {
+                "id": "gender_non_binary",
+                "label": "Non-binary",
+                "position": 2
+              }
+            ],
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "marital_status_group",
+            "label": "Marital status",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 7,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "marital_status",
+                "label": "Status",
+                "hint": null,
+                "type": "dropdown",
+                "position": 0,
+                "editable_by_new": 7,
+                "viewable_by_new": 7,
+                "choices": [
+                  {
+                    "id": "marital_status_single",
+                    "label": "Single",
+                    "position": 0
+                  },
+                  {
+                    "id": "marital_status_married",
+                    "label": "Married",
+                    "position": 1
+                  },
+                  {
+                    "id": "marital_status_common_law",
+                    "label": "Common Law",
+                    "position": 2
+                  },
+                  {
+                    "id": "marital_status_domestic_partnership",
+                    "label": "Domestic Partnership",
+                    "position": 3
+                  }
+                ]
+              },
+              {
+                "id": "marital_status_certificate",
+                "label": "Certificate",
+                "hint": null,
+                "type": "file",
+                "position": 1,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "birthdate",
+            "label": "Birthdate",
+            "hint": null,
+            "type": "date",
+            "approvable_by": "admin",
+            "editable_by_new": 7,
+            "viewable_by_new": 15,
+            "keep_history": false,
+            "is_multiple": false,
+            "date_format": "fullDate",
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "phone_group",
+            "label": "Phone",
+            "hint": null,
+            "type": "composite",
+            "editable_by_new": 7,
+            "viewable_by_new": 15,
+            "subfields": [
+              {
+                "id": "phone_type",
+                "label": "Type",
+                "hint": null,
+                "type": "dropdown",
+                "position": 0,
+                "editable_by_new": 7,
+                "viewable_by_new": 15,
+                "choices": [
+                  {
+                    "id": "phone_type_work",
+                    "label": "Work",
+                    "position": 0
+                  },
+                  {
+                    "id": "phone_type_mobile",
+                    "label": "Mobile",
+                    "position": 1
+                  },
+                  {
+                    "id": "phone_type_home",
+                    "label": "Home",
+                    "position": 2
+                  },
+                  {
+                    "id": "phone_type_other",
+                    "label": "Other",
+                    "position": 3
+                  }
+                ]
+              },
+              {
+                "id": "phone",
+                "label": "Phone",
+                "hint": null,
+                "type": "phone",
+                "position": 1,
+                "editable_by_new": 7,
+                "viewable_by_new": 15
+              },
+              {
+                "id": "phone_ext",
+                "label": "Extension",
+                "hint": null,
+                "type": "numeric",
+                "position": 2,
+                "editable_by_new": 7,
+                "viewable_by_new": 15
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "chat_group",
+            "label": "Chat & video call",
+            "hint": null,
+            "type": "composite",
+            "editable_by_new": 7,
+            "viewable_by_new": 15,
+            "subfields": [
+              {
+                "id": "chat_type",
+                "label": "Type",
+                "hint": null,
+                "type": "dropdown",
+                "position": 0,
+                "editable_by_new": 7,
+                "viewable_by_new": 15,
+                "choices": [
+                  {
+                    "id": "chat_type_skype",
+                    "label": "Skype",
+                    "position": 0
+                  },
+                  {
+                    "id": "chat_type_zoom",
+                    "label": "Zoom",
+                    "position": 1
+                  },
+                  {
+                    "id": "chat_type_whatsapp",
+                    "label": "WhatsApp",
+                    "position": 2
+                  },
+                  {
+                    "id": "chat_type_messenger",
+                    "label": "Messenger",
+                    "position": 3
+                  },
+                  {
+                    "id": "chat_type_google_meet",
+                    "label": "Google meet",
+                    "position": 4
+                  },
+                  {
+                    "id": "chat_type_slack",
+                    "label": "Slack",
+                    "position": 5
+                  }
+                ]
+              },
+              {
+                "id": "chat_username",
+                "label": "Username",
+                "hint": null,
+                "type": "text",
+                "position": 1,
+                "editable_by_new": 7,
+                "viewable_by_new": 15
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "work_email",
+            "label": "Work email",
+            "hint": null,
+            "type": "email",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 15,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "personal_email",
+            "label": "Personal email",
+            "hint": null,
+            "type": "email",
+            "approvable_by": "admin",
+            "editable_by_new": 7,
+            "viewable_by_new": 15,
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "social_group",
+            "label": "Social media",
+            "hint": null,
+            "type": "composite",
+            "editable_by_new": 7,
+            "viewable_by_new": 15,
+            "subfields": [
+              {
+                "id": "social_type",
+                "label": "Type",
+                "hint": null,
+                "type": "dropdown",
+                "position": 0,
+                "editable_by_new": 7,
+                "viewable_by_new": 15,
+                "choices": [
+                  {
+                    "id": "social_type_facebook",
+                    "label": "Facebook",
+                    "position": 0
+                  },
+                  {
+                    "id": "social_type_twitter",
+                    "label": "Twitter",
+                    "position": 1
+                  },
+                  {
+                    "id": "social_type_linkedin",
+                    "label": "LinkedIn",
+                    "position": 2
+                  }
+                ]
+              },
+              {
+                "id": "social_url",
+                "label": "URL",
+                "hint": null,
+                "type": "text",
+                "position": 1,
+                "editable_by_new": 7,
+                "viewable_by_new": 15
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "allergies",
+            "label": "Allergies",
+            "hint": null,
+            "type": "text",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "keep_history": false,
+            "is_multiple": true,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "dietary_restrictions",
+            "label": "Dietary restrictions",
+            "hint": null,
+            "type": "text",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "keep_history": false,
+            "is_multiple": true,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "garment_size_group",
+            "label": "Clothing size",
+            "hint": null,
+            "type": "composite",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "subfields": [
+              {
+                "id": "garment_size_type",
+                "label": "Clothing type",
+                "hint": null,
+                "type": "dropdown",
+                "position": 0,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "choices": [
+                  {
+                    "id": "garment_type_shirt",
+                    "label": "shirt",
+                    "position": 0
+                  },
+                  {
+                    "id": "garment_type_t_shirt",
+                    "label": "t-shirt",
+                    "position": 1
+                  },
+                  {
+                    "id": "garment_type_jacket",
+                    "label": "jacket",
+                    "position": 2
+                  }
+                ]
+              },
+              {
+                "id": "garment_size",
+                "label": "Size",
+                "hint": null,
+                "type": "text",
+                "position": 1,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              }
+            ],
+            "keep_history": false,
+            "is_multiple": true,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "job_title",
+            "label": "Job title",
+            "hint": null,
+            "type": "text",
+            "approvable_by": "admin",
+            "editable_by_new": 6,
+            "viewable_by_new": 15,
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "manager",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "hire_date",
+            "label": "Hire date",
+            "hint": null,
+            "type": "date",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 7,
+            "keep_history": false,
+            "is_multiple": false,
+            "date_format": "fullDate",
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "start_date",
+            "label": "Start date",
+            "hint": null,
+            "type": "date",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 15,
+            "keep_history": true,
+            "is_multiple": false,
+            "date_format": "fullDate",
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "legal_entity",
+            "label": "Entity",
+            "hint": null,
+            "type": "legalEntity",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 15,
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "department",
+            "label": "Department",
+            "hint": null,
+            "type": "department",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 15,
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "division",
+            "label": "Division",
+            "hint": null,
+            "type": "dropdown",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 15,
+            "choices": [],
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "team",
+            "label": "Team",
+            "hint": null,
+            "type": "dropdown",
+            "approvable_by": "admin",
+            "editable_by_new": 6,
+            "viewable_by_new": 15,
+            "choices": [],
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "manager",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "reports_to",
+            "label": "Manager",
+            "hint": null,
+            "type": "employee",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 15,
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "direct_reports",
+            "label": "Direct reports",
+            "hint": null,
+            "type": "directReports",
+            "editable_by_new": 4,
+            "viewable_by_new": 15,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "notice_period",
+            "label": "Notice period in days",
+            "hint": null,
+            "type": "numeric",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 7,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "probation_group",
+            "label": "Probation",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "probation_start_date",
+                "label": "Start date",
+                "hint": null,
+                "type": "date",
+                "position": 0,
+                "editable_by_new": 4,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "probation_end_date",
+                "label": "End date",
+                "hint": null,
+                "type": "date",
+                "position": 1,
+                "editable_by_new": 4,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "probation_note",
+                "label": "Note",
+                "hint": null,
+                "type": "text",
+                "position": 2,
+                "editable_by_new": 4,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "employment_group",
+            "label": "Contract details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 4,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "employment_effective_date",
+                "label": "Effective date",
+                "hint": null,
+                "type": "date",
+                "position": 0,
+                "editable_by_new": 4,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "employment_status",
+                "label": "Employment type",
+                "hint": null,
+                "type": "dropdown",
+                "position": 1,
+                "editable_by_new": 4,
+                "viewable_by_new": 7,
+                "choices": [
+                  {
+                    "id": "employement_type_contractor",
+                    "label": "Contractor",
+                    "position": 0
+                  },
+                  {
+                    "id": "employement_type_full_time",
+                    "label": "Full-Time",
+                    "position": 1
+                  },
+                  {
+                    "id": "employement_type_part_time",
+                    "label": "Part-Time",
+                    "position": 2
+                  }
+                ]
+              },
+              {
+                "id": "employment_work_place",
+                "label": "Workplace",
+                "hint": null,
+                "type": "dropdown",
+                "position": 2,
+                "editable_by_new": 4,
+                "viewable_by_new": 7,
+                "choices": [
+                  {
+                    "id": "employment_work_place_onsite",
+                    "label": "Onsite",
+                    "position": 0
+                  },
+                  {
+                    "id": "employment_work_place_remote",
+                    "label": "Remote",
+                    "position": 1
+                  },
+                  {
+                    "id": "employment_work_place_hybrid",
+                    "label": "Hybrid",
+                    "position": 2
+                  }
+                ]
+              },
+              {
+                "id": "employment_expiry_date",
+                "label": "Expiry date",
+                "hint": null,
+                "type": "date",
+                "position": 3,
+                "editable_by_new": 4,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "employment_note",
+                "label": "Note",
+                "hint": null,
+                "type": "text",
+                "position": 4,
+                "editable_by_new": 4,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "admin",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "work_schedule",
+            "label": "Work schedule",
+            "hint": null,
+            "type": "workSchedule",
+            "approvable_by": "admin",
+            "editable_by_new": 6,
+            "viewable_by_new": 15,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "manager",
+            "editable_by_roles": [],
+            "viewable_by": "all",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "salary_group",
+            "label": "Salary details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 6,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "salary_effective_date",
+                "label": "Effective date",
+                "hint": null,
+                "type": "date",
+                "position": 0,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "salary_pay_type",
+                "label": "Pay type",
+                "hint": null,
+                "type": "dropdown",
+                "position": 1,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "choices": [
+                  {
+                    "id": "salary_pay_type_salary",
+                    "label": "Salary",
+                    "position": 0
+                  },
+                  {
+                    "id": "salary_pay_type_hourly",
+                    "label": "Hourly",
+                    "position": 1
+                  },
+                  {
+                    "id": "salary_pay_type_commission_only",
+                    "label": "Commission Only",
+                    "position": 2
+                  }
+                ]
+              },
+              {
+                "id": "salary_pay_rate",
+                "label": "Pay rate",
+                "hint": null,
+                "type": "payRate",
+                "position": 2,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "salary_pay_schedule",
+                "label": "Pay schedule",
+                "hint": null,
+                "type": "dropdown",
+                "position": 3,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "choices": [
+                  {
+                    "id": "salary_pay_schedule_monthly",
+                    "label": "Monthly",
+                    "position": 0
+                  },
+                  {
+                    "id": "salary_pay_schedule_every_15_days",
+                    "label": "Every 15 days",
+                    "position": 1
+                  },
+                  {
+                    "id": "salary_pay_schedule_annually",
+                    "label": "Annually",
+                    "position": 2
+                  },
+                  {
+                    "id": "salary_pay_schedule_weekly",
+                    "label": "Weekly",
+                    "position": 3
+                  },
+                  {
+                    "id": "salary_pay_schedule_daily",
+                    "label": "Daily",
+                    "position": 4
+                  }
+                ]
+              },
+              {
+                "id": "salary_overtime_status",
+                "label": "Overtime status",
+                "hint": null,
+                "type": "dropdown",
+                "position": 4,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "choices": [
+                  {
+                    "id": "salary_overtime_status_exempt",
+                    "label": "Exempt",
+                    "position": 0
+                  },
+                  {
+                    "id": "salary_overtime_status_non_exempt",
+                    "label": "Non-exempt",
+                    "position": 1
+                  }
+                ]
+              },
+              {
+                "id": "salary_justification",
+                "label": "Reason",
+                "hint": null,
+                "type": "dropdown",
+                "position": 5,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "choices": [
+                  {
+                    "id": "salary_justification_new_hire",
+                    "label": "New Hire",
+                    "position": 0
+                  },
+                  {
+                    "id": "salary_justification_adjustment",
+                    "label": "Adjustment",
+                    "position": 1
+                  },
+                  {
+                    "id": "salary_justification_new_role",
+                    "label": "New Role",
+                    "position": 2
+                  },
+                  {
+                    "id": "salary_justification_promotion",
+                    "label": "Promotion",
+                    "position": 3
+                  },
+                  {
+                    "id": "salary_justification_other",
+                    "label": "Other",
+                    "position": 4
+                  }
+                ]
+              },
+              {
+                "id": "salary_note",
+                "label": "Note",
+                "hint": null,
+                "type": "text",
+                "position": 6,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "manager",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "commission_group",
+            "label": "Commission details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 6,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "commission_percentage",
+                "label": "Commission %",
+                "hint": null,
+                "type": "percentage",
+                "position": 0,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "commission_tier",
+                "label": "Tier",
+                "hint": null,
+                "type": "numeric",
+                "position": 1,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "commission_effective_date",
+                "label": "Effective date",
+                "hint": null,
+                "type": "date",
+                "position": 2,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "commission_pay_schedule",
+                "label": "Pay schedule",
+                "hint": null,
+                "type": "dropdown",
+                "position": 3,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "choices": [
+                  {
+                    "id": "commission_pay_schedule_montly",
+                    "label": "Monthly",
+                    "position": 0
+                  },
+                  {
+                    "id": "commission_pay_schedule_every_15_days",
+                    "label": "Every 15 days",
+                    "position": 1
+                  },
+                  {
+                    "id": "commission_pay_schedule_annually",
+                    "label": "Annually",
+                    "position": 2
+                  },
+                  {
+                    "id": "commission_pay_schedule_weekly",
+                    "label": "Weekly",
+                    "position": 3
+                  },
+                  {
+                    "id": "commission_pay_schedule_daily",
+                    "label": "Daily",
+                    "position": 4
+                  }
+                ]
+              },
+              {
+                "id": "commission_reason",
+                "label": "Reason",
+                "hint": null,
+                "type": "dropdown",
+                "position": 4,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "choices": []
+              },
+              {
+                "id": "commission_note",
+                "label": "Note",
+                "hint": null,
+                "type": "text",
+                "position": 5,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "manager",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "bonus_group",
+            "label": "Bonus details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 6,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "bonus_amount",
+                "label": "Amount",
+                "hint": null,
+                "type": "currency",
+                "position": 0,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "bonus_salary_percentage",
+                "label": "Salary %",
+                "hint": null,
+                "type": "percentage",
+                "position": 1,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "bonus_effective_date",
+                "label": "Effective date",
+                "hint": null,
+                "type": "date",
+                "position": 2,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "bonus_pay_schedule",
+                "label": "Pay schedule",
+                "hint": null,
+                "type": "dropdown",
+                "position": 3,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "choices": [
+                  {
+                    "id": "bonus_pay_schedule_monthly",
+                    "label": "Monthly",
+                    "position": 0
+                  },
+                  {
+                    "id": "bonus_pay_schedule_every_15_days",
+                    "label": "Every 15 days",
+                    "position": 1
+                  },
+                  {
+                    "id": "bonus_pay_schedule_annually",
+                    "label": "Annually",
+                    "position": 2
+                  },
+                  {
+                    "id": "bonus_pay_schedule_weekly",
+                    "label": "Weekly",
+                    "position": 3
+                  },
+                  {
+                    "id": "bonus_pay_schedule_daily",
+                    "label": "Daily",
+                    "position": 4
+                  }
+                ]
+              },
+              {
+                "id": "bonus_reason",
+                "label": "Reason",
+                "hint": null,
+                "type": "dropdown",
+                "position": 4,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "choices": []
+              },
+              {
+                "id": "bonus_note",
+                "label": "Note",
+                "hint": null,
+                "type": "text",
+                "position": 5,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "manager",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "stock_options_group",
+            "label": "Stock options",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 6,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "stock_options_price",
+                "label": "Stock option price",
+                "hint": null,
+                "type": "currency",
+                "position": 0,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "stock_options_grant_date",
+                "label": "Grant date",
+                "hint": null,
+                "type": "date",
+                "position": 1,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "stock_options_vesting_date",
+                "label": "Vesting date",
+                "hint": null,
+                "type": "date",
+                "position": 2,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "stock_options_plan",
+                "label": "Plan",
+                "hint": null,
+                "type": "dropdown",
+                "position": 3,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "choices": []
+              },
+              {
+                "id": "stock_options_note",
+                "label": "Note",
+                "hint": null,
+                "type": "text",
+                "position": 4,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "manager",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "assets_group",
+            "label": "Asset details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 6,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "assets_name",
+                "label": "Asset name",
+                "hint": null,
+                "type": "text",
+                "position": 0,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "assets_grant_date",
+                "label": "Issue date",
+                "hint": null,
+                "type": "date",
+                "position": 1,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "assets_expiry_date",
+                "label": "Expiry date",
+                "hint": null,
+                "type": "date",
+                "position": 2,
+                "editable_by_new": 6,
+                "viewable_by_new": 7,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "assets_note",
+                "label": "Note",
+                "hint": null,
+                "type": "text",
+                "position": 3,
+                "editable_by_new": 6,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "manager",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "credit_card_group",
+            "label": "Card details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "subfields": [
+              {
+                "id": "credit_card_number",
+                "label": "Card number (last 4 digits)",
+                "hint": null,
+                "type": "text",
+                "position": 0,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "credit_card_type",
+                "label": "Card type",
+                "hint": null,
+                "type": "dropdown",
+                "position": 1,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "choices": [
+                  {
+                    "id": "credit_card_type_visa",
+                    "label": "Visa",
+                    "position": 0
+                  },
+                  {
+                    "id": "credit_card_type_mastercard",
+                    "label": "Mastercard",
+                    "position": 1
+                  },
+                  {
+                    "id": "credit_card_type_amex",
+                    "label": "Amex",
+                    "position": 2
+                  }
+                ]
+              },
+              {
+                "id": "credit_card_expiration_date",
+                "label": "Expiry date",
+                "hint": null,
+                "type": "date",
+                "position": 2,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "credit_card_cardholder",
+                "label": "Cardholder name",
+                "hint": null,
+                "type": "text",
+                "position": 3,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "credit_card_grant_date",
+                "label": "Issue date",
+                "hint": null,
+                "type": "date",
+                "position": 4,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "credit_card_note",
+                "label": "Note",
+                "hint": null,
+                "type": "text",
+                "position": 5,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "bank_details_group",
+            "label": "Bank details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "subfields": [
+              {
+                "id": "bank_details_bank_name",
+                "label": "Bank name",
+                "hint": null,
+                "type": "text",
+                "position": 0,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "bank_details_iban",
+                "label": "IBAN",
+                "hint": null,
+                "type": "text",
+                "position": 1,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "bank_details_account_number",
+                "label": "Account number",
+                "hint": null,
+                "type": "text",
+                "position": 2,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "bank_details_bic",
+                "label": "BIC (SWIFT)",
+                "hint": null,
+                "type": "text",
+                "position": 3,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "bank_details_transit_number",
+                "label": "ABA/Transit number",
+                "hint": null,
+                "type": "text",
+                "position": 4,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "bank_details_bank_state_branch",
+                "label": "Bank State Branch (BSB)",
+                "hint": null,
+                "type": "text",
+                "position": 5,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "bank_details_routing_number",
+                "label": "Routing number",
+                "hint": null,
+                "type": "text",
+                "position": 6,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "bank_details_sort_code",
+                "label": "Sort code",
+                "hint": null,
+                "type": "text",
+                "position": 7,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "social_security_number_group",
+            "label": "Social security number",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "subfields": [
+              {
+                "id": "social_security_number_number",
+                "label": "Number",
+                "hint": null,
+                "type": "text",
+                "position": 0,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "social_security_number_issue_date",
+                "label": "Issue date",
+                "hint": null,
+                "type": "date",
+                "position": 1,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "social_security_number_file",
+                "label": "File",
+                "hint": null,
+                "type": "file",
+                "position": 2,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "national_identification_number_group",
+            "label": "National identification number",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "subfields": [
+              {
+                "id": "national_identification_number_number",
+                "label": "Number",
+                "hint": null,
+                "type": "text",
+                "position": 0,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "national_identification_number_issue_date",
+                "label": "Issue date",
+                "hint": null,
+                "type": "date",
+                "position": 1,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "national_identification_number_file",
+                "label": "File",
+                "hint": null,
+                "type": "file",
+                "position": 2,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "social_insurance_number_group",
+            "label": "Social insurance number",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "subfields": [
+              {
+                "id": "social_insurance_number_number",
+                "label": "Number",
+                "hint": null,
+                "type": "text",
+                "position": 0,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "social_insurance_number_issue_date",
+                "label": "Issue date",
+                "hint": null,
+                "type": "date",
+                "position": 1,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "social_insurance_number_insurance_carrier",
+                "label": "Insurance carrier",
+                "hint": null,
+                "type": "dropdown",
+                "position": 2,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "choices": []
+              },
+              {
+                "id": "social_insurance_number_file",
+                "label": "File",
+                "hint": null,
+                "type": "file",
+                "position": 3,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "tax_identification_number_group",
+            "label": "Tax identification number",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "subfields": [
+              {
+                "id": "tax_identification_number_number",
+                "label": "Number",
+                "hint": null,
+                "type": "text",
+                "position": 0,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "tax_identification_number_issue_date",
+                "label": "Issue date",
+                "hint": null,
+                "type": "date",
+                "position": 1,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "tax_identification_number_file",
+                "label": "File",
+                "hint": null,
+                "type": "file",
+                "position": 2,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": false,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "nationality",
+            "label": "Nationality",
+            "hint": null,
+            "type": "country",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "birthPlace",
+            "label": "Birthplace",
+            "hint": null,
+            "type": "location",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "citizenship",
+            "label": "Citizenship",
+            "hint": null,
+            "type": "country",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "keep_history": false,
+            "is_multiple": true,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "passport_group",
+            "label": "Passport details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "subfields": [
+              {
+                "id": "passport_country",
+                "label": "Country",
+                "hint": null,
+                "type": "country",
+                "position": 0,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "passport_number",
+                "label": "Number",
+                "hint": null,
+                "type": "text",
+                "position": 1,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "passport_issue_date",
+                "label": "Issue date",
+                "hint": null,
+                "type": "date",
+                "position": 2,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "passport_expiration_date",
+                "label": "Expiry date",
+                "hint": null,
+                "type": "date",
+                "position": 3,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "passport_attachment",
+                "label": "File",
+                "hint": null,
+                "type": "file",
+                "position": 4,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "visa_group",
+            "label": "Visa details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "subfields": [
+              {
+                "id": "visa_country",
+                "label": "Country",
+                "hint": null,
+                "type": "country",
+                "position": 0,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "visa_type",
+                "label": "Type",
+                "hint": null,
+                "type": "dropdown",
+                "position": 1,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "choices": []
+              },
+              {
+                "id": "visa_number",
+                "label": "Number",
+                "hint": null,
+                "type": "text",
+                "position": 2,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "visa_issue_date",
+                "label": "Issue date",
+                "hint": null,
+                "type": "date",
+                "position": 3,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "visa_expiration_date",
+                "label": "Expiry date",
+                "hint": null,
+                "type": "date",
+                "position": 4,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "visa_attachment",
+                "label": "File",
+                "hint": null,
+                "type": "file",
+                "position": 5,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              }
+            ],
+            "keep_history": true,
+            "is_multiple": true,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "driver_license_group",
+            "label": "License details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 5,
+            "viewable_by_new": 5,
+            "subfields": [
+              {
+                "id": "driver_license_country",
+                "label": "Country",
+                "hint": null,
+                "type": "country",
+                "position": 0,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "driver_license_state",
+                "label": "State",
+                "hint": null,
+                "type": "text",
+                "position": 1,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "driver_license_number",
+                "label": "Number",
+                "hint": null,
+                "type": "text",
+                "position": 2,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "driver_license_class",
+                "label": "Class",
+                "hint": null,
+                "type": "text",
+                "position": 3,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              },
+              {
+                "id": "driver_license_issue_date",
+                "label": "Issue date",
+                "hint": null,
+                "type": "date",
+                "position": 4,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "driver_license_expiration_date",
+                "label": "Expiry date",
+                "hint": null,
+                "type": "date",
+                "position": 5,
+                "editable_by_new": 5,
+                "viewable_by_new": 5,
+                "date_format": "fullDate"
+              },
+              {
+                "id": "driver_license_attachment",
+                "label": "File",
+                "hint": null,
+                "type": "file",
+                "position": 6,
+                "editable_by_new": 5,
+                "viewable_by_new": 5
+              }
+            ],
+            "keep_history": false,
+            "is_multiple": true,
+            "editable_by": "admin_or_employee",
+            "editable_by_roles": [],
+            "viewable_by": "admin_or_employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "education_group",
+            "label": "Education details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 7,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "education_start_date",
+                "label": "Start date",
+                "hint": null,
+                "type": "date",
+                "position": 0,
+                "editable_by_new": 7,
+                "viewable_by_new": 7,
+                "date_format": "monthYear"
+              },
+              {
+                "id": "education_end_date",
+                "label": "End date",
+                "hint": null,
+                "type": "date",
+                "position": 1,
+                "editable_by_new": 7,
+                "viewable_by_new": 7,
+                "date_format": "monthYear"
+              },
+              {
+                "id": "education_degree",
+                "label": "Degree",
+                "hint": null,
+                "type": "text",
+                "position": 2,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "education_field_of_study",
+                "label": "Field of study",
+                "hint": null,
+                "type": "text",
+                "position": 3,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "education_school",
+                "label": "School",
+                "hint": null,
+                "type": "text",
+                "position": 4,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": false,
+            "is_multiple": true,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "work_experience_group",
+            "label": "Job details",
+            "hint": null,
+            "type": "composite",
+            "approvable_by": "admin",
+            "editable_by_new": 7,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "work_experience_start_date",
+                "label": "Start date",
+                "hint": null,
+                "type": "date",
+                "position": 0,
+                "editable_by_new": 7,
+                "viewable_by_new": 7,
+                "date_format": "monthYear"
+              },
+              {
+                "id": "work_experience_end_date",
+                "label": "End date",
+                "hint": null,
+                "type": "date",
+                "position": 1,
+                "editable_by_new": 7,
+                "viewable_by_new": 7,
+                "date_format": "monthYear"
+              },
+              {
+                "id": "work_experience_job_title",
+                "label": "Job title",
+                "hint": null,
+                "type": "text",
+                "position": 2,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "work_experience_company",
+                "label": "Company",
+                "hint": null,
+                "type": "text",
+                "position": 3,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "work_experience_summary",
+                "label": "Summary",
+                "hint": null,
+                "type": "paragraph",
+                "position": 4,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "work_experience_present",
+                "label": "Present",
+                "hint": null,
+                "type": "boolean",
+                "position": 5,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": false,
+            "is_multiple": true,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "skills",
+            "label": "Skill",
+            "hint": null,
+            "type": "text",
+            "editable_by_new": 7,
+            "viewable_by_new": 7,
+            "keep_history": false,
+            "is_multiple": true,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "language",
+            "label": "Language",
+            "hint": null,
+            "type": "text",
+            "editable_by_new": 7,
+            "viewable_by_new": 7,
+            "keep_history": false,
+            "is_multiple": true,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "resume",
+            "label": "File",
+            "hint": null,
+            "type": "file",
+            "approvable_by": "admin",
+            "editable_by_new": 7,
+            "viewable_by_new": 7,
+            "keep_history": false,
+            "is_multiple": false,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          },
+          {
+            "id": "contact_group",
+            "label": "Contact details",
+            "hint": null,
+            "type": "composite",
+            "editable_by_new": 7,
+            "viewable_by_new": 7,
+            "subfields": [
+              {
+                "id": "contact_name",
+                "label": "Name",
+                "hint": null,
+                "type": "text",
+                "position": 0,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "contact_relationship",
+                "label": "Relationship",
+                "hint": null,
+                "type": "dropdown",
+                "position": 1,
+                "editable_by_new": 7,
+                "viewable_by_new": 7,
+                "choices": [
+                  {
+                    "id": "contact_relationship_type_husband",
+                    "label": "Husband",
+                    "position": 0
+                  },
+                  {
+                    "id": "contact_relationship_type_wife",
+                    "label": "Wife",
+                    "position": 1
+                  },
+                  {
+                    "id": "contact_relationship_type_partner",
+                    "label": "Partner",
+                    "position": 2
+                  },
+                  {
+                    "id": "contact_relationship_type_mother",
+                    "label": "Mother",
+                    "position": 3
+                  },
+                  {
+                    "id": "contact_relationship_type_father",
+                    "label": "Father",
+                    "position": 4
+                  },
+                  {
+                    "id": "contact_relationship_type_brother",
+                    "label": "Brother",
+                    "position": 5
+                  },
+                  {
+                    "id": "contact_relationship_type_sister",
+                    "label": "Sister",
+                    "position": 6
+                  },
+                  {
+                    "id": "contact_relationship_type_son",
+                    "label": "Son",
+                    "position": 7
+                  },
+                  {
+                    "id": "contact_relationship_type_daughter",
+                    "label": "Daughter",
+                    "position": 8
+                  },
+                  {
+                    "id": "contact_relationship_type_friend",
+                    "label": "Friend",
+                    "position": 9
+                  },
+                  {
+                    "id": "contact_relationship_type_other",
+                    "label": "Other",
+                    "position": 10
+                  }
+                ]
+              },
+              {
+                "id": "contact_phone",
+                "label": "Phone",
+                "hint": null,
+                "type": "phone",
+                "position": 2,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "contact_email",
+                "label": "Email",
+                "hint": null,
+                "type": "email",
+                "position": 3,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "contact_country",
+                "label": "Country",
+                "hint": null,
+                "type": "country",
+                "position": 4,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              },
+              {
+                "id": "contact_address",
+                "label": "Address",
+                "hint": null,
+                "type": "location",
+                "position": 5,
+                "editable_by_new": 7,
+                "viewable_by_new": 7
+              }
+            ],
+            "keep_history": false,
+            "is_multiple": true,
+            "editable_by": "employee",
+            "editable_by_roles": [],
+            "viewable_by": "employee",
+            "viewable_by_roles": []
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:47:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "<redacted>",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1888",
+          "x-ratelimit-reset": "1784839686",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "7",
+          "x-rate-limit-reset": "1784839672",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd8ab1bcc39694-PDX"
+        },
+        "hash": "2116f0d6627a2614e68aabc9c3e2472c3d583236",
+        "request": {
+          "params": {
+            "member_id": "1f395d"
+          }
+        }
+      }
+    }
+  }
+}

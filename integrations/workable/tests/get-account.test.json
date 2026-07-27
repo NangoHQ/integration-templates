@@ -1,0 +1,62 @@
+{
+  "input": {
+    "subdomain": "nangodev"
+  },
+  "output": {
+    "id": "b4e8e",
+    "name": "NangoDev",
+    "subdomain": "nangodev"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/accounts/nangodev": {
+        "response": {
+          "id": "b4e8e",
+          "name": "NangoDev",
+          "subdomain": "nangodev",
+          "description": null,
+          "summary": null,
+          "website_url": "https://nango.dev"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:45:34 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1910",
+          "x-ratelimit-reset": "1784839564",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "3",
+          "x-rate-limit-reset": "1784839544",
+          "etag": "W/\"d5a37815a20b1f0265a46e370aeec3f2\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "375d5c88-3c3e-9686-83e0-9dd2b9a23d90",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "_workable_visitor=BAhJIik4YjkxMGM4NC0xZTJjLTQ2M2EtODk0Ni02MWQ2YTEzZTBiM2QGOgZFRg%3D%3D--9388cbcc724c8693cb0d5556cf7256458fe80f03; domain=workable.com; path=/; expires=Mon, 23 Jul 2046 20:45:34 GMT; secure, wmc=%7B%22cookie_id%22%3A%22b2ad9ad3-b231-42cc-9ec2-304516fc7758%22%7D; domain=.workable.com; path=/; expires=Mon, 23 Jul 2046 20:45:34 GMT; secure, __cf_bm=Ql3i64MYWfpYrTult9.WRLOxHG_TMDszNi7nTTTUa3g-1784839534.6883705-1.0.1.1-Tqzkxez3JM.Q3uVrQ_K.2a2GvO9ghxClvO2twFBFY5PRzuG8nsiamgGB3jied.qm2UNmlBXYe0M30YSUvvt1WakFxQgScS2QdS1pREAU3vfBUQtG1qviwuPnIqaeqv6K; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:15:34 GMT",
+          "x-kb": "false",
+          "cf-ray": "a1fd8793cf7def4b-PDX"
+        },
+        "hash": "3d618535189c8445fb5e3e8ed6b2be49b366f138",
+        "request": {}
+      }
+    }
+  }
+}

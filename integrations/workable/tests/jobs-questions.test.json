@@ -1,0 +1,433 @@
+{
+  "nango": {
+    "batchSave": {
+      "JobQuestion": [
+        {
+          "id": "B3627BCF5D_b99026",
+          "job_shortcode": "B3627BCF5D",
+          "question_id": "b99026",
+          "body": "Explain one aspect of this role you believe you will excel at.",
+          "type": "free_text",
+          "required": true
+        },
+        {
+          "id": "B3627BCF5D_b99027",
+          "job_shortcode": "B3627BCF5D",
+          "question_id": "b99027",
+          "body": "Explain one aspect of this role you believe will be a challenge.",
+          "type": "free_text",
+          "required": true
+        },
+        {
+          "id": "B3627BCF5D_b99028",
+          "job_shortcode": "B3627BCF5D",
+          "question_id": "b99028",
+          "body": "How many years of work experience do you have?",
+          "type": "numeric",
+          "required": true
+        },
+        {
+          "id": "B3627BCF5D_b99029",
+          "job_shortcode": "B3627BCF5D",
+          "question_id": "b99029",
+          "body": "Maximum level of education",
+          "type": "dropdown",
+          "required": true,
+          "single_answer": true,
+          "choices": [
+            {
+              "id": "60ce7f",
+              "body": "High School"
+            },
+            {
+              "id": "60ce80",
+              "body": "Bachelor's Degree"
+            },
+            {
+              "id": "60ce81",
+              "body": "Master's Degree"
+            },
+            {
+              "id": "60ce82",
+              "body": "PHD"
+            }
+          ]
+        },
+        {
+          "id": "B3627BCF5D_b9902a",
+          "job_shortcode": "B3627BCF5D",
+          "question_id": "b9902a",
+          "body": "How did you hear about this position?",
+          "type": "dropdown",
+          "required": true,
+          "single_answer": true,
+          "choices": [
+            {
+              "id": "60ce83",
+              "body": "LinkedIn"
+            },
+            {
+              "id": "60ce84",
+              "body": "Careerbuilder"
+            },
+            {
+              "id": "60ce85",
+              "body": "Company website"
+            },
+            {
+              "id": "60ce86",
+              "body": "Facebook"
+            },
+            {
+              "id": "60ce87",
+              "body": "Twitter"
+            },
+            {
+              "id": "60ce88",
+              "body": "Referral"
+            }
+          ]
+        },
+        {
+          "id": "B3627BCF5D_b9902b",
+          "job_shortcode": "B3627BCF5D",
+          "question_id": "b9902b",
+          "body": "Experience managing a team of 5+ sales people?",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "B3627BCF5D_b9902c",
+          "job_shortcode": "B3627BCF5D",
+          "question_id": "b9902c",
+          "body": "How much notice do you need for your current position (in weeks)?",
+          "type": "numeric",
+          "required": true
+        },
+        {
+          "id": "B3627BCF5D_b9902d",
+          "job_shortcode": "B3627BCF5D",
+          "question_id": "b9902d",
+          "body": "When is your earliest availability?",
+          "type": "date",
+          "required": true
+        }
+      ]
+    },
+    "batchDelete": {
+      "JobQuestion": []
+    }
+  },
+  "api": {
+    "get": {
+      "/spi/v3/jobs": {
+        "response": {
+          "jobs": [
+            {
+              "id": "5b5ce9",
+              "title": "Account Executive",
+              "full_title": "Account Executive - GB/09/AE",
+              "shortcode": "9CD658E13E",
+              "code": "GB/09/AE",
+              "state": "closed",
+              "sample": true,
+              "confidential": false,
+              "department": null,
+              "department_hierarchy": [],
+              "url": "https://nangodev.workable.com/jobs/5986327",
+              "application_url": "https://nangodev.workable.com/jobs/5986327/candidates/new",
+              "shortlink": "https://apply.workable.com/j/9CD658E13E",
+              "workplace_type": "on_site",
+              "location": {
+                "location_str": "London, United Kingdom",
+                "country": "United Kingdom",
+                "country_code": "GB",
+                "region": null,
+                "region_code": "England",
+                "city": "London",
+                "zip_code": "2142",
+                "telecommuting": false,
+                "workplace_type": "on_site"
+              },
+              "locations": [
+                {
+                  "shortcode": "JAD50549AFA",
+                  "country_code": "GB",
+                  "country_name": "United Kingdom",
+                  "state_code": "England",
+                  "subregion": null,
+                  "zip_code": "2142",
+                  "city": "London",
+                  "coords": "51.5073509, -0.1277583",
+                  "hidden": false
+                }
+              ],
+              "salary": {
+                "salary_from": 60000,
+                "salary_to": 80000,
+                "salary_currency": "gbp"
+              },
+              "created_at": "2026-03-25T00:00:00Z",
+              "updated_at": "2026-07-23T20:46:41Z",
+              "keywords": null
+            },
+            {
+              "id": "5b5cea",
+              "title": "Director of Finance",
+              "full_title": "Director of Finance - US/4/HAM",
+              "shortcode": "B3627BCF5D",
+              "code": "US/4/HAM",
+              "state": "closed",
+              "sample": true,
+              "confidential": false,
+              "department": null,
+              "department_hierarchy": [],
+              "url": "https://nangodev.workable.com/jobs/5986328",
+              "application_url": "https://nangodev.workable.com/jobs/5986328/candidates/new",
+              "shortlink": "https://apply.workable.com/j/B3627BCF5D",
+              "workplace_type": "on_site",
+              "location": {
+                "location_str": "New York, United States",
+                "country": "United States",
+                "country_code": "US",
+                "region": "New York",
+                "region_code": "NY",
+                "city": "New York",
+                "zip_code": null,
+                "telecommuting": false,
+                "workplace_type": "on_site"
+              },
+              "locations": [
+                {
+                  "shortcode": "J449203CE7C",
+                  "country_code": "US",
+                  "country_name": "United States",
+                  "state_code": "NY",
+                  "subregion": "New York",
+                  "zip_code": null,
+                  "city": "New York",
+                  "coords": "40.7127753, -74.0059728",
+                  "hidden": false
+                }
+              ],
+              "salary": {
+                "salary_from": 150000,
+                "salary_to": 200000,
+                "salary_currency": "usd"
+              },
+              "created_at": "2026-03-25T00:00:00Z",
+              "updated_at": "2026-07-23T20:46:41Z",
+              "keywords": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:49:01 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1854",
+          "x-ratelimit-reset": "1784839746",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "7",
+          "x-rate-limit-reset": "1784839751",
+          "etag": "W/\"b8533d011282aa0399f6cd55927a7629\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "d00699b7-03b2-92da-b093-08865356e987",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "_workable_visitor=BAhJIikwZWQ2ZTU1YS04YzE0LTRmOTAtYjA0ZC02ZWZjMjZlOTVmYzYGOgZFRg%3D%3D--fd69ddbc0e50c6df15ef31491f69c110f22000b0; domain=workable.com; path=/; expires=Mon, 23 Jul 2046 20:49:01 GMT; secure, wmc=%7B%22cookie_id%22%3A%22e280e9c6-add0-40f4-ac48-0f61d13fa85b%22%7D; domain=.workable.com; path=/; expires=Mon, 23 Jul 2046 20:49:01 GMT; secure, __cf_bm=umzSSjbJpjPH9oFQsUf05u062XoX3G0fLp7Jt85wkUM-1784839741.2535944-1.0.1.1-8bM13IcH152mAUKcpNylyYY8AdCDadYljDnC37QZYPQ87.3JajChE.er7vF1z02ijE30sNPafQSN0sHwyvW6w9oDVHk2QhPXAJ2QXBYiumVsLGN1uDxxvgIXwOPUgR9Q; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:19:01 GMT",
+          "x-kb": "false",
+          "cf-ray": "a1fd8c9ed9ecfef0-PDX"
+        },
+        "hash": "c72cfc1c3cbd9673e2e3a425f3efb24ca1e6ab01",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/spi/v3/jobs/9CD658E13E/questions": {
+        "response": {
+          "questions": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:49:01 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "16",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1853",
+          "x-ratelimit-reset": "1784839746",
+          "x-request-id": "baf84cee-4514-955e-989e-e3870ea4d298",
+          "etag": "W/\"10-/7zxW9v/kXU3mDCMyXouU+R9kUE\""
+        },
+        "hash": "4729b7718379d97303f6bcc2a7331339c4e21df6",
+        "request": {}
+      },
+      "/spi/v3/jobs/B3627BCF5D/questions": {
+        "response": {
+          "questions": [
+            {
+              "body": "Explain one aspect of this role you believe you will excel at.",
+              "type": "free_text",
+              "required": true,
+              "id": "b99026"
+            },
+            {
+              "body": "Explain one aspect of this role you believe will be a challenge.",
+              "type": "free_text",
+              "required": true,
+              "id": "b99027"
+            },
+            {
+              "body": "How many years of work experience do you have?",
+              "type": "numeric",
+              "required": true,
+              "id": "b99028"
+            },
+            {
+              "body": "Maximum level of education",
+              "type": "dropdown",
+              "required": true,
+              "single_answer": true,
+              "choices": [
+                {
+                  "body": "High School",
+                  "id": "60ce7f"
+                },
+                {
+                  "body": "Bachelor's Degree",
+                  "id": "60ce80"
+                },
+                {
+                  "body": "Master's Degree",
+                  "id": "60ce81"
+                },
+                {
+                  "body": "PHD",
+                  "id": "60ce82"
+                }
+              ],
+              "id": "b99029"
+            },
+            {
+              "body": "How did you hear about this position?",
+              "type": "dropdown",
+              "required": true,
+              "single_answer": true,
+              "choices": [
+                {
+                  "body": "LinkedIn",
+                  "id": "60ce83"
+                },
+                {
+                  "body": "Careerbuilder",
+                  "id": "60ce84"
+                },
+                {
+                  "body": "Company website",
+                  "id": "60ce85"
+                },
+                {
+                  "body": "Facebook",
+                  "id": "60ce86"
+                },
+                {
+                  "body": "Twitter",
+                  "id": "60ce87"
+                },
+                {
+                  "body": "Referral",
+                  "id": "60ce88"
+                }
+              ],
+              "id": "b9902a"
+            },
+            {
+              "body": "Experience managing a team of 5+ sales people?",
+              "type": "boolean",
+              "required": true,
+              "id": "b9902b"
+            },
+            {
+              "body": "How much notice do you need for your current position (in weeks)?",
+              "type": "numeric",
+              "required": true,
+              "id": "b9902c"
+            },
+            {
+              "body": "When is your earliest availability?",
+              "type": "date",
+              "required": true,
+              "id": "b9902d"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:49:01 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1852",
+          "x-ratelimit-reset": "1784839746",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "5",
+          "x-rate-limit-reset": "1784839751",
+          "etag": "W/\"fbba249a0a498d49766255b7d6bf9d9e\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "1b19bb9f-3869-9d22-8b62-e8be0743942b",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "_workable_visitor=BAhJIik5ZWJjNjk0My00ZThjLTRlZWEtYWUxNS1lMGU4OTQ2ZDZhNDcGOgZFRg%3D%3D--1881596ead0d5b8ff213563cf55337a2da362aa8; domain=workable.com; path=/; expires=Mon, 23 Jul 2046 20:49:01 GMT; secure, wmc=%7B%22cookie_id%22%3A%2241966c4f-9b0a-43ed-aeb9-2ceae89d76dc%22%7D; domain=.workable.com; path=/; expires=Mon, 23 Jul 2046 20:49:01 GMT; secure, __cf_bm=te0yjvxEBayfsxJWSv6p9eRguLrIaNbzKuieCGc7ce4-1784839741.7613142-1.0.1.1-Xl1NdNKKYudnhukYesc48T3YWSwnSfO.ZeLf7RV1Xu3BzX97PLBRr10kq9sa2WwjnPhy2mQ3KTl7n1L5oavJ2RSk2uQ.pOXpkN3R1cJEjrbg2C7_7As2XgiEml2SNenc; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:19:01 GMT",
+          "x-kb": "false",
+          "cf-ray": "a1fd8ca20b27cb5f-PDX"
+        },
+        "hash": "7a8431d6378c1a94b1cc562c3bfebd387b6aaff7",
+        "request": {}
+      }
+    }
+  }
+}

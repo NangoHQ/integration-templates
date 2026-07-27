@@ -1,0 +1,136 @@
+{
+  "input": {
+    "employee_id": "19ff54"
+  },
+  "output": {
+    "balances": [
+      {
+        "units_available": "11.50",
+        "units_carry_over_available": "0.00",
+        "units_used": "6.00",
+        "has_unlimited_timeoff": false,
+        "category_id": "10013",
+        "time_off_tracking_unit": "half_days",
+        "name": "Paid time off",
+        "description": "For vacations, holidays and other paid time away from work."
+      },
+      {
+        "units_available": "32.00",
+        "units_carry_over_available": "0.00",
+        "units_used": "8.00",
+        "has_unlimited_timeoff": false,
+        "category_id": "10014",
+        "time_off_tracking_unit": "hours",
+        "name": "Sick leave",
+        "description": "For paid time away from work due to illness or sickness."
+      },
+      {
+        "units_available": "0.00",
+        "units_carry_over_available": "0.00",
+        "units_used": "0.00",
+        "has_unlimited_timeoff": true,
+        "category_id": "10015",
+        "time_off_tracking_unit": "full_days",
+        "name": "Unpaid leave",
+        "description": "For unpaid time away from work."
+      },
+      {
+        "units_available": "90.00",
+        "units_carry_over_available": "0.00",
+        "units_used": "0.00",
+        "has_unlimited_timeoff": false,
+        "category_id": "10016",
+        "time_off_tracking_unit": "full_days",
+        "name": "Sabbatical",
+        "description": "A long time-off period as an award for employees' loyalty to our company."
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/timeoff/balances": {
+        "response": {
+          "balances": [
+            {
+              "units_available": "11.50",
+              "units_carry_over_available": "0.00",
+              "units_used": "6.00",
+              "has_unlimited_timeoff": false,
+              "category_id": "10013",
+              "time_off_tracking_unit": "half_days",
+              "name": "Paid time off",
+              "description": "For vacations, holidays and other paid time away from work."
+            },
+            {
+              "units_available": "32.00",
+              "units_carry_over_available": "0.00",
+              "units_used": "8.00",
+              "has_unlimited_timeoff": false,
+              "category_id": "10014",
+              "time_off_tracking_unit": "hours",
+              "name": "Sick leave",
+              "description": "For paid time away from work due to illness or sickness."
+            },
+            {
+              "units_available": "0.00",
+              "units_carry_over_available": "0.00",
+              "units_used": "0.00",
+              "has_unlimited_timeoff": true,
+              "category_id": "10015",
+              "time_off_tracking_unit": "full_days",
+              "name": "Unpaid leave",
+              "description": "For unpaid time away from work."
+            },
+            {
+              "units_available": "90.00",
+              "units_carry_over_available": "0.00",
+              "units_used": "0.00",
+              "has_unlimited_timeoff": false,
+              "category_id": "10016",
+              "time_off_tracking_unit": "full_days",
+              "name": "Sabbatical",
+              "description": "A long time-off period as an award for employees' loyalty to our company."
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:47:49 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.workable.com/; report-uri https://browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pubcbe8d2ef0966e8645a91099cfac490bb&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=%40http.headers.cfray%3Aa1fd8adb6bdadd76",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1874",
+          "x-ratelimit-reset": "1784839686",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "1",
+          "x-rate-limit-reset": "1784839679",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=HcgyMyf.VLQ7H3ohC4e8pezVoZSd3rRzWnJUJx9o0Nk-1784839669.0286868-1.0.1.1-GzlFlcYzEdmSOs17zcRJ_99ZxuyKeiWzBat9WWnqp8sLVDrBtvCsHfTBKvjx4_Sm0FMcWR4KH9t0dEqweOey4cyZYzsOpqZ6BZJ9daspJMbIRrU3SvCKBz4E8mYwmpuH; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:17:49 GMT",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd8adb6bdadd76-PDX"
+        },
+        "hash": "69f23bb86b6d378c6d757c82cd2c453d1b36647a",
+        "request": {
+          "params": {
+            "employee_id": "19ff54"
+          }
+        }
+      }
+    }
+  }
+}

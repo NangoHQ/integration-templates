@@ -1,106 +1,134 @@
-import { createSync } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import type { WorkableCandidate } from '../models.js';
-import { WorkableJobsCandidate } from '../models.js';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const LIMIT = 100;
+const JobSchema = z.object({
+    id: z.string(),
+    shortcode: z.string(),
+    title: z.string().optional(),
+    state: z.string().optional()
+});
+
+const ProviderCandidateSchema = z.object({
+    id: z.string(),
+    name: z.string().nullish(),
+    firstname: z.string().nullish(),
+    lastname: z.string().nullish(),
+    email: z.string().nullish(),
+    phone: z.string().nullish(),
+    headline: z.string().nullish(),
+    stage: z.string().nullish(),
+    disqualified: z.boolean().nullish(),
+    created_at: z.string().nullish(),
+    updated_at: z.string().nullish()
+});
+
+const JobCandidateSchema = z.object({
+    id: z.string(),
+    candidate_id: z.string(),
+    job_shortcode: z.string(),
+    name: z.string().optional(),
+    firstname: z.string().optional(),
+    lastname: z.string().optional(),
+    email: z.string().optional(),
+    phone: z.string().optional(),
+    headline: z.string().optional(),
+    stage: z.string().optional(),
+    disqualified: z.boolean().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional()
+});
 
 const sync = createSync({
-    description: 'Fetches a list of candidates for the specified job from workable',
+    description: 'Sync candidates scoped to each job.',
     version: '1.0.0',
-    frequency: 'every 6 hours',
+    frequency: 'every hour',
     autoStart: true,
-    syncType: 'full',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/workable/jobs-candidates'
-        }
-    ],
-
-    scopes: ['r_jobs'],
-
     models: {
-        WorkableJobsCandidate: WorkableJobsCandidate
+        JobCandidate: JobCandidateSchema
     },
 
-    metadata: z.object({}),
-
     exec: async (nango) => {
-        let totalRecords = 0;
+        const jobsProxyConfig: ProxyConfiguration = {
+            // https://workable.readme.io/reference/list-jobs
+            endpoint: '/spi/v3/jobs',
+            paginate: {
+                type: 'link',
+                link_path_in_response_body: 'paging.next',
+                response_path: 'jobs',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
+            retries: 3
+        };
 
-        const jobs: any[] = await getAllJobs(nango);
+        const jobs: Array<z.infer<typeof JobSchema>> = [];
+        for await (const page of nango.paginate(jobsProxyConfig)) {
+            for (const rawJob of page) {
+                const parsed = JobSchema.safeParse(rawJob);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse job: ${parsed.error.message}`);
+                }
+                jobs.push(parsed.data);
+            }
+        }
+
+        if (jobs.length === 0) {
+            return;
+        }
+
+        await nango.trackDeletesStart('JobCandidate');
 
         for (const job of jobs) {
-            const config: ProxyConfiguration = {
-                // https://workable.readme.io/reference/job-candidates-create
-                endpoint: `/spi/v3/jobs/${job.shortcode}/candidates`,
+            const candidatesProxyConfig: ProxyConfiguration = {
+                // https://workable.readme.io/reference/list-candidates
+                endpoint: '/spi/v3/candidates',
+                params: {
+                    shortcode: job.shortcode
+                },
                 paginate: {
                     type: 'link',
                     link_path_in_response_body: 'paging.next',
-                    limit_name_in_request: 'limit',
                     response_path: 'candidates',
-                    limit: LIMIT
-                }
+                    limit_name_in_request: 'limit',
+                    limit: 100
+                },
+                retries: 3
             };
-            for await (const candidate of nango.paginate(config)) {
-                const mappedCandidate: WorkableCandidate[] = candidate.map(mapCandidate) || [];
-                // Save candidates
-                const batchSize: number = mappedCandidate.length;
-                totalRecords += batchSize;
-                await nango.log(`Saving batch of ${batchSize} candidate(s) for job ${job.shortcode} (total candidates: ${totalRecords})`);
-                await nango.batchSave(mappedCandidate, 'WorkableJobsCandidate');
+
+            for await (const page of nango.paginate(candidatesProxyConfig)) {
+                const candidates: Array<z.infer<typeof JobCandidateSchema>> = [];
+                for (const rawCandidate of page) {
+                    const parsed = ProviderCandidateSchema.safeParse(rawCandidate);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse candidate: ${parsed.error.message}`);
+                    }
+                    const candidate = parsed.data;
+                    candidates.push({
+                        id: `${job.shortcode}-${candidate.id}`,
+                        candidate_id: candidate.id,
+                        job_shortcode: job.shortcode,
+                        ...(candidate.name != null && { name: candidate.name }),
+                        ...(candidate.firstname != null && { firstname: candidate.firstname }),
+                        ...(candidate.lastname != null && { lastname: candidate.lastname }),
+                        ...(candidate.email != null && { email: candidate.email }),
+                        ...(candidate.phone != null && { phone: candidate.phone }),
+                        ...(candidate.headline != null && { headline: candidate.headline }),
+                        ...(candidate.stage != null && { stage: candidate.stage }),
+                        ...(candidate.disqualified != null && { disqualified: candidate.disqualified }),
+                        ...(candidate.created_at != null && { created_at: candidate.created_at }),
+                        ...(candidate.updated_at != null && { updated_at: candidate.updated_at })
+                    });
+                }
+
+                if (candidates.length > 0) {
+                    await nango.batchSave(candidates, 'JobCandidate');
+                }
             }
         }
+
+        await nango.trackDeletesEnd('JobCandidate');
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-async function getAllJobs(nango: NangoSyncLocal) {
-    const records: any[] = [];
-    const config: ProxyConfiguration = {
-        // https://workable.readme.io/reference/jobs
-        endpoint: '/spi/v3/jobs',
-        paginate: {
-            type: 'link',
-            link_path_in_response_body: 'paging.next',
-            limit_name_in_request: 'limit',
-            response_path: 'jobs',
-            limit: LIMIT
-        }
-    };
-
-    for await (const recordBatch of nango.paginate(config)) {
-        records.push(...recordBatch);
-    }
-
-    return records;
-}
-
-function mapCandidate(candidate: any): WorkableCandidate {
-    return {
-        id: candidate.id,
-        name: candidate.name,
-        firstname: candidate.firstname,
-        lastname: candidate.lastname,
-        headline: candidate.headline,
-        account: candidate.account,
-        job: candidate.job,
-        stage: candidate.stage,
-        disqualified: candidate.disqualified,
-        disqualification_reason: candidate.disqualification_reason,
-        hired_at: candidate.hired_at,
-        sourced: candidate.sourced,
-        profile_url: candidate.profile_url,
-        address: candidate.address,
-        phone: candidate.phone,
-        email: candidate.email,
-        domain: candidate.domain,
-        created_at: candidate.created_at,
-        updated_at: candidate.updated_after
-    };
-}

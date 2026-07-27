@@ -1,0 +1,468 @@
+{
+  "nango": {
+    "batchSave": {
+      "JobStage": [
+        {
+          "id": "9CD658E13E_sourced",
+          "job_shortcode": "9CD658E13E",
+          "slug": "sourced",
+          "name": "Sourced",
+          "kind": "sourced",
+          "position": 1
+        },
+        {
+          "id": "9CD658E13E_applied",
+          "job_shortcode": "9CD658E13E",
+          "slug": "applied",
+          "name": "Applied",
+          "kind": "applied",
+          "position": 2
+        },
+        {
+          "id": "9CD658E13E_phone-screen",
+          "job_shortcode": "9CD658E13E",
+          "slug": "phone-screen",
+          "name": "Phone Screen",
+          "kind": "phone-screen",
+          "position": 3
+        },
+        {
+          "id": "9CD658E13E_assessment",
+          "job_shortcode": "9CD658E13E",
+          "slug": "assessment",
+          "name": "Assessment",
+          "kind": "assessment",
+          "position": 4
+        },
+        {
+          "id": "9CD658E13E_interview",
+          "job_shortcode": "9CD658E13E",
+          "slug": "interview",
+          "name": "Interview",
+          "kind": "interview",
+          "position": 5
+        },
+        {
+          "id": "9CD658E13E_offer",
+          "job_shortcode": "9CD658E13E",
+          "slug": "offer",
+          "name": "Offer",
+          "kind": "offer",
+          "position": 6
+        },
+        {
+          "id": "9CD658E13E_hired",
+          "job_shortcode": "9CD658E13E",
+          "slug": "hired",
+          "name": "Hired",
+          "kind": "hired",
+          "position": 7
+        },
+        {
+          "id": "B3627BCF5D_sourced",
+          "job_shortcode": "B3627BCF5D",
+          "slug": "sourced",
+          "name": "Sourced",
+          "kind": "sourced",
+          "position": 1
+        },
+        {
+          "id": "B3627BCF5D_applied",
+          "job_shortcode": "B3627BCF5D",
+          "slug": "applied",
+          "name": "Applied",
+          "kind": "applied",
+          "position": 2
+        },
+        {
+          "id": "B3627BCF5D_phone-screen",
+          "job_shortcode": "B3627BCF5D",
+          "slug": "phone-screen",
+          "name": "Phone Screen",
+          "kind": "phone-screen",
+          "position": 3
+        },
+        {
+          "id": "B3627BCF5D_assessment",
+          "job_shortcode": "B3627BCF5D",
+          "slug": "assessment",
+          "name": "Assessment",
+          "kind": "assessment",
+          "position": 4
+        },
+        {
+          "id": "B3627BCF5D_interview",
+          "job_shortcode": "B3627BCF5D",
+          "slug": "interview",
+          "name": "Interview",
+          "kind": "interview",
+          "position": 5
+        },
+        {
+          "id": "B3627BCF5D_offer",
+          "job_shortcode": "B3627BCF5D",
+          "slug": "offer",
+          "name": "Offer",
+          "kind": "offer",
+          "position": 6
+        },
+        {
+          "id": "B3627BCF5D_hired",
+          "job_shortcode": "B3627BCF5D",
+          "slug": "hired",
+          "name": "Hired",
+          "kind": "hired",
+          "position": 7
+        }
+      ]
+    },
+    "batchDelete": {
+      "JobStage": []
+    }
+  },
+  "api": {
+    "get": {
+      "/spi/v3/jobs": {
+        "response": {
+          "jobs": [
+            {
+              "id": "5b5ce9",
+              "title": "Account Executive",
+              "full_title": "Account Executive - GB/09/AE",
+              "shortcode": "9CD658E13E",
+              "code": "GB/09/AE",
+              "state": "closed",
+              "sample": true,
+              "confidential": false,
+              "department": null,
+              "department_hierarchy": [],
+              "url": "https://nangodev.workable.com/jobs/5986327",
+              "application_url": "https://nangodev.workable.com/jobs/5986327/candidates/new",
+              "shortlink": "https://apply.workable.com/j/9CD658E13E",
+              "workplace_type": "on_site",
+              "location": {
+                "location_str": "London, United Kingdom",
+                "country": "United Kingdom",
+                "country_code": "GB",
+                "region": null,
+                "region_code": "England",
+                "city": "London",
+                "zip_code": "2142",
+                "telecommuting": false,
+                "workplace_type": "on_site"
+              },
+              "locations": [
+                {
+                  "shortcode": "JAD50549AFA",
+                  "country_code": "GB",
+                  "country_name": "United Kingdom",
+                  "state_code": "England",
+                  "subregion": null,
+                  "zip_code": "2142",
+                  "city": "London",
+                  "coords": "51.5073509, -0.1277583",
+                  "hidden": false
+                }
+              ],
+              "salary": {
+                "salary_from": 60000,
+                "salary_to": 80000,
+                "salary_currency": "gbp"
+              },
+              "created_at": "2026-03-25T00:00:00Z",
+              "updated_at": "2026-07-23T20:46:41Z",
+              "keywords": null
+            },
+            {
+              "id": "5b5cea",
+              "title": "Director of Finance",
+              "full_title": "Director of Finance - US/4/HAM",
+              "shortcode": "B3627BCF5D",
+              "code": "US/4/HAM",
+              "state": "closed",
+              "sample": true,
+              "confidential": false,
+              "department": null,
+              "department_hierarchy": [],
+              "url": "https://nangodev.workable.com/jobs/5986328",
+              "application_url": "https://nangodev.workable.com/jobs/5986328/candidates/new",
+              "shortlink": "https://apply.workable.com/j/B3627BCF5D",
+              "workplace_type": "on_site",
+              "location": {
+                "location_str": "New York, United States",
+                "country": "United States",
+                "country_code": "US",
+                "region": "New York",
+                "region_code": "NY",
+                "city": "New York",
+                "zip_code": null,
+                "telecommuting": false,
+                "workplace_type": "on_site"
+              },
+              "locations": [
+                {
+                  "shortcode": "J449203CE7C",
+                  "country_code": "US",
+                  "country_name": "United States",
+                  "state_code": "NY",
+                  "subregion": "New York",
+                  "zip_code": null,
+                  "city": "New York",
+                  "coords": "40.7127753, -74.0059728",
+                  "hidden": false
+                }
+              ],
+              "salary": {
+                "salary_from": 150000,
+                "salary_to": 200000,
+                "salary_currency": "usd"
+              },
+              "created_at": "2026-03-25T00:00:00Z",
+              "updated_at": "2026-07-23T20:46:41Z",
+              "keywords": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:47:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1920",
+          "x-ratelimit-reset": "1784839686",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "6",
+          "x-rate-limit-reset": "1784839661",
+          "etag": "W/\"b8533d011282aa0399f6cd55927a7629\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "63ae4758-1f25-98d6-b320-447b74b649d4",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "<redacted>",
+          "x-kb": "false",
+          "cf-ray": "a1fd8a6c5ea7ff0e-PDX"
+        },
+        "hash": "c72cfc1c3cbd9673e2e3a425f3efb24ca1e6ab01",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/spi/v3/jobs/9CD658E13E/stages": {
+        "response": {
+          "stages": [
+            {
+              "id": 5272269,
+              "identifier": "50779f",
+              "slug": "sourced",
+              "name": "Sourced",
+              "kind": "sourced",
+              "position": 1
+            },
+            {
+              "id": 5272270,
+              "identifier": "5077a0",
+              "slug": "applied",
+              "name": "Applied",
+              "kind": "applied",
+              "position": 2
+            },
+            {
+              "id": 5272271,
+              "identifier": "5077a1",
+              "slug": "phone-screen",
+              "name": "Phone Screen",
+              "kind": "phone-screen",
+              "position": 3
+            },
+            {
+              "id": 5272272,
+              "identifier": "5077a2",
+              "slug": "assessment",
+              "name": "Assessment",
+              "kind": "assessment",
+              "position": 4
+            },
+            {
+              "id": 5272273,
+              "identifier": "5077a3",
+              "slug": "interview",
+              "name": "Interview",
+              "kind": "interview",
+              "position": 5
+            },
+            {
+              "id": 5272274,
+              "identifier": "5077a4",
+              "slug": "offer",
+              "name": "Offer",
+              "kind": "offer",
+              "position": 6
+            },
+            {
+              "id": 5272275,
+              "identifier": "5077a5",
+              "slug": "hired",
+              "name": "Hired",
+              "kind": "hired",
+              "position": 7
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:47:31 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1919",
+          "x-ratelimit-reset": "1784839686",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "5",
+          "x-rate-limit-reset": "1784839661",
+          "etag": "W/\"e64417913b479da73131e1b66fbb052b\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "858ef314-1a04-95be-8d3c-0d7b92af1652",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "<redacted>",
+          "x-kb": "false",
+          "cf-ray": "a1fd8a6e0c7c31df-PDX"
+        },
+        "hash": "3c8143866fb2982464f193263bea257117ba02f2",
+        "request": {}
+      },
+      "/spi/v3/jobs/B3627BCF5D/stages": {
+        "response": {
+          "stages": [
+            {
+              "id": 5272269,
+              "identifier": "50779f",
+              "slug": "sourced",
+              "name": "Sourced",
+              "kind": "sourced",
+              "position": 1
+            },
+            {
+              "id": 5272270,
+              "identifier": "5077a0",
+              "slug": "applied",
+              "name": "Applied",
+              "kind": "applied",
+              "position": 2
+            },
+            {
+              "id": 5272271,
+              "identifier": "5077a1",
+              "slug": "phone-screen",
+              "name": "Phone Screen",
+              "kind": "phone-screen",
+              "position": 3
+            },
+            {
+              "id": 5272272,
+              "identifier": "5077a2",
+              "slug": "assessment",
+              "name": "Assessment",
+              "kind": "assessment",
+              "position": 4
+            },
+            {
+              "id": 5272273,
+              "identifier": "5077a3",
+              "slug": "interview",
+              "name": "Interview",
+              "kind": "interview",
+              "position": 5
+            },
+            {
+              "id": 5272274,
+              "identifier": "5077a4",
+              "slug": "offer",
+              "name": "Offer",
+              "kind": "offer",
+              "position": 6
+            },
+            {
+              "id": 5272275,
+              "identifier": "5077a5",
+              "slug": "hired",
+              "name": "Hired",
+              "kind": "hired",
+              "position": 7
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:47:32 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1918",
+          "x-ratelimit-reset": "1784839686",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "4",
+          "x-rate-limit-reset": "1784839661",
+          "etag": "W/\"e64417913b479da73131e1b66fbb052b\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "7aaad6d1-8c12-9ed3-8a7c-dc573fdeade3",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "<redacted>",
+          "x-kb": "false",
+          "cf-ray": "a1fd8a6fdf32debd-PDX"
+        },
+        "hash": "998e50ae99abcd3e823dff7a61f79ad32a401d53",
+        "request": {}
+      }
+    }
+  }
+}
