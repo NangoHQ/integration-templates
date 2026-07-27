@@ -1316,6 +1316,36 @@ import './docusign/actions/update-template.js';
 import './docusign/actions/update-user.js';
 import './docusign/actions/void-envelope.js';
 
+// -- Integration: dope-security
+import './dope-security/syncs/custom-categories.js';
+import './dope-security/syncs/endpoints.js';
+import './dope-security/syncs/policies.js';
+import './dope-security/actions/add-custom-category-urls.js';
+import './dope-security/actions/create-custom-category.js';
+import './dope-security/actions/create-policy.js';
+import './dope-security/actions/delete-custom-category-url.js';
+import './dope-security/actions/delete-custom-category-urls.js';
+import './dope-security/actions/delete-custom-category.js';
+import './dope-security/actions/delete-policy-application-bypasses.js';
+import './dope-security/actions/delete-policy-url-bypasses.js';
+import './dope-security/actions/delete-policy.js';
+import './dope-security/actions/get-policy-application-bypasses.js';
+import './dope-security/actions/get-policy-assignments.js';
+import './dope-security/actions/get-policy-content.js';
+import './dope-security/actions/get-policy-ssl-inspection.js';
+import './dope-security/actions/get-policy-url-bypasses.js';
+import './dope-security/actions/list-custom-categories.js';
+import './dope-security/actions/list-custom-category-urls.js';
+import './dope-security/actions/list-endpoints.js';
+import './dope-security/actions/list-policies.js';
+import './dope-security/actions/replace-custom-category-urls.js';
+import './dope-security/actions/update-policy-application-bypasses.js';
+import './dope-security/actions/update-policy-assignments.js';
+import './dope-security/actions/update-policy-exceptions.js';
+import './dope-security/actions/update-policy-restrictions.js';
+import './dope-security/actions/update-policy-ssl-inspection.js';
+import './dope-security/actions/update-policy-url-bypasses.js';
+
 // -- Integration: dropbox
 import './dropbox/syncs/files.js';
 import './dropbox/syncs/folders.js';

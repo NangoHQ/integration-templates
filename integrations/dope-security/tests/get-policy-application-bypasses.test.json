@@ -1,0 +1,3962 @@
+{
+  "input": {
+    "policyName": "RegistrySeedPolicy1"
+  },
+  "output": {
+    "inheritsFromBase": false,
+    "custom": {
+      "mac": [
+        {
+          "name": "RegistryTest.app",
+          "note": "",
+          "updatedBy": "API Policy Update (client id - f94fc42004aa9a0fd46ee8eef96fc2f2)",
+          "updatedAt": "2026-07-23T13:09:09+00:00"
+        }
+      ],
+      "windows": [
+        {
+          "name": "RegistryTest.exe",
+          "note": "",
+          "updatedBy": "API Policy Update (client id - f94fc42004aa9a0fd46ee8eef96fc2f2)",
+          "updatedAt": "2026-07-23T13:09:09+00:00"
+        }
+      ]
+    },
+    "default": {
+      "mac": [
+        {
+          "name": "/opt/cisco/anyconnect/bin/vpnagentd",
+          "state": "applied"
+        },
+        {
+          "name": "/opt/cisco/hostscan/bin64/ciscod",
+          "state": "applied"
+        },
+        {
+          "name": "1Password.app",
+          "state": "applied"
+        },
+        {
+          "name": "AWS VPN Client",
+          "state": "applied"
+        },
+        {
+          "name": "Adobe Desktop Service.app",
+          "state": "applied"
+        },
+        {
+          "name": "AnyDesk",
+          "state": "applied"
+        },
+        {
+          "name": "AnyDesk.app",
+          "state": "applied"
+        },
+        {
+          "name": "AppSSOAgent.app",
+          "state": "applied"
+        },
+        {
+          "name": "Apple Configurator",
+          "state": "applied"
+        },
+        {
+          "name": "AuthManager_Mac.app",
+          "state": "applied"
+        },
+        {
+          "name": "Azure VPN Client",
+          "state": "applied"
+        },
+        {
+          "name": "Bitwarden",
+          "state": "applied"
+        },
+        {
+          "name": "Burp Suite Community Edition",
+          "state": "applied"
+        },
+        {
+          "name": "Check Point Endpoint Security VPN",
+          "state": "applied"
+        },
+        {
+          "name": "Cisco AnyConnect Secure Mobility Client",
+          "state": "applied"
+        },
+        {
+          "name": "Cisco Anyconnect VPN Agent",
+          "state": "applied"
+        },
+        {
+          "name": "Code42Service",
+          "state": "applied"
+        },
+        {
+          "name": "Company Portal.app",
+          "state": "applied"
+        },
+        {
+          "name": "Core Sync.app",
+          "state": "applied"
+        },
+        {
+          "name": "Creative Cloud",
+          "state": "applied"
+        },
+        {
+          "name": "Creative Cloud Helper.app",
+          "state": "applied"
+        },
+        {
+          "name": "Cursor.app",
+          "state": "applied"
+        },
+        {
+          "name": "CyberArkEPM",
+          "state": "applied"
+        },
+        {
+          "name": "DBeaver",
+          "state": "applied"
+        },
+        {
+          "name": "Dashlane",
+          "state": "applied"
+        },
+        {
+          "name": "DgAdmin",
+          "state": "applied"
+        },
+        {
+          "name": "Dialpad",
+          "state": "applied"
+        },
+        {
+          "name": "Docker Desktop",
+          "state": "applied"
+        },
+        {
+          "name": "Dropbox",
+          "state": "applied"
+        },
+        {
+          "name": "DropboxMacUpdate",
+          "state": "applied"
+        },
+        {
+          "name": "Duo Desktop",
+          "state": "applied"
+        },
+        {
+          "name": "EDRAgent",
+          "state": "applied"
+        },
+        {
+          "name": "Falcon.app",
+          "state": "applied"
+        },
+        {
+          "name": "FortiClient.app",
+          "state": "applied"
+        },
+        {
+          "name": "FortiClientAgent.app",
+          "state": "applied"
+        },
+        {
+          "name": "FortiTray.app",
+          "state": "applied"
+        },
+        {
+          "name": "GlobalProtect",
+          "state": "applied"
+        },
+        {
+          "name": "Google Drive",
+          "state": "applied"
+        },
+        {
+          "name": "Google Software Update",
+          "state": "applied"
+        },
+        {
+          "name": "Grammarly Desktop.app",
+          "state": "applied"
+        },
+        {
+          "name": "GUpdate",
+          "state": "applied"
+        },
+        {
+          "name": "Insomnia",
+          "state": "applied"
+        },
+        {
+          "name": "Ivanti Secure Access Client",
+          "state": "applied"
+        },
+        {
+          "name": "Jamf Connect.app",
+          "state": "applied"
+        },
+        {
+          "name": "Jamf Trust",
+          "state": "applied"
+        },
+        {
+          "name": "JamfAAD.app",
+          "state": "applied"
+        },
+        {
+          "name": "JamfDaemon.app",
+          "state": "applied"
+        },
+        {
+          "name": "JazzBrowserNative.app",
+          "state": "applied"
+        },
+        {
+          "name": "JetBrains Toolbox",
+          "state": "applied"
+        },
+        {
+          "name": "LastPass",
+          "state": "applied"
+        },
+        {
+          "name": "LINE",
+          "state": "applied"
+        },
+        {
+          "name": "LockHelper.app",
+          "state": "applied"
+        },
+        {
+          "name": "LogMeInClient",
+          "state": "applied"
+        },
+        {
+          "name": "LogMeInMenubar",
+          "state": "applied"
+        },
+        {
+          "name": "LogiTuneUpdater.app",
+          "state": "applied"
+        },
+        {
+          "name": "Microsoft Defender.app",
+          "state": "applied"
+        },
+        {
+          "name": "Microsoft Defender ATP",
+          "state": "applied"
+        },
+        {
+          "name": "Okta Verify",
+          "state": "applied"
+        },
+        {
+          "name": "PanGPS",
+          "state": "applied"
+        },
+        {
+          "name": "PS Remote Play",
+          "state": "applied"
+        },
+        {
+          "name": "Plex Media Server",
+          "state": "applied"
+        },
+        {
+          "name": "Privileged Remote Access Endpoint Client",
+          "state": "applied"
+        },
+        {
+          "name": "Pulse Secure.app",
+          "state": "applied"
+        },
+        {
+          "name": "PyCharm",
+          "state": "applied"
+        },
+        {
+          "name": "PyCharm Professional.app",
+          "state": "applied"
+        },
+        {
+          "name": "Python",
+          "state": "applied"
+        },
+        {
+          "name": "Remote Support Customer Client.app",
+          "state": "applied"
+        },
+        {
+          "name": "Representative Console",
+          "state": "applied"
+        },
+        {
+          "name": "Reveal Agent.app",
+          "state": "applied"
+        },
+        {
+          "name": "Reveal Agent Helper",
+          "state": "applied"
+        },
+        {
+          "name": "RdrCEF",
+          "state": "applied"
+        },
+        {
+          "name": "Reveal Agent.app",
+          "state": "applied"
+        },
+        {
+          "name": "Self Service.app",
+          "state": "applied"
+        },
+        {
+          "name": "Signal",
+          "state": "applied"
+        },
+        {
+          "name": "Simulator",
+          "state": "applied"
+        },
+        {
+          "name": "Splashtop Business.app",
+          "state": "applied"
+        },
+        {
+          "name": "Spotify",
+          "state": "applied"
+        },
+        {
+          "name": "TaniumClient",
+          "state": "applied"
+        },
+        {
+          "name": "TracerDaemon",
+          "state": "applied"
+        },
+        {
+          "name": "Tunnel Provider macos",
+          "state": "applied"
+        },
+        {
+          "name": "Twingate",
+          "state": "applied"
+        },
+        {
+          "name": "Vpnagentd",
+          "state": "applied"
+        },
+        {
+          "name": "Vpnclient",
+          "state": "applied"
+        },
+        {
+          "name": "Vpnui",
+          "state": "applied"
+        },
+        {
+          "name": "WhatsApp.app",
+          "state": "applied"
+        },
+        {
+          "name": "WorkSpaces.app",
+          "state": "applied"
+        },
+        {
+          "name": "Xcode",
+          "state": "applied"
+        },
+        {
+          "name": "Zscaler.app",
+          "state": "applied"
+        },
+        {
+          "name": "acumbrellaagent",
+          "state": "applied"
+        },
+        {
+          "name": "beam.smp",
+          "state": "applied"
+        },
+        {
+          "name": "checkpoint_vpn",
+          "state": "applied"
+        },
+        {
+          "name": "clion",
+          "state": "applied"
+        },
+        {
+          "name": "com.checkpoint.epc.helper",
+          "state": "applied"
+        },
+        {
+          "name": "com.checkpoint.epc.service",
+          "state": "applied"
+        },
+        {
+          "name": "com.cisco.anyconnect.macos.acsockext",
+          "state": "applied"
+        },
+        {
+          "name": "com.crowdstrike.falcon.Agent.systemextension",
+          "state": "applied"
+        },
+        {
+          "name": "com.cyberark.CyberArkEPMWebServiceSession.bundle",
+          "state": "applied"
+        },
+        {
+          "name": "com.jamf.connect",
+          "state": "applied"
+        },
+        {
+          "name": "com.perimeter81d.app",
+          "state": "applied"
+        },
+        {
+          "name": "cphwd",
+          "state": "applied"
+        },
+        {
+          "name": "csync",
+          "state": "applied"
+        },
+        {
+          "name": "cyberark-epm-agent",
+          "state": "applied"
+        },
+        {
+          "name": "dcondemand",
+          "state": "applied"
+        },
+        {
+          "name": "dgdaemon.app",
+          "state": "applied"
+        },
+        {
+          "name": "docker",
+          "state": "applied"
+        },
+        {
+          "name": "duoappupdater",
+          "state": "applied"
+        },
+        {
+          "name": "epctrl",
+          "state": "applied"
+        },
+        {
+          "name": "fcconfig",
+          "state": "applied"
+        },
+        {
+          "name": "fctappfw",
+          "state": "applied"
+        },
+        {
+          "name": "fctctld",
+          "state": "applied"
+        },
+        {
+          "name": "fctservctl",
+          "state": "applied"
+        },
+        {
+          "name": "fctupdate",
+          "state": "applied"
+        },
+        {
+          "name": "fctupgrade",
+          "state": "applied"
+        },
+        {
+          "name": "fmon",
+          "state": "applied"
+        },
+        {
+          "name": "forticlient",
+          "state": "applied"
+        },
+        {
+          "name": "fssoavgent_launchagent",
+          "state": "applied"
+        },
+        {
+          "name": "fssoavgent_launchdaemon",
+          "state": "applied"
+        },
+        {
+          "name": "ftgdagent",
+          "state": "applied"
+        },
+        {
+          "name": "helm",
+          "state": "applied"
+        },
+        {
+          "name": "idea",
+          "state": "applied"
+        },
+        {
+          "name": "io.tailscale.ipn.macsys.network-extension.systemextension",
+          "state": "applied"
+        },
+        {
+          "name": "ir_agent",
+          "state": "applied"
+        },
+        {
+          "name": "jamf",
+          "state": "applied"
+        },
+        {
+          "name": "join.me",
+          "state": "applied"
+        },
+        {
+          "name": "kandji-daemon",
+          "state": "applied"
+        },
+        {
+          "name": "kandji-library-manager",
+          "state": "applied"
+        },
+        {
+          "name": "kandji-parameter-agent",
+          "state": "applied"
+        },
+        {
+          "name": "kubectl",
+          "state": "applied"
+        },
+        {
+          "name": "kubefwd",
+          "state": "applied"
+        },
+        {
+          "name": "limactl",
+          "state": "applied"
+        },
+        {
+          "name": "logioptionsplus_agent.app",
+          "state": "applied"
+        },
+        {
+          "name": "logioptionsplus_updater.app",
+          "state": "applied"
+        },
+        {
+          "name": "mDNSResponder",
+          "state": "applied"
+        },
+        {
+          "name": "mdmclient",
+          "state": "applied"
+        },
+        {
+          "name": "nessus-agent-module",
+          "state": "applied"
+        },
+        {
+          "name": "node",
+          "state": "applied"
+        },
+        {
+          "name": "orb",
+          "state": "applied"
+        },
+        {
+          "name": "orbctl",
+          "state": "applied"
+        },
+        {
+          "name": "pulsesecure",
+          "state": "applied"
+        },
+        {
+          "name": "racoon",
+          "state": "applied"
+        },
+        {
+          "name": "racoonctl",
+          "state": "applied"
+        },
+        {
+          "name": "rapid7_endpoint_broker",
+          "state": "applied"
+        },
+        {
+          "name": "ruby",
+          "state": "applied"
+        },
+        {
+          "name": "scanunit",
+          "state": "applied"
+        },
+        {
+          "name": "sentineld",
+          "state": "applied"
+        },
+        {
+          "name": "sentineld.app",
+          "state": "applied"
+        },
+        {
+          "name": "sentineld-helper",
+          "state": "applied"
+        },
+        {
+          "name": "sdm.darwin",
+          "state": "applied"
+        },
+        {
+          "name": "snap-agent",
+          "state": "applied"
+        },
+        {
+          "name": "SophosService",
+          "state": "applied"
+        },
+        {
+          "name": "SophosScanD",
+          "state": "applied"
+        },
+        {
+          "name": "SophosConfigD",
+          "state": "applied"
+        },
+        {
+          "name": "SophosWebD",
+          "state": "applied"
+        },
+        {
+          "name": "SophosScanAgent",
+          "state": "applied"
+        },
+        {
+          "name": "SophosEDMSD",
+          "state": "applied"
+        },
+        {
+          "name": "SophosHealthService",
+          "state": "applied"
+        },
+        {
+          "name": "sslvpnd",
+          "state": "applied"
+        },
+        {
+          "name": "thunderbird",
+          "state": "applied"
+        },
+        {
+          "name": "uk.ava.reveal.agent.eps",
+          "state": "applied"
+        },
+        {
+          "name": "uk.ava.reveal.agent.net",
+          "state": "applied"
+        },
+        {
+          "name": "vpndownloader",
+          "state": "applied"
+        },
+        {
+          "name": "vpnservicesd",
+          "state": "applied"
+        },
+        {
+          "name": "vulscan",
+          "state": "applied"
+        },
+        {
+          "name": "xcodebuild",
+          "state": "applied"
+        },
+        {
+          "name": "yarn",
+          "state": "applied"
+        },
+        {
+          "name": "zoom.us",
+          "state": "applied"
+        }
+      ],
+      "windows": [
+        {
+          "name": "1Password.exe",
+          "state": "applied"
+        },
+        {
+          "name": "64bitProxy.exe",
+          "state": "applied"
+        },
+        {
+          "name": "8x8.exe",
+          "state": "applied"
+        },
+        {
+          "name": "8x8 Work.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ATASAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AWSVPNClient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AWSVPNClient.Service.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AcroCEF.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Adobe Desktop Service.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AdobeCollabSync.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AdobeIPCBroker.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AdobeNotificationClient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AdobeUpdateService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AEMAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AnyDesk.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Asana.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Audckq32.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AuvikService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Avira.OptimizerHost.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Avira.Spotlight.Service.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Avira.Spotlight.Systray.Application.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Avira.Spotlight.UI.Application.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Avira.VpnService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "AzVpnAppx.exe",
+          "state": "applied"
+        },
+        {
+          "name": "BASEClient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "BASupSrvc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Box.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CagService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CatoClient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CCLibrary.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CCXProcess.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CETASvc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CNTAoSMgr.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CPEngine.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CPShell.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CRWindowsClientService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CSCOMUtils.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CSDeviceControlSupportTool.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CSFalconContainer.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CSFalconController.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CSFalconService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CSFirmwareAnalysisSupportTool.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CSSensorSettings.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CcmExec.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CheckPointVpnPluginApp.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CiscoCollabHost.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CloudEndpointService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Code42Service.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ConfigSecurityPolicy.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CoreSync.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Creative Cloud.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Creative Cloud Helper.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Creative Cloud UI Helper.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CsFalconConnector.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CsScan.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CsScanCli.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CybAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CyberArk.CredentialProvider.Service.exe",
+          "state": "applied"
+        },
+        {
+          "name": "CyberArk.PasswordVault.WebAccess.Service.exe",
+          "state": "applied"
+        },
+        {
+          "name": "DSAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Defender.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Dialpad.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Dropbox.exe",
+          "state": "applied"
+        },
+        {
+          "name": "DropboxUpdate.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Duo Desktop.exe",
+          "state": "applied"
+        },
+        {
+          "name": "EIConnector.exe",
+          "state": "applied"
+        },
+        {
+          "name": "EPIntegrationService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ERAAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ESClient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ESEFrameworkHost.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ESEServiceShell.exe",
+          "state": "applied"
+        },
+        {
+          "name": "EndpointBasecamp.exe",
+          "state": "applied"
+        },
+        {
+          "name": "EraAgentSvc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Exclaimer.CloudSignatureAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FCDBLog.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FCHelper64.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiClient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiClient_Diagnostic_Tool.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiClientConsole.exe ",
+          "state": "applied"
+        },
+        {
+          "name": "FortiESNAC.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiGuardAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiProxy.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiScand.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiSSLVPNdaemon.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiSslVpnPluginApp.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiTray.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiVPN.exe",
+          "state": "applied"
+        },
+        {
+          "name": "FortiWF.exe",
+          "state": "applied"
+        },
+        {
+          "name": "GoogleDriveFS.exe",
+          "state": "applied"
+        },
+        {
+          "name": "GoogleUpdate.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Grammarly.Desktop.exe",
+          "state": "applied"
+        },
+        {
+          "name": "HitmanPro.Alert.exe",
+          "state": "applied"
+        },
+        {
+          "name": "HPNETW-1.EXE",
+          "state": "applied"
+        },
+        {
+          "name": "HPPrintScanDoctorService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "HPPrinterHealthMonitor.exe",
+          "state": "applied"
+        },
+        {
+          "name": "HPUpdate.exe",
+          "state": "applied"
+        },
+        {
+          "name": "IswSvc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "IvantiClient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "IvantiService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Jumpcloud-agent-updater.exe",
+          "state": "applied"
+        },
+        {
+          "name": "LINE.exe",
+          "state": "applied"
+        },
+        {
+          "name": "LMIGuardianSvc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "LMIIgnition.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Lmi_Rescue_srv.exe",
+          "state": "applied"
+        },
+        {
+          "name": "LogMeInSystray.exe",
+          "state": "applied"
+        },
+        {
+          "name": "LogServer.exe",
+          "state": "applied"
+        },
+        {
+          "name": "LogiTuneUpdater.exe",
+          "state": "applied"
+        },
+        {
+          "name": "McScript_InUse.exe",
+          "state": "applied"
+        },
+        {
+          "name": "MdatpNetworkScanAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Microsoft.Management.Services.CloudManagedDesktop.Agent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Microsoft.Management.Services.IntuneWindowsAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "MpCmdRun.exe",
+          "state": "applied"
+        },
+        {
+          "name": "MpDlpCmd.exe",
+          "state": "applied"
+        },
+        {
+          "name": "MsMpEng.exe",
+          "state": "applied"
+        },
+        {
+          "name": "MsSense.exe",
+          "state": "applied"
+        },
+        {
+          "name": "NEGui.exe",
+          "state": "applied"
+        },
+        {
+          "name": "NEService64.exe",
+          "state": "applied"
+        },
+        {
+          "name": "NEService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "NetExtender.exe",
+          "state": "applied"
+        },
+        {
+          "name": "NinjaRMMAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "NinjaRMMAgentPatcher.exe",
+          "state": "applied"
+        },
+        {
+          "name": "NisSrv.exe",
+          "state": "applied"
+        },
+        {
+          "name": "NTRtScan.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Notion.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Ntrtscan.exe",
+          "state": "applied"
+        },
+        {
+          "name": "OfficeSetup.exe",
+          "state": "applied"
+        },
+        {
+          "name": "OktaVerify.exe",
+          "state": "applied"
+        },
+        {
+          "name": "OneDrive.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PanGPS.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PanGPSupport.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PanGpHip.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PanGpHipMp.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PasswordBoss.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PccNTMon.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Perimeter81.Service.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Perimeter81.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Pulse.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PulseApplicationLauncher.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PulseExt.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PulseHelper.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PulseSecure.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PulseSecureService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "PulseServiceApi.exe",
+          "state": "applied"
+        },
+        {
+          "name": "RMM.RTC.Proxy.exe",
+          "state": "applied"
+        },
+        {
+          "name": "RMM.WebRemote.exe",
+          "state": "applied"
+        },
+        {
+          "name": "RaMaint.exe",
+          "state": "applied"
+        },
+        {
+          "name": "RazerCentralService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "RemotePlay.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ResponseService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SAVService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SBDDesktop.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SDXHelper.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SRManager.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SRManagerSOS.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SamlAuthWB.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SearchApp.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SenseCnCProxy.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SenseCE.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SenseIR.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SenseNdr.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SenseSampleUploader.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SenseSC.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ShowMsg.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Signal.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SmartVPNClient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SmartVPNService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SnwlConnect.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SnwlVPN.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SophosEndpointDefenseService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SophosFileScanner.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SophosCleanM.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SophosHealth.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SophosUpdate.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Spotify.exe",
+          "state": "applied"
+        },
+        {
+          "name": "SubmitTelem.exe",
+          "state": "applied"
+        },
+        {
+          "name": "TMBMSRV.exe",
+          "state": "applied"
+        },
+        {
+          "name": "TMiACAgentSvc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "TakeControlRDViewer.exe",
+          "state": "applied"
+        },
+        {
+          "name": "TaniumClient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "TmCCSF.exe",
+          "state": "applied"
+        },
+        {
+          "name": "TmListen.exe",
+          "state": "applied"
+        },
+        {
+          "name": "TmPfw.exe",
+          "state": "applied"
+        },
+        {
+          "name": "TmSSClient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "TmWSCSvc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "TmsaInstance64.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ZSATunnel.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ZTSAMonitorService.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ZTSAWindows.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Vpnclient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Vpnui.exe",
+          "state": "applied"
+        },
+        {
+          "name": "WaAppAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "WindowsAzureGuestAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "WhatsApp.exe",
+          "state": "applied"
+        },
+        {
+          "name": "WSCommunicator.exe",
+          "state": "applied"
+        },
+        {
+          "name": "XeroxDeviceStatus.exe",
+          "state": "applied"
+        },
+        {
+          "name": "XeroxPrintJobEventManagerLoader.exe",
+          "state": "applied"
+        },
+        {
+          "name": "Zoom.exe",
+          "state": "applied"
+        },
+        {
+          "name": "action1_agent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "acvc-openvpn.exe",
+          "state": "applied"
+        },
+        {
+          "name": "agent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "amagent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "apaservice.exe",
+          "state": "applied"
+        },
+        {
+          "name": "backgroundtaskhost.exe",
+          "state": "applied"
+        },
+        {
+          "name": "bbcomm.exe",
+          "state": "applied"
+        },
+        {
+          "name": "blpbrowser.exe",
+          "state": "applied"
+        },
+        {
+          "name": "blpwebview.exe",
+          "state": "applied"
+        },
+        {
+          "name": "bomgar-pac.exe",
+          "state": "applied"
+        },
+        {
+          "name": "bomgar-pec.exe",
+          "state": "applied"
+        },
+        {
+          "name": "bomgar-rep.exe",
+          "state": "applied"
+        },
+        {
+          "name": "bomgar-scc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "bplus64.exe",
+          "state": "applied"
+        },
+        {
+          "name": "clientrater.exe",
+          "state": "applied"
+        },
+        {
+          "name": "clion64.exe",
+          "state": "applied"
+        },
+        {
+          "name": "code.exe",
+          "state": "applied"
+        },
+        {
+          "name": "companyportal.exe",
+          "state": "applied"
+        },
+        {
+          "name": "cortex-xdr-payload.exe",
+          "state": "applied"
+        },
+        {
+          "name": "cpd.exe",
+          "state": "applied"
+        },
+        {
+          "name": "cpmgmt.exe",
+          "state": "applied"
+        },
+        {
+          "name": "dbeaver.exe",
+          "state": "applied"
+        },
+        {
+          "name": "dcconfig.exe",
+          "state": "applied"
+        },
+        {
+          "name": "dcondemand.exe",
+          "state": "applied"
+        },
+        {
+          "name": "devenv.exe",
+          "state": "applied"
+        },
+        {
+          "name": "dfsvc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "docker desktop.exe",
+          "state": "applied"
+        },
+        {
+          "name": "docker.exe",
+          "state": "applied"
+        },
+        {
+          "name": "dsTermServ.exe",
+          "state": "applied"
+        },
+        {
+          "name": "dsagent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "fcappdb.exe",
+          "state": "applied"
+        },
+        {
+          "name": "fcaptmon.exe",
+          "state": "applied"
+        },
+        {
+          "name": "fmon.exe",
+          "state": "applied"
+        },
+        {
+          "name": "fortifws.exe",
+          "state": "applied"
+        },
+        {
+          "name": "fwsvc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "gpaservice.exe",
+          "state": "applied"
+        },
+        {
+          "name": "horizon_client_service.exe",
+          "state": "applied"
+        },
+        {
+          "name": "iVPAgent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "idea64.exe",
+          "state": "applied"
+        },
+        {
+          "name": "intunemanagementextensionbridge.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ipsec.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ipseccmd.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ir_agent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "jamCommand.exe",
+          "state": "applied"
+        },
+        {
+          "name": "jazzbrowsermessenger.exe",
+          "state": "applied"
+        },
+        {
+          "name": "jazzdesktop.exe",
+          "state": "applied"
+        },
+        {
+          "name": "jazzdialog.exe",
+          "state": "applied"
+        },
+        {
+          "name": "jazzisolate.exe",
+          "state": "applied"
+        },
+        {
+          "name": "jazzlocker.exe",
+          "state": "applied"
+        },
+        {
+          "name": "jazzmfa.exe",
+          "state": "applied"
+        },
+        {
+          "name": "jetbrains_client64.exe",
+          "state": "applied"
+        },
+        {
+          "name": "join.me.exe",
+          "state": "applied"
+        },
+        {
+          "name": "jumpcloud-agent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "jumpcloud-agent-app.exe",
+          "state": "applied"
+        },
+        {
+          "name": "kubectl.exe",
+          "state": "applied"
+        },
+        {
+          "name": "logioptionsplus_agent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "logioptionsplus_updater.exe",
+          "state": "applied"
+        },
+        {
+          "name": "logmein.exe",
+          "state": "applied"
+        },
+        {
+          "name": "logonui.exe",
+          "state": "applied"
+        },
+        {
+          "name": "masvc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "mesproc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "messerv.exe",
+          "state": "applied"
+        },
+        {
+          "name": "msrdc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "msrdcw.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ms-teams.exe",
+          "state": "applied"
+        },
+        {
+          "name": "msteamsupdate.exe",
+          "state": "applied"
+        },
+        {
+          "name": "mstsc.exe",
+          "state": "applied"
+        },
+        {
+          "name": "nessus-agent-module.exe",
+          "state": "applied"
+        },
+        {
+          "name": "node.exe",
+          "state": "applied"
+        },
+        {
+          "name": "nsstatsdump.exe",
+          "state": "applied"
+        },
+        {
+          "name": "nsswitch.exe",
+          "state": "applied"
+        },
+        {
+          "name": "omadmclient.exe",
+          "state": "applied"
+        },
+        {
+          "name": "outlookproxy.exe",
+          "state": "applied"
+        },
+        {
+          "name": "pangpa.exe",
+          "state": "applied"
+        },
+        {
+          "name": "pdq-connect-updater.exe",
+          "state": "applied"
+        },
+        {
+          "name": "pdv.exe",
+          "state": "applied"
+        },
+        {
+          "name": "phantomvpn.exe",
+          "state": "applied"
+        },
+        {
+          "name": "psm.exe",
+          "state": "applied"
+        },
+        {
+          "name": "pulselauncher.exe",
+          "state": "applied"
+        },
+        {
+          "name": "puTTYgen.exe",
+          "state": "applied"
+        },
+        {
+          "name": "putty.exe ",
+          "state": "applied"
+        },
+        {
+          "name": "pycharm64.exe",
+          "state": "applied"
+        },
+        {
+          "name": "python.exe",
+          "state": "applied"
+        },
+        {
+          "name": "rapid7_agent_core.exe",
+          "state": "applied"
+        },
+        {
+          "name": "rapid7_endpoint_broker.exe",
+          "state": "applied"
+        },
+        {
+          "name": "rapid7_events_monitor.exe",
+          "state": "applied"
+        },
+        {
+          "name": "rapid7_sysmon_installer.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ruby.exe",
+          "state": "applied"
+        },
+        {
+          "name": "scivi.exe",
+          "state": "applied"
+        },
+        {
+          "name": "sdm.exe",
+          "state": "applied"
+        },
+        {
+          "name": "sdrclientworker.exe",
+          "state": "applied"
+        },
+        {
+          "name": "sophosps.exe",
+          "state": "applied"
+        },
+        {
+          "name": "splwow64.exe",
+          "state": "applied"
+        },
+        {
+          "name": "spoolsv.exe",
+          "state": "applied"
+        },
+        {
+          "name": "sra-pin.exe",
+          "state": "applied"
+        },
+        {
+          "name": "strwinclt.exe",
+          "state": "applied"
+        },
+        {
+          "name": "strwinfile.exe",
+          "state": "applied"
+        },
+        {
+          "name": "svchost.exe",
+          "state": "applied"
+        },
+        {
+          "name": "tailscaled.exe",
+          "state": "applied"
+        },
+        {
+          "name": "thunderbird.exe",
+          "state": "applied"
+        },
+        {
+          "name": "toaster.exe",
+          "state": "applied"
+        },
+        {
+          "name": "twingate.exe",
+          "state": "applied"
+        },
+        {
+          "name": "twingate.service.exe",
+          "state": "applied"
+        },
+        {
+          "name": "twingateupdater.exe",
+          "state": "applied"
+        },
+        {
+          "name": "update_task.exe",
+          "state": "applied"
+        },
+        {
+          "name": "updater-ws.exe",
+          "state": "applied"
+        },
+        {
+          "name": "uninstall.exe",
+          "state": "applied"
+        },
+        {
+          "name": "vf_agent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "vmUpdateLauncher.exe",
+          "state": "applied"
+        },
+        {
+          "name": "vmware-remotemks.exe",
+          "state": "applied"
+        },
+        {
+          "name": "vmware-view.exe",
+          "state": "applied"
+        },
+        {
+          "name": "vpnagent.exe",
+          "state": "applied"
+        },
+        {
+          "name": "vpncli.exe",
+          "state": "applied"
+        },
+        {
+          "name": "vpnkit.exe",
+          "state": "applied"
+        },
+        {
+          "name": "vpnui.exe",
+          "state": "applied"
+        },
+        {
+          "name": "wapptunneld.exe",
+          "state": "applied"
+        },
+        {
+          "name": "winsuper.exe",
+          "state": "applied"
+        },
+        {
+          "name": "wintrv.exe",
+          "state": "applied"
+        },
+        {
+          "name": "withdll.exe",
+          "state": "applied"
+        },
+        {
+          "name": "workspaces.exe",
+          "state": "applied"
+        },
+        {
+          "name": "ws_diag.exe",
+          "state": "applied"
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/policies/RegistrySeedPolicy1/bypass/applications": {
+        "response": {
+          "data": {
+            "inheritsFromBase": false,
+            "custom": {
+              "mac": [
+                {
+                  "name": "RegistryTest.app",
+                  "note": "",
+                  "updatedBy": "API Policy Update (client id - f94fc42004aa9a0fd46ee8eef96fc2f2)",
+                  "updatedAt": "2026-07-23T13:09:09+00:00"
+                }
+              ],
+              "windows": [
+                {
+                  "name": "RegistryTest.exe",
+                  "note": "",
+                  "updatedBy": "API Policy Update (client id - f94fc42004aa9a0fd46ee8eef96fc2f2)",
+                  "updatedAt": "2026-07-23T13:09:09+00:00"
+                }
+              ]
+            },
+            "default": {
+              "mac": [
+                {
+                  "name": "/opt/cisco/anyconnect/bin/vpnagentd",
+                  "state": "applied"
+                },
+                {
+                  "name": "/opt/cisco/hostscan/bin64/ciscod",
+                  "state": "applied"
+                },
+                {
+                  "name": "1Password.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "AWS VPN Client",
+                  "state": "applied"
+                },
+                {
+                  "name": "Adobe Desktop Service.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "AnyDesk",
+                  "state": "applied"
+                },
+                {
+                  "name": "AnyDesk.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "AppSSOAgent.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Apple Configurator",
+                  "state": "applied"
+                },
+                {
+                  "name": "AuthManager_Mac.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Azure VPN Client",
+                  "state": "applied"
+                },
+                {
+                  "name": "Bitwarden",
+                  "state": "applied"
+                },
+                {
+                  "name": "Burp Suite Community Edition",
+                  "state": "applied"
+                },
+                {
+                  "name": "Check Point Endpoint Security VPN",
+                  "state": "applied"
+                },
+                {
+                  "name": "Cisco AnyConnect Secure Mobility Client",
+                  "state": "applied"
+                },
+                {
+                  "name": "Cisco Anyconnect VPN Agent",
+                  "state": "applied"
+                },
+                {
+                  "name": "Code42Service",
+                  "state": "applied"
+                },
+                {
+                  "name": "Company Portal.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Core Sync.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Creative Cloud",
+                  "state": "applied"
+                },
+                {
+                  "name": "Creative Cloud Helper.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Cursor.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "CyberArkEPM",
+                  "state": "applied"
+                },
+                {
+                  "name": "DBeaver",
+                  "state": "applied"
+                },
+                {
+                  "name": "Dashlane",
+                  "state": "applied"
+                },
+                {
+                  "name": "DgAdmin",
+                  "state": "applied"
+                },
+                {
+                  "name": "Dialpad",
+                  "state": "applied"
+                },
+                {
+                  "name": "Docker Desktop",
+                  "state": "applied"
+                },
+                {
+                  "name": "Dropbox",
+                  "state": "applied"
+                },
+                {
+                  "name": "DropboxMacUpdate",
+                  "state": "applied"
+                },
+                {
+                  "name": "Duo Desktop",
+                  "state": "applied"
+                },
+                {
+                  "name": "EDRAgent",
+                  "state": "applied"
+                },
+                {
+                  "name": "Falcon.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiClient.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiClientAgent.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiTray.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "GlobalProtect",
+                  "state": "applied"
+                },
+                {
+                  "name": "Google Drive",
+                  "state": "applied"
+                },
+                {
+                  "name": "Google Software Update",
+                  "state": "applied"
+                },
+                {
+                  "name": "Grammarly Desktop.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "GUpdate",
+                  "state": "applied"
+                },
+                {
+                  "name": "Insomnia",
+                  "state": "applied"
+                },
+                {
+                  "name": "Ivanti Secure Access Client",
+                  "state": "applied"
+                },
+                {
+                  "name": "Jamf Connect.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Jamf Trust",
+                  "state": "applied"
+                },
+                {
+                  "name": "JamfAAD.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "JamfDaemon.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "JazzBrowserNative.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "JetBrains Toolbox",
+                  "state": "applied"
+                },
+                {
+                  "name": "LastPass",
+                  "state": "applied"
+                },
+                {
+                  "name": "LINE",
+                  "state": "applied"
+                },
+                {
+                  "name": "LockHelper.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "LogMeInClient",
+                  "state": "applied"
+                },
+                {
+                  "name": "LogMeInMenubar",
+                  "state": "applied"
+                },
+                {
+                  "name": "LogiTuneUpdater.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Microsoft Defender.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Microsoft Defender ATP",
+                  "state": "applied"
+                },
+                {
+                  "name": "Okta Verify",
+                  "state": "applied"
+                },
+                {
+                  "name": "PanGPS",
+                  "state": "applied"
+                },
+                {
+                  "name": "PS Remote Play",
+                  "state": "applied"
+                },
+                {
+                  "name": "Plex Media Server",
+                  "state": "applied"
+                },
+                {
+                  "name": "Privileged Remote Access Endpoint Client",
+                  "state": "applied"
+                },
+                {
+                  "name": "Pulse Secure.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "PyCharm",
+                  "state": "applied"
+                },
+                {
+                  "name": "PyCharm Professional.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Python",
+                  "state": "applied"
+                },
+                {
+                  "name": "Remote Support Customer Client.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Representative Console",
+                  "state": "applied"
+                },
+                {
+                  "name": "Reveal Agent.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Reveal Agent Helper",
+                  "state": "applied"
+                },
+                {
+                  "name": "RdrCEF",
+                  "state": "applied"
+                },
+                {
+                  "name": "Reveal Agent.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Self Service.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Signal",
+                  "state": "applied"
+                },
+                {
+                  "name": "Simulator",
+                  "state": "applied"
+                },
+                {
+                  "name": "Splashtop Business.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Spotify",
+                  "state": "applied"
+                },
+                {
+                  "name": "TaniumClient",
+                  "state": "applied"
+                },
+                {
+                  "name": "TracerDaemon",
+                  "state": "applied"
+                },
+                {
+                  "name": "Tunnel Provider macos",
+                  "state": "applied"
+                },
+                {
+                  "name": "Twingate",
+                  "state": "applied"
+                },
+                {
+                  "name": "Vpnagentd",
+                  "state": "applied"
+                },
+                {
+                  "name": "Vpnclient",
+                  "state": "applied"
+                },
+                {
+                  "name": "Vpnui",
+                  "state": "applied"
+                },
+                {
+                  "name": "WhatsApp.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "WorkSpaces.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "Xcode",
+                  "state": "applied"
+                },
+                {
+                  "name": "Zscaler.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "acumbrellaagent",
+                  "state": "applied"
+                },
+                {
+                  "name": "beam.smp",
+                  "state": "applied"
+                },
+                {
+                  "name": "checkpoint_vpn",
+                  "state": "applied"
+                },
+                {
+                  "name": "clion",
+                  "state": "applied"
+                },
+                {
+                  "name": "com.checkpoint.epc.helper",
+                  "state": "applied"
+                },
+                {
+                  "name": "com.checkpoint.epc.service",
+                  "state": "applied"
+                },
+                {
+                  "name": "com.cisco.anyconnect.macos.acsockext",
+                  "state": "applied"
+                },
+                {
+                  "name": "com.crowdstrike.falcon.Agent.systemextension",
+                  "state": "applied"
+                },
+                {
+                  "name": "com.cyberark.CyberArkEPMWebServiceSession.bundle",
+                  "state": "applied"
+                },
+                {
+                  "name": "com.jamf.connect",
+                  "state": "applied"
+                },
+                {
+                  "name": "com.perimeter81d.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "cphwd",
+                  "state": "applied"
+                },
+                {
+                  "name": "csync",
+                  "state": "applied"
+                },
+                {
+                  "name": "cyberark-epm-agent",
+                  "state": "applied"
+                },
+                {
+                  "name": "dcondemand",
+                  "state": "applied"
+                },
+                {
+                  "name": "dgdaemon.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "docker",
+                  "state": "applied"
+                },
+                {
+                  "name": "duoappupdater",
+                  "state": "applied"
+                },
+                {
+                  "name": "epctrl",
+                  "state": "applied"
+                },
+                {
+                  "name": "fcconfig",
+                  "state": "applied"
+                },
+                {
+                  "name": "fctappfw",
+                  "state": "applied"
+                },
+                {
+                  "name": "fctctld",
+                  "state": "applied"
+                },
+                {
+                  "name": "fctservctl",
+                  "state": "applied"
+                },
+                {
+                  "name": "fctupdate",
+                  "state": "applied"
+                },
+                {
+                  "name": "fctupgrade",
+                  "state": "applied"
+                },
+                {
+                  "name": "fmon",
+                  "state": "applied"
+                },
+                {
+                  "name": "forticlient",
+                  "state": "applied"
+                },
+                {
+                  "name": "fssoavgent_launchagent",
+                  "state": "applied"
+                },
+                {
+                  "name": "fssoavgent_launchdaemon",
+                  "state": "applied"
+                },
+                {
+                  "name": "ftgdagent",
+                  "state": "applied"
+                },
+                {
+                  "name": "helm",
+                  "state": "applied"
+                },
+                {
+                  "name": "idea",
+                  "state": "applied"
+                },
+                {
+                  "name": "io.tailscale.ipn.macsys.network-extension.systemextension",
+                  "state": "applied"
+                },
+                {
+                  "name": "ir_agent",
+                  "state": "applied"
+                },
+                {
+                  "name": "jamf",
+                  "state": "applied"
+                },
+                {
+                  "name": "join.me",
+                  "state": "applied"
+                },
+                {
+                  "name": "kandji-daemon",
+                  "state": "applied"
+                },
+                {
+                  "name": "kandji-library-manager",
+                  "state": "applied"
+                },
+                {
+                  "name": "kandji-parameter-agent",
+                  "state": "applied"
+                },
+                {
+                  "name": "kubectl",
+                  "state": "applied"
+                },
+                {
+                  "name": "kubefwd",
+                  "state": "applied"
+                },
+                {
+                  "name": "limactl",
+                  "state": "applied"
+                },
+                {
+                  "name": "logioptionsplus_agent.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "logioptionsplus_updater.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "mDNSResponder",
+                  "state": "applied"
+                },
+                {
+                  "name": "mdmclient",
+                  "state": "applied"
+                },
+                {
+                  "name": "nessus-agent-module",
+                  "state": "applied"
+                },
+                {
+                  "name": "node",
+                  "state": "applied"
+                },
+                {
+                  "name": "orb",
+                  "state": "applied"
+                },
+                {
+                  "name": "orbctl",
+                  "state": "applied"
+                },
+                {
+                  "name": "pulsesecure",
+                  "state": "applied"
+                },
+                {
+                  "name": "racoon",
+                  "state": "applied"
+                },
+                {
+                  "name": "racoonctl",
+                  "state": "applied"
+                },
+                {
+                  "name": "rapid7_endpoint_broker",
+                  "state": "applied"
+                },
+                {
+                  "name": "ruby",
+                  "state": "applied"
+                },
+                {
+                  "name": "scanunit",
+                  "state": "applied"
+                },
+                {
+                  "name": "sentineld",
+                  "state": "applied"
+                },
+                {
+                  "name": "sentineld.app",
+                  "state": "applied"
+                },
+                {
+                  "name": "sentineld-helper",
+                  "state": "applied"
+                },
+                {
+                  "name": "sdm.darwin",
+                  "state": "applied"
+                },
+                {
+                  "name": "snap-agent",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosService",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosScanD",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosConfigD",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosWebD",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosScanAgent",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosEDMSD",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosHealthService",
+                  "state": "applied"
+                },
+                {
+                  "name": "sslvpnd",
+                  "state": "applied"
+                },
+                {
+                  "name": "thunderbird",
+                  "state": "applied"
+                },
+                {
+                  "name": "uk.ava.reveal.agent.eps",
+                  "state": "applied"
+                },
+                {
+                  "name": "uk.ava.reveal.agent.net",
+                  "state": "applied"
+                },
+                {
+                  "name": "vpndownloader",
+                  "state": "applied"
+                },
+                {
+                  "name": "vpnservicesd",
+                  "state": "applied"
+                },
+                {
+                  "name": "vulscan",
+                  "state": "applied"
+                },
+                {
+                  "name": "xcodebuild",
+                  "state": "applied"
+                },
+                {
+                  "name": "yarn",
+                  "state": "applied"
+                },
+                {
+                  "name": "zoom.us",
+                  "state": "applied"
+                }
+              ],
+              "windows": [
+                {
+                  "name": "1Password.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "64bitProxy.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "8x8.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "8x8 Work.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ATASAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AWSVPNClient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AWSVPNClient.Service.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AcroCEF.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Adobe Desktop Service.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AdobeCollabSync.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AdobeIPCBroker.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AdobeNotificationClient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AdobeUpdateService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AEMAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AnyDesk.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Asana.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Audckq32.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AuvikService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Avira.OptimizerHost.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Avira.Spotlight.Service.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Avira.Spotlight.Systray.Application.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Avira.Spotlight.UI.Application.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Avira.VpnService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "AzVpnAppx.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "BASEClient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "BASupSrvc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Box.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CagService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CatoClient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CCLibrary.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CCXProcess.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CETASvc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CNTAoSMgr.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CPEngine.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CPShell.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CRWindowsClientService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CSCOMUtils.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CSDeviceControlSupportTool.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CSFalconContainer.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CSFalconController.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CSFalconService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CSFirmwareAnalysisSupportTool.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CSSensorSettings.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CcmExec.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CheckPointVpnPluginApp.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CiscoCollabHost.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CloudEndpointService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Code42Service.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ConfigSecurityPolicy.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CoreSync.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Creative Cloud.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Creative Cloud Helper.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Creative Cloud UI Helper.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CsFalconConnector.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CsScan.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CsScanCli.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CybAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CyberArk.CredentialProvider.Service.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "CyberArk.PasswordVault.WebAccess.Service.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "DSAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Defender.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Dialpad.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Dropbox.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "DropboxUpdate.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Duo Desktop.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "EIConnector.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "EPIntegrationService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ERAAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ESClient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ESEFrameworkHost.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ESEServiceShell.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "EndpointBasecamp.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "EraAgentSvc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Exclaimer.CloudSignatureAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FCDBLog.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FCHelper64.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiClient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiClient_Diagnostic_Tool.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiClientConsole.exe ",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiESNAC.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiGuardAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiProxy.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiScand.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiSSLVPNdaemon.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiSslVpnPluginApp.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiTray.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiVPN.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "FortiWF.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "GoogleDriveFS.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "GoogleUpdate.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Grammarly.Desktop.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "HitmanPro.Alert.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "HPNETW-1.EXE",
+                  "state": "applied"
+                },
+                {
+                  "name": "HPPrintScanDoctorService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "HPPrinterHealthMonitor.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "HPUpdate.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "IswSvc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "IvantiClient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "IvantiService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Jumpcloud-agent-updater.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "LINE.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "LMIGuardianSvc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "LMIIgnition.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Lmi_Rescue_srv.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "LogMeInSystray.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "LogServer.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "LogiTuneUpdater.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "McScript_InUse.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "MdatpNetworkScanAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Microsoft.Management.Services.CloudManagedDesktop.Agent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Microsoft.Management.Services.IntuneWindowsAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "MpCmdRun.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "MpDlpCmd.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "MsMpEng.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "MsSense.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "NEGui.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "NEService64.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "NEService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "NetExtender.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "NinjaRMMAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "NinjaRMMAgentPatcher.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "NisSrv.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "NTRtScan.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Notion.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Ntrtscan.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "OfficeSetup.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "OktaVerify.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "OneDrive.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PanGPS.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PanGPSupport.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PanGpHip.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PanGpHipMp.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PasswordBoss.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PccNTMon.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Perimeter81.Service.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Perimeter81.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Pulse.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PulseApplicationLauncher.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PulseExt.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PulseHelper.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PulseSecure.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PulseSecureService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "PulseServiceApi.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "RMM.RTC.Proxy.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "RMM.WebRemote.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "RaMaint.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "RazerCentralService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "RemotePlay.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ResponseService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SAVService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SBDDesktop.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SDXHelper.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SRManager.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SRManagerSOS.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SamlAuthWB.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SearchApp.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SenseCnCProxy.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SenseCE.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SenseIR.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SenseNdr.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SenseSampleUploader.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SenseSC.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ShowMsg.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Signal.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SmartVPNClient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SmartVPNService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SnwlConnect.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SnwlVPN.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosEndpointDefenseService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosFileScanner.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosCleanM.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosHealth.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SophosUpdate.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Spotify.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "SubmitTelem.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "TMBMSRV.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "TMiACAgentSvc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "TakeControlRDViewer.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "TaniumClient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "TmCCSF.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "TmListen.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "TmPfw.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "TmSSClient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "TmWSCSvc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "TmsaInstance64.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ZSATunnel.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ZTSAMonitorService.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ZTSAWindows.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Vpnclient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Vpnui.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "WaAppAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "WindowsAzureGuestAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "WhatsApp.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "WSCommunicator.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "XeroxDeviceStatus.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "XeroxPrintJobEventManagerLoader.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "Zoom.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "action1_agent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "acvc-openvpn.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "agent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "amagent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "apaservice.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "backgroundtaskhost.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "bbcomm.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "blpbrowser.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "blpwebview.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "bomgar-pac.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "bomgar-pec.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "bomgar-rep.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "bomgar-scc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "bplus64.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "clientrater.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "clion64.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "code.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "companyportal.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "cortex-xdr-payload.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "cpd.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "cpmgmt.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "dbeaver.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "dcconfig.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "dcondemand.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "devenv.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "dfsvc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "docker desktop.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "docker.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "dsTermServ.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "dsagent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "fcappdb.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "fcaptmon.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "fmon.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "fortifws.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "fwsvc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "gpaservice.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "horizon_client_service.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "iVPAgent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "idea64.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "intunemanagementextensionbridge.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ipsec.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ipseccmd.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ir_agent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "jamCommand.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "jazzbrowsermessenger.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "jazzdesktop.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "jazzdialog.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "jazzisolate.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "jazzlocker.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "jazzmfa.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "jetbrains_client64.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "join.me.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "jumpcloud-agent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "jumpcloud-agent-app.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "kubectl.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "logioptionsplus_agent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "logioptionsplus_updater.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "logmein.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "logonui.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "masvc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "mesproc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "messerv.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "msrdc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "msrdcw.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ms-teams.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "msteamsupdate.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "mstsc.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "nessus-agent-module.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "node.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "nsstatsdump.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "nsswitch.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "omadmclient.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "outlookproxy.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "pangpa.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "pdq-connect-updater.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "pdv.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "phantomvpn.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "psm.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "pulselauncher.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "puTTYgen.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "putty.exe ",
+                  "state": "applied"
+                },
+                {
+                  "name": "pycharm64.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "python.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "rapid7_agent_core.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "rapid7_endpoint_broker.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "rapid7_events_monitor.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "rapid7_sysmon_installer.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ruby.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "scivi.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "sdm.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "sdrclientworker.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "sophosps.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "splwow64.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "spoolsv.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "sra-pin.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "strwinclt.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "strwinfile.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "svchost.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "tailscaled.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "thunderbird.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "toaster.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "twingate.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "twingate.service.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "twingateupdater.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "update_task.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "updater-ws.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "uninstall.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "vf_agent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "vmUpdateLauncher.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "vmware-remotemks.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "vmware-view.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "vpnagent.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "vpncli.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "vpnkit.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "vpnui.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "wapptunneld.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "winsuper.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "wintrv.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "withdll.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "workspaces.exe",
+                  "state": "applied"
+                },
+                {
+                  "name": "ws_diag.exe",
+                  "state": "applied"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 13:12:43 GMT",
+          "content-type": "application/json",
+          "content-length": "22368",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1968",
+          "x-ratelimit-reset": "1784812390",
+          "etag": "W/\"5760-jnRgbzhFl2ZfVFH8SjYqihOceAU\""
+        },
+        "hash": "573e90bb2d65eb8067921a5a560ecd6c77a16006",
+        "request": {}
+      }
+    }
+  }
+}
