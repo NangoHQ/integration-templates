@@ -1,0 +1,187 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {},
+    "batchSave": {
+      "BulkFile": [
+        {
+          "id": "31560972",
+          "file_id": "31560972",
+          "file_name": "test-emails.csv",
+          "status": "finished",
+          "unique_emails": 0,
+          "updated_at": "2026-07-23 23:10:21",
+          "createdate": "2026-07-23 23:10:14",
+          "percent": 100,
+          "total_rows": 2,
+          "verified": 1,
+          "unverified": 0,
+          "ok": 0,
+          "catch_all": 0,
+          "disposable": 0,
+          "invalid": 1,
+          "unknown": 0,
+          "reverify": 0,
+          "credit": 1,
+          "estimated_time_sec": 0,
+          "error": ""
+        },
+        {
+          "id": "31560963",
+          "file_id": "31560963",
+          "file_name": "test.csv",
+          "status": "finished",
+          "unique_emails": 0,
+          "updated_at": "2026-07-23 23:08:37",
+          "createdate": "2026-07-23 23:08:32",
+          "percent": 100,
+          "total_rows": 2,
+          "verified": 1,
+          "unverified": 0,
+          "ok": 0,
+          "catch_all": 0,
+          "disposable": 0,
+          "invalid": 1,
+          "unknown": 0,
+          "reverify": 0,
+          "credit": 1,
+          "estimated_time_sec": 0,
+          "error": ""
+        },
+        {
+          "id": "31560956",
+          "file_id": "31560956",
+          "file_name": "test_emails.csv",
+          "status": "finished",
+          "unique_emails": 0,
+          "updated_at": "2026-07-23 23:06:23",
+          "createdate": "2026-07-23 23:06:17",
+          "percent": 100,
+          "total_rows": 4,
+          "verified": 3,
+          "unverified": 0,
+          "ok": 1,
+          "catch_all": 0,
+          "disposable": 1,
+          "invalid": 1,
+          "unknown": 0,
+          "reverify": 0,
+          "credit": 3,
+          "estimated_time_sec": 0,
+          "error": ""
+        }
+      ]
+    },
+    "batchDelete": {
+      "BulkFile": []
+    }
+  },
+  "api": {
+    "get": {
+      "/bulkapi/v2/filelist": {
+        "response": {
+          "files": [
+            {
+              "file_id": "31560972",
+              "file_name": "test-emails.csv",
+              "status": "finished",
+              "unique_emails": 0,
+              "updated_at": "2026-07-23 23:10:21",
+              "createdate": "2026-07-23 23:10:14",
+              "percent": 100,
+              "total_rows": 2,
+              "verified": 1,
+              "unverified": 0,
+              "ok": 0,
+              "catch_all": 0,
+              "disposable": 0,
+              "invalid": 1,
+              "unknown": 0,
+              "reverify": 0,
+              "credit": 1,
+              "estimated_time_sec": 0,
+              "error": ""
+            },
+            {
+              "file_id": "31560963",
+              "file_name": "test.csv",
+              "status": "finished",
+              "unique_emails": 0,
+              "updated_at": "2026-07-23 23:08:37",
+              "createdate": "2026-07-23 23:08:32",
+              "percent": 100,
+              "total_rows": 2,
+              "verified": 1,
+              "unverified": 0,
+              "ok": 0,
+              "catch_all": 0,
+              "disposable": 0,
+              "invalid": 1,
+              "unknown": 0,
+              "reverify": 0,
+              "credit": 1,
+              "estimated_time_sec": 0,
+              "error": ""
+            },
+            {
+              "file_id": "31560956",
+              "file_name": "test_emails.csv",
+              "status": "finished",
+              "unique_emails": 0,
+              "updated_at": "2026-07-23 23:06:23",
+              "createdate": "2026-07-23 23:06:17",
+              "percent": 100,
+              "total_rows": 4,
+              "verified": 3,
+              "unverified": 0,
+              "ok": 1,
+              "catch_all": 0,
+              "disposable": 1,
+              "invalid": 1,
+              "unknown": 0,
+              "reverify": 0,
+              "credit": 3,
+              "estimated_time_sec": 0,
+              "error": ""
+            }
+          ],
+          "total": 3
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 24 Jul 2026 02:23:04 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1784859840",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "hubuco-server": "mv",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=MxJL9QMNWcuWkBKUy5wLP64f%2FFLGNsFidKq6TQxY2Qg3AlmyQXbp4g2uZ6OSb5vtbyExUS7FsmEd9ilsGOrVSYFDiMnmQtTpEI7gBAT3C2BzYsoE%2BLrloKrkdw%2F%2F%2B0kX6YHVs06brJ77Up%2BrS50%3D\"}]}",
+          "cf-ray": "a1ff75f64e2c8e63-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "2f92b1c8e08a361d3590842532f29054091437f8",
+        "request": {
+          "params": {
+            "key": "sUNP7MED5Nh53nz8SgvLvvY9e",
+            "limit": "50",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}
