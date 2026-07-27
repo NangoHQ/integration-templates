@@ -1,0 +1,75 @@
+{
+  "input": {
+    "id": 1
+  },
+  "output": {
+    "id": 1,
+    "url": "https://httpbin.org/post",
+    "auth_key": "YtVUsezPdLMKqt-OZ-CdoA",
+    "description": "Test webhook for dryrun",
+    "events": [
+      "send",
+      "delivered"
+    ],
+    "created_at": "2026-07-21 13:22:05.45205",
+    "batches_sent": 0,
+    "events_sent": 0
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/1.0/webhooks/info.json": {
+        "response": {
+          "id": 1,
+          "url": "https://httpbin.org/post",
+          "description": "Test webhook for dryrun",
+          "created_at": "2026-07-21 13:22:05.45205",
+          "batches_sent": 0,
+          "events_sent": 0,
+          "auth_key": "YtVUsezPdLMKqt-OZ-CdoA",
+          "events": [
+            "send",
+            "delivered"
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 21 Jul 2026 13:24:23 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "197",
+          "x-ratelimit-reset": "1784640323",
+          "server": "nginx",
+          "access-control-allow-methods": "POST, GET, OPTIONS",
+          "access-control-allow-headers": "Content-Type",
+          "access-control-allow-credentials": "false",
+          "vary": "Accept-Encoding",
+          "x-envoy-upstream-service-time": "61",
+          "x-envoy-decorator-operation": "mandrill-app-desired-service.mctx-mandrillapp-usw2-prd.svc.cluster.local:8090/*",
+          "x-request-id": "Self=1-6a5f7307-05c5dd844a966d314a09465f;Root=1-6a5f7307-695bca8d7627dd212e3bad87",
+          "x-intuit-upstream-locality-region": "us-west-2",
+          "intuit_tid": "Self=1-6a5f7307-05c5dd844a966d314a09465f;Root=1-6a5f7307-695bca8d7627dd212e3bad87",
+          "x-spanid": "dfbef8af-c6ab-a13d-a356-776bd8d2573f",
+          "x-amzn-trace-id": "Self=1-6a5f7307-05c5dd844a966d314a09465f;Root=1-6a5f7307-695bca8d7627dd212e3bad87"
+        },
+        "hash": "7f6d8b50fe048adf0bba3846a68cc4f7f5e6747b",
+        "request": {
+          "data": {
+            "id": 1
+          }
+        }
+      }
+    }
+  }
+}
