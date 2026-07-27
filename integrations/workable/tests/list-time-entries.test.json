@@ -1,0 +1,288 @@
+{
+  "input": {
+    "employee_ids": [
+      "19ff54"
+    ],
+    "from_date": "2026-07-01",
+    "to_date": "2026-07-31",
+    "limit": 10
+  },
+  "output": {
+    "time_entries": [
+      {
+        "uuid": "5e88c3cd-ae37-4b84-aa72-d896b9aa5acb",
+        "employee_id": "19ff54",
+        "type": "time-entry",
+        "clock_in_time": "2026-07-05T09:00:00.000Z",
+        "clock_out_time": "2026-07-05T17:00:00.000Z",
+        "worked_minutes": 480,
+        "is_active": false,
+        "note": "Nango bulk time entry test",
+        "timezone": "America/New_York"
+      },
+      {
+        "uuid": "9b51c331-b1ff-405e-a42a-5678fa05bf96",
+        "employee_id": "19ff54",
+        "type": "time-entry",
+        "clock_in_time": "2026-07-06T09:00:00.000Z",
+        "clock_out_time": "2026-07-06T17:00:00.000Z",
+        "worked_minutes": 480,
+        "is_active": false,
+        "note": "Nango seed time entry A (patched again via action)",
+        "timezone": "America/New_York"
+      },
+      {
+        "uuid": "f1d90b1f-42bd-4c9a-bfdf-96ce216f5662",
+        "employee_id": "19ff54",
+        "type": "time-entry",
+        "clock_in_time": "2026-07-08T09:00:00.000Z",
+        "clock_out_time": "2026-07-08T17:00:00.000Z",
+        "worked_minutes": 480,
+        "is_active": false,
+        "note": "Nango bulk time entry test",
+        "timezone": "America/New_York"
+      },
+      {
+        "uuid": "267e0d56-8dab-4a38-a8c9-5c7b30b20060",
+        "employee_id": "19ff54",
+        "type": "clock-out",
+        "clock_in_time": "2026-07-09T12:59:00.000Z",
+        "clock_out_time": "2026-07-09T22:03:00.000Z",
+        "worked_minutes": 544,
+        "is_active": false,
+        "note": "Normal shift",
+        "timezone": "America/New_York"
+      },
+      {
+        "uuid": "d9e65044-e41b-4c68-802f-9a2c5e744c84",
+        "employee_id": "19ff54",
+        "type": "time-entry",
+        "clock_in_time": "2026-07-10T09:00:00.000Z",
+        "clock_out_time": "2026-07-10T17:00:00.000Z",
+        "worked_minutes": 480,
+        "is_active": false,
+        "note": "Nango bulk time entry test",
+        "timezone": "America/New_York"
+      },
+      {
+        "uuid": "2fdf29e7-aba2-4ad6-b987-cc855bd9a29a",
+        "employee_id": "19ff54",
+        "type": "clock-out",
+        "clock_in_time": "2026-07-13T13:42:00.000Z",
+        "clock_out_time": "2026-07-13T22:00:00.000Z",
+        "worked_minutes": 498,
+        "is_active": false,
+        "note": "Issue with public transport",
+        "timezone": "America/New_York"
+      },
+      {
+        "uuid": "1ef0858c-a875-44ee-838f-3b554c3901bd",
+        "employee_id": "19ff54",
+        "type": "clock-out",
+        "clock_in_time": "2026-07-14T12:58:00.000Z",
+        "clock_out_time": "2026-07-14T22:04:00.000Z",
+        "worked_minutes": 546,
+        "is_active": false,
+        "note": "Normal shift",
+        "timezone": "America/New_York"
+      },
+      {
+        "uuid": "23c94f09-da3d-4c98-9402-bc6846774440",
+        "employee_id": "19ff54",
+        "type": "clock-out",
+        "clock_in_time": "2026-07-15T13:02:00.000Z",
+        "clock_out_time": "2026-07-15T21:59:00.000Z",
+        "worked_minutes": 537,
+        "is_active": false,
+        "note": "Normal shift",
+        "timezone": "America/New_York"
+      },
+      {
+        "uuid": "884b16d2-8be5-4089-8b8d-187e7db8a532",
+        "employee_id": "19ff54",
+        "type": "clock-out",
+        "clock_in_time": "2026-07-16T13:04:00.000Z",
+        "clock_out_time": "2026-07-16T22:04:00.000Z",
+        "worked_minutes": 540,
+        "is_active": false,
+        "note": "Normal shift",
+        "timezone": "America/New_York"
+      },
+      {
+        "uuid": "a2e13806-7984-4a76-99b3-7387ff7b197b",
+        "employee_id": "19ff54",
+        "type": "clock-out",
+        "clock_in_time": "2026-07-17T12:59:00.000Z",
+        "clock_out_time": "2026-07-17T22:03:00.000Z",
+        "worked_minutes": 544,
+        "is_active": false,
+        "note": "Normal shift",
+        "timezone": "America/New_York"
+      }
+    ],
+    "total_count": 13,
+    "next_offset": "10"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/time-tracking/time-entries": {
+        "response": {
+          "total_count": 13,
+          "time_entries": [
+            {
+              "uuid": "5e88c3cd-ae37-4b84-aa72-d896b9aa5acb",
+              "employee_id": "19ff54",
+              "type": "time-entry",
+              "clock_in_time": "2026-07-05T09:00:00.000Z",
+              "clock_out_time": "2026-07-05T17:00:00.000Z",
+              "worked_minutes": 480,
+              "is_active": false,
+              "note": "Nango bulk time entry test",
+              "timezone": "America/New_York"
+            },
+            {
+              "uuid": "9b51c331-b1ff-405e-a42a-5678fa05bf96",
+              "employee_id": "19ff54",
+              "type": "time-entry",
+              "clock_in_time": "2026-07-06T09:00:00.000Z",
+              "clock_out_time": "2026-07-06T17:00:00.000Z",
+              "worked_minutes": 480,
+              "is_active": false,
+              "note": "Nango seed time entry A (patched again via action)",
+              "timezone": "America/New_York"
+            },
+            {
+              "uuid": "f1d90b1f-42bd-4c9a-bfdf-96ce216f5662",
+              "employee_id": "19ff54",
+              "type": "time-entry",
+              "clock_in_time": "2026-07-08T09:00:00.000Z",
+              "clock_out_time": "2026-07-08T17:00:00.000Z",
+              "worked_minutes": 480,
+              "is_active": false,
+              "note": "Nango bulk time entry test",
+              "timezone": "America/New_York"
+            },
+            {
+              "uuid": "267e0d56-8dab-4a38-a8c9-5c7b30b20060",
+              "employee_id": "19ff54",
+              "type": "clock-out",
+              "clock_in_time": "2026-07-09T12:59:00.000Z",
+              "clock_out_time": "2026-07-09T22:03:00.000Z",
+              "worked_minutes": 544,
+              "is_active": false,
+              "note": "Normal shift",
+              "timezone": "America/New_York"
+            },
+            {
+              "uuid": "d9e65044-e41b-4c68-802f-9a2c5e744c84",
+              "employee_id": "19ff54",
+              "type": "time-entry",
+              "clock_in_time": "2026-07-10T09:00:00.000Z",
+              "clock_out_time": "2026-07-10T17:00:00.000Z",
+              "worked_minutes": 480,
+              "is_active": false,
+              "note": "Nango bulk time entry test",
+              "timezone": "America/New_York"
+            },
+            {
+              "uuid": "2fdf29e7-aba2-4ad6-b987-cc855bd9a29a",
+              "employee_id": "19ff54",
+              "type": "clock-out",
+              "clock_in_time": "2026-07-13T13:42:00.000Z",
+              "clock_out_time": "2026-07-13T22:00:00.000Z",
+              "worked_minutes": 498,
+              "is_active": false,
+              "note": "Issue with public transport",
+              "timezone": "America/New_York"
+            },
+            {
+              "uuid": "1ef0858c-a875-44ee-838f-3b554c3901bd",
+              "employee_id": "19ff54",
+              "type": "clock-out",
+              "clock_in_time": "2026-07-14T12:58:00.000Z",
+              "clock_out_time": "2026-07-14T22:04:00.000Z",
+              "worked_minutes": 546,
+              "is_active": false,
+              "note": "Normal shift",
+              "timezone": "America/New_York"
+            },
+            {
+              "uuid": "23c94f09-da3d-4c98-9402-bc6846774440",
+              "employee_id": "19ff54",
+              "type": "clock-out",
+              "clock_in_time": "2026-07-15T13:02:00.000Z",
+              "clock_out_time": "2026-07-15T21:59:00.000Z",
+              "worked_minutes": 537,
+              "is_active": false,
+              "note": "Normal shift",
+              "timezone": "America/New_York"
+            },
+            {
+              "uuid": "884b16d2-8be5-4089-8b8d-187e7db8a532",
+              "employee_id": "19ff54",
+              "type": "clock-out",
+              "clock_in_time": "2026-07-16T13:04:00.000Z",
+              "clock_out_time": "2026-07-16T22:04:00.000Z",
+              "worked_minutes": 540,
+              "is_active": false,
+              "note": "Normal shift",
+              "timezone": "America/New_York"
+            },
+            {
+              "uuid": "a2e13806-7984-4a76-99b3-7387ff7b197b",
+              "employee_id": "19ff54",
+              "type": "clock-out",
+              "clock_in_time": "2026-07-17T12:59:00.000Z",
+              "clock_out_time": "2026-07-17T22:03:00.000Z",
+              "worked_minutes": 544,
+              "is_active": false,
+              "note": "Normal shift",
+              "timezone": "America/New_York"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:48:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.workable.com/; report-uri https://browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pubcbe8d2ef0966e8645a91099cfac490bb&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=%40http.headers.cfray%3Aa1fd8c5adcce5edd",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1887",
+          "x-ratelimit-reset": "1784839746",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "9",
+          "x-rate-limit-reset": "1784839741",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=ikl3HG1yW.3.1Fb3PCOD8oSY3tZe5j7DYXJXgnmzjo8-1784839730.3746119-1.0.1.1-o.D8ZG4P89iaApBbBko9wCXc2JcE4_UYEUS1K8Ezm_rvZgqJAQjpNiwBj1M4MbK_3R2Aii7.TTVeLjc_dt6RznqOy0F5ItISWuNkRWPmvDZZHQ7evs0ERNCV6_oyjf3o; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:18:51 GMT",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd8c5adcce5edd-PDX"
+        },
+        "hash": "c78eb029e36e7fade1f92342cd6bd32e134fb60c",
+        "request": {
+          "params": {
+            "employee_ids[]": "19ff54",
+            "from_date": "2026-07-01",
+            "limit": "10",
+            "offset": "0",
+            "to_date": "2026-07-31"
+          }
+        }
+      }
+    }
+  }
+}

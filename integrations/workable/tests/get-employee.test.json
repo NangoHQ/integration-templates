@@ -1,0 +1,251 @@
+{
+  "input": {
+    "id": "19ff54",
+    "member_id": "1f395d"
+  },
+  "output": {
+    "id": "19ff54",
+    "firstname": "Rex",
+    "lastname": "Abernathy",
+    "employee_number": "5",
+    "status": "status_active",
+    "country": {
+      "display": "United States of America (the)",
+      "value": "US"
+    },
+    "address": {
+      "id": "ChIJR2zV239644kRGlNCPdxsTRA",
+      "city": "Boston",
+      "bounds": {
+        "northeast": "42.3505897802915,-71.0484919697085",
+        "southwest": "42.3478918197085,-71.05118993029151"
+      },
+      "coords": "42.3492, -71.0499002",
+      "status": "PARTIAL_SUCCESS",
+      "country": "United States",
+      "zip_code": "02210",
+      "state_code": "MA",
+      "subregion": "Massachusetts",
+      "street_name": "Melcher Street",
+      "country_code": "US",
+      "street_number": "51",
+      "location_string": "51 Melcher Street, Boston, Massachusetts, United States, 02210",
+      "label": "Boston, Massachusetts, United States"
+    },
+    "marital_status_group": {
+      "marital_status": "marital_status_married"
+    },
+    "phone_group": [
+      {
+        "row_id": "3d00b1f",
+        "is_primary": true,
+        "value": {
+          "phone_type": "phone_type_mobile",
+          "phone": "+18579909723"
+        },
+        "history_of": "3d00b1f"
+      }
+    ],
+    "work_email": "rex_abernathy@sampleemployee.com",
+    "personal_email": [
+      {
+        "row_id": "3d011d9",
+        "is_primary": true,
+        "value": "rex_abernathy@samplecandidate.com",
+        "history_of": "3d011d9"
+      }
+    ],
+    "chat_group": [],
+    "social_group": [],
+    "job_title": "Account Manager ",
+    "hire_date": "2021-10-01T00:00:00.000Z",
+    "start_date": "2021-12-17T00:00:00.000Z",
+    "legal_entity": "968c0af9-cc91-4a75-9f79-c6a5ee17d1b4",
+    "reports_to": "19ff2f",
+    "direct_reports": [],
+    "employment_group": [
+      {
+        "row_id": "3d00b1d",
+        "is_primary": true,
+        "value": {
+          "employment_effective_date": "2021-10-08T00:00:00.000Z",
+          "employment_status": "employement_type_full_time"
+        },
+        "history_of": "3d00b1d"
+      }
+    ],
+    "work_schedule": "66e8",
+    "salary_group": [
+      {
+        "row_id": "3d00b1e",
+        "is_primary": true,
+        "value": {
+          "salary_effective_date": "2021-10-08T00:00:00.000Z",
+          "salary_pay_type": "salary_pay_type_salary",
+          "salary_pay_rate": {
+            "amount": 90000,
+            "currency": "USD",
+            "frequency": "year"
+          },
+          "salary_pay_schedule": "salary_pay_schedule_every_15_days",
+          "salary_overtime_status": "salary_overtime_status_exempt",
+          "salary_justification": "salary_justification_new_hire"
+        },
+        "history_of": "3d00b1e"
+      }
+    ],
+    "social_insurance_number_group": [],
+    "citizenship": [],
+    "passport_group": [],
+    "visa_group": [],
+    "education_group": [],
+    "work_experience_group": [],
+    "skills": [],
+    "language": [],
+    "contact_group": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/employees/19ff54": {
+        "response": {
+          "id": "19ff54",
+          "firstname": "Rex",
+          "lastname": "Abernathy",
+          "employee_number": "5",
+          "status": "status_active",
+          "country": {
+            "display": "United States of America (the)",
+            "value": "US"
+          },
+          "address": {
+            "id": "ChIJR2zV239644kRGlNCPdxsTRA",
+            "city": "Boston",
+            "label": "Boston, Massachusetts, United States",
+            "bounds": {
+              "northeast": "42.3505897802915,-71.0484919697085",
+              "southwest": "42.3478918197085,-71.05118993029151"
+            },
+            "coords": "42.3492, -71.0499002",
+            "status": "PARTIAL_SUCCESS",
+            "country": "United States",
+            "zip_code": "02210",
+            "state_code": "MA",
+            "subregion": "Massachusetts",
+            "street_name": "Melcher Street",
+            "country_code": "US",
+            "street_number": "51",
+            "location_string": "51 Melcher Street, Boston, Massachusetts, United States, 02210"
+          },
+          "marital_status_group": {
+            "marital_status": "marital_status_married"
+          },
+          "phone_group": [
+            {
+              "row_id": "3d00b1f",
+              "history_of": "3d00b1f",
+              "is_primary": true,
+              "value": {
+                "phone_type": "phone_type_mobile",
+                "phone": "+18579909723"
+              }
+            }
+          ],
+          "work_email": "rex_abernathy@sampleemployee.com",
+          "personal_email": [
+            {
+              "row_id": "3d011d9",
+              "history_of": "3d011d9",
+              "is_primary": true,
+              "value": "rex_abernathy@samplecandidate.com"
+            }
+          ],
+          "chat_group": [],
+          "social_group": [],
+          "job_title": "Account Manager ",
+          "hire_date": "2021-10-01T00:00:00.000Z",
+          "start_date": "2021-12-17T00:00:00.000Z",
+          "legal_entity": "968c0af9-cc91-4a75-9f79-c6a5ee17d1b4",
+          "reports_to": "19ff2f",
+          "direct_reports": [],
+          "employment_group": [
+            {
+              "row_id": "3d00b1d",
+              "history_of": "3d00b1d",
+              "is_primary": true,
+              "value": {
+                "employment_effective_date": "2021-10-08T00:00:00.000Z",
+                "employment_status": "employement_type_full_time"
+              }
+            }
+          ],
+          "work_schedule": "66e8",
+          "salary_group": [
+            {
+              "row_id": "3d00b1e",
+              "history_of": "3d00b1e",
+              "is_primary": true,
+              "value": {
+                "salary_effective_date": "2021-10-08T00:00:00.000Z",
+                "salary_pay_type": "salary_pay_type_salary",
+                "salary_pay_rate": {
+                  "amount": 90000,
+                  "currency": "USD",
+                  "frequency": "year"
+                },
+                "salary_pay_schedule": "salary_pay_schedule_every_15_days",
+                "salary_overtime_status": "salary_overtime_status_exempt",
+                "salary_justification": "salary_justification_new_hire"
+              }
+            }
+          ],
+          "social_insurance_number_group": [],
+          "citizenship": [],
+          "passport_group": [],
+          "visa_group": [],
+          "education_group": [],
+          "work_experience_group": [],
+          "skills": [],
+          "language": [],
+          "contact_group": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:51:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "frame-ancestors https://*.workable.com/; report-uri https://browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pubcbe8d2ef0966e8645a91099cfac490bb&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=%40http.headers.cfray%3Aa1fd8f8d7b670dcf",
+          "access-control-allow-origin": "http://nangodev.workable.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1890",
+          "x-ratelimit-reset": "1784839868",
+          "vary": "Accept-Encoding, Origin",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "8",
+          "x-rate-limit-reset": "1784839871",
+          "x-sv": "d50785ca6be6a879aecdc12e29854254a302af78c47de6030a2e6e7e009263fa",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=rL8shmL_A6OWjCUUJnzDjKYzyE2LhxW6MVE7Sif5UlU-1784839861.3555322-1.0.1.1-AxDu46vIvPLpHZgghLelyNUEd6Y.cPHsS3NjLKXBffFZwJVwlV70zqGO.Vo8_6ICTXZkoMW_WDAADFGr_7xvgDWUplpcqJK0rzwiYZzrNZKiNQhw4qKt3_ki6un96osQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:21:01 GMT",
+          "x-kb": "false",
+          "x-ts": "0",
+          "cf-ray": "a1fd8f8d7b670dcf-PDX"
+        },
+        "hash": "244b805430f9ed01e6eea8d1c6df7e702875a164",
+        "request": {
+          "params": {
+            "member_id": "1f395d"
+          }
+        }
+      }
+    }
+  }
+}

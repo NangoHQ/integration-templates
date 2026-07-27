@@ -1,0 +1,252 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "1f395d",
+        "name": "Nango Developer",
+        "headline": null,
+        "email": "api@nango.dev",
+        "roles": [
+          "ats.admin",
+          "hris.admin",
+          "workable.superadmin"
+        ],
+        "active": true,
+        "collaboration_rules": [],
+        "role": "admin",
+        "type": "Member",
+        "hris_role": "hris_admin",
+        "hris_member_scope": null
+      },
+      {
+        "id": "1f3960",
+        "name": "Dorothy Beal",
+        "headline": null,
+        "email": "dorothy_beal@samplemember-739772.example.com",
+        "roles": [
+          "ats.simple",
+          "hris.employee"
+        ],
+        "active": true,
+        "collaboration_rules": [],
+        "role": "simple",
+        "type": "Member",
+        "hris_role": "hris_employee",
+        "hris_member_scope": null
+      },
+      {
+        "id": "1f3961",
+        "name": "Natalie Sung",
+        "headline": null,
+        "email": "natalie_sung@samplemember-739772.example.com",
+        "roles": [
+          "workable.superadmin"
+        ],
+        "active": true,
+        "collaboration_rules": [],
+        "role": "admin",
+        "type": "Member",
+        "hris_role": "hris_admin",
+        "hris_member_scope": null
+      },
+      {
+        "id": "1f3962",
+        "name": "Eric Walton",
+        "headline": null,
+        "email": "eric_walton@samplemember-739772.example.com",
+        "roles": [
+          "ats.simple",
+          "hris.employee"
+        ],
+        "active": true,
+        "collaboration_rules": [],
+        "role": "simple",
+        "type": "Member",
+        "hris_role": "hris_employee",
+        "hris_member_scope": null
+      },
+      {
+        "id": "1f3964",
+        "name": "Eduardo Vallente",
+        "headline": null,
+        "email": "eduardo_vallente@samplemember-739772.example.com",
+        "roles": [
+          "ats.admin",
+          "hris.admin"
+        ],
+        "active": true,
+        "collaboration_rules": [],
+        "role": "admin",
+        "type": "Member",
+        "hris_role": "hris_admin",
+        "hris_member_scope": null
+      },
+      {
+        "id": "1f3965",
+        "name": "Alexia Middleton",
+        "headline": null,
+        "email": "alexia_middleton@samplemember-739772.example.com",
+        "roles": [
+          "ats.simple",
+          "hris.employee"
+        ],
+        "active": true,
+        "collaboration_rules": [],
+        "role": "simple",
+        "type": "Member",
+        "hris_role": "hris_employee",
+        "hris_member_scope": null
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/members": {
+        "response": {
+          "members": [
+            {
+              "id": "1f395d",
+              "name": "Nango Developer",
+              "headline": null,
+              "email": "api@nango.dev",
+              "role": "admin",
+              "type": "Member",
+              "hris_role": "hris_admin",
+              "roles": [
+                "ats.admin",
+                "hris.admin",
+                "workable.superadmin"
+              ],
+              "active": true,
+              "collaboration_rules": [],
+              "hris_member_scope": null
+            },
+            {
+              "id": "1f3960",
+              "name": "Dorothy Beal",
+              "headline": null,
+              "email": "dorothy_beal@samplemember-739772.example.com",
+              "role": "simple",
+              "type": "Member",
+              "hris_role": "hris_employee",
+              "roles": [
+                "ats.simple",
+                "hris.employee"
+              ],
+              "active": true,
+              "collaboration_rules": [],
+              "hris_member_scope": null
+            },
+            {
+              "id": "1f3961",
+              "name": "Natalie Sung",
+              "headline": null,
+              "email": "natalie_sung@samplemember-739772.example.com",
+              "role": "admin",
+              "type": "Member",
+              "hris_role": "hris_admin",
+              "roles": [
+                "workable.superadmin"
+              ],
+              "active": true,
+              "collaboration_rules": [],
+              "hris_member_scope": null
+            },
+            {
+              "id": "1f3962",
+              "name": "Eric Walton",
+              "headline": null,
+              "email": "eric_walton@samplemember-739772.example.com",
+              "role": "simple",
+              "type": "Member",
+              "hris_role": "hris_employee",
+              "roles": [
+                "ats.simple",
+                "hris.employee"
+              ],
+              "active": true,
+              "collaboration_rules": [],
+              "hris_member_scope": null
+            },
+            {
+              "id": "1f3964",
+              "name": "Eduardo Vallente",
+              "headline": null,
+              "email": "eduardo_vallente@samplemember-739772.example.com",
+              "role": "admin",
+              "type": "Member",
+              "hris_role": "hris_admin",
+              "roles": [
+                "ats.admin",
+                "hris.admin"
+              ],
+              "active": true,
+              "collaboration_rules": [],
+              "hris_member_scope": null
+            },
+            {
+              "id": "1f3965",
+              "name": "Alexia Middleton",
+              "headline": null,
+              "email": "alexia_middleton@samplemember-739772.example.com",
+              "role": "simple",
+              "type": "Member",
+              "hris_role": "hris_employee",
+              "roles": [
+                "ats.simple",
+                "hris.employee"
+              ],
+              "active": true,
+              "collaboration_rules": [],
+              "hris_member_scope": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:50:46 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1949",
+          "x-ratelimit-reset": "1784839868",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "7",
+          "x-rate-limit-reset": "1784839856",
+          "etag": "W/\"c92b16e2e68374ee9f820b940d582a42\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "90a0e150-bcec-9a90-9f7d-5e98bef1243c",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "_workable_visitor=BAhJIik0N2YzYzVlYi0wNmZhLTQyYjctYmMyOC1jMDU2NDliOGQ5MWIGOgZFRg%3D%3D--2950e712bc4e3b351febf64812705b66b3d6925a; domain=workable.com; path=/; expires=Mon, 23 Jul 2046 20:50:46 GMT; secure, wmc=%7B%22cookie_id%22%3A%22dfbd3c22-4abd-4db0-b211-4c8233a7d9ee%22%7D; domain=.workable.com; path=/; expires=Mon, 23 Jul 2046 20:50:46 GMT; secure, __cf_bm=0cVlhhHRXP7YZRJvGC7NRlEFilEPwqgaMyuIyasrLuU-1784839846.4637256-1.0.1.1-ewyBc9SRlzmDkQ9ScloGqE_8kRv57_FPyRSDvbV8VhtjdV.8wakdNFOYGs5oLJA3sBUIDDRX5g9GXSblx5o_i7gkuMQKBlKsecmylQS15UbsL5l6I4JjYc2aYMwokcBL; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:20:46 GMT",
+          "x-kb": "false",
+          "cf-ray": "a1fd8f3068125509-PDX"
+        },
+        "hash": "25ea9de4bba59f4194d24c9a53c4cffebf32d1f0",
+        "request": {
+          "params": {
+            "limit": "50",
+            "status": "active"
+          }
+        }
+      }
+    }
+  }
+}

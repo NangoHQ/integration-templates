@@ -1,0 +1,725 @@
+{
+  "input": {},
+  "output": {
+    "ats:collab:candidates:access_ai_recruiter": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:approve_reject_offer": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:block": [
+      "admin"
+    ],
+    "ats:collab:candidates:bookmark": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:cancel_automation": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:comment": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:candidates:copy": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:create": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:create_tag": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:candidates:delete": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:disqualify": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:download": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:candidates:edit_any_event": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:edit_any_message": [
+      "admin"
+    ],
+    "ats:collab:candidates:edit_any_visibility": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:evaluate": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:candidates:export_to_hris": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:manage_offer": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:manage_whitelist": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:message": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:move": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:print": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:candidates:read": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:candidates:revert": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:save_template": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:schedule_event": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:send_assessment": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:send_bg_check": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:send_e_signature": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:send_survey": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:share": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:snooze": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:tag": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:candidates:update": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:view_assessment_results": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:candidates:view_bg_check_results": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:view_e_signature": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:view_offer": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin"
+    ],
+    "ats:collab:candidates:view_other_evaluations": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:candidates:view_ref_check_results": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:candidates:view_siblings": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:collaboration:update": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:custom_fields:toggle": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin"
+    ],
+    "ats:collab:jobs:archive": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:jobs:delete": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:jobs:duplicate": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:jobs:edit": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:jobs:leave_hiring_team": [
+      "admin"
+    ],
+    "ats:collab:jobs:publish": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:jobs:show": [
+      "admin",
+      "hiring_manager",
+      "recruiter",
+      "recruiting_admin",
+      "reviewer",
+      "simple"
+    ],
+    "ats:collab:jobs:unarchive": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:jobs:unpublish": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:members:invite": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:premium_postings:manage": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:premium_postings:purchase": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:referrals:request": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin",
+      "simple"
+    ],
+    "ats:collab:requisitions:create": [
+      "admin",
+      "hiring_manager",
+      "recruiting_admin"
+    ],
+    "ats:collab:requisitions:edit_status": [
+      "admin",
+      "recruiting_admin"
+    ],
+    "ats:collab:requisitions:manage": [
+      "admin",
+      "recruiting_admin"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/spi/v3/collaboration_permissions": {
+        "response": {
+          "ats:collab:candidates:access_ai_recruiter": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:approve_reject_offer": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:block": [
+            "admin"
+          ],
+          "ats:collab:candidates:bookmark": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:cancel_automation": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:comment": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:candidates:copy": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:create": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:create_tag": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:candidates:delete": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:disqualify": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:download": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:candidates:edit_any_event": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:edit_any_message": [
+            "admin"
+          ],
+          "ats:collab:candidates:edit_any_visibility": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:evaluate": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:candidates:export_to_hris": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:manage_offer": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:manage_whitelist": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:message": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:move": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:print": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:candidates:read": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:candidates:revert": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:save_template": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:schedule_event": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:send_assessment": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:send_bg_check": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:send_e_signature": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:send_survey": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:share": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:snooze": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:tag": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:candidates:update": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:view_assessment_results": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:candidates:view_bg_check_results": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:view_e_signature": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:view_offer": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin"
+          ],
+          "ats:collab:candidates:view_other_evaluations": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:candidates:view_ref_check_results": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:candidates:view_siblings": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:collaboration:update": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:custom_fields:toggle": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin"
+          ],
+          "ats:collab:jobs:archive": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:jobs:delete": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:jobs:duplicate": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:jobs:edit": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:jobs:leave_hiring_team": [
+            "admin"
+          ],
+          "ats:collab:jobs:publish": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:jobs:show": [
+            "admin",
+            "hiring_manager",
+            "recruiter",
+            "recruiting_admin",
+            "reviewer",
+            "simple"
+          ],
+          "ats:collab:jobs:unarchive": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:jobs:unpublish": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:members:invite": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:premium_postings:manage": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:premium_postings:purchase": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:referrals:request": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin",
+            "simple"
+          ],
+          "ats:collab:requisitions:create": [
+            "admin",
+            "hiring_manager",
+            "recruiting_admin"
+          ],
+          "ats:collab:requisitions:edit_status": [
+            "admin",
+            "recruiting_admin"
+          ],
+          "ats:collab:requisitions:manage": [
+            "admin",
+            "recruiting_admin"
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:40:56 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1919",
+          "x-ratelimit-reset": "1784839264",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "vary": "User-Agent",
+          "x-rate-limit-limit": "10",
+          "x-rate-limit-remaining": "7",
+          "x-rate-limit-reset": "1784839266",
+          "etag": "W/\"58991c1a97a6cdd72d982bd54978157e\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "bab70096-662e-974b-8beb-b55eed82cc06",
+          "x-sv": "3331440021fd765074866ea8ff86fe006dbfc3fbe98e0b3508ae54525b80346d",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "x-ts": "0",
+          "set-cookie": "_workable_visitor=BAhJIiliZTRiMTkxNS05NWZhLTRiM2UtYTc0NC0zNGM3NTM4NTY0N2UGOgZFRg%3D%3D--6a5ac7e51f41a8568bd2a47219d8d8fda7f4595f; domain=workable.com; path=/; expires=Mon, 23 Jul 2046 20:40:56 GMT; secure, wmc=%7B%22cookie_id%22%3A%221e92a1b7-5f2f-4ddb-ae55-209ce49c9976%22%7D; domain=.workable.com; path=/; expires=Mon, 23 Jul 2046 20:40:56 GMT; secure, __cf_bm=wEPg0SD1q.CKD0_uW6gmyuE40bLVuSWylp5Z1XaWfgs-1784839256.5498884-1.0.1.1-d1k1UVmOLS7bk3DE.d26wDvcRKZuVFQWNeqGM5VCn8J6JoTwrP9SZO9CV2ZrnfBq5DrHCdq9YeSwlEuUaCcaOq3mPmeebEWed_l7rg3lQYIX350pYccCsrh33dwW2.dJ; HttpOnly; SameSite=None; Secure; Path=/; Domain=workable.com; Expires=Thu, 23 Jul 2026 21:10:56 GMT",
+          "x-kb": "false",
+          "cf-ray": "a1fd80c96d1b8b10-PDX"
+        },
+        "hash": "58c0b3e0a55123a793ea4b7454c727a9fe1977f1",
+        "request": {}
+      }
+    }
+  }
+}

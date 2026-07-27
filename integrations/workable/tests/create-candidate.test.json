@@ -1,0 +1,166 @@
+{
+  "input": {
+    "shortcode": "9CD658E13E",
+    "candidate": {
+      "firstname": "Nango",
+      "lastname": "Test",
+      "email": "nango.create.candidate.1784839296@example.com"
+    }
+  },
+  "output": {
+    "status": "created",
+    "candidate": {
+      "id": "2727baa2",
+      "name": "Nango Test",
+      "firstname": "Nango",
+      "lastname": "Test",
+      "email": "nango.create.candidate.1784839296@example.com",
+      "headline": null,
+      "summary": null,
+      "address": null,
+      "phone": null,
+      "cover_letter": null,
+      "education_entries": [],
+      "experience_entries": [],
+      "answers": [],
+      "skills": [],
+      "tags": [],
+      "image_url": null,
+      "account": {
+        "subdomain": "nangodev",
+        "name": "NangoDev"
+      },
+      "job": {
+        "shortcode": "9CD658E13E",
+        "title": "Account Executive"
+      },
+      "stage": "Sourced",
+      "stage_kind": "sourced",
+      "disqualified": false,
+      "disqualified_at": null,
+      "withdrew": false,
+      "anonymized": false,
+      "disqualification_reason": null,
+      "hired_at": null,
+      "moved_to_offer_at": null,
+      "sourced": true,
+      "profile_url": "https://nangodev.workable.com/backend/jobs/5986327/candidates/656913872",
+      "outbound_mailbox": "4eecmmmfk3z_@outbound.workablemail.com",
+      "domain": null,
+      "outlet": "SPI",
+      "common_source": "Unknown",
+      "common_source_category": "Other",
+      "uploader_id": null,
+      "created_at": "2026-07-23T20:41:40Z",
+      "updated_at": "2026-07-23T20:41:40Z",
+      "resume_url": null,
+      "location": {
+        "location_str": null,
+        "country": null,
+        "country_code": null,
+        "region": null,
+        "region_code": null,
+        "city": null,
+        "zip_code": null
+      },
+      "originating_candidate_id": null
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/spi/v3/jobs/9CD658E13E/candidates": {
+        "response": {
+          "status": "created",
+          "candidate": {
+            "id": "2727baa2",
+            "name": "Nango Test",
+            "firstname": "Nango",
+            "lastname": "Test",
+            "headline": null,
+            "image_url": null,
+            "account": {
+              "subdomain": "nangodev",
+              "name": "NangoDev"
+            },
+            "job": {
+              "shortcode": "9CD658E13E",
+              "title": "Account Executive"
+            },
+            "stage": "Sourced",
+            "stage_kind": "sourced",
+            "disqualified": false,
+            "disqualified_at": null,
+            "withdrew": false,
+            "anonymized": false,
+            "disqualification_reason": null,
+            "hired_at": null,
+            "moved_to_offer_at": null,
+            "sourced": true,
+            "profile_url": "https://nangodev.workable.com/backend/jobs/5986327/candidates/656913872",
+            "address": null,
+            "phone": null,
+            "email": "nango.create.candidate.1784839296@example.com",
+            "outbound_mailbox": "4eecmmmfk3z_@outbound.workablemail.com",
+            "domain": null,
+            "outlet": "SPI",
+            "common_source": "Unknown",
+            "common_source_category": "Other",
+            "uploader_id": null,
+            "created_at": "2026-07-23T20:41:40Z",
+            "updated_at": "2026-07-23T20:41:40Z",
+            "cover_letter": null,
+            "summary": null,
+            "education_entries": [],
+            "experience_entries": [],
+            "skills": [],
+            "answers": [],
+            "resume_url": null,
+            "tags": [],
+            "location": {
+              "location_str": null,
+              "country": null,
+              "country_code": null,
+              "region": null,
+              "region_code": null,
+              "city": null,
+              "zip_code": null
+            },
+            "originating_candidate_id": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 23 Jul 2026 20:41:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1170",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1930",
+          "x-ratelimit-reset": "1784839324",
+          "x-request-id": "87ea8739-4786-9c0a-9abc-c94102a93c7f",
+          "etag": "W/\"492-ubbQ+v1sBs8hUcPV/8YdrOuK4CI\""
+        },
+        "hash": "9af730bef7257c1765280620e712fb9bf0c4d81e",
+        "request": {
+          "data": {
+            "candidate": {
+              "firstname": "Nango",
+              "lastname": "Test",
+              "email": "nango.create.candidate.1784839296@example.com"
+            }
+          }
+        }
+      }
+    }
+  }
+}
