@@ -1,0 +1,98 @@
+{
+  "input": {
+    "id": "6a61758b5346be5d56149d9f",
+    "title": "Registry audit updated title"
+  },
+  "output": {
+    "id": "6a61758b5346be5d56149d9f",
+    "companyId": "6a616ba8908190d6d9458151",
+    "rockId": "6a6175355346be5d56149d93",
+    "teamId": "6a616ba8908190d6d9458153",
+    "ownedByUserId": "6a616ba8908190d6d945815c",
+    "title": "Registry audit updated title",
+    "description": "Updated via registry audit",
+    "dueDate": "2026-08-15T00:00:00.000Z",
+    "isDone": false,
+    "isDeleted": false,
+    "userOrdinal": 0,
+    "followers": [
+      "6a616ba8908190d6d945815c"
+    ],
+    "createdBy": "6a616ba8908190d6d945815c",
+    "createdDate": "2026-07-23T01:59:39.515Z",
+    "updatedAt": "2026-07-28T18:57:33.596Z",
+    "updatedBy": "6a616ba8908190d6d945815c"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1/milestones/6a61758b5346be5d56149d9f": {
+        "response": {
+          "_id": "6a61758b5346be5d56149d9f",
+          "comments": [],
+          "companyId": "6a616ba8908190d6d9458151",
+          "createdBy": "6a616ba8908190d6d945815c",
+          "createdDate": "2026-07-23T01:59:39.515Z",
+          "description": "Updated via registry audit",
+          "dueDate": "2026-08-15T00:00:00.000Z",
+          "followers": [
+            "6a616ba8908190d6d945815c"
+          ],
+          "isDeleted": false,
+          "isDone": false,
+          "ownedByUserId": "6a616ba8908190d6d945815c",
+          "rockId": "6a6175355346be5d56149d93",
+          "teamId": "6a616ba8908190d6d9458153",
+          "title": "Registry audit updated title",
+          "toDoId": null,
+          "userOrdinal": 0,
+          "updatedAt": "2026-07-28T18:57:33.596Z",
+          "updatedBy": "6a616ba8908190d6d945815c",
+          "completedDate": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 18:57:33 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1500",
+          "x-ratelimit-remaining": "1478",
+          "x-ratelimit-reset": "1785265091",
+          "server": "openresty",
+          "vary": "Accept-Encoding, Origin, Accept-Encoding",
+          "x-amzn-requestid": "d6f112f6-3ec3-46dc-acb0-748178465833",
+          "referrer-policy": "no-referrer",
+          "x-amzn-remapped-x-amzn-requestid": "2b06c789-c224-4847-9eea-8bfac452b99f",
+          "x-permitted-cross-domain-policies": "none",
+          "x-amzn-remapped-content-length": "604",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "origin-agent-cluster": "?1",
+          "x-amzn-remapped-connection": "close",
+          "cross-origin-opener-policy": "same-origin",
+          "x-amz-apigw-id": "BOxAlE-hoAMFUkA=",
+          "etag": "W/\"25c-ASP3EQKNVuaDobRq2B9QKbEThlk\"",
+          "cross-origin-resource-policy": "same-origin",
+          "x-amzn-trace-id": "Root=1-6a68fb9c-a4b293c67eab7dd2802bff2a;Parent=7d9de4f54b91decf;Sampled=0;Lineage=1:e848db70:0",
+          "x-amzn-remapped-date": "Tue, 28 Jul 2026 18:57:33 GMT",
+          "access-control-allow-credentials": "true"
+        },
+        "hash": "bd13f5500fe09d996fbb2cb5c6aeaa7bac76d2d6",
+        "request": {
+          "data": {
+            "title": "Registry audit updated title"
+          }
+        }
+      }
+    }
+  }
+}

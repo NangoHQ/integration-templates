@@ -5,17 +5,23 @@ const StatusCodeSchema = z.enum(['OFF_TRACK', 'ON_TRACK', 'DONE', 'CANCELED']);
 const LevelCodeSchema = z.enum(['USER', 'COMPANY_AND_DEPARTMENT', 'COMPANY', 'DEPARTMENT']);
 const QuarterSchema = z.enum(['Q1', 'Q2', 'Q3', 'Q4', 'None']);
 
-const MilestoneSchema = z.object({
-    _id: z.string(),
-    rockId: z.string(),
-    title: z.string(),
-    dueDate: z.string(),
-    statusCode: StatusCodeSchema,
-    createdByUserId: z.string(),
-    createdDate: z.string(),
-    updatedAt: z.string().nullable().optional(),
-    updatedBy: z.string().nullable().optional()
-});
+const MilestoneSchema = z
+    .object({
+        _id: z.string(),
+        rockId: z.string().optional(),
+        teamId: z.string().optional(),
+        ownedByUserId: z.string().optional(),
+        title: z.string(),
+        dueDate: z.string(),
+        description: z.string().nullable().optional(),
+        isDone: z.boolean().optional(),
+        isDeleted: z.boolean().optional(),
+        completedDate: z.string().nullable().optional(),
+        createdBy: z.string().optional(),
+        createdDate: z.string().optional(),
+        updatedAt: z.string().nullable().optional()
+    })
+    .passthrough();
 
 const InputSchema = z.object({
     id: z.string().describe('Rock ID. Example: "6a6175355346be5d56149d93"'),
@@ -73,14 +79,18 @@ const OutputSchema = z.object({
         .array(
             z.object({
                 id: z.string(),
-                rockId: z.string(),
+                rockId: z.string().optional(),
+                teamId: z.string().optional(),
+                ownedByUserId: z.string().optional(),
                 title: z.string(),
                 dueDate: z.string(),
-                statusCode: StatusCodeSchema,
-                createdByUserId: z.string(),
-                createdDate: z.string(),
-                updatedAt: z.string().optional(),
-                updatedBy: z.string().optional()
+                description: z.string().optional(),
+                isDone: z.boolean().optional(),
+                isDeleted: z.boolean().optional(),
+                completedDate: z.string().optional(),
+                createdBy: z.string().optional(),
+                createdDate: z.string().optional(),
+                updatedAt: z.string().optional()
             })
         )
         .optional()
@@ -153,14 +163,18 @@ const action = createAction({
             ...(providerRock.milestones != null && {
                 milestones: providerRock.milestones.map((m) => ({
                     id: m._id,
-                    rockId: m.rockId,
                     title: m.title,
                     dueDate: m.dueDate,
-                    statusCode: m.statusCode,
-                    createdByUserId: m.createdByUserId,
-                    createdDate: m.createdDate,
-                    ...(m.updatedAt != null && { updatedAt: m.updatedAt }),
-                    ...(m.updatedBy != null && { updatedBy: m.updatedBy })
+                    ...(m.rockId !== undefined && { rockId: m.rockId }),
+                    ...(m.teamId !== undefined && { teamId: m.teamId }),
+                    ...(m.ownedByUserId !== undefined && { ownedByUserId: m.ownedByUserId }),
+                    ...(m.description != null && { description: m.description }),
+                    ...(m.isDone !== undefined && { isDone: m.isDone }),
+                    ...(m.isDeleted !== undefined && { isDeleted: m.isDeleted }),
+                    ...(m.completedDate != null && { completedDate: m.completedDate }),
+                    ...(m.createdBy !== undefined && { createdBy: m.createdBy }),
+                    ...(m.createdDate !== undefined && { createdDate: m.createdDate }),
+                    ...(m.updatedAt != null && { updatedAt: m.updatedAt })
                 }))
             })
         };

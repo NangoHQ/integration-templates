@@ -8,14 +8,14 @@ const InputSchema = z.object({
 const ProviderUserSchema = z
     .object({
         id: z.string(),
-        primaryEmail: z.string().optional(),
-        firstName: z.string().optional(),
-        lastName: z.string().optional(),
-        companyId: z.string().optional(),
-        role: z.string().optional(),
-        isActive: z.boolean().optional(),
-        createdDate: z.string().optional(),
-        updatedDate: z.string().optional()
+        primaryEmail: z.string().nullable().optional(),
+        firstName: z.string().nullable().optional(),
+        lastName: z.string().nullable().optional(),
+        companyId: z.string().nullable().optional(),
+        role: z.string().nullable().optional(),
+        isActive: z.boolean().nullable().optional(),
+        createdDate: z.string().nullable().optional(),
+        updatedDate: z.string().nullable().optional()
     })
     .passthrough();
 
@@ -57,14 +57,14 @@ const action = createAction({
 
         return {
             id: providerUser.id,
-            ...(providerUser.primaryEmail !== undefined && { primaryEmail: providerUser.primaryEmail }),
-            ...(providerUser.firstName !== undefined && { firstName: providerUser.firstName }),
-            ...(providerUser.lastName !== undefined && { lastName: providerUser.lastName }),
-            ...(providerUser.companyId !== undefined && { companyId: providerUser.companyId }),
-            ...(providerUser.role !== undefined && { role: providerUser.role }),
-            ...(providerUser.isActive !== undefined && { isActive: providerUser.isActive }),
-            ...(providerUser.createdDate !== undefined && { createdDate: providerUser.createdDate }),
-            ...(providerUser.updatedDate !== undefined && { updatedDate: providerUser.updatedDate })
+            ...(providerUser.primaryEmail != null && { primaryEmail: providerUser.primaryEmail }),
+            ...(providerUser.firstName != null && { firstName: providerUser.firstName }),
+            ...(providerUser.lastName != null && { lastName: providerUser.lastName }),
+            ...(providerUser.companyId != null && { companyId: providerUser.companyId }),
+            ...(providerUser.role != null && { role: providerUser.role }),
+            ...(providerUser.isActive != null && { isActive: providerUser.isActive }),
+            ...(providerUser.createdDate != null && { createdDate: providerUser.createdDate }),
+            ...(providerUser.updatedDate != null && { updatedDate: providerUser.updatedDate })
         };
     }
 });

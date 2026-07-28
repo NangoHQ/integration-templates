@@ -5,20 +5,37 @@ const InputSchema = z.object({
     id: z.string().describe('The unique identifier of the rock. Example: "6a61d2d0441c43ad0eaabd3c"')
 });
 
-const MilestoneSchema = z
+const ProviderMilestoneSchema = z
     .object({
         _id: z.string(),
         title: z.string(),
         dueDate: z.string(),
-        completed: z.boolean().optional(),
-        completedDate: z.string().optional(),
+        description: z.string().nullable().optional(),
+        isDone: z.boolean().optional(),
+        isDeleted: z.boolean().optional(),
+        completedDate: z.string().nullable().optional(),
         createdDate: z.string().optional(),
-        updatedAt: z.string().optional(),
+        updatedAt: z.string().nullable().optional(),
         rockId: z.string().optional(),
         teamId: z.string().optional(),
-        userId: z.string().optional()
+        ownedByUserId: z.string().optional()
     })
     .passthrough();
+
+const MilestoneSchema = z.object({
+    id: z.string(),
+    title: z.string(),
+    dueDate: z.string(),
+    description: z.string().optional(),
+    isDone: z.boolean().optional(),
+    isDeleted: z.boolean().optional(),
+    completedDate: z.string().optional(),
+    createdDate: z.string().optional(),
+    updatedAt: z.string().optional(),
+    rockId: z.string().optional(),
+    teamId: z.string().optional(),
+    ownedByUserId: z.string().optional()
+});
 
 const ProviderRockSchema = z
     .object({
@@ -26,7 +43,7 @@ const ProviderRockSchema = z
         completed: z.boolean(),
         archived: z.boolean(),
         deleted: z.boolean(),
-        description: z.string(),
+        description: z.string().nullable().optional(),
         title: z.string(),
         comments: z.array(z.unknown()),
         teamId: z.string(),
@@ -45,7 +62,7 @@ const ProviderRockSchema = z
         userOrdinal: z.number(),
         planningBoardOrdinal: z.number(),
         followers: z.array(z.string()),
-        milestones: z.array(MilestoneSchema),
+        milestones: z.array(ProviderMilestoneSchema),
         createdByUserId: z.string(),
         dueDateQuarter: z.string(),
         originalDueDate: z.string().nullable(),
@@ -53,38 +70,36 @@ const ProviderRockSchema = z
     })
     .passthrough();
 
-const OutputSchema = z
-    .object({
-        _id: z.string(),
-        completed: z.boolean().optional(),
-        archived: z.boolean().optional(),
-        deleted: z.boolean().optional(),
-        description: z.string().optional(),
-        title: z.string(),
-        comments: z.array(z.unknown()).optional(),
-        teamId: z.string(),
-        dueDate: z.string(),
-        statusCode: z.enum(['OFF_TRACK', 'ON_TRACK', 'DONE', 'CANCELED']),
-        levelCode: z.enum(['USER', 'COMPANY_AND_DEPARTMENT', 'COMPANY', 'DEPARTMENT']),
-        quarter: z.enum(['Q1', 'Q2', 'Q3', 'Q4', 'None']),
-        companyId: z.string().optional(),
-        userId: z.string().optional(),
-        archivedDate: z.string().optional(),
-        completedDate: z.string().optional(),
-        createdDate: z.string().optional(),
-        updatedAt: z.string().optional(),
-        updatedBy: z.string().optional(),
-        ordinal: z.number().optional(),
-        userOrdinal: z.number().optional(),
-        planningBoardOrdinal: z.number().optional(),
-        followers: z.array(z.string()).optional(),
-        milestones: z.array(MilestoneSchema).optional(),
-        createdByUserId: z.string().optional(),
-        dueDateQuarter: z.string().optional(),
-        originalDueDate: z.string().optional(),
-        attachments: z.array(z.unknown()).optional()
-    })
-    .passthrough();
+const OutputSchema = z.object({
+    id: z.string(),
+    completed: z.boolean().optional(),
+    archived: z.boolean().optional(),
+    deleted: z.boolean().optional(),
+    description: z.string().optional(),
+    title: z.string(),
+    comments: z.array(z.unknown()).optional(),
+    teamId: z.string(),
+    dueDate: z.string(),
+    statusCode: z.enum(['OFF_TRACK', 'ON_TRACK', 'DONE', 'CANCELED']),
+    levelCode: z.enum(['USER', 'COMPANY_AND_DEPARTMENT', 'COMPANY', 'DEPARTMENT']),
+    quarter: z.enum(['Q1', 'Q2', 'Q3', 'Q4', 'None']),
+    companyId: z.string().optional(),
+    userId: z.string().optional(),
+    archivedDate: z.string().optional(),
+    completedDate: z.string().optional(),
+    createdDate: z.string().optional(),
+    updatedAt: z.string().optional(),
+    updatedBy: z.string().optional(),
+    ordinal: z.number().optional(),
+    userOrdinal: z.number().optional(),
+    planningBoardOrdinal: z.number().optional(),
+    followers: z.array(z.string()).optional(),
+    milestones: z.array(MilestoneSchema).optional(),
+    createdByUserId: z.string().optional(),
+    dueDateQuarter: z.string().optional(),
+    originalDueDate: z.string().optional(),
+    attachments: z.array(z.unknown()).optional()
+});
 
 const action = createAction({
     description: 'Retrieve a single rock by id.',
@@ -110,15 +125,48 @@ const action = createAction({
 
         const providerRock = ProviderRockSchema.parse(response.data);
 
-        const { archivedDate, completedDate, updatedAt, updatedBy, originalDueDate, ...rest } = providerRock;
-
         return {
-            ...rest,
-            ...(archivedDate != null && { archivedDate }),
-            ...(completedDate != null && { completedDate }),
-            ...(updatedAt != null && { updatedAt }),
-            ...(updatedBy != null && { updatedBy }),
-            ...(originalDueDate != null && { originalDueDate })
+            id: providerRock._id,
+            completed: providerRock.completed,
+            archived: providerRock.archived,
+            deleted: providerRock.deleted,
+            ...(providerRock.description != null && { description: providerRock.description }),
+            title: providerRock.title,
+            comments: providerRock.comments,
+            teamId: providerRock.teamId,
+            dueDate: providerRock.dueDate,
+            statusCode: providerRock.statusCode,
+            levelCode: providerRock.levelCode,
+            quarter: providerRock.quarter,
+            companyId: providerRock.companyId,
+            userId: providerRock.userId,
+            ...(providerRock.archivedDate != null && { archivedDate: providerRock.archivedDate }),
+            ...(providerRock.completedDate != null && { completedDate: providerRock.completedDate }),
+            createdDate: providerRock.createdDate,
+            ...(providerRock.updatedAt != null && { updatedAt: providerRock.updatedAt }),
+            ...(providerRock.updatedBy != null && { updatedBy: providerRock.updatedBy }),
+            ordinal: providerRock.ordinal,
+            userOrdinal: providerRock.userOrdinal,
+            planningBoardOrdinal: providerRock.planningBoardOrdinal,
+            followers: providerRock.followers,
+            milestones: providerRock.milestones.map((milestone) => ({
+                id: milestone._id,
+                title: milestone.title,
+                dueDate: milestone.dueDate,
+                ...(milestone.description != null && { description: milestone.description }),
+                ...(milestone.isDone !== undefined && { isDone: milestone.isDone }),
+                ...(milestone.isDeleted !== undefined && { isDeleted: milestone.isDeleted }),
+                ...(milestone.completedDate != null && { completedDate: milestone.completedDate }),
+                ...(milestone.createdDate !== undefined && { createdDate: milestone.createdDate }),
+                ...(milestone.updatedAt != null && { updatedAt: milestone.updatedAt }),
+                ...(milestone.rockId !== undefined && { rockId: milestone.rockId }),
+                ...(milestone.teamId !== undefined && { teamId: milestone.teamId }),
+                ...(milestone.ownedByUserId !== undefined && { ownedByUserId: milestone.ownedByUserId })
+            })),
+            createdByUserId: providerRock.createdByUserId,
+            dueDateQuarter: providerRock.dueDateQuarter,
+            ...(providerRock.originalDueDate != null && { originalDueDate: providerRock.originalDueDate }),
+            attachments: providerRock.attachments
         };
     }
 });

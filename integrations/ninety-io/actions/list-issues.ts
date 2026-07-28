@@ -89,7 +89,14 @@ const action = createAction({
             });
         }
 
-        const items = Array.isArray(raw.items) ? raw.items : [];
+        if (!Array.isArray(raw.items)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response shape from issues query endpoint: missing items array'
+            });
+        }
+
+        const items = raw.items;
         const parsedItems = items.map((item: unknown) => {
             if (item === null || typeof item !== 'object') {
                 return {};

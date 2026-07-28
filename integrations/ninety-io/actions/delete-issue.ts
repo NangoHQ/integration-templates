@@ -19,7 +19,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://help.ninety.io/en/articles/15505694-api-reference-and-access
         await nango.delete({
-            endpoint: `v1/issues/${encodeURIComponent(input.issueId)}`,
+            endpoint: `/v1/issues/${encodeURIComponent(input.issueId)}`,
             retries: 1
         });
 

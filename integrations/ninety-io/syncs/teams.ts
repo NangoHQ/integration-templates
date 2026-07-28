@@ -11,15 +11,13 @@ const ProviderTeamSchema = z
     })
     .passthrough();
 
-const TeamSchema = z
-    .object({
-        id: z.string(),
-        name: z.string().optional(),
-        companyId: z.string().optional(),
-        project: z.boolean().optional(),
-        deleted: z.boolean().optional()
-    })
-    .passthrough();
+const TeamSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    companyId: z.string().optional(),
+    project: z.boolean().optional(),
+    deleted: z.boolean().optional()
+});
 
 const sync = createSync({
     description: 'Sync teams visible to the connected user.',
@@ -44,12 +42,17 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Team');
 
-        const teams = parsed.data.map((team) => ({
-            ...team,
-            id: team._id,
-            name: team.name ?? undefined,
-            companyId: team.companyId ?? undefined
-        }));
+        // Soft-deleted teams remain in the response; skip them so trackDeletesEnd
+        // correctly marks them deleted.
+        const teams = parsed.data
+            .filter((team) => team.deleted !== true)
+            .map((team) => ({
+                id: team._id,
+                ...(team.name != null && { name: team.name }),
+                ...(team.companyId != null && { companyId: team.companyId }),
+                ...(team.project !== undefined && { project: team.project }),
+                ...(team.deleted !== undefined && { deleted: team.deleted })
+            }));
 
         if (teams.length > 0) {
             await nango.batchSave(teams, 'Team');

@@ -137,7 +137,7 @@ const action = createAction({
             // https://api.public.ninety.io/v1/swagger
             endpoint: `/v1/todos/${encodeURIComponent(input.id)}`,
             data,
-            retries: 10
+            retries: 3
         });
 
         if (response.status === 404) {

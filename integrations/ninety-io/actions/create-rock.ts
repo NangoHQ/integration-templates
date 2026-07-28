@@ -14,8 +14,8 @@ const InputSchema = z.object({
     assigneeIds: z.array(z.string()).optional().describe('User IDs to assign the rock to.')
 });
 
-const MilestoneSchema = z.object({
-    id: z.string(),
+const ProviderMilestoneSchema = z.object({
+    _id: z.string(),
     title: z.string(),
     dueDate: z.string(),
     statusCode: z.string(),
@@ -26,6 +26,18 @@ const MilestoneSchema = z.object({
     updatedAt: z.string().nullable().optional()
 });
 
+const MilestoneSchema = z.object({
+    id: z.string(),
+    title: z.string(),
+    dueDate: z.string(),
+    statusCode: z.string(),
+    rockId: z.string().optional(),
+    createdByUserId: z.string().optional(),
+    updatedBy: z.string().optional(),
+    createdDate: z.string().optional(),
+    updatedAt: z.string().optional()
+});
+
 const ProviderRockSchema = z.object({
     _id: z.string(),
     teamId: z.string(),
@@ -34,14 +46,14 @@ const ProviderRockSchema = z.object({
     statusCode: z.string(),
     levelCode: z.string(),
     quarter: z.string(),
-    description: z.string().optional(),
-    notes: z.string().optional(),
+    description: z.string().nullable().optional(),
+    notes: z.string().nullable().optional(),
     assigneeIds: z.array(z.string()).optional(),
     createdByUserId: z.string().optional(),
     updatedBy: z.string().nullable().optional(),
     createdDate: z.string().optional(),
     updatedAt: z.string().nullable().optional(),
-    milestones: z.array(MilestoneSchema).nullable().optional(),
+    milestones: z.array(ProviderMilestoneSchema).nullable().optional(),
     userId: z.string().optional(),
     companyId: z.string().optional(),
     completed: z.boolean().optional(),
@@ -131,14 +143,26 @@ const action = createAction({
             statusCode: providerRock.statusCode,
             levelCode: providerRock.levelCode,
             quarter: providerRock.quarter,
-            ...(providerRock.description !== undefined && { description: providerRock.description }),
-            ...(providerRock.notes !== undefined && { notes: providerRock.notes }),
+            ...(providerRock.description != null && { description: providerRock.description }),
+            ...(providerRock.notes != null && { notes: providerRock.notes }),
             ...(providerRock.assigneeIds !== undefined && { assigneeIds: providerRock.assigneeIds }),
             ...(providerRock.createdByUserId !== undefined && { createdByUserId: providerRock.createdByUserId }),
             ...(providerRock.updatedBy != null && { updatedBy: providerRock.updatedBy }),
             ...(providerRock.createdDate !== undefined && { createdDate: providerRock.createdDate }),
             ...(providerRock.updatedAt != null && { updatedAt: providerRock.updatedAt }),
-            ...(providerRock.milestones != null && { milestones: providerRock.milestones }),
+            ...(providerRock.milestones != null && {
+                milestones: providerRock.milestones.map((milestone) => ({
+                    id: milestone._id,
+                    title: milestone.title,
+                    dueDate: milestone.dueDate,
+                    statusCode: milestone.statusCode,
+                    ...(milestone.rockId !== undefined && { rockId: milestone.rockId }),
+                    ...(milestone.createdByUserId !== undefined && { createdByUserId: milestone.createdByUserId }),
+                    ...(milestone.updatedBy != null && { updatedBy: milestone.updatedBy }),
+                    ...(milestone.createdDate !== undefined && { createdDate: milestone.createdDate }),
+                    ...(milestone.updatedAt != null && { updatedAt: milestone.updatedAt })
+                }))
+            }),
             ...(providerRock.userId !== undefined && { userId: providerRock.userId }),
             ...(providerRock.companyId !== undefined && { companyId: providerRock.companyId }),
             ...(providerRock.completed !== undefined && { completed: providerRock.completed }),

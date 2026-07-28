@@ -5,7 +5,7 @@ const InputSchema = z.object({
     teamId: z.string().optional().describe('Filter results to a specific team Id. Example: "6a616ba8908190d6d9458153"'),
     sort: z.string().optional().describe('The field to sort results by. Example: "dueDate"'),
     order: z.enum(['asc', 'desc']).optional().describe('Sort direction'),
-    pageSize: z.number().optional().describe('Number of results per page (max 100). Example: 25'),
+    pageSize: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100). Example: 25'),
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
     isPersonal: z.boolean().optional().describe('Filter to personal To-Dos only (not associated with a team)'),
     completed: z.boolean().optional().describe('Filter by completed status'),
@@ -74,12 +74,15 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (isNaN(page) || page < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'cursor must be a valid page number'
-            });
+        let page = 1;
+        if (input.cursor !== undefined) {
+            page = Number(input.cursor);
+            if (!Number.isInteger(page) || page < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a valid page number'
+                });
+            }
         }
 
         const response = await nango.post({

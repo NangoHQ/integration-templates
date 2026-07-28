@@ -90,7 +90,7 @@ const action = createAction({
             // https://help.ninety.io/en/articles/15505694-api-reference-and-access
             endpoint: `/v1/milestones/${encodeURIComponent(input.id)}`,
             data: patchBody,
-            retries: 10
+            retries: 3
         });
 
         const providerMilestone = ProviderMilestoneSchema.parse(response.data);

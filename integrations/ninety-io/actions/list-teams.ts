@@ -6,8 +6,8 @@ const InputSchema = z.object({});
 const ProviderTeamSchema = z
     .object({
         _id: z.string(),
-        name: z.string(),
-        companyId: z.string().optional(),
+        name: z.string().nullable().optional(),
+        companyId: z.string().nullable().optional(),
         project: z.boolean().optional(),
         deleted: z.boolean().optional()
     })
@@ -15,7 +15,7 @@ const ProviderTeamSchema = z
 
 const TeamSchema = z.object({
     teamId: z.string(),
-    name: z.string(),
+    name: z.string().optional(),
     companyId: z.string().optional(),
     project: z.boolean().optional(),
     deleted: z.boolean().optional()
@@ -44,8 +44,8 @@ const action = createAction({
             const providerTeam = ProviderTeamSchema.parse(item);
             return {
                 teamId: providerTeam._id,
-                name: providerTeam.name,
-                ...(providerTeam.companyId !== undefined && { companyId: providerTeam.companyId }),
+                ...(providerTeam.name != null && { name: providerTeam.name }),
+                ...(providerTeam.companyId != null && { companyId: providerTeam.companyId }),
                 ...(providerTeam.project !== undefined && { project: providerTeam.project }),
                 ...(providerTeam.deleted !== undefined && { deleted: providerTeam.deleted })
             };

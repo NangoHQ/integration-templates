@@ -23,12 +23,12 @@ const ProviderIssueResponseSchema = z.object({
     createdBy: z.string(),
     deleted: z.boolean(),
     description: z.string().nullable().optional(),
-    intervalCode: z.string().optional(),
-    priority: z.number().optional(),
+    intervalCode: z.string().nullable().optional(),
+    priority: z.number().nullable().optional(),
     title: z.string(),
     createdDate: z.string(),
-    updatedDate: z.string().optional(),
-    updatedByUserId: z.string().optional()
+    updatedDate: z.string().nullable().optional(),
+    updatedByUserId: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -97,12 +97,12 @@ const action = createAction({
             createdBy: providerIssue.createdBy,
             deleted: providerIssue.deleted,
             ...(providerIssue.description != null && { description: providerIssue.description }),
-            ...(providerIssue.intervalCode !== undefined && { intervalCode: providerIssue.intervalCode }),
-            ...(providerIssue.priority !== undefined && { priority: providerIssue.priority }),
+            ...(providerIssue.intervalCode != null && { intervalCode: providerIssue.intervalCode }),
+            ...(providerIssue.priority != null && { priority: providerIssue.priority }),
             title: providerIssue.title,
             createdDate: providerIssue.createdDate,
-            ...(providerIssue.updatedDate !== undefined && { updatedDate: providerIssue.updatedDate }),
-            ...(providerIssue.updatedByUserId !== undefined && { updatedByUserId: providerIssue.updatedByUserId })
+            ...(providerIssue.updatedDate != null && { updatedDate: providerIssue.updatedDate }),
+            ...(providerIssue.updatedByUserId != null && { updatedByUserId: providerIssue.updatedByUserId })
         };
     }
 });

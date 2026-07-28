@@ -10,7 +10,8 @@ const ProviderMilestoneSchema = z
         createdByUserId: z.string().optional().nullable(),
         updatedBy: z.string().optional().nullable(),
         createdDate: z.string().optional().nullable(),
-        updatedAt: z.string().optional().nullable()
+        updatedAt: z.string().optional().nullable(),
+        isDeleted: z.boolean().optional().nullable()
     })
     .passthrough();
 
@@ -75,22 +76,30 @@ const MilestoneSchema = z.object({
     updatedAt: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    nextPageIndex: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync rocks (quarterly goals), including their nested milestones',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Rock: RockSchema,
         Milestone: MilestoneSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        let hasCheckpoint = checkpoint != null;
+
         await nango.trackDeletesStart('Rock');
         await nango.trackDeletesStart('Milestone');
 
         const pageSize = 100;
-        let pageIndex = 0;
+        let pageIndex = checkpoint?.nextPageIndex ?? 0;
         let hasMore = true;
         const seenRockIds = new Set<string>();
         const seenMilestoneIds = new Set<string>();
@@ -131,6 +140,13 @@ const sync = createSync({
                     }
 
                     const rock = parsedRock.data;
+
+                    // Soft-deleted rocks remain in the query results; skip the rock and
+                    // its milestones so trackDeletesEnd correctly marks them deleted.
+                    if (rock.deleted === true) {
+                        continue;
+                    }
+
                     if (!seenRockIds.has(rock._id)) {
                         seenRockIds.add(rock._id);
                         rocks.push({
@@ -164,6 +180,13 @@ const sync = createSync({
                         }
 
                         const milestone = parsedMilestone.data;
+
+                        // Soft-deleted milestones remain nested in the query results;
+                        // skip them so trackDeletesEnd correctly marks them deleted.
+                        if (milestone.isDeleted === true) {
+                            continue;
+                        }
+
                         if (!seenMilestoneIds.has(milestone._id)) {
                             seenMilestoneIds.add(milestone._id);
                             milestones.push({
@@ -190,11 +213,24 @@ const sync = createSync({
                 await nango.batchSave(milestones, 'Milestone');
             }
 
+            // Verified against the live API: /v1/rocks/query ignores pageIndex/pageSize
+            // entirely and always returns the full per-team rock list, so a raw-page-empty
+            // check would never be true and would loop forever. Terminating once a page
+            // contributes no rocks/milestones we haven't already seen is the only safe
+            // signal here, and it still converges correctly if the provider ever does
+            // start paginating for real.
             if (rocks.length === 0 && milestones.length === 0) {
                 hasMore = false;
             } else {
-                pageIndex = pageIndex + 1;
+                const nextPageIndex = pageIndex + 1;
+                await nango.saveCheckpoint({ nextPageIndex });
+                hasCheckpoint = true;
+                pageIndex = nextPageIndex;
             }
+        }
+
+        if (hasCheckpoint) {
+            await nango.clearCheckpoint();
         }
 
         await nango.trackDeletesEnd('Milestone');

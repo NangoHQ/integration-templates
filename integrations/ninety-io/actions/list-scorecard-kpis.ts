@@ -80,8 +80,19 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let pageIndex: number | undefined;
+        if (input.cursor !== undefined) {
+            pageIndex = Number(input.cursor);
+            if (!Number.isInteger(pageIndex) || pageIndex < 0) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a nonnegative integer page index'
+                });
+            }
+        }
+
         const body: Record<string, unknown> = {
-            ...(input.cursor !== undefined && { pageIndex: Number(input.cursor) }),
+            ...(pageIndex !== undefined && { pageIndex }),
             ...(input.pageSize !== undefined && { pageSize: input.pageSize }),
             ...(input.searchText !== undefined && { searchText: input.searchText }),
             ...(input.searchTitle !== undefined && { searchTitle: input.searchTitle }),

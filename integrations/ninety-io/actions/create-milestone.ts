@@ -26,7 +26,7 @@ const MilestoneSchema = z.object({
     isDeleted: z.boolean().nullable().optional(),
     completedDate: z.string().nullable().optional(),
     userOrdinal: z.number().nullable().optional(),
-    followers: z.array(z.unknown()).nullable().optional(),
+    followers: z.array(z.string()).nullable().optional(),
     createdBy: z.string().nullable().optional(),
     createdDate: z.string().nullable().optional(),
     updatedAt: z.string().nullable().optional(),
@@ -46,7 +46,7 @@ const OutputSchema = z.object({
     isDeleted: z.boolean().optional(),
     completedDate: z.string().optional(),
     userOrdinal: z.number().optional(),
-    followers: z.array(z.unknown()).optional(),
+    followers: z.array(z.string()).optional(),
     createdBy: z.string().optional(),
     createdDate: z.string().optional(),
     updatedAt: z.string().optional(),
@@ -89,7 +89,7 @@ const action = createAction({
             // https://api.public.ninety.io/v1/swagger
             endpoint: '/v1/milestones',
             data: payload,
-            retries: 10
+            retries: 1
         });
 
         const parsed = MilestoneSchema.safeParse(response.data);
