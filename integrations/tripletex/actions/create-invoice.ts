@@ -7,10 +7,7 @@ const OrderReferenceSchema = z.object({
 
 const InputSchema = z
     .object({
-        orders: z
-            .array(OrderReferenceSchema)
-            .length(1)
-            .describe('Exactly one existing order reference. Tripletex only supports a single order per invoice.'),
+        orders: z.array(OrderReferenceSchema).length(1).describe('Exactly one existing order reference. Tripletex only supports a single order per invoice.'),
         invoiceDate: z.string().describe('Invoice date. Example: 2024-01-15'),
         invoiceDueDate: z.string().describe('Invoice due date. Example: 2024-02-15'),
         invoiceNumber: z.number().int().nonnegative().optional().describe('Invoice number. Use 0 to auto-generate.'),

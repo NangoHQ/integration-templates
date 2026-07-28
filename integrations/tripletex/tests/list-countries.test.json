@@ -1,0 +1,1858 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 1,
+        "name": "Andorra",
+        "displayName": "Andorra",
+        "isoAlpha2Code": "AD",
+        "isoAlpha3Code": "AND",
+        "isoNumericCode": "020"
+      },
+      {
+        "id": 2,
+        "name": "De forente arabiske emirater",
+        "displayName": "De forente arabiske emirater",
+        "isoAlpha2Code": "AE",
+        "isoAlpha3Code": "ARE",
+        "isoNumericCode": "784"
+      },
+      {
+        "id": 3,
+        "name": "Afghanistan",
+        "displayName": "Afghanistan",
+        "isoAlpha2Code": "AF",
+        "isoAlpha3Code": "AFG",
+        "isoNumericCode": "004"
+      },
+      {
+        "id": 4,
+        "name": "Antigua og Barbuda",
+        "displayName": "Antigua og Barbuda",
+        "isoAlpha2Code": "AG",
+        "isoAlpha3Code": "ATG",
+        "isoNumericCode": "028"
+      },
+      {
+        "id": 5,
+        "name": "Anguilla",
+        "displayName": "Anguilla",
+        "isoAlpha2Code": "AI",
+        "isoAlpha3Code": "AIA",
+        "isoNumericCode": "660"
+      },
+      {
+        "id": 6,
+        "name": "Albania",
+        "displayName": "Albania",
+        "isoAlpha2Code": "AL",
+        "isoAlpha3Code": "ALB",
+        "isoNumericCode": "008"
+      },
+      {
+        "id": 7,
+        "name": "Armenia",
+        "displayName": "Armenia",
+        "isoAlpha2Code": "AM",
+        "isoAlpha3Code": "ARM",
+        "isoNumericCode": "051"
+      },
+      {
+        "id": 8,
+        "name": "De nederlandske antiller",
+        "displayName": "De nederlandske antiller",
+        "isoAlpha2Code": "AN",
+        "isoAlpha3Code": "ANT",
+        "isoNumericCode": "530"
+      },
+      {
+        "id": 9,
+        "name": "Angola",
+        "displayName": "Angola",
+        "isoAlpha2Code": "AO",
+        "isoAlpha3Code": "AGO",
+        "isoNumericCode": "024"
+      },
+      {
+        "id": 10,
+        "name": "Antarktis",
+        "displayName": "Antarktis",
+        "isoAlpha2Code": "AQ",
+        "isoAlpha3Code": "ATA",
+        "isoNumericCode": "010"
+      },
+      {
+        "id": 11,
+        "name": "Argentina",
+        "displayName": "Argentina",
+        "isoAlpha2Code": "AR",
+        "isoAlpha3Code": "ARG",
+        "isoNumericCode": "032"
+      },
+      {
+        "id": 12,
+        "name": "Amerikansk Samoa",
+        "displayName": "Amerikansk Samoa",
+        "isoAlpha2Code": "AS",
+        "isoAlpha3Code": "ASM",
+        "isoNumericCode": "016"
+      },
+      {
+        "id": 13,
+        "name": "Østerrike",
+        "displayName": "Østerrike",
+        "isoAlpha2Code": "AT",
+        "isoAlpha3Code": "AUT",
+        "isoNumericCode": "040"
+      },
+      {
+        "id": 14,
+        "name": "Australia",
+        "displayName": "Australia",
+        "isoAlpha2Code": "AU",
+        "isoAlpha3Code": "AUS",
+        "isoNumericCode": "036"
+      },
+      {
+        "id": 15,
+        "name": "Aruba",
+        "displayName": "Aruba",
+        "isoAlpha2Code": "AW",
+        "isoAlpha3Code": "ABW",
+        "isoNumericCode": "533"
+      },
+      {
+        "id": 16,
+        "name": "Åland",
+        "displayName": "Åland",
+        "isoAlpha2Code": "AX",
+        "isoAlpha3Code": "ALA",
+        "isoNumericCode": "248"
+      },
+      {
+        "id": 17,
+        "name": "Aserbajdsjan",
+        "displayName": "Aserbajdsjan",
+        "isoAlpha2Code": "AZ",
+        "isoAlpha3Code": "AZE",
+        "isoNumericCode": "031"
+      },
+      {
+        "id": 18,
+        "name": "Bosnia-Hercegovina",
+        "displayName": "Bosnia-Hercegovina",
+        "isoAlpha2Code": "BA",
+        "isoAlpha3Code": "BIH",
+        "isoNumericCode": "070"
+      },
+      {
+        "id": 19,
+        "name": "Barbados",
+        "displayName": "Barbados",
+        "isoAlpha2Code": "BB",
+        "isoAlpha3Code": "BRB",
+        "isoNumericCode": "052"
+      },
+      {
+        "id": 20,
+        "name": "Bangladesh",
+        "displayName": "Bangladesh",
+        "isoAlpha2Code": "BD",
+        "isoAlpha3Code": "BGD",
+        "isoNumericCode": "050"
+      },
+      {
+        "id": 21,
+        "name": "Belgia",
+        "displayName": "Belgia",
+        "isoAlpha2Code": "BE",
+        "isoAlpha3Code": "BEL",
+        "isoNumericCode": "056"
+      },
+      {
+        "id": 22,
+        "name": "Burkina Faso",
+        "displayName": "Burkina Faso",
+        "isoAlpha2Code": "BF",
+        "isoAlpha3Code": "BFA",
+        "isoNumericCode": "854"
+      },
+      {
+        "id": 23,
+        "name": "Bulgaria",
+        "displayName": "Bulgaria",
+        "isoAlpha2Code": "BG",
+        "isoAlpha3Code": "BGR",
+        "isoNumericCode": "100"
+      },
+      {
+        "id": 24,
+        "name": "Bahrain",
+        "displayName": "Bahrain",
+        "isoAlpha2Code": "BH",
+        "isoAlpha3Code": "BHR",
+        "isoNumericCode": "048"
+      },
+      {
+        "id": 25,
+        "name": "Burundi",
+        "displayName": "Burundi",
+        "isoAlpha2Code": "BI",
+        "isoAlpha3Code": "BDI",
+        "isoNumericCode": "108"
+      },
+      {
+        "id": 26,
+        "name": "Benin",
+        "displayName": "Benin",
+        "isoAlpha2Code": "BJ",
+        "isoAlpha3Code": "BEN",
+        "isoNumericCode": "204"
+      },
+      {
+        "id": 27,
+        "name": "Bermuda",
+        "displayName": "Bermuda",
+        "isoAlpha2Code": "BM",
+        "isoAlpha3Code": "BMU",
+        "isoNumericCode": "060"
+      },
+      {
+        "id": 28,
+        "name": "Brunei",
+        "displayName": "Brunei",
+        "isoAlpha2Code": "BN",
+        "isoAlpha3Code": "BRN",
+        "isoNumericCode": "096"
+      },
+      {
+        "id": 29,
+        "name": "Bolivia",
+        "displayName": "Bolivia",
+        "isoAlpha2Code": "BO",
+        "isoAlpha3Code": "BOL",
+        "isoNumericCode": "068"
+      },
+      {
+        "id": 30,
+        "name": "Brasil",
+        "displayName": "Brasil",
+        "isoAlpha2Code": "BR",
+        "isoAlpha3Code": "BRA",
+        "isoNumericCode": "076"
+      },
+      {
+        "id": 31,
+        "name": "Bahamas",
+        "displayName": "Bahamas",
+        "isoAlpha2Code": "BS",
+        "isoAlpha3Code": "BHS",
+        "isoNumericCode": "044"
+      },
+      {
+        "id": 32,
+        "name": "Bhutan",
+        "displayName": "Bhutan",
+        "isoAlpha2Code": "BT",
+        "isoAlpha3Code": "BTN",
+        "isoNumericCode": "064"
+      },
+      {
+        "id": 33,
+        "name": "Bouvetoya",
+        "displayName": "Bouvetoya",
+        "isoAlpha2Code": "BV",
+        "isoAlpha3Code": "BVT",
+        "isoNumericCode": "074"
+      },
+      {
+        "id": 34,
+        "name": "Botswana",
+        "displayName": "Botswana",
+        "isoAlpha2Code": "BW",
+        "isoAlpha3Code": "BWA",
+        "isoNumericCode": "072"
+      },
+      {
+        "id": 35,
+        "name": "Belarus",
+        "displayName": "Belarus",
+        "isoAlpha2Code": "BY",
+        "isoAlpha3Code": "BLR",
+        "isoNumericCode": "112"
+      },
+      {
+        "id": 36,
+        "name": "Belize",
+        "displayName": "Belize",
+        "isoAlpha2Code": "BZ",
+        "isoAlpha3Code": "BLZ",
+        "isoNumericCode": "084"
+      },
+      {
+        "id": 37,
+        "name": "Canada",
+        "displayName": "Canada",
+        "isoAlpha2Code": "CA",
+        "isoAlpha3Code": "CAN",
+        "isoNumericCode": "124"
+      },
+      {
+        "id": 38,
+        "name": "Kokosøyene",
+        "displayName": "Kokosøyene",
+        "isoAlpha2Code": "CC",
+        "isoAlpha3Code": "CCK",
+        "isoNumericCode": "166"
+      },
+      {
+        "id": 39,
+        "name": "Kongo",
+        "displayName": "Kongo",
+        "isoAlpha2Code": "CD",
+        "isoAlpha3Code": "COD",
+        "isoNumericCode": "180"
+      },
+      {
+        "id": 40,
+        "name": "Den sentralafrikanske republikk",
+        "displayName": "Den sentralafrikanske republikk",
+        "isoAlpha2Code": "CF",
+        "isoAlpha3Code": "CAF",
+        "isoNumericCode": "140"
+      },
+      {
+        "id": 41,
+        "name": "Kongo-Brazzaville",
+        "displayName": "Kongo-Brazzaville",
+        "isoAlpha2Code": "CG",
+        "isoAlpha3Code": "COG",
+        "isoNumericCode": "178"
+      },
+      {
+        "id": 42,
+        "name": "Sveits",
+        "displayName": "Sveits",
+        "isoAlpha2Code": "CH",
+        "isoAlpha3Code": "CHE",
+        "isoNumericCode": "756"
+      },
+      {
+        "id": 43,
+        "name": "Elfenbenskysten",
+        "displayName": "Elfenbenskysten",
+        "isoAlpha2Code": "CI",
+        "isoAlpha3Code": "CIV",
+        "isoNumericCode": "384"
+      },
+      {
+        "id": 44,
+        "name": "Cookøyene",
+        "displayName": "Cookøyene",
+        "isoAlpha2Code": "CK",
+        "isoAlpha3Code": "COK",
+        "isoNumericCode": "184"
+      },
+      {
+        "id": 45,
+        "name": "Chile",
+        "displayName": "Chile",
+        "isoAlpha2Code": "CL",
+        "isoAlpha3Code": "CHL",
+        "isoNumericCode": "152"
+      },
+      {
+        "id": 46,
+        "name": "Kamerun",
+        "displayName": "Kamerun",
+        "isoAlpha2Code": "CM",
+        "isoAlpha3Code": "CMR",
+        "isoNumericCode": "120"
+      },
+      {
+        "id": 47,
+        "name": "Kina",
+        "displayName": "Kina",
+        "isoAlpha2Code": "CN",
+        "isoAlpha3Code": "CHN",
+        "isoNumericCode": "156"
+      },
+      {
+        "id": 48,
+        "name": "Colombia",
+        "displayName": "Colombia",
+        "isoAlpha2Code": "CO",
+        "isoAlpha3Code": "COL",
+        "isoNumericCode": "170"
+      },
+      {
+        "id": 49,
+        "name": "Costa Rica",
+        "displayName": "Costa Rica",
+        "isoAlpha2Code": "CR",
+        "isoAlpha3Code": "CRI",
+        "isoNumericCode": "188"
+      },
+      {
+        "id": 50,
+        "name": "Cuba",
+        "displayName": "Cuba",
+        "isoAlpha2Code": "CU",
+        "isoAlpha3Code": "CUB",
+        "isoNumericCode": "192"
+      },
+      {
+        "id": 51,
+        "name": "Kapp Verde",
+        "displayName": "Kapp Verde",
+        "isoAlpha2Code": "CV",
+        "isoAlpha3Code": "CPV",
+        "isoNumericCode": "132"
+      },
+      {
+        "id": 52,
+        "name": "Christmasøya",
+        "displayName": "Christmasøya",
+        "isoAlpha2Code": "CX",
+        "isoAlpha3Code": "CXR",
+        "isoNumericCode": "162"
+      },
+      {
+        "id": 53,
+        "name": "Kypros",
+        "displayName": "Kypros",
+        "isoAlpha2Code": "CY",
+        "isoAlpha3Code": "CYP",
+        "isoNumericCode": "196"
+      },
+      {
+        "id": 54,
+        "name": "Tsjekkia",
+        "displayName": "Tsjekkia",
+        "isoAlpha2Code": "CZ",
+        "isoAlpha3Code": "CZE",
+        "isoNumericCode": "203"
+      },
+      {
+        "id": 55,
+        "name": "Tyskland",
+        "displayName": "Tyskland",
+        "isoAlpha2Code": "DE",
+        "isoAlpha3Code": "DEU",
+        "isoNumericCode": "276"
+      },
+      {
+        "id": 56,
+        "name": "Djibouti",
+        "displayName": "Djibouti",
+        "isoAlpha2Code": "DJ",
+        "isoAlpha3Code": "DJI",
+        "isoNumericCode": "262"
+      },
+      {
+        "id": 57,
+        "name": "Danmark",
+        "displayName": "Danmark",
+        "isoAlpha2Code": "DK",
+        "isoAlpha3Code": "DNK",
+        "isoNumericCode": "208"
+      },
+      {
+        "id": 58,
+        "name": "Dominica",
+        "displayName": "Dominica",
+        "isoAlpha2Code": "DM",
+        "isoAlpha3Code": "DMA",
+        "isoNumericCode": "212"
+      },
+      {
+        "id": 59,
+        "name": "Den dominikanske republikk",
+        "displayName": "Den dominikanske republikk",
+        "isoAlpha2Code": "DO",
+        "isoAlpha3Code": "DOM",
+        "isoNumericCode": "214"
+      },
+      {
+        "id": 60,
+        "name": "Algerie",
+        "displayName": "Algerie",
+        "isoAlpha2Code": "DZ",
+        "isoAlpha3Code": "DZA",
+        "isoNumericCode": "012"
+      },
+      {
+        "id": 61,
+        "name": "Ecuador",
+        "displayName": "Ecuador",
+        "isoAlpha2Code": "EC",
+        "isoAlpha3Code": "ECU",
+        "isoNumericCode": "218"
+      },
+      {
+        "id": 62,
+        "name": "Estland",
+        "displayName": "Estland",
+        "isoAlpha2Code": "EE",
+        "isoAlpha3Code": "EST",
+        "isoNumericCode": "233"
+      },
+      {
+        "id": 63,
+        "name": "Egypt",
+        "displayName": "Egypt",
+        "isoAlpha2Code": "EG",
+        "isoAlpha3Code": "EGY",
+        "isoNumericCode": "818"
+      },
+      {
+        "id": 64,
+        "name": "Vest-Sahara",
+        "displayName": "Vest-Sahara",
+        "isoAlpha2Code": "EH",
+        "isoAlpha3Code": "ESH",
+        "isoNumericCode": "732"
+      },
+      {
+        "id": 65,
+        "name": "Eritrea",
+        "displayName": "Eritrea",
+        "isoAlpha2Code": "ER",
+        "isoAlpha3Code": "ERI",
+        "isoNumericCode": "232"
+      },
+      {
+        "id": 66,
+        "name": "Spania",
+        "displayName": "Spania",
+        "isoAlpha2Code": "ES",
+        "isoAlpha3Code": "ESP",
+        "isoNumericCode": "724"
+      },
+      {
+        "id": 67,
+        "name": "Etiopia",
+        "displayName": "Etiopia",
+        "isoAlpha2Code": "ET",
+        "isoAlpha3Code": "ETH",
+        "isoNumericCode": "231"
+      },
+      {
+        "id": 68,
+        "name": "Finland",
+        "displayName": "Finland",
+        "isoAlpha2Code": "FI",
+        "isoAlpha3Code": "FIN",
+        "isoNumericCode": "246"
+      },
+      {
+        "id": 69,
+        "name": "Fiji",
+        "displayName": "Fiji",
+        "isoAlpha2Code": "FJ",
+        "isoAlpha3Code": "FJI",
+        "isoNumericCode": "242"
+      },
+      {
+        "id": 70,
+        "name": "Falklandsøyene",
+        "displayName": "Falklandsøyene",
+        "isoAlpha2Code": "FK",
+        "isoAlpha3Code": "FLK",
+        "isoNumericCode": "238"
+      },
+      {
+        "id": 71,
+        "name": "Mikronesiafoderasjonen",
+        "displayName": "Mikronesiafoderasjonen",
+        "isoAlpha2Code": "FM",
+        "isoAlpha3Code": "FSM",
+        "isoNumericCode": "583"
+      },
+      {
+        "id": 72,
+        "name": "Færøyene",
+        "displayName": "Færøyene",
+        "isoAlpha2Code": "FO",
+        "isoAlpha3Code": "FRO",
+        "isoNumericCode": "234"
+      },
+      {
+        "id": 73,
+        "name": "Frankrike",
+        "displayName": "Frankrike",
+        "isoAlpha2Code": "FR",
+        "isoAlpha3Code": "FRA",
+        "isoNumericCode": "250"
+      },
+      {
+        "id": 74,
+        "name": "Gabon",
+        "displayName": "Gabon",
+        "isoAlpha2Code": "GA",
+        "isoAlpha3Code": "GAB",
+        "isoNumericCode": "266"
+      },
+      {
+        "id": 75,
+        "name": "Storbritannia",
+        "displayName": "Storbritannia",
+        "isoAlpha2Code": "GB",
+        "isoAlpha3Code": "GBR",
+        "isoNumericCode": "826"
+      },
+      {
+        "id": 76,
+        "name": "Grenada",
+        "displayName": "Grenada",
+        "isoAlpha2Code": "GD",
+        "isoAlpha3Code": "GRD",
+        "isoNumericCode": "308"
+      },
+      {
+        "id": 77,
+        "name": "Georgia",
+        "displayName": "Georgia",
+        "isoAlpha2Code": "GE",
+        "isoAlpha3Code": "GEO",
+        "isoNumericCode": "268"
+      },
+      {
+        "id": 78,
+        "name": "Fransk Guyana",
+        "displayName": "Fransk Guyana",
+        "isoAlpha2Code": "GF",
+        "isoAlpha3Code": "GUF",
+        "isoNumericCode": "254"
+      },
+      {
+        "id": 79,
+        "name": "Ghana",
+        "displayName": "Ghana",
+        "isoAlpha2Code": "GH",
+        "isoAlpha3Code": "GHA",
+        "isoNumericCode": "288"
+      },
+      {
+        "id": 80,
+        "name": "Gibraltar",
+        "displayName": "Gibraltar",
+        "isoAlpha2Code": "GI",
+        "isoAlpha3Code": "GIB",
+        "isoNumericCode": "292"
+      },
+      {
+        "id": 81,
+        "name": "Grønland",
+        "displayName": "Grønland",
+        "isoAlpha2Code": "GL",
+        "isoAlpha3Code": "GRL",
+        "isoNumericCode": "304"
+      },
+      {
+        "id": 82,
+        "name": "Gambia",
+        "displayName": "Gambia",
+        "isoAlpha2Code": "GM",
+        "isoAlpha3Code": "GMB",
+        "isoNumericCode": "270"
+      },
+      {
+        "id": 83,
+        "name": "Guinea",
+        "displayName": "Guinea",
+        "isoAlpha2Code": "GN",
+        "isoAlpha3Code": "GIN",
+        "isoNumericCode": "324"
+      },
+      {
+        "id": 84,
+        "name": "Guadeloupe",
+        "displayName": "Guadeloupe",
+        "isoAlpha2Code": "GP",
+        "isoAlpha3Code": "GLP",
+        "isoNumericCode": "312"
+      },
+      {
+        "id": 85,
+        "name": "Ekvatorial-Guinea",
+        "displayName": "Ekvatorial-Guinea",
+        "isoAlpha2Code": "GQ",
+        "isoAlpha3Code": "GNQ",
+        "isoNumericCode": "226"
+      },
+      {
+        "id": 86,
+        "name": "Hellas",
+        "displayName": "Hellas",
+        "isoAlpha2Code": "GR",
+        "isoAlpha3Code": "GRC",
+        "isoNumericCode": "300"
+      },
+      {
+        "id": 87,
+        "name": "Sør-Georgia og de sørlige Sandwichøyene",
+        "displayName": "Sør-Georgia og de sørlige Sandwichøyene",
+        "isoAlpha2Code": "GS",
+        "isoAlpha3Code": "SGS",
+        "isoNumericCode": "239"
+      },
+      {
+        "id": 88,
+        "name": "Guatemala",
+        "displayName": "Guatemala",
+        "isoAlpha2Code": "GT",
+        "isoAlpha3Code": "GTM",
+        "isoNumericCode": "320"
+      },
+      {
+        "id": 89,
+        "name": "Guam",
+        "displayName": "Guam",
+        "isoAlpha2Code": "GU",
+        "isoAlpha3Code": "GUM",
+        "isoNumericCode": "316"
+      },
+      {
+        "id": 90,
+        "name": "Guinea-Bissau",
+        "displayName": "Guinea-Bissau",
+        "isoAlpha2Code": "GW",
+        "isoAlpha3Code": "GNB",
+        "isoNumericCode": "624"
+      },
+      {
+        "id": 91,
+        "name": "Guyana",
+        "displayName": "Guyana",
+        "isoAlpha2Code": "GY",
+        "isoAlpha3Code": "GUY",
+        "isoNumericCode": "328"
+      },
+      {
+        "id": 92,
+        "name": "Hongkong",
+        "displayName": "Hongkong",
+        "isoAlpha2Code": "HK",
+        "isoAlpha3Code": "HKG",
+        "isoNumericCode": "344"
+      },
+      {
+        "id": 93,
+        "name": "Heard- og McDonald-øyene",
+        "displayName": "Heard- og McDonald-øyene",
+        "isoAlpha2Code": "HM",
+        "isoAlpha3Code": "HMD",
+        "isoNumericCode": "334"
+      },
+      {
+        "id": 94,
+        "name": "Honduras",
+        "displayName": "Honduras",
+        "isoAlpha2Code": "HN",
+        "isoAlpha3Code": "HND",
+        "isoNumericCode": "340"
+      },
+      {
+        "id": 95,
+        "name": "Kroatia",
+        "displayName": "Kroatia",
+        "isoAlpha2Code": "HR",
+        "isoAlpha3Code": "HRV",
+        "isoNumericCode": "191"
+      },
+      {
+        "id": 96,
+        "name": "Haiti",
+        "displayName": "Haiti",
+        "isoAlpha2Code": "HT",
+        "isoAlpha3Code": "HTI",
+        "isoNumericCode": "332"
+      },
+      {
+        "id": 97,
+        "name": "Ungarn",
+        "displayName": "Ungarn",
+        "isoAlpha2Code": "HU",
+        "isoAlpha3Code": "HUN",
+        "isoNumericCode": "348"
+      },
+      {
+        "id": 98,
+        "name": "Indonesia",
+        "displayName": "Indonesia",
+        "isoAlpha2Code": "ID",
+        "isoAlpha3Code": "IDN",
+        "isoNumericCode": "360"
+      },
+      {
+        "id": 99,
+        "name": "Irland",
+        "displayName": "Irland",
+        "isoAlpha2Code": "IE",
+        "isoAlpha3Code": "IRL",
+        "isoNumericCode": "372"
+      },
+      {
+        "id": 100,
+        "name": "Israel",
+        "displayName": "Israel",
+        "isoAlpha2Code": "IL",
+        "isoAlpha3Code": "ISR",
+        "isoNumericCode": "376"
+      }
+    ],
+    "nextCursor": "100"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/country": {
+        "response": {
+          "fullResultSize": 101,
+          "from": 0,
+          "count": 100,
+          "versionDigest": "'If-None-Match' header not specified",
+          "values": [
+            {
+              "id": 1,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/1",
+              "name": "Andorra",
+              "displayName": "Andorra",
+              "isoAlpha2Code": "AD",
+              "isoAlpha3Code": "AND",
+              "isoNumericCode": "020"
+            },
+            {
+              "id": 2,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/2",
+              "name": "De forente arabiske emirater",
+              "displayName": "De forente arabiske emirater",
+              "isoAlpha2Code": "AE",
+              "isoAlpha3Code": "ARE",
+              "isoNumericCode": "784"
+            },
+            {
+              "id": 3,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/country/3",
+              "name": "Afghanistan",
+              "displayName": "Afghanistan",
+              "isoAlpha2Code": "AF",
+              "isoAlpha3Code": "AFG",
+              "isoNumericCode": "004"
+            },
+            {
+              "id": 4,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/4",
+              "name": "Antigua og Barbuda",
+              "displayName": "Antigua og Barbuda",
+              "isoAlpha2Code": "AG",
+              "isoAlpha3Code": "ATG",
+              "isoNumericCode": "028"
+            },
+            {
+              "id": 5,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/5",
+              "name": "Anguilla",
+              "displayName": "Anguilla",
+              "isoAlpha2Code": "AI",
+              "isoAlpha3Code": "AIA",
+              "isoNumericCode": "660"
+            },
+            {
+              "id": 6,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/6",
+              "name": "Albania",
+              "displayName": "Albania",
+              "isoAlpha2Code": "AL",
+              "isoAlpha3Code": "ALB",
+              "isoNumericCode": "008"
+            },
+            {
+              "id": 7,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/7",
+              "name": "Armenia",
+              "displayName": "Armenia",
+              "isoAlpha2Code": "AM",
+              "isoAlpha3Code": "ARM",
+              "isoNumericCode": "051"
+            },
+            {
+              "id": 8,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/country/8",
+              "name": "De nederlandske antiller",
+              "displayName": "De nederlandske antiller",
+              "isoAlpha2Code": "AN",
+              "isoAlpha3Code": "ANT",
+              "isoNumericCode": "530"
+            },
+            {
+              "id": 9,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/9",
+              "name": "Angola",
+              "displayName": "Angola",
+              "isoAlpha2Code": "AO",
+              "isoAlpha3Code": "AGO",
+              "isoNumericCode": "024"
+            },
+            {
+              "id": 10,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/10",
+              "name": "Antarktis",
+              "displayName": "Antarktis",
+              "isoAlpha2Code": "AQ",
+              "isoAlpha3Code": "ATA",
+              "isoNumericCode": "010"
+            },
+            {
+              "id": 11,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/11",
+              "name": "Argentina",
+              "displayName": "Argentina",
+              "isoAlpha2Code": "AR",
+              "isoAlpha3Code": "ARG",
+              "isoNumericCode": "032"
+            },
+            {
+              "id": 12,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/12",
+              "name": "Amerikansk Samoa",
+              "displayName": "Amerikansk Samoa",
+              "isoAlpha2Code": "AS",
+              "isoAlpha3Code": "ASM",
+              "isoNumericCode": "016"
+            },
+            {
+              "id": 13,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/13",
+              "name": "Østerrike",
+              "displayName": "Østerrike",
+              "isoAlpha2Code": "AT",
+              "isoAlpha3Code": "AUT",
+              "isoNumericCode": "040"
+            },
+            {
+              "id": 14,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/14",
+              "name": "Australia",
+              "displayName": "Australia",
+              "isoAlpha2Code": "AU",
+              "isoAlpha3Code": "AUS",
+              "isoNumericCode": "036"
+            },
+            {
+              "id": 15,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/15",
+              "name": "Aruba",
+              "displayName": "Aruba",
+              "isoAlpha2Code": "AW",
+              "isoAlpha3Code": "ABW",
+              "isoNumericCode": "533"
+            },
+            {
+              "id": 16,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/16",
+              "name": "Åland",
+              "displayName": "Åland",
+              "isoAlpha2Code": "AX",
+              "isoAlpha3Code": "ALA",
+              "isoNumericCode": "248"
+            },
+            {
+              "id": 17,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/17",
+              "name": "Aserbajdsjan",
+              "displayName": "Aserbajdsjan",
+              "isoAlpha2Code": "AZ",
+              "isoAlpha3Code": "AZE",
+              "isoNumericCode": "031"
+            },
+            {
+              "id": 18,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/18",
+              "name": "Bosnia-Hercegovina",
+              "displayName": "Bosnia-Hercegovina",
+              "isoAlpha2Code": "BA",
+              "isoAlpha3Code": "BIH",
+              "isoNumericCode": "070"
+            },
+            {
+              "id": 19,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/19",
+              "name": "Barbados",
+              "displayName": "Barbados",
+              "isoAlpha2Code": "BB",
+              "isoAlpha3Code": "BRB",
+              "isoNumericCode": "052"
+            },
+            {
+              "id": 20,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/20",
+              "name": "Bangladesh",
+              "displayName": "Bangladesh",
+              "isoAlpha2Code": "BD",
+              "isoAlpha3Code": "BGD",
+              "isoNumericCode": "050"
+            },
+            {
+              "id": 21,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/21",
+              "name": "Belgia",
+              "displayName": "Belgia",
+              "isoAlpha2Code": "BE",
+              "isoAlpha3Code": "BEL",
+              "isoNumericCode": "056"
+            },
+            {
+              "id": 22,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/22",
+              "name": "Burkina Faso",
+              "displayName": "Burkina Faso",
+              "isoAlpha2Code": "BF",
+              "isoAlpha3Code": "BFA",
+              "isoNumericCode": "854"
+            },
+            {
+              "id": 23,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/23",
+              "name": "Bulgaria",
+              "displayName": "Bulgaria",
+              "isoAlpha2Code": "BG",
+              "isoAlpha3Code": "BGR",
+              "isoNumericCode": "100"
+            },
+            {
+              "id": 24,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/24",
+              "name": "Bahrain",
+              "displayName": "Bahrain",
+              "isoAlpha2Code": "BH",
+              "isoAlpha3Code": "BHR",
+              "isoNumericCode": "048"
+            },
+            {
+              "id": 25,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/25",
+              "name": "Burundi",
+              "displayName": "Burundi",
+              "isoAlpha2Code": "BI",
+              "isoAlpha3Code": "BDI",
+              "isoNumericCode": "108"
+            },
+            {
+              "id": 26,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/26",
+              "name": "Benin",
+              "displayName": "Benin",
+              "isoAlpha2Code": "BJ",
+              "isoAlpha3Code": "BEN",
+              "isoNumericCode": "204"
+            },
+            {
+              "id": 27,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/27",
+              "name": "Bermuda",
+              "displayName": "Bermuda",
+              "isoAlpha2Code": "BM",
+              "isoAlpha3Code": "BMU",
+              "isoNumericCode": "060"
+            },
+            {
+              "id": 28,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/28",
+              "name": "Brunei",
+              "displayName": "Brunei",
+              "isoAlpha2Code": "BN",
+              "isoAlpha3Code": "BRN",
+              "isoNumericCode": "096"
+            },
+            {
+              "id": 29,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/29",
+              "name": "Bolivia",
+              "displayName": "Bolivia",
+              "isoAlpha2Code": "BO",
+              "isoAlpha3Code": "BOL",
+              "isoNumericCode": "068"
+            },
+            {
+              "id": 30,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/country/30",
+              "name": "Brasil",
+              "displayName": "Brasil",
+              "isoAlpha2Code": "BR",
+              "isoAlpha3Code": "BRA",
+              "isoNumericCode": "076"
+            },
+            {
+              "id": 31,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/31",
+              "name": "Bahamas",
+              "displayName": "Bahamas",
+              "isoAlpha2Code": "BS",
+              "isoAlpha3Code": "BHS",
+              "isoNumericCode": "044"
+            },
+            {
+              "id": 32,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/32",
+              "name": "Bhutan",
+              "displayName": "Bhutan",
+              "isoAlpha2Code": "BT",
+              "isoAlpha3Code": "BTN",
+              "isoNumericCode": "064"
+            },
+            {
+              "id": 33,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/33",
+              "name": "Bouvetoya",
+              "displayName": "Bouvetoya",
+              "isoAlpha2Code": "BV",
+              "isoAlpha3Code": "BVT",
+              "isoNumericCode": "074"
+            },
+            {
+              "id": 34,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/34",
+              "name": "Botswana",
+              "displayName": "Botswana",
+              "isoAlpha2Code": "BW",
+              "isoAlpha3Code": "BWA",
+              "isoNumericCode": "072"
+            },
+            {
+              "id": 35,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/country/35",
+              "name": "Belarus",
+              "displayName": "Belarus",
+              "isoAlpha2Code": "BY",
+              "isoAlpha3Code": "BLR",
+              "isoNumericCode": "112"
+            },
+            {
+              "id": 36,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/36",
+              "name": "Belize",
+              "displayName": "Belize",
+              "isoAlpha2Code": "BZ",
+              "isoAlpha3Code": "BLZ",
+              "isoNumericCode": "084"
+            },
+            {
+              "id": 37,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/37",
+              "name": "Canada",
+              "displayName": "Canada",
+              "isoAlpha2Code": "CA",
+              "isoAlpha3Code": "CAN",
+              "isoNumericCode": "124"
+            },
+            {
+              "id": 38,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/38",
+              "name": "Kokosøyene",
+              "displayName": "Kokosøyene",
+              "isoAlpha2Code": "CC",
+              "isoAlpha3Code": "CCK",
+              "isoNumericCode": "166"
+            },
+            {
+              "id": 39,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/country/39",
+              "name": "Kongo",
+              "displayName": "Kongo",
+              "isoAlpha2Code": "CD",
+              "isoAlpha3Code": "COD",
+              "isoNumericCode": "180"
+            },
+            {
+              "id": 40,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/country/40",
+              "name": "Den sentralafrikanske republikk",
+              "displayName": "Den sentralafrikanske republikk",
+              "isoAlpha2Code": "CF",
+              "isoAlpha3Code": "CAF",
+              "isoNumericCode": "140"
+            },
+            {
+              "id": 41,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/41",
+              "name": "Kongo-Brazzaville",
+              "displayName": "Kongo-Brazzaville",
+              "isoAlpha2Code": "CG",
+              "isoAlpha3Code": "COG",
+              "isoNumericCode": "178"
+            },
+            {
+              "id": 42,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/42",
+              "name": "Sveits",
+              "displayName": "Sveits",
+              "isoAlpha2Code": "CH",
+              "isoAlpha3Code": "CHE",
+              "isoNumericCode": "756"
+            },
+            {
+              "id": 43,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/43",
+              "name": "Elfenbenskysten",
+              "displayName": "Elfenbenskysten",
+              "isoAlpha2Code": "CI",
+              "isoAlpha3Code": "CIV",
+              "isoNumericCode": "384"
+            },
+            {
+              "id": 44,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/44",
+              "name": "Cookøyene",
+              "displayName": "Cookøyene",
+              "isoAlpha2Code": "CK",
+              "isoAlpha3Code": "COK",
+              "isoNumericCode": "184"
+            },
+            {
+              "id": 45,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/45",
+              "name": "Chile",
+              "displayName": "Chile",
+              "isoAlpha2Code": "CL",
+              "isoAlpha3Code": "CHL",
+              "isoNumericCode": "152"
+            },
+            {
+              "id": 46,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/46",
+              "name": "Kamerun",
+              "displayName": "Kamerun",
+              "isoAlpha2Code": "CM",
+              "isoAlpha3Code": "CMR",
+              "isoNumericCode": "120"
+            },
+            {
+              "id": 47,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/country/47",
+              "name": "Kina",
+              "displayName": "Kina",
+              "isoAlpha2Code": "CN",
+              "isoAlpha3Code": "CHN",
+              "isoNumericCode": "156"
+            },
+            {
+              "id": 48,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/48",
+              "name": "Colombia",
+              "displayName": "Colombia",
+              "isoAlpha2Code": "CO",
+              "isoAlpha3Code": "COL",
+              "isoNumericCode": "170"
+            },
+            {
+              "id": 49,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/49",
+              "name": "Costa Rica",
+              "displayName": "Costa Rica",
+              "isoAlpha2Code": "CR",
+              "isoAlpha3Code": "CRI",
+              "isoNumericCode": "188"
+            },
+            {
+              "id": 50,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/country/50",
+              "name": "Cuba",
+              "displayName": "Cuba",
+              "isoAlpha2Code": "CU",
+              "isoAlpha3Code": "CUB",
+              "isoNumericCode": "192"
+            },
+            {
+              "id": 51,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/51",
+              "name": "Kapp Verde",
+              "displayName": "Kapp Verde",
+              "isoAlpha2Code": "CV",
+              "isoAlpha3Code": "CPV",
+              "isoNumericCode": "132"
+            },
+            {
+              "id": 52,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/52",
+              "name": "Christmasøya",
+              "displayName": "Christmasøya",
+              "isoAlpha2Code": "CX",
+              "isoAlpha3Code": "CXR",
+              "isoNumericCode": "162"
+            },
+            {
+              "id": 53,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/53",
+              "name": "Kypros",
+              "displayName": "Kypros",
+              "isoAlpha2Code": "CY",
+              "isoAlpha3Code": "CYP",
+              "isoNumericCode": "196"
+            },
+            {
+              "id": 54,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/54",
+              "name": "Tsjekkia",
+              "displayName": "Tsjekkia",
+              "isoAlpha2Code": "CZ",
+              "isoAlpha3Code": "CZE",
+              "isoNumericCode": "203"
+            },
+            {
+              "id": 55,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/country/55",
+              "name": "Tyskland",
+              "displayName": "Tyskland",
+              "isoAlpha2Code": "DE",
+              "isoAlpha3Code": "DEU",
+              "isoNumericCode": "276"
+            },
+            {
+              "id": 56,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/56",
+              "name": "Djibouti",
+              "displayName": "Djibouti",
+              "isoAlpha2Code": "DJ",
+              "isoAlpha3Code": "DJI",
+              "isoNumericCode": "262"
+            },
+            {
+              "id": 57,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/country/57",
+              "name": "Danmark",
+              "displayName": "Danmark",
+              "isoAlpha2Code": "DK",
+              "isoAlpha3Code": "DNK",
+              "isoNumericCode": "208"
+            },
+            {
+              "id": 58,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/58",
+              "name": "Dominica",
+              "displayName": "Dominica",
+              "isoAlpha2Code": "DM",
+              "isoAlpha3Code": "DMA",
+              "isoNumericCode": "212"
+            },
+            {
+              "id": 59,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/59",
+              "name": "Den dominikanske republikk",
+              "displayName": "Den dominikanske republikk",
+              "isoAlpha2Code": "DO",
+              "isoAlpha3Code": "DOM",
+              "isoNumericCode": "214"
+            },
+            {
+              "id": 60,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/60",
+              "name": "Algerie",
+              "displayName": "Algerie",
+              "isoAlpha2Code": "DZ",
+              "isoAlpha3Code": "DZA",
+              "isoNumericCode": "012"
+            },
+            {
+              "id": 61,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/61",
+              "name": "Ecuador",
+              "displayName": "Ecuador",
+              "isoAlpha2Code": "EC",
+              "isoAlpha3Code": "ECU",
+              "isoNumericCode": "218"
+            },
+            {
+              "id": 62,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/62",
+              "name": "Estland",
+              "displayName": "Estland",
+              "isoAlpha2Code": "EE",
+              "isoAlpha3Code": "EST",
+              "isoNumericCode": "233"
+            },
+            {
+              "id": 63,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/63",
+              "name": "Egypt",
+              "displayName": "Egypt",
+              "isoAlpha2Code": "EG",
+              "isoAlpha3Code": "EGY",
+              "isoNumericCode": "818"
+            },
+            {
+              "id": 64,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/64",
+              "name": "Vest-Sahara",
+              "displayName": "Vest-Sahara",
+              "isoAlpha2Code": "EH",
+              "isoAlpha3Code": "ESH",
+              "isoNumericCode": "732"
+            },
+            {
+              "id": 65,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/65",
+              "name": "Eritrea",
+              "displayName": "Eritrea",
+              "isoAlpha2Code": "ER",
+              "isoAlpha3Code": "ERI",
+              "isoNumericCode": "232"
+            },
+            {
+              "id": 66,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/66",
+              "name": "Spania",
+              "displayName": "Spania",
+              "isoAlpha2Code": "ES",
+              "isoAlpha3Code": "ESP",
+              "isoNumericCode": "724"
+            },
+            {
+              "id": 67,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/country/67",
+              "name": "Etiopia",
+              "displayName": "Etiopia",
+              "isoAlpha2Code": "ET",
+              "isoAlpha3Code": "ETH",
+              "isoNumericCode": "231"
+            },
+            {
+              "id": 68,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/68",
+              "name": "Finland",
+              "displayName": "Finland",
+              "isoAlpha2Code": "FI",
+              "isoAlpha3Code": "FIN",
+              "isoNumericCode": "246"
+            },
+            {
+              "id": 69,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/69",
+              "name": "Fiji",
+              "displayName": "Fiji",
+              "isoAlpha2Code": "FJ",
+              "isoAlpha3Code": "FJI",
+              "isoNumericCode": "242"
+            },
+            {
+              "id": 70,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/70",
+              "name": "Falklandsøyene",
+              "displayName": "Falklandsøyene",
+              "isoAlpha2Code": "FK",
+              "isoAlpha3Code": "FLK",
+              "isoNumericCode": "238"
+            },
+            {
+              "id": 71,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/71",
+              "name": "Mikronesiafoderasjonen",
+              "displayName": "Mikronesiafoderasjonen",
+              "isoAlpha2Code": "FM",
+              "isoAlpha3Code": "FSM",
+              "isoNumericCode": "583"
+            },
+            {
+              "id": 72,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/72",
+              "name": "Færøyene",
+              "displayName": "Færøyene",
+              "isoAlpha2Code": "FO",
+              "isoAlpha3Code": "FRO",
+              "isoNumericCode": "234"
+            },
+            {
+              "id": 73,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/73",
+              "name": "Frankrike",
+              "displayName": "Frankrike",
+              "isoAlpha2Code": "FR",
+              "isoAlpha3Code": "FRA",
+              "isoNumericCode": "250"
+            },
+            {
+              "id": 74,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/74",
+              "name": "Gabon",
+              "displayName": "Gabon",
+              "isoAlpha2Code": "GA",
+              "isoAlpha3Code": "GAB",
+              "isoNumericCode": "266"
+            },
+            {
+              "id": 75,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/country/75",
+              "name": "Storbritannia",
+              "displayName": "Storbritannia",
+              "isoAlpha2Code": "GB",
+              "isoAlpha3Code": "GBR",
+              "isoNumericCode": "826"
+            },
+            {
+              "id": 76,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/76",
+              "name": "Grenada",
+              "displayName": "Grenada",
+              "isoAlpha2Code": "GD",
+              "isoAlpha3Code": "GRD",
+              "isoNumericCode": "308"
+            },
+            {
+              "id": 77,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/77",
+              "name": "Georgia",
+              "displayName": "Georgia",
+              "isoAlpha2Code": "GE",
+              "isoAlpha3Code": "GEO",
+              "isoNumericCode": "268"
+            },
+            {
+              "id": 78,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/78",
+              "name": "Fransk Guyana",
+              "displayName": "Fransk Guyana",
+              "isoAlpha2Code": "GF",
+              "isoAlpha3Code": "GUF",
+              "isoNumericCode": "254"
+            },
+            {
+              "id": 79,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/79",
+              "name": "Ghana",
+              "displayName": "Ghana",
+              "isoAlpha2Code": "GH",
+              "isoAlpha3Code": "GHA",
+              "isoNumericCode": "288"
+            },
+            {
+              "id": 80,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/80",
+              "name": "Gibraltar",
+              "displayName": "Gibraltar",
+              "isoAlpha2Code": "GI",
+              "isoAlpha3Code": "GIB",
+              "isoNumericCode": "292"
+            },
+            {
+              "id": 81,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/81",
+              "name": "Grønland",
+              "displayName": "Grønland",
+              "isoAlpha2Code": "GL",
+              "isoAlpha3Code": "GRL",
+              "isoNumericCode": "304"
+            },
+            {
+              "id": 82,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/82",
+              "name": "Gambia",
+              "displayName": "Gambia",
+              "isoAlpha2Code": "GM",
+              "isoAlpha3Code": "GMB",
+              "isoNumericCode": "270"
+            },
+            {
+              "id": 83,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/83",
+              "name": "Guinea",
+              "displayName": "Guinea",
+              "isoAlpha2Code": "GN",
+              "isoAlpha3Code": "GIN",
+              "isoNumericCode": "324"
+            },
+            {
+              "id": 84,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/84",
+              "name": "Guadeloupe",
+              "displayName": "Guadeloupe",
+              "isoAlpha2Code": "GP",
+              "isoAlpha3Code": "GLP",
+              "isoNumericCode": "312"
+            },
+            {
+              "id": 85,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/85",
+              "name": "Ekvatorial-Guinea",
+              "displayName": "Ekvatorial-Guinea",
+              "isoAlpha2Code": "GQ",
+              "isoAlpha3Code": "GNQ",
+              "isoNumericCode": "226"
+            },
+            {
+              "id": 86,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/86",
+              "name": "Hellas",
+              "displayName": "Hellas",
+              "isoAlpha2Code": "GR",
+              "isoAlpha3Code": "GRC",
+              "isoNumericCode": "300"
+            },
+            {
+              "id": 87,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/87",
+              "name": "Sør-Georgia og de sørlige Sandwichøyene",
+              "displayName": "Sør-Georgia og de sørlige Sandwichøyene",
+              "isoAlpha2Code": "GS",
+              "isoAlpha3Code": "SGS",
+              "isoNumericCode": "239"
+            },
+            {
+              "id": 88,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/88",
+              "name": "Guatemala",
+              "displayName": "Guatemala",
+              "isoAlpha2Code": "GT",
+              "isoAlpha3Code": "GTM",
+              "isoNumericCode": "320"
+            },
+            {
+              "id": 89,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/89",
+              "name": "Guam",
+              "displayName": "Guam",
+              "isoAlpha2Code": "GU",
+              "isoAlpha3Code": "GUM",
+              "isoNumericCode": "316"
+            },
+            {
+              "id": 90,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/90",
+              "name": "Guinea-Bissau",
+              "displayName": "Guinea-Bissau",
+              "isoAlpha2Code": "GW",
+              "isoAlpha3Code": "GNB",
+              "isoNumericCode": "624"
+            },
+            {
+              "id": 91,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/91",
+              "name": "Guyana",
+              "displayName": "Guyana",
+              "isoAlpha2Code": "GY",
+              "isoAlpha3Code": "GUY",
+              "isoNumericCode": "328"
+            },
+            {
+              "id": 92,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/92",
+              "name": "Hongkong",
+              "displayName": "Hongkong",
+              "isoAlpha2Code": "HK",
+              "isoAlpha3Code": "HKG",
+              "isoNumericCode": "344"
+            },
+            {
+              "id": 93,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/93",
+              "name": "Heard- og McDonald-øyene",
+              "displayName": "Heard- og McDonald-øyene",
+              "isoAlpha2Code": "HM",
+              "isoAlpha3Code": "HMD",
+              "isoNumericCode": "334"
+            },
+            {
+              "id": 94,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/94",
+              "name": "Honduras",
+              "displayName": "Honduras",
+              "isoAlpha2Code": "HN",
+              "isoAlpha3Code": "HND",
+              "isoNumericCode": "340"
+            },
+            {
+              "id": 95,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/95",
+              "name": "Kroatia",
+              "displayName": "Kroatia",
+              "isoAlpha2Code": "HR",
+              "isoAlpha3Code": "HRV",
+              "isoNumericCode": "191"
+            },
+            {
+              "id": 96,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/96",
+              "name": "Haiti",
+              "displayName": "Haiti",
+              "isoAlpha2Code": "HT",
+              "isoAlpha3Code": "HTI",
+              "isoNumericCode": "332"
+            },
+            {
+              "id": 97,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/97",
+              "name": "Ungarn",
+              "displayName": "Ungarn",
+              "isoAlpha2Code": "HU",
+              "isoAlpha3Code": "HUN",
+              "isoNumericCode": "348"
+            },
+            {
+              "id": 98,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/98",
+              "name": "Indonesia",
+              "displayName": "Indonesia",
+              "isoAlpha2Code": "ID",
+              "isoAlpha3Code": "IDN",
+              "isoNumericCode": "360"
+            },
+            {
+              "id": 99,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/99",
+              "name": "Irland",
+              "displayName": "Irland",
+              "isoAlpha2Code": "IE",
+              "isoAlpha3Code": "IRL",
+              "isoNumericCode": "372"
+            },
+            {
+              "id": 100,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/country/100",
+              "name": "Israel",
+              "displayName": "Israel",
+              "isoAlpha2Code": "IL",
+              "isoAlpha3Code": "ISR",
+              "isoNumericCode": "376"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 12:27:44 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000;includeSubDomains;preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1966",
+          "x-ratelimit-reset": "1785241709",
+          "x-tlx-request-id": "83dea5c5-117e-4fb4-8e6b-d6d7b220051b",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "set-cookie": "JSESSIONID=BFBC9F6378436FB1C0C40CFE435273B2; Path=/; Secure; HttpOnly; SameSite=None, tlx_locale=no_NO; Max-Age=3600; Expires=Tue, 28 Jul 2026 13:27:44 GMT; Path=/; Secure; SameSite=None",
+          "x-rate-limit-limit": "100",
+          "x-rate-limit-remaining": "96",
+          "x-rate-limit-reset": "5",
+          "vary": "accept-encoding",
+          "server": "tripletex.no"
+        },
+        "hash": "935c4994f0c61583017dd988133c00176427711d",
+        "request": {
+          "params": {
+            "count": "100",
+            "from": "0"
+          }
+        }
+      }
+    }
+  }
+}
