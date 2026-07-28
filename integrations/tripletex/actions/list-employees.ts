@@ -10,8 +10,8 @@ const EmployeeSchema = z
     .object({
         id: z.number(),
         version: z.number().optional(),
-        firstName: z.string(),
-        lastName: z.string(),
+        firstName: z.string().nullish(),
+        lastName: z.string().nullish(),
         displayName: z.string().nullable(),
         employeeNumber: z.string().nullable(),
         email: z.string().nullable(),

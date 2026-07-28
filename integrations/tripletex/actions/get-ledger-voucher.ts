@@ -33,9 +33,9 @@ const PostingSchema = z.object({
     amountGross: z.number().optional(),
     amountGrossCurrency: z.number().optional(),
     currency: ReferenceSchema.nullable().optional(),
-    closeGroup: z.number().nullable().optional(),
+    closeGroup: ReferenceSchema.nullable().optional(),
     invoiceNumber: z.string().optional(),
-    termOfPayment: ReferenceSchema.nullable().optional(),
+    termOfPayment: z.string().nullable().optional(),
     row: z.number().optional(),
     type: z.string().nullable().optional(),
     externalRef: z.string().optional(),
@@ -50,9 +50,9 @@ const PostingSchema = z.object({
     isVatReadonly: z.boolean().optional(),
     isAmountVatClosed: z.boolean().optional(),
     postingRuleId: z.number().optional(),
-    freeAccountingDimension1: z.number().nullable().optional(),
-    freeAccountingDimension2: z.number().nullable().optional(),
-    freeAccountingDimension3: z.number().nullable().optional(),
+    freeAccountingDimension1: ReferenceSchema.nullable().optional(),
+    freeAccountingDimension2: ReferenceSchema.nullable().optional(),
+    freeAccountingDimension3: ReferenceSchema.nullable().optional(),
     asset: ReferenceSchema.nullable().optional()
 });
 
@@ -65,7 +65,7 @@ const VoucherSchema = z.object({
     tempNumber: z.number().optional(),
     year: z.number(),
     description: z.string().nullable().optional(),
-    voucherType: z.string().nullable().optional(),
+    voucherType: ReferenceSchema.nullable().optional(),
     reverseVoucher: ReferenceSchema.nullable().optional(),
     postings: z.array(PostingSchema),
     document: z.unknown().nullable().optional(),

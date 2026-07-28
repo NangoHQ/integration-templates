@@ -20,17 +20,17 @@ const CustomerSchema = z.object({
 const RawCustomerSchema = z.object({
     id: z.number(),
     name: z.string(),
-    email: z.string().optional(),
-    phoneNumber: z.string().optional(),
-    phoneNumberMobile: z.string().optional(),
-    customerNumber: z.number().optional(),
-    organizationNumber: z.string().optional(),
+    email: z.string().nullish(),
+    phoneNumber: z.string().nullish(),
+    phoneNumberMobile: z.string().nullish(),
+    customerNumber: z.number().nullish(),
+    organizationNumber: z.string().nullish(),
     isInactive: z.boolean().optional(),
-    description: z.string().optional(),
-    displayName: z.string().optional(),
-    invoiceEmail: z.string().optional(),
-    language: z.string().optional(),
-    website: z.string().optional()
+    description: z.string().nullish(),
+    displayName: z.string().nullish(),
+    invoiceEmail: z.string().nullish(),
+    language: z.string().nullish(),
+    website: z.string().nullish()
 });
 
 const sync = createSync({

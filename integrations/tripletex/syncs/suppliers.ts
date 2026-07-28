@@ -4,17 +4,17 @@ import { z } from 'zod';
 const RawSupplierSchema = z.object({
     id: z.number(),
     name: z.string(),
-    organizationNumber: z.string().optional(),
-    supplierNumber: z.number().optional(),
-    email: z.string().optional(),
-    invoiceEmail: z.string().optional(),
-    phoneNumber: z.string().optional(),
-    description: z.string().optional(),
+    organizationNumber: z.string().nullish(),
+    supplierNumber: z.number().nullish(),
+    email: z.string().nullish(),
+    invoiceEmail: z.string().nullish(),
+    phoneNumber: z.string().nullish(),
+    description: z.string().nullish(),
     isInactive: z.boolean().optional(),
     isCustomer: z.boolean().optional(),
-    website: z.string().optional(),
-    language: z.string().optional(),
-    displayName: z.string().optional()
+    website: z.string().nullish(),
+    language: z.string().nullish(),
+    displayName: z.string().nullish()
 });
 
 const SupplierSchema = z.object({
@@ -45,8 +45,6 @@ const sync = createSync({
     exec: async (nango) => {
         // Full refresh: no confirmed incremental filter (changedSince was present in swagger but not verified live
         // to return only changed rows vs the full set). Use delete tracking after a complete successful crawl.
-        await nango.trackDeletesStart('Supplier');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
             endpoint: 'v2/supplier',
@@ -61,13 +59,13 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
+        function parsePage(page: unknown): z.infer<typeof SupplierSchema>[] {
             const parsed = z.array(RawSupplierSchema).safeParse(page);
             if (!parsed.success) {
                 throw new Error(`Failed to parse suppliers: ${parsed.error.message}`);
             }
 
-            const suppliers = parsed.data.map((record) => ({
+            return parsed.data.map((record) => ({
                 id: String(record.id),
                 name: record.name,
                 ...(record.organizationNumber != null && { organizationNumber: record.organizationNumber }),
@@ -82,10 +80,27 @@ const sync = createSync({
                 ...(record.language != null && { language: record.language }),
                 ...(record.displayName != null && { displayName: record.displayName })
             }));
+        }
 
+        // Fetch and validate the first page before starting delete tracking, so a failed/malformed
+        // initial response never leaves tracking open without a matching trackDeletesEnd.
+        const paginator = nango.paginate(proxyConfig);
+        const first = await paginator.next();
+        const firstSuppliers = first.done ? [] : parsePage(first.value);
+
+        await nango.trackDeletesStart('Supplier');
+
+        if (firstSuppliers.length > 0) {
+            await nango.batchSave(firstSuppliers, 'Supplier');
+        }
+
+        let result = await paginator.next();
+        while (!result.done) {
+            const suppliers = parsePage(result.value);
             if (suppliers.length > 0) {
                 await nango.batchSave(suppliers, 'Supplier');
             }
+            result = await paginator.next();
         }
 
         await nango.trackDeletesEnd('Supplier');

@@ -63,14 +63,13 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const pageSize = 100;
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-
-        if (input.cursor !== undefined && isNaN(offset)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a valid numeric offset string.'
+                message: 'cursor must be a non-negative integer offset string.'
             });
         }
+        const offset = input.cursor ? Number(input.cursor) : 0;
 
         // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
         const response = await nango.get({
@@ -84,9 +83,8 @@ const action = createAction({
 
         const raw = ProviderListResponseSchema.parse(response.data);
         const values = raw.values ?? [];
-        const fullResultSize = raw.fullResultSize ?? 0;
         const nextOffset = offset + values.length;
-        const hasMore = nextOffset < fullResultSize;
+        const hasMore = raw.fullResultSize != null ? nextOffset < raw.fullResultSize : values.length === pageSize;
 
         const items = values.map((item: unknown) => {
             const activity = ProviderActivitySchema.parse(item);

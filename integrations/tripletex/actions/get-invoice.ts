@@ -2,7 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('Invoice ID. Example: 1945373645')
+    id: z
+        .union([z.string().regex(/^\d+$/, 'id must be a non-negative integer'), z.number().int().nonnegative().safe()])
+        .describe('Invoice ID. Example: 1945373645')
 });
 
 const ProviderCustomerSchema = z

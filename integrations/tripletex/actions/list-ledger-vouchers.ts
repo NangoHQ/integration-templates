@@ -98,6 +98,12 @@ const action = createAction({
         };
 
         if (input.cursor !== undefined && input.cursor !== '') {
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer offset string.'
+                });
+            }
             params['from'] = input.cursor;
         }
 

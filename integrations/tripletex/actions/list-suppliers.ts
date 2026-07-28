@@ -125,13 +125,13 @@ const action = createAction({
             ...(item.url != null ? { url: item.url } : {})
         }));
 
-        const fullResultSize = data.fullResultSize ?? 0;
-        const count = data.count ?? 0;
+        const count = data.count ?? items.length;
         const nextFrom = from + count;
+        const hasMore = data.fullResultSize != null ? nextFrom < data.fullResultSize : items.length === 100;
 
         return {
             items,
-            ...(nextFrom < fullResultSize ? { nextCursor: String(nextFrom) } : {})
+            ...(hasMore ? { nextCursor: String(nextFrom) } : {})
         };
     }
 });

@@ -11,21 +11,21 @@ const CustomerSchema = z
         version: z.number().optional(),
         url: z.string().optional(),
         name: z.string(),
-        displayName: z.string().optional(),
-        email: z.string().optional(),
-        invoiceEmail: z.string().optional(),
-        organizationNumber: z.string().optional(),
-        customerNumber: z.number().optional(),
-        supplierNumber: z.number().optional(),
-        phoneNumber: z.string().optional(),
-        phoneNumberMobile: z.string().optional(),
+        displayName: z.string().nullish(),
+        email: z.string().nullish(),
+        invoiceEmail: z.string().nullish(),
+        organizationNumber: z.string().nullish(),
+        customerNumber: z.number().nullish(),
+        supplierNumber: z.number().nullish(),
+        phoneNumber: z.string().nullish(),
+        phoneNumberMobile: z.string().nullish(),
         isInactive: z.boolean().optional(),
         isCustomer: z.boolean().optional(),
         isSupplier: z.boolean().optional(),
         isPrivateIndividual: z.boolean().optional(),
-        description: z.string().optional(),
-        website: z.string().optional(),
-        language: z.string().optional(),
+        description: z.string().nullish(),
+        website: z.string().nullish(),
+        language: z.string().nullish(),
         currency: z.unknown().optional(),
         physicalAddress: z.unknown().optional(),
         postalAddress: z.unknown().optional(),
@@ -68,20 +68,21 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const from = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(from)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'Invalid cursor value. Must be a numeric offset.'
+                message: 'Invalid cursor value. Must be a non-negative integer offset string.'
             });
         }
+        const pageSize = 1000;
+        const from = input.cursor ? Number(input.cursor) : 0;
 
         // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
         const response = await nango.get({
             endpoint: 'v2/customer',
             params: {
                 from: String(from),
-                count: '1000'
+                count: String(pageSize)
             },
             retries: 3
         });
@@ -99,9 +100,10 @@ const action = createAction({
         const listResponse = ListResponseSchema.parse(raw);
         const items = listResponse.values.map((item: unknown) => CustomerSchema.parse(item));
 
-        const hasMore = typeof listResponse.fullResultSize === 'number' && listResponse.from + listResponse.count < listResponse.fullResultSize;
+        const nextFrom = listResponse.from + listResponse.count;
+        const hasMore = listResponse.fullResultSize != null ? nextFrom < listResponse.fullResultSize : items.length === pageSize;
 
-        const nextCursor = hasMore ? String(listResponse.from + listResponse.count) : undefined;
+        const nextCursor = hasMore ? String(nextFrom) : undefined;
 
         return {
             items,

@@ -3,19 +3,24 @@ import { createAction } from 'nango';
 
 const PostingInputSchema = z.object({
     account: z.object({
-        id: z.number().describe('Ledger account ID. Example: 291297300')
+        id: z.number().int().describe('Ledger account ID. Example: 291297300')
     }),
     amount: z.number().describe('Posting amount in company currency. Use positive for debit, negative for credit (or vice versa to balance).'),
     amountCurrency: z.number().optional().describe('Posting amount in transaction currency.'),
     description: z.string().optional().describe('Line-level description.'),
-    row: z.number().optional().describe('Row index for the posting. Auto-assigned starting at 1 if omitted.')
+    row: z.number().int().nonnegative().optional().describe('Row index for the posting. Auto-assigned starting at 1 if omitted.')
 });
 
-const InputSchema = z.object({
-    date: z.string().describe('Voucher date (ISO 8601). Example: "2024-01-15"'),
-    description: z.string().describe('Voucher description.'),
-    postings: z.array(PostingInputSchema).min(2).describe('Balanced double-entry postings. At least two lines required.')
-});
+const InputSchema = z
+    .object({
+        date: z.string().describe('Voucher date (ISO 8601). Example: "2024-01-15"'),
+        description: z.string().describe('Voucher description.'),
+        postings: z.array(PostingInputSchema).min(2).describe('Balanced double-entry postings. At least two lines required.')
+    })
+    .refine((data) => Math.abs(data.postings.reduce((sum, posting) => sum + posting.amount, 0)) < 1e-6, {
+        message: 'Postings must balance: the sum of amounts (in company currency) must equal 0.',
+        path: ['postings']
+    });
 
 const ProviderAccountSchema = z.object({
     id: z.number(),

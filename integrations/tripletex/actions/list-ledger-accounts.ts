@@ -50,14 +50,21 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const from = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer offset string.'
+            });
+        }
+        const pageSize = 100;
+        const from = input.cursor ? Number(input.cursor) : 0;
 
         // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
         const response = await nango.get({
             endpoint: 'v2/ledger/account',
             params: {
                 from: String(from),
-                count: '100'
+                count: String(pageSize)
             },
             retries: 3
         });
@@ -75,9 +82,8 @@ const action = createAction({
         const values = listResponse.values ?? [];
         const currentFrom = listResponse.from ?? from;
         const currentCount = listResponse.count ?? values.length;
-        const fullResultSize = listResponse.fullResultSize ?? currentFrom + currentCount;
         const nextFrom = currentFrom + currentCount;
-        const hasMore = nextFrom < fullResultSize;
+        const hasMore = listResponse.fullResultSize != null ? nextFrom < listResponse.fullResultSize : values.length === pageSize;
 
         return {
             items: values.map((item: unknown) => AccountSchema.parse(item)),

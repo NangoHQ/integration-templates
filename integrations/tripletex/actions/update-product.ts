@@ -24,22 +24,22 @@ const InputSchema = z.object({
 const ProviderProductSchema = z.object({
     id: z.number(),
     version: z.number().optional(),
-    name: z.string().optional(),
-    number: z.string().optional(),
-    description: z.string().optional(),
-    orderLineDescription: z.string().optional(),
-    ean: z.string().optional(),
-    costExcludingVatCurrency: z.number().optional(),
-    expenses: z.number().optional(),
-    priceExcludingVatCurrency: z.number().optional(),
-    priceIncludingVatCurrency: z.number().optional(),
-    isInactive: z.boolean().optional(),
-    isStockItem: z.boolean().optional(),
-    weight: z.number().optional(),
-    weightUnit: z.string().optional(),
-    volume: z.number().optional(),
-    volumeUnit: z.string().optional(),
-    hsnCode: z.string().optional()
+    name: z.string().nullish(),
+    number: z.string().nullish(),
+    description: z.string().nullish(),
+    orderLineDescription: z.string().nullish(),
+    ean: z.string().nullish(),
+    costExcludingVatCurrency: z.number().nullish(),
+    expenses: z.number().nullish(),
+    priceExcludingVatCurrency: z.number().nullish(),
+    priceIncludingVatCurrency: z.number().nullish(),
+    isInactive: z.boolean().nullish(),
+    isStockItem: z.boolean().nullish(),
+    weight: z.number().nullish(),
+    weightUnit: z.string().nullish(),
+    volume: z.number().nullish(),
+    volumeUnit: z.string().nullish(),
+    hsnCode: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({

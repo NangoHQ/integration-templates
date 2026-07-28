@@ -84,13 +84,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const from = input.cursor ? Number(input.cursor) : 0;
-        if (Number.isNaN(from)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a valid number string'
+                message: 'cursor must be a non-negative integer offset string.'
             });
         }
+        const from = input.cursor ? Number(input.cursor) : 0;
 
         // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
         const response = await nango.get({

@@ -30,7 +30,7 @@ const DepartmentSchema = z.object({
 const AccountSchema = z.object({
     id: z.number(),
     name: z.string().optional(),
-    number: z.string().optional()
+    number: z.number().optional()
 });
 
 const SupplierSchema = z.object({

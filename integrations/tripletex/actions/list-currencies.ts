@@ -35,20 +35,21 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const from = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (isNaN(from)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'cursor must be a valid integer offset'
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer offset string.'
             });
         }
+        const pageSize = 100;
+        const from = input.cursor ? Number(input.cursor) : 0;
 
         const response = await nango.get({
             // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
             endpoint: 'v2/currency',
             params: {
                 from: String(from),
-                count: '100'
+                count: String(pageSize)
             },
             retries: 3
         });
@@ -56,11 +57,11 @@ const action = createAction({
         const listResponse = ListResponseSchema.parse(response.data);
         const items = listResponse.values.map((item) => CurrencySchema.parse(item));
 
-        const total = listResponse.fullResultSize ?? 0;
-        const currentFrom = listResponse.from ?? 0;
+        const currentFrom = listResponse.from ?? from;
         const currentCount = listResponse.count ?? items.length;
         const nextFrom = currentFrom + currentCount;
-        const nextCursor = nextFrom < total ? String(nextFrom) : undefined;
+        const hasMore = listResponse.fullResultSize != null ? nextFrom < listResponse.fullResultSize : items.length === pageSize;
+        const nextCursor = hasMore ? String(nextFrom) : undefined;
 
         return {
             items,

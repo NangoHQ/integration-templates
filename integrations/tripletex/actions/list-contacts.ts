@@ -31,13 +31,13 @@ const ProviderContactSchema = z.object({
     id: z.number(),
     version: z.number().optional(),
     url: z.string().optional(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional(),
-    displayName: z.string().optional(),
-    email: z.string().optional(),
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish(),
+    displayName: z.string().nullish(),
+    email: z.string().nullish(),
     phoneNumberMobileCountry: ProviderCountrySchema,
-    phoneNumberMobile: z.string().optional(),
-    phoneNumberWork: z.string().optional(),
+    phoneNumberMobile: z.string().nullish(),
+    phoneNumberWork: z.string().nullish(),
     customer: ProviderCustomerSchema,
     department: ProviderDepartmentSchema,
     isInactive: z.boolean().optional()
@@ -72,7 +72,13 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
-        const from = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer offset string.'
+            });
+        }
+        const from = input.cursor ? Number(input.cursor) : 0;
         const count = 1000;
 
         const config: ProxyConfiguration = {

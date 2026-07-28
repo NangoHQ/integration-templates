@@ -47,24 +47,24 @@ const ProviderCustomerSchema = z.object({
     version: z.number().optional(),
     url: z.string().optional(),
     name: z.string(),
-    organizationNumber: z.string().optional(),
-    customerNumber: z.number().optional(),
-    supplierNumber: z.number().optional(),
+    organizationNumber: z.string().nullish(),
+    customerNumber: z.number().nullish(),
+    supplierNumber: z.number().nullish(),
     isSupplier: z.boolean().optional(),
     isCustomer: z.boolean().optional(),
     isInactive: z.boolean().optional(),
-    email: z.string().optional(),
-    invoiceEmail: z.string().optional(),
-    overdueNoticeEmail: z.string().optional(),
-    phoneNumber: z.string().optional(),
-    phoneNumberMobile: z.string().optional(),
-    description: z.string().optional(),
-    language: z.string().optional(),
-    displayName: z.string().optional(),
+    email: z.string().nullish(),
+    invoiceEmail: z.string().nullish(),
+    overdueNoticeEmail: z.string().nullish(),
+    phoneNumber: z.string().nullish(),
+    phoneNumberMobile: z.string().nullish(),
+    description: z.string().nullish(),
+    language: z.string().nullish(),
+    displayName: z.string().nullish(),
     isPrivateIndividual: z.boolean().optional(),
     singleCustomerInvoice: z.boolean().optional(),
-    invoiceSendMethod: z.string().optional(),
-    emailAttachmentType: z.string().optional(),
+    invoiceSendMethod: z.string().nullish(),
+    emailAttachmentType: z.string().nullish(),
     postalAddress: AddressSchema.nullable().optional(),
     physicalAddress: AddressSchema.nullable().optional(),
     deliveryAddress: AddressSchema.nullable().optional(),
@@ -130,24 +130,24 @@ function stripNullsFromCustomer(raw: z.infer<typeof ProviderCustomerSchema>): z.
 
     if (raw.version !== undefined) result.version = raw.version;
     if (raw.url !== undefined) result.url = raw.url;
-    if (raw.organizationNumber !== undefined) result.organizationNumber = raw.organizationNumber;
-    if (raw.customerNumber !== undefined) result.customerNumber = raw.customerNumber;
-    if (raw.supplierNumber !== undefined) result.supplierNumber = raw.supplierNumber;
+    if (raw.organizationNumber != null) result.organizationNumber = raw.organizationNumber;
+    if (raw.customerNumber != null) result.customerNumber = raw.customerNumber;
+    if (raw.supplierNumber != null) result.supplierNumber = raw.supplierNumber;
     if (raw.isSupplier !== undefined) result.isSupplier = raw.isSupplier;
     if (raw.isCustomer !== undefined) result.isCustomer = raw.isCustomer;
     if (raw.isInactive !== undefined) result.isInactive = raw.isInactive;
-    if (raw.email !== undefined) result.email = raw.email;
-    if (raw.invoiceEmail !== undefined) result.invoiceEmail = raw.invoiceEmail;
-    if (raw.overdueNoticeEmail !== undefined) result.overdueNoticeEmail = raw.overdueNoticeEmail;
-    if (raw.phoneNumber !== undefined) result.phoneNumber = raw.phoneNumber;
-    if (raw.phoneNumberMobile !== undefined) result.phoneNumberMobile = raw.phoneNumberMobile;
-    if (raw.description !== undefined) result.description = raw.description;
-    if (raw.language !== undefined) result.language = raw.language;
-    if (raw.displayName !== undefined) result.displayName = raw.displayName;
+    if (raw.email != null) result.email = raw.email;
+    if (raw.invoiceEmail != null) result.invoiceEmail = raw.invoiceEmail;
+    if (raw.overdueNoticeEmail != null) result.overdueNoticeEmail = raw.overdueNoticeEmail;
+    if (raw.phoneNumber != null) result.phoneNumber = raw.phoneNumber;
+    if (raw.phoneNumberMobile != null) result.phoneNumberMobile = raw.phoneNumberMobile;
+    if (raw.description != null) result.description = raw.description;
+    if (raw.language != null) result.language = raw.language;
+    if (raw.displayName != null) result.displayName = raw.displayName;
     if (raw.isPrivateIndividual !== undefined) result.isPrivateIndividual = raw.isPrivateIndividual;
     if (raw.singleCustomerInvoice !== undefined) result.singleCustomerInvoice = raw.singleCustomerInvoice;
-    if (raw.invoiceSendMethod !== undefined) result.invoiceSendMethod = raw.invoiceSendMethod;
-    if (raw.emailAttachmentType !== undefined) result.emailAttachmentType = raw.emailAttachmentType;
+    if (raw.invoiceSendMethod != null) result.invoiceSendMethod = raw.invoiceSendMethod;
+    if (raw.emailAttachmentType != null) result.emailAttachmentType = raw.emailAttachmentType;
     if (raw.postalAddress != null) result.postalAddress = raw.postalAddress;
     if (raw.physicalAddress != null) result.physicalAddress = raw.physicalAddress;
     if (raw.deliveryAddress != null) result.deliveryAddress = raw.deliveryAddress;

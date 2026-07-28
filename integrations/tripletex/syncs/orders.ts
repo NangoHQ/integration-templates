@@ -92,6 +92,7 @@ const sync = createSync({
         const isFullWindow = checkpoint == null || checkpoint.runs_since_full >= FULL_WINDOW_INTERVAL;
 
         const today = formatDate(new Date());
+        const FAR_FUTURE_DATE = '2099-12-31';
         let orderDateFrom: string;
         let nextRunsSinceFull: number;
 
@@ -103,11 +104,10 @@ const sync = createSync({
             nextRunsSinceFull = checkpoint.runs_since_full + 1;
         }
 
-        const orderDateTo = today;
-
-        if (isFullWindow) {
-            await nango.trackDeletesStart('Order');
-        }
+        // Use a far-future upper bound (rather than today) so orders dated ahead of today (e.g. planned/future
+        // orders) are still captured. The checkpoint itself still advances by `today` below, so the next
+        // incremental run's lower bound keeps moving forward.
+        const orderDateTo = FAR_FUTURE_DATE;
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
@@ -127,12 +127,8 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            if (!Array.isArray(page)) {
-                throw new Error('Expected paginate page to be an array');
-            }
-
-            const orders = [];
+        function parsePage(page: unknown[]): z.infer<typeof OrderSchema>[] {
+            const orders: z.infer<typeof OrderSchema>[] = [];
             for (const raw of page) {
                 const parsed = RawOrderSchema.safeParse(raw);
                 if (!parsed.success) {
@@ -157,10 +153,40 @@ const sync = createSync({
                     })
                 });
             }
+            return orders;
+        }
 
+        // Fetch and validate the first page before starting delete tracking, so a failed/malformed
+        // initial response never leaves tracking open without a matching trackDeletesEnd.
+        const paginator = nango.paginate(proxyConfig);
+        const first = await paginator.next();
+
+        let firstOrders: z.infer<typeof OrderSchema>[] = [];
+        if (!first.done) {
+            if (!Array.isArray(first.value)) {
+                throw new Error('Expected paginate page to be an array');
+            }
+            firstOrders = parsePage(first.value);
+        }
+
+        if (isFullWindow) {
+            await nango.trackDeletesStart('Order');
+        }
+
+        if (firstOrders.length > 0) {
+            await nango.batchSave(firstOrders, 'Order');
+        }
+
+        let result = await paginator.next();
+        while (!result.done) {
+            if (!Array.isArray(result.value)) {
+                throw new Error('Expected paginate page to be an array');
+            }
+            const orders = parsePage(result.value);
             if (orders.length > 0) {
                 await nango.batchSave(orders, 'Order');
             }
+            result = await paginator.next();
         }
 
         if (isFullWindow) {
@@ -168,7 +194,7 @@ const sync = createSync({
         }
 
         await nango.saveCheckpoint({
-            order_date_from: orderDateTo,
+            order_date_from: today,
             runs_since_full: nextRunsSinceFull
         });
     }

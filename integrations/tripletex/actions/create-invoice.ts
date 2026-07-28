@@ -5,17 +5,25 @@ const OrderReferenceSchema = z.object({
     id: z.number().describe('Order ID. Example: 210311950')
 });
 
-const InputSchema = z.object({
-    orders: z.array(OrderReferenceSchema).min(1).describe('Non-empty array of existing order references. Invoices are order-based.'),
-    invoiceDate: z.string().describe('Invoice date. Example: 2024-01-15'),
-    invoiceDueDate: z.string().describe('Invoice due date. Example: 2024-02-15'),
-    invoiceNumber: z.number().optional().describe('Invoice number. Use 0 to auto-generate.'),
-    kid: z.string().max(25).optional().describe('KID (customer identification number).'),
-    comment: z.string().max(65535).optional().describe('Comment text for the specific invoice.'),
-    sendToCustomer: z.boolean().optional().describe('Whether to send the invoice to the customer. Defaults to true.'),
-    paymentTypeId: z.number().optional().describe('Payment type ID for prepayment.'),
-    paidAmount: z.number().optional().describe('Paid amount for prepayment, in invoice currency.')
-});
+const InputSchema = z
+    .object({
+        orders: z
+            .array(OrderReferenceSchema)
+            .length(1)
+            .describe('Exactly one existing order reference. Tripletex only supports a single order per invoice.'),
+        invoiceDate: z.string().describe('Invoice date. Example: 2024-01-15'),
+        invoiceDueDate: z.string().describe('Invoice due date. Example: 2024-02-15'),
+        invoiceNumber: z.number().int().nonnegative().optional().describe('Invoice number. Use 0 to auto-generate.'),
+        kid: z.string().max(25).optional().describe('KID (customer identification number).'),
+        comment: z.string().max(65535).optional().describe('Comment text for the specific invoice.'),
+        sendToCustomer: z.boolean().optional().describe('Whether to send the invoice to the customer. Defaults to true.'),
+        paymentTypeId: z.number().int().nonnegative().optional().describe('Payment type ID for prepayment. Must be supplied together with paidAmount.'),
+        paidAmount: z.number().optional().describe('Paid amount for prepayment, in invoice currency. Must be supplied together with paymentTypeId.')
+    })
+    .refine((data) => (data.paymentTypeId === undefined) === (data.paidAmount === undefined), {
+        message: 'paymentTypeId and paidAmount must be provided together to register a prepayment.',
+        path: ['paymentTypeId']
+    });
 
 const ProviderInvoiceSchema = z.object({
     id: z.number(),

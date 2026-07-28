@@ -3,12 +3,12 @@ import { z } from 'zod';
 
 const RawContactSchema = z.object({
     id: z.number(),
-    firstName: z.string().optional(),
-    lastName: z.string().optional(),
-    displayName: z.string().optional(),
-    email: z.string().optional(),
-    phoneNumberMobile: z.string().optional(),
-    phoneNumberWork: z.string().optional(),
+    firstName: z.string().nullish(),
+    lastName: z.string().nullish(),
+    displayName: z.string().nullish(),
+    email: z.string().nullish(),
+    phoneNumberMobile: z.string().nullish(),
+    phoneNumberWork: z.string().nullish(),
     isInactive: z.boolean().optional()
 });
 
@@ -33,8 +33,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Contact');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
             endpoint: 'v2/contact',
@@ -49,26 +47,41 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const contacts = page.map((record) => {
+        function parsePage(page: unknown[]): z.infer<typeof ContactSchema>[] {
+            return page.map((record) => {
                 const parsed = RawContactSchema.parse(record);
                 return {
                     id: String(parsed.id),
-                    ...(parsed.firstName !== undefined && { firstName: parsed.firstName }),
-                    ...(parsed.lastName !== undefined && { lastName: parsed.lastName }),
-                    ...(parsed.displayName !== undefined && { displayName: parsed.displayName }),
-                    ...(parsed.email !== undefined && { email: parsed.email }),
-                    ...(parsed.phoneNumberMobile !== undefined && { phoneNumberMobile: parsed.phoneNumberMobile }),
-                    ...(parsed.phoneNumberWork !== undefined && { phoneNumberWork: parsed.phoneNumberWork }),
-                    ...(parsed.isInactive !== undefined && { isInactive: parsed.isInactive })
+                    ...(parsed.firstName != null && { firstName: parsed.firstName }),
+                    ...(parsed.lastName != null && { lastName: parsed.lastName }),
+                    ...(parsed.displayName != null && { displayName: parsed.displayName }),
+                    ...(parsed.email != null && { email: parsed.email }),
+                    ...(parsed.phoneNumberMobile != null && { phoneNumberMobile: parsed.phoneNumberMobile }),
+                    ...(parsed.phoneNumberWork != null && { phoneNumberWork: parsed.phoneNumberWork }),
+                    ...(parsed.isInactive != null && { isInactive: parsed.isInactive })
                 };
             });
+        }
 
-            if (contacts.length === 0) {
-                continue;
+        // Fetch and validate the first page before starting delete tracking, so a failed/malformed
+        // initial response never leaves tracking open without a matching trackDeletesEnd.
+        const paginator = nango.paginate(proxyConfig);
+        const first = await paginator.next();
+        const firstContacts = first.done ? [] : parsePage(first.value);
+
+        await nango.trackDeletesStart('Contact');
+
+        if (firstContacts.length > 0) {
+            await nango.batchSave(firstContacts, 'Contact');
+        }
+
+        let result = await paginator.next();
+        while (!result.done) {
+            const contacts = parsePage(result.value);
+            if (contacts.length > 0) {
+                await nango.batchSave(contacts, 'Contact');
             }
-
-            await nango.batchSave(contacts, 'Contact');
+            result = await paginator.next();
         }
 
         await nango.trackDeletesEnd('Contact');

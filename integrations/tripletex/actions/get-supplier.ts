@@ -14,7 +14,7 @@ const ProviderSupplierSchema = z
         supplierNumber: z.number().optional().nullable(),
         email: z.string().optional().nullable(),
         phoneNumber: z.string().optional().nullable(),
-        mobilePhoneNumber: z.string().optional().nullable(),
+        phoneNumberMobile: z.string().optional().nullable(),
         faxNumber: z.string().optional().nullable(),
         address: z
             .object({
@@ -67,7 +67,7 @@ const OutputSchema = z.object({
     supplierNumber: z.number().optional(),
     email: z.string().optional(),
     phoneNumber: z.string().optional(),
-    mobilePhoneNumber: z.string().optional(),
+    phoneNumberMobile: z.string().optional(),
     faxNumber: z.string().optional(),
     address: z
         .object({
@@ -141,8 +141,8 @@ const action = createAction({
             ...(supplier.phoneNumber != null && {
                 phoneNumber: supplier.phoneNumber
             }),
-            ...(supplier.mobilePhoneNumber != null && {
-                mobilePhoneNumber: supplier.mobilePhoneNumber
+            ...(supplier.phoneNumberMobile != null && {
+                phoneNumberMobile: supplier.phoneNumberMobile
             }),
             ...(supplier.faxNumber != null && { faxNumber: supplier.faxNumber }),
             ...(supplier.address != null && {

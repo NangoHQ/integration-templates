@@ -45,7 +45,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const from = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer offset string.'
+            });
+        }
+        const from = input.cursor ? Number(input.cursor) : 0;
         const count = 100;
 
         // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
@@ -70,7 +76,7 @@ const action = createAction({
             })) ?? [];
 
         const nextFrom = from + (listResponse.count ?? count);
-        const hasMore = nextFrom < (listResponse.fullResultSize ?? 0);
+        const hasMore = listResponse.fullResultSize != null ? nextFrom < listResponse.fullResultSize : items.length === count;
 
         return {
             items,

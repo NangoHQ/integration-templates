@@ -105,11 +105,10 @@ const action = createAction({
             return ProjectSchema.parse(value);
         });
 
-        const currentFrom = listResponse.from ?? 0;
-        const currentCount = listResponse.count ?? 0;
-        const fullResultSize = listResponse.fullResultSize ?? 0;
+        const currentFrom = listResponse.from ?? from;
+        const currentCount = listResponse.count ?? items.length;
         const nextFrom = currentFrom + currentCount;
-        const hasMore = nextFrom < fullResultSize;
+        const hasMore = listResponse.fullResultSize != null ? nextFrom < listResponse.fullResultSize : items.length === 100;
 
         return {
             items,
