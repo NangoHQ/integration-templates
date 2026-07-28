@@ -1,0 +1,78 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    driveId: z.string().describe('Drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"'),
+    itemId: z.string().describe('Workbook file item ID. Example: "01RFYLAYDQCQAOBGW2GVAYDEQMDDBL6JYU"'),
+    worksheetIdOrName: z.string().describe('Worksheet ID or name. Example: "Sheet1"')
+});
+
+const ProviderRangeSchema = z.object({
+    address: z.string().optional(),
+    cellCount: z.number().optional(),
+    columnCount: z.number().optional(),
+    columnHidden: z.boolean().optional(),
+    rowCount: z.number().optional(),
+    rowHidden: z.boolean().optional(),
+    values: z.array(z.array(z.unknown())).optional(),
+    formulas: z.array(z.array(z.unknown())).optional(),
+    text: z.array(z.array(z.unknown())).optional(),
+    numberFormat: z.array(z.array(z.unknown())).optional()
+});
+
+const OutputSchema = z.object({
+    address: z.string().optional(),
+    cellCount: z.number().optional(),
+    columnCount: z.number().optional(),
+    columnHidden: z.boolean().optional(),
+    rowCount: z.number().optional(),
+    rowHidden: z.boolean().optional(),
+    values: z.array(z.array(z.unknown())).optional(),
+    formulas: z.array(z.array(z.unknown())).optional(),
+    text: z.array(z.array(z.unknown())).optional(),
+    numberFormat: z.array(z.array(z.unknown())).optional()
+});
+
+const action = createAction({
+    description: 'Read all non-empty cells on a worksheet.',
+    version: '1.0.0',
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['Files.Read.All', 'Files.ReadWrite.All'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://learn.microsoft.com/en-us/graph/api/worksheet-usedrange
+        const response = await nango.get({
+            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodeURIComponent(input.worksheetIdOrName)}')/usedRange`,
+            retries: 3
+        });
+
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Used range not found for the specified worksheet.',
+                driveId: input.driveId,
+                itemId: input.itemId,
+                worksheetIdOrName: input.worksheetIdOrName
+            });
+        }
+
+        const providerRange = ProviderRangeSchema.parse(response.data);
+
+        return {
+            ...(providerRange.address !== undefined && { address: providerRange.address }),
+            ...(providerRange.cellCount !== undefined && { cellCount: providerRange.cellCount }),
+            ...(providerRange.columnCount !== undefined && { columnCount: providerRange.columnCount }),
+            ...(providerRange.columnHidden !== undefined && { columnHidden: providerRange.columnHidden }),
+            ...(providerRange.rowCount !== undefined && { rowCount: providerRange.rowCount }),
+            ...(providerRange.rowHidden !== undefined && { rowHidden: providerRange.rowHidden }),
+            ...(providerRange.values !== undefined && { values: providerRange.values }),
+            ...(providerRange.formulas !== undefined && { formulas: providerRange.formulas }),
+            ...(providerRange.text !== undefined && { text: providerRange.text }),
+            ...(providerRange.numberFormat !== undefined && { numberFormat: providerRange.numberFormat })
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
