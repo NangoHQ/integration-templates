@@ -3,31 +3,44 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     driveId: z.string().describe('Drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"'),
-    query: z.string().optional().describe('Search query to filter documents by name. Omit to list all documents.'),
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    query: z.string().optional().describe('Search query to filter documents by name. Omit to list documents in the root folder only (not recursive).'),
+    cursor: z.string().url().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
-const FileSchema = z
+const ProviderFileSchema = z
     .object({
-        mimeType: z.string().optional(),
+        mimeType: z.string().nullish(),
         hashes: z
             .object({
-                quickXorHash: z.string().optional()
+                quickXorHash: z.string().nullish()
             })
-            .optional()
-            .nullable()
+            .nullish()
     })
-    .optional()
-    .nullable();
+    .nullish();
 
-const ParentReferenceSchema = z
+const ProviderParentReferenceSchema = z
     .object({
-        driveId: z.string().optional(),
-        id: z.string().optional(),
-        path: z.string().optional()
+        driveId: z.string().nullish(),
+        id: z.string().nullish(),
+        path: z.string().nullish()
     })
-    .optional()
-    .nullable();
+    .nullish();
+
+const ProviderDriveItemSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    webUrl: z.string().nullish(),
+    size: z.number().nullish(),
+    createdDateTime: z.string().nullish(),
+    lastModifiedDateTime: z.string().nullish(),
+    file: ProviderFileSchema,
+    parentReference: ProviderParentReferenceSchema
+});
+
+const GraphResponseSchema = z.object({
+    value: z.array(z.unknown()),
+    '@odata.nextLink': z.string().optional()
+});
 
 const DriveItemSchema = z.object({
     id: z.string(),
@@ -36,19 +49,31 @@ const DriveItemSchema = z.object({
     size: z.number().optional(),
     createdDateTime: z.string().optional(),
     lastModifiedDateTime: z.string().optional(),
-    file: FileSchema,
-    parentReference: ParentReferenceSchema
-});
-
-const GraphResponseSchema = z.object({
-    value: z.array(z.unknown()).optional().default([]),
-    '@odata.nextLink': z.string().optional()
+    file: z
+        .object({
+            mimeType: z.string().optional(),
+            hashes: z
+                .object({
+                    quickXorHash: z.string().optional()
+                })
+                .optional()
+        })
+        .optional(),
+    parentReference: z
+        .object({
+            driveId: z.string().optional(),
+            id: z.string().optional(),
+            path: z.string().optional()
+        })
+        .optional()
 });
 
 const OutputSchema = z.object({
     items: z.array(DriveItemSchema),
     nextCursor: z.string().optional()
 });
+
+const WORD_MIME_TYPE = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 
 const action = createAction({
     description: 'List/search .docx files within a drive',
@@ -59,21 +84,27 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedDriveId = encodeURIComponent(input.driveId);
+        const searchEndpointPrefix = `/v1.0/drives/${encodedDriveId}/root/search(`;
+        const childrenEndpoint = `/v1.0/drives/${encodedDriveId}/items/root/children`;
 
         let endpoint: string;
         if (input.cursor) {
-            if (input.cursor.startsWith('https://')) {
-                const cursorUrl = new URL(input.cursor);
-                endpoint = cursorUrl.pathname + cursorUrl.search;
-            } else {
-                endpoint = input.cursor;
+            const cursorUrl = new URL(input.cursor);
+            if (cursorUrl.pathname !== childrenEndpoint && !cursorUrl.pathname.startsWith(searchEndpointPrefix)) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a nextLink returned by this same action for this driveId'
+                });
             }
+            endpoint = cursorUrl.pathname + cursorUrl.search;
         } else if (input.query) {
             // https://learn.microsoft.com/en-us/graph/api/driveitem-search
-            endpoint = `/v1.0/drives/${encodedDriveId}/root/search(q='${encodeURIComponent(input.query)}')`;
+            // Single quotes inside the OData literal must be doubled to escape them, per Graph's search syntax.
+            const escapedQuery = input.query.replace(/'/g, "''");
+            endpoint = `${searchEndpointPrefix}q='${encodeURIComponent(escapedQuery)}')`;
         } else {
             // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children
-            endpoint = `/v1.0/drives/${encodedDriveId}/items/root/children`;
+            endpoint = childrenEndpoint;
         }
 
         // https://learn.microsoft.com/en-us/graph/api/resources/driveitem
@@ -88,10 +119,33 @@ const action = createAction({
 
         const items: z.infer<typeof DriveItemSchema>[] = [];
         for (const rawItem of graphResponse.value) {
-            const parsed = DriveItemSchema.safeParse(rawItem);
-            if (parsed.success && parsed.data.file?.mimeType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-                items.push(parsed.data);
+            const parsed = ProviderDriveItemSchema.safeParse(rawItem);
+            if (!parsed.success || parsed.data.file?.mimeType !== WORD_MIME_TYPE) {
+                continue;
             }
+
+            const item = parsed.data;
+            items.push({
+                id: item.id,
+                name: item.name,
+                ...(item.webUrl != null && { webUrl: item.webUrl }),
+                ...(item.size != null && { size: item.size }),
+                ...(item.createdDateTime != null && { createdDateTime: item.createdDateTime }),
+                ...(item.lastModifiedDateTime != null && { lastModifiedDateTime: item.lastModifiedDateTime }),
+                ...(item.file?.mimeType != null && {
+                    file: {
+                        mimeType: item.file.mimeType,
+                        ...(item.file.hashes?.quickXorHash != null && { hashes: { quickXorHash: item.file.hashes.quickXorHash } })
+                    }
+                }),
+                ...(item.parentReference != null && {
+                    parentReference: {
+                        ...(item.parentReference.driveId != null && { driveId: item.parentReference.driveId }),
+                        ...(item.parentReference.id != null && { id: item.parentReference.id }),
+                        ...(item.parentReference.path != null && { path: item.parentReference.path })
+                    }
+                })
+            });
         }
 
         return {

@@ -5,7 +5,7 @@ const InputSchema = z.object({
     filter: z.string().optional().describe('OData $filter expression. Example: "startswith(displayName, \'A\')"'),
     search: z.string().optional().describe('OData $search expression. Example: "api@nango.dev"'),
     top: z.number().int().min(1).max(999).optional().describe('Maximum number of users to return per page. Example: 10'),
-    cursor: z.string().optional().describe('Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.')
+    cursor: z.string().url().optional().describe('Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.')
 });
 
 const ProviderUserSchema = z.object({
@@ -40,12 +40,17 @@ const action = createAction({
     scopes: ['User.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let endpoint = '/v1.0/users';
+        const endpoint = '/v1.0/users';
         const params: Record<string, string | number> = {};
 
         if (input.cursor) {
             const cursorUrl = new URL(input.cursor);
-            endpoint = cursorUrl.pathname;
+            if (cursorUrl.pathname !== endpoint) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a nextLink returned by this same action'
+                });
+            }
             cursorUrl.searchParams.forEach((value, key) => {
                 params[key] = value;
             });
@@ -65,6 +70,8 @@ const action = createAction({
             // https://learn.microsoft.com/en-us/graph/api/user-list
             endpoint,
             params,
+            // $search requires this header on every request, including paginated continuations.
+            ...('$search' in params && { headers: { ConsistencyLevel: 'eventual' } }),
             retries: 3
         });
 

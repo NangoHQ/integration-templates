@@ -7,19 +7,19 @@ const InputSchema = z.object({
 
 const ProviderDriveSchema = z.object({
     id: z.string(),
-    driveType: z.string().optional(),
-    name: z.string().optional(),
-    webUrl: z.string().optional(),
+    driveType: z.string().nullish(),
+    name: z.string().nullish(),
+    webUrl: z.string().nullish(),
     owner: z
         .object({
             user: z
                 .object({
-                    id: z.string().optional(),
-                    displayName: z.string().optional()
+                    id: z.string().nullish(),
+                    displayName: z.string().nullish()
                 })
-                .optional()
+                .nullish()
         })
-        .optional()
+        .nullish()
 });
 
 const OutputSchema = z.object({
@@ -44,7 +44,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['User.Read.All'],
+    scopes: ['Files.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/en-us/graph/api/drive-get
@@ -62,13 +62,21 @@ const action = createAction({
         }
 
         const providerDrive = ProviderDriveSchema.parse(response.data);
+        const ownerUser = providerDrive.owner?.user;
 
         return {
             id: providerDrive.id,
-            ...(providerDrive.driveType !== undefined && { driveType: providerDrive.driveType }),
-            ...(providerDrive.name !== undefined && { name: providerDrive.name }),
-            ...(providerDrive.webUrl !== undefined && { webUrl: providerDrive.webUrl }),
-            ...(providerDrive.owner !== undefined && { owner: providerDrive.owner })
+            ...(providerDrive.driveType != null && { driveType: providerDrive.driveType }),
+            ...(providerDrive.name != null && { name: providerDrive.name }),
+            ...(providerDrive.webUrl != null && { webUrl: providerDrive.webUrl }),
+            ...(ownerUser != null && {
+                owner: {
+                    user: {
+                        ...(ownerUser.id != null && { id: ownerUser.id }),
+                        ...(ownerUser.displayName != null && { displayName: ownerUser.displayName })
+                    }
+                }
+            })
         };
     }
 });

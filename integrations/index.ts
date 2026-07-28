@@ -3062,6 +3062,27 @@ import './microsoft-teams/actions/remove-team-member.js';
 import './microsoft-teams/actions/reply-to-channel-message.js';
 import './microsoft-teams/actions/update-channel.js';
 
+// -- Integration: microsoft-word-oauth2-cc
+import './microsoft-word-oauth2-cc/syncs/word-documents.js';
+import './microsoft-word-oauth2-cc/actions/copy-word-document.js';
+import './microsoft-word-oauth2-cc/actions/create-folder.js';
+import './microsoft-word-oauth2-cc/actions/create-sharing-link.js';
+import './microsoft-word-oauth2-cc/actions/create-word-document.js';
+import './microsoft-word-oauth2-cc/actions/delete-word-document.js';
+import './microsoft-word-oauth2-cc/actions/get-site-drive.js';
+import './microsoft-word-oauth2-cc/actions/get-user-drive.js';
+import './microsoft-word-oauth2-cc/actions/get-word-document-as-pdf.js';
+import './microsoft-word-oauth2-cc/actions/get-word-document-content.js';
+import './microsoft-word-oauth2-cc/actions/get-word-document.js';
+import './microsoft-word-oauth2-cc/actions/list-sites.js';
+import './microsoft-word-oauth2-cc/actions/list-users.js';
+import './microsoft-word-oauth2-cc/actions/list-word-document-permissions.js';
+import './microsoft-word-oauth2-cc/actions/list-word-document-versions.js';
+import './microsoft-word-oauth2-cc/actions/list-word-documents.js';
+import './microsoft-word-oauth2-cc/actions/move-word-document.js';
+import './microsoft-word-oauth2-cc/actions/update-word-document-content.js';
+import './microsoft-word-oauth2-cc/actions/update-word-document-metadata.js';
+
 // -- Integration: millionverifier
 import './millionverifier/syncs/bulk-files.js';
 import './millionverifier/actions/delete-bulk-file.js';

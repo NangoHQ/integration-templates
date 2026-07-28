@@ -8,19 +8,19 @@ const InputSchema = z.object({
 });
 
 const ProviderParentReferenceSchema = z.object({
-    id: z.string().optional(),
-    driveId: z.string().optional(),
-    path: z.string().optional()
+    id: z.string().nullish(),
+    driveId: z.string().nullish(),
+    path: z.string().nullish()
 });
 
 const ProviderDriveItemSchema = z.object({
     id: z.string(),
-    name: z.string().optional(),
-    webUrl: z.string().optional(),
-    size: z.number().optional(),
-    createdDateTime: z.string().optional(),
-    lastModifiedDateTime: z.string().optional(),
-    parentReference: ProviderParentReferenceSchema.optional()
+    name: z.string().nullish(),
+    webUrl: z.string().nullish(),
+    size: z.number().nullish(),
+    createdDateTime: z.string().nullish(),
+    lastModifiedDateTime: z.string().nullish(),
+    parentReference: ProviderParentReferenceSchema.nullish()
 });
 
 const OutputSchema = z.object({
@@ -53,15 +53,22 @@ const action = createAction({
         });
 
         const providerItem = ProviderDriveItemSchema.parse(response.data);
+        const parentReference = providerItem.parentReference;
 
         return {
             id: providerItem.id,
-            ...(providerItem.name !== undefined && { name: providerItem.name }),
-            ...(providerItem.webUrl !== undefined && { webUrl: providerItem.webUrl }),
-            ...(providerItem.size !== undefined && { size: providerItem.size }),
-            ...(providerItem.createdDateTime !== undefined && { createdDateTime: providerItem.createdDateTime }),
-            ...(providerItem.lastModifiedDateTime !== undefined && { lastModifiedDateTime: providerItem.lastModifiedDateTime }),
-            ...(providerItem.parentReference !== undefined && { parentReference: providerItem.parentReference })
+            ...(providerItem.name != null && { name: providerItem.name }),
+            ...(providerItem.webUrl != null && { webUrl: providerItem.webUrl }),
+            ...(providerItem.size != null && { size: providerItem.size }),
+            ...(providerItem.createdDateTime != null && { createdDateTime: providerItem.createdDateTime }),
+            ...(providerItem.lastModifiedDateTime != null && { lastModifiedDateTime: providerItem.lastModifiedDateTime }),
+            ...(parentReference != null && {
+                parentReference: {
+                    ...(parentReference.id != null && { id: parentReference.id }),
+                    ...(parentReference.driveId != null && { driveId: parentReference.driveId }),
+                    ...(parentReference.path != null && { path: parentReference.path })
+                }
+            })
         };
     }
 });

@@ -35,16 +35,22 @@ const action = createAction({
     scopes: ['Sites.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const endpoint = 'v1.0/sites';
-        const params: Record<string, string> = {
-            search: input.query || '*'
-        };
+        const endpoint = '/v1.0/sites';
+        const params: Record<string, string> = {};
 
         if (input.cursor) {
             const cursorUrl = new URL(input.cursor);
+            if (cursorUrl.pathname !== endpoint) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a nextLink returned by this same action'
+                });
+            }
             cursorUrl.searchParams.forEach((value, key) => {
                 params[key] = value;
             });
+        } else {
+            params['search'] = input.query || '*';
         }
 
         const response = await nango.get({

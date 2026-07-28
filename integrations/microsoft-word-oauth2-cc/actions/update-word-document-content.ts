@@ -2,10 +2,17 @@ import type { ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const BASE64_PATTERN = /^[A-Za-z0-9+/]+={0,2}$/;
+const MAX_CONTENT_BYTES = 250 * 1024 * 1024; // Graph's driveItem: put content endpoint supports up to 250 MB.
+
 const InputSchema = z.object({
     driveId: z.string().describe('The ID of the drive containing the document. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"'),
     itemId: z.string().describe('The ID of the Word document driveItem to update. Example: "01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT"'),
-    content: z.string().describe('Base64-encoded .docx file content to replace the existing document content.')
+    content: z
+        .string()
+        .min(1)
+        .regex(BASE64_PATTERN, 'content must be non-empty, valid base64-encoded data')
+        .describe('Base64-encoded .docx file content to replace the existing document content. Must not exceed 250 MB decoded.')
 });
 
 const ProviderDriveItemSchema = z.object({
@@ -33,6 +40,20 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const decodedContent = Buffer.from(input.content, 'base64');
+
+        if (decodedContent.length === 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'content must decode to non-empty .docx file data'
+            });
+        }
+
+        if (decodedContent.length > MAX_CONTENT_BYTES) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: `Decoded content is ${decodedContent.length} bytes, which exceeds the 250 MB limit supported by this endpoint.`
+            });
+        }
 
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/graph/api/driveitem-put-content

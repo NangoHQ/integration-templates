@@ -112,12 +112,17 @@ const action = createAction({
     scopes: ['Files.Read.All', 'Sites.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let endpoint = `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/versions`;
+        const endpoint = `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/versions`;
         const params: Record<string, string> = {};
 
         if (input.cursor) {
             const url = new URL(input.cursor);
-            endpoint = url.pathname;
+            if (url.pathname !== endpoint) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a nextLink returned by this same action for this driveId/itemId'
+                });
+            }
             for (const [key, value] of url.searchParams.entries()) {
                 params[key] = value;
             }

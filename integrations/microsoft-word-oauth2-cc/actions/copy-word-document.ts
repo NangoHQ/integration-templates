@@ -6,12 +6,31 @@ const InputSchema = z.object({
         .string()
         .describe('The ID of the drive containing the source document. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"'),
     itemId: z.string().describe('The ID of the Word document to copy. Example: "01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT"'),
-    name: z.string().optional().describe('Optional new name for the copied document. If omitted, the same name is used.'),
-    destinationDriveId: z.string().optional().describe('Optional ID of the destination drive. Defaults to the source drive if omitted.'),
+    name: z
+        .string()
+        .optional()
+        .describe(
+            'Optional new name for the copied document. If omitted and no destination is given, a unique name is generated automatically to avoid overwriting the source.'
+        ),
+    destinationDriveId: z
+        .string()
+        .optional()
+        .describe(
+            'Optional ID of the destination drive. Defaults to the source drive if omitted. If provided without destinationFolderId, the drive root is used.'
+        ),
     destinationFolderId: z
         .string()
         .optional()
-        .describe('Optional ID of the destination folder. If omitted, the copy is placed in the same folder as the source.')
+        .describe('Optional ID of the destination folder. If omitted, the copy is placed in the same folder as the source (or the destination drive root).')
+});
+
+const SourceItemSchema = z.object({
+    name: z.string(),
+    parentReference: z
+        .object({
+            id: z.string().nullish()
+        })
+        .nullish()
 });
 
 const ProviderDriveItemSchema = z.object({
@@ -31,6 +50,14 @@ const OutputSchema = z.object({
     location: z.string().optional().describe('Polling URL for async copy status when the copy is not completed synchronously.')
 });
 
+const splitNameParts = (fileName: string): { base: string; ext: string } => {
+    const dotIndex = fileName.lastIndexOf('.');
+    if (dotIndex <= 0) {
+        return { base: fileName, ext: '' };
+    }
+    return { base: fileName.slice(0, dotIndex), ext: fileName.slice(dotIndex) };
+};
+
 const action = createAction({
     description: 'Copy a Word document to a (possibly different) folder, optionally renaming it.',
     version: '1.0.0',
@@ -39,22 +66,47 @@ const action = createAction({
     scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const requestBody: Record<string, unknown> = {};
+        // Copying in place (no explicit name and no explicit destination) would ask Microsoft Graph
+        // to create a copy with the exact same name in the exact same folder, which always fails with
+        // nameAlreadyExists. We also need the source's name/parent to build a correct result when the
+        // provider response comes back empty (see below), so resolve source metadata whenever either
+        // piece of information isn't already fully specified by the caller.
+        const needsSourceLookup = input.name === undefined || input.destinationFolderId === undefined;
 
-        if (input.name !== undefined) {
-            requestBody['name'] = input.name;
+        let sourceName: string | undefined;
+        let sourceParentId: string | undefined;
+
+        if (needsSourceLookup) {
+            const sourceResponse = await nango.get({
+                // https://learn.microsoft.com/en-us/graph/api/driveitem-get
+                endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}`,
+                params: { $select: 'name,parentReference' },
+                retries: 3
+            });
+            const source = SourceItemSchema.parse(sourceResponse.data);
+            sourceName = source.name;
+            sourceParentId = source.parentReference?.id ?? undefined;
         }
 
-        if (input.destinationFolderId !== undefined) {
-            const parentReference: Record<string, unknown> = {
-                id: input.destinationFolderId
+        const isInPlaceCopy = input.destinationFolderId === undefined && input.destinationDriveId === undefined;
+
+        let name = input.name;
+        if (name === undefined && isInPlaceCopy) {
+            const { base, ext } = splitNameParts(sourceName!);
+            name = `${base} - Copy ${Date.now()}${ext}`;
+        }
+
+        const requestBody: Record<string, unknown> = {};
+
+        if (name !== undefined) {
+            requestBody['name'] = name;
+        }
+
+        if (input.destinationFolderId !== undefined || input.destinationDriveId !== undefined) {
+            requestBody['parentReference'] = {
+                id: input.destinationFolderId ?? 'root',
+                ...(input.destinationDriveId !== undefined && { driveId: input.destinationDriveId })
             };
-
-            if (input.destinationDriveId !== undefined) {
-                parentReference['driveId'] = input.destinationDriveId;
-            }
-
-            requestBody['parentReference'] = parentReference;
         }
 
         const response = await nango.post({
@@ -66,23 +118,42 @@ const action = createAction({
 
         const location = response.headers?.['location'] || response.headers?.['Location'];
 
-        if (response.status === 202) {
-            if (typeof location === 'string') {
-                return { location };
-            }
+        if (response.data && typeof response.data === 'object') {
+            const providerItem = ProviderDriveItemSchema.parse(response.data);
 
+            return {
+                id: providerItem.id,
+                name: providerItem.name,
+                ...(providerItem.webUrl != null && { webUrl: providerItem.webUrl }),
+                ...(providerItem.size != null && { size: providerItem.size }),
+                ...(providerItem.createdDateTime != null && { createdDateTime: providerItem.createdDateTime })
+            };
+        }
+
+        if (typeof location === 'string') {
+            // Async copy: Graph hasn't finished yet. Return the monitor URL so the caller can poll it,
+            // rather than reporting an empty success with no way to track completion.
+            return { location };
+        }
+
+        // Graph completed the copy synchronously but returned an empty body (observed in practice even
+        // though this endpoint is documented as always returning 202). Look the copied item up by its
+        // known destination path instead of reporting an empty, unusable result.
+        const finalName = name ?? sourceName!;
+        const finalDriveId = input.destinationDriveId ?? input.driveId;
+        const finalParentId = input.destinationFolderId ?? (input.destinationDriveId !== undefined ? 'root' : sourceParentId);
+
+        if (finalParentId === undefined) {
             return {};
         }
 
-        if (!response.data || typeof response.data !== 'object') {
-            if (typeof location === 'string') {
-                return { location };
-            }
+        const lookupResponse = await nango.get({
+            // https://learn.microsoft.com/en-us/graph/api/driveitem-get
+            endpoint: `/v1.0/drives/${encodeURIComponent(finalDriveId)}/items/${encodeURIComponent(finalParentId)}:/${encodeURIComponent(finalName)}`,
+            retries: 3
+        });
 
-            return {};
-        }
-
-        const providerItem = ProviderDriveItemSchema.parse(response.data);
+        const providerItem = ProviderDriveItemSchema.parse(lookupResponse.data);
 
         return {
             id: providerItem.id,

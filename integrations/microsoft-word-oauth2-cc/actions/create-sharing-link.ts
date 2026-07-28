@@ -4,8 +4,8 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     driveId: z.string().describe('Drive ID containing the Word document. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"'),
     itemId: z.string().describe('DriveItem ID of the Word document. Example: "01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT"'),
-    type: z.enum(['view', 'edit']).describe('Permission type for the sharing link.'),
-    scope: z.enum(['organization', 'anonymous']).describe('Scope of the sharing link.')
+    type: z.enum(['view', 'edit', 'embed']).describe('Permission type for the sharing link.'),
+    scope: z.enum(['anonymous', 'organization', 'users']).optional().describe('Scope of the sharing link. Omit to use the tenant/site default scope.')
 });
 
 const ProviderLinkSchema = z.object({
@@ -44,7 +44,7 @@ const action = createAction({
             endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/createLink`,
             data: {
                 type: input.type,
-                scope: input.scope
+                ...(input.scope !== undefined && { scope: input.scope })
             },
             retries: 3
         });

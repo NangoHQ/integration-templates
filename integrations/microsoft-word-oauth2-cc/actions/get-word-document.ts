@@ -6,15 +6,19 @@ const InputSchema = z.object({
     itemId: z.string().describe('The ID of the Word document (driveItem). Example: "01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT"')
 });
 
+const ProviderIdentitySchema = z
+    .object({
+        displayName: z.string().optional().nullable(),
+        id: z.string().optional().nullable()
+    })
+    .optional()
+    .nullable();
+
 const ProviderIdentitySetSchema = z
     .object({
-        user: z
-            .object({
-                displayName: z.string().optional().nullable(),
-                id: z.string().optional().nullable()
-            })
-            .optional()
-            .nullable()
+        user: ProviderIdentitySchema,
+        application: ProviderIdentitySchema,
+        device: ProviderIdentitySchema
     })
     .optional()
     .nullable();
@@ -73,6 +77,18 @@ const OutputSchema = z.object({
         .optional()
 });
 
+const mapIdentity = (identitySet: z.infer<typeof ProviderIdentitySetSchema>): { displayName?: string; id?: string } | undefined => {
+    const identity = identitySet?.user ?? identitySet?.application ?? identitySet?.device;
+    if (identity == null) {
+        return undefined;
+    }
+    const mapped = {
+        ...(identity.displayName != null && { displayName: identity.displayName }),
+        ...(identity.id != null && { id: identity.id })
+    };
+    return Object.keys(mapped).length > 0 ? mapped : undefined;
+};
+
 const action = createAction({
     description: 'Retrieve metadata for a Word document (driveItem).',
     version: '1.0.0',
@@ -102,18 +118,8 @@ const action = createAction({
                     ...(providerItem.parentReference.id != null && { id: providerItem.parentReference.id })
                 }
             }),
-            ...(providerItem.createdBy?.user != null && {
-                createdBy: {
-                    ...(providerItem.createdBy.user.displayName != null && { displayName: providerItem.createdBy.user.displayName }),
-                    ...(providerItem.createdBy.user.id != null && { id: providerItem.createdBy.user.id })
-                }
-            }),
-            ...(providerItem.lastModifiedBy?.user != null && {
-                lastModifiedBy: {
-                    ...(providerItem.lastModifiedBy.user.displayName != null && { displayName: providerItem.lastModifiedBy.user.displayName }),
-                    ...(providerItem.lastModifiedBy.user.id != null && { id: providerItem.lastModifiedBy.user.id })
-                }
-            })
+            ...(mapIdentity(providerItem.createdBy) != null && { createdBy: mapIdentity(providerItem.createdBy) }),
+            ...(mapIdentity(providerItem.lastModifiedBy) != null && { lastModifiedBy: mapIdentity(providerItem.lastModifiedBy) })
         };
     }
 });

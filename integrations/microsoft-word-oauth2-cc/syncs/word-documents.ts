@@ -38,7 +38,9 @@ const ParentReferenceSchema = z.object({
 
 const DriveItemSchema = z.object({
     id: z.string(),
-    name: z.string(),
+    // Deletion payloads in the delta feed omit `name` entirely, so it can only be required for
+    // active (non-deleted) items, which are validated separately below.
+    name: z.string().optional(),
     webUrl: z.string().optional(),
     createdDateTime: z.string().optional(),
     lastModifiedDateTime: z.string().optional(),
@@ -126,7 +128,15 @@ const sync = createSync({
                 }
 
                 if (item.file?.mimeType !== 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
+                    // The item was renamed/replaced away from .docx (or never was one). Queue it for
+                    // removal in case it was previously tracked as a WordDocument; batchDelete is a
+                    // no-op for ids that were never saved.
+                    deletions.push({ id: item.id });
                     continue;
+                }
+
+                if (!item.name) {
+                    throw new Error(`Active drive item ${item.id} is missing a name`);
                 }
 
                 upserts.push({
