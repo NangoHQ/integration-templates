@@ -39,7 +39,7 @@ const action = createAction({
         if (rawData instanceof ArrayBuffer) {
             buffer = Buffer.from(rawData);
         } else if (Buffer.isBuffer(rawData)) {
-            buffer = Buffer.from(rawData);
+            buffer = rawData;
         } else if (typeof rawData === 'string') {
             buffer = Buffer.from(rawData, 'binary');
         } else if (bufferLike.success) {
