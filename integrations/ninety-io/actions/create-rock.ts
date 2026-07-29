@@ -14,28 +14,38 @@ const InputSchema = z.object({
     assigneeIds: z.array(z.string()).optional().describe('User IDs to assign the rock to.')
 });
 
-const ProviderMilestoneSchema = z.object({
-    _id: z.string(),
-    title: z.string(),
-    dueDate: z.string(),
-    statusCode: z.string(),
-    rockId: z.string().optional(),
-    createdByUserId: z.string().optional(),
-    updatedBy: z.string().nullable().optional(),
-    createdDate: z.string().optional(),
-    updatedAt: z.string().nullable().optional()
-});
+const ProviderMilestoneSchema = z
+    .object({
+        _id: z.string(),
+        title: z.string(),
+        dueDate: z.string(),
+        description: z.string().nullable().optional(),
+        isDone: z.boolean().optional(),
+        isDeleted: z.boolean().optional(),
+        completedDate: z.string().nullable().optional(),
+        createdDate: z.string().optional(),
+        updatedAt: z.string().nullable().optional(),
+        rockId: z.string().nullable().optional(),
+        teamId: z.string().nullable().optional(),
+        ownedByUserId: z.string().nullable().optional(),
+        createdBy: z.string().nullable().optional()
+    })
+    .passthrough();
 
 const MilestoneSchema = z.object({
     id: z.string(),
     title: z.string(),
     dueDate: z.string(),
-    statusCode: z.string(),
-    rockId: z.string().optional(),
-    createdByUserId: z.string().optional(),
-    updatedBy: z.string().optional(),
+    description: z.string().optional(),
+    isDone: z.boolean().optional(),
+    isDeleted: z.boolean().optional(),
+    completedDate: z.string().optional(),
     createdDate: z.string().optional(),
-    updatedAt: z.string().optional()
+    updatedAt: z.string().optional(),
+    rockId: z.string().optional(),
+    teamId: z.string().optional(),
+    ownedByUserId: z.string().optional(),
+    createdBy: z.string().optional()
 });
 
 const ProviderRockSchema = z.object({
@@ -155,12 +165,16 @@ const action = createAction({
                     id: milestone._id,
                     title: milestone.title,
                     dueDate: milestone.dueDate,
-                    statusCode: milestone.statusCode,
-                    ...(milestone.rockId !== undefined && { rockId: milestone.rockId }),
-                    ...(milestone.createdByUserId !== undefined && { createdByUserId: milestone.createdByUserId }),
-                    ...(milestone.updatedBy != null && { updatedBy: milestone.updatedBy }),
+                    ...(milestone.description != null && { description: milestone.description }),
+                    ...(milestone.isDone !== undefined && { isDone: milestone.isDone }),
+                    ...(milestone.isDeleted !== undefined && { isDeleted: milestone.isDeleted }),
+                    ...(milestone.completedDate != null && { completedDate: milestone.completedDate }),
                     ...(milestone.createdDate !== undefined && { createdDate: milestone.createdDate }),
-                    ...(milestone.updatedAt != null && { updatedAt: milestone.updatedAt })
+                    ...(milestone.updatedAt != null && { updatedAt: milestone.updatedAt }),
+                    ...(milestone.rockId != null && { rockId: milestone.rockId }),
+                    ...(milestone.teamId != null && { teamId: milestone.teamId }),
+                    ...(milestone.ownedByUserId != null && { ownedByUserId: milestone.ownedByUserId }),
+                    ...(milestone.createdBy != null && { createdBy: milestone.createdBy })
                 }))
             }),
             ...(providerRock.userId !== undefined && { userId: providerRock.userId }),

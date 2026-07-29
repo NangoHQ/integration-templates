@@ -67,16 +67,11 @@ const TodoSchema = z.object({
     userOrdinal: z.number().optional()
 });
 
-const CheckpointSchema = z.object({
-    nextPage: z.number().int().positive()
-});
-
 const sync = createSync({
     description: 'Sync to-dos (personal and team-based).',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Todo: TodoSchema
     },
@@ -87,12 +82,12 @@ const sync = createSync({
         // an updatedSince or changed-since filter, so this remains a full refresh.
         // The endpoint supports page/pageSize (1-based page) but returns a bare
         // array with no total count, so we page until a short (or empty) page.
-        const checkpoint = await nango.getCheckpoint();
-        let hasCheckpoint = checkpoint != null;
-
+        // Not checkpointed across invocations: an interrupted run just restarts
+        // from page 1 next time, which is cheap here and avoids any risk of a
+        // long-stalled resume racing Nango's seen-record retention window.
         await nango.trackDeletesStart('Todo');
 
-        let page = checkpoint?.nextPage ?? 1;
+        let page = 1;
         const pageSize = 100;
 
         while (true) {
@@ -160,14 +155,7 @@ const sync = createSync({
                 break;
             }
 
-            const nextPage = page + 1;
-            await nango.saveCheckpoint({ nextPage });
-            hasCheckpoint = true;
-            page = nextPage;
-        }
-
-        if (hasCheckpoint) {
-            await nango.clearCheckpoint();
+            page = page + 1;
         }
 
         await nango.trackDeletesEnd('Todo');

@@ -16,9 +16,9 @@ const ProviderMilestoneSchema = z
         completedDate: z.string().nullable().optional(),
         createdDate: z.string().optional(),
         updatedAt: z.string().nullable().optional(),
-        rockId: z.string().optional(),
-        teamId: z.string().optional(),
-        ownedByUserId: z.string().optional()
+        rockId: z.string().nullable().optional(),
+        teamId: z.string().nullable().optional(),
+        ownedByUserId: z.string().nullable().optional()
     })
     .passthrough();
 
@@ -159,9 +159,9 @@ const action = createAction({
                 ...(milestone.completedDate != null && { completedDate: milestone.completedDate }),
                 ...(milestone.createdDate !== undefined && { createdDate: milestone.createdDate }),
                 ...(milestone.updatedAt != null && { updatedAt: milestone.updatedAt }),
-                ...(milestone.rockId !== undefined && { rockId: milestone.rockId }),
-                ...(milestone.teamId !== undefined && { teamId: milestone.teamId }),
-                ...(milestone.ownedByUserId !== undefined && { ownedByUserId: milestone.ownedByUserId })
+                ...(milestone.rockId != null && { rockId: milestone.rockId }),
+                ...(milestone.teamId != null && { teamId: milestone.teamId }),
+                ...(milestone.ownedByUserId != null && { ownedByUserId: milestone.ownedByUserId })
             })),
             createdByUserId: providerRock.createdByUserId,
             dueDateQuarter: providerRock.dueDateQuarter,

@@ -8,16 +8,16 @@ const QuarterSchema = z.enum(['Q1', 'Q2', 'Q3', 'Q4', 'None']);
 const MilestoneSchema = z
     .object({
         _id: z.string(),
-        rockId: z.string().optional(),
-        teamId: z.string().optional(),
-        ownedByUserId: z.string().optional(),
+        rockId: z.string().nullable().optional(),
+        teamId: z.string().nullable().optional(),
+        ownedByUserId: z.string().nullable().optional(),
         title: z.string(),
         dueDate: z.string(),
         description: z.string().nullable().optional(),
         isDone: z.boolean().optional(),
         isDeleted: z.boolean().optional(),
         completedDate: z.string().nullable().optional(),
-        createdBy: z.string().optional(),
+        createdBy: z.string().nullable().optional(),
         createdDate: z.string().optional(),
         updatedAt: z.string().nullable().optional()
     })
@@ -165,14 +165,14 @@ const action = createAction({
                     id: m._id,
                     title: m.title,
                     dueDate: m.dueDate,
-                    ...(m.rockId !== undefined && { rockId: m.rockId }),
-                    ...(m.teamId !== undefined && { teamId: m.teamId }),
-                    ...(m.ownedByUserId !== undefined && { ownedByUserId: m.ownedByUserId }),
+                    ...(m.rockId != null && { rockId: m.rockId }),
+                    ...(m.teamId != null && { teamId: m.teamId }),
+                    ...(m.ownedByUserId != null && { ownedByUserId: m.ownedByUserId }),
                     ...(m.description != null && { description: m.description }),
                     ...(m.isDone !== undefined && { isDone: m.isDone }),
                     ...(m.isDeleted !== undefined && { isDeleted: m.isDeleted }),
                     ...(m.completedDate != null && { completedDate: m.completedDate }),
-                    ...(m.createdBy !== undefined && { createdBy: m.createdBy }),
+                    ...(m.createdBy != null && { createdBy: m.createdBy }),
                     ...(m.createdDate !== undefined && { createdDate: m.createdDate }),
                     ...(m.updatedAt != null && { updatedAt: m.updatedAt })
                 }))

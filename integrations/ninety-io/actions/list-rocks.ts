@@ -39,8 +39,7 @@ const RockSchema = z
     .passthrough();
 
 const OutputSchema = z.object({
-    items: z.array(RockSchema),
-    nextPageIndex: z.number().int().optional()
+    items: z.array(RockSchema)
 });
 
 const QueryResponseSchema = z.record(z.string(), z.array(z.unknown()));
@@ -84,14 +83,11 @@ const action = createAction({
         }
 
         const items: z.infer<typeof RockSchema>[] = [];
-        let rawRockCount = 0;
 
         for (const [teamId, rocks] of Object.entries(parsedResponse.data)) {
             if (!Array.isArray(rocks)) {
                 continue;
             }
-
-            rawRockCount += rocks.length;
 
             for (const rawRock of rocks) {
                 if (rawRock == null || typeof rawRock !== 'object') {
@@ -116,17 +112,11 @@ const action = createAction({
             }
         }
 
-        // Base "more data" on the raw record count, not the (possibly filtered) parsed
-        // count, so a page containing only unparsable records doesn't end pagination early.
-        // Note: /v1/rocks/query has been observed to ignore pageIndex/pageSize and return
-        // the full per-team result set on every call, so this can only signal "there was
-        // data on this page," not a reliable end-of-results boundary.
-        const nextPageIndex = rawRockCount > 0 ? input.pageIndex + 1 : undefined;
-
-        return {
-            items,
-            ...(nextPageIndex !== undefined && { nextPageIndex })
-        };
+        // No pagination cursor is returned: /v1/rocks/query has been observed to ignore
+        // pageIndex/pageSize and always return the full per-team result set, so there is
+        // no reliable end-of-results signal to build a "next page" hint from, and exposing
+        // one would just mislead callers into repeatedly re-fetching the same data.
+        return { items };
     }
 });
 
