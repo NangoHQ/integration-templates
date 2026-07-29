@@ -30,14 +30,15 @@ const action = createAction({
             retries: 3
         });
 
-        const data = response.data;
+        const data: unknown = response.data;
         let buffer: Buffer;
-        if (data instanceof ArrayBuffer) {
-            buffer = Buffer.from(data);
-        } else if (Buffer.isBuffer(data)) {
+        if (Buffer.isBuffer(data)) {
+            buffer = data;
+        } else if (data instanceof ArrayBuffer) {
             buffer = Buffer.from(data);
         } else if (typeof data === 'object' && data !== null && 'data' in data && Array.isArray(data.data)) {
-            buffer = Buffer.from(data.data);
+            const numbers = data.data.map((value: unknown) => Number(value));
+            buffer = Buffer.from(numbers);
         } else {
             throw new nango.ActionError({
                 type: 'unexpected_response',
