@@ -6,21 +6,15 @@ const InputSchema = z.object({
     datasetId: z.string().describe('The dataset ID. Example: "a71c1b98-a0db-4423-a81b-5dcb48d5c8d1"')
 });
 
-const ProviderRefreshScheduleSchema = z.object({
+const RefreshScheduleSchema = z.object({
     days: z.array(z.string()).optional(),
     times: z.array(z.string()).optional(),
-    enabled: z.boolean().optional(),
+    enabled: z.boolean(),
     localTimeZoneId: z.string().optional(),
     notifyOption: z.string().optional()
 });
 
-const OutputSchema = z.object({
-    days: z.array(z.string()).optional(),
-    times: z.array(z.string()).optional(),
-    enabled: z.boolean().optional(),
-    localTimeZoneId: z.string().optional(),
-    notifyOption: z.string().optional()
-});
+const OutputSchema = RefreshScheduleSchema;
 
 const action = createAction({
     description: 'Get the configured refresh schedule for a dataset.',
@@ -36,15 +30,7 @@ const action = createAction({
             retries: 3
         });
 
-        const schedule = ProviderRefreshScheduleSchema.parse(response.data);
-
-        return {
-            ...(schedule.days !== undefined && { days: schedule.days }),
-            ...(schedule.times !== undefined && { times: schedule.times }),
-            ...(schedule.enabled !== undefined && { enabled: schedule.enabled }),
-            ...(schedule.localTimeZoneId !== undefined && { localTimeZoneId: schedule.localTimeZoneId }),
-            ...(schedule.notifyOption !== undefined && { notifyOption: schedule.notifyOption })
-        };
+        return RefreshScheduleSchema.parse(response.data);
     }
 });
 

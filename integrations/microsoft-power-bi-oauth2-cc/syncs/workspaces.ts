@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const PAGE_SIZE = 100;
@@ -25,10 +25,6 @@ const ProviderWorkspaceSchema = z.object({
     state: z.string().nullish()
 });
 
-const WorkspaceListSchema = z.object({
-    value: z.array(ProviderWorkspaceSchema)
-});
-
 const CheckpointSchema = z.object({
     nextOffset: z.number().int().nonnegative()
 });
@@ -51,23 +47,25 @@ const sync = createSync({
         // Full refresh: Power BI groups has no changed-since filter, but $skip/$top lets us resume an interrupted scan.
         await nango.trackDeletesStart('Workspace');
 
-        while (true) {
-            const response = await nango.get({
-                // https://learn.microsoft.com/en-us/rest/api/power-bi/groups/get-groups
-                endpoint: '/v1.0/myorg/groups',
-                params: {
-                    $top: PAGE_SIZE,
-                    ...(nextOffset > 0 ? { $skip: nextOffset } : {})
-                },
-                retries: 3
-            });
+        const config: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/rest/api/power-bi/groups/get-groups
+            endpoint: '/v1.0/myorg/groups',
+            params: {
+                $top: PAGE_SIZE
+            },
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: '$skip',
+                offset_start_value: nextOffset,
+                limit_name_in_request: '$top',
+                limit: PAGE_SIZE,
+                response_path: 'value'
+            },
+            retries: 3
+        };
 
-            const parsedWorkspaces = WorkspaceListSchema.safeParse(response.data);
-            if (!parsedWorkspaces.success) {
-                throw new Error(`Failed to parse workspaces response: ${parsedWorkspaces.error.message}`);
-            }
-
-            const workspaces = parsedWorkspaces.data.value.map((raw) => {
+        for await (const page of nango.paginate(config)) {
+            const workspaces = page.map((raw) => {
                 const parsed = ProviderWorkspaceSchema.safeParse(raw);
                 if (!parsed.success) {
                     throw new Error(`Invalid workspace record: ${parsed.error.message}`);
@@ -85,18 +83,12 @@ const sync = createSync({
                 };
             });
 
-            if (workspaces.length === 0) {
-                break;
+            if (workspaces.length > 0) {
+                await nango.batchSave(workspaces, 'Workspace');
             }
-
-            await nango.batchSave(workspaces, 'Workspace');
 
             nextOffset += workspaces.length;
             await nango.saveCheckpoint({ nextOffset });
-
-            if (workspaces.length < PAGE_SIZE) {
-                break;
-            }
         }
 
         await nango.clearCheckpoint();

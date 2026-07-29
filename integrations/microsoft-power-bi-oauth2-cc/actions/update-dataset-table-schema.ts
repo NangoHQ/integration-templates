@@ -1,9 +1,11 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const DataTypeSchema = z.enum(['string', 'Int64', 'double', 'bool', 'DateTime']);
+
 const ColumnSchema = z.object({
     name: z.string().describe('Column name. Example: "SalesAmount"'),
-    dataType: z.string().describe('Column data type. Example: "Int64", "Double", "Boolean", "DateTime", "String"')
+    dataType: DataTypeSchema.describe('Column data type. Example: "string"')
 });
 
 const InputSchema = z.object({
@@ -15,7 +17,7 @@ const InputSchema = z.object({
 
 const ProviderColumnSchema = z.object({
     name: z.string(),
-    dataType: z.string()
+    dataType: DataTypeSchema
 });
 
 const ProviderTableSchema = z.object({
@@ -33,6 +35,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['Dataset.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/en-us/rest/api/power-bi/push-datasets/tables/update-table
@@ -57,16 +60,19 @@ const action = createAction({
 
         const providerTable = ProviderTableSchema.safeParse(response.data);
 
-        if (providerTable.success) {
-            return {
-                name: providerTable.data.name,
-                columns: providerTable.data.columns ?? input.columns
-            };
+        if (!providerTable.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Power BI API while updating table schema.',
+                groupId: input.groupId,
+                datasetId: input.datasetId,
+                tableName: input.tableName
+            });
         }
 
         return {
-            name: input.tableName,
-            columns: input.columns
+            name: providerTable.data.name,
+            columns: providerTable.data.columns ?? input.columns
         };
     }
 });

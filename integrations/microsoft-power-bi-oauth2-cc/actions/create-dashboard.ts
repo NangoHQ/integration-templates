@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    workspaceId: z.string().describe('Workspace (group) ID where the dashboard should be created. Example: "149ca924-4333-471b-94b5-347eca3f9938"'),
-    name: z.string().describe('Name of the new dashboard. Example: "Registry Test Dashboard"')
+    groupId: z.string().min(1).describe('Workspace (group) ID where the dashboard should be created. Example: "149ca924-4333-471b-94b5-347eca3f9938"'),
+    name: z.string().min(1).describe('Name of the new dashboard. Example: "Registry Test Dashboard"')
 });
 
 const ProviderDashboardSchema = z.object({
@@ -27,11 +27,12 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['Content.Create'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://learn.microsoft.com/en-us/rest/api/power-bi/dashboards/create-dashboard
-            endpoint: `/v1.0/myorg/groups/${encodeURIComponent(input.workspaceId)}/dashboards`,
+            // https://learn.microsoft.com/en-us/rest/api/power-bi/dashboards/add-dashboard-in-group
+            endpoint: `/v1.0/myorg/groups/${encodeURIComponent(input.groupId)}/dashboards`,
             data: {
                 name: input.name
             },

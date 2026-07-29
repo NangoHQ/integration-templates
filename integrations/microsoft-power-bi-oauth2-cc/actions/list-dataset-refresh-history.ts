@@ -6,6 +6,14 @@ const InputSchema = z.object({
     datasetId: z.string().describe('Dataset ID. Example: "a71c1b98-a0db-4423-a81b-5dcb48d5c8d1"')
 });
 
+const RefreshAttemptSchema = z.object({
+    attemptId: z.number().optional(),
+    startTime: z.string().optional(),
+    endTime: z.string().optional(),
+    type: z.string().optional(),
+    serviceExceptionJson: z.string().nullable().optional()
+});
+
 const RefreshItemSchema = z.object({
     requestId: z.string().optional(),
     id: z.number().optional(),
@@ -14,7 +22,8 @@ const RefreshItemSchema = z.object({
     endTime: z.string().optional(),
     status: z.string().optional(),
     extendedStatus: z.string().nullable().optional(),
-    serviceExceptionJson: z.string().nullable().optional()
+    serviceExceptionJson: z.string().nullable().optional(),
+    refreshAttempts: z.array(RefreshAttemptSchema).optional()
 });
 
 const OutputSchema = z.object({
@@ -26,6 +35,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['Dataset.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -50,7 +60,8 @@ const action = createAction({
                 ...(refresh.endTime !== undefined && { endTime: refresh.endTime }),
                 ...(refresh.status !== undefined && { status: refresh.status }),
                 ...(refresh.extendedStatus != null && { extendedStatus: refresh.extendedStatus }),
-                ...(refresh.serviceExceptionJson != null && { serviceExceptionJson: refresh.serviceExceptionJson })
+                ...(refresh.serviceExceptionJson != null && { serviceExceptionJson: refresh.serviceExceptionJson }),
+                ...(refresh.refreshAttempts !== undefined && { refreshAttempts: refresh.refreshAttempts })
             };
         });
 

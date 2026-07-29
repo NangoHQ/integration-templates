@@ -27,6 +27,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['Dataset.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -35,16 +36,25 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data || typeof response.data !== 'object') {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: 'Dataset not found or unexpected response.'
+                message: 'Dataset not found.',
+                groupId: input.groupId,
+                datasetId: input.datasetId
             });
         }
 
-        const parsed = OutputSchema.parse(response.data);
+        if (!response.data || typeof response.data !== 'object') {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Power BI API.',
+                groupId: input.groupId,
+                datasetId: input.datasetId
+            });
+        }
 
-        return parsed;
+        return OutputSchema.parse(response.data);
     }
 });
 

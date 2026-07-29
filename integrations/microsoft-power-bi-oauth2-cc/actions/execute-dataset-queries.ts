@@ -24,7 +24,10 @@ const DatasetExecuteQueriesInformationProtectionLabelSchema = z.object({
 const InputSchema = z.object({
     workspaceId: z.string().describe('Workspace ID (group ID). Example: 149ca924-4333-471b-94b5-347eca3f9938'),
     datasetId: z.string().describe('Dataset ID. Example: a71c1b98-a0db-4423-a81b-5dcb48d5c8d1'),
-    queries: z.array(z.string()).describe('Array of DAX queries to execute. Example: ["EVALUATE SalesFact"]'),
+    queries: z
+        .array(z.string())
+        .length(1)
+        .describe('Exactly one DAX query to execute (the provider API supports only one query per call). Example: ["EVALUATE SalesFact"]'),
     impersonatedUserName: z.string().optional().describe('UPN of a user to be impersonated'),
     serializerSettings: z
         .object({

@@ -1,14 +1,21 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    groupId: z.string().describe('Workspace ID. Example: "149ca924-4333-471b-94b5-347eca3f9938"'),
-    datasetId: z.string().describe('Dataset ID. Example: "a71c1b98-a0db-4423-a81b-5dcb48d5c8d1"'),
-    enabled: z.boolean().describe('Whether the refresh schedule is enabled.'),
-    days: z.array(z.string()).optional().describe('Days of the week to refresh. Example: ["Monday", "Tuesday"]'),
-    times: z.array(z.string()).optional().describe('Times to refresh in HH:mm format. Example: ["05:00", "17:00"]'),
-    localTimeZoneId: z.string().optional().describe('Time zone ID. Example: "UTC"')
-});
+const TimeOfDaySchema = z.string().regex(/^([01]\d|2[0-3]):[0-5]\d$/, 'Time must be in 24-hour HH:mm format, e.g. "05:00"');
+
+const InputSchema = z
+    .object({
+        groupId: z.string().describe('Workspace ID. Example: "149ca924-4333-471b-94b5-347eca3f9938"'),
+        datasetId: z.string().describe('Dataset ID. Example: "a71c1b98-a0db-4423-a81b-5dcb48d5c8d1"'),
+        enabled: z.boolean().describe('Whether the refresh schedule is enabled.'),
+        days: z.array(z.string()).optional().describe('Days of the week to refresh. Required (non-empty) when enabled is true. Example: ["Monday", "Tuesday"]'),
+        times: z.array(TimeOfDaySchema).optional().describe('Times to refresh in 24-hour HH:mm format. Example: ["05:00", "17:00"]'),
+        localTimeZoneId: z.string().optional().describe('Time zone ID. Example: "UTC"')
+    })
+    .refine((input) => !input.enabled || (input.days !== undefined && input.days.length > 0), {
+        message: 'days must be a non-empty array when enabled is true.',
+        path: ['days']
+    });
 
 const ProviderRefreshScheduleSchema = z.object({
     enabled: z.boolean(),
@@ -47,16 +54,20 @@ const action = createAction({
             }
         };
 
-        if (input.days !== undefined) {
-            body.value.days = input.days;
-        }
+        // Power BI requires a disable request to contain no other changes, so days/times/localTimeZoneId
+        // are only ever sent when enabling the schedule.
+        if (input.enabled) {
+            if (input.days !== undefined) {
+                body.value.days = input.days;
+            }
 
-        if (input.times !== undefined) {
-            body.value.times = input.times;
-        }
+            if (input.times !== undefined) {
+                body.value.times = input.times;
+            }
 
-        if (input.localTimeZoneId !== undefined) {
-            body.value.localTimeZoneId = input.localTimeZoneId;
+            if (input.localTimeZoneId !== undefined) {
+                body.value.localTimeZoneId = input.localTimeZoneId;
+            }
         }
 
         // https://learn.microsoft.com/en-us/rest/api/power-bi/datasets/update-refresh-schedule
@@ -79,10 +90,10 @@ const action = createAction({
         }
 
         return {
-            enabled: input.enabled,
-            ...(input.days !== undefined && { days: input.days }),
-            ...(input.times !== undefined && { times: input.times }),
-            ...(input.localTimeZoneId !== undefined && { localTimeZoneId: input.localTimeZoneId })
+            enabled: body.value.enabled,
+            ...(body.value.days !== undefined && { days: body.value.days }),
+            ...(body.value.times !== undefined && { times: body.value.times }),
+            ...(body.value.localTimeZoneId !== undefined && { localTimeZoneId: body.value.localTimeZoneId })
         };
     }
 });

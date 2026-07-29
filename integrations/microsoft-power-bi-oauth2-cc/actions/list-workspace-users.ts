@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
+const PAGE_SIZE = 100;
+
 const InputSchema = z.object({
     groupId: z.string().describe('The workspace (group) ID. Example: "149ca924-4333-471b-94b5-347eca3f9938"')
 });
@@ -40,29 +42,35 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/rest/api/power-bi/groups/get-group-users
             endpoint: `/v1.0/myorg/groups/${encodeURIComponent(input.groupId)}/users`,
+            params: {
+                $top: PAGE_SIZE
+            },
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: '$skip',
+                limit_name_in_request: '$top',
+                limit: PAGE_SIZE,
+                response_path: 'value'
+            },
             retries: 3
         };
 
-        const response = await nango.get(config);
+        const users: z.infer<typeof OutputSchema>['users'] = [];
 
-        const responseData = z
-            .object({
-                value: z.array(z.unknown())
-            })
-            .parse(response.data);
-
-        const users = responseData.value.map((raw) => {
-            const parsed = ProviderUserSchema.parse(raw);
-            return {
-                displayName: parsed.displayName,
-                emailAddress: parsed.emailAddress,
-                accessRight: parsed.groupUserAccessRight,
-                identifier: parsed.identifier,
-                principalType: parsed.principalType,
-                graphId: parsed.graphId,
-                userType: parsed.userType
-            };
-        });
+        for await (const page of nango.paginate(config)) {
+            for (const raw of page) {
+                const parsed = ProviderUserSchema.parse(raw);
+                users.push({
+                    displayName: parsed.displayName,
+                    emailAddress: parsed.emailAddress,
+                    accessRight: parsed.groupUserAccessRight,
+                    identifier: parsed.identifier,
+                    principalType: parsed.principalType,
+                    graphId: parsed.graphId,
+                    userType: parsed.userType
+                });
+            }
+        }
 
         return { users };
     }

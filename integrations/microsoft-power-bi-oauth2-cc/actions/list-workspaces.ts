@@ -1,5 +1,7 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, type ProxyConfiguration } from 'nango';
+
+const PAGE_SIZE = 100;
 
 const InputSchema = z.object({});
 
@@ -25,30 +27,38 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
+        const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/rest/api/power-bi/groups/get-groups
             endpoint: '/v1.0/myorg/groups',
+            params: {
+                $top: PAGE_SIZE
+            },
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: '$skip',
+                limit_name_in_request: '$top',
+                limit: PAGE_SIZE,
+                response_path: 'value'
+            },
             retries: 3
-        });
+        };
 
-        const data = z
-            .object({
-                value: z.array(z.unknown())
-            })
-            .parse(response.data);
+        const workspaces: z.infer<typeof OutputSchema>['workspaces'] = [];
 
-        const workspaces = data.value.map((item: unknown) => {
-            const ws = WorkspaceSchema.parse(item);
-            return {
-                id: ws.id,
-                name: ws.name,
-                ...(ws.isReadOnly !== undefined && { isReadOnly: ws.isReadOnly }),
-                ...(ws.isOnDedicatedCapacity !== undefined && { isOnDedicatedCapacity: ws.isOnDedicatedCapacity }),
-                ...(ws.capacityId != null && { capacityId: ws.capacityId }),
-                ...(ws.description != null && { description: ws.description }),
-                ...(ws.type != null && { type: ws.type })
-            };
-        });
+        for await (const page of nango.paginate(config)) {
+            for (const item of page) {
+                const ws = WorkspaceSchema.parse(item);
+                workspaces.push({
+                    id: ws.id,
+                    name: ws.name,
+                    ...(ws.isReadOnly !== undefined && { isReadOnly: ws.isReadOnly }),
+                    ...(ws.isOnDedicatedCapacity !== undefined && { isOnDedicatedCapacity: ws.isOnDedicatedCapacity }),
+                    ...(ws.capacityId != null && { capacityId: ws.capacityId }),
+                    ...(ws.description != null && { description: ws.description }),
+                    ...(ws.type != null && { type: ws.type })
+                });
+            }
+        }
 
         return {
             workspaces

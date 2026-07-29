@@ -17,7 +17,7 @@ const ProviderReportSchema = z.object({
 });
 
 const ProviderListResponseSchema = z.object({
-    value: z.array(ProviderReportSchema).optional()
+    value: z.array(ProviderReportSchema)
 });
 
 const ReportSchema = z.object({
@@ -40,6 +40,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['Report.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -49,10 +50,9 @@ const action = createAction({
         });
 
         const parsed = ProviderListResponseSchema.parse(response.data);
-        const reports = parsed.value || [];
 
         return {
-            reports: reports.map((report) => ({
+            reports: parsed.value.map((report) => ({
                 id: report.id,
                 ...(report.reportType !== undefined && { reportType: report.reportType }),
                 name: report.name,

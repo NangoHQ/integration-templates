@@ -3025,6 +3025,38 @@ import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-purcha
 import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-sales-order.js';
 import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-vendor.js';
 
+// -- Integration: microsoft-power-bi-oauth2-cc
+import './microsoft-power-bi-oauth2-cc/syncs/datasets.js';
+import './microsoft-power-bi-oauth2-cc/syncs/workspaces.js';
+import './microsoft-power-bi-oauth2-cc/actions/add-dataset-rows.js';
+import './microsoft-power-bi-oauth2-cc/actions/add-workspace-user.js';
+import './microsoft-power-bi-oauth2-cc/actions/create-dashboard.js';
+import './microsoft-power-bi-oauth2-cc/actions/create-push-dataset.js';
+import './microsoft-power-bi-oauth2-cc/actions/create-workspace.js';
+import './microsoft-power-bi-oauth2-cc/actions/delete-dataset-rows.js';
+import './microsoft-power-bi-oauth2-cc/actions/delete-dataset.js';
+import './microsoft-power-bi-oauth2-cc/actions/delete-workspace.js';
+import './microsoft-power-bi-oauth2-cc/actions/execute-dataset-queries.js';
+import './microsoft-power-bi-oauth2-cc/actions/get-dataset-refresh-schedule.js';
+import './microsoft-power-bi-oauth2-cc/actions/get-dataset.js';
+import './microsoft-power-bi-oauth2-cc/actions/get-workspace.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dashboard-tiles.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dashboards.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dataflows.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dataset-datasources.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dataset-refresh-history.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dataset-users.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-datasets.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-gateways.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-reports.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-workspace-users.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-workspaces.js';
+import './microsoft-power-bi-oauth2-cc/actions/refresh-dataset.js';
+import './microsoft-power-bi-oauth2-cc/actions/takeover-dataset.js';
+import './microsoft-power-bi-oauth2-cc/actions/update-dataset-refresh-schedule.js';
+import './microsoft-power-bi-oauth2-cc/actions/update-dataset-table-schema.js';
+import './microsoft-power-bi-oauth2-cc/actions/update-workspace.js';
+
 // -- Integration: microsoft-teams
 import './microsoft-teams/syncs/channel-message-replies.js';
 import './microsoft-teams/syncs/channel-messages.js';

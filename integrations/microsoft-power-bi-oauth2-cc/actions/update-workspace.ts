@@ -11,7 +11,7 @@ const ProviderWorkspaceSchema = z.object({
     name: z.string().optional(),
     isReadOnly: z.boolean().optional(),
     isOnDedicatedCapacity: z.boolean().optional(),
-    capacityId: z.string().optional()
+    capacityId: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -52,7 +52,7 @@ const action = createAction({
             ...(workspace.name !== undefined && { name: workspace.name }),
             ...(workspace.isReadOnly !== undefined && { isReadOnly: workspace.isReadOnly }),
             ...(workspace.isOnDedicatedCapacity !== undefined && { isOnDedicatedCapacity: workspace.isOnDedicatedCapacity }),
-            ...(workspace.capacityId !== undefined && { capacityId: workspace.capacityId })
+            ...(workspace.capacityId != null && { capacityId: workspace.capacityId })
         };
     }
 });
