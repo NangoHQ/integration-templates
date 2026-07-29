@@ -2,14 +2,14 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company / legal entity ID. Example: "dat"'),
+    dataAreaId: z.string().describe('Company code / data area ID. Example: "dat"'),
     salesQuotationNumber: z.string().describe('Sales quotation number to delete. Example: "DAT-000005"')
 });
 
 const OutputSchema = z.object({
-    success: z.boolean(),
     dataAreaId: z.string(),
-    salesQuotationNumber: z.string()
+    salesQuotationNumber: z.string(),
+    deleted: z.boolean()
 });
 
 const action = createAction({
@@ -19,18 +19,16 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const endpoint = `/data/SalesQuotationHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',SalesQuotationNumber='${encodeURIComponent(input.salesQuotationNumber.replace(/'/g, "''"))}')`;
-
-        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         await nango.delete({
-            endpoint,
-            retries: 3
+            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+            endpoint: `/data/SalesQuotationHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',SalesQuotationNumber='${encodeURIComponent(input.salesQuotationNumber)}')`,
+            retries: 1
         });
 
         return {
-            success: true,
             dataAreaId: input.dataAreaId,
-            salesQuotationNumber: input.salesQuotationNumber
+            salesQuotationNumber: input.salesQuotationNumber,
+            deleted: true
         };
     }
 });

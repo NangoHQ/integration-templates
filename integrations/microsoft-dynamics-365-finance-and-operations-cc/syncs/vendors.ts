@@ -1,35 +1,43 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+const VendorV2ResponseSchema = z
+    .object({
+        VendorAccountNumber: z.string(),
+        VendorOrganizationName: z.string().nullish(),
+        VendorGroupId: z.string().nullish(),
+        AddressCity: z.string().nullish(),
+        AddressCountryRegionId: z.string().nullish(),
+        AddressState: z.string().nullish(),
+        AddressZipCode: z.string().nullish(),
+        AddressStreet: z.string().nullish(),
+        PrimaryContactEmail: z.string().nullish(),
+        PrimaryContactPhone: z.string().nullish(),
+        dataAreaId: z.string()
+    })
+    .passthrough();
+
 const VendorSchema = z.object({
     id: z.string(),
-    vendorAccountNumber: z.string(),
-    vendorOrganizationName: z.string().optional(),
-    vendorName: z.string().optional(),
-    vendorPartyType: z.string().optional(),
-    addressCity: z.string().optional(),
-    addressCountryRegionId: z.string().optional(),
-    primaryContactEmail: z.string().optional(),
-    dataAreaId: z.string().optional()
+    VendorAccountNumber: z.string(),
+    VendorOrganizationName: z.string().optional(),
+    VendorGroupId: z.string().optional(),
+    AddressCity: z.string().optional(),
+    AddressCountryRegionId: z.string().optional(),
+    AddressState: z.string().optional(),
+    AddressZipCode: z.string().optional(),
+    AddressStreet: z.string().optional(),
+    PrimaryContactEmail: z.string().optional(),
+    PrimaryContactPhone: z.string().optional(),
+    dataAreaId: z.string()
 });
 
 const CheckpointSchema = z.object({
-    skip: z.number()
-});
-
-const RawVendorSchema = z.object({
-    VendorAccountNumber: z.string(),
-    VendorOrganizationName: z.string().nullish(),
-    VendorName: z.string().nullish(),
-    VendorPartyType: z.string().nullish(),
-    AddressCity: z.string().nullish(),
-    AddressCountryRegionId: z.string().nullish(),
-    PrimaryContactEmail: z.string().nullish(),
-    dataAreaId: z.string().nullish()
+    offset: z.number().int().min(0)
 });
 
 const sync = createSync({
-    description: 'Sync vendors',
+    description: 'Sync vendors.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -39,78 +47,66 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
+        // Blocker: VendorsV2 exposes no filterable last-modified timestamp in this
+        // environment, so full refresh with $top/$skip paging is required.
+        // Persist the current $skip offset so an interrupted crawl can resume.
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
-        let skip = checkpoint.success ? checkpoint.data.skip : 0;
+        let offset = checkpoint.success ? checkpoint.data.offset : 0;
+        let trackingStarted = offset > 0;
 
-        // skip can only be > 0 if an earlier execution already advanced past at least one
-        // non-empty page (see the trackingStarted-gating below), which means that earlier
-        // execution must have already called trackDeletesStart. So on a resumed execution we
-        // assume the window is already open and must NOT call trackDeletesStart again ourselves
-        // — otherwise we'd open a fresh window covering only the remaining (suffix) pages, and
-        // trackDeletesEnd would then treat every vendor from the already-processed pages as
-        // missing and delete it. trackDeletesStart is only actually called once we've seen a
-        // validated page that contains records, so an empty/anomalous response never opens (and
-        // therefore never completes) a delete-tracking window that would wipe the whole cache.
-        let trackingStarted = skip > 0;
+        if (!trackingStarted) {
+            await nango.trackDeletesStart('Vendor');
+            trackingStarted = true;
+        }
 
-        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/VendorsV2',
             params: {
-                'cross-company': 'true',
                 $orderby: 'dataAreaId asc,VendorAccountNumber asc'
             },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: '$skip',
-                offset_start_value: skip,
+                offset_calculation_method: 'by-response-size',
+                offset_start_value: offset,
                 limit_name_in_request: '$top',
-                limit: 100,
-                response_path: 'value',
-                offset_calculation_method: 'by-response-size'
+                limit: 1000,
+                response_path: 'value'
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
+        for await (const batch of nango.paginate(proxyConfig)) {
             const vendors = [];
-            for (const item of page) {
-                const parsed = RawVendorSchema.safeParse(item);
+            for (const raw of batch) {
+                const parsed = VendorV2ResponseSchema.safeParse(raw);
                 if (!parsed.success) {
-                    throw new Error(`Failed to parse vendor record: ${parsed.error.message}`);
+                    throw new Error(`Failed to parse vendor: ${parsed.error.message}`);
                 }
-
-                const data = parsed.data;
-                if (!data.dataAreaId) {
-                    throw new Error(`Vendor record missing required dataAreaId (VendorAccountNumber: ${data.VendorAccountNumber})`);
-                }
-                const id = `${data.dataAreaId}_${data.VendorAccountNumber}`;
-
+                const v = parsed.data;
                 vendors.push({
-                    id,
-                    vendorAccountNumber: data.VendorAccountNumber,
-                    ...(data.VendorOrganizationName != null && { vendorOrganizationName: data.VendorOrganizationName }),
-                    ...(data.VendorName != null && { vendorName: data.VendorName }),
-                    ...(data.VendorPartyType != null && { vendorPartyType: data.VendorPartyType }),
-                    ...(data.AddressCity != null && { addressCity: data.AddressCity }),
-                    ...(data.AddressCountryRegionId != null && { addressCountryRegionId: data.AddressCountryRegionId }),
-                    ...(data.PrimaryContactEmail != null && { primaryContactEmail: data.PrimaryContactEmail }),
-                    ...(data.dataAreaId != null && { dataAreaId: data.dataAreaId })
+                    id: `${v.dataAreaId}-${v.VendorAccountNumber}`,
+                    VendorAccountNumber: v.VendorAccountNumber,
+                    ...(v.VendorOrganizationName != null && { VendorOrganizationName: v.VendorOrganizationName }),
+                    ...(v.VendorGroupId != null && { VendorGroupId: v.VendorGroupId }),
+                    ...(v.AddressCity != null && { AddressCity: v.AddressCity }),
+                    ...(v.AddressCountryRegionId != null && { AddressCountryRegionId: v.AddressCountryRegionId }),
+                    ...(v.AddressState != null && { AddressState: v.AddressState }),
+                    ...(v.AddressZipCode != null && { AddressZipCode: v.AddressZipCode }),
+                    ...(v.AddressStreet != null && { AddressStreet: v.AddressStreet }),
+                    ...(v.PrimaryContactEmail != null && { PrimaryContactEmail: v.PrimaryContactEmail }),
+                    ...(v.PrimaryContactPhone != null && { PrimaryContactPhone: v.PrimaryContactPhone }),
+                    dataAreaId: v.dataAreaId
                 });
-            }
-
-            if (!trackingStarted && vendors.length > 0) {
-                await nango.trackDeletesStart('Vendor');
-                trackingStarted = true;
             }
 
             if (vendors.length > 0) {
                 await nango.batchSave(vendors, 'Vendor');
             }
 
-            skip += page.length;
-            await nango.saveCheckpoint({ skip });
+            offset += batch.length;
+            await nango.saveCheckpoint({ offset });
         }
 
         await nango.clearCheckpoint();

@@ -2,99 +2,98 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company code (data area ID). Example: "dat"'),
-    vendorAccountNumber: z.string().describe('Vendor account number to update. Example: "DAT-0000000002"'),
-    vendorOrganizationName: z.string().optional().describe('Vendor organization name.'),
-    addressCity: z.string().optional().describe('City of the vendor address.'),
-    addressCountryRegionId: z.string().optional().describe('Country/region code of the vendor address.'),
-    primaryContactEmail: z.string().optional().describe('Primary contact email address.')
+    dataAreaId: z.string().describe('Company code / legal entity. Example: "dat"'),
+    vendorAccountNumber: z.string().describe('Vendor account number. Example: "DAT-0000000002"'),
+    vendorOrganizationName: z.string().optional().describe('Vendor organization name'),
+    vendorGroupId: z.string().optional().describe('Vendor group ID'),
+    currencyCode: z.string().optional().describe('Currency code'),
+    addressCity: z.string().optional().describe('City of the vendor address'),
+    additionalProperties: z.record(z.string(), z.unknown()).optional().describe('Additional properties to update')
 });
 
-const ProviderVendorSchema = z.object({
-    dataAreaId: z.string(),
-    VendorAccountNumber: z.string(),
-    VendorOrganizationName: z.string().optional().nullable(),
-    AddressCity: z.string().optional().nullable(),
-    AddressCountryRegionId: z.string().optional().nullable(),
-    PrimaryContactEmail: z.string().optional().nullable()
-});
+const ProviderVendorSchema = z
+    .object({
+        dataAreaId: z.string().optional(),
+        VendorAccountNumber: z.string().optional(),
+        VendorOrganizationName: z.string().nullable().optional(),
+        VendorGroupId: z.string().nullable().optional(),
+        CurrencyCode: z.string().nullable().optional(),
+        AddressCity: z.string().nullable().optional()
+    })
+    .passthrough();
 
-const OutputSchema = z.object({
-    dataAreaId: z.string(),
-    vendorAccountNumber: z.string(),
-    vendorOrganizationName: z.string().optional(),
-    addressCity: z.string().optional(),
-    addressCountryRegionId: z.string().optional(),
-    primaryContactEmail: z.string().optional()
-});
+const OutputSchema = z
+    .object({
+        dataAreaId: z.string().optional(),
+        vendorAccountNumber: z.string().optional(),
+        vendorOrganizationName: z.string().optional(),
+        vendorGroupId: z.string().optional(),
+        currencyCode: z.string().optional(),
+        addressCity: z.string().optional()
+    })
+    .passthrough();
 
 const action = createAction({
     description: 'Update a vendor.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['Financials'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
-        const encodedVendorAccountNumber = encodeURIComponent(input.vendorAccountNumber.replace(/'/g, "''"));
-        const endpoint = `/data/VendorsV2(dataAreaId='${encodedDataAreaId}',VendorAccountNumber='${encodedVendorAccountNumber}')`;
+        const endpoint = `/data/VendorsV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',VendorAccountNumber='${encodeURIComponent(input.vendorAccountNumber)}')`;
 
-        const patchBody: Record<string, unknown> = {};
-        if (input.vendorOrganizationName !== undefined) {
-            patchBody['VendorOrganizationName'] = input.vendorOrganizationName;
-        }
-        if (input.addressCity !== undefined) {
-            patchBody['AddressCity'] = input.addressCity;
-        }
-        if (input.addressCountryRegionId !== undefined) {
-            patchBody['AddressCountryRegionId'] = input.addressCountryRegionId;
-        }
-        if (input.primaryContactEmail !== undefined) {
-            patchBody['PrimaryContactEmail'] = input.primaryContactEmail;
-        }
+        const patchData: Record<string, unknown> = {
+            ...(input.vendorOrganizationName !== undefined && { VendorOrganizationName: input.vendorOrganizationName }),
+            ...(input.vendorGroupId !== undefined && { VendorGroupId: input.vendorGroupId }),
+            ...(input.currencyCode !== undefined && { CurrencyCode: input.currencyCode }),
+            ...(input.addressCity !== undefined && { AddressCity: input.addressCity }),
+            ...(input.additionalProperties !== undefined && input.additionalProperties)
+        };
 
-        if (Object.keys(patchBody).length === 0) {
+        if (Object.keys(patchData).length === 0) {
             throw new nango.ActionError({
                 type: 'invalid_input',
-                message: 'At least one field to update must be provided.'
+                message: 'At least one property to update must be provided.'
             });
         }
 
+        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const patchResponse = await nango.patch({
-            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint,
-            data: patchBody,
-            retries: 10
+            data: patchData,
+            retries: 1
         });
 
-        if (patchResponse.status === 204) {
+        let vendorData: unknown = patchResponse.data;
+
+        if (!vendorData) {
+            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             const getResponse = await nango.get({
-                // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
                 endpoint,
                 retries: 3
             });
-
-            const vendor = ProviderVendorSchema.parse(getResponse.data);
-
-            return {
-                dataAreaId: vendor.dataAreaId,
-                vendorAccountNumber: vendor.VendorAccountNumber,
-                ...(vendor.VendorOrganizationName != null && { vendorOrganizationName: vendor.VendorOrganizationName }),
-                ...(vendor.AddressCity != null && { addressCity: vendor.AddressCity }),
-                ...(vendor.AddressCountryRegionId != null && { addressCountryRegionId: vendor.AddressCountryRegionId }),
-                ...(vendor.PrimaryContactEmail != null && { primaryContactEmail: vendor.PrimaryContactEmail })
-            };
+            vendorData = getResponse.data;
         }
 
-        const vendor = ProviderVendorSchema.parse(patchResponse.data);
+        if (!vendorData) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Vendor not found after update.',
+                dataAreaId: input.dataAreaId,
+                vendorAccountNumber: input.vendorAccountNumber
+            });
+        }
+
+        const providerVendor = ProviderVendorSchema.parse(vendorData);
 
         return {
-            dataAreaId: vendor.dataAreaId,
-            vendorAccountNumber: vendor.VendorAccountNumber,
-            ...(vendor.VendorOrganizationName != null && { vendorOrganizationName: vendor.VendorOrganizationName }),
-            ...(vendor.AddressCity != null && { addressCity: vendor.AddressCity }),
-            ...(vendor.AddressCountryRegionId != null && { addressCountryRegionId: vendor.AddressCountryRegionId }),
-            ...(vendor.PrimaryContactEmail != null && { primaryContactEmail: vendor.PrimaryContactEmail })
+            ...(providerVendor.dataAreaId !== undefined && { dataAreaId: providerVendor.dataAreaId }),
+            ...(providerVendor.VendorAccountNumber !== undefined && { vendorAccountNumber: providerVendor.VendorAccountNumber }),
+            ...(providerVendor.VendorOrganizationName != null && { vendorOrganizationName: providerVendor.VendorOrganizationName }),
+            ...(providerVendor.VendorGroupId != null && { vendorGroupId: providerVendor.VendorGroupId }),
+            ...(providerVendor.CurrencyCode != null && { currencyCode: providerVendor.CurrencyCode }),
+            ...(providerVendor.AddressCity != null && { addressCity: providerVendor.AddressCity })
         };
     }
 });

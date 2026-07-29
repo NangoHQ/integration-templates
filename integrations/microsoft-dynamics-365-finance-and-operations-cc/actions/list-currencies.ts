@@ -1,25 +1,25 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    cursor: z.string().optional().describe('Pagination cursor from a previous response. Omit for the first page.')
 });
 
-const ProviderCurrencySchema = z
-    .object({
-        CurrencyCode: z.string(),
-        Name: z.string().nullable().optional()
-    })
-    .passthrough();
+const CurrencySchema = z.object({
+    CurrencyCode: z.string(),
+    Name: z.string().optional().nullable(),
+    Symbol: z.string().optional().nullable()
+});
 
 const OutputSchema = z.object({
-    items: z.array(
-        z.object({
-            currencyCode: z.string(),
-            name: z.string().optional()
-        })
-    ),
-    nextCursor: z.string().optional()
+    items: z.array(CurrencySchema),
+    next_cursor: z.string().optional()
+});
+
+const ODataResponseSchema = z.object({
+    value: z.array(z.object({}).passthrough()),
+    '@odata.nextLink': z.string().optional()
 });
 
 const action = createAction({
@@ -29,53 +29,54 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(skip)) {
+        const params: Record<string, string> = {};
+        if (input.cursor) {
+            params['$skiptoken'] = input.cursor;
+        }
+
+        const config: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+            endpoint: '/data/Currencies',
+            params,
+            retries: 3
+        };
+
+        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+        const response = await nango.get(config);
+
+        if (!response.data) {
             throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'Cursor must be a valid integer representing the skip offset.'
+                type: 'invalid_response',
+                message: 'Empty response from provider.'
             });
         }
 
-        const response = await nango.get({
-            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: '/data/Currencies',
-            params: {
-                $top: '100',
-                $skip: String(skip)
-            },
-            retries: 3
+        const parsed = ODataResponseSchema.parse(response.data);
+
+        const items = parsed.value.map((item) => {
+            const currency = CurrencySchema.safeParse(item);
+            if (!currency.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Unexpected currency shape from provider.',
+                    details: currency.error.issues
+                });
+            }
+            return currency.data;
         });
 
-        const raw = z
-            .object({
-                value: z.array(z.unknown()),
-                '@odata.nextLink': z.string().optional()
-            })
-            .parse(response.data);
-
-        const items = raw.value.map((item: unknown) => {
-            const currency = ProviderCurrencySchema.parse(item);
-            return {
-                currencyCode: currency.CurrencyCode,
-                ...(currency.Name != null && { name: currency.Name })
-            };
-        });
-
-        let nextCursor: string | undefined;
-        if (raw['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
-            const nextUrl = new URL(raw['@odata.nextLink']);
-            const skipParam = nextUrl.searchParams.get('$skip');
-            nextCursor = skipParam ?? String(skip + items.length);
-        } else if (items.length === 100) {
-            // No explicit nextLink, but we got a full page — assume there may be more.
-            nextCursor = String(skip + 100);
+        let next_cursor: string | undefined;
+        if (parsed['@odata.nextLink']) {
+            const nextLinkUrl = new URL(parsed['@odata.nextLink']);
+            const skiptoken = nextLinkUrl.searchParams.get('$skiptoken');
+            if (skiptoken) {
+                next_cursor = skiptoken;
+            }
         }
 
         return {
             items,
-            ...(nextCursor != null && { nextCursor })
+            ...(next_cursor !== undefined && { next_cursor })
         };
     }
 });

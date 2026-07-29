@@ -1,55 +1,37 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const ProviderInvoiceSchema = z.object({
-    dataAreaId: z.string(),
-    InvoiceIdentifier: z.union([z.string(), z.number()]),
-    InvoiceName: z.string().nullish(),
-    FreeTextNumber: z.string().nullish(),
-    CustomerAccount: z.string().nullish(),
-    InvoiceAccount: z.string().nullish(),
-    InvoiceDate: z.string().nullish(),
-    DueDate: z.string().nullish(),
-    CurrencyCode: z.string().nullish(),
-    ExchangeRate: z.number().nullish(),
-    TermsOfPayment: z.string().nullish(),
-    MethodOfPayment: z.string().nullish(),
-    IsPosted: z.string().nullish(),
-    CustomerGroup: z.string().nullish(),
-    PostingProfile: z.string().nullish(),
-    CashDiscountPercentage: z.number().nullish(),
-    IsCorrection: z.string().nullish(),
-    LanguageId: z.string().nullish()
-});
+const RawInvoiceSchema = z
+    .object({
+        dataAreaId: z.string(),
+        InvoiceIdentifier: z.union([z.string(), z.number()]),
+        FreeTextNumber: z.string().nullish(),
+        InvoiceDate: z.string().nullish(),
+        DueDate: z.string().nullish(),
+        CustomerAccount: z.string().nullish(),
+        CurrencyCode: z.string().nullish(),
+        InvoiceAmount: z.number().nullish()
+    })
+    .passthrough();
 
 const FreeTextInvoiceSchema = z.object({
     id: z.string(),
     dataAreaId: z.string(),
     invoiceIdentifier: z.string(),
-    invoiceName: z.string().optional(),
     freeTextNumber: z.string().optional(),
-    customerAccount: z.string().optional(),
-    invoiceAccount: z.string().optional(),
     invoiceDate: z.string().optional(),
     dueDate: z.string().optional(),
+    customerAccount: z.string().optional(),
     currencyCode: z.string().optional(),
-    exchangeRate: z.number().optional(),
-    termsOfPayment: z.string().optional(),
-    methodOfPayment: z.string().optional(),
-    isPosted: z.string().optional(),
-    customerGroup: z.string().optional(),
-    postingProfile: z.string().optional(),
-    cashDiscountPercentage: z.number().optional(),
-    isCorrection: z.string().optional(),
-    languageId: z.string().optional()
+    invoiceAmount: z.number().optional()
 });
 
 const CheckpointSchema = z.object({
-    skip: z.number().int().min(0)
+    offset: z.number().int().min(0)
 });
 
 const sync = createSync({
-    description: 'Sync free text (miscellaneous) customer invoice headers',
+    description: 'Sync free text (miscellaneous) customer invoice headers.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -59,20 +41,29 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
+        // Blocker: FreeTextInvoiceHeaders does not expose a filterable modified-timestamp
+        // field in this environment (confirmed by live audit per gotcha 3).
+        // Persist the current $skip offset so an interrupted full refresh can
+        // resume inside the same delete-tracking window.
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
-        let skip = checkpoint.success ? checkpoint.data.skip : 0;
+        let offset = checkpoint.success ? checkpoint.data.offset : 0;
+        let trackingStarted = offset > 0;
+
+        if (!trackingStarted) {
+            await nango.trackDeletesStart('FreeTextInvoice');
+            trackingStarted = true;
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/FreeTextInvoiceHeaders',
             params: {
-                'cross-company': 'true',
                 $orderby: 'dataAreaId asc,InvoiceIdentifier asc'
             },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: '$skip',
-                offset_start_value: skip,
+                offset_start_value: offset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: '$top',
                 limit: 100,
@@ -81,66 +72,38 @@ const sync = createSync({
             retries: 3
         };
 
-        // Fetch and validate the first page before starting delete tracking, so a failed/invalid
-        // first response doesn't leave delete-tracking open with zero records enumerated.
-        // skip can only be > 0 if an earlier execution already advanced past at least one
-        // non-empty page (see the trackingStarted-gating below), which means that earlier
-        // execution must have already called trackDeletesStart. On a resumed execution we must
-        // NOT call trackDeletesStart again — that would open a fresh window covering only the
-        // remaining pages, and trackDeletesEnd would then treat every invoice from the
-        // already-processed pages as missing and delete it. trackDeletesStart is only actually
-        // called once we've seen a validated page that contains records, so an empty/anomalous
-        // response never opens (and therefore never completes) a window that would wipe the
-        // whole cache.
-        const iterator = nango.paginate(proxyConfig)[Symbol.asyncIterator]();
-        let result = await iterator.next();
-        let trackingStarted = skip > 0;
-
-        while (!result.done) {
-            const page = result.value;
-            const invoices = page.map((record: unknown) => {
-                const parsed = ProviderInvoiceSchema.safeParse(record);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse invoice: ${parsed.error.message}`);
+        for await (const page of nango.paginate(proxyConfig)) {
+            const invoices = [];
+            for (const raw of page) {
+                const rawParsed = RawInvoiceSchema.safeParse(raw);
+                if (!rawParsed.success) {
+                    throw new Error(`Failed to parse FreeTextInvoiceHeaders record: ${rawParsed.error.message}`);
                 }
-                const r = parsed.data;
-                const invoiceIdentifier = String(r.InvoiceIdentifier);
-                return {
-                    id: `${r.dataAreaId}-${invoiceIdentifier}`,
-                    dataAreaId: r.dataAreaId,
-                    invoiceIdentifier,
-                    ...(r.InvoiceName != null && { invoiceName: r.InvoiceName }),
-                    ...(r.FreeTextNumber != null && { freeTextNumber: r.FreeTextNumber }),
-                    ...(r.CustomerAccount != null && { customerAccount: r.CustomerAccount }),
-                    ...(r.InvoiceAccount != null && { invoiceAccount: r.InvoiceAccount }),
-                    ...(r.InvoiceDate != null && { invoiceDate: r.InvoiceDate }),
-                    ...(r.DueDate != null && { dueDate: r.DueDate }),
-                    ...(r.CurrencyCode != null && { currencyCode: r.CurrencyCode }),
-                    ...(r.ExchangeRate != null && { exchangeRate: r.ExchangeRate }),
-                    ...(r.TermsOfPayment != null && { termsOfPayment: r.TermsOfPayment }),
-                    ...(r.MethodOfPayment != null && { methodOfPayment: r.MethodOfPayment }),
-                    ...(r.IsPosted != null && { isPosted: r.IsPosted }),
-                    ...(r.CustomerGroup != null && { customerGroup: r.CustomerGroup }),
-                    ...(r.PostingProfile != null && { postingProfile: r.PostingProfile }),
-                    ...(r.CashDiscountPercentage != null && { cashDiscountPercentage: r.CashDiscountPercentage }),
-                    ...(r.IsCorrection != null && { isCorrection: r.IsCorrection }),
-                    ...(r.LanguageId != null && { languageId: r.LanguageId })
+                const record = rawParsed.data;
+                const invoice = {
+                    id: `${record.dataAreaId}-${String(record.InvoiceIdentifier)}`,
+                    dataAreaId: record.dataAreaId,
+                    invoiceIdentifier: String(record.InvoiceIdentifier),
+                    ...(record.FreeTextNumber != null && { freeTextNumber: record.FreeTextNumber }),
+                    ...(record.InvoiceDate != null && { invoiceDate: record.InvoiceDate }),
+                    ...(record.DueDate != null && { dueDate: record.DueDate }),
+                    ...(record.CustomerAccount != null && { customerAccount: record.CustomerAccount }),
+                    ...(record.CurrencyCode != null && { currencyCode: record.CurrencyCode }),
+                    ...(record.InvoiceAmount != null && { invoiceAmount: record.InvoiceAmount })
                 };
-            });
-
-            if (!trackingStarted && invoices.length > 0) {
-                await nango.trackDeletesStart('FreeTextInvoice');
-                trackingStarted = true;
+                const modelParsed = FreeTextInvoiceSchema.safeParse(invoice);
+                if (!modelParsed.success) {
+                    throw new Error(`Failed to validate normalized FreeTextInvoice: ${modelParsed.error.message}`);
+                }
+                invoices.push(modelParsed.data);
             }
 
             if (invoices.length > 0) {
                 await nango.batchSave(invoices, 'FreeTextInvoice');
             }
 
-            skip += page.length;
-            await nango.saveCheckpoint({ skip });
-
-            result = await iterator.next();
+            offset += page.length;
+            await nango.saveCheckpoint({ offset });
         }
 
         await nango.clearCheckpoint();

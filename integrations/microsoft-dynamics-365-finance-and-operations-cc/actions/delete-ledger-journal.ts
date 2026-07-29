@@ -3,17 +3,15 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     dataAreaId: z.string().describe('Company / data area ID. Example: "dat"'),
-    journalBatchNumber: z.string().describe('Journal batch number to delete. Example: "DAT-000015"')
+    journalBatchNumber: z.string().describe('Journal batch number of the ledger journal header to delete. Example: "DAT-000015"')
 });
 
 const OutputSchema = z.object({
-    dataAreaId: z.string(),
-    journalBatchNumber: z.string(),
-    deleted: z.boolean()
+    success: z.boolean()
 });
 
 const action = createAction({
-    description: 'Delete a draft (unposted) general ledger journal header',
+    description: 'Delete a draft (unposted) general ledger journal header.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -21,15 +19,11 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         await nango.delete({
-            endpoint: `/data/LedgerJournalHeaders(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',JournalBatchNumber='${encodeURIComponent(input.journalBatchNumber.replace(/'/g, "''"))}')`,
+            endpoint: `/data/LedgerJournalHeaders(dataAreaId='${encodeURIComponent(input.dataAreaId)}',JournalBatchNumber='${encodeURIComponent(input.journalBatchNumber)}')`,
             retries: 1
         });
 
-        return {
-            dataAreaId: input.dataAreaId,
-            journalBatchNumber: input.journalBatchNumber,
-            deleted: true
-        };
+        return { success: true };
     }
 });
 

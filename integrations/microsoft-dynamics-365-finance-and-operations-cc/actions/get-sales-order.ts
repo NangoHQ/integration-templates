@@ -9,14 +9,14 @@ const InputSchema = z.object({
 const OutputSchema = z.object({}).passthrough();
 
 const action = createAction({
-    description: 'Retrieve a sales order header',
+    description: 'Retrieve a sales order header.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
-        const encodedSalesOrderNumber = encodeURIComponent(input.salesOrderNumber.replace(/'/g, "''"));
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId);
+        const encodedSalesOrderNumber = encodeURIComponent(input.salesOrderNumber);
 
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
@@ -24,18 +24,16 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data || typeof response.data !== 'object') {
+        if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: 'Sales order not found or unexpected response format',
+                message: 'Sales order not found',
                 dataAreaId: input.dataAreaId,
                 salesOrderNumber: input.salesOrderNumber
             });
         }
 
-        const providerSalesOrder = OutputSchema.parse(response.data);
-
-        return providerSalesOrder;
+        return OutputSchema.parse(response.data);
     }
 });
 

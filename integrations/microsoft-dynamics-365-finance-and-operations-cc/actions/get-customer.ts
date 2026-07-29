@@ -2,23 +2,31 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company / data area ID. Example: "dat"'),
+    dataAreaId: z.string().describe('Company code / data area ID. Example: "dat"'),
     customerAccount: z.string().describe('Customer account number. Example: "DAT-000004"')
 });
 
 const ProviderCustomerSchema = z
     .object({
-        dataAreaId: z.string(),
-        CustomerAccount: z.string(),
-        OrganizationName: z.string().nullable().optional(),
+        dataAreaId: z.string().optional(),
+        CustomerAccount: z.string().optional(),
+        Name: z.string().nullable().optional(),
+        NameAlias: z.string().nullable().optional(),
         CustomerGroupId: z.string().nullable().optional(),
-        CurrencyCode: z.string().nullable().optional(),
         AddressCity: z.string().nullable().optional(),
         AddressCountryRegionId: z.string().nullable().optional(),
-        SalesTaxGroup: z.string().nullable().optional(),
+        AddressZipCode: z.string().nullable().optional(),
+        AddressState: z.string().nullable().optional(),
+        PrimaryContactEmail: z.string().nullable().optional(),
+        PrimaryContactPhone: z.string().nullable().optional(),
+        CurrencyCode: z.string().nullable().optional(),
         PaymentTerms: z.string().nullable().optional(),
-        Email: z.string().nullable().optional(),
-        Phone: z.string().nullable().optional()
+        SalesTaxGroup: z.string().nullable().optional(),
+        IsOneTimeCustomer: z.string().nullable().optional(),
+        IsProspect: z.string().nullable().optional(),
+        IsActiveCustomer: z.string().nullable().optional(),
+        CreditLimit: z.number().nullable().optional(),
+        PartyNumber: z.string().nullable().optional()
     })
     .passthrough();
 
@@ -31,16 +39,20 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const { dataAreaId, customerAccount } = input;
+        const encodedDataAreaId = encodeURIComponent(dataAreaId);
+        const encodedCustomerAccount = encodeURIComponent(customerAccount);
+
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: `/data/CustomersV3(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',CustomerAccount='${encodeURIComponent(input.customerAccount.replace(/'/g, "''"))}')`,
+            endpoint: `/data/CustomersV3(dataAreaId='${encodedDataAreaId}',CustomerAccount='${encodedCustomerAccount}')`,
             retries: 3
         });
 
         if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Customer ${input.customerAccount} not found in company ${input.dataAreaId}.`
+                message: `Customer '${customerAccount}' not found in company '${dataAreaId}'.`
             });
         }
 

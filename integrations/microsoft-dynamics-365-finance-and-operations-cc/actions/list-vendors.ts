@@ -1,22 +1,22 @@
 import { z } from 'zod';
-import { createAction, ProxyConfiguration } from 'nango';
+import { createAction } from 'nango';
+
+const PAGE_SIZE = 100;
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor ($skip value) from the previous response. Omit for the first page.'),
-    top: z.number().optional().describe('Maximum number of records to return per page. Defaults to 100.'),
-    filter: z.string().optional().describe('OData $filter expression to filter results.'),
-    cross_company: z.boolean().optional().describe('Query across all companies instead of the default company.')
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
-const ProviderListResponseSchema = z.object({
-    value: z.array(z.record(z.string(), z.unknown())),
-    '@odata.nextLink': z.string().optional(),
-    '@odata.count': z.number().optional()
-});
+const ProviderVendorSchema = z.object({}).passthrough();
 
 const OutputSchema = z.object({
-    items: z.array(z.record(z.string(), z.unknown())),
+    items: z.array(ProviderVendorSchema),
     next_cursor: z.string().optional()
+});
+
+const ODataListResponseSchema = z.object({
+    value: z.array(z.unknown()),
+    '@odata.nextLink': z.string().optional()
 });
 
 const action = createAction({
@@ -25,46 +25,51 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
 
-    exec: async (nango, input) => {
-        const params: Record<string, string | number> = {
-            $top: input.top ?? 100
-        };
-
-        if (input.cursor !== undefined) {
-            params['$skip'] = input.cursor;
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (Number.isNaN(skip)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a numeric skip value'
+            });
         }
 
-        if (input.filter !== undefined) {
-            params['$filter'] = input.filter;
-        }
-
-        if (input.cross_company !== undefined) {
-            params['cross-company'] = input.cross_company ? 'true' : 'false';
-        }
-
-        const config: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+        const response = await nango.get({
             endpoint: '/data/VendorsV2',
-            params,
+            params: {
+                $top: String(PAGE_SIZE),
+                $skip: String(skip)
+            },
             retries: 3
-        };
+        });
 
-        const response = await nango.get(config);
-        const parsed = ProviderListResponseSchema.parse(response.data);
-        const items = parsed.value;
+        const raw = ODataListResponseSchema.parse(response.data);
 
-        let next_cursor: string | undefined;
-        if (parsed['@odata.nextLink'] !== undefined) {
-            const url = new URL(parsed['@odata.nextLink']);
-            const skip = url.searchParams.get('$skip');
-            if (skip !== null) {
-                next_cursor = skip;
+        const items = raw.value.map((item: unknown) => {
+            if (typeof item !== 'object' || item === null) {
+                throw new nango.ActionError({
+                    type: 'unexpected_response',
+                    message: 'Expected each vendor to be an object'
+                });
             }
+            return ProviderVendorSchema.parse(item);
+        });
+
+        let nextCursor: string | undefined;
+        if (typeof raw['@odata.nextLink'] === 'string') {
+            const url = new URL(raw['@odata.nextLink']);
+            const skipParam = url.searchParams.get('$skip');
+            if (skipParam) {
+                nextCursor = skipParam;
+            }
+        } else if (items.length === PAGE_SIZE) {
+            nextCursor = String(skip + PAGE_SIZE);
         }
 
         return {
             items,
-            ...(next_cursor !== undefined && { next_cursor })
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

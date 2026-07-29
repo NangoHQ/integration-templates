@@ -5,20 +5,28 @@ const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
-const ProviderItemSchema = z
+const ProviderChartOfAccountsSchema = z
     .object({
-        '@odata.etag': z.string().optional(),
-        ChartOfAccounts: z.string(),
-        MainAccountMask: z.string().optional(),
-        ChartOfAccountsRecId: z.number().optional(),
-        Description: z.string().optional()
+        ChartOfAccounts: z.string().optional().describe('Chart of accounts identifier. Example: "USMF"'),
+        Description: z.string().optional().nullable().describe('Chart of accounts description'),
+        dataAreaId: z.string().optional().describe('Company / data area ID. Example: "dat"')
     })
     .passthrough();
 
-const OutputSchema = z.object({
-    items: z.array(ProviderItemSchema),
-    nextCursor: z.string().optional()
+const OutputItemSchema = z.object({
+    chart_of_accounts: z.string().optional().describe('Chart of accounts identifier'),
+    description: z.string().optional().describe('Chart of accounts description'),
+    data_area_id: z.string().optional().describe('Company / data area ID')
 });
+
+const OutputSchema = z.object({
+    items: z.array(OutputItemSchema),
+    next_cursor: z.string().optional().describe('Pagination cursor for the next page')
+});
+
+type ProviderChartOfAccounts = z.infer<typeof ProviderChartOfAccountsSchema>;
+
+const PAGE_SIZE = 100;
 
 const action = createAction({
     description: 'List charts of accounts.',
@@ -27,55 +35,55 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const pageSize = 100;
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(skip) || skip < 0) {
+        if (isNaN(skip) || skip < 0) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'Cursor must be a non-negative numeric skip value.'
+                message: 'Cursor must be a non-negative integer representing the skip offset.'
             });
         }
 
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            // ChartOfAccounts is a shared entity (not legal-entity-scoped): it has no dataAreaId
-            // property, so there is nothing to filter by company and no cross-company param is needed.
             endpoint: '/data/ChartOfAccounts',
             params: {
-                $top: pageSize,
+                $top: PAGE_SIZE,
                 $skip: skip
             },
             retries: 3
         });
 
-        const providerResponse = z
-            .object({
-                value: z.array(z.unknown()),
-                '@odata.nextLink': z.string().optional()
-            })
-            .parse(response.data);
+        const rawValue = response.data;
+        if (!rawValue || typeof rawValue !== 'object' || !Array.isArray(rawValue.value)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from ChartOfAccounts endpoint.'
+            });
+        }
 
-        const items = providerResponse.value.map((item) => {
-            const parsed = ProviderItemSchema.parse(item);
-            return parsed;
+        const providerItems: ProviderChartOfAccounts[] = rawValue.value.map((item: unknown) => {
+            const parsed = ProviderChartOfAccountsSchema.safeParse(item);
+            if (!parsed.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response_item',
+                    message: 'Failed to parse a ChartOfAccounts response item.'
+                });
+            }
+            return parsed.data;
         });
 
-        let nextCursor: string | undefined;
-        if (providerResponse['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and try to extract the real $skip it
-            // wants us to use next. nextLink may be an absolute URL or a relative path, so parse it
-            // against a fixed base to support both.
-            const nextUrl = new URL(providerResponse['@odata.nextLink'], 'https://dynamics.local');
-            const skipParam = nextUrl.searchParams.get('$skip');
-            nextCursor = skipParam ?? String(skip + items.length);
-        } else if (items.length === pageSize) {
-            // No explicit nextLink, but we got a full page — assume there may be more.
-            nextCursor = String(skip + pageSize);
-        }
+        const items = providerItems.map((item: ProviderChartOfAccounts) => ({
+            ...(item.ChartOfAccounts != null && { chart_of_accounts: item.ChartOfAccounts }),
+            ...(item.Description != null && { description: item.Description }),
+            ...(item.dataAreaId != null && { data_area_id: item.dataAreaId })
+        }));
+
+        const nextLink = typeof rawValue['@odata.nextLink'] === 'string' ? rawValue['@odata.nextLink'] : undefined;
+        const nextCursor = nextLink ? String(skip + providerItems.length) : undefined;
 
         return {
             items,
-            ...(nextCursor != null && { nextCursor })
+            ...(nextCursor != null && { next_cursor: nextCursor })
         };
     }
 });

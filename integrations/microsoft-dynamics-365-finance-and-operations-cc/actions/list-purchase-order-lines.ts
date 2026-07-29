@@ -1,98 +1,85 @@
 import { z } from 'zod';
-import { createAction, ProxyConfiguration } from 'nango';
+import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company code / data area ID. Example: "dat"'),
-    purchaseOrderNumber: z.string().optional().describe('Optional parent purchase order number to scope lines to a single order. Example: "DAT-000001"'),
-    cursor: z.string().optional().describe('Pagination cursor ($skip value) from the previous response. Omit for the first page.')
+    dataAreaId: z.string().optional().describe('Company code / data area ID. Example: "dat"'),
+    purchaseOrderNumber: z.string().optional().describe('Purchase order number to scope lines to a single order. Example: "DAT-000001"'),
+    cursor: z.string().optional().describe('Pagination cursor (skip value) from the previous response. Omit for the first page.'),
+    limit: z.number().int().min(1).max(10000).optional().describe('Maximum number of records to return per page. Defaults to 1000.')
 });
 
-const PurchaseOrderLineSchema = z
-    .object({
-        dataAreaId: z.string().optional(),
-        PurchaseOrderNumber: z.string().optional(),
-        LineNumber: z.number().optional(),
-        ItemNumber: z.string().optional(),
-        OrderedPurchaseQuantity: z.number().optional(),
-        PurchasePrice: z.number().optional(),
-        CurrencyCode: z.string().optional(),
-        RequestedReceiptDate: z.string().optional(),
-        LineDescription: z.string().optional(),
-        ReceivingSiteId: z.string().optional(),
-        ReceivingWarehouseId: z.string().optional()
-    })
-    .passthrough();
+const PurchaseOrderLineSchema = z.object({}).passthrough();
 
 const OutputSchema = z.object({
     items: z.array(PurchaseOrderLineSchema),
-    nextCursor: z.string().optional()
+    next_cursor: z.string().optional()
 });
-
-const PAGE_SIZE = 100;
-
-const odataStringLiteral = (value: string): string => {
-    return `'${value.replace(/'/g, "''")}'`;
-};
 
 const action = createAction({
     description: 'List purchase order lines, optionally scoped to a parent purchase order.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['Financials.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? Number(input.cursor) : 0;
+        const limit = input.limit ?? 1000;
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+
         if (Number.isNaN(skip)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a valid number representing $skip'
+                message: 'cursor must be a numeric skip value',
+                cursor: input.cursor
             });
         }
 
-        const filters = [`dataAreaId eq ${odataStringLiteral(input.dataAreaId)}`];
-        if (input.purchaseOrderNumber) {
-            filters.push(`PurchaseOrderNumber eq ${odataStringLiteral(input.purchaseOrderNumber)}`);
+        const filters: string[] = [];
+
+        if (input.dataAreaId !== undefined) {
+            filters.push(`dataAreaId eq '${input.dataAreaId.replace(/'/g, "''")}'`);
         }
 
-        const config: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: '/data/PurchaseOrderLinesV2',
-            params: {
-                $top: PAGE_SIZE,
-                $skip: skip,
-                $filter: filters.join(' and '),
-                'cross-company': 'true'
-            },
-            retries: 3
+        if (input.purchaseOrderNumber !== undefined) {
+            filters.push(`PurchaseOrderNumber eq '${input.purchaseOrderNumber.replace(/'/g, "''")}'`);
+        }
+
+        const params: Record<string, string | number> = {
+            $top: limit,
+            $skip: skip
         };
 
-        const response = await nango.get(config);
+        if (filters.length > 0) {
+            params['$filter'] = filters.join(' and ');
+        }
 
-        if (!response.data || typeof response.data !== 'object' || !Array.isArray(response.data.value)) {
+        const response = await nango.get({
+            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+            endpoint: '/data/PurchaseOrderLinesV2',
+            params,
+            retries: 3
+        });
+
+        if (!response.data || typeof response.data !== 'object' || !('value' in response.data)) {
             throw new nango.ActionError({
-                type: 'invalid_response',
+                type: 'unexpected_response',
                 message: 'Unexpected response format from PurchaseOrderLinesV2'
             });
         }
 
-        const items = response.data.value.map((item: unknown) => {
-            const parsed = PurchaseOrderLineSchema.safeParse(item);
-            if (!parsed.success) {
-                throw new nango.ActionError({
-                    type: 'invalid_response_item',
-                    message: 'Failed to parse purchase order line',
-                    details: parsed.error.issues
-                });
-            }
-            return parsed.data;
-        });
+        const providerResponse = z
+            .object({
+                value: z.array(z.unknown())
+            })
+            .parse(response.data);
 
-        const nextCursor = items.length === PAGE_SIZE ? String(skip + PAGE_SIZE) : undefined;
+        const items = providerResponse.value.map((item) => PurchaseOrderLineSchema.parse(item));
+
+        const nextCursor = items.length === limit ? String(skip + limit) : undefined;
 
         return {
             items,
-            ...(nextCursor !== undefined && { nextCursor })
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

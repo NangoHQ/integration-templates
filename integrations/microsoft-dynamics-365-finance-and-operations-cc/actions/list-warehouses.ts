@@ -2,18 +2,22 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of warehouses to return. Defaults to 100.'),
-    crossCompany: z.boolean().optional().describe('If true, queries across all companies. Defaults to false.')
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
-const ProviderResponseSchema = z.object({
-    value: z.array(z.object({}).passthrough()),
-    '@odata.nextLink': z.string().optional()
-});
+const WarehouseSchema = z
+    .object({
+        '@odata.etag': z.string().optional(),
+        dataAreaId: z.string().optional(),
+        WarehouseId: z.string().optional(),
+        WarehouseName: z.string().optional(),
+        OperationalSiteId: z.string().optional(),
+        WarehouseType: z.string().optional()
+    })
+    .passthrough();
 
 const OutputSchema = z.object({
-    items: z.array(z.object({}).passthrough()),
+    items: z.array(WarehouseSchema),
     nextCursor: z.string().optional()
 });
 
@@ -24,38 +28,30 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const limit = input.limit ?? 100;
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(skip) || skip < 0) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'Cursor must be a non-negative integer string.'
-            });
-        }
-
-        const params: Record<string, string | number> = {
-            $top: limit,
-            $skip: skip
-        };
-
-        if (input.crossCompany) {
-            params['cross-company'] = 'true';
-        }
-
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/Warehouses',
-            params,
+            params: {
+                $top: 100,
+                ...(input.cursor && { $skip: input.cursor })
+            },
             retries: 3
+        });
+
+        const ProviderResponseSchema = z.object({
+            value: z.array(z.unknown())
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);
 
-        const nextCursor = parsed['@odata.nextLink'] ? String(skip + limit) : undefined;
+        const items = parsed.value.map((item: unknown) => WarehouseSchema.parse(item));
+
+        const hasNext = parsed.value.length === 100;
+        const nextCursor = hasNext ? String((Number(input.cursor) || 0) + 100) : undefined;
 
         return {
-            items: parsed.value,
-            nextCursor
+            items,
+            ...(nextCursor && { nextCursor: nextCursor })
         };
     }
 });

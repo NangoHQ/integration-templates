@@ -2,28 +2,22 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of items to return. Default: 100.'),
-    cross_company: z.boolean().optional().describe('If true, query across all companies instead of just the default company.')
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
-const ProviderVendorGroupSchema = z
-    .object({
-        VendorGroupId: z.string(),
-        Description: z.string().optional().nullable(),
-        dataAreaId: z.string().optional()
-    })
-    .passthrough();
-
-const ProviderResponseSchema = z.object({
-    value: z.array(ProviderVendorGroupSchema),
-    '@odata.nextLink': z.string().optional()
+const VendorGroupSchema = z.object({
+    VendorGroupId: z.string(),
+    Description: z.string().optional().nullable()
 });
 
 const OutputSchema = z.object({
-    items: z.array(ProviderVendorGroupSchema),
+    items: z.array(VendorGroupSchema),
     next_cursor: z.string().optional()
 });
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return value !== null && typeof value === 'object';
+}
 
 const action = createAction({
     description: 'List vendor groups (used as VendorGroupId on vendors).',
@@ -32,50 +26,67 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const limit = input.limit ?? 100;
-        const skip = input.cursor != null ? Number(input.cursor) : 0;
-
-        if (input.cursor != null && (Number.isNaN(skip) || skip < 0 || !Number.isInteger(skip))) {
+        const pageSize = 100;
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (isNaN(skip) || skip < 0) {
             throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'cursor must be a non-negative integer string'
+                type: 'invalid_cursor',
+                message: 'Cursor must be a non-negative integer representing the $skip value.'
             });
         }
 
-        const params: Record<string, string> = {
-            $top: String(limit)
-        };
-
-        if (skip > 0) {
-            params['$skip'] = String(skip);
-        }
-
-        if (input.cross_company) {
-            params['cross-company'] = 'true';
-        }
-
+        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const response = await nango.get({
-            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/VendorGroups',
-            params,
+            params: {
+                $top: String(pageSize),
+                $skip: String(skip)
+            },
             retries: 3
         });
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
-        const items = providerResponse.value;
-
-        let nextCursor: string | undefined;
-        const nextLink = providerResponse['@odata.nextLink'];
-        if (nextLink != null) {
-            // Server explicitly says there's more — trust it, and extract the real $skip it wants us to use next.
-            const nextUrl = new URL(nextLink);
-            const skipParam = nextUrl.searchParams.get('$skip');
-            nextCursor = skipParam ?? String(skip + limit);
+        const rawData = response.data;
+        if (!isRecord(rawData)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from VendorGroups endpoint.'
+            });
         }
+
+        const value = rawData['value'];
+        if (!Array.isArray(value)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Response value is not an array.'
+            });
+        }
+
+        const items = value.map((item: unknown) => {
+            if (!isRecord(item)) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Unexpected item format in VendorGroups response.'
+                });
+            }
+            const parsed = VendorGroupSchema.safeParse(item);
+            if (!parsed.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Vendor group item failed schema validation.',
+                    details: parsed.error.issues
+                });
+            }
+            return parsed.data;
+        });
+
+        const nextLink = rawData['@odata.nextLink'];
+        const hasNextPage = typeof nextLink === 'string' && nextLink.length > 0 ? true : items.length === pageSize;
+
+        const next_cursor = hasNextPage ? String(skip + pageSize) : undefined;
 
         return {
             items,
-            ...(nextCursor != null && { next_cursor: nextCursor })
+            ...(next_cursor !== undefined && { next_cursor })
         };
     }
 });

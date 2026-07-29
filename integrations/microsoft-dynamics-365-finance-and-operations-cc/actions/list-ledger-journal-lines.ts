@@ -1,96 +1,72 @@
-import { z } from 'zod';
 import { createAction } from 'nango';
+import * as z from 'zod';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company code (data area ID). Example: "dat"'),
-    journalBatchNumber: z.string().optional().describe('Journal batch number to filter lines by. Example: "DAT-000015"'),
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().min(1).max(10000).optional().describe('Maximum number of records to return per page.')
+    dataAreaId: z.string().min(1),
+    journalBatchNumber: z.string().optional(),
+    limit: z.number().min(1).max(10000).optional(),
+    cursor: z.string().optional()
 });
 
-const LedgerJournalLineSchema = z
-    .object({
-        dataAreaId: z.string().optional(),
-        JournalBatchNumber: z.string().optional(),
-        Voucher: z.string().optional(),
-        AccountType: z.string().optional(),
-        AccountDisplayValue: z.string().optional(),
-        DebitAmount: z.number().optional(),
-        CreditAmount: z.number().optional(),
-        CurrencyCode: z.string().optional(),
-        LineNumber: z.number().optional(),
-        Text: z.string().optional(),
-        PostingDate: z.string().optional()
-    })
-    .passthrough();
+const CursorSchema = z
+    .string()
+    .transform((s) => Number(s))
+    .pipe(z.number().int().min(0));
+
+const RawResponseSchema = z.object({
+    value: z.array(z.record(z.string(), z.unknown()))
+});
 
 const OutputSchema = z.object({
-    items: z.array(LedgerJournalLineSchema),
-    nextCursor: z.string().optional()
+    lines: z.array(z.record(z.string(), z.unknown())),
+    nextCursor: z.string().nullable()
 });
 
-const action = createAction({
-    description: 'List general ledger journal lines, optionally scoped to a parent journal.',
-    version: '1.0.0',
+export default createAction({
+    description: 'List general ledger journal lines, optionally scoped to a parent journal',
     input: InputSchema,
     output: OutputSchema,
-
-    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const filterParts: string[] = [`dataAreaId eq '${input.dataAreaId.replace(/'/g, "''")}'`];
-        if (input.journalBatchNumber) {
-            filterParts.push(`JournalBatchNumber eq '${input.journalBatchNumber.replace(/'/g, "''")}'`);
-        }
-
-        const pageLimit = input.limit ?? 100;
-        const params: { $filter: string; $top: number; $skip?: number; 'cross-company': string } = {
-            $filter: filterParts.join(' and '),
-            $top: pageLimit,
-            'cross-company': 'true'
-        };
-
+    scopes: [],
+    exec: async (nango, input) => {
+        const limit = input.limit ?? 100;
+        let skip = 0;
         if (input.cursor) {
-            const skip = parseInt(input.cursor, 10);
-            if (!Number.isNaN(skip)) {
-                params.$skip = skip;
+            const cursorResult = CursorSchema.safeParse(input.cursor);
+            if (cursorResult.success) {
+                skip = cursorResult.data;
             }
         }
 
+        const filters = [`dataAreaId eq '${input.dataAreaId}'`];
+        if (input.journalBatchNumber) {
+            filters.push(`JournalBatchNumber eq '${input.journalBatchNumber}'`);
+        }
+
+        const queryParams: Record<string, string | number> = {
+            $top: limit,
+            $skip: skip,
+            $filter: filters.join(' and ')
+        };
+
+        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const response = await nango.get({
-            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/LedgerJournalLines',
-            params,
+            params: queryParams,
             retries: 3
         });
 
-        const responseData = z
-            .object({
-                value: z.array(z.unknown()).optional().default([]),
-                '@odata.nextLink': z.string().optional()
-            })
-            .parse(response.data);
-
-        const items = responseData.value.map((item: unknown) => {
-            return LedgerJournalLineSchema.parse(item);
-        });
-
-        let nextCursor: string | undefined;
-        if (responseData['@odata.nextLink']) {
-            const url = new URL(responseData['@odata.nextLink']);
-            const skipParam = url.searchParams.get('$skip');
-            if (skipParam) {
-                nextCursor = skipParam;
-            } else {
-                const currentSkip = input.cursor ? parseInt(input.cursor, 10) : 0;
-                nextCursor = String(currentSkip + pageLimit);
-            }
+        const parsed = RawResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError('Unexpected response format from LedgerJournalLines');
         }
 
+        const lines = parsed.data.value;
+        const nextSkip = skip + lines.length;
+        const nextCursor = lines.length === limit ? String(nextSkip) : null;
+
         return {
-            items,
-            ...(nextCursor !== undefined && { nextCursor })
+            lines,
+            nextCursor
         };
     }
 });
-
-export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
-export default action;

@@ -2,26 +2,39 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company / data area ID. Example: "dat"'),
+    dataAreaId: z.string().describe('Company code (data area ID). Example: "dat"'),
     salesOrderNumber: z.string().describe('Sales order number to update. Example: "DAT-000001"'),
-    customerAccount: z.string().optional().describe('Customer account to associate with the sales order.'),
-    requestedReceiptDate: z.string().optional().describe('Requested receipt date (ISO 8601).'),
-    salesOrderName: z.string().optional().describe('Sales order name / description.'),
+    salesOrderName: z.string().optional().describe('Sales order name/description.'),
+    requestedReceiptDate: z.string().optional().describe('Requested receipt date in ISO 8601 format. Example: "2026-07-30T00:00:00Z"'),
+    requestedShippingDate: z.string().optional().describe('Requested shipping date in ISO 8601 format. Example: "2026-07-30T00:00:00Z"'),
+    paymentTermsName: z.string().optional().describe('Payment terms name. Example: "RFI30"'),
     currencyCode: z.string().optional().describe('Currency code. Example: "USD"'),
-    deliveryAddressDescription: z.string().optional().describe('Delivery address description.')
+    salesTaxGroupCode: z.string().optional().describe('Sales tax group code. Example: "RFITAX"')
 });
 
-const OutputSchema = z
+const ProviderSalesOrderSchema = z
     .object({
-        dataAreaId: z.string().optional(),
-        SalesOrderNumber: z.string().optional(),
-        CustomerAccount: z.string().optional(),
-        RequestedReceiptDate: z.string().optional(),
-        SalesOrderName: z.string().optional(),
-        CurrencyCode: z.string().optional(),
-        DeliveryAddressDescription: z.string().optional()
+        dataAreaId: z.string(),
+        SalesOrderNumber: z.string(),
+        SalesOrderName: z.string().nullable().optional(),
+        RequestedReceiptDate: z.string().nullable().optional(),
+        RequestedShippingDate: z.string().nullable().optional(),
+        PaymentTermsName: z.string().nullable().optional(),
+        CurrencyCode: z.string().nullable().optional(),
+        SalesTaxGroupCode: z.string().nullable().optional()
     })
     .passthrough();
+
+const OutputSchema = z.object({
+    dataAreaId: z.string(),
+    salesOrderNumber: z.string(),
+    salesOrderName: z.string().optional(),
+    requestedReceiptDate: z.string().optional(),
+    requestedShippingDate: z.string().optional(),
+    paymentTermsName: z.string().optional(),
+    currencyCode: z.string().optional(),
+    salesTaxGroupCode: z.string().optional()
+});
 
 const action = createAction({
     description: 'Update a sales order header.',
@@ -30,45 +43,60 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const patchBody: Record<string, unknown> = {
-            ...(input.customerAccount !== undefined && { CustomerAccount: input.customerAccount }),
-            ...(input.requestedReceiptDate !== undefined && { RequestedReceiptDate: input.requestedReceiptDate }),
-            ...(input.salesOrderName !== undefined && { SalesOrderName: input.salesOrderName }),
-            ...(input.currencyCode !== undefined && { CurrencyCode: input.currencyCode }),
-            ...(input.deliveryAddressDescription !== undefined && { DeliveryAddressDescription: input.deliveryAddressDescription })
+        const body: Record<string, unknown> = {
+            dataAreaId: input.dataAreaId
         };
 
-        if (Object.keys(patchBody).length === 0) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'At least one field to update must be provided.'
-            });
+        if (input.salesOrderName !== undefined) {
+            body['SalesOrderName'] = input.salesOrderName;
+        }
+        if (input.requestedReceiptDate !== undefined) {
+            body['RequestedReceiptDate'] = input.requestedReceiptDate;
+        }
+        if (input.requestedShippingDate !== undefined) {
+            body['RequestedShippingDate'] = input.requestedShippingDate;
+        }
+        if (input.paymentTermsName !== undefined) {
+            body['PaymentTermsName'] = input.paymentTermsName;
+        }
+        if (input.currencyCode !== undefined) {
+            body['CurrencyCode'] = input.currencyCode;
+        }
+        if (input.salesTaxGroupCode !== undefined) {
+            body['SalesTaxGroupCode'] = input.salesTaxGroupCode;
         }
 
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
-        const encodedSalesOrderNumber = encodeURIComponent(input.salesOrderNumber.replace(/'/g, "''"));
+        const endpoint = `data/SalesOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',SalesOrderNumber='${encodeURIComponent(input.salesOrderNumber)}')`;
 
-        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-        await nango.patch({
-            endpoint: `/data/SalesOrderHeadersV2(dataAreaId='${encodedDataAreaId}',SalesOrderNumber='${encodedSalesOrderNumber}')`,
-            data: patchBody,
+        const response = await nango.patch({
+            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+            endpoint,
+            data: body,
             retries: 1
         });
 
-        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-        const response = await nango.get({
-            endpoint: `/data/SalesOrderHeadersV2(dataAreaId='${encodedDataAreaId}',SalesOrderNumber='${encodedSalesOrderNumber}')`,
-            retries: 3
-        });
-
-        if (!response.data || typeof response.data !== 'object') {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Sales order not found after update.'
+        let providerData: unknown = response.data;
+        if (!providerData || typeof providerData !== 'object') {
+            const getResponse = await nango.get({
+                // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+                endpoint,
+                retries: 3
             });
+            providerData = getResponse.data;
         }
 
-        return OutputSchema.parse(response.data);
+        const providerSalesOrder = ProviderSalesOrderSchema.parse(providerData);
+
+        return {
+            dataAreaId: providerSalesOrder.dataAreaId,
+            salesOrderNumber: providerSalesOrder.SalesOrderNumber,
+            ...(providerSalesOrder.SalesOrderName != null && { salesOrderName: providerSalesOrder.SalesOrderName }),
+            ...(providerSalesOrder.RequestedReceiptDate != null && { requestedReceiptDate: providerSalesOrder.RequestedReceiptDate }),
+            ...(providerSalesOrder.RequestedShippingDate != null && { requestedShippingDate: providerSalesOrder.RequestedShippingDate }),
+            ...(providerSalesOrder.PaymentTermsName != null && { paymentTermsName: providerSalesOrder.PaymentTermsName }),
+            ...(providerSalesOrder.CurrencyCode != null && { currencyCode: providerSalesOrder.CurrencyCode }),
+            ...(providerSalesOrder.SalesTaxGroupCode != null && { salesTaxGroupCode: providerSalesOrder.SalesTaxGroupCode })
+        };
     }
 });
 

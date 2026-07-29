@@ -1,41 +1,39 @@
 import { z } from 'zod';
+import type { ProxyConfiguration } from 'nango';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    salesOrderNumber: z.string().optional().describe('Sales order number to filter lines by. Example: "DAT-000001"'),
-    dataAreaId: z.string().optional().describe('Company / data area ID. Defaults to "dat" if not provided.'),
-    cursor: z.string().optional().describe('Pagination cursor (OData $skip value). Omit for the first page.'),
-    limit: z.number().int().min(1).max(10000).optional().describe('Maximum number of lines to return per page. Defaults to 1000.')
+    dataAreaId: z.string().describe('Company/data area ID. Example: "dat"'),
+    salesOrderNumber: z.string().optional().describe('Sales order number to filter lines. Example: "DAT-000001"'),
+    cursor: z.string().optional().describe('Pagination cursor ($skip value). Example: "100"')
 });
 
-const ProviderSalesOrderLineSchema = z
+const SalesOrderLineSchema = z
     .object({
-        dataAreaId: z.string(),
-        SalesOrderNumber: z.string(),
+        dataAreaId: z.string().optional(),
+        SalesOrderNumber: z.string().optional(),
         LineNumber: z.number().optional(),
+        LineCreationSequenceNumber: z.number().optional(),
         ItemNumber: z.string().optional(),
         LineDescription: z.string().optional(),
         OrderedSalesQuantity: z.number().optional(),
-        SalesPrice: z.number().optional(),
         SalesUnitSymbol: z.string().optional(),
         LineAmount: z.number().optional(),
+        SalesPrice: z.number().optional(),
         RequestedReceiptDate: z.string().optional(),
+        RequestedShippingDate: z.string().optional(),
         ConfirmedReceiptDate: z.string().optional(),
+        ConfirmedShippingDate: z.string().optional(),
         ShippingWarehouseId: z.string().optional(),
         ShippingSiteId: z.string().optional(),
-        SalesOrderLineStatus: z.string().optional(),
-        LineCreationSequenceNumber: z.number().optional(),
-        CurrencyCode: z.string().optional()
+        CurrencyCode: z.string().optional(),
+        SalesOrderLineStatus: z.string().optional()
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    items: z.array(ProviderSalesOrderLineSchema),
-    next_cursor: z.string().optional()
-});
-
-const ODataListResponseSchema = z.object({
-    value: z.array(z.unknown())
+    items: z.array(SalesOrderLineSchema),
+    nextCursor: z.string().optional()
 });
 
 const action = createAction({
@@ -43,51 +41,53 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['DataEntities.Read'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const dataAreaId = input.dataAreaId ?? 'dat';
-        const limit = input.limit ?? 1000;
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-
-        const filters: string[] = [`dataAreaId eq '${dataAreaId.replace(/'/g, "''")}'`];
+        const filterParts = [`dataAreaId eq '${input.dataAreaId}'`];
         if (input.salesOrderNumber) {
-            filters.push(`SalesOrderNumber eq '${input.salesOrderNumber.replace(/'/g, "''")}'`);
+            filterParts.push(`SalesOrderNumber eq '${input.salesOrderNumber}'`);
+        }
+        const filter = filterParts.join(' and ');
+
+        const params: Record<string, string> = {
+            $filter: filter,
+            $top: '100'
+        };
+
+        if (input.cursor) {
+            params['$skip'] = input.cursor;
         }
 
-        const filterString = filters.join(' and ');
-
-        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-        const response = await nango.get({
+        const config: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/SalesOrderLinesV3',
-            params: {
-                $filter: filterString,
-                $top: String(limit),
-                $skip: String(skip),
-                'cross-company': 'true'
-            },
+            params,
             retries: 3
-        });
+        };
 
-        if (!response.data || typeof response.data !== 'object') {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Unexpected response from SalesOrderLinesV3'
-            });
+        const response = await nango.get(config);
+
+        const providerResponse = z
+            .object({
+                value: z.array(z.unknown()),
+                '@odata.nextLink': z.string().optional()
+            })
+            .parse(response.data);
+
+        const items = providerResponse.value.map((raw) => SalesOrderLineSchema.parse(raw));
+
+        let nextCursor: string | undefined;
+        if (providerResponse['@odata.nextLink']) {
+            const url = new URL(providerResponse['@odata.nextLink']);
+            const skipToken = url.searchParams.get('$skiptoken');
+            const skip = url.searchParams.get('$skip');
+            nextCursor = skipToken || skip || undefined;
         }
-
-        const responseData = ODataListResponseSchema.parse(response.data);
-        const value = responseData.value;
-        const hasMore = value.length === limit;
-
-        const items = value.map((item) => {
-            const parsed = ProviderSalesOrderLineSchema.parse(item);
-            return parsed;
-        });
 
         return {
             items,
-            ...(hasMore && { next_cursor: String(skip + limit) })
+            ...(nextCursor !== undefined && { nextCursor })
         };
     }
 });

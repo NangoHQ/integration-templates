@@ -3,15 +3,13 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response (skip offset). Omit for the first page.'),
-    limit: z.number().int().positive().optional().describe('Maximum number of records to return. Defaults to 100.'),
-    cross_company: z.boolean().optional().describe('If true, query across all companies instead of just the default company.')
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
 const ProviderPaymentTermSchema = z
     .object({
-        dataAreaId: z.string(),
-        Name: z.string()
+        Name: z.string(),
+        Description: z.string().optional().nullable()
     })
     .passthrough();
 
@@ -25,45 +23,52 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const limit = input.limit ?? 100;
-        const skip = input.cursor ? Number(input.cursor) : 0;
+        const limit = 100;
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (Number.isNaN(skip)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Cursor must be a valid numeric string.'
+            });
+        }
 
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/PaymentTerms',
             params: {
                 $top: String(limit),
-                $skip: String(skip),
-                ...(input.cross_company && { 'cross-company': 'true' })
+                $skip: String(skip)
             },
             retries: 3
         };
 
         const response = await nango.get(config);
 
-        const providerResponse = z
-            .object({
-                value: z.array(z.unknown()),
-                '@odata.nextLink': z.string().optional()
-            })
-            .parse(response.data);
-
-        const items = providerResponse.value.map((item) => ProviderPaymentTermSchema.parse(item));
-
-        let nextCursor: string | undefined;
-        if (providerResponse['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and try to extract the real $skip it
-            // wants us to use next. nextLink may be an absolute URL or a relative path, so parse it
-            // against a fixed base to support both.
-            const nextUrl = new URL(providerResponse['@odata.nextLink'], 'https://dynamics.local');
-            const skipParam = nextUrl.searchParams.get('$skip');
-            nextCursor = skipParam ?? String(skip + items.length);
-        } else if (items.length === limit) {
-            // No explicit nextLink, but we got a full page — assume there may be more.
-            nextCursor = String(skip + limit);
+        if (!response.data || typeof response.data !== 'object' || !Array.isArray(response.data.value)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from PaymentTerms endpoint.'
+            });
         }
+
+        const rawItems: unknown[] = response.data.value;
+        const items = [];
+        for (const rawItem of rawItems) {
+            const parsed = ProviderPaymentTermSchema.safeParse(rawItem);
+            if (!parsed.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_item',
+                    message: 'Failed to parse a payment term item.',
+                    details: parsed.error.issues
+                });
+            }
+            items.push(parsed.data);
+        }
+
+        const nextCursor = items.length === limit ? String(skip + limit) : undefined;
 
         return {
             items,

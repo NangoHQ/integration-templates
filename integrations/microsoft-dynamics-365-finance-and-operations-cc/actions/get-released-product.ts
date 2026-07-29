@@ -1,29 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company / data area ID. Example: "dat"'),
-    itemNumber: z.string().describe('Item number. May contain leading or trailing whitespace. Example: " RFI-TEST-001"')
+    dataAreaId: z.string().describe("Company / legal entity ID. Example: 'dat'"),
+    itemNumber: z.string().describe("Released product item number. May include leading or trailing whitespace. Example: ' RFI-TEST-001'")
 });
 
-const ReleasedProductSchema = z
+const OutputSchema = z
     .object({
-        dataAreaId: z.string().optional(),
-        ItemNumber: z.string().optional(),
-        ProductName: z.string().optional(),
-        ProductSearchName: z.string().optional(),
-        ProductGroupId: z.string().optional(),
-        ItemModelGroupId: z.string().optional(),
-        UnitOfMeasureSymbol: z.string().optional(),
-        SalesUnitOfMeasureSymbol: z.string().optional(),
-        PurchaseUnitOfMeasureSymbol: z.string().optional(),
-        InventoryUnitOfMeasureSymbol: z.string().optional(),
-        ProductType: z.string().optional(),
-        ProductSubType: z.string().optional(),
-        SearchName: z.string().optional(),
-        ProductNumber: z.string().optional(),
-        IsStockedProduct: z.boolean().optional(),
-        IsBlocked: z.boolean().optional()
+        dataAreaId: z.string(),
+        ItemNumber: z.string()
     })
     .passthrough();
 
@@ -31,15 +18,19 @@ const action = createAction({
     description: 'Retrieve a released product',
     version: '1.0.0',
     input: InputSchema,
-    output: ReleasedProductSchema,
-    scopes: ['Financials.ReadWrite.All'],
+    output: OutputSchema,
 
-    exec: async (nango, input): Promise<z.infer<typeof ReleasedProductSchema>> => {
-        const response = await nango.get({
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId);
+        const encodedItemNumber = encodeURIComponent(input.itemNumber);
+
+        const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: `/data/ReleasedProductsV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',ItemNumber='${encodeURIComponent(input.itemNumber.replace(/'/g, "''"))}')`,
+            endpoint: `/data/ReleasedProductsV2(dataAreaId='${encodedDataAreaId}',ItemNumber='${encodedItemNumber}')`,
             retries: 3
-        });
+        };
+
+        const response = await nango.get(config);
 
         if (!response.data) {
             throw new nango.ActionError({
@@ -50,8 +41,19 @@ const action = createAction({
             });
         }
 
-        const product = ReleasedProductSchema.parse(response.data);
-        return product;
+        const providerProduct = z
+            .object({
+                dataAreaId: z.string().optional(),
+                ItemNumber: z.string().optional()
+            })
+            .passthrough()
+            .parse(response.data);
+
+        return {
+            ...providerProduct,
+            dataAreaId: providerProduct.dataAreaId ?? input.dataAreaId,
+            ItemNumber: providerProduct.ItemNumber ?? input.itemNumber
+        };
     }
 });
 
