@@ -9,7 +9,9 @@ const InputSchema = z.object({
     conflictBehavior: z
         .enum(['fail', 'replace', 'rename'])
         .optional()
-        .describe('Behavior when a file with this name already exists at the destination. Defaults to "fail" to avoid silently overwriting an existing workbook.')
+        .describe(
+            'Behavior when a file with this name already exists at the destination. Defaults to "fail" to avoid silently overwriting an existing workbook.'
+        )
 });
 
 const MAX_SIMPLE_UPLOAD_BYTES = 250 * 1024 * 1024;

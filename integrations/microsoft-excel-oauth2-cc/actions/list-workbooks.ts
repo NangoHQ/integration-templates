@@ -80,7 +80,8 @@ const action = createAction({
 
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/graph/api/driveitem-search
-            ...callConfig
+            ...callConfig,
+            retries: 10
         });
 
         const listResponse = ProviderListResponseSchema.parse(response.data);
