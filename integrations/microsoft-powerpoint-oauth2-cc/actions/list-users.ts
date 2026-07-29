@@ -4,7 +4,7 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     search: z.string().optional().describe('Search string to filter users by display name or email.'),
-    top: z.number().optional().describe('Number of users to return per page. Maximum 999.'),
+    top: z.number().int().min(1).max(999).optional().describe('Number of users to return per page. Maximum 999.'),
     cursor: z.string().optional().describe('Pagination cursor (odata.nextLink) from the previous response. Omit for the first page.')
 });
 
@@ -49,11 +49,29 @@ const action = createAction({
         let headers: Record<string, string> | undefined;
 
         if (input.cursor) {
-            const cursorUrl = new URL(input.cursor);
+            let cursorUrl: URL;
+            // @allowTryCatch - Convert an invalid user-supplied cursor into a structured ActionError instead of an unhandled exception.
+            try {
+                cursorUrl = new URL(input.cursor);
+            } catch {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'The provided cursor is not a valid URL.'
+                });
+            }
+            if (cursorUrl.hostname !== 'graph.microsoft.com' || cursorUrl.pathname !== '/v1.0/users') {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'The provided cursor does not point to the expected Microsoft Graph users pagination route.'
+                });
+            }
             endpoint = cursorUrl.pathname;
             cursorUrl.searchParams.forEach((value, key) => {
                 params[key] = value;
             });
+            if ('$search' in params) {
+                headers = { ConsistencyLevel: 'eventual' };
+            }
         } else {
             endpoint = '/v1.0/users';
             if (input.top !== undefined) {

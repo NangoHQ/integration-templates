@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     drive_id: z.string().describe('Drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"'),
-    query: z.string().optional().describe('Search query string. Omit to list all presentations.'),
+    query: z.string().optional().describe('Search query string. Omit to list presentations in the root folder of the drive.'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
@@ -62,7 +62,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Sites.Read.All', 'Files.Read.All'],
+    scopes: ['Files.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let endpoint: string;
@@ -75,9 +75,11 @@ const action = createAction({
                 });
             }
             endpoint = match[1];
+        } else if (input.query) {
+            const escapedQuery = input.query.replace(/'/g, "''");
+            endpoint = `v1.0/drives/${encodeURIComponent(input.drive_id)}/root/search(q='${encodeURIComponent(escapedQuery)}')`;
         } else {
-            const query = input.query || '';
-            endpoint = `v1.0/drives/${encodeURIComponent(input.drive_id)}/root/search(q='${encodeURIComponent(query)}')`;
+            endpoint = `v1.0/drives/${encodeURIComponent(input.drive_id)}/root/children`;
         }
 
         const response = await nango.get({
@@ -104,7 +106,7 @@ const action = createAction({
             }
             const driveItem = parsed.data;
             const mimeType = driveItem.file?.mimeType;
-            if (mimeType && mimeType !== 'application/vnd.openxmlformats-officedocument.presentationml.presentation') {
+            if (mimeType !== 'application/vnd.openxmlformats-officedocument.presentationml.presentation') {
                 continue;
             }
             presentations.push({

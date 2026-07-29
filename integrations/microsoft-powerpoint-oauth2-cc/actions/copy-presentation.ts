@@ -5,7 +5,10 @@ const InputSchema = z.object({
     driveId: z.string().describe('The ID of the drive containing the presentation to copy. Example: "b!..."'),
     itemId: z.string().describe('The ID of the presentation to copy. Example: "01RFYLAY..."'),
     name: z.string().optional().describe('Optional new name for the copy. Example: "copy.pptx"'),
-    destinationDriveId: z.string().optional().describe('Optional ID of the destination drive. Defaults to the source drive if omitted.'),
+    destinationDriveId: z
+        .string()
+        .optional()
+        .describe('Optional ID of the destination drive. Defaults to the source drive if omitted. Requires destinationFolderId to also be set.'),
     destinationFolderId: z.string().optional().describe('Optional ID of the destination folder. Defaults to the source folder if omitted.')
 });
 
@@ -34,12 +37,19 @@ const action = createAction({
     scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input) => {
+        if (input.destinationDriveId !== undefined && input.destinationFolderId === undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'destinationFolderId is required when destinationDriveId is provided.'
+            });
+        }
+
         const body: Record<string, unknown> = {
             ...(input.name !== undefined && { name: input.name }),
-            ...((input.destinationDriveId !== undefined || input.destinationFolderId !== undefined) && {
+            ...(input.destinationFolderId !== undefined && {
                 parentReference: {
                     driveId: input.destinationDriveId ?? input.driveId,
-                    ...(input.destinationFolderId !== undefined && { id: input.destinationFolderId })
+                    id: input.destinationFolderId
                 }
             })
         };

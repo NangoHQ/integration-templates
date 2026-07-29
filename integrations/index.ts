@@ -3025,6 +3025,27 @@ import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-purcha
 import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-sales-order.js';
 import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-vendor.js';
 
+// -- Integration: microsoft-powerpoint-oauth2-cc
+import './microsoft-powerpoint-oauth2-cc/syncs/presentations.js';
+import './microsoft-powerpoint-oauth2-cc/actions/copy-presentation.js';
+import './microsoft-powerpoint-oauth2-cc/actions/create-presentation.js';
+import './microsoft-powerpoint-oauth2-cc/actions/create-sharing-link.js';
+import './microsoft-powerpoint-oauth2-cc/actions/delete-presentation.js';
+import './microsoft-powerpoint-oauth2-cc/actions/get-presentation-as-pdf.js';
+import './microsoft-powerpoint-oauth2-cc/actions/get-presentation-content.js';
+import './microsoft-powerpoint-oauth2-cc/actions/get-presentation.js';
+import './microsoft-powerpoint-oauth2-cc/actions/get-site-drive.js';
+import './microsoft-powerpoint-oauth2-cc/actions/get-user-drive.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-presentation-permissions.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-presentation-thumbnails.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-presentation-versions.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-presentations.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-sites.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-users.js';
+import './microsoft-powerpoint-oauth2-cc/actions/move-presentation.js';
+import './microsoft-powerpoint-oauth2-cc/actions/update-presentation-content.js';
+import './microsoft-powerpoint-oauth2-cc/actions/update-presentation-metadata.js';
+
 // -- Integration: microsoft-teams
 import './microsoft-teams/syncs/channel-message-replies.js';
 import './microsoft-teams/syncs/channel-messages.js';

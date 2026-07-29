@@ -68,6 +68,12 @@ const action = createAction({
                     message: 'The provided cursor is not a valid URL.'
                 });
             }
+            if (cursorUrl.hostname !== 'graph.microsoft.com' || cursorUrl.pathname !== '/v1.0/sites') {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'The provided cursor does not point to the expected Microsoft Graph sites pagination route.'
+                });
+            }
             endpoint = cursorUrl.pathname;
             for (const [key, value] of cursorUrl.searchParams) {
                 params[key] = value;

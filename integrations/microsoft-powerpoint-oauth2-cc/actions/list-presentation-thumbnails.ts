@@ -1,29 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const ThumbnailSizeSchema = z.object({
+    height: z.number().optional(),
+    width: z.number().optional(),
+    url: z.string()
+});
+
 const ThumbnailSetSchema = z.object({
     id: z.string(),
-    large: z
-        .object({
-            height: z.number().optional(),
-            width: z.number().optional(),
-            url: z.string()
-        })
-        .optional(),
-    medium: z
-        .object({
-            height: z.number().optional(),
-            width: z.number().optional(),
-            url: z.string()
-        })
-        .optional(),
-    small: z
-        .object({
-            height: z.number().optional(),
-            width: z.number().optional(),
-            url: z.string()
-        })
-        .optional()
+    large: ThumbnailSizeSchema.optional(),
+    medium: ThumbnailSizeSchema.optional(),
+    small: ThumbnailSizeSchema.optional()
 });
 
 const ProviderResponseSchema = z.object({

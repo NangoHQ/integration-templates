@@ -46,11 +46,12 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['User.Read.All'],
+    scopes: ['Files.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/graph/api/drive-get
+            // Docs list Application as unsupported for this route, but it works with app-only auth given Files.Read.All (verified against a live CC connection).
             endpoint: `/v1.0/users/${encodeURIComponent(input.userId)}/drive`,
             retries: 3
         });

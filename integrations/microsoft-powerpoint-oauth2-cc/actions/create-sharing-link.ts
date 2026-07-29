@@ -49,7 +49,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Sites.Read.All', 'Files.ReadWrite.All'],
+    scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

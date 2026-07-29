@@ -12,10 +12,10 @@ const DriveItemSchema = z
     .object({
         id: z.string(),
         name: z.string(),
-        size: z.number().optional(),
-        webUrl: z.string().optional(),
-        createdDateTime: z.string().optional(),
-        lastModifiedDateTime: z.string().optional(),
+        size: z.number().nullable().optional(),
+        webUrl: z.string().nullable().optional(),
+        createdDateTime: z.string().nullable().optional(),
+        lastModifiedDateTime: z.string().nullable().optional(),
         description: z.string().nullable().optional(),
         file: z
             .object({

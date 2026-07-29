@@ -14,10 +14,10 @@ const InputSchema = z.object({
 const ProviderDriveItemSchema = z.object({
     id: z.string(),
     name: z.string(),
-    size: z.number().optional(),
-    webUrl: z.string().optional(),
-    createdDateTime: z.string().optional(),
-    lastModifiedDateTime: z.string().optional()
+    size: z.number().nullable().optional(),
+    webUrl: z.string().nullable().optional(),
+    createdDateTime: z.string().nullable().optional(),
+    lastModifiedDateTime: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -38,7 +38,23 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const contentType = input.contentType || 'application/vnd.openxmlformats-officedocument.presentationml.presentation';
+
+        if (!/^[A-Za-z0-9+/]*={0,2}$/.test(input.content) || input.content.length % 4 !== 0) {
+            throw new nango.ActionError({
+                type: 'invalid_content',
+                message: 'The content field is not valid Base64.'
+            });
+        }
+
         const buffer = Buffer.from(input.content, 'base64');
+
+        const MAX_UPLOAD_BYTES = 250 * 1024 * 1024;
+        if (buffer.length > MAX_UPLOAD_BYTES) {
+            throw new nango.ActionError({
+                type: 'content_too_large',
+                message: 'Decoded content exceeds the 250 MB limit supported by the direct content upload endpoint.'
+            });
+        }
 
         const response = await nango.put({
             // https://learn.microsoft.com/en-us/graph/api/driveitem-put-content
@@ -55,10 +71,10 @@ const action = createAction({
         return {
             id: driveItem.id,
             name: driveItem.name,
-            ...(driveItem.size !== undefined && { size: driveItem.size }),
-            ...(driveItem.webUrl !== undefined && { webUrl: driveItem.webUrl }),
-            ...(driveItem.createdDateTime !== undefined && { createdDateTime: driveItem.createdDateTime }),
-            ...(driveItem.lastModifiedDateTime !== undefined && { lastModifiedDateTime: driveItem.lastModifiedDateTime })
+            ...(driveItem.size != null && { size: driveItem.size }),
+            ...(driveItem.webUrl != null && { webUrl: driveItem.webUrl }),
+            ...(driveItem.createdDateTime != null && { createdDateTime: driveItem.createdDateTime }),
+            ...(driveItem.lastModifiedDateTime != null && { lastModifiedDateTime: driveItem.lastModifiedDateTime })
         };
     }
 });

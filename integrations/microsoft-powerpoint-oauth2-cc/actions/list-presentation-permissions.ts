@@ -18,6 +18,15 @@ const GrantedToSchema = z.object({
     user: IdentitySchema.optional()
 });
 
+const IdentitySetV2Schema = z.object({
+    user: IdentitySchema.optional(),
+    application: IdentitySchema.optional(),
+    device: IdentitySchema.optional(),
+    siteUser: IdentitySchema.optional(),
+    siteGroup: IdentitySchema.optional(),
+    group: IdentitySchema.optional()
+});
+
 const LinkSchema = z.object({
     type: z.string().optional(),
     scope: z.string().optional(),
@@ -34,6 +43,8 @@ const PermissionSchema = z.object({
     roles: z.array(z.string()).optional(),
     grantedTo: GrantedToSchema.optional(),
     grantedToIdentities: z.array(GrantedToSchema).optional(),
+    grantedToV2: IdentitySetV2Schema.optional(),
+    grantedToIdentitiesV2: z.array(IdentitySetV2Schema).optional(),
     link: LinkSchema.optional(),
     hasPassword: z.boolean().optional(),
     expirationDateTime: z.string().optional(),
@@ -49,7 +60,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read.All', 'Sites.Read.All'],
+    scopes: ['Files.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get<unknown>({
@@ -67,11 +78,18 @@ const action = createAction({
         }
 
         const responseSchema = z.object({
-            value: z.array(z.unknown()).optional()
+            value: z.array(z.unknown())
         });
 
         const parsedResponse = responseSchema.safeParse(rawData);
-        const value = parsedResponse.success && parsedResponse.data.value ? parsedResponse.data.value : [];
+        if (!parsedResponse.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Provider response is missing the expected permissions collection.',
+                details: parsedResponse.error.issues
+            });
+        }
+        const value = parsedResponse.data.value;
 
         const permissions = value.map((item: unknown) => {
             const parsed = PermissionSchema.safeParse(item);

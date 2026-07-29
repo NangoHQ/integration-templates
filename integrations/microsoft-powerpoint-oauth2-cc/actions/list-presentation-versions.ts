@@ -58,10 +58,22 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Sites.Read.All', 'Files.Read.All'],
+    scopes: ['Files.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const endpoint = input.cursor ? input.cursor : `v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/versions`;
+        let endpoint: string;
+        if (input.cursor) {
+            const match = input.cursor.match(/^https:\/\/graph\.microsoft\.com\/v1\.0\/(.+)$/);
+            if (!match || !match[1]) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'Invalid pagination cursor. Expected a Microsoft Graph @odata.nextLink URL.'
+                });
+            }
+            endpoint = match[1];
+        } else {
+            endpoint = `v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/versions`;
+        }
 
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/graph/api/driveitem-list-versions

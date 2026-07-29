@@ -17,7 +17,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read.All', 'Files.ReadWrite.All'],
+    scopes: ['Files.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -26,22 +26,28 @@ const action = createAction({
             params: {
                 format: 'pdf'
             },
+            responseType: 'arraybuffer',
             retries: 3
         });
 
         const rawData: unknown = response.data;
         let buffer: Buffer;
 
-        if (Buffer.isBuffer(rawData)) {
-            buffer = rawData;
+        const BufferLikeSchema = z.object({ data: z.array(z.number()) });
+        const bufferLike = BufferLikeSchema.safeParse(rawData);
+
+        if (rawData instanceof ArrayBuffer) {
+            buffer = Buffer.from(rawData);
+        } else if (Buffer.isBuffer(rawData)) {
+            buffer = Buffer.from(rawData);
         } else if (typeof rawData === 'string') {
             buffer = Buffer.from(rawData, 'binary');
-        } else if (rawData instanceof ArrayBuffer) {
-            buffer = Buffer.from(rawData);
+        } else if (bufferLike.success) {
+            buffer = Buffer.from(bufferLike.data.data);
         } else {
             throw new nango.ActionError({
                 type: 'unexpected_response',
-                message: 'Provider returned an unexpected response format for PDF content.'
+                message: 'Expected binary response but received unexpected type'
             });
         }
 

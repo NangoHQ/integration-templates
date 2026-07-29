@@ -12,10 +12,10 @@ const ProviderDriveItemSchema = z.object({
     id: z.string(),
     name: z.string(),
     description: z.string().nullable().optional(),
-    webUrl: z.string().optional(),
-    size: z.number().optional(),
-    createdDateTime: z.string().optional(),
-    lastModifiedDateTime: z.string().optional()
+    webUrl: z.string().nullable().optional(),
+    size: z.number().nullable().optional(),
+    createdDateTime: z.string().nullable().optional(),
+    lastModifiedDateTime: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -59,10 +59,10 @@ const action = createAction({
             id: providerItem.id,
             name: providerItem.name,
             ...(providerItem.description != null && { description: providerItem.description }),
-            ...(providerItem.webUrl && { webUrl: providerItem.webUrl }),
-            ...(providerItem.size !== undefined && { size: providerItem.size }),
-            ...(providerItem.createdDateTime && { createdDateTime: providerItem.createdDateTime }),
-            ...(providerItem.lastModifiedDateTime && { lastModifiedDateTime: providerItem.lastModifiedDateTime })
+            ...(providerItem.webUrl != null && { webUrl: providerItem.webUrl }),
+            ...(providerItem.size != null && { size: providerItem.size }),
+            ...(providerItem.createdDateTime != null && { createdDateTime: providerItem.createdDateTime }),
+            ...(providerItem.lastModifiedDateTime != null && { lastModifiedDateTime: providerItem.lastModifiedDateTime })
         };
     }
 });

@@ -34,6 +34,23 @@ const action = createAction({
     scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!/^[A-Za-z0-9+/]*={0,2}$/.test(input.content) || input.content.length % 4 !== 0) {
+            throw new nango.ActionError({
+                type: 'invalid_content',
+                message: 'The content field is not valid Base64.'
+            });
+        }
+
+        const buffer = Buffer.from(input.content, 'base64');
+
+        const MAX_UPLOAD_BYTES = 250 * 1024 * 1024;
+        if (buffer.length > MAX_UPLOAD_BYTES) {
+            throw new nango.ActionError({
+                type: 'content_too_large',
+                message: 'Decoded content exceeds the 250 MB limit supported by the direct content upload endpoint.'
+            });
+        }
+
         const endpoint = input.parentId
             ? `v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.parentId)}:/${encodeURIComponent(input.filename)}.pptx:/content`
             : `v1.0/drives/${encodeURIComponent(input.driveId)}/root:/${encodeURIComponent(input.filename)}.pptx:/content`;
@@ -41,7 +58,7 @@ const action = createAction({
         const response = await nango.put({
             // https://learn.microsoft.com/en-us/graph/api/driveitem-put-content
             endpoint,
-            data: Buffer.from(input.content, 'base64'),
+            data: buffer,
             headers: {
                 'Content-Type': 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
             },

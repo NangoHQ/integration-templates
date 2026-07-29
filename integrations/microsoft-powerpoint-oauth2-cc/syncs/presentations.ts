@@ -16,7 +16,6 @@ const PresentationSchema = z.object({
     mimeType: z.string().optional(),
     size: z.number().optional(),
     webUrl: z.string().optional(),
-    downloadUrl: z.string().optional(),
     createdDateTime: z.string().optional(),
     lastModifiedDateTime: z.string().optional(),
     createdByUserDisplayName: z.string().optional(),
@@ -71,8 +70,7 @@ const DriveItemSchema = z.object({
                 .nullable()
         })
         .optional()
-        .nullable(),
-    '@microsoft.graph.downloadUrl': z.string().optional().nullable()
+        .nullable()
 });
 
 const DeltaResponseSchema = z.object({
@@ -165,54 +163,54 @@ const sync = createSync({
                     continue;
                 }
 
-                if (item.file?.mimeType === 'application/vnd.openxmlformats-officedocument.presentationml.presentation') {
-                    const presentation: Record<string, unknown> = {
-                        id: item.id
-                    };
-
-                    if (item.name != null) {
-                        presentation['name'] = item.name;
-                    }
-                    if (item.file?.mimeType != null) {
-                        presentation['mimeType'] = item.file.mimeType;
-                    }
-                    if (item.size != null) {
-                        presentation['size'] = item.size;
-                    }
-                    if (item.webUrl != null) {
-                        presentation['webUrl'] = item.webUrl;
-                    }
-                    if (item['@microsoft.graph.downloadUrl'] != null) {
-                        presentation['downloadUrl'] = item['@microsoft.graph.downloadUrl'];
-                    }
-                    if (item.createdDateTime != null) {
-                        presentation['createdDateTime'] = item.createdDateTime;
-                    }
-                    if (item.lastModifiedDateTime != null) {
-                        presentation['lastModifiedDateTime'] = item.lastModifiedDateTime;
-                    }
-                    if (item.createdBy?.user?.displayName != null) {
-                        presentation['createdByUserDisplayName'] = item.createdBy.user.displayName;
-                    }
-                    if (item.lastModifiedBy?.user?.displayName != null) {
-                        presentation['lastModifiedByUserDisplayName'] = item.lastModifiedBy.user.displayName;
-                    }
-                    if (item.parentReference?.driveId != null) {
-                        presentation['parentDriveId'] = item.parentReference.driveId;
-                    }
-                    if (item.parentReference?.id != null) {
-                        presentation['parentId'] = item.parentReference.id;
-                    }
-                    if (item.parentReference?.path != null) {
-                        presentation['parentPath'] = item.parentReference.path;
-                    }
-
-                    const presentationResult = PresentationSchema.safeParse(presentation);
-                    if (!presentationResult.success) {
-                        throw new Error(`Invalid presentation: ${presentationResult.error.message}`);
-                    }
-                    presentations.push(presentationResult.data);
+                if (item.file?.mimeType !== 'application/vnd.openxmlformats-officedocument.presentationml.presentation') {
+                    deletions.push({ id: item.id });
+                    continue;
                 }
+
+                const presentation: Record<string, unknown> = {
+                    id: item.id
+                };
+
+                if (item.name != null) {
+                    presentation['name'] = item.name;
+                }
+                if (item.file?.mimeType != null) {
+                    presentation['mimeType'] = item.file.mimeType;
+                }
+                if (item.size != null) {
+                    presentation['size'] = item.size;
+                }
+                if (item.webUrl != null) {
+                    presentation['webUrl'] = item.webUrl;
+                }
+                if (item.createdDateTime != null) {
+                    presentation['createdDateTime'] = item.createdDateTime;
+                }
+                if (item.lastModifiedDateTime != null) {
+                    presentation['lastModifiedDateTime'] = item.lastModifiedDateTime;
+                }
+                if (item.createdBy?.user?.displayName != null) {
+                    presentation['createdByUserDisplayName'] = item.createdBy.user.displayName;
+                }
+                if (item.lastModifiedBy?.user?.displayName != null) {
+                    presentation['lastModifiedByUserDisplayName'] = item.lastModifiedBy.user.displayName;
+                }
+                if (item.parentReference?.driveId != null) {
+                    presentation['parentDriveId'] = item.parentReference.driveId;
+                }
+                if (item.parentReference?.id != null) {
+                    presentation['parentId'] = item.parentReference.id;
+                }
+                if (item.parentReference?.path != null) {
+                    presentation['parentPath'] = item.parentReference.path;
+                }
+
+                const presentationResult = PresentationSchema.safeParse(presentation);
+                if (!presentationResult.success) {
+                    throw new Error(`Invalid presentation: ${presentationResult.error.message}`);
+                }
+                presentations.push(presentationResult.data);
             }
 
             if (presentations.length > 0) {
