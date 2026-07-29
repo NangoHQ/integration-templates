@@ -32,7 +32,7 @@ const action = createAction({
             data: {
                 rows: input.rows
             },
-            retries: 0
+            retries: 10
         });
 
         return {
