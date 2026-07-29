@@ -41,9 +41,12 @@ const action = createAction({
     scopes: ['Files.Read.All', 'Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // OData string literals require embedded single quotes to be doubled.
+        const encodedWorksheet = encodeURIComponent(input.worksheetIdOrName.replace(/'/g, "''"));
+
         // https://learn.microsoft.com/en-us/graph/api/worksheet-usedrange
         const response = await nango.get({
-            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodeURIComponent(input.worksheetIdOrName)}')/usedRange`,
+            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodedWorksheet}')/usedRange`,
             retries: 3
         });
 

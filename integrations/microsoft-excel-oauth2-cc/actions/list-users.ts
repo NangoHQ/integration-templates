@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.'),
-    top: z.number().optional().describe('Number of users to return per page. Default is determined by the API.')
+    top: z.number().int().min(1).max(999).optional().describe('Number of users to return per page. Must be between 1 and 999. Default is determined by the API.')
 });
 
 const ProviderUserSchema = z.object({

@@ -2,11 +2,17 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    drive_id: z.string().describe('Drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"'),
+    driveId: z.string().describe('Drive ID. Example: "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"'),
     filename: z.string().describe('Filename including .xlsx extension. Example: "workbook.xlsx"'),
-    parent_id: z.string().optional().describe('Parent folder item ID. If omitted, uploads to the drive root.'),
-    content_base64: z.string().describe('Base64-encoded .xlsx file content.')
+    parentId: z.string().optional().describe('Parent folder item ID. If omitted, uploads to the drive root.'),
+    contentBase64: z.string().describe('Base64-encoded .xlsx file content.'),
+    conflictBehavior: z
+        .enum(['fail', 'replace', 'rename'])
+        .optional()
+        .describe('Behavior when a file with this name already exists at the destination. Defaults to "fail" to avoid silently overwriting an existing workbook.')
 });
+
+const MAX_SIMPLE_UPLOAD_BYTES = 250 * 1024 * 1024;
 
 const ProviderDriveItemSchema = z.object({
     id: z.string(),
@@ -34,15 +40,27 @@ const action = createAction({
     scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const fileBuffer = Buffer.from(input.content_base64, 'base64');
+        const fileBuffer = Buffer.from(input.contentBase64, 'base64');
 
-        const endpoint = input.parent_id
-            ? `/v1.0/drives/${encodeURIComponent(input.drive_id)}/items/${encodeURIComponent(input.parent_id)}:/${encodeURIComponent(input.filename)}:/content`
-            : `/v1.0/drives/${encodeURIComponent(input.drive_id)}/root:/${encodeURIComponent(input.filename)}:/content`;
+        if (fileBuffer.byteLength > MAX_SIMPLE_UPLOAD_BYTES) {
+            throw new nango.ActionError({
+                type: 'file_too_large',
+                message: `Workbook content is ${fileBuffer.byteLength} bytes, which exceeds the 250 MB limit supported by this upload method.`,
+                driveId: input.driveId,
+                filename: input.filename
+            });
+        }
+
+        const endpoint = input.parentId
+            ? `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.parentId)}:/${encodeURIComponent(input.filename)}:/content`
+            : `/v1.0/drives/${encodeURIComponent(input.driveId)}/root:/${encodeURIComponent(input.filename)}:/content`;
 
         // https://learn.microsoft.com/en-us/graph/api/driveitem-put-content
         const response = await nango.put({
             endpoint,
+            params: {
+                '@microsoft.graph.conflictBehavior': input.conflictBehavior ?? 'fail'
+            },
             headers: {
                 'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             },

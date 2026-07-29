@@ -35,9 +35,13 @@ const action = createAction({
     scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // OData string literals require embedded single quotes to be doubled.
+        const encodedWorksheet = encodeURIComponent(input.worksheetIdOrName.replace(/'/g, "''"));
+        const encodedAddress = encodeURIComponent(input.address.replace(/'/g, "''"));
+
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/graph/api/range-update
-            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodeURIComponent(input.worksheetIdOrName)}')/range(address='${encodeURIComponent(input.address)}')`,
+            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodedWorksheet}')/range(address='${encodedAddress}')`,
             data: {
                 values: input.values
             },

@@ -6,32 +6,23 @@ const InputSchema = z.object({
     itemId: z.string().describe('Workbook item ID. Example: "01RFYLAYDQCQAOBGW2GVAYDEQMDDBL6JYU"')
 });
 
-const ProviderTableSchema = z.object({
-    id: z.string(),
-    name: z.string(),
-    showHeaders: z.boolean().optional(),
-    showTotals: z.boolean().optional(),
-    style: z.string().optional(),
-    highlightTotalColumn: z.boolean().optional(),
-    showBandedColumns: z.boolean().optional(),
-    showBandedRows: z.boolean().optional(),
-    showFilterButton: z.boolean().optional()
-});
-
-const ProviderTablesResponseSchema = z.object({
-    value: z.array(ProviderTableSchema.passthrough())
-});
-
 const TableSchema = z.object({
     id: z.string(),
     name: z.string(),
     showHeaders: z.boolean().optional(),
     showTotals: z.boolean().optional(),
     style: z.string().optional(),
-    highlightTotalColumn: z.boolean().optional(),
+    highlightFirstColumn: z.boolean().optional(),
+    highlightLastColumn: z.boolean().optional(),
     showBandedColumns: z.boolean().optional(),
     showBandedRows: z.boolean().optional(),
     showFilterButton: z.boolean().optional()
+});
+
+const ProviderTableSchema = TableSchema.passthrough();
+
+const ProviderTablesResponseSchema = z.object({
+    value: z.array(ProviderTableSchema)
 });
 
 const OutputSchema = z.object({
@@ -60,7 +51,8 @@ const action = createAction({
             ...(table.showHeaders !== undefined && { showHeaders: table.showHeaders }),
             ...(table.showTotals !== undefined && { showTotals: table.showTotals }),
             ...(table.style !== undefined && { style: table.style }),
-            ...(table.highlightTotalColumn !== undefined && { highlightTotalColumn: table.highlightTotalColumn }),
+            ...(table.highlightFirstColumn !== undefined && { highlightFirstColumn: table.highlightFirstColumn }),
+            ...(table.highlightLastColumn !== undefined && { highlightLastColumn: table.highlightLastColumn }),
             ...(table.showBandedColumns !== undefined && { showBandedColumns: table.showBandedColumns }),
             ...(table.showBandedRows !== undefined && { showBandedRows: table.showBandedRows }),
             ...(table.showFilterButton !== undefined && { showFilterButton: table.showFilterButton })

@@ -2,7 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    query: z.string().optional().describe('Search query to filter sites. Example: "nango"')
+    query: z.string().optional().describe('Search query to filter sites. Example: "nango"'),
+    cursor: z.string().optional().describe('Pagination cursor from the previous response (@odata.nextLink). Omit for the first page.')
 });
 
 const ProviderSiteSchema = z.object({
@@ -36,14 +37,22 @@ const action = createAction({
     scopes: ['Sites.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const baseUrl = 'https://graph.microsoft.com';
+        let endpoint: string;
         const params: Record<string, string> = {};
-        if (input.query !== undefined && input.query !== '') {
-            params['search'] = input.query;
+
+        if (input.cursor) {
+            endpoint = input.cursor.startsWith(baseUrl) ? input.cursor.slice(baseUrl.length) : input.cursor;
+        } else {
+            endpoint = '/v1.0/sites';
+            if (input.query !== undefined && input.query !== '') {
+                params['search'] = input.query;
+            }
         }
 
         // https://learn.microsoft.com/en-us/graph/api/site-search
         const response = await nango.get({
-            endpoint: '/v1.0/sites',
+            endpoint,
             params,
             retries: 3
         });

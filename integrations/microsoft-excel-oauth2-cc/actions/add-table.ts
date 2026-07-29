@@ -9,7 +9,7 @@ const InputSchema = z.object({
 });
 
 const TableColumnSchema = z.object({
-    id: z.number().optional(),
+    id: z.string().optional(),
     name: z.string().optional(),
     values: z.array(z.unknown()).optional()
 });

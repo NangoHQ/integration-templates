@@ -32,8 +32,9 @@ const action = createAction({
     scopes: ['Files.Read.All', 'Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedWorksheet = encodeURIComponent(input.worksheetIdOrName);
-        const encodedAddress = encodeURIComponent(input.address);
+        // OData string literals require embedded single quotes to be doubled.
+        const encodedWorksheet = encodeURIComponent(input.worksheetIdOrName.replace(/'/g, "''"));
+        const encodedAddress = encodeURIComponent(input.address.replace(/'/g, "''"));
 
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/graph/api/resources/excel

@@ -26,6 +26,25 @@ const DeltaResponseSchema = z.object({
     '@odata.deltaLink': z.string().optional()
 });
 
+function getHeaderValue(headers: Record<string, unknown> | undefined, name: string): string | undefined {
+    if (!headers) {
+        return undefined;
+    }
+
+    const lowerName = name.toLowerCase();
+    for (const [key, value] of Object.entries(headers)) {
+        if (key.toLowerCase() !== lowerName) {
+            continue;
+        }
+
+        if (typeof value === 'string') {
+            return value;
+        }
+    }
+
+    return undefined;
+}
+
 const DriveItemSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
@@ -74,6 +93,16 @@ const sync = createSync({
                 baseUrlOverride,
                 retries: 3
             });
+
+            if (response.status === 410) {
+                const location = getHeaderValue(response.headers, 'location');
+                if (!location) {
+                    throw new Error('Delta token expired, but no replacement location was returned.');
+                }
+
+                nextUrl = location;
+                continue;
+            }
 
             const parsedResponse = DeltaResponseSchema.safeParse(response.data);
             if (!parsedResponse.success) {

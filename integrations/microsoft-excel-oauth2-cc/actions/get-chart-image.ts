@@ -24,9 +24,13 @@ const action = createAction({
     scopes: ['Files.Read.All', 'Sites.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // OData string literals require embedded single quotes to be doubled.
+        const encodedWorksheet = encodeURIComponent(input.worksheetIdOrName.replace(/'/g, "''"));
+        const encodedChartId = encodeURIComponent(input.chartId.replace(/'/g, "''"));
+
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/graph/api/resources/excel
-            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodeURIComponent(input.worksheetIdOrName)}')/charts('${encodeURIComponent(input.chartId)}')/image`,
+            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodedWorksheet}')/charts('${encodedChartId}')/image`,
             retries: 3
         });
 

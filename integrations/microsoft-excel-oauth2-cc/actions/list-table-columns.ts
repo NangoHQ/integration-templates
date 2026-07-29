@@ -39,7 +39,8 @@ const action = createAction({
     scopes: ['Files.Read.All', 'Sites.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedTableIdOrName = encodeURIComponent(input.tableIdOrName);
+        // OData string literals require embedded single quotes to be doubled.
+        const encodedTableIdOrName = encodeURIComponent(input.tableIdOrName.replace(/'/g, "''"));
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/graph/api/resources/excel
             endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/tables('${encodedTableIdOrName}')/columns`,

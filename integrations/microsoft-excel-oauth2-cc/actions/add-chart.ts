@@ -19,14 +19,7 @@ const ProviderChartSchema = z.object({
     left: z.number().optional()
 });
 
-const OutputSchema = z.object({
-    id: z.string(),
-    name: z.string(),
-    height: z.number().optional(),
-    width: z.number().optional(),
-    top: z.number().optional(),
-    left: z.number().optional()
-});
+const OutputSchema = ProviderChartSchema;
 
 const action = createAction({
     description: 'Create a chart on a worksheet from a data range.',
@@ -36,9 +29,12 @@ const action = createAction({
     scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // OData string literals require embedded single quotes to be doubled.
+        const encodedWorksheet = encodeURIComponent(input.worksheetIdOrName.replace(/'/g, "''"));
+
         const response = await nango.post({
             // https://learn.microsoft.com/en-us/graph/api/chartcollection-add
-            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodeURIComponent(input.worksheetIdOrName)}')/charts/add`,
+            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodedWorksheet}')/charts/add`,
             data: {
                 type: input.type,
                 sourceData: input.sourceData,
@@ -47,16 +43,7 @@ const action = createAction({
             retries: 3
         });
 
-        const chart = ProviderChartSchema.parse(response.data);
-
-        return {
-            id: chart.id,
-            name: chart.name,
-            ...(chart.height !== undefined && { height: chart.height }),
-            ...(chart.width !== undefined && { width: chart.width }),
-            ...(chart.top !== undefined && { top: chart.top }),
-            ...(chart.left !== undefined && { left: chart.left })
-        };
+        return ProviderChartSchema.parse(response.data);
     }
 });
 

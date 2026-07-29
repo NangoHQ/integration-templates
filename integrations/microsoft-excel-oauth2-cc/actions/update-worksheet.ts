@@ -46,9 +46,12 @@ const action = createAction({
             body.position = input.position;
         }
 
+        // OData string literals require embedded single quotes to be doubled.
+        const encodedWorksheet = encodeURIComponent(input.worksheetIdOrName.replace(/'/g, "''"));
+
         // https://learn.microsoft.com/en-us/graph/api/worksheet-update
         const response = await nango.patch({
-            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodeURIComponent(input.worksheetIdOrName)}')`,
+            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets('${encodedWorksheet}')`,
             data: body,
             retries: 3
         });

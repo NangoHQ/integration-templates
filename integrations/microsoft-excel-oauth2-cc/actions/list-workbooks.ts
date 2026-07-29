@@ -62,11 +62,10 @@ const action = createAction({
             }
         } else {
             const encodedDriveId = encodeURIComponent(input.driveId);
-            if (input.query) {
-                endpoint = `/v1.0/drives/${encodedDriveId}/root/search(q='${encodeURIComponent(input.query)}')`;
-            } else {
-                endpoint = `/v1.0/drives/${encodedDriveId}/root/children`;
-            }
+            // OData string literals require embedded single quotes to be doubled.
+            // Search covers the whole drive recursively, unlike root/children which only lists the root folder.
+            const searchTerm = input.query ? input.query.replace(/'/g, "''") : '.xlsx';
+            endpoint = `/v1.0/drives/${encodedDriveId}/root/search(q='${encodeURIComponent(searchTerm)}')`;
             params['$top'] = '50';
         }
 
@@ -81,9 +80,7 @@ const action = createAction({
 
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/graph/api/driveitem-search
-            // https://learn.microsoft.com/en-us/graph/api/driveitem-list-children
-            ...callConfig,
-            retries: 10
+            ...callConfig
         });
 
         const listResponse = ProviderListResponseSchema.parse(response.data);

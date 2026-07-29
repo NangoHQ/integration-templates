@@ -30,9 +30,12 @@ const action = createAction({
     scopes: ['Files.Read.All', 'Sites.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // OData string literals require embedded single quotes to be doubled.
+        const encodedTable = encodeURIComponent(input.tableIdOrName.replace(/'/g, "''"));
+
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/graph/api/table-list-rows
-            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/tables('${encodeURIComponent(input.tableIdOrName)}')/rows`,
+            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/tables('${encodedTable}')/rows`,
             retries: 3
         });
 

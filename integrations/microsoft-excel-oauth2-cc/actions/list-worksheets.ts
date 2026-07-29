@@ -1,9 +1,9 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, type ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    drive_id: z.string().describe('Drive ID containing the workbook. Example: "b!abc123"'),
-    item_id: z.string().describe('Item ID of the workbook file. Example: "01RFYLAY..."')
+    driveId: z.string().describe('Drive ID containing the workbook. Example: "b!abc123"'),
+    itemId: z.string().describe('Item ID of the workbook file. Example: "01RFYLAY..."')
 });
 
 const ProviderWorksheetSchema = z.object({
@@ -11,10 +11,6 @@ const ProviderWorksheetSchema = z.object({
     name: z.string(),
     position: z.number().optional(),
     visibility: z.string().optional()
-});
-
-const ProviderListResponseSchema = z.object({
-    value: z.array(ProviderWorksheetSchema)
 });
 
 const WorksheetSchema = z.object({
@@ -36,22 +32,35 @@ const action = createAction({
     scopes: ['Files.Read.All', 'Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
+        const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/graph/api/worksheet-list
-            endpoint: `/v1.0/drives/${encodeURIComponent(input.drive_id)}/items/${encodeURIComponent(input.item_id)}/workbook/worksheets`,
+            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/worksheets`,
+            paginate: {
+                type: 'link',
+                link_path_in_response_body: '@odata.nextLink',
+                response_path: 'value',
+                limit: 100,
+                limit_name_in_request: '$top'
+            },
             retries: 3
-        });
-
-        const parsed = ProviderListResponseSchema.parse(response.data);
-
-        return {
-            worksheets: parsed.value.map((worksheet) => ({
-                id: worksheet.id,
-                name: worksheet.name,
-                ...(worksheet.position !== undefined && { position: worksheet.position }),
-                ...(worksheet.visibility !== undefined && { visibility: worksheet.visibility })
-            }))
         };
+
+        const worksheets: z.infer<typeof WorksheetSchema>[] = [];
+
+        for await (const batch of nango.paginate(proxyConfig)) {
+            const parsedBatch = z.array(ProviderWorksheetSchema).parse(batch);
+
+            worksheets.push(
+                ...parsedBatch.map((worksheet) => ({
+                    id: worksheet.id,
+                    name: worksheet.name,
+                    ...(worksheet.position !== undefined && { position: worksheet.position }),
+                    ...(worksheet.visibility !== undefined && { visibility: worksheet.visibility })
+                }))
+            );
+        }
+
+        return { worksheets };
     }
 });
 

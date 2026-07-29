@@ -19,10 +19,13 @@ const action = createAction({
     scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // OData string literals require embedded single quotes to be doubled.
+        const encodedTable = encodeURIComponent(input.tableIdOrName.replace(/'/g, "''"));
+
         // https://learn.microsoft.com/en-us/graph/api/resources/excel
         // https://learn.microsoft.com/en-us/graph/api/resources/workbook
         await nango.delete({
-            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/tables('${encodeURIComponent(input.tableIdOrName)}')`,
+            endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/tables('${encodedTable}')`,
             retries: 3
         });
 

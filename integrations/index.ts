@@ -3025,6 +3025,37 @@ import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-purcha
 import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-sales-order.js';
 import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-vendor.js';
 
+// -- Integration: microsoft-excel-oauth2-cc
+import './microsoft-excel-oauth2-cc/syncs/workbooks.js';
+import './microsoft-excel-oauth2-cc/syncs/worksheets.js';
+import './microsoft-excel-oauth2-cc/actions/add-chart.js';
+import './microsoft-excel-oauth2-cc/actions/add-defined-name.js';
+import './microsoft-excel-oauth2-cc/actions/add-table-rows.js';
+import './microsoft-excel-oauth2-cc/actions/add-table.js';
+import './microsoft-excel-oauth2-cc/actions/add-worksheet.js';
+import './microsoft-excel-oauth2-cc/actions/calculate-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/create-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/delete-defined-name.js';
+import './microsoft-excel-oauth2-cc/actions/delete-table.js';
+import './microsoft-excel-oauth2-cc/actions/delete-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/delete-worksheet.js';
+import './microsoft-excel-oauth2-cc/actions/get-chart-image.js';
+import './microsoft-excel-oauth2-cc/actions/get-range.js';
+import './microsoft-excel-oauth2-cc/actions/get-site-drive.js';
+import './microsoft-excel-oauth2-cc/actions/get-used-range.js';
+import './microsoft-excel-oauth2-cc/actions/get-user-drive.js';
+import './microsoft-excel-oauth2-cc/actions/get-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/list-defined-names.js';
+import './microsoft-excel-oauth2-cc/actions/list-sites.js';
+import './microsoft-excel-oauth2-cc/actions/list-table-columns.js';
+import './microsoft-excel-oauth2-cc/actions/list-table-rows.js';
+import './microsoft-excel-oauth2-cc/actions/list-tables.js';
+import './microsoft-excel-oauth2-cc/actions/list-users.js';
+import './microsoft-excel-oauth2-cc/actions/list-workbooks.js';
+import './microsoft-excel-oauth2-cc/actions/list-worksheets.js';
+import './microsoft-excel-oauth2-cc/actions/update-range.js';
+import './microsoft-excel-oauth2-cc/actions/update-worksheet.js';
+
 // -- Integration: microsoft-teams
 import './microsoft-teams/syncs/channel-message-replies.js';
 import './microsoft-teams/syncs/channel-messages.js';
