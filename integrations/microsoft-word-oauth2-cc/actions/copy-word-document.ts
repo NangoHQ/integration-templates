@@ -1,3 +1,4 @@
+import { randomUUID } from 'crypto';
 import { z } from 'zod';
 import { createAction } from 'nango';
 
@@ -69,9 +70,11 @@ const action = createAction({
         // Copying in place (no explicit name and no explicit destination) would ask Microsoft Graph
         // to create a copy with the exact same name in the exact same folder, which always fails with
         // nameAlreadyExists. We also need the source's name/parent to build a correct result when the
-        // provider response comes back empty (see below), so resolve source metadata whenever either
-        // piece of information isn't already fully specified by the caller.
-        const needsSourceLookup = input.name === undefined || input.destinationFolderId === undefined;
+        // provider response comes back empty (see below). That's only required when the name is
+        // unknown, or when neither destination field is given and the source's own folder must be
+        // resolved as the implicit target — a named copy into an explicit destination (folder or drive
+        // root) never needs it.
+        const needsSourceLookup = input.name === undefined || (input.destinationFolderId === undefined && input.destinationDriveId === undefined);
 
         let sourceName: string | undefined;
         let sourceParentId: string | undefined;
@@ -93,7 +96,9 @@ const action = createAction({
         let name = input.name;
         if (name === undefined && isInPlaceCopy) {
             const { base, ext } = splitNameParts(sourceName!);
-            name = `${base} - Copy ${Date.now()}${ext}`;
+            // A random suffix guarantees uniqueness even for concurrent/retried in-place copies,
+            // unlike a timestamp, which two calls can generate identically.
+            name = `${base} - Copy ${randomUUID()}${ext}`;
         }
 
         const requestBody: Record<string, unknown> = {};
@@ -130,9 +135,14 @@ const action = createAction({
             };
         }
 
+        if (response.status === 202) {
+            // Async copy: Graph is still processing it. Return the monitor URL so the caller can poll
+            // it, or an empty result if Graph didn't provide one — never look up the destination item
+            // now, since it may not exist yet and the lookup would fail while the copy is still pending.
+            return typeof location === 'string' ? { location } : {};
+        }
+
         if (typeof location === 'string') {
-            // Async copy: Graph hasn't finished yet. Return the monitor URL so the caller can poll it,
-            // rather than reporting an empty success with no way to track completion.
             return { location };
         }
 
