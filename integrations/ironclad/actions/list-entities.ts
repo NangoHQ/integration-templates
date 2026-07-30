@@ -85,7 +85,7 @@ const action = createAction({
             };
         });
 
-        const hasNextPage = providerResponse.count === providerResponse.pageSize && providerResponse.count > 0;
+        const hasNextPage = providerResponse.count > (providerResponse.page + 1) * providerResponse.pageSize;
 
         return {
             items,

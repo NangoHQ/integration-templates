@@ -40,10 +40,11 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         const startingPage = checkpoint.success ? checkpoint.data.page : 0;
 
-        // Blocker: provider exposes a lastUpdatedFrom filter that could not be conclusively
-        // verified to actually filter results (too few records in the tenant to prove it).
-        // Fall back to a checkpointed full refresh with automated deletion detection.
-        // Use the provider's page/pageSize pagination to resume interrupted runs.
+        // Full refresh (not an incremental `lastUpdated` filter): /workflows has no deleted-workflow
+        // feed, so every hourly run must re-enumerate the full collection for trackDeletesStart/
+        // trackDeletesEnd to detect deletions. Use the provider's page/pageSize pagination to
+        // resume interrupted runs; trackDeletesStart is safe to call again on a resumed execution
+        // and only the execution that completes the full pass calls trackDeletesEnd.
 
         await nango.trackDeletesStart('Workflow');
         let nextPage = startingPage;

@@ -34,10 +34,11 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['public.workflows.readSchemas'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.ironcladapp.com/
+            // https://developer.ironcladapp.com/reference/retrieve-a-workflow-schema
             endpoint: `/public/api/v1/workflow-schemas/${encodeURIComponent(input.schemaId)}`,
             params: {
                 form: 'launch'

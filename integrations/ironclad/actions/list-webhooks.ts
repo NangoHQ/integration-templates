@@ -64,10 +64,10 @@ const action = createAction({
                     companyId: z.string(),
                     tags: z.array(z.string()).optional(),
                     status: z.string(),
-                    statusLastUpdatedAt: z.string().optional(),
-                    statusLastUpdatedBy: z.string().optional(),
+                    statusLastUpdatedAt: z.string().nullable().optional(),
+                    statusLastUpdatedBy: z.string().nullable().optional(),
                     consecutiveFailureCount: z.number(),
-                    firstConsecutiveFailure: z.string().optional()
+                    firstConsecutiveFailure: z.string().nullable().optional()
                 })
                 .parse(item);
 
@@ -78,10 +78,10 @@ const action = createAction({
                 companyId: raw.companyId,
                 ...(raw.tags !== undefined && { tags: raw.tags }),
                 status: raw.status,
-                ...(raw.statusLastUpdatedAt !== undefined && { statusLastUpdatedAt: raw.statusLastUpdatedAt }),
-                ...(raw.statusLastUpdatedBy !== undefined && { statusLastUpdatedBy: raw.statusLastUpdatedBy }),
+                ...(raw.statusLastUpdatedAt != null && { statusLastUpdatedAt: raw.statusLastUpdatedAt }),
+                ...(raw.statusLastUpdatedBy != null && { statusLastUpdatedBy: raw.statusLastUpdatedBy }),
                 consecutiveFailureCount: raw.consecutiveFailureCount,
-                ...(raw.firstConsecutiveFailure !== undefined && {
+                ...(raw.firstConsecutiveFailure != null && {
                     firstConsecutiveFailure: raw.firstConsecutiveFailure
                 })
             };

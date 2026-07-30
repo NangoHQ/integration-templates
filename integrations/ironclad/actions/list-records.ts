@@ -28,8 +28,9 @@ const ListOutputSchema = z.object({
 const ListResponseSchema = z.union([
     z.array(z.unknown()),
     z.object({
-        list: z.array(z.unknown()).optional(),
-        count: z.number().optional()
+        list: z.array(z.unknown()),
+        count: z.number().optional(),
+        pageSize: z.number().optional()
     })
 ]);
 
@@ -41,12 +42,22 @@ const action = createAction({
     scopes: ['public.records.readRecords'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(page)) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'cursor must be a valid page number'
-            });
+        let page = 0;
+        if (input.cursor !== undefined) {
+            if (input.cursor.trim() === '') {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a valid non-negative page number'
+                });
+            }
+            const parsedPage = Number(input.cursor);
+            if (!Number.isInteger(parsedPage) || parsedPage < 0) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a valid non-negative page number'
+                });
+            }
+            page = parsedPage;
         }
 
         // https://developer.ironcladapp.com/reference/list-all-records
@@ -76,7 +87,7 @@ const action = createAction({
             });
         }
 
-        const rawItems = Array.isArray(parsedResponse.data) ? parsedResponse.data : (parsedResponse.data.list ?? []);
+        const rawItems = Array.isArray(parsedResponse.data) ? parsedResponse.data : parsedResponse.data.list;
         if (!Array.isArray(rawItems)) {
             throw new nango.ActionError({
                 type: 'invalid_response',
@@ -100,7 +111,8 @@ const action = createAction({
         if (Array.isArray(parsedResponse.data)) {
             hasMore = items.length === (input.pageSize ?? 20);
         } else if (parsedResponse.data.count !== undefined) {
-            hasMore = items.length < parsedResponse.data.count;
+            const pageSize = parsedResponse.data.pageSize ?? input.pageSize ?? 20;
+            hasMore = parsedResponse.data.count > (page + 1) * pageSize;
         }
 
         return {

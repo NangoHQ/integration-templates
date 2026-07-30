@@ -16,9 +16,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['public.workflows.cancel'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.ironcladapp.com/
+        // https://developer.ironcladapp.com/reference/cancel-a-workflow
         await nango.post({
             endpoint: `/public/api/v1/workflows/${encodeURIComponent(input.workflowId)}/cancel`,
             data: {

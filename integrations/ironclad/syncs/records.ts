@@ -50,8 +50,11 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         const startingPage = checkpoint.success ? checkpoint.data.page : 0;
 
-        // Blocker: no confirmed incremental filter parameter for /records in this pass.
-        // Resume the page/pageSize full refresh when Nango interrupts mid-run.
+        // Full refresh (not an incremental `lastUpdated` filter): /records has no deleted-record
+        // feed, so every hourly run must re-enumerate the full collection for trackDeletesStart/
+        // trackDeletesEnd to detect deletions. Resume the page/pageSize pagination when Nango
+        // interrupts mid-run; trackDeletesStart is safe to call again on a resumed execution and
+        // only the execution that completes the full pass calls trackDeletesEnd.
         let nextPage = startingPage;
 
         await nango.trackDeletesStart('Record');

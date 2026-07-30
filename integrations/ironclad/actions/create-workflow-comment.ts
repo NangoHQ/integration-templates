@@ -47,10 +47,11 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['public.workflows.createComments'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://developer.ironcladapp.com/
+            // https://developer.ironcladapp.com/reference/create-a-comment-on-a-workflow
             endpoint: `/public/api/v1/workflows/${encodeURIComponent(input.workflowId)}/comments`,
             data: {
                 comment: input.comment

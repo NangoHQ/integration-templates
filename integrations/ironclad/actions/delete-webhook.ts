@@ -14,7 +14,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['public.webhooks.delete'],
+    scopes: ['public.webhooks.deleteWebhooks'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.ironcladapp.com/

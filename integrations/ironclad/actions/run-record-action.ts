@@ -17,13 +17,14 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['public.records.applyContractActions'],
+    scopes: ['public.records.applyContractAction'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // @allowTryCatch - this tenant lacks the Obligations paid add-on, so every contract action
-        // returns 404 "no obligations found". Catching the error allows dryrun validation and mock
-        // generation to proceed. In production tenants with Obligations enabled, success responses
-        // will flow through the normal path and other error responses will be surfaced as ActionErrors.
+        // currently returns an error response with code "NOT_FOUND" / message "no obligations found".
+        // That error shape is detected below and surfaced as an ActionError (not returned as output),
+        // so both this dev tenant and production tenants with Obligations enabled go through the same
+        // failure path; only genuine success responses are returned as output.
         try {
             const response = await nango.post({
                 // https://developer.ironcladapp.com/reference/run-an-action-on-a-record
@@ -32,13 +33,30 @@ const action = createAction({
                     type: input.type,
                     ...(input.properties !== undefined && { properties: input.properties })
                 },
-                retries: 3
+                // No idempotency guarantee is documented for this endpoint, and it triggers a
+                // side-effecting contract action, so it must not be retried automatically: a retry
+                // after a lost response could execute the same action twice.
+                retries: 0
             });
 
             if (typeof response.data !== 'object' || response.data === null) {
                 throw new nango.ActionError({
                     type: 'invalid_response',
                     message: 'Unexpected non-object response from Ironclad API'
+                });
+            }
+
+            if (
+                'code' in response.data &&
+                response.data.code === 'NOT_FOUND' &&
+                'message' in response.data &&
+                response.data.message === 'no obligations found'
+            ) {
+                throw new nango.ActionError({
+                    type: 'obligations_not_enabled',
+                    message: 'The contract action could not be executed because this tenant does not have the Obligations add-on enabled.',
+                    recordId: input.recordId,
+                    actionType: input.type
                 });
             }
 
@@ -60,7 +78,16 @@ const action = createAction({
                 'message' in err.response.data &&
                 err.response.data.message === 'no obligations found'
             ) {
-                return OutputSchema.parse(err.response.data);
+                throw new nango.ActionError({
+                    type: 'obligations_not_enabled',
+                    message: 'The contract action could not be executed because this tenant does not have the Obligations add-on enabled.',
+                    recordId: input.recordId,
+                    actionType: input.type
+                });
+            }
+
+            if (err instanceof nango.ActionError) {
+                throw err;
             }
 
             throw new nango.ActionError({

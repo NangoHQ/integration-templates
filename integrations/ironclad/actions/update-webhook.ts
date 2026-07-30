@@ -26,7 +26,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['public.webhooks:write'],
+    scopes: ['public.webhooks.updateWebhooks'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: { events?: string[]; targetURL?: string } = {};

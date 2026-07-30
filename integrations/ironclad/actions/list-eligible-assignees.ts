@@ -60,7 +60,23 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.ironcladapp.com/reference/list-workflow-role-eligible-assignees
-        const pageParam = input.cursor !== undefined ? parseInt(input.cursor, 10) : undefined;
+        let pageParam: number | undefined;
+        if (input.cursor !== undefined) {
+            if (input.cursor.trim() === '') {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a valid non-negative page number'
+                });
+            }
+            const parsedPage = Number(input.cursor);
+            if (!Number.isInteger(parsedPage) || parsedPage < 0) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a valid non-negative page number'
+                });
+            }
+            pageParam = parsedPage;
+        }
         const response = await nango.get({
             endpoint: `/public/api/v1/workflows/${encodeURIComponent(input.workflowId)}/roles/${encodeURIComponent(input.roleName)}/eligible-assignees`,
             params: {
