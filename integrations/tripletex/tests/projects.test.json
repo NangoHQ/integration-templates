@@ -1,0 +1,642 @@
+{
+  "nango": {
+    "batchSave": {
+      "Project": [
+        {
+          "id": "210311965",
+          "name": "Test Project",
+          "number": "1",
+          "displayName": "1 Test Project",
+          "description": "Updated via dryrun validation",
+          "startDate": "2026-07-28",
+          "isClosed": false,
+          "isInternal": false,
+          "isOffer": false,
+          "isFixedPrice": false,
+          "projectManagerId": "11966637",
+          "currencyId": "1"
+        },
+        {
+          "id": "210311976",
+          "name": "Test Project",
+          "number": "2",
+          "displayName": "2 Test Project",
+          "description": "",
+          "startDate": "2026-07-28",
+          "isClosed": false,
+          "isInternal": false,
+          "isOffer": false,
+          "isFixedPrice": false,
+          "projectManagerId": "11966637",
+          "currencyId": "1"
+        },
+        {
+          "id": "210311977",
+          "name": "Test Project",
+          "number": "10",
+          "displayName": "10 Test Project",
+          "description": "",
+          "startDate": "2026-07-28",
+          "isClosed": false,
+          "isInternal": false,
+          "isOffer": false,
+          "isFixedPrice": false,
+          "projectManagerId": "11966637",
+          "currencyId": "1"
+        },
+        {
+          "id": "210311978",
+          "name": "Test Project",
+          "number": "11",
+          "displayName": "11 Test Project",
+          "description": "",
+          "startDate": "2026-07-28",
+          "isClosed": false,
+          "isInternal": false,
+          "isOffer": false,
+          "isFixedPrice": false,
+          "projectManagerId": "11966637",
+          "currencyId": "1"
+        },
+        {
+          "id": "210311979",
+          "name": "Test Project",
+          "number": "12",
+          "displayName": "12 Test Project",
+          "description": "",
+          "startDate": "2026-07-28",
+          "isClosed": false,
+          "isInternal": false,
+          "isOffer": false,
+          "isFixedPrice": false,
+          "projectManagerId": "11966637",
+          "currencyId": "1"
+        },
+        {
+          "id": "210311980",
+          "name": "Test Project",
+          "number": "13",
+          "displayName": "13 Test Project",
+          "description": "",
+          "startDate": "2026-07-28",
+          "isClosed": false,
+          "isInternal": false,
+          "isOffer": false,
+          "isFixedPrice": false,
+          "projectManagerId": "11966637",
+          "currencyId": "1"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Project": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v2/project": {
+        "response": {
+          "fullResultSize": 6,
+          "from": 0,
+          "count": 6,
+          "versionDigest": "'If-None-Match' header not specified",
+          "values": [
+            {
+              "id": 210311965,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/project/210311965",
+              "name": "Test Project",
+              "number": "1",
+              "displayName": "1 Test Project",
+              "description": "Updated via dryrun validation",
+              "projectManager": {
+                "id": 11966637,
+                "url": "api-test.tripletex.tech/v2/employee/11966637"
+              },
+              "department": null,
+              "mainProject": null,
+              "startDate": "2026-07-28",
+              "endDate": null,
+              "customer": null,
+              "isClosed": false,
+              "isReadyForInvoicing": false,
+              "isInternal": false,
+              "isOffer": false,
+              "isFixedPrice": false,
+              "projectCategory": null,
+              "deliveryAddress": null,
+              "boligmappaAddress": null,
+              "displayNameFormat": "NAME_STANDARD",
+              "reference": "",
+              "contractReference": "",
+              "externalAccountsNumber": "",
+              "discountPercentage": 0,
+              "vatType": {
+                "id": 3,
+                "url": "api-test.tripletex.tech/v2/ledger/vatType/3"
+              },
+              "fixedprice": 0,
+              "contributionMarginPercent": 0,
+              "numberOfSubProjects": 0,
+              "numberOfProjectParticipants": 1,
+              "orderLines": [],
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "markUpOrderLines": 0,
+              "markUpFeesEarned": 0,
+              "isPriceCeiling": false,
+              "priceCeilingAmount": 0,
+              "projectHourlyRates": [
+                {
+                  "id": 8009212,
+                  "url": "api-test.tripletex.tech/v2/project/hourlyRates/8009212"
+                }
+              ],
+              "forParticipantsOnly": false,
+              "participants": [
+                {
+                  "id": 11833026,
+                  "url": "api-test.tripletex.tech/v2/project/participant/11833026"
+                }
+              ],
+              "contact": null,
+              "attention": null,
+              "invoiceComment": "",
+              "invoicingPlan": [],
+              "preliminaryInvoice": null,
+              "generalProjectActivitiesPerProjectOnly": false,
+              "projectActivities": [],
+              "hierarchyNameAndNumber": "1 Test Project",
+              "invoiceDueDate": 0,
+              "invoiceDueDateType": "DAYS",
+              "invoiceReceiverEmail": "",
+              "overdueNoticeEmail": "",
+              "accessType": "WRITE",
+              "useProductNetPrice": false,
+              "ignoreCompanyProductDiscountAgreement": false,
+              "customerName": "",
+              "hierarchyLevel": 0,
+              "projectManagerNameAndNumber": "Nango Developer API Testuser",
+              "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+              "invoiceOnAccountVatHigh": false,
+              "invoiceReserveTotalAmountCurrency": 0,
+              "accountingDimensionValues": []
+            },
+            {
+              "id": 210311976,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/project/210311976",
+              "name": "Test Project",
+              "number": "2",
+              "displayName": "2 Test Project",
+              "description": "",
+              "projectManager": {
+                "id": 11966637,
+                "url": "api-test.tripletex.tech/v2/employee/11966637"
+              },
+              "department": null,
+              "mainProject": null,
+              "startDate": "2026-07-28",
+              "endDate": null,
+              "customer": null,
+              "isClosed": false,
+              "isReadyForInvoicing": false,
+              "isInternal": false,
+              "isOffer": false,
+              "isFixedPrice": false,
+              "projectCategory": null,
+              "deliveryAddress": null,
+              "boligmappaAddress": null,
+              "displayNameFormat": "NAME_STANDARD",
+              "reference": "",
+              "contractReference": "",
+              "externalAccountsNumber": "",
+              "discountPercentage": 0,
+              "vatType": {
+                "id": 3,
+                "url": "api-test.tripletex.tech/v2/ledger/vatType/3"
+              },
+              "fixedprice": 0,
+              "contributionMarginPercent": 0,
+              "numberOfSubProjects": 0,
+              "numberOfProjectParticipants": 1,
+              "orderLines": [],
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "markUpOrderLines": 0,
+              "markUpFeesEarned": 0,
+              "isPriceCeiling": false,
+              "priceCeilingAmount": 0,
+              "projectHourlyRates": [
+                {
+                  "id": 8009213,
+                  "url": "api-test.tripletex.tech/v2/project/hourlyRates/8009213"
+                }
+              ],
+              "forParticipantsOnly": false,
+              "participants": [
+                {
+                  "id": 11833027,
+                  "url": "api-test.tripletex.tech/v2/project/participant/11833027"
+                }
+              ],
+              "contact": null,
+              "attention": null,
+              "invoiceComment": "",
+              "invoicingPlan": [],
+              "preliminaryInvoice": null,
+              "generalProjectActivitiesPerProjectOnly": false,
+              "projectActivities": [],
+              "hierarchyNameAndNumber": "2 Test Project",
+              "invoiceDueDate": 0,
+              "invoiceDueDateType": "DAYS",
+              "invoiceReceiverEmail": "",
+              "overdueNoticeEmail": "",
+              "accessType": "WRITE",
+              "useProductNetPrice": false,
+              "ignoreCompanyProductDiscountAgreement": false,
+              "customerName": "",
+              "hierarchyLevel": 0,
+              "projectManagerNameAndNumber": "Nango Developer API Testuser",
+              "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+              "invoiceOnAccountVatHigh": false,
+              "invoiceReserveTotalAmountCurrency": 0,
+              "accountingDimensionValues": []
+            },
+            {
+              "id": 210311977,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/project/210311977",
+              "name": "Test Project",
+              "number": "10",
+              "displayName": "10 Test Project",
+              "description": "",
+              "projectManager": {
+                "id": 11966637,
+                "url": "api-test.tripletex.tech/v2/employee/11966637"
+              },
+              "department": null,
+              "mainProject": null,
+              "startDate": "2026-07-28",
+              "endDate": null,
+              "customer": null,
+              "isClosed": false,
+              "isReadyForInvoicing": false,
+              "isInternal": false,
+              "isOffer": false,
+              "isFixedPrice": false,
+              "projectCategory": null,
+              "deliveryAddress": null,
+              "boligmappaAddress": null,
+              "displayNameFormat": "NAME_STANDARD",
+              "reference": "",
+              "contractReference": "",
+              "externalAccountsNumber": "",
+              "discountPercentage": 0,
+              "vatType": {
+                "id": 3,
+                "url": "api-test.tripletex.tech/v2/ledger/vatType/3"
+              },
+              "fixedprice": 0,
+              "contributionMarginPercent": 0,
+              "numberOfSubProjects": 0,
+              "numberOfProjectParticipants": 1,
+              "orderLines": [],
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "markUpOrderLines": 0,
+              "markUpFeesEarned": 0,
+              "isPriceCeiling": false,
+              "priceCeilingAmount": 0,
+              "projectHourlyRates": [
+                {
+                  "id": 8009214,
+                  "url": "api-test.tripletex.tech/v2/project/hourlyRates/8009214"
+                }
+              ],
+              "forParticipantsOnly": false,
+              "participants": [
+                {
+                  "id": 11833028,
+                  "url": "api-test.tripletex.tech/v2/project/participant/11833028"
+                }
+              ],
+              "contact": null,
+              "attention": null,
+              "invoiceComment": "",
+              "invoicingPlan": [],
+              "preliminaryInvoice": null,
+              "generalProjectActivitiesPerProjectOnly": false,
+              "projectActivities": [],
+              "hierarchyNameAndNumber": "10 Test Project",
+              "invoiceDueDate": 0,
+              "invoiceDueDateType": "DAYS",
+              "invoiceReceiverEmail": "",
+              "overdueNoticeEmail": "",
+              "accessType": "WRITE",
+              "useProductNetPrice": false,
+              "ignoreCompanyProductDiscountAgreement": false,
+              "customerName": "",
+              "hierarchyLevel": 0,
+              "projectManagerNameAndNumber": "Nango Developer API Testuser",
+              "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+              "invoiceOnAccountVatHigh": false,
+              "invoiceReserveTotalAmountCurrency": 0,
+              "accountingDimensionValues": []
+            },
+            {
+              "id": 210311978,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/project/210311978",
+              "name": "Test Project",
+              "number": "11",
+              "displayName": "11 Test Project",
+              "description": "",
+              "projectManager": {
+                "id": 11966637,
+                "url": "api-test.tripletex.tech/v2/employee/11966637"
+              },
+              "department": null,
+              "mainProject": null,
+              "startDate": "2026-07-28",
+              "endDate": null,
+              "customer": null,
+              "isClosed": false,
+              "isReadyForInvoicing": false,
+              "isInternal": false,
+              "isOffer": false,
+              "isFixedPrice": false,
+              "projectCategory": null,
+              "deliveryAddress": null,
+              "boligmappaAddress": null,
+              "displayNameFormat": "NAME_STANDARD",
+              "reference": "",
+              "contractReference": "",
+              "externalAccountsNumber": "",
+              "discountPercentage": 0,
+              "vatType": {
+                "id": 3,
+                "url": "api-test.tripletex.tech/v2/ledger/vatType/3"
+              },
+              "fixedprice": 0,
+              "contributionMarginPercent": 0,
+              "numberOfSubProjects": 0,
+              "numberOfProjectParticipants": 1,
+              "orderLines": [],
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "markUpOrderLines": 0,
+              "markUpFeesEarned": 0,
+              "isPriceCeiling": false,
+              "priceCeilingAmount": 0,
+              "projectHourlyRates": [
+                {
+                  "id": 8009215,
+                  "url": "api-test.tripletex.tech/v2/project/hourlyRates/8009215"
+                }
+              ],
+              "forParticipantsOnly": false,
+              "participants": [
+                {
+                  "id": 11833029,
+                  "url": "api-test.tripletex.tech/v2/project/participant/11833029"
+                }
+              ],
+              "contact": null,
+              "attention": null,
+              "invoiceComment": "",
+              "invoicingPlan": [],
+              "preliminaryInvoice": null,
+              "generalProjectActivitiesPerProjectOnly": false,
+              "projectActivities": [],
+              "hierarchyNameAndNumber": "11 Test Project",
+              "invoiceDueDate": 0,
+              "invoiceDueDateType": "DAYS",
+              "invoiceReceiverEmail": "",
+              "overdueNoticeEmail": "",
+              "accessType": "WRITE",
+              "useProductNetPrice": false,
+              "ignoreCompanyProductDiscountAgreement": false,
+              "customerName": "",
+              "hierarchyLevel": 0,
+              "projectManagerNameAndNumber": "Nango Developer API Testuser",
+              "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+              "invoiceOnAccountVatHigh": false,
+              "invoiceReserveTotalAmountCurrency": 0,
+              "accountingDimensionValues": []
+            },
+            {
+              "id": 210311979,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/project/210311979",
+              "name": "Test Project",
+              "number": "12",
+              "displayName": "12 Test Project",
+              "description": "",
+              "projectManager": {
+                "id": 11966637,
+                "url": "api-test.tripletex.tech/v2/employee/11966637"
+              },
+              "department": null,
+              "mainProject": null,
+              "startDate": "2026-07-28",
+              "endDate": null,
+              "customer": null,
+              "isClosed": false,
+              "isReadyForInvoicing": false,
+              "isInternal": false,
+              "isOffer": false,
+              "isFixedPrice": false,
+              "projectCategory": null,
+              "deliveryAddress": null,
+              "boligmappaAddress": null,
+              "displayNameFormat": "NAME_STANDARD",
+              "reference": "",
+              "contractReference": "",
+              "externalAccountsNumber": "",
+              "discountPercentage": 0,
+              "vatType": {
+                "id": 3,
+                "url": "api-test.tripletex.tech/v2/ledger/vatType/3"
+              },
+              "fixedprice": 0,
+              "contributionMarginPercent": 0,
+              "numberOfSubProjects": 0,
+              "numberOfProjectParticipants": 1,
+              "orderLines": [],
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "markUpOrderLines": 0,
+              "markUpFeesEarned": 0,
+              "isPriceCeiling": false,
+              "priceCeilingAmount": 0,
+              "projectHourlyRates": [
+                {
+                  "id": 8009216,
+                  "url": "api-test.tripletex.tech/v2/project/hourlyRates/8009216"
+                }
+              ],
+              "forParticipantsOnly": false,
+              "participants": [
+                {
+                  "id": 11833030,
+                  "url": "api-test.tripletex.tech/v2/project/participant/11833030"
+                }
+              ],
+              "contact": null,
+              "attention": null,
+              "invoiceComment": "",
+              "invoicingPlan": [],
+              "preliminaryInvoice": null,
+              "generalProjectActivitiesPerProjectOnly": false,
+              "projectActivities": [],
+              "hierarchyNameAndNumber": "12 Test Project",
+              "invoiceDueDate": 0,
+              "invoiceDueDateType": "DAYS",
+              "invoiceReceiverEmail": "",
+              "overdueNoticeEmail": "",
+              "accessType": "WRITE",
+              "useProductNetPrice": false,
+              "ignoreCompanyProductDiscountAgreement": false,
+              "customerName": "",
+              "hierarchyLevel": 0,
+              "projectManagerNameAndNumber": "Nango Developer API Testuser",
+              "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+              "invoiceOnAccountVatHigh": false,
+              "invoiceReserveTotalAmountCurrency": 0,
+              "accountingDimensionValues": []
+            },
+            {
+              "id": 210311980,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/project/210311980",
+              "name": "Test Project",
+              "number": "13",
+              "displayName": "13 Test Project",
+              "description": "",
+              "projectManager": {
+                "id": 11966637,
+                "url": "api-test.tripletex.tech/v2/employee/11966637"
+              },
+              "department": null,
+              "mainProject": null,
+              "startDate": "2026-07-28",
+              "endDate": null,
+              "customer": null,
+              "isClosed": false,
+              "isReadyForInvoicing": false,
+              "isInternal": false,
+              "isOffer": false,
+              "isFixedPrice": false,
+              "projectCategory": null,
+              "deliveryAddress": null,
+              "boligmappaAddress": null,
+              "displayNameFormat": "NAME_STANDARD",
+              "reference": "",
+              "contractReference": "",
+              "externalAccountsNumber": "",
+              "discountPercentage": 0,
+              "vatType": {
+                "id": 3,
+                "url": "api-test.tripletex.tech/v2/ledger/vatType/3"
+              },
+              "fixedprice": 0,
+              "contributionMarginPercent": 0,
+              "numberOfSubProjects": 0,
+              "numberOfProjectParticipants": 1,
+              "orderLines": [],
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "markUpOrderLines": 0,
+              "markUpFeesEarned": 0,
+              "isPriceCeiling": false,
+              "priceCeilingAmount": 0,
+              "projectHourlyRates": [
+                {
+                  "id": 8009217,
+                  "url": "api-test.tripletex.tech/v2/project/hourlyRates/8009217"
+                }
+              ],
+              "forParticipantsOnly": false,
+              "participants": [
+                {
+                  "id": 11833031,
+                  "url": "api-test.tripletex.tech/v2/project/participant/11833031"
+                }
+              ],
+              "contact": null,
+              "attention": null,
+              "invoiceComment": "",
+              "invoicingPlan": [],
+              "preliminaryInvoice": null,
+              "generalProjectActivitiesPerProjectOnly": false,
+              "projectActivities": [],
+              "hierarchyNameAndNumber": "13 Test Project",
+              "invoiceDueDate": 0,
+              "invoiceDueDateType": "DAYS",
+              "invoiceReceiverEmail": "",
+              "overdueNoticeEmail": "",
+              "accessType": "WRITE",
+              "useProductNetPrice": false,
+              "ignoreCompanyProductDiscountAgreement": false,
+              "customerName": "",
+              "hierarchyLevel": 0,
+              "projectManagerNameAndNumber": "Nango Developer API Testuser",
+              "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+              "invoiceOnAccountVatHigh": false,
+              "invoiceReserveTotalAmountCurrency": 0,
+              "accountingDimensionValues": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 12:54:38 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000;includeSubDomains;preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1984",
+          "x-ratelimit-reset": "1785243302",
+          "x-tlx-request-id": "6585f2da-895d-460b-b28f-4c925de7008a",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "set-cookie": "JSESSIONID=AF1ED3FBF1EFF90BDE767A99A6D8F75E; Path=/; Secure; HttpOnly; SameSite=None, tlx_locale=no_NO; Max-Age=3600; Expires=Tue, 28 Jul 2026 13:54:38 GMT; Path=/; Secure; SameSite=None",
+          "x-rate-limit-limit": "100",
+          "x-rate-limit-remaining": "99",
+          "x-rate-limit-reset": "1",
+          "vary": "accept-encoding",
+          "server": "tripletex.no"
+        },
+        "hash": "c9a940b8c7e509801cfb06af0bdd393c554a9fab",
+        "request": {
+          "params": {
+            "count": "100",
+            "from": "0"
+          }
+        }
+      }
+    }
+  }
+}
