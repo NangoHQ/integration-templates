@@ -1,0 +1,402 @@
+{
+  "input": {
+    "profileId": "test-profile-id"
+  },
+  "output": {
+    "id": "string",
+    "subdomain": "string",
+    "status": "ONLINE",
+    "description": "string",
+    "questions": [
+      {
+        "code": "string",
+        "before": "string",
+        "after": "string",
+        "required": true,
+        "options": [
+          "string"
+        ],
+        "validation": "string",
+        "validationMessage": "string"
+      }
+    ],
+    "teamMembers": {
+      "items": [
+        {
+          "id": "string",
+          "name": "string",
+          "description": "string",
+          "pic": "string",
+          "email": "string",
+          "calendarId": "string"
+        }
+      ],
+      "description": "string",
+      "active": true,
+      "includeNoPreferenceOption": true,
+      "assumeNoPreferenceOption": true,
+      "allocationStrategy": "ORDERED",
+      "allocationStrategyOnReschedule": "TRY_KEEPING_ORIGINAL"
+    },
+    "appointmentTypes": {
+      "items": [
+        {
+          "id": "string",
+          "name": "string",
+          "description": "string",
+          "slotLength": "PT15M",
+          "numberOfSlots": -2147483648,
+          "price": -9007199254740991,
+          "pic": "string"
+        }
+      ],
+      "active": true,
+      "description": "string",
+      "combinable": true,
+      "randomizable": true,
+      "groupsCollapse": true,
+      "groupsActive": true,
+      "groupsDivider": "string"
+    },
+    "workingTimes": {
+      "fixedStart": "2019-08-24",
+      "fixedEnd": "2019-08-24",
+      "workingDays": "{'MONDAY': [{'startTime': 12:00, 'endTime': '18:00'}], 'TUESDAY': [{'startTime': '18:00', 'endTime': '20:00'}]",
+      "slotIncrement": "PT15M",
+      "durations": "[PT15M, PT30M]",
+      "maxNoticeDays": -2147483648,
+      "minNotice": "PT15M",
+      "bookingPadding": "PT15M",
+      "unitsPerSlot": -2147483648,
+      "customAvailabilityToken": "string",
+      "defaultDuration": "PT15M",
+      "active": true
+    },
+    "payments": {
+      "active": true,
+      "currency": "string",
+      "priceType": "PER_HOUR",
+      "partner": "STRIPE",
+      "pricePerSlot": -9007199254740991,
+      "partnerDescription": "string",
+      "promotionCodeAllowed": true,
+      "bookerReceiptRequired": true,
+      "currencyFactor": -2147483648
+    },
+    "cancelOrReschedule": {
+      "allowed": true,
+      "limitMinutes": -2147483648,
+      "reasonRequired": true,
+      "cancellationInstructions": "string",
+      "limitMessage": "string",
+      "showReasonTextBox": true
+    },
+    "display": {
+      "showTimeZone": true,
+      "customThemeColor": "string",
+      "header": "string",
+      "footer": "string",
+      "initialAvailabilityLayout": "MONTH",
+      "dayAvailabilityLayout": "AGENDA"
+    },
+    "actions": [
+      {
+        "id": "string",
+        "type": "ZAP",
+        "anchor": "BOOKING_CREATED",
+        "offsetMinutes": -2147483648,
+        "status": "PREDICTION",
+        "firedAt": "2019-08-24T14:15:22Z",
+        "created": "2019-08-24T14:15:22Z",
+        "updated": "2019-08-24T14:15:22Z",
+        "accountId": "string",
+        "profileId": "string",
+        "bookingId": "string",
+        "title": "string",
+        "to": "string",
+        "fromName": "string",
+        "fromAddress": "string",
+        "subject": "string",
+        "body": "string",
+        "creditsUsed": -2147483648,
+        "attachIcs": true,
+        "headers": {
+          "property1": "string",
+          "property2": "string"
+        },
+        "failureCode": "string",
+        "displayTimeZone": "America/Los_Angeles",
+        "withinQuota": true,
+        "timeZone": "America/Los_Angeles",
+        "ycbmBranded": true
+      }
+    ],
+    "createdBy": "string",
+    "accountId": "string",
+    "createdAt": "2019-08-24T14:15:22Z",
+    "updatedAt": "2019-08-24T14:15:22Z",
+    "title": "string",
+    "logo": "string",
+    "timeZoneOverride": true,
+    "captchaActive": true,
+    "accessCode": "string",
+    "afterwards": {
+      "text": "string",
+      "url": "string",
+      "isUrl": true,
+      "updateWholeBrowserWindow": true,
+      "eventShouldAppendLinks": true,
+      "ownerEvent": {
+        "title": "string",
+        "description": "string",
+        "location": "string",
+        "participants": [
+          "string"
+        ],
+        "usingInviteParticipants": true
+      },
+      "bookerEvent": {
+        "title": "string",
+        "description": "string",
+        "location": "string",
+        "participants": [
+          "string"
+        ],
+        "usingInviteParticipants": true
+      },
+      "bookingDescription": "string",
+      "bookingTitle": "string",
+      "bookingLocation": "string"
+    },
+    "calendars": {
+      "calendarIds": [
+        "string"
+      ],
+      "targetCalendarId": "string"
+    },
+    "tentative": {
+      "active": true
+    },
+    "timeZone": "America/New_York",
+    "locale": "en-US",
+    "profileId": "string",
+    "brandingType": "NO_BRANDING"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/profiles/test-profile-id": {
+        "response": {
+          "id": "string",
+          "createdBy": "string",
+          "accountId": "string",
+          "createdAt": "2019-08-24T14:15:22Z",
+          "updatedAt": "2019-08-24T14:15:22Z",
+          "title": "string",
+          "description": "string",
+          "subdomain": "string",
+          "logo": "string",
+          "timeZoneOverride": true,
+          "captchaActive": true,
+          "accessCode": "string",
+          "questions": [
+            {
+              "code": "string",
+              "before": "string",
+              "after": "string",
+              "required": true,
+              "options": [
+                "string"
+              ],
+              "validation": "string",
+              "validationMessage": "string"
+            }
+          ],
+          "afterwards": {
+            "text": "string",
+            "url": "string",
+            "isUrl": true,
+            "updateWholeBrowserWindow": true,
+            "eventShouldAppendLinks": true,
+            "ownerEvent": {
+              "title": "string",
+              "description": "string",
+              "location": "string",
+              "participants": [
+                "string"
+              ],
+              "usingInviteParticipants": true
+            },
+            "bookerEvent": {
+              "title": "string",
+              "description": "string",
+              "location": "string",
+              "participants": [
+                "string"
+              ],
+              "usingInviteParticipants": true
+            },
+            "bookingDescription": "string",
+            "bookingTitle": "string",
+            "bookingLocation": "string"
+          },
+          "calendars": {
+            "calendarIds": [
+              "string"
+            ],
+            "targetCalendarId": "string"
+          },
+          "cancelOrReschedule": {
+            "allowed": true,
+            "cancellationInstructions": "string",
+            "limitMinutes": -2147483648,
+            "limitMessage": "string",
+            "reasonRequired": true,
+            "showReasonTextBox": true
+          },
+          "display": {
+            "showTimeZone": true,
+            "customThemeColor": "string",
+            "header": "string",
+            "footer": "string",
+            "initialAvailabilityLayout": "MONTH",
+            "dayAvailabilityLayout": "AGENDA"
+          },
+          "payments": {
+            "active": true,
+            "currency": "string",
+            "priceType": "PER_HOUR",
+            "partner": "STRIPE",
+            "partnerDescription": "string",
+            "promotionCodeAllowed": true,
+            "bookerReceiptRequired": true,
+            "currencyFactor": -2147483648,
+            "pricePerSlot": -9007199254740991
+          },
+          "appointmentTypes": {
+            "active": true,
+            "description": "string",
+            "combinable": true,
+            "randomizable": true,
+            "groupsCollapse": true,
+            "groupsActive": true,
+            "groupsDivider": "string",
+            "items": [
+              {
+                "id": "string",
+                "name": "string",
+                "description": "string",
+                "pic": "string",
+                "slotLength": "PT15M",
+                "numberOfSlots": -2147483648,
+                "price": -9007199254740991
+              }
+            ]
+          },
+          "teamMembers": {
+            "description": "string",
+            "active": true,
+            "includeNoPreferenceOption": true,
+            "assumeNoPreferenceOption": true,
+            "allocationStrategy": "ORDERED",
+            "allocationStrategyOnReschedule": "TRY_KEEPING_ORIGINAL",
+            "items": [
+              {
+                "id": "string",
+                "name": "string",
+                "description": "string",
+                "pic": "string",
+                "email": "string",
+                "calendarId": "string"
+              }
+            ]
+          },
+          "tentative": {
+            "active": true
+          },
+          "workingTimes": {
+            "fixedStart": "2019-08-24",
+            "fixedEnd": "2019-08-24",
+            "bookingPadding": "PT15M",
+            "maxNoticeDays": -2147483648,
+            "minNotice": "PT15M",
+            "unitsPerSlot": -2147483648,
+            "customAvailabilityToken": "string",
+            "workingDays": "{'MONDAY': [{'startTime': 12:00, 'endTime': '18:00'}], 'TUESDAY': [{'startTime': '18:00', 'endTime': '20:00'}]",
+            "slotIncrement": "PT15M",
+            "defaultDuration": "PT15M",
+            "durations": "[PT15M, PT30M]",
+            "active": true
+          },
+          "timeZone": "America/New_York",
+          "locale": "en-US",
+          "profileId": "string",
+          "status": "ONLINE",
+          "actions": [
+            {
+              "id": "string",
+              "created": "2019-08-24T14:15:22Z",
+              "updated": "2019-08-24T14:15:22Z",
+              "accountId": "string",
+              "profileId": "string",
+              "bookingId": "string",
+              "type": "ZAP",
+              "status": "PREDICTION",
+              "anchor": "BOOKING_CREATED",
+              "offsetMinutes": -2147483648,
+              "firedAt": "2019-08-24T14:15:22Z",
+              "title": "string",
+              "to": "string",
+              "fromName": "string",
+              "fromAddress": "string",
+              "subject": "string",
+              "body": "string",
+              "creditsUsed": -2147483648,
+              "attachIcs": true,
+              "headers": {
+                "property1": "string",
+                "property2": "string"
+              },
+              "failureCode": "string",
+              "displayTimeZone": "America/Los_Angeles",
+              "withinQuota": true,
+              "timeZone": "America/Los_Angeles",
+              "ycbmBranded": true
+            }
+          ],
+          "brandingType": "NO_BRANDING"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 15:14:46 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1973",
+          "x-ratelimit-reset": "1785424511",
+          "cf-ray": "a23550a07833495f-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "set-cookie": "GCLB=CLGtxriR2unCBRAD; path=/; HttpOnly",
+          "vary": "accept-encoding",
+          "via": "1.1 google",
+          "access-control-allow-headers": "*",
+          "access-control-allow-methods": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS,TRACE",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "75e29a41cdd5b0de464e5f82911766e3aa3b5936",
+        "request": {}
+      }
+    }
+  }
+}

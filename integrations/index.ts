@@ -5485,6 +5485,17 @@ import './xero/actions/update-invoice.js';
 import './xero/actions/update-item.js';
 import './xero/actions/update-purchase-order.js';
 
+// -- Integration: youcanbook-me
+import './youcanbook-me/syncs/profiles.js';
+import './youcanbook-me/actions/create-booking.js';
+import './youcanbook-me/actions/create-profile.js';
+import './youcanbook-me/actions/delete-booking.js';
+import './youcanbook-me/actions/get-booking.js';
+import './youcanbook-me/actions/get-profile.js';
+import './youcanbook-me/actions/list-profiles.js';
+import './youcanbook-me/actions/update-booking.js';
+import './youcanbook-me/actions/update-profile.js';
+
 // -- Integration: youtube
 import './youtube/syncs/caption-tracks.js';
 import './youtube/syncs/channel-playlists.js';
