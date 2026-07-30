@@ -41,13 +41,30 @@ const action = createAction({
     scopes: ['hubstaff:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const startDate = new Date(input.time_slot_start);
+        const stopDate = new Date(input.time_slot_stop);
+
+        if (isNaN(startDate.getTime()) || isNaN(stopDate.getTime())) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'time_slot_start and time_slot_stop must be valid ISO 8601 date strings.'
+            });
+        }
+
+        if (startDate >= stopDate) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'time_slot_start must be earlier than time_slot_stop.'
+            });
+        }
+
         const response = await nango.get({
             // https://developer.hubstaff.com/
             endpoint: `v2/organizations/${encodeURIComponent(String(input.organization_id))}/notes`,
             params: {
                 'time_slot[start]': input.time_slot_start,
                 'time_slot[stop]': input.time_slot_stop,
-                ...(input.cursor !== undefined && { cursor: input.cursor })
+                ...(input.cursor !== undefined && { page_start_id: input.cursor })
             },
             retries: 3
         });
@@ -57,15 +74,17 @@ const action = createAction({
             z
                 .object({
                     notes: z.array(ProviderNoteSchema).optional(),
-                    next_cursor: z.string().optional().nullable(),
-                    cursor: z.string().optional().nullable()
+                    pagination: z.object({ next_page_start_id: z.union([z.string(), z.number()]).optional() }).optional()
                 })
                 .passthrough()
         ]);
 
         const providerResponse = ProviderListResponseSchema.parse(response.data);
         const providerNotes = Array.isArray(providerResponse) ? providerResponse : (providerResponse.notes ?? []);
-        const nextCursor = Array.isArray(providerResponse) ? undefined : (providerResponse.next_cursor ?? providerResponse.cursor ?? undefined);
+        const nextCursor =
+            !Array.isArray(providerResponse) && providerResponse.pagination?.next_page_start_id !== undefined
+                ? String(providerResponse.pagination.next_page_start_id)
+                : undefined;
 
         const notes = providerNotes.map((item) => {
             const maybeNote = item.note ?? item.body ?? item.content;

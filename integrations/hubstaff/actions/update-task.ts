@@ -43,6 +43,18 @@ const action = createAction({
     scopes: ['tasks:read', 'tasks:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (
+            input.summary === undefined &&
+            input.status === undefined &&
+            input.assignee_id === undefined &&
+            input.billable === undefined
+        ) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'At least one of summary, status, assignee_id, or billable must be provided.'
+            });
+        }
+
         const getResponse = await nango.get({
             // https://developer.hubstaff.com/
             endpoint: `v2/tasks/${encodeURIComponent(input.task_id)}`,

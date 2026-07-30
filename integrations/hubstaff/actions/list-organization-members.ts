@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    organization_id: z.string().describe('Organization ID. Example: "775646"'),
+    organization_id: z.number().describe('Organization ID. Example: 775646'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     limit: z.number().optional().describe('Maximum number of members to return per page.'),
     include_removed: z.boolean().optional().describe('Whether to include removed members in the results.'),
@@ -33,7 +33,7 @@ const ProviderResponseSchema = z
         members: z.array(ProviderMemberSchema).optional(),
         pagination: z
             .object({
-                next_cursor: z.string().optional().nullable()
+                next_page_start_id: z.union([z.string(), z.number()]).optional().nullable()
             })
             .optional()
     })
@@ -70,7 +70,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developer.hubstaff.com/reference/get-v2-organizations-organization-id-members
-            endpoint: `v2/organizations/${encodeURIComponent(input.organization_id)}/members`,
+            endpoint: `v2/organizations/${encodeURIComponent(String(input.organization_id))}/members`,
             params: {
                 ...(input.cursor && { page_start_id: input.cursor }),
                 ...(input.limit !== undefined && { page_limit: String(input.limit) }),
@@ -103,7 +103,7 @@ const action = createAction({
 
         return {
             items,
-            ...(providerResponse.pagination?.next_cursor != null && { next_cursor: providerResponse.pagination.next_cursor })
+            ...(providerResponse.pagination?.next_page_start_id != null && { next_cursor: String(providerResponse.pagination.next_page_start_id) })
         };
     }
 });

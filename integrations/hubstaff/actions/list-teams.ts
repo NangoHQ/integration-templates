@@ -34,17 +34,30 @@ const action = createAction({
             retries: 3
         });
 
+        const parseTeams = (rawTeams: unknown[]): z.infer<typeof TeamSchema>[] =>
+            rawTeams.map((item) => {
+                const parsed = TeamSchema.safeParse(item);
+                if (!parsed.success) {
+                    throw new nango.ActionError({
+                        type: 'invalid_response',
+                        message: 'Failed to parse team from Hubstaff API.',
+                        details: parsed.error.issues
+                    });
+                }
+                return parsed.data;
+            });
+
         const wrapped = WrappedTeamsSchema.safeParse(response.data);
         if (wrapped.success) {
             return {
-                teams: wrapped.data.teams.map((item) => TeamSchema.parse(item))
+                teams: parseTeams(wrapped.data.teams)
             };
         }
 
         const directArray = z.array(z.unknown()).safeParse(response.data);
         if (directArray.success) {
             return {
-                teams: directArray.data.map((item) => TeamSchema.parse(item))
+                teams: parseTeams(directArray.data)
             };
         }
 

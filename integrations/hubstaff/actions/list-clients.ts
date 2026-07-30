@@ -26,24 +26,36 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['hubstaff:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developer.hubstaff.com/
             endpoint: `v2/organizations/${encodeURIComponent(String(input.organization_id))}/clients`,
             params: {
-                ...(input.cursor && { cursor: input.cursor })
+                ...(input.cursor && { page_start_id: input.cursor })
             },
             retries: 3
         });
 
-        const rawData = z.union([z.array(z.unknown()), z.object({ clients: z.array(z.unknown()) }).passthrough()]).parse(response.data);
+        const rawData = z
+            .union([
+                z.array(z.unknown()),
+                z
+                    .object({
+                        clients: z.array(z.unknown()),
+                        pagination: z.object({ next_page_start_id: z.union([z.string(), z.number()]).optional() }).optional()
+                    })
+                    .passthrough()
+            ])
+            .parse(response.data);
 
         const items = Array.isArray(rawData)
             ? rawData.map((item) => ProviderClientSchema.parse(item))
             : rawData.clients.map((item) => ProviderClientSchema.parse(item));
 
-        const nextCursor = !Array.isArray(rawData) && typeof rawData['next_cursor'] === 'string' ? rawData['next_cursor'] : undefined;
+        const nextCursor =
+            !Array.isArray(rawData) && rawData.pagination?.next_page_start_id !== undefined ? String(rawData.pagination.next_page_start_id) : undefined;
 
         return {
             items,

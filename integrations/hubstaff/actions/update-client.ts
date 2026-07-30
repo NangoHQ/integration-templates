@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    clientId: z.number().describe('Client ID. Example: 458914'),
+    clientId: z.number().int().positive().describe('Client ID. Example: 458914'),
     name: z.string().optional(),
     status: z.string().optional().describe('Set to "archived" to retire the client')
 });

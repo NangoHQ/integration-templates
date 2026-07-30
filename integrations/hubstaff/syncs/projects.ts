@@ -1,12 +1,8 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const ProviderOrganizationSchema = z.object({
-    id: z.union([z.string(), z.number()])
-});
-
-const OrganizationsResponseSchema = z.object({
-    organizations: z.array(z.unknown())
+const OrganizationSchema = z.object({
+    id: z.number()
 });
 
 const ProviderProjectSchema = z.object({
@@ -15,10 +11,6 @@ const ProviderProjectSchema = z.object({
     status: z.string(),
     created_at: z.string().optional(),
     updated_at: z.string().optional()
-});
-
-const ProjectsResponseSchema = z.object({
-    projects: z.array(z.unknown())
 });
 
 const ProjectSchema = z.object({
@@ -40,60 +32,70 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // https://developer.hubstaff.com/
-        const orgsResponse = await nango.get({
+        const orgsProxyConfig: ProxyConfiguration = {
+            // https://developer.hubstaff.com/
             endpoint: 'v2/organizations',
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'page_start_id',
+                cursor_path_in_response: 'pagination.next_page_start_id',
+                response_path: 'organizations',
+                limit_name_in_request: 'page_limit',
+                limit: 100
+            },
             retries: 3
-        });
-
-        const parsedOrgs = OrganizationsResponseSchema.safeParse(orgsResponse.data);
-        if (!parsedOrgs.success) {
-            throw new Error(`Failed to parse organizations response: ${parsedOrgs.error.message}`);
-        }
+        };
 
         const orgIds: number[] = [];
-        for (const rawOrg of parsedOrgs.data.organizations) {
-            const parsedOrg = ProviderOrganizationSchema.safeParse(rawOrg);
-            if (!parsedOrg.success) {
-                throw new Error(`Failed to parse organization: ${parsedOrg.error.message}`);
+        for await (const orgsPage of nango.paginate(orgsProxyConfig)) {
+            for (const rawOrg of orgsPage) {
+                const parsedOrg = OrganizationSchema.safeParse(rawOrg);
+                if (!parsedOrg.success) {
+                    throw new Error(`Failed to parse organization: ${parsedOrg.error.message}`);
+                }
+                orgIds.push(parsedOrg.data.id);
             }
-            orgIds.push(Number(parsedOrg.data.id));
         }
 
         await nango.trackDeletesStart('Project');
 
         for (const orgId of orgIds) {
-            // https://developer.hubstaff.com/
-            const projectsResponse = await nango.get({
+            const projectsProxyConfig: ProxyConfiguration = {
+                // https://developer.hubstaff.com/
                 endpoint: `v2/organizations/${encodeURIComponent(String(orgId))}/projects`,
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'page_start_id',
+                    cursor_path_in_response: 'pagination.next_page_start_id',
+                    response_path: 'projects',
+                    limit_name_in_request: 'page_limit',
+                    limit: 100
+                },
                 retries: 3
-            });
+            };
 
-            const parsedProjects = ProjectsResponseSchema.safeParse(projectsResponse.data);
-            if (!parsedProjects.success) {
-                throw new Error(`Failed to parse projects response: ${parsedProjects.error.message}`);
-            }
+            for await (const projectsPage of nango.paginate(projectsProxyConfig)) {
+                const projects: z.infer<typeof ProjectSchema>[] = [];
 
-            const projects: z.infer<typeof ProjectSchema>[] = [];
+                for (const raw of projectsPage) {
+                    const parsed = ProviderProjectSchema.safeParse(raw);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse project: ${parsed.error.message}`);
+                    }
 
-            for (const raw of parsedProjects.data.projects) {
-                const parsed = ProviderProjectSchema.safeParse(raw);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse project: ${parsed.error.message}`);
+                    projects.push({
+                        id: String(parsed.data.id),
+                        name: parsed.data.name,
+                        status: parsed.data.status,
+                        organization_id: orgId,
+                        ...(parsed.data.created_at && { created_at: parsed.data.created_at }),
+                        ...(parsed.data.updated_at && { updated_at: parsed.data.updated_at })
+                    });
                 }
 
-                projects.push({
-                    id: String(parsed.data.id),
-                    name: parsed.data.name,
-                    status: parsed.data.status,
-                    organization_id: orgId,
-                    ...(parsed.data.created_at && { created_at: parsed.data.created_at }),
-                    ...(parsed.data.updated_at && { updated_at: parsed.data.updated_at })
-                });
-            }
-
-            if (projects.length > 0) {
-                await nango.batchSave(projects, 'Project');
+                if (projects.length > 0) {
+                    await nango.batchSave(projects, 'Project');
+                }
             }
         }
 

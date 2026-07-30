@@ -8,7 +8,20 @@ const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
-const ScreenshotSchema = z.object({}).passthrough();
+const ScreenshotSchema = z
+    .object({
+        id: z.number(),
+        user_id: z.number().optional(),
+        project_id: z.number().optional(),
+        task_id: z.number().nullable().optional(),
+        time_slot: z.string().optional(),
+        recorded_at: z.string().optional(),
+        full_url: z.string().optional(),
+        small_url: z.string().optional(),
+        created_at: z.string().optional(),
+        updated_at: z.string().optional()
+    })
+    .passthrough();
 
 const OutputSchema = z.object({
     screenshots: z.array(ScreenshotSchema),
@@ -29,22 +42,22 @@ const action = createAction({
             params: {
                 'time_slot[start]': input.start,
                 'time_slot[stop]': input.stop,
-                ...(input.cursor !== undefined && { cursor: input.cursor })
+                ...(input.cursor !== undefined && { page_start_id: input.cursor })
             },
             retries: 3
         });
 
         const providerResponse = z
             .object({
-                screenshots: z.array(z.object({}).passthrough()).default([]),
-                next_cursor: z.string().optional().nullable()
+                screenshots: z.array(ScreenshotSchema).default([]),
+                pagination: z.object({ next_page_start_id: z.union([z.string(), z.number()]).optional() }).optional()
             })
             .passthrough()
             .parse(response.data);
 
         return {
             screenshots: providerResponse.screenshots,
-            ...(providerResponse.next_cursor != null && { next_cursor: providerResponse.next_cursor })
+            ...(providerResponse.pagination?.next_page_start_id !== undefined && { next_cursor: String(providerResponse.pagination.next_page_start_id) })
         };
     }
 });

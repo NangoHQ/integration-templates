@@ -1,12 +1,9 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const OrganizationSchema = z
-    .object({
-        id: z.number(),
-        name: z.string().optional()
-    })
-    .passthrough();
+const OrganizationSchema = z.object({
+    id: z.number()
+});
 
 const ClientSchema = z
     .object({
@@ -15,18 +12,6 @@ const ClientSchema = z
         status: z.string().optional(),
         created_at: z.string().optional(),
         updated_at: z.string().optional()
-    })
-    .passthrough();
-
-const OrganizationsResponseSchema = z
-    .object({
-        organizations: z.array(z.unknown())
-    })
-    .passthrough();
-
-const ClientsResponseSchema = z
-    .object({
-        clients: z.array(z.unknown())
     })
     .passthrough();
 
@@ -51,60 +36,69 @@ const sync = createSync({
     exec: async (nango) => {
         // Full refresh: the list-clients endpoint does not expose any
         // incremental filter (no updated_since, modified_after, or cursor).
-        // Confirmed live during registry audit on 2026-07-30.
-
-        // https://developer.hubstaff.com/
-        const orgsResponse = await nango.get({
+        const orgsProxyConfig: ProxyConfiguration = {
+            // https://developer.hubstaff.com/
             endpoint: 'v2/organizations',
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'page_start_id',
+                cursor_path_in_response: 'pagination.next_page_start_id',
+                response_path: 'organizations',
+                limit_name_in_request: 'page_limit',
+                limit: 100
+            },
             retries: 3
-        });
+        };
 
-        const orgsResult = OrganizationsResponseSchema.safeParse(orgsResponse.data);
-        if (!orgsResult.success) {
-            throw new Error('Failed to parse organizations response: ' + orgsResult.error.message);
-        }
-
-        const organizations = orgsResult.data.organizations.map((org) => {
-            const parsed = OrganizationSchema.safeParse(org);
-            if (!parsed.success) {
-                throw new Error('Failed to parse organization item: ' + parsed.error.message);
+        const orgIds: number[] = [];
+        for await (const orgsPage of nango.paginate(orgsProxyConfig)) {
+            for (const rawOrg of orgsPage) {
+                const parsed = OrganizationSchema.safeParse(rawOrg);
+                if (!parsed.success) {
+                    throw new Error('Failed to parse organization item: ' + parsed.error.message);
+                }
+                orgIds.push(parsed.data.id);
             }
-            return parsed.data;
-        });
+        }
 
         await nango.trackDeletesStart('Client');
 
-        for (const org of organizations) {
-            // https://developer.hubstaff.com/
-            const clientsResponse = await nango.get({
-                endpoint: `v2/organizations/${encodeURIComponent(String(org.id))}/clients`,
+        for (const orgId of orgIds) {
+            const clientsProxyConfig: ProxyConfiguration = {
+                // https://developer.hubstaff.com/
+                endpoint: `v2/organizations/${encodeURIComponent(String(orgId))}/clients`,
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'page_start_id',
+                    cursor_path_in_response: 'pagination.next_page_start_id',
+                    response_path: 'clients',
+                    limit_name_in_request: 'page_limit',
+                    limit: 100
+                },
                 retries: 3
-            });
+            };
 
-            const clientsResult = ClientsResponseSchema.safeParse(clientsResponse.data);
-            if (!clientsResult.success) {
-                throw new Error('Failed to parse clients response: ' + clientsResult.error.message);
-            }
+            for await (const clientsPage of nango.paginate(clientsProxyConfig)) {
+                const clients = clientsPage
+                    .map((client) => {
+                        const parsed = ClientSchema.safeParse(client);
+                        if (!parsed.success) {
+                            throw new Error('Failed to parse client item: ' + parsed.error.message);
+                        }
+                        return parsed.data;
+                    })
+                    .map((client) => ({
+                        id: String(client.id),
+                        ...(client.name !== undefined && client.name !== null && { name: client.name }),
+                        ...(client.status !== undefined && client.status !== null && { status: client.status }),
+                        ...(client.created_at !== undefined && client.created_at !== null && { created_at: client.created_at }),
+                        ...(client.updated_at !== undefined && client.updated_at !== null && { updated_at: client.updated_at }),
+                        organization_id: String(orgId)
+                    }));
 
-            const clients = clientsResult.data.clients
-                .map((client) => {
-                    const parsed = ClientSchema.safeParse(client);
-                    if (!parsed.success) {
-                        throw new Error('Failed to parse client item: ' + parsed.error.message);
-                    }
-                    return parsed.data;
-                })
-                .map((client) => ({
-                    id: String(client.id),
-                    ...(client.name !== undefined && client.name !== null && { name: client.name }),
-                    ...(client.status !== undefined && client.status !== null && { status: client.status }),
-                    ...(client.created_at !== undefined && client.created_at !== null && { created_at: client.created_at }),
-                    ...(client.updated_at !== undefined && client.updated_at !== null && { updated_at: client.updated_at }),
-                    organization_id: String(org.id)
-                }));
-
-            if (clients.length > 0) {
-                await nango.batchSave(clients, 'Client');
+                if (clients.length > 0) {
+                    await nango.batchSave(clients, 'Client');
+                }
             }
         }
 

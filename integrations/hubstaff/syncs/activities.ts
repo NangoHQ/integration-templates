@@ -9,8 +9,14 @@ function toIsoString(date: Date): string {
     return date.toISOString().replace(/\.\d{3}Z$/, 'Z');
 }
 
-const ProviderOrganizationSchema = z.object({
-    id: z.union([z.string(), z.number()])
+function defaultWindowStart(): Date {
+    const start = new Date(Date.now() - DEFAULT_LOOKBACK_DAYS * 24 * 60 * 60 * 1000);
+    start.setUTCHours(0, 0, 0, 0);
+    return start;
+}
+
+const OrganizationSchema = z.object({
+    id: z.number()
 });
 
 const ProviderActivitySchema = z
@@ -37,25 +43,24 @@ const ActivitySchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    window_start: z.string()
+    windows_json: z.string()
 });
 
-function extractArray(data: unknown, key: string): unknown[] {
-    const asArray = z.array(z.unknown()).safeParse(data);
-    if (asArray.success) {
-        return asArray.data;
-    }
+const WindowsMapSchema = z.record(z.string(), z.string());
 
-    const asObject = z.object({ [key]: z.array(z.unknown()).optional() }).safeParse(data);
-    if (asObject.success) {
-        return asObject.data[key] ?? [];
+function parseWindowsJson(windowsJson: string): Record<string, string> {
+    // @allowTryCatch A corrupted or unparseable checkpoint must not permanently stall the sync;
+    // self-heal by restarting all organizations from the default lookback window instead of throwing.
+    try {
+        const parsed = WindowsMapSchema.safeParse(JSON.parse(windowsJson));
+        return parsed.success ? parsed.data : {};
+    } catch {
+        return {};
     }
-
-    throw new Error(`Response is neither an array nor an object with a ${key} field`);
 }
 
 const sync = createSync({
-    description: 'Sync tracked-time activity records (10-minute slots) for an organization.',
+    description: 'Sync tracked-time activity records (10-minute slots) across all organizations this connection can access.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -67,101 +72,112 @@ const sync = createSync({
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpointResult = rawCheckpoint === null || rawCheckpoint === undefined ? null : CheckpointSchema.safeParse(rawCheckpoint);
-        if (checkpointResult !== null && !checkpointResult.success) {
-            throw new Error('Invalid checkpoint shape');
-        }
-        const checkpoint = checkpointResult?.data;
+        const windows: Record<string, string> = checkpointResult?.success ? parseWindowsJson(checkpointResult.data.windows_json) : {};
 
-        const orgsConfig: ProxyConfiguration = {
+        const orgsProxyConfig: ProxyConfiguration = {
             // https://developer.hubstaff.com/
             endpoint: 'v2/organizations',
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'page_start_id',
+                cursor_path_in_response: 'pagination.next_page_start_id',
+                response_path: 'organizations',
+                limit_name_in_request: 'page_limit',
+                limit: 100
+            },
             retries: 3
         };
-        const orgsResponse = await nango.get(orgsConfig);
-        const orgs = extractArray(orgsResponse.data, 'organizations');
 
-        if (orgs.length === 0) {
+        const orgIds: string[] = [];
+        for await (const orgsPage of nango.paginate(orgsProxyConfig)) {
+            for (const rawOrg of orgsPage) {
+                const parsed = OrganizationSchema.safeParse(rawOrg);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse organization: ${parsed.error.message}`);
+                }
+                orgIds.push(String(parsed.data.id));
+            }
+        }
+
+        if (orgIds.length === 0) {
             throw new Error('No organizations found for this connection');
-        }
-
-        const firstOrgResult = ProviderOrganizationSchema.safeParse(orgs[0]);
-        if (!firstOrgResult.success) {
-            throw new Error('Failed to parse organization');
-        }
-
-        const organizationId = String(firstOrgResult.data.id);
-
-        let windowStart: Date;
-        if (checkpoint?.window_start) {
-            windowStart = new Date(checkpoint.window_start);
-        } else {
-            windowStart = new Date(Date.now() - DEFAULT_LOOKBACK_DAYS * 24 * 60 * 60 * 1000);
-            windowStart.setUTCHours(0, 0, 0, 0);
         }
 
         const now = new Date();
         now.setUTCMinutes(0, 0, 0);
 
-        while (windowStart.getTime() < now.getTime()) {
-            let windowStop = new Date(windowStart.getTime() + MAX_WINDOW_MS);
-            if (windowStop.getTime() > now.getTime()) {
-                windowStop = now;
-            }
+        for (const organizationId of orgIds) {
+            const storedWindowStart = windows[organizationId] ? new Date(windows[organizationId]) : defaultWindowStart();
+            let windowStart = isNaN(storedWindowStart.getTime()) ? defaultWindowStart() : storedWindowStart;
 
-            const startIso = toIsoString(windowStart);
-            const stopIso = toIsoString(windowStop);
-
-            const activitiesConfig: ProxyConfiguration = {
-                // https://developer.hubstaff.com/
-                endpoint: `v2/organizations/${encodeURIComponent(organizationId)}/activities`,
-                params: {
-                    'time_slot[start]': startIso,
-                    'time_slot[stop]': stopIso
-                },
-                retries: 3
-            };
-            const activitiesResponse = await nango.get(activitiesConfig);
-            const rawActivities = extractArray(activitiesResponse.data, 'activities');
-
-            const activities = [];
-            for (const raw of rawActivities) {
-                const parsed = ProviderActivitySchema.safeParse(raw);
-                if (!parsed.success) {
-                    throw new Error('Failed to parse activity record');
+            while (windowStart.getTime() < now.getTime()) {
+                let windowStop = new Date(windowStart.getTime() + MAX_WINDOW_MS);
+                if (windowStop.getTime() > now.getTime()) {
+                    windowStop = now;
                 }
 
-                const record = parsed.data;
+                const startIso = toIsoString(windowStart);
+                const stopIso = toIsoString(windowStop);
 
-                let timeSlotStart: string | undefined;
-                let timeSlotStop: string | undefined;
-                if (typeof record.time_slot === 'string') {
-                    timeSlotStart = record.time_slot;
-                } else if (record.time_slot !== null && record.time_slot !== undefined) {
-                    timeSlotStart = record.time_slot.start ?? undefined;
-                    timeSlotStop = record.time_slot.stop ?? undefined;
+                const activitiesProxyConfig: ProxyConfiguration = {
+                    // https://developer.hubstaff.com/
+                    endpoint: `v2/organizations/${encodeURIComponent(organizationId)}/activities`,
+                    params: {
+                        'time_slot[start]': startIso,
+                        'time_slot[stop]': stopIso
+                    },
+                    paginate: {
+                        type: 'cursor',
+                        cursor_name_in_request: 'page_start_id',
+                        cursor_path_in_response: 'pagination.next_page_start_id',
+                        response_path: 'activities',
+                        limit_name_in_request: 'page_limit',
+                        limit: 100
+                    },
+                    retries: 3
+                };
+
+                for await (const activitiesPage of nango.paginate(activitiesProxyConfig)) {
+                    const activities = [];
+                    for (const raw of activitiesPage) {
+                        const parsed = ProviderActivitySchema.safeParse(raw);
+                        if (!parsed.success) {
+                            throw new Error('Failed to parse activity record');
+                        }
+
+                        const record = parsed.data;
+
+                        let timeSlotStart: string | undefined;
+                        let timeSlotStop: string | undefined;
+                        if (typeof record.time_slot === 'string') {
+                            timeSlotStart = record.time_slot;
+                        } else if (record.time_slot !== null && record.time_slot !== undefined) {
+                            timeSlotStart = record.time_slot.start ?? undefined;
+                            timeSlotStop = record.time_slot.stop ?? undefined;
+                        }
+
+                        activities.push({
+                            id: String(record.id),
+                            ...(record.user_id != null && { user_id: record.user_id }),
+                            ...(record.project_id != null && { project_id: record.project_id }),
+                            ...(record.task_id != null && { task_id: record.task_id }),
+                            ...(record.organization_id != null && { organization_id: record.organization_id }),
+                            ...(timeSlotStart !== undefined && { time_slot_start: timeSlotStart }),
+                            ...(timeSlotStop !== undefined && { time_slot_stop: timeSlotStop }),
+                            ...(record.tracked != null && { tracked: record.tracked })
+                        });
+                    }
+
+                    if (activities.length > 0) {
+                        await nango.batchSave(activities, 'Activity');
+                    }
                 }
 
-                activities.push({
-                    id: String(record.id),
-                    ...(record.user_id != null && { user_id: record.user_id }),
-                    ...(record.project_id != null && { project_id: record.project_id }),
-                    ...(record.task_id != null && { task_id: record.task_id }),
-                    ...(record.organization_id != null && { organization_id: record.organization_id }),
-                    ...(timeSlotStart !== undefined && { time_slot_start: timeSlotStart }),
-                    ...(timeSlotStop !== undefined && { time_slot_stop: timeSlotStop }),
-                    ...(record.tracked != null && { tracked: record.tracked })
-                });
+                windows[organizationId] = stopIso;
+                await nango.saveCheckpoint({ windows_json: JSON.stringify(windows) });
+
+                windowStart = windowStop;
             }
-
-            if (activities.length > 0) {
-                await nango.batchSave(activities, 'Activity');
-            }
-
-            await nango.saveCheckpoint({
-                window_start: stopIso
-            });
-
-            windowStart = windowStop;
         }
     }
 });

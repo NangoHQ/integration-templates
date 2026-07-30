@@ -18,7 +18,7 @@ const TaskSchema = z.object({
     project_id: z.number(),
     summary: z.string(),
     details: z.string().optional().nullable(),
-    assignee_ids: z.array(z.number()),
+    assignee_ids: z.array(z.number()).optional(),
     lock_version: z.number().optional().nullable(),
     completed_at: z.string().optional().nullable(),
     due_at: z.string().optional().nullable(),
@@ -104,9 +104,6 @@ const sync = createSync({
             }
         }
 
-        const activeTasks: z.infer<typeof TaskModelSchema>[] = [];
-        const deletedTasks: { id: string }[] = [];
-
         for (const project of allProjects) {
             const tasksProxyConfig: ProxyConfiguration = {
                 // https://developer.hubstaff.com/
@@ -123,6 +120,9 @@ const sync = createSync({
             };
 
             for await (const tasksPage of nango.paginate(tasksProxyConfig)) {
+                const activeTasks: z.infer<typeof TaskModelSchema>[] = [];
+                const deletedTasks: { id: string }[] = [];
+
                 for (const task of tasksPage) {
                     const parsed = TaskSchema.safeParse(task);
                     if (!parsed.success) {
@@ -139,7 +139,7 @@ const sync = createSync({
                             project_id: taskRecord.project_id,
                             summary: taskRecord.summary,
                             ...(taskRecord.details != null && { details: taskRecord.details }),
-                            assignee_ids: taskRecord.assignee_ids,
+                            ...(taskRecord.assignee_ids !== undefined && { assignee_ids: taskRecord.assignee_ids }),
                             ...(taskRecord.lock_version != null && { lock_version: taskRecord.lock_version }),
                             ...(taskRecord.completed_at != null && { completed_at: taskRecord.completed_at }),
                             ...(taskRecord.due_at != null && { due_at: taskRecord.due_at }),
@@ -148,15 +148,15 @@ const sync = createSync({
                         });
                     }
                 }
+
+                if (activeTasks.length > 0) {
+                    await nango.batchSave(activeTasks, 'Task');
+                }
+
+                if (deletedTasks.length > 0) {
+                    await nango.batchDelete(deletedTasks, 'Task');
+                }
             }
-        }
-
-        if (activeTasks.length > 0) {
-            await nango.batchSave(activeTasks, 'Task');
-        }
-
-        if (deletedTasks.length > 0) {
-            await nango.batchDelete(deletedTasks, 'Task');
         }
 
         await nango.trackDeletesEnd('Task');

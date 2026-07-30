@@ -31,7 +31,25 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const userId = String(input.user_id);
-        const projectId = typeof input.project_id === 'string' ? parseInt(input.project_id, 10) : input.project_id;
+
+        let projectId: number;
+        if (typeof input.project_id === 'number') {
+            projectId = input.project_id;
+        } else if (/^\d+$/.test(input.project_id) && Number.isSafeInteger(Number(input.project_id))) {
+            projectId = Number(input.project_id);
+        } else {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'project_id must be a positive integer.'
+            });
+        }
+
+        if (!Number.isSafeInteger(projectId) || projectId <= 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'project_id must be a positive integer.'
+            });
+        }
 
         const body: Record<string, unknown> = {
             project_id: projectId,
@@ -47,7 +65,7 @@ const action = createAction({
         const response = await nango.post({
             endpoint: `v2/users/${encodeURIComponent(userId)}/time_entries`,
             data: body,
-            retries: 10
+            retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

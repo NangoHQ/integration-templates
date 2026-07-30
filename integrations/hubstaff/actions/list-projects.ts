@@ -17,10 +17,10 @@ const ProjectSchema = z
     .passthrough();
 
 const ProviderResponseSchema = z.object({
-    projects: z.array(z.unknown()).default([]),
+    projects: z.array(z.unknown()),
     pagination: z
         .object({
-            next_cursor: z.string().optional()
+            next_page_start_id: z.union([z.string(), z.number()]).optional()
         })
         .optional()
 });
@@ -42,7 +42,7 @@ const action = createAction({
             // https://developer.hubstaff.com/
             endpoint: `v2/organizations/${encodeURIComponent(String(input.organization_id))}/projects`,
             params: {
-                ...(input.cursor !== undefined && { cursor: input.cursor })
+                ...(input.cursor !== undefined && { page_start_id: input.cursor })
             },
             retries: 3
         });
@@ -51,7 +51,7 @@ const action = createAction({
 
         return {
             projects: data.projects.map((project: unknown) => ProjectSchema.parse(project)),
-            ...(data.pagination?.next_cursor != null && { next_cursor: data.pagination.next_cursor })
+            ...(data.pagination?.next_page_start_id !== undefined && { next_cursor: String(data.pagination.next_page_start_id) })
         };
     }
 });

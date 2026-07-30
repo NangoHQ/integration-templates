@@ -38,7 +38,7 @@ const action = createAction({
             data: {
                 name: input.name
             },
-            retries: 1
+            retries: 3
         });
 
         const raw = z.object({ project: z.unknown() }).parse(response.data);

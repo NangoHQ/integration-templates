@@ -81,40 +81,50 @@ const action = createAction({
             const stopIso = currentStop.toISOString();
             const orgId = encodeURIComponent(String(input.organization_id));
 
-            // https://developer.hubstaff.com/
-            const response = await nango.get({
-                endpoint: `v2/organizations/${orgId}/activities`,
-                params: {
-                    'time_slot[start]': startIso,
-                    'time_slot[stop]': stopIso
-                },
-                retries: 3
-            });
-
-            if (!response.data) {
-                throw new nango.ActionError({
-                    type: 'api_error',
-                    message: 'No data returned from Hubstaff activities endpoint.'
+            let pageCursor: string | undefined;
+            do {
+                // https://developer.hubstaff.com/
+                const response = await nango.get({
+                    endpoint: `v2/organizations/${orgId}/activities`,
+                    params: {
+                        'time_slot[start]': startIso,
+                        'time_slot[stop]': stopIso,
+                        ...(pageCursor !== undefined && { page_start_id: pageCursor })
+                    },
+                    retries: 3
                 });
-            }
 
-            const data = response.data;
+                if (!response.data) {
+                    throw new nango.ActionError({
+                        type: 'api_error',
+                        message: 'No data returned from Hubstaff activities endpoint.'
+                    });
+                }
 
-            if (Array.isArray(data.activities)) {
-                for (const raw of data.activities) {
-                    const parsed = ActivitySchema.safeParse(raw);
-                    if (parsed.success) {
-                        activities.push(parsed.data);
-                    }
+                const data = response.data;
+                const rawList: unknown[] = Array.isArray(data) ? data : Array.isArray(data.activities) ? data.activities : undefined;
+                if (rawList === undefined) {
+                    throw new nango.ActionError({
+                        type: 'invalid_response',
+                        message: 'Unexpected response format from Hubstaff activities endpoint.'
+                    });
                 }
-            } else if (Array.isArray(data)) {
-                for (const raw of data) {
+
+                for (const raw of rawList) {
                     const parsed = ActivitySchema.safeParse(raw);
-                    if (parsed.success) {
-                        activities.push(parsed.data);
+                    if (!parsed.success) {
+                        throw new nango.ActionError({
+                            type: 'invalid_response',
+                            message: 'Failed to parse activity record from Hubstaff API.',
+                            details: parsed.error.issues
+                        });
                     }
+                    activities.push(parsed.data);
                 }
-            }
+
+                const nextPageStartId = !Array.isArray(data) ? data.pagination?.next_page_start_id : undefined;
+                pageCursor = nextPageStartId !== undefined && nextPageStartId !== null ? String(nextPageStartId) : undefined;
+            } while (pageCursor !== undefined);
 
             currentStart = currentStop;
         }

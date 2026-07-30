@@ -1,0 +1,72 @@
+{
+  "input": {
+    "project_id": 4145631,
+    "summary": "Nango Create Task Test",
+    "assignee_id": 4453817
+  },
+  "output": {
+    "id": 165912874,
+    "summary": "Nango Create Task Test",
+    "status": "active",
+    "project_id": 4145631,
+    "project_type": "project",
+    "assignee_ids": [
+      4453817
+    ],
+    "metadata": {},
+    "created_at": "2026-07-30T16:15:27.470980Z",
+    "updated_at": "2026-07-30T16:15:27.470980Z",
+    "lock_version": 0
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/projects/4145631/tasks": {
+        "response": {
+          "task": {
+            "id": 165912874,
+            "status": "active",
+            "project_id": 4145631,
+            "project_type": "project",
+            "summary": "Nango Create Task Test",
+            "lock_version": 0,
+            "assignee_ids": [
+              4453817
+            ],
+            "metadata": {},
+            "created_at": "2026-07-30T16:15:27.470980Z",
+            "updated_at": "2026-07-30T16:15:27.470980Z"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 16:15:27 GMT",
+          "content-type": "application/json",
+          "content-length": "266",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1785428186",
+          "x-request-id": "3ff4c0f6a4adbe96b3b7916b3738d270",
+          "etag": "W/\"10a-H+N7YEPKPxiuREtTwZM8NrFGR8k\""
+        },
+        "hash": "0b7a54ef8fa05f94d99dc0d23310bb5da527b043",
+        "request": {
+          "data": {
+            "summary": "Nango Create Task Test",
+            "assignee_id": 4453817
+          }
+        }
+      }
+    }
+  }
+}

@@ -27,8 +27,8 @@ const OutputSchema = z.object({
     name: z.string(),
     status: z.string().optional(),
     type: z.string().optional(),
-    createdAt: z.string().optional(),
-    updatedAt: z.string().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional(),
     billable: z.boolean().optional(),
     metadata: z.object({}).passthrough().optional()
 });
@@ -62,8 +62,8 @@ const action = createAction({
             name: project.name,
             ...(project.status !== undefined && { status: project.status }),
             ...(project.type !== undefined && { type: project.type }),
-            ...(project.created_at !== undefined && { createdAt: project.created_at }),
-            ...(project.updated_at !== undefined && { updatedAt: project.updated_at }),
+            ...(project.created_at !== undefined && { created_at: project.created_at }),
+            ...(project.updated_at !== undefined && { updated_at: project.updated_at }),
             ...(project.billable !== undefined && { billable: project.billable }),
             ...(project.metadata !== undefined && { metadata: project.metadata })
         };

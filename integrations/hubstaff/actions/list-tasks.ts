@@ -2,7 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    projectId: z.string().describe('Project ID. Example: "4145631"')
+    projectId: z.string().describe('Project ID. Example: "4145631"'),
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
 const ProviderTaskSchema = z
@@ -34,7 +35,8 @@ const TaskSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    tasks: z.array(TaskSchema)
+    tasks: z.array(TaskSchema),
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
@@ -48,11 +50,17 @@ const action = createAction({
         // https://developer.hubstaff.com/
         const response = await nango.get({
             endpoint: `v2/projects/${encodeURIComponent(input.projectId)}/tasks`,
+            params: {
+                ...(input.cursor !== undefined && { page_start_id: input.cursor })
+            },
             retries: 3
         });
 
         const ArrayResponseSchema = z.array(z.unknown());
-        const ObjectResponseSchema = z.object({ tasks: z.array(z.unknown()) });
+        const ObjectResponseSchema = z.object({
+            tasks: z.array(z.unknown()),
+            pagination: z.object({ next_page_start_id: z.union([z.string(), z.number()]).optional() }).optional()
+        });
         const ResponseSchema = z.union([ArrayResponseSchema, ObjectResponseSchema]);
         const parsedResponse = ResponseSchema.safeParse(response.data);
         if (!parsedResponse.success) {
@@ -63,6 +71,10 @@ const action = createAction({
         }
 
         const taskArray = Array.isArray(parsedResponse.data) ? parsedResponse.data : parsedResponse.data.tasks;
+        const nextCursor =
+            !Array.isArray(parsedResponse.data) && parsedResponse.data.pagination?.next_page_start_id !== undefined
+                ? String(parsedResponse.data.pagination.next_page_start_id)
+                : undefined;
 
         const tasks = taskArray.map((task: unknown) => {
             const parsed = ProviderTaskSchema.safeParse(task);
@@ -89,7 +101,10 @@ const action = createAction({
             };
         });
 
-        return { tasks };
+        return {
+            tasks,
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+        };
     }
 });
 
