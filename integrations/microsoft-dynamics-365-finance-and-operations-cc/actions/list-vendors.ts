@@ -39,7 +39,8 @@ const action = createAction({
             endpoint: '/data/VendorsV2',
             params: {
                 $top: String(PAGE_SIZE),
-                $skip: String(skip)
+                $skip: String(skip),
+                'cross-company': 'true'
             },
             retries: 3
         });

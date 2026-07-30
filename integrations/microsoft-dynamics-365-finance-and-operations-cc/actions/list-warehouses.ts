@@ -33,7 +33,8 @@ const action = createAction({
             endpoint: '/data/Warehouses',
             params: {
                 $top: 100,
-                ...(input.cursor && { $skip: input.cursor })
+                ...(input.cursor && { $skip: input.cursor }),
+                'cross-company': 'true'
             },
             retries: 3
         });

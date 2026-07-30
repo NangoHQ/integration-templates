@@ -143,7 +143,7 @@ const action = createAction({
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const patchResponse = await nango.patch({
-            endpoint: `/data/CustomersV3(dataAreaId='${encodeURIComponent(input.dataAreaId)}',CustomerAccount='${encodeURIComponent(input.customerAccount)}')`,
+            endpoint: `/data/CustomersV3(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',CustomerAccount='${encodeURIComponent(input.customerAccount.replace(/'/g, "''"))}')`,
             data: body,
             retries: 1
         });
@@ -158,7 +158,7 @@ const action = createAction({
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const getResponse = await nango.get({
-            endpoint: `/data/CustomersV3(dataAreaId='${encodeURIComponent(input.dataAreaId)}',CustomerAccount='${encodeURIComponent(input.customerAccount)}')`,
+            endpoint: `/data/CustomersV3(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',CustomerAccount='${encodeURIComponent(input.customerAccount.replace(/'/g, "''"))}')`,
             retries: 3
         });
 

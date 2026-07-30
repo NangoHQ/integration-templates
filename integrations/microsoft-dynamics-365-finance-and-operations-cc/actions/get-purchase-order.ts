@@ -23,7 +23,7 @@ const action = createAction({
     scopes: ['D365FO.Read'],
 
     exec: async (nango, input) => {
-        const endpoint = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',PurchaseOrderNumber='${encodeURIComponent(input.purchaseOrderNumber)}')`;
+        const endpoint = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',PurchaseOrderNumber='${encodeURIComponent(input.purchaseOrderNumber.replace(/'/g, "''"))}')`;
 
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata

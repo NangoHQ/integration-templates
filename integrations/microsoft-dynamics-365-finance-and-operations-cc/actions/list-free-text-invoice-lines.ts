@@ -50,7 +50,7 @@ const action = createAction({
             });
         }
 
-        const filters: string[] = [`dataAreaId eq '${dataAreaId}'`];
+        const filters: string[] = [`dataAreaId eq '${dataAreaId.replace(/'/g, "''")}'`];
         if (input.invoiceIdentifier) {
             filters.push(`ParentRecId eq ${input.invoiceIdentifier}`);
         }
@@ -63,7 +63,8 @@ const action = createAction({
             params: {
                 $filter: filter,
                 $top: String(PAGE_SIZE),
-                $skip: String(skip)
+                $skip: String(skip),
+                'cross-company': 'true'
             },
             retries: 3
         });

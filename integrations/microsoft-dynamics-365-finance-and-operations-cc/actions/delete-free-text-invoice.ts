@@ -19,7 +19,15 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId);
+        if (!/^\d+$/.test(input.invoiceIdentifier)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'invoiceIdentifier must contain only decimal digits.',
+                invoiceIdentifier: input.invoiceIdentifier
+            });
+        }
+
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         await nango.delete({

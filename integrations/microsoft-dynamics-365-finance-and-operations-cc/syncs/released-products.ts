@@ -45,17 +45,20 @@ const sync = createSync({
         // Persist the current $skip offset so an interrupted crawl can resume.
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let offset = checkpoint.success ? checkpoint.data.offset : 0;
-        let trackingStarted = offset > 0;
 
-        if (!trackingStarted) {
-            await nango.trackDeletesStart('ReleasedProduct');
-            trackingStarted = true;
-        }
+        // offset can only be > 0 if an earlier execution already advanced past at least one
+        // non-empty page (see the trackingStarted-gating below), which means that earlier
+        // execution must have already called trackDeletesStart. trackDeletesStart is only
+        // actually called once we've seen a validated page that contains records, so an
+        // empty/anomalous response never opens (and therefore never completes) a window that
+        // would wipe the whole cache.
+        let trackingStarted = offset > 0;
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const proxyConfig = {
             endpoint: '/data/ReleasedProductsV2',
             params: {
+                'cross-company': 'true',
                 $orderby: 'dataAreaId asc,ItemNumber asc'
             },
             paginate: {
@@ -78,7 +81,9 @@ const sync = createSync({
                 const record = ReleasedProductSchema.parse(raw);
 
                 releasedProducts.push({
-                    id: record.ItemNumber,
+                    // Composite id: item numbers can repeat across legal entities, so dataAreaId
+                    // must be part of the persisted id to avoid collisions/overwrites between companies.
+                    id: `${record.dataAreaId}|${record.ItemNumber}`,
                     dataAreaId: record.dataAreaId,
                     itemNumber: record.ItemNumber,
                     productName: record.ProductName ?? undefined,
@@ -87,6 +92,11 @@ const sync = createSync({
                     itemModelGroupId: record.ItemModelGroupId ?? undefined,
                     productNumber: record.ProductNumber ?? undefined
                 });
+            }
+
+            if (!trackingStarted && releasedProducts.length > 0) {
+                await nango.trackDeletesStart('ReleasedProduct');
+                trackingStarted = true;
             }
 
             if (releasedProducts.length > 0) {

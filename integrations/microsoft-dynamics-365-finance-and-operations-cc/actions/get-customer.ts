@@ -40,8 +40,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const { dataAreaId, customerAccount } = input;
-        const encodedDataAreaId = encodeURIComponent(dataAreaId);
-        const encodedCustomerAccount = encodeURIComponent(customerAccount);
+        const encodedDataAreaId = encodeURIComponent(dataAreaId.replace(/'/g, "''"));
+        const encodedCustomerAccount = encodeURIComponent(customerAccount.replace(/'/g, "''"));
 
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata

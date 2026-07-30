@@ -30,9 +30,9 @@ const action = createAction({
             });
         }
 
-        const filters: string[] = [`dataAreaId eq '${input.dataAreaId}'`];
+        const filters: string[] = [`dataAreaId eq '${input.dataAreaId.replace(/'/g, "''")}'`];
         if (input.salesQuotationNumber) {
-            filters.push(`SalesQuotationNumber eq '${input.salesQuotationNumber}'`);
+            filters.push(`SalesQuotationNumber eq '${input.salesQuotationNumber.replace(/'/g, "''")}'`);
         }
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
@@ -41,7 +41,8 @@ const action = createAction({
             params: {
                 $filter: filters.join(' and '),
                 $top: String(PAGE_SIZE),
-                $skip: String(skip)
+                $skip: String(skip),
+                'cross-company': 'true'
             },
             retries: 3
         });

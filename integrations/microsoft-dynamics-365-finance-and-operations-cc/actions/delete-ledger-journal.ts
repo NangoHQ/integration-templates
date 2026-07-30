@@ -7,7 +7,9 @@ const InputSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    success: z.boolean()
+    dataAreaId: z.string(),
+    journalBatchNumber: z.string(),
+    deleted: z.boolean()
 });
 
 const action = createAction({
@@ -19,11 +21,15 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         await nango.delete({
-            endpoint: `/data/LedgerJournalHeaders(dataAreaId='${encodeURIComponent(input.dataAreaId)}',JournalBatchNumber='${encodeURIComponent(input.journalBatchNumber)}')`,
+            endpoint: `/data/LedgerJournalHeaders(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',JournalBatchNumber='${encodeURIComponent(input.journalBatchNumber.replace(/'/g, "''"))}')`,
             retries: 1
         });
 
-        return { success: true };
+        return {
+            dataAreaId: input.dataAreaId,
+            journalBatchNumber: input.journalBatchNumber,
+            deleted: true
+        };
     }
 });
 

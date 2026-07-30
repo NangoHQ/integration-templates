@@ -51,16 +51,12 @@ const sync = createSync({
         let offset = checkpoint.success ? checkpoint.data.offset : 0;
         let trackingStarted = offset > 0;
 
-        if (!trackingStarted) {
-            await nango.trackDeletesStart('LedgerJournal');
-            trackingStarted = true;
-        }
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/LedgerJournalHeaders',
             params: {
-                $orderby: 'dataAreaId asc,JournalBatchNumber asc'
+                $orderby: 'dataAreaId asc,JournalBatchNumber asc',
+                'cross-company': 'true'
             },
             paginate: {
                 type: 'offset',
@@ -92,6 +88,11 @@ const sync = createSync({
                 ...(record.JournalTotalCredit != null && { JournalTotalCredit: record.JournalTotalCredit }),
                 ...(record.JournalTotalDebit != null && { JournalTotalDebit: record.JournalTotalDebit })
             }));
+
+            if (!trackingStarted && journals.length > 0) {
+                await nango.trackDeletesStart('LedgerJournal');
+                trackingStarted = true;
+            }
 
             if (journals.length > 0) {
                 await nango.batchSave(journals, 'LedgerJournal');

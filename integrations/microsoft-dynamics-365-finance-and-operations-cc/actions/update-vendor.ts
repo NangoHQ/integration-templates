@@ -41,7 +41,7 @@ const action = createAction({
     scopes: ['Financials'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const endpoint = `/data/VendorsV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',VendorAccountNumber='${encodeURIComponent(input.vendorAccountNumber)}')`;
+        const endpoint = `/data/VendorsV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',VendorAccountNumber='${encodeURIComponent(input.vendorAccountNumber.replace(/'/g, "''"))}')`;
 
         const patchData: Record<string, unknown> = {
             ...(input.vendorOrganizationName !== undefined && { VendorOrganizationName: input.vendorOrganizationName }),

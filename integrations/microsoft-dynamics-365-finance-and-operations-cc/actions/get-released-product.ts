@@ -21,8 +21,8 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId);
-        const encodedItemNumber = encodeURIComponent(input.itemNumber);
+        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
+        const encodedItemNumber = encodeURIComponent(input.itemNumber.replace(/'/g, "''"));
 
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata

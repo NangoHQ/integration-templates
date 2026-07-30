@@ -7,9 +7,9 @@ const InputSchema = z.object({
 });
 
 const OutputSchema = z.object({
+    success: z.boolean(),
     dataAreaId: z.string(),
-    salesQuotationNumber: z.string(),
-    deleted: z.boolean()
+    salesQuotationNumber: z.string()
 });
 
 const action = createAction({
@@ -21,14 +21,14 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: `/data/SalesQuotationHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',SalesQuotationNumber='${encodeURIComponent(input.salesQuotationNumber)}')`,
+            endpoint: `/data/SalesQuotationHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',SalesQuotationNumber='${encodeURIComponent(input.salesQuotationNumber.replace(/'/g, "''"))}')`,
             retries: 1
         });
 
         return {
+            success: true,
             dataAreaId: input.dataAreaId,
-            salesQuotationNumber: input.salesQuotationNumber,
-            deleted: true
+            salesQuotationNumber: input.salesQuotationNumber
         };
     }
 });

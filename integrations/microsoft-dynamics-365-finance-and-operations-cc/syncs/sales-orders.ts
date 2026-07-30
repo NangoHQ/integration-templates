@@ -50,16 +50,12 @@ const sync = createSync({
         let offset = checkpoint.success ? checkpoint.data.offset : 0;
         let trackingStarted = offset > 0;
 
-        if (!trackingStarted) {
-            await nango.trackDeletesStart('SalesOrder');
-            trackingStarted = true;
-        }
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/SalesOrderHeadersV2',
             params: {
-                $orderby: 'dataAreaId asc,SalesOrderNumber asc'
+                $orderby: 'dataAreaId asc,SalesOrderNumber asc',
+                'cross-company': 'true'
             },
             paginate: {
                 type: 'offset',
@@ -95,6 +91,11 @@ const sync = createSync({
                     ...(record.SalesOrderName != null && { sales_order_name: record.SalesOrderName }),
                     ...(record.RequestedReceiptDate != null && { requested_receipt_date: record.RequestedReceiptDate })
                 });
+            }
+
+            if (!trackingStarted && salesOrders.length > 0) {
+                await nango.trackDeletesStart('SalesOrder');
+                trackingStarted = true;
             }
 
             if (salesOrders.length > 0) {

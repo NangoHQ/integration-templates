@@ -67,9 +67,12 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Blocker: LegalEntities exposes no modified-timestamp field in this environment,
-        // so we must use full-refresh with delete tracking.
+        // so we must use full-refresh with delete tracking. trackDeletesStart is only called
+        // once we've seen a validated non-empty page below, so an empty/malformed first
+        // response never opens (and therefore never completes) a window that would wipe the
+        // whole cache.
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-        await nango.trackDeletesStart('LegalEntity');
+        let trackingStarted = false;
 
         const limit = 1000;
         let skip = 0;
@@ -133,6 +136,11 @@ const sync = createSync({
                 };
             });
 
+            if (!trackingStarted && legalEntities.length > 0) {
+                await nango.trackDeletesStart('LegalEntity');
+                trackingStarted = true;
+            }
+
             if (legalEntities.length > 0) {
                 await nango.batchSave(legalEntities, 'LegalEntity');
             }
@@ -143,7 +151,9 @@ const sync = createSync({
             }
         }
 
-        await nango.trackDeletesEnd('LegalEntity');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('LegalEntity');
+        }
     }
 });
 

@@ -74,15 +74,16 @@ const action = createAction({
             });
         }
 
-        const filters: string[] = [`dataAreaId eq '${dataAreaId}'`];
+        const filters: string[] = [`dataAreaId eq '${dataAreaId.replace(/'/g, "''")}'`];
         if (input.journalBatchNumber) {
-            filters.push(`JournalBatchNumber eq '${input.journalBatchNumber}'`);
+            filters.push(`JournalBatchNumber eq '${input.journalBatchNumber.replace(/'/g, "''")}'`);
         }
 
         const params: Record<string, string | number> = {
             $filter: filters.join(' and '),
             $top: limit,
-            $skip: skip
+            $skip: skip,
+            'cross-company': 'true'
         };
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata

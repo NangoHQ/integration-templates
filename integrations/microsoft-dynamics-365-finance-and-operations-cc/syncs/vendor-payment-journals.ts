@@ -54,17 +54,12 @@ const sync = createSync({
         let offset = checkpoint.success ? checkpoint.data.offset : 0;
         let trackingStarted = offset > 0;
 
-        if (!trackingStarted) {
-            await nango.trackDeletesStart('VendorPaymentJournal');
-            trackingStarted = true;
-        }
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/VendorPaymentJournalHeaders',
             params: {
-                $filter: "dataAreaId eq 'dat'",
-                $orderby: 'JournalBatchNumber asc'
+                $orderby: 'JournalBatchNumber asc',
+                'cross-company': 'true'
             },
             paginate: {
                 type: 'offset',
@@ -90,6 +85,11 @@ const sync = createSync({
                 mapped['id'] = `${record.dataAreaId}|${record.JournalBatchNumber}`;
                 return VendorPaymentJournalSchema.parse(mapped);
             });
+
+            if (!trackingStarted && journals.length > 0) {
+                await nango.trackDeletesStart('VendorPaymentJournal');
+                trackingStarted = true;
+            }
 
             if (journals.length > 0) {
                 await nango.batchSave(journals, 'VendorPaymentJournal');

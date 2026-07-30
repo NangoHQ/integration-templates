@@ -3,7 +3,9 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().min(1).max(10000).optional().describe('Maximum number of records to return per page. Defaults to 100.')
+    limit: z.number().min(1).max(10000).optional().describe('Maximum number of records to return per page. Defaults to 100.'),
+    top: z.number().min(1).max(10000).optional().describe('Deprecated alias for limit, kept for backward compatibility.'),
+    cross_company: z.boolean().optional().describe('If true, query across all companies instead of just the default company.')
 });
 
 const TaxGroupSchema = z.object({
@@ -42,13 +44,17 @@ const action = createAction({
     scopes: ['DataEntities.Data.Read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const limit = input.limit ?? 100;
+        const limit = input.limit ?? input.top ?? 100;
         const params: Record<string, string | number> = {
             $top: limit
         };
 
         if (input.cursor) {
             params['$skip'] = input.cursor;
+        }
+
+        if (input.cross_company) {
+            params['cross-company'] = 'true';
         }
 
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
@@ -69,15 +75,6 @@ const action = createAction({
         const value = Array.isArray(raw['value']) ? raw['value'] : [];
         const nextLink = raw['@odata.nextLink'];
 
-        let nextCursor: string | undefined;
-        if (typeof nextLink === 'string') {
-            const url = new URL(nextLink);
-            const skip = url.searchParams.get('$skip');
-            if (skip) {
-                nextCursor = skip;
-            }
-        }
-
         const items = value.map((item: unknown) => {
             if (!isRecord(item)) {
                 throw new nango.ActionError({
@@ -87,6 +84,19 @@ const action = createAction({
             }
             return TaxGroupSchema.parse(item);
         });
+
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+
+        let nextCursor: string | undefined;
+        if (typeof nextLink === 'string') {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
+            const url = new URL(nextLink);
+            const skipParam = url.searchParams.get('$skip');
+            nextCursor = skipParam ?? String(skip + items.length);
+        } else if (items.length === limit) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + limit);
+        }
 
         return {
             items,

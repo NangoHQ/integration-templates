@@ -63,7 +63,7 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const url = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',PurchaseOrderNumber='${encodeURIComponent(input.PurchaseOrderNumber)}')`;
+        const url = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',PurchaseOrderNumber='${encodeURIComponent(input.PurchaseOrderNumber.replace(/'/g, "''"))}')`;
 
         const patchBody: Record<string, unknown> = {};
 
@@ -112,12 +112,18 @@ const action = createAction({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: url,
             data: patchBody,
+            params: {
+                'cross-company': 'true'
+            },
             retries: 1
         });
 
         const getResponse = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: url,
+            params: {
+                'cross-company': 'true'
+            },
             retries: 3
         });
 

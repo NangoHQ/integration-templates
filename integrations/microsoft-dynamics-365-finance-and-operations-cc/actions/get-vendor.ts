@@ -29,7 +29,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: `/data/VendorsV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',VendorAccountNumber='${encodeURIComponent(input.vendorAccountNumber)}')`,
+            endpoint: `/data/VendorsV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',VendorAccountNumber='${encodeURIComponent(input.vendorAccountNumber.replace(/'/g, "''"))}')`,
             retries: 3
         };
 

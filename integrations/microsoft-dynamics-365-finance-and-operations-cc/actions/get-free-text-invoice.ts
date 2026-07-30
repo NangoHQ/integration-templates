@@ -22,7 +22,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof ProviderSchema>> => {
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: `/data/FreeTextInvoiceHeaders(dataAreaId='${encodeURIComponent(input.dataAreaId)}',InvoiceIdentifier=${input.invoiceIdentifier})`,
+            endpoint: `/data/FreeTextInvoiceHeaders(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',InvoiceIdentifier=${input.invoiceIdentifier})`,
             retries: 3
         });
 

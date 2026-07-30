@@ -66,7 +66,7 @@ const action = createAction({
             body['SalesTaxGroupCode'] = input.salesTaxGroupCode;
         }
 
-        const endpoint = `data/SalesOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId)}',SalesOrderNumber='${encodeURIComponent(input.salesOrderNumber)}')`;
+        const endpoint = `data/SalesOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',SalesOrderNumber='${encodeURIComponent(input.salesOrderNumber.replace(/'/g, "''"))}')`;
 
         const response = await nango.patch({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata

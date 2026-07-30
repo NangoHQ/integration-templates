@@ -32,7 +32,7 @@ const sync = createSync({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/Warehouses',
             params: {
-                crossCompany: 'true'
+                'cross-company': 'true'
             },
             paginate: {
                 type: 'offset',
@@ -46,7 +46,7 @@ const sync = createSync({
             retries: 3
         };
 
-        await nango.trackDeletesStart('Warehouse');
+        let trackingStarted = false;
 
         for await (const page of nango.paginate(proxyConfig)) {
             const rawItems = z.array(z.unknown()).parse(page);
@@ -62,12 +62,19 @@ const sync = createSync({
                 };
             });
 
+            if (!trackingStarted && warehouses.length > 0) {
+                await nango.trackDeletesStart('Warehouse');
+                trackingStarted = true;
+            }
+
             if (warehouses.length > 0) {
                 await nango.batchSave(warehouses, 'Warehouse');
             }
         }
 
-        await nango.trackDeletesEnd('Warehouse');
+        if (trackingStarted) {
+            await nango.trackDeletesEnd('Warehouse');
+        }
     }
 });
 

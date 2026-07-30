@@ -49,16 +49,12 @@ const sync = createSync({
         let offset = checkpoint.success ? checkpoint.data.offset : 0;
         let trackingStarted = offset > 0;
 
-        if (!trackingStarted) {
-            await nango.trackDeletesStart('FreeTextInvoice');
-            trackingStarted = true;
-        }
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/FreeTextInvoiceHeaders',
             params: {
-                $orderby: 'dataAreaId asc,InvoiceIdentifier asc'
+                $orderby: 'dataAreaId asc,InvoiceIdentifier asc',
+                'cross-company': 'true'
             },
             paginate: {
                 type: 'offset',
@@ -96,6 +92,11 @@ const sync = createSync({
                     throw new Error(`Failed to validate normalized FreeTextInvoice: ${modelParsed.error.message}`);
                 }
                 invoices.push(modelParsed.data);
+            }
+
+            if (!trackingStarted && invoices.length > 0) {
+                await nango.trackDeletesStart('FreeTextInvoice');
+                trackingStarted = true;
             }
 
             if (invoices.length > 0) {

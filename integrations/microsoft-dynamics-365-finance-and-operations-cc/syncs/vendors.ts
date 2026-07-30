@@ -54,16 +54,12 @@ const sync = createSync({
         let offset = checkpoint.success ? checkpoint.data.offset : 0;
         let trackingStarted = offset > 0;
 
-        if (!trackingStarted) {
-            await nango.trackDeletesStart('Vendor');
-            trackingStarted = true;
-        }
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/VendorsV2',
             params: {
-                $orderby: 'dataAreaId asc,VendorAccountNumber asc'
+                $orderby: 'dataAreaId asc,VendorAccountNumber asc',
+                'cross-company': 'true'
             },
             paginate: {
                 type: 'offset',
@@ -99,6 +95,11 @@ const sync = createSync({
                     ...(v.PrimaryContactPhone != null && { PrimaryContactPhone: v.PrimaryContactPhone }),
                     dataAreaId: v.dataAreaId
                 });
+            }
+
+            if (!trackingStarted && vendors.length > 0) {
+                await nango.trackDeletesStart('Vendor');
+                trackingStarted = true;
             }
 
             if (vendors.length > 0) {

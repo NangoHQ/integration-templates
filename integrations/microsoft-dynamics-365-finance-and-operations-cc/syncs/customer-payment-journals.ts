@@ -1,7 +1,7 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const RawCustomerPaymentJournalSchema = z.object({
+const RawCustomerPaymentJournalHeaderSchema = z.object({
     dataAreaId: z.string().optional(),
     JournalBatchNumber: z.string().optional(),
     IsPosted: z.string().optional(),
@@ -14,7 +14,7 @@ const RawCustomerPaymentJournalSchema = z.object({
     LineCount: z.number().optional()
 });
 
-const CustomerPaymentJournalSchema = z.object({
+const CustomerPaymentJournalHeaderSchema = z.object({
     id: z.string(),
     dataAreaId: z.string().optional(),
     journalBatchNumber: z.string().optional(),
@@ -39,26 +39,30 @@ const sync = createSync({
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
-        CustomerPaymentJournal: CustomerPaymentJournalSchema
+        CustomerPaymentJournalHeader: CustomerPaymentJournalHeaderSchema
     },
 
     exec: async (nango) => {
-        const dataAreaId = 'dat';
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let offset = checkpoint.success ? checkpoint.data.offset : 0;
-        let trackingStarted = offset > 0;
 
-        if (!trackingStarted) {
-            await nango.trackDeletesStart('CustomerPaymentJournal');
-            trackingStarted = true;
-        }
+        // offset can only be > 0 if an earlier execution already advanced past at least one
+        // non-empty page (see the trackingStarted-gating below), which means that earlier
+        // execution must have already called trackDeletesStart. On a resumed execution we must
+        // NOT call trackDeletesStart again — that would open a fresh window covering only the
+        // remaining pages, and trackDeletesEnd would then treat every journal from the
+        // already-processed pages as missing and delete it. trackDeletesStart is only actually
+        // called once we've seen a validated page that contains records, so an empty/anomalous
+        // response never opens (and therefore never completes) a window that would wipe the
+        // whole cache.
+        let trackingStarted = offset > 0;
 
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/CustomerPaymentJournalHeaders',
             params: {
-                $filter: `dataAreaId eq '${dataAreaId}'`,
-                $orderby: 'JournalBatchNumber asc'
+                'cross-company': 'true',
+                $orderby: 'dataAreaId asc,JournalBatchNumber asc'
             },
             paginate: {
                 type: 'offset',
@@ -76,12 +80,12 @@ const sync = createSync({
             const items: unknown[] = page;
 
             const journals = items.map((item) => {
-                const parseResult = RawCustomerPaymentJournalSchema.safeParse(item);
+                const parseResult = RawCustomerPaymentJournalHeaderSchema.safeParse(item);
                 if (!parseResult.success) {
                     throw new Error(`Failed to parse customer payment journal: ${parseResult.error.message}`);
                 }
                 const record = parseResult.data;
-                const recordDataAreaId = record.dataAreaId ?? dataAreaId;
+                const recordDataAreaId = record.dataAreaId ?? '';
                 const batchNumber = record.JournalBatchNumber ?? '';
                 const id = `${recordDataAreaId}|${batchNumber}`;
 
@@ -100,8 +104,13 @@ const sync = createSync({
                 };
             });
 
+            if (!trackingStarted && journals.length > 0) {
+                await nango.trackDeletesStart('CustomerPaymentJournalHeader');
+                trackingStarted = true;
+            }
+
             if (journals.length > 0) {
-                await nango.batchSave(journals, 'CustomerPaymentJournal');
+                await nango.batchSave(journals, 'CustomerPaymentJournalHeader');
             }
 
             offset += page.length;
@@ -110,7 +119,7 @@ const sync = createSync({
 
         await nango.clearCheckpoint();
         if (trackingStarted) {
-            await nango.trackDeletesEnd('CustomerPaymentJournal');
+            await nango.trackDeletesEnd('CustomerPaymentJournalHeader');
         }
     }
 });

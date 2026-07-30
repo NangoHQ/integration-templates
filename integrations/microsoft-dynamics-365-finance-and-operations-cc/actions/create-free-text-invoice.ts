@@ -6,7 +6,8 @@ const InputSchema = z.object({
     invoiceDate: z.string().describe('Invoice date in ISO 8601 format. Example: "2026-07-29"'),
     currencyCode: z.string().describe('Currency code. Example: "USD"'),
     description: z.string().optional().describe('Invoice description'),
-    dueDate: z.string().optional().describe('Due date in ISO 8601 format')
+    dueDate: z.string().optional().describe('Due date in ISO 8601 format'),
+    dataAreaId: z.string().optional().describe('Company / data area ID. Defaults to the connection company if omitted. Example: "dat"')
 });
 
 const ProviderResponseSchema = z.object({
@@ -16,7 +17,8 @@ const ProviderResponseSchema = z.object({
     CurrencyCode: z.string().optional(),
     Description: z.string().optional(),
     DueDate: z.string().optional(),
-    FreeTextNumber: z.string().optional()
+    FreeTextNumber: z.string().optional(),
+    dataAreaId: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -26,7 +28,8 @@ const OutputSchema = z.object({
     currencyCode: z.string().optional(),
     description: z.string().optional(),
     dueDate: z.string().optional(),
-    freeTextNumber: z.string().optional()
+    freeTextNumber: z.string().optional(),
+    dataAreaId: z.string().optional()
 });
 
 const action = createAction({
@@ -41,7 +44,8 @@ const action = createAction({
             InvoiceDate: input.invoiceDate,
             CurrencyCode: input.currencyCode,
             ...(input.description !== undefined && { Description: input.description }),
-            ...(input.dueDate !== undefined && { DueDate: input.dueDate })
+            ...(input.dueDate !== undefined && { DueDate: input.dueDate }),
+            ...(input.dataAreaId !== undefined && { dataAreaId: input.dataAreaId })
         };
 
         const response = await nango.post({
@@ -60,7 +64,8 @@ const action = createAction({
             ...(providerResponse.CurrencyCode !== undefined && { currencyCode: providerResponse.CurrencyCode }),
             ...(providerResponse.Description !== undefined && { description: providerResponse.Description }),
             ...(providerResponse.DueDate !== undefined && { dueDate: providerResponse.DueDate }),
-            ...(providerResponse.FreeTextNumber !== undefined && { freeTextNumber: providerResponse.FreeTextNumber })
+            ...(providerResponse.FreeTextNumber !== undefined && { freeTextNumber: providerResponse.FreeTextNumber }),
+            ...(providerResponse.dataAreaId != null && { dataAreaId: providerResponse.dataAreaId })
         };
     }
 });

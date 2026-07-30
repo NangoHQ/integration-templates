@@ -46,7 +46,8 @@ const action = createAction({
 
         const params: Record<string, string | number> = {
             $top: limit,
-            $skip: skip
+            $skip: skip,
+            'cross-company': 'true'
         };
 
         if (filters.length > 0) {

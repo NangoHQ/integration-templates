@@ -40,7 +40,8 @@ const action = createAction({
             endpoint: '/data/PaymentTerms',
             params: {
                 $top: String(limit),
-                $skip: String(skip)
+                $skip: String(skip),
+                'cross-company': 'true'
             },
             retries: 3
         };

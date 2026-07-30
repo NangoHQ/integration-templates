@@ -66,16 +66,12 @@ const sync = createSync({
         let offset = checkpoint.success ? checkpoint.data.offset : 0;
         let trackingStarted = offset > 0;
 
-        if (!trackingStarted) {
-            await nango.trackDeletesStart('Customer');
-            trackingStarted = true;
-        }
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/CustomersV3',
             params: {
-                $orderby: 'dataAreaId asc,CustomerAccount asc'
+                $orderby: 'dataAreaId asc,CustomerAccount asc',
+                'cross-company': 'true'
             },
             paginate: {
                 type: 'offset',
@@ -130,6 +126,11 @@ const sync = createSync({
                     ...(raw.InvoiceAccount != null && { invoiceAccount: raw.InvoiceAccount })
                 };
             });
+
+            if (!trackingStarted && customers.length > 0) {
+                await nango.trackDeletesStart('Customer');
+                trackingStarted = true;
+            }
 
             if (customers.length > 0) {
                 await nango.batchSave(customers, 'Customer');

@@ -37,7 +37,8 @@ const action = createAction({
             endpoint: '/data/VendorPaymentJournalHeaders',
             params: {
                 $top: String(limit),
-                $skip: String(skip)
+                $skip: String(skip),
+                'cross-company': 'true'
             },
             retries: 3
         };

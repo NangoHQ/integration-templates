@@ -46,7 +46,8 @@ const action = createAction({
             params: {
                 $top: String(limit),
                 $skip: String(skip),
-                $filter: `dataAreaId eq '${dataAreaId}'`
+                $filter: `dataAreaId eq '${dataAreaId.replace(/'/g, "''")}'`,
+                'cross-company': 'true'
             },
             retries: 3
         });

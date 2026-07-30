@@ -27,15 +27,16 @@ const action = createAction({
 
         const filterParts: string[] = [];
         if (input.dataAreaId) {
-            filterParts.push(`dataAreaId eq '${input.dataAreaId}'`);
+            filterParts.push(`dataAreaId eq '${input.dataAreaId.replace(/'/g, "''")}'`);
         }
         if (input.journalBatchNumber) {
-            filterParts.push(`JournalBatchNumber eq '${input.journalBatchNumber}'`);
+            filterParts.push(`JournalBatchNumber eq '${input.journalBatchNumber.replace(/'/g, "''")}'`);
         }
 
         const params: Record<string, string | number> = {
             $top: limit,
-            $skip: skip
+            $skip: skip,
+            'cross-company': 'true'
         };
         if (filterParts.length > 0) {
             params['$filter'] = filterParts.join(' and ');

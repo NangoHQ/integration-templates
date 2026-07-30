@@ -48,7 +48,8 @@ const action = createAction({
             endpoint: '/data/ChartOfAccounts',
             params: {
                 $top: PAGE_SIZE,
-                $skip: skip
+                $skip: skip,
+                'cross-company': 'true'
             },
             retries: 3
         });

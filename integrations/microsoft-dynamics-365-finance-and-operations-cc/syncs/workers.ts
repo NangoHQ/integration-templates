@@ -120,11 +120,6 @@ const sync = createSync({
         let offset = checkpoint.success ? checkpoint.data.offset : 0;
         let trackingStarted = offset > 0;
 
-        if (!trackingStarted) {
-            await nango.trackDeletesStart('Worker');
-            trackingStarted = true;
-        }
-
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/Workers',
@@ -196,6 +191,11 @@ const sync = createSync({
                 nationalityCountryRegion: record.NationalityCountryRegion,
                 citizenshipCountryRegion: record.CitizenshipCountryRegion
             }));
+
+            if (!trackingStarted && workers.length > 0) {
+                await nango.trackDeletesStart('Worker');
+                trackingStarted = true;
+            }
 
             if (workers.length > 0) {
                 await nango.batchSave(workers, 'Worker');
