@@ -43,12 +43,7 @@ const action = createAction({
     scopes: ['tasks:read', 'tasks:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (
-            input.summary === undefined &&
-            input.status === undefined &&
-            input.assignee_id === undefined &&
-            input.billable === undefined
-        ) {
+        if (input.summary === undefined && input.status === undefined && input.assignee_id === undefined && input.billable === undefined) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'At least one of summary, status, assignee_id, or billable must be provided.'
