@@ -1,0 +1,115 @@
+{
+  "input": {
+    "name": "Nango Dryrun Customer"
+  },
+  "output": {
+    "id": 93640847,
+    "name": "Nango Dryrun Customer",
+    "organizationNumber": "",
+    "email": "",
+    "invoiceEmail": "",
+    "phoneNumber": "",
+    "phoneNumberMobile": "",
+    "description": "",
+    "isPrivateIndividual": false,
+    "isInactive": false,
+    "language": "NO",
+    "invoiceSendMethod": "EMAIL",
+    "emailAttachmentType": "ATTACHMENT",
+    "customerNumber": 10004,
+    "displayName": "Nango Dryrun Customer (10004)"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/customer": {
+        "response": {
+          "value": {
+            "id": 93640847,
+            "version": 1,
+            "url": "api-test.tripletex.tech/v2/customer/93640847",
+            "name": "Nango Dryrun Customer",
+            "organizationNumber": "",
+            "globalLocationNumber": 0,
+            "supplierNumber": 0,
+            "customerNumber": 10004,
+            "isSupplier": false,
+            "isCustomer": true,
+            "isInactive": false,
+            "accountManager": null,
+            "department": null,
+            "email": "",
+            "invoiceEmail": "",
+            "overdueNoticeEmail": "",
+            "phoneNumber": "",
+            "phoneNumberMobile": "",
+            "description": "",
+            "language": "NO",
+            "displayName": "Nango Dryrun Customer (10004)",
+            "isPrivateIndividual": false,
+            "singleCustomerInvoice": false,
+            "invoiceSendMethod": "EMAIL",
+            "emailAttachmentType": "ATTACHMENT",
+            "postalAddress": {
+              "id": 332635419,
+              "url": "api-test.tripletex.tech/v2/address/332635419"
+            },
+            "physicalAddress": {
+              "id": 332635418,
+              "url": "api-test.tripletex.tech/v2/address/332635418"
+            },
+            "deliveryAddress": null,
+            "category1": null,
+            "category2": null,
+            "category3": null,
+            "invoicesDueIn": 14,
+            "invoicesDueInType": "DAYS",
+            "currency": {
+              "id": 1,
+              "url": "api-test.tripletex.tech/v2/currency/1"
+            },
+            "bankAccountPresentation": [],
+            "ledgerAccount": {
+              "id": 291297244,
+              "url": "api-test.tripletex.tech/v2/ledger/account/291297244"
+            },
+            "isFactoring": false,
+            "invoiceSendSMSNotification": false,
+            "invoiceSMSNotificationNumber": "",
+            "isAutomaticSoftReminderEnabled": false,
+            "isAutomaticReminderEnabled": false,
+            "isAutomaticNoticeOfDebtCollectionEnabled": false,
+            "discountPercentage": 0,
+            "website": ""
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 12:27:53 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "1331",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1935",
+          "x-ratelimit-reset": "1785241709",
+          "etag": "W/\"533-jLhpjuRnaKmyVkWkuSyA/yAz4iY\""
+        },
+        "hash": "fbb18c46e3ad2c14239d25a02f6db1fda7cc7963",
+        "request": {
+          "data": {
+            "name": "Nango Dryrun Customer"
+          }
+        }
+      }
+    }
+  }
+}
