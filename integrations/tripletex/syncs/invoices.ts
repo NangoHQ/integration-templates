@@ -109,12 +109,15 @@ const sync = createSync({
         });
 
         const today = formatDate(new Date());
-        const tomorrow = formatDate(new Date(Date.now() + 24 * 60 * 60 * 1000));
+        const FAR_FUTURE_DATE = '2099-12-31';
         const lastFullRefresh = new Date(parsedCheckpoint.last_full_refresh);
         const needsFullRefresh = parsedCheckpoint.last_full_refresh === '1970-01-01' || Date.now() - lastFullRefresh.getTime() > FULL_REFRESH_INTERVAL_MS;
 
         const invoiceDateFrom = needsFullRefresh ? '1970-01-01' : parsedCheckpoint.invoice_date_from;
-        const invoiceDateTo = tomorrow;
+        // Use a far-future upper bound (rather than today/tomorrow) so invoices dated ahead of today
+        // are still captured, and so the request params (and thus recorded test mocks) don't change
+        // every day. The checkpoint's lower bound still advances via `today` below.
+        const invoiceDateTo = FAR_FUTURE_DATE;
 
         if (needsFullRefresh) {
             await nango.trackDeletesStart('Invoice');
