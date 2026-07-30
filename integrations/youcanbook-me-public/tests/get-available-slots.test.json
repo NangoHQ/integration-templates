@@ -1,0 +1,3129 @@
+{
+  "input": {
+    "availabilityKey": "avl_ec7f370888fd6f3b3dbbd68856aaa4bed8a3eda0462e706f30ac853aecb11214T_34"
+  },
+  "output": {
+    "slots": [
+      {
+        "startsAt": "1785430800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785432600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785434400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785436200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785438000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785439800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785495600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785497400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785499200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785501000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785502800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785504600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785506400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785508200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785510000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785511800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785513600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785515400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785517200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785519000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785520800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785522600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785524400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785526200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785754800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785756600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785758400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785760200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785762000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785763800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785765600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785767400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785769200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785771000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785772800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785774600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785776400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785778200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785780000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785781800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785783600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785785400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785841200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785843000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785844800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785846600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785848400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785850200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785852000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785853800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785855600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785857400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785859200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785861000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785862800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785864600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785866400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785868200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785870000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785871800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785927600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785929400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785931200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785933000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785934800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785936600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785938400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785940200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785942000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785943800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785945600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785947400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785949200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785951000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785952800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785954600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785956400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1785958200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786014000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786015800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786017600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786019400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786021200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786023000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786024800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786026600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786028400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786030200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786032000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786033800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786035600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786037400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786039200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786041000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786042800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786044600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786100400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786102200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786104000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786105800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786107600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786109400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786111200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786113000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786114800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786116600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786118400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786120200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786122000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786123800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786125600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786127400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786129200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786131000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786359600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786361400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786363200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786365000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786366800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786368600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786370400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786372200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786374000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786375800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786377600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786379400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786381200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786383000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786384800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786386600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786388400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786390200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786446000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786447800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786449600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786451400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786453200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786455000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786456800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786458600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786460400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786462200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786464000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786465800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786467600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786469400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786471200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786473000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786474800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786476600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786532400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786534200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786536000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786537800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786539600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786541400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786543200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786545000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786546800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786548600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786550400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786552200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786554000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786555800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786557600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786559400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786561200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786563000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786618800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786620600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786622400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786624200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786626000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786627800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786629600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786631400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786633200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786635000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786636800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786638600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786640400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786642200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786644000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786645800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786647600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786649400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786705200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786707000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786708800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786710600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786712400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786714200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786716000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786717800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786719600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786721400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786723200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786725000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786726800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786728600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786730400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786732200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786734000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786735800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786964400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786966200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786968000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786969800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786971600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786973400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786975200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786977000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786978800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786980600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786982400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786984200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786986000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786987800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786989600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786991400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786993200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1786995000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787050800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787052600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787054400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787056200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787058000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787059800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787061600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787063400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787065200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787067000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787068800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787070600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787072400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787074200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787076000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787077800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787079600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787081400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787137200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787139000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787140800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787142600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787144400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787146200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787148000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787149800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787151600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787153400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787155200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787157000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787158800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787160600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787162400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787164200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787166000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787167800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787223600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787225400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787227200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787229000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787230800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787232600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787234400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787236200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787238000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787239800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787241600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787243400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787245200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787247000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787248800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787250600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787252400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787254200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787310000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787311800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787313600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787315400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787317200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787319000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787320800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787322600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787324400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787326200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787328000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787329800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787331600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787333400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787335200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787337000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787338800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787340600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787569200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787571000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787572800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787574600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787576400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787578200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787580000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787581800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787583600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787585400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787587200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787589000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787590800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787592600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787594400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787596200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787598000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787599800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787655600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787657400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787659200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787661000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787662800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787664600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787666400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787668200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787670000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787671800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787673600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787675400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787677200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787679000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787680800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787682600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787684400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787686200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787742000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787743800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787745600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787747400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787749200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787751000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787752800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787754600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787756400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787758200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787760000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787761800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787763600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787765400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787767200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787769000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787770800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787772600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787828400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787830200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787832000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787833800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787835600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787837400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787839200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787841000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787842800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787844600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787846400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787848200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787850000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787851800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787853600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787855400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787857200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787859000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787914800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787916600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787918400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787920200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787922000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787923800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787925600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787927400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787929200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787931000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787932800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787934600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787936400000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787938200000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787940000000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787941800000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787943600000",
+        "freeUnits": 1
+      },
+      {
+        "startsAt": "1787945400000",
+        "freeUnits": 1
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/availabilities/avl_ec7f370888fd6f3b3dbbd68856aaa4bed8a3eda0462e706f30ac853aecb11214T_34": {
+        "response": {
+          "slots": [
+            {
+              "freeUnits": 1,
+              "startsAt": "1785430800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785432600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785434400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785436200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785438000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785439800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785495600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785497400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785499200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785501000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785502800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785504600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785506400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785508200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785510000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785511800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785513600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785515400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785517200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785519000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785520800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785522600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785524400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785526200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785754800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785756600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785758400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785760200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785762000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785763800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785765600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785767400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785769200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785771000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785772800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785774600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785776400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785778200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785780000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785781800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785783600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785785400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785841200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785843000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785844800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785846600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785848400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785850200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785852000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785853800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785855600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785857400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785859200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785861000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785862800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785864600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785866400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785868200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785870000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785871800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785927600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785929400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785931200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785933000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785934800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785936600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785938400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785940200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785942000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785943800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785945600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785947400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785949200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785951000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785952800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785954600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785956400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1785958200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786014000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786015800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786017600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786019400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786021200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786023000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786024800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786026600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786028400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786030200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786032000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786033800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786035600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786037400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786039200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786041000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786042800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786044600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786100400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786102200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786104000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786105800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786107600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786109400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786111200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786113000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786114800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786116600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786118400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786120200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786122000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786123800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786125600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786127400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786129200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786131000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786359600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786361400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786363200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786365000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786366800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786368600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786370400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786372200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786374000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786375800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786377600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786379400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786381200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786383000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786384800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786386600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786388400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786390200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786446000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786447800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786449600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786451400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786453200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786455000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786456800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786458600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786460400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786462200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786464000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786465800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786467600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786469400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786471200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786473000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786474800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786476600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786532400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786534200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786536000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786537800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786539600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786541400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786543200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786545000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786546800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786548600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786550400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786552200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786554000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786555800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786557600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786559400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786561200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786563000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786618800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786620600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786622400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786624200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786626000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786627800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786629600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786631400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786633200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786635000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786636800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786638600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786640400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786642200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786644000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786645800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786647600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786649400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786705200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786707000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786708800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786710600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786712400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786714200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786716000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786717800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786719600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786721400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786723200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786725000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786726800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786728600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786730400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786732200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786734000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786735800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786964400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786966200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786968000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786969800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786971600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786973400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786975200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786977000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786978800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786980600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786982400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786984200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786986000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786987800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786989600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786991400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786993200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1786995000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787050800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787052600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787054400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787056200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787058000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787059800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787061600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787063400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787065200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787067000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787068800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787070600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787072400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787074200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787076000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787077800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787079600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787081400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787137200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787139000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787140800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787142600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787144400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787146200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787148000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787149800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787151600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787153400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787155200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787157000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787158800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787160600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787162400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787164200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787166000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787167800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787223600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787225400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787227200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787229000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787230800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787232600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787234400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787236200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787238000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787239800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787241600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787243400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787245200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787247000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787248800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787250600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787252400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787254200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787310000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787311800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787313600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787315400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787317200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787319000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787320800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787322600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787324400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787326200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787328000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787329800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787331600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787333400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787335200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787337000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787338800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787340600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787569200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787571000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787572800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787574600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787576400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787578200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787580000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787581800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787583600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787585400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787587200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787589000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787590800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787592600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787594400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787596200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787598000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787599800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787655600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787657400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787659200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787661000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787662800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787664600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787666400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787668200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787670000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787671800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787673600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787675400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787677200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787679000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787680800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787682600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787684400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787686200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787742000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787743800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787745600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787747400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787749200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787751000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787752800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787754600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787756400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787758200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787760000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787761800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787763600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787765400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787767200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787769000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787770800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787772600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787828400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787830200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787832000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787833800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787835600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787837400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787839200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787841000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787842800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787844600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787846400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787848200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787850000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787851800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787853600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787855400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787857200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787859000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787914800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787916600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787918400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787920200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787922000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787923800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787925600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787927400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787929200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787931000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787932800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787934600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787936400000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787938200000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787940000000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787941800000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787943600000"
+            },
+            {
+              "freeUnits": 1,
+              "startsAt": "1787945400000"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 14:35:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Api-Password-Required, X-Browser-Id, X-Api-Revision, X-Session-Id, X-Total, X-App-Revision, X-App-Browser-Id, X-Next-Cursor, Link, X-Api-Mfa-Required, X-Authenticated-User, X-Expect-Auth-Cookie, X-Requested-With, X-Request-Id, X-App-Version, X-App-Session-Id, X-Api-Version",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1785422154",
+          "access-control-allow-methods": "POST, PATCH, PUT, GET, OPTIONS, DELETE",
+          "allow": "POST, PATCH, PUT, GET, OPTIONS, DELETE",
+          "server": "YCBM",
+          "x-api-version": "1.18",
+          "x-api-revision": "6c01f0494",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "expires": "0",
+          "pragma": "no-cache",
+          "access-control-allow-credentials": "false",
+          "access-control-allow-headers": "X-Total, X-No-WWW-Authenticate, Access-Control-Allow-Origin, Origin, X-Api-Password-Token, Accept, Authorization, X-App-Version, Access-Control-Allow-Credentials, X-Api-Mfa-Token, Accept-Language, X-Browser-Id, X-Next-Cursor, X-Session-Id, X-Requested-With, X-App-Session-Id, X-App-Browser-Id, Content-Type, X-Expect-Auth-Cookie, X-Api-Mfa-Required, X-Request-Id, X-App-Revision",
+          "access-control-max-age": "3600",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 11017c4db22106ac70e16ce75190a430.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "x-amz-cf-id": "s2B3BthrXZgAdv53tfQCNzEiDbYsC8D0LamD5cswLzZ7Vw2ugfjY6w==",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "b6462f78ba6291febc3fc2a057f8551726f186f1",
+        "request": {}
+      }
+    }
+  }
+}

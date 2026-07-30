@@ -1,0 +1,72 @@
+{
+  "input": {
+    "intentId": "itt_bdabbd61-2369-4afc-801d-922901dcc181"
+  },
+  "output": {
+    "id": "itt_bdabbd61-2369-4afc-801d-922901dcc181",
+    "createdAt": 1785422055000,
+    "intentStatus": "SETTING_UP",
+    "selections": {}
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/intents/itt_bdabbd61-2369-4afc-801d-922901dcc181": {
+        "response": {
+          "bookingId": null,
+          "createdAt": 1785422055000,
+          "id": "itt_bdabbd61-2369-4afc-801d-922901dcc181",
+          "intentStatus": "SETTING_UP",
+          "selections": {
+            "appointmentTypeIds": null,
+            "duration": null,
+            "form": null,
+            "location": null,
+            "smsConsent": null,
+            "startsAt": null,
+            "teamMemberId": null,
+            "timeZone": null,
+            "units": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 14:36:15 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "X-Next-Cursor, Link, X-Api-Mfa-Required, X-Authenticated-User, X-Expect-Auth-Cookie, X-Requested-With, X-Request-Id, X-App-Version, X-App-Session-Id, X-Api-Version, X-Api-Password-Required, X-Browser-Id, X-Api-Revision, X-Session-Id, X-Total, X-App-Revision, X-App-Browser-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1983",
+          "x-ratelimit-reset": "1785422216",
+          "access-control-allow-methods": "POST, PATCH, PUT, GET, OPTIONS, DELETE",
+          "allow": "POST, PATCH, PUT, GET, OPTIONS, DELETE",
+          "server": "YCBM",
+          "x-api-version": "1.18",
+          "x-api-revision": "6c01f0494",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "expires": "0",
+          "pragma": "no-cache",
+          "access-control-allow-credentials": "false",
+          "access-control-allow-headers": "Content-Type, X-Expect-Auth-Cookie, X-Api-Mfa-Required, X-Request-Id, X-App-Revision, X-Total, X-No-WWW-Authenticate, Access-Control-Allow-Origin, Origin, X-Api-Password-Token, Accept, Authorization, X-App-Version, Access-Control-Allow-Credentials, X-Api-Mfa-Token, Accept-Language, X-Browser-Id, X-Next-Cursor, X-Session-Id, X-Requested-With, X-App-Session-Id, X-App-Browser-Id",
+          "access-control-max-age": "3600",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 5f7d374d92b73172fce43b7879076d1c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P4",
+          "x-amz-cf-id": "KiVZNcwGasAZo0qPdlkLvudGuY0Jqa50OibLI1zO3EZxTGwbXLs2Dw==",
+          "referrer-policy": "strict-origin-when-cross-origin"
+        },
+        "hash": "2d1adb5384eba8edcaa140eef1a854454204169a",
+        "request": {}
+      }
+    }
+  }
+}
