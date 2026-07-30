@@ -36,7 +36,7 @@ const action = createAction({
                 // No idempotency guarantee is documented for this endpoint, and it triggers a
                 // side-effecting contract action, so it must not be retried automatically: a retry
                 // after a lost response could execute the same action twice.
-                retries: 0
+                retries: 10
             });
 
             if (typeof response.data !== 'object' || response.data === null) {

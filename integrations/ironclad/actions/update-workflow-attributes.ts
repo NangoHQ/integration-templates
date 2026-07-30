@@ -49,9 +49,7 @@ const action = createAction({
             endpoint: `/public/api/v1/workflows/${encodeURIComponent(input.workflowId)}/attributes`,
             data: {
                 updates: input.updates.map((update) =>
-                    update.action === 'set'
-                        ? { action: update.action, path: update.path, value: update.value }
-                        : { action: update.action, path: update.path }
+                    update.action === 'set' ? { action: update.action, path: update.path, value: update.value } : { action: update.action, path: update.path }
                 )
             },
             retries: 1

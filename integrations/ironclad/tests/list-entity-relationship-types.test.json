@@ -1,0 +1,1125 @@
+{
+  "input": {},
+  "output": {
+    "relationship_types": [
+      {
+        "id": "5b8f9e5b-ec00-4acc-a7eb-92e060a56642",
+        "name": "customer",
+        "properties": [
+          {
+            "id": "a25baee4-dfc3-4987-b1c6-b4297ceace28",
+            "name": "entity_address",
+            "type": {
+              "typeName": "address"
+            },
+            "description": "The address for the entity",
+            "required": false
+          },
+          {
+            "id": "51af5ace-1363-4ceb-b8e0-4de894687e08",
+            "name": "entity_pocName",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The contact's name",
+            "required": false
+          },
+          {
+            "id": "18ce9b45-1358-40e4-a26a-88be166e24b1",
+            "name": "entity_category",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The role of the company party in the business relationship, either internal or external",
+            "required": true
+          },
+          {
+            "id": "51dd9e38-b3e2-417a-a452-cf31c1825a38",
+            "name": "entity_pocEmail",
+            "type": {
+              "typeName": "email"
+            },
+            "description": "The contact's email",
+            "required": false
+          },
+          {
+            "id": "ae3c9e28-8b7e-496f-be82-d825597fd85a",
+            "name": "entity_businessType",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The type of entity such as company, nonprofit, individual, etc",
+            "required": false
+          },
+          {
+            "id": "6da2cfa9-c784-47f8-b753-0fa1845ae230",
+            "name": "entity_salesforceID",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "A unique ID for this entity from Salesforce",
+            "required": false
+          },
+          {
+            "id": "785a2b04-13b7-4dd8-b92c-90730c96e28d",
+            "name": "entity_alternativeNames",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "Alternative names for an entity such as former names or localized entity names",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "d9095309-2e0a-4dc3-98e8-27c2c046312e",
+        "name": "imported",
+        "properties": [
+          {
+            "id": "f5e5ac8b-75d6-4f12-9e57-c9ec2358fa1f",
+            "name": "entity_address",
+            "type": {
+              "typeName": "address"
+            },
+            "description": "The address for the entity",
+            "required": false
+          },
+          {
+            "id": "7360b236-97f1-48dc-b4b3-790c6b98b2cb",
+            "name": "entity_pocName",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The contact's name",
+            "required": false
+          },
+          {
+            "id": "7c864dcf-fffd-40e6-aada-10c0c63ee8d9",
+            "name": "entity_category",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The role of the company party in the business relationship, either internal or external",
+            "required": true
+          },
+          {
+            "id": "3d56045f-811e-4179-a976-0333ee242fd2",
+            "name": "entity_pocEmail",
+            "type": {
+              "typeName": "email"
+            },
+            "description": "The contact's email",
+            "required": false
+          },
+          {
+            "id": "4d33aa97-bd7b-4848-b71e-bf6f1a7ce722",
+            "name": "entity_businessType",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The type of entity such as company, nonprofit, individual, etc",
+            "required": false
+          },
+          {
+            "id": "dd594b67-2b0a-44e7-bc95-aafdc02e2c3d",
+            "name": "entity_salesforceID",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "A unique ID for this entity from Salesforce",
+            "required": false
+          },
+          {
+            "id": "ae5b7460-4f09-4eea-ac96-dc3b1b4fb1d5",
+            "name": "entity_alternativeNames",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "Alternative names for an entity such as former names or localized entity names",
+            "required": false
+          },
+          {
+            "id": "294b6ac3-c8a6-4984-9c5c-77135b404578",
+            "name": "entity_internalDepartment",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The internal business or organizational unit that is associated with this entity",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "eeead65e-838c-4e6e-8e70-6a7a9ad3df6a",
+        "name": "partner",
+        "properties": [
+          {
+            "id": "741aaad3-e82b-466b-aac3-54d1cbf08f2b",
+            "name": "entity_address",
+            "type": {
+              "typeName": "address"
+            },
+            "description": "The address for the entity",
+            "required": false
+          },
+          {
+            "id": "5f5f9dc0-ba5b-4426-85c6-47e33c99fdd3",
+            "name": "entity_pocName",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The contact's name",
+            "required": false
+          },
+          {
+            "id": "ffbb35de-babc-48d8-91e2-e10896f9cb8d",
+            "name": "entity_category",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The role of the company party in the business relationship, either internal or external",
+            "required": true
+          },
+          {
+            "id": "ce6bc84b-2716-4843-9f7d-e9432d13a2b9",
+            "name": "entity_pocEmail",
+            "type": {
+              "typeName": "email"
+            },
+            "description": "The contact's email",
+            "required": false
+          },
+          {
+            "id": "bb91a758-73a2-4178-9d18-6afb7d77c115",
+            "name": "entity_businessType",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The type of entity such as company, nonprofit, individual, etc",
+            "required": false
+          },
+          {
+            "id": "e4394121-0c77-431a-bed5-87fd8f0af754",
+            "name": "entity_salesforceID",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "A unique ID for this entity from Salesforce",
+            "required": false
+          },
+          {
+            "id": "ae40315e-4201-4371-9270-bc1e7d543aec",
+            "name": "entity_alternativeNames",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "Alternative names for an entity such as former names or localized entity names",
+            "required": false
+          },
+          {
+            "id": "75c3147b-3f99-4f9e-adc1-81f5bbc8f9fe",
+            "name": "entity_internalDepartment",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The internal business or organizational unit that is associated with this entity",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+        "name": "vendor",
+        "properties": [
+          {
+            "id": "5b0de2f2-8e5f-41db-8707-03f44630458b",
+            "name": "entity_address",
+            "type": {
+              "typeName": "address"
+            },
+            "description": "The address for the entity",
+            "required": false
+          },
+          {
+            "id": "de67f965-4a3d-4c68-9b35-f4a3e132ef06",
+            "name": "entity_pocName",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The contact's name",
+            "required": false
+          },
+          {
+            "id": "e82ef2f5-31e8-483c-a0f3-7c1362de4642",
+            "name": "entity_category",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The role of the company party in the business relationship, either internal or external",
+            "required": true
+          },
+          {
+            "id": "75eabc98-903a-404b-8504-16b96dc6e422",
+            "name": "entity_pocEmail",
+            "type": {
+              "typeName": "email"
+            },
+            "description": "The contact's email",
+            "required": false
+          },
+          {
+            "id": "7f340748-7877-4647-b090-7f6c108ead92",
+            "name": "entity_vendorID",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "A unique ID for this entity from an external vendor system",
+            "required": false
+          },
+          {
+            "id": "22a8217a-a87f-47ae-ac2f-f2b58bffb2fe",
+            "name": "entity_vendorType",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The type of vendor or product",
+            "required": false
+          },
+          {
+            "id": "7848d83a-52d2-4692-894b-9edf7878659c",
+            "name": "entity_businessType",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The type of entity such as company, nonprofit, individual, etc",
+            "required": false
+          },
+          {
+            "id": "6de24737-ebc3-4f59-b029-8d806d672bcb",
+            "name": "entity_alternativeNames",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "Alternative names for an entity such as former names or localized entity names",
+            "required": false
+          },
+          {
+            "id": "24786487-6b29-4c4a-8486-e9de30b1dd20",
+            "name": "entity_internalDepartment",
+            "type": {
+              "typeName": "string"
+            },
+            "description": "The internal business or organizational unit that is associated with this entity",
+            "required": false
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/public/api/v1/entities/relationship-types": {
+        "response": [
+          {
+            "id": "5b8f9e5b-ec00-4acc-a7eb-92e060a56642",
+            "companyId": "68dc3ef957dfe647e41e47df",
+            "name": "customer",
+            "kind": "object",
+            "displayName": "Customer",
+            "description": "Used for companies that we sell goods or service to",
+            "typeHash": {
+              "type": "Buffer",
+              "data": [
+                97,
+                98,
+                102,
+                53,
+                53,
+                49,
+                51,
+                50,
+                97,
+                102,
+                54,
+                57,
+                56,
+                99,
+                54,
+                53,
+                100,
+                48,
+                56,
+                51,
+                52,
+                49,
+                54,
+                97,
+                52,
+                56,
+                49,
+                101,
+                98,
+                99,
+                50,
+                50
+              ]
+            },
+            "properties": {
+              "entity_address": {
+                "id": "a25baee4-dfc3-4987-b1c6-b4297ceace28",
+                "key": "entity_address",
+                "type": {
+                  "typeName": "address"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 3,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "address",
+                "description": "The address for the entity",
+                "displayName": "Address",
+                "namedTypeId": "5b8f9e5b-ec00-4acc-a7eb-92e060a56642",
+                "fullTypeName": "address",
+                "systemGenerated": false
+              },
+              "entity_pocName": {
+                "id": "51af5ace-1363-4ceb-b8e0-4de894687e08",
+                "key": "entity_pocName",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 4,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The contact's name",
+                "displayName": "Point of contact name",
+                "namedTypeId": "5b8f9e5b-ec00-4acc-a7eb-92e060a56642",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_category": {
+                "id": "18ce9b45-1358-40e4-a26a-88be166e24b1",
+                "key": "entity_category",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 0,
+                "required": true,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The role of the company party in the business relationship, either internal or external",
+                "displayName": "Category",
+                "namedTypeId": "5b8f9e5b-ec00-4acc-a7eb-92e060a56642",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_pocEmail": {
+                "id": "51dd9e38-b3e2-417a-a452-cf31c1825a38",
+                "key": "entity_pocEmail",
+                "type": {
+                  "typeName": "email"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 5,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "email",
+                "description": "The contact's email",
+                "displayName": "Point of contact email",
+                "namedTypeId": "5b8f9e5b-ec00-4acc-a7eb-92e060a56642",
+                "fullTypeName": "email",
+                "systemGenerated": false
+              },
+              "entity_businessType": {
+                "id": "ae3c9e28-8b7e-496f-be82-d825597fd85a",
+                "key": "entity_businessType",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 1,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The type of entity such as company, nonprofit, individual, etc",
+                "displayName": "Business Type",
+                "namedTypeId": "5b8f9e5b-ec00-4acc-a7eb-92e060a56642",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_salesforceID": {
+                "id": "6da2cfa9-c784-47f8-b753-0fa1845ae230",
+                "key": "entity_salesforceID",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 6,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "A unique ID for this entity from Salesforce",
+                "displayName": "Salesforce ID",
+                "namedTypeId": "5b8f9e5b-ec00-4acc-a7eb-92e060a56642",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_alternativeNames": {
+                "id": "785a2b04-13b7-4dd8-b92c-90730c96e28d",
+                "key": "entity_alternativeNames",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 2,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "Alternative names for an entity such as former names or localized entity names",
+                "displayName": "Alternative Names",
+                "namedTypeId": "5b8f9e5b-ec00-4acc-a7eb-92e060a56642",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              }
+            }
+          },
+          {
+            "id": "d9095309-2e0a-4dc3-98e8-27c2c046312e",
+            "companyId": "68dc3ef957dfe647e41e47df",
+            "name": "imported",
+            "kind": "object",
+            "displayName": "None",
+            "description": "Default for imported entities when no type or no valid type is specified",
+            "typeHash": {
+              "type": "Buffer",
+              "data": [
+                97,
+                98,
+                102,
+                53,
+                53,
+                49,
+                51,
+                50,
+                97,
+                102,
+                54,
+                57,
+                56,
+                99,
+                54,
+                53,
+                100,
+                48,
+                56,
+                51,
+                52,
+                49,
+                54,
+                97,
+                52,
+                56,
+                49,
+                101,
+                98,
+                99,
+                50,
+                50
+              ]
+            },
+            "properties": {
+              "entity_address": {
+                "id": "f5e5ac8b-75d6-4f12-9e57-c9ec2358fa1f",
+                "key": "entity_address",
+                "type": {
+                  "typeName": "address"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 3,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "address",
+                "description": "The address for the entity",
+                "displayName": "Address",
+                "namedTypeId": "d9095309-2e0a-4dc3-98e8-27c2c046312e",
+                "fullTypeName": "address",
+                "systemGenerated": false
+              },
+              "entity_pocName": {
+                "id": "7360b236-97f1-48dc-b4b3-790c6b98b2cb",
+                "key": "entity_pocName",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 4,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The contact's name",
+                "displayName": "Point of contact name",
+                "namedTypeId": "d9095309-2e0a-4dc3-98e8-27c2c046312e",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_category": {
+                "id": "7c864dcf-fffd-40e6-aada-10c0c63ee8d9",
+                "key": "entity_category",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 0,
+                "required": true,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The role of the company party in the business relationship, either internal or external",
+                "displayName": "Category",
+                "namedTypeId": "d9095309-2e0a-4dc3-98e8-27c2c046312e",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_pocEmail": {
+                "id": "3d56045f-811e-4179-a976-0333ee242fd2",
+                "key": "entity_pocEmail",
+                "type": {
+                  "typeName": "email"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 5,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "email",
+                "description": "The contact's email",
+                "displayName": "Point of contact email",
+                "namedTypeId": "d9095309-2e0a-4dc3-98e8-27c2c046312e",
+                "fullTypeName": "email",
+                "systemGenerated": false
+              },
+              "entity_businessType": {
+                "id": "4d33aa97-bd7b-4848-b71e-bf6f1a7ce722",
+                "key": "entity_businessType",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 1,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The type of entity such as company, nonprofit, individual, etc",
+                "displayName": "Business Type",
+                "namedTypeId": "d9095309-2e0a-4dc3-98e8-27c2c046312e",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_salesforceID": {
+                "id": "dd594b67-2b0a-44e7-bc95-aafdc02e2c3d",
+                "key": "entity_salesforceID",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 6,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "A unique ID for this entity from Salesforce",
+                "displayName": "Salesforce ID",
+                "namedTypeId": "d9095309-2e0a-4dc3-98e8-27c2c046312e",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_alternativeNames": {
+                "id": "ae5b7460-4f09-4eea-ac96-dc3b1b4fb1d5",
+                "key": "entity_alternativeNames",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 2,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "Alternative names for an entity such as former names or localized entity names",
+                "displayName": "Alternative Names",
+                "namedTypeId": "d9095309-2e0a-4dc3-98e8-27c2c046312e",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_internalDepartment": {
+                "id": "294b6ac3-c8a6-4984-9c5c-77135b404578",
+                "key": "entity_internalDepartment",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 7,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The internal business or organizational unit that is associated with this entity",
+                "displayName": "Internal department",
+                "namedTypeId": "d9095309-2e0a-4dc3-98e8-27c2c046312e",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              }
+            }
+          },
+          {
+            "id": "eeead65e-838c-4e6e-8e70-6a7a9ad3df6a",
+            "companyId": "68dc3ef957dfe647e41e47df",
+            "name": "partner",
+            "kind": "object",
+            "displayName": "Partner",
+            "description": "Used for companies that we partner with",
+            "typeHash": {
+              "type": "Buffer",
+              "data": [
+                97,
+                98,
+                102,
+                53,
+                53,
+                49,
+                51,
+                50,
+                97,
+                102,
+                54,
+                57,
+                56,
+                99,
+                54,
+                53,
+                100,
+                48,
+                56,
+                51,
+                52,
+                49,
+                54,
+                97,
+                52,
+                56,
+                49,
+                101,
+                98,
+                99,
+                50,
+                50
+              ]
+            },
+            "properties": {
+              "entity_address": {
+                "id": "741aaad3-e82b-466b-aac3-54d1cbf08f2b",
+                "key": "entity_address",
+                "type": {
+                  "typeName": "address"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 3,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "address",
+                "description": "The address for the entity",
+                "displayName": "Address",
+                "namedTypeId": "eeead65e-838c-4e6e-8e70-6a7a9ad3df6a",
+                "fullTypeName": "address",
+                "systemGenerated": false
+              },
+              "entity_pocName": {
+                "id": "5f5f9dc0-ba5b-4426-85c6-47e33c99fdd3",
+                "key": "entity_pocName",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 4,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The contact's name",
+                "displayName": "Point of contact name",
+                "namedTypeId": "eeead65e-838c-4e6e-8e70-6a7a9ad3df6a",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_category": {
+                "id": "ffbb35de-babc-48d8-91e2-e10896f9cb8d",
+                "key": "entity_category",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 0,
+                "required": true,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The role of the company party in the business relationship, either internal or external",
+                "displayName": "Category",
+                "namedTypeId": "eeead65e-838c-4e6e-8e70-6a7a9ad3df6a",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_pocEmail": {
+                "id": "ce6bc84b-2716-4843-9f7d-e9432d13a2b9",
+                "key": "entity_pocEmail",
+                "type": {
+                  "typeName": "email"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 5,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "email",
+                "description": "The contact's email",
+                "displayName": "Point of contact email",
+                "namedTypeId": "eeead65e-838c-4e6e-8e70-6a7a9ad3df6a",
+                "fullTypeName": "email",
+                "systemGenerated": false
+              },
+              "entity_businessType": {
+                "id": "bb91a758-73a2-4178-9d18-6afb7d77c115",
+                "key": "entity_businessType",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 1,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The type of entity such as company, nonprofit, individual, etc",
+                "displayName": "Business Type",
+                "namedTypeId": "eeead65e-838c-4e6e-8e70-6a7a9ad3df6a",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_salesforceID": {
+                "id": "e4394121-0c77-431a-bed5-87fd8f0af754",
+                "key": "entity_salesforceID",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 6,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "A unique ID for this entity from Salesforce",
+                "displayName": "Salesforce ID",
+                "namedTypeId": "eeead65e-838c-4e6e-8e70-6a7a9ad3df6a",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_alternativeNames": {
+                "id": "ae40315e-4201-4371-9270-bc1e7d543aec",
+                "key": "entity_alternativeNames",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 2,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "Alternative names for an entity such as former names or localized entity names",
+                "displayName": "Alternative Names",
+                "namedTypeId": "eeead65e-838c-4e6e-8e70-6a7a9ad3df6a",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_internalDepartment": {
+                "id": "75c3147b-3f99-4f9e-adc1-81f5bbc8f9fe",
+                "key": "entity_internalDepartment",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 7,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The internal business or organizational unit that is associated with this entity",
+                "displayName": "Internal department",
+                "namedTypeId": "eeead65e-838c-4e6e-8e70-6a7a9ad3df6a",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              }
+            }
+          },
+          {
+            "id": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+            "companyId": "68dc3ef957dfe647e41e47df",
+            "name": "vendor",
+            "kind": "object",
+            "displayName": "Vendor",
+            "description": "Used for companies that we buy goods or services from",
+            "typeHash": {
+              "type": "Buffer",
+              "data": [
+                97,
+                98,
+                102,
+                53,
+                53,
+                49,
+                51,
+                50,
+                97,
+                102,
+                54,
+                57,
+                56,
+                99,
+                54,
+                53,
+                100,
+                48,
+                56,
+                51,
+                52,
+                49,
+                54,
+                97,
+                52,
+                56,
+                49,
+                101,
+                98,
+                99,
+                50,
+                50
+              ]
+            },
+            "properties": {
+              "entity_address": {
+                "id": "5b0de2f2-8e5f-41db-8707-03f44630458b",
+                "key": "entity_address",
+                "type": {
+                  "typeName": "address"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 3,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "address",
+                "description": "The address for the entity",
+                "displayName": "Address",
+                "namedTypeId": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+                "fullTypeName": "address",
+                "systemGenerated": false
+              },
+              "entity_pocName": {
+                "id": "de67f965-4a3d-4c68-9b35-f4a3e132ef06",
+                "key": "entity_pocName",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 4,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The contact's name",
+                "displayName": "Point of contact name",
+                "namedTypeId": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_category": {
+                "id": "e82ef2f5-31e8-483c-a0f3-7c1362de4642",
+                "key": "entity_category",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 0,
+                "required": true,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The role of the company party in the business relationship, either internal or external",
+                "displayName": "Category",
+                "namedTypeId": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_pocEmail": {
+                "id": "75eabc98-903a-404b-8504-16b96dc6e422",
+                "key": "entity_pocEmail",
+                "type": {
+                  "typeName": "email"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 5,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "email",
+                "description": "The contact's email",
+                "displayName": "Point of contact email",
+                "namedTypeId": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+                "fullTypeName": "email",
+                "systemGenerated": false
+              },
+              "entity_vendorID": {
+                "id": "7f340748-7877-4647-b090-7f6c108ead92",
+                "key": "entity_vendorID",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 7,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "A unique ID for this entity from an external vendor system",
+                "displayName": "Vendor ID",
+                "namedTypeId": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_vendorType": {
+                "id": "22a8217a-a87f-47ae-ac2f-f2b58bffb2fe",
+                "key": "entity_vendorType",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 8,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The type of vendor or product",
+                "displayName": "Vendor type",
+                "namedTypeId": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_businessType": {
+                "id": "7848d83a-52d2-4692-894b-9edf7878659c",
+                "key": "entity_businessType",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 1,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The type of entity such as company, nonprofit, individual, etc",
+                "displayName": "Business Type",
+                "namedTypeId": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_alternativeNames": {
+                "id": "6de24737-ebc3-4f59-b029-8d806d672bcb",
+                "key": "entity_alternativeNames",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 2,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "Alternative names for an entity such as former names or localized entity names",
+                "displayName": "Alternative Names",
+                "namedTypeId": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              },
+              "entity_internalDepartment": {
+                "id": "24786487-6b29-4c4a-8486-e9de30b1dd20",
+                "key": "entity_internalDepartment",
+                "type": {
+                  "typeName": "string"
+                },
+                "hidden": false,
+                "aliases": [],
+                "ordering": 6,
+                "required": false,
+                "companyId": "68dc3ef957dfe647e41e47df",
+                "erasedType": "string",
+                "description": "The internal business or organizational unit that is associated with this entity",
+                "displayName": "Internal department",
+                "namedTypeId": "ef4b6574-094e-49f6-b471-7f9457d3d6ce",
+                "fullTypeName": "string",
+                "systemGenerated": false
+              }
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 12:13:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1909",
+          "x-ratelimit-reset": "1785413642",
+          "x-pod-name": "public-api-558bcb5f77-nd8nk",
+          "x-version": "2026.29.916.740-a76a8bf20b4",
+          "x-response-id": "f5e672c7-fdea-4779-94a2-d036394bd447",
+          "cache-control": "no-store, no-cache",
+          "content-security-policy": "default-src 'self';frame-ancestors 'self' https://*.salesforce.com https://*.lightning.force.com https://*.visual.force.com https://*.visualforce.com https://green-harvest-experience.my.site.com https://*.officeapps.live.com https://*.sharepoint.com;report-to https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;report-uri https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "expect-ct": "max-age=0",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-ironclad-requestid": "f5e672c7-fdea-4779-94a2-d036394bd447",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "206cacd06b86ca084f19b06998c9401ca409ba98",
+        "request": {}
+      }
+    }
+  }
+}
