@@ -3,11 +3,8 @@
   "output": {
     "items": [
       {
-        "@odata.etag": "W/\"JzE2NzUyNDI3MzAsNTYzNzE0NDU3Nic=\"",
-        "ChartOfAccounts": "General Chart",
-        "MainAccountMask": "",
-        "ChartOfAccountsRecId": 5637144576,
-        "Description": "Chart"
+        "chart_of_accounts": "General Chart",
+        "description": "Chart"
       }
     ]
   },
@@ -29,7 +26,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:34:13 GMT",
+          "date": "Thu, 30 Jul 2026 09:19:43 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "308",
           "connection": "keep-alive",
@@ -43,15 +40,16 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1951",
-          "x-ratelimit-reset": "1784766881",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785403242",
           "etag": "W/\"134-jJtjmubpFQytNjgSgpPfHUXIUz8\""
         },
-        "hash": "330ff24e4954f3141b710247def1ebcbf8069351",
+        "hash": "36d8f83f31272d18467782582ffd08077e3f83fa",
         "request": {
           "params": {
             "$skip": "0",
-            "$top": "100"
+            "$top": "100",
+            "cross-company": "true"
           }
         }
       }

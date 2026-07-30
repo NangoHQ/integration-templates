@@ -3,8 +3,9 @@
   "output": {
     "items": [
       {
-        "currencyCode": "USD",
-        "name": "US Dollar"
+        "CurrencyCode": "USD",
+        "Name": "US Dollar",
+        "Symbol": ""
       }
     ]
   },
@@ -37,7 +38,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:23:01 GMT",
+          "date": "Thu, 30 Jul 2026 09:21:11 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "632",
           "connection": "keep-alive",
@@ -51,17 +52,12 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1963",
-          "x-ratelimit-reset": "1784766214",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785403330",
           "etag": "W/\"278-rdXTuMtTxeX/5FLvtrOz0Cz0xvw\""
         },
-        "hash": "00260e07a3ad511265adaafa27e37f2b7983421b",
-        "request": {
-          "params": {
-            "$skip": "0",
-            "$top": "100"
-          }
-        }
+        "hash": "6b4328e2e8597befd56897426bb98bff1f7bb4b5",
+        "request": {}
       }
     }
   }

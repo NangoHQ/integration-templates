@@ -5,17 +5,10 @@
   },
   "output": {
     "dataAreaId": "dat",
-    "JournalBatchNumber": "DAT-000009",
-    "JournalName": "APPay",
-    "Description": "AP Payments",
-    "IsPosted": "No",
-    "OverrideSalesTax": "No",
-    "ChargeBearer": 0,
-    "CategoryPurpose": 0,
-    "LocalInstrument": 0,
-    "ServiceLevel": 0,
-    "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#VendorPaymentJournalHeaders/$entity",
-    "@odata.etag": "W/\"JzIxMDc0Nzc5NjQsNTYzNzE0NTMyNzsxLDU2MzcxNDUzMjYn\""
+    "journalBatchNumber": "DAT-000009",
+    "description": "AP Payments",
+    "journalName": "APPay",
+    "isPosted": "No"
   },
   "nango": {},
   "api": {
@@ -37,7 +30,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:24:13 GMT",
+          "date": "Thu, 30 Jul 2026 09:18:13 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "414",
           "connection": "keep-alive",
@@ -51,8 +44,8 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1874",
-          "x-ratelimit-reset": "1784766274",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785403153",
           "etag": "W/\"19e-rDCAcA+v3mDWgeR5JZSULWTrUtc\""
         },
         "hash": "4af1a294a55ae6cd4a13a5f929c256404d61eab2",

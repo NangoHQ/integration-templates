@@ -3,9 +3,9 @@
   "output": {
     "items": [
       {
-        "TaxGroupCode": "RFITAX",
         "@odata.etag": "W/\"JzEsNTYzNzE0NDU3Nic=\"",
         "dataAreaId": "dat",
+        "TaxGroupCode": "RFITAX",
         "Description": "",
         "DefaultCriteriaCityId": "",
         "DefaultCriteriaCountyId": "",
@@ -51,7 +51,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 01:37:03 GMT",
+          "date": "Thu, 30 Jul 2026 09:47:20 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "582",
           "connection": "keep-alive",
@@ -65,14 +65,13 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1971",
-          "x-ratelimit-reset": "1784770623",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785404899",
           "etag": "W/\"246-4Gkr9p/m2+Qq3K5Qr8H90ALCvPg\""
         },
-        "hash": "23aefac6e6546d9fc5920f191a12bd794be60afd",
+        "hash": "b9ea8cccadde9930c6c3e9486d77115ba56db6b1",
         "request": {
           "params": {
-            "$skip": "0",
             "$top": "100"
           }
         }
