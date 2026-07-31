@@ -3,13 +3,12 @@
     "batchSave": {
       "CustomerPaymentJournalHeader": [
         {
-          "id": "dat-DAT-000007",
+          "id": "dat|DAT-000007",
           "dataAreaId": "dat",
-          "JournalBatchNumber": "DAT-000007",
-          "JournalName": "ARPay",
-          "OverrideSalesTax": "No",
-          "Description": "RootFi test customer payment",
-          "IsPosted": "Yes"
+          "journalBatchNumber": "DAT-000007",
+          "isPosted": "Yes",
+          "description": "RootFi test customer payment",
+          "journalName": "ARPay"
         }
       ]
     },
@@ -36,7 +35,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 12:38:44 GMT",
+          "date": "Thu, 30 Jul 2026 08:50:12 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "372",
           "connection": "keep-alive",
@@ -51,7 +50,7 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1997",
-          "x-ratelimit-reset": "1784810383",
+          "x-ratelimit-reset": "1785401471",
           "etag": "W/\"174-qA8PHs2VTR7Bt8denP3kNedXACE\""
         },
         "hash": "146f57dae2e76e17d8c3faf5b794d3435af7176d",

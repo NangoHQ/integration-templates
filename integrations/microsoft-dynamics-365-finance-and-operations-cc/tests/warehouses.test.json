@@ -4,9 +4,10 @@
       "Warehouse": [
         {
           "id": "dat-RFI-WH",
-          "dataAreaId": "dat",
-          "warehouseId": "RFI-WH",
-          "warehouseName": "RootFi Test Warehouse"
+          "warehouse_id": "RFI-WH",
+          "warehouse_name": "RootFi Test Warehouse",
+          "data_area_id": "dat",
+          "site_id": "RFI"
         }
       ]
     },
@@ -119,7 +120,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 12:35:05 GMT",
+          "date": "Thu, 30 Jul 2026 08:35:49 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "3796",
           "connection": "keep-alive",
@@ -134,13 +135,12 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1997",
-          "x-ratelimit-reset": "1784810164",
+          "x-ratelimit-reset": "1785400607",
           "etag": "W/\"ed4-fQPFvaVoI+Vk509Nh4HEC5IXMoQ\""
         },
-        "hash": "a71886bae04bd29084016d146c92cbd160496380",
+        "hash": "e18f2d484dc39d1a02e1f28d34299c0a190eddba",
         "request": {
           "params": {
-            "$orderby": "dataAreaId asc,WarehouseId asc",
             "$skip": "0",
             "$top": "100",
             "cross-company": "true"

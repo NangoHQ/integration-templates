@@ -5,10 +5,13 @@
   },
   "output": {
     "dataAreaId": "dat",
-    "journalBatchNumber": "DAT-000007",
-    "journalName": "ARPay",
-    "description": "RootFi test customer payment",
-    "isPosted": "Yes"
+    "JournalBatchNumber": "DAT-000007",
+    "JournalName": "ARPay",
+    "Description": "RootFi test customer payment",
+    "IsPosted": "Yes",
+    "OverrideSalesTax": "No",
+    "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#CustomerPaymentJournalHeaders/$entity",
+    "@odata.etag": "W/\"JzY3NzA3NDYyNSw1NjM3MTQ1MzI2Jw==\""
   },
   "nango": {},
   "api": {
@@ -26,7 +29,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:24:45 GMT",
+          "date": "Thu, 30 Jul 2026 09:05:40 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "344",
           "connection": "keep-alive",
@@ -40,8 +43,8 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1959",
-          "x-ratelimit-reset": "1784766334",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1785402398",
           "etag": "W/\"158-jfsg1UbS4Vvw2Jv4zIYTqIky7rE\""
         },
         "hash": "45eca3be1a8e2dfaa1cf7b7c0a49a7d2b84ff691",

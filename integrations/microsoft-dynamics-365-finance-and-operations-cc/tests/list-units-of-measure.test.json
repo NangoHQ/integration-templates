@@ -7,26 +7,24 @@
         "UnitDescription": "LUMP_SUM",
         "UnitClass": "Undefined",
         "DecimalPrecision": 0,
-        "IsBaseUnit": "Yes",
+        "IsBaseUnit": true,
+        "IsFixedUnitSymbolAssigned": false,
         "SystemOfUnits": "None",
-        "IsSystemUnit": "No",
-        "IsFixedUnitSymbolAssigned": "No",
+        "IsSystemUnit": false,
         "FixedUnitSymbolAssignment": "Pieces",
-        "NationalCode": "",
-        "@odata.etag": "W/\"JzE1MDg5OTE3MjYsNTYzNzE0NDU3NjsxLDU2MzcxNDQ1NzY7MCwwOzEsNTYzNzE0NDU3NjswLDAn\""
+        "NationalCode": ""
       },
       {
         "UnitSymbol": "pcs",
         "UnitDescription": "Pcs",
         "UnitClass": "Quantity",
         "DecimalPrecision": 0,
-        "IsBaseUnit": "No",
+        "IsBaseUnit": false,
+        "IsFixedUnitSymbolAssigned": false,
         "SystemOfUnits": "None",
-        "IsSystemUnit": "No",
-        "IsFixedUnitSymbolAssigned": "No",
+        "IsSystemUnit": false,
         "FixedUnitSymbolAssignment": "Pieces",
-        "NationalCode": "",
-        "@odata.etag": "W/\"JzEsNTYzNzE0NDU3NzsxLDU2MzcxNDQ1Nzc7MCwwOzAsMDswLDAn\""
+        "NationalCode": ""
       }
     ]
   },
@@ -36,6 +34,7 @@
       "/data/UnitsOfMeasure": {
         "response": {
           "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#UnitsOfMeasure",
+          "@odata.count": 2,
           "value": [
             {
               "@odata.etag": "W/\"JzE1MDg5OTE3MjYsNTYzNzE0NDU3NjsxLDU2MzcxNDQ1NzY7MCwwOzEsNTYzNzE0NDU3NjswLDAn\"",
@@ -67,9 +66,9 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:28:46 GMT",
+          "date": "Thu, 30 Jul 2026 09:49:07 GMT",
           "content-type": "application/json; odata.metadata=minimal",
-          "content-length": "811",
+          "content-length": "828",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -81,12 +80,18 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1982",
-          "x-ratelimit-reset": "1784766577",
-          "etag": "W/\"32b-1MrgGhSo3KObomYklYvU0x1qC+Q\""
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785405005",
+          "etag": "W/\"33c-zYeD06c1vpWW0ZEIm/Ut2LxipxA\""
         },
-        "hash": "c73f21b23797901c1688251918c122799cbd2e23",
-        "request": {}
+        "hash": "ecf6794c801007d6db2f792ae233f54406798d41",
+        "request": {
+          "params": {
+            "$count": "true",
+            "$skip": "0",
+            "$top": "100"
+          }
+        }
       }
     }
   }

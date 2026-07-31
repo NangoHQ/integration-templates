@@ -70,7 +70,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 10:19:15 GMT",
+          "date": "Wed, 29 Jul 2026 19:43:13 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "1153",
           "connection": "keep-alive",
@@ -85,7 +85,7 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1997",
-          "x-ratelimit-reset": "1784802012",
+          "x-ratelimit-reset": "1785354251",
           "etag": "W/\"481-U51nWH24TRS5eKPhPSoklv7EGxI\""
         },
         "hash": "80522cd88bddc0e3113720854d5f7044e3dd66e8",

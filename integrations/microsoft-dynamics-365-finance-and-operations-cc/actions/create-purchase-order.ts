@@ -2,61 +2,63 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company/data area ID. Example: "dat"'),
-    orderVendorAccountNumber: z.string().describe('Vendor account number for the ordering party. Example: "DAT-0000000002"'),
+    dataAreaId: z.string().describe('Company / legal entity code. Example: "dat"'),
+    orderVendorAccountNumber: z.string().describe('Vendor account number for the order. Example: "DAT-0000000002"'),
     invoiceVendorAccountNumber: z.string().describe('Vendor account number for invoicing. Example: "DAT-0000000002"'),
-    currencyCode: z.string().describe('Currency code for the purchase order. Example: "USD"'),
-    languageId: z.string().describe('Language ID for the purchase order. Example: "en-us"')
+    currencyCode: z.string().describe('Currency code. Example: "USD"'),
+    languageId: z.string().describe('Language ID. Example: "en-us"')
 });
 
-const ProviderPurchaseOrderHeaderSchema = z.object({
-    dataAreaId: z.string(),
-    PurchaseOrderNumber: z.string(),
-    OrderVendorAccountNumber: z.string(),
-    InvoiceVendorAccountNumber: z.string(),
-    CurrencyCode: z.string(),
-    LanguageId: z.string()
-});
+const ProviderPurchaseOrderSchema = z
+    .object({
+        PurchaseOrderNumber: z.string().optional(),
+        OrderVendorAccountNumber: z.string().optional(),
+        InvoiceVendorAccountNumber: z.string().optional(),
+        CurrencyCode: z.string().optional(),
+        LanguageId: z.string().optional(),
+        dataAreaId: z.string().optional()
+    })
+    .passthrough();
 
 const OutputSchema = z.object({
-    dataAreaId: z.string(),
-    purchaseOrderNumber: z.string(),
-    orderVendorAccountNumber: z.string(),
-    invoiceVendorAccountNumber: z.string(),
-    currencyCode: z.string(),
-    languageId: z.string()
+    purchaseOrderNumber: z.string().optional(),
+    orderVendorAccountNumber: z.string().optional(),
+    invoiceVendorAccountNumber: z.string().optional(),
+    currencyCode: z.string().optional(),
+    languageId: z.string().optional(),
+    dataAreaId: z.string().optional()
 });
 
 const action = createAction({
     description: 'Create a purchase order header.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const body: Record<string, unknown> = {
-            dataAreaId: input.dataAreaId,
-            OrderVendorAccountNumber: input.orderVendorAccountNumber,
-            InvoiceVendorAccountNumber: input.invoiceVendorAccountNumber,
-            CurrencyCode: input.currencyCode,
-            LanguageId: input.languageId
-        };
+    scopes: ['Financials'],
 
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/PurchaseOrderHeadersV2',
-            data: body,
+            data: {
+                dataAreaId: input.dataAreaId,
+                OrderVendorAccountNumber: input.orderVendorAccountNumber,
+                InvoiceVendorAccountNumber: input.invoiceVendorAccountNumber,
+                CurrencyCode: input.currencyCode,
+                LanguageId: input.languageId
+            },
             retries: 3
         });
 
-        const providerHeader = ProviderPurchaseOrderHeaderSchema.parse(response.data);
+        const providerOrder = ProviderPurchaseOrderSchema.parse(response.data);
 
         return {
-            dataAreaId: providerHeader.dataAreaId,
-            purchaseOrderNumber: providerHeader.PurchaseOrderNumber,
-            orderVendorAccountNumber: providerHeader.OrderVendorAccountNumber,
-            invoiceVendorAccountNumber: providerHeader.InvoiceVendorAccountNumber,
-            currencyCode: providerHeader.CurrencyCode,
-            languageId: providerHeader.LanguageId
+            ...(providerOrder.PurchaseOrderNumber !== undefined && { purchaseOrderNumber: providerOrder.PurchaseOrderNumber }),
+            ...(providerOrder.OrderVendorAccountNumber !== undefined && { orderVendorAccountNumber: providerOrder.OrderVendorAccountNumber }),
+            ...(providerOrder.InvoiceVendorAccountNumber !== undefined && { invoiceVendorAccountNumber: providerOrder.InvoiceVendorAccountNumber }),
+            ...(providerOrder.CurrencyCode !== undefined && { currencyCode: providerOrder.CurrencyCode }),
+            ...(providerOrder.LanguageId !== undefined && { languageId: providerOrder.LanguageId }),
+            ...(providerOrder.dataAreaId !== undefined && { dataAreaId: providerOrder.dataAreaId })
         };
     }
 });

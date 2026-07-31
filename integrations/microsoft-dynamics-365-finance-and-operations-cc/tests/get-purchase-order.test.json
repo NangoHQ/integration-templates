@@ -1,15 +1,11 @@
 {
   "input": {
-    "DataAreaId": "dat",
-    "PurchaseOrderNumber": "DAT-000001"
+    "dataAreaId": "dat",
+    "purchaseOrderNumber": "DAT-000001"
   },
   "output": {
-    "dataAreaId": "dat",
     "PurchaseOrderNumber": "DAT-000001",
-    "PurchaseOrderName": "Blackhawk Construction",
-    "OrderVendorAccountNumber": "DAT-0000000002",
-    "PurchaseOrderStatus": "Received",
-    "CurrencyCode": "USD",
+    "dataAreaId": "dat",
     "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#PurchaseOrderHeadersV2/$entity",
     "@odata.etag": "W/\"JzIxMTYwODIxMiw1NjM3MTQ0NTc2OzAsMDswLDA7MCwwOzAsMDswLDAn\"",
     "FiscalDocumentOperationTypeId": "",
@@ -17,6 +13,7 @@
     "ExpectedStoreAvailableSalesDate": "1900-01-01T12:00:00Z",
     "DeliveryModeId": "",
     "InvoiceAddressStreet": "",
+    "OrderVendorAccountNumber": "DAT-0000000002",
     "Email": "",
     "TransportationModeId": "",
     "IsChangeManagementActive": "No",
@@ -30,6 +27,7 @@
     "TransportationTemplateId": "",
     "AccountingDate": "2026-06-26T12:00:00Z",
     "CashDiscountPercentage": 0,
+    "PurchaseOrderName": "Blackhawk Construction",
     "RequestedDeliveryDate": "2026-06-26T12:00:00Z",
     "DeliveryAddressCountryRegionId": "",
     "DeliveryAddressLatitude": 0,
@@ -73,6 +71,7 @@
     "PaymentScheduleName": "",
     "IntrastatTransactionCode": "",
     "URL": "",
+    "CurrencyCode": "USD",
     "ConfirmingPurchaseOrderCodeLanguageId": "",
     "InvoiceType": "Invoice",
     "ArePricesIncludingSalesTax": "No",
@@ -99,6 +98,7 @@
     "DefaultReceivingWarehouseId": "",
     "EUSalesListCode": "IncludeNot",
     "ImportDeclarationNumber": "",
+    "PurchaseOrderStatus": "Received",
     "PaymentTermsName": "",
     "DeliveryAddressLongitude": 0,
     "DocumentApprovalStatus": "Confirmed",
@@ -253,7 +253,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:25:34 GMT",
+          "date": "Thu, 30 Jul 2026 09:13:28 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "3866",
           "connection": "keep-alive",
@@ -267,8 +267,8 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1883",
-          "x-ratelimit-reset": "1784766334",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785402867",
           "etag": "W/\"f1a-FaGk4r9fWVllpQBLZFMpRE5xhIY\""
         },
         "hash": "d9bdaaf3b6c9e313f29c4fb6669e6091b04fbaf8",

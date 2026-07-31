@@ -1,12 +1,13 @@
 {
   "input": {
     "dataAreaId": "dat",
-    "JournalName": "EXPJRN"
+    "journalName": "EXPJRN"
   },
   "output": {
-    "JournalBatchNumber": "DAT-000024",
-    "JournalName": "EXPJRN",
-    "dataAreaId": "dat"
+    "dataAreaId": "dat",
+    "journalBatchNumber": "DAT-000029",
+    "journalName": "EXPJRN",
+    "isPosted": "No"
   },
   "nango": {},
   "api": {
@@ -14,9 +15,9 @@
       "/data/LedgerJournalHeaders": {
         "response": {
           "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#LedgerJournalHeaders/$entity",
-          "@odata.etag": "W/\"JzEsNTYzNzE0NTMzOSc=\"",
+          "@odata.etag": "W/\"JzEsNTYzNzE0NjA4MCc=\"",
           "dataAreaId": "dat",
-          "JournalBatchNumber": "DAT-000024",
+          "JournalBatchNumber": "DAT-000029",
           "AccountingCurrency": "",
           "JournalName": "EXPJRN",
           "IntegrationKey": "",
@@ -28,7 +29,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 10:03:05 GMT",
+          "date": "Thu, 30 Jul 2026 08:57:15 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "400",
           "connection": "keep-alive",
@@ -43,8 +44,8 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1997",
-          "x-ratelimit-reset": "1784801044",
-          "etag": "W/\"190-kPWQw0qYKNlOgwWkAgyxMe1QiNY\""
+          "x-ratelimit-reset": "1785401894",
+          "etag": "W/\"190-OKQisPLSQhTOat+OgnQK6WO3t/g\""
         },
         "hash": "0afd26fa74a3c0add214a12df5d4d072c4810fbd",
         "request": {

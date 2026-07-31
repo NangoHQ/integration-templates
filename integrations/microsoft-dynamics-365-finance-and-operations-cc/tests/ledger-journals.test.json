@@ -4,67 +4,123 @@
       "LedgerJournal": [
         {
           "id": "dat-DAT-000010",
+          "DataAreaId": "dat",
           "JournalBatchNumber": "DAT-000010",
-          "dataAreaId": "dat",
           "JournalName": "EXPJRN",
           "Description": "RootFi test expense",
-          "IsPosted": "Yes"
+          "IsPosted": "Yes",
+          "AccountingCurrency": "USD",
+          "PostingLayer": "Current",
+          "JournalTotalCredit": 750,
+          "JournalTotalDebit": 750
         },
         {
           "id": "dat-DAT-000018",
+          "DataAreaId": "dat",
           "JournalBatchNumber": "DAT-000018",
-          "dataAreaId": "dat",
           "JournalName": "EXPJRN",
           "Description": "Expense journal",
-          "IsPosted": "No"
+          "IsPosted": "No",
+          "AccountingCurrency": "USD",
+          "PostingLayer": "Current",
+          "JournalTotalCredit": 0,
+          "JournalTotalDebit": 0
         },
         {
           "id": "dat-DAT-000019",
+          "DataAreaId": "dat",
           "JournalBatchNumber": "DAT-000019",
-          "dataAreaId": "dat",
           "JournalName": "EXPJRN",
           "Description": "Expense journal",
-          "IsPosted": "No"
+          "IsPosted": "No",
+          "AccountingCurrency": "USD",
+          "PostingLayer": "Current",
+          "JournalTotalCredit": 0,
+          "JournalTotalDebit": 0
         },
         {
           "id": "dat-DAT-000020",
+          "DataAreaId": "dat",
           "JournalBatchNumber": "DAT-000020",
-          "dataAreaId": "dat",
           "JournalName": "EXPJRN",
           "Description": "Expense journal",
-          "IsPosted": "No"
+          "IsPosted": "No",
+          "AccountingCurrency": "USD",
+          "PostingLayer": "Current",
+          "JournalTotalCredit": 0,
+          "JournalTotalDebit": 0
         },
         {
           "id": "dat-DAT-000021",
+          "DataAreaId": "dat",
           "JournalBatchNumber": "DAT-000021",
-          "dataAreaId": "dat",
           "JournalName": "EXPJRN",
           "Description": "Expense journal",
-          "IsPosted": "No"
+          "IsPosted": "No",
+          "AccountingCurrency": "USD",
+          "PostingLayer": "Current",
+          "JournalTotalCredit": 0,
+          "JournalTotalDebit": 0
         },
         {
           "id": "dat-DAT-000022",
+          "DataAreaId": "dat",
           "JournalBatchNumber": "DAT-000022",
-          "dataAreaId": "dat",
           "JournalName": "EXPJRN",
           "Description": "Expense journal",
-          "IsPosted": "No"
+          "IsPosted": "No",
+          "AccountingCurrency": "USD",
+          "PostingLayer": "Current",
+          "JournalTotalCredit": 0,
+          "JournalTotalDebit": 0
         },
         {
           "id": "dat-DAT-000023",
+          "DataAreaId": "dat",
           "JournalBatchNumber": "DAT-000023",
-          "dataAreaId": "dat",
           "JournalName": "EXPJRN",
           "Description": "Expense journal",
-          "IsPosted": "No"
+          "IsPosted": "No",
+          "AccountingCurrency": "USD",
+          "PostingLayer": "Current",
+          "JournalTotalCredit": 0,
+          "JournalTotalDebit": 0
         },
         {
           "id": "dat-DAT-000024",
+          "DataAreaId": "dat",
           "JournalBatchNumber": "DAT-000024",
-          "dataAreaId": "dat",
           "JournalName": "EXPJRN",
           "Description": "Expense journal",
-          "IsPosted": "No"
+          "IsPosted": "No",
+          "AccountingCurrency": "USD",
+          "PostingLayer": "Current",
+          "JournalTotalCredit": 0,
+          "JournalTotalDebit": 0
+        },
+        {
+          "id": "dat-DAT-000025",
+          "DataAreaId": "dat",
+          "JournalBatchNumber": "DAT-000025",
+          "JournalName": "EXPJRN",
+          "Description": "Expense journal",
+          "IsPosted": "No",
+          "AccountingCurrency": "USD",
+          "PostingLayer": "Current",
+          "JournalTotalCredit": 0,
+          "JournalTotalDebit": 0
+        },
+        {
+          "id": "dat-DAT-000027",
+          "DataAreaId": "dat",
+          "JournalBatchNumber": "DAT-000027",
+          "JournalName": "EXPJRN",
+          "Description": "Expense journal",
+          "IsPosted": "No",
+          "AccountingCurrency": "USD",
+          "PostingLayer": "Current",
+          "JournalTotalCredit": 0,
+          "JournalTotalDebit": 0
         }
       ]
     },
@@ -181,14 +237,40 @@
               "IsPosted": "No",
               "JournalTotalCredit": 0,
               "JournalTotalDebit": 0
+            },
+            {
+              "@odata.etag": "W/\"JzEsNTYzNzE0NjA3Nic=\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000025",
+              "AccountingCurrency": "USD",
+              "JournalName": "EXPJRN",
+              "IntegrationKey": "",
+              "Description": "Expense journal",
+              "PostingLayer": "Current",
+              "IsPosted": "No",
+              "JournalTotalCredit": 0,
+              "JournalTotalDebit": 0
+            },
+            {
+              "@odata.etag": "W/\"JzEsNTYzNzE0NjA3OCc=\"",
+              "dataAreaId": "dat",
+              "JournalBatchNumber": "DAT-000027",
+              "AccountingCurrency": "USD",
+              "JournalName": "EXPJRN",
+              "IntegrationKey": "",
+              "Description": "Expense journal",
+              "PostingLayer": "Current",
+              "IsPosted": "No",
+              "JournalTotalCredit": 0,
+              "JournalTotalDebit": 0
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 12:21:52 GMT",
+          "date": "Thu, 30 Jul 2026 08:42:15 GMT",
           "content-type": "application/json; odata.metadata=minimal",
-          "content-length": "2552",
+          "content-length": "3152",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -201,8 +283,8 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1997",
-          "x-ratelimit-reset": "1784809370",
-          "etag": "W/\"9f8-3qREJzDohbL2lTyuUal6RXMk58E\""
+          "x-ratelimit-reset": "1785400993",
+          "etag": "W/\"c50-pm7g0TD17rDB7M0pQjnFiFRce5E\""
         },
         "hash": "2d3ee726818601784130a5c486e1f0527ea22413",
         "request": {

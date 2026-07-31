@@ -34,7 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List general ledger journal headers',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
@@ -42,10 +42,13 @@ const action = createAction({
         const pageSize = 100;
         let skip = 0;
         if (input.cursor) {
-            const parsed = parseInt(input.cursor, 10);
-            if (!isNaN(parsed)) {
-                skip = parsed;
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string'
+                });
             }
+            skip = parseInt(input.cursor, 10);
         }
 
         const params: Record<string, string | number> = {
@@ -79,11 +82,13 @@ const action = createAction({
         const nextLink = rawResponse['@odata.nextLink'];
         let nextCursor: string | undefined;
         if (nextLink) {
+            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
             const nextUrl = new URL(nextLink);
             const nextSkip = nextUrl.searchParams.get('$skip');
-            if (nextSkip) {
-                nextCursor = nextSkip;
-            }
+            nextCursor = nextSkip ?? String(skip + items.length);
+        } else if (items.length === pageSize) {
+            // No explicit nextLink, but we got a full page — assume there may be more.
+            nextCursor = String(skip + pageSize);
         }
 
         return {
