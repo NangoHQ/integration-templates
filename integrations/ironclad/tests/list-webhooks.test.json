@@ -1,0 +1,298 @@
+{
+  "input": {},
+  "output": {
+    "webhooks": [
+      {
+        "id": "6a6b55d42868c2ccf857748b",
+        "events": [
+          "workflow_launched"
+        ],
+        "targetURL": "https://example.com/nango-null-check-test",
+        "companyId": "68dc3ef957dfe647e41e47df",
+        "tags": [
+          "oauth",
+          "authorizationCode"
+        ],
+        "status": "enabled",
+        "statusLastUpdatedAt": "2026-07-30T13:47:00.350Z",
+        "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+        "consecutiveFailureCount": 0
+      },
+      {
+        "id": "6a6b404c28f91b0daeafaf7f",
+        "events": [
+          "workflow_launched"
+        ],
+        "targetURL": "https://example.com/nango-registry-test-webhook-1785413708042",
+        "companyId": "68dc3ef957dfe647e41e47df",
+        "tags": [
+          "oauth",
+          "authorizationCode"
+        ],
+        "status": "enabled",
+        "statusLastUpdatedAt": "2026-07-30T12:15:08.217Z",
+        "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+        "consecutiveFailureCount": 48,
+        "firstConsecutiveFailure": "2026-07-30T12:16:20.028Z"
+      },
+      {
+        "id": "6a6b4043eb3eaa03c49f7899",
+        "events": [
+          "workflow_launched"
+        ],
+        "targetURL": "https://example.com/nango-registry-test-webhook-list",
+        "companyId": "68dc3ef957dfe647e41e47df",
+        "tags": [
+          "oauth",
+          "authorizationCode"
+        ],
+        "status": "enabled",
+        "statusLastUpdatedAt": "2026-07-30T12:14:59.527Z",
+        "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+        "consecutiveFailureCount": 64,
+        "firstConsecutiveFailure": "2026-07-30T12:14:59.826Z"
+      },
+      {
+        "id": "6a6b40171d5cdacbb71ee278",
+        "events": [
+          "workflow_launched",
+          "workflow_completed"
+        ],
+        "targetURL": "https://example.com/nango-registry-test-webhook-update",
+        "companyId": "68dc3ef957dfe647e41e47df",
+        "tags": [
+          "oauth",
+          "authorizationCode"
+        ],
+        "status": "enabled",
+        "statusLastUpdatedAt": "2026-07-30T12:14:15.966Z",
+        "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+        "consecutiveFailureCount": 72,
+        "firstConsecutiveFailure": "2026-07-30T12:14:58.408Z"
+      },
+      {
+        "id": "6a6b405ef6eee358717009cd",
+        "events": [
+          "workflow_launched"
+        ],
+        "targetURL": "https://example.com/nango-test-webhook-direct-20260730",
+        "companyId": "68dc3ef957dfe647e41e47df",
+        "tags": [
+          "oauth",
+          "authorizationCode"
+        ],
+        "status": "enabled",
+        "statusLastUpdatedAt": "2026-07-30T12:15:26.195Z",
+        "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+        "consecutiveFailureCount": 48,
+        "firstConsecutiveFailure": "2026-07-30T12:16:20.085Z"
+      },
+      {
+        "id": "6a6b40b128f91b0daeafb068",
+        "events": [
+          "workflow_launched"
+        ],
+        "targetURL": "https://example.com/nango-test-webhook-save-20260730",
+        "companyId": "68dc3ef957dfe647e41e47df",
+        "tags": [
+          "oauth",
+          "authorizationCode"
+        ],
+        "status": "enabled",
+        "statusLastUpdatedAt": "2026-07-30T12:16:49.095Z",
+        "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+        "consecutiveFailureCount": 40,
+        "firstConsecutiveFailure": "2026-07-30T12:17:21.108Z"
+      },
+      {
+        "id": "6a6b40a595c51216cffa9b60",
+        "events": [
+          "workflow_launched"
+        ],
+        "targetURL": "https://example.com/nango-test-webhook-validate4-20260730",
+        "companyId": "68dc3ef957dfe647e41e47df",
+        "tags": [
+          "oauth",
+          "authorizationCode"
+        ],
+        "status": "enabled",
+        "statusLastUpdatedAt": "2026-07-30T12:16:37.203Z",
+        "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+        "consecutiveFailureCount": 40,
+        "firstConsecutiveFailure": "2026-07-30T12:17:21.061Z"
+      }
+    ],
+    "page": 0,
+    "pageSize": 20
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/public/api/v1/webhooks": {
+        "response": {
+          "page": 0,
+          "pageSize": 20,
+          "list": [
+            {
+              "id": "6a6b55d42868c2ccf857748b",
+              "events": [
+                "workflow_launched"
+              ],
+              "targetURL": "https://example.com/nango-null-check-test",
+              "companyId": "68dc3ef957dfe647e41e47df",
+              "tags": [
+                "oauth",
+                "authorizationCode"
+              ],
+              "status": "enabled",
+              "statusLastUpdatedAt": "2026-07-30T13:47:00.350Z",
+              "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+              "consecutiveFailureCount": 0
+            },
+            {
+              "id": "6a6b404c28f91b0daeafaf7f",
+              "events": [
+                "workflow_launched"
+              ],
+              "targetURL": "https://example.com/nango-registry-test-webhook-1785413708042",
+              "companyId": "68dc3ef957dfe647e41e47df",
+              "tags": [
+                "oauth",
+                "authorizationCode"
+              ],
+              "status": "enabled",
+              "statusLastUpdatedAt": "2026-07-30T12:15:08.217Z",
+              "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+              "consecutiveFailureCount": 48,
+              "firstConsecutiveFailure": "2026-07-30T12:16:20.028Z"
+            },
+            {
+              "id": "6a6b4043eb3eaa03c49f7899",
+              "events": [
+                "workflow_launched"
+              ],
+              "targetURL": "https://example.com/nango-registry-test-webhook-list",
+              "companyId": "68dc3ef957dfe647e41e47df",
+              "tags": [
+                "oauth",
+                "authorizationCode"
+              ],
+              "status": "enabled",
+              "statusLastUpdatedAt": "2026-07-30T12:14:59.527Z",
+              "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+              "consecutiveFailureCount": 64,
+              "firstConsecutiveFailure": "2026-07-30T12:14:59.826Z"
+            },
+            {
+              "id": "6a6b40171d5cdacbb71ee278",
+              "events": [
+                "workflow_launched",
+                "workflow_completed"
+              ],
+              "targetURL": "https://example.com/nango-registry-test-webhook-update",
+              "companyId": "68dc3ef957dfe647e41e47df",
+              "tags": [
+                "oauth",
+                "authorizationCode"
+              ],
+              "status": "enabled",
+              "statusLastUpdatedAt": "2026-07-30T12:14:15.966Z",
+              "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+              "consecutiveFailureCount": 72,
+              "firstConsecutiveFailure": "2026-07-30T12:14:58.408Z"
+            },
+            {
+              "id": "6a6b405ef6eee358717009cd",
+              "events": [
+                "workflow_launched"
+              ],
+              "targetURL": "https://example.com/nango-test-webhook-direct-20260730",
+              "companyId": "68dc3ef957dfe647e41e47df",
+              "tags": [
+                "oauth",
+                "authorizationCode"
+              ],
+              "status": "enabled",
+              "statusLastUpdatedAt": "2026-07-30T12:15:26.195Z",
+              "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+              "consecutiveFailureCount": 48,
+              "firstConsecutiveFailure": "2026-07-30T12:16:20.085Z"
+            },
+            {
+              "id": "6a6b40b128f91b0daeafb068",
+              "events": [
+                "workflow_launched"
+              ],
+              "targetURL": "https://example.com/nango-test-webhook-save-20260730",
+              "companyId": "68dc3ef957dfe647e41e47df",
+              "tags": [
+                "oauth",
+                "authorizationCode"
+              ],
+              "status": "enabled",
+              "statusLastUpdatedAt": "2026-07-30T12:16:49.095Z",
+              "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+              "consecutiveFailureCount": 40,
+              "firstConsecutiveFailure": "2026-07-30T12:17:21.108Z"
+            },
+            {
+              "id": "6a6b40a595c51216cffa9b60",
+              "events": [
+                "workflow_launched"
+              ],
+              "targetURL": "https://example.com/nango-test-webhook-validate4-20260730",
+              "companyId": "68dc3ef957dfe647e41e47df",
+              "tags": [
+                "oauth",
+                "authorizationCode"
+              ],
+              "status": "enabled",
+              "statusLastUpdatedAt": "2026-07-30T12:16:37.203Z",
+              "statusLastUpdatedBy": "68dc41166622f04ca177be37",
+              "consecutiveFailureCount": 40,
+              "firstConsecutiveFailure": "2026-07-30T12:17:21.061Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 14:09:09 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1998",
+          "x-ratelimit-reset": "1785420607",
+          "x-pod-name": "public-api-558bcb5f77-5jmng",
+          "x-version": "2026.29.916.740-a76a8bf20b4",
+          "x-response-id": "487e4229-d3be-4884-864c-7e8cd5d642f6",
+          "cache-control": "no-store, no-cache",
+          "content-security-policy": "default-src 'self';frame-ancestors 'self' https://*.salesforce.com https://*.lightning.force.com https://*.visual.force.com https://*.visualforce.com https://green-harvest-experience.my.site.com https://*.officeapps.live.com https://*.sharepoint.com;report-to https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;report-uri https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "expect-ct": "max-age=0",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-ironclad-requestid": "487e4229-d3be-4884-864c-7e8cd5d642f6",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "738c287a213537786622f6eea655daece2675a8e",
+        "request": {
+          "params": {
+            "page": "0",
+            "pageSize": "20"
+          }
+        }
+      }
+    }
+  }
+}
