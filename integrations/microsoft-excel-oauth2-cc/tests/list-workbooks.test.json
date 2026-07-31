@@ -1,0 +1,181 @@
+{
+  "input": {
+    "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0"
+  },
+  "output": {
+    "workbooks": [
+      {
+        "id": "01RFYLAYBTFQ2CLBMYRNEJOWXIFFJQOYW2",
+        "name": "registry-seed-2.xlsx",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/Doc.aspx?sourcedoc=%7B25342C33-9885-488B-975A-E829530762DA%7D&file=registry-seed-2.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1",
+        "size": 16854,
+        "createdDateTime": "2026-07-28T16:21:28Z",
+        "lastModifiedDateTime": "2026-07-29T13:32:29Z"
+      },
+      {
+        "id": "01RFYLAYDQCQAOBGW2GVAYDEQMDDBL6JYU",
+        "name": "registry-seed-1.xlsx",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/Doc.aspx?sourcedoc=%7BE0001470-DA9A-4135-8192-0C18C2BF2714%7D&file=registry-seed-1.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1",
+        "size": 28166,
+        "createdDateTime": "2026-07-28T16:17:40Z",
+        "lastModifiedDateTime": "2026-07-29T13:34:20Z"
+      },
+      {
+        "id": "01RFYLAYERK64RLFJ63JFLRYIVXMC4VFFL",
+        "name": "dryrun-test.xlsx",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/Doc.aspx?sourcedoc=%7B15B95791-3E95-4ADA-B8E1-15BB05CA94AB%7D&file=dryrun-test.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1",
+        "size": 12652,
+        "createdDateTime": "2026-07-28T18:21:52Z",
+        "lastModifiedDateTime": "2026-07-28T18:21:59Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/root/search(q='.xlsx')": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(microsoft.graph.driveItem)",
+          "value": [
+            {
+              "createdDateTime": "2026-07-28T16:21:28Z",
+              "id": "01RFYLAYBTFQ2CLBMYRNEJOWXIFFJQOYW2",
+              "lastModifiedDateTime": "2026-07-29T13:32:29Z",
+              "name": "registry-seed-2.xlsx",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/Doc.aspx?sourcedoc=%7B25342C33-9885-488B-975A-E829530762DA%7D&file=registry-seed-2.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1",
+              "size": 16854,
+              "createdBy": {
+                "user": {
+                  "email": "",
+                  "displayName": "SharePoint App"
+                }
+              },
+              "lastModifiedBy": {
+                "user": {
+                  "email": "",
+                  "displayName": "SharePoint App"
+                }
+              },
+              "parentReference": {
+                "driveType": "documentLibrary",
+                "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+                "id": "01RFYLAYF6Y2GOVW7725BZO354PWSELRRZ",
+                "siteId": "4c97403e-1663-4673-90fa-d2f8690b4510"
+              },
+              "file": {
+                "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "hashes": {}
+              },
+              "fileSystemInfo": {
+                "createdDateTime": "2026-07-28T16:21:28Z",
+                "lastModifiedDateTime": "2026-07-29T13:32:29Z"
+              },
+              "searchResult": {},
+              "shared": {
+                "scope": "users"
+              }
+            },
+            {
+              "createdDateTime": "2026-07-28T16:17:40Z",
+              "id": "01RFYLAYDQCQAOBGW2GVAYDEQMDDBL6JYU",
+              "lastModifiedDateTime": "2026-07-29T13:34:20Z",
+              "name": "registry-seed-1.xlsx",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/Doc.aspx?sourcedoc=%7BE0001470-DA9A-4135-8192-0C18C2BF2714%7D&file=registry-seed-1.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1",
+              "size": 28166,
+              "createdBy": {
+                "user": {
+                  "email": "",
+                  "displayName": "SharePoint App"
+                }
+              },
+              "lastModifiedBy": {
+                "user": {
+                  "email": "",
+                  "displayName": "SharePoint App"
+                }
+              },
+              "parentReference": {
+                "driveType": "documentLibrary",
+                "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+                "id": "01RFYLAYF6Y2GOVW7725BZO354PWSELRRZ",
+                "siteId": "4c97403e-1663-4673-90fa-d2f8690b4510"
+              },
+              "file": {
+                "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "hashes": {}
+              },
+              "fileSystemInfo": {
+                "createdDateTime": "2026-07-28T16:17:40Z",
+                "lastModifiedDateTime": "2026-07-29T13:34:20Z"
+              },
+              "searchResult": {},
+              "shared": {
+                "scope": "users"
+              }
+            },
+            {
+              "createdDateTime": "2026-07-28T18:21:52Z",
+              "id": "01RFYLAYERK64RLFJ63JFLRYIVXMC4VFFL",
+              "lastModifiedDateTime": "2026-07-28T18:21:59Z",
+              "name": "dryrun-test.xlsx",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/Doc.aspx?sourcedoc=%7B15B95791-3E95-4ADA-B8E1-15BB05CA94AB%7D&file=dryrun-test.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1",
+              "size": 12652,
+              "createdBy": {
+                "user": {
+                  "email": "",
+                  "displayName": "SharePoint App"
+                }
+              },
+              "lastModifiedBy": {
+                "user": {
+                  "email": "",
+                  "displayName": "SharePoint App"
+                }
+              },
+              "parentReference": {
+                "driveType": "documentLibrary",
+                "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+                "id": "01RFYLAYF6Y2GOVW7725BZO354PWSELRRZ",
+                "siteId": "4c97403e-1663-4673-90fa-d2f8690b4510"
+              },
+              "file": {
+                "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "hashes": {}
+              },
+              "fileSystemInfo": {
+                "createdDateTime": "2026-07-28T18:21:52Z",
+                "lastModifiedDateTime": "2026-07-28T18:21:59Z"
+              },
+              "searchResult": {},
+              "shared": {
+                "scope": "users"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Jul 2026 13:49:02 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "25745c16-29b9-40b2-9489-fd43827fcfbc",
+          "client-request-id": "25745c16-29b9-40b2-9489-fd43827fcfbc",
+          "odata-version": "4.0"
+        },
+        "request": {
+          "params": {
+            "$top": "50"
+          }
+        }
+      }
+    }
+  }
+}

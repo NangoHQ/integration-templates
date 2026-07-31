@@ -1,0 +1,71 @@
+{
+  "nango": {
+    "getMetadata": {
+      "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+      "itemId": "01RFYLAYDQCQAOBGW2GVAYDEQMDDBL6JYU"
+    },
+    "batchSave": {
+      "Worksheet": [
+        {
+          "id": "01RFYLAYDQCQAOBGW2GVAYDEQMDDBL6JYU_{00000000-0001-0000-0000-000000000000}",
+          "name": "Sheet1",
+          "position": 0,
+          "visibility": "Visible"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Worksheet": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYDQCQAOBGW2GVAYDEQMDDBL6JYU/workbook/worksheets": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#drives('b%21PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0')/items('01RFYLAYDQCQAOBGW2GVAYDEQMDDBL6JYU')/workbook/worksheets",
+          "value": [
+            {
+              "@odata.id": "/drives('b%21PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0')/items('01RFYLAYDQCQAOBGW2GVAYDEQMDDBL6JYU')/workbook/worksheets(%27%7B00000000-0001-0000-0000-000000000000%7D%27)",
+              "id": "{00000000-0001-0000-0000-000000000000}",
+              "name": "Sheet1",
+              "position": 0,
+              "visibility": "Visible"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 18:26:43 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1962",
+          "x-ratelimit-reset": "1785263224",
+          "cache-control": "no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "592978e6-f107-4e8e-9e9d-88a99e72e0ba",
+          "client-request-id": "592978e6-f107-4e8e-9e9d-88a99e72e0ba",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"000\",\"RoleInstance\":\"CO1PEPF000169D3\"}}",
+          "content-security-policy": "font-src data: 'self' res.public.onecdn.static.microsoft *.cdn.office.net *.public.onecdn.static.microsoft res-cn.cdn.partner.office365.cn res-4.cdn.partner.office365.cn res-3.cdn.partner.office365.cn res-1-cdn.azureedge.microsoft.scloud res-1-cdn.azureedge.eaglex.ic.gov res-dev.cdn.officeppe.net *.onecdn.usgovcloud-static.microsoft *.onecdn.sovcloud-static.cn *.onecdn.sovcloud-static.fr *.skype.com *.skypeassets.com *.msocdn.com sway.com *.sway-cdn.com sway-cdn.com *.sharepointonline.com spoprod-a.akamaihd.net *.azureedge.net content.lifecycle.office.net www.microsoft.com pmservices.cp.microsoft.com paymentinstruments.mp.microsoft.com paymentinstruments-int.mp.microsoft.com edge.payments.microsoft.com fs.microsoft.com *.officeapps.live.com; script-src 'nonce-cwdBOVz620oPnjympRRyM//4h00VLOeNrlmLIelW4j8=' 'strict-dynamic' 'unsafe-inline' 'unsafe-eval' res.public.onecdn.static.microsoft *.officeapps.live.com *.msftauth.net js.monitor.azure.com *.skype.com *.skypeassets.com *.msocdn.com js.live.net appsforoffice.microsoft.com contentstorage.osi.office.net *.growth.office.net *.rt.microsoft.com res-prod.cdn.office.net res.cdn.office.net messaging.office.com messaging.growth.office.com messaging.action.office.com messaging.engagement.office.com content.lifecycle.office.net www.microsoft.com pmservices.cp.microsoft.com paymentinstruments.mp.microsoft.com paymentinstruments-int.mp.microsoft.com edge.payments.microsoft.com *.cdn.office.net *.public.onecdn.static.microsoft res-cn.cdn.partner.office365.cn res-4.cdn.partner.office365.cn res-3.cdn.partner.office365.cn res-1-cdn.azureedge.microsoft.scloud res-1-cdn.azureedge.eaglex.ic.gov res-dev.cdn.officeppe.net *.onecdn.usgovcloud-static.microsoft *.onecdn.sovcloud-static.cn *.onecdn.sovcloud-static.fr; require-trusted-types-for 'script'; style-src 'self' 'unsafe-inline' 'unsafe-eval' res.public.onecdn.static.microsoft *.skype.com *.skypeassets.com *.msocdn.com js.live.net sway.com *.sway-cdn.com sway-cdn.com *.cdn.office.net *.public.onecdn.static.microsoft res-cn.cdn.partner.office365.cn res-4.cdn.partner.office365.cn res-3.cdn.partner.office365.cn res-1-cdn.azureedge.microsoft.scloud res-1-cdn.azureedge.eaglex.ic.gov res-dev.cdn.officeppe.net *.onecdn.usgovcloud-static.microsoft *.onecdn.sovcloud-static.cn *.onecdn.sovcloud-static.fr; media-src blob: *.skype.com *.skypeassets.com *.officeapps.live.com; object-src 'self'; child-src blob: * ms-excel:; worker-src blob: 'self'; img-src * data: blob:; report-uri https://csp.microsoft.com/report/Office-Excel-Online-General /x/reportcsp.ashx?sessionId=592978e6-f107-4e8e-9e9d-88a99e72e0ba",
+          "odata-version": "4.0"
+        },
+        "hash": "b69966bfec967a57156fddc129161f97288e942d",
+        "request": {
+          "params": {
+            "$top": "100"
+          }
+        }
+      }
+    }
+  }
+}
