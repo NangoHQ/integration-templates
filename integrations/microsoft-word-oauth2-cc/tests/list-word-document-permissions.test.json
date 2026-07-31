@@ -1,0 +1,262 @@
+{
+  "input": {
+    "drive_id": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+    "item_id": "01RFYLAYATN2IE6EZ5W5AK45MBJZMYEV5M"
+  },
+  "output": {
+    "permissions": [
+      {
+        "id": "TmFuZ28gVGVzdCBUZWFtIE1lbWJlcnM",
+        "roles": [
+          "write"
+        ],
+        "grantedTo": {
+          "user": {
+            "displayName": "Nango Test Team Members"
+          }
+        },
+        "shareId": "TmFuZ28gVGVzdCBUZWFtIE1lbWJlcnM",
+        "grantedToV2": {
+          "siteGroup": {
+            "displayName": "Nango Test Team Members",
+            "id": "5",
+            "loginName": "Nango Test Team Members"
+          },
+          "sharePointGroup": {
+            "id": "NGM5NzQwM2UtMTY2My00NjczLTkwZmEtZDJmODY5MGI0NTEwXzU",
+            "title": "Nango Test Team Members",
+            "principalId": "5"
+          }
+        },
+        "inheritedFrom": {}
+      },
+      {
+        "id": "TmFuZ28gVGVzdCBUZWFtIE93bmVycw",
+        "roles": [
+          "owner"
+        ],
+        "grantedTo": {
+          "user": {
+            "displayName": "Nango Test Team Owners"
+          }
+        },
+        "shareId": "TmFuZ28gVGVzdCBUZWFtIE93bmVycw",
+        "grantedToV2": {
+          "siteGroup": {
+            "displayName": "Nango Test Team Owners",
+            "id": "3",
+            "loginName": "Nango Test Team Owners"
+          },
+          "sharePointGroup": {
+            "id": "NGM5NzQwM2UtMTY2My00NjczLTkwZmEtZDJmODY5MGI0NTEwXzM",
+            "title": "Nango Test Team Owners",
+            "principalId": "3"
+          }
+        },
+        "inheritedFrom": {}
+      },
+      {
+        "id": "TmFuZ28gVGVzdCBUZWFtIFZpc2l0b3Jz",
+        "roles": [
+          "read"
+        ],
+        "grantedTo": {
+          "user": {
+            "displayName": "Nango Test Team Visitors"
+          }
+        },
+        "shareId": "TmFuZ28gVGVzdCBUZWFtIFZpc2l0b3Jz",
+        "grantedToV2": {
+          "siteGroup": {
+            "displayName": "Nango Test Team Visitors",
+            "id": "4",
+            "loginName": "Nango Test Team Visitors"
+          },
+          "sharePointGroup": {
+            "id": "NGM5NzQwM2UtMTY2My00NjczLTkwZmEtZDJmODY5MGI0NTEwXzQ",
+            "title": "Nango Test Team Visitors",
+            "principalId": "4"
+          }
+        },
+        "inheritedFrom": {}
+      },
+      {
+        "id": "Yzowby5jfGZlZGVyYXRlZGRpcmVjdG9yeWNsYWltcHJvdmlkZXJ8OTdhOWRhZjYtMjcwZi00M2JiLTk2ZTQtZTg5ODA1MThmZDBiX28",
+        "roles": [
+          "owner"
+        ],
+        "grantedTo": {
+          "user": {
+            "displayName": "Nango Test Team Owners",
+            "id": "97a9daf6-270f-43bb-96e4-e8980518fd0b",
+            "email": "NangoTestTeam@nangodevelopers.onmicrosoft.com"
+          }
+        },
+        "shareId": "Yzowby5jfGZlZGVyYXRlZGRpcmVjdG9yeWNsYWltcHJvdmlkZXJ8OTdhOWRhZjYtMjcwZi00M2JiLTk2ZTQtZTg5ODA1MThmZDBiX28",
+        "grantedToV2": {
+          "group": {
+            "@odata.type": "#microsoft.graph.sharePointIdentity",
+            "displayName": "Nango Test Team Owners",
+            "email": "NangoTestTeam@nangodevelopers.onmicrosoft.com",
+            "id": "97a9daf6-270f-43bb-96e4-e8980518fd0b"
+          },
+          "siteUser": {
+            "displayName": "Nango Test Team Owners",
+            "email": "NangoTestTeam@nangodevelopers.onmicrosoft.com",
+            "id": "6",
+            "loginName": "c:0o.c|federateddirectoryclaimprovider|97a9daf6-270f-43bb-96e4-e8980518fd0b_o"
+          }
+        },
+        "inheritedFrom": {}
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYATN2IE6EZ5W5AK45MBJZMYEV5M/permissions": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#drives('b%21PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0')/items('01RFYLAYATN2IE6EZ5W5AK45MBJZMYEV5M')/permissions",
+          "value": [
+            {
+              "id": "TmFuZ28gVGVzdCBUZWFtIE1lbWJlcnM",
+              "roles": [
+                "write"
+              ],
+              "shareId": "TmFuZ28gVGVzdCBUZWFtIE1lbWJlcnM",
+              "grantedToV2": {
+                "siteGroup": {
+                  "displayName": "Nango Test Team Members",
+                  "id": "5",
+                  "loginName": "Nango Test Team Members"
+                },
+                "sharePointGroup": {
+                  "id": "NGM5NzQwM2UtMTY2My00NjczLTkwZmEtZDJmODY5MGI0NTEwXzU",
+                  "title": "Nango Test Team Members",
+                  "principalId": "5"
+                }
+              },
+              "grantedTo": {
+                "user": {
+                  "displayName": "Nango Test Team Members"
+                }
+              },
+              "inheritedFrom": {}
+            },
+            {
+              "id": "TmFuZ28gVGVzdCBUZWFtIE93bmVycw",
+              "roles": [
+                "owner"
+              ],
+              "shareId": "TmFuZ28gVGVzdCBUZWFtIE93bmVycw",
+              "grantedToV2": {
+                "siteGroup": {
+                  "displayName": "Nango Test Team Owners",
+                  "id": "3",
+                  "loginName": "Nango Test Team Owners"
+                },
+                "sharePointGroup": {
+                  "id": "NGM5NzQwM2UtMTY2My00NjczLTkwZmEtZDJmODY5MGI0NTEwXzM",
+                  "title": "Nango Test Team Owners",
+                  "principalId": "3"
+                }
+              },
+              "grantedTo": {
+                "user": {
+                  "displayName": "Nango Test Team Owners"
+                }
+              },
+              "inheritedFrom": {}
+            },
+            {
+              "id": "TmFuZ28gVGVzdCBUZWFtIFZpc2l0b3Jz",
+              "roles": [
+                "read"
+              ],
+              "shareId": "TmFuZ28gVGVzdCBUZWFtIFZpc2l0b3Jz",
+              "grantedToV2": {
+                "siteGroup": {
+                  "displayName": "Nango Test Team Visitors",
+                  "id": "4",
+                  "loginName": "Nango Test Team Visitors"
+                },
+                "sharePointGroup": {
+                  "id": "NGM5NzQwM2UtMTY2My00NjczLTkwZmEtZDJmODY5MGI0NTEwXzQ",
+                  "title": "Nango Test Team Visitors",
+                  "principalId": "4"
+                }
+              },
+              "grantedTo": {
+                "user": {
+                  "displayName": "Nango Test Team Visitors"
+                }
+              },
+              "inheritedFrom": {}
+            },
+            {
+              "id": "Yzowby5jfGZlZGVyYXRlZGRpcmVjdG9yeWNsYWltcHJvdmlkZXJ8OTdhOWRhZjYtMjcwZi00M2JiLTk2ZTQtZTg5ODA1MThmZDBiX28",
+              "roles": [
+                "owner"
+              ],
+              "shareId": "Yzowby5jfGZlZGVyYXRlZGRpcmVjdG9yeWNsYWltcHJvdmlkZXJ8OTdhOWRhZjYtMjcwZi00M2JiLTk2ZTQtZTg5ODA1MThmZDBiX28",
+              "grantedToV2": {
+                "group": {
+                  "@odata.type": "#microsoft.graph.sharePointIdentity",
+                  "displayName": "Nango Test Team Owners",
+                  "email": "NangoTestTeam@nangodevelopers.onmicrosoft.com",
+                  "id": "97a9daf6-270f-43bb-96e4-e8980518fd0b"
+                },
+                "siteUser": {
+                  "displayName": "Nango Test Team Owners",
+                  "email": "NangoTestTeam@nangodevelopers.onmicrosoft.com",
+                  "id": "6",
+                  "loginName": "c:0o.c|federateddirectoryclaimprovider|97a9daf6-270f-43bb-96e4-e8980518fd0b_o"
+                }
+              },
+              "grantedTo": {
+                "user": {
+                  "displayName": "Nango Test Team Owners",
+                  "email": "NangoTestTeam@nangodevelopers.onmicrosoft.com",
+                  "id": "97a9daf6-270f-43bb-96e4-e8980518fd0b"
+                }
+              },
+              "inheritedFrom": {}
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 14:36:50 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1963",
+          "x-ratelimit-reset": "1785249432",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "97716951-cfa7-4acf-932d-10630e334017",
+          "client-request-id": "97716951-cfa7-4acf-932d-10630e334017",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"001\",\"RoleInstance\":\"MW2PEPF00013BAE\"}}",
+          "link": "<https://developer.microsoft-tst.com/en-us/graph/changes?$filterby=v1.0,Removal&from=2021-09-01&to=2021-10-01>;rel=\"deprecation\";type=\"text/html\", <https://developer.microsoft-tst.com/en-us/graph/changes?$filterby=v1.0,Removal&from=2021-09-01&to=2021-10-01>;rel=\"deprecation\";type=\"text/html\"",
+          "deprecation": "Fri, 03 Sep 2021 23:59:59 GMT",
+          "sunset": "Sun, 01 Oct 2023 23:59:59 GMT",
+          "splogid": "50b52ba2-103c-c000-9bba-026733ee56af",
+          "sprequestduration": "133",
+          "odata-version": "4.0"
+        },
+        "hash": "62e4013f6b7c0d41623b9c1ff799c8509d1b9c48",
+        "request": {}
+      }
+    }
+  }
+}

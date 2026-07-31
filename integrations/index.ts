@@ -3025,6 +3025,37 @@ import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-purcha
 import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-sales-order.js';
 import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-vendor.js';
 
+// -- Integration: microsoft-excel-oauth2-cc
+import './microsoft-excel-oauth2-cc/syncs/workbooks.js';
+import './microsoft-excel-oauth2-cc/syncs/worksheets.js';
+import './microsoft-excel-oauth2-cc/actions/add-chart.js';
+import './microsoft-excel-oauth2-cc/actions/add-defined-name.js';
+import './microsoft-excel-oauth2-cc/actions/add-table-rows.js';
+import './microsoft-excel-oauth2-cc/actions/add-table.js';
+import './microsoft-excel-oauth2-cc/actions/add-worksheet.js';
+import './microsoft-excel-oauth2-cc/actions/calculate-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/create-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/delete-defined-name.js';
+import './microsoft-excel-oauth2-cc/actions/delete-table.js';
+import './microsoft-excel-oauth2-cc/actions/delete-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/delete-worksheet.js';
+import './microsoft-excel-oauth2-cc/actions/get-chart-image.js';
+import './microsoft-excel-oauth2-cc/actions/get-range.js';
+import './microsoft-excel-oauth2-cc/actions/get-site-drive.js';
+import './microsoft-excel-oauth2-cc/actions/get-used-range.js';
+import './microsoft-excel-oauth2-cc/actions/get-user-drive.js';
+import './microsoft-excel-oauth2-cc/actions/get-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/list-defined-names.js';
+import './microsoft-excel-oauth2-cc/actions/list-sites.js';
+import './microsoft-excel-oauth2-cc/actions/list-table-columns.js';
+import './microsoft-excel-oauth2-cc/actions/list-table-rows.js';
+import './microsoft-excel-oauth2-cc/actions/list-tables.js';
+import './microsoft-excel-oauth2-cc/actions/list-users.js';
+import './microsoft-excel-oauth2-cc/actions/list-workbooks.js';
+import './microsoft-excel-oauth2-cc/actions/list-worksheets.js';
+import './microsoft-excel-oauth2-cc/actions/update-range.js';
+import './microsoft-excel-oauth2-cc/actions/update-worksheet.js';
+
 // -- Integration: microsoft-teams
 import './microsoft-teams/syncs/channel-message-replies.js';
 import './microsoft-teams/syncs/channel-messages.js';
@@ -3061,6 +3092,27 @@ import './microsoft-teams/actions/list-team-members.js';
 import './microsoft-teams/actions/remove-team-member.js';
 import './microsoft-teams/actions/reply-to-channel-message.js';
 import './microsoft-teams/actions/update-channel.js';
+
+// -- Integration: microsoft-word-oauth2-cc
+import './microsoft-word-oauth2-cc/syncs/word-documents.js';
+import './microsoft-word-oauth2-cc/actions/copy-word-document.js';
+import './microsoft-word-oauth2-cc/actions/create-folder.js';
+import './microsoft-word-oauth2-cc/actions/create-sharing-link.js';
+import './microsoft-word-oauth2-cc/actions/create-word-document.js';
+import './microsoft-word-oauth2-cc/actions/delete-word-document.js';
+import './microsoft-word-oauth2-cc/actions/get-site-drive.js';
+import './microsoft-word-oauth2-cc/actions/get-user-drive.js';
+import './microsoft-word-oauth2-cc/actions/get-word-document-as-pdf.js';
+import './microsoft-word-oauth2-cc/actions/get-word-document-content.js';
+import './microsoft-word-oauth2-cc/actions/get-word-document.js';
+import './microsoft-word-oauth2-cc/actions/list-sites.js';
+import './microsoft-word-oauth2-cc/actions/list-users.js';
+import './microsoft-word-oauth2-cc/actions/list-word-document-permissions.js';
+import './microsoft-word-oauth2-cc/actions/list-word-document-versions.js';
+import './microsoft-word-oauth2-cc/actions/list-word-documents.js';
+import './microsoft-word-oauth2-cc/actions/move-word-document.js';
+import './microsoft-word-oauth2-cc/actions/update-word-document-content.js';
+import './microsoft-word-oauth2-cc/actions/update-word-document-metadata.js';
 
 // -- Integration: millionverifier
 import './millionverifier/syncs/bulk-files.js';
@@ -5084,6 +5136,62 @@ import './todoist/actions/update-label.js';
 import './todoist/actions/update-project.js';
 import './todoist/actions/update-section.js';
 import './todoist/actions/update-task.js';
+
+// -- Integration: tripletex
+import './tripletex/syncs/contacts.js';
+import './tripletex/syncs/customers.js';
+import './tripletex/syncs/employees.js';
+import './tripletex/syncs/invoices.js';
+import './tripletex/syncs/ledger-accounts.js';
+import './tripletex/syncs/orders.js';
+import './tripletex/syncs/products.js';
+import './tripletex/syncs/projects.js';
+import './tripletex/syncs/suppliers.js';
+import './tripletex/actions/create-activity.js';
+import './tripletex/actions/create-contact.js';
+import './tripletex/actions/create-customer.js';
+import './tripletex/actions/create-invoice.js';
+import './tripletex/actions/create-ledger-voucher.js';
+import './tripletex/actions/create-order-line.js';
+import './tripletex/actions/create-order.js';
+import './tripletex/actions/create-product.js';
+import './tripletex/actions/create-project.js';
+import './tripletex/actions/create-supplier.js';
+import './tripletex/actions/delete-contacts.js';
+import './tripletex/actions/delete-customer.js';
+import './tripletex/actions/delete-order.js';
+import './tripletex/actions/delete-product.js';
+import './tripletex/actions/delete-project.js';
+import './tripletex/actions/delete-supplier.js';
+import './tripletex/actions/get-contact.js';
+import './tripletex/actions/get-customer.js';
+import './tripletex/actions/get-department.js';
+import './tripletex/actions/get-employee.js';
+import './tripletex/actions/get-invoice.js';
+import './tripletex/actions/get-ledger-voucher.js';
+import './tripletex/actions/get-order.js';
+import './tripletex/actions/get-product.js';
+import './tripletex/actions/get-project.js';
+import './tripletex/actions/get-supplier.js';
+import './tripletex/actions/list-activities.js';
+import './tripletex/actions/list-contacts.js';
+import './tripletex/actions/list-countries.js';
+import './tripletex/actions/list-currencies.js';
+import './tripletex/actions/list-customers.js';
+import './tripletex/actions/list-departments.js';
+import './tripletex/actions/list-employees.js';
+import './tripletex/actions/list-invoices.js';
+import './tripletex/actions/list-ledger-accounts.js';
+import './tripletex/actions/list-ledger-vouchers.js';
+import './tripletex/actions/list-orders.js';
+import './tripletex/actions/list-products.js';
+import './tripletex/actions/list-projects.js';
+import './tripletex/actions/list-suppliers.js';
+import './tripletex/actions/update-contact.js';
+import './tripletex/actions/update-customer.js';
+import './tripletex/actions/update-product.js';
+import './tripletex/actions/update-project.js';
+import './tripletex/actions/update-supplier.js';
 
 // -- Integration: twilio
 import './twilio/syncs/api-keys.js';
