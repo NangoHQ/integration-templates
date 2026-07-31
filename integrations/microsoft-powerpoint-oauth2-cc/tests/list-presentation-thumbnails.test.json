@@ -1,0 +1,74 @@
+{
+  "input": {
+    "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+    "itemId": "01RFYLAYBX27CGEGAJH5HZMVYI6Y3NGGYJ"
+  },
+  "output": {
+    "thumbnails": [
+      {
+        "id": "0",
+        "smallUrl": "https://centralus1-mediap.svc.ms/transform/thumbnail?provider=spo&farmid=207230&inputFormat=pptx&cs=ZTA4ZjFmZTEtNDAzOC00YTg4LWI2ZGQtNTNlYzQ0YTc4MDY1fFNQTw&docid=https%3A%2F%2Fnangodevelopers.sharepoint.com%2F_api%2Fv2.0%2Fdrives%2Fb!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0%2Fitems%2F01RFYLAYBX27CGEGAJH5HZMVYI6Y3NGGYJ%3Ftempauth%3Dv1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Bvd2VycG9pbnRDQyIsIm5hbWVpZCI6ImUwOGYxZmUxLTQwMzgtNGE4OC1iNmRkLTUzZWM0NGE3ODA2NUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ29kZXZlbG9wZXJzLnNoYXJlcG9pbnQuY29tQDU2NDgwYWUyLTg4YmUtNDljZi04NmY2LWQ2MmE0NWJmODc1OCIsImV4cCI6IjE3ODUyOTQwMDAifQ.CkAKDGVudHJhX2NsYWltcxIwQ05PbnBOTUdFQUFhRmxWMVgweFhkRkIyT0ZWWFdYaHFkRXBtYkZsaVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI4NBIGCMrEPBABGgw0MC4xMjYuMjYuMjQqLExKNlk4V2xDdUR4K0N1TDNGNGtYdUQ3cFhxZW51emIyVkM0VGJITkdJajA9MKMBOAFKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZA.TAYbLewz06P-ssAlxctZ_GIPKC-NlmuUnpUfQ5QD5gc%26version%3DPublished&width=96&height=96&cb=63920870213",
+        "mediumUrl": "https://centralus1-mediap.svc.ms/transform/thumbnail?provider=spo&farmid=207230&inputFormat=pptx&cs=ZTA4ZjFmZTEtNDAzOC00YTg4LWI2ZGQtNTNlYzQ0YTc4MDY1fFNQTw&docid=https%3A%2F%2Fnangodevelopers.sharepoint.com%2F_api%2Fv2.0%2Fdrives%2Fb!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0%2Fitems%2F01RFYLAYBX27CGEGAJH5HZMVYI6Y3NGGYJ%3Ftempauth%3Dv1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Bvd2VycG9pbnRDQyIsIm5hbWVpZCI6ImUwOGYxZmUxLTQwMzgtNGE4OC1iNmRkLTUzZWM0NGE3ODA2NUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ29kZXZlbG9wZXJzLnNoYXJlcG9pbnQuY29tQDU2NDgwYWUyLTg4YmUtNDljZi04NmY2LWQ2MmE0NWJmODc1OCIsImV4cCI6IjE3ODUyOTQwMDAifQ.CkAKDGVudHJhX2NsYWltcxIwQ05PbnBOTUdFQUFhRmxWMVgweFhkRkIyT0ZWWFdYaHFkRXBtYkZsaVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI4NBIGCMrEPBABGgw0MC4xMjYuMjYuMjQqLExKNlk4V2xDdUR4K0N1TDNGNGtYdUQ3cFhxZW51emIyVkM0VGJITkdJajA9MKMBOAFKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZA.TAYbLewz06P-ssAlxctZ_GIPKC-NlmuUnpUfQ5QD5gc%26version%3DPublished&width=176&height=176&cb=63920870213",
+        "largeUrl": "https://centralus1-mediap.svc.ms/transform/thumbnail?provider=spo&farmid=207230&inputFormat=pptx&cs=ZTA4ZjFmZTEtNDAzOC00YTg4LWI2ZGQtNTNlYzQ0YTc4MDY1fFNQTw&docid=https%3A%2F%2Fnangodevelopers.sharepoint.com%2F_api%2Fv2.0%2Fdrives%2Fb!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0%2Fitems%2F01RFYLAYBX27CGEGAJH5HZMVYI6Y3NGGYJ%3Ftempauth%3Dv1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Bvd2VycG9pbnRDQyIsIm5hbWVpZCI6ImUwOGYxZmUxLTQwMzgtNGE4OC1iNmRkLTUzZWM0NGE3ODA2NUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ29kZXZlbG9wZXJzLnNoYXJlcG9pbnQuY29tQDU2NDgwYWUyLTg4YmUtNDljZi04NmY2LWQ2MmE0NWJmODc1OCIsImV4cCI6IjE3ODUyOTQwMDAifQ.CkAKDGVudHJhX2NsYWltcxIwQ05PbnBOTUdFQUFhRmxWMVgweFhkRkIyT0ZWWFdYaHFkRXBtYkZsaVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI4NBIGCMrEPBABGgw0MC4xMjYuMjYuMjQqLExKNlk4V2xDdUR4K0N1TDNGNGtYdUQ3cFhxZW51emIyVkM0VGJITkdJajA9MKMBOAFKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZA.TAYbLewz06P-ssAlxctZ_GIPKC-NlmuUnpUfQ5QD5gc%26version%3DPublished&width=800&height=800&cb=63920870213"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYBX27CGEGAJH5HZMVYI6Y3NGGYJ/thumbnails": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#drives('b%21PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0')/items('01RFYLAYBX27CGEGAJH5HZMVYI6Y3NGGYJ')/thumbnails",
+          "value": [
+            {
+              "id": "0",
+              "large": {
+                "height": 800,
+                "url": "https://centralus1-mediap.svc.ms/transform/thumbnail?provider=spo&farmid=207230&inputFormat=pptx&cs=ZTA4ZjFmZTEtNDAzOC00YTg4LWI2ZGQtNTNlYzQ0YTc4MDY1fFNQTw&docid=https%3A%2F%2Fnangodevelopers.sharepoint.com%2F_api%2Fv2.0%2Fdrives%2Fb!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0%2Fitems%2F01RFYLAYBX27CGEGAJH5HZMVYI6Y3NGGYJ%3Ftempauth%3Dv1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Bvd2VycG9pbnRDQyIsIm5hbWVpZCI6ImUwOGYxZmUxLTQwMzgtNGE4OC1iNmRkLTUzZWM0NGE3ODA2NUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ29kZXZlbG9wZXJzLnNoYXJlcG9pbnQuY29tQDU2NDgwYWUyLTg4YmUtNDljZi04NmY2LWQ2MmE0NWJmODc1OCIsImV4cCI6IjE3ODUyOTQwMDAifQ.CkAKDGVudHJhX2NsYWltcxIwQ05PbnBOTUdFQUFhRmxWMVgweFhkRkIyT0ZWWFdYaHFkRXBtYkZsaVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI4NBIGCMrEPBABGgw0MC4xMjYuMjYuMjQqLExKNlk4V2xDdUR4K0N1TDNGNGtYdUQ3cFhxZW51emIyVkM0VGJITkdJajA9MKMBOAFKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZA.TAYbLewz06P-ssAlxctZ_GIPKC-NlmuUnpUfQ5QD5gc%26version%3DPublished&width=800&height=800&cb=63920870213",
+                "width": 800
+              },
+              "medium": {
+                "height": 176,
+                "url": "https://centralus1-mediap.svc.ms/transform/thumbnail?provider=spo&farmid=207230&inputFormat=pptx&cs=ZTA4ZjFmZTEtNDAzOC00YTg4LWI2ZGQtNTNlYzQ0YTc4MDY1fFNQTw&docid=https%3A%2F%2Fnangodevelopers.sharepoint.com%2F_api%2Fv2.0%2Fdrives%2Fb!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0%2Fitems%2F01RFYLAYBX27CGEGAJH5HZMVYI6Y3NGGYJ%3Ftempauth%3Dv1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Bvd2VycG9pbnRDQyIsIm5hbWVpZCI6ImUwOGYxZmUxLTQwMzgtNGE4OC1iNmRkLTUzZWM0NGE3ODA2NUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ29kZXZlbG9wZXJzLnNoYXJlcG9pbnQuY29tQDU2NDgwYWUyLTg4YmUtNDljZi04NmY2LWQ2MmE0NWJmODc1OCIsImV4cCI6IjE3ODUyOTQwMDAifQ.CkAKDGVudHJhX2NsYWltcxIwQ05PbnBOTUdFQUFhRmxWMVgweFhkRkIyT0ZWWFdYaHFkRXBtYkZsaVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI4NBIGCMrEPBABGgw0MC4xMjYuMjYuMjQqLExKNlk4V2xDdUR4K0N1TDNGNGtYdUQ3cFhxZW51emIyVkM0VGJITkdJajA9MKMBOAFKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZA.TAYbLewz06P-ssAlxctZ_GIPKC-NlmuUnpUfQ5QD5gc%26version%3DPublished&width=176&height=176&cb=63920870213",
+                "width": 176
+              },
+              "small": {
+                "height": 96,
+                "url": "https://centralus1-mediap.svc.ms/transform/thumbnail?provider=spo&farmid=207230&inputFormat=pptx&cs=ZTA4ZjFmZTEtNDAzOC00YTg4LWI2ZGQtNTNlYzQ0YTc4MDY1fFNQTw&docid=https%3A%2F%2Fnangodevelopers.sharepoint.com%2F_api%2Fv2.0%2Fdrives%2Fb!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0%2Fitems%2F01RFYLAYBX27CGEGAJH5HZMVYI6Y3NGGYJ%3Ftempauth%3Dv1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Bvd2VycG9pbnRDQyIsIm5hbWVpZCI6ImUwOGYxZmUxLTQwMzgtNGE4OC1iNmRkLTUzZWM0NGE3ODA2NUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbmFuZ29kZXZlbG9wZXJzLnNoYXJlcG9pbnQuY29tQDU2NDgwYWUyLTg4YmUtNDljZi04NmY2LWQ2MmE0NWJmODc1OCIsImV4cCI6IjE3ODUyOTQwMDAifQ.CkAKDGVudHJhX2NsYWltcxIwQ05PbnBOTUdFQUFhRmxWMVgweFhkRkIyT0ZWWFdYaHFkRXBtYkZsaVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI4NBIGCMrEPBABGgw0MC4xMjYuMjYuMjQqLExKNlk4V2xDdUR4K0N1TDNGNGtYdUQ3cFhxZW51emIyVkM0VGJITkdJajA9MKMBOAFKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZA.TAYbLewz06P-ssAlxctZ_GIPKC-NlmuUnpUfQ5QD5gc%26version%3DPublished&width=96&height=96&cb=63920870213",
+                "width": 96
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 21:16:54 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1976",
+          "x-ratelimit-reset": "1785273450",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "abbb7327-b45b-4860-9310-76c1d43f243b",
+          "client-request-id": "abbb7327-b45b-4860-9310-76c1d43f243b",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"003\",\"RoleInstance\":\"CO1PEPF000168B2\"}}",
+          "splogid": "34cc2ba2-50c5-c000-f4e8-076accc60c1f",
+          "odata-version": "4.0"
+        },
+        "hash": "67e460fbecb31c188e24760dc0e775b0b1d8ffac",
+        "request": {}
+      }
+    }
+  }
+}
