@@ -1,0 +1,352 @@
+{
+  "nango": {
+    "batchSave": {
+      "Customer": [
+        {
+          "id": "93640703",
+          "name": "Registry Seed Customer AS",
+          "email": "registry-seed@example.com",
+          "phoneNumber": "",
+          "phoneNumberMobile": "",
+          "customerNumber": 10001,
+          "organizationNumber": "",
+          "isInactive": false,
+          "description": "Updated via Nango action",
+          "displayName": "Registry Seed Customer AS (10001)",
+          "invoiceEmail": "",
+          "language": "NO",
+          "website": ""
+        },
+        {
+          "id": "93640704",
+          "name": "Registry Seed Customer 2 AS",
+          "email": "",
+          "phoneNumber": "",
+          "phoneNumberMobile": "",
+          "customerNumber": 10002,
+          "organizationNumber": "",
+          "isInactive": false,
+          "description": "",
+          "displayName": "Registry Seed Customer 2 AS (10002)",
+          "invoiceEmail": "",
+          "language": "NO",
+          "website": ""
+        },
+        {
+          "id": "93640843",
+          "name": "Nango Dryrun Customer",
+          "email": "",
+          "phoneNumber": "",
+          "phoneNumberMobile": "",
+          "customerNumber": 10003,
+          "organizationNumber": "",
+          "isInactive": false,
+          "description": "",
+          "displayName": "Nango Dryrun Customer (10003)",
+          "invoiceEmail": "",
+          "language": "NO",
+          "website": ""
+        },
+        {
+          "id": "93640847",
+          "name": "Nango Dryrun Customer",
+          "email": "",
+          "phoneNumber": "",
+          "phoneNumberMobile": "",
+          "customerNumber": 10004,
+          "organizationNumber": "",
+          "isInactive": false,
+          "description": "",
+          "displayName": "Nango Dryrun Customer (10004)",
+          "invoiceEmail": "",
+          "language": "NO",
+          "website": ""
+        }
+      ]
+    },
+    "batchDelete": {
+      "Customer": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v2/customer": {
+        "response": {
+          "fullResultSize": 4,
+          "from": 0,
+          "count": 4,
+          "versionDigest": "'If-None-Match' header not specified",
+          "values": [
+            {
+              "id": 93640703,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/customer/93640703",
+              "name": "Registry Seed Customer AS",
+              "organizationNumber": "",
+              "globalLocationNumber": 0,
+              "supplierNumber": 0,
+              "customerNumber": 10001,
+              "isSupplier": false,
+              "isCustomer": true,
+              "isInactive": false,
+              "accountManager": null,
+              "department": null,
+              "email": "registry-seed@example.com",
+              "invoiceEmail": "",
+              "overdueNoticeEmail": "",
+              "phoneNumber": "",
+              "phoneNumberMobile": "",
+              "description": "Updated via Nango action",
+              "language": "NO",
+              "displayName": "Registry Seed Customer AS (10001)",
+              "isPrivateIndividual": false,
+              "singleCustomerInvoice": false,
+              "invoiceSendMethod": "EMAIL",
+              "emailAttachmentType": "ATTACHMENT",
+              "postalAddress": {
+                "id": 332635049,
+                "url": "api-test.tripletex.tech/v2/address/332635049"
+              },
+              "physicalAddress": {
+                "id": 332635048,
+                "url": "api-test.tripletex.tech/v2/address/332635048"
+              },
+              "deliveryAddress": null,
+              "category1": null,
+              "category2": null,
+              "category3": null,
+              "invoicesDueIn": 14,
+              "invoicesDueInType": "DAYS",
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "bankAccountPresentation": [],
+              "ledgerAccount": {
+                "id": 291297244,
+                "url": "api-test.tripletex.tech/v2/ledger/account/291297244"
+              },
+              "isFactoring": false,
+              "invoiceSendSMSNotification": false,
+              "invoiceSMSNotificationNumber": "",
+              "isAutomaticSoftReminderEnabled": false,
+              "isAutomaticReminderEnabled": false,
+              "isAutomaticNoticeOfDebtCollectionEnabled": false,
+              "discountPercentage": 0,
+              "website": ""
+            },
+            {
+              "id": 93640704,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/customer/93640704",
+              "name": "Registry Seed Customer 2 AS",
+              "organizationNumber": "",
+              "globalLocationNumber": 0,
+              "supplierNumber": 0,
+              "customerNumber": 10002,
+              "isSupplier": false,
+              "isCustomer": true,
+              "isInactive": false,
+              "accountManager": null,
+              "department": null,
+              "email": "",
+              "invoiceEmail": "",
+              "overdueNoticeEmail": "",
+              "phoneNumber": "",
+              "phoneNumberMobile": "",
+              "description": "",
+              "language": "NO",
+              "displayName": "Registry Seed Customer 2 AS (10002)",
+              "isPrivateIndividual": false,
+              "singleCustomerInvoice": false,
+              "invoiceSendMethod": "EMAIL",
+              "emailAttachmentType": "ATTACHMENT",
+              "postalAddress": {
+                "id": 332635054,
+                "url": "api-test.tripletex.tech/v2/address/332635054"
+              },
+              "physicalAddress": {
+                "id": 332635053,
+                "url": "api-test.tripletex.tech/v2/address/332635053"
+              },
+              "deliveryAddress": null,
+              "category1": null,
+              "category2": null,
+              "category3": null,
+              "invoicesDueIn": 14,
+              "invoicesDueInType": "DAYS",
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "bankAccountPresentation": [],
+              "ledgerAccount": {
+                "id": 291297244,
+                "url": "api-test.tripletex.tech/v2/ledger/account/291297244"
+              },
+              "isFactoring": false,
+              "invoiceSendSMSNotification": false,
+              "invoiceSMSNotificationNumber": "",
+              "isAutomaticSoftReminderEnabled": false,
+              "isAutomaticReminderEnabled": false,
+              "isAutomaticNoticeOfDebtCollectionEnabled": false,
+              "discountPercentage": 0,
+              "website": ""
+            },
+            {
+              "id": 93640843,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/customer/93640843",
+              "name": "Nango Dryrun Customer",
+              "organizationNumber": "",
+              "globalLocationNumber": 0,
+              "supplierNumber": 0,
+              "customerNumber": 10003,
+              "isSupplier": false,
+              "isCustomer": true,
+              "isInactive": false,
+              "accountManager": null,
+              "department": null,
+              "email": "",
+              "invoiceEmail": "",
+              "overdueNoticeEmail": "",
+              "phoneNumber": "",
+              "phoneNumberMobile": "",
+              "description": "",
+              "language": "NO",
+              "displayName": "Nango Dryrun Customer (10003)",
+              "isPrivateIndividual": false,
+              "singleCustomerInvoice": false,
+              "invoiceSendMethod": "EMAIL",
+              "emailAttachmentType": "ATTACHMENT",
+              "postalAddress": {
+                "id": 332635411,
+                "url": "api-test.tripletex.tech/v2/address/332635411"
+              },
+              "physicalAddress": {
+                "id": 332635410,
+                "url": "api-test.tripletex.tech/v2/address/332635410"
+              },
+              "deliveryAddress": null,
+              "category1": null,
+              "category2": null,
+              "category3": null,
+              "invoicesDueIn": 14,
+              "invoicesDueInType": "DAYS",
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "bankAccountPresentation": [],
+              "ledgerAccount": {
+                "id": 291297244,
+                "url": "api-test.tripletex.tech/v2/ledger/account/291297244"
+              },
+              "isFactoring": false,
+              "invoiceSendSMSNotification": false,
+              "invoiceSMSNotificationNumber": "",
+              "isAutomaticSoftReminderEnabled": false,
+              "isAutomaticReminderEnabled": false,
+              "isAutomaticNoticeOfDebtCollectionEnabled": false,
+              "discountPercentage": 0,
+              "website": ""
+            },
+            {
+              "id": 93640847,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/customer/93640847",
+              "name": "Nango Dryrun Customer",
+              "organizationNumber": "",
+              "globalLocationNumber": 0,
+              "supplierNumber": 0,
+              "customerNumber": 10004,
+              "isSupplier": false,
+              "isCustomer": true,
+              "isInactive": false,
+              "accountManager": null,
+              "department": null,
+              "email": "",
+              "invoiceEmail": "",
+              "overdueNoticeEmail": "",
+              "phoneNumber": "",
+              "phoneNumberMobile": "",
+              "description": "",
+              "language": "NO",
+              "displayName": "Nango Dryrun Customer (10004)",
+              "isPrivateIndividual": false,
+              "singleCustomerInvoice": false,
+              "invoiceSendMethod": "EMAIL",
+              "emailAttachmentType": "ATTACHMENT",
+              "postalAddress": {
+                "id": 332635419,
+                "url": "api-test.tripletex.tech/v2/address/332635419"
+              },
+              "physicalAddress": {
+                "id": 332635418,
+                "url": "api-test.tripletex.tech/v2/address/332635418"
+              },
+              "deliveryAddress": null,
+              "category1": null,
+              "category2": null,
+              "category3": null,
+              "invoicesDueIn": 14,
+              "invoicesDueInType": "DAYS",
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "bankAccountPresentation": [],
+              "ledgerAccount": {
+                "id": 291297244,
+                "url": "api-test.tripletex.tech/v2/ledger/account/291297244"
+              },
+              "isFactoring": false,
+              "invoiceSendSMSNotification": false,
+              "invoiceSMSNotificationNumber": "",
+              "isAutomaticSoftReminderEnabled": false,
+              "isAutomaticReminderEnabled": false,
+              "isAutomaticNoticeOfDebtCollectionEnabled": false,
+              "discountPercentage": 0,
+              "website": ""
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 12:37:26 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000;includeSubDomains;preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1946",
+          "x-ratelimit-reset": "1785242270",
+          "x-tlx-request-id": "407deaac-b583-4344-bd20-211421c150bc",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "set-cookie": "<redacted>",
+          "x-rate-limit-limit": "100",
+          "x-rate-limit-remaining": "91",
+          "x-rate-limit-reset": "4",
+          "vary": "accept-encoding",
+          "server": "tripletex.no"
+        },
+        "hash": "41d3e2488378034cfbaebcf8995ba6946495e9a3",
+        "request": {
+          "params": {
+            "count": "100",
+            "from": "0"
+          }
+        }
+      }
+    }
+  }
+}
