@@ -1,0 +1,148 @@
+{
+  "input": {
+    "customer": {
+      "id": 93640703
+    },
+    "orderDate": "2026-07-28",
+    "deliveryDate": "2026-07-28",
+    "orderLines": [
+      {
+        "product": {
+          "id": 69781078
+        },
+        "count": 2
+      }
+    ]
+  },
+  "output": {
+    "id": 210311967,
+    "version": 0,
+    "url": "api-test.tripletex.tech/v2/order/210311967",
+    "customerId": 93640703,
+    "orderDate": "2026-07-28",
+    "deliveryDate": "2026-07-28",
+    "number": "9",
+    "reference": "",
+    "receiverEmail": "",
+    "deliveryComment": "",
+    "invoiceComment": "",
+    "isClosed": false,
+    "isSubscription": false,
+    "orderLines": [],
+    "preliminaryInvoice": {
+      "id": 1945373699,
+      "url": "api-test.tripletex.tech/v2/invoice/1945373699"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/order": {
+        "response": {
+          "value": {
+            "id": 210311967,
+            "version": 0,
+            "url": "api-test.tripletex.tech/v2/order/210311967",
+            "customer": {
+              "id": 93640703,
+              "url": "api-test.tripletex.tech/v2/customer/93640703"
+            },
+            "contact": null,
+            "attn": null,
+            "displayName": "9 Ordre",
+            "receiverEmail": "",
+            "overdueNoticeEmail": "",
+            "number": "9",
+            "reference": "",
+            "contractReference": "",
+            "department": null,
+            "orderDate": "2026-07-28",
+            "project": null,
+            "invoiceComment": "",
+            "internalComment": "",
+            "currency": {
+              "id": 1,
+              "url": "api-test.tripletex.tech/v2/currency/1"
+            },
+            "invoicesDueIn": 14,
+            "invoicesDueInType": "DAYS",
+            "isShowOpenPostsOnInvoices": false,
+            "isClosed": false,
+            "deliveryDate": "2026-07-28",
+            "deliveryAddress": null,
+            "deliveryComment": "",
+            "isPrioritizeAmountsIncludingVat": false,
+            "orderLineSorting": "PRODUCT",
+            "orderGroups": [],
+            "orderLines": [],
+            "isSubscription": false,
+            "subscriptionDuration": 0,
+            "subscriptionDurationType": "MONTHS",
+            "subscriptionPeriodsOnInvoice": 0,
+            "subscriptionPeriodsOnInvoiceType": "MONTHS",
+            "subscriptionInvoicingTimeInAdvanceOrArrears": "ADVANCE",
+            "subscriptionInvoicingTime": 0,
+            "subscriptionInvoicingTimeType": "MONTHS",
+            "isSubscriptionAutoInvoicing": false,
+            "preliminaryInvoice": {
+              "id": 1945373699,
+              "url": "api-test.tripletex.tech/v2/invoice/1945373699"
+            },
+            "attachment": [],
+            "attachmentRelation": [],
+            "sendMethodDescription": "Faktura må sendes manuelt.",
+            "backorderParentId": 0,
+            "invoiceOnAccountVatHigh": false,
+            "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+            "invoiceSendSMSNotification": false,
+            "invoiceSMSNotificationNumber": "",
+            "markUpOrderLines": 0,
+            "discountPercentage": 0,
+            "customerName": "Registry Seed Customer AS",
+            "projectManagerNameAndNumber": "",
+            "travelReports": [],
+            "accountingDimensionValues": []
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 12:29:46 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "1608",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1977",
+          "x-ratelimit-reset": "1785241830",
+          "etag": "W/\"648-GWe9+bGFr426Djvzqpn7gXGTZxo\""
+        },
+        "hash": "87c4258eadda0694e577e1c903ec6e98cde4bda2",
+        "request": {
+          "data": {
+            "customer": {
+              "id": 93640703
+            },
+            "orderDate": "2026-07-28",
+            "deliveryDate": "2026-07-28",
+            "orderLines": [
+              {
+                "product": {
+                  "id": 69781078
+                },
+                "count": 2
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
