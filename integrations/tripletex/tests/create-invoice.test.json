@@ -1,0 +1,145 @@
+{
+  "input": {
+    "orders": [
+      {
+        "id": 210311957
+      }
+    ],
+    "invoiceDate": "2026-07-28",
+    "invoiceDueDate": "2026-08-28"
+  },
+  "output": {
+    "id": 1945373711,
+    "url": "api-test.tripletex.tech/v2/invoice/1945373711",
+    "invoiceNumber": 2,
+    "invoiceDate": "2026-07-28",
+    "invoiceDueDate": "2026-08-28",
+    "kid": "",
+    "comment": "",
+    "amount": 0,
+    "amountCurrency": 0,
+    "amountExcludingVat": 0,
+    "amountExcludingVatCurrency": 0,
+    "currency": {
+      "id": 1
+    },
+    "customer": {
+      "id": 93640703
+    },
+    "orderIds": [
+      210311957
+    ],
+    "orderLineIds": [],
+    "isCreditNote": false,
+    "isCredited": false,
+    "isCharged": true,
+    "isApproved": false,
+    "creditedInvoiceId": 0
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/invoice": {
+        "response": {
+          "value": {
+            "id": 1945373711,
+            "version": 3,
+            "url": "api-test.tripletex.tech/v2/invoice/1945373711",
+            "invoiceNumber": 2,
+            "invoiceDate": "2026-07-28",
+            "customer": {
+              "id": 93640703,
+              "url": "api-test.tripletex.tech/v2/customer/93640703"
+            },
+            "creditedInvoice": 0,
+            "isCredited": false,
+            "invoiceDueDate": "2026-08-28",
+            "kid": "",
+            "invoiceComment": "",
+            "comment": "",
+            "orders": [
+              {
+                "id": 210311957,
+                "url": "api-test.tripletex.tech/v2/order/210311957"
+              }
+            ],
+            "orderLines": [],
+            "travelReports": [],
+            "projectInvoiceDetails": [
+              {
+                "id": 1832617831,
+                "url": "api-test.tripletex.tech/v2/invoice/details/1832617831"
+              }
+            ],
+            "voucher": {
+              "id": 444017885,
+              "url": "api-test.tripletex.tech/v2/ledger/voucher/444017885"
+            },
+            "deliveryDate": "2026-07-28",
+            "amount": 0,
+            "amountCurrency": 0,
+            "amountExcludingVat": 0,
+            "amountExcludingVatCurrency": 0,
+            "amountRoundoff": 0,
+            "amountRoundoffCurrency": 0,
+            "amountOutstanding": 0,
+            "amountCurrencyOutstanding": 0,
+            "amountOutstandingTotal": 0,
+            "amountCurrencyOutstandingTotal": 0,
+            "sumRemits": 0,
+            "currency": {
+              "id": 1,
+              "url": "api-test.tripletex.tech/v2/currency/1"
+            },
+            "isCreditNote": false,
+            "isCharged": true,
+            "isApproved": false,
+            "postings": [
+              {
+                "id": 2903347632,
+                "url": "api-test.tripletex.tech/v2/ledger/posting/2903347632"
+              }
+            ],
+            "reminders": [],
+            "invoiceRemarks": "",
+            "invoiceRemark": null,
+            "isPeriodizationPossible": true,
+            "documentId": 705950132
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 12:55:34 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "1271",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1985",
+          "x-ratelimit-reset": "1785243364",
+          "etag": "W/\"4f7-8nr15m0/xRjMzUwCuylKHYAn7jg\""
+        },
+        "hash": "40ed48d844e4040323c58a079c1efa36056862d4",
+        "request": {
+          "data": {
+            "orders": [
+              {
+                "id": 210311957
+              }
+            ],
+            "invoiceDate": "2026-07-28",
+            "invoiceDueDate": "2026-08-28"
+          }
+        }
+      }
+    }
+  }
+}

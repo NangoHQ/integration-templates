@@ -1,0 +1,230 @@
+{
+  "input": {
+    "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+    "itemId": "01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT"
+  },
+  "output": {
+    "versions": [
+      {
+        "id": "6.0",
+        "lastModifiedBy": {
+          "user": {
+            "displayName": "SharePoint App"
+          },
+          "application": {
+            "id": "6419626c-7709-4bcb-8008-061771b429c8",
+            "displayName": "Microsoft Graph"
+          }
+        },
+        "lastModifiedDateTime": "2026-07-28T14:30:31Z",
+        "size": 9138,
+        "downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/download.aspx?UniqueId=ef993dc2-a99d-4246-968a-132b6f3f60d3&Translate=false&tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCIb5v4Lhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLDQ3YTNlajV3Y3FXWDNZME13b1lGQXM0bHkwdi9OallhRjNncUhJdlN5dnM9MJIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.SGlzk5kPnrZ3IzE65x0R8bIsu4cmwFS8BY3Xl2nUrtE&ApiVersion=2.0"
+      },
+      {
+        "id": "5.0",
+        "lastModifiedBy": {
+          "user": {
+            "displayName": "SharePoint App"
+          },
+          "application": {
+            "id": "6419626c-7709-4bcb-8008-061771b429c8",
+            "displayName": "Microsoft Graph"
+          }
+        },
+        "lastModifiedDateTime": "2026-07-28T14:30:31Z",
+        "size": 9138,
+        "downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_api/v2.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions/5.0/streamContent?tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCMiG44Lhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLEFuMHhVU2l6M0tZamZvdWFEaGw2aXhlSFcwTFowbVVZbmdPVjBWUEZzYTQ9MNIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.JqGUgoAib4-YthBnFmDfrVl0mGnJucxtbiutW9Zr_iE"
+      },
+      {
+        "id": "4.0",
+        "lastModifiedBy": {
+          "user": {
+            "displayName": "SharePoint App"
+          },
+          "application": {
+            "id": "6419626c-7709-4bcb-8008-061771b429c8",
+            "displayName": "Microsoft Graph"
+          }
+        },
+        "lastModifiedDateTime": "2026-07-28T14:09:54Z",
+        "size": 9138,
+        "downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_api/v2.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions/4.0/streamContent?tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCOC_44Lhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLFplMkJPMW8rOEFFbW15SFFROGpXcjhnZldmUFFCTk5FNURYTlRZT01VVFE9MNIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.-Prdh4ARRnLWNRss7aADBQQSyECXjrl9hqqfEq2kc0Y"
+      },
+      {
+        "id": "3.0",
+        "lastModifiedBy": {
+          "user": {
+            "displayName": "SharePoint App"
+          },
+          "application": {
+            "id": "6419626c-7709-4bcb-8008-061771b429c8",
+            "displayName": "Microsoft Graph"
+          }
+        },
+        "lastModifiedDateTime": "2026-07-28T14:09:38Z",
+        "size": 9138,
+        "downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_api/v2.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions/3.0/streamContent?tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCPbB5ILhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLGh3SVVrcThxUGZKQ0lHa1NqdWQ1a096eWJ1Q2Z2MmFVbDZVWUhBUzdDdUE9MNIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.j47JF_o6ZjjQli8_1NgpnZOjvl5VfsS0SvUze7JVCpc"
+      },
+      {
+        "id": "2.0",
+        "lastModifiedBy": {
+          "user": {
+            "displayName": "SharePoint App"
+          },
+          "application": {
+            "id": "6419626c-7709-4bcb-8008-061771b429c8",
+            "displayName": "Microsoft Graph"
+          }
+        },
+        "lastModifiedDateTime": "2026-07-28T14:09:18Z",
+        "size": 9138,
+        "downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_api/v2.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions/2.0/streamContent?tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCPbB5ILhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLFBicis1Q2pKUEM3VC9RaHBObThKbEQ0QXFoRmJqNkpIampLSkFCamFNcjQ9MNIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.fv5mT9nmrdG3RTlLHtsXXNQwGY9dfn2_m4DJJpo0M-k"
+      },
+      {
+        "id": "1.0",
+        "lastModifiedBy": {
+          "user": {
+            "displayName": "SharePoint App"
+          },
+          "application": {
+            "id": "6419626c-7709-4bcb-8008-061771b429c8",
+            "displayName": "Microsoft Graph"
+          }
+        },
+        "lastModifiedDateTime": "2026-07-28T14:08:04Z",
+        "size": 9138,
+        "downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_api/v2.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions/1.0/streamContent?tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCNDA5YLhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLDdrSWdDT0lrWUljMGtQY3J5djJld1FVTEwxZmZ2blVGNmMyb2lVZ01raTg9MNIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.QddxUmIGoLOf6mDalaV7GRHnQhhHnItpPsfHHRD1Es8"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#drives('b%21PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0')/items('01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT')/versions",
+          "value": [
+            {
+              "@microsoft.graph.downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/download.aspx?UniqueId=ef993dc2-a99d-4246-968a-132b6f3f60d3&Translate=false&tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCIb5v4Lhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLDQ3YTNlajV3Y3FXWDNZME13b1lGQXM0bHkwdi9OallhRjNncUhJdlN5dnM9MJIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.SGlzk5kPnrZ3IzE65x0R8bIsu4cmwFS8BY3Xl2nUrtE&ApiVersion=2.0",
+              "id": "6.0",
+              "lastModifiedDateTime": "2026-07-28T14:30:31Z",
+              "size": 9138,
+              "lastModifiedBy": {
+                "application": {
+                  "id": "6419626c-7709-4bcb-8008-061771b429c8",
+                  "displayName": "Microsoft Graph"
+                },
+                "user": {
+                  "displayName": "SharePoint App"
+                }
+              }
+            },
+            {
+              "@microsoft.graph.downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_api/v2.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions/5.0/streamContent?tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCMiG44Lhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLEFuMHhVU2l6M0tZamZvdWFEaGw2aXhlSFcwTFowbVVZbmdPVjBWUEZzYTQ9MNIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.JqGUgoAib4-YthBnFmDfrVl0mGnJucxtbiutW9Zr_iE",
+              "id": "5.0",
+              "lastModifiedDateTime": "2026-07-28T14:30:31Z",
+              "size": 9138,
+              "lastModifiedBy": {
+                "application": {
+                  "id": "6419626c-7709-4bcb-8008-061771b429c8",
+                  "displayName": "Microsoft Graph"
+                },
+                "user": {
+                  "displayName": "SharePoint App"
+                }
+              }
+            },
+            {
+              "@microsoft.graph.downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_api/v2.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions/4.0/streamContent?tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCOC_44Lhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLFplMkJPMW8rOEFFbW15SFFROGpXcjhnZldmUFFCTk5FNURYTlRZT01VVFE9MNIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.-Prdh4ARRnLWNRss7aADBQQSyECXjrl9hqqfEq2kc0Y",
+              "id": "4.0",
+              "lastModifiedDateTime": "2026-07-28T14:09:54Z",
+              "size": 9138,
+              "lastModifiedBy": {
+                "application": {
+                  "id": "6419626c-7709-4bcb-8008-061771b429c8",
+                  "displayName": "Microsoft Graph"
+                },
+                "user": {
+                  "displayName": "SharePoint App"
+                }
+              }
+            },
+            {
+              "@microsoft.graph.downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_api/v2.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions/3.0/streamContent?tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCPbB5ILhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLGh3SVVrcThxUGZKQ0lHa1NqdWQ1a096eWJ1Q2Z2MmFVbDZVWUhBUzdDdUE9MNIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.j47JF_o6ZjjQli8_1NgpnZOjvl5VfsS0SvUze7JVCpc",
+              "id": "3.0",
+              "lastModifiedDateTime": "2026-07-28T14:09:38Z",
+              "size": 9138,
+              "lastModifiedBy": {
+                "application": {
+                  "id": "6419626c-7709-4bcb-8008-061771b429c8",
+                  "displayName": "Microsoft Graph"
+                },
+                "user": {
+                  "displayName": "SharePoint App"
+                }
+              }
+            },
+            {
+              "@microsoft.graph.downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_api/v2.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions/2.0/streamContent?tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCPbB5ILhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLFBicis1Q2pKUEM3VC9RaHBObThKbEQ0QXFoRmJqNkpIampLSkFCamFNcjQ9MNIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.fv5mT9nmrdG3RTlLHtsXXNQwGY9dfn2_m4DJJpo0M-k",
+              "id": "2.0",
+              "lastModifiedDateTime": "2026-07-28T14:09:18Z",
+              "size": 9138,
+              "lastModifiedBy": {
+                "application": {
+                  "id": "6419626c-7709-4bcb-8008-061771b429c8",
+                  "displayName": "Microsoft Graph"
+                },
+                "user": {
+                  "displayName": "SharePoint App"
+                }
+              }
+            },
+            {
+              "@microsoft.graph.downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_api/v2.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYGCHWM67HNJIZBJNCQTFNXT6YGT/versions/1.0/streamContent?tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyNzI2In0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI3MhILCNDA5YLhr7Y_EAUaDTQwLjEyNi4yNi4xNjAqLDdrSWdDT0lrWUljMGtQY3J5djJld1FVTEwxZmZ2blVGNmMyb2lVZ01raTg9MNIBOAFCEKIrtQr5wADAcHMiwdwjdmZKEGhhc2hlZHByb29mdG9rZW56ATG6ATthbGxzaXRlcy5yZWFkIGFsbGZpbGVzLndyaXRlIGFsbGZpbGVzLnJlYWQgYWxscHJvZmlsZXMucmVhZMgBAQ.QddxUmIGoLOf6mDalaV7GRHnQhhHnItpPsfHHRD1Es8",
+              "id": "1.0",
+              "lastModifiedDateTime": "2026-07-28T14:08:04Z",
+              "size": 9138,
+              "lastModifiedBy": {
+                "application": {
+                  "id": "6419626c-7709-4bcb-8008-061771b429c8",
+                  "displayName": "Microsoft Graph"
+                },
+                "user": {
+                  "displayName": "SharePoint App"
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 14:32:06 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1976",
+          "x-ratelimit-reset": "1785249148",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "070919af-ef08-4c2f-8e83-d3e929c490a1",
+          "client-request-id": "070919af-ef08-4c2f-8e83-d3e929c490a1",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"001\",\"RoleInstance\":\"MW2PEPF00012CC0\"}}",
+          "splogid": "0ab52ba2-c0f9-c000-7073-22c1dc237666",
+          "odata-version": "4.0"
+        },
+        "hash": "760de8ea6c321822f18b42ad38d5def0a41d1b7b",
+        "request": {}
+      }
+    }
+  }
+}

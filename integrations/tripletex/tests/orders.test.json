@@ -1,0 +1,376 @@
+{
+    "nango": {
+        "batchSave": {
+            "Order": [
+                {
+                    "id": "210311950",
+                    "number": "3",
+                    "orderDate": "2026-01-01",
+                    "customerName": "Registry Seed Customer AS",
+                    "customerId": "93640703",
+                    "isClosed": false,
+                    "deliveryDate": "2026-01-15",
+                    "reference": "",
+                    "totalInvoicedOnAccountAmountAbsoluteCurrency": 0
+                },
+                {
+                    "id": "210311951",
+                    "number": "4",
+                    "orderDate": "2026-01-01",
+                    "customerName": "Registry Seed Customer 2 AS",
+                    "customerId": "93640704",
+                    "isClosed": false,
+                    "deliveryDate": "2026-01-15",
+                    "reference": "",
+                    "totalInvoicedOnAccountAmountAbsoluteCurrency": 0
+                },
+                {
+                    "id": "210311957",
+                    "number": "5",
+                    "orderDate": "2026-01-01",
+                    "customerName": "Registry Seed Customer AS",
+                    "customerId": "93640703",
+                    "isClosed": false,
+                    "deliveryDate": "2026-01-15",
+                    "reference": "",
+                    "totalInvoicedOnAccountAmountAbsoluteCurrency": 0
+                },
+                {
+                    "id": "210311958",
+                    "number": "6",
+                    "orderDate": "2026-01-01",
+                    "customerName": "Registry Seed Customer 2 AS",
+                    "customerId": "93640704",
+                    "isClosed": false,
+                    "deliveryDate": "2026-01-15",
+                    "reference": "",
+                    "totalInvoicedOnAccountAmountAbsoluteCurrency": 0
+                }
+            ]
+        },
+        "batchDelete": {
+            "Order": []
+        }
+    },
+    "api": {
+        "get": {
+            "/v2/order": {
+                "response": {
+                    "fullResultSize": 4,
+                    "from": 0,
+                    "count": 4,
+                    "versionDigest": "'If-None-Match' header not specified",
+                    "values": [
+                        {
+                            "id": 210311950,
+                            "version": 1,
+                            "url": "api-test.tripletex.tech/v2/order/210311950",
+                            "customer": {
+                                "id": 93640703,
+                                "url": "api-test.tripletex.tech/v2/customer/93640703"
+                            },
+                            "contact": null,
+                            "attn": null,
+                            "displayName": "3 Ordre",
+                            "receiverEmail": "",
+                            "overdueNoticeEmail": "",
+                            "number": "3",
+                            "reference": "",
+                            "contractReference": "",
+                            "department": null,
+                            "orderDate": "2026-01-01",
+                            "project": null,
+                            "invoiceComment": "",
+                            "internalComment": "",
+                            "currency": {
+                                "id": 1,
+                                "url": "api-test.tripletex.tech/v2/currency/1"
+                            },
+                            "invoicesDueIn": 14,
+                            "invoicesDueInType": "DAYS",
+                            "isShowOpenPostsOnInvoices": false,
+                            "isClosed": false,
+                            "deliveryDate": "2026-01-15",
+                            "deliveryAddress": null,
+                            "deliveryComment": "",
+                            "isPrioritizeAmountsIncludingVat": false,
+                            "orderLineSorting": "PRODUCT",
+                            "orderGroups": [],
+                            "orderLines": [
+                                {
+                                    "id": 973759384,
+                                    "url": "api-test.tripletex.tech/v2/order/orderline/973759384"
+                                }
+                            ],
+                            "isSubscription": false,
+                            "subscriptionDuration": 0,
+                            "subscriptionDurationType": "MONTHS",
+                            "subscriptionPeriodsOnInvoice": 0,
+                            "subscriptionPeriodsOnInvoiceType": "MONTHS",
+                            "subscriptionInvoicingTimeInAdvanceOrArrears": "ADVANCE",
+                            "subscriptionInvoicingTime": 0,
+                            "subscriptionInvoicingTimeType": "MONTHS",
+                            "isSubscriptionAutoInvoicing": false,
+                            "preliminaryInvoice": {
+                                "id": 1945373645,
+                                "url": "api-test.tripletex.tech/v2/invoice/1945373645"
+                            },
+                            "attachment": [],
+                            "attachmentRelation": [],
+                            "sendMethodDescription": "Faktura m\u00e5 sendes manuelt.",
+                            "backorderParentId": 0,
+                            "invoiceOnAccountVatHigh": false,
+                            "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+                            "invoiceSendSMSNotification": false,
+                            "invoiceSMSNotificationNumber": "",
+                            "markUpOrderLines": 0,
+                            "discountPercentage": 0,
+                            "customerName": "Registry Seed Customer AS",
+                            "projectManagerNameAndNumber": "",
+                            "travelReports": [],
+                            "accountingDimensionValues": []
+                        },
+                        {
+                            "id": 210311951,
+                            "version": 2,
+                            "url": "api-test.tripletex.tech/v2/order/210311951",
+                            "customer": {
+                                "id": 93640704,
+                                "url": "api-test.tripletex.tech/v2/customer/93640704"
+                            },
+                            "contact": null,
+                            "attn": null,
+                            "displayName": "4 Ordre",
+                            "receiverEmail": "",
+                            "overdueNoticeEmail": "",
+                            "number": "4",
+                            "reference": "",
+                            "contractReference": "",
+                            "department": null,
+                            "orderDate": "2026-01-01",
+                            "project": null,
+                            "invoiceComment": "",
+                            "internalComment": "",
+                            "currency": {
+                                "id": 1,
+                                "url": "api-test.tripletex.tech/v2/currency/1"
+                            },
+                            "invoicesDueIn": 14,
+                            "invoicesDueInType": "DAYS",
+                            "isShowOpenPostsOnInvoices": false,
+                            "isClosed": false,
+                            "deliveryDate": "2026-01-15",
+                            "deliveryAddress": null,
+                            "deliveryComment": "",
+                            "isPrioritizeAmountsIncludingVat": false,
+                            "orderLineSorting": "PRODUCT",
+                            "orderGroups": [],
+                            "orderLines": [
+                                {
+                                    "id": 973759399,
+                                    "url": "api-test.tripletex.tech/v2/order/orderline/973759399"
+                                },
+                                {
+                                    "id": 973759400,
+                                    "url": "api-test.tripletex.tech/v2/order/orderline/973759400"
+                                }
+                            ],
+                            "isSubscription": false,
+                            "subscriptionDuration": 0,
+                            "subscriptionDurationType": "MONTHS",
+                            "subscriptionPeriodsOnInvoice": 0,
+                            "subscriptionPeriodsOnInvoiceType": "MONTHS",
+                            "subscriptionInvoicingTimeInAdvanceOrArrears": "ADVANCE",
+                            "subscriptionInvoicingTime": 0,
+                            "subscriptionInvoicingTimeType": "MONTHS",
+                            "isSubscriptionAutoInvoicing": false,
+                            "preliminaryInvoice": {
+                                "id": 1945373646,
+                                "url": "api-test.tripletex.tech/v2/invoice/1945373646"
+                            },
+                            "attachment": [],
+                            "attachmentRelation": [],
+                            "sendMethodDescription": "Faktura m\u00e5 sendes manuelt.",
+                            "backorderParentId": 0,
+                            "invoiceOnAccountVatHigh": false,
+                            "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+                            "invoiceSendSMSNotification": false,
+                            "invoiceSMSNotificationNumber": "",
+                            "markUpOrderLines": 0,
+                            "discountPercentage": 0,
+                            "customerName": "Registry Seed Customer 2 AS",
+                            "projectManagerNameAndNumber": "",
+                            "travelReports": [],
+                            "accountingDimensionValues": []
+                        },
+                        {
+                            "id": 210311957,
+                            "version": 0,
+                            "url": "api-test.tripletex.tech/v2/order/210311957",
+                            "customer": {
+                                "id": 93640703,
+                                "url": "api-test.tripletex.tech/v2/customer/93640703"
+                            },
+                            "contact": null,
+                            "attn": null,
+                            "displayName": "5 Ordre",
+                            "receiverEmail": "",
+                            "overdueNoticeEmail": "",
+                            "number": "5",
+                            "reference": "",
+                            "contractReference": "",
+                            "department": null,
+                            "orderDate": "2026-01-01",
+                            "project": null,
+                            "invoiceComment": "",
+                            "internalComment": "",
+                            "currency": {
+                                "id": 1,
+                                "url": "api-test.tripletex.tech/v2/currency/1"
+                            },
+                            "invoicesDueIn": 14,
+                            "invoicesDueInType": "DAYS",
+                            "isShowOpenPostsOnInvoices": false,
+                            "isClosed": false,
+                            "deliveryDate": "2026-01-15",
+                            "deliveryAddress": null,
+                            "deliveryComment": "",
+                            "isPrioritizeAmountsIncludingVat": false,
+                            "orderLineSorting": "PRODUCT",
+                            "orderGroups": [],
+                            "orderLines": [],
+                            "isSubscription": false,
+                            "subscriptionDuration": 0,
+                            "subscriptionDurationType": "MONTHS",
+                            "subscriptionPeriodsOnInvoice": 0,
+                            "subscriptionPeriodsOnInvoiceType": "MONTHS",
+                            "subscriptionInvoicingTimeInAdvanceOrArrears": "ADVANCE",
+                            "subscriptionInvoicingTime": 0,
+                            "subscriptionInvoicingTimeType": "MONTHS",
+                            "isSubscriptionAutoInvoicing": false,
+                            "preliminaryInvoice": {
+                                "id": 1945373654,
+                                "url": "api-test.tripletex.tech/v2/invoice/1945373654"
+                            },
+                            "attachment": [],
+                            "attachmentRelation": [],
+                            "sendMethodDescription": "Faktura m\u00e5 sendes manuelt.",
+                            "backorderParentId": 0,
+                            "invoiceOnAccountVatHigh": false,
+                            "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+                            "invoiceSendSMSNotification": false,
+                            "invoiceSMSNotificationNumber": "",
+                            "markUpOrderLines": 0,
+                            "discountPercentage": 0,
+                            "customerName": "Registry Seed Customer AS",
+                            "projectManagerNameAndNumber": "",
+                            "travelReports": [],
+                            "accountingDimensionValues": []
+                        },
+                        {
+                            "id": 210311958,
+                            "version": 0,
+                            "url": "api-test.tripletex.tech/v2/order/210311958",
+                            "customer": {
+                                "id": 93640704,
+                                "url": "api-test.tripletex.tech/v2/customer/93640704"
+                            },
+                            "contact": null,
+                            "attn": null,
+                            "displayName": "6 Ordre",
+                            "receiverEmail": "",
+                            "overdueNoticeEmail": "",
+                            "number": "6",
+                            "reference": "",
+                            "contractReference": "",
+                            "department": null,
+                            "orderDate": "2026-01-01",
+                            "project": null,
+                            "invoiceComment": "",
+                            "internalComment": "",
+                            "currency": {
+                                "id": 1,
+                                "url": "api-test.tripletex.tech/v2/currency/1"
+                            },
+                            "invoicesDueIn": 14,
+                            "invoicesDueInType": "DAYS",
+                            "isShowOpenPostsOnInvoices": false,
+                            "isClosed": false,
+                            "deliveryDate": "2026-01-15",
+                            "deliveryAddress": null,
+                            "deliveryComment": "",
+                            "isPrioritizeAmountsIncludingVat": false,
+                            "orderLineSorting": "PRODUCT",
+                            "orderGroups": [],
+                            "orderLines": [],
+                            "isSubscription": false,
+                            "subscriptionDuration": 0,
+                            "subscriptionDurationType": "MONTHS",
+                            "subscriptionPeriodsOnInvoice": 0,
+                            "subscriptionPeriodsOnInvoiceType": "MONTHS",
+                            "subscriptionInvoicingTimeInAdvanceOrArrears": "ADVANCE",
+                            "subscriptionInvoicingTime": 0,
+                            "subscriptionInvoicingTimeType": "MONTHS",
+                            "isSubscriptionAutoInvoicing": false,
+                            "preliminaryInvoice": {
+                                "id": 1945373655,
+                                "url": "api-test.tripletex.tech/v2/invoice/1945373655"
+                            },
+                            "attachment": [],
+                            "attachmentRelation": [],
+                            "sendMethodDescription": "Faktura m\u00e5 sendes manuelt.",
+                            "backorderParentId": 0,
+                            "invoiceOnAccountVatHigh": false,
+                            "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+                            "invoiceSendSMSNotification": false,
+                            "invoiceSMSNotificationNumber": "",
+                            "markUpOrderLines": 0,
+                            "discountPercentage": 0,
+                            "customerName": "Registry Seed Customer 2 AS",
+                            "projectManagerNameAndNumber": "",
+                            "travelReports": [],
+                            "accountingDimensionValues": []
+                        }
+                    ]
+                },
+                "status": 200,
+                "headers": {
+                    "date": "Tue, 28 Jul 2026 12:34:05 GMT",
+                    "content-type": "application/json;charset=UTF-8",
+                    "transfer-encoding": "chunked",
+                    "connection": "keep-alive",
+                    "x-xss-protection": "0",
+                    "x-content-type-options": "nosniff",
+                    "x-download-options": "noopen",
+                    "x-frame-options": "SAMEORIGIN",
+                    "x-dns-prefetch-control": "off",
+                    "strict-transport-security": "max-age=31536000;includeSubDomains;preload",
+                    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+                    "x-ratelimit-limit": "2000",
+                    "x-ratelimit-remaining": "1943",
+                    "x-ratelimit-reset": "1785242088",
+                    "x-tlx-request-id": "0b7ab771-843e-4977-83aa-eb6d6555e8da",
+                    "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+                    "pragma": "no-cache",
+                    "set-cookie": "<redacted>",
+                    "x-rate-limit-limit": "100",
+                    "x-rate-limit-remaining": "87",
+                    "x-rate-limit-reset": "4",
+                    "vary": "accept-encoding",
+                    "server": "tripletex.no"
+                },
+                "hash": "ccadbe13d17c6dc93646faee34fcb7244d40fd39",
+                "request": {
+                    "params": {
+                        "count": "100",
+                        "from": "0",
+                        "orderDateFrom": "2000-01-01",
+                        "orderDateTo": "2099-12-31"
+                    }
+                }
+            }
+        }
+    }
+}
