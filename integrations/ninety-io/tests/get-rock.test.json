@@ -1,0 +1,110 @@
+{
+  "input": {
+    "id": "6a61d2d0441c43ad0eaabd3c"
+  },
+  "output": {
+    "id": "6a61d2d0441c43ad0eaabd3c",
+    "completed": false,
+    "archived": false,
+    "deleted": false,
+    "description": "",
+    "title": "Test Rock",
+    "comments": [],
+    "teamId": "6a616ba8908190d6d9458153",
+    "dueDate": "2026-12-31T08:00:00.000Z",
+    "statusCode": "ON_TRACK",
+    "levelCode": "COMPANY",
+    "quarter": "Q4",
+    "companyId": "6a616ba8908190d6d9458151",
+    "userId": "6a616ba8908190d6d945815c",
+    "createdDate": "2026-07-23T08:37:36.000Z",
+    "ordinal": 3,
+    "userOrdinal": 3,
+    "planningBoardOrdinal": 3,
+    "followers": [
+      "6a616ba8908190d6d945815c"
+    ],
+    "milestones": [],
+    "createdByUserId": "6a616ba8908190d6d945815c",
+    "dueDateQuarter": "",
+    "attachments": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/rocks/6a61d2d0441c43ad0eaabd3c": {
+        "response": {
+          "completed": false,
+          "_id": "6a61d2d0441c43ad0eaabd3c",
+          "__v": 0,
+          "archived": false,
+          "deleted": false,
+          "description": "",
+          "title": "Test Rock",
+          "comments": [],
+          "teamId": "6a616ba8908190d6d9458153",
+          "dueDate": "2026-12-31T08:00:00.000Z",
+          "statusCode": "ON_TRACK",
+          "levelCode": "COMPANY",
+          "quarter": "Q4",
+          "companyId": "6a616ba8908190d6d9458151",
+          "userId": "6a616ba8908190d6d945815c",
+          "archivedDate": null,
+          "completedDate": null,
+          "createdDate": "2026-07-23T08:37:36.000Z",
+          "updatedAt": null,
+          "updatedBy": null,
+          "ordinal": 3,
+          "userOrdinal": 3,
+          "planningBoardOrdinal": 3,
+          "followers": [
+            "6a616ba8908190d6d945815c"
+          ],
+          "milestones": [],
+          "createdByUserId": "6a616ba8908190d6d945815c",
+          "dueDateQuarter": "",
+          "originalDueDate": null,
+          "attachments": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 18:57:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1500",
+          "x-ratelimit-remaining": "1481",
+          "x-ratelimit-reset": "1785265091",
+          "server": "openresty",
+          "vary": "Accept-Encoding, Origin, Accept-Encoding",
+          "x-amzn-requestid": "d843dce8-5fca-4f2b-b0bc-6ecc2e824e6e",
+          "referrer-policy": "no-referrer",
+          "x-amzn-remapped-x-amzn-requestid": "73619970-3f07-4a37-a64f-2a7e717af2f5",
+          "x-permitted-cross-domain-policies": "none",
+          "x-amzn-remapped-content-length": "684",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "origin-agent-cluster": "?1",
+          "x-amzn-remapped-connection": "close",
+          "cross-origin-opener-policy": "same-origin",
+          "x-amz-apigw-id": "BOxDzGkiIAMFkcg=",
+          "etag": "W/\"2ac-tXgmrHLQr2Xl5g6AxycIio8SoWk\"",
+          "cross-origin-resource-policy": "same-origin",
+          "x-amzn-trace-id": "Root=1-6a68fbb1-9a76706b3189cf52ddd9ea5a;Parent=00359ae2f97fc840;Sampled=0;Lineage=1:e848db70:0",
+          "x-amzn-remapped-date": "Tue, 28 Jul 2026 18:57:54 GMT",
+          "access-control-allow-credentials": "true"
+        },
+        "hash": "27dfc718608e154e7a3288e8f528173ee036b511",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "input": {
+    "teamId": "6a616ba8908190d6d9458153",
+    "title": "Test rock from create-rock action 2",
+    "dueDate": "2026-12-31T00:00:00Z",
+    "statusCode": "ON_TRACK",
+    "levelCode": "COMPANY",
+    "quarter": "Q4",
+    "assigneeIds": [
+      "6a616ba8908190d6d945815c"
+    ]
+  },
+  "output": {
+    "id": "6a68fbab47919f2a7d3c2763",
+    "teamId": "6a616ba8908190d6d9458153",
+    "title": "Test rock from create-rock action 2",
+    "dueDate": "2026-12-31T00:00:00.000Z",
+    "statusCode": "ON_TRACK",
+    "levelCode": "COMPANY",
+    "quarter": "Q4",
+    "description": "",
+    "createdByUserId": "6a616ba8908190d6d945815c",
+    "createdDate": "2026-07-28T18:57:47.039Z",
+    "milestones": [],
+    "userId": "6a616ba8908190d6d945815c",
+    "companyId": "6a616ba8908190d6d9458151",
+    "completed": false,
+    "archived": false,
+    "deleted": false,
+    "followers": [
+      "6a616ba8908190d6d945815c"
+    ],
+    "ordinal": 14,
+    "userOrdinal": 14,
+    "planningBoardOrdinal": 14,
+    "dueDateQuarter": ""
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/rocks": {
+        "response": [
+          {
+            "completed": false,
+            "__v": 0,
+            "archived": false,
+            "deleted": false,
+            "description": "",
+            "title": "Test rock from create-rock action 2",
+            "comments": [],
+            "teamId": "6a616ba8908190d6d9458153",
+            "dueDate": "2026-12-31T00:00:00.000Z",
+            "statusCode": "ON_TRACK",
+            "levelCode": "COMPANY",
+            "quarter": "Q4",
+            "companyId": "6a616ba8908190d6d9458151",
+            "userId": "6a616ba8908190d6d945815c",
+            "archivedDate": null,
+            "completedDate": null,
+            "createdDate": "2026-07-28T18:57:47.039Z",
+            "updatedAt": null,
+            "updatedBy": null,
+            "ordinal": 14,
+            "userOrdinal": 14,
+            "planningBoardOrdinal": 14,
+            "followers": [
+              "6a616ba8908190d6d945815c"
+            ],
+            "milestones": [],
+            "createdByUserId": "6a616ba8908190d6d945815c",
+            "dueDateQuarter": "",
+            "_id": "6a68fbab47919f2a7d3c2763"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 18:57:47 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "675",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1959",
+          "x-ratelimit-reset": "1785265091",
+          "etag": "W/\"2a3-+07/zQNJZ6M1GgBMfGqKOSOHeg8\""
+        },
+        "hash": "ed667fb314f8137c4d761db783dfb58e1bfc545f",
+        "request": {
+          "data": {
+            "rock": {
+              "teamId": "6a616ba8908190d6d9458153",
+              "title": "Test rock from create-rock action 2",
+              "dueDate": "2026-12-31T00:00:00Z",
+              "statusCode": "ON_TRACK",
+              "levelCode": "COMPANY",
+              "quarter": "Q4",
+              "assigneeIds": [
+                "6a616ba8908190d6d945815c"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

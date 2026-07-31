@@ -3241,6 +3241,38 @@ import './netsuite-tba/actions/purchase-order-update.js';
 // -- Integration: next-cloud-ocs
 import './next-cloud-ocs/syncs/users.js';
 
+// -- Integration: ninety-io
+import './ninety-io/syncs/issues.js';
+import './ninety-io/syncs/rocks.js';
+import './ninety-io/syncs/scorecard-kpis.js';
+import './ninety-io/syncs/teams.js';
+import './ninety-io/syncs/todos.js';
+import './ninety-io/actions/create-issue.js';
+import './ninety-io/actions/create-milestone.js';
+import './ninety-io/actions/create-rock.js';
+import './ninety-io/actions/create-todo.js';
+import './ninety-io/actions/delete-issue.js';
+import './ninety-io/actions/delete-rock.js';
+import './ninety-io/actions/delete-scorecard-note.js';
+import './ninety-io/actions/delete-scorecard-score.js';
+import './ninety-io/actions/delete-todo.js';
+import './ninety-io/actions/get-issue.js';
+import './ninety-io/actions/get-milestone.js';
+import './ninety-io/actions/get-rock.js';
+import './ninety-io/actions/get-todo.js';
+import './ninety-io/actions/get-user.js';
+import './ninety-io/actions/list-issues.js';
+import './ninety-io/actions/list-rocks.js';
+import './ninety-io/actions/list-scorecard-kpis.js';
+import './ninety-io/actions/list-teams.js';
+import './ninety-io/actions/list-todos.js';
+import './ninety-io/actions/update-issue.js';
+import './ninety-io/actions/update-milestone.js';
+import './ninety-io/actions/update-rock.js';
+import './ninety-io/actions/update-todo.js';
+import './ninety-io/actions/upsert-scorecard-note.js';
+import './ninety-io/actions/upsert-scorecard-score.js';
+
 // -- Integration: notion
 import './notion/syncs/content-metadata.js';
 import './notion/syncs/data-source-entries.js';
