@@ -5,79 +5,86 @@ const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
-const ProviderLegalEntitySchema = z
-    .object({
-        LegalEntityId: z.string(),
-        Name: z.string().nullish()
-    })
-    .passthrough();
+const ProviderLegalEntitySchema = z.object({
+    LegalEntityId: z.string(),
+    Name: z.string().nullable().optional(),
+    NameAlias: z.string().nullable().optional(),
+    CompanyType: z.string().nullable().optional(),
+    AddressCountryRegionId: z.string().nullable().optional()
+});
 
-const ODataListResponseSchema = z.object({
-    value: z.array(z.unknown()),
-    '@odata.nextLink': z.string().optional()
+const LegalEntitySchema = z.object({
+    dataAreaId: z.string(),
+    name: z.string().optional(),
+    nameAlias: z.string().optional(),
+    companyType: z.string().optional(),
+    countryRegionId: z.string().optional()
 });
 
 const OutputSchema = z.object({
-    items: z.array(ProviderLegalEntitySchema),
+    items: z.array(LegalEntitySchema),
     nextCursor: z.string().optional()
 });
 
+const PAGE_SIZE = 100;
+
 const action = createAction({
     description: 'List legal entities (companies/data areas).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (input.cursor !== undefined && isNaN(skip)) {
+        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (Number.isNaN(offset) || offset < 0) {
             throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'Cursor must be a numeric string.'
+                type: 'invalid_cursor',
+                message: 'Invalid pagination cursor.'
             });
         }
-        const top = 100;
 
+        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const response = await nango.get({
-            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/LegalEntities',
             params: {
-                $top: String(top),
-                $skip: String(skip),
-                $count: 'true'
+                $top: PAGE_SIZE,
+                $skip: offset
             },
             retries: 3
         });
 
-        const parsedResponse = ODataListResponseSchema.parse(response.data);
-        const items = parsedResponse.value.map((entity) => {
-            const parsed = ProviderLegalEntitySchema.safeParse(entity);
-            if (!parsed.success) {
-                throw new nango.ActionError({
-                    type: 'invalid_response',
-                    message: 'Legal entity failed schema validation.'
-                });
-            }
+        const rawData = response.data;
+        if (!rawData || typeof rawData !== 'object' || Array.isArray(rawData) || !('value' in rawData)) {
+            throw new nango.ActionError({
+                type: 'unexpected_response',
+                message: 'Unexpected response format from LegalEntities endpoint.'
+            });
+        }
 
-            return parsed.data;
+        const rawValue = rawData.value;
+        if (!Array.isArray(rawValue)) {
+            throw new nango.ActionError({
+                type: 'unexpected_response',
+                message: 'Unexpected response format: value is not an array.'
+            });
+        }
+
+        const items = rawValue.map((item) => {
+            const parsed = ProviderLegalEntitySchema.parse(item);
+            return {
+                dataAreaId: parsed.LegalEntityId,
+                ...(parsed.Name != null && { name: parsed.Name }),
+                ...(parsed.NameAlias != null && { nameAlias: parsed.NameAlias }),
+                ...(parsed.CompanyType != null && { companyType: parsed.CompanyType }),
+                ...(parsed.AddressCountryRegionId != null && { countryRegionId: parsed.AddressCountryRegionId })
+            };
         });
 
-        let nextCursor: string | undefined;
-        if (parsedResponse['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and try to extract the real $skip it
-            // wants us to use next. nextLink may be an absolute URL or a relative path, so parse it
-            // against a fixed base to support both.
-            const nextUrl = new URL(parsedResponse['@odata.nextLink'], 'https://dynamics.local');
-            const skipParam = nextUrl.searchParams.get('$skip');
-            nextCursor = skipParam ?? String(skip + items.length);
-        } else if (items.length === top) {
-            // No explicit nextLink, but we got a full page — assume there may be more.
-            nextCursor = String(skip + top);
-        }
+        const nextCursor = rawValue.length === PAGE_SIZE ? String(offset + PAGE_SIZE) : undefined;
 
         return {
             items,
-            ...(nextCursor !== undefined && { nextCursor: nextCursor })
+            ...(nextCursor !== undefined && { nextCursor })
         };
     }
 });

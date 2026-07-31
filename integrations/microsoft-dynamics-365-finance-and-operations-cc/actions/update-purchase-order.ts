@@ -2,142 +2,115 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company/data area ID. Example: "dat"'),
-    purchaseOrderNumber: z.string().describe('Purchase order number. Example: "DAT-000046"'),
-    purchaseOrderName: z.string().optional().describe('Purchase order name/description'),
-    vendorOrderReference: z.string().optional().describe('Vendor order reference'),
-    requestedDeliveryDate: z.string().optional().describe('Requested delivery date in ISO 8601 format'),
-    currencyCode: z.string().optional().describe('Currency code. Example: "USD"'),
-    paymentTermsName: z.string().optional().describe('Payment terms name'),
-    deliveryTermsId: z.string().optional().describe('Delivery terms ID'),
-    deliveryModeId: z.string().optional().describe('Delivery mode ID'),
-    reasonCode: z.string().optional().describe('Reason code'),
-    reasonComment: z.string().optional().describe('Reason comment'),
-    attentionInformation: z.string().optional().describe('Attention information'),
-    orderVendorAccountNumber: z.string().optional().describe('Order vendor account number'),
-    invoiceVendorAccountNumber: z.string().optional().describe('Invoice vendor account number'),
-    languageId: z.string().optional().describe('Language ID. Example: "en-US"'),
-    purchaseOrderPoolId: z.string().optional().describe('Purchase order pool ID'),
-    projectId: z.string().optional().describe('Project ID'),
-    defaultReceivingSiteId: z.string().optional().describe('Default receiving site ID'),
-    defaultReceivingWarehouseId: z.string().optional().describe('Default receiving warehouse ID'),
-    additionalFields: z.record(z.string(), z.unknown()).optional()
+    dataAreaId: z.string().describe('Company code / data area ID. Example: "dat"'),
+    PurchaseOrderNumber: z.string().describe('Purchase order number. Example: "DAT-000046"'),
+    PurchaseOrderName: z.string().optional().nullable().describe('Purchase order name or description'),
+    VendorOrderReference: z.string().optional().nullable().describe('Vendor order reference number'),
+    RequestedDeliveryDate: z.string().datetime().optional().describe('Requested delivery date in ISO 8601 format'),
+    DeliveryTermsId: z.string().optional().describe('Delivery terms code'),
+    PaymentTermsName: z.string().optional().describe('Payment terms name'),
+    AttentionInformation: z.string().optional().nullable().describe('Attention information'),
+    OrderVendorAccountNumber: z.string().optional().describe('Order vendor account number'),
+    InvoiceVendorAccountNumber: z.string().optional().describe('Invoice vendor account number'),
+    BuyerGroupId: z.string().optional().describe('Buyer group ID'),
+    ProjectId: z.string().optional().describe('Project ID'),
+    ReasonCode: z.string().optional().describe('Reason code')
 });
 
-const ProviderPurchaseOrderHeaderSchema = z
-    .object({
-        dataAreaId: z.string(),
-        PurchaseOrderNumber: z.string(),
-        PurchaseOrderName: z.string().optional(),
-        VendorOrderReference: z.string().optional(),
-        OrderVendorAccountNumber: z.string().optional(),
-        InvoiceVendorAccountNumber: z.string().optional(),
-        CurrencyCode: z.string().optional(),
-        PaymentTermsName: z.string().optional(),
-        DeliveryTermsId: z.string().optional(),
-        DeliveryModeId: z.string().optional(),
-        RequestedDeliveryDate: z.string().optional(),
-        PurchaseOrderStatus: z.string().optional(),
-        LanguageId: z.string().optional(),
-        AccountingDate: z.string().optional(),
-        ReasonCode: z.string().optional(),
-        ReasonComment: z.string().optional(),
-        AttentionInformation: z.string().optional(),
-        ProjectId: z.string().optional(),
-        PurchaseOrderPoolId: z.string().optional(),
-        DefaultReceivingSiteId: z.string().optional(),
-        DefaultReceivingWarehouseId: z.string().optional(),
-        IsChangeManagementActive: z.string().optional(),
-        DocumentApprovalStatus: z.string().optional(),
-        ArePricesIncludingSalesTax: z.string().optional(),
-        VendorPostingProfileId: z.string().optional(),
-        TotalDiscountPercentage: z.number().optional(),
-        CashDiscountPercentage: z.number().optional()
-    })
-    .passthrough();
+const ProviderPurchaseOrderHeaderSchema = z.object({
+    dataAreaId: z.string(),
+    PurchaseOrderNumber: z.string(),
+    PurchaseOrderName: z.string().optional().nullable(),
+    VendorOrderReference: z.string().optional().nullable(),
+    RequestedDeliveryDate: z.string().optional().nullable(),
+    DeliveryTermsId: z.string().optional().nullable(),
+    PaymentTermsName: z.string().optional().nullable(),
+    AttentionInformation: z.string().optional().nullable(),
+    OrderVendorAccountNumber: z.string().optional().nullable(),
+    InvoiceVendorAccountNumber: z.string().optional().nullable(),
+    BuyerGroupId: z.string().optional().nullable(),
+    ProjectId: z.string().optional().nullable(),
+    ReasonCode: z.string().optional().nullable(),
+    CurrencyCode: z.string().optional().nullable(),
+    PurchaseOrderStatus: z.string().optional().nullable(),
+    DocumentApprovalStatus: z.string().optional().nullable(),
+    AccountingDate: z.string().optional().nullable()
+});
 
-const OutputSchema = ProviderPurchaseOrderHeaderSchema;
+const OutputSchema = z.object({
+    dataAreaId: z.string(),
+    PurchaseOrderNumber: z.string(),
+    PurchaseOrderName: z.string().optional(),
+    VendorOrderReference: z.string().optional(),
+    RequestedDeliveryDate: z.string().optional(),
+    DeliveryTermsId: z.string().optional(),
+    PaymentTermsName: z.string().optional(),
+    AttentionInformation: z.string().optional(),
+    OrderVendorAccountNumber: z.string().optional(),
+    InvoiceVendorAccountNumber: z.string().optional(),
+    BuyerGroupId: z.string().optional(),
+    ProjectId: z.string().optional(),
+    ReasonCode: z.string().optional(),
+    CurrencyCode: z.string().optional(),
+    PurchaseOrderStatus: z.string().optional(),
+    DocumentApprovalStatus: z.string().optional(),
+    AccountingDate: z.string().optional()
+});
 
 const action = createAction({
     description: 'Update a purchase order header',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['openid', 'api'],
-
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const encodedDataAreaId = encodeURIComponent(input.dataAreaId.replace(/'/g, "''"));
-        const encodedPurchaseOrderNumber = encodeURIComponent(input.purchaseOrderNumber.replace(/'/g, "''"));
-        const endpoint = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodedDataAreaId}',PurchaseOrderNumber='${encodedPurchaseOrderNumber}')`;
+        const url = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',PurchaseOrderNumber='${encodeURIComponent(input.PurchaseOrderNumber.replace(/'/g, "''"))}')`;
 
         const patchBody: Record<string, unknown> = {};
 
-        if (input.purchaseOrderName !== undefined) {
-            patchBody['PurchaseOrderName'] = input.purchaseOrderName;
+        if (input.PurchaseOrderName !== undefined) {
+            patchBody['PurchaseOrderName'] = input.PurchaseOrderName;
         }
-        if (input.vendorOrderReference !== undefined) {
-            patchBody['VendorOrderReference'] = input.vendorOrderReference;
+        if (input.VendorOrderReference !== undefined) {
+            patchBody['VendorOrderReference'] = input.VendorOrderReference;
         }
-        if (input.requestedDeliveryDate !== undefined) {
-            patchBody['RequestedDeliveryDate'] = input.requestedDeliveryDate;
+        if (input.RequestedDeliveryDate !== undefined) {
+            patchBody['RequestedDeliveryDate'] = input.RequestedDeliveryDate;
         }
-        if (input.currencyCode !== undefined) {
-            patchBody['CurrencyCode'] = input.currencyCode;
+        if (input.DeliveryTermsId !== undefined) {
+            patchBody['DeliveryTermsId'] = input.DeliveryTermsId;
         }
-        if (input.paymentTermsName !== undefined) {
-            patchBody['PaymentTermsName'] = input.paymentTermsName;
+        if (input.PaymentTermsName !== undefined) {
+            patchBody['PaymentTermsName'] = input.PaymentTermsName;
         }
-        if (input.deliveryTermsId !== undefined) {
-            patchBody['DeliveryTermsId'] = input.deliveryTermsId;
+        if (input.AttentionInformation !== undefined) {
+            patchBody['AttentionInformation'] = input.AttentionInformation;
         }
-        if (input.deliveryModeId !== undefined) {
-            patchBody['DeliveryModeId'] = input.deliveryModeId;
+        if (input.OrderVendorAccountNumber !== undefined) {
+            patchBody['OrderVendorAccountNumber'] = input.OrderVendorAccountNumber;
         }
-        if (input.reasonCode !== undefined) {
-            patchBody['ReasonCode'] = input.reasonCode;
+        if (input.InvoiceVendorAccountNumber !== undefined) {
+            patchBody['InvoiceVendorAccountNumber'] = input.InvoiceVendorAccountNumber;
         }
-        if (input.reasonComment !== undefined) {
-            patchBody['ReasonComment'] = input.reasonComment;
+        if (input.BuyerGroupId !== undefined) {
+            patchBody['BuyerGroupId'] = input.BuyerGroupId;
         }
-        if (input.attentionInformation !== undefined) {
-            patchBody['AttentionInformation'] = input.attentionInformation;
+        if (input.ProjectId !== undefined) {
+            patchBody['ProjectId'] = input.ProjectId;
         }
-        if (input.orderVendorAccountNumber !== undefined) {
-            patchBody['OrderVendorAccountNumber'] = input.orderVendorAccountNumber;
-        }
-        if (input.invoiceVendorAccountNumber !== undefined) {
-            patchBody['InvoiceVendorAccountNumber'] = input.invoiceVendorAccountNumber;
-        }
-        if (input.languageId !== undefined) {
-            patchBody['LanguageId'] = input.languageId;
-        }
-        if (input.purchaseOrderPoolId !== undefined) {
-            patchBody['PurchaseOrderPoolId'] = input.purchaseOrderPoolId;
-        }
-        if (input.projectId !== undefined) {
-            patchBody['ProjectId'] = input.projectId;
-        }
-        if (input.defaultReceivingSiteId !== undefined) {
-            patchBody['DefaultReceivingSiteId'] = input.defaultReceivingSiteId;
-        }
-        if (input.defaultReceivingWarehouseId !== undefined) {
-            patchBody['DefaultReceivingWarehouseId'] = input.defaultReceivingWarehouseId;
-        }
-        if (input.additionalFields !== undefined) {
-            Object.assign(patchBody, input.additionalFields);
+        if (input.ReasonCode !== undefined) {
+            patchBody['ReasonCode'] = input.ReasonCode;
         }
 
         if (Object.keys(patchBody).length === 0) {
             throw new nango.ActionError({
-                type: 'empty_update',
-                message: 'No fields provided to update. Specify at least one field or additionalFields.'
+                type: 'no_fields_to_update',
+                message: 'At least one field to update must be provided.'
             });
         }
 
-        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-        // cross-company is required so that purchase orders in a non-default dataAreaId can be updated.
         await nango.patch({
-            endpoint,
+            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+            endpoint: url,
             data: patchBody,
             params: {
                 'cross-company': 'true'
@@ -145,27 +118,45 @@ const action = createAction({
             retries: 1
         });
 
-        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-        const response = await nango.get({
-            endpoint,
+        const getResponse = await nango.get({
+            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+            endpoint: url,
             params: {
                 'cross-company': 'true'
             },
             retries: 3
         });
 
-        if (!response.data) {
+        if (!getResponse.data) {
             throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Purchase order not found after update',
-                dataAreaId: input.dataAreaId,
-                purchaseOrderNumber: input.purchaseOrderNumber
+                type: 'read_after_update_failed',
+                message: 'GET request after PATCH did not return a response body.',
+                purchaseOrderNumber: input.PurchaseOrderNumber,
+                dataAreaId: input.dataAreaId
             });
         }
 
-        const providerRecord = ProviderPurchaseOrderHeaderSchema.parse(response.data);
+        const providerPo = ProviderPurchaseOrderHeaderSchema.parse(getResponse.data);
 
-        return providerRecord;
+        return {
+            dataAreaId: providerPo.dataAreaId,
+            PurchaseOrderNumber: providerPo.PurchaseOrderNumber,
+            ...(providerPo.PurchaseOrderName != null && { PurchaseOrderName: providerPo.PurchaseOrderName }),
+            ...(providerPo.VendorOrderReference != null && { VendorOrderReference: providerPo.VendorOrderReference }),
+            ...(providerPo.RequestedDeliveryDate != null && { RequestedDeliveryDate: providerPo.RequestedDeliveryDate }),
+            ...(providerPo.DeliveryTermsId != null && { DeliveryTermsId: providerPo.DeliveryTermsId }),
+            ...(providerPo.PaymentTermsName != null && { PaymentTermsName: providerPo.PaymentTermsName }),
+            ...(providerPo.AttentionInformation != null && { AttentionInformation: providerPo.AttentionInformation }),
+            ...(providerPo.OrderVendorAccountNumber != null && { OrderVendorAccountNumber: providerPo.OrderVendorAccountNumber }),
+            ...(providerPo.InvoiceVendorAccountNumber != null && { InvoiceVendorAccountNumber: providerPo.InvoiceVendorAccountNumber }),
+            ...(providerPo.BuyerGroupId != null && { BuyerGroupId: providerPo.BuyerGroupId }),
+            ...(providerPo.ProjectId != null && { ProjectId: providerPo.ProjectId }),
+            ...(providerPo.ReasonCode != null && { ReasonCode: providerPo.ReasonCode }),
+            ...(providerPo.CurrencyCode != null && { CurrencyCode: providerPo.CurrencyCode }),
+            ...(providerPo.PurchaseOrderStatus != null && { PurchaseOrderStatus: providerPo.PurchaseOrderStatus }),
+            ...(providerPo.DocumentApprovalStatus != null && { DocumentApprovalStatus: providerPo.DocumentApprovalStatus }),
+            ...(providerPo.AccountingDate != null && { AccountingDate: providerPo.AccountingDate })
+        };
     }
 });
 

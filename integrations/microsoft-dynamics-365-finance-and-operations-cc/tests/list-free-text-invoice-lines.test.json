@@ -1,15 +1,19 @@
 {
   "input": {
     "dataAreaId": "dat",
-    "parentRecId": "5637144576"
+    "invoiceIdentifier": "5637144576"
   },
   "output": {
     "items": [
       {
-        "@odata.etag": "W/\"JzEsNTYzNzE0NDU3Nic=\"",
         "dataAreaId": "dat",
-        "LineNumber": 1,
         "ParentRecId": 5637144576,
+        "LineNumber": 1,
+        "Description": "Steel package milestone 1",
+        "Quantity": 1,
+        "UnitPrice": 2500,
+        "CurrencyCode": "",
+        "@odata.etag": "W/\"JzEsNTYzNzE0NDU3Nic=\"",
         "SalesTaxAmount": 0,
         "FixedAssetNumber": "",
         "EInvoiceAccountCode": "",
@@ -23,11 +27,9 @@
         "NGPCode": 0,
         "AssetId": "",
         "ExternalInvoiceId": "",
-        "Description": "Steel package milestone 1",
         "TransactionCurrencyAmount": 2500,
         "ValueModel": "",
         "AmountDetails": "",
-        "CurrencyCode": "",
         "CFOPCode": "",
         "FiscalInformationServiceCode": "",
         "CategoryId": "",
@@ -36,7 +38,6 @@
         "SalesUnit": "",
         "PropertyNumber": "",
         "InvoiceText": "Steel package milestone 1",
-        "UnitPrice": 2500,
         "OverrideSalesTax": "No",
         "CountryRegionId": "",
         "WithholdingTaxGroup": "",
@@ -44,8 +45,7 @@
         "InvoiceGTD": "",
         "MainAccountDisplayValue": "400100",
         "CountryName": "",
-        "DefaultDimensionDisplayValue": "",
-        "Quantity": 1
+        "DefaultDimensionDisplayValue": ""
       }
     ]
   },
@@ -102,7 +102,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 10:10:26 GMT",
+          "date": "Thu, 30 Jul 2026 09:32:56 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "1026",
           "connection": "keep-alive",
@@ -117,7 +117,7 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1997",
-          "x-ratelimit-reset": "1784801485",
+          "x-ratelimit-reset": "1785404032",
           "etag": "W/\"402-3oyR+FAHaSWflybBGApbGtc2v84\""
         },
         "hash": "5b92c1a488c0874eb353670094a5a63856d6f77a",

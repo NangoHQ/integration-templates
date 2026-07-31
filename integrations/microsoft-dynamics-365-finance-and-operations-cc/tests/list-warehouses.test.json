@@ -6,6 +6,9 @@
         "@odata.etag": "W/\"JzEsNTYzNzE0NDU3NjsxLDU2MzcxNDQ1NzY7MCwwOzAsMDswLDAn\"",
         "dataAreaId": "dat",
         "WarehouseId": "RFI-WH",
+        "WarehouseName": "RootFi Test Warehouse",
+        "OperationalSiteId": "RFI",
+        "WarehouseType": "Standard",
         "AreLaborStandardsAllowed": "No",
         "AreAdvancedWarehouseManagementProcessesEnabled": "No",
         "PrimaryAddressLatitude": 0,
@@ -47,7 +50,6 @@
         "PrimaryAddressDistrictName": "",
         "IsRetailStoreWarehouse": "No",
         "IsBillOfLadingPrintingBeforeShipmentConfirmationEnabled": "No",
-        "WarehouseName": "RootFi Test Warehouse",
         "WillInventoryStatusChangeRemoveBlocking": "No",
         "PrimaryAddressStreet": "",
         "DefaultContainerTypeId": "",
@@ -70,7 +72,6 @@
         "PrimaryAddressTimeZone": null,
         "TransitWarehouseId": "",
         "PrimaryAddressCityInKana": "",
-        "WarehouseType": "Standard",
         "CoordinatesRetrievalStrategy": "Location",
         "IsFinancialNegativeRetailStoreInventoryAllowed": "No",
         "MaximumPickingListLineQuantity": 0,
@@ -78,7 +79,6 @@
         "WillOrderReleasingConsolidateShipments": "No",
         "PrimaryAddressPostBox": "",
         "PrimaryAddressLongitude": 0,
-        "OperationalSiteId": "RFI",
         "IsFallbackWarehouse": "No",
         "InventProfileType_RU": "NotSpecified",
         "InventProfileId_RU": "",
@@ -205,7 +205,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:23:32 GMT",
+          "date": "Thu, 30 Jul 2026 09:54:38 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "3796",
           "connection": "keep-alive",
@@ -219,15 +219,15 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1910",
-          "x-ratelimit-reset": "1784766214",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1785405299",
           "etag": "W/\"ed4-fQPFvaVoI+Vk509Nh4HEC5IXMoQ\""
         },
-        "hash": "6ed6ac7c3c2fef2c69b74e6f8a2b36fa1e685b96",
+        "hash": "a04f21b4368c0c9076fab4399b83f91b5dfa15a0",
         "request": {
           "params": {
-            "$skip": "0",
-            "$top": "100"
+            "$top": "100",
+            "cross-company": "true"
           }
         }
       }

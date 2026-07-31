@@ -1,6 +1,6 @@
 {
   "input": {
-    "limit": 2
+    "top": 2
   },
   "output": {
     "items": [
@@ -273,7 +273,7 @@
         "SkipGlobalUnifiedPricingCalculation": "No"
       }
     ],
-    "next_cursor": "2"
+    "nextLink": "2"
   },
   "nango": {},
   "api": {
@@ -554,7 +554,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:28:36 GMT",
+          "date": "Thu, 30 Jul 2026 09:48:13 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "8431",
           "connection": "keep-alive",
@@ -568,8 +568,8 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1840",
-          "x-ratelimit-reset": "1784766517",
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1785404899",
           "etag": "W/\"20ef-RpBSkPQbi2J/Yu2P0M1EfCPv5PI\""
         },
         "hash": "97cda31fa647a29cf81b32643345420c18fcf85b",

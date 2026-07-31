@@ -1,85 +1,63 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().min(1).max(10000).optional().describe('Maximum number of items to return per page. Defaults to 100.'),
-    cross_company: z.boolean().optional().describe('If true, query across all companies instead of just the default company.')
+    limit: z.number().int().min(1).max(10000).optional().describe('Maximum number of records to return per page. Defaults to 100.')
 });
 
-const VendorPaymentJournalHeaderSchema = z
+const ProviderJournalSchema = z
     .object({
         dataAreaId: z.string().optional(),
         JournalBatchNumber: z.string().optional(),
-        Description: z.string().optional().nullable(),
         JournalName: z.string().optional(),
+        Description: z.string().nullable().optional(),
         IsPosted: z.string().optional()
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    items: z.array(VendorPaymentJournalHeaderSchema),
+    items: z.array(ProviderJournalSchema),
     next_cursor: z.string().optional()
 });
 
 const action = createAction({
-    description: 'List vendor (AP) payment journal headers',
-    version: '1.0.0',
+    description: 'List vendor (AP) payment journal headers.',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['data.execute'],
+    scopes: ['data.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 100;
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(skip) || skip < 0) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'Cursor must be a valid non-negative integer.'
-            });
-        }
 
-        const response = await nango.get({
+        const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/VendorPaymentJournalHeaders',
             params: {
                 $top: String(limit),
-                ...(skip > 0 && { $skip: String(skip) }),
-                ...(input.cross_company && { 'cross-company': 'true' })
+                $skip: String(skip),
+                'cross-company': 'true'
             },
             retries: 3
-        });
+        };
 
-        if (!response.data || typeof response.data !== 'object') {
-            throw new nango.ActionError({
-                type: 'provider_error',
-                message: 'Invalid response from provider.'
-            });
-        }
+        const response = await nango.get(config);
 
-        const providerResponse = z
+        const data = z
             .object({
-                value: z.array(z.unknown()),
-                '@odata.nextLink': z.string().optional()
+                value: z.array(z.unknown())
             })
             .parse(response.data);
 
-        const items = providerResponse.value.map((item: unknown) => VendorPaymentJournalHeaderSchema.parse(item));
+        const items = data.value.map((item) => ProviderJournalSchema.parse(item));
 
-        let nextCursor: string | undefined;
-        if (providerResponse['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and try to extract the real $skip it wants us to use next.
-            const nextUrl = new URL(providerResponse['@odata.nextLink']);
-            const skipParam = nextUrl.searchParams.get('$skip');
-            nextCursor = skipParam ?? String(skip + items.length);
-        } else if (items.length === limit) {
-            // No explicit nextLink, but we got a full page — assume there may be more.
-            nextCursor = String(skip + limit);
-        }
+        const nextCursor = items.length === limit ? String(skip + limit) : undefined;
 
         return {
             items,
-            ...(nextCursor && { next_cursor: nextCursor })
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

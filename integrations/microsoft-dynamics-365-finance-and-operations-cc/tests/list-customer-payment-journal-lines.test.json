@@ -1,34 +1,28 @@
 {
   "input": {
-    "data_area_id": "dat",
-    "limit": 10
+    "dataAreaId": "dat",
+    "journalBatchNumber": "DAT-000007"
   },
   "output": {
-    "lines": [
+    "items": [
       {
+        "@odata.etag": "W/\"JzgxODM3NTc1LDU2MzcxNDUzMjY7MCwwOzAsMDswLDAn\"",
         "dataAreaId": "dat",
         "JournalBatchNumber": "DAT-000007",
         "LineNumber": 1,
-        "AccountType": "Cust",
-        "AccountDisplayValue": "DAT\\-000011",
-        "OffsetAccountType": "Bank",
-        "OffsetAccountDisplayValue": "RFI\\-OPER",
-        "CurrencyCode": "USD",
-        "PaymentReference": "",
-        "PaymentId": "",
-        "PostingProfile": "GEN",
-        "@odata.etag": "W/\"JzgxODM3NTc1LDU2MzcxNDUzMjY7MCwwOzAsMDswLDAn\"",
         "UseSalesTaxDirectionFromMainAccount": "No",
         "MarkedInvoice": "DAT-000005",
         "Voucher": "DAT-000022",
         "DepositNumber": "",
         "ItemWithholdingTaxGroup": "",
+        "OffsetAccountType": "Bank",
         "PostdatedCheckCashierDisplayValue": "",
         "PostdatedCheckMaturityDate": "1900-01-01T12:00:00Z",
         "SettleVoucher": "SelectedTransact",
         "TransactionDate": "2026-07-15T12:00:00Z",
         "NACHAIATOFACScreeningIndicator": "Zero",
         "BankTransactionType": "",
+        "PaymentReference": "",
         "CustomerName": "Riverside Property Group",
         "ChineseVoucherType": "",
         "NACHAIATForeignExchangeIndicator": "None",
@@ -40,6 +34,8 @@
         "ThirdPartyBankAccountId": "",
         "TransactionText": "",
         "PostdatedCheckNumber": "",
+        "AccountDisplayValue": "DAT\\-000011",
+        "OffsetAccountDisplayValue": "RFI\\-OPER",
         "DefaultDimensionsForAccountDisplayValue": "",
         "PostdatedCheckOriginalCheckNumber": "",
         "PaymentMethodName": "",
@@ -52,10 +48,13 @@
         "OffsetFinTagDisplayValue": "",
         "PostdatedCheckIsReplacementCheck": "No",
         "NACHAIATOriginatingDFIQualifier": "One",
+        "AccountType": "Cust",
         "TaxGroup": "",
         "ExchangeRate": 100,
         "ReportingCurrencyExchRate": 0,
         "FinTagDisplayValue": "",
+        "PaymentId": "",
+        "PostingProfile": "GEN",
         "CalculateWithholdingTax": "No",
         "PostdatedCheckReasonForStop": "",
         "CreditAmount": 2500,
@@ -65,6 +64,7 @@
         "NACHAIATForeignExchangeReference": "",
         "DefaultDimensionsForOffsetAccountDisplayValue": "",
         "ReportingCurrencyExchRateSecondary": 0,
+        "CurrencyCode": "USD",
         "SecondaryExchangeRate": 0,
         "PostdatedCheckReceivedDate": "1900-01-01T12:00:00Z",
         "Company": "DAT",
@@ -162,7 +162,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 11:52:03 GMT",
+          "date": "Thu, 30 Jul 2026 09:24:39 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "2325",
           "connection": "keep-alive",
@@ -177,14 +177,15 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1997",
-          "x-ratelimit-reset": "1784807581",
+          "x-ratelimit-reset": "1785403536",
           "etag": "W/\"915-T2Q+FilelbxojEvvarDpjeRmrmA\""
         },
-        "hash": "dee833780c6d84a670ca86c751d914c8ee01258f",
+        "hash": "abb2025eb1a26d28e552fb35e3d37169df5412e8",
         "request": {
           "params": {
-            "$filter": "dataAreaId eq 'dat'",
-            "$top": "10",
+            "$filter": "dataAreaId eq 'dat' and JournalBatchNumber eq 'DAT-000007'",
+            "$skip": "0",
+            "$top": "1000",
             "cross-company": "true"
           }
         }

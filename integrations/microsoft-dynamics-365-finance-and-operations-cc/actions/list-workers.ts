@@ -5,11 +5,45 @@ const PAGE_SIZE = 100;
 
 const SKIPTOKEN_CURSOR_PREFIX = 'skiptoken:';
 
+const SELECTABLE_FIELDS = [
+    'PersonnelNumber',
+    'Name',
+    'FirstName',
+    'MiddleName',
+    'LastName',
+    'WorkerStatus',
+    'WorkerType',
+    'OriginalHireDateTime',
+    'BirthDate',
+    'PrimaryContactEmail',
+    'PrimaryContactPhone',
+    'PrimaryContactPhoneExtension',
+    'Gender',
+    'MaritalStatus',
+    'TitleId',
+    'ProfessionalTitle',
+    'LanguageId',
+    'OfficeLocation',
+    'AddressCity',
+    'AddressCountryRegionId',
+    'AddressStreet',
+    'AddressZipCode',
+    'PartyNumber',
+    'NameAlias',
+    'KnownAs'
+];
+
+const SELECTABLE_FIELD_SET = new Set(SELECTABLE_FIELDS);
+
+const DEFAULT_SELECT = SELECTABLE_FIELDS.join(',');
+
 const InputSchema = z.object({
     cursor: z
         .string()
         .optional()
-        .describe('Pagination cursor from the previous response ($skip value, or a $skiptoken-derived cursor). Omit for the first page.')
+        .describe('Pagination cursor from the previous response ($skip value, or a $skiptoken-derived cursor). Omit for the first page.'),
+    limit: z.number().min(1).max(10000).optional().describe('Maximum number of workers to return per page. Defaults to 100.'),
+    fields: z.array(z.string()).optional().describe('Fields to include in the response using OData $select. Defaults to the standard worker field set.')
 });
 
 const ProviderWorkerSchema = z
@@ -77,11 +111,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List workers (employees).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['data'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const pageSize = input.limit ?? PAGE_SIZE;
+
         let skip = 0;
         let skiptoken: string | undefined;
 
@@ -89,13 +126,24 @@ const action = createAction({
             if (input.cursor.startsWith(SKIPTOKEN_CURSOR_PREFIX)) {
                 skiptoken = input.cursor.slice(SKIPTOKEN_CURSOR_PREFIX.length);
             } else {
-                skip = parseInt(input.cursor, 10);
-                if (isNaN(skip) || skip < 0) {
+                if (!/^\d+$/.test(input.cursor)) {
                     throw new nango.ActionError({
                         type: 'invalid_cursor',
                         message: 'cursor must be a non-negative integer string'
                     });
                 }
+                skip = parseInt(input.cursor, 10);
+            }
+        }
+
+        if (input.fields) {
+            const invalidFields = input.fields.filter((field) => !SELECTABLE_FIELD_SET.has(field));
+            if (invalidFields.length > 0) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: `fields contains unsupported values: ${invalidFields.join(', ')}`,
+                    supportedFields: SELECTABLE_FIELDS
+                });
             }
         }
 
@@ -103,13 +151,12 @@ const action = createAction({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/Workers',
             params: {
-                $top: String(PAGE_SIZE),
+                $top: String(pageSize),
                 // Only one of $skip/$skiptoken is sent: once the provider hands back a $skiptoken,
                 // that opaque continuation must be replayed as-is rather than switched back to an
                 // offset, since offset and token-based paging are not interchangeable mid-scan.
                 ...(skiptoken != null ? { $skiptoken: skiptoken } : { $skip: String(skip) }),
-                $select:
-                    'PersonnelNumber,Name,FirstName,MiddleName,LastName,WorkerStatus,WorkerType,OriginalHireDateTime,BirthDate,PrimaryContactEmail,PrimaryContactPhone,PrimaryContactPhoneExtension,Gender,MaritalStatus,TitleId,ProfessionalTitle,LanguageId,OfficeLocation,AddressCity,AddressCountryRegionId,AddressStreet,AddressZipCode,PartyNumber,NameAlias,KnownAs',
+                $select: input.fields && input.fields.length > 0 ? input.fields.join(',') : DEFAULT_SELECT,
                 $orderby: 'PersonnelNumber asc'
             },
             retries: 3
@@ -166,9 +213,9 @@ const action = createAction({
             } else {
                 nextCursor = nextSkip ?? String(skip + items.length);
             }
-        } else if (items.length === PAGE_SIZE) {
+        } else if (items.length === pageSize) {
             // No explicit nextLink, but we got a full page — assume there may be more.
-            nextCursor = String(skip + PAGE_SIZE);
+            nextCursor = String(skip + pageSize);
         }
 
         return {
