@@ -241,13 +241,13 @@
           "vary": "accept-encoding",
           "server": "tripletex.no"
         },
-        "hash": "33ccd6b502ea77006671f02ed7e1895531f47a6a",
+        "hash": "55939ef61c35738aab9194cba82b025c931e170a",
         "request": {
           "params": {
             "count": "100",
             "from": "0",
             "invoiceDateFrom": "1970-01-01",
-            "invoiceDateTo": "2026-07-29"
+            "invoiceDateTo": "2099-12-31"
           }
         }
       }

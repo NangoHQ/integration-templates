@@ -1,0 +1,170 @@
+{
+  "input": {
+    "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+    "itemId": "01RFYLAYATN2IE6EZ5W5AK45MBJZMYEV5M",
+    "name": "copy-fixture-regen-001.docx"
+  },
+  "output": {
+    "id": "01RFYLAYGJMPO5ENMO3FGZGXJ77M656BC5",
+    "name": "copy-fixture-regen-001.docx",
+    "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/Doc.aspx?sourcedoc=%7BD2DD63C9-8E35-4DD9-935D-3FFB3DDF045D%7D&file=copy-fixture-regen-001.docx&action=default&mobileredirect=true",
+    "size": 9134,
+    "createdDateTime": "2026-07-28T14:08:27Z"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYATN2IE6EZ5W5AK45MBJZMYEV5M": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)/$entity",
+          "@odata.etag": "\"{4F906E13-3D13-40B7-AE75-814E598257AC},9\"",
+          "name": "registry-seed-2.docx",
+          "parentReference": {
+            "driveType": "documentLibrary",
+            "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+            "id": "01RFYLAYF6Y2GOVW7725BZO354PWSELRRZ",
+            "name": "Shared Documents",
+            "path": "/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/root:",
+            "siteId": "4c97403e-1663-4673-90fa-d2f8690b4510"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 20:40:57 GMT",
+          "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785271316",
+          "cache-control": "no-cache",
+          "request-id": "2e9749ec-cd6c-437b-a7a1-d5c8cf173773",
+          "client-request-id": "2e9749ec-cd6c-437b-a7a1-d5c8cf173773",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"002\",\"RoleInstance\":\"MWH0EPF000BADE6\"}}",
+          "splogid": "26ca2ba2-4004-c000-f4e8-0f4dacd4514a",
+          "sprequestduration": "91"
+        },
+        "hash": "df5ebbfdd8cdc0461c92ba1fb49a1f3a1263701a",
+        "request": {
+          "params": {
+            "$select": "name,parentReference"
+          }
+        }
+      },
+      "/v1.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYF6Y2GOVW7725BZO354PWSELRRZ:/copy-fixture-regen-001.docx": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)/$entity",
+          "@microsoft.graph.downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/download.aspx?UniqueId=d2dd63c9-8e35-4dd9-935d-3ffb3ddf045d&Translate=false&tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1Mjc0ODU5In0.CkAKDGVudHJhX2NsYWltcxIwQ0lxVXBOTUdFQUFhRmxGWmNGUlZMVzlXTlZWaFNFcDVhSE4zUzFsWlFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI2NBILCKKbpIbSvLY_EAUaDDQwLjEyNi4yNi4yNCosN1R6MFNSMjdLYmlReURqMHBNYkVpOExWakZNbTRSRGkyZG4zY0FMZC8zST0wkgE4AUIQoivKJlGAAMD06AMRmWXneUoQaGFzaGVkcHJvb2Z0b2tlbnoBMboBO2FsbHNpdGVzLnJlYWQgYWxsZmlsZXMud3JpdGUgYWxsZmlsZXMucmVhZCBhbGxwcm9maWxlcy5yZWFkyAEB.0vp4JOIFU5GLgZkihHmr0S0kUjslGpI_XwFmd2Ja4TI&ApiVersion=2.0",
+          "@microsoft.graph.downloadUrlNoAuth": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/download.aspx?UniqueId=d2dd63c9-8e35-4dd9-935d-3ffb3ddf045d&Translate=false&ApiVersion=2.0",
+          "createdBy": {
+            "user": {
+              "displayName": "SharePoint App"
+            }
+          },
+          "createdDateTime": "2026-07-28T14:08:27Z",
+          "eTag": "\"{D2DD63C9-8E35-4DD9-935D-3FFB3DDF045D},2\"",
+          "id": "01RFYLAYGJMPO5ENMO3FGZGXJ77M656BC5",
+          "lastModifiedBy": {
+            "user": {
+              "displayName": "SharePoint App"
+            }
+          },
+          "lastModifiedDateTime": "2026-07-28T20:40:58Z",
+          "name": "copy-fixture-regen-001.docx",
+          "parentReference": {
+            "driveType": "documentLibrary",
+            "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+            "id": "01RFYLAYF6Y2GOVW7725BZO354PWSELRRZ",
+            "name": "Shared Documents",
+            "path": "/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/root:",
+            "siteId": "4c97403e-1663-4673-90fa-d2f8690b4510"
+          },
+          "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/Doc.aspx?sourcedoc=%7BD2DD63C9-8E35-4DD9-935D-3FFB3DDF045D%7D&file=copy-fixture-regen-001.docx&action=default&mobileredirect=true",
+          "cTag": "\"c:{D2DD63C9-8E35-4DD9-935D-3FFB3DDF045D},6\"",
+          "file": {
+            "fileExtension": ".docx",
+            "hashes": {
+              "quickXorHash": "Ld9qfiBK6GWvUsrn8wiY2bejoro="
+            },
+            "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          },
+          "fileSystemInfo": {
+            "createdDateTime": "2026-07-28T14:08:27Z",
+            "lastModifiedDateTime": "2026-07-28T20:40:58Z"
+          },
+          "isAuthoritative": false,
+          "shared": {
+            "scope": "users"
+          },
+          "size": 9134
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 20:40:59 GMT",
+          "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1995",
+          "x-ratelimit-reset": "1785271316",
+          "cache-control": "no-store, no-cache",
+          "request-id": "ec2fc1d5-bb37-4767-aea7-58319cd81b66",
+          "client-request-id": "ec2fc1d5-bb37-4767-aea7-58319cd81b66",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"003\",\"RoleInstance\":\"CO1PEPF000169DD\"}}",
+          "splogid": "26ca2ba2-8051-c000-f4e8-03119965e779"
+        },
+        "hash": "c482d511d54ce67043cf8a14242c51befc5782ab",
+        "request": {}
+      }
+    },
+    "post": {
+      "/v1.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYATN2IE6EZ5W5AK45MBJZMYEV5M/copy": {
+        "response": "",
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 20:40:57 GMT",
+          "content-type": "application/octet-stream",
+          "content-length": "0",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1785271316",
+          "etag": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+        },
+        "hash": "ee14a0eb65ff85316959c179d247e5ba90ea7d2c",
+        "request": {
+          "data": {
+            "name": "copy-fixture-regen-001.docx"
+          }
+        }
+      }
+    }
+  }
+}
