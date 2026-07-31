@@ -1,0 +1,535 @@
+{
+  "input": {
+    "schemaId": "68dc41e5a7987b1e623e4711"
+  },
+  "output": {
+    "id": "68dc41e5a7987b1e623e4711",
+    "name": "Every Field Type",
+    "schema": {
+      "counterpartyName": {
+        "type": "string",
+        "displayName": "Counterparty Name (Always Required)",
+        "required": "always",
+        "options": {
+          "freeTextAllowed": true
+        }
+      },
+      "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+        "type": "email",
+        "displayName": "Counterparty Signer Email (Always Required)",
+        "required": "always"
+      },
+      "role05214514a05a417b9f952e014db84927": {
+        "type": "string",
+        "displayName": "Counterparty Signer Name (Always Required)",
+        "required": "always",
+        "options": {
+          "freeTextAllowed": true
+        }
+      },
+      "shortResponseText": {
+        "type": "string",
+        "displayName": "Short Response (Text)",
+        "required": "never",
+        "options": {
+          "freeTextAllowed": true
+        }
+      },
+      "paragraphText": {
+        "type": "string",
+        "displayName": "Paragraph (Text)",
+        "required": "never",
+        "options": {
+          "freeTextAllowed": true
+        }
+      },
+      "singleSelectDropdown": {
+        "type": "string",
+        "displayName": "Single Select Dropdown (Text)",
+        "required": "never",
+        "options": {
+          "freeTextAllowed": false,
+          "values": [
+            "Option 1",
+            "Option 2",
+            "Option 3"
+          ]
+        }
+      },
+      "multiSelectDropdownNumber": {
+        "type": "array",
+        "displayName": "Multi Select Dropdown (Text)",
+        "required": "never",
+        "options": {
+          "freeTextAllowed": false,
+          "values": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        "elementType": {
+          "type": "string"
+        }
+      },
+      "singleSelectRadioButtonNumber": {
+        "type": "string",
+        "displayName": "Single Select Radio Button (Number)",
+        "required": "never",
+        "options": {
+          "freeTextAllowed": false,
+          "values": [
+            "Red",
+            "Blue",
+            "Green"
+          ]
+        }
+      },
+      "multiSelectCheckBoxNumber": {
+        "type": "array",
+        "displayName": "Multi Select Check Box (Number)",
+        "required": "never",
+        "options": {
+          "freeTextAllowed": false,
+          "values": [
+            "Texans",
+            "Astros",
+            "Rockets"
+          ]
+        },
+        "elementType": {
+          "type": "string"
+        }
+      },
+      "yesNoQuestion": {
+        "type": "boolean",
+        "displayName": "Yes / No",
+        "required": "never"
+      },
+      "emailQuestion": {
+        "type": "email",
+        "displayName": "Email",
+        "required": "never"
+      },
+      "address": {
+        "type": "address",
+        "displayName": "Address",
+        "required": "never"
+      },
+      "number": {
+        "type": "number",
+        "displayName": "Number",
+        "required": "never"
+      },
+      "monetaryAmount": {
+        "type": "monetaryAmount",
+        "displayName": "Monetary Amount",
+        "required": "never"
+      },
+      "date": {
+        "type": "date",
+        "displayName": "Date",
+        "required": "never"
+      },
+      "duration": {
+        "type": "duration",
+        "displayName": "Duration",
+        "required": "never",
+        "default": {
+          "days": 0,
+          "months": 0
+        }
+      },
+      "fileAttachment": {
+        "type": "array",
+        "displayName": "File Attachment",
+        "required": "never",
+        "elementType": {
+          "type": "document"
+        }
+      },
+      "relatedRecord": {
+        "type": "linkedRecord",
+        "displayName": "Related Record",
+        "required": "never",
+        "schema": {
+          "properties": {
+            "type": "object",
+            "displayName": "properties",
+            "schema": {}
+          }
+        }
+      },
+      "parentRecord": {
+        "type": "parentRecord",
+        "displayName": "Parent Record",
+        "required": "never",
+        "schema": {
+          "properties": {
+            "type": "object",
+            "displayName": "properties",
+            "schema": {}
+          }
+        }
+      },
+      "childRecord": {
+        "type": "childRecord",
+        "displayName": "Child Record",
+        "required": "never",
+        "schema": {
+          "properties": {
+            "type": "object",
+            "displayName": "properties",
+            "schema": {}
+          }
+        }
+      },
+      "table": {
+        "type": "array",
+        "displayName": "Table",
+        "required": "never",
+        "elementType": {
+          "type": "object",
+          "required": "never",
+          "default": [
+            {}
+          ],
+          "schema": {
+            "tableTextField": {
+              "type": "string",
+              "displayName": "Table Text Field",
+              "required": "never",
+              "options": {
+                "freeTextAllowed": true
+              }
+            },
+            "tableBooleanField": {
+              "type": "boolean",
+              "displayName": "Table Boolean Field",
+              "required": "never"
+            },
+            "tableEmailField": {
+              "type": "email",
+              "displayName": "Table Email Field",
+              "required": "never"
+            },
+            "tableNumberField": {
+              "type": "number",
+              "displayName": "Table Number Field",
+              "required": "never"
+            },
+            "tableMonetaryAmountField": {
+              "type": "monetaryAmount",
+              "displayName": "Table Monetary Amount Field",
+              "required": "never"
+            },
+            "tableDateField": {
+              "type": "date",
+              "displayName": "Table Date Field",
+              "required": "never"
+            },
+            "tableDurationField": {
+              "type": "duration",
+              "displayName": "Table Duration Field",
+              "required": "never"
+            }
+          }
+        },
+        "default": [
+          {}
+        ]
+      }
+    },
+    "permissions": [
+      "launch",
+      "view"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/public/api/v1/workflow-schemas/68dc41e5a7987b1e623e4711": {
+        "response": {
+          "id": "68dc41e5a7987b1e623e4711",
+          "name": "Every Field Type",
+          "schema": {
+            "counterpartyName": {
+              "type": "string",
+              "displayName": "Counterparty Name (Always Required)",
+              "required": "always",
+              "options": {
+                "freeTextAllowed": true
+              }
+            },
+            "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+              "type": "email",
+              "displayName": "Counterparty Signer Email (Always Required)",
+              "required": "always"
+            },
+            "role05214514a05a417b9f952e014db84927": {
+              "type": "string",
+              "displayName": "Counterparty Signer Name (Always Required)",
+              "required": "always",
+              "options": {
+                "freeTextAllowed": true
+              }
+            },
+            "shortResponseText": {
+              "type": "string",
+              "displayName": "Short Response (Text)",
+              "required": "never",
+              "options": {
+                "freeTextAllowed": true
+              }
+            },
+            "paragraphText": {
+              "type": "string",
+              "displayName": "Paragraph (Text)",
+              "required": "never",
+              "options": {
+                "freeTextAllowed": true
+              }
+            },
+            "singleSelectDropdown": {
+              "type": "string",
+              "displayName": "Single Select Dropdown (Text)",
+              "required": "never",
+              "options": {
+                "values": [
+                  "Option 1",
+                  "Option 2",
+                  "Option 3"
+                ],
+                "freeTextAllowed": false
+              }
+            },
+            "multiSelectDropdownNumber": {
+              "type": "array",
+              "displayName": "Multi Select Dropdown (Text)",
+              "required": "never",
+              "options": {
+                "values": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "freeTextAllowed": false
+              },
+              "elementType": {
+                "type": "string"
+              }
+            },
+            "singleSelectRadioButtonNumber": {
+              "type": "string",
+              "displayName": "Single Select Radio Button (Number)",
+              "required": "never",
+              "options": {
+                "values": [
+                  "Red",
+                  "Blue",
+                  "Green"
+                ],
+                "freeTextAllowed": false
+              }
+            },
+            "multiSelectCheckBoxNumber": {
+              "type": "array",
+              "displayName": "Multi Select Check Box (Number)",
+              "required": "never",
+              "options": {
+                "values": [
+                  "Texans",
+                  "Astros",
+                  "Rockets"
+                ],
+                "freeTextAllowed": false
+              },
+              "elementType": {
+                "type": "string"
+              }
+            },
+            "yesNoQuestion": {
+              "type": "boolean",
+              "displayName": "Yes / No",
+              "required": "never"
+            },
+            "emailQuestion": {
+              "type": "email",
+              "displayName": "Email",
+              "required": "never"
+            },
+            "address": {
+              "type": "address",
+              "displayName": "Address",
+              "required": "never"
+            },
+            "number": {
+              "type": "number",
+              "displayName": "Number",
+              "required": "never"
+            },
+            "monetaryAmount": {
+              "type": "monetaryAmount",
+              "displayName": "Monetary Amount",
+              "required": "never"
+            },
+            "date": {
+              "type": "date",
+              "displayName": "Date",
+              "required": "never"
+            },
+            "duration": {
+              "type": "duration",
+              "displayName": "Duration",
+              "required": "never",
+              "default": {
+                "days": 0,
+                "months": 0
+              }
+            },
+            "fileAttachment": {
+              "type": "array",
+              "displayName": "File Attachment",
+              "required": "never",
+              "elementType": {
+                "type": "document"
+              }
+            },
+            "relatedRecord": {
+              "type": "linkedRecord",
+              "displayName": "Related Record",
+              "required": "never",
+              "schema": {
+                "properties": {
+                  "type": "object",
+                  "displayName": "properties",
+                  "schema": {}
+                }
+              }
+            },
+            "parentRecord": {
+              "type": "parentRecord",
+              "displayName": "Parent Record",
+              "required": "never",
+              "schema": {
+                "properties": {
+                  "type": "object",
+                  "displayName": "properties",
+                  "schema": {}
+                }
+              }
+            },
+            "childRecord": {
+              "type": "childRecord",
+              "displayName": "Child Record",
+              "required": "never",
+              "schema": {
+                "properties": {
+                  "type": "object",
+                  "displayName": "properties",
+                  "schema": {}
+                }
+              }
+            },
+            "table": {
+              "type": "array",
+              "displayName": "Table",
+              "required": "never",
+              "default": [
+                {}
+              ],
+              "elementType": {
+                "type": "object",
+                "required": "never",
+                "default": [
+                  {}
+                ],
+                "schema": {
+                  "tableTextField": {
+                    "type": "string",
+                    "displayName": "Table Text Field",
+                    "required": "never",
+                    "options": {
+                      "freeTextAllowed": true
+                    }
+                  },
+                  "tableBooleanField": {
+                    "type": "boolean",
+                    "displayName": "Table Boolean Field",
+                    "required": "never"
+                  },
+                  "tableEmailField": {
+                    "type": "email",
+                    "displayName": "Table Email Field",
+                    "required": "never"
+                  },
+                  "tableNumberField": {
+                    "type": "number",
+                    "displayName": "Table Number Field",
+                    "required": "never"
+                  },
+                  "tableMonetaryAmountField": {
+                    "type": "monetaryAmount",
+                    "displayName": "Table Monetary Amount Field",
+                    "required": "never"
+                  },
+                  "tableDateField": {
+                    "type": "date",
+                    "displayName": "Table Date Field",
+                    "required": "never"
+                  },
+                  "tableDurationField": {
+                    "type": "duration",
+                    "displayName": "Table Duration Field",
+                    "required": "never"
+                  }
+                }
+              }
+            }
+          },
+          "permissions": [
+            "launch",
+            "view"
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 12:15:11 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1945",
+          "x-ratelimit-reset": "1785413762",
+          "x-pod-name": "public-api-558bcb5f77-rdd2h",
+          "x-version": "2026.29.916.740-a76a8bf20b4",
+          "x-response-id": "1f1785a2-64bc-4e2a-92ec-b533a963a305",
+          "cache-control": "no-store, no-cache",
+          "content-security-policy": "default-src 'self';frame-ancestors 'self' https://*.salesforce.com https://*.lightning.force.com https://*.visual.force.com https://*.visualforce.com https://green-harvest-experience.my.site.com https://*.officeapps.live.com https://*.sharepoint.com;report-to https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;report-uri https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "expect-ct": "max-age=0",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-ironclad-requestid": "1f1785a2-64bc-4e2a-92ec-b533a963a305",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "e6e5040805a2bf4100b3757ec8d8e8435b218a8b",
+        "request": {
+          "params": {
+            "form": "launch"
+          }
+        }
+      }
+    }
+  }
+}

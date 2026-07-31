@@ -1,0 +1,1700 @@
+{
+  "input": {},
+  "output": {
+    "properties": {
+      "additionalFieldSets_00bb31b1-3128-4721-bb68-75ac9e9a8636_string": {
+        "type": "string",
+        "displayName": "Additional Field Sets"
+      },
+      "additionalNotes": {
+        "type": "string",
+        "displayName": "Additional Notes",
+        "group": "contractInfo"
+      },
+      "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address": {
+        "type": "address",
+        "displayName": "Address"
+      },
+      "agreementDate": {
+        "type": "date",
+        "displayName": "Agreement Date"
+      },
+      "contractOwner": {
+        "type": "email",
+        "displayName": "Contract Owner"
+      },
+      "contractValue": {
+        "type": "monetary_amount",
+        "displayName": "Contract Value"
+      },
+      "counterpartyAddress": {
+        "type": "address",
+        "displayName": "Counterparty Address"
+      },
+      "counterpartyFormField_fdbbedf5-fb6d-41fd-b849-5e64fe33032b_string": {
+        "type": "string",
+        "displayName": "Counterparty Form Field"
+      },
+      "counterpartyName": {
+        "type": "string",
+        "displayName": "Counterparty Name"
+      },
+      "counterpartySigner": {
+        "type": "string",
+        "displayName": "Counterparty Signer Name"
+      },
+      "counterpartySignerEmail": {
+        "type": "email",
+        "displayName": "Counterparty Signer Email"
+      },
+      "counterpartySignerTitle": {
+        "type": "string",
+        "displayName": "Counterparty Signer Title"
+      },
+      "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date": {
+        "type": "date",
+        "displayName": "Date"
+      },
+      "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration": {
+        "type": "duration",
+        "displayName": "Duration"
+      },
+      "effectiveDate": {
+        "type": "date",
+        "displayName": "Effective Date"
+      },
+      "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email": {
+        "type": "email",
+        "displayName": "Email"
+      },
+      "entity_reference": {
+        "type": "reference",
+        "displayName": "Entity"
+      },
+      "entity_references": {
+        "type": "array",
+        "displayName": "Entities"
+      },
+      "executionMethod": {
+        "type": "string",
+        "displayName": "Execution Method",
+        "group": "executionHistory"
+      },
+      "expirationDate": {
+        "type": "date",
+        "displayName": "Expiration Date"
+      },
+      "fileAttachment": {
+        "type": "document",
+        "displayName": "File Attachment"
+      },
+      "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string": {
+        "type": "string",
+        "displayName": "Formula (Pull City from Address)"
+      },
+      "governingLaw": {
+        "type": "string",
+        "displayName": "Governing Law"
+      },
+      "importId": {
+        "type": "string",
+        "displayName": "Ironclad Import ID"
+      },
+      "integrationDetails_integrationName": {
+        "type": "string",
+        "displayName": "Integration Name",
+        "group": "integrations"
+      },
+      "integrationDetails_salesforceOrgId": {
+        "type": "string",
+        "displayName": "Integration Salesforce Organization ID",
+        "group": "integrations"
+      },
+      "integrationDetails_workflowAttributeSourceId": {
+        "type": "string",
+        "displayName": "Workflow Attribute Source ID",
+        "group": "integrations"
+      },
+      "internalFormQuestion_fdbbedf5-fb6d-41fd-b849-5e64fe33032b_string": {
+        "type": "string",
+        "displayName": "Internal Form Question"
+      },
+      "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount": {
+        "type": "monetary_amount",
+        "displayName": "Monetary Amount"
+      },
+      "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array": {
+        "type": "string",
+        "displayName": "Multi Select Check Box (Number)"
+      },
+      "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array": {
+        "type": "string",
+        "displayName": "Multi Select Dropdown (Text)"
+      },
+      "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number": {
+        "type": "number",
+        "displayName": "Number"
+      },
+      "optionalAdditionalField_00bb31b1-3128-4721-bb68-75ac9e9a8636_string": {
+        "type": "string",
+        "displayName": "Optional Additional Field"
+      },
+      "originalFilename": {
+        "type": "string",
+        "displayName": "Original Filename"
+      },
+      "otherRenewalType": {
+        "type": "string",
+        "displayName": "Other Renewal Type"
+      },
+      "paperSource": {
+        "type": "string",
+        "displayName": "Paper Source",
+        "group": "workflow"
+      },
+      "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string": {
+        "type": "string",
+        "displayName": "Paragraph (Text)"
+      },
+      "requiredAddress_00bb31b1-3128-4721-bb68-75ac9e9a8636_address": {
+        "type": "address",
+        "displayName": "Required Address"
+      },
+      "requiredField2_00bb31b1-3128-4721-bb68-75ac9e9a8636_string": {
+        "type": "string",
+        "displayName": "Required Field 2"
+      },
+      "sendCounterpartyForm_fdbbedf5-fb6d-41fd-b849-5e64fe33032b_boolean": {
+        "type": "boolean",
+        "displayName": "Send Counterparty Form"
+      },
+      "sendInternalForm_fdbbedf5-fb6d-41fd-b849-5e64fe33032b_boolean": {
+        "type": "boolean",
+        "displayName": "Send Internal Form"
+      },
+      "set1MonetaryAmount_00bb31b1-3128-4721-bb68-75ac9e9a8636_monetaryAmount": {
+        "type": "monetary_amount",
+        "displayName": "Set 1 Monetary Amount"
+      },
+      "set1Question2_00bb31b1-3128-4721-bb68-75ac9e9a8636_date": {
+        "type": "date",
+        "displayName": "Set 1 Question 2"
+      },
+      "set2Question1_00bb31b1-3128-4721-bb68-75ac9e9a8636_number": {
+        "type": "number",
+        "displayName": "Set 2 Question 1"
+      },
+      "set2Question2_00bb31b1-3128-4721-bb68-75ac9e9a8636_duration": {
+        "type": "duration",
+        "displayName": "Set 2 Question 2"
+      },
+      "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string": {
+        "type": "string",
+        "displayName": "Short Response (Text)"
+      },
+      "signedCopy": {
+        "type": "document",
+        "displayName": "Signed PDF"
+      },
+      "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string": {
+        "type": "string",
+        "displayName": "Single Select Dropdown"
+      },
+      "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string": {
+        "type": "string",
+        "displayName": "Single Select Radio Button (Number)"
+      },
+      "smartImportProperty_contractType": {
+        "type": "string",
+        "displayName": "Contract Type"
+      },
+      "smartImportProperty_entityName": {
+        "type": "string",
+        "displayName": "Entity Name"
+      },
+      "smartImportProperty_paymentFrequency": {
+        "type": "string",
+        "displayName": "Payment Frequency"
+      },
+      "smartImportProperty_paymentTerm": {
+        "type": "string",
+        "displayName": "Payment Term"
+      },
+      "smartImportProperty_predictionDate": {
+        "type": "date",
+        "displayName": "Prediction Date"
+      },
+      "smartImportProperty_terminationForCause": {
+        "type": "boolean",
+        "displayName": "Termination For Cause"
+      },
+      "standard_anniversaryDate": {
+        "type": "date",
+        "displayName": "Anniversary Date"
+      },
+      "standard_autorenewalCancellationDate": {
+        "type": "date",
+        "displayName": "Autorenewal Cancellation Date"
+      },
+      "standard_autorenewalCancelledBy": {
+        "type": "string",
+        "displayName": "Autorenewal Cancelled By"
+      },
+      "standard_businessCriticality": {
+        "type": "string",
+        "displayName": "Business Criticality"
+      },
+      "standard_contractExtending": {
+        "type": "boolean",
+        "displayName": "Contract Extending"
+      },
+      "standard_contractSide": {
+        "type": "string",
+        "displayName": "Business Relationship"
+      },
+      "standard_department": {
+        "type": "string",
+        "displayName": "Department"
+      },
+      "standard_executedDate": {
+        "type": "date",
+        "displayName": "Executed Date"
+      },
+      "standard_initialTermLength": {
+        "type": "duration",
+        "displayName": "Initial Term Length"
+      },
+      "standard_intentToRenew": {
+        "type": "string",
+        "displayName": "Intent to Renew"
+      },
+      "standard_obligationAction": {
+        "type": "string",
+        "displayName": "Obligation Action"
+      },
+      "standard_renewalOptOutDate": {
+        "type": "date",
+        "displayName": "Renewal Opt Out Date"
+      },
+      "standard_renewalOptOutPeriod": {
+        "type": "duration",
+        "displayName": "Renewal Opt Out Period"
+      },
+      "standard_renewalsAllowed": {
+        "type": "number",
+        "displayName": "Renewals Allowed"
+      },
+      "standard_renewalsRemaining": {
+        "type": "number",
+        "displayName": "Renewals Remaining"
+      },
+      "standard_renewalTermLength": {
+        "type": "duration",
+        "displayName": "Renewal Term Length"
+      },
+      "standard_renewalType": {
+        "type": "string",
+        "displayName": "Renewal Type"
+      },
+      "standard_skipForObligation": {
+        "type": "boolean",
+        "displayName": "Skip For Obligation"
+      },
+      "standard_supersededDate": {
+        "type": "date",
+        "displayName": "Superseded Date"
+      },
+      "standard_supersedingRecordId": {
+        "type": "string",
+        "displayName": "Superseding Record Id"
+      },
+      "standard_supersessionEffectiveDate": {
+        "type": "date",
+        "displayName": "Supersession Effective Date"
+      },
+      "standard_terminatedDate": {
+        "type": "date",
+        "displayName": "Terminated Date"
+      },
+      "standard_terminatingRecordId": {
+        "type": "string",
+        "displayName": "Terminating Record Id"
+      },
+      "standard_terminationEffectiveDate": {
+        "type": "date",
+        "displayName": "Termination Effective Date"
+      },
+      "standard_terminationNoticePeriod": {
+        "type": "duration",
+        "displayName": "Termination Notice Period"
+      },
+      "standard_timesRenewed": {
+        "type": "number",
+        "displayName": "Times Renewed"
+      },
+      "standard_undoObligationAction": {
+        "type": "string",
+        "displayName": "Undo Obligation Action"
+      },
+      "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list": {
+        "type": "string",
+        "displayName": "Table"
+      },
+      "terminationForConvenience": {
+        "type": "string",
+        "displayName": "Termination For Convenience"
+      },
+      "venue": {
+        "type": "string",
+        "displayName": "Venue"
+      },
+      "workflowApprovalRequestsAverageRequestApprovalTime": {
+        "type": "number",
+        "displayName": "Average Approval Time",
+        "group": "reviewStep"
+      },
+      "workflowApprovalRequestsNumApprovals": {
+        "type": "number",
+        "displayName": "Number of Approvals",
+        "group": "reviewStep"
+      },
+      "workflowAverageTurnTimeWithCounterparty": {
+        "type": "number",
+        "displayName": "Average Turn Time with Counterparty",
+        "group": "turnHistory"
+      },
+      "workflowAverageTurnTimeWithInternal": {
+        "type": "number",
+        "displayName": "Average Turn Time with Internal",
+        "group": "turnHistory"
+      },
+      "workflowConfigurationVersionNumber": {
+        "type": "number",
+        "displayName": "Workflow Configuration Version Number",
+        "group": "workflow"
+      },
+      "workflowCreatedDate": {
+        "type": "date",
+        "displayName": "Workflow Created Date",
+        "group": "workflowSteps"
+      },
+      "workflowCreator": {
+        "type": "string",
+        "displayName": "Workflow Creator",
+        "group": "workflow"
+      },
+      "workflowDetails": {
+        "type": "workflow",
+        "displayName": "Workflow Details"
+      },
+      "workflowId": {
+        "type": "string",
+        "displayName": "Workflow ID",
+        "group": "workflow"
+      },
+      "workflowOwner": {
+        "type": "string",
+        "displayName": "Workflow Owner",
+        "group": "workflow"
+      },
+      "workflowProcessAttributes_archiveStepDuration": {
+        "type": "number",
+        "displayName": "Archive Step Duration",
+        "group": "workflowSteps"
+      },
+      "workflowProcessAttributes_createStepDuration": {
+        "type": "number",
+        "displayName": "Create Step Duration",
+        "group": "workflowSteps"
+      },
+      "workflowProcessAttributes_hasStartedOver": {
+        "type": "boolean",
+        "displayName": "Start over from Template",
+        "group": "workflow"
+      },
+      "workflowProcessAttributes_isAiAssistLanguageIncluded": {
+        "type": "boolean",
+        "displayName": "AI Assist Language Included",
+        "group": "workflow"
+      },
+      "workflowProcessAttributes_isConnectWorkflow": {
+        "type": "boolean",
+        "displayName": "Connect Workflow",
+        "group": "workflow"
+      },
+      "workflowProcessAttributes_isDraftDocument": {
+        "type": "boolean",
+        "displayName": "Final Draft on Template",
+        "group": "workflow"
+      },
+      "workflowProcessAttributes_numberOfSigners": {
+        "type": "number",
+        "displayName": "Number of Signers",
+        "group": "executionHistory"
+      },
+      "workflowProcessAttributes_revertedToReview": {
+        "type": "boolean",
+        "displayName": "Reverted to Review",
+        "group": "workflow"
+      },
+      "workflowProcessAttributes_reviewStepCompletedDate": {
+        "type": "date",
+        "displayName": "Workflow Review Step Completed Date",
+        "group": "workflowSteps"
+      },
+      "workflowProcessAttributes_reviewStepDuration": {
+        "type": "number",
+        "displayName": "Review Step Duration",
+        "group": "workflowSteps"
+      },
+      "workflowProcessAttributes_signatureProvider": {
+        "type": "string",
+        "displayName": "Signature Provider",
+        "group": "executionHistory"
+      },
+      "workflowProcessAttributes_signStepCompletedDate": {
+        "type": "date",
+        "displayName": "Workflow Sign Step Completed Date",
+        "group": "workflowSteps"
+      },
+      "workflowProcessAttributes_signStepDuration": {
+        "type": "number",
+        "displayName": "Sign Step Duration",
+        "group": "workflowSteps"
+      },
+      "workflowProcessAttributes_workflowCompletedDate": {
+        "type": "date",
+        "displayName": "Workflow Completed Date",
+        "group": "workflowSteps"
+      },
+      "workflowProcessAttributes_workflowCompletionDuration": {
+        "type": "number",
+        "displayName": "Workflow Completion Duration",
+        "group": "workflowSteps"
+      },
+      "workflowProcessAttributes_workflowPausedDuration": {
+        "type": "number",
+        "displayName": "Workflow Paused Duration",
+        "group": "workflowSteps"
+      },
+      "workflowTurnTrackingNumberOfTurns": {
+        "type": "number",
+        "displayName": "Number of Turns",
+        "group": "turnHistory"
+      },
+      "workflowTurnTrackingTimeWithCounterparty": {
+        "type": "number",
+        "displayName": "Turn Tracking Time With Counterparty",
+        "group": "turnHistory"
+      },
+      "workflowTurnTrackingTimeWithInternal": {
+        "type": "number",
+        "displayName": "Turn Tracking Time With Internal",
+        "group": "turnHistory"
+      },
+      "workflowTurnTrackingTotalCounterpartyTurns": {
+        "type": "number",
+        "displayName": "Total Counterparty Turns",
+        "group": "turnHistory"
+      },
+      "workflowTurnTrackingTotalInternalTurns": {
+        "type": "number",
+        "displayName": "Total Internal Turns",
+        "group": "turnHistory"
+      },
+      "workflowUpdatedDate": {
+        "type": "date",
+        "displayName": "Workflow Updated Date"
+      },
+      "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean": {
+        "type": "boolean",
+        "displayName": "Yes / No"
+      }
+    },
+    "recordTypes": {
+      "counterpartyPaperType1": {
+        "displayName": "Counterparty Paper, Type 1",
+        "description": null
+      },
+      "counterpartyPaperType2": {
+        "displayName": "Counterparty Paper, Type 2",
+        "description": null
+      },
+      "everyFieldType": {
+        "displayName": "Every Field Type",
+        "description": null
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/public/api/v1/records/metadata": {
+        "response": {
+          "properties": {
+            "additionalFieldSets_00bb31b1-3128-4721-bb68-75ac9e9a8636_string": {
+              "type": "string",
+              "displayName": "Additional Field Sets",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "additionalNotes": {
+              "type": "string",
+              "displayName": "Additional Notes",
+              "group": "contractInfo",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address": {
+              "type": "address",
+              "displayName": "Address",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "agreementDate": {
+              "type": "date",
+              "displayName": "Agreement Date",
+              "visible": true,
+              "description": "The date the agreement was signed.",
+              "tags": [
+                "purpose:agreementDate"
+              ],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "contractOwner": {
+              "type": "email",
+              "displayName": "Contract Owner",
+              "visible": true,
+              "description": "The contract owner is the owner of the contract, who may often be the same as the workflow owner.",
+              "tags": [
+                "purpose:contractOwner"
+              ],
+              "version": 1
+            },
+            "contractValue": {
+              "type": "monetary_amount",
+              "displayName": "Contract Value",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "counterpartyAddress": {
+              "type": "address",
+              "displayName": "Counterparty Address",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "counterpartyFormField_fdbbedf5-fb6d-41fd-b849-5e64fe33032b_string": {
+              "type": "string",
+              "displayName": "Counterparty Form Field",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "counterpartyName": {
+              "type": "string",
+              "displayName": "Counterparty Name",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "counterpartySigner": {
+              "type": "string",
+              "displayName": "Counterparty Signer Name",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "counterpartySignerEmail": {
+              "type": "email",
+              "displayName": "Counterparty Signer Email",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "counterpartySignerTitle": {
+              "type": "string",
+              "displayName": "Counterparty Signer Title",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date": {
+              "type": "date",
+              "displayName": "Date",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration": {
+              "type": "duration",
+              "displayName": "Duration",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "effectiveDate": {
+              "type": "date",
+              "displayName": "Effective Date",
+              "visible": true,
+              "description": "Effective date is when this agreement begins and is considered active. If effective date is not defined then the executed date of the agreement is used to mark the contract as active.",
+              "tags": [
+                "purpose:effectiveDate"
+              ],
+              "version": 1
+            },
+            "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email": {
+              "type": "email",
+              "displayName": "Email",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "entity_reference": {
+              "type": "reference",
+              "displayName": "Entity",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "fullTypeName": "reference<41be8f7d-c016-4d32-8b9a-441469321c8f>",
+              "ironcladType": {
+                "typeName": "reference",
+                "collectionKey": "41be8f7d-c016-4d32-8b9a-441469321c8f"
+              },
+              "erasedType": "reference",
+              "version": 1
+            },
+            "entity_references": {
+              "type": "array",
+              "displayName": "Entities",
+              "visible": true,
+              "tags": [],
+              "fullTypeName": "list<reference<41be8f7d-c016-4d32-8b9a-441469321c8f>>",
+              "ironcladType": {
+                "typeName": "list",
+                "elementType": {
+                  "typeName": "reference",
+                  "collectionKey": "41be8f7d-c016-4d32-8b9a-441469321c8f"
+                }
+              },
+              "erasedType": "list",
+              "version": 1
+            },
+            "executionMethod": {
+              "type": "string",
+              "displayName": "Execution Method",
+              "group": "executionHistory",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "expirationDate": {
+              "type": "date",
+              "displayName": "Expiration Date",
+              "visible": true,
+              "description": "Expiration date is when this agreement will end or become inactive. If an expiration date isn't present then the effective date plus the initial term length are used to expire the contract.",
+              "tags": [
+                "purpose:expirationDate"
+              ],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "fileAttachment": {
+              "type": "document",
+              "displayName": "File Attachment",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string": {
+              "type": "string",
+              "displayName": "Formula (Pull City from Address)",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "governingLaw": {
+              "type": "string",
+              "displayName": "Governing Law",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "importId": {
+              "type": "string",
+              "displayName": "Ironclad Import ID",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "integrationDetails_integrationName": {
+              "type": "string",
+              "displayName": "Integration Name",
+              "group": "integrations",
+              "visible": false,
+              "tags": [],
+              "version": 1
+            },
+            "integrationDetails_salesforceOrgId": {
+              "type": "string",
+              "displayName": "Integration Salesforce Organization ID",
+              "group": "integrations",
+              "visible": false,
+              "tags": [],
+              "version": 1
+            },
+            "integrationDetails_workflowAttributeSourceId": {
+              "type": "string",
+              "displayName": "Workflow Attribute Source ID",
+              "group": "integrations",
+              "visible": false,
+              "tags": [],
+              "version": 1
+            },
+            "internalFormQuestion_fdbbedf5-fb6d-41fd-b849-5e64fe33032b_string": {
+              "type": "string",
+              "displayName": "Internal Form Question",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount": {
+              "type": "monetary_amount",
+              "displayName": "Monetary Amount",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array": {
+              "type": "string",
+              "displayName": "Multi Select Check Box (Number)",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array": {
+              "type": "string",
+              "displayName": "Multi Select Dropdown (Text)",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number": {
+              "type": "number",
+              "displayName": "Number",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "optionalAdditionalField_00bb31b1-3128-4721-bb68-75ac9e9a8636_string": {
+              "type": "string",
+              "displayName": "Optional Additional Field",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "originalFilename": {
+              "type": "string",
+              "displayName": "Original Filename",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "otherRenewalType": {
+              "type": "string",
+              "displayName": "Other Renewal Type",
+              "visible": true,
+              "description": "This property helps downstream reporting for when you have a renewal type not defined by the system.",
+              "tags": [
+                "purpose:otherRenewalType"
+              ],
+              "version": 1
+            },
+            "paperSource": {
+              "type": "string",
+              "displayName": "Paper Source",
+              "group": "workflow",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string": {
+              "type": "string",
+              "displayName": "Paragraph (Text)",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "requiredAddress_00bb31b1-3128-4721-bb68-75ac9e9a8636_address": {
+              "type": "address",
+              "displayName": "Required Address",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "requiredField2_00bb31b1-3128-4721-bb68-75ac9e9a8636_string": {
+              "type": "string",
+              "displayName": "Required Field 2",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "sendCounterpartyForm_fdbbedf5-fb6d-41fd-b849-5e64fe33032b_boolean": {
+              "type": "boolean",
+              "displayName": "Send Counterparty Form",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "sendInternalForm_fdbbedf5-fb6d-41fd-b849-5e64fe33032b_boolean": {
+              "type": "boolean",
+              "displayName": "Send Internal Form",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "set1MonetaryAmount_00bb31b1-3128-4721-bb68-75ac9e9a8636_monetaryAmount": {
+              "type": "monetary_amount",
+              "displayName": "Set 1 Monetary Amount",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "set1Question2_00bb31b1-3128-4721-bb68-75ac9e9a8636_date": {
+              "type": "date",
+              "displayName": "Set 1 Question 2",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "set2Question1_00bb31b1-3128-4721-bb68-75ac9e9a8636_number": {
+              "type": "number",
+              "displayName": "Set 2 Question 1",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "set2Question2_00bb31b1-3128-4721-bb68-75ac9e9a8636_duration": {
+              "type": "duration",
+              "displayName": "Set 2 Question 2",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string": {
+              "type": "string",
+              "displayName": "Short Response (Text)",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "signedCopy": {
+              "type": "document",
+              "displayName": "Signed PDF",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string": {
+              "type": "string",
+              "displayName": "Single Select Dropdown",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string": {
+              "type": "string",
+              "displayName": "Single Select Radio Button (Number)",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "smartImportProperty_contractType": {
+              "type": "string",
+              "displayName": "Contract Type",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "smartImportProperty_entityName": {
+              "type": "string",
+              "displayName": "Entity Name",
+              "visible": false,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "smartImportProperty_paymentFrequency": {
+              "type": "string",
+              "displayName": "Payment Frequency",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "smartImportProperty_paymentTerm": {
+              "type": "string",
+              "displayName": "Payment Term",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "smartImportProperty_predictionDate": {
+              "type": "date",
+              "displayName": "Prediction Date",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "smartImportProperty_terminationForCause": {
+              "type": "boolean",
+              "displayName": "Termination For Cause",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "standard_anniversaryDate": {
+              "type": "date",
+              "displayName": "Anniversary Date",
+              "visible": true,
+              "description": "For evergreen contracts, the date on which the contract will have been active for another year.",
+              "tags": [
+                "purpose:anniversaryDate"
+              ],
+              "version": 1
+            },
+            "standard_autorenewalCancellationDate": {
+              "type": "date",
+              "displayName": "Autorenewal Cancellation Date",
+              "visible": true,
+              "description": "The date on which the auto-renewal was cancelled.",
+              "tags": [
+                "purpose:autorenewalCancellationDate"
+              ],
+              "version": 1
+            },
+            "standard_autorenewalCancelledBy": {
+              "type": "string",
+              "displayName": "Autorenewal Cancelled By",
+              "visible": true,
+              "description": "The user who cancelled the autorenewal.",
+              "tags": [
+                "purpose:autorenewalCancelledBy"
+              ],
+              "version": 1
+            },
+            "standard_businessCriticality": {
+              "type": "string",
+              "displayName": "Business Criticality",
+              "visible": true,
+              "tags": [],
+              "fullTypeName": "enum<standard_businessCriticality, string>",
+              "ironcladType": {
+                "typeName": "enum",
+                "name": "standard_businessCriticality",
+                "optionType": {
+                  "typeName": "string"
+                },
+                "options": [
+                  {
+                    "value": "Low",
+                    "hidden": false
+                  },
+                  {
+                    "value": "Medium",
+                    "hidden": false
+                  },
+                  {
+                    "value": "High",
+                    "hidden": false
+                  }
+                ]
+              },
+              "erasedType": "enum",
+              "picklistSelectionType": "single-select",
+              "version": 1
+            },
+            "standard_contractExtending": {
+              "type": "boolean",
+              "displayName": "Contract Extending",
+              "visible": true,
+              "description": "Whether the optional extension has been exercised or not for this expiration.",
+              "tags": [
+                "purpose:contractExtending"
+              ],
+              "version": 1
+            },
+            "standard_contractSide": {
+              "type": "string",
+              "displayName": "Business Relationship",
+              "visible": true,
+              "description": "The \"relationship\" or \"side\" of the contract as it relates to the company who is viewing it. Options: vendor (a buy-side or procurement contract), customer (a sell-side or sales contract), partner (a partnership contract), other.",
+              "tags": [],
+              "fullTypeName": "enum<standard_contractSide, string>",
+              "ironcladType": {
+                "typeName": "enum",
+                "name": "standard_contractSide",
+                "optionType": {
+                  "typeName": "string"
+                },
+                "options": [
+                  {
+                    "value": "Vendor",
+                    "hidden": false
+                  },
+                  {
+                    "value": "Partner",
+                    "hidden": false
+                  },
+                  {
+                    "value": "Customer",
+                    "hidden": false
+                  },
+                  {
+                    "value": "Other",
+                    "hidden": false
+                  }
+                ]
+              },
+              "erasedType": "enum",
+              "picklistSelectionType": "single-select",
+              "version": 1
+            },
+            "standard_department": {
+              "type": "string",
+              "displayName": "Department",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "standard_executedDate": {
+              "type": "date",
+              "displayName": "Executed Date",
+              "visible": true,
+              "description": "The date that a contract was executed / signed.",
+              "tags": [
+                "purpose:executedDate"
+              ],
+              "version": 13
+            },
+            "standard_initialTermLength": {
+              "type": "duration",
+              "displayName": "Initial Term Length",
+              "visible": true,
+              "description": "The initial term is the time from the effective date that the agreement will be effective for. If not defined, then the agreement will be active until the expiration date. If an expiration date is also not defined then the agreement will be active indefinitely, until the status of the agreement is manually changed. ",
+              "tags": [
+                "purpose:initialTermLength"
+              ],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "standard_intentToRenew": {
+              "type": "string",
+              "displayName": "Intent to Renew",
+              "visible": true,
+              "tags": [],
+              "fullTypeName": "enum<standard_intentToRenew, string>",
+              "ironcladType": {
+                "typeName": "enum",
+                "name": "standard_intentToRenew",
+                "optionType": {
+                  "typeName": "string"
+                },
+                "options": [
+                  {
+                    "value": "Undecided",
+                    "hidden": false
+                  },
+                  {
+                    "value": "Renew",
+                    "hidden": false
+                  },
+                  {
+                    "value": "Renew - with changes",
+                    "hidden": false
+                  },
+                  {
+                    "value": "Don't renew",
+                    "hidden": false
+                  }
+                ]
+              },
+              "erasedType": "enum",
+              "picklistSelectionType": "single-select",
+              "version": 1
+            },
+            "standard_obligationAction": {
+              "type": "string",
+              "displayName": "Obligation Action",
+              "visible": false,
+              "description": "The action type to be conducted on an Obligation",
+              "tags": [
+                "purpose:obligationAction"
+              ],
+              "version": 1
+            },
+            "standard_renewalOptOutDate": {
+              "type": "date",
+              "displayName": "Renewal Opt Out Date",
+              "visible": true,
+              "description": "An agreement may have an opt-out date that lets you opt-out of the upcoming auto-renewal before it renews.",
+              "tags": [
+                "purpose:renewalOptOutDate"
+              ],
+              "version": 1
+            },
+            "standard_renewalOptOutPeriod": {
+              "type": "duration",
+              "displayName": "Renewal Opt Out Period",
+              "visible": true,
+              "description": "An agreement may have an opt-out period that lets you opt-out of the upcoming auto-renewal before it renews. In the case of an opt period the last day to opt-out is the expiration date minus the opt-out period.",
+              "tags": [
+                "purpose:renewalOptOutPeriod"
+              ],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "standard_renewalsAllowed": {
+              "type": "number",
+              "displayName": "Renewals Allowed",
+              "visible": true,
+              "description": "Agreements that have an auto-renewal, may have a maximum number of times they will auto-renew before expiring. If left blank, the number of auto-renewals will be unlimited.",
+              "tags": [
+                "purpose:renewalsAllowed"
+              ],
+              "version": 1
+            },
+            "standard_renewalsRemaining": {
+              "type": "number",
+              "displayName": "Renewals Remaining",
+              "visible": true,
+              "description": "The number of renewals an auto-renewal or optional extension with limited renewals has left.",
+              "tags": [
+                "purpose:renewalsRemaining"
+              ],
+              "version": 1
+            },
+            "standard_renewalTermLength": {
+              "type": "duration",
+              "displayName": "Renewal Term Length",
+              "visible": true,
+              "description": "If an agreement auto-renews or has an optional extension, that renewal/extension will have a term length (1 year, 6 months, etc).",
+              "tags": [
+                "purpose:renewalTermLength"
+              ],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "standard_renewalType": {
+              "type": "string",
+              "displayName": "Renewal Type",
+              "visible": true,
+              "description": "The renewal type for an agreement will govern what happens on its expiration date if it has one. Accepted values for renewal type:\n    \tAuto-Renew: These agreements will automatically renew on their expiration date which means they will then have a new expiration date which would be the current date plus the renewal term length.\n    \tOptional Extension: These agreements have an optional extension which means that the party can choose to renew the agreement by the renewal term length without renegotiating the contract. There may be a notification requirement to exercise this option.\n    \tEvergreen: These are agreements that don't have an expiration date, which means they are active forever. Also known as perpetual agreements.\n    \tNone: These agreements that don't have a renewal provision and will expire on their expiration date. If an agreement has no renewal provision but also doesn't have an expiration date, it'll be active forever.\n    \tOther: For renewal provisions that are not covered by these options.",
+              "tags": [
+                "purpose:renewalType"
+              ],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "standard_skipForObligation": {
+              "type": "boolean",
+              "displayName": "Skip For Obligation",
+              "visible": false,
+              "description": "A yes/no value used by contract events to determine whether or not it should be processed.",
+              "tags": [
+                "purpose:skipForObligation"
+              ],
+              "version": 1
+            },
+            "standard_supersededDate": {
+              "type": "date",
+              "displayName": "Superseded Date",
+              "visible": true,
+              "description": "The date when the contract was superseded.",
+              "tags": [
+                "purpose:supersededDate"
+              ],
+              "version": 1
+            },
+            "standard_supersedingRecordId": {
+              "type": "string",
+              "displayName": "Superseding Record Id",
+              "visible": true,
+              "description": "The record ID for the contract that has superseded this contract.",
+              "tags": [
+                "purpose:supersedingRecordId"
+              ],
+              "version": 1
+            },
+            "standard_supersessionEffectiveDate": {
+              "type": "date",
+              "displayName": "Supersession Effective Date",
+              "visible": true,
+              "description": "The effective date of the superseding contract.",
+              "tags": [
+                "purpose:supersessionEffectiveDate"
+              ],
+              "version": 1
+            },
+            "standard_terminatedDate": {
+              "type": "date",
+              "displayName": "Terminated Date",
+              "visible": true,
+              "description": "The date when the contract was terminated.",
+              "tags": [
+                "purpose:terminatedDate"
+              ],
+              "version": 1
+            },
+            "standard_terminatingRecordId": {
+              "type": "string",
+              "displayName": "Terminating Record Id",
+              "visible": true,
+              "description": "The record ID for the contract that terminated this contract.",
+              "tags": [
+                "purpose:terminatingRecordId"
+              ],
+              "version": 1
+            },
+            "standard_terminationEffectiveDate": {
+              "type": "date",
+              "displayName": "Termination Effective Date",
+              "visible": true,
+              "description": "The effective date of the contract termination.",
+              "tags": [
+                "purpose:terminationEffectiveDate"
+              ],
+              "version": 1
+            },
+            "standard_terminationNoticePeriod": {
+              "type": "duration",
+              "displayName": "Termination Notice Period",
+              "visible": true,
+              "description": "This is the number of days of notice that needs to be given before this agreement can be terminated.",
+              "tags": [
+                "purpose:terminationNoticePeriod"
+              ],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "standard_timesRenewed": {
+              "type": "number",
+              "displayName": "Times Renewed",
+              "visible": true,
+              "description": "The number of times the contract has auto-renewed or the number of times an optional extension has been extended.",
+              "tags": [
+                "purpose:timesRenewed"
+              ],
+              "version": 1
+            },
+            "standard_undoObligationAction": {
+              "type": "string",
+              "displayName": "Undo Obligation Action",
+              "visible": false,
+              "description": "The action type that is being undone by an undo action.",
+              "tags": [
+                "purpose:undoObligationAction"
+              ],
+              "version": 1
+            },
+            "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list": {
+              "type": "string",
+              "displayName": "Table",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "terminationForConvenience": {
+              "type": "string",
+              "displayName": "Termination For Convenience",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "venue": {
+              "type": "string",
+              "displayName": "Venue",
+              "visible": true,
+              "tags": [],
+              "isAiEnabled": true,
+              "hasCustomAiConfig": false,
+              "hasDefaultAiConfig": true,
+              "version": 1
+            },
+            "workflowApprovalRequestsAverageRequestApprovalTime": {
+              "type": "number",
+              "displayName": "Average Approval Time",
+              "group": "reviewStep",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowApprovalRequestsNumApprovals": {
+              "type": "number",
+              "displayName": "Number of Approvals",
+              "group": "reviewStep",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowAverageTurnTimeWithCounterparty": {
+              "type": "number",
+              "displayName": "Average Turn Time with Counterparty",
+              "group": "turnHistory",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowAverageTurnTimeWithInternal": {
+              "type": "number",
+              "displayName": "Average Turn Time with Internal",
+              "group": "turnHistory",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowConfigurationVersionNumber": {
+              "type": "number",
+              "displayName": "Workflow Configuration Version Number",
+              "group": "workflow",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowCreatedDate": {
+              "type": "date",
+              "displayName": "Workflow Created Date",
+              "group": "workflowSteps",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowCreator": {
+              "type": "string",
+              "displayName": "Workflow Creator",
+              "group": "workflow",
+              "visible": true,
+              "tags": [],
+              "lookupType": "user",
+              "version": 1
+            },
+            "workflowDetails": {
+              "type": "workflow",
+              "displayName": "Workflow Details",
+              "visible": false,
+              "tags": [],
+              "version": 1
+            },
+            "workflowId": {
+              "type": "string",
+              "displayName": "Workflow ID",
+              "group": "workflow",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowOwner": {
+              "type": "string",
+              "displayName": "Workflow Owner",
+              "group": "workflow",
+              "visible": true,
+              "tags": [],
+              "lookupType": "user",
+              "version": 1
+            },
+            "workflowProcessAttributes_archiveStepDuration": {
+              "type": "number",
+              "displayName": "Archive Step Duration",
+              "group": "workflowSteps",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_createStepDuration": {
+              "type": "number",
+              "displayName": "Create Step Duration",
+              "group": "workflowSteps",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_hasStartedOver": {
+              "type": "boolean",
+              "displayName": "Start over from Template",
+              "group": "workflow",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_isAiAssistLanguageIncluded": {
+              "type": "boolean",
+              "displayName": "AI Assist Language Included",
+              "group": "workflow",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_isConnectWorkflow": {
+              "type": "boolean",
+              "displayName": "Connect Workflow",
+              "group": "workflow",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_isDraftDocument": {
+              "type": "boolean",
+              "displayName": "Final Draft on Template",
+              "group": "workflow",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_numberOfSigners": {
+              "type": "number",
+              "displayName": "Number of Signers",
+              "group": "executionHistory",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_revertedToReview": {
+              "type": "boolean",
+              "displayName": "Reverted to Review",
+              "group": "workflow",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_reviewStepCompletedDate": {
+              "type": "date",
+              "displayName": "Workflow Review Step Completed Date",
+              "group": "workflowSteps",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_reviewStepDuration": {
+              "type": "number",
+              "displayName": "Review Step Duration",
+              "group": "workflowSteps",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_signatureProvider": {
+              "type": "string",
+              "displayName": "Signature Provider",
+              "group": "executionHistory",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_signStepCompletedDate": {
+              "type": "date",
+              "displayName": "Workflow Sign Step Completed Date",
+              "group": "workflowSteps",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_signStepDuration": {
+              "type": "number",
+              "displayName": "Sign Step Duration",
+              "group": "workflowSteps",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_workflowCompletedDate": {
+              "type": "date",
+              "displayName": "Workflow Completed Date",
+              "group": "workflowSteps",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_workflowCompletionDuration": {
+              "type": "number",
+              "displayName": "Workflow Completion Duration",
+              "group": "workflowSteps",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowProcessAttributes_workflowPausedDuration": {
+              "type": "number",
+              "displayName": "Workflow Paused Duration",
+              "group": "workflowSteps",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowTurnTrackingNumberOfTurns": {
+              "type": "number",
+              "displayName": "Number of Turns",
+              "group": "turnHistory",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowTurnTrackingTimeWithCounterparty": {
+              "type": "number",
+              "displayName": "Turn Tracking Time With Counterparty",
+              "group": "turnHistory",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowTurnTrackingTimeWithInternal": {
+              "type": "number",
+              "displayName": "Turn Tracking Time With Internal",
+              "group": "turnHistory",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowTurnTrackingTotalCounterpartyTurns": {
+              "type": "number",
+              "displayName": "Total Counterparty Turns",
+              "group": "turnHistory",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowTurnTrackingTotalInternalTurns": {
+              "type": "number",
+              "displayName": "Total Internal Turns",
+              "group": "turnHistory",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            },
+            "workflowUpdatedDate": {
+              "type": "date",
+              "displayName": "Workflow Updated Date",
+              "visible": false,
+              "tags": [],
+              "version": 1
+            },
+            "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean": {
+              "type": "boolean",
+              "displayName": "Yes / No",
+              "visible": true,
+              "tags": [],
+              "version": 1
+            }
+          },
+          "recordTypes": {
+            "counterpartyPaperType1": {
+              "displayName": "Counterparty Paper, Type 1",
+              "description": null
+            },
+            "counterpartyPaperType2": {
+              "displayName": "Counterparty Paper, Type 2",
+              "description": null
+            },
+            "everyFieldType": {
+              "displayName": "Every Field Type",
+              "description": null
+            }
+          },
+          "links": {},
+          "attachments": {},
+          "repositoryId": "00000000-0000-0000-0000-000000000000"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 12:15:08 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1960",
+          "x-ratelimit-reset": "1785413762",
+          "x-pod-name": "public-api-558bcb5f77-kgvbn",
+          "x-version": "2026.29.916.740-a76a8bf20b4",
+          "x-response-id": "1b48b7ad-b7bf-4f70-87b6-780bb03a17d8",
+          "cache-control": "no-store, no-cache",
+          "content-security-policy": "default-src 'self';frame-ancestors 'self' https://*.salesforce.com https://*.lightning.force.com https://*.visual.force.com https://*.visualforce.com https://green-harvest-experience.my.site.com https://*.officeapps.live.com https://*.sharepoint.com;report-to https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;report-uri https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "expect-ct": "max-age=0",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-ironclad-requestid": "1b48b7ad-b7bf-4f70-87b6-780bb03a17d8",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "857ff743c0043c262b69185f6d717ecab9cb5cda",
+        "request": {}
+      }
+    }
+  }
+}

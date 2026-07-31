@@ -1,0 +1,89 @@
+{
+  "input": {
+    "workflowId": "6a6b328004308879e7d439b6"
+  },
+  "output": {
+    "signaturePacketDocuments": [
+      {
+        "download": "/public/api/v1/workflows/6a6b328004308879e7d439b6/document/F7IYVm-59VHKoqCLLuiFd/download",
+        "version": "Db8wilveC9dbePHlIQ0Vo",
+        "versionNumber": 2,
+        "key": "F7IYVm-59VHKoqCLLuiFd",
+        "filename": "Every Field Type with Nango Registry Test Counterparty - Supported Fields (6a6b3289b6).docx",
+        "lastModified": {
+          "timestamp": "2026-07-30T11:17:53.797Z",
+          "author": {
+            "type": "internalUser",
+            "displayName": "Kelvin Wari",
+            "email": "kelvin@nango.dev",
+            "userId": "68dc41166622f04ca177be37",
+            "companyName": "Developer - Nango"
+          }
+        }
+      }
+    ],
+    "excludedFromSignaturePacketDocuments": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/public/api/v1/workflows/6a6b328004308879e7d439b6/documents": {
+        "response": {
+          "signaturePacketDocuments": [
+            {
+              "version": "Db8wilveC9dbePHlIQ0Vo",
+              "versionNumber": 2,
+              "key": "F7IYVm-59VHKoqCLLuiFd",
+              "filename": "Every Field Type with Nango Registry Test Counterparty - Supported Fields (6a6b3289b6).docx",
+              "download": "/public/api/v1/workflows/6a6b328004308879e7d439b6/document/F7IYVm-59VHKoqCLLuiFd/download",
+              "lastModified": {
+                "timestamp": "2026-07-30T11:17:53.797Z",
+                "author": {
+                  "type": "internalUser",
+                  "displayName": "Kelvin Wari",
+                  "email": "kelvin@nango.dev",
+                  "userId": "68dc41166622f04ca177be37",
+                  "companyName": "Developer - Nango"
+                }
+              }
+            }
+          ],
+          "excludedFromSignaturePacketDocuments": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 12:14:23 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1911",
+          "x-ratelimit-reset": "1785413702",
+          "vary": "Accept-Encoding, Accept-Encoding",
+          "x-pod-name": "public-api-558bcb5f77-6l6pm",
+          "x-version": "2026.29.916.740-a76a8bf20b4",
+          "x-response-id": "f7b7f82a-f2d9-4970-8758-f95f992beae5",
+          "cache-control": "no-store, no-cache",
+          "content-security-policy": "default-src 'self';frame-ancestors 'self' https://*.salesforce.com https://*.lightning.force.com https://*.visual.force.com https://*.visualforce.com https://green-harvest-experience.my.site.com https://*.officeapps.live.com https://*.sharepoint.com;report-to https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;report-uri https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "expect-ct": "max-age=0",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-ironclad-requestid": "f7b7f82a-f2d9-4970-8758-f95f992beae5",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "ae5e95b111ee17097a4155321a67ce34c54e64db",
+        "request": {}
+      }
+    }
+  }
+}

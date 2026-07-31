@@ -1,0 +1,433 @@
+{
+  "nango": {
+    "batchSave": {
+      "Dataset": [
+        {
+          "id": "149ca924-4333-471b-94b5-347eca3f9938:a71c1b98-a0db-4423-a81b-5dcb48d5c8d1",
+          "datasetId": "a71c1b98-a0db-4423-a81b-5dcb48d5c8d1",
+          "workspaceId": "149ca924-4333-471b-94b5-347eca3f9938",
+          "name": "Registry Test Sales Dataset",
+          "configuredBy": "9bba120c-9b53-4f0b-bd5c-14407a933f54",
+          "isRefreshable": true,
+          "isEffectiveIdentityRequired": false,
+          "isOnPremGatewayRequired": false,
+          "addRowsAPIEnabled": true,
+          "webUrl": "https://app.powerbi.com/groups/149ca924-4333-471b-94b5-347eca3f9938/datasets/a71c1b98-a0db-4423-a81b-5dcb48d5c8d1",
+          "createdDate": "2026-07-28T22:24:19.807Z"
+        },
+        {
+          "id": "149ca924-4333-471b-94b5-347eca3f9938:7c6f08eb-0afa-4ef1-a368-eefa99636104",
+          "datasetId": "7c6f08eb-0afa-4ef1-a368-eefa99636104",
+          "workspaceId": "149ca924-4333-471b-94b5-347eca3f9938",
+          "name": "Dryrun Test Dataset",
+          "configuredBy": "9bba120c-9b53-4f0b-bd5c-14407a933f54",
+          "isRefreshable": true,
+          "isEffectiveIdentityRequired": false,
+          "isOnPremGatewayRequired": false,
+          "addRowsAPIEnabled": true,
+          "webUrl": "https://app.powerbi.com/groups/149ca924-4333-471b-94b5-347eca3f9938/datasets/7c6f08eb-0afa-4ef1-a368-eefa99636104",
+          "createdDate": "2026-07-28T22:39:12.543Z"
+        },
+        {
+          "id": "149ca924-4333-471b-94b5-347eca3f9938:fa1070c6-2c4e-437b-90e1-76e22a7b1c0a",
+          "datasetId": "fa1070c6-2c4e-437b-90e1-76e22a7b1c0a",
+          "workspaceId": "149ca924-4333-471b-94b5-347eca3f9938",
+          "name": "Dryrun Test Dataset",
+          "configuredBy": "9bba120c-9b53-4f0b-bd5c-14407a933f54",
+          "isRefreshable": true,
+          "isEffectiveIdentityRequired": false,
+          "isOnPremGatewayRequired": false,
+          "addRowsAPIEnabled": true,
+          "webUrl": "https://app.powerbi.com/groups/149ca924-4333-471b-94b5-347eca3f9938/datasets/fa1070c6-2c4e-437b-90e1-76e22a7b1c0a",
+          "createdDate": "2026-07-28T22:39:21.183Z"
+        },
+        {
+          "id": "dbd20cb3-2fe1-4d50-a1fa-217d6a097f18:f4385440-a665-41c9-9784-6c7ac65b5bf8",
+          "datasetId": "f4385440-a665-41c9-9784-6c7ac65b5bf8",
+          "workspaceId": "dbd20cb3-2fe1-4d50-a1fa-217d6a097f18",
+          "name": "Registry Test Inventory Dataset",
+          "configuredBy": "9bba120c-9b53-4f0b-bd5c-14407a933f54",
+          "isRefreshable": true,
+          "isEffectiveIdentityRequired": false,
+          "isOnPremGatewayRequired": false,
+          "addRowsAPIEnabled": true,
+          "webUrl": "https://app.powerbi.com/groups/dbd20cb3-2fe1-4d50-a1fa-217d6a097f18/datasets/f4385440-a665-41c9-9784-6c7ac65b5bf8",
+          "createdDate": "2026-07-28T22:30:03.077Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Dataset": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1.0/myorg/groups": {
+        "response": {
+          "@odata.context": "https://wabi-us-central-b-primary-redirect.analysis.windows.net/v1.0/myorg/$metadata#groups",
+          "@odata.count": 7,
+          "value": [
+            {
+              "id": "149ca924-4333-471b-94b5-347eca3f9938",
+              "isReadOnly": false,
+              "isOnDedicatedCapacity": false,
+              "type": "Workspace",
+              "name": "Nango Registry Test Workspace"
+            },
+            {
+              "id": "dbd20cb3-2fe1-4d50-a1fa-217d6a097f18",
+              "isReadOnly": false,
+              "isOnDedicatedCapacity": false,
+              "type": "Workspace",
+              "name": "Nango Registry Test Workspace 2"
+            },
+            {
+              "id": "69284a5a-fc8e-4700-8dd0-2b4f3427876a",
+              "isReadOnly": false,
+              "isOnDedicatedCapacity": false,
+              "type": "Workspace",
+              "name": "Nango Dryrun Test Workspace"
+            },
+            {
+              "id": "ec665f94-9777-4f07-812e-7bd829264256",
+              "isReadOnly": false,
+              "isOnDedicatedCapacity": false,
+              "type": "Workspace",
+              "name": "Nango Dryrun Test Workspace Save"
+            },
+            {
+              "id": "5daf8019-2b65-4154-8160-dcb1d08acf97",
+              "isReadOnly": false,
+              "isOnDedicatedCapacity": false,
+              "type": "Workspace",
+              "name": "Nango Dryrun Test Workspace Final"
+            },
+            {
+              "id": "4ccfe4fd-797b-49e2-ad32-9bd01b9e91c0",
+              "isReadOnly": false,
+              "isOnDedicatedCapacity": false,
+              "type": "Workspace",
+              "name": "Nango Dryrun Test Workspace v1"
+            },
+            {
+              "id": "78c55aac-728c-41ef-8af5-d7f4e9d48976",
+              "isReadOnly": false,
+              "isOnDedicatedCapacity": false,
+              "type": "Workspace",
+              "name": "Nango Disposable Delete Test"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Jul 2026 14:08:24 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "1331",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785334163",
+          "etag": "W/\"533-Gj2VjzhKmHLEmKAb2yGzfUKoShE\""
+        },
+        "hash": "c3c0cb03825372d3975851b473c3a183fcb40f2f",
+        "request": {
+          "params": {
+            "$skip": "0",
+            "$top": "100"
+          }
+        }
+      },
+      "/v1.0/myorg/groups/149ca924-4333-471b-94b5-347eca3f9938/datasets": {
+        "response": {
+          "@odata.context": "https://wabi-us-central-b-primary-redirect.analysis.windows.net/v1.0/myorg/groups/149ca924-4333-471b-94b5-347eca3f9938/$metadata#datasets",
+          "value": [
+            {
+              "id": "a71c1b98-a0db-4423-a81b-5dcb48d5c8d1",
+              "name": "Registry Test Sales Dataset",
+              "webUrl": "https://app.powerbi.com/groups/149ca924-4333-471b-94b5-347eca3f9938/datasets/a71c1b98-a0db-4423-a81b-5dcb48d5c8d1",
+              "addRowsAPIEnabled": true,
+              "configuredBy": "9bba120c-9b53-4f0b-bd5c-14407a933f54",
+              "isRefreshable": true,
+              "isEffectiveIdentityRequired": false,
+              "isEffectiveIdentityRolesRequired": false,
+              "isOnPremGatewayRequired": false,
+              "targetStorageMode": "Abf",
+              "createdDate": "2026-07-28T22:24:19.807Z",
+              "createReportEmbedURL": "https://app.powerbi.com/reportEmbed?config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLUNFTlRSQUwtQi1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19",
+              "qnaEmbedURL": "https://app.powerbi.com/qnaEmbed?config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLUNFTlRSQUwtQi1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19",
+              "upstreamDatasets": [],
+              "users": [],
+              "queryScaleOutSettings": {
+                "autoSyncReadOnlyReplicas": true,
+                "maxReadOnlyReplicas": 0
+              }
+            },
+            {
+              "id": "7c6f08eb-0afa-4ef1-a368-eefa99636104",
+              "name": "Dryrun Test Dataset",
+              "webUrl": "https://app.powerbi.com/groups/149ca924-4333-471b-94b5-347eca3f9938/datasets/7c6f08eb-0afa-4ef1-a368-eefa99636104",
+              "addRowsAPIEnabled": true,
+              "configuredBy": "9bba120c-9b53-4f0b-bd5c-14407a933f54",
+              "isRefreshable": true,
+              "isEffectiveIdentityRequired": false,
+              "isEffectiveIdentityRolesRequired": false,
+              "isOnPremGatewayRequired": false,
+              "targetStorageMode": "Abf",
+              "createdDate": "2026-07-28T22:39:12.543Z",
+              "createReportEmbedURL": "https://app.powerbi.com/reportEmbed?config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLUNFTlRSQUwtQi1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19",
+              "qnaEmbedURL": "https://app.powerbi.com/qnaEmbed?config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLUNFTlRSQUwtQi1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19",
+              "upstreamDatasets": [],
+              "users": [],
+              "queryScaleOutSettings": {
+                "autoSyncReadOnlyReplicas": true,
+                "maxReadOnlyReplicas": 0
+              }
+            },
+            {
+              "id": "fa1070c6-2c4e-437b-90e1-76e22a7b1c0a",
+              "name": "Dryrun Test Dataset",
+              "webUrl": "https://app.powerbi.com/groups/149ca924-4333-471b-94b5-347eca3f9938/datasets/fa1070c6-2c4e-437b-90e1-76e22a7b1c0a",
+              "addRowsAPIEnabled": true,
+              "configuredBy": "9bba120c-9b53-4f0b-bd5c-14407a933f54",
+              "isRefreshable": true,
+              "isEffectiveIdentityRequired": false,
+              "isEffectiveIdentityRolesRequired": false,
+              "isOnPremGatewayRequired": false,
+              "targetStorageMode": "Abf",
+              "createdDate": "2026-07-28T22:39:21.183Z",
+              "createReportEmbedURL": "https://app.powerbi.com/reportEmbed?config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLUNFTlRSQUwtQi1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19",
+              "qnaEmbedURL": "https://app.powerbi.com/qnaEmbed?config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLUNFTlRSQUwtQi1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19",
+              "upstreamDatasets": [],
+              "users": [],
+              "queryScaleOutSettings": {
+                "autoSyncReadOnlyReplicas": true,
+                "maxReadOnlyReplicas": 0
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Jul 2026 14:08:25 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "3531",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1785334163",
+          "etag": "W/\"dcb-j3UgoI6bgnUB00eFmMhYFHv59Ws\""
+        },
+        "hash": "b58e75fa4115bd86b58e99631b04987d227458de",
+        "request": {}
+      },
+      "/v1.0/myorg/groups/dbd20cb3-2fe1-4d50-a1fa-217d6a097f18/datasets": {
+        "response": {
+          "@odata.context": "https://wabi-us-central-b-primary-redirect.analysis.windows.net/v1.0/myorg/groups/dbd20cb3-2fe1-4d50-a1fa-217d6a097f18/$metadata#datasets",
+          "value": [
+            {
+              "id": "f4385440-a665-41c9-9784-6c7ac65b5bf8",
+              "name": "Registry Test Inventory Dataset",
+              "webUrl": "https://app.powerbi.com/groups/dbd20cb3-2fe1-4d50-a1fa-217d6a097f18/datasets/f4385440-a665-41c9-9784-6c7ac65b5bf8",
+              "addRowsAPIEnabled": true,
+              "configuredBy": "9bba120c-9b53-4f0b-bd5c-14407a933f54",
+              "isRefreshable": true,
+              "isEffectiveIdentityRequired": false,
+              "isEffectiveIdentityRolesRequired": false,
+              "isOnPremGatewayRequired": false,
+              "targetStorageMode": "Abf",
+              "createdDate": "2026-07-28T22:30:03.077Z",
+              "createReportEmbedURL": "https://app.powerbi.com/reportEmbed?config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLUNFTlRSQUwtQi1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19",
+              "qnaEmbedURL": "https://app.powerbi.com/qnaEmbed?config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVVTLUNFTlRSQUwtQi1QUklNQVJZLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0IiwiZW1iZWRGZWF0dXJlcyI6eyJ1c2FnZU1ldHJpY3NWTmV4dCI6dHJ1ZX19",
+              "upstreamDatasets": [],
+              "users": [],
+              "queryScaleOutSettings": {
+                "autoSyncReadOnlyReplicas": true,
+                "maxReadOnlyReplicas": 0
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Jul 2026 14:08:26 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "1309",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1995",
+          "x-ratelimit-reset": "1785334163",
+          "etag": "W/\"51d-mXLyjrLypQo9vUMOfzCgCkjFK+c\""
+        },
+        "hash": "07271c7c14b26d2b84a3985f384d24d0612ee022",
+        "request": {}
+      },
+      "/v1.0/myorg/groups/69284a5a-fc8e-4700-8dd0-2b4f3427876a/datasets": {
+        "response": {
+          "@odata.context": "https://wabi-us-central-b-primary-redirect.analysis.windows.net/v1.0/myorg/groups/69284a5a-fc8e-4700-8dd0-2b4f3427876a/$metadata#datasets",
+          "value": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Jul 2026 14:08:26 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "185",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1785334163",
+          "etag": "W/\"b9-P0yoO+p1H1fggwBhsyW7+Ks+Qqc\""
+        },
+        "hash": "e9cbe410774a6187edf0ca9b05ce301fb333c986",
+        "request": {}
+      },
+      "/v1.0/myorg/groups/ec665f94-9777-4f07-812e-7bd829264256/datasets": {
+        "response": {
+          "@odata.context": "https://wabi-us-central-b-primary-redirect.analysis.windows.net/v1.0/myorg/groups/ec665f94-9777-4f07-812e-7bd829264256/$metadata#datasets",
+          "value": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Jul 2026 14:08:27 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "185",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1785334163",
+          "etag": "W/\"b9-fb2JhnmKZb6y4QGlHrDjxyilR0Q\""
+        },
+        "hash": "a24629bb568ad3545023c7d48f96fc0567d7fbff",
+        "request": {}
+      },
+      "/v1.0/myorg/groups/5daf8019-2b65-4154-8160-dcb1d08acf97/datasets": {
+        "response": {
+          "@odata.context": "https://wabi-us-central-b-primary-redirect.analysis.windows.net/v1.0/myorg/groups/5daf8019-2b65-4154-8160-dcb1d08acf97/$metadata#datasets",
+          "value": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Jul 2026 14:08:28 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "185",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1785334163",
+          "etag": "W/\"b9-CV6NQJILk7UEE+RH/mZkoBXhp3c\""
+        },
+        "hash": "0ab6b049f4dec2fb004d0e7d7335690e08c7e3df",
+        "request": {}
+      },
+      "/v1.0/myorg/groups/4ccfe4fd-797b-49e2-ad32-9bd01b9e91c0/datasets": {
+        "response": {
+          "@odata.context": "https://wabi-us-central-b-primary-redirect.analysis.windows.net/v1.0/myorg/groups/4ccfe4fd-797b-49e2-ad32-9bd01b9e91c0/$metadata#datasets",
+          "value": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Jul 2026 14:08:28 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "185",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1991",
+          "x-ratelimit-reset": "1785334163",
+          "etag": "W/\"b9-6EnBIWsbEUh+xIfgutCaIg+Sjfo\""
+        },
+        "hash": "b11a48b2365c61edf95a3b240593367a0950ad12",
+        "request": {}
+      },
+      "/v1.0/myorg/groups/78c55aac-728c-41ef-8af5-d7f4e9d48976/datasets": {
+        "response": {
+          "@odata.context": "https://wabi-us-central-b-primary-redirect.analysis.windows.net/v1.0/myorg/groups/78c55aac-728c-41ef-8af5-d7f4e9d48976/$metadata#datasets",
+          "value": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 29 Jul 2026 14:08:29 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "185",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1990",
+          "x-ratelimit-reset": "1785334163",
+          "etag": "W/\"b9-c8widgBhIb6uK0GuF8BNl/kfG0s\""
+        },
+        "hash": "cfefe0a4210bd89c6b774b168ea50bc02b952e4a",
+        "request": {}
+      }
+    }
+  }
+}
