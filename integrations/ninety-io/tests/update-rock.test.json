@@ -1,0 +1,102 @@
+{
+  "input": {
+    "id": "6a68fcdf47919f2a7d3c283b",
+    "title": "Updated via Nango dryrun"
+  },
+  "output": {
+    "id": "6a68fcdf47919f2a7d3c283b",
+    "title": "Updated via Nango dryrun",
+    "description": "Flat body description",
+    "dueDate": "2026-12-31T00:00:00.000Z",
+    "statusCode": "DONE",
+    "levelCode": "COMPANY",
+    "quarter": "Q4",
+    "teamId": "6a616ba8908190d6d9458153",
+    "createdByUserId": "6a616ba8908190d6d945815c",
+    "createdDate": "2026-07-28T19:02:55.099Z",
+    "updatedAt": "2026-07-28T19:05:20.302Z",
+    "updatedBy": "6a616ba8908190d6d945815c",
+    "deleted": false,
+    "milestones": []
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v1/rocks/6a68fcdf47919f2a7d3c283b": {
+        "response": {
+          "completed": true,
+          "_id": "6a68fcdf47919f2a7d3c283b",
+          "__v": 0,
+          "archived": false,
+          "deleted": false,
+          "description": "Flat body description",
+          "title": "Updated via Nango dryrun",
+          "comments": [],
+          "teamId": "6a616ba8908190d6d9458153",
+          "dueDate": "2026-12-31T00:00:00.000Z",
+          "statusCode": "DONE",
+          "levelCode": "COMPANY",
+          "quarter": "Q4",
+          "companyId": "6a616ba8908190d6d9458151",
+          "userId": "6a616ba8908190d6d945815c",
+          "archivedDate": null,
+          "completedDate": "2026-07-28T19:04:45.814Z",
+          "createdDate": "2026-07-28T19:02:55.099Z",
+          "updatedAt": "2026-07-28T19:05:20.302Z",
+          "updatedBy": "6a616ba8908190d6d945815c",
+          "ordinal": 18,
+          "userOrdinal": 18,
+          "planningBoardOrdinal": 18,
+          "followers": [
+            "6a616ba8908190d6d945815c"
+          ],
+          "milestones": [],
+          "createdByUserId": "6a616ba8908190d6d945815c",
+          "dueDateQuarter": ""
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 19:05:20 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1500",
+          "x-ratelimit-remaining": "1494",
+          "x-ratelimit-reset": "1785265524",
+          "server": "openresty",
+          "vary": "Accept-Encoding, Origin, Accept-Encoding",
+          "x-amzn-requestid": "f6e23534-26b8-4680-aa78-f92dc1695a28",
+          "referrer-policy": "no-referrer",
+          "x-amzn-remapped-x-amzn-requestid": "c2e364dd-9c6e-4a47-b43f-2212bfc14037",
+          "x-permitted-cross-domain-policies": "none",
+          "x-amzn-remapped-content-length": "744",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "origin-agent-cluster": "?1",
+          "x-amzn-remapped-connection": "close",
+          "cross-origin-opener-policy": "same-origin",
+          "x-amz-apigw-id": "BOyJeEU4IAMFjow=",
+          "etag": "W/\"2e8-0jjvGFiL0hIbvvwxvfkVrh6C064\"",
+          "cross-origin-resource-policy": "same-origin",
+          "x-amzn-trace-id": "Root=1-6a68fd6f-1c922fdc0c8b384c59100c15;Parent=60c8d137139c9e95;Sampled=0;Lineage=1:e848db70:0",
+          "x-amzn-remapped-date": "Tue, 28 Jul 2026 19:05:20 GMT",
+          "access-control-allow-credentials": "true"
+        },
+        "hash": "936cad736cd3209c5b812a0a7f7c0c0aaf0b86fb",
+        "request": {
+          "data": {
+            "title": "Updated via Nango dryrun"
+          }
+        }
+      }
+    }
+  }
+}
