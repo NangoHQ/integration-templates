@@ -1,0 +1,112 @@
+{
+  "input": {
+    "orderId": 210311951,
+    "productId": 69781078,
+    "count": 2
+  },
+  "output": {
+    "id": 973759400,
+    "orderId": 210311951,
+    "productId": 69781078,
+    "description": "",
+    "count": 2,
+    "unitPriceExcludingVatCurrency": 0,
+    "unitPriceIncludingVatCurrency": 0,
+    "amountExcludingVatCurrency": 0,
+    "amountIncludingVatCurrency": 0,
+    "discount": 0,
+    "markup": 0,
+    "vatTypeId": 3,
+    "isSubscription": false,
+    "sortIndex": 0,
+    "isPicked": false,
+    "orderedQuantity": 0,
+    "isCharged": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/order/orderline": {
+        "response": {
+          "value": {
+            "id": 973759400,
+            "version": 1,
+            "url": "api-test.tripletex.tech/v2/order/orderline/973759400",
+            "product": {
+              "id": 69781078,
+              "url": "api-test.tripletex.tech/v2/product/69781078"
+            },
+            "inventory": null,
+            "description": "",
+            "displayName": "Registry Seed Product 1",
+            "count": 2,
+            "unitCostCurrency": 0,
+            "unitPriceExcludingVatCurrency": 0,
+            "currency": {
+              "id": 1,
+              "url": "api-test.tripletex.tech/v2/currency/1"
+            },
+            "markup": 0,
+            "discount": 0,
+            "vatType": {
+              "id": 3,
+              "url": "api-test.tripletex.tech/v2/ledger/vatType/3"
+            },
+            "amountExcludingVatCurrency": 0,
+            "amountIncludingVatCurrency": 0,
+            "vendor": null,
+            "order": {
+              "id": 210311951,
+              "url": "api-test.tripletex.tech/v2/order/210311951"
+            },
+            "unitPriceIncludingVatCurrency": 0,
+            "isSubscription": false,
+            "subscriptionPeriodStart": null,
+            "subscriptionPeriodEnd": null,
+            "orderGroup": null,
+            "sortIndex": 0,
+            "isPicked": false,
+            "pickedDate": null,
+            "orderedQuantity": 0,
+            "isCharged": false,
+            "sourceOrderLineId": 0,
+            "originalOrderedQuantity": 2,
+            "deliveredQuantity": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 12:28:09 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "968",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1867",
+          "x-ratelimit-reset": "1785241709",
+          "etag": "W/\"3c8-CNiGKD23LXiFWz8WOZZpwyQCU64\""
+        },
+        "hash": "0b26ac525cfe83e76bfbc722362ec1dde12f1ae5",
+        "request": {
+          "data": {
+            "order": {
+              "id": 210311951
+            },
+            "product": {
+              "id": 69781078
+            },
+            "count": 2
+          }
+        }
+      }
+    }
+  }
+}

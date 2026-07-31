@@ -1,0 +1,118 @@
+{
+  "input": {
+    "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+    "itemId": "01RFYLAYATN2IE6EZ5W5AK45MBJZMYEV5M"
+  },
+  "output": {
+    "id": "01RFYLAYATN2IE6EZ5W5AK45MBJZMYEV5M",
+    "name": "registry-seed-2.docx",
+    "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/Doc.aspx?sourcedoc=%7B4F906E13-3D13-40B7-AE75-814E598257AC%7D&file=registry-seed-2.docx&action=default&mobileredirect=true",
+    "createdDateTime": "2026-07-28T14:08:27Z",
+    "lastModifiedDateTime": "2026-07-28T14:08:27Z",
+    "size": 9134,
+    "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "parentReference": {
+      "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+      "id": "01RFYLAYF6Y2GOVW7725BZO354PWSELRRZ"
+    },
+    "createdBy": {
+      "displayName": "SharePoint App"
+    },
+    "lastModifiedBy": {
+      "displayName": "SharePoint App"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/items/01RFYLAYATN2IE6EZ5W5AK45MBJZMYEV5M": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(driveItem)/$entity",
+          "@microsoft.graph.downloadUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/download.aspx?UniqueId=4f906e13-3d13-40b7-ae75-814e598257ac&Translate=false&tempauth=v1.eyJzaXRlaWQiOiI0Yzk3NDAzZS0xNjYzLTQ2NzMtOTBmYS1kMmY4NjkwYjQ1MTAiLCJhcHBfZGlzcGxheW5hbWUiOiJOYW5nb1Rlc3RXb3JkQ0MiLCJuYW1laWQiOiI2NDE5NjI2Yy03NzA5LTRiY2ItODAwOC0wNjE3NzFiNDI5YzhANTY0ODBhZTItODhiZS00OWNmLTg2ZjYtZDYyYTQ1YmY4NzU4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL25hbmdvZGV2ZWxvcGVycy5zaGFyZXBvaW50LmNvbUA1NjQ4MGFlMi04OGJlLTQ5Y2YtODZmNi1kNjJhNDViZjg3NTgiLCJleHAiOiIxNzg1MjUyOTgyIn0.CkAKDGVudHJhX2NsYWltcxIwQ05QeG90TUdFQUFhRmxvM1JVWkthbkl5U2tWVFZsUnBYMDFhWmtWVVFVRXFBQT09CjIKCmFjdG9yYXBwaWQSJDAwMDAwMDAzLTAwMDAtMDAwMC1jMDAwLTAwMDAwMDAwMDAwMAoKCgRzbmlkEgI2NBILCMy8von0r7Y_EAUaDjIwLjE5MC4xNTQuMTYwKixtM2Z2TFZsSmdOcFBXbXk2VFM5eUd1aW0wa0dLeWgwRDNnNW1XMExuZEpJPTCSATgBQhCiK7VJa0AAwHBzJhOo9stfShBoYXNoZWRwcm9vZnRva2VuegExugE7YWxsc2l0ZXMucmVhZCBhbGxmaWxlcy53cml0ZSBhbGxmaWxlcy5yZWFkIGFsbHByb2ZpbGVzLnJlYWTIAQE.dW5f3CTO0A4iSe94V4HQhOjh2YHRjf3Q1CcI6Zi8LXY&ApiVersion=2.0",
+          "@microsoft.graph.downloadUrlNoAuth": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/download.aspx?UniqueId=4f906e13-3d13-40b7-ae75-814e598257ac&Translate=false&ApiVersion=2.0",
+          "createdBy": {
+            "application": {
+              "id": "6419626c-7709-4bcb-8008-061771b429c8",
+              "displayName": "Microsoft Graph"
+            },
+            "user": {
+              "displayName": "SharePoint App"
+            }
+          },
+          "createdDateTime": "2026-07-28T14:08:27Z",
+          "eTag": "\"{4F906E13-3D13-40B7-AE75-814E598257AC},9\"",
+          "id": "01RFYLAYATN2IE6EZ5W5AK45MBJZMYEV5M",
+          "lastModifiedBy": {
+            "application": {
+              "id": "6419626c-7709-4bcb-8008-061771b429c8",
+              "displayName": "Microsoft Graph"
+            },
+            "user": {
+              "displayName": "SharePoint App"
+            }
+          },
+          "lastModifiedDateTime": "2026-07-28T14:08:27Z",
+          "name": "registry-seed-2.docx",
+          "parentReference": {
+            "driveType": "documentLibrary",
+            "driveId": "b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0",
+            "id": "01RFYLAYF6Y2GOVW7725BZO354PWSELRRZ",
+            "name": "Shared Documents",
+            "path": "/drives/b!PkCXTGMWc0aQ-tL4aQtFEDRX0SkZPfZDl2tD7OP_gahvi-nd5TAvTJG6KTmx6Mm0/root:",
+            "siteId": "4c97403e-1663-4673-90fa-d2f8690b4510"
+          },
+          "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam/_layouts/15/Doc.aspx?sourcedoc=%7B4F906E13-3D13-40B7-AE75-814E598257AC%7D&file=registry-seed-2.docx&action=default&mobileredirect=true",
+          "cTag": "\"c:{4F906E13-3D13-40B7-AE75-814E598257AC},6\"",
+          "file": {
+            "fileExtension": ".docx",
+            "hashes": {
+              "quickXorHash": "Ld9qfiBK6GWvUsrn8wiY2bejoro="
+            },
+            "irmEffectivelyEnabled": false,
+            "irmEnabled": false,
+            "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          },
+          "fileSystemInfo": {
+            "createdDateTime": "2026-07-28T14:08:27Z",
+            "lastModifiedDateTime": "2026-07-28T14:08:27Z"
+          },
+          "isAuthoritative": false,
+          "shared": {
+            "effectiveRoles": [
+              "write"
+            ],
+            "scope": "users"
+          },
+          "size": 9134
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 14:36:22 GMT",
+          "content-type": "application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1785249432",
+          "cache-control": "no-store, no-cache",
+          "request-id": "8737302c-79dd-4ffa-ad02-679fc5635b06",
+          "client-request-id": "8737302c-79dd-4ffa-ad02-679fc5635b06",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"002\",\"RoleInstance\":\"MWH0EPF00032D50\"}}",
+          "splogid": "49b52ba2-406b-c000-7073-2613a8f6cb5f",
+          "sprequestduration": "154"
+        },
+        "hash": "e0f69e0838082e90ac2d665932441b11129440b8",
+        "request": {}
+      }
+    }
+  }
+}
