@@ -35,7 +35,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync sales quotation headers',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -74,6 +74,11 @@ const sync = createSync({
         for await (const pageResults of nango.paginate(proxyConfig)) {
             const rawItems = z.array(z.record(z.string(), z.unknown())).parse(pageResults);
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('SalesQuotation');
+                trackingStarted = true;
+            }
+
             const quotations = rawItems.map((raw) => {
                 const record = ProviderItemSchema.parse(raw);
 
@@ -82,11 +87,6 @@ const sync = createSync({
                     id: `${record.dataAreaId}-${record.SalesQuotationNumber}`
                 };
             });
-
-            if (!trackingStarted && quotations.length > 0) {
-                await nango.trackDeletesStart('SalesQuotation');
-                trackingStarted = true;
-            }
 
             if (quotations.length > 0) {
                 await nango.batchSave(quotations, 'SalesQuotation');

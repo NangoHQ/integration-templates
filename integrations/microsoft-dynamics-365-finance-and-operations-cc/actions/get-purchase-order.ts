@@ -17,7 +17,7 @@ const OutputSchema = ProviderPurchaseOrderSchema;
 
 const action = createAction({
     description: 'Retrieve a purchase order header.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['D365FO.Read'],

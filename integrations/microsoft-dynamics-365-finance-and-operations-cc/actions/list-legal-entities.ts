@@ -30,7 +30,7 @@ const PAGE_SIZE = 100;
 
 const action = createAction({
     description: 'List legal entities (companies/data areas).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

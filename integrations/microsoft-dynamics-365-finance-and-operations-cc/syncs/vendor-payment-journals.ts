@@ -38,7 +38,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync vendor (AP) payment journal headers.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -58,7 +58,7 @@ const sync = createSync({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/VendorPaymentJournalHeaders',
             params: {
-                $orderby: 'JournalBatchNumber asc',
+                $orderby: 'dataAreaId asc,JournalBatchNumber asc',
                 'cross-company': 'true'
             },
             paginate: {
@@ -74,6 +74,11 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('VendorPaymentJournal');
+                trackingStarted = true;
+            }
+
             const journals = page.map((raw) => {
                 const record = RawVendorPaymentJournalSchema.parse(raw);
                 const mapped: Record<string, unknown> = {};
@@ -85,11 +90,6 @@ const sync = createSync({
                 mapped['id'] = `${record.dataAreaId}|${record.JournalBatchNumber}`;
                 return VendorPaymentJournalSchema.parse(mapped);
             });
-
-            if (!trackingStarted && journals.length > 0) {
-                await nango.trackDeletesStart('VendorPaymentJournal');
-                trackingStarted = true;
-            }
 
             if (journals.length > 0) {
                 await nango.batchSave(journals, 'VendorPaymentJournal');

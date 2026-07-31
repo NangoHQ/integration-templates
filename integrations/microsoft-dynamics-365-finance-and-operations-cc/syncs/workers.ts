@@ -104,7 +104,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync workers (employees)',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -142,6 +142,11 @@ const sync = createSync({
 
         for await (const page of nango.paginate(proxyConfig)) {
             const parsed = z.array(ProviderWorkerSchema).parse(page);
+
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Worker');
+                trackingStarted = true;
+            }
 
             const workers = parsed.map((record) => ({
                 id: record.PersonnelNumber,
@@ -191,11 +196,6 @@ const sync = createSync({
                 nationalityCountryRegion: record.NationalityCountryRegion,
                 citizenshipCountryRegion: record.CitizenshipCountryRegion
             }));
-
-            if (!trackingStarted && workers.length > 0) {
-                await nango.trackDeletesStart('Worker');
-                trackingStarted = true;
-            }
 
             if (workers.length > 0) {
                 await nango.batchSave(workers, 'Worker');

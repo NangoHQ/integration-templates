@@ -20,7 +20,7 @@ const RawWarehouseSchema = z
 
 const sync = createSync({
     description: 'Sync warehouses.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -49,6 +49,11 @@ const sync = createSync({
         let trackingStarted = false;
 
         for await (const page of nango.paginate(proxyConfig)) {
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Warehouse');
+                trackingStarted = true;
+            }
+
             const rawItems = z.array(z.unknown()).parse(page);
             const warehouses = rawItems.map((raw) => {
                 const record = RawWarehouseSchema.parse(raw);
@@ -61,11 +66,6 @@ const sync = createSync({
                     site_id: record.OperationalSiteId ?? undefined
                 };
             });
-
-            if (!trackingStarted && warehouses.length > 0) {
-                await nango.trackDeletesStart('Warehouse');
-                trackingStarted = true;
-            }
 
             if (warehouses.length > 0) {
                 await nango.batchSave(warehouses, 'Warehouse');

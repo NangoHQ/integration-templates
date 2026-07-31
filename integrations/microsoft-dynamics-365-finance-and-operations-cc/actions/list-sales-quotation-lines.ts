@@ -16,7 +16,7 @@ const PAGE_SIZE = 100;
 
 const action = createAction({
     description: 'List sales quotation lines, optionally scoped to a parent quotation.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['Financials.Read'],

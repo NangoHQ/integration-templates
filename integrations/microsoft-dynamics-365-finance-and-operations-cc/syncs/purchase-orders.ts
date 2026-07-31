@@ -49,7 +49,7 @@ const PurchaseOrderSchema = z
 
 const sync = createSync({
     description: 'Sync purchase order headers',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -85,6 +85,11 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('PurchaseOrder');
+                trackingStarted = true;
+            }
+
             const records = page.map((raw) => {
                 const parsed = z
                     .object({
@@ -99,11 +104,6 @@ const sync = createSync({
                     ...parsed
                 };
             });
-
-            if (!trackingStarted && records.length > 0) {
-                await nango.trackDeletesStart('PurchaseOrder');
-                trackingStarted = true;
-            }
 
             if (records.length > 0) {
                 const validated = records.map((record) => PurchaseOrderSchema.parse(record));

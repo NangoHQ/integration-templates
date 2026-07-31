@@ -37,7 +37,7 @@ const OdataListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List general ledger main accounts.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

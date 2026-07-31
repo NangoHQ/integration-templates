@@ -38,7 +38,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync vendors.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -74,6 +74,11 @@ const sync = createSync({
         };
 
         for await (const batch of nango.paginate(proxyConfig)) {
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Vendor');
+                trackingStarted = true;
+            }
+
             const vendors = [];
             for (const raw of batch) {
                 const parsed = VendorV2ResponseSchema.safeParse(raw);
@@ -95,11 +100,6 @@ const sync = createSync({
                     ...(v.PrimaryContactPhone != null && { PrimaryContactPhone: v.PrimaryContactPhone }),
                     dataAreaId: v.dataAreaId
                 });
-            }
-
-            if (!trackingStarted && vendors.length > 0) {
-                await nango.trackDeletesStart('Vendor');
-                trackingStarted = true;
             }
 
             if (vendors.length > 0) {

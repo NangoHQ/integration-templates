@@ -54,7 +54,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync sales order lines.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -96,6 +96,11 @@ const sync = createSync({
                 throw new Error(`Failed to parse sales order lines: ${parsed.error.message}`);
             }
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('SalesOrderLine');
+                trackingStarted = true;
+            }
+
             const lines = parsed.data.map((record) => ({
                 id: `${record.dataAreaId}-${record.SalesOrderNumber}-${record.LineNumber}`,
                 dataAreaId: record.dataAreaId,
@@ -118,11 +123,6 @@ const sync = createSync({
                 ...(record.CustomerLineNumber != null && { customerLineNumber: record.CustomerLineNumber }),
                 ...(record.SalesStatus != null && { salesStatus: record.SalesStatus })
             }));
-
-            if (!trackingStarted && lines.length > 0) {
-                await nango.trackDeletesStart('SalesOrderLine');
-                trackingStarted = true;
-            }
 
             if (lines.length > 0) {
                 await nango.batchSave(lines, 'SalesOrderLine');

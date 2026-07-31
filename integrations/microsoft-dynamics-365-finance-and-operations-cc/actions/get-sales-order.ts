@@ -10,7 +10,7 @@ const OutputSchema = z.object({}).passthrough();
 
 const action = createAction({
     description: 'Retrieve a sales order header.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -42,7 +42,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List free text (miscellaneous) customer invoice headers.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

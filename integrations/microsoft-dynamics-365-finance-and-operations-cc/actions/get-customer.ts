@@ -34,7 +34,7 @@ const OutputSchema = ProviderCustomerSchema;
 
 const action = createAction({
     description: 'Retrieve a customer.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

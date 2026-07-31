@@ -46,7 +46,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync general ledger main accounts',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -81,6 +81,11 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('MainAccount');
+                trackingStarted = true;
+            }
+
             const accounts = page.map((record) => {
                 const parsed = ProviderRecordSchema.safeParse(record);
                 if (!parsed.success) {
@@ -135,11 +140,6 @@ const sync = createSync({
                     ...(typeof raw['dataAreaId'] === 'string' && { dataAreaId: raw['dataAreaId'] })
                 };
             });
-
-            if (!trackingStarted && accounts.length > 0) {
-                await nango.trackDeletesStart('MainAccount');
-                trackingStarted = true;
-            }
 
             if (accounts.length > 0) {
                 await nango.batchSave(accounts, 'MainAccount');

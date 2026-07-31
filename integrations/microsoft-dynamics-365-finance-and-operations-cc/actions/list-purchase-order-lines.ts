@@ -17,7 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List purchase order lines, optionally scoped to a parent purchase order.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Financials.ReadWrite.All'],

@@ -5,8 +5,37 @@ const PAGE_SIZE = 100;
 
 const SKIPTOKEN_CURSOR_PREFIX = 'skiptoken:';
 
-const DEFAULT_SELECT =
-    'PersonnelNumber,Name,FirstName,MiddleName,LastName,WorkerStatus,WorkerType,OriginalHireDateTime,BirthDate,PrimaryContactEmail,PrimaryContactPhone,PrimaryContactPhoneExtension,Gender,MaritalStatus,TitleId,ProfessionalTitle,LanguageId,OfficeLocation,AddressCity,AddressCountryRegionId,AddressStreet,AddressZipCode,PartyNumber,NameAlias,KnownAs';
+const SELECTABLE_FIELDS = [
+    'PersonnelNumber',
+    'Name',
+    'FirstName',
+    'MiddleName',
+    'LastName',
+    'WorkerStatus',
+    'WorkerType',
+    'OriginalHireDateTime',
+    'BirthDate',
+    'PrimaryContactEmail',
+    'PrimaryContactPhone',
+    'PrimaryContactPhoneExtension',
+    'Gender',
+    'MaritalStatus',
+    'TitleId',
+    'ProfessionalTitle',
+    'LanguageId',
+    'OfficeLocation',
+    'AddressCity',
+    'AddressCountryRegionId',
+    'AddressStreet',
+    'AddressZipCode',
+    'PartyNumber',
+    'NameAlias',
+    'KnownAs'
+];
+
+const SELECTABLE_FIELD_SET = new Set(SELECTABLE_FIELDS);
+
+const DEFAULT_SELECT = SELECTABLE_FIELDS.join(',');
 
 const InputSchema = z.object({
     cursor: z
@@ -82,7 +111,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List workers (employees).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['data'],
@@ -97,13 +126,24 @@ const action = createAction({
             if (input.cursor.startsWith(SKIPTOKEN_CURSOR_PREFIX)) {
                 skiptoken = input.cursor.slice(SKIPTOKEN_CURSOR_PREFIX.length);
             } else {
-                skip = parseInt(input.cursor, 10);
-                if (isNaN(skip) || skip < 0) {
+                if (!/^\d+$/.test(input.cursor)) {
                     throw new nango.ActionError({
                         type: 'invalid_cursor',
                         message: 'cursor must be a non-negative integer string'
                     });
                 }
+                skip = parseInt(input.cursor, 10);
+            }
+        }
+
+        if (input.fields) {
+            const invalidFields = input.fields.filter((field) => !SELECTABLE_FIELD_SET.has(field));
+            if (invalidFields.length > 0) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: `fields contains unsupported values: ${invalidFields.join(', ')}`,
+                    supportedFields: SELECTABLE_FIELDS
+                });
             }
         }
 

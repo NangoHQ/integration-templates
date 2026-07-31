@@ -70,7 +70,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 30 Jul 2026 08:37:26 GMT",
+          "date": "Thu, 30 Jul 2026 23:32:46 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "747",
           "connection": "keep-alive",
@@ -85,13 +85,13 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1997",
-          "x-ratelimit-reset": "1785400704",
+          "x-ratelimit-reset": "1785454424",
           "etag": "W/\"2eb-yZaw3UkF/46Myt2cPG81Uf6/TxM\""
         },
-        "hash": "a66f9ea3c3c3d56f7cb78da574ddff0fe1515235",
+        "hash": "701c17c24bfa0e51ad29e2f9b5324cdb462eb783",
         "request": {
           "params": {
-            "$orderby": "JournalBatchNumber asc",
+            "$orderby": "dataAreaId asc,JournalBatchNumber asc",
             "$skip": "0",
             "$top": "100",
             "cross-company": "true"

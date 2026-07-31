@@ -34,7 +34,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync customer (AR) payment journal headers',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -46,15 +46,11 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let offset = checkpoint.success ? checkpoint.data.offset : 0;
 
-        // offset can only be > 0 if an earlier execution already advanced past at least one
-        // non-empty page (see the trackingStarted-gating below), which means that earlier
-        // execution must have already called trackDeletesStart. On a resumed execution we must
-        // NOT call trackDeletesStart again — that would open a fresh window covering only the
-        // remaining pages, and trackDeletesEnd would then treat every journal from the
-        // already-processed pages as missing and delete it. trackDeletesStart is only actually
-        // called once we've seen a validated page that contains records, so an empty/anomalous
-        // response never opens (and therefore never completes) a window that would wipe the
-        // whole cache.
+        // offset can only be > 0 if an earlier execution already fetched at least one page,
+        // which means that earlier execution must have already called trackDeletesStart. On a
+        // resumed execution we must NOT call trackDeletesStart again — that would open a fresh
+        // window covering only the remaining pages, and trackDeletesEnd would then treat every
+        // journal from the already-processed pages as missing and delete it.
         let trackingStarted = offset > 0;
 
         const proxyConfig: ProxyConfiguration = {
@@ -79,15 +75,21 @@ const sync = createSync({
         for await (const page of nango.paginate(proxyConfig)) {
             const items: unknown[] = page;
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('CustomerPaymentJournalHeader');
+                trackingStarted = true;
+            }
+
             const journals = items.map((item) => {
                 const parseResult = RawCustomerPaymentJournalHeaderSchema.safeParse(item);
                 if (!parseResult.success) {
                     throw new Error(`Failed to parse customer payment journal: ${parseResult.error.message}`);
                 }
                 const record = parseResult.data;
-                const recordDataAreaId = record.dataAreaId ?? '';
-                const batchNumber = record.JournalBatchNumber ?? '';
-                const id = `${recordDataAreaId}|${batchNumber}`;
+                if (!record.dataAreaId || !record.JournalBatchNumber) {
+                    throw new Error('Missing required key fields in CustomerPaymentJournalHeader record');
+                }
+                const id = `${record.dataAreaId}|${record.JournalBatchNumber}`;
 
                 return {
                     id,
@@ -103,11 +105,6 @@ const sync = createSync({
                     ...(record.LineCount !== undefined && { lineCount: record.LineCount })
                 };
             });
-
-            if (!trackingStarted && journals.length > 0) {
-                await nango.trackDeletesStart('CustomerPaymentJournalHeader');
-                trackingStarted = true;
-            }
 
             if (journals.length > 0) {
                 await nango.batchSave(journals, 'CustomerPaymentJournalHeader');

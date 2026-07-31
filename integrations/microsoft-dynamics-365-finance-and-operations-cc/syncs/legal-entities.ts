@@ -58,7 +58,7 @@ const LegalEntitySchema = z.object({
 
 const sync = createSync({
     description: 'Sync legal entities (companies/data areas).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -67,10 +67,7 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Blocker: LegalEntities exposes no modified-timestamp field in this environment,
-        // so we must use full-refresh with delete tracking. trackDeletesStart is only called
-        // once we've seen a validated non-empty page below, so an empty/malformed first
-        // response never opens (and therefore never completes) a window that would wipe the
-        // whole cache.
+        // so we must use full-refresh with delete tracking.
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         let trackingStarted = false;
 
@@ -92,6 +89,11 @@ const sync = createSync({
             const rawData = response.data;
             if (!rawData || typeof rawData !== 'object' || !Array.isArray(rawData.value)) {
                 throw new Error('Unexpected response shape from LegalEntities endpoint');
+            }
+
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('LegalEntity');
+                trackingStarted = true;
             }
 
             const page = rawData.value;
@@ -135,11 +137,6 @@ const sync = createSync({
                     ...(record.AddressValidTo != null && { addressValidTo: record.AddressValidTo })
                 };
             });
-
-            if (!trackingStarted && legalEntities.length > 0) {
-                await nango.trackDeletesStart('LegalEntity');
-                trackingStarted = true;
-            }
 
             if (legalEntities.length > 0) {
                 await nango.batchSave(legalEntities, 'LegalEntity');

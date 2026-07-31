@@ -31,7 +31,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync released products (items).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -74,6 +74,11 @@ const sync = createSync({
         } satisfies ProxyConfiguration;
 
         for await (const page of nango.paginate(proxyConfig)) {
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('ReleasedProduct');
+                trackingStarted = true;
+            }
+
             const releasedProducts: z.infer<typeof ReleasedProductModelSchema>[] = [];
 
             for (let i = 0; i < page.length; i++) {
@@ -92,11 +97,6 @@ const sync = createSync({
                     itemModelGroupId: record.ItemModelGroupId ?? undefined,
                     productNumber: record.ProductNumber ?? undefined
                 });
-            }
-
-            if (!trackingStarted && releasedProducts.length > 0) {
-                await nango.trackDeletesStart('ReleasedProduct');
-                trackingStarted = true;
             }
 
             if (releasedProducts.length > 0) {

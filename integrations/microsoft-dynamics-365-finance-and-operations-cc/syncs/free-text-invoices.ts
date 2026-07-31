@@ -32,7 +32,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync free text (miscellaneous) customer invoice headers.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -69,6 +69,11 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('FreeTextInvoice');
+                trackingStarted = true;
+            }
+
             const invoices = [];
             for (const raw of page) {
                 const rawParsed = RawInvoiceSchema.safeParse(raw);
@@ -92,11 +97,6 @@ const sync = createSync({
                     throw new Error(`Failed to validate normalized FreeTextInvoice: ${modelParsed.error.message}`);
                 }
                 invoices.push(modelParsed.data);
-            }
-
-            if (!trackingStarted && invoices.length > 0) {
-                await nango.trackDeletesStart('FreeTextInvoice');
-                trackingStarted = true;
             }
 
             if (invoices.length > 0) {

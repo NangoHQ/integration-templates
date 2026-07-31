@@ -21,7 +21,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'List vendor groups (used as VendorGroupId on vendors).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

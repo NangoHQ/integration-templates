@@ -105,7 +105,7 @@ function mapLine(raw: unknown) {
 
 const sync = createSync({
     description: 'Sync purchase order lines.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -117,15 +117,11 @@ const sync = createSync({
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         let skip = checkpoint.success ? checkpoint.data.skip : 0;
 
-        // skip can only be > 0 if an earlier execution already advanced past at least one
-        // non-empty page (see the trackingStarted-gating below), which means that earlier
-        // execution must have already called trackDeletesStart. On a resumed execution we must
-        // NOT call trackDeletesStart again — that would open a fresh window covering only the
-        // remaining pages, and trackDeletesEnd would then treat every line from the
-        // already-processed pages as missing and delete it. trackDeletesStart is only actually
-        // called once we've seen a validated page that contains records, so an empty/anomalous
-        // response never opens (and therefore never completes) a window that would wipe the
-        // whole cache.
+        // skip can only be > 0 if an earlier execution already fetched at least one page, which
+        // means that earlier execution must have already called trackDeletesStart. On a resumed
+        // execution we must NOT call trackDeletesStart again — that would open a fresh window
+        // covering only the remaining pages, and trackDeletesEnd would then treat every line
+        // from the already-processed pages as missing and delete it.
         let trackingStarted = skip > 0;
 
         const ODataResponseSchema = z.object({
@@ -149,12 +145,13 @@ const sync = createSync({
             });
 
             const envelope = ODataResponseSchema.parse(response.data);
-            const lines = envelope.value.map(mapLine);
 
-            if (!trackingStarted && lines.length > 0) {
+            if (!trackingStarted) {
                 await nango.trackDeletesStart('PurchaseOrderLine');
                 trackingStarted = true;
             }
+
+            const lines = envelope.value.map(mapLine);
 
             if (lines.length > 0) {
                 await nango.batchSave(lines, 'PurchaseOrderLine');

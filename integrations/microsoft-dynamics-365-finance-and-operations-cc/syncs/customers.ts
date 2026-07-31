@@ -49,7 +49,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync customers.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -86,6 +86,11 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('Customer');
+                trackingStarted = true;
+            }
+
             const customers = page.map((record: unknown) => {
                 const parsed = ProviderCustomerSchema.safeParse(record);
                 if (!parsed.success) {
@@ -126,11 +131,6 @@ const sync = createSync({
                     ...(raw.InvoiceAccount != null && { invoiceAccount: raw.InvoiceAccount })
                 };
             });
-
-            if (!trackingStarted && customers.length > 0) {
-                await nango.trackDeletesStart('Customer');
-                trackingStarted = true;
-            }
 
             if (customers.length > 0) {
                 await nango.batchSave(customers, 'Customer');

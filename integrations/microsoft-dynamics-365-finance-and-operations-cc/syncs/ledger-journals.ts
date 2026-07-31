@@ -34,7 +34,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync general ledger journal headers.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -76,6 +76,11 @@ const sync = createSync({
                 throw new Error(`Failed to parse LedgerJournalHeaders page: ${parsedPage.error.message}`);
             }
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('LedgerJournal');
+                trackingStarted = true;
+            }
+
             const journals = parsedPage.data.map((record) => ({
                 id: `${record.dataAreaId}-${record.JournalBatchNumber}`,
                 DataAreaId: record.dataAreaId,
@@ -88,11 +93,6 @@ const sync = createSync({
                 ...(record.JournalTotalCredit != null && { JournalTotalCredit: record.JournalTotalCredit }),
                 ...(record.JournalTotalDebit != null && { JournalTotalDebit: record.JournalTotalDebit })
             }));
-
-            if (!trackingStarted && journals.length > 0) {
-                await nango.trackDeletesStart('LedgerJournal');
-                trackingStarted = true;
-            }
 
             if (journals.length > 0) {
                 await nango.batchSave(journals, 'LedgerJournal');

@@ -21,7 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List customer groups (used as CustomerGroupId on customers).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

@@ -32,7 +32,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync sales order headers.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -72,6 +72,11 @@ const sync = createSync({
         for await (const page of nango.paginate(proxyConfig)) {
             const rawItems = z.array(z.unknown()).parse(page);
 
+            if (!trackingStarted) {
+                await nango.trackDeletesStart('SalesOrder');
+                trackingStarted = true;
+            }
+
             const salesOrders: SalesOrder[] = [];
             for (const raw of rawItems) {
                 const parsed = ProviderSalesOrderSchema.safeParse(raw);
@@ -91,11 +96,6 @@ const sync = createSync({
                     ...(record.SalesOrderName != null && { sales_order_name: record.SalesOrderName }),
                     ...(record.RequestedReceiptDate != null && { requested_receipt_date: record.RequestedReceiptDate })
                 });
-            }
-
-            if (!trackingStarted && salesOrders.length > 0) {
-                await nango.trackDeletesStart('SalesOrder');
-                trackingStarted = true;
             }
 
             if (salesOrders.length > 0) {

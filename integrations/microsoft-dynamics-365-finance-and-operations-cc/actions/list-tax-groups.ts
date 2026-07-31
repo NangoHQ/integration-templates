@@ -3,8 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    limit: z.number().min(1).max(10000).optional().describe('Maximum number of records to return per page. Defaults to 100.'),
-    top: z.number().min(1).max(10000).optional().describe('Deprecated alias for limit, kept for backward compatibility.'),
+    limit: z.number().int().min(1).max(10000).optional().describe('Maximum number of records to return per page. Defaults to 100.'),
+    top: z.number().int().min(1).max(10000).optional().describe('Deprecated alias for limit, kept for backward compatibility.'),
     cross_company: z.boolean().optional().describe('If true, query across all companies instead of just the default company.')
 });
 
@@ -38,7 +38,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'List sales tax groups.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['DataEntities.Data.Read'],

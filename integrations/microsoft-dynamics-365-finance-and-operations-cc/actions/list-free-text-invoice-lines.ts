@@ -35,7 +35,7 @@ const PAGE_SIZE = 100;
 
 const action = createAction({
     description: 'List free text invoice lines, optionally scoped to a parent invoice.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['DynamicsOData.full_access'],

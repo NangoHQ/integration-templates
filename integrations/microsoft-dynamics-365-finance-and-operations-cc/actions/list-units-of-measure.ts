@@ -69,7 +69,7 @@ function getBoolean(raw: Record<string, unknown>, key: string): boolean | undefi
 
 const action = createAction({
     description: 'List units of measure.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
