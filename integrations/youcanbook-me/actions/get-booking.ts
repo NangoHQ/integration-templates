@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    bookingId: z.string().describe('The ID of the booking to retrieve. Example: "123"')
+    bookingId: z.string().min(1).describe('The ID of the booking to retrieve. Example: "123"')
 });
 
 const AnswerSchema = z.object({

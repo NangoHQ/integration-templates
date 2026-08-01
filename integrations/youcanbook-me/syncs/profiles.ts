@@ -43,10 +43,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // No incremental filter or pagination is confirmed for this endpoint,
-        // so each run reconciles the full dataset and tracks deletions.
-        await nango.trackDeletesStart('Profile');
-
         // https://ycbm.stoplight.io/docs/youcanbookme-api
         const response = await nango.get({
             endpoint: '/v1/profiles',
@@ -94,6 +90,10 @@ const sync = createSync({
 
             profiles.push(mapped);
         }
+
+        // Delete tracking starts only after the response has been fully validated and parsed,
+        // so a malformed response throws before any deletes are tracked.
+        await nango.trackDeletesStart('Profile');
 
         if (profiles.length > 0) {
             await nango.batchSave(profiles, 'Profile');

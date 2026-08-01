@@ -27,6 +27,10 @@ const OutputProfileSchema = z.object({
 
 const InputSchema = z.object({});
 
+const ListProfilesResponseSchema = z.object({
+    items: z.array(z.unknown())
+});
+
 const OutputSchema = z.array(OutputProfileSchema);
 
 const action = createAction({
@@ -42,14 +46,21 @@ const action = createAction({
             retries: 3
         });
 
-        if (!Array.isArray(response.data)) {
-            throw new nango.ActionError({
-                type: 'unexpected_response',
-                message: 'Expected an array of profiles from the provider.'
-            });
+        let items: unknown[];
+        if (Array.isArray(response.data)) {
+            items = response.data;
+        } else {
+            const parsedResponse = ListProfilesResponseSchema.safeParse(response.data);
+            if (!parsedResponse.success) {
+                throw new nango.ActionError({
+                    type: 'unexpected_response',
+                    message: 'Expected an array of profiles or an object with an items array from the provider.'
+                });
+            }
+            items = parsedResponse.data.items;
         }
 
-        const profiles = response.data.map((item: unknown) => {
+        const profiles = items.map((item: unknown) => {
             const parsed = ProviderProfileSchema.safeParse(item);
             if (!parsed.success) {
                 throw new nango.ActionError({

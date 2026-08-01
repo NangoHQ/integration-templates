@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    profileId: z.string().describe('The ID of the booking-page profile. Example: "f4f38519-6e5c-45f2-9897-555960aae524"')
+    profileId: z.string().min(1).describe('The ID of the booking-page profile. Example: "f4f38519-6e5c-45f2-9897-555960aae524"')
 });
 
 const QuestionSchema = z
@@ -11,8 +11,9 @@ const QuestionSchema = z
         before: z.string().optional().describe('Label shown before the field.'),
         after: z.string().optional().describe('Label shown after the field.'),
         required: z.boolean().optional().describe('Whether the field is mandatory.'),
-        options: z.array(z.unknown()).optional().describe('Selectable options for choice-based fields.'),
-        validation: z.unknown().optional().describe('Validation rules for the field (e.g. {"type": "EMAILS"}).')
+        options: z.array(z.string()).optional().describe('Selectable options for choice-based fields.'),
+        validation: z.string().optional().describe('Validation rules for the field (e.g. "EMAILS").'),
+        validationMessage: z.string().optional().describe('Message shown when validation fails.')
     })
     .passthrough();
 
@@ -32,9 +33,9 @@ const AppointmentTypeSchema = z
         id: z.string().describe('Appointment type ID. Example: "at-123"'),
         name: z.string().describe('Display name of the appointment type.'),
         description: z.string().optional(),
-        slotLength: z.unknown().optional().describe('Minutes per slot.'),
-        numberOfSlots: z.unknown().optional().describe('How many contiguous slots are booked.'),
-        price: z.unknown().optional().describe('Price in the profile currency.')
+        slotLength: z.string().optional().describe('Minutes per slot.'),
+        numberOfSlots: z.number().optional().describe('How many contiguous slots are booked.'),
+        price: z.number().optional().describe('Price in the profile currency.')
     })
     .passthrough();
 
@@ -42,11 +43,11 @@ const WorkingTimesSchema = z
     .object({
         fixedStart: z.string().optional().describe('Fixed daily start time.'),
         fixedEnd: z.string().optional().describe('Fixed daily end time.'),
-        workingDays: z.unknown().optional().describe('Per-day availability rules.'),
-        slotIncrement: z.unknown().optional().describe('Minutes between bookable slots.'),
-        durations: z.unknown().optional().describe('Allowed appointment durations in minutes.'),
-        maxNoticeDays: z.unknown().optional().describe('Maximum days ahead a booking can be made.'),
-        minNotice: z.unknown().optional().describe('Minimum notice required before a booking.')
+        workingDays: z.string().optional().describe('Per-day availability rules.'),
+        slotIncrement: z.string().optional().describe('Minutes between bookable slots.'),
+        durations: z.string().optional().describe('Allowed appointment durations in minutes.'),
+        maxNoticeDays: z.number().optional().describe('Maximum days ahead a booking can be made.'),
+        minNotice: z.string().optional().describe('Minimum notice required before a booking.')
     })
     .passthrough();
 
@@ -56,14 +57,14 @@ const PaymentsSchema = z
         currency: z.string().optional(),
         priceType: z.string().optional(),
         partner: z.string().optional().describe('Payment partner, e.g. "STRIPE".'),
-        pricePerSlot: z.unknown().optional()
+        pricePerSlot: z.number().optional()
     })
     .passthrough();
 
 const CancelOrRescheduleSchema = z
     .object({
         allowed: z.boolean().optional().describe('Whether the booker can cancel or reschedule.'),
-        limitMinutes: z.unknown().optional().describe('How many minutes before the appointment changes are allowed.'),
+        limitMinutes: z.number().optional().describe('How many minutes before the appointment changes are allowed.'),
         reasonRequired: z.boolean().optional().describe('Whether a reason must be supplied.')
     })
     .passthrough();
@@ -80,7 +81,7 @@ const ActionSchema = z
         id: z.string().describe('Action rule ID. Example: "ar-123"'),
         type: z.string().optional().describe('Action type, e.g. "ZAP" for Zapier/webhook.'),
         anchor: z.string().optional().describe('Trigger point, e.g. "BOOKING_CREATED".'),
-        offsetMinutes: z.unknown().optional().describe('Delay relative to the anchor in minutes.'),
+        offsetMinutes: z.number().optional().describe('Delay relative to the anchor in minutes.'),
         status: z.string().optional().describe('Execution status.'),
         firedAt: z.string().optional().describe('ISO timestamp of last fire.')
     })
@@ -89,11 +90,10 @@ const ActionSchema = z
 const OutputSchema = z
     .object({
         id: z.string().describe('Profile ID. Example: "f4f38519-6e5c-45f2-9897-555960aae524"'),
-        name: z.string().optional().describe('Profile display name.'),
-        url: z.string().optional().describe('Public booking page URL.'),
-        subdomain: z.string().optional(),
+        title: z.string().optional().describe('Profile display name.'),
+        subdomain: z.string().optional().describe('Unique URL slug for the profile.'),
         status: z.string().optional().describe('online or offline.'),
-        timezone: z.string().optional(),
+        timeZone: z.string().optional(),
         description: z.string().optional(),
         questions: z.array(QuestionSchema).optional().describe('Intake form field definitions.'),
         teamMembers: z

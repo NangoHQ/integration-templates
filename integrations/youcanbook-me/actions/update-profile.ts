@@ -186,7 +186,7 @@ const ProfileSchema = z.object({
 });
 
 const InputSchema = z.object({
-    profileId: z.string().describe('Profile ID. Example: "string"'),
+    profileId: z.string().min(1).describe('Profile ID. Example: "string"'),
     title: z.string().optional(),
     description: z.string().optional(),
     subdomain: z.string().optional(),
@@ -245,7 +245,7 @@ const action = createAction({
 
         const response = await nango.patch({
             // https://api.youcanbook.me/v1/profiles/{profileId}
-            endpoint: `v1/profiles/${encodeURIComponent(input.profileId)}`,
+            endpoint: `/v1/profiles/${encodeURIComponent(input.profileId)}`,
             data: body,
             retries: 3
         });

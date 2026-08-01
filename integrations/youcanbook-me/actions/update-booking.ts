@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const AnswerSchema = z.object({
     code: z.string(),
-    string: z.string().optional()
+    string: z.string().nullish()
 });
 
 const TeamMemberSchema = z.object({
@@ -26,7 +26,7 @@ const AppointmentTypeSchema = z.object({
 });
 
 const ProviderBookingSchema = z.object({
-    id: z.string().nullish(),
+    id: z.string(),
     title: z.string().nullish(),
     accountId: z.string().nullish(),
     profileId: z.string().nullish(),
@@ -66,24 +66,41 @@ const ProviderBookingSchema = z.object({
     appointmentTypesIds: z.array(z.string()).nullish()
 });
 
-const InputSchema = z.object({
-    bookingId: z.string().describe('Booking ID. Example: "abc123"'),
-    title: z.string().optional().describe('Updated booking title'),
-    startsAt: z.string().optional().describe('Updated start time in ISO 8601 format. Example: "2026-07-30T09:00:00Z"'),
-    endsAt: z.string().optional().describe('Updated end time in ISO 8601 format. Example: "2026-07-30T10:00:00Z"'),
-    timeZone: z.string().optional().describe('Updated IANA time zone. Example: "America/Los_Angeles"'),
-    teamMemberId: z.string().optional().describe('Updated team member ID'),
-    appointmentTypesIds: z.array(z.string()).optional().describe('Updated appointment type IDs'),
-    answers: z.array(AnswerSchema).optional().describe('Updated answers to profile questions'),
-    locale: z.string().optional().describe('Updated locale. Example: "en_US"'),
-    promotionCode: z.string().optional().describe('Updated promotion code'),
-    discount: z.number().optional().describe('Updated discount amount'),
-    cancellationReason: z.string().optional().describe('Reason for cancellation if cancelling'),
-    noShow: z.boolean().optional().describe('Mark as no-show')
-});
+const InputSchema = z
+    .object({
+        bookingId: z.string().min(1).describe('Booking ID. Example: "abc123"'),
+        title: z.string().optional().describe('Updated booking title'),
+        startsAt: z.string().optional().describe('Updated start time in ISO 8601 format. Example: "2026-07-30T09:00:00Z"'),
+        endsAt: z.string().optional().describe('Updated end time in ISO 8601 format. Example: "2026-07-30T10:00:00Z"'),
+        timeZone: z.string().optional().describe('Updated IANA time zone. Example: "America/Los_Angeles"'),
+        teamMemberId: z.string().optional().describe('Updated team member ID'),
+        appointmentTypesIds: z.array(z.string()).optional().describe('Updated appointment type IDs'),
+        answers: z.array(AnswerSchema).optional().describe('Updated answers to profile questions'),
+        locale: z.string().optional().describe('Updated locale. Example: "en_US"'),
+        promotionCode: z.string().optional().describe('Updated promotion code'),
+        discount: z.number().optional().describe('Updated discount amount'),
+        cancellationReason: z.string().optional().describe('Reason for cancellation if cancelling'),
+        noShow: z.boolean().optional().describe('Mark as no-show')
+    })
+    .refine(
+        (input) =>
+            input.title !== undefined ||
+            input.startsAt !== undefined ||
+            input.endsAt !== undefined ||
+            input.timeZone !== undefined ||
+            input.teamMemberId !== undefined ||
+            input.appointmentTypesIds !== undefined ||
+            input.answers !== undefined ||
+            input.locale !== undefined ||
+            input.promotionCode !== undefined ||
+            input.discount !== undefined ||
+            input.cancellationReason !== undefined ||
+            input.noShow !== undefined,
+        { message: 'At least one field besides bookingId must be provided to update the booking.' }
+    );
 
 const OutputSchema = z.object({
-    id: z.string().optional(),
+    id: z.string(),
     title: z.string().optional(),
     accountId: z.string().optional(),
     profileId: z.string().optional(),

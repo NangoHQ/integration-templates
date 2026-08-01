@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    bookingId: z.string().describe('The unique identifier of the booking to delete. Example: "abc123"')
+    bookingId: z.string().min(1).describe('The unique identifier of the booking to delete. Example: "abc123"')
 });
 
 const OutputSchema = z.object({

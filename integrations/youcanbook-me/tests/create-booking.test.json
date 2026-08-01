@@ -62,6 +62,10 @@
     "discount": -9007199254740991,
     "linkFields": "string",
     "currencyFactor": -2147483648,
+    "teamMemberId": "string",
+    "appointmentTypesIds": [
+      "string"
+    ],
     "cancellable": true,
     "cancelReasonRequired": true
   },
