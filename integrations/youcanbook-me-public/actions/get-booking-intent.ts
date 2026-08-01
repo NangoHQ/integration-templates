@@ -5,16 +5,21 @@ const InputSchema = z.object({
     intentId: z.string().describe('The ID of the booking intent to retrieve. Example: "itt_abc123"')
 });
 
+const FormFieldSchema = z.object({
+    id: z.string(),
+    value: z.string()
+});
+
 const SelectionsSchema = z.object({
-    appointmentTypeIds: z.unknown().nullable().optional(),
-    duration: z.unknown().nullable().optional(),
-    form: z.record(z.string(), z.unknown()).nullable().optional(),
-    location: z.unknown().nullable().optional(),
-    smsConsent: z.unknown().nullable().optional(),
-    startsAt: z.string().nullable().optional(),
+    appointmentTypeIds: z.array(z.string()).nullable().optional(),
+    duration: z.number().nullable().optional(),
+    form: z.array(FormFieldSchema).nullable().optional(),
+    location: z.string().nullable().optional(),
+    smsConsent: z.boolean().nullable().optional(),
+    startsAt: z.number().nullable().optional(),
     teamMemberId: z.string().nullable().optional(),
     timeZone: z.string().nullable().optional(),
-    units: z.unknown().nullable().optional()
+    units: z.number().nullable().optional()
 });
 
 const ProviderIntentSchema = z.object({
@@ -26,15 +31,15 @@ const ProviderIntentSchema = z.object({
 });
 
 const OutputSelectionsSchema = z.object({
-    appointmentTypeIds: z.unknown().optional(),
-    duration: z.unknown().optional(),
-    form: z.record(z.string(), z.unknown()).optional(),
-    location: z.unknown().optional(),
-    smsConsent: z.unknown().optional(),
-    startsAt: z.string().optional(),
+    appointmentTypeIds: z.array(z.string()).optional(),
+    duration: z.number().optional(),
+    form: z.array(FormFieldSchema).optional(),
+    location: z.string().optional(),
+    smsConsent: z.boolean().optional(),
+    startsAt: z.number().optional(),
     teamMemberId: z.string().optional(),
     timeZone: z.string().optional(),
-    units: z.unknown().optional()
+    units: z.number().optional()
 });
 
 const OutputSchema = z.object({

@@ -28,7 +28,10 @@ const ProviderIntentSchema = z.object({
 
 const InputSchema = z.object({
     intentId: z.string().describe('Booking intent ID. Example: "itt_xxx"'),
-    startsAt: z.number().optional().describe('Chosen time slot as epoch milliseconds'),
+    startsAt: z
+        .union([z.number(), z.string()])
+        .optional()
+        .describe('Chosen time slot as epoch milliseconds. Accepts either a number or the numeric string returned by get-available-slots.'),
     form: z.array(FormFieldSchema).optional().describe('Contact form fields (e.g. FNAME, LNAME, EMAIL)'),
     timeZone: z.string().optional().describe('IANA timezone or "UTC"'),
     teamMemberId: z.string().optional(),
@@ -81,7 +84,7 @@ const action = createAction({
             // https://api.youcanbook.me/docs/index.html
             endpoint: `/v1/intents/${encodeURIComponent(input.intentId)}/selections`,
             data: {
-                ...(input.startsAt !== undefined && { startsAt: input.startsAt }),
+                ...(input.startsAt !== undefined && { startsAt: Number(input.startsAt) }),
                 ...(input.form !== undefined && { form: input.form }),
                 ...(input.timeZone !== undefined && { timeZone: input.timeZone }),
                 ...(input.teamMemberId !== undefined && { teamMemberId: input.teamMemberId }),
