@@ -5,8 +5,8 @@
       {
         "dataAreaId": "dat",
         "JournalBatchNumber": "DAT-000003",
-        "Description": "AP Payments",
         "JournalName": "APPay",
+        "Description": "AP Payments",
         "IsPosted": "Yes",
         "@odata.etag": "W/\"JzU5NzM5MTM0Miw1NjM3MTQ0NTc2OzEsNTYzNzE0NDU3Nic=\"",
         "ChargeBearer": 0,
@@ -18,8 +18,8 @@
       {
         "dataAreaId": "dat",
         "JournalBatchNumber": "DAT-000009",
-        "Description": "AP Payments",
         "JournalName": "APPay",
+        "Description": "AP Payments",
         "IsPosted": "No",
         "@odata.etag": "W/\"JzIxMDc0Nzc5NjQsNTYzNzE0NTMyNzsxLDU2MzcxNDUzMjYn\"",
         "ChargeBearer": 0,
@@ -67,7 +67,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 01:30:49 GMT",
+          "date": "Thu, 30 Jul 2026 09:52:22 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "747",
           "connection": "keep-alive",
@@ -81,14 +81,16 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1992",
-          "x-ratelimit-reset": "1784770298",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1785405154",
           "etag": "W/\"2eb-yZaw3UkF/46Myt2cPG81Uf6/TxM\""
         },
-        "hash": "ba735a2c3a8a9dac4f3961541abef7598ae0202c",
+        "hash": "6652d1d2d7d784d6005674ada1c5173758fdf449",
         "request": {
           "params": {
-            "$top": "100"
+            "$skip": "0",
+            "$top": "100",
+            "cross-company": "true"
           }
         }
       }

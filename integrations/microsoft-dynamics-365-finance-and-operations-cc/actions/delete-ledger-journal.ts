@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     dataAreaId: z.string().describe('Company / data area ID. Example: "dat"'),
-    journalBatchNumber: z.string().describe('Journal batch number to delete. Example: "DAT-000015"')
+    journalBatchNumber: z.string().describe('Journal batch number of the ledger journal header to delete. Example: "DAT-000015"')
 });
 
 const OutputSchema = z.object({
@@ -13,8 +13,8 @@ const OutputSchema = z.object({
 });
 
 const action = createAction({
-    description: 'Delete a draft (unposted) general ledger journal header',
-    version: '1.0.0',
+    description: 'Delete a draft (unposted) general ledger journal header.',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

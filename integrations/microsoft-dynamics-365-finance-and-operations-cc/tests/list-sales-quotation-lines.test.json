@@ -6,10 +6,8 @@
   "output": {
     "items": [
       {
-        "dataAreaId": "dat",
-        "SalesQuotationNumber": "DAT-000002",
-        "LineCreationSequenceNumber": 1,
         "@odata.etag": "W/\"JzEsNTYzNzE0NDU3NjswLDA7MSw1NjM3MTQ0NTc2Jw==\"",
+        "dataAreaId": "dat",
         "InventoryLotId": "DAT-000072",
         "SalesQuotationLineCreationMethod": "SCM",
         "RequestedReceiptDate": "2026-07-15T12:00:00Z",
@@ -45,6 +43,7 @@
         "DeliveryAddressStreetInKana": "",
         "ShippingSiteId": "RFI",
         "IsDeliveryAddressPrivate": "No",
+        "LineCreationSequenceNumber": 1,
         "MainAccountIdDisplayValue": "",
         "RequestedSalesQuantity": 5,
         "DeliveryAddressCountryRegionISOCode": "",
@@ -86,6 +85,7 @@
         "SalesPriceQuantity": 1,
         "SuframaDiscountPercentage": 0,
         "RequestedShippingDate": "2026-07-15T12:00:00Z",
+        "SalesQuotationNumber": "DAT-000002",
         "ExternalItemNumber": "",
         "FormattedDeliveryAddress": ""
       }
@@ -186,7 +186,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 10:17:07 GMT",
+          "date": "Thu, 30 Jul 2026 09:43:17 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "2591",
           "connection": "keep-alive",
@@ -201,13 +201,14 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1997",
-          "x-ratelimit-reset": "1784801886",
+          "x-ratelimit-reset": "1785404656",
           "etag": "W/\"a1f-TvQ/x0825o9gsuqXP0fePw9d0Y4\""
         },
-        "hash": "67790f8060b4e697f07dc1d53f2c4e140a0b7345",
+        "hash": "c80400fee0ed417c6289d8f4d668b08c17262a85",
         "request": {
           "params": {
             "$filter": "dataAreaId eq 'dat' and SalesQuotationNumber eq 'DAT-000002'",
+            "$skip": "0",
             "$top": "100",
             "cross-company": "true"
           }

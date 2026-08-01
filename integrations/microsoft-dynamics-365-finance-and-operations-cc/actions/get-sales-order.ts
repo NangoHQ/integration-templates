@@ -9,8 +9,8 @@ const InputSchema = z.object({
 const OutputSchema = z.object({}).passthrough();
 
 const action = createAction({
-    description: 'Retrieve a sales order header',
-    version: '1.0.0',
+    description: 'Retrieve a sales order header.',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
@@ -24,18 +24,16 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data || typeof response.data !== 'object') {
+        if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: 'Sales order not found or unexpected response format',
+                message: 'Sales order not found',
                 dataAreaId: input.dataAreaId,
                 salesOrderNumber: input.salesOrderNumber
             });
         }
 
-        const providerSalesOrder = OutputSchema.parse(response.data);
-
-        return providerSalesOrder;
+        return OutputSchema.parse(response.data);
     }
 });
 

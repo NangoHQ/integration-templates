@@ -1,55 +1,46 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const SKIPTOKEN_CURSOR_PREFIX = 'skiptoken:';
-
 const InputSchema = z.object({
-    cursor: z
-        .string()
-        .regex(new RegExp(`^(\\d+|${SKIPTOKEN_CURSOR_PREFIX}.+)$`))
-        .optional()
-        .describe('Pagination cursor from the previous response ($skip value, or a $skiptoken-derived cursor). Omit for the first page.'),
-    limit: z.number().min(1).max(10000).optional().describe('Maximum number of records to return. Defaults to 100.'),
-    cross_company: z.boolean().optional().describe('If true, returns data across all companies. Defaults to false.')
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+    top: z.number().int().min(1).max(10000).optional().describe('Maximum number of records to return per page. Defaults to 100.'),
+    crossCompany: z.boolean().optional().describe('If true, query across all companies the caller can access.')
 });
 
 const ProviderItemSchema = z.object({}).passthrough();
 
-const ProviderResponseSchema = z.object({
-    value: z.array(ProviderItemSchema),
-    '@odata.nextLink': z.string().optional()
-});
-
 const OutputSchema = z.object({
     items: z.array(ProviderItemSchema),
-    next_cursor: z.string().optional()
+    nextLink: z.string().optional()
 });
 
 const action = createAction({
-    description: 'List sales quotation headers',
-    version: '1.0.0',
+    description: 'List sales quotation headers.',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const limit = input.limit ?? 100;
+        const top = input.top ?? 100;
         let skip = 0;
-        let skiptoken: string | undefined;
-        if (input.cursor?.startsWith(SKIPTOKEN_CURSOR_PREFIX)) {
-            skiptoken = input.cursor.slice(SKIPTOKEN_CURSOR_PREFIX.length);
-        } else if (input.cursor) {
-            skip = parseInt(input.cursor, 10);
+
+        if (input.cursor !== undefined) {
+            const parsed = Number(input.cursor);
+            if (!Number.isInteger(parsed) || parsed < 0) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer string representing the $skip value.'
+                });
+            }
+            skip = parsed;
         }
 
         const params: Record<string, string | number> = {
-            $top: limit,
-            // Only one of $skip/$skiptoken is sent: once the provider hands back a $skiptoken,
-            // that opaque continuation must be replayed as-is rather than switched back to an
-            // offset, since offset and token-based paging are not interchangeable mid-scan.
-            ...(skiptoken != null ? { $skiptoken: skiptoken } : { $skip: skip })
+            $top: top,
+            $skip: skip
         };
 
-        if (input.cross_company) {
+        if (input.crossCompany) {
             params['cross-company'] = 'true';
         }
 
@@ -60,30 +51,19 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = ProviderResponseSchema.parse(response.data);
-        const items = parsed.value;
+        const data = z
+            .object({
+                value: z.array(z.unknown()).optional().default([])
+            })
+            .parse(response.data);
 
-        let nextCursor: string | undefined;
-        if (parsed['@odata.nextLink'] != null) {
-            // Server explicitly says there's more — trust it, and preserve whichever continuation
-            // mechanism it used. nextLink may be an absolute URL or a relative path, so parse it
-            // against a fixed base to support both.
-            const nextUrl = new URL(parsed['@odata.nextLink'], 'https://dynamics.local');
-            const nextSkiptoken = nextUrl.searchParams.get('$skiptoken');
-            const nextSkip = nextUrl.searchParams.get('$skip');
-            if (nextSkiptoken != null) {
-                nextCursor = `${SKIPTOKEN_CURSOR_PREFIX}${nextSkiptoken}`;
-            } else {
-                nextCursor = nextSkip ?? String(skip + items.length);
-            }
-        } else if (items.length === limit) {
-            // No explicit nextLink, but we got a full page — assume there may be more.
-            nextCursor = String(skip + limit);
-        }
+        const items = data.value.map((item) => ProviderItemSchema.parse(item));
+
+        const nextLink = items.length === top ? String(skip + top) : undefined;
 
         return {
             items,
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            ...(nextLink !== undefined && { nextLink })
         };
     }
 });

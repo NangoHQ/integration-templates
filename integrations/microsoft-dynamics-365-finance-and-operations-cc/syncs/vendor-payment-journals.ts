@@ -1,42 +1,44 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const VendorPaymentJournalSchema = z.object({
-    id: z.string(),
-    dataAreaId: z.string().optional(),
-    JournalBatchNumber: z.string().optional(),
-    JournalName: z.string().optional(),
-    ChargeBearer: z.number().optional(),
-    OverrideSalesTax: z.string().optional(),
-    Description: z.string().nullish(),
-    CategoryPurpose: z.number().optional(),
-    IsPosted: z.string().optional(),
-    LocalInstrument: z.number().optional(),
-    ServiceLevel: z.number().optional()
-});
-
-const ProviderVendorPaymentJournalHeaderSchema = z
+const RawVendorPaymentJournalSchema = z
     .object({
-        dataAreaId: z.string().optional(),
-        JournalBatchNumber: z.string().optional(),
-        JournalName: z.string().optional(),
-        ChargeBearer: z.number().optional(),
-        OverrideSalesTax: z.string().optional(),
+        dataAreaId: z.string(),
+        JournalBatchNumber: z.string(),
+        JournalName: z.string().nullish(),
         Description: z.string().nullish(),
-        CategoryPurpose: z.number().optional(),
+        IsPosted: z.string().nullish(),
+        OverrideSalesTax: z.string().nullish(),
+        ChargeBearer: z.number().nullish(),
+        CategoryPurpose: z.number().nullish(),
+        LocalInstrument: z.number().nullish(),
+        ServiceLevel: z.number().nullish()
+    })
+    .passthrough();
+
+const VendorPaymentJournalSchema = z
+    .object({
+        id: z.string(),
+        dataAreaId: z.string(),
+        JournalBatchNumber: z.string(),
+        JournalName: z.string().optional(),
+        Description: z.string().optional(),
         IsPosted: z.string().optional(),
+        OverrideSalesTax: z.string().optional(),
+        ChargeBearer: z.number().optional(),
+        CategoryPurpose: z.number().optional(),
         LocalInstrument: z.number().optional(),
         ServiceLevel: z.number().optional()
     })
     .passthrough();
 
 const CheckpointSchema = z.object({
-    skip: z.number().int().min(0)
+    offset: z.number().int().min(0)
 });
 
 const sync = createSync({
-    description: 'Sync vendor (AP) payment journal headers',
-    version: '1.0.0',
+    description: 'Sync vendor (AP) payment journal headers.',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -45,32 +47,24 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
+        // Blocker: VendorPaymentJournalHeaders exposes no filterable modified
+        // timestamp in this environment, so full refresh is required. Persist
+        // the current $skip offset so an interrupted crawl can resume.
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
-        let skip = checkpoint.success ? checkpoint.data.skip : 0;
+        let offset = checkpoint.success ? checkpoint.data.offset : 0;
+        let trackingStarted = offset > 0;
 
-        // skip can only be > 0 if an earlier execution already advanced past at least one
-        // non-empty page (see the trackingStarted-gating below), which means that earlier
-        // execution must have already called trackDeletesStart. On a resumed execution we must
-        // NOT call trackDeletesStart again — that would open a fresh window covering only the
-        // remaining pages, and trackDeletesEnd would then treat every journal from the
-        // already-processed pages as missing and delete it. trackDeletesStart is only actually
-        // called once we've seen a validated page that contains records, so an empty/anomalous
-        // response never opens (and therefore never completes) a window that would wipe the
-        // whole cache.
-        let trackingStarted = skip > 0;
-
-        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/VendorPaymentJournalHeaders',
             params: {
-                'cross-company': 'true',
-                $orderby: 'dataAreaId asc,JournalBatchNumber asc'
+                $orderby: 'dataAreaId asc,JournalBatchNumber asc',
+                'cross-company': 'true'
             },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: '$skip',
-                offset_start_value: skip,
+                offset_start_value: offset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: '$top',
                 limit: 100,
@@ -80,49 +74,29 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
-            const journals: z.infer<typeof VendorPaymentJournalSchema>[] = [];
-
-            for (const raw of page) {
-                const parsed = ProviderVendorPaymentJournalHeaderSchema.safeParse(raw);
-
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse VendorPaymentJournalHeaders record: ${parsed.error.message}`);
-                }
-
-                const record = parsed.data;
-                const dataAreaId = record.dataAreaId ?? '';
-                const journalBatchNumber = record.JournalBatchNumber ?? '';
-
-                if (!dataAreaId || !journalBatchNumber) {
-                    throw new Error('Missing required key fields in VendorPaymentJournalHeaders record');
-                }
-
-                journals.push({
-                    id: `${dataAreaId}|${journalBatchNumber}`,
-                    dataAreaId: record.dataAreaId,
-                    JournalBatchNumber: record.JournalBatchNumber,
-                    JournalName: record.JournalName,
-                    ChargeBearer: record.ChargeBearer,
-                    OverrideSalesTax: record.OverrideSalesTax,
-                    ...(record.Description != null && { Description: record.Description }),
-                    CategoryPurpose: record.CategoryPurpose,
-                    IsPosted: record.IsPosted,
-                    LocalInstrument: record.LocalInstrument,
-                    ServiceLevel: record.ServiceLevel
-                });
-            }
-
-            if (!trackingStarted && journals.length > 0) {
+            if (!trackingStarted) {
                 await nango.trackDeletesStart('VendorPaymentJournal');
                 trackingStarted = true;
             }
+
+            const journals = page.map((raw) => {
+                const record = RawVendorPaymentJournalSchema.parse(raw);
+                const mapped: Record<string, unknown> = {};
+                for (const [key, value] of Object.entries(record)) {
+                    if (value !== null && !key.startsWith('@odata.')) {
+                        mapped[key] = value;
+                    }
+                }
+                mapped['id'] = `${record.dataAreaId}|${record.JournalBatchNumber}`;
+                return VendorPaymentJournalSchema.parse(mapped);
+            });
 
             if (journals.length > 0) {
                 await nango.batchSave(journals, 'VendorPaymentJournal');
             }
 
-            skip += page.length;
-            await nango.saveCheckpoint({ skip });
+            offset += page.length;
+            await nango.saveCheckpoint({ offset });
         }
 
         await nango.clearCheckpoint();

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company code (data area ID). Example: "dat"'),
+    dataAreaId: z.string().min(1).describe('Company code (data area ID). Example: "dat"'),
     journalBatchNumber: z.string().optional().describe('Journal batch number to filter lines by. Example: "DAT-000015"'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     limit: z.number().min(1).max(10000).optional().describe('Maximum number of records to return per page.')
@@ -31,7 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List general ledger journal lines, optionally scoped to a parent journal.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
