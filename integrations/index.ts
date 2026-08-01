@@ -5729,6 +5729,13 @@ import './xero/actions/update-invoice.js';
 import './xero/actions/update-item.js';
 import './xero/actions/update-purchase-order.js';
 
+// -- Integration: youcanbook-me-public
+import './youcanbook-me-public/actions/create-booking-intent.js';
+import './youcanbook-me-public/actions/get-availability-key.js';
+import './youcanbook-me-public/actions/get-available-slots.js';
+import './youcanbook-me-public/actions/get-booking-intent.js';
+import './youcanbook-me-public/actions/update-booking-intent-selections.js';
+
 // -- Integration: youtube
 import './youtube/syncs/caption-tracks.js';
 import './youtube/syncs/channel-playlists.js';
