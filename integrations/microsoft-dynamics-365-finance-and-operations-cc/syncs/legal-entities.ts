@@ -1,23 +1,64 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const ProviderLegalEntitySchema = z.object({
     LegalEntityId: z.string(),
-    Name: z.string().optional(),
-    NameAlias: z.string().optional(),
-    PartyNumber: z.string().optional()
+    Name: z.string().nullish(),
+    NameAlias: z.string().nullish(),
+    CompanyType: z.string().nullish(),
+    LanguageId: z.string().nullish(),
+    TimeZone: z.string().nullish(),
+    CompanyName: z.string().nullish(),
+    CompanyCountry: z.string().nullish(),
+    CurrencyCode: z.string().nullish(),
+    ChartOfAccounts: z.string().nullish(),
+    RegistrationNumber: z.string().nullish(),
+    VATNum: z.string().nullish(),
+    Rfc: z.string().nullish(),
+    StateInscription: z.string().nullish(),
+    AddressStreet: z.string().nullish(),
+    AddressCity: z.string().nullish(),
+    AddressState: z.string().nullish(),
+    AddressZipCode: z.string().nullish(),
+    AddressCountryRegionId: z.string().nullish(),
+    PrimaryContactEmail: z.string().nullish(),
+    PrimaryContactPhone: z.string().nullish(),
+    StartDateOfBusiness: z.string().nullish(),
+    AddressValidFrom: z.string().nullish(),
+    AddressValidTo: z.string().nullish()
 });
 
 const LegalEntitySchema = z.object({
     id: z.string(),
+    legalEntityId: z.string().optional(),
     name: z.string().optional(),
-    name_alias: z.string().optional(),
-    party_number: z.string().optional()
+    nameAlias: z.string().optional(),
+    companyType: z.string().optional(),
+    languageId: z.string().optional(),
+    timeZone: z.string().optional(),
+    companyName: z.string().optional(),
+    companyCountry: z.string().optional(),
+    currencyCode: z.string().optional(),
+    chartOfAccounts: z.string().optional(),
+    registrationNumber: z.string().optional(),
+    vatNum: z.string().optional(),
+    rfc: z.string().optional(),
+    stateInscription: z.string().optional(),
+    addressStreet: z.string().optional(),
+    addressCity: z.string().optional(),
+    addressState: z.string().optional(),
+    addressZipCode: z.string().optional(),
+    addressCountryRegionId: z.string().optional(),
+    primaryContactEmail: z.string().optional(),
+    primaryContactPhone: z.string().optional(),
+    startDateOfBusiness: z.string().optional(),
+    addressValidFrom: z.string().optional(),
+    addressValidTo: z.string().optional()
 });
 
 const sync = createSync({
     description: 'Sync legal entities (companies/data areas).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -25,51 +66,86 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // Blocker: provider exposes no filterable modified-timestamp field on LegalEntities,
-        // so this sync uses full-refresh with delete tracking.
-        const proxyConfig: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: '/data/LegalEntities',
-            params: {
-                $top: 1
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: '$skip',
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: '$top',
-                limit: 1,
-                response_path: 'value'
-            },
-            retries: 3
-        };
-
-        // Fetch and validate the first page before starting delete tracking, so a failed/invalid
-        // first response doesn't leave delete-tracking open with zero records enumerated.
-        const iterator = nango.paginate(proxyConfig)[Symbol.asyncIterator]();
-        let result = await iterator.next();
+        // Blocker: LegalEntities exposes no modified-timestamp field in this environment,
+        // so we must use full-refresh with delete tracking.
+        // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
         let trackingStarted = false;
 
-        while (!result.done) {
-            const records = z.array(ProviderLegalEntitySchema).parse(result.value);
+        const limit = 1000;
+        let skip = 0;
+        let hasMore = true;
 
-            const legalEntities = records.map((record) => ({
-                id: record.LegalEntityId,
-                ...(record.Name != null && { name: record.Name }),
-                ...(record.NameAlias != null && { name_alias: record.NameAlias }),
-                ...(record.PartyNumber != null && { party_number: record.PartyNumber })
-            }));
+        while (hasMore) {
+            // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
+            const response = await nango.get({
+                endpoint: '/data/LegalEntities',
+                params: {
+                    $top: String(limit),
+                    $skip: String(skip)
+                },
+                retries: 3
+            });
 
-            if (!trackingStarted && legalEntities.length > 0) {
+            const rawData = response.data;
+            if (!rawData || typeof rawData !== 'object' || !Array.isArray(rawData.value)) {
+                throw new Error('Unexpected response shape from LegalEntities endpoint');
+            }
+
+            if (!trackingStarted) {
                 await nango.trackDeletesStart('LegalEntity');
                 trackingStarted = true;
             }
+
+            const page = rawData.value;
+            if (page.length === 0) {
+                hasMore = false;
+                break;
+            }
+
+            const legalEntities = page.map((raw: unknown) => {
+                const parsed = ProviderLegalEntitySchema.safeParse(raw);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse legal entity: ${parsed.error.message}`);
+                }
+
+                const record = parsed.data;
+                return {
+                    id: record.LegalEntityId,
+                    legalEntityId: record.LegalEntityId,
+                    ...(record.Name != null && { name: record.Name }),
+                    ...(record.NameAlias != null && { nameAlias: record.NameAlias }),
+                    ...(record.CompanyType != null && { companyType: record.CompanyType }),
+                    ...(record.LanguageId != null && { languageId: record.LanguageId }),
+                    ...(record.TimeZone != null && { timeZone: record.TimeZone }),
+                    ...(record.CompanyName != null && { companyName: record.CompanyName }),
+                    ...(record.CompanyCountry != null && { companyCountry: record.CompanyCountry }),
+                    ...(record.CurrencyCode != null && { currencyCode: record.CurrencyCode }),
+                    ...(record.ChartOfAccounts != null && { chartOfAccounts: record.ChartOfAccounts }),
+                    ...(record.RegistrationNumber != null && { registrationNumber: record.RegistrationNumber }),
+                    ...(record.VATNum != null && { vatNum: record.VATNum }),
+                    ...(record.Rfc != null && { rfc: record.Rfc }),
+                    ...(record.StateInscription != null && { stateInscription: record.StateInscription }),
+                    ...(record.AddressStreet != null && { addressStreet: record.AddressStreet }),
+                    ...(record.AddressCity != null && { addressCity: record.AddressCity }),
+                    ...(record.AddressState != null && { addressState: record.AddressState }),
+                    ...(record.AddressZipCode != null && { addressZipCode: record.AddressZipCode }),
+                    ...(record.AddressCountryRegionId != null && { addressCountryRegionId: record.AddressCountryRegionId }),
+                    ...(record.PrimaryContactEmail != null && { primaryContactEmail: record.PrimaryContactEmail }),
+                    ...(record.PrimaryContactPhone != null && { primaryContactPhone: record.PrimaryContactPhone }),
+                    ...(record.StartDateOfBusiness != null && { startDateOfBusiness: record.StartDateOfBusiness }),
+                    ...(record.AddressValidFrom != null && { addressValidFrom: record.AddressValidFrom }),
+                    ...(record.AddressValidTo != null && { addressValidTo: record.AddressValidTo })
+                };
+            });
 
             if (legalEntities.length > 0) {
                 await nango.batchSave(legalEntities, 'LegalEntity');
             }
 
-            result = await iterator.next();
+            skip += limit;
+            if (page.length < limit) {
+                hasMore = false;
+            }
         }
 
         if (trackingStarted) {

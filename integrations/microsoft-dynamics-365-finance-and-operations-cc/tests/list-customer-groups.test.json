@@ -4,14 +4,14 @@
     "items": [
       {
         "CustomerGroupId": "IG-CL",
-        "@odata.etag": "W/\"JzEsNTYzNzE0NDU3Nic=\"",
+        "Description": "IG Clients",
         "dataAreaId": "dat",
+        "@odata.etag": "W/\"JzEsNTYzNzE0NDU3Nic=\"",
         "ClearingPeriodPaymentTermName": "",
         "CustomerAccountNumberSequence": "",
         "DefaultDimensionDisplayValue": "",
         "AccountingCurrencyExchangeRateType": "",
         "IsSalesTaxIncludedInPrice": "No",
-        "Description": "IG Clients",
         "WriteOffReason": "",
         "ReportingCurrencyExchangeRateType": "",
         "PaymentTermId": "",
@@ -47,7 +47,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:24:28 GMT",
+          "date": "Thu, 30 Jul 2026 09:22:57 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "552",
           "connection": "keep-alive",
@@ -61,13 +61,14 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1816",
-          "x-ratelimit-reset": "1784766274",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785403435",
           "etag": "W/\"228-+vlACXd5IoUlHtJpP+4zcndR5ho\""
         },
-        "hash": "6401803dc2a4e6a93b0c3158f91a3110a56311c5",
+        "hash": "46ea0f2dd3ca53ea71ace04ff55ef97c584dfdc6",
         "request": {
           "params": {
+            "$skip": "0",
             "$top": "100"
           }
         }

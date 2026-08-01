@@ -1,0 +1,351 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "nangodevelopers.sharepoint.com,76f3bd5f-1795-499d-94b7-458677472bc0,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "Test Team Created by Nango",
+        "createdDateTime": "2026-05-14T17:03:49Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_228365"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,b18ec9a7-4578-4044-a78a-2f010525cca8,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "Test Team Created by Nango",
+        "createdDateTime": "2026-05-14T17:02:41Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_d2d98c"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,5a0488a1-2035-411d-a51b-a2fc5e88d520,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "Test Team Created by Nango",
+        "createdDateTime": "2026-05-14T17:01:51Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_81d794"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,3e223165-9e83-4bed-800a-f93dc01a4a1a,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "Test Team Created by Nango",
+        "createdDateTime": "2026-05-14T17:00:52Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_fe0c02"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,f13b0765-9658-435c-9c26-b9a9ce295fe3,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "Test Team Created by Nango",
+        "createdDateTime": "2026-05-14T16:59:43Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,ff9cef8d-d0e4-4638-a6a6-d5374e2b31e1,d12a8199-c77a-4e48-a193-2e1288b26f13",
+        "name": "TestTeam-AddMember3Shared",
+        "createdDateTime": "2026-05-14T16:49:18Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeam-AddMember3Shared"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,8138a334-9ae9-40da-b66b-cae1ebaee9dc,d12a8199-c77a-4e48-a193-2e1288b26f13",
+        "name": "Nango Test Team-Private Seed",
+        "createdDateTime": "2026-05-14T16:46:15Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam-PrivateSeed"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,da01dfb6-5fa4-4e78-a148-921d7a71767f,d12a8199-c77a-4e48-a193-2e1288b26f13",
+        "name": "Nango Test Team-AddMemberHere",
+        "createdDateTime": "2026-05-14T16:46:11Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam-AddMemberHere"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "Nango Test Team",
+        "createdDateTime": "2026-05-14T16:40:56Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,237fb47c-8919-4cbd-bd3f-f338574cbf50,d12a8199-c77a-4e48-a193-2e1288b26f13",
+        "name": "TestTeam-Private Test Channel",
+        "createdDateTime": "2026-05-14T16:34:17Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeam-PrivateTestChannel"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,c065a473-52e0-4efd-a8fa-4869f5670c79,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "TestTeam",
+        "createdDateTime": "2026-05-14T16:22:53Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeam"
+      },
+      {
+        "id": "nangodevelopers-my.sharepoint.com,d29fc6b4-5730-468d-9ce0-94ab9040fa7c,0189569d-b59a-40cd-a8e6-d2822682c212",
+        "name": "Robin Guldener",
+        "createdDateTime": "2026-05-14T16:21:36Z",
+        "webUrl": "https://nangodevelopers-my.sharepoint.com/personal/api_nangodevelopers_onmicrosoft_com"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,a76cd1fc-820e-48d4-852c-a523b8daab8e,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "All Company",
+        "createdDateTime": "2026-05-14T16:17:41Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/allcompany"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,aa08a992-cea5-457f-ba7a-2425c6161d84,29d15734-3d19-43f6-976b-43ece3ff81a8",
+        "name": "Nango Inc",
+        "createdDateTime": "2026-05-14T16:16:40Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoInc"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,806c77a2-a4db-4da7-b3b9-a12ae3b0a9a7,a5aab230-cfdc-4b8b-921f-1f94fef01090",
+        "name": "Team Site",
+        "createdDateTime": "2026-05-14T16:13:15Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/sites/contentTypeHub"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,99c7fa08-6f19-4309-89a0-bdb3091f1ed7,13fb4f58-ffec-447c-af52-9bcf7044c763",
+        "createdDateTime": "2026-05-14T16:13:10Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/search"
+      },
+      {
+        "id": "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216",
+        "name": "Communication site",
+        "createdDateTime": "2026-05-14T16:12:57Z",
+        "webUrl": "https://nangodevelopers.sharepoint.com/"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1.0/sites": {
+        "response": {
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#sites",
+          "value": [
+            {
+              "createdDateTime": "2026-05-14T17:03:49Z",
+              "id": "nangodevelopers.sharepoint.com,76f3bd5f-1795-499d-94b7-458677472bc0,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "name": "Test Team Created by Nango",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_228365",
+              "displayName": "Test Team Created by Nango",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T17:02:41Z",
+              "id": "nangodevelopers.sharepoint.com,b18ec9a7-4578-4044-a78a-2f010525cca8,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "name": "Test Team Created by Nango",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_d2d98c",
+              "displayName": "Test Team Created by Nango",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T17:01:51Z",
+              "id": "nangodevelopers.sharepoint.com,5a0488a1-2035-411d-a51b-a2fc5e88d520,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "name": "Test Team Created by Nango",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_81d794",
+              "displayName": "Test Team Created by Nango",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T17:00:52Z",
+              "id": "nangodevelopers.sharepoint.com,3e223165-9e83-4bed-800a-f93dc01a4a1a,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "name": "Test Team Created by Nango",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango_fe0c02",
+              "displayName": "Test Team Created by Nango",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:59:43Z",
+              "id": "nangodevelopers.sharepoint.com,f13b0765-9658-435c-9c26-b9a9ce295fe3,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "name": "Test Team Created by Nango",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeamCreatedbyNango",
+              "displayName": "Test Team Created by Nango",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:49:18Z",
+              "id": "nangodevelopers.sharepoint.com,ff9cef8d-d0e4-4638-a6a6-d5374e2b31e1,d12a8199-c77a-4e48-a193-2e1288b26f13",
+              "name": "TestTeam-AddMember3Shared",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeam-AddMember3Shared",
+              "displayName": "TestTeam-AddMember3Shared",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:46:15Z",
+              "id": "nangodevelopers.sharepoint.com,8138a334-9ae9-40da-b66b-cae1ebaee9dc,d12a8199-c77a-4e48-a193-2e1288b26f13",
+              "name": "Nango Test Team-Private Seed",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam-PrivateSeed",
+              "displayName": "Nango Test Team-Private Seed",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:46:11Z",
+              "id": "nangodevelopers.sharepoint.com,da01dfb6-5fa4-4e78-a148-921d7a71767f,d12a8199-c77a-4e48-a193-2e1288b26f13",
+              "name": "Nango Test Team-AddMemberHere",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam-AddMemberHere",
+              "displayName": "Nango Test Team-AddMemberHere",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:40:56Z",
+              "id": "nangodevelopers.sharepoint.com,4c97403e-1663-4673-90fa-d2f8690b4510,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "name": "Nango Test Team",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoTestTeam",
+              "displayName": "Nango Test Team",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:34:17Z",
+              "id": "nangodevelopers.sharepoint.com,237fb47c-8919-4cbd-bd3f-f338574cbf50,d12a8199-c77a-4e48-a193-2e1288b26f13",
+              "name": "TestTeam-Private Test Channel",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeam-PrivateTestChannel",
+              "displayName": "TestTeam-Private Test Channel",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:22:53Z",
+              "id": "nangodevelopers.sharepoint.com,c065a473-52e0-4efd-a8fa-4869f5670c79,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "name": "TestTeam",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/TestTeam",
+              "displayName": "TestTeam",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:21:36Z",
+              "id": "nangodevelopers-my.sharepoint.com,d29fc6b4-5730-468d-9ce0-94ab9040fa7c,0189569d-b59a-40cd-a8e6-d2822682c212",
+              "name": "Robin Guldener",
+              "webUrl": "https://nangodevelopers-my.sharepoint.com/personal/api_nangodevelopers_onmicrosoft_com",
+              "displayName": "Robin Guldener",
+              "isPersonalSite": true,
+              "siteCollection": {
+                "hostname": "nangodevelopers-my.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:17:41Z",
+              "id": "nangodevelopers.sharepoint.com,a76cd1fc-820e-48d4-852c-a523b8daab8e,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "name": "All Company",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/allcompany",
+              "displayName": "All Company",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:16:40Z",
+              "id": "nangodevelopers.sharepoint.com,aa08a992-cea5-457f-ba7a-2425c6161d84,29d15734-3d19-43f6-976b-43ece3ff81a8",
+              "name": "Nango Inc",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/NangoInc",
+              "displayName": "Nango Inc",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:13:15Z",
+              "id": "nangodevelopers.sharepoint.com,806c77a2-a4db-4da7-b3b9-a12ae3b0a9a7,a5aab230-cfdc-4b8b-921f-1f94fef01090",
+              "name": "Team Site",
+              "webUrl": "https://nangodevelopers.sharepoint.com/sites/contentTypeHub",
+              "displayName": "Team Site",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:13:10Z",
+              "id": "nangodevelopers.sharepoint.com,99c7fa08-6f19-4309-89a0-bdb3091f1ed7,13fb4f58-ffec-447c-af52-9bcf7044c763",
+              "webUrl": "https://nangodevelopers.sharepoint.com/search",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            },
+            {
+              "createdDateTime": "2026-05-14T16:12:57Z",
+              "id": "nangodevelopers.sharepoint.com,1d6e1722-9330-4b30-aa92-b73f215d9420,413c102d-9557-4a8d-8a68-bbb499015216",
+              "name": "Communication site",
+              "webUrl": "https://nangodevelopers.sharepoint.com/",
+              "displayName": "Communication site",
+              "isPersonalSite": false,
+              "siteCollection": {
+                "hostname": "nangodevelopers.sharepoint.com"
+              },
+              "root": {}
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 18:19:15 GMT",
+          "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1938",
+          "x-ratelimit-reset": "1785262794",
+          "cache-control": "no-store, no-cache",
+          "vary": "Accept-Encoding",
+          "request-id": "8d14358b-064c-42f8-8e1b-0ddb4650030a",
+          "client-request-id": "8d14358b-064c-42f8-8e1b-0ddb4650030a",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF0000E056\"}}",
+          "splogid": "0ac22ba2-0046-c000-86a0-21f7695b29a7",
+          "sprequestduration": "135",
+          "odata-version": "4.0"
+        },
+        "hash": "d9ea42ff1927c734362f47615e13fa26056d3298",
+        "request": {}
+      }
+    }
+  }
+}

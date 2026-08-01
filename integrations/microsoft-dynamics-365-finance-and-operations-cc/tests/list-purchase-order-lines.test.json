@@ -6,24 +6,20 @@
   "output": {
     "items": [
       {
+        "@odata.etag": "W/\"JzExMzE4MDE2ODUsNTYzNzE0NDU3NjswLDA7MCwwOzEsNTYzNzE0NDU3NjswLDA7MCwwOzAsMCc=\"",
         "dataAreaId": "dat",
         "PurchaseOrderNumber": "DAT-000001",
         "LineNumber": 1,
-        "ItemNumber": "",
-        "OrderedPurchaseQuantity": 1,
-        "PurchasePrice": 3300000,
-        "LineDescription": "New category",
-        "ReceivingSiteId": "",
-        "ReceivingWarehouseId": "",
-        "@odata.etag": "W/\"JzExMzE4MDE2ODUsNTYzNzE0NDU3NjswLDA7MCwwOzEsNTYzNzE0NDU3NjswLDA7MCwwOzAsMCc=\"",
         "ProcurementProductCategoryName": "Structural Steel",
         "Tax1099SAddressOrLegalDescription": "",
         "FixedAssetNumber": "",
         "Tax1099GTaxYear": 0,
         "VendorRetentionTermRuleDescription": "",
         "ProjectSalesUnitSymbol": "",
+        "OrderedPurchaseQuantity": 1,
         "FormattedDelveryAddress": "",
         "ProjectCategoryId": "STEEL",
+        "ItemNumber": "",
         "AccountingDistributionTemplateName": "",
         "DeliveryAddressDescription": "",
         "MultilineDiscountPercentage": 0,
@@ -50,6 +46,7 @@
         "DeliveryAddressCountryRegionId": "",
         "ItemBatchNumber": "",
         "DeliveryAddressLatitude": 0,
+        "ReceivingWarehouseId": "",
         "DeliveryAddressCity": "",
         "ConfirmedDeliveryDate": "1900-01-01T12:00:00Z",
         "PurchaseUnitSymbol": "",
@@ -88,6 +85,7 @@
         "DeliveryAddressCountryRegionISOCode": "",
         "ItemSerialNumber": "",
         "CalculateLineAmount": "Yes",
+        "ReceivingSiteId": "",
         "ProjectSalesCurrencyCode": "USD",
         "IntrastatTransactionCode": "",
         "DeliveryAddressLocationId": "",
@@ -100,6 +98,7 @@
         "Tax1099GStateTaxWithheldAmount": 0,
         "IntrastatStatisticsProcedureCode": "",
         "OverrideSalesTax": "No",
+        "LineDescription": "New category",
         "GSTHSTTaxType": "None",
         "DeliveryAddressStreet": "",
         "ConfirmedShippingDate": "1900-01-01T12:00:00Z",
@@ -109,6 +108,7 @@
         "SalesTaxGroupCode": "",
         "IsDeliveryAddressOrderSpecific": "No",
         "CustomerRequisitionNumber": "",
+        "PurchasePrice": 3300000,
         "PlanningPriority": 0,
         "WillProductReceivingCrossDockProducts": "No",
         "LineDiscountPercentage": 0,
@@ -314,7 +314,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 11:49:44 GMT",
+          "date": "Thu, 30 Jul 2026 09:38:31 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "4410",
           "connection": "keep-alive",
@@ -329,15 +329,15 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1997",
-          "x-ratelimit-reset": "1784807441",
+          "x-ratelimit-reset": "1785404369",
           "etag": "W/\"113a-0aI+MgefqMAFT6G1LAhpdDoVI1Y\""
         },
-        "hash": "0fcbc1fab6dcb0b7fb5d32f33a6be87f5221750f",
+        "hash": "74a563ed45872b444539f2f2e375db380a31f0a8",
         "request": {
           "params": {
             "$filter": "dataAreaId eq 'dat' and PurchaseOrderNumber eq 'DAT-000001'",
             "$skip": "0",
-            "$top": "100",
+            "$top": "1000",
             "cross-company": "true"
           }
         }

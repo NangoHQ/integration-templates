@@ -1,0 +1,205 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "81d837bc-7790-4560-8426-ba74ee06ba75",
+        "ironcladId": "ENTITY-7",
+        "name": "Nango Registry Test Entity Updated",
+        "status": "ACTIVE",
+        "lastUpdated": "2026-07-30T13:59:09.102Z",
+        "properties": {
+          "entity_category": {
+            "type": "string",
+            "value": "external"
+          },
+          "entity_businessType": {
+            "type": "string",
+            "value": "company"
+          }
+        },
+        "namedTypeIds": [
+          "ef4b6574-094e-49f6-b471-7f9457d3d6ce"
+        ]
+      },
+      {
+        "id": "3f2ec1ae-e116-40c9-a172-fedbbd0fce57",
+        "ironcladId": "ENTITY-6",
+        "name": "Nango Registry Test Entity Dryrun",
+        "status": "ACTIVE",
+        "lastUpdated": "2026-07-30T12:13:16.879Z",
+        "properties": {
+          "entity_category": {
+            "type": "string",
+            "value": "external"
+          },
+          "entity_businessType": {
+            "type": "string",
+            "value": "company"
+          }
+        },
+        "namedTypeIds": []
+      },
+      {
+        "id": "bfa753a8-ac2b-443e-842f-48bae37d4263",
+        "ironcladId": "ENTITY-4",
+        "name": "Nango Registry Test Entity Dryrun",
+        "status": "ACTIVE",
+        "lastUpdated": "2026-07-30T12:13:09.212Z",
+        "properties": {
+          "entity_category": {
+            "type": "string",
+            "value": "external"
+          },
+          "entity_businessType": {
+            "type": "string",
+            "value": "company"
+          }
+        },
+        "namedTypeIds": []
+      },
+      {
+        "id": "161228be-f1ba-4ba4-a7e0-bf7cbb191f4f",
+        "ironcladId": "ENTITY-5",
+        "name": "Nango Registry Test Entity",
+        "status": "ACTIVE",
+        "lastUpdated": "2026-07-30T12:13:16.438Z",
+        "properties": {
+          "entity_category": {
+            "type": "string",
+            "value": "external"
+          },
+          "entity_businessType": {
+            "type": "string",
+            "value": "company"
+          }
+        },
+        "namedTypeIds": []
+      }
+    ],
+    "page": 0,
+    "pageSize": 20,
+    "count": 4
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/public/api/v1/entities": {
+        "response": {
+          "page": 0,
+          "pageSize": 20,
+          "count": 4,
+          "list": [
+            {
+              "id": "81d837bc-7790-4560-8426-ba74ee06ba75",
+              "status": "ACTIVE",
+              "ironcladId": "ENTITY-7",
+              "name": "Nango Registry Test Entity Updated",
+              "lastUpdated": "2026-07-30T13:59:09.102Z",
+              "properties": {
+                "entity_category": {
+                  "type": "string",
+                  "value": "external"
+                },
+                "entity_businessType": {
+                  "type": "string",
+                  "value": "company"
+                }
+              },
+              "namedTypeIds": [
+                "ef4b6574-094e-49f6-b471-7f9457d3d6ce"
+              ]
+            },
+            {
+              "id": "3f2ec1ae-e116-40c9-a172-fedbbd0fce57",
+              "status": "ACTIVE",
+              "ironcladId": "ENTITY-6",
+              "name": "Nango Registry Test Entity Dryrun",
+              "lastUpdated": "2026-07-30T12:13:16.879Z",
+              "properties": {
+                "entity_category": {
+                  "type": "string",
+                  "value": "external"
+                },
+                "entity_businessType": {
+                  "type": "string",
+                  "value": "company"
+                }
+              },
+              "namedTypeIds": []
+            },
+            {
+              "id": "bfa753a8-ac2b-443e-842f-48bae37d4263",
+              "status": "ACTIVE",
+              "ironcladId": "ENTITY-4",
+              "name": "Nango Registry Test Entity Dryrun",
+              "lastUpdated": "2026-07-30T12:13:09.212Z",
+              "properties": {
+                "entity_category": {
+                  "type": "string",
+                  "value": "external"
+                },
+                "entity_businessType": {
+                  "type": "string",
+                  "value": "company"
+                }
+              },
+              "namedTypeIds": []
+            },
+            {
+              "id": "161228be-f1ba-4ba4-a7e0-bf7cbb191f4f",
+              "status": "ACTIVE",
+              "ironcladId": "ENTITY-5",
+              "name": "Nango Registry Test Entity",
+              "lastUpdated": "2026-07-30T12:13:16.438Z",
+              "properties": {
+                "entity_category": {
+                  "type": "string",
+                  "value": "external"
+                },
+                "entity_businessType": {
+                  "type": "string",
+                  "value": "company"
+                }
+              },
+              "namedTypeIds": []
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 14:05:29 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1785420383",
+          "x-pod-name": "public-api-558bcb5f77-hkp8c",
+          "x-version": "2026.29.916.740-a76a8bf20b4",
+          "x-response-id": "285f75a8-fa25-4e5a-aeef-20903c10b0c1",
+          "cache-control": "no-store, no-cache",
+          "content-security-policy": "default-src 'self';frame-ancestors 'self' https://*.salesforce.com https://*.lightning.force.com https://*.visual.force.com https://*.visualforce.com https://green-harvest-experience.my.site.com https://*.officeapps.live.com https://*.sharepoint.com;report-to https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;report-uri https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "expect-ct": "max-age=0",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-ironclad-requestid": "285f75a8-fa25-4e5a-aeef-20903c10b0c1",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "5a11721aa57f693804cc91fa03c62fba0fc856ee",
+        "request": {}
+      }
+    }
+  }
+}

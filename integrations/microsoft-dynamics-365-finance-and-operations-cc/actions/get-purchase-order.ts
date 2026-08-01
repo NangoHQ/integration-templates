@@ -2,46 +2,47 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    DataAreaId: z.string().describe('Company / data area ID. Example: "dat"'),
-    PurchaseOrderNumber: z.string().describe('Purchase order number. Example: "DAT-000001"')
+    dataAreaId: z.string().describe('Company code / data area ID. Example: "dat"'),
+    purchaseOrderNumber: z.string().describe('Purchase order number. Example: "DAT-000001"')
 });
 
-const OutputSchema = z
+const ProviderPurchaseOrderSchema = z
     .object({
-        dataAreaId: z.string().optional(),
-        PurchaseOrderNumber: z.string().optional(),
-        PurchaseOrderName: z.string().optional().nullable(),
-        OrderVendorAccountNumber: z.string().optional().nullable(),
-        PurchaseOrderStatus: z.string().optional(),
-        CurrencyCode: z.string().optional().nullable()
+        PurchaseOrderNumber: z.string(),
+        dataAreaId: z.string()
     })
     .passthrough();
 
+const OutputSchema = ProviderPurchaseOrderSchema;
+
 const action = createAction({
     description: 'Retrieve a purchase order header.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['D365FO.Read'],
 
-    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango, input) => {
+        const endpoint = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',PurchaseOrderNumber='${encodeURIComponent(input.purchaseOrderNumber.replace(/'/g, "''"))}')`;
+
         const response = await nango.get({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            endpoint: `/data/PurchaseOrderHeadersV2(dataAreaId='${encodeURIComponent(input.DataAreaId.replace(/'/g, "''"))}',PurchaseOrderNumber='${encodeURIComponent(input.PurchaseOrderNumber.replace(/'/g, "''"))}')`,
+            endpoint,
             retries: 3
         });
 
-        if (!response.data || typeof response.data !== 'object') {
+        if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Purchase order not found',
-                DataAreaId: input.DataAreaId,
-                PurchaseOrderNumber: input.PurchaseOrderNumber
+                dataAreaId: input.dataAreaId,
+                purchaseOrderNumber: input.purchaseOrderNumber
             });
         }
 
-        const purchaseOrder = OutputSchema.parse(response.data);
+        const providerPo = ProviderPurchaseOrderSchema.parse(response.data);
 
-        return purchaseOrder;
+        return providerPo;
     }
 });
 

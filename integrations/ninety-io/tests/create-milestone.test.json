@@ -1,0 +1,81 @@
+{
+  "input": {
+    "rockId": "6a6175355346be5d56149d93",
+    "title": "Test milestone",
+    "dueDate": "2026-12-31T00:00:00Z",
+    "teamId": "6a616ba8908190d6d9458153"
+  },
+  "output": {
+    "id": "6a68fcace344d7fa88c6084d",
+    "companyId": "6a616ba8908190d6d9458151",
+    "rockId": "6a6175355346be5d56149d93",
+    "teamId": "6a616ba8908190d6d9458153",
+    "ownedByUserId": "6a616ba8908190d6d945815c",
+    "title": "Test milestone",
+    "dueDate": "2026-12-31T00:00:00.000Z",
+    "isDone": false,
+    "isDeleted": false,
+    "userOrdinal": 0,
+    "followers": [
+      "6a616ba8908190d6d945815c"
+    ],
+    "createdBy": "6a616ba8908190d6d945815c",
+    "createdDate": "2026-07-28T19:02:04.321Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/milestones": {
+        "response": {
+          "_id": "6a68fcace344d7fa88c6084d",
+          "comments": [],
+          "companyId": "6a616ba8908190d6d9458151",
+          "createdBy": "6a616ba8908190d6d945815c",
+          "createdDate": "2026-07-28T19:02:04.321Z",
+          "description": null,
+          "dueDate": "2026-12-31T00:00:00.000Z",
+          "followers": [
+            "6a616ba8908190d6d945815c"
+          ],
+          "isDeleted": false,
+          "isDone": false,
+          "ownedByUserId": "6a616ba8908190d6d945815c",
+          "rockId": "6a6175355346be5d56149d93",
+          "teamId": "6a616ba8908190d6d9458153",
+          "title": "Test milestone",
+          "toDoId": null,
+          "userOrdinal": 0
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 19:02:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "467",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1945",
+          "x-ratelimit-reset": "1785265339",
+          "etag": "W/\"1d3-H6REeePeFsjY4r+zujW9SHjvILQ\""
+        },
+        "hash": "993c87d4becac46f460dc641a8a1f86b27e4cd01",
+        "request": {
+          "data": {
+            "rockId": "6a6175355346be5d56149d93",
+            "title": "Test milestone",
+            "dueDate": "2026-12-31T00:00:00Z",
+            "teamId": "6a616ba8908190d6d9458153"
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,10 +3,10 @@
   "output": {
     "items": [
       {
-        "dataAreaId": "dat",
         "Name": "RFI30",
-        "@odata.etag": "W/\"JzEyODk5MDg1MTgsNTYzNzE0NDU3Nic=\"",
         "Description": "RootFi registry test net 30",
+        "@odata.etag": "W/\"JzEyODk5MDg1MTgsNTYzNzE0NDU3Nic=\"",
+        "dataAreaId": "dat",
         "NumberOfMonths": 0,
         "CutoffDayOfMonth": 0,
         "CreditCardCreditCheckType": "Normal",
@@ -59,7 +59,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:24:02 GMT",
+          "date": "Thu, 30 Jul 2026 09:37:03 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "727",
           "connection": "keep-alive",
@@ -73,15 +73,16 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1915",
-          "x-ratelimit-reset": "1784766274",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785404282",
           "etag": "W/\"2d7-2C7RtSs5W8nO2oULHf+0i5MyTnk\""
         },
-        "hash": "4da1bd53c59e4c056be2076ed9906f2c57290604",
+        "hash": "6e261f068c44bbe9769543b4efab2bcbca67bf2a",
         "request": {
           "params": {
             "$skip": "0",
-            "$top": "100"
+            "$top": "100",
+            "cross-company": "true"
           }
         }
       }

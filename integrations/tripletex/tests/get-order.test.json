@@ -1,0 +1,173 @@
+{
+  "input": {
+    "id": 210311950
+  },
+  "output": {
+    "id": 210311950,
+    "version": 1,
+    "number": "3",
+    "orderDate": "2026-01-01",
+    "deliveryDate": "2026-01-15",
+    "customer": {
+      "id": 93640703
+    },
+    "orderLines": [
+      {
+        "id": 973759384,
+        "url": "api-test.tripletex.tech/v2/order/orderline/973759384"
+      }
+    ],
+    "preliminaryInvoice": {
+      "id": 1945373645,
+      "url": "api-test.tripletex.tech/v2/invoice/1945373645"
+    },
+    "url": "api-test.tripletex.tech/v2/order/210311950",
+    "contact": null,
+    "attn": null,
+    "displayName": "3 Ordre",
+    "receiverEmail": "",
+    "overdueNoticeEmail": "",
+    "reference": "",
+    "contractReference": "",
+    "department": null,
+    "project": null,
+    "invoiceComment": "",
+    "internalComment": "",
+    "currency": {
+      "id": 1,
+      "url": "api-test.tripletex.tech/v2/currency/1"
+    },
+    "invoicesDueIn": 14,
+    "invoicesDueInType": "DAYS",
+    "isShowOpenPostsOnInvoices": false,
+    "isClosed": false,
+    "deliveryAddress": null,
+    "deliveryComment": "",
+    "isPrioritizeAmountsIncludingVat": false,
+    "orderLineSorting": "PRODUCT",
+    "orderGroups": [],
+    "isSubscription": false,
+    "subscriptionDuration": 0,
+    "subscriptionDurationType": "MONTHS",
+    "subscriptionPeriodsOnInvoice": 0,
+    "subscriptionPeriodsOnInvoiceType": "MONTHS",
+    "subscriptionInvoicingTimeInAdvanceOrArrears": "ADVANCE",
+    "subscriptionInvoicingTime": 0,
+    "subscriptionInvoicingTimeType": "MONTHS",
+    "isSubscriptionAutoInvoicing": false,
+    "attachment": [],
+    "attachmentRelation": [],
+    "sendMethodDescription": "Faktura må sendes manuelt.",
+    "backorderParentId": 0,
+    "invoiceOnAccountVatHigh": false,
+    "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+    "invoiceSendSMSNotification": false,
+    "invoiceSMSNotificationNumber": "",
+    "markUpOrderLines": 0,
+    "discountPercentage": 0,
+    "customerName": "Registry Seed Customer AS",
+    "projectManagerNameAndNumber": "",
+    "travelReports": [],
+    "accountingDimensionValues": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/order/210311950": {
+        "response": {
+          "value": {
+            "id": 210311950,
+            "version": 1,
+            "url": "api-test.tripletex.tech/v2/order/210311950",
+            "customer": {
+              "id": 93640703,
+              "url": "api-test.tripletex.tech/v2/customer/93640703"
+            },
+            "contact": null,
+            "attn": null,
+            "displayName": "3 Ordre",
+            "receiverEmail": "",
+            "overdueNoticeEmail": "",
+            "number": "3",
+            "reference": "",
+            "contractReference": "",
+            "department": null,
+            "orderDate": "2026-01-01",
+            "project": null,
+            "invoiceComment": "",
+            "internalComment": "",
+            "currency": {
+              "id": 1,
+              "url": "api-test.tripletex.tech/v2/currency/1"
+            },
+            "invoicesDueIn": 14,
+            "invoicesDueInType": "DAYS",
+            "isShowOpenPostsOnInvoices": false,
+            "isClosed": false,
+            "deliveryDate": "2026-01-15",
+            "deliveryAddress": null,
+            "deliveryComment": "",
+            "isPrioritizeAmountsIncludingVat": false,
+            "orderLineSorting": "PRODUCT",
+            "orderGroups": [],
+            "orderLines": [
+              {
+                "id": 973759384,
+                "url": "api-test.tripletex.tech/v2/order/orderline/973759384"
+              }
+            ],
+            "isSubscription": false,
+            "subscriptionDuration": 0,
+            "subscriptionDurationType": "MONTHS",
+            "subscriptionPeriodsOnInvoice": 0,
+            "subscriptionPeriodsOnInvoiceType": "MONTHS",
+            "subscriptionInvoicingTimeInAdvanceOrArrears": "ADVANCE",
+            "subscriptionInvoicingTime": 0,
+            "subscriptionInvoicingTimeType": "MONTHS",
+            "isSubscriptionAutoInvoicing": false,
+            "preliminaryInvoice": {
+              "id": 1945373645,
+              "url": "api-test.tripletex.tech/v2/invoice/1945373645"
+            },
+            "attachment": [],
+            "attachmentRelation": [],
+            "sendMethodDescription": "Faktura må sendes manuelt.",
+            "backorderParentId": 0,
+            "invoiceOnAccountVatHigh": false,
+            "totalInvoicedOnAccountAmountAbsoluteCurrency": 0,
+            "invoiceSendSMSNotification": false,
+            "invoiceSMSNotificationNumber": "",
+            "markUpOrderLines": 0,
+            "discountPercentage": 0,
+            "customerName": "Registry Seed Customer AS",
+            "projectManagerNameAndNumber": "",
+            "travelReports": [],
+            "accountingDimensionValues": []
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 12:52:01 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "1687",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1985",
+          "x-ratelimit-reset": "1785243172",
+          "etag": "W/\"697-wV2FccMQAM8HMss4/rZ71KKC4c4\""
+        },
+        "hash": "c7e47f0750ed06724edbd0dac338829d44611141",
+        "request": {}
+      }
+    }
+  }
+}

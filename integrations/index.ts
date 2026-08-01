@@ -2485,6 +2485,57 @@ import './intercom/actions/update-company.js';
 import './intercom/actions/update-contact.js';
 import './intercom/actions/update-conversation.js';
 
+// -- Integration: ironclad
+import './ironclad/syncs/entities.js';
+import './ironclad/syncs/records.js';
+import './ironclad/syncs/workflows.js';
+import './ironclad/actions/cancel-workflow.js';
+import './ironclad/actions/create-entity.js';
+import './ironclad/actions/create-record.js';
+import './ironclad/actions/create-webhook.js';
+import './ironclad/actions/create-workflow-async.js';
+import './ironclad/actions/create-workflow-comment.js';
+import './ironclad/actions/create-workflow.js';
+import './ironclad/actions/delete-entity.js';
+import './ironclad/actions/delete-record.js';
+import './ironclad/actions/delete-webhook.js';
+import './ironclad/actions/download-workflow-document.js';
+import './ironclad/actions/export-records-xlsx.js';
+import './ironclad/actions/get-entity.js';
+import './ironclad/actions/get-record.js';
+import './ironclad/actions/get-sign-status.js';
+import './ironclad/actions/get-webhook-verification-key.js';
+import './ironclad/actions/get-webhook.js';
+import './ironclad/actions/get-workflow-async-job-status.js';
+import './ironclad/actions/get-workflow-schema.js';
+import './ironclad/actions/get-workflow.js';
+import './ironclad/actions/list-approval-requests.js';
+import './ironclad/actions/list-eligible-assignees.js';
+import './ironclad/actions/list-entities.js';
+import './ironclad/actions/list-entity-relationship-types.js';
+import './ironclad/actions/list-records-metadata.js';
+import './ironclad/actions/list-records.js';
+import './ironclad/actions/list-webhooks.js';
+import './ironclad/actions/list-workflow-approvals.js';
+import './ironclad/actions/list-workflow-comments.js';
+import './ironclad/actions/list-workflow-documents.js';
+import './ironclad/actions/list-workflow-participants.js';
+import './ironclad/actions/list-workflow-schemas.js';
+import './ironclad/actions/list-workflow-signatures.js';
+import './ironclad/actions/list-workflow-turn-history.js';
+import './ironclad/actions/list-workflows.js';
+import './ironclad/actions/pause-workflow.js';
+import './ironclad/actions/replace-record.js';
+import './ironclad/actions/resume-workflow.js';
+import './ironclad/actions/revert-to-review-workflow.js';
+import './ironclad/actions/run-record-action.js';
+import './ironclad/actions/send-signature-request.js';
+import './ironclad/actions/update-approval-status.js';
+import './ironclad/actions/update-entity.js';
+import './ironclad/actions/update-record-name.js';
+import './ironclad/actions/update-webhook.js';
+import './ironclad/actions/update-workflow-attributes.js';
+
 // -- Integration: jira
 import './jira/syncs/fields.js';
 import './jira/syncs/issue-types.js';
@@ -3052,6 +3103,90 @@ import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-purcha
 import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-sales-order.js';
 import './microsoft-dynamics-365-finance-and-operations-cc/actions/update-vendor.js';
 
+// -- Integration: microsoft-power-bi-oauth2-cc
+import './microsoft-power-bi-oauth2-cc/syncs/datasets.js';
+import './microsoft-power-bi-oauth2-cc/syncs/workspaces.js';
+import './microsoft-power-bi-oauth2-cc/actions/add-dataset-rows.js';
+import './microsoft-power-bi-oauth2-cc/actions/add-workspace-user.js';
+import './microsoft-power-bi-oauth2-cc/actions/create-dashboard.js';
+import './microsoft-power-bi-oauth2-cc/actions/create-push-dataset.js';
+import './microsoft-power-bi-oauth2-cc/actions/create-workspace.js';
+import './microsoft-power-bi-oauth2-cc/actions/delete-dataset-rows.js';
+import './microsoft-power-bi-oauth2-cc/actions/delete-dataset.js';
+import './microsoft-power-bi-oauth2-cc/actions/delete-workspace.js';
+import './microsoft-power-bi-oauth2-cc/actions/execute-dataset-queries.js';
+import './microsoft-power-bi-oauth2-cc/actions/get-dataset-refresh-schedule.js';
+import './microsoft-power-bi-oauth2-cc/actions/get-dataset.js';
+import './microsoft-power-bi-oauth2-cc/actions/get-workspace.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dashboard-tiles.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dashboards.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dataflows.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dataset-datasources.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dataset-refresh-history.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-dataset-users.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-datasets.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-gateways.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-reports.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-workspace-users.js';
+import './microsoft-power-bi-oauth2-cc/actions/list-workspaces.js';
+import './microsoft-power-bi-oauth2-cc/actions/refresh-dataset.js';
+import './microsoft-power-bi-oauth2-cc/actions/takeover-dataset.js';
+import './microsoft-power-bi-oauth2-cc/actions/update-dataset-refresh-schedule.js';
+import './microsoft-power-bi-oauth2-cc/actions/update-dataset-table-schema.js';
+import './microsoft-power-bi-oauth2-cc/actions/update-workspace.js';
+
+// -- Integration: microsoft-powerpoint-oauth2-cc
+import './microsoft-powerpoint-oauth2-cc/syncs/presentations.js';
+import './microsoft-powerpoint-oauth2-cc/actions/copy-presentation.js';
+import './microsoft-powerpoint-oauth2-cc/actions/create-presentation.js';
+import './microsoft-powerpoint-oauth2-cc/actions/create-sharing-link.js';
+import './microsoft-powerpoint-oauth2-cc/actions/delete-presentation.js';
+import './microsoft-powerpoint-oauth2-cc/actions/get-presentation-as-pdf.js';
+import './microsoft-powerpoint-oauth2-cc/actions/get-presentation-content.js';
+import './microsoft-powerpoint-oauth2-cc/actions/get-presentation.js';
+import './microsoft-powerpoint-oauth2-cc/actions/get-site-drive.js';
+import './microsoft-powerpoint-oauth2-cc/actions/get-user-drive.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-presentation-permissions.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-presentation-thumbnails.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-presentation-versions.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-presentations.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-sites.js';
+import './microsoft-powerpoint-oauth2-cc/actions/list-users.js';
+import './microsoft-powerpoint-oauth2-cc/actions/move-presentation.js';
+import './microsoft-powerpoint-oauth2-cc/actions/update-presentation-content.js';
+import './microsoft-powerpoint-oauth2-cc/actions/update-presentation-metadata.js';
+
+// -- Integration: microsoft-excel-oauth2-cc
+import './microsoft-excel-oauth2-cc/syncs/workbooks.js';
+import './microsoft-excel-oauth2-cc/syncs/worksheets.js';
+import './microsoft-excel-oauth2-cc/actions/add-chart.js';
+import './microsoft-excel-oauth2-cc/actions/add-defined-name.js';
+import './microsoft-excel-oauth2-cc/actions/add-table-rows.js';
+import './microsoft-excel-oauth2-cc/actions/add-table.js';
+import './microsoft-excel-oauth2-cc/actions/add-worksheet.js';
+import './microsoft-excel-oauth2-cc/actions/calculate-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/create-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/delete-defined-name.js';
+import './microsoft-excel-oauth2-cc/actions/delete-table.js';
+import './microsoft-excel-oauth2-cc/actions/delete-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/delete-worksheet.js';
+import './microsoft-excel-oauth2-cc/actions/get-chart-image.js';
+import './microsoft-excel-oauth2-cc/actions/get-range.js';
+import './microsoft-excel-oauth2-cc/actions/get-site-drive.js';
+import './microsoft-excel-oauth2-cc/actions/get-used-range.js';
+import './microsoft-excel-oauth2-cc/actions/get-user-drive.js';
+import './microsoft-excel-oauth2-cc/actions/get-workbook.js';
+import './microsoft-excel-oauth2-cc/actions/list-defined-names.js';
+import './microsoft-excel-oauth2-cc/actions/list-sites.js';
+import './microsoft-excel-oauth2-cc/actions/list-table-columns.js';
+import './microsoft-excel-oauth2-cc/actions/list-table-rows.js';
+import './microsoft-excel-oauth2-cc/actions/list-tables.js';
+import './microsoft-excel-oauth2-cc/actions/list-users.js';
+import './microsoft-excel-oauth2-cc/actions/list-workbooks.js';
+import './microsoft-excel-oauth2-cc/actions/list-worksheets.js';
+import './microsoft-excel-oauth2-cc/actions/update-range.js';
+import './microsoft-excel-oauth2-cc/actions/update-worksheet.js';
+
 // -- Integration: microsoft-teams
 import './microsoft-teams/syncs/channel-message-replies.js';
 import './microsoft-teams/syncs/channel-messages.js';
@@ -3088,6 +3223,27 @@ import './microsoft-teams/actions/list-team-members.js';
 import './microsoft-teams/actions/remove-team-member.js';
 import './microsoft-teams/actions/reply-to-channel-message.js';
 import './microsoft-teams/actions/update-channel.js';
+
+// -- Integration: microsoft-word-oauth2-cc
+import './microsoft-word-oauth2-cc/syncs/word-documents.js';
+import './microsoft-word-oauth2-cc/actions/copy-word-document.js';
+import './microsoft-word-oauth2-cc/actions/create-folder.js';
+import './microsoft-word-oauth2-cc/actions/create-sharing-link.js';
+import './microsoft-word-oauth2-cc/actions/create-word-document.js';
+import './microsoft-word-oauth2-cc/actions/delete-word-document.js';
+import './microsoft-word-oauth2-cc/actions/get-site-drive.js';
+import './microsoft-word-oauth2-cc/actions/get-user-drive.js';
+import './microsoft-word-oauth2-cc/actions/get-word-document-as-pdf.js';
+import './microsoft-word-oauth2-cc/actions/get-word-document-content.js';
+import './microsoft-word-oauth2-cc/actions/get-word-document.js';
+import './microsoft-word-oauth2-cc/actions/list-sites.js';
+import './microsoft-word-oauth2-cc/actions/list-users.js';
+import './microsoft-word-oauth2-cc/actions/list-word-document-permissions.js';
+import './microsoft-word-oauth2-cc/actions/list-word-document-versions.js';
+import './microsoft-word-oauth2-cc/actions/list-word-documents.js';
+import './microsoft-word-oauth2-cc/actions/move-word-document.js';
+import './microsoft-word-oauth2-cc/actions/update-word-document-content.js';
+import './microsoft-word-oauth2-cc/actions/update-word-document-metadata.js';
 
 // -- Integration: millionverifier
 import './millionverifier/syncs/bulk-files.js';
@@ -3215,6 +3371,38 @@ import './netsuite-tba/actions/purchase-order-update.js';
 
 // -- Integration: next-cloud-ocs
 import './next-cloud-ocs/syncs/users.js';
+
+// -- Integration: ninety-io
+import './ninety-io/syncs/issues.js';
+import './ninety-io/syncs/rocks.js';
+import './ninety-io/syncs/scorecard-kpis.js';
+import './ninety-io/syncs/teams.js';
+import './ninety-io/syncs/todos.js';
+import './ninety-io/actions/create-issue.js';
+import './ninety-io/actions/create-milestone.js';
+import './ninety-io/actions/create-rock.js';
+import './ninety-io/actions/create-todo.js';
+import './ninety-io/actions/delete-issue.js';
+import './ninety-io/actions/delete-rock.js';
+import './ninety-io/actions/delete-scorecard-note.js';
+import './ninety-io/actions/delete-scorecard-score.js';
+import './ninety-io/actions/delete-todo.js';
+import './ninety-io/actions/get-issue.js';
+import './ninety-io/actions/get-milestone.js';
+import './ninety-io/actions/get-rock.js';
+import './ninety-io/actions/get-todo.js';
+import './ninety-io/actions/get-user.js';
+import './ninety-io/actions/list-issues.js';
+import './ninety-io/actions/list-rocks.js';
+import './ninety-io/actions/list-scorecard-kpis.js';
+import './ninety-io/actions/list-teams.js';
+import './ninety-io/actions/list-todos.js';
+import './ninety-io/actions/update-issue.js';
+import './ninety-io/actions/update-milestone.js';
+import './ninety-io/actions/update-rock.js';
+import './ninety-io/actions/update-todo.js';
+import './ninety-io/actions/upsert-scorecard-note.js';
+import './ninety-io/actions/upsert-scorecard-score.js';
 
 // -- Integration: notion
 import './notion/syncs/content-metadata.js';
@@ -5080,6 +5268,62 @@ import './todoist/actions/update-project.js';
 import './todoist/actions/update-section.js';
 import './todoist/actions/update-task.js';
 
+// -- Integration: tripletex
+import './tripletex/syncs/contacts.js';
+import './tripletex/syncs/customers.js';
+import './tripletex/syncs/employees.js';
+import './tripletex/syncs/invoices.js';
+import './tripletex/syncs/ledger-accounts.js';
+import './tripletex/syncs/orders.js';
+import './tripletex/syncs/products.js';
+import './tripletex/syncs/projects.js';
+import './tripletex/syncs/suppliers.js';
+import './tripletex/actions/create-activity.js';
+import './tripletex/actions/create-contact.js';
+import './tripletex/actions/create-customer.js';
+import './tripletex/actions/create-invoice.js';
+import './tripletex/actions/create-ledger-voucher.js';
+import './tripletex/actions/create-order-line.js';
+import './tripletex/actions/create-order.js';
+import './tripletex/actions/create-product.js';
+import './tripletex/actions/create-project.js';
+import './tripletex/actions/create-supplier.js';
+import './tripletex/actions/delete-contacts.js';
+import './tripletex/actions/delete-customer.js';
+import './tripletex/actions/delete-order.js';
+import './tripletex/actions/delete-product.js';
+import './tripletex/actions/delete-project.js';
+import './tripletex/actions/delete-supplier.js';
+import './tripletex/actions/get-contact.js';
+import './tripletex/actions/get-customer.js';
+import './tripletex/actions/get-department.js';
+import './tripletex/actions/get-employee.js';
+import './tripletex/actions/get-invoice.js';
+import './tripletex/actions/get-ledger-voucher.js';
+import './tripletex/actions/get-order.js';
+import './tripletex/actions/get-product.js';
+import './tripletex/actions/get-project.js';
+import './tripletex/actions/get-supplier.js';
+import './tripletex/actions/list-activities.js';
+import './tripletex/actions/list-contacts.js';
+import './tripletex/actions/list-countries.js';
+import './tripletex/actions/list-currencies.js';
+import './tripletex/actions/list-customers.js';
+import './tripletex/actions/list-departments.js';
+import './tripletex/actions/list-employees.js';
+import './tripletex/actions/list-invoices.js';
+import './tripletex/actions/list-ledger-accounts.js';
+import './tripletex/actions/list-ledger-vouchers.js';
+import './tripletex/actions/list-orders.js';
+import './tripletex/actions/list-products.js';
+import './tripletex/actions/list-projects.js';
+import './tripletex/actions/list-suppliers.js';
+import './tripletex/actions/update-contact.js';
+import './tripletex/actions/update-customer.js';
+import './tripletex/actions/update-product.js';
+import './tripletex/actions/update-project.js';
+import './tripletex/actions/update-supplier.js';
+
 // -- Integration: twilio
 import './twilio/syncs/api-keys.js';
 import './twilio/syncs/calls.js';
@@ -5511,6 +5755,13 @@ import './xero/actions/update-credit-note.js';
 import './xero/actions/update-invoice.js';
 import './xero/actions/update-item.js';
 import './xero/actions/update-purchase-order.js';
+
+// -- Integration: youcanbook-me-public
+import './youcanbook-me-public/actions/create-booking-intent.js';
+import './youcanbook-me-public/actions/get-availability-key.js';
+import './youcanbook-me-public/actions/get-available-slots.js';
+import './youcanbook-me-public/actions/get-booking-intent.js';
+import './youcanbook-me-public/actions/update-booking-intent-selections.js';
 
 // -- Integration: youtube
 import './youtube/syncs/caption-tracks.js';
