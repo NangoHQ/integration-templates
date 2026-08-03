@@ -1,80 +1,77 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-// Note: SalesOrderNumber is intentionally NOT an input field. Empirically (see
-// tests/create-sales-order.test.json, a real recorded create against the sandbox tenant), D365
-// auto-generates SalesOrderNumber on create for this entity/tenant configuration when it is
-// omitted from the request body, and RequestedShipDate is not required either (the response
-// contains no requestedShipDate when it wasn't supplied). Both fields are kept optional here.
 const InputSchema = z.object({
-    dataAreaId: z.string().describe('Company code / legal entity. Example: "dat"'),
-    OrderingCustomerAccountNumber: z.string().describe('Customer account number that places the order. Example: "DAT-000004"'),
-    InvoiceCustomerAccountNumber: z.string().describe('Customer account number to invoice. Example: "DAT-000004"'),
-    CurrencyCode: z.string().describe('Currency code. Example: "USD"'),
-    LanguageId: z.string().describe('Language ID. Example: "en-us"'),
-    RequestedReceiptDate: z.string().optional().describe('Requested receipt date (ISO 8601). Example: "2026-07-23"'),
-    RequestedShipDate: z.string().optional().describe('Requested ship date (ISO 8601). Example: "2026-07-23"'),
-    CustomerReference: z.string().optional().describe('Customer reference. Example: "PO-12345"'),
-    SalesOrderName: z.string().optional().describe('Sales order name / description. Example: "Test order"')
+    orderingCustomerAccountNumber: z.string().describe('Ordering customer account number. Example: "DAT-000004"'),
+    invoiceCustomerAccountNumber: z.string().describe('Invoice customer account number. Example: "DAT-000004"'),
+    currencyCode: z.string().describe('Currency code. Example: "USD"'),
+    languageId: z.string().describe('Language ID. Example: "en-us"'),
+    dataAreaId: z.string().describe('Company / legal entity ID. Example: "dat"'),
+    requestedReceiptDate: z.string().optional().describe('Requested receipt date (ISO 8601). Example: "2026-07-23"'),
+    requestedShippingDate: z.string().optional().describe('Requested shipping date (ISO 8601). Example: "2026-07-23"'),
+    customerReference: z.string().optional().describe('Customer requisition/reference number. Example: "PO-12345"'),
+    salesOrderName: z.string().optional().describe('Sales order name / description. Example: "Test order"')
 });
 
-const ProviderSalesOrderSchema = z.object({
-    dataAreaId: z.string(),
-    SalesOrderNumber: z.string(),
-    OrderingCustomerAccountNumber: z.string(),
-    InvoiceCustomerAccountNumber: z.string(),
-    CurrencyCode: z.string(),
-    LanguageId: z.string(),
-    RequestedReceiptDate: z.string().nullable().optional(),
-    RequestedShipDate: z.string().nullable().optional(),
-    CustomerReference: z.string().nullable().optional(),
-    SalesOrderName: z.string().nullable().optional(),
-    SalesOrderStatus: z.string().nullable().optional(),
-    CreatedDateTime: z.string().nullable().optional()
-});
+const ProviderSalesOrderSchema = z
+    .object({
+        SalesOrderNumber: z.string().optional(),
+        OrderingCustomerAccountNumber: z.string(),
+        InvoiceCustomerAccountNumber: z.string(),
+        CurrencyCode: z.string(),
+        LanguageId: z.string(),
+        dataAreaId: z.string(),
+        RequestedReceiptDate: z.string().nullable().optional(),
+        RequestedShippingDate: z.string().nullable().optional(),
+        CustomerRequisitionNumber: z.string().nullable().optional(),
+        SalesOrderName: z.string().nullable().optional(),
+        SalesOrderStatus: z.string().nullable().optional()
+    })
+    .passthrough();
 
 const OutputSchema = z.object({
-    dataAreaId: z.string(),
-    salesOrderNumber: z.string(),
+    salesOrderNumber: z.string().optional().describe('Created sales order number'),
     orderingCustomerAccountNumber: z.string(),
     invoiceCustomerAccountNumber: z.string(),
     currencyCode: z.string(),
     languageId: z.string(),
+    dataAreaId: z.string(),
     requestedReceiptDate: z.string().optional(),
-    requestedShipDate: z.string().optional(),
+    requestedShippingDate: z.string().optional(),
     customerReference: z.string().optional(),
     salesOrderName: z.string().optional(),
-    salesOrderStatus: z.string().optional(),
-    createdDateTime: z.string().optional()
+    salesOrderStatus: z.string().optional()
 });
 
 const action = createAction({
-    description: 'Create a sales order header.',
-    version: '1.0.0',
+    description: 'Create a sales order header',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Financials', 'User'], // typical D365 FO scopes; may vary by tenant setup
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {
-            dataAreaId: input.dataAreaId,
-            OrderingCustomerAccountNumber: input.OrderingCustomerAccountNumber,
-            InvoiceCustomerAccountNumber: input.InvoiceCustomerAccountNumber,
-            CurrencyCode: input.CurrencyCode,
-            LanguageId: input.LanguageId
+            OrderingCustomerAccountNumber: input.orderingCustomerAccountNumber,
+            InvoiceCustomerAccountNumber: input.invoiceCustomerAccountNumber,
+            CurrencyCode: input.currencyCode,
+            LanguageId: input.languageId,
+            dataAreaId: input.dataAreaId
         };
 
-        if (input.RequestedReceiptDate !== undefined) {
-            body['RequestedReceiptDate'] = input.RequestedReceiptDate;
+        // Field names validated against the live SalesOrderHeaderV2 entity: RequestedShipDate and
+        // CustomerReference are not real properties on this entity (RequestedShippingDate and
+        // CustomerRequisitionNumber are), so those are the names used both here and on parse below.
+        if (input.requestedReceiptDate !== undefined) {
+            body['RequestedReceiptDate'] = input.requestedReceiptDate;
         }
-        if (input.RequestedShipDate !== undefined) {
-            body['RequestedShipDate'] = input.RequestedShipDate;
+        if (input.requestedShippingDate !== undefined) {
+            body['RequestedShippingDate'] = input.requestedShippingDate;
         }
-        if (input.CustomerReference !== undefined) {
-            body['CustomerReference'] = input.CustomerReference;
+        if (input.customerReference !== undefined) {
+            body['CustomerRequisitionNumber'] = input.customerReference;
         }
-        if (input.SalesOrderName !== undefined) {
-            body['SalesOrderName'] = input.SalesOrderName;
+        if (input.salesOrderName !== undefined) {
+            body['SalesOrderName'] = input.salesOrderName;
         }
 
         const response = await nango.post({
@@ -84,21 +81,20 @@ const action = createAction({
             retries: 10
         });
 
-        const providerSalesOrder = ProviderSalesOrderSchema.parse(response.data);
+        const providerOrder = ProviderSalesOrderSchema.parse(response.data);
 
         return {
-            dataAreaId: providerSalesOrder.dataAreaId,
-            salesOrderNumber: providerSalesOrder.SalesOrderNumber,
-            orderingCustomerAccountNumber: providerSalesOrder.OrderingCustomerAccountNumber,
-            invoiceCustomerAccountNumber: providerSalesOrder.InvoiceCustomerAccountNumber,
-            currencyCode: providerSalesOrder.CurrencyCode,
-            languageId: providerSalesOrder.LanguageId,
-            ...(providerSalesOrder.RequestedReceiptDate != null && { requestedReceiptDate: providerSalesOrder.RequestedReceiptDate }),
-            ...(providerSalesOrder.RequestedShipDate != null && { requestedShipDate: providerSalesOrder.RequestedShipDate }),
-            ...(providerSalesOrder.CustomerReference != null && { customerReference: providerSalesOrder.CustomerReference }),
-            ...(providerSalesOrder.SalesOrderName != null && { salesOrderName: providerSalesOrder.SalesOrderName }),
-            ...(providerSalesOrder.SalesOrderStatus != null && { salesOrderStatus: providerSalesOrder.SalesOrderStatus }),
-            ...(providerSalesOrder.CreatedDateTime != null && { createdDateTime: providerSalesOrder.CreatedDateTime })
+            ...(providerOrder.SalesOrderNumber != null && { salesOrderNumber: providerOrder.SalesOrderNumber }),
+            orderingCustomerAccountNumber: providerOrder.OrderingCustomerAccountNumber,
+            invoiceCustomerAccountNumber: providerOrder.InvoiceCustomerAccountNumber,
+            currencyCode: providerOrder.CurrencyCode,
+            languageId: providerOrder.LanguageId,
+            dataAreaId: providerOrder.dataAreaId,
+            ...(providerOrder.RequestedReceiptDate != null && { requestedReceiptDate: providerOrder.RequestedReceiptDate }),
+            ...(providerOrder.RequestedShippingDate != null && { requestedShippingDate: providerOrder.RequestedShippingDate }),
+            ...(providerOrder.CustomerRequisitionNumber != null && { customerReference: providerOrder.CustomerRequisitionNumber }),
+            ...(providerOrder.SalesOrderName != null && { salesOrderName: providerOrder.SalesOrderName }),
+            ...(providerOrder.SalesOrderStatus != null && { salesOrderStatus: providerOrder.SalesOrderStatus })
         };
     }
 });

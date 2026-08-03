@@ -1,21 +1,14 @@
 {
   "input": {
-    "vendor_organization_name": "Nango Test Vendor 002",
-    "vendor_group_id": "Construct",
-    "data_area_id": "dat"
+    "dataAreaId": "dat",
+    "VendorOrganizationName": "Nango Test Vendor 002",
+    "VendorGroupId": "Construct"
   },
   "output": {
-    "data_area_id": "dat",
-    "vendor_account_number": "DAT-0000000039",
-    "vendor_organization_name": "Nango Test Vendor 002",
-    "vendor_group_id": "Construct",
-    "address_city": "",
-    "address_street": "",
-    "address_state_id": "",
-    "address_zip_code": "",
-    "address_country_region_id": "",
-    "primary_email_address": "",
-    "primary_phone_number": ""
+    "dataAreaId": "dat",
+    "VendorAccountNumber": "DAT-0000000043",
+    "VendorOrganizationName": "Nango Test Vendor 002",
+    "VendorGroupId": "Construct"
   },
   "nango": {},
   "api": {
@@ -23,9 +16,9 @@
       "/data/VendorsV2": {
         "response": {
           "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#VendorsV2/$entity",
-          "@odata.etag": "W/\"JzEsNTYzNzE0NjA4MjsxLDU2MzcxNDc1OTg7MCwwOzAsMDswLDA7MCwwOzAsMDswLDA7MCwwOzAsMDswLDA7MCwwJw==\"",
+          "@odata.etag": "W/\"JzEsNTYzNzE0NjgyODsxLDU2MzcxNDgzMzE7MCwwOzAsMDswLDA7MCwwOzAsMDswLDA7MCwwOzAsMDswLDA7MCwwJw==\"",
           "dataAreaId": "dat",
-          "VendorAccountNumber": "DAT-0000000039",
+          "VendorAccountNumber": "DAT-0000000043",
           "CompanyChainName": "",
           "AddressValidFrom": "1900-01-01T00:00:00Z",
           "PrimaryLinkedIn": "",
@@ -127,7 +120,7 @@
           "PriceVendorGroupId": "",
           "AddressLongitude": 0,
           "PrimaryURL": "",
-          "VendorPartyNumber": "000000423",
+          "VendorPartyNumber": "000000506",
           "DefaultPurchaseSiteId": "",
           "CISUniqueTaxPayerReference": "",
           "IsW9Received": "No",
@@ -319,7 +312,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:24:31 GMT",
+          "date": "Thu, 30 Jul 2026 09:08:31 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "8292",
           "connection": "keep-alive",
@@ -333,9 +326,9 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1798",
-          "x-ratelimit-reset": "1784766274",
-          "etag": "W/\"2064-j9PeGXL800KffpL+O4vloOZeDcc\""
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785402566",
+          "etag": "W/\"2064-GdWSjt/7XJoMQg/zAkJlrX2PUic\""
         },
         "hash": "e639753a920d64d3e4a7718fff4a50b98dd47587",
         "request": {

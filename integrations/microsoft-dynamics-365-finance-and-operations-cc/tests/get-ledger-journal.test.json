@@ -1,38 +1,45 @@
 {
   "input": {
     "dataAreaId": "dat",
-    "journalBatchNumber": "DAT-000015"
+    "journalBatchNumber": "DAT-000010"
   },
   "output": {
+    "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#LedgerJournalHeaders/$entity",
+    "@odata.etag": "W/\"JzkwMTc3NTM5Miw1NjM3MTQ1MzI4Jw==\"",
     "dataAreaId": "dat",
-    "journalBatchNumber": "DAT-000015",
-    "journalName": "EXPJRN",
-    "description": "Registry seed journal 1",
-    "isPosted": "No"
+    "JournalBatchNumber": "DAT-000010",
+    "AccountingCurrency": "USD",
+    "JournalName": "EXPJRN",
+    "IntegrationKey": "",
+    "Description": "RootFi test expense",
+    "PostingLayer": "Current",
+    "IsPosted": "Yes",
+    "JournalTotalCredit": 750,
+    "JournalTotalDebit": 750
   },
   "nango": {},
   "api": {
     "get": {
-      "/data/LedgerJournalHeaders(dataAreaId='dat',JournalBatchNumber='DAT-000015')": {
+      "/data/LedgerJournalHeaders(dataAreaId='dat',JournalBatchNumber='DAT-000010')": {
         "response": {
           "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#LedgerJournalHeaders/$entity",
-          "@odata.etag": "W/\"JzEsNTYzNzE0NTMzMCc=\"",
+          "@odata.etag": "W/\"JzkwMTc3NTM5Miw1NjM3MTQ1MzI4Jw==\"",
           "dataAreaId": "dat",
-          "JournalBatchNumber": "DAT-000015",
+          "JournalBatchNumber": "DAT-000010",
           "AccountingCurrency": "USD",
           "JournalName": "EXPJRN",
           "IntegrationKey": "",
-          "Description": "Registry seed journal 1",
+          "Description": "RootFi test expense",
           "PostingLayer": "Current",
-          "IsPosted": "No",
-          "JournalTotalCredit": 0,
-          "JournalTotalDebit": 0
+          "IsPosted": "Yes",
+          "JournalTotalCredit": 750,
+          "JournalTotalDebit": 750
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:22:45 GMT",
+          "date": "Thu, 30 Jul 2026 09:14:19 GMT",
           "content-type": "application/json; odata.metadata=minimal",
-          "content-length": "411",
+          "content-length": "424",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -44,11 +51,11 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1981",
-          "x-ratelimit-reset": "1784766214",
-          "etag": "W/\"19b-mNBaua39SNPA3BDIEgOC4U07By0\""
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1785402867",
+          "etag": "W/\"1a8-2ZHQ1kuTXmvjKBKlNuSnO0yxmqw\""
         },
-        "hash": "461f6eecc50806b579b8ad17b0f2d27a91f63199",
+        "hash": "60ec3a0fc2cf408fca69ad8430742fc2f7d836b9",
         "request": {}
       }
     }

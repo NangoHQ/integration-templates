@@ -1,0 +1,91 @@
+{
+  "input": {
+    "workflowId": "6a6b328004308879e7d439b6"
+  },
+  "output": {
+    "page": 0,
+    "pageSize": 20,
+    "count": 1,
+    "list": [
+      {
+        "startTime": "2026-07-30T11:16:18.534Z",
+        "endTime": "2026-07-30T11:20:17.377Z",
+        "status": "Approved",
+        "actorId": "68dc41166622f04ca177be37",
+        "actorType": "User",
+        "role": "approver137e74661e0b40e38e3a52dff067cd0c",
+        "roleName": "Legal",
+        "duration": 239000,
+        "durationSeconds": 239,
+        "aggregateDuration": 239000,
+        "netRequestDurationSeconds": 239,
+        "approvalType": "Workflow"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/public/api/v1/workflows/6a6b328004308879e7d439b6/approval-requests": {
+        "response": {
+          "page": 0,
+          "pageSize": 20,
+          "count": 1,
+          "list": [
+            {
+              "startTime": "2026-07-30T11:16:18.534Z",
+              "endTime": "2026-07-30T11:20:17.377Z",
+              "status": "Approved",
+              "actorId": "68dc41166622f04ca177be37",
+              "actorType": "User",
+              "role": "approver137e74661e0b40e38e3a52dff067cd0c",
+              "roleName": "Legal",
+              "duration": 239000,
+              "durationSeconds": 239,
+              "aggregateDuration": 239000,
+              "netRequestDurationSeconds": 239,
+              "approvalType": "Workflow"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 12:12:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1981",
+          "x-ratelimit-reset": "1785413573",
+          "vary": "Accept-Encoding, Accept-Encoding",
+          "x-pod-name": "public-api-558bcb5f77-vwfdb",
+          "x-version": "2026.29.916.740-a76a8bf20b4",
+          "x-response-id": "d2033c25-e065-4f19-9ac1-aadce2446f70",
+          "cache-control": "no-store, no-cache",
+          "content-security-policy": "default-src 'self';frame-ancestors 'self' https://*.salesforce.com https://*.lightning.force.com https://*.visual.force.com https://*.visualforce.com https://green-harvest-experience.my.site.com https://*.officeapps.live.com https://*.sharepoint.com;report-to https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;report-uri https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "expect-ct": "max-age=0",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-ironclad-requestid": "d2033c25-e065-4f19-9ac1-aadce2446f70",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "e8faca0440d98ceca9d32a05df4a2d8c847d3d1b",
+        "request": {
+          "params": {
+            "page": "0"
+          }
+        }
+      }
+    }
+  }
+}

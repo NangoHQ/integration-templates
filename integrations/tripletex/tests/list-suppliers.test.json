@@ -1,0 +1,264 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 93640840,
+        "version": 1,
+        "name": "Test Supplier Dryrun",
+        "organizationNumber": "",
+        "supplierNumber": 20003,
+        "customerNumber": 0,
+        "isSupplier": true,
+        "isCustomer": false,
+        "isInactive": false,
+        "email": "",
+        "invoiceEmail": "",
+        "phoneNumber": "",
+        "phoneNumberMobile": "",
+        "description": "",
+        "isPrivateIndividual": false,
+        "showProducts": false,
+        "displayName": "Test Supplier Dryrun (20003)",
+        "language": "NO",
+        "website": "",
+        "url": "api-test.tripletex.tech/v2/supplier/93640840"
+      },
+      {
+        "id": 93640845,
+        "version": 1,
+        "name": "Test Supplier Dryrun",
+        "organizationNumber": "",
+        "supplierNumber": 20004,
+        "customerNumber": 0,
+        "isSupplier": true,
+        "isCustomer": false,
+        "isInactive": false,
+        "email": "",
+        "invoiceEmail": "",
+        "phoneNumber": "",
+        "phoneNumberMobile": "",
+        "description": "",
+        "isPrivateIndividual": false,
+        "showProducts": false,
+        "displayName": "Test Supplier Dryrun (20004)",
+        "language": "NO",
+        "website": "",
+        "url": "api-test.tripletex.tech/v2/supplier/93640845"
+      },
+      {
+        "id": 93640852,
+        "version": 1,
+        "name": "Test Supplier for Update Action",
+        "organizationNumber": "",
+        "supplierNumber": 20005,
+        "customerNumber": 0,
+        "isSupplier": true,
+        "isCustomer": false,
+        "isInactive": false,
+        "email": "",
+        "invoiceEmail": "",
+        "phoneNumber": "",
+        "phoneNumberMobile": "",
+        "description": "",
+        "isPrivateIndividual": false,
+        "showProducts": false,
+        "displayName": "Test Supplier for Update Action (20005)",
+        "language": "NO",
+        "website": "",
+        "url": "api-test.tripletex.tech/v2/supplier/93640852"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/supplier": {
+        "response": {
+          "fullResultSize": 3,
+          "from": 0,
+          "count": 3,
+          "versionDigest": "'If-None-Match' header not specified",
+          "values": [
+            {
+              "id": 93640840,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/supplier/93640840",
+              "name": "Test Supplier Dryrun",
+              "organizationNumber": "",
+              "supplierNumber": 20003,
+              "customerNumber": 0,
+              "isSupplier": true,
+              "isCustomer": false,
+              "isInactive": false,
+              "email": "",
+              "invoiceEmail": "",
+              "overdueNoticeEmail": "",
+              "phoneNumber": "",
+              "phoneNumberMobile": "",
+              "description": "",
+              "isPrivateIndividual": false,
+              "showProducts": false,
+              "accountManager": null,
+              "postalAddress": {
+                "id": 332635405,
+                "url": "api-test.tripletex.tech/v2/address/332635405"
+              },
+              "physicalAddress": {
+                "id": 332635404,
+                "url": "api-test.tripletex.tech/v2/address/332635404"
+              },
+              "deliveryAddress": null,
+              "category1": null,
+              "category2": null,
+              "category3": null,
+              "bankAccountPresentation": [],
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "ledgerAccount": {
+                "id": 291297359,
+                "url": "api-test.tripletex.tech/v2/ledger/account/291297359"
+              },
+              "language": "NO",
+              "isWholesaler": false,
+              "displayName": "Test Supplier Dryrun (20003)",
+              "locale": "no_NO",
+              "website": ""
+            },
+            {
+              "id": 93640845,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/supplier/93640845",
+              "name": "Test Supplier Dryrun",
+              "organizationNumber": "",
+              "supplierNumber": 20004,
+              "customerNumber": 0,
+              "isSupplier": true,
+              "isCustomer": false,
+              "isInactive": false,
+              "email": "",
+              "invoiceEmail": "",
+              "overdueNoticeEmail": "",
+              "phoneNumber": "",
+              "phoneNumberMobile": "",
+              "description": "",
+              "isPrivateIndividual": false,
+              "showProducts": false,
+              "accountManager": null,
+              "postalAddress": {
+                "id": 332635415,
+                "url": "api-test.tripletex.tech/v2/address/332635415"
+              },
+              "physicalAddress": {
+                "id": 332635414,
+                "url": "api-test.tripletex.tech/v2/address/332635414"
+              },
+              "deliveryAddress": null,
+              "category1": null,
+              "category2": null,
+              "category3": null,
+              "bankAccountPresentation": [],
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "ledgerAccount": {
+                "id": 291297359,
+                "url": "api-test.tripletex.tech/v2/ledger/account/291297359"
+              },
+              "language": "NO",
+              "isWholesaler": false,
+              "displayName": "Test Supplier Dryrun (20004)",
+              "locale": "no_NO",
+              "website": ""
+            },
+            {
+              "id": 93640852,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/supplier/93640852",
+              "name": "Test Supplier for Update Action",
+              "organizationNumber": "",
+              "supplierNumber": 20005,
+              "customerNumber": 0,
+              "isSupplier": true,
+              "isCustomer": false,
+              "isInactive": false,
+              "email": "",
+              "invoiceEmail": "",
+              "overdueNoticeEmail": "",
+              "phoneNumber": "",
+              "phoneNumberMobile": "",
+              "description": "",
+              "isPrivateIndividual": false,
+              "showProducts": false,
+              "accountManager": null,
+              "postalAddress": {
+                "id": 332635429,
+                "url": "api-test.tripletex.tech/v2/address/332635429"
+              },
+              "physicalAddress": {
+                "id": 332635428,
+                "url": "api-test.tripletex.tech/v2/address/332635428"
+              },
+              "deliveryAddress": null,
+              "category1": null,
+              "category2": null,
+              "category3": null,
+              "bankAccountPresentation": [],
+              "currency": {
+                "id": 1,
+                "url": "api-test.tripletex.tech/v2/currency/1"
+              },
+              "ledgerAccount": {
+                "id": 291297359,
+                "url": "api-test.tripletex.tech/v2/ledger/account/291297359"
+              },
+              "language": "NO",
+              "isWholesaler": false,
+              "displayName": "Test Supplier for Update Action (20005)",
+              "locale": "no_NO",
+              "website": ""
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 12:28:51 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000;includeSubDomains;preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1942",
+          "x-ratelimit-reset": "1785241769",
+          "x-tlx-request-id": "b782d666-1dbd-4a7f-abeb-56e89e67c555",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "set-cookie": "<redacted>",
+          "x-rate-limit-limit": "100",
+          "x-rate-limit-remaining": "99",
+          "x-rate-limit-reset": "8",
+          "vary": "accept-encoding",
+          "server": "tripletex.no"
+        },
+        "hash": "ce7eb38e688769d0bc03bf70ea998ad25394d632",
+        "request": {
+          "params": {
+            "count": "100",
+            "from": "0"
+          }
+        }
+      }
+    }
+  }
+}

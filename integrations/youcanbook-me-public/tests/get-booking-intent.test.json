@@ -1,0 +1,67 @@
+{
+  "input": {
+    "intentId": "itt_c7225ca5-9599-4a9c-bf6f-2386856b31e4"
+  },
+  "output": {
+    "id": "itt_c7225ca5-9599-4a9c-bf6f-2386856b31e4",
+    "createdAt": 1785595799000,
+    "intentStatus": "SETTING_UP",
+    "selections": {
+      "form": [
+        {
+          "id": "EMAIL",
+          "value": "test@example.com"
+        },
+        {
+          "id": "FNAME",
+          "value": "Test"
+        },
+        {
+          "id": "LNAME",
+          "value": "User"
+        }
+      ],
+      "startsAt": 1788274216000,
+      "timeZone": "UTC"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/intents/itt_c7225ca5-9599-4a9c-bf6f-2386856b31e4": {
+        "response": {
+          "bookingId": null,
+          "createdAt": 1785595799000,
+          "id": "itt_c7225ca5-9599-4a9c-bf6f-2386856b31e4",
+          "intentStatus": "SETTING_UP",
+          "selections": {
+            "appointmentTypeIds": null,
+            "duration": null,
+            "form": [
+              {
+                "id": "EMAIL",
+                "value": "test@example.com"
+              },
+              {
+                "id": "FNAME",
+                "value": "Test"
+              },
+              {
+                "id": "LNAME",
+                "value": "User"
+              }
+            ],
+            "location": null,
+            "smsConsent": null,
+            "startsAt": 1788274216000,
+            "teamMemberId": null,
+            "timeZone": "UTC",
+            "units": null
+          }
+        },
+        "status": 200,
+        "request": {}
+      }
+    }
+  }
+}

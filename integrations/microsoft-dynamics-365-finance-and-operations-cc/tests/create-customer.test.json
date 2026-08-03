@@ -1,16 +1,17 @@
 {
   "input": {
-    "OrganizationName": "RFI Dryrun Customer 001",
-    "CustomerGroupId": "IG-CL",
-    "SalesCurrencyCode": "USD"
+    "dataAreaId": "dat",
+    "organizationName": "RFI Dryrun Customer 001",
+    "customerGroupId": "IG-CL",
+    "salesCurrencyCode": "USD"
   },
   "output": {
+    "customerAccount": "DAT-000053",
+    "organizationName": "RFI Dryrun Customer 001",
+    "customerGroupId": "IG-CL",
+    "salesCurrencyCode": "USD",
     "dataAreaId": "dat",
-    "CustomerAccount": "DAT-000047",
-    "OrganizationName": "RFI Dryrun Customer 001",
-    "CustomerGroupId": "IG-CL",
-    "SalesCurrencyCode": "USD",
-    "PartyNumber": "000000426"
+    "partyNumber": "000000505"
   },
   "nango": {},
   "api": {
@@ -18,9 +19,9 @@
       "/data/CustomersV3": {
         "response": {
           "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#CustomersV3/$entity",
-          "@odata.etag": "W/\"JzEsNTYzNzE0NTM0MzswLDA7MCwwOzAsMDsxLDU2MzcxNDc2MDE7MCwwOzAsMDswLDA7MCwwOzAsMDswLDAn\"",
+          "@odata.etag": "W/\"JzEsNTYzNzE0NjA3ODswLDA7MCwwOzAsMDsxLDU2MzcxNDgzMzA7MCwwOzAsMDswLDA7MCwwOzAsMDswLDAn\"",
           "dataAreaId": "dat",
-          "CustomerAccount": "DAT-000047",
+          "CustomerAccount": "DAT-000053",
           "AddressBrazilianCNPJOrCPF": "",
           "PartyType": "Organization",
           "PrimaryContactFaxExtension": "",
@@ -89,7 +90,7 @@
           "PrimaryContactURL": "",
           "IsFreightAccrued": "No",
           "PartyState": "",
-          "PartyNumber": "000000426",
+          "PartyNumber": "000000505",
           "InvoiceAccount": "",
           "CentralBankPurposeNotes": "",
           "AddressBuildingComplement": "",
@@ -331,7 +332,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:26:05 GMT",
+          "date": "Thu, 30 Jul 2026 08:53:50 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "8914",
           "connection": "keep-alive",
@@ -345,13 +346,14 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1939",
-          "x-ratelimit-reset": "1784766394",
-          "etag": "W/\"22d2-h6onvhxm/XVWKo0aDuPVAVf/SU8\""
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785401683",
+          "etag": "W/\"22d2-KKh/2hyBmmGrXsSG3YYySpawVuU\""
         },
-        "hash": "f2742dc3ed2f36d5bb26c2f2364dd3922a6da94f",
+        "hash": "fc5463f0a01a7c79b0b330a7b3da7a8a3c0da252",
         "request": {
           "data": {
+            "dataAreaId": "dat",
             "OrganizationName": "RFI Dryrun Customer 001",
             "CustomerGroupId": "IG-CL",
             "SalesCurrencyCode": "USD"

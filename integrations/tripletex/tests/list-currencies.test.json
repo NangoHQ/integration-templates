@@ -1,0 +1,1737 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 1,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/1",
+        "code": "NOK",
+        "description": "Norge",
+        "factor": 1,
+        "displayName": "NOK",
+        "isDisabled": false
+      },
+      {
+        "id": 2,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/2",
+        "code": "SEK",
+        "description": "Sverige",
+        "factor": 100,
+        "displayName": "SEK",
+        "isDisabled": false
+      },
+      {
+        "id": 3,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/3",
+        "code": "DKK",
+        "description": "Danmark",
+        "factor": 100,
+        "displayName": "DKK",
+        "isDisabled": false
+      },
+      {
+        "id": 4,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/4",
+        "code": "USD",
+        "description": "USA",
+        "factor": 1,
+        "displayName": "USD",
+        "isDisabled": false
+      },
+      {
+        "id": 5,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/5",
+        "code": "EUR",
+        "description": "EU",
+        "factor": 1,
+        "displayName": "EUR",
+        "isDisabled": false
+      },
+      {
+        "id": 6,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/6",
+        "code": "GBP",
+        "description": "Storbritannia",
+        "factor": 1,
+        "displayName": "GBP",
+        "isDisabled": false
+      },
+      {
+        "id": 7,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/7",
+        "code": "CHF",
+        "description": "Sveits",
+        "factor": 100,
+        "displayName": "CHF",
+        "isDisabled": false
+      },
+      {
+        "id": 8,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/8",
+        "code": "JPY",
+        "description": "Japan",
+        "factor": 100,
+        "displayName": "JPY",
+        "isDisabled": false
+      },
+      {
+        "id": 9,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/9",
+        "code": "AUD",
+        "description": "Australia",
+        "factor": 1,
+        "displayName": "AUD",
+        "isDisabled": false
+      },
+      {
+        "id": 10,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/10",
+        "code": "BHD",
+        "description": "Bahrain",
+        "factor": 1,
+        "displayName": "BHD",
+        "isDisabled": false
+      },
+      {
+        "id": 11,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/11",
+        "code": "BGN",
+        "description": "Bulgaria",
+        "factor": 100,
+        "displayName": "BGN",
+        "isDisabled": true
+      },
+      {
+        "id": 12,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/12",
+        "code": "CAD",
+        "description": "Canada",
+        "factor": 1,
+        "displayName": "CAD",
+        "isDisabled": false
+      },
+      {
+        "id": 13,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/13",
+        "code": "EGP",
+        "description": "Egypt",
+        "factor": 1,
+        "displayName": "EGP",
+        "isDisabled": false
+      },
+      {
+        "id": 14,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/14",
+        "code": "EEK",
+        "description": "Estland",
+        "factor": 100,
+        "displayName": "EEK",
+        "isDisabled": true
+      },
+      {
+        "id": 15,
+        "version": 3,
+        "url": "api-test.tripletex.tech/v2/currency/15",
+        "code": "PHP",
+        "description": "Filippinene",
+        "factor": 100,
+        "displayName": "PHP",
+        "isDisabled": false
+      },
+      {
+        "id": 16,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/16",
+        "code": "AED",
+        "description": "Forente Arabiske Emirater",
+        "factor": 1,
+        "displayName": "AED",
+        "isDisabled": false
+      },
+      {
+        "id": 17,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/17",
+        "code": "HKD",
+        "description": "Hong Kong",
+        "factor": 1,
+        "displayName": "HKD",
+        "isDisabled": false
+      },
+      {
+        "id": 18,
+        "version": 4,
+        "url": "api-test.tripletex.tech/v2/currency/18",
+        "code": "INR",
+        "description": "India",
+        "factor": 100,
+        "displayName": "INR",
+        "isDisabled": false
+      },
+      {
+        "id": 19,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/19",
+        "code": "IDR",
+        "description": "Indonesia",
+        "factor": 100,
+        "displayName": "IDR",
+        "isDisabled": false
+      },
+      {
+        "id": 20,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/20",
+        "code": "ISK",
+        "description": "Island",
+        "factor": 100,
+        "displayName": "ISK",
+        "isDisabled": false
+      },
+      {
+        "id": 21,
+        "version": 3,
+        "url": "api-test.tripletex.tech/v2/currency/21",
+        "code": "ILS",
+        "description": "Israel",
+        "factor": 1,
+        "displayName": "ILS",
+        "isDisabled": false
+      },
+      {
+        "id": 22,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/22",
+        "code": "KES",
+        "description": "Kenya",
+        "factor": 1,
+        "displayName": "KES",
+        "isDisabled": false
+      },
+      {
+        "id": 23,
+        "version": 3,
+        "url": "api-test.tripletex.tech/v2/currency/23",
+        "code": "CNY",
+        "description": "Kina",
+        "factor": 100,
+        "displayName": "CNY",
+        "isDisabled": false
+      },
+      {
+        "id": 24,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/24",
+        "code": "HRK",
+        "description": "Kroatia",
+        "factor": 100,
+        "displayName": "HRK",
+        "isDisabled": true
+      },
+      {
+        "id": 25,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/25",
+        "code": "KWD",
+        "description": "Kuwait",
+        "factor": 1,
+        "displayName": "KWD",
+        "isDisabled": false
+      },
+      {
+        "id": 26,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/26",
+        "code": "CYP",
+        "description": "Kypros",
+        "factor": 1,
+        "displayName": "CYP",
+        "isDisabled": true
+      },
+      {
+        "id": 27,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/27",
+        "code": "LVL",
+        "description": "Latvia",
+        "factor": 1,
+        "displayName": "LVL",
+        "isDisabled": true
+      },
+      {
+        "id": 28,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/28",
+        "code": "LTL",
+        "description": "Litauen",
+        "factor": 1,
+        "displayName": "LTL",
+        "isDisabled": true
+      },
+      {
+        "id": 29,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/29",
+        "code": "MLT",
+        "description": "Malta",
+        "factor": 1,
+        "displayName": "MLT",
+        "isDisabled": true
+      },
+      {
+        "id": 30,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/30",
+        "code": "MAD",
+        "description": "Marokko",
+        "factor": 100,
+        "displayName": "MAD",
+        "isDisabled": false
+      },
+      {
+        "id": 31,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/31",
+        "code": "NZD",
+        "description": "New Zealand",
+        "factor": 1,
+        "displayName": "NZD",
+        "isDisabled": false
+      },
+      {
+        "id": 32,
+        "version": 4,
+        "url": "api-test.tripletex.tech/v2/currency/32",
+        "code": "PKR",
+        "description": "Pakistan",
+        "factor": 100,
+        "displayName": "PKR",
+        "isDisabled": false
+      },
+      {
+        "id": 33,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/33",
+        "code": "PLN",
+        "description": "Polen",
+        "factor": 1,
+        "displayName": "PLN",
+        "isDisabled": false
+      },
+      {
+        "id": 34,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/34",
+        "code": "QAR",
+        "description": "Qatar",
+        "factor": 1,
+        "displayName": "QAR",
+        "isDisabled": false
+      },
+      {
+        "id": 35,
+        "version": 3,
+        "url": "api-test.tripletex.tech/v2/currency/35",
+        "code": "RUB",
+        "description": "Russland",
+        "factor": 100,
+        "displayName": "RUB",
+        "isDisabled": false
+      },
+      {
+        "id": 36,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/36",
+        "code": "SAR",
+        "description": "Saudi-Arabia",
+        "factor": 1,
+        "displayName": "SAR",
+        "isDisabled": false
+      },
+      {
+        "id": 37,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/37",
+        "code": "SGD",
+        "description": "Singapore",
+        "factor": 1,
+        "displayName": "SGD",
+        "isDisabled": false
+      },
+      {
+        "id": 38,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/38",
+        "code": "SKK",
+        "description": "Slovakia",
+        "factor": 100,
+        "displayName": "SKK",
+        "isDisabled": true
+      },
+      {
+        "id": 39,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/39",
+        "code": "ZAR",
+        "description": "Sor-Afrika",
+        "factor": 1,
+        "displayName": "ZAR",
+        "isDisabled": false
+      },
+      {
+        "id": 40,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/40",
+        "code": "KRW",
+        "description": "Sor-Korea",
+        "factor": 100,
+        "displayName": "KRW",
+        "isDisabled": false
+      },
+      {
+        "id": 41,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/41",
+        "code": "TWD",
+        "description": "Taiwan",
+        "factor": 100,
+        "displayName": "TWD",
+        "isDisabled": false
+      },
+      {
+        "id": 42,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/42",
+        "code": "TZS",
+        "description": "Tanzania",
+        "factor": 100,
+        "displayName": "TZS",
+        "isDisabled": false
+      },
+      {
+        "id": 43,
+        "version": 3,
+        "url": "api-test.tripletex.tech/v2/currency/43",
+        "code": "THB",
+        "description": "Thailand",
+        "factor": 100,
+        "displayName": "THB",
+        "isDisabled": false
+      },
+      {
+        "id": 44,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/44",
+        "code": "CZK",
+        "description": "Tsjekkia",
+        "factor": 100,
+        "displayName": "CZK",
+        "isDisabled": false
+      },
+      {
+        "id": 45,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/45",
+        "code": "TND",
+        "description": "Tunis",
+        "factor": 1,
+        "displayName": "TND",
+        "isDisabled": false
+      },
+      {
+        "id": 46,
+        "version": 4,
+        "url": "api-test.tripletex.tech/v2/currency/46",
+        "code": "TRY",
+        "description": "Tyrkia",
+        "factor": 100,
+        "displayName": "TRY",
+        "isDisabled": false
+      },
+      {
+        "id": 47,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/47",
+        "code": "HUF",
+        "description": "Ungarn",
+        "factor": 100,
+        "displayName": "HUF",
+        "isDisabled": false
+      },
+      {
+        "id": 48,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/48",
+        "code": "GRD",
+        "description": "Hellas",
+        "factor": 100,
+        "displayName": "GRD",
+        "isDisabled": true
+      },
+      {
+        "id": 49,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/49",
+        "code": "SIT",
+        "description": "Slovenia",
+        "factor": 100,
+        "displayName": "SIT",
+        "isDisabled": true
+      },
+      {
+        "id": 50,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/50",
+        "code": "ATS",
+        "description": "Østerrike",
+        "factor": 100,
+        "displayName": "ATS",
+        "isDisabled": true
+      },
+      {
+        "id": 51,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/51",
+        "code": "BEF/ LUF",
+        "description": "Belgia / Luxembourg",
+        "factor": 100,
+        "displayName": "BEF/ LUF",
+        "isDisabled": true
+      },
+      {
+        "id": 52,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/52",
+        "code": "DEM",
+        "description": "Tyskland",
+        "factor": 100,
+        "displayName": "DEM",
+        "isDisabled": true
+      },
+      {
+        "id": 53,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/53",
+        "code": "ESP",
+        "description": "Spania",
+        "factor": 100,
+        "displayName": "ESP",
+        "isDisabled": true
+      },
+      {
+        "id": 54,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/54",
+        "code": "FIM",
+        "description": "Finland",
+        "factor": 100,
+        "displayName": "FIM",
+        "isDisabled": true
+      },
+      {
+        "id": 55,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/55",
+        "code": "FRF",
+        "description": "Frankrike",
+        "factor": 100,
+        "displayName": "FRF",
+        "isDisabled": true
+      },
+      {
+        "id": 56,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/56",
+        "code": "IEP",
+        "description": "Irland",
+        "factor": 1,
+        "displayName": "IEP",
+        "isDisabled": true
+      },
+      {
+        "id": 57,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/57",
+        "code": "ITL",
+        "description": "Italia",
+        "factor": 100,
+        "displayName": "ITL",
+        "isDisabled": true
+      },
+      {
+        "id": 58,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/58",
+        "code": "NLG",
+        "description": "Nederland",
+        "factor": 100,
+        "displayName": "NLG",
+        "isDisabled": true
+      },
+      {
+        "id": 59,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/59",
+        "code": "PTE",
+        "description": "Portugal",
+        "factor": 100,
+        "displayName": "PTE",
+        "isDisabled": true
+      },
+      {
+        "id": 60,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/60",
+        "code": "MTL",
+        "description": "Malta",
+        "factor": 1,
+        "displayName": "MTL",
+        "isDisabled": true
+      },
+      {
+        "id": 61,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/61",
+        "code": "ROL",
+        "description": "Romania",
+        "factor": 100,
+        "displayName": "ROL",
+        "isDisabled": true
+      },
+      {
+        "id": 62,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/62",
+        "code": "TRL",
+        "description": "Tyrkia",
+        "factor": 100,
+        "displayName": "TRL",
+        "isDisabled": true
+      },
+      {
+        "id": 63,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/63",
+        "code": "XDR",
+        "description": "Spesielle trekkrettigheter (SDR)",
+        "factor": 1,
+        "displayName": "XDR",
+        "isDisabled": false
+      },
+      {
+        "id": 64,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/64",
+        "code": "XEU",
+        "description": "",
+        "factor": 1,
+        "displayName": "XEU",
+        "isDisabled": true
+      },
+      {
+        "id": 65,
+        "version": 3,
+        "url": "api-test.tripletex.tech/v2/currency/65",
+        "code": "BRL",
+        "description": "Brasil",
+        "factor": 1,
+        "displayName": "BRL",
+        "isDisabled": false
+      },
+      {
+        "id": 66,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/66",
+        "code": "MXN",
+        "description": "Mexico",
+        "factor": 100,
+        "displayName": "MXN",
+        "isDisabled": false
+      },
+      {
+        "id": 67,
+        "version": 2,
+        "url": "api-test.tripletex.tech/v2/currency/67",
+        "code": "MYR",
+        "description": "Malaysia",
+        "factor": 1,
+        "displayName": "MYR",
+        "isDisabled": false
+      },
+      {
+        "id": 68,
+        "version": 3,
+        "url": "api-test.tripletex.tech/v2/currency/68",
+        "code": "RON",
+        "description": "Romania",
+        "factor": 100,
+        "displayName": "RON",
+        "isDisabled": false
+      },
+      {
+        "id": 69,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/69",
+        "code": "VND",
+        "description": "Vietnam",
+        "factor": 100,
+        "displayName": "VND",
+        "isDisabled": false
+      },
+      {
+        "id": 70,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/70",
+        "code": "BYR",
+        "description": "Hviterussland",
+        "factor": 100,
+        "displayName": "BYR",
+        "isDisabled": true
+      },
+      {
+        "id": 71,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/71",
+        "code": "BYN",
+        "description": "Hviterussland",
+        "factor": 1,
+        "displayName": "BYN",
+        "isDisabled": false
+      },
+      {
+        "id": 72,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/72",
+        "code": "BDT",
+        "description": "Bangladesh",
+        "factor": 100,
+        "displayName": "BDT",
+        "isDisabled": false
+      },
+      {
+        "id": 73,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/73",
+        "code": "MMK",
+        "description": "Myanmar",
+        "factor": 100,
+        "displayName": "MMK",
+        "isDisabled": false
+      },
+      {
+        "id": 74,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/74",
+        "code": "ALL",
+        "description": "Albania",
+        "factor": 10,
+        "displayName": "ALL",
+        "isDisabled": false
+      },
+      {
+        "id": 75,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/75",
+        "code": "KPW",
+        "description": "Nord-Korea",
+        "factor": 100,
+        "displayName": "KPW",
+        "isDisabled": true
+      },
+      {
+        "id": 76,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/76",
+        "code": "UAH",
+        "description": "Ukrania",
+        "factor": 1,
+        "displayName": "UAH",
+        "isDisabled": false
+      },
+      {
+        "id": 77,
+        "version": 1,
+        "url": "api-test.tripletex.tech/v2/currency/77",
+        "code": "LKR",
+        "description": "Sri Lanka",
+        "factor": 10,
+        "displayName": "LKR",
+        "isDisabled": false
+      },
+      {
+        "id": 78,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/78",
+        "code": "OMR",
+        "description": "Oman",
+        "factor": 1,
+        "displayName": "OMR",
+        "isDisabled": false
+      },
+      {
+        "id": 79,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/79",
+        "code": "I44",
+        "description": "Import-weighted krone exchange rate",
+        "factor": 1,
+        "displayName": "I44",
+        "isDisabled": true
+      },
+      {
+        "id": 80,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/80",
+        "code": "TWI",
+        "description": "Trade-weighted krone exchange rate",
+        "factor": 1,
+        "displayName": "TWI",
+        "isDisabled": true
+      },
+      {
+        "id": 81,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/81",
+        "code": "AZN",
+        "description": "Aserbajdsjan",
+        "factor": 1,
+        "displayName": "AZN",
+        "isDisabled": false
+      },
+      {
+        "id": 82,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/82",
+        "code": "ARS",
+        "description": "Argentina",
+        "factor": 1,
+        "displayName": "ARS",
+        "isDisabled": false
+      },
+      {
+        "id": 83,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/83",
+        "code": "UGX",
+        "description": "Uganda",
+        "factor": 1,
+        "displayName": "UGX",
+        "isDisabled": false
+      },
+      {
+        "id": 84,
+        "version": 0,
+        "url": "api-test.tripletex.tech/v2/currency/84",
+        "code": "PGK",
+        "description": "Papua Ny-Guinea",
+        "factor": 1,
+        "displayName": "PGK",
+        "isDisabled": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/currency": {
+        "response": {
+          "fullResultSize": 84,
+          "from": 0,
+          "count": 84,
+          "versionDigest": "'If-None-Match' header not specified",
+          "values": [
+            {
+              "id": 1,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/1",
+              "code": "NOK",
+              "description": "Norge",
+              "factor": 1,
+              "displayName": "NOK",
+              "isDisabled": false
+            },
+            {
+              "id": 2,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/2",
+              "code": "SEK",
+              "description": "Sverige",
+              "factor": 100,
+              "displayName": "SEK",
+              "isDisabled": false
+            },
+            {
+              "id": 3,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/3",
+              "code": "DKK",
+              "description": "Danmark",
+              "factor": 100,
+              "displayName": "DKK",
+              "isDisabled": false
+            },
+            {
+              "id": 4,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/4",
+              "code": "USD",
+              "description": "USA",
+              "factor": 1,
+              "displayName": "USD",
+              "isDisabled": false
+            },
+            {
+              "id": 5,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/5",
+              "code": "EUR",
+              "description": "EU",
+              "factor": 1,
+              "displayName": "EUR",
+              "isDisabled": false
+            },
+            {
+              "id": 6,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/6",
+              "code": "GBP",
+              "description": "Storbritannia",
+              "factor": 1,
+              "displayName": "GBP",
+              "isDisabled": false
+            },
+            {
+              "id": 7,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/7",
+              "code": "CHF",
+              "description": "Sveits",
+              "factor": 100,
+              "displayName": "CHF",
+              "isDisabled": false
+            },
+            {
+              "id": 8,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/8",
+              "code": "JPY",
+              "description": "Japan",
+              "factor": 100,
+              "displayName": "JPY",
+              "isDisabled": false
+            },
+            {
+              "id": 9,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/9",
+              "code": "AUD",
+              "description": "Australia",
+              "factor": 1,
+              "displayName": "AUD",
+              "isDisabled": false
+            },
+            {
+              "id": 10,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/10",
+              "code": "BHD",
+              "description": "Bahrain",
+              "factor": 1,
+              "displayName": "BHD",
+              "isDisabled": false
+            },
+            {
+              "id": 11,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/11",
+              "code": "BGN",
+              "description": "Bulgaria",
+              "factor": 100,
+              "displayName": "BGN",
+              "isDisabled": true
+            },
+            {
+              "id": 12,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/12",
+              "code": "CAD",
+              "description": "Canada",
+              "factor": 1,
+              "displayName": "CAD",
+              "isDisabled": false
+            },
+            {
+              "id": 13,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/13",
+              "code": "EGP",
+              "description": "Egypt",
+              "factor": 1,
+              "displayName": "EGP",
+              "isDisabled": false
+            },
+            {
+              "id": 14,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/14",
+              "code": "EEK",
+              "description": "Estland",
+              "factor": 100,
+              "displayName": "EEK",
+              "isDisabled": true
+            },
+            {
+              "id": 15,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/currency/15",
+              "code": "PHP",
+              "description": "Filippinene",
+              "factor": 100,
+              "displayName": "PHP",
+              "isDisabled": false
+            },
+            {
+              "id": 16,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/16",
+              "code": "AED",
+              "description": "Forente Arabiske Emirater",
+              "factor": 1,
+              "displayName": "AED",
+              "isDisabled": false
+            },
+            {
+              "id": 17,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/17",
+              "code": "HKD",
+              "description": "Hong Kong",
+              "factor": 1,
+              "displayName": "HKD",
+              "isDisabled": false
+            },
+            {
+              "id": 18,
+              "version": 4,
+              "url": "api-test.tripletex.tech/v2/currency/18",
+              "code": "INR",
+              "description": "India",
+              "factor": 100,
+              "displayName": "INR",
+              "isDisabled": false
+            },
+            {
+              "id": 19,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/19",
+              "code": "IDR",
+              "description": "Indonesia",
+              "factor": 100,
+              "displayName": "IDR",
+              "isDisabled": false
+            },
+            {
+              "id": 20,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/20",
+              "code": "ISK",
+              "description": "Island",
+              "factor": 100,
+              "displayName": "ISK",
+              "isDisabled": false
+            },
+            {
+              "id": 21,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/currency/21",
+              "code": "ILS",
+              "description": "Israel",
+              "factor": 1,
+              "displayName": "ILS",
+              "isDisabled": false
+            },
+            {
+              "id": 22,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/22",
+              "code": "KES",
+              "description": "Kenya",
+              "factor": 1,
+              "displayName": "KES",
+              "isDisabled": false
+            },
+            {
+              "id": 23,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/currency/23",
+              "code": "CNY",
+              "description": "Kina",
+              "factor": 100,
+              "displayName": "CNY",
+              "isDisabled": false
+            },
+            {
+              "id": 24,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/24",
+              "code": "HRK",
+              "description": "Kroatia",
+              "factor": 100,
+              "displayName": "HRK",
+              "isDisabled": true
+            },
+            {
+              "id": 25,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/25",
+              "code": "KWD",
+              "description": "Kuwait",
+              "factor": 1,
+              "displayName": "KWD",
+              "isDisabled": false
+            },
+            {
+              "id": 26,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/26",
+              "code": "CYP",
+              "description": "Kypros",
+              "factor": 1,
+              "displayName": "CYP",
+              "isDisabled": true
+            },
+            {
+              "id": 27,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/27",
+              "code": "LVL",
+              "description": "Latvia",
+              "factor": 1,
+              "displayName": "LVL",
+              "isDisabled": true
+            },
+            {
+              "id": 28,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/28",
+              "code": "LTL",
+              "description": "Litauen",
+              "factor": 1,
+              "displayName": "LTL",
+              "isDisabled": true
+            },
+            {
+              "id": 29,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/29",
+              "code": "MLT",
+              "description": "Malta",
+              "factor": 1,
+              "displayName": "MLT",
+              "isDisabled": true
+            },
+            {
+              "id": 30,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/30",
+              "code": "MAD",
+              "description": "Marokko",
+              "factor": 100,
+              "displayName": "MAD",
+              "isDisabled": false
+            },
+            {
+              "id": 31,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/31",
+              "code": "NZD",
+              "description": "New Zealand",
+              "factor": 1,
+              "displayName": "NZD",
+              "isDisabled": false
+            },
+            {
+              "id": 32,
+              "version": 4,
+              "url": "api-test.tripletex.tech/v2/currency/32",
+              "code": "PKR",
+              "description": "Pakistan",
+              "factor": 100,
+              "displayName": "PKR",
+              "isDisabled": false
+            },
+            {
+              "id": 33,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/33",
+              "code": "PLN",
+              "description": "Polen",
+              "factor": 1,
+              "displayName": "PLN",
+              "isDisabled": false
+            },
+            {
+              "id": 34,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/34",
+              "code": "QAR",
+              "description": "Qatar",
+              "factor": 1,
+              "displayName": "QAR",
+              "isDisabled": false
+            },
+            {
+              "id": 35,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/currency/35",
+              "code": "RUB",
+              "description": "Russland",
+              "factor": 100,
+              "displayName": "RUB",
+              "isDisabled": false
+            },
+            {
+              "id": 36,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/36",
+              "code": "SAR",
+              "description": "Saudi-Arabia",
+              "factor": 1,
+              "displayName": "SAR",
+              "isDisabled": false
+            },
+            {
+              "id": 37,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/37",
+              "code": "SGD",
+              "description": "Singapore",
+              "factor": 1,
+              "displayName": "SGD",
+              "isDisabled": false
+            },
+            {
+              "id": 38,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/38",
+              "code": "SKK",
+              "description": "Slovakia",
+              "factor": 100,
+              "displayName": "SKK",
+              "isDisabled": true
+            },
+            {
+              "id": 39,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/39",
+              "code": "ZAR",
+              "description": "Sor-Afrika",
+              "factor": 1,
+              "displayName": "ZAR",
+              "isDisabled": false
+            },
+            {
+              "id": 40,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/40",
+              "code": "KRW",
+              "description": "Sor-Korea",
+              "factor": 100,
+              "displayName": "KRW",
+              "isDisabled": false
+            },
+            {
+              "id": 41,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/41",
+              "code": "TWD",
+              "description": "Taiwan",
+              "factor": 100,
+              "displayName": "TWD",
+              "isDisabled": false
+            },
+            {
+              "id": 42,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/42",
+              "code": "TZS",
+              "description": "Tanzania",
+              "factor": 100,
+              "displayName": "TZS",
+              "isDisabled": false
+            },
+            {
+              "id": 43,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/currency/43",
+              "code": "THB",
+              "description": "Thailand",
+              "factor": 100,
+              "displayName": "THB",
+              "isDisabled": false
+            },
+            {
+              "id": 44,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/44",
+              "code": "CZK",
+              "description": "Tsjekkia",
+              "factor": 100,
+              "displayName": "CZK",
+              "isDisabled": false
+            },
+            {
+              "id": 45,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/45",
+              "code": "TND",
+              "description": "Tunis",
+              "factor": 1,
+              "displayName": "TND",
+              "isDisabled": false
+            },
+            {
+              "id": 46,
+              "version": 4,
+              "url": "api-test.tripletex.tech/v2/currency/46",
+              "code": "TRY",
+              "description": "Tyrkia",
+              "factor": 100,
+              "displayName": "TRY",
+              "isDisabled": false
+            },
+            {
+              "id": 47,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/47",
+              "code": "HUF",
+              "description": "Ungarn",
+              "factor": 100,
+              "displayName": "HUF",
+              "isDisabled": false
+            },
+            {
+              "id": 48,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/48",
+              "code": "GRD",
+              "description": "Hellas",
+              "factor": 100,
+              "displayName": "GRD",
+              "isDisabled": true
+            },
+            {
+              "id": 49,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/49",
+              "code": "SIT",
+              "description": "Slovenia",
+              "factor": 100,
+              "displayName": "SIT",
+              "isDisabled": true
+            },
+            {
+              "id": 50,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/50",
+              "code": "ATS",
+              "description": "Østerrike",
+              "factor": 100,
+              "displayName": "ATS",
+              "isDisabled": true
+            },
+            {
+              "id": 51,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/51",
+              "code": "BEF/ LUF",
+              "description": "Belgia / Luxembourg",
+              "factor": 100,
+              "displayName": "BEF/ LUF",
+              "isDisabled": true
+            },
+            {
+              "id": 52,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/52",
+              "code": "DEM",
+              "description": "Tyskland",
+              "factor": 100,
+              "displayName": "DEM",
+              "isDisabled": true
+            },
+            {
+              "id": 53,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/53",
+              "code": "ESP",
+              "description": "Spania",
+              "factor": 100,
+              "displayName": "ESP",
+              "isDisabled": true
+            },
+            {
+              "id": 54,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/54",
+              "code": "FIM",
+              "description": "Finland",
+              "factor": 100,
+              "displayName": "FIM",
+              "isDisabled": true
+            },
+            {
+              "id": 55,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/55",
+              "code": "FRF",
+              "description": "Frankrike",
+              "factor": 100,
+              "displayName": "FRF",
+              "isDisabled": true
+            },
+            {
+              "id": 56,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/56",
+              "code": "IEP",
+              "description": "Irland",
+              "factor": 1,
+              "displayName": "IEP",
+              "isDisabled": true
+            },
+            {
+              "id": 57,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/57",
+              "code": "ITL",
+              "description": "Italia",
+              "factor": 100,
+              "displayName": "ITL",
+              "isDisabled": true
+            },
+            {
+              "id": 58,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/58",
+              "code": "NLG",
+              "description": "Nederland",
+              "factor": 100,
+              "displayName": "NLG",
+              "isDisabled": true
+            },
+            {
+              "id": 59,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/59",
+              "code": "PTE",
+              "description": "Portugal",
+              "factor": 100,
+              "displayName": "PTE",
+              "isDisabled": true
+            },
+            {
+              "id": 60,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/60",
+              "code": "MTL",
+              "description": "Malta",
+              "factor": 1,
+              "displayName": "MTL",
+              "isDisabled": true
+            },
+            {
+              "id": 61,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/61",
+              "code": "ROL",
+              "description": "Romania",
+              "factor": 100,
+              "displayName": "ROL",
+              "isDisabled": true
+            },
+            {
+              "id": 62,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/62",
+              "code": "TRL",
+              "description": "Tyrkia",
+              "factor": 100,
+              "displayName": "TRL",
+              "isDisabled": true
+            },
+            {
+              "id": 63,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/63",
+              "code": "XDR",
+              "description": "Spesielle trekkrettigheter (SDR)",
+              "factor": 1,
+              "displayName": "XDR",
+              "isDisabled": false
+            },
+            {
+              "id": 64,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/64",
+              "code": "XEU",
+              "description": "",
+              "factor": 1,
+              "displayName": "XEU",
+              "isDisabled": true
+            },
+            {
+              "id": 65,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/currency/65",
+              "code": "BRL",
+              "description": "Brasil",
+              "factor": 1,
+              "displayName": "BRL",
+              "isDisabled": false
+            },
+            {
+              "id": 66,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/66",
+              "code": "MXN",
+              "description": "Mexico",
+              "factor": 100,
+              "displayName": "MXN",
+              "isDisabled": false
+            },
+            {
+              "id": 67,
+              "version": 2,
+              "url": "api-test.tripletex.tech/v2/currency/67",
+              "code": "MYR",
+              "description": "Malaysia",
+              "factor": 1,
+              "displayName": "MYR",
+              "isDisabled": false
+            },
+            {
+              "id": 68,
+              "version": 3,
+              "url": "api-test.tripletex.tech/v2/currency/68",
+              "code": "RON",
+              "description": "Romania",
+              "factor": 100,
+              "displayName": "RON",
+              "isDisabled": false
+            },
+            {
+              "id": 69,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/69",
+              "code": "VND",
+              "description": "Vietnam",
+              "factor": 100,
+              "displayName": "VND",
+              "isDisabled": false
+            },
+            {
+              "id": 70,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/70",
+              "code": "BYR",
+              "description": "Hviterussland",
+              "factor": 100,
+              "displayName": "BYR",
+              "isDisabled": true
+            },
+            {
+              "id": 71,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/71",
+              "code": "BYN",
+              "description": "Hviterussland",
+              "factor": 1,
+              "displayName": "BYN",
+              "isDisabled": false
+            },
+            {
+              "id": 72,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/72",
+              "code": "BDT",
+              "description": "Bangladesh",
+              "factor": 100,
+              "displayName": "BDT",
+              "isDisabled": false
+            },
+            {
+              "id": 73,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/73",
+              "code": "MMK",
+              "description": "Myanmar",
+              "factor": 100,
+              "displayName": "MMK",
+              "isDisabled": false
+            },
+            {
+              "id": 74,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/74",
+              "code": "ALL",
+              "description": "Albania",
+              "factor": 10,
+              "displayName": "ALL",
+              "isDisabled": false
+            },
+            {
+              "id": 75,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/75",
+              "code": "KPW",
+              "description": "Nord-Korea",
+              "factor": 100,
+              "displayName": "KPW",
+              "isDisabled": true
+            },
+            {
+              "id": 76,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/76",
+              "code": "UAH",
+              "description": "Ukrania",
+              "factor": 1,
+              "displayName": "UAH",
+              "isDisabled": false
+            },
+            {
+              "id": 77,
+              "version": 1,
+              "url": "api-test.tripletex.tech/v2/currency/77",
+              "code": "LKR",
+              "description": "Sri Lanka",
+              "factor": 10,
+              "displayName": "LKR",
+              "isDisabled": false
+            },
+            {
+              "id": 78,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/78",
+              "code": "OMR",
+              "description": "Oman",
+              "factor": 1,
+              "displayName": "OMR",
+              "isDisabled": false
+            },
+            {
+              "id": 79,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/79",
+              "code": "I44",
+              "description": "Import-weighted krone exchange rate",
+              "factor": 1,
+              "displayName": "I44",
+              "isDisabled": true
+            },
+            {
+              "id": 80,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/80",
+              "code": "TWI",
+              "description": "Trade-weighted krone exchange rate",
+              "factor": 1,
+              "displayName": "TWI",
+              "isDisabled": true
+            },
+            {
+              "id": 81,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/81",
+              "code": "AZN",
+              "description": "Aserbajdsjan",
+              "factor": 1,
+              "displayName": "AZN",
+              "isDisabled": false
+            },
+            {
+              "id": 82,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/82",
+              "code": "ARS",
+              "description": "Argentina",
+              "factor": 1,
+              "displayName": "ARS",
+              "isDisabled": false
+            },
+            {
+              "id": 83,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/83",
+              "code": "UGX",
+              "description": "Uganda",
+              "factor": 1,
+              "displayName": "UGX",
+              "isDisabled": false
+            },
+            {
+              "id": 84,
+              "version": 0,
+              "url": "api-test.tripletex.tech/v2/currency/84",
+              "code": "PGK",
+              "description": "Papua Ny-Guinea",
+              "factor": 1,
+              "displayName": "PGK",
+              "isDisabled": true
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 12:27:45 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000;includeSubDomains;preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1957",
+          "x-ratelimit-reset": "1785241709",
+          "x-tlx-request-id": "bc628188-377c-4056-a437-d47c2c3e8d39",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "set-cookie": "JSESSIONID=8841BBD649D0DA9567F42CA7B1D55D40; Path=/; Secure; HttpOnly; SameSite=None, tlx_locale=no_NO; Max-Age=3600; Expires=Tue, 28 Jul 2026 13:27:45 GMT; Path=/; Secure; SameSite=None",
+          "x-rate-limit-limit": "100",
+          "x-rate-limit-remaining": "94",
+          "x-rate-limit-reset": "4",
+          "vary": "accept-encoding",
+          "server": "tripletex.no"
+        },
+        "hash": "0ff8996445e9591e60aad09d670a37923e7bd48c",
+        "request": {
+          "params": {
+            "count": "100",
+            "from": "0"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,129 +1,60 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const OptionalUnknown = z.unknown().optional().nullable();
-
-const ProviderSalesOrderLineSchema = z.object({
-    dataAreaId: z.string(),
-    SalesOrderNumber: z.string(),
-    LineNumber: z.union([z.string(), z.number()]),
-    ItemNumber: OptionalUnknown,
-    OrderedSalesQuantity: OptionalUnknown,
-    SalesUnitSymbol: OptionalUnknown,
-    SalesPrice: OptionalUnknown,
-    CurrencyCode: OptionalUnknown,
-    LineAmount: OptionalUnknown,
-    NetAmount: OptionalUnknown,
-    SalesOrderLineStatus: OptionalUnknown,
-    RequestedShippingDate: OptionalUnknown,
-    RequestedReceiptDate: OptionalUnknown,
-    ShippingWarehouseId: OptionalUnknown,
-    ShippingSiteId: OptionalUnknown,
-    CustomerAccount: OptionalUnknown,
-    LineDiscountAmount: OptionalUnknown,
-    LineDiscountPercentage: OptionalUnknown,
-    ProductConfigurationId: OptionalUnknown,
-    ProductColorId: OptionalUnknown,
-    ProductSizeId: OptionalUnknown,
-    ProductStyleId: OptionalUnknown,
-    ProductVersionId: OptionalUnknown,
-    LineDescription: OptionalUnknown
-});
+const ProviderSalesOrderLineSchema = z
+    .object({
+        dataAreaId: z.string(),
+        SalesOrderNumber: z.string(),
+        LineNumber: z.union([z.string(), z.number()]),
+        ItemNumber: z.string().optional().nullable(),
+        ProductConfigurationId: z.string().optional().nullable(),
+        ProductSizeId: z.string().optional().nullable(),
+        ProductColorId: z.string().optional().nullable(),
+        ProductStyleId: z.string().optional().nullable(),
+        ProductVersionId: z.string().optional().nullable(),
+        ShippingWarehouseId: z.string().optional().nullable(),
+        ShippingSiteId: z.string().optional().nullable(),
+        OrderedInventoryQuantity: z.union([z.string(), z.number()]).optional().nullable(),
+        SalesPrice: z.union([z.string(), z.number()]).optional().nullable(),
+        SalesUnit: z.string().optional().nullable(),
+        LineAmount: z.union([z.string(), z.number()]).optional().nullable(),
+        RequestedReceiptDate: z.string().optional().nullable(),
+        RequestedShipDate: z.string().optional().nullable(),
+        CustomerLineNumber: z.string().optional().nullable(),
+        SalesStatus: z.string().optional().nullable()
+    })
+    .passthrough();
 
 const SalesOrderLineSchema = z.object({
     id: z.string(),
     dataAreaId: z.string(),
     salesOrderNumber: z.string(),
-    lineNumber: z.number(),
+    lineNumber: z.string(),
     itemNumber: z.string().optional(),
-    orderedSalesQuantity: z.number().optional(),
-    salesUnitSymbol: z.string().optional(),
-    salesPrice: z.number().optional(),
-    currencyCode: z.string().optional(),
-    lineAmount: z.number().optional(),
-    netAmount: z.number().optional(),
-    salesOrderLineStatus: z.string().optional(),
-    requestedShippingDate: z.string().optional(),
-    requestedReceiptDate: z.string().optional(),
-    shippingWarehouseId: z.string().optional(),
-    shippingSiteId: z.string().optional(),
-    customerAccount: z.string().optional(),
-    lineDiscountAmount: z.number().optional(),
-    lineDiscountPercentage: z.number().optional(),
     productConfigurationId: z.string().optional(),
-    productColorId: z.string().optional(),
     productSizeId: z.string().optional(),
+    productColorId: z.string().optional(),
     productStyleId: z.string().optional(),
     productVersionId: z.string().optional(),
-    lineDescription: z.string().optional()
+    shippingWarehouseId: z.string().optional(),
+    shippingSiteId: z.string().optional(),
+    orderedInventoryQuantity: z.union([z.string(), z.number()]).optional(),
+    salesPrice: z.union([z.string(), z.number()]).optional(),
+    salesUnit: z.string().optional(),
+    lineAmount: z.union([z.string(), z.number()]).optional(),
+    requestedReceiptDate: z.string().optional(),
+    requestedShipDate: z.string().optional(),
+    customerLineNumber: z.string().optional(),
+    salesStatus: z.string().optional()
 });
 
 const CheckpointSchema = z.object({
-    skip: z.number().int().min(0)
+    offset: z.number().int().min(0)
 });
-
-function toNumber(value: unknown): number | undefined {
-    if (typeof value === 'number') {
-        return value;
-    }
-    if (typeof value === 'string') {
-        const n = Number(value);
-        if (!Number.isNaN(n)) {
-            return n;
-        }
-    }
-    return undefined;
-}
-
-function toString(value: unknown): string | undefined {
-    if (typeof value === 'string') {
-        return value;
-    }
-    if (typeof value === 'number') {
-        return String(value);
-    }
-    return undefined;
-}
-
-function mapLine(raw: unknown) {
-    const record = ProviderSalesOrderLineSchema.parse(raw);
-    const lineNumber = toNumber(record.LineNumber);
-    if (lineNumber === undefined || Number.isNaN(lineNumber)) {
-        throw new Error(`Invalid LineNumber for sales order ${record.SalesOrderNumber} in company ${record.dataAreaId}`);
-    }
-
-    return {
-        id: `${record.dataAreaId}-${record.SalesOrderNumber}-${lineNumber}`,
-        dataAreaId: record.dataAreaId,
-        salesOrderNumber: record.SalesOrderNumber,
-        lineNumber,
-        itemNumber: toString(record.ItemNumber),
-        orderedSalesQuantity: toNumber(record.OrderedSalesQuantity),
-        salesUnitSymbol: toString(record.SalesUnitSymbol),
-        salesPrice: toNumber(record.SalesPrice),
-        currencyCode: toString(record.CurrencyCode),
-        lineAmount: toNumber(record.LineAmount),
-        netAmount: toNumber(record.NetAmount),
-        salesOrderLineStatus: toString(record.SalesOrderLineStatus),
-        requestedShippingDate: toString(record.RequestedShippingDate),
-        requestedReceiptDate: toString(record.RequestedReceiptDate),
-        shippingWarehouseId: toString(record.ShippingWarehouseId),
-        shippingSiteId: toString(record.ShippingSiteId),
-        customerAccount: toString(record.CustomerAccount),
-        lineDiscountAmount: toNumber(record.LineDiscountAmount),
-        lineDiscountPercentage: toNumber(record.LineDiscountPercentage),
-        productConfigurationId: toString(record.ProductConfigurationId),
-        productColorId: toString(record.ProductColorId),
-        productSizeId: toString(record.ProductSizeId),
-        productStyleId: toString(record.ProductStyleId),
-        productVersionId: toString(record.ProductVersionId),
-        lineDescription: toString(record.LineDescription)
-    };
-}
 
 const sync = createSync({
     description: 'Sync sales order lines.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -132,58 +63,73 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
+        // Blocker: SalesOrderLinesV3 does not expose a filterable modified-timestamp
+        // in this D365 FO environment, so incremental checkpoints are not viable.
+        // We still persist the current $skip offset so an interrupted full crawl
+        // can resume inside the same delete-tracking window.
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
-        let skip = checkpoint.success ? checkpoint.data.skip : 0;
+        let offset = checkpoint.success ? checkpoint.data.offset : 0;
+        let trackingStarted = offset > 0;
 
-        // skip can only be > 0 if an earlier execution already advanced past at least one
-        // non-empty page (see the trackingStarted-gating below), which means that earlier
-        // execution must have already called trackDeletesStart. On a resumed execution we must
-        // NOT call trackDeletesStart again — that would open a fresh window covering only the
-        // remaining pages, and trackDeletesEnd would then treat every line from the
-        // already-processed pages as missing and delete it. trackDeletesStart is only actually
-        // called once we've seen a validated page that contains records, so an empty/anomalous
-        // response never opens (and therefore never completes) a window that would wipe the
-        // whole cache.
-        let trackingStarted = skip > 0;
-
-        const ODataResponseSchema = z.object({
-            value: z.array(z.unknown())
-        });
-
-        const limit = 100;
-        let hasMore = true;
-
-        while (hasMore) {
+        const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-            const response = await nango.get({
-                endpoint: '/data/SalesOrderLinesV3',
-                params: {
-                    $top: limit,
-                    $skip: skip,
-                    'cross-company': 'true',
-                    $orderby: 'dataAreaId asc,SalesOrderNumber asc,LineNumber asc'
-                },
-                retries: 3
-            });
+            endpoint: '/data/SalesOrderLinesV3',
+            params: {
+                $orderby: 'dataAreaId asc,SalesOrderNumber asc,LineNumber asc',
+                'cross-company': 'true'
+            },
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: '$skip',
+                offset_start_value: offset,
+                offset_calculation_method: 'by-response-size',
+                limit_name_in_request: '$top',
+                limit: 100,
+                response_path: 'value'
+            },
+            retries: 3
+        };
 
-            const envelope = ODataResponseSchema.parse(response.data);
-            const lines = envelope.value.map(mapLine);
+        for await (const page of nango.paginate(proxyConfig)) {
+            const parsed = z.array(ProviderSalesOrderLineSchema).safeParse(page);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse sales order lines: ${parsed.error.message}`);
+            }
 
-            if (!trackingStarted && lines.length > 0) {
+            if (!trackingStarted) {
                 await nango.trackDeletesStart('SalesOrderLine');
                 trackingStarted = true;
             }
+
+            const lines = parsed.data.map((record) => ({
+                id: `${record.dataAreaId}-${record.SalesOrderNumber}-${record.LineNumber}`,
+                dataAreaId: record.dataAreaId,
+                salesOrderNumber: record.SalesOrderNumber,
+                lineNumber: String(record.LineNumber),
+                ...(record.ItemNumber != null && { itemNumber: record.ItemNumber }),
+                ...(record.ProductConfigurationId != null && { productConfigurationId: record.ProductConfigurationId }),
+                ...(record.ProductSizeId != null && { productSizeId: record.ProductSizeId }),
+                ...(record.ProductColorId != null && { productColorId: record.ProductColorId }),
+                ...(record.ProductStyleId != null && { productStyleId: record.ProductStyleId }),
+                ...(record.ProductVersionId != null && { productVersionId: record.ProductVersionId }),
+                ...(record.ShippingWarehouseId != null && { shippingWarehouseId: record.ShippingWarehouseId }),
+                ...(record.ShippingSiteId != null && { shippingSiteId: record.ShippingSiteId }),
+                ...(record.OrderedInventoryQuantity != null && { orderedInventoryQuantity: record.OrderedInventoryQuantity }),
+                ...(record.SalesPrice != null && { salesPrice: record.SalesPrice }),
+                ...(record.SalesUnit != null && { salesUnit: record.SalesUnit }),
+                ...(record.LineAmount != null && { lineAmount: record.LineAmount }),
+                ...(record.RequestedReceiptDate != null && { requestedReceiptDate: record.RequestedReceiptDate }),
+                ...(record.RequestedShipDate != null && { requestedShipDate: record.RequestedShipDate }),
+                ...(record.CustomerLineNumber != null && { customerLineNumber: record.CustomerLineNumber }),
+                ...(record.SalesStatus != null && { salesStatus: record.SalesStatus })
+            }));
 
             if (lines.length > 0) {
                 await nango.batchSave(lines, 'SalesOrderLine');
             }
 
-            skip += envelope.value.length;
-            await nango.saveCheckpoint({ skip });
-
-            if (envelope.value.length < limit) {
-                hasMore = false;
-            }
+            offset += page.length;
+            await nango.saveCheckpoint({ offset });
         }
 
         await nango.clearCheckpoint();

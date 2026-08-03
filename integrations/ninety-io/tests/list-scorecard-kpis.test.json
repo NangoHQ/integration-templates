@@ -1,0 +1,1511 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "_id": "6a616ba843cee8f7e09d7e3b",
+        "title": "Org Checkup - Traction",
+        "periodInterval": "annual",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e3a",
+        "title": "Org Checkup - Process",
+        "periodInterval": "annual",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e39",
+        "title": "Org Checkup - Issues",
+        "periodInterval": "annual",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e38",
+        "title": "Org Checkup - Data",
+        "periodInterval": "annual",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e37",
+        "title": "Org Checkup - People",
+        "periodInterval": "annual",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e36",
+        "title": "Org Checkup - Vision",
+        "periodInterval": "annual",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e35",
+        "title": "Total workforce",
+        "periodInterval": "annual",
+        "unit": "number",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "inside",
+          "min": 0,
+          "max": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e34",
+        "title": "Revenue per FTE",
+        "periodInterval": "annual",
+        "unit": "dollar",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "inside",
+          "min": 0,
+          "max": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e33",
+        "title": "Revenue TTM",
+        "periodInterval": "annual",
+        "unit": "dollar",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e32",
+        "title": "Revenue Annual",
+        "periodInterval": "annual",
+        "unit": "dollar",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e31",
+        "title": "Rock Performance (1-10)",
+        "periodInterval": "annual",
+        "unit": "number",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "lastScoreUpdatedAt": "2026-07-28T18:56:28.179Z",
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e30",
+        "title": "On track to hit Budget (1-10)",
+        "periodInterval": "annual",
+        "unit": "number",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e2f",
+        "title": "Achieved Budget (1-10)",
+        "periodInterval": "annual",
+        "unit": "number",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e2e",
+        "title": "Net Income TTM",
+        "periodInterval": "annual",
+        "unit": "dollar",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e2d",
+        "title": "Net Income Annual",
+        "periodInterval": "annual",
+        "unit": "dollar",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e2c",
+        "title": "Enterprise Value",
+        "periodInterval": "annual",
+        "unit": "dollar",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e2b",
+        "title": "EBITDA",
+        "periodInterval": "annual",
+        "unit": "dollar",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e14",
+            "name": "Annual Scorecard",
+            "periodInterval": "annual"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e29",
+        "title": "Org Checkup - Traction",
+        "periodInterval": "quarterly",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e13",
+            "name": "Quarterly Scorecard",
+            "periodInterval": "quarterly"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e28",
+        "title": "Org Checkup - Process",
+        "periodInterval": "quarterly",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e13",
+            "name": "Quarterly Scorecard",
+            "periodInterval": "quarterly"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e27",
+        "title": "Org Checkup - Issues",
+        "periodInterval": "quarterly",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e13",
+            "name": "Quarterly Scorecard",
+            "periodInterval": "quarterly"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e26",
+        "title": "Org Checkup - Data",
+        "periodInterval": "quarterly",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e13",
+            "name": "Quarterly Scorecard",
+            "periodInterval": "quarterly"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e25",
+        "title": "Org Checkup - People",
+        "periodInterval": "quarterly",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e13",
+            "name": "Quarterly Scorecard",
+            "periodInterval": "quarterly"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e24",
+        "title": "Org Checkup - Vision",
+        "periodInterval": "quarterly",
+        "unit": "percentage",
+        "defaultGoal": {
+          "orientation": "gte",
+          "value": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e13",
+            "name": "Quarterly Scorecard",
+            "periodInterval": "quarterly"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e23",
+        "title": "Total workforce",
+        "periodInterval": "quarterly",
+        "unit": "number",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "inside",
+          "min": 0,
+          "max": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e13",
+            "name": "Quarterly Scorecard",
+            "periodInterval": "quarterly"
+          }
+        ]
+      },
+      {
+        "_id": "6a616ba843cee8f7e09d7e22",
+        "title": "Revenue per FTE",
+        "periodInterval": "quarterly",
+        "unit": "dollar",
+        "currency": "USD",
+        "defaultGoal": {
+          "orientation": "inside",
+          "min": 0,
+          "max": 0
+        },
+        "type": "active",
+        "attachmentCount": 0,
+        "isSmart": false,
+        "isUsedInFormula": false,
+        "teams": [
+          {
+            "id": "6a616ba8908190d6d9458153",
+            "name": "Leadership Team"
+          }
+        ],
+        "scorecards": [
+          {
+            "id": "6a616ba843cee8f7e09d7e13",
+            "name": "Quarterly Scorecard",
+            "periodInterval": "quarterly"
+          }
+        ]
+      }
+    ],
+    "currentPage": 1,
+    "itemsCount": 25,
+    "totalCount": 34,
+    "totalPages": 2,
+    "nextCursor": "2"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/scorecard/kpis/query": {
+        "response": {
+          "currentPage": 1,
+          "items": [
+            {
+              "_id": "6a616ba843cee8f7e09d7e3b",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Org Checkup - Traction",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e3a",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Org Checkup - Process",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e39",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Org Checkup - Issues",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e38",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Org Checkup - Data",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e37",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Org Checkup - People",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e36",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Org Checkup - Vision",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e35",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "inside",
+                "min": 0,
+                "max": 0
+              },
+              "periodInterval": "annual",
+              "title": "Total workforce",
+              "unit": "number",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e34",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "inside",
+                "min": 0,
+                "max": 0
+              },
+              "periodInterval": "annual",
+              "title": "Revenue per FTE",
+              "unit": "dollar",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e33",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Revenue TTM",
+              "unit": "dollar",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e32",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Revenue Annual",
+              "unit": "dollar",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e31",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Rock Performance (1-10)",
+              "unit": "number",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": "2026-07-28T18:56:28.179Z",
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e30",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "On track to hit Budget (1-10)",
+              "unit": "number",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e2f",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Achieved Budget (1-10)",
+              "unit": "number",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e2e",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Net Income TTM",
+              "unit": "dollar",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e2d",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Net Income Annual",
+              "unit": "dollar",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e2c",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "Enterprise Value",
+              "unit": "dollar",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e2b",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "annual",
+              "title": "EBITDA",
+              "unit": "dollar",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e14",
+                  "name": "Annual Scorecard",
+                  "periodInterval": "annual"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e29",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "quarterly",
+              "title": "Org Checkup - Traction",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e13",
+                  "name": "Quarterly Scorecard",
+                  "periodInterval": "quarterly"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e28",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "quarterly",
+              "title": "Org Checkup - Process",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e13",
+                  "name": "Quarterly Scorecard",
+                  "periodInterval": "quarterly"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e27",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "quarterly",
+              "title": "Org Checkup - Issues",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e13",
+                  "name": "Quarterly Scorecard",
+                  "periodInterval": "quarterly"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e26",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "quarterly",
+              "title": "Org Checkup - Data",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e13",
+                  "name": "Quarterly Scorecard",
+                  "periodInterval": "quarterly"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e25",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "quarterly",
+              "title": "Org Checkup - People",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e13",
+                  "name": "Quarterly Scorecard",
+                  "periodInterval": "quarterly"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e24",
+              "defaultGoal": {
+                "orientation": "gte",
+                "value": 0
+              },
+              "periodInterval": "quarterly",
+              "title": "Org Checkup - Vision",
+              "unit": "percentage",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e13",
+                  "name": "Quarterly Scorecard",
+                  "periodInterval": "quarterly"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e23",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "inside",
+                "min": 0,
+                "max": 0
+              },
+              "periodInterval": "quarterly",
+              "title": "Total workforce",
+              "unit": "number",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e13",
+                  "name": "Quarterly Scorecard",
+                  "periodInterval": "quarterly"
+                }
+              ]
+            },
+            {
+              "_id": "6a616ba843cee8f7e09d7e22",
+              "currency": "USD",
+              "defaultGoal": {
+                "orientation": "inside",
+                "min": 0,
+                "max": 0
+              },
+              "periodInterval": "quarterly",
+              "title": "Revenue per FTE",
+              "unit": "dollar",
+              "userId": null,
+              "userFullName": null,
+              "type": "active",
+              "attachmentCount": 0,
+              "isSmart": false,
+              "isUsedInFormula": false,
+              "lastScoreUpdatedAt": null,
+              "teams": [
+                {
+                  "id": "6a616ba8908190d6d9458153",
+                  "name": "Leadership Team"
+                }
+              ],
+              "scorecards": [
+                {
+                  "id": "6a616ba843cee8f7e09d7e13",
+                  "name": "Quarterly Scorecard",
+                  "periodInterval": "quarterly"
+                }
+              ]
+            }
+          ],
+          "itemsCount": 25,
+          "totalCount": 34,
+          "totalPages": 2
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 28 Jul 2026 18:58:01 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "11927",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1937",
+          "x-ratelimit-reset": "1785265091",
+          "etag": "W/\"2e97-s+K7N8rWH7QJeJRdLR3jUDCvm2U\""
+        },
+        "hash": "ff720f74040fa7fb9ad6716d554962cbf9935fa9",
+        "request": {
+          "data": {}
+        }
+      }
+    }
+  }
+}

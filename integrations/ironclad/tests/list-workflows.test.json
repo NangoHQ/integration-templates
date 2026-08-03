@@ -1,0 +1,3569 @@
+{
+  "input": {},
+  "output": {
+    "page": 0,
+    "pageSize": 20,
+    "count": 5,
+    "items": [
+      {
+        "id": "6a6b3fe555335a552adb8903",
+        "ironcladId": "IC-12",
+        "title": "Every Field Type with Nango Registry Test Create Workflow Dryrun",
+        "template": "68dc41e5a7987b1e623e4711",
+        "step": "Sign",
+        "status": "active",
+        "created": "2026-07-30T12:13:25.629Z",
+        "lastUpdated": "2026-07-30T12:14:05.034Z",
+        "schema": {
+          "date": {
+            "type": "date",
+            "displayName": "Date",
+            "propertyKey": "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date",
+            "readOnly": true
+          },
+          "draft": {
+            "type": "array",
+            "displayName": "Draft",
+            "elementType": {
+              "type": "document",
+              "displayName": "Draft",
+              "readOnly": true
+            },
+            "readOnly": true
+          },
+          "table": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Table",
+            "elementType": {
+              "type": "object",
+              "schema": {
+                "tableDateField": {
+                  "type": "date",
+                  "displayName": "Table Date Field",
+                  "readOnly": true
+                },
+                "tableTextField": {
+                  "type": "string",
+                  "displayName": "Table Text Field",
+                  "readOnly": true
+                },
+                "tableEmailField": {
+                  "type": "email",
+                  "displayName": "Table Email Field",
+                  "readOnly": true
+                },
+                "tableNumberField": {
+                  "type": "number",
+                  "displayName": "Table Number Field",
+                  "readOnly": true
+                },
+                "tableBooleanField": {
+                  "type": "boolean",
+                  "displayName": "Table Boolean Field",
+                  "readOnly": true
+                },
+                "tableDurationField": {
+                  "type": "duration",
+                  "displayName": "Table Duration Field",
+                  "readOnly": true
+                },
+                "tableMonetaryAmountField": {
+                  "type": "monetaryAmount",
+                  "displayName": "Table Monetary Amount Field",
+                  "readOnly": true
+                },
+                "tableFormulaMonetaryAmountXNumber": {
+                  "type": "monetaryAmount",
+                  "displayName": "Table Formula (Monetary Amount x Number)",
+                  "readOnly": true
+                }
+              },
+              "displayName": "Table Item",
+              "readOnly": true
+            },
+            "propertyKey": "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list",
+            "readOnly": true
+          },
+          "number": {
+            "type": "number",
+            "displayName": "Number",
+            "propertyKey": "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number",
+            "readOnly": true
+          },
+          "signed": {
+            "type": "document",
+            "displayName": "Signed PDF",
+            "readOnly": true
+          },
+          "address": {
+            "type": "address",
+            "displayName": "Address",
+            "propertyKey": "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address",
+            "readOnly": true
+          },
+          "duration": {
+            "type": "duration",
+            "displayName": "Duration",
+            "propertyKey": "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration",
+            "readOnly": true
+          },
+          "launchType": {
+            "type": "string",
+            "displayName": "Workflow Launch Type",
+            "readOnly": true
+          },
+          "childRecord": {
+            "type": "childRecord",
+            "schema": {},
+            "displayName": "Child Record",
+            "readOnly": true
+          },
+          "paperSource": {
+            "type": "string",
+            "displayName": "Paper Source",
+            "propertyKey": "paperSource",
+            "readOnly": true
+          },
+          "parentRecord": {
+            "type": "parentRecord",
+            "schema": {},
+            "displayName": "Parent Record",
+            "readOnly": true
+          },
+          "agreementDate": {
+            "type": "date",
+            "displayName": "Agreement Date",
+            "readOnly": true
+          },
+          "emailQuestion": {
+            "type": "email",
+            "displayName": "Email",
+            "propertyKey": "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email",
+            "readOnly": true
+          },
+          "paragraphText": {
+            "type": "string",
+            "displayName": "Paragraph (Text)",
+            "propertyKey": "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "relatedRecord": {
+            "type": "linkedRecord",
+            "schema": {},
+            "displayName": "Related Record",
+            "readOnly": true
+          },
+          "yesNoQuestion": {
+            "type": "boolean",
+            "displayName": "Yes / No",
+            "propertyKey": "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean",
+            "readOnly": true
+          },
+          "fileAttachment": {
+            "type": "array",
+            "visible": true,
+            "displayName": "File Attachment",
+            "elementType": {
+              "type": "document",
+              "displayName": "File Attachment",
+              "readOnly": true
+            },
+            "propertyKey": "fileAttachment",
+            "readOnly": true
+          },
+          "monetaryAmount": {
+            "type": "monetaryAmount",
+            "displayName": "Monetary Amount",
+            "propertyKey": "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount",
+            "readOnly": true
+          },
+          "partiallySigned": {
+            "type": "document",
+            "displayName": "Partially Signed Signature Packet",
+            "readOnly": true
+          },
+          "counterpartyName": {
+            "type": "string",
+            "displayName": "Counterparty Name",
+            "propertyKey": "counterpartyName",
+            "readOnly": true
+          },
+          "reviewRollbacked": {
+            "type": "boolean",
+            "displayName": "Returned to Review Step?",
+            "readOnly": true
+          },
+          "shortResponseText": {
+            "type": "string",
+            "displayName": "Short Response (Text)",
+            "propertyKey": "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "sentSignaturePacket": {
+            "type": "array",
+            "displayName": "Sent Signature Packet",
+            "elementType": {
+              "type": "document",
+              "displayName": "Sent Signature Packet",
+              "readOnly": true
+            },
+            "readOnly": true
+          },
+          "singleSelectDropdown": {
+            "type": "string",
+            "displayName": "Single Select Dropdown",
+            "propertyKey": "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "multiSelectCheckBoxNumber": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Multi Select Check Box (Number)",
+            "elementType": {
+              "type": "string",
+              "displayName": "Multi Select Check Box (Number)",
+              "readOnly": true
+            },
+            "propertyKey": "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+            "readOnly": true
+          },
+          "multiSelectDropdownNumber": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Multi Select Dropdown (Text)",
+            "elementType": {
+              "type": "string",
+              "displayName": "Multi Select Dropdown (Text)",
+              "readOnly": true
+            },
+            "propertyKey": "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+            "readOnly": true
+          },
+          "formulaPullCityFromAddress": {
+            "type": "string",
+            "displayName": "Formula (Pull City from Address)",
+            "propertyKey": "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "singleSelectRadioButtonNumber": {
+            "type": "string",
+            "displayName": "Single Select Radio Button (Number)",
+            "propertyKey": "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "role05214514a05a417b9f952e014db84927": {
+            "type": "string",
+            "displayName": "Counterparty Signer Name",
+            "propertyKey": "counterpartySigner",
+            "readOnly": true
+          },
+          "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+            "type": "email",
+            "displayName": "Counterparty Signer Email",
+            "propertyKey": "counterpartySignerEmail",
+            "readOnly": true
+          }
+        },
+        "attributes": {
+          "draft": [
+            {
+              "version": "83QKLbBX9y7i5kKegeX-9",
+              "versionNumber": 1,
+              "filename": "Every Field Type with Nango Registry Test Create Workflow Dryrun - Supported Fields (6a6b3fe903).docx",
+              "key": "Lw_TU8wEoXvdu5vYZ2FXj",
+              "download": "/public/api/v1/workflows/6a6b3fe555335a552adb8903/document/Lw_TU8wEoXvdu5vYZ2FXj/download",
+              "lastModified": {
+                "timestamp": "2026-07-30T12:13:27.266Z",
+                "author": {
+                  "type": "internalUser",
+                  "displayName": "Kelvin Wari",
+                  "email": "kelvin@nango.dev",
+                  "userId": "68dc41166622f04ca177be37",
+                  "companyName": "Developer - Nango"
+                }
+              }
+            }
+          ],
+          "paperSource": "Our paper",
+          "counterpartyName": "Nango Registry Test Create Workflow Dryrun",
+          "role05214514a05a417b9f952e014db84927": "Test Signer",
+          "role8b6358fbf5c841b99fa1a0d4e23c642a": "test@example.com",
+          "readableId": "IC-12",
+          "currentTurnParty": "not tracked"
+        },
+        "isCancelled": false,
+        "isComplete": false,
+        "creator": {
+          "contactNumber": "",
+          "department": "",
+          "displayName": "Kelvin Wari",
+          "email": "kelvin@nango.dev",
+          "id": "68dc41166622f04ca177be37",
+          "metadata": {},
+          "companyProfiles": {},
+          "pronoun": "",
+          "profilePhoto": {
+            "readToken": "userProfileToken668c6d55e3b6481b98739b0f6eda64df"
+          },
+          "title": "",
+          "username": "kelvin@nango.dev",
+          "lastUsageTrack": "2026-07-30T11:09:34.858Z",
+          "companyProfile": {}
+        },
+        "roles": [
+          {
+            "id": "approver137e74661e0b40e38e3a52dff067cd0c",
+            "displayName": "Legal",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          },
+          {
+            "id": "signerd49e5bda9d7944f78f5954493eab138e",
+            "displayName": "Internal Signer",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          },
+          {
+            "id": "owner",
+            "displayName": "Workflow Owner",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          }
+        ],
+        "approvals": {
+          "state": "completed"
+        },
+        "signatures": {
+          "state": "in_progress",
+          "url": "https://ironcladapp.com/public/api/v1/workflows/6a6b3fe555335a552adb8903/signatures"
+        },
+        "isRevertibleToReview": true
+      },
+      {
+        "id": "6a6b3fdb3025739b7fdac4a8",
+        "ironcladId": "IC-11",
+        "title": "Every Field Type with Nango Registry Test Create Workflow Dryrun",
+        "template": "68dc41e5a7987b1e623e4711",
+        "step": "Review",
+        "status": "active",
+        "created": "2026-07-30T12:13:15.106Z",
+        "lastUpdated": "2026-07-30T12:13:15.115Z",
+        "schema": {
+          "date": {
+            "type": "date",
+            "displayName": "Date",
+            "propertyKey": "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date",
+            "readOnly": true
+          },
+          "draft": {
+            "type": "array",
+            "displayName": "Draft",
+            "elementType": {
+              "type": "document",
+              "displayName": "Draft",
+              "readOnly": true
+            },
+            "readOnly": true
+          },
+          "table": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Table",
+            "elementType": {
+              "type": "object",
+              "schema": {
+                "tableDateField": {
+                  "type": "date",
+                  "displayName": "Table Date Field",
+                  "readOnly": true
+                },
+                "tableTextField": {
+                  "type": "string",
+                  "displayName": "Table Text Field",
+                  "readOnly": true
+                },
+                "tableEmailField": {
+                  "type": "email",
+                  "displayName": "Table Email Field",
+                  "readOnly": true
+                },
+                "tableNumberField": {
+                  "type": "number",
+                  "displayName": "Table Number Field",
+                  "readOnly": true
+                },
+                "tableBooleanField": {
+                  "type": "boolean",
+                  "displayName": "Table Boolean Field",
+                  "readOnly": true
+                },
+                "tableDurationField": {
+                  "type": "duration",
+                  "displayName": "Table Duration Field",
+                  "readOnly": true
+                },
+                "tableMonetaryAmountField": {
+                  "type": "monetaryAmount",
+                  "displayName": "Table Monetary Amount Field",
+                  "readOnly": true
+                },
+                "tableFormulaMonetaryAmountXNumber": {
+                  "type": "monetaryAmount",
+                  "displayName": "Table Formula (Monetary Amount x Number)",
+                  "readOnly": true
+                }
+              },
+              "displayName": "Table Item",
+              "readOnly": true
+            },
+            "propertyKey": "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list",
+            "readOnly": true
+          },
+          "number": {
+            "type": "number",
+            "displayName": "Number",
+            "propertyKey": "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number",
+            "readOnly": true
+          },
+          "signed": {
+            "type": "document",
+            "displayName": "Signed PDF",
+            "readOnly": true
+          },
+          "address": {
+            "type": "address",
+            "displayName": "Address",
+            "propertyKey": "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address",
+            "readOnly": true
+          },
+          "duration": {
+            "type": "duration",
+            "displayName": "Duration",
+            "propertyKey": "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration",
+            "readOnly": true
+          },
+          "launchType": {
+            "type": "string",
+            "displayName": "Workflow Launch Type",
+            "readOnly": true
+          },
+          "childRecord": {
+            "type": "childRecord",
+            "schema": {},
+            "displayName": "Child Record",
+            "readOnly": true
+          },
+          "paperSource": {
+            "type": "string",
+            "displayName": "Paper Source",
+            "propertyKey": "paperSource",
+            "readOnly": true
+          },
+          "parentRecord": {
+            "type": "parentRecord",
+            "schema": {},
+            "displayName": "Parent Record",
+            "readOnly": true
+          },
+          "agreementDate": {
+            "type": "date",
+            "displayName": "Agreement Date",
+            "readOnly": true
+          },
+          "emailQuestion": {
+            "type": "email",
+            "displayName": "Email",
+            "propertyKey": "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email",
+            "readOnly": true
+          },
+          "paragraphText": {
+            "type": "string",
+            "displayName": "Paragraph (Text)",
+            "propertyKey": "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "relatedRecord": {
+            "type": "linkedRecord",
+            "schema": {},
+            "displayName": "Related Record",
+            "readOnly": true
+          },
+          "yesNoQuestion": {
+            "type": "boolean",
+            "displayName": "Yes / No",
+            "propertyKey": "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean",
+            "readOnly": true
+          },
+          "fileAttachment": {
+            "type": "array",
+            "visible": true,
+            "displayName": "File Attachment",
+            "elementType": {
+              "type": "document",
+              "displayName": "File Attachment",
+              "readOnly": true
+            },
+            "propertyKey": "fileAttachment",
+            "readOnly": true
+          },
+          "monetaryAmount": {
+            "type": "monetaryAmount",
+            "displayName": "Monetary Amount",
+            "propertyKey": "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount",
+            "readOnly": true
+          },
+          "partiallySigned": {
+            "type": "document",
+            "displayName": "Partially Signed Signature Packet",
+            "readOnly": true
+          },
+          "counterpartyName": {
+            "type": "string",
+            "displayName": "Counterparty Name",
+            "propertyKey": "counterpartyName",
+            "readOnly": true
+          },
+          "reviewRollbacked": {
+            "type": "boolean",
+            "displayName": "Returned to Review Step?",
+            "readOnly": true
+          },
+          "shortResponseText": {
+            "type": "string",
+            "displayName": "Short Response (Text)",
+            "propertyKey": "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "sentSignaturePacket": {
+            "type": "array",
+            "displayName": "Sent Signature Packet",
+            "elementType": {
+              "type": "document",
+              "displayName": "Sent Signature Packet",
+              "readOnly": true
+            },
+            "readOnly": true
+          },
+          "singleSelectDropdown": {
+            "type": "string",
+            "displayName": "Single Select Dropdown",
+            "propertyKey": "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "multiSelectCheckBoxNumber": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Multi Select Check Box (Number)",
+            "elementType": {
+              "type": "string",
+              "displayName": "Multi Select Check Box (Number)",
+              "readOnly": true
+            },
+            "propertyKey": "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+            "readOnly": true
+          },
+          "multiSelectDropdownNumber": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Multi Select Dropdown (Text)",
+            "elementType": {
+              "type": "string",
+              "displayName": "Multi Select Dropdown (Text)",
+              "readOnly": true
+            },
+            "propertyKey": "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+            "readOnly": true
+          },
+          "formulaPullCityFromAddress": {
+            "type": "string",
+            "displayName": "Formula (Pull City from Address)",
+            "propertyKey": "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "singleSelectRadioButtonNumber": {
+            "type": "string",
+            "displayName": "Single Select Radio Button (Number)",
+            "propertyKey": "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "role05214514a05a417b9f952e014db84927": {
+            "type": "string",
+            "displayName": "Counterparty Signer Name",
+            "propertyKey": "counterpartySigner",
+            "readOnly": true
+          },
+          "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+            "type": "email",
+            "displayName": "Counterparty Signer Email",
+            "propertyKey": "counterpartySignerEmail",
+            "readOnly": true
+          }
+        },
+        "attributes": {
+          "draft": [
+            {
+              "version": "h7ptFrcKTosBzA6ra9Qyl",
+              "versionNumber": 1,
+              "filename": "Every Field Type with Nango Registry Test Create Workflow Dryrun - Supported Fields (6a6b3fd4a8).docx",
+              "key": "qhtX5B2tMcKsZr7Aie5Va",
+              "download": "/public/api/v1/workflows/6a6b3fdb3025739b7fdac4a8/document/qhtX5B2tMcKsZr7Aie5Va/download",
+              "lastModified": {
+                "timestamp": "2026-07-30T12:13:16.879Z",
+                "author": {
+                  "type": "internalUser",
+                  "displayName": "Kelvin Wari",
+                  "email": "kelvin@nango.dev",
+                  "userId": "68dc41166622f04ca177be37",
+                  "companyName": "Developer - Nango"
+                }
+              }
+            }
+          ],
+          "paperSource": "Our paper",
+          "counterpartyName": "Nango Registry Test Create Workflow Dryrun",
+          "role05214514a05a417b9f952e014db84927": "Test Signer",
+          "role8b6358fbf5c841b99fa1a0d4e23c642a": "test@example.com",
+          "readableId": "IC-11",
+          "currentTurnParty": "not tracked"
+        },
+        "isCancelled": false,
+        "isComplete": false,
+        "creator": {
+          "contactNumber": "",
+          "department": "",
+          "displayName": "Kelvin Wari",
+          "email": "kelvin@nango.dev",
+          "id": "68dc41166622f04ca177be37",
+          "metadata": {},
+          "companyProfiles": {},
+          "pronoun": "",
+          "profilePhoto": {
+            "readToken": "userProfileToken668c6d55e3b6481b98739b0f6eda64df"
+          },
+          "title": "",
+          "username": "kelvin@nango.dev",
+          "lastUsageTrack": "2026-07-30T11:09:34.858Z",
+          "companyProfile": {}
+        },
+        "roles": [
+          {
+            "id": "approver137e74661e0b40e38e3a52dff067cd0c",
+            "displayName": "Legal",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          },
+          {
+            "id": "signerd49e5bda9d7944f78f5954493eab138e",
+            "displayName": "Internal Signer",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          },
+          {
+            "id": "owner",
+            "displayName": "Workflow Owner",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          }
+        ],
+        "approvals": {
+          "state": "in_progress",
+          "url": "https://ironcladapp.com/public/api/v1/workflows/6a6b3fdb3025739b7fdac4a8/approvals"
+        },
+        "signatures": {
+          "state": "not_started"
+        },
+        "isRevertibleToReview": false
+      },
+      {
+        "id": "6a6b328004308879e7d439b6",
+        "ironcladId": "IC-1",
+        "title": "Every Field Type with Nango Registry Test Counterparty",
+        "template": "68dc41e5a7987b1e623e4711",
+        "step": "Review",
+        "status": "active",
+        "created": "2026-07-30T11:16:16.916Z",
+        "lastUpdated": "2026-07-30T12:13:08.182Z",
+        "schema": {
+          "date": {
+            "type": "date",
+            "displayName": "Date",
+            "propertyKey": "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date",
+            "readOnly": true
+          },
+          "draft": {
+            "type": "array",
+            "displayName": "Draft",
+            "elementType": {
+              "type": "document",
+              "displayName": "Draft",
+              "readOnly": true
+            },
+            "readOnly": true
+          },
+          "table": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Table",
+            "elementType": {
+              "type": "object",
+              "schema": {
+                "tableDateField": {
+                  "type": "date",
+                  "displayName": "Table Date Field",
+                  "readOnly": true
+                },
+                "tableTextField": {
+                  "type": "string",
+                  "displayName": "Table Text Field",
+                  "readOnly": true
+                },
+                "tableEmailField": {
+                  "type": "email",
+                  "displayName": "Table Email Field",
+                  "readOnly": true
+                },
+                "tableNumberField": {
+                  "type": "number",
+                  "displayName": "Table Number Field",
+                  "readOnly": true
+                },
+                "tableBooleanField": {
+                  "type": "boolean",
+                  "displayName": "Table Boolean Field",
+                  "readOnly": true
+                },
+                "tableDurationField": {
+                  "type": "duration",
+                  "displayName": "Table Duration Field",
+                  "readOnly": true
+                },
+                "tableMonetaryAmountField": {
+                  "type": "monetaryAmount",
+                  "displayName": "Table Monetary Amount Field",
+                  "readOnly": true
+                },
+                "tableFormulaMonetaryAmountXNumber": {
+                  "type": "monetaryAmount",
+                  "displayName": "Table Formula (Monetary Amount x Number)",
+                  "readOnly": true
+                }
+              },
+              "displayName": "Table Item",
+              "readOnly": true
+            },
+            "propertyKey": "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list",
+            "readOnly": true
+          },
+          "number": {
+            "type": "number",
+            "displayName": "Number",
+            "propertyKey": "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number",
+            "readOnly": true
+          },
+          "signed": {
+            "type": "document",
+            "displayName": "Signed PDF",
+            "readOnly": true
+          },
+          "address": {
+            "type": "address",
+            "displayName": "Address",
+            "propertyKey": "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address",
+            "readOnly": true
+          },
+          "duration": {
+            "type": "duration",
+            "displayName": "Duration",
+            "propertyKey": "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration",
+            "readOnly": true
+          },
+          "launchType": {
+            "type": "string",
+            "displayName": "Workflow Launch Type",
+            "readOnly": true
+          },
+          "childRecord": {
+            "type": "childRecord",
+            "schema": {},
+            "displayName": "Child Record",
+            "readOnly": true
+          },
+          "paperSource": {
+            "type": "string",
+            "displayName": "Paper Source",
+            "propertyKey": "paperSource",
+            "readOnly": true
+          },
+          "parentRecord": {
+            "type": "parentRecord",
+            "schema": {},
+            "displayName": "Parent Record",
+            "readOnly": true
+          },
+          "agreementDate": {
+            "type": "date",
+            "displayName": "Agreement Date",
+            "readOnly": true
+          },
+          "emailQuestion": {
+            "type": "email",
+            "displayName": "Email",
+            "propertyKey": "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email",
+            "readOnly": true
+          },
+          "paragraphText": {
+            "type": "string",
+            "displayName": "Paragraph (Text)",
+            "propertyKey": "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "relatedRecord": {
+            "type": "linkedRecord",
+            "schema": {},
+            "displayName": "Related Record",
+            "readOnly": true
+          },
+          "yesNoQuestion": {
+            "type": "boolean",
+            "displayName": "Yes / No",
+            "propertyKey": "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean",
+            "readOnly": true
+          },
+          "fileAttachment": {
+            "type": "array",
+            "visible": true,
+            "displayName": "File Attachment",
+            "elementType": {
+              "type": "document",
+              "displayName": "File Attachment",
+              "readOnly": true
+            },
+            "propertyKey": "fileAttachment",
+            "readOnly": true
+          },
+          "monetaryAmount": {
+            "type": "monetaryAmount",
+            "displayName": "Monetary Amount",
+            "propertyKey": "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount",
+            "readOnly": true
+          },
+          "partiallySigned": {
+            "type": "document",
+            "displayName": "Partially Signed Signature Packet",
+            "readOnly": true
+          },
+          "counterpartyName": {
+            "type": "string",
+            "displayName": "Counterparty Name",
+            "propertyKey": "counterpartyName",
+            "readOnly": true
+          },
+          "reviewRollbacked": {
+            "type": "boolean",
+            "displayName": "Returned to Review Step?",
+            "readOnly": true
+          },
+          "shortResponseText": {
+            "type": "string",
+            "displayName": "Short Response (Text)",
+            "propertyKey": "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "sentSignaturePacket": {
+            "type": "array",
+            "displayName": "Sent Signature Packet",
+            "elementType": {
+              "type": "document",
+              "displayName": "Sent Signature Packet",
+              "readOnly": true
+            },
+            "readOnly": true
+          },
+          "singleSelectDropdown": {
+            "type": "string",
+            "displayName": "Single Select Dropdown",
+            "propertyKey": "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "multiSelectCheckBoxNumber": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Multi Select Check Box (Number)",
+            "elementType": {
+              "type": "string",
+              "displayName": "Multi Select Check Box (Number)",
+              "readOnly": true
+            },
+            "propertyKey": "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+            "readOnly": true
+          },
+          "multiSelectDropdownNumber": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Multi Select Dropdown (Text)",
+            "elementType": {
+              "type": "string",
+              "displayName": "Multi Select Dropdown (Text)",
+              "readOnly": true
+            },
+            "propertyKey": "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+            "readOnly": true
+          },
+          "formulaPullCityFromAddress": {
+            "type": "string",
+            "displayName": "Formula (Pull City from Address)",
+            "propertyKey": "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "singleSelectRadioButtonNumber": {
+            "type": "string",
+            "displayName": "Single Select Radio Button (Number)",
+            "propertyKey": "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "role05214514a05a417b9f952e014db84927": {
+            "type": "string",
+            "displayName": "Counterparty Signer Name",
+            "propertyKey": "counterpartySigner",
+            "readOnly": true
+          },
+          "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+            "type": "email",
+            "displayName": "Counterparty Signer Email",
+            "propertyKey": "counterpartySignerEmail",
+            "readOnly": true
+          }
+        },
+        "attributes": {
+          "draft": [
+            {
+              "version": "Db8wilveC9dbePHlIQ0Vo",
+              "versionNumber": 2,
+              "filename": "Every Field Type with Nango Registry Test Counterparty - Supported Fields (6a6b3289b6).docx",
+              "key": "F7IYVm-59VHKoqCLLuiFd",
+              "download": "/public/api/v1/workflows/6a6b328004308879e7d439b6/document/F7IYVm-59VHKoqCLLuiFd/download",
+              "lastModified": {
+                "timestamp": "2026-07-30T11:17:53.797Z",
+                "author": {
+                  "type": "internalUser",
+                  "displayName": "Kelvin Wari",
+                  "email": "kelvin@nango.dev",
+                  "userId": "68dc41166622f04ca177be37",
+                  "companyName": "Developer - Nango"
+                }
+              }
+            }
+          ],
+          "table": [
+            {}
+          ],
+          "paperSource": "Our paper",
+          "counterpartyName": "Nango Registry Test Counterparty",
+          "reviewRollbacked": true,
+          "shortResponseText": "Updated by Nango registry audit",
+          "role05214514a05a417b9f952e014db84927": "Test Signer",
+          "role8b6358fbf5c841b99fa1a0d4e23c642a": "counterparty@example.com",
+          "readableId": "IC-1",
+          "currentTurnParty": "not tracked"
+        },
+        "isCancelled": false,
+        "isComplete": false,
+        "creator": {
+          "contactNumber": "",
+          "department": "",
+          "displayName": "Kelvin Wari",
+          "email": "kelvin@nango.dev",
+          "id": "68dc41166622f04ca177be37",
+          "metadata": {},
+          "companyProfiles": {},
+          "pronoun": "",
+          "profilePhoto": {
+            "readToken": "userProfileToken668c6d55e3b6481b98739b0f6eda64df"
+          },
+          "title": "",
+          "username": "kelvin@nango.dev",
+          "lastUsageTrack": "2026-07-30T11:09:34.858Z",
+          "companyProfile": {}
+        },
+        "roles": [
+          {
+            "id": "approver137e74661e0b40e38e3a52dff067cd0c",
+            "displayName": "Legal",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          },
+          {
+            "id": "signerd49e5bda9d7944f78f5954493eab138e",
+            "displayName": "Internal Signer",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          },
+          {
+            "id": "owner",
+            "displayName": "Workflow Owner",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          }
+        ],
+        "approvals": {
+          "state": "in_progress",
+          "url": "https://ironcladapp.com/public/api/v1/workflows/6a6b328004308879e7d439b6/approvals"
+        },
+        "signatures": {
+          "state": "not_started"
+        },
+        "isRevertibleToReview": false
+      },
+      {
+        "id": "6a6b329292e6f649aa6add06",
+        "ironcladId": "IC-2",
+        "title": "Every Field Type with Nango Registry Test Counterparty 2",
+        "template": "68dc41e5a7987b1e623e4711",
+        "step": "Sign",
+        "status": "active",
+        "created": "2026-07-30T11:16:34.307Z",
+        "lastUpdated": "2026-07-30T12:12:36.402Z",
+        "schema": {
+          "date": {
+            "type": "date",
+            "displayName": "Date",
+            "propertyKey": "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date",
+            "readOnly": true
+          },
+          "draft": {
+            "type": "array",
+            "displayName": "Draft",
+            "elementType": {
+              "type": "document",
+              "displayName": "Draft",
+              "readOnly": true
+            },
+            "readOnly": true
+          },
+          "table": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Table",
+            "elementType": {
+              "type": "object",
+              "schema": {
+                "tableDateField": {
+                  "type": "date",
+                  "displayName": "Table Date Field",
+                  "readOnly": true
+                },
+                "tableTextField": {
+                  "type": "string",
+                  "displayName": "Table Text Field",
+                  "readOnly": true
+                },
+                "tableEmailField": {
+                  "type": "email",
+                  "displayName": "Table Email Field",
+                  "readOnly": true
+                },
+                "tableNumberField": {
+                  "type": "number",
+                  "displayName": "Table Number Field",
+                  "readOnly": true
+                },
+                "tableBooleanField": {
+                  "type": "boolean",
+                  "displayName": "Table Boolean Field",
+                  "readOnly": true
+                },
+                "tableDurationField": {
+                  "type": "duration",
+                  "displayName": "Table Duration Field",
+                  "readOnly": true
+                },
+                "tableMonetaryAmountField": {
+                  "type": "monetaryAmount",
+                  "displayName": "Table Monetary Amount Field",
+                  "readOnly": true
+                },
+                "tableFormulaMonetaryAmountXNumber": {
+                  "type": "monetaryAmount",
+                  "displayName": "Table Formula (Monetary Amount x Number)",
+                  "readOnly": true
+                }
+              },
+              "displayName": "Table Item",
+              "readOnly": true
+            },
+            "propertyKey": "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list",
+            "readOnly": true
+          },
+          "number": {
+            "type": "number",
+            "displayName": "Number",
+            "propertyKey": "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number",
+            "readOnly": true
+          },
+          "signed": {
+            "type": "document",
+            "displayName": "Signed PDF",
+            "readOnly": true
+          },
+          "address": {
+            "type": "address",
+            "displayName": "Address",
+            "propertyKey": "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address",
+            "readOnly": true
+          },
+          "duration": {
+            "type": "duration",
+            "displayName": "Duration",
+            "propertyKey": "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration",
+            "readOnly": true
+          },
+          "launchType": {
+            "type": "string",
+            "displayName": "Workflow Launch Type",
+            "readOnly": true
+          },
+          "childRecord": {
+            "type": "childRecord",
+            "schema": {},
+            "displayName": "Child Record",
+            "readOnly": true
+          },
+          "paperSource": {
+            "type": "string",
+            "displayName": "Paper Source",
+            "propertyKey": "paperSource",
+            "readOnly": true
+          },
+          "parentRecord": {
+            "type": "parentRecord",
+            "schema": {},
+            "displayName": "Parent Record",
+            "readOnly": true
+          },
+          "agreementDate": {
+            "type": "date",
+            "displayName": "Agreement Date",
+            "readOnly": true
+          },
+          "emailQuestion": {
+            "type": "email",
+            "displayName": "Email",
+            "propertyKey": "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email",
+            "readOnly": true
+          },
+          "paragraphText": {
+            "type": "string",
+            "displayName": "Paragraph (Text)",
+            "propertyKey": "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "relatedRecord": {
+            "type": "linkedRecord",
+            "schema": {},
+            "displayName": "Related Record",
+            "readOnly": true
+          },
+          "yesNoQuestion": {
+            "type": "boolean",
+            "displayName": "Yes / No",
+            "propertyKey": "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean",
+            "readOnly": true
+          },
+          "fileAttachment": {
+            "type": "array",
+            "visible": true,
+            "displayName": "File Attachment",
+            "elementType": {
+              "type": "document",
+              "displayName": "File Attachment",
+              "readOnly": true
+            },
+            "propertyKey": "fileAttachment",
+            "readOnly": true
+          },
+          "monetaryAmount": {
+            "type": "monetaryAmount",
+            "displayName": "Monetary Amount",
+            "propertyKey": "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount",
+            "readOnly": true
+          },
+          "partiallySigned": {
+            "type": "document",
+            "displayName": "Partially Signed Signature Packet",
+            "readOnly": true
+          },
+          "counterpartyName": {
+            "type": "string",
+            "displayName": "Counterparty Name",
+            "propertyKey": "counterpartyName",
+            "readOnly": true
+          },
+          "reviewRollbacked": {
+            "type": "boolean",
+            "displayName": "Returned to Review Step?",
+            "readOnly": true
+          },
+          "shortResponseText": {
+            "type": "string",
+            "displayName": "Short Response (Text)",
+            "propertyKey": "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "sentSignaturePacket": {
+            "type": "array",
+            "displayName": "Sent Signature Packet",
+            "elementType": {
+              "type": "document",
+              "displayName": "Sent Signature Packet",
+              "readOnly": true
+            },
+            "readOnly": true
+          },
+          "singleSelectDropdown": {
+            "type": "string",
+            "displayName": "Single Select Dropdown",
+            "propertyKey": "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "multiSelectCheckBoxNumber": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Multi Select Check Box (Number)",
+            "elementType": {
+              "type": "string",
+              "displayName": "Multi Select Check Box (Number)",
+              "readOnly": true
+            },
+            "propertyKey": "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+            "readOnly": true
+          },
+          "multiSelectDropdownNumber": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Multi Select Dropdown (Text)",
+            "elementType": {
+              "type": "string",
+              "displayName": "Multi Select Dropdown (Text)",
+              "readOnly": true
+            },
+            "propertyKey": "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+            "readOnly": true
+          },
+          "formulaPullCityFromAddress": {
+            "type": "string",
+            "displayName": "Formula (Pull City from Address)",
+            "propertyKey": "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "singleSelectRadioButtonNumber": {
+            "type": "string",
+            "displayName": "Single Select Radio Button (Number)",
+            "propertyKey": "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "role05214514a05a417b9f952e014db84927": {
+            "type": "string",
+            "displayName": "Counterparty Signer Name",
+            "propertyKey": "counterpartySigner",
+            "readOnly": true
+          },
+          "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+            "type": "email",
+            "displayName": "Counterparty Signer Email",
+            "propertyKey": "counterpartySignerEmail",
+            "readOnly": true
+          }
+        },
+        "attributes": {
+          "draft": [
+            {
+              "version": "vKcBr6U2-sWwdeANGtdzC",
+              "versionNumber": 1,
+              "filename": "Every Field Type with Nango Registry Test Counterparty 2 - Supported Fields (6a6b329d06).docx",
+              "key": "mHr_DTAUnqIEeC_t8ypFY",
+              "download": "/public/api/v1/workflows/6a6b329292e6f649aa6add06/document/mHr_DTAUnqIEeC_t8ypFY/download",
+              "lastModified": {
+                "timestamp": "2026-07-30T11:16:35.873Z",
+                "author": {
+                  "type": "internalUser",
+                  "displayName": "Kelvin Wari",
+                  "email": "kelvin@nango.dev",
+                  "userId": "68dc41166622f04ca177be37",
+                  "companyName": "Developer - Nango"
+                }
+              }
+            }
+          ],
+          "paperSource": "Our paper",
+          "counterpartyName": "Nango Registry Test Counterparty 2",
+          "shortResponseText": "Nango registry test workflow 2",
+          "role05214514a05a417b9f952e014db84927": "Test Signer 2",
+          "role8b6358fbf5c841b99fa1a0d4e23c642a": "counterparty2@example.com",
+          "readableId": "IC-2",
+          "currentTurnParty": "not tracked"
+        },
+        "isCancelled": false,
+        "isComplete": false,
+        "creator": {
+          "contactNumber": "",
+          "department": "",
+          "displayName": "Kelvin Wari",
+          "email": "kelvin@nango.dev",
+          "id": "68dc41166622f04ca177be37",
+          "metadata": {},
+          "companyProfiles": {},
+          "pronoun": "",
+          "profilePhoto": {
+            "readToken": "userProfileToken668c6d55e3b6481b98739b0f6eda64df"
+          },
+          "title": "",
+          "username": "kelvin@nango.dev",
+          "lastUsageTrack": "2026-07-30T11:09:34.858Z",
+          "companyProfile": {}
+        },
+        "roles": [
+          {
+            "id": "approver137e74661e0b40e38e3a52dff067cd0c",
+            "displayName": "Legal",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          },
+          {
+            "id": "signerd49e5bda9d7944f78f5954493eab138e",
+            "displayName": "Internal Signer",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          },
+          {
+            "id": "owner",
+            "displayName": "Workflow Owner",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          }
+        ],
+        "approvals": {
+          "state": "completed"
+        },
+        "signatures": {
+          "state": "in_progress",
+          "url": "https://ironcladapp.com/public/api/v1/workflows/6a6b329292e6f649aa6add06/signatures"
+        },
+        "isRevertibleToReview": true
+      },
+      {
+        "id": "6a6b3f752410cf091f10e339",
+        "ironcladId": "IC-9",
+        "title": "Every Field Type with Nango Registry Test Create Workflow",
+        "template": "68dc41e5a7987b1e623e4711",
+        "step": "Review",
+        "status": "active",
+        "created": "2026-07-30T12:11:33.858Z",
+        "lastUpdated": "2026-07-30T12:11:33.867Z",
+        "schema": {
+          "date": {
+            "type": "date",
+            "displayName": "Date",
+            "propertyKey": "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date",
+            "readOnly": true
+          },
+          "draft": {
+            "type": "array",
+            "displayName": "Draft",
+            "elementType": {
+              "type": "document",
+              "displayName": "Draft",
+              "readOnly": true
+            },
+            "readOnly": true
+          },
+          "table": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Table",
+            "elementType": {
+              "type": "object",
+              "schema": {
+                "tableDateField": {
+                  "type": "date",
+                  "displayName": "Table Date Field",
+                  "readOnly": true
+                },
+                "tableTextField": {
+                  "type": "string",
+                  "displayName": "Table Text Field",
+                  "readOnly": true
+                },
+                "tableEmailField": {
+                  "type": "email",
+                  "displayName": "Table Email Field",
+                  "readOnly": true
+                },
+                "tableNumberField": {
+                  "type": "number",
+                  "displayName": "Table Number Field",
+                  "readOnly": true
+                },
+                "tableBooleanField": {
+                  "type": "boolean",
+                  "displayName": "Table Boolean Field",
+                  "readOnly": true
+                },
+                "tableDurationField": {
+                  "type": "duration",
+                  "displayName": "Table Duration Field",
+                  "readOnly": true
+                },
+                "tableMonetaryAmountField": {
+                  "type": "monetaryAmount",
+                  "displayName": "Table Monetary Amount Field",
+                  "readOnly": true
+                },
+                "tableFormulaMonetaryAmountXNumber": {
+                  "type": "monetaryAmount",
+                  "displayName": "Table Formula (Monetary Amount x Number)",
+                  "readOnly": true
+                }
+              },
+              "displayName": "Table Item",
+              "readOnly": true
+            },
+            "propertyKey": "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list",
+            "readOnly": true
+          },
+          "number": {
+            "type": "number",
+            "displayName": "Number",
+            "propertyKey": "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number",
+            "readOnly": true
+          },
+          "signed": {
+            "type": "document",
+            "displayName": "Signed PDF",
+            "readOnly": true
+          },
+          "address": {
+            "type": "address",
+            "displayName": "Address",
+            "propertyKey": "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address",
+            "readOnly": true
+          },
+          "duration": {
+            "type": "duration",
+            "displayName": "Duration",
+            "propertyKey": "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration",
+            "readOnly": true
+          },
+          "launchType": {
+            "type": "string",
+            "displayName": "Workflow Launch Type",
+            "readOnly": true
+          },
+          "childRecord": {
+            "type": "childRecord",
+            "schema": {},
+            "displayName": "Child Record",
+            "readOnly": true
+          },
+          "paperSource": {
+            "type": "string",
+            "displayName": "Paper Source",
+            "propertyKey": "paperSource",
+            "readOnly": true
+          },
+          "parentRecord": {
+            "type": "parentRecord",
+            "schema": {},
+            "displayName": "Parent Record",
+            "readOnly": true
+          },
+          "agreementDate": {
+            "type": "date",
+            "displayName": "Agreement Date",
+            "readOnly": true
+          },
+          "emailQuestion": {
+            "type": "email",
+            "displayName": "Email",
+            "propertyKey": "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email",
+            "readOnly": true
+          },
+          "paragraphText": {
+            "type": "string",
+            "displayName": "Paragraph (Text)",
+            "propertyKey": "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "relatedRecord": {
+            "type": "linkedRecord",
+            "schema": {},
+            "displayName": "Related Record",
+            "readOnly": true
+          },
+          "yesNoQuestion": {
+            "type": "boolean",
+            "displayName": "Yes / No",
+            "propertyKey": "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean",
+            "readOnly": true
+          },
+          "fileAttachment": {
+            "type": "array",
+            "visible": true,
+            "displayName": "File Attachment",
+            "elementType": {
+              "type": "document",
+              "displayName": "File Attachment",
+              "readOnly": true
+            },
+            "propertyKey": "fileAttachment",
+            "readOnly": true
+          },
+          "monetaryAmount": {
+            "type": "monetaryAmount",
+            "displayName": "Monetary Amount",
+            "propertyKey": "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount",
+            "readOnly": true
+          },
+          "partiallySigned": {
+            "type": "document",
+            "displayName": "Partially Signed Signature Packet",
+            "readOnly": true
+          },
+          "counterpartyName": {
+            "type": "string",
+            "displayName": "Counterparty Name",
+            "propertyKey": "counterpartyName",
+            "readOnly": true
+          },
+          "reviewRollbacked": {
+            "type": "boolean",
+            "displayName": "Returned to Review Step?",
+            "readOnly": true
+          },
+          "shortResponseText": {
+            "type": "string",
+            "displayName": "Short Response (Text)",
+            "propertyKey": "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "sentSignaturePacket": {
+            "type": "array",
+            "displayName": "Sent Signature Packet",
+            "elementType": {
+              "type": "document",
+              "displayName": "Sent Signature Packet",
+              "readOnly": true
+            },
+            "readOnly": true
+          },
+          "singleSelectDropdown": {
+            "type": "string",
+            "displayName": "Single Select Dropdown",
+            "propertyKey": "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "multiSelectCheckBoxNumber": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Multi Select Check Box (Number)",
+            "elementType": {
+              "type": "string",
+              "displayName": "Multi Select Check Box (Number)",
+              "readOnly": true
+            },
+            "propertyKey": "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+            "readOnly": true
+          },
+          "multiSelectDropdownNumber": {
+            "type": "array",
+            "visible": true,
+            "displayName": "Multi Select Dropdown (Text)",
+            "elementType": {
+              "type": "string",
+              "displayName": "Multi Select Dropdown (Text)",
+              "readOnly": true
+            },
+            "propertyKey": "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+            "readOnly": true
+          },
+          "formulaPullCityFromAddress": {
+            "type": "string",
+            "displayName": "Formula (Pull City from Address)",
+            "propertyKey": "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "singleSelectRadioButtonNumber": {
+            "type": "string",
+            "displayName": "Single Select Radio Button (Number)",
+            "propertyKey": "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+            "readOnly": true
+          },
+          "role05214514a05a417b9f952e014db84927": {
+            "type": "string",
+            "displayName": "Counterparty Signer Name",
+            "propertyKey": "counterpartySigner",
+            "readOnly": true
+          },
+          "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+            "type": "email",
+            "displayName": "Counterparty Signer Email",
+            "propertyKey": "counterpartySignerEmail",
+            "readOnly": true
+          }
+        },
+        "attributes": {
+          "draft": [
+            {
+              "version": "lAESIWp8D3_KgOsfBoHp_",
+              "versionNumber": 1,
+              "filename": "Every Field Type with Nango Registry Test Create Workflow - Supported Fields (6a6b3f7339).docx",
+              "key": "VHQFFOrCQkR026m6t31I5",
+              "download": "/public/api/v1/workflows/6a6b3f752410cf091f10e339/document/VHQFFOrCQkR026m6t31I5/download",
+              "lastModified": {
+                "timestamp": "2026-07-30T12:11:35.461Z",
+                "author": {
+                  "type": "internalUser",
+                  "displayName": "Kelvin Wari",
+                  "email": "kelvin@nango.dev",
+                  "userId": "68dc41166622f04ca177be37",
+                  "companyName": "Developer - Nango"
+                }
+              }
+            }
+          ],
+          "paperSource": "Our paper",
+          "counterpartyName": "Nango Registry Test Create Workflow",
+          "role05214514a05a417b9f952e014db84927": "Test Signer",
+          "role8b6358fbf5c841b99fa1a0d4e23c642a": "test@example.com",
+          "readableId": "IC-9",
+          "currentTurnParty": "not tracked"
+        },
+        "isCancelled": false,
+        "isComplete": false,
+        "creator": {
+          "contactNumber": "",
+          "department": "",
+          "displayName": "Kelvin Wari",
+          "email": "kelvin@nango.dev",
+          "id": "68dc41166622f04ca177be37",
+          "metadata": {},
+          "companyProfiles": {},
+          "pronoun": "",
+          "profilePhoto": {
+            "readToken": "userProfileToken668c6d55e3b6481b98739b0f6eda64df"
+          },
+          "title": "",
+          "username": "kelvin@nango.dev",
+          "lastUsageTrack": "2026-07-30T11:09:34.858Z",
+          "companyProfile": {}
+        },
+        "roles": [
+          {
+            "id": "approver137e74661e0b40e38e3a52dff067cd0c",
+            "displayName": "Legal",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          },
+          {
+            "id": "signerd49e5bda9d7944f78f5954493eab138e",
+            "displayName": "Internal Signer",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          },
+          {
+            "id": "owner",
+            "displayName": "Workflow Owner",
+            "assignees": [
+              {
+                "userName": "Kelvin Wari",
+                "userId": "68dc41166622f04ca177be37",
+                "email": "kelvin@nango.dev"
+              }
+            ]
+          }
+        ],
+        "approvals": {
+          "state": "in_progress",
+          "url": "https://ironcladapp.com/public/api/v1/workflows/6a6b3f752410cf091f10e339/approvals"
+        },
+        "signatures": {
+          "state": "not_started"
+        },
+        "isRevertibleToReview": false
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/public/api/v1/workflows": {
+        "response": {
+          "page": 0,
+          "pageSize": 20,
+          "count": 5,
+          "list": [
+            {
+              "id": "6a6b3fe555335a552adb8903",
+              "title": "Every Field Type with Nango Registry Test Create Workflow Dryrun",
+              "template": "68dc41e5a7987b1e623e4711",
+              "step": "Sign",
+              "schema": {
+                "date": {
+                  "type": "date",
+                  "displayName": "Date",
+                  "propertyKey": "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date",
+                  "readOnly": true
+                },
+                "draft": {
+                  "type": "array",
+                  "displayName": "Draft",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "Draft",
+                    "readOnly": true
+                  },
+                  "readOnly": true
+                },
+                "table": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Table",
+                  "elementType": {
+                    "type": "object",
+                    "schema": {
+                      "tableDateField": {
+                        "type": "date",
+                        "displayName": "Table Date Field",
+                        "readOnly": true
+                      },
+                      "tableTextField": {
+                        "type": "string",
+                        "displayName": "Table Text Field",
+                        "readOnly": true
+                      },
+                      "tableEmailField": {
+                        "type": "email",
+                        "displayName": "Table Email Field",
+                        "readOnly": true
+                      },
+                      "tableNumberField": {
+                        "type": "number",
+                        "displayName": "Table Number Field",
+                        "readOnly": true
+                      },
+                      "tableBooleanField": {
+                        "type": "boolean",
+                        "displayName": "Table Boolean Field",
+                        "readOnly": true
+                      },
+                      "tableDurationField": {
+                        "type": "duration",
+                        "displayName": "Table Duration Field",
+                        "readOnly": true
+                      },
+                      "tableMonetaryAmountField": {
+                        "type": "monetaryAmount",
+                        "displayName": "Table Monetary Amount Field",
+                        "readOnly": true
+                      },
+                      "tableFormulaMonetaryAmountXNumber": {
+                        "type": "monetaryAmount",
+                        "displayName": "Table Formula (Monetary Amount x Number)",
+                        "readOnly": true
+                      }
+                    },
+                    "displayName": "Table Item",
+                    "readOnly": true
+                  },
+                  "propertyKey": "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list",
+                  "readOnly": true
+                },
+                "number": {
+                  "type": "number",
+                  "displayName": "Number",
+                  "propertyKey": "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number",
+                  "readOnly": true
+                },
+                "signed": {
+                  "type": "document",
+                  "displayName": "Signed PDF",
+                  "readOnly": true
+                },
+                "address": {
+                  "type": "address",
+                  "displayName": "Address",
+                  "propertyKey": "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address",
+                  "readOnly": true
+                },
+                "duration": {
+                  "type": "duration",
+                  "displayName": "Duration",
+                  "propertyKey": "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration",
+                  "readOnly": true
+                },
+                "launchType": {
+                  "type": "string",
+                  "displayName": "Workflow Launch Type",
+                  "readOnly": true
+                },
+                "childRecord": {
+                  "type": "childRecord",
+                  "schema": {},
+                  "displayName": "Child Record",
+                  "readOnly": true
+                },
+                "paperSource": {
+                  "type": "string",
+                  "displayName": "Paper Source",
+                  "propertyKey": "paperSource",
+                  "readOnly": true
+                },
+                "parentRecord": {
+                  "type": "parentRecord",
+                  "schema": {},
+                  "displayName": "Parent Record",
+                  "readOnly": true
+                },
+                "agreementDate": {
+                  "type": "date",
+                  "displayName": "Agreement Date",
+                  "readOnly": true
+                },
+                "emailQuestion": {
+                  "type": "email",
+                  "displayName": "Email",
+                  "propertyKey": "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email",
+                  "readOnly": true
+                },
+                "paragraphText": {
+                  "type": "string",
+                  "displayName": "Paragraph (Text)",
+                  "propertyKey": "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "relatedRecord": {
+                  "type": "linkedRecord",
+                  "schema": {},
+                  "displayName": "Related Record",
+                  "readOnly": true
+                },
+                "yesNoQuestion": {
+                  "type": "boolean",
+                  "displayName": "Yes / No",
+                  "propertyKey": "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean",
+                  "readOnly": true
+                },
+                "fileAttachment": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "File Attachment",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "File Attachment",
+                    "readOnly": true
+                  },
+                  "propertyKey": "fileAttachment",
+                  "readOnly": true
+                },
+                "monetaryAmount": {
+                  "type": "monetaryAmount",
+                  "displayName": "Monetary Amount",
+                  "propertyKey": "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount",
+                  "readOnly": true
+                },
+                "partiallySigned": {
+                  "type": "document",
+                  "displayName": "Partially Signed Signature Packet",
+                  "readOnly": true
+                },
+                "counterpartyName": {
+                  "type": "string",
+                  "displayName": "Counterparty Name",
+                  "propertyKey": "counterpartyName",
+                  "readOnly": true
+                },
+                "reviewRollbacked": {
+                  "type": "boolean",
+                  "displayName": "Returned to Review Step?",
+                  "readOnly": true
+                },
+                "shortResponseText": {
+                  "type": "string",
+                  "displayName": "Short Response (Text)",
+                  "propertyKey": "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "sentSignaturePacket": {
+                  "type": "array",
+                  "displayName": "Sent Signature Packet",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "Sent Signature Packet",
+                    "readOnly": true
+                  },
+                  "readOnly": true
+                },
+                "singleSelectDropdown": {
+                  "type": "string",
+                  "displayName": "Single Select Dropdown",
+                  "propertyKey": "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "multiSelectCheckBoxNumber": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Multi Select Check Box (Number)",
+                  "elementType": {
+                    "type": "string",
+                    "displayName": "Multi Select Check Box (Number)",
+                    "readOnly": true
+                  },
+                  "propertyKey": "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+                  "readOnly": true
+                },
+                "multiSelectDropdownNumber": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Multi Select Dropdown (Text)",
+                  "elementType": {
+                    "type": "string",
+                    "displayName": "Multi Select Dropdown (Text)",
+                    "readOnly": true
+                  },
+                  "propertyKey": "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+                  "readOnly": true
+                },
+                "formulaPullCityFromAddress": {
+                  "type": "string",
+                  "displayName": "Formula (Pull City from Address)",
+                  "propertyKey": "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "singleSelectRadioButtonNumber": {
+                  "type": "string",
+                  "displayName": "Single Select Radio Button (Number)",
+                  "propertyKey": "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "role05214514a05a417b9f952e014db84927": {
+                  "type": "string",
+                  "displayName": "Counterparty Signer Name",
+                  "propertyKey": "counterpartySigner",
+                  "readOnly": true
+                },
+                "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+                  "type": "email",
+                  "displayName": "Counterparty Signer Email",
+                  "propertyKey": "counterpartySignerEmail",
+                  "readOnly": true
+                }
+              },
+              "attributes": {
+                "draft": [
+                  {
+                    "version": "83QKLbBX9y7i5kKegeX-9",
+                    "versionNumber": 1,
+                    "filename": "Every Field Type with Nango Registry Test Create Workflow Dryrun - Supported Fields (6a6b3fe903).docx",
+                    "key": "Lw_TU8wEoXvdu5vYZ2FXj",
+                    "download": "/public/api/v1/workflows/6a6b3fe555335a552adb8903/document/Lw_TU8wEoXvdu5vYZ2FXj/download",
+                    "lastModified": {
+                      "timestamp": "2026-07-30T12:13:27.266Z",
+                      "author": {
+                        "type": "internalUser",
+                        "displayName": "Kelvin Wari",
+                        "email": "kelvin@nango.dev",
+                        "userId": "68dc41166622f04ca177be37",
+                        "companyName": "Developer - Nango"
+                      }
+                    }
+                  }
+                ],
+                "paperSource": "Our paper",
+                "counterpartyName": "Nango Registry Test Create Workflow Dryrun",
+                "role05214514a05a417b9f952e014db84927": "Test Signer",
+                "role8b6358fbf5c841b99fa1a0d4e23c642a": "test@example.com",
+                "readableId": "IC-12",
+                "currentTurnParty": "not tracked"
+              },
+              "isCancelled": false,
+              "isComplete": false,
+              "status": "active",
+              "creator": {
+                "contactNumber": "",
+                "department": "",
+                "displayName": "Kelvin Wari",
+                "email": "kelvin@nango.dev",
+                "id": "68dc41166622f04ca177be37",
+                "metadata": {},
+                "companyProfiles": {},
+                "pronoun": "",
+                "profilePhoto": {
+                  "readToken": "userProfileToken668c6d55e3b6481b98739b0f6eda64df"
+                },
+                "title": "",
+                "username": "kelvin@nango.dev",
+                "lastUsageTrack": "2026-07-30T11:09:34.858Z",
+                "companyProfile": {}
+              },
+              "created": "2026-07-30T12:13:25.629Z",
+              "lastUpdated": "2026-07-30T12:14:05.034Z",
+              "roles": [
+                {
+                  "id": "approver137e74661e0b40e38e3a52dff067cd0c",
+                  "displayName": "Legal",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                },
+                {
+                  "id": "signerd49e5bda9d7944f78f5954493eab138e",
+                  "displayName": "Internal Signer",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                },
+                {
+                  "id": "owner",
+                  "displayName": "Workflow Owner",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                }
+              ],
+              "approvals": {
+                "state": "completed"
+              },
+              "signatures": {
+                "state": "in_progress",
+                "url": "https://ironcladapp.com/public/api/v1/workflows/6a6b3fe555335a552adb8903/signatures"
+              },
+              "isRevertibleToReview": true,
+              "ironcladId": "IC-12"
+            },
+            {
+              "id": "6a6b3fdb3025739b7fdac4a8",
+              "title": "Every Field Type with Nango Registry Test Create Workflow Dryrun",
+              "template": "68dc41e5a7987b1e623e4711",
+              "step": "Review",
+              "schema": {
+                "date": {
+                  "type": "date",
+                  "displayName": "Date",
+                  "propertyKey": "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date",
+                  "readOnly": true
+                },
+                "draft": {
+                  "type": "array",
+                  "displayName": "Draft",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "Draft",
+                    "readOnly": true
+                  },
+                  "readOnly": true
+                },
+                "table": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Table",
+                  "elementType": {
+                    "type": "object",
+                    "schema": {
+                      "tableDateField": {
+                        "type": "date",
+                        "displayName": "Table Date Field",
+                        "readOnly": true
+                      },
+                      "tableTextField": {
+                        "type": "string",
+                        "displayName": "Table Text Field",
+                        "readOnly": true
+                      },
+                      "tableEmailField": {
+                        "type": "email",
+                        "displayName": "Table Email Field",
+                        "readOnly": true
+                      },
+                      "tableNumberField": {
+                        "type": "number",
+                        "displayName": "Table Number Field",
+                        "readOnly": true
+                      },
+                      "tableBooleanField": {
+                        "type": "boolean",
+                        "displayName": "Table Boolean Field",
+                        "readOnly": true
+                      },
+                      "tableDurationField": {
+                        "type": "duration",
+                        "displayName": "Table Duration Field",
+                        "readOnly": true
+                      },
+                      "tableMonetaryAmountField": {
+                        "type": "monetaryAmount",
+                        "displayName": "Table Monetary Amount Field",
+                        "readOnly": true
+                      },
+                      "tableFormulaMonetaryAmountXNumber": {
+                        "type": "monetaryAmount",
+                        "displayName": "Table Formula (Monetary Amount x Number)",
+                        "readOnly": true
+                      }
+                    },
+                    "displayName": "Table Item",
+                    "readOnly": true
+                  },
+                  "propertyKey": "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list",
+                  "readOnly": true
+                },
+                "number": {
+                  "type": "number",
+                  "displayName": "Number",
+                  "propertyKey": "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number",
+                  "readOnly": true
+                },
+                "signed": {
+                  "type": "document",
+                  "displayName": "Signed PDF",
+                  "readOnly": true
+                },
+                "address": {
+                  "type": "address",
+                  "displayName": "Address",
+                  "propertyKey": "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address",
+                  "readOnly": true
+                },
+                "duration": {
+                  "type": "duration",
+                  "displayName": "Duration",
+                  "propertyKey": "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration",
+                  "readOnly": true
+                },
+                "launchType": {
+                  "type": "string",
+                  "displayName": "Workflow Launch Type",
+                  "readOnly": true
+                },
+                "childRecord": {
+                  "type": "childRecord",
+                  "schema": {},
+                  "displayName": "Child Record",
+                  "readOnly": true
+                },
+                "paperSource": {
+                  "type": "string",
+                  "displayName": "Paper Source",
+                  "propertyKey": "paperSource",
+                  "readOnly": true
+                },
+                "parentRecord": {
+                  "type": "parentRecord",
+                  "schema": {},
+                  "displayName": "Parent Record",
+                  "readOnly": true
+                },
+                "agreementDate": {
+                  "type": "date",
+                  "displayName": "Agreement Date",
+                  "readOnly": true
+                },
+                "emailQuestion": {
+                  "type": "email",
+                  "displayName": "Email",
+                  "propertyKey": "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email",
+                  "readOnly": true
+                },
+                "paragraphText": {
+                  "type": "string",
+                  "displayName": "Paragraph (Text)",
+                  "propertyKey": "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "relatedRecord": {
+                  "type": "linkedRecord",
+                  "schema": {},
+                  "displayName": "Related Record",
+                  "readOnly": true
+                },
+                "yesNoQuestion": {
+                  "type": "boolean",
+                  "displayName": "Yes / No",
+                  "propertyKey": "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean",
+                  "readOnly": true
+                },
+                "fileAttachment": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "File Attachment",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "File Attachment",
+                    "readOnly": true
+                  },
+                  "propertyKey": "fileAttachment",
+                  "readOnly": true
+                },
+                "monetaryAmount": {
+                  "type": "monetaryAmount",
+                  "displayName": "Monetary Amount",
+                  "propertyKey": "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount",
+                  "readOnly": true
+                },
+                "partiallySigned": {
+                  "type": "document",
+                  "displayName": "Partially Signed Signature Packet",
+                  "readOnly": true
+                },
+                "counterpartyName": {
+                  "type": "string",
+                  "displayName": "Counterparty Name",
+                  "propertyKey": "counterpartyName",
+                  "readOnly": true
+                },
+                "reviewRollbacked": {
+                  "type": "boolean",
+                  "displayName": "Returned to Review Step?",
+                  "readOnly": true
+                },
+                "shortResponseText": {
+                  "type": "string",
+                  "displayName": "Short Response (Text)",
+                  "propertyKey": "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "sentSignaturePacket": {
+                  "type": "array",
+                  "displayName": "Sent Signature Packet",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "Sent Signature Packet",
+                    "readOnly": true
+                  },
+                  "readOnly": true
+                },
+                "singleSelectDropdown": {
+                  "type": "string",
+                  "displayName": "Single Select Dropdown",
+                  "propertyKey": "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "multiSelectCheckBoxNumber": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Multi Select Check Box (Number)",
+                  "elementType": {
+                    "type": "string",
+                    "displayName": "Multi Select Check Box (Number)",
+                    "readOnly": true
+                  },
+                  "propertyKey": "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+                  "readOnly": true
+                },
+                "multiSelectDropdownNumber": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Multi Select Dropdown (Text)",
+                  "elementType": {
+                    "type": "string",
+                    "displayName": "Multi Select Dropdown (Text)",
+                    "readOnly": true
+                  },
+                  "propertyKey": "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+                  "readOnly": true
+                },
+                "formulaPullCityFromAddress": {
+                  "type": "string",
+                  "displayName": "Formula (Pull City from Address)",
+                  "propertyKey": "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "singleSelectRadioButtonNumber": {
+                  "type": "string",
+                  "displayName": "Single Select Radio Button (Number)",
+                  "propertyKey": "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "role05214514a05a417b9f952e014db84927": {
+                  "type": "string",
+                  "displayName": "Counterparty Signer Name",
+                  "propertyKey": "counterpartySigner",
+                  "readOnly": true
+                },
+                "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+                  "type": "email",
+                  "displayName": "Counterparty Signer Email",
+                  "propertyKey": "counterpartySignerEmail",
+                  "readOnly": true
+                }
+              },
+              "attributes": {
+                "draft": [
+                  {
+                    "version": "h7ptFrcKTosBzA6ra9Qyl",
+                    "versionNumber": 1,
+                    "filename": "Every Field Type with Nango Registry Test Create Workflow Dryrun - Supported Fields (6a6b3fd4a8).docx",
+                    "key": "qhtX5B2tMcKsZr7Aie5Va",
+                    "download": "/public/api/v1/workflows/6a6b3fdb3025739b7fdac4a8/document/qhtX5B2tMcKsZr7Aie5Va/download",
+                    "lastModified": {
+                      "timestamp": "2026-07-30T12:13:16.879Z",
+                      "author": {
+                        "type": "internalUser",
+                        "displayName": "Kelvin Wari",
+                        "email": "kelvin@nango.dev",
+                        "userId": "68dc41166622f04ca177be37",
+                        "companyName": "Developer - Nango"
+                      }
+                    }
+                  }
+                ],
+                "paperSource": "Our paper",
+                "counterpartyName": "Nango Registry Test Create Workflow Dryrun",
+                "role05214514a05a417b9f952e014db84927": "Test Signer",
+                "role8b6358fbf5c841b99fa1a0d4e23c642a": "test@example.com",
+                "readableId": "IC-11",
+                "currentTurnParty": "not tracked"
+              },
+              "isCancelled": false,
+              "isComplete": false,
+              "status": "active",
+              "creator": {
+                "contactNumber": "",
+                "department": "",
+                "displayName": "Kelvin Wari",
+                "email": "kelvin@nango.dev",
+                "id": "68dc41166622f04ca177be37",
+                "metadata": {},
+                "companyProfiles": {},
+                "pronoun": "",
+                "profilePhoto": {
+                  "readToken": "userProfileToken668c6d55e3b6481b98739b0f6eda64df"
+                },
+                "title": "",
+                "username": "kelvin@nango.dev",
+                "lastUsageTrack": "2026-07-30T11:09:34.858Z",
+                "companyProfile": {}
+              },
+              "created": "2026-07-30T12:13:15.106Z",
+              "lastUpdated": "2026-07-30T12:13:15.115Z",
+              "roles": [
+                {
+                  "id": "approver137e74661e0b40e38e3a52dff067cd0c",
+                  "displayName": "Legal",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                },
+                {
+                  "id": "signerd49e5bda9d7944f78f5954493eab138e",
+                  "displayName": "Internal Signer",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                },
+                {
+                  "id": "owner",
+                  "displayName": "Workflow Owner",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                }
+              ],
+              "approvals": {
+                "state": "in_progress",
+                "url": "https://ironcladapp.com/public/api/v1/workflows/6a6b3fdb3025739b7fdac4a8/approvals"
+              },
+              "signatures": {
+                "state": "not_started"
+              },
+              "isRevertibleToReview": false,
+              "ironcladId": "IC-11"
+            },
+            {
+              "id": "6a6b328004308879e7d439b6",
+              "title": "Every Field Type with Nango Registry Test Counterparty",
+              "template": "68dc41e5a7987b1e623e4711",
+              "step": "Review",
+              "schema": {
+                "date": {
+                  "type": "date",
+                  "displayName": "Date",
+                  "propertyKey": "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date",
+                  "readOnly": true
+                },
+                "draft": {
+                  "type": "array",
+                  "displayName": "Draft",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "Draft",
+                    "readOnly": true
+                  },
+                  "readOnly": true
+                },
+                "table": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Table",
+                  "elementType": {
+                    "type": "object",
+                    "schema": {
+                      "tableDateField": {
+                        "type": "date",
+                        "displayName": "Table Date Field",
+                        "readOnly": true
+                      },
+                      "tableTextField": {
+                        "type": "string",
+                        "displayName": "Table Text Field",
+                        "readOnly": true
+                      },
+                      "tableEmailField": {
+                        "type": "email",
+                        "displayName": "Table Email Field",
+                        "readOnly": true
+                      },
+                      "tableNumberField": {
+                        "type": "number",
+                        "displayName": "Table Number Field",
+                        "readOnly": true
+                      },
+                      "tableBooleanField": {
+                        "type": "boolean",
+                        "displayName": "Table Boolean Field",
+                        "readOnly": true
+                      },
+                      "tableDurationField": {
+                        "type": "duration",
+                        "displayName": "Table Duration Field",
+                        "readOnly": true
+                      },
+                      "tableMonetaryAmountField": {
+                        "type": "monetaryAmount",
+                        "displayName": "Table Monetary Amount Field",
+                        "readOnly": true
+                      },
+                      "tableFormulaMonetaryAmountXNumber": {
+                        "type": "monetaryAmount",
+                        "displayName": "Table Formula (Monetary Amount x Number)",
+                        "readOnly": true
+                      }
+                    },
+                    "displayName": "Table Item",
+                    "readOnly": true
+                  },
+                  "propertyKey": "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list",
+                  "readOnly": true
+                },
+                "number": {
+                  "type": "number",
+                  "displayName": "Number",
+                  "propertyKey": "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number",
+                  "readOnly": true
+                },
+                "signed": {
+                  "type": "document",
+                  "displayName": "Signed PDF",
+                  "readOnly": true
+                },
+                "address": {
+                  "type": "address",
+                  "displayName": "Address",
+                  "propertyKey": "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address",
+                  "readOnly": true
+                },
+                "duration": {
+                  "type": "duration",
+                  "displayName": "Duration",
+                  "propertyKey": "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration",
+                  "readOnly": true
+                },
+                "launchType": {
+                  "type": "string",
+                  "displayName": "Workflow Launch Type",
+                  "readOnly": true
+                },
+                "childRecord": {
+                  "type": "childRecord",
+                  "schema": {},
+                  "displayName": "Child Record",
+                  "readOnly": true
+                },
+                "paperSource": {
+                  "type": "string",
+                  "displayName": "Paper Source",
+                  "propertyKey": "paperSource",
+                  "readOnly": true
+                },
+                "parentRecord": {
+                  "type": "parentRecord",
+                  "schema": {},
+                  "displayName": "Parent Record",
+                  "readOnly": true
+                },
+                "agreementDate": {
+                  "type": "date",
+                  "displayName": "Agreement Date",
+                  "readOnly": true
+                },
+                "emailQuestion": {
+                  "type": "email",
+                  "displayName": "Email",
+                  "propertyKey": "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email",
+                  "readOnly": true
+                },
+                "paragraphText": {
+                  "type": "string",
+                  "displayName": "Paragraph (Text)",
+                  "propertyKey": "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "relatedRecord": {
+                  "type": "linkedRecord",
+                  "schema": {},
+                  "displayName": "Related Record",
+                  "readOnly": true
+                },
+                "yesNoQuestion": {
+                  "type": "boolean",
+                  "displayName": "Yes / No",
+                  "propertyKey": "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean",
+                  "readOnly": true
+                },
+                "fileAttachment": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "File Attachment",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "File Attachment",
+                    "readOnly": true
+                  },
+                  "propertyKey": "fileAttachment",
+                  "readOnly": true
+                },
+                "monetaryAmount": {
+                  "type": "monetaryAmount",
+                  "displayName": "Monetary Amount",
+                  "propertyKey": "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount",
+                  "readOnly": true
+                },
+                "partiallySigned": {
+                  "type": "document",
+                  "displayName": "Partially Signed Signature Packet",
+                  "readOnly": true
+                },
+                "counterpartyName": {
+                  "type": "string",
+                  "displayName": "Counterparty Name",
+                  "propertyKey": "counterpartyName",
+                  "readOnly": true
+                },
+                "reviewRollbacked": {
+                  "type": "boolean",
+                  "displayName": "Returned to Review Step?",
+                  "readOnly": true
+                },
+                "shortResponseText": {
+                  "type": "string",
+                  "displayName": "Short Response (Text)",
+                  "propertyKey": "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "sentSignaturePacket": {
+                  "type": "array",
+                  "displayName": "Sent Signature Packet",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "Sent Signature Packet",
+                    "readOnly": true
+                  },
+                  "readOnly": true
+                },
+                "singleSelectDropdown": {
+                  "type": "string",
+                  "displayName": "Single Select Dropdown",
+                  "propertyKey": "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "multiSelectCheckBoxNumber": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Multi Select Check Box (Number)",
+                  "elementType": {
+                    "type": "string",
+                    "displayName": "Multi Select Check Box (Number)",
+                    "readOnly": true
+                  },
+                  "propertyKey": "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+                  "readOnly": true
+                },
+                "multiSelectDropdownNumber": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Multi Select Dropdown (Text)",
+                  "elementType": {
+                    "type": "string",
+                    "displayName": "Multi Select Dropdown (Text)",
+                    "readOnly": true
+                  },
+                  "propertyKey": "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+                  "readOnly": true
+                },
+                "formulaPullCityFromAddress": {
+                  "type": "string",
+                  "displayName": "Formula (Pull City from Address)",
+                  "propertyKey": "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "singleSelectRadioButtonNumber": {
+                  "type": "string",
+                  "displayName": "Single Select Radio Button (Number)",
+                  "propertyKey": "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "role05214514a05a417b9f952e014db84927": {
+                  "type": "string",
+                  "displayName": "Counterparty Signer Name",
+                  "propertyKey": "counterpartySigner",
+                  "readOnly": true
+                },
+                "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+                  "type": "email",
+                  "displayName": "Counterparty Signer Email",
+                  "propertyKey": "counterpartySignerEmail",
+                  "readOnly": true
+                }
+              },
+              "attributes": {
+                "draft": [
+                  {
+                    "version": "Db8wilveC9dbePHlIQ0Vo",
+                    "versionNumber": 2,
+                    "filename": "Every Field Type with Nango Registry Test Counterparty - Supported Fields (6a6b3289b6).docx",
+                    "key": "F7IYVm-59VHKoqCLLuiFd",
+                    "download": "/public/api/v1/workflows/6a6b328004308879e7d439b6/document/F7IYVm-59VHKoqCLLuiFd/download",
+                    "lastModified": {
+                      "timestamp": "2026-07-30T11:17:53.797Z",
+                      "author": {
+                        "type": "internalUser",
+                        "displayName": "Kelvin Wari",
+                        "email": "kelvin@nango.dev",
+                        "userId": "68dc41166622f04ca177be37",
+                        "companyName": "Developer - Nango"
+                      }
+                    }
+                  }
+                ],
+                "table": [
+                  {}
+                ],
+                "paperSource": "Our paper",
+                "counterpartyName": "Nango Registry Test Counterparty",
+                "reviewRollbacked": true,
+                "shortResponseText": "Updated by Nango registry audit",
+                "role05214514a05a417b9f952e014db84927": "Test Signer",
+                "role8b6358fbf5c841b99fa1a0d4e23c642a": "counterparty@example.com",
+                "readableId": "IC-1",
+                "currentTurnParty": "not tracked"
+              },
+              "isCancelled": false,
+              "isComplete": false,
+              "status": "active",
+              "creator": {
+                "contactNumber": "",
+                "department": "",
+                "displayName": "Kelvin Wari",
+                "email": "kelvin@nango.dev",
+                "id": "68dc41166622f04ca177be37",
+                "metadata": {},
+                "companyProfiles": {},
+                "pronoun": "",
+                "profilePhoto": {
+                  "readToken": "userProfileToken668c6d55e3b6481b98739b0f6eda64df"
+                },
+                "title": "",
+                "username": "kelvin@nango.dev",
+                "lastUsageTrack": "2026-07-30T11:09:34.858Z",
+                "companyProfile": {}
+              },
+              "created": "2026-07-30T11:16:16.916Z",
+              "lastUpdated": "2026-07-30T12:13:08.182Z",
+              "roles": [
+                {
+                  "id": "approver137e74661e0b40e38e3a52dff067cd0c",
+                  "displayName": "Legal",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                },
+                {
+                  "id": "signerd49e5bda9d7944f78f5954493eab138e",
+                  "displayName": "Internal Signer",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                },
+                {
+                  "id": "owner",
+                  "displayName": "Workflow Owner",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                }
+              ],
+              "approvals": {
+                "state": "in_progress",
+                "url": "https://ironcladapp.com/public/api/v1/workflows/6a6b328004308879e7d439b6/approvals"
+              },
+              "signatures": {
+                "state": "not_started"
+              },
+              "isRevertibleToReview": false,
+              "ironcladId": "IC-1"
+            },
+            {
+              "id": "6a6b329292e6f649aa6add06",
+              "title": "Every Field Type with Nango Registry Test Counterparty 2",
+              "template": "68dc41e5a7987b1e623e4711",
+              "step": "Sign",
+              "schema": {
+                "date": {
+                  "type": "date",
+                  "displayName": "Date",
+                  "propertyKey": "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date",
+                  "readOnly": true
+                },
+                "draft": {
+                  "type": "array",
+                  "displayName": "Draft",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "Draft",
+                    "readOnly": true
+                  },
+                  "readOnly": true
+                },
+                "table": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Table",
+                  "elementType": {
+                    "type": "object",
+                    "schema": {
+                      "tableDateField": {
+                        "type": "date",
+                        "displayName": "Table Date Field",
+                        "readOnly": true
+                      },
+                      "tableTextField": {
+                        "type": "string",
+                        "displayName": "Table Text Field",
+                        "readOnly": true
+                      },
+                      "tableEmailField": {
+                        "type": "email",
+                        "displayName": "Table Email Field",
+                        "readOnly": true
+                      },
+                      "tableNumberField": {
+                        "type": "number",
+                        "displayName": "Table Number Field",
+                        "readOnly": true
+                      },
+                      "tableBooleanField": {
+                        "type": "boolean",
+                        "displayName": "Table Boolean Field",
+                        "readOnly": true
+                      },
+                      "tableDurationField": {
+                        "type": "duration",
+                        "displayName": "Table Duration Field",
+                        "readOnly": true
+                      },
+                      "tableMonetaryAmountField": {
+                        "type": "monetaryAmount",
+                        "displayName": "Table Monetary Amount Field",
+                        "readOnly": true
+                      },
+                      "tableFormulaMonetaryAmountXNumber": {
+                        "type": "monetaryAmount",
+                        "displayName": "Table Formula (Monetary Amount x Number)",
+                        "readOnly": true
+                      }
+                    },
+                    "displayName": "Table Item",
+                    "readOnly": true
+                  },
+                  "propertyKey": "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list",
+                  "readOnly": true
+                },
+                "number": {
+                  "type": "number",
+                  "displayName": "Number",
+                  "propertyKey": "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number",
+                  "readOnly": true
+                },
+                "signed": {
+                  "type": "document",
+                  "displayName": "Signed PDF",
+                  "readOnly": true
+                },
+                "address": {
+                  "type": "address",
+                  "displayName": "Address",
+                  "propertyKey": "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address",
+                  "readOnly": true
+                },
+                "duration": {
+                  "type": "duration",
+                  "displayName": "Duration",
+                  "propertyKey": "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration",
+                  "readOnly": true
+                },
+                "launchType": {
+                  "type": "string",
+                  "displayName": "Workflow Launch Type",
+                  "readOnly": true
+                },
+                "childRecord": {
+                  "type": "childRecord",
+                  "schema": {},
+                  "displayName": "Child Record",
+                  "readOnly": true
+                },
+                "paperSource": {
+                  "type": "string",
+                  "displayName": "Paper Source",
+                  "propertyKey": "paperSource",
+                  "readOnly": true
+                },
+                "parentRecord": {
+                  "type": "parentRecord",
+                  "schema": {},
+                  "displayName": "Parent Record",
+                  "readOnly": true
+                },
+                "agreementDate": {
+                  "type": "date",
+                  "displayName": "Agreement Date",
+                  "readOnly": true
+                },
+                "emailQuestion": {
+                  "type": "email",
+                  "displayName": "Email",
+                  "propertyKey": "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email",
+                  "readOnly": true
+                },
+                "paragraphText": {
+                  "type": "string",
+                  "displayName": "Paragraph (Text)",
+                  "propertyKey": "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "relatedRecord": {
+                  "type": "linkedRecord",
+                  "schema": {},
+                  "displayName": "Related Record",
+                  "readOnly": true
+                },
+                "yesNoQuestion": {
+                  "type": "boolean",
+                  "displayName": "Yes / No",
+                  "propertyKey": "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean",
+                  "readOnly": true
+                },
+                "fileAttachment": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "File Attachment",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "File Attachment",
+                    "readOnly": true
+                  },
+                  "propertyKey": "fileAttachment",
+                  "readOnly": true
+                },
+                "monetaryAmount": {
+                  "type": "monetaryAmount",
+                  "displayName": "Monetary Amount",
+                  "propertyKey": "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount",
+                  "readOnly": true
+                },
+                "partiallySigned": {
+                  "type": "document",
+                  "displayName": "Partially Signed Signature Packet",
+                  "readOnly": true
+                },
+                "counterpartyName": {
+                  "type": "string",
+                  "displayName": "Counterparty Name",
+                  "propertyKey": "counterpartyName",
+                  "readOnly": true
+                },
+                "reviewRollbacked": {
+                  "type": "boolean",
+                  "displayName": "Returned to Review Step?",
+                  "readOnly": true
+                },
+                "shortResponseText": {
+                  "type": "string",
+                  "displayName": "Short Response (Text)",
+                  "propertyKey": "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "sentSignaturePacket": {
+                  "type": "array",
+                  "displayName": "Sent Signature Packet",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "Sent Signature Packet",
+                    "readOnly": true
+                  },
+                  "readOnly": true
+                },
+                "singleSelectDropdown": {
+                  "type": "string",
+                  "displayName": "Single Select Dropdown",
+                  "propertyKey": "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "multiSelectCheckBoxNumber": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Multi Select Check Box (Number)",
+                  "elementType": {
+                    "type": "string",
+                    "displayName": "Multi Select Check Box (Number)",
+                    "readOnly": true
+                  },
+                  "propertyKey": "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+                  "readOnly": true
+                },
+                "multiSelectDropdownNumber": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Multi Select Dropdown (Text)",
+                  "elementType": {
+                    "type": "string",
+                    "displayName": "Multi Select Dropdown (Text)",
+                    "readOnly": true
+                  },
+                  "propertyKey": "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+                  "readOnly": true
+                },
+                "formulaPullCityFromAddress": {
+                  "type": "string",
+                  "displayName": "Formula (Pull City from Address)",
+                  "propertyKey": "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "singleSelectRadioButtonNumber": {
+                  "type": "string",
+                  "displayName": "Single Select Radio Button (Number)",
+                  "propertyKey": "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "role05214514a05a417b9f952e014db84927": {
+                  "type": "string",
+                  "displayName": "Counterparty Signer Name",
+                  "propertyKey": "counterpartySigner",
+                  "readOnly": true
+                },
+                "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+                  "type": "email",
+                  "displayName": "Counterparty Signer Email",
+                  "propertyKey": "counterpartySignerEmail",
+                  "readOnly": true
+                }
+              },
+              "attributes": {
+                "draft": [
+                  {
+                    "version": "vKcBr6U2-sWwdeANGtdzC",
+                    "versionNumber": 1,
+                    "filename": "Every Field Type with Nango Registry Test Counterparty 2 - Supported Fields (6a6b329d06).docx",
+                    "key": "mHr_DTAUnqIEeC_t8ypFY",
+                    "download": "/public/api/v1/workflows/6a6b329292e6f649aa6add06/document/mHr_DTAUnqIEeC_t8ypFY/download",
+                    "lastModified": {
+                      "timestamp": "2026-07-30T11:16:35.873Z",
+                      "author": {
+                        "type": "internalUser",
+                        "displayName": "Kelvin Wari",
+                        "email": "kelvin@nango.dev",
+                        "userId": "68dc41166622f04ca177be37",
+                        "companyName": "Developer - Nango"
+                      }
+                    }
+                  }
+                ],
+                "paperSource": "Our paper",
+                "counterpartyName": "Nango Registry Test Counterparty 2",
+                "shortResponseText": "Nango registry test workflow 2",
+                "role05214514a05a417b9f952e014db84927": "Test Signer 2",
+                "role8b6358fbf5c841b99fa1a0d4e23c642a": "counterparty2@example.com",
+                "readableId": "IC-2",
+                "currentTurnParty": "not tracked"
+              },
+              "isCancelled": false,
+              "isComplete": false,
+              "status": "active",
+              "creator": {
+                "contactNumber": "",
+                "department": "",
+                "displayName": "Kelvin Wari",
+                "email": "kelvin@nango.dev",
+                "id": "68dc41166622f04ca177be37",
+                "metadata": {},
+                "companyProfiles": {},
+                "pronoun": "",
+                "profilePhoto": {
+                  "readToken": "userProfileToken668c6d55e3b6481b98739b0f6eda64df"
+                },
+                "title": "",
+                "username": "kelvin@nango.dev",
+                "lastUsageTrack": "2026-07-30T11:09:34.858Z",
+                "companyProfile": {}
+              },
+              "created": "2026-07-30T11:16:34.307Z",
+              "lastUpdated": "2026-07-30T12:12:36.402Z",
+              "roles": [
+                {
+                  "id": "approver137e74661e0b40e38e3a52dff067cd0c",
+                  "displayName": "Legal",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                },
+                {
+                  "id": "signerd49e5bda9d7944f78f5954493eab138e",
+                  "displayName": "Internal Signer",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                },
+                {
+                  "id": "owner",
+                  "displayName": "Workflow Owner",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                }
+              ],
+              "approvals": {
+                "state": "completed"
+              },
+              "signatures": {
+                "state": "in_progress",
+                "url": "https://ironcladapp.com/public/api/v1/workflows/6a6b329292e6f649aa6add06/signatures"
+              },
+              "isRevertibleToReview": true,
+              "ironcladId": "IC-2"
+            },
+            {
+              "id": "6a6b3f752410cf091f10e339",
+              "title": "Every Field Type with Nango Registry Test Create Workflow",
+              "template": "68dc41e5a7987b1e623e4711",
+              "step": "Review",
+              "schema": {
+                "date": {
+                  "type": "date",
+                  "displayName": "Date",
+                  "propertyKey": "date_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_date",
+                  "readOnly": true
+                },
+                "draft": {
+                  "type": "array",
+                  "displayName": "Draft",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "Draft",
+                    "readOnly": true
+                  },
+                  "readOnly": true
+                },
+                "table": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Table",
+                  "elementType": {
+                    "type": "object",
+                    "schema": {
+                      "tableDateField": {
+                        "type": "date",
+                        "displayName": "Table Date Field",
+                        "readOnly": true
+                      },
+                      "tableTextField": {
+                        "type": "string",
+                        "displayName": "Table Text Field",
+                        "readOnly": true
+                      },
+                      "tableEmailField": {
+                        "type": "email",
+                        "displayName": "Table Email Field",
+                        "readOnly": true
+                      },
+                      "tableNumberField": {
+                        "type": "number",
+                        "displayName": "Table Number Field",
+                        "readOnly": true
+                      },
+                      "tableBooleanField": {
+                        "type": "boolean",
+                        "displayName": "Table Boolean Field",
+                        "readOnly": true
+                      },
+                      "tableDurationField": {
+                        "type": "duration",
+                        "displayName": "Table Duration Field",
+                        "readOnly": true
+                      },
+                      "tableMonetaryAmountField": {
+                        "type": "monetaryAmount",
+                        "displayName": "Table Monetary Amount Field",
+                        "readOnly": true
+                      },
+                      "tableFormulaMonetaryAmountXNumber": {
+                        "type": "monetaryAmount",
+                        "displayName": "Table Formula (Monetary Amount x Number)",
+                        "readOnly": true
+                      }
+                    },
+                    "displayName": "Table Item",
+                    "readOnly": true
+                  },
+                  "propertyKey": "table_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_list",
+                  "readOnly": true
+                },
+                "number": {
+                  "type": "number",
+                  "displayName": "Number",
+                  "propertyKey": "number_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_number",
+                  "readOnly": true
+                },
+                "signed": {
+                  "type": "document",
+                  "displayName": "Signed PDF",
+                  "readOnly": true
+                },
+                "address": {
+                  "type": "address",
+                  "displayName": "Address",
+                  "propertyKey": "address_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_address",
+                  "readOnly": true
+                },
+                "duration": {
+                  "type": "duration",
+                  "displayName": "Duration",
+                  "propertyKey": "duration_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_duration",
+                  "readOnly": true
+                },
+                "launchType": {
+                  "type": "string",
+                  "displayName": "Workflow Launch Type",
+                  "readOnly": true
+                },
+                "childRecord": {
+                  "type": "childRecord",
+                  "schema": {},
+                  "displayName": "Child Record",
+                  "readOnly": true
+                },
+                "paperSource": {
+                  "type": "string",
+                  "displayName": "Paper Source",
+                  "propertyKey": "paperSource",
+                  "readOnly": true
+                },
+                "parentRecord": {
+                  "type": "parentRecord",
+                  "schema": {},
+                  "displayName": "Parent Record",
+                  "readOnly": true
+                },
+                "agreementDate": {
+                  "type": "date",
+                  "displayName": "Agreement Date",
+                  "readOnly": true
+                },
+                "emailQuestion": {
+                  "type": "email",
+                  "displayName": "Email",
+                  "propertyKey": "emailQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_email",
+                  "readOnly": true
+                },
+                "paragraphText": {
+                  "type": "string",
+                  "displayName": "Paragraph (Text)",
+                  "propertyKey": "paragraphText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "relatedRecord": {
+                  "type": "linkedRecord",
+                  "schema": {},
+                  "displayName": "Related Record",
+                  "readOnly": true
+                },
+                "yesNoQuestion": {
+                  "type": "boolean",
+                  "displayName": "Yes / No",
+                  "propertyKey": "yesNoQuestion_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_boolean",
+                  "readOnly": true
+                },
+                "fileAttachment": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "File Attachment",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "File Attachment",
+                    "readOnly": true
+                  },
+                  "propertyKey": "fileAttachment",
+                  "readOnly": true
+                },
+                "monetaryAmount": {
+                  "type": "monetaryAmount",
+                  "displayName": "Monetary Amount",
+                  "propertyKey": "monetaryAmount_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_monetaryAmount",
+                  "readOnly": true
+                },
+                "partiallySigned": {
+                  "type": "document",
+                  "displayName": "Partially Signed Signature Packet",
+                  "readOnly": true
+                },
+                "counterpartyName": {
+                  "type": "string",
+                  "displayName": "Counterparty Name",
+                  "propertyKey": "counterpartyName",
+                  "readOnly": true
+                },
+                "reviewRollbacked": {
+                  "type": "boolean",
+                  "displayName": "Returned to Review Step?",
+                  "readOnly": true
+                },
+                "shortResponseText": {
+                  "type": "string",
+                  "displayName": "Short Response (Text)",
+                  "propertyKey": "shortResponseText_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "sentSignaturePacket": {
+                  "type": "array",
+                  "displayName": "Sent Signature Packet",
+                  "elementType": {
+                    "type": "document",
+                    "displayName": "Sent Signature Packet",
+                    "readOnly": true
+                  },
+                  "readOnly": true
+                },
+                "singleSelectDropdown": {
+                  "type": "string",
+                  "displayName": "Single Select Dropdown",
+                  "propertyKey": "singleSelectDropdown_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "multiSelectCheckBoxNumber": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Multi Select Check Box (Number)",
+                  "elementType": {
+                    "type": "string",
+                    "displayName": "Multi Select Check Box (Number)",
+                    "readOnly": true
+                  },
+                  "propertyKey": "multiSelectCheckBoxNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+                  "readOnly": true
+                },
+                "multiSelectDropdownNumber": {
+                  "type": "array",
+                  "visible": true,
+                  "displayName": "Multi Select Dropdown (Text)",
+                  "elementType": {
+                    "type": "string",
+                    "displayName": "Multi Select Dropdown (Text)",
+                    "readOnly": true
+                  },
+                  "propertyKey": "multiSelectDropdownNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_array",
+                  "readOnly": true
+                },
+                "formulaPullCityFromAddress": {
+                  "type": "string",
+                  "displayName": "Formula (Pull City from Address)",
+                  "propertyKey": "formulaPullCityFromAddress_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "singleSelectRadioButtonNumber": {
+                  "type": "string",
+                  "displayName": "Single Select Radio Button (Number)",
+                  "propertyKey": "singleSelectRadioButtonNumber_6372fcf6-8ef8-4cf8-8ec1-c53d7ff7a8e6_string",
+                  "readOnly": true
+                },
+                "role05214514a05a417b9f952e014db84927": {
+                  "type": "string",
+                  "displayName": "Counterparty Signer Name",
+                  "propertyKey": "counterpartySigner",
+                  "readOnly": true
+                },
+                "role8b6358fbf5c841b99fa1a0d4e23c642a": {
+                  "type": "email",
+                  "displayName": "Counterparty Signer Email",
+                  "propertyKey": "counterpartySignerEmail",
+                  "readOnly": true
+                }
+              },
+              "attributes": {
+                "draft": [
+                  {
+                    "version": "lAESIWp8D3_KgOsfBoHp_",
+                    "versionNumber": 1,
+                    "filename": "Every Field Type with Nango Registry Test Create Workflow - Supported Fields (6a6b3f7339).docx",
+                    "key": "VHQFFOrCQkR026m6t31I5",
+                    "download": "/public/api/v1/workflows/6a6b3f752410cf091f10e339/document/VHQFFOrCQkR026m6t31I5/download",
+                    "lastModified": {
+                      "timestamp": "2026-07-30T12:11:35.461Z",
+                      "author": {
+                        "type": "internalUser",
+                        "displayName": "Kelvin Wari",
+                        "email": "kelvin@nango.dev",
+                        "userId": "68dc41166622f04ca177be37",
+                        "companyName": "Developer - Nango"
+                      }
+                    }
+                  }
+                ],
+                "paperSource": "Our paper",
+                "counterpartyName": "Nango Registry Test Create Workflow",
+                "role05214514a05a417b9f952e014db84927": "Test Signer",
+                "role8b6358fbf5c841b99fa1a0d4e23c642a": "test@example.com",
+                "readableId": "IC-9",
+                "currentTurnParty": "not tracked"
+              },
+              "isCancelled": false,
+              "isComplete": false,
+              "status": "active",
+              "creator": {
+                "contactNumber": "",
+                "department": "",
+                "displayName": "Kelvin Wari",
+                "email": "kelvin@nango.dev",
+                "id": "68dc41166622f04ca177be37",
+                "metadata": {},
+                "companyProfiles": {},
+                "pronoun": "",
+                "profilePhoto": {
+                  "readToken": "userProfileToken668c6d55e3b6481b98739b0f6eda64df"
+                },
+                "title": "",
+                "username": "kelvin@nango.dev",
+                "lastUsageTrack": "2026-07-30T11:09:34.858Z",
+                "companyProfile": {}
+              },
+              "created": "2026-07-30T12:11:33.858Z",
+              "lastUpdated": "2026-07-30T12:11:33.867Z",
+              "roles": [
+                {
+                  "id": "approver137e74661e0b40e38e3a52dff067cd0c",
+                  "displayName": "Legal",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                },
+                {
+                  "id": "signerd49e5bda9d7944f78f5954493eab138e",
+                  "displayName": "Internal Signer",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                },
+                {
+                  "id": "owner",
+                  "displayName": "Workflow Owner",
+                  "assignees": [
+                    {
+                      "userName": "Kelvin Wari",
+                      "userId": "68dc41166622f04ca177be37",
+                      "email": "kelvin@nango.dev"
+                    }
+                  ]
+                }
+              ],
+              "approvals": {
+                "state": "in_progress",
+                "url": "https://ironcladapp.com/public/api/v1/workflows/6a6b3f752410cf091f10e339/approvals"
+              },
+              "signatures": {
+                "state": "not_started"
+              },
+              "isRevertibleToReview": false,
+              "ironcladId": "IC-9"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 12:14:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1982",
+          "x-ratelimit-reset": "1785413702",
+          "x-pod-name": "public-api-558bcb5f77-sdvsb",
+          "x-version": "2026.29.916.740-a76a8bf20b4",
+          "x-response-id": "b0fb765d-f191-4281-8278-9ed80c1e5c29",
+          "cache-control": "no-store, no-cache",
+          "content-security-policy": "default-src 'self';frame-ancestors 'self' https://*.salesforce.com https://*.lightning.force.com https://*.visual.force.com https://*.visualforce.com https://green-harvest-experience.my.site.com https://*.officeapps.live.com https://*.sharepoint.com;report-to https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;report-uri https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "expect-ct": "max-age=0",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-ironclad-requestid": "b0fb765d-f191-4281-8278-9ed80c1e5c29",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "3c7ffe682a6b18dd6c34d23fb1c032358e59f3a4",
+        "request": {}
+      }
+    }
+  }
+}

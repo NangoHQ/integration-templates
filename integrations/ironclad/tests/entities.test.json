@@ -1,0 +1,212 @@
+{
+  "nango": {
+    "batchSave": {
+      "Entity": [
+        {
+          "id": "bfa753a8-ac2b-443e-842f-48bae37d4263",
+          "name": "Nango Registry Test Entity Dryrun",
+          "status": "ACTIVE",
+          "ironcladId": "ENTITY-4",
+          "lastUpdated": "2026-07-30T12:13:09.212Z",
+          "properties": {
+            "entity_category": {
+              "type": "string",
+              "value": "external"
+            },
+            "entity_businessType": {
+              "type": "string",
+              "value": "company"
+            }
+          },
+          "namedTypeIds": []
+        },
+        {
+          "id": "161228be-f1ba-4ba4-a7e0-bf7cbb191f4f",
+          "name": "Nango Registry Test Entity",
+          "status": "ACTIVE",
+          "ironcladId": "ENTITY-5",
+          "lastUpdated": "2026-07-30T12:13:16.438Z",
+          "properties": {
+            "entity_category": {
+              "type": "string",
+              "value": "external"
+            },
+            "entity_businessType": {
+              "type": "string",
+              "value": "company"
+            }
+          },
+          "namedTypeIds": []
+        },
+        {
+          "id": "3f2ec1ae-e116-40c9-a172-fedbbd0fce57",
+          "name": "Nango Registry Test Entity Dryrun",
+          "status": "ACTIVE",
+          "ironcladId": "ENTITY-6",
+          "lastUpdated": "2026-07-30T12:13:16.879Z",
+          "properties": {
+            "entity_category": {
+              "type": "string",
+              "value": "external"
+            },
+            "entity_businessType": {
+              "type": "string",
+              "value": "company"
+            }
+          },
+          "namedTypeIds": []
+        },
+        {
+          "id": "81d837bc-7790-4560-8426-ba74ee06ba75",
+          "name": "Nango Registry Test Entity Updated",
+          "status": "ACTIVE",
+          "ironcladId": "ENTITY-7",
+          "lastUpdated": "2026-07-30T12:14:26.735Z",
+          "properties": {
+            "entity_category": {
+              "type": "string",
+              "value": "external"
+            },
+            "entity_businessType": {
+              "type": "string",
+              "value": "company"
+            }
+          },
+          "namedTypeIds": [
+            "ef4b6574-094e-49f6-b471-7f9457d3d6ce"
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Entity": []
+    }
+  },
+  "api": {
+    "get": {
+      "/public/api/v1/entities": {
+        "response": {
+          "page": 0,
+          "pageSize": 100,
+          "count": 4,
+          "list": [
+            {
+              "id": "bfa753a8-ac2b-443e-842f-48bae37d4263",
+              "status": "ACTIVE",
+              "ironcladId": "ENTITY-4",
+              "name": "Nango Registry Test Entity Dryrun",
+              "lastUpdated": "2026-07-30T12:13:09.212Z",
+              "properties": {
+                "entity_category": {
+                  "type": "string",
+                  "value": "external"
+                },
+                "entity_businessType": {
+                  "type": "string",
+                  "value": "company"
+                }
+              },
+              "namedTypeIds": []
+            },
+            {
+              "id": "161228be-f1ba-4ba4-a7e0-bf7cbb191f4f",
+              "status": "ACTIVE",
+              "ironcladId": "ENTITY-5",
+              "name": "Nango Registry Test Entity",
+              "lastUpdated": "2026-07-30T12:13:16.438Z",
+              "properties": {
+                "entity_category": {
+                  "type": "string",
+                  "value": "external"
+                },
+                "entity_businessType": {
+                  "type": "string",
+                  "value": "company"
+                }
+              },
+              "namedTypeIds": []
+            },
+            {
+              "id": "3f2ec1ae-e116-40c9-a172-fedbbd0fce57",
+              "status": "ACTIVE",
+              "ironcladId": "ENTITY-6",
+              "name": "Nango Registry Test Entity Dryrun",
+              "lastUpdated": "2026-07-30T12:13:16.879Z",
+              "properties": {
+                "entity_category": {
+                  "type": "string",
+                  "value": "external"
+                },
+                "entity_businessType": {
+                  "type": "string",
+                  "value": "company"
+                }
+              },
+              "namedTypeIds": []
+            },
+            {
+              "id": "81d837bc-7790-4560-8426-ba74ee06ba75",
+              "status": "ACTIVE",
+              "ironcladId": "ENTITY-7",
+              "name": "Nango Registry Test Entity Updated",
+              "lastUpdated": "2026-07-30T12:14:26.735Z",
+              "properties": {
+                "entity_category": {
+                  "type": "string",
+                  "value": "external"
+                },
+                "entity_businessType": {
+                  "type": "string",
+                  "value": "company"
+                }
+              },
+              "namedTypeIds": [
+                "ef4b6574-094e-49f6-b471-7f9457d3d6ce"
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 30 Jul 2026 12:40:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1785415266",
+          "x-pod-name": "public-api-558bcb5f77-wgxph",
+          "x-version": "2026.29.916.740-a76a8bf20b4",
+          "x-response-id": "73cbc61b-0c0c-42e4-99b8-7a29bfdb7abf",
+          "cache-control": "no-store, no-cache",
+          "content-security-policy": "default-src 'self';frame-ancestors 'self' https://*.salesforce.com https://*.lightning.force.com https://*.visual.force.com https://*.visualforce.com https://green-harvest-experience.my.site.com https://*.officeapps.live.com https://*.sharepoint.com;report-to https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;report-uri https://o196550.ingest.sentry.io/api/1303389/security/?sentry_key=e702537f252d4783a7f53bc39e9b1e77&sentry_environment=&release=;base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "expect-ct": "max-age=0",
+          "x-permitted-cross-domain-policies": "none",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-ironclad-requestid": "73cbc61b-0c0c-42e4-99b8-7a29bfdb7abf",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "176131942fa3036fa96b5bc8feb08321d40da91f",
+        "request": {
+          "params": {
+            "page": "0",
+            "pageSize": "100",
+            "sortDirection": "ASC",
+            "sortField": "lastUpdated"
+          }
+        }
+      }
+    }
+  }
+}

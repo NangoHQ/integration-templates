@@ -8,8 +8,9 @@
     "dataAreaId": "dat",
     "vendorAccountNumber": "DAT-0000000002",
     "vendorOrganizationName": "Updated Org Name",
-    "addressCity": "",
-    "addressCountryRegionId": ""
+    "vendorGroupId": "Construct",
+    "currencyCode": "USD",
+    "addressCity": ""
   },
   "nango": {},
   "api": {
@@ -18,7 +19,7 @@
         "response": "",
         "status": 204,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:29:08 GMT",
+          "date": "Thu, 30 Jul 2026 10:01:42 GMT",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -30,8 +31,8 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1920",
-          "x-ratelimit-reset": "1784766577"
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1785405732"
         },
         "hash": "a12e896232679f7e4882bcb9331fa424e79ecfe1",
         "request": {
@@ -45,7 +46,7 @@
       "/data/VendorsV2(dataAreaId='dat',VendorAccountNumber='DAT-0000000002')": {
         "response": {
           "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#VendorsV2/$entity",
-          "@odata.etag": "W/\"JzEsNTYzNzE0NDU3NjsxMzc3MDE1MTcxLDU2MzcxNDUzMjY7MCwwOzAsMDswLDA7MCwwOzAsMDswLDA7MCwwOzAsMDswLDA7MSw1NjM3MTQ0NTc2Jw==\"",
+          "@odata.etag": "W/\"JzEsNTYzNzE0NDU3Njs0NjUxOTQxMTIsNTYzNzE0NTMyNjswLDA7MCwwOzAsMDswLDA7MCwwOzAsMDswLDA7MCwwOzAsMDsxLDU2MzcxNDQ1NzYn\"",
           "dataAreaId": "dat",
           "VendorAccountNumber": "DAT-0000000002",
           "CompanyChainName": "",
@@ -341,9 +342,9 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:29:08 GMT",
+          "date": "Thu, 30 Jul 2026 10:01:45 GMT",
           "content-type": "application/json; odata.metadata=minimal",
-          "content-length": "8306",
+          "content-length": "8302",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -355,9 +356,9 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1918",
-          "x-ratelimit-reset": "1784766577",
-          "etag": "W/\"2072-sdPm+mxNO8KzfZgvI76eAmo+bck\""
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1785405732",
+          "etag": "W/\"206e-WARP46259UkX1kb+HIBCkwfadpA\""
         },
         "hash": "3daa2f7f6701f34b6ee1272cea6bf41c6a70e453",
         "request": {}

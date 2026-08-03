@@ -1,19 +1,21 @@
 {
   "input": {
-    "dataAreaId": "dat",
-    "OrderingCustomerAccountNumber": "DAT-000004",
-    "InvoiceCustomerAccountNumber": "DAT-000004",
-    "CurrencyCode": "USD",
-    "LanguageId": "en-us"
+    "orderingCustomerAccountNumber": "DAT-000004",
+    "invoiceCustomerAccountNumber": "DAT-000004",
+    "currencyCode": "USD",
+    "languageId": "en-us",
+    "dataAreaId": "dat"
   },
   "output": {
-    "dataAreaId": "dat",
-    "salesOrderNumber": "DAT-000016",
+    "salesOrderNumber": "DAT-000024",
     "orderingCustomerAccountNumber": "DAT-000004",
     "invoiceCustomerAccountNumber": "DAT-000004",
     "currencyCode": "USD",
     "languageId": "en-US",
-    "requestedReceiptDate": "2026-07-22T12:00:00Z",
+    "dataAreaId": "dat",
+    "requestedReceiptDate": "2026-07-30T12:00:00Z",
+    "requestedShippingDate": "2026-07-30T12:00:00Z",
+    "customerReference": "",
     "salesOrderName": "Ingenious Development LLC",
     "salesOrderStatus": "None"
   },
@@ -23,9 +25,9 @@
       "/data/SalesOrderHeadersV2": {
         "response": {
           "@odata.context": "https://test-na-cc6dd90d.operations.dynamics.com/data/$metadata#SalesOrderHeadersV2/$entity",
-          "@odata.etag": "W/\"JzEsNTYzNzE0NTMyOTswLDA7MCwwOzAsMDswLDA7MCwwOzAsMCc=\"",
+          "@odata.etag": "W/\"JzEsNTYzNzE0NjA3OTswLDA7MCwwOzAsMDswLDA7MCwwOzAsMCc=\"",
           "dataAreaId": "dat",
-          "SalesOrderNumber": "DAT-000016",
+          "SalesOrderNumber": "DAT-000024",
           "CustomerRequisitionNumber": "",
           "SalesOrderProcessingStatus": "Active",
           "OrderTotalAmount": 0,
@@ -74,7 +76,7 @@
           "PaymentTermsName": "",
           "ShippingCarrierServiceGroupId": "",
           "CIPEcode": "",
-          "RequestedReceiptDate": "2026-07-22T12:00:00Z",
+          "RequestedReceiptDate": "2026-07-30T12:00:00Z",
           "ConfirmedReceiptDate": "1900-01-01T12:00:00Z",
           "BaseDocumentDate": "1900-01-01T12:00:00Z",
           "EInvoiceDimensionAccountCode": "",
@@ -103,7 +105,7 @@
           "ThirdPartySalesDigitalPlatformCNPJ": "",
           "OrderHeaderTaxAmount": 0,
           "FiscalDocumentOperationTypeId": "",
-          "OrderCreationDateTime": "2026-07-23T00:28:29Z",
+          "OrderCreationDateTime": "2026-07-30T08:58:53Z",
           "SalesOrderOriginCode": "",
           "ServiceFiscalInformationCode": "",
           "DeliveryAddressStateId": "",
@@ -169,7 +171,7 @@
           "DeliveryAddressPostBox": "",
           "IsDeliveryAddressOrderSpecific": "No",
           "InvoiceAddressStateId": "",
-          "RequestedShippingDate": "2026-07-22T12:00:00Z",
+          "RequestedShippingDate": "2026-07-30T12:00:00Z",
           "DeliveryAddressLatitude": 0,
           "DeliveryBuildingCompliment": "",
           "InvoiceAddressCountryRegionId": "",
@@ -195,7 +197,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 23 Jul 2026 00:28:30 GMT",
+          "date": "Thu, 30 Jul 2026 08:58:55 GMT",
           "content-type": "application/json; odata.metadata=minimal",
           "content-length": "5426",
           "connection": "keep-alive",
@@ -209,18 +211,18 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1869",
-          "x-ratelimit-reset": "1784766517",
-          "etag": "W/\"1532-jj8apBJ9bLMS+ACVbt9f4omRi1U\""
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1785401991",
+          "etag": "W/\"1532-brpC0yBEW+tbIIMwccNOWg3gTGM\""
         },
-        "hash": "44ef4c08a73e2ed168eec55aadb3b7415cee3917",
+        "hash": "d944e4b0feee852775994c8ea7688570e46d43e9",
         "request": {
           "data": {
-            "dataAreaId": "dat",
             "OrderingCustomerAccountNumber": "DAT-000004",
             "InvoiceCustomerAccountNumber": "DAT-000004",
             "CurrencyCode": "USD",
-            "LanguageId": "en-us"
+            "LanguageId": "en-us",
+            "dataAreaId": "dat"
           }
         }
       }

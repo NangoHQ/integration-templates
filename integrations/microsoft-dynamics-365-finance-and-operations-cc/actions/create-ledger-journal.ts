@@ -2,27 +2,27 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dataAreaId: z.string().describe("Company code / data area ID. Example: 'dat'"),
-    JournalName: z.string().describe('Journal name/setup. Example: "EXPJRN"')
+    dataAreaId: z.string().describe('Company code / data area ID. Example: "dat"'),
+    journalName: z.string().describe('Existing journal name (setup) to use for the journal header. Example: "EXPJRN"')
 });
 
-const ProviderResponseSchema = z
-    .object({
-        JournalBatchNumber: z.string(),
-        JournalName: z.string(),
-        dataAreaId: z.string()
-    })
-    .passthrough();
+const ProviderResponseSchema = z.object({
+    dataAreaId: z.string().optional(),
+    JournalBatchNumber: z.string().optional(),
+    JournalName: z.string().optional(),
+    IsPosted: z.string().optional()
+});
 
 const OutputSchema = z.object({
-    JournalBatchNumber: z.string(),
-    JournalName: z.string(),
-    dataAreaId: z.string()
+    dataAreaId: z.string().optional(),
+    journalBatchNumber: z.string().optional(),
+    journalName: z.string().optional(),
+    isPosted: z.string().optional()
 });
 
 const action = createAction({
-    description: 'Create a general ledger journal header.',
-    version: '1.0.0',
+    description: 'Create a general ledger journal header',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
@@ -32,17 +32,18 @@ const action = createAction({
             endpoint: '/data/LedgerJournalHeaders',
             data: {
                 dataAreaId: input.dataAreaId,
-                JournalName: input.JournalName
+                JournalName: input.journalName
             },
-            retries: 1
+            retries: 3
         });
 
         const providerData = ProviderResponseSchema.parse(response.data);
 
         return {
-            JournalBatchNumber: providerData.JournalBatchNumber,
-            JournalName: providerData.JournalName,
-            dataAreaId: providerData.dataAreaId
+            ...(providerData.dataAreaId !== undefined && { dataAreaId: providerData.dataAreaId }),
+            ...(providerData.JournalBatchNumber !== undefined && { journalBatchNumber: providerData.JournalBatchNumber }),
+            ...(providerData.JournalName !== undefined && { journalName: providerData.JournalName }),
+            ...(providerData.IsPosted !== undefined && { isPosted: providerData.IsPosted })
         };
     }
 });
