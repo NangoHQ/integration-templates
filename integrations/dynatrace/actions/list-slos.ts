@@ -1,14 +1,25 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    pageSize: z.number().int().min(1).max(10000).optional().describe('The amount of SLOs in a single response payload. Maximum allowed is 10000.'),
-    sloSelector: z.string().optional().describe('Filter SLOs by ID, name, health state, text, or management zone.'),
-    sort: z.enum(['name', '-name']).optional().describe('Sort by name in ascending or descending order.'),
-    enabledSlos: z.enum(['true', 'false', 'all']).optional().describe('Filter by enabled status: true, false, or all.'),
-    evaluate: z.enum(['true', 'false']).optional().describe('Whether to evaluate SLOs. When true, maximum pageSize is 25.')
-});
+const InputSchema = z
+    .object({
+        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+        pageSize: z
+            .number()
+            .int()
+            .min(1)
+            .max(10000)
+            .optional()
+            .describe('The amount of SLOs in a single response payload. Maximum allowed is 10000 (25 when evaluate is true).'),
+        sloSelector: z.string().optional().describe('Filter SLOs by ID, name, health state, text, or management zone.'),
+        sort: z.enum(['name', '-name']).optional().describe('Sort by name in ascending or descending order.'),
+        enabledSlos: z.enum(['true', 'false', 'all']).optional().describe('Filter by enabled status: true, false, or all.'),
+        evaluate: z.enum(['true', 'false']).optional().describe('Whether to evaluate SLOs. When true, maximum pageSize is 25.')
+    })
+    .refine((input) => input.evaluate !== 'true' || input.pageSize === undefined || input.pageSize <= 25, {
+        message: 'pageSize must be 25 or less when evaluate is true',
+        path: ['pageSize']
+    });
 
 const SloBurnRateSchema = z.object({
     burnRateType: z.enum(['FAST', 'SLOW', 'NONE']).optional(),
@@ -55,7 +66,7 @@ const ProviderResponseSchema = z.object({
     nextPageKey: z.string().nullable().optional(),
     pageSize: z.number().int().optional(),
     totalCount: z.number().int().optional(),
-    slo: z.array(SloSchema).optional()
+    slo: z.array(SloSchema)
 });
 
 const OutputSchema = z.object({
@@ -102,7 +113,7 @@ const action = createAction({
         const parsed = ProviderResponseSchema.parse(response.data);
 
         return {
-            items: parsed.slo ?? [],
+            items: parsed.slo,
             ...(parsed.nextPageKey != null && { nextPageKey: parsed.nextPageKey })
         };
     }

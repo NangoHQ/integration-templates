@@ -4,7 +4,7 @@ import { createAction, ProxyConfiguration } from 'nango';
 const InputSchema = z.object({
     releasesSelector: z.string().optional().describe('Releases selector to filter results. Example: "releasesProduct(\\"order-processing\\")"'),
     cursor: z.string().optional().describe('Pagination cursor from the previous response (nextPageKey). Omit for the first page.'),
-    pageSize: z.number().optional().describe('Number of releases per page. Max 1000.')
+    pageSize: z.number().int().min(1).max(1000).optional().describe('Number of releases per page. Max 1000.')
 });
 
 const SoftwareTechSchema = z.object({
@@ -61,14 +61,16 @@ const action = createAction({
     scopes: ['releases.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Dynatrace requires nextPageKey to be sent alone on continuation requests; filters/pageSize are only valid on the first page.
         const config: ProxyConfiguration = {
             // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/releaseapi/get-releaseall
             endpoint: '/api/v2/releases',
-            params: {
-                ...(input.releasesSelector !== undefined && { releasesSelector: input.releasesSelector }),
-                ...(input.cursor !== undefined && { nextPageKey: input.cursor }),
-                ...(input.pageSize !== undefined && { pageSize: input.pageSize })
-            },
+            params: input.cursor
+                ? { nextPageKey: input.cursor }
+                : {
+                      ...(input.releasesSelector !== undefined && { releasesSelector: input.releasesSelector }),
+                      ...(input.pageSize !== undefined && { pageSize: input.pageSize })
+                  },
             retries: 3
         };
 

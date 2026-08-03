@@ -139,7 +139,7 @@ const action = createAction({
         const response = await nango.get({
             endpoint: `/api/v2/securityProblems/${encodedId}`,
             params: {
-                fields: '+riskAssessment,+managementZones,+codeLevelVulnerabilityDetails,+globalCounts,+description,+remediationDescription,+events'
+                fields: '+riskAssessment,+managementZones,+codeLevelVulnerabilityDetails,+globalCounts,+description,+remediationDescription,+events,+entryPoints,+vulnerableComponents'
             },
             retries: 3
         });

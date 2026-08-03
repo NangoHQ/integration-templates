@@ -5,6 +5,7 @@ const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.'),
     pageSize: z
         .number()
+        .int()
         .min(100)
         .max(10000)
         .optional()
@@ -24,6 +25,11 @@ const ApiTokenSchema = z.object({
     modifiedDate: z.string().optional(),
     scopes: z.array(z.string()).optional(),
     additionalMetadata: z.record(z.string(), z.unknown()).optional()
+});
+
+const ProviderResponseSchema = z.object({
+    apiTokens: z.array(ApiTokenSchema),
+    nextPageKey: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -50,26 +56,6 @@ const action = createAction({
             retries: 3
         });
 
-        const ProviderApiTokenSchema = z.object({
-            id: z.string(),
-            name: z.string().optional(),
-            owner: z.string().optional(),
-            enabled: z.boolean().optional(),
-            personalAccessToken: z.boolean().optional(),
-            creationDate: z.string().optional(),
-            expirationDate: z.string().optional(),
-            lastUsedDate: z.string().optional(),
-            lastUsedIpAddress: z.string().optional(),
-            modifiedDate: z.string().optional(),
-            scopes: z.array(z.string()).optional(),
-            additionalMetadata: z.record(z.string(), z.unknown()).optional()
-        });
-
-        const ProviderResponseSchema = z.object({
-            apiTokens: z.array(ProviderApiTokenSchema),
-            nextPageKey: z.string().optional()
-        });
-
         const providerResponse = ProviderResponseSchema.safeParse(response.data);
         if (!providerResponse.success) {
             throw new nango.ActionError({
@@ -79,21 +65,8 @@ const action = createAction({
         }
 
         return {
-            apiTokens: providerResponse.data.apiTokens.map((token) => ({
-                id: token.id,
-                ...(token.name !== undefined && { name: token.name }),
-                ...(token.owner !== undefined && { owner: token.owner }),
-                ...(token.enabled !== undefined && { enabled: token.enabled }),
-                ...(token.personalAccessToken !== undefined && { personalAccessToken: token.personalAccessToken }),
-                ...(token.creationDate !== undefined && { creationDate: token.creationDate }),
-                ...(token.expirationDate !== undefined && { expirationDate: token.expirationDate }),
-                ...(token.lastUsedDate !== undefined && { lastUsedDate: token.lastUsedDate }),
-                ...(token.lastUsedIpAddress !== undefined && { lastUsedIpAddress: token.lastUsedIpAddress }),
-                ...(token.modifiedDate !== undefined && { modifiedDate: token.modifiedDate }),
-                ...(token.scopes !== undefined && { scopes: token.scopes }),
-                ...(token.additionalMetadata !== undefined && { additionalMetadata: token.additionalMetadata })
-            })),
-            ...(providerResponse.data.nextPageKey !== undefined && { nextPageKey: providerResponse.data.nextPageKey })
+            apiTokens: providerResponse.data.apiTokens,
+            ...(providerResponse.data.nextPageKey != null && { nextPageKey: providerResponse.data.nextPageKey })
         };
     }
 });

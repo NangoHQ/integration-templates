@@ -22,15 +22,7 @@ const ProviderCommentsListSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    comments: z.array(
-        z.object({
-            id: z.string(),
-            content: z.string(),
-            createdAtTimestamp: z.number(),
-            authorName: z.string(),
-            context: z.string()
-        })
-    ),
+    comments: z.array(ProviderCommentSchema),
     totalCount: z.number(),
     nextPageKey: z.string().optional()
 });

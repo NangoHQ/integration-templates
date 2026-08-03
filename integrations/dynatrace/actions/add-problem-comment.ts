@@ -29,7 +29,7 @@ const action = createAction({
                 message: input.message,
                 ...(input.context !== undefined && { context: input.context })
             },
-            retries: 10
+            retries: 3
         });
 
         if (response.status !== 200 && response.status !== 201) {

@@ -30,17 +30,8 @@ const ProviderListResponseSchema = z.object({
     nextPageKey: z.string().optional()
 });
 
-const OutputItemSchema = z.object({
-    objectId: z.string(),
-    schemaId: z.string().optional(),
-    schemaVersion: z.string().optional(),
-    scope: z.string().optional(),
-    value: z.unknown().optional(),
-    modificationInfo: ModificationInfoSchema.optional()
-});
-
 const OutputSchema = z.object({
-    items: z.array(OutputItemSchema),
+    items: z.array(ProviderSettingObjectSchema),
     nextPageKey: z.string().optional()
 });
 
@@ -65,14 +56,7 @@ const action = createAction({
         const parsed = ProviderListResponseSchema.parse(response.data);
 
         return {
-            items: parsed.items.map((item) => ({
-                objectId: item.objectId,
-                ...(item.schemaId !== undefined && { schemaId: item.schemaId }),
-                ...(item.schemaVersion !== undefined && { schemaVersion: item.schemaVersion }),
-                ...(item.scope !== undefined && { scope: item.scope }),
-                ...(item.value !== undefined && { value: item.value }),
-                ...(item.modificationInfo !== undefined && { modificationInfo: item.modificationInfo })
-            })),
+            items: parsed.items,
             ...(parsed.nextPageKey !== undefined && { nextPageKey: parsed.nextPageKey })
         };
     }

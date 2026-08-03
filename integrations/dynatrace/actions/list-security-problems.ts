@@ -30,6 +30,23 @@ const RiskAssessmentSchema = z.object({
     vulnerableFunctionUsage: z.string().optional()
 });
 
+const GlobalCountsSchema = z
+    .object({
+        affectedNodes: z.number().optional(),
+        affectedProcessGroupInstances: z.number().optional(),
+        affectedProcessGroups: z.number().optional(),
+        exposedProcessGroups: z.number().optional(),
+        reachableDataAssets: z.number().optional(),
+        relatedApplications: z.number().optional(),
+        relatedAttacks: z.number().optional(),
+        relatedHosts: z.number().optional(),
+        relatedKubernetesClusters: z.number().optional(),
+        relatedKubernetesWorkloads: z.number().optional(),
+        relatedServices: z.number().optional(),
+        vulnerableComponents: z.number().optional()
+    })
+    .passthrough();
+
 const SecurityProblemSchema = z.object({
     securityProblemId: z.string(),
     displayId: z.string(),
@@ -47,7 +64,8 @@ const SecurityProblemSchema = z.object({
     lastOpenedTimestamp: z.number().optional(),
     lastResolvedTimestamp: z.number().optional(),
     riskAssessment: RiskAssessmentSchema.optional(),
-    managementZones: z.array(ManagementZoneSchema).optional()
+    managementZones: z.array(ManagementZoneSchema).optional(),
+    globalCounts: GlobalCountsSchema.optional()
 });
 
 const OutputSchema = z.object({
@@ -65,23 +83,27 @@ const action = createAction({
     scopes: ['securityProblems.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Dynatrace requires nextPageKey to be sent alone on continuation requests; filters/pageSize are only valid on the first page.
+        const params: Record<string, string | number> = input.cursor
+            ? { nextPageKey: input.cursor }
+            : {
+                  ...(input.pageSize !== undefined && { pageSize: input.pageSize }),
+                  ...(input.securityProblemSelector !== undefined && { securityProblemSelector: input.securityProblemSelector }),
+                  ...(input.sort !== undefined && { sort: input.sort }),
+                  ...(input.fields !== undefined && { fields: input.fields }),
+                  ...(input.from !== undefined && { from: input.from }),
+                  ...(input.to !== undefined && { to: input.to })
+              };
+
         // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/security-problems/get-all
         const response = await nango.get({
             endpoint: '/api/v2/securityProblems',
-            params: {
-                ...(input.cursor !== undefined && { nextPageKey: input.cursor }),
-                ...(input.pageSize !== undefined && { pageSize: input.pageSize }),
-                ...(input.securityProblemSelector !== undefined && { securityProblemSelector: input.securityProblemSelector }),
-                ...(input.sort !== undefined && { sort: input.sort }),
-                ...(input.fields !== undefined && { fields: input.fields }),
-                ...(input.from !== undefined && { from: input.from }),
-                ...(input.to !== undefined && { to: input.to })
-            },
+            params,
             retries: 3
         });
 
         const listSchema = z.object({
-            securityProblems: z.array(z.unknown()),
+            securityProblems: z.array(SecurityProblemSchema),
             nextPageKey: z.string().nullable().optional(),
             pageSize: z.number(),
             totalCount: z.number()
@@ -89,10 +111,8 @@ const action = createAction({
 
         const list = listSchema.parse(response.data);
 
-        const items = list.securityProblems.map((item) => SecurityProblemSchema.parse(item));
-
         return {
-            items,
+            items: list.securityProblems,
             ...(list.nextPageKey != null && { nextPageKey: list.nextPageKey }),
             pageSize: list.pageSize,
             totalCount: list.totalCount

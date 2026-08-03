@@ -42,7 +42,8 @@ const ProviderSloSchema = z.object({
     metricRate: z.string().optional(),
     useRateMetric: z.boolean().optional(),
     metricNumerator: z.string().optional(),
-    metricDenominator: z.string().optional()
+    metricDenominator: z.string().optional(),
+    problemFilters: z.array(z.string()).optional()
 });
 
 const OutputSchema = ProviderSloSchema;

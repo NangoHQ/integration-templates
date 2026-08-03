@@ -67,7 +67,8 @@ const OutputSchema = z.object({
     events: z.array(ProviderEventSchema),
     nextPageKey: z.string().optional(),
     pageSize: z.number().optional(),
-    totalCount: z.number().optional()
+    totalCount: z.number().optional(),
+    warnings: z.array(z.string()).optional()
 });
 
 const action = createAction({
@@ -112,7 +113,8 @@ const action = createAction({
             events: providerList.events,
             ...(providerList.nextPageKey !== undefined && providerList.nextPageKey !== null && { nextPageKey: providerList.nextPageKey }),
             ...(providerList.pageSize !== undefined && { pageSize: providerList.pageSize }),
-            ...(providerList.totalCount !== undefined && { totalCount: providerList.totalCount })
+            ...(providerList.totalCount !== undefined && { totalCount: providerList.totalCount }),
+            ...(providerList.warnings !== undefined && { warnings: providerList.warnings })
         };
     }
 });

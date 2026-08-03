@@ -74,7 +74,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Metric descriptor not found',
-                metric_key: input.metricKey
+                metricKey: input.metricKey
             });
         }
 

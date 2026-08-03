@@ -126,7 +126,7 @@ const InputSchema = z.object({
     from: z.string().optional().describe('Start of the time window. Accepts relative expressions like "-1h", "-7d", or epoch millis.'),
     problemSelector: z.string().optional().describe('Problem selector string to filter results.'),
     cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from a previous response.'),
-    pageSize: z.number().int().optional().describe('Number of results per page.')
+    pageSize: z.number().int().min(1).max(500).optional().describe('Number of results per page. Max 500.')
 });
 
 const OutputSchema = z.object({
@@ -145,15 +145,19 @@ const action = createAction({
     scopes: ['problems.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Dynatrace requires nextPageKey to be sent alone on continuation requests; filters/pageSize are only valid on the first page.
+        const params: Record<string, string> = input.cursor
+            ? { nextPageKey: input.cursor }
+            : {
+                  ...(input.from !== undefined && { from: input.from }),
+                  ...(input.problemSelector !== undefined && { problemSelector: input.problemSelector }),
+                  ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) })
+              };
+
         const response = await nango.get({
             // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/get-problems-list
             endpoint: '/api/v2/problems',
-            params: {
-                ...(input.from !== undefined && { from: input.from }),
-                ...(input.problemSelector !== undefined && { problemSelector: input.problemSelector }),
-                ...(input.cursor !== undefined && { nextPageKey: input.cursor }),
-                ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) })
-            },
+            params,
             retries: 3
         });
 

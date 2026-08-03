@@ -3,6 +3,60 @@ import { z } from 'zod';
 
 const PAGE_SIZE = 500;
 
+const EntityStubSchema = z
+    .object({
+        entityId: z
+            .object({
+                id: z.string(),
+                type: z.string()
+            })
+            .passthrough(),
+        name: z.string().optional()
+    })
+    .passthrough();
+
+const METagSchema = z
+    .object({
+        context: z.string().optional(),
+        key: z.string().optional(),
+        stringRepresentation: z.string().optional(),
+        value: z.string().optional()
+    })
+    .passthrough();
+
+const ManagementZoneSchema = z
+    .object({
+        id: z.string().optional(),
+        name: z.string().optional()
+    })
+    .passthrough();
+
+const AlertingProfileStubSchema = z
+    .object({
+        id: z.string().optional(),
+        name: z.string().optional()
+    })
+    .passthrough();
+
+const RecentCommentSchema = z
+    .object({
+        authorName: z.string().optional(),
+        content: z.string().optional(),
+        context: z.string().optional(),
+        createdAtTimestamp: z.number().optional(),
+        id: z.string().optional()
+    })
+    .passthrough();
+
+const RecentCommentsListSchema = z
+    .object({
+        comments: z.array(RecentCommentSchema).optional(),
+        nextPageKey: z.string().optional(),
+        pageSize: z.number().optional(),
+        totalCount: z.number().optional()
+    })
+    .passthrough();
+
 const ProviderProblemSchema = z
     .object({
         problemId: z.string(),
@@ -13,13 +67,13 @@ const ProviderProblemSchema = z
         impactLevel: z.string().optional(),
         startTime: z.number().optional(),
         endTime: z.number().optional(),
-        rootCauseEntity: z.unknown().optional(),
-        affectedEntities: z.array(z.unknown()).optional(),
-        impactedEntities: z.array(z.unknown()).optional(),
-        entityTags: z.array(z.unknown()).optional(),
-        problemFilters: z.array(z.unknown()).optional(),
-        managementZones: z.array(z.unknown()).optional(),
-        recentComments: z.unknown().optional()
+        rootCauseEntity: EntityStubSchema.nullable().optional(),
+        affectedEntities: z.array(EntityStubSchema).optional(),
+        impactedEntities: z.array(EntityStubSchema).optional(),
+        entityTags: z.array(METagSchema).optional(),
+        problemFilters: z.array(AlertingProfileStubSchema).optional(),
+        managementZones: z.array(ManagementZoneSchema).optional(),
+        recentComments: RecentCommentsListSchema.optional()
     })
     .passthrough();
 
@@ -40,13 +94,13 @@ const ProblemSchema = z.object({
     impactLevel: z.string().optional(),
     startTime: z.number().optional(),
     endTime: z.number().optional(),
-    rootCauseEntity: z.unknown().optional(),
-    affectedEntities: z.array(z.unknown()).optional(),
-    impactedEntities: z.array(z.unknown()).optional(),
-    entityTags: z.array(z.unknown()).optional(),
-    problemFilters: z.array(z.unknown()).optional(),
-    managementZones: z.array(z.unknown()).optional(),
-    recentComments: z.unknown().optional()
+    rootCauseEntity: EntityStubSchema.nullable().optional(),
+    affectedEntities: z.array(EntityStubSchema).optional(),
+    impactedEntities: z.array(EntityStubSchema).optional(),
+    entityTags: z.array(METagSchema).optional(),
+    problemFilters: z.array(AlertingProfileStubSchema).optional(),
+    managementZones: z.array(ManagementZoneSchema).optional(),
+    recentComments: RecentCommentsListSchema.optional()
 });
 
 const CheckpointSchema = z.object({
@@ -75,8 +129,9 @@ const sync = createSync({
 
         let from: string;
         let previousOpenIds: string[];
-        if (checkpoint === null || checkpoint === undefined) {
-            from = '-1h';
+        const isInitialSync = checkpoint === null || checkpoint === undefined;
+        if (isInitialSync) {
+            from = 'now-1h';
             previousOpenIds = [];
         } else {
             const checkpointParsed = CheckpointSchema.safeParse(checkpoint);
@@ -121,6 +176,43 @@ const sync = createSync({
                 nextPageKey = undefined;
             }
         } while (nextPageKey);
+
+        if (isInitialSync) {
+            // The time-windowed query above only covers problems that started within the last hour, so a
+            // connection created while a problem has already been open longer than that would otherwise
+            // never see it. Backfill all currently open problems regardless of start time.
+            let backfillPageKey: string | null | undefined = undefined;
+            do {
+                const backfillParams: Record<string, string | number> = {};
+                if (backfillPageKey) {
+                    backfillParams['nextPageKey'] = backfillPageKey;
+                } else {
+                    backfillParams['problemSelector'] = 'status(open)';
+                    backfillParams['pageSize'] = PAGE_SIZE;
+                }
+
+                // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/get-problems-list
+                const backfillResponse = await nango.get({
+                    endpoint: '/api/v2/problems',
+                    params: backfillParams,
+                    retries: 3
+                });
+
+                const backfillParsed = ProviderProblemsListSchema.safeParse(backfillResponse.data);
+                if (!backfillParsed.success) {
+                    throw new Error(`Failed to parse open problems backfill: ${backfillParsed.error.message}`);
+                }
+
+                for (const problem of backfillParsed.data.problems) {
+                    newProblems.set(problem.problemId, problem);
+                }
+
+                backfillPageKey = backfillParsed.data.nextPageKey ?? undefined;
+                if (typeof backfillPageKey === 'string' && backfillPageKey.trim() === '') {
+                    backfillPageKey = undefined;
+                }
+            } while (backfillPageKey);
+        }
 
         const currentOpenIds = new Set<string>();
         for (const [, problem] of newProblems) {

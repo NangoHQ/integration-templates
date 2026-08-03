@@ -1,12 +1,22 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    entitySelector: z.string().describe('Entity selector defining the scope of the query. Example: "type(HOST)" or "type(SERVICE)"'),
-    fields: z.string().optional().describe('Optional fields to include in the response, e.g. "+lastSeenTms,+properties.BITNESS"'),
-    pageSize: z.number().int().min(1).max(10000).optional().describe('Number of entries per page. Defaults to 50.'),
-    cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.')
-});
+const InputSchema = z
+    .object({
+        entitySelector: z
+            .string()
+            .optional()
+            .describe(
+                'Entity selector defining the scope of the query. Example: "type(HOST)" or "type(SERVICE)". Required for the first page; omit on subsequent pages when passing cursor.'
+            ),
+        fields: z.string().optional().describe('Optional fields to include in the response, e.g. "+lastSeenTms,+properties.BITNESS"'),
+        pageSize: z.number().int().min(1).max(10000).optional().describe('Number of entries per page. Defaults to 50.'),
+        cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.')
+    })
+    .refine((input) => input.cursor !== undefined || input.entitySelector !== undefined, {
+        message: 'entitySelector is required when cursor is not provided',
+        path: ['entitySelector']
+    });
 
 const EntitySchema = z
     .object({
@@ -35,6 +45,12 @@ const action = createAction({
         if (input.cursor) {
             params['nextPageKey'] = input.cursor;
         } else {
+            if (!input.entitySelector) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'entitySelector is required when cursor is not provided'
+                });
+            }
             params['entitySelector'] = input.entitySelector;
             if (input.fields !== undefined) {
                 params['fields'] = input.fields;
@@ -62,7 +78,7 @@ const action = createAction({
             totalCount: z.number().int().optional(),
             pageSize: z.number().int().optional(),
             nextPageKey: z.string().optional(),
-            entities: z.array(z.unknown()).optional()
+            entities: z.array(z.unknown())
         });
 
         const parsed = ResponseSchema.safeParse(response.data);
@@ -74,7 +90,7 @@ const action = createAction({
         }
 
         const raw = parsed.data;
-        const items = (raw.entities || []).map((item: unknown) => EntitySchema.parse(item));
+        const items = raw.entities.map((item: unknown) => EntitySchema.parse(item));
 
         return {
             ...(raw.totalCount !== undefined && { totalCount: raw.totalCount }),

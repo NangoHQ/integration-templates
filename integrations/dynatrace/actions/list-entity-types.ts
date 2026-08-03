@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    pageSize: z.number().optional().describe('Number of entity types per page. Max 500.')
+    pageSize: z.number().int().min(1).max(500).optional().describe('Number of entity types per page. Max 500.')
 });
 
 const EntityTypePropertySchema = z.object({

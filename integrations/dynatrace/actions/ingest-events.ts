@@ -3,16 +3,29 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     eventType: z
-        .string()
-        .describe(
-            'The type of the event. Allowed values: AVAILABILITY_EVENT, CUSTOM_ALERT, CUSTOM_ANNOTATION, CUSTOM_CONFIGURATION, CUSTOM_DEPLOYMENT, CUSTOM_INFO, ERROR_EVENT, MARKED_FOR_TERMINATION, PERFORMANCE_EVENT, RESOURCE_CONTENTION_EVENT, WARNING. Example: "CUSTOM_INFO"'
-        ),
+        .enum([
+            'AVAILABILITY_EVENT',
+            'CUSTOM_ALERT',
+            'CUSTOM_ANNOTATION',
+            'CUSTOM_CONFIGURATION',
+            'CUSTOM_DEPLOYMENT',
+            'CUSTOM_INFO',
+            'ERROR_EVENT',
+            'MARKED_FOR_TERMINATION',
+            'PERFORMANCE_EVENT',
+            'RESOURCE_CONTENTION_EVENT',
+            'WARNING'
+        ])
+        .describe('The type of the event. Example: "CUSTOM_INFO"'),
     title: z.string().describe('The title of the event. Example: "Loadtest start"'),
     entitySelector: z
         .string()
         .optional()
         .describe('The entity selector defining a set of Dynatrace entities to be associated with the event. Example: "type(HOST)"'),
-    properties: z.record(z.string(), z.unknown()).optional().describe('A map of event properties. Example: {"Tool":"MyLoadTool"}'),
+    properties: z
+        .record(z.string(), z.union([z.string(), z.number(), z.boolean()]))
+        .optional()
+        .describe('A map of event properties. Values must be strings, numbers, or booleans. Example: {"Tool":"MyLoadTool"}'),
     startTime: z.number().optional().describe('The start time of the event, in UTC milliseconds.'),
     endTime: z.number().optional().describe('The end time of the event, in UTC milliseconds.'),
     timeout: z.number().optional().describe('The timeout of the event, in minutes. Defaults to 15.')
@@ -48,6 +61,7 @@ const action = createAction({
                 ...(input.endTime !== undefined && { endTime: input.endTime }),
                 ...(input.timeout !== undefined && { timeout: input.timeout })
             },
+            // Event ingestion is not idempotent, so keep retries at the minimum allowed value to limit duplicate-event risk on transient failures.
             retries: 1
         });
 

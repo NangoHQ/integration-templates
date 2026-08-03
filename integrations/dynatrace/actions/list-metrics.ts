@@ -5,7 +5,7 @@ const InputSchema = z.object({
     metricSelector: z.string().optional().describe('Metric selector filter. Example: "builtin:host.cpu.usage"'),
     text: z.string().optional().describe('Text search filter for metric keys'),
     cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.'),
-    pageSize: z.number().optional().describe('Page size for results. Defaults to API default.')
+    pageSize: z.number().int().min(1).optional().describe('Page size for results. Defaults to API default.')
 });
 
 const MetricDefaultAggregationSchema = z.object({
@@ -65,15 +65,19 @@ const action = createAction({
     scopes: ['metrics.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Dynatrace requires nextPageKey to be sent alone on continuation requests; filters/pageSize are only valid on the first page.
+        const params: Record<string, string> = input.cursor
+            ? { nextPageKey: input.cursor }
+            : {
+                  ...(input.metricSelector !== undefined && { metricSelector: input.metricSelector }),
+                  ...(input.text !== undefined && { text: input.text }),
+                  ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) })
+              };
+
         const response = await nango.get({
             // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/metric-v2/get-all-metrics
             endpoint: '/api/v2/metrics',
-            params: {
-                ...(input.metricSelector !== undefined && { metricSelector: input.metricSelector }),
-                ...(input.text !== undefined && { text: input.text }),
-                ...(input.cursor !== undefined && { nextPageKey: input.cursor }),
-                ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) })
-            },
+            params,
             retries: 3
         });
 
