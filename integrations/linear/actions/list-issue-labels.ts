@@ -80,7 +80,7 @@ const action = createAction({
             variables['orderBy'] = input.orderBy;
         }
 
-        // https://developers.linear.app/docs/graphql/working-with-the-graphql-api/pagination
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {

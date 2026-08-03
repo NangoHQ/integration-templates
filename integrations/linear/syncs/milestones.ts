@@ -136,7 +136,7 @@ const sync = createSync({
             `;
 
             const config: ProxyConfiguration = {
-                // https://linear.app/developers/docs/graphql/working-with-the-graphql-api
+                // https://linear.app/developers/graphql
                 endpoint: '/graphql',
                 data: {
                     query,
@@ -145,7 +145,7 @@ const sync = createSync({
                 retries: 3
             };
 
-            // https://linear.app/developers/docs/graphql/working-with-the-graphql-api
+            // https://linear.app/developers/graphql
             const response = await nango.post(config);
 
             const parsed = ResponseSchema.safeParse(response.data);

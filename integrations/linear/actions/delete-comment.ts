@@ -26,7 +26,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://linear.app/developers
+            // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
                 query: 'mutation CommentDelete($id: String!) { commentDelete(id: $id) { success } }',

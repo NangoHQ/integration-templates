@@ -121,7 +121,7 @@ const sync = createSync({
                 variables['filter'] = filter;
             }
 
-            // https://linear.app/developers
+            // https://linear.app/developers/graphql
             const response = await nango.post({
                 endpoint: '/graphql',
                 data: {

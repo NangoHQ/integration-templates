@@ -42,7 +42,7 @@ const action = createAction({
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://linear.app/developers/api/graphql#viewer
+            // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
                 query: `

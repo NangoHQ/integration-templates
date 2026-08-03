@@ -112,7 +112,7 @@ const sync = createSync({
                 ...(Object.keys(filter).length > 0 ? { filter } : {})
             };
 
-            // https://linear.app/developers/api/workflow-states
+            // https://linear.app/developers/graphql
             const response = await nango.post({
                 endpoint: '/graphql',
                 data: {

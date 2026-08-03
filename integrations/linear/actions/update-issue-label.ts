@@ -75,7 +75,7 @@ const action = createAction({
             }
         };
 
-        // https://linear.app/developers/graphql/mutations#issueLabelUpdate
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {

@@ -73,7 +73,7 @@ const sync = createSync({
         const filter = checkpoint?.updated_after ? { updatedAt: { gte: checkpoint.updated_after } } : undefined;
 
         while (continuePagination) {
-            // https://linear.app/developers/api-reference/graphql#query-users
+            // https://linear.app/developers/graphql
             const response = await nango.post({
                 endpoint: '/graphql',
                 data: {

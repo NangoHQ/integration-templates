@@ -45,7 +45,7 @@ const action = createAction({
     scopes: ['write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://linear.app/developers/api-reference/GraphQL/mutations/issueDelete
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {

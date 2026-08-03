@@ -117,7 +117,7 @@ const action = createAction({
             }
         `;
 
-        // https://linear.app/developers/graphql
+        // https://linear.app/developers/attachments
         const response = await nango.post({
             endpoint: '/graphql',
             data: {

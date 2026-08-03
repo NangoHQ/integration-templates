@@ -40,7 +40,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://linear.app/developers
+            // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
                 query: 'query Cycle($id: String!) { cycle(id: $id) { id team { id name } progress startsAt endsAt } }',

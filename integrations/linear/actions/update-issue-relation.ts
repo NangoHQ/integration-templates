@@ -80,7 +80,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://linear.app/developers/api-reference/graphql/issue-relation-update
+            // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
                 query: `

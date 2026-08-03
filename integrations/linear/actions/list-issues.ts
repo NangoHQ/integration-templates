@@ -131,7 +131,7 @@ const action = createAction({
             variables['filter'] = input.filter;
         }
 
-        // https://linear.app/developers/api-graphql
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {

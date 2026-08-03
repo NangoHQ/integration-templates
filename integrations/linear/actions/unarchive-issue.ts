@@ -38,7 +38,7 @@ const action = createAction({
     scopes: ['write'],
 
     exec: async (nango, input) => {
-        // https://linear.app/developers
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             retries: 3,

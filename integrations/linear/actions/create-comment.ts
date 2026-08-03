@@ -108,7 +108,7 @@ const action = createAction({
         };
 
         const response = await nango.post({
-            // https://linear.app/developers/api-reference/graphql
+            // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
                 query: mutation,

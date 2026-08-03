@@ -50,7 +50,7 @@ const action = createAction({
     scopes: ['write'], // Linear GraphQL mutations require a write-capable token
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.linear.app/docs/graphql/working-with-the-graphql-api
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {
