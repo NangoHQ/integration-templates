@@ -2316,6 +2316,33 @@ import './hubspot/actions/update-task.js';
 import './hubspot/actions/update-ticket.js';
 import './hubspot/actions/whoami.js';
 
+// -- Integration: hubstaff
+import './hubstaff/syncs/activities.js';
+import './hubstaff/syncs/clients.js';
+import './hubstaff/syncs/projects.js';
+import './hubstaff/syncs/tasks.js';
+import './hubstaff/actions/create-client.js';
+import './hubstaff/actions/create-project.js';
+import './hubstaff/actions/create-task.js';
+import './hubstaff/actions/create-time-entry.js';
+import './hubstaff/actions/delete-task.js';
+import './hubstaff/actions/get-client.js';
+import './hubstaff/actions/get-current-user.js';
+import './hubstaff/actions/get-project.js';
+import './hubstaff/actions/get-task.js';
+import './hubstaff/actions/list-activities.js';
+import './hubstaff/actions/list-clients.js';
+import './hubstaff/actions/list-notes.js';
+import './hubstaff/actions/list-organization-members.js';
+import './hubstaff/actions/list-organizations.js';
+import './hubstaff/actions/list-projects.js';
+import './hubstaff/actions/list-screenshots.js';
+import './hubstaff/actions/list-tasks.js';
+import './hubstaff/actions/list-teams.js';
+import './hubstaff/actions/update-client.js';
+import './hubstaff/actions/update-project.js';
+import './hubstaff/actions/update-task.js';
+
 // -- Integration: instantly
 import './instantly/syncs/account-analytics.js';
 import './instantly/syncs/accounts.js';
