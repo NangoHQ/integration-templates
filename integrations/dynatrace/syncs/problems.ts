@@ -180,7 +180,9 @@ const sync = createSync({
         if (isInitialSync) {
             // The time-windowed query above only covers problems that started within the last hour, so a
             // connection created while a problem has already been open longer than that would otherwise
-            // never see it. Backfill all currently open problems regardless of start time.
+            // never see it. Backfill all currently open problems regardless of start time: an explicit
+            // far-in-the-past `from` is used instead of omitting it, so this doesn't rely on undocumented
+            // default-timeframe behavior when a status filter is present.
             let backfillPageKey: string | null | undefined = undefined;
             do {
                 const backfillParams: Record<string, string | number> = {};
@@ -188,6 +190,7 @@ const sync = createSync({
                     backfillParams['nextPageKey'] = backfillPageKey;
                 } else {
                     backfillParams['problemSelector'] = 'status(open)';
+                    backfillParams['from'] = '-10y';
                     backfillParams['pageSize'] = PAGE_SIZE;
                 }
 

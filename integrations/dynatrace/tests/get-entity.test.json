@@ -1,0 +1,1100 @@
+{
+  "input": {
+    "entityId": "HOST-15FE58391F97B7AA"
+  },
+  "output": {
+    "entityId": "HOST-15FE58391F97B7AA",
+    "type": "HOST",
+    "displayName": "discovery-mode-demo-playground-infra-only-backend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net",
+    "firstSeenTms": 1739978658969,
+    "lastSeenTms": 1785775545263,
+    "properties": {
+      "bitness": "64",
+      "autoInjection": "ENABLED",
+      "installerTrackedDownload": false,
+      "additionalSystemInfo": [
+        {
+          "value": "0",
+          "key": "system.processor.frequency.max"
+        },
+        {
+          "value": "Microsoft Corporation",
+          "key": "system.vendor"
+        },
+        {
+          "value": "0000-0018-0579-3298-3148-1681-77",
+          "key": "system.serial"
+        },
+        {
+          "value": "Microsoft Corporation",
+          "key": "system.board.vendor"
+        },
+        {
+          "value": "0000-0011-4198-3616-4939-4105-27",
+          "key": "system.board.serial"
+        },
+        {
+          "value": "0",
+          "key": "system.processor.frequency.min"
+        },
+        {
+          "value": "16766754816",
+          "key": "system.memory.size"
+        },
+        {
+          "value": "AMD EPYC 7763 64-Core Processor",
+          "key": "system.processor.model"
+        },
+        {
+          "value": "Virtual Machine",
+          "key": "system.model"
+        },
+        {
+          "value": "x86",
+          "key": "system.architecture"
+        }
+      ],
+      "monitoringMode": "INFRASTRUCTURE",
+      "ebpfHasPublicTraffic": false,
+      "osArchitecture": "X86",
+      "customHostMetadata": [
+        {
+          "value": "appsec",
+          "key": {
+            "source": "ENVIRONMENT",
+            "key": "dt.cost.product"
+          }
+        },
+        {
+          "value": "quality-assurance/QA",
+          "key": {
+            "source": "ENVIRONMENT",
+            "key": "dt.cost.costcenter"
+          }
+        }
+      ],
+      "osVersion": "Ubuntu 24.04.1 LTS (Noble Numbat) (kernel 6.8.0-1021-azure)",
+      "installerPotentialProblem": false,
+      "cloudType": "AZURE",
+      "macAddresses": [
+        "00:0D:3A:14:5D:01"
+      ],
+      "osType": "LINUX",
+      "azureVmSizeLabel": "Standard_E2as_v4",
+      "state": "RUNNING",
+      "physicalMemory": 16766754816,
+      "detectedName": "discovery-mode-demo-playground-infra-only-backend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net",
+      "installerVersion": "1.339.71.20260706-161947",
+      "standalone": false,
+      "azureEnvironment": "AzurePublicCloud",
+      "hasPublicTraffic": false,
+      "ipAddress": [
+        "10.0.1.4"
+      ],
+      "hypervisorType": "HYPER_V",
+      "networkZone": "default",
+      "hostGroupName": "discovery-mode-demo",
+      "standaloneSpecialAgentsOnly": false,
+      "logicalCpuCores": 2,
+      "isMonitoringCandidate": false,
+      "azureResourceGroupName": "discovery-mode-demo-playground",
+      "cpuCores": 1,
+      "ebpfDiscoveryMonitored": true,
+      "memoryTotal": 16766754816,
+      "installerSupportAlert": false
+    },
+    "tags": [
+      {
+        "context": "AZURE",
+        "key": "ACE:CREATED-BY",
+        "value": "krzysztof.nasuta@dynatrace.com",
+        "stringRepresentation": "[Azure]ACE\\:CREATED-BY:krzysztof.nasuta@dynatrace.com",
+        "source": "Environment tags"
+      },
+      {
+        "context": "CONTEXTLESS",
+        "key": "app",
+        "stringRepresentation": "app",
+        "source": "Auto tags",
+        "sourceSetting": "api/v2/settings/objects/vu9U3hXa3q0AAAABABlidWlsdGluOnRhZ3MuYXV0by10YWdnaW5nAAZ0ZW5hbnQABnRlbmFudAAkYzU2ZTI1YzMtYTVkMC0zMDgyLTg2MTAtY2JmN2RjNDNkNTYxvu9U3hXa3q0"
+      },
+      {
+        "context": "CONTEXTLESS",
+        "key": "env",
+        "value": "discovery-mode-demo",
+        "stringRepresentation": "env:discovery-mode-demo",
+        "source": "Auto tags",
+        "sourceSetting": "api/v2/settings/objects/vu9U3hXa3q0AAAABABlidWlsdGluOnRhZ3MuYXV0by10YWdnaW5nAAZ0ZW5hbnQABnRlbmFudAAkOWE0YmNiM2UtMzMyNC0zMWU0LWEyNTUtNmVmNWFhZmJkYWQxvu9U3hXa3q0"
+      },
+      {
+        "context": "AZURE",
+        "key": "dt_owner_team",
+        "value": "team-demoability",
+        "stringRepresentation": "[Azure]dt_owner_team:team-demoability",
+        "source": "Environment tags"
+      },
+      {
+        "context": "AZURE",
+        "key": "dt_owner_email",
+        "value": "maciej.browarczyk@dynatrace.com",
+        "stringRepresentation": "[Azure]dt_owner_email:maciej.browarczyk@dynatrace.com",
+        "source": "Environment tags"
+      },
+      {
+        "context": "ENVIRONMENT",
+        "key": "demoability-test-variant",
+        "value": "distributed-easytrade-backend",
+        "stringRepresentation": "[Environment]demoability-test-variant:distributed-easytrade-backend",
+        "source": "Environment tags"
+      },
+      {
+        "context": "ENVIRONMENT",
+        "key": "dt.cost.costcenter",
+        "value": "quality-assurance/QA",
+        "stringRepresentation": "[Environment]dt.cost.costcenter:quality-assurance/QA",
+        "source": "Environment tags"
+      },
+      {
+        "context": "ENVIRONMENT",
+        "key": "dt.cost.product",
+        "value": "appsec",
+        "stringRepresentation": "[Environment]dt.cost.product:appsec",
+        "source": "Environment tags"
+      },
+      {
+        "context": "AZURE",
+        "key": "env",
+        "value": "shared-playground",
+        "stringRepresentation": "[Azure]env:shared-playground",
+        "source": "Environment tags"
+      }
+    ],
+    "managementZones": [],
+    "icon": {
+      "primaryIconType": "linux",
+      "secondaryIconType": "microsoft-azure-signet"
+    },
+    "fromRelationships": {
+      "isNetworkClientOfHost": [
+        {
+          "id": "HOST-15FE58391F97B7AA",
+          "type": "HOST"
+        },
+        {
+          "id": "HOST-52F2AFF6CB80535A",
+          "type": "HOST"
+        },
+        {
+          "id": "HOST-CC70A80847833C81",
+          "type": "HOST"
+        },
+        {
+          "id": "HOST-90E63B5D3149C156",
+          "type": "HOST"
+        },
+        {
+          "id": "HOST-ED51E6E3ECA7BA67",
+          "type": "HOST"
+        }
+      ],
+      "isInstanceOf": [
+        {
+          "id": "HOST_GROUP-BF12A356ED87B2FB",
+          "type": "HOST_GROUP"
+        }
+      ],
+      "runsOn": [
+        {
+          "id": "AZURE_VM-0D3E8C184D6B9EF7",
+          "type": "AZURE_VM"
+        }
+      ]
+    },
+    "toRelationships": {
+      "isNetworkClientOfHost": [
+        {
+          "id": "HOST-15FE58391F97B7AA",
+          "type": "HOST"
+        }
+      ],
+      "monitors": [
+        {
+          "id": "MULTIPROTOCOL_MONITOR-5C2F92334DF71A90",
+          "type": "MULTIPROTOCOL_MONITOR"
+        }
+      ],
+      "isSiteOf": [
+        {
+          "id": "AZURE_REGION-A51D9F7F90897B6B",
+          "type": "AZURE_REGION"
+        },
+        {
+          "id": "GEOLOC_SITE-A06532A613FF5535",
+          "type": "GEOLOC_SITE"
+        }
+      ],
+      "isCgiOfHost": [
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-1DEEC92F018BCFBF",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-6BEF53A00598F67D",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-9C6258D8C66C67AB",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-07E01A6242833B0C",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-A22263D6D1B4DA8F",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-733FCF7ED1946EB2",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-432BC1819041D48D",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-64AFB37FDE2123B4",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-E4D8F0CEE7D63985",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-7DF0C2B9B006F109",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-B259B9CC6C52BB6D",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-3C31AE253C4B5E3D",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-76B1FAC5BE7D6C81",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-9025DDBD01A261D5",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-814D795E30B78632",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        },
+        {
+          "id": "CONTAINER_GROUP_INSTANCE-5924DE73779930E3",
+          "type": "CONTAINER_GROUP_INSTANCE"
+        }
+      ],
+      "isProcessOf": [
+        {
+          "id": "PROCESS_GROUP_INSTANCE-A66ABF3FCD5BC343",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-3BA01C9C787D9C38",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-6D8E4F641EA938E7",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-243B434A26A0475F",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-A494BE76C6A8160C",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-01C070BACF6EFE7F",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-2D96C22497411EFD",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-871CED1BCFF974D1",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-E829314F9D9202BC",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-A5BC815368F7C531",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-3C48EA039EE58A7F",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-564ABD0C8A58AEB3",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-D63E0B7F0EC9EF9F",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-D5D9D44723C83BC6",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-D56B40DF568C6690",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-78D63F069C9E10AA",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-6015B3B663226A5D",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-36A6ECB7C432CE32",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-9C598F31976E66D7",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-8977368E4C9A4700",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-A06C3FDDC7719C6E",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-39EEE625634ABCC1",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-EEC68796E41C7C25",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-06AAD225F5C5F1B9",
+          "type": "PROCESS_GROUP_INSTANCE"
+        },
+        {
+          "id": "PROCESS_GROUP_INSTANCE-EDB01F609F0D6D2E",
+          "type": "PROCESS_GROUP_INSTANCE"
+        }
+      ],
+      "runsOn": [
+        {
+          "id": "PROCESS_GROUP-FB38DFAFFB8BCB8F",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-F49FABDC2844CD94",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-0076E4C1BF5F6914",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-CDE993CA1357FD26",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-80F0BE62F5DFFEF8",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-80123E976BA0CCB0",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-DAB41C31D2D634A8",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-7F4DBAE4F9CA5826",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-9CD8E63B7B633536",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-7404F32D5200876B",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-A358129259EC728A",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-38689A1D88D6A957",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-F84E4759809ADA84",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-13548A1CEA524613",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-AA818C3B4E547E26",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-87694EF1E503780B",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-386E7C06DCF3CBA4",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-7870175D013E8F4D",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-320AC2FF3856EB60",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-FB1D705D0B632B64",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-AB008E562F7CE9AA",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-520DC635433B3618",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-7C2CE8FB6DFC1BEC",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-D434CE0253AF970F",
+          "type": "PROCESS_GROUP"
+        },
+        {
+          "id": "PROCESS_GROUP-BDC362925058E61F",
+          "type": "PROCESS_GROUP"
+        }
+      ],
+      "isNetworkInterfaceOf": [
+        {
+          "id": "NETWORK_INTERFACE-15FE58342583EAAB",
+          "type": "NETWORK_INTERFACE"
+        }
+      ],
+      "isDiskOf": [
+        {
+          "id": "DISK-1B7F94BF010D4D01",
+          "type": "DISK"
+        },
+        {
+          "id": "DISK-B558F93D69FCC3F9",
+          "type": "DISK"
+        },
+        {
+          "id": "DISK-89156283A4C16BF9",
+          "type": "DISK"
+        },
+        {
+          "id": "DISK-AB01FE5D63A613C1",
+          "type": "DISK"
+        },
+        {
+          "id": "DISK-BD56B55F83D32C83",
+          "type": "DISK"
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/entities/HOST-15FE58391F97B7AA": {
+        "response": {
+          "entityId": "HOST-15FE58391F97B7AA",
+          "type": "HOST",
+          "displayName": "discovery-mode-demo-playground-infra-only-backend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net",
+          "firstSeenTms": 1739978658969,
+          "lastSeenTms": 1785775545263,
+          "properties": {
+            "bitness": "64",
+            "autoInjection": "ENABLED",
+            "installerTrackedDownload": false,
+            "additionalSystemInfo": [
+              {
+                "value": "0",
+                "key": "system.processor.frequency.max"
+              },
+              {
+                "value": "Microsoft Corporation",
+                "key": "system.vendor"
+              },
+              {
+                "value": "0000-0018-0579-3298-3148-1681-77",
+                "key": "system.serial"
+              },
+              {
+                "value": "Microsoft Corporation",
+                "key": "system.board.vendor"
+              },
+              {
+                "value": "0000-0011-4198-3616-4939-4105-27",
+                "key": "system.board.serial"
+              },
+              {
+                "value": "0",
+                "key": "system.processor.frequency.min"
+              },
+              {
+                "value": "16766754816",
+                "key": "system.memory.size"
+              },
+              {
+                "value": "AMD EPYC 7763 64-Core Processor",
+                "key": "system.processor.model"
+              },
+              {
+                "value": "Virtual Machine",
+                "key": "system.model"
+              },
+              {
+                "value": "x86",
+                "key": "system.architecture"
+              }
+            ],
+            "monitoringMode": "INFRASTRUCTURE",
+            "ebpfHasPublicTraffic": false,
+            "osArchitecture": "X86",
+            "customHostMetadata": [
+              {
+                "value": "appsec",
+                "key": {
+                  "source": "ENVIRONMENT",
+                  "key": "dt.cost.product"
+                }
+              },
+              {
+                "value": "quality-assurance/QA",
+                "key": {
+                  "source": "ENVIRONMENT",
+                  "key": "dt.cost.costcenter"
+                }
+              }
+            ],
+            "osVersion": "Ubuntu 24.04.1 LTS (Noble Numbat) (kernel 6.8.0-1021-azure)",
+            "installerPotentialProblem": false,
+            "cloudType": "AZURE",
+            "macAddresses": [
+              "00:0D:3A:14:5D:01"
+            ],
+            "osType": "LINUX",
+            "azureVmSizeLabel": "Standard_E2as_v4",
+            "state": "RUNNING",
+            "physicalMemory": 16766754816,
+            "detectedName": "discovery-mode-demo-playground-infra-only-backend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net",
+            "installerVersion": "1.339.71.20260706-161947",
+            "standalone": false,
+            "azureEnvironment": "AzurePublicCloud",
+            "hasPublicTraffic": false,
+            "ipAddress": [
+              "10.0.1.4"
+            ],
+            "hypervisorType": "HYPER_V",
+            "networkZone": "default",
+            "hostGroupName": "discovery-mode-demo",
+            "standaloneSpecialAgentsOnly": false,
+            "logicalCpuCores": 2,
+            "isMonitoringCandidate": false,
+            "azureResourceGroupName": "discovery-mode-demo-playground",
+            "cpuCores": 1,
+            "ebpfDiscoveryMonitored": true,
+            "memoryTotal": 16766754816,
+            "installerSupportAlert": false
+          },
+          "tags": [
+            {
+              "context": "AZURE",
+              "key": "ACE:CREATED-BY",
+              "value": "krzysztof.nasuta@dynatrace.com",
+              "stringRepresentation": "[Azure]ACE\\:CREATED-BY:krzysztof.nasuta@dynatrace.com",
+              "source": "Environment tags"
+            },
+            {
+              "context": "CONTEXTLESS",
+              "key": "app",
+              "stringRepresentation": "app",
+              "source": "Auto tags",
+              "sourceSetting": "api/v2/settings/objects/vu9U3hXa3q0AAAABABlidWlsdGluOnRhZ3MuYXV0by10YWdnaW5nAAZ0ZW5hbnQABnRlbmFudAAkYzU2ZTI1YzMtYTVkMC0zMDgyLTg2MTAtY2JmN2RjNDNkNTYxvu9U3hXa3q0"
+            },
+            {
+              "context": "CONTEXTLESS",
+              "key": "env",
+              "value": "discovery-mode-demo",
+              "stringRepresentation": "env:discovery-mode-demo",
+              "source": "Auto tags",
+              "sourceSetting": "api/v2/settings/objects/vu9U3hXa3q0AAAABABlidWlsdGluOnRhZ3MuYXV0by10YWdnaW5nAAZ0ZW5hbnQABnRlbmFudAAkOWE0YmNiM2UtMzMyNC0zMWU0LWEyNTUtNmVmNWFhZmJkYWQxvu9U3hXa3q0"
+            },
+            {
+              "context": "AZURE",
+              "key": "dt_owner_team",
+              "value": "team-demoability",
+              "stringRepresentation": "[Azure]dt_owner_team:team-demoability",
+              "source": "Environment tags"
+            },
+            {
+              "context": "AZURE",
+              "key": "dt_owner_email",
+              "value": "maciej.browarczyk@dynatrace.com",
+              "stringRepresentation": "[Azure]dt_owner_email:maciej.browarczyk@dynatrace.com",
+              "source": "Environment tags"
+            },
+            {
+              "context": "ENVIRONMENT",
+              "key": "demoability-test-variant",
+              "value": "distributed-easytrade-backend",
+              "stringRepresentation": "[Environment]demoability-test-variant:distributed-easytrade-backend",
+              "source": "Environment tags"
+            },
+            {
+              "context": "ENVIRONMENT",
+              "key": "dt.cost.costcenter",
+              "value": "quality-assurance/QA",
+              "stringRepresentation": "[Environment]dt.cost.costcenter:quality-assurance/QA",
+              "source": "Environment tags"
+            },
+            {
+              "context": "ENVIRONMENT",
+              "key": "dt.cost.product",
+              "value": "appsec",
+              "stringRepresentation": "[Environment]dt.cost.product:appsec",
+              "source": "Environment tags"
+            },
+            {
+              "context": "AZURE",
+              "key": "env",
+              "value": "shared-playground",
+              "stringRepresentation": "[Azure]env:shared-playground",
+              "source": "Environment tags"
+            }
+          ],
+          "managementZones": [],
+          "icon": {
+            "primaryIconType": "linux",
+            "secondaryIconType": "microsoft-azure-signet"
+          },
+          "fromRelationships": {
+            "isNetworkClientOfHost": [
+              {
+                "id": "HOST-15FE58391F97B7AA",
+                "type": "HOST"
+              },
+              {
+                "id": "HOST-52F2AFF6CB80535A",
+                "type": "HOST"
+              },
+              {
+                "id": "HOST-CC70A80847833C81",
+                "type": "HOST"
+              },
+              {
+                "id": "HOST-90E63B5D3149C156",
+                "type": "HOST"
+              },
+              {
+                "id": "HOST-ED51E6E3ECA7BA67",
+                "type": "HOST"
+              }
+            ],
+            "isInstanceOf": [
+              {
+                "id": "HOST_GROUP-BF12A356ED87B2FB",
+                "type": "HOST_GROUP"
+              }
+            ],
+            "runsOn": [
+              {
+                "id": "AZURE_VM-0D3E8C184D6B9EF7",
+                "type": "AZURE_VM"
+              }
+            ]
+          },
+          "toRelationships": {
+            "isNetworkClientOfHost": [
+              {
+                "id": "HOST-15FE58391F97B7AA",
+                "type": "HOST"
+              }
+            ],
+            "monitors": [
+              {
+                "id": "MULTIPROTOCOL_MONITOR-5C2F92334DF71A90",
+                "type": "MULTIPROTOCOL_MONITOR"
+              }
+            ],
+            "isSiteOf": [
+              {
+                "id": "AZURE_REGION-A51D9F7F90897B6B",
+                "type": "AZURE_REGION"
+              },
+              {
+                "id": "GEOLOC_SITE-A06532A613FF5535",
+                "type": "GEOLOC_SITE"
+              }
+            ],
+            "isCgiOfHost": [
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-1DEEC92F018BCFBF",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-6BEF53A00598F67D",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-9C6258D8C66C67AB",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-07E01A6242833B0C",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-A22263D6D1B4DA8F",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-733FCF7ED1946EB2",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-432BC1819041D48D",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-64AFB37FDE2123B4",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-E4D8F0CEE7D63985",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-7DF0C2B9B006F109",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-B259B9CC6C52BB6D",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-3C31AE253C4B5E3D",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-76B1FAC5BE7D6C81",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-9025DDBD01A261D5",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-814D795E30B78632",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              },
+              {
+                "id": "CONTAINER_GROUP_INSTANCE-5924DE73779930E3",
+                "type": "CONTAINER_GROUP_INSTANCE"
+              }
+            ],
+            "isProcessOf": [
+              {
+                "id": "PROCESS_GROUP_INSTANCE-A66ABF3FCD5BC343",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-3BA01C9C787D9C38",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-6D8E4F641EA938E7",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-243B434A26A0475F",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-A494BE76C6A8160C",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-01C070BACF6EFE7F",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-2D96C22497411EFD",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-871CED1BCFF974D1",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-E829314F9D9202BC",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-A5BC815368F7C531",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-3C48EA039EE58A7F",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-564ABD0C8A58AEB3",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-D63E0B7F0EC9EF9F",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-D5D9D44723C83BC6",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-D56B40DF568C6690",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-78D63F069C9E10AA",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-6015B3B663226A5D",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-36A6ECB7C432CE32",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-9C598F31976E66D7",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-8977368E4C9A4700",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-A06C3FDDC7719C6E",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-39EEE625634ABCC1",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-EEC68796E41C7C25",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-06AAD225F5C5F1B9",
+                "type": "PROCESS_GROUP_INSTANCE"
+              },
+              {
+                "id": "PROCESS_GROUP_INSTANCE-EDB01F609F0D6D2E",
+                "type": "PROCESS_GROUP_INSTANCE"
+              }
+            ],
+            "runsOn": [
+              {
+                "id": "PROCESS_GROUP-FB38DFAFFB8BCB8F",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-F49FABDC2844CD94",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-0076E4C1BF5F6914",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-CDE993CA1357FD26",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-80F0BE62F5DFFEF8",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-80123E976BA0CCB0",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-DAB41C31D2D634A8",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-7F4DBAE4F9CA5826",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-9CD8E63B7B633536",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-7404F32D5200876B",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-A358129259EC728A",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-38689A1D88D6A957",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-F84E4759809ADA84",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-13548A1CEA524613",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-AA818C3B4E547E26",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-87694EF1E503780B",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-386E7C06DCF3CBA4",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-7870175D013E8F4D",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-320AC2FF3856EB60",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-FB1D705D0B632B64",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-AB008E562F7CE9AA",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-520DC635433B3618",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-7C2CE8FB6DFC1BEC",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-D434CE0253AF970F",
+                "type": "PROCESS_GROUP"
+              },
+              {
+                "id": "PROCESS_GROUP-BDC362925058E61F",
+                "type": "PROCESS_GROUP"
+              }
+            ],
+            "isNetworkInterfaceOf": [
+              {
+                "id": "NETWORK_INTERFACE-15FE58342583EAAB",
+                "type": "NETWORK_INTERFACE"
+              }
+            ],
+            "isDiskOf": [
+              {
+                "id": "DISK-1B7F94BF010D4D01",
+                "type": "DISK"
+              },
+              {
+                "id": "DISK-B558F93D69FCC3F9",
+                "type": "DISK"
+              },
+              {
+                "id": "DISK-89156283A4C16BF9",
+                "type": "DISK"
+              },
+              {
+                "id": "DISK-AB01FE5D63A613C1",
+                "type": "DISK"
+              },
+              {
+                "id": "DISK-BD56B55F83D32C83",
+                "type": "DISK"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 16:46:37 GMT",
+          "content-type": "application/json",
+          "content-length": "10075",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1929",
+          "x-ratelimit-reset": "1785775631",
+          "etag": "W/\"275b-RxTQAn1EgAhGaMgbx2szvFzLSBk\""
+        },
+        "hash": "98316b90c6cfa63688302088dc49af6179e29b56",
+        "request": {
+          "params": {
+            "fields": "+properties,+tags,+fromRelationships,+toRelationships"
+          }
+        }
+      }
+    }
+  }
+}

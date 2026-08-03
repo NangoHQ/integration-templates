@@ -1,0 +1,96 @@
+{
+  "input": {
+    "id": "914c8d1f-7d24-36e9-986a-df7ebf95b741"
+  },
+  "output": {
+    "id": "914c8d1f-7d24-36e9-986a-df7ebf95b741",
+    "enabled": true,
+    "name": "Astroshop Service availability",
+    "evaluatedPercentage": 99.67801128277658,
+    "errorBudget": 83.90056413882903,
+    "status": "SUCCESS",
+    "error": "NONE",
+    "errorBudgetBurnRate": {
+      "burnRateVisualizationEnabled": false
+    },
+    "metricName": "astroshop_service_availability_objective",
+    "metricKey": "func:slo.astroshop_service_availability_objective",
+    "burnRateMetricKey": "func:slo.errorBudgetBurnRate.astroshop_service_availability_objective",
+    "errorBudgetMetricKey": "func:slo.errorBudget.astroshop_service_availability_objective",
+    "normalizedErrorBudgetMetricKey": "func:slo.normalizedErrorBudget.astroshop_service_availability_objective",
+    "metricExpression": "(100)*(builtin:service.errors.server.successCount:splitBy())/(builtin:service.requestCount.server:splitBy())",
+    "target": 98,
+    "warning": 99,
+    "evaluationType": "AGGREGATE",
+    "timeframe": "-14d to now",
+    "filter": "type(\"SERVICE\")",
+    "relatedOpenProblems": 0,
+    "relatedTotalProblems": 212,
+    "denominatorValue": 0,
+    "numeratorValue": 0,
+    "metricRate": "",
+    "useRateMetric": true,
+    "metricNumerator": "",
+    "metricDenominator": ""
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/slo/914c8d1f-7d24-36e9-986a-df7ebf95b741": {
+        "response": {
+          "id": "914c8d1f-7d24-36e9-986a-df7ebf95b741",
+          "enabled": true,
+          "name": "Astroshop Service availability",
+          "evaluatedPercentage": 99.67801128277658,
+          "errorBudget": 83.90056413882903,
+          "status": "SUCCESS",
+          "error": "NONE",
+          "errorBudgetBurnRate": {
+            "burnRateVisualizationEnabled": false
+          },
+          "metricName": "astroshop_service_availability_objective",
+          "metricKey": "func:slo.astroshop_service_availability_objective",
+          "burnRateMetricKey": "func:slo.errorBudgetBurnRate.astroshop_service_availability_objective",
+          "errorBudgetMetricKey": "func:slo.errorBudget.astroshop_service_availability_objective",
+          "normalizedErrorBudgetMetricKey": "func:slo.normalizedErrorBudget.astroshop_service_availability_objective",
+          "metricExpression": "(100)*(builtin:service.errors.server.successCount:splitBy())/(builtin:service.requestCount.server:splitBy())",
+          "target": 98,
+          "warning": 99,
+          "evaluationType": "AGGREGATE",
+          "timeframe": "-14d to now",
+          "filter": "type(\"SERVICE\")",
+          "relatedOpenProblems": 0,
+          "relatedTotalProblems": 212,
+          "denominatorValue": 0,
+          "numeratorValue": 0,
+          "metricRate": "",
+          "metricNumerator": "",
+          "metricDenominator": "",
+          "useRateMetric": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 16:46:21 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "1092",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1971",
+          "x-ratelimit-reset": "1785775631",
+          "etag": "W/\"444-+SBVKmwM4r/nizwGvq4e2bOaDSk\""
+        },
+        "hash": "deb893897d03df3fe11762e1392885b7f94bc378",
+        "request": {}
+      }
+    }
+  }
+}

@@ -5,7 +5,13 @@ const InputSchema = z.object({
     metricSelector: z.string().optional().describe('Metric selector filter. Example: "builtin:host.cpu.usage"'),
     text: z.string().optional().describe('Text search filter for metric keys'),
     cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.'),
-    pageSize: z.number().int().min(1).optional().describe('Page size for results. Defaults to API default.')
+    pageSize: z
+        .number()
+        .int()
+        .min(1)
+        .max(500)
+        .optional()
+        .describe('Page size for results. Max 500 (higher values are silently capped by the API). Defaults to API default.')
 });
 
 const MetricDefaultAggregationSchema = z.object({
