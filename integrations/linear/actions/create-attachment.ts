@@ -55,7 +55,7 @@ const action = createAction({
     version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['issues:create'],
+    scopes: ['issues:create', 'comments:create'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const variables = {
