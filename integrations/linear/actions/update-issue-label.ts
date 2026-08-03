@@ -46,7 +46,8 @@ const action = createAction({
     description: 'Update an existing Linear issue label.',
     input: InputSchema,
     output: OutputSchema,
-    version: '1.0.1',
+    version: '1.0.2',
+    scopes: ['write'],
     exec: async (nango, input) => {
         const mutation = `
             mutation UpdateIssueLabel($id: String!, $input: IssueLabelUpdateInput!) {

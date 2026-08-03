@@ -61,10 +61,11 @@ type IssueLabelsVariables = {
 
 const sync = createSync({
     description: 'Sync Linear issue labels across teams.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/issue-labels' }],
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read'],
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
     models: {

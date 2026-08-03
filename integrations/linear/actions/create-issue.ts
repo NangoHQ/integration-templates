@@ -85,10 +85,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new Linear issue.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['write'],
+    scopes: ['issues:create'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const variables: Record<string, unknown> = {

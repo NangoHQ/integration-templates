@@ -91,9 +91,10 @@ const LinearProjectsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Linear projects with lead, status, and progress fields',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read'],
     checkpoint: CheckpointSchema,
     models: {
         Project: ProjectSchema

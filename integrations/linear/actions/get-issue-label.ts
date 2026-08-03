@@ -37,7 +37,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'Retrieve a Linear issue label by label ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

@@ -59,9 +59,10 @@ const GraphQLResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Linear workflow states across teams.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read'],
     checkpoint: CheckpointSchema,
     models: {
         WorkflowState: WorkflowStateSchema

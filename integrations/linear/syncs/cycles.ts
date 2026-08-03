@@ -82,9 +82,10 @@ query Cycles($first: Int, $after: String, $filter: CycleFilter, $orderBy: Pagina
 
 const sync = createSync({
     description: 'Sync Linear cycles for planning and iteration tracking.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read'],
     endpoints: [{ method: 'GET', path: '/syncs/cycles' }],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,

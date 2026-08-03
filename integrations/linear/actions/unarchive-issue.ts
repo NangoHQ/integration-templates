@@ -32,9 +32,10 @@ const graphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Restore an archived Linear issue.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: inputSchema,
     output: outputSchema,
+    scopes: ['write'],
 
     exec: async (nango, input) => {
         // https://linear.app/developers

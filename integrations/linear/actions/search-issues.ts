@@ -90,7 +90,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search Linear issues with full-text query support.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

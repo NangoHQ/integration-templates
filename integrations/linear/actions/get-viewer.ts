@@ -35,10 +35,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the currently authenticated Linear user.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['viewer'],
+    scopes: ['read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
