@@ -138,7 +138,7 @@ const sync = createSync({
                 };
 
                 for await (const activitiesPage of nango.paginate(activitiesProxyConfig)) {
-                    const activities = [];
+                    const activities: z.infer<typeof ActivitySchema>[] = [];
                     for (const raw of activitiesPage) {
                         const parsed = ProviderActivitySchema.safeParse(raw);
                         if (!parsed.success) {

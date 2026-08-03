@@ -50,14 +50,14 @@ const action = createAction({
         const providerResponse = z
             .object({
                 screenshots: z.array(ScreenshotSchema).default([]),
-                pagination: z.object({ next_page_start_id: z.union([z.string(), z.number()]).optional() }).optional()
+                pagination: z.object({ next_page_start_id: z.union([z.string(), z.number()]).nullish() }).optional()
             })
             .passthrough()
             .parse(response.data);
 
         return {
             screenshots: providerResponse.screenshots,
-            ...(providerResponse.pagination?.next_page_start_id !== undefined && { next_cursor: String(providerResponse.pagination.next_page_start_id) })
+            ...(providerResponse.pagination?.next_page_start_id != null && { next_cursor: String(providerResponse.pagination.next_page_start_id) })
         };
     }
 });

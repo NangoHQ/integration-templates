@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, type ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     organization_id: z.number().describe('Organization ID. Example: 775646'),
@@ -70,6 +70,7 @@ const action = createAction({
 
         const activities: z.infer<typeof ActivitySchema>[] = [];
         let currentStart = startDate;
+        const orgId = encodeURIComponent(String(input.organization_id));
 
         while (currentStart < stopDate) {
             let currentStop = new Date(currentStart.getTime() + MAX_RANGE_MS);
@@ -77,40 +78,26 @@ const action = createAction({
                 currentStop = stopDate;
             }
 
-            const startIso = currentStart.toISOString();
-            const stopIso = currentStop.toISOString();
-            const orgId = encodeURIComponent(String(input.organization_id));
-
-            let pageCursor: string | undefined;
-            do {
+            const activitiesProxyConfig: ProxyConfiguration = {
                 // https://developer.hubstaff.com/
-                const response = await nango.get({
-                    endpoint: `v2/organizations/${orgId}/activities`,
-                    params: {
-                        'time_slot[start]': startIso,
-                        'time_slot[stop]': stopIso,
-                        ...(pageCursor !== undefined && { page_start_id: pageCursor })
-                    },
-                    retries: 3
-                });
+                endpoint: `v2/organizations/${orgId}/activities`,
+                params: {
+                    'time_slot[start]': currentStart.toISOString(),
+                    'time_slot[stop]': currentStop.toISOString()
+                },
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'page_start_id',
+                    cursor_path_in_response: 'pagination.next_page_start_id',
+                    response_path: 'activities',
+                    limit_name_in_request: 'page_limit',
+                    limit: 100
+                },
+                retries: 3
+            };
 
-                if (!response.data) {
-                    throw new nango.ActionError({
-                        type: 'api_error',
-                        message: 'No data returned from Hubstaff activities endpoint.'
-                    });
-                }
-
-                const data = response.data;
-                const rawList: unknown[] = Array.isArray(data) ? data : Array.isArray(data.activities) ? data.activities : undefined;
-                if (rawList === undefined) {
-                    throw new nango.ActionError({
-                        type: 'invalid_response',
-                        message: 'Unexpected response format from Hubstaff activities endpoint.'
-                    });
-                }
-
-                for (const raw of rawList) {
+            for await (const activitiesPage of nango.paginate(activitiesProxyConfig)) {
+                for (const raw of activitiesPage) {
                     const parsed = ActivitySchema.safeParse(raw);
                     if (!parsed.success) {
                         throw new nango.ActionError({
@@ -121,10 +108,7 @@ const action = createAction({
                     }
                     activities.push(parsed.data);
                 }
-
-                const nextPageStartId = !Array.isArray(data) ? data.pagination?.next_page_start_id : undefined;
-                pageCursor = nextPageStartId !== undefined && nextPageStartId !== null ? String(nextPageStartId) : undefined;
-            } while (pageCursor !== undefined);
+            }
 
             currentStart = currentStop;
         }
