@@ -44,13 +44,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a relationship between two Linear issues.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'], // Linear GraphQL mutations require a write-capable token
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.linear.app/docs/graphql/working-with-the-graphql-api
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {

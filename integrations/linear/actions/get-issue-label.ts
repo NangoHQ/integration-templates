@@ -37,7 +37,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'Retrieve a Linear issue label by label ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -58,7 +58,7 @@ const action = createAction({
             }
         `;
 
-        // https://developers.linear.app/docs/graphql/working-with-the-graphql-api
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {

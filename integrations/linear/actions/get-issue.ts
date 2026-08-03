@@ -98,10 +98,10 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Linear issue by issue ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['issues:read'],
+    scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
