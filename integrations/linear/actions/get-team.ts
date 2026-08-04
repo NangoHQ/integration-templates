@@ -57,7 +57,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Linear team by team ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

@@ -39,12 +39,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Linear issue.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://linear.app/developers/api-reference/GraphQL/mutations/issueDelete
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {
