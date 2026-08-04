@@ -29,7 +29,16 @@ const action = createAction({
             });
         }
 
-        // DELETE may return a JSON body or 204; either way we confirm with the input id.
+        // DELETE may return a JSON body (200) or no content (204) on success; anything else
+        // (authorization, validation, server errors, etc.) means the rule was not deleted.
+        if (response.status !== 200 && response.status !== 204) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: `Failed to delete Sensitive Data Scanner rule (status ${response.status})`,
+                ruleId: input.ruleId
+            });
+        }
+
         return { id: input.ruleId };
     }
 });

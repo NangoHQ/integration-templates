@@ -15,21 +15,24 @@ const CaseRelationshipDataSchema = z.object({
 });
 
 const CaseRelationshipsSchema = z.object({
+    // Datadog's NullableUserRelationship: the relationship key may be present with `data: null`
+    // (e.g. an unassigned case, or a case created by an automated process with no modifier yet).
     assignee: z
         .object({
-            data: CaseRelationshipDataSchema
+            data: CaseRelationshipDataSchema.nullable()
         })
         .optional(),
     created_by: z
         .object({
-            data: CaseRelationshipDataSchema
+            data: CaseRelationshipDataSchema.nullable()
         })
         .optional(),
     modified_by: z
         .object({
-            data: CaseRelationshipDataSchema
+            data: CaseRelationshipDataSchema.nullable()
         })
         .optional(),
+    // Datadog's ProjectRelationship: every case belongs to exactly one project, so `data` is never null.
     project: z
         .object({
             data: CaseRelationshipDataSchema
@@ -126,7 +129,9 @@ const action = createAction({
                 'page[number]': String(pageNumber),
                 ...(input.filter !== undefined && { filter: input.filter }),
                 ...(input.sort_field !== undefined && { 'sort[field]': input.sort_field }),
-                ...(input.sort_asc !== undefined && { 'sort[asc]': String(input.sort_asc) })
+                // Datadog's Case Management API expects "sort[ascending]", not "sort[asc]" (verified live:
+                // "sort[asc]" has no effect on ordering, while "sort[ascending]" does).
+                ...(input.sort_asc !== undefined && { 'sort[ascending]': String(input.sort_asc) })
             },
             retries: 3
         });

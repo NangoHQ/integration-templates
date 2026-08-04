@@ -23,14 +23,14 @@ const UsageSummaryOrgSchema = z
 
 const UsageSummaryDateSchema = z
     .object({
-        date: z.string().optional(),
-        orgs: z.array(UsageSummaryOrgSchema).optional()
+        date: z.string(),
+        orgs: z.array(UsageSummaryOrgSchema)
     })
     .passthrough();
 
 const OutputSchema = z
     .object({
-        usage: z.array(UsageSummaryDateSchema).optional()
+        usage: z.array(UsageSummaryDateSchema)
     })
     .passthrough();
 

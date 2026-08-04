@@ -36,8 +36,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get a single user by id.',
+    version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['user_access_read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://docs.datadoghq.com/api/latest/users/#get-a-user

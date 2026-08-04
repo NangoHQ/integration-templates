@@ -52,7 +52,12 @@ const action = createAction({
                     }
                 }
             },
-            retries: 3
+            // This create is not idempotent and Datadog has no idempotency-key mechanism for this endpoint:
+            // retrying after a transient timeout (once the first request already succeeded) would mint a
+            // second orphaned application key. Limit to a single retry, matching the same tradeoff already
+            // made for other non-idempotent writes in this integration (create-dashboard.ts,
+            // create-service-account-access-token.ts).
+            retries: 1
         });
 
         const parsed = ProviderApplicationKeySchema.parse(response.data);

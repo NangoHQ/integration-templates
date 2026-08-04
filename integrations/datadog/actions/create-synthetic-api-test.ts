@@ -1,11 +1,17 @@
 import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
-const AssertionSchema = z.object({
-    type: z.string(),
-    operator: z.string(),
-    target: z.union([z.number(), z.string()])
-});
+const AssertionSchema = z
+    .object({
+        type: z.string(),
+        operator: z.string(),
+        target: z.union([z.number(), z.string()])
+    })
+    // Datadog supports assertion-type-specific fields beyond type/operator/target, e.g. "property"
+    // for header and body assertions. Without passthrough, those fields would be silently stripped
+    // before the request ever reaches Datadog (verified live: header assertions with "property" are
+    // accepted and echoed back by the API).
+    .passthrough();
 
 const InputSchema = z.object({
     name: z.string().describe('Name of the synthetic test. Example: "Nango Registry Test Synthetic"'),

@@ -18,6 +18,30 @@ const ModifierSchema = z.object({
     name: z.string().optional()
 });
 
+// Datadog returns creator/modifier as a JSON:API relationship object (consistently with
+// get-slo-correction.ts / create-slo-correction.ts), not as flat attributes:
+// { "data": { "type": "users", "id": "...", "attributes": { "handle": ..., "email": ..., "name": ... } } }
+const ProviderUserRelationshipSchema = z
+    .object({
+        data: z
+            .object({
+                type: z.string().optional(),
+                id: z.string().optional(),
+                attributes: z
+                    .object({
+                        uuid: z.string().optional(),
+                        handle: z.string().optional(),
+                        email: z.string().optional(),
+                        name: z.string().optional(),
+                        icon: z.string().optional()
+                    })
+                    .optional()
+            })
+            .optional()
+    })
+    .nullable()
+    .optional();
+
 const SloCorrectionSchema = z.object({
     id: z.string(),
     type: z.literal('correction'),
@@ -51,12 +75,12 @@ const ProviderResponseSchema = z.object({
             attributes: z.object({
                 category: z.string(),
                 created_at: z.number().int().nullable().optional(),
-                creator: CreatorSchema.nullable().optional(),
+                creator: ProviderUserRelationshipSchema,
                 description: z.string().optional(),
                 duration: z.number().int().nullable().optional(),
                 end: z.number().int().nullable().optional(),
                 modified_at: z.number().int().nullable().optional(),
-                modifier: ModifierSchema.nullable().optional(),
+                modifier: ProviderUserRelationshipSchema,
                 rrule: z.string().nullable().optional(),
                 slo_id: z.string().nullable().optional(),
                 slo_query: z.string().nullable().optional(),
@@ -136,11 +160,19 @@ const action = createAction({
             ...(item.attributes.modified_at != null && {
                 modified_at: item.attributes.modified_at
             }),
-            ...(item.attributes.creator != null && {
-                creator: item.attributes.creator
+            ...(item.attributes.creator?.data?.attributes != null && {
+                creator: {
+                    ...(item.attributes.creator.data.attributes.email !== undefined && { email: item.attributes.creator.data.attributes.email }),
+                    ...(item.attributes.creator.data.attributes.handle !== undefined && { handle: item.attributes.creator.data.attributes.handle }),
+                    ...(item.attributes.creator.data.attributes.name !== undefined && { name: item.attributes.creator.data.attributes.name })
+                }
             }),
-            ...(item.attributes.modifier != null && {
-                modifier: item.attributes.modifier
+            ...(item.attributes.modifier?.data?.attributes != null && {
+                modifier: {
+                    ...(item.attributes.modifier.data.attributes.email !== undefined && { email: item.attributes.modifier.data.attributes.email }),
+                    ...(item.attributes.modifier.data.attributes.handle !== undefined && { handle: item.attributes.modifier.data.attributes.handle }),
+                    ...(item.attributes.modifier.data.attributes.name !== undefined && { name: item.attributes.modifier.data.attributes.name })
+                }
             })
         }));
 

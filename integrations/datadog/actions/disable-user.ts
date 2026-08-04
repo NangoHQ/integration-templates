@@ -15,6 +15,7 @@ const action = createAction({
     version: '3.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['user_access_manage'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({
             // https://docs.datadoghq.com/api/latest/users/#disable-a-user

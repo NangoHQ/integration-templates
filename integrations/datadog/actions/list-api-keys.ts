@@ -9,8 +9,7 @@ const ProviderApiKeyAttributesSchema = z.object({
     name: z.string(),
     created_at: z.string().nullish(),
     modified_at: z.string().nullish(),
-    last4: z.string().nullish(),
-    key: z.string().nullish()
+    last4: z.string().nullish()
 });
 
 const ProviderApiKeySchema = z.object({
@@ -23,8 +22,7 @@ const OutputApiKeyAttributesSchema = z.object({
     name: z.string(),
     created_at: z.string().optional(),
     modified_at: z.string().optional(),
-    last4: z.string().optional(),
-    key: z.string().optional()
+    last4: z.string().optional()
 });
 
 const OutputApiKeySchema = z.object({
@@ -89,8 +87,7 @@ const action = createAction({
                     name: parsed.attributes.name,
                     ...(parsed.attributes.created_at != null && { created_at: parsed.attributes.created_at }),
                     ...(parsed.attributes.modified_at != null && { modified_at: parsed.attributes.modified_at }),
-                    ...(parsed.attributes.last4 != null && { last4: parsed.attributes.last4 }),
-                    ...(parsed.attributes.key != null && { key: parsed.attributes.key })
+                    ...(parsed.attributes.last4 != null && { last4: parsed.attributes.last4 })
                 }
             };
         });

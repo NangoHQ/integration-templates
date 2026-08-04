@@ -10,13 +10,15 @@ const TeamAttributesSchema = z.object({
     created_at: z.string().nullable().optional(),
     description: z.string().nullable().optional(),
     handle: z.string(),
-    hidden_modules: z.array(z.string()).optional(),
+    // Datadog models both module fields as nullable arrays: a team with no modules configured
+    // can come back as `null` rather than `[]`.
+    hidden_modules: z.array(z.string()).nullable().optional(),
     link_count: z.number().optional(),
     modified_at: z.string().nullable().optional(),
     name: z.string(),
     summary: z.string().nullable().optional(),
     user_count: z.number().optional(),
-    visible_modules: z.array(z.string()).optional()
+    visible_modules: z.array(z.string()).nullable().optional()
 });
 
 const TeamDataSchema = z.object({
@@ -82,8 +84,8 @@ const action = createAction({
             ...(attrs.modified_at != null && { modified_at: attrs.modified_at }),
             ...(attrs.link_count !== undefined && { link_count: attrs.link_count }),
             ...(attrs.user_count !== undefined && { user_count: attrs.user_count }),
-            ...(attrs.hidden_modules !== undefined && { hidden_modules: attrs.hidden_modules }),
-            ...(attrs.visible_modules !== undefined && { visible_modules: attrs.visible_modules })
+            ...(attrs.hidden_modules != null && { hidden_modules: attrs.hidden_modules }),
+            ...(attrs.visible_modules != null && { visible_modules: attrs.visible_modules })
         };
     }
 });

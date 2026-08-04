@@ -2,7 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    serviceAccountId: z.string().trim().min(1).describe('Service account ID. Example: "39886536-8f56-11f1-88dd-3619de0c3ef9"')
+    serviceAccountId: z.string().trim().min(1).describe('Service account ID. Example: "39886536-8f56-11f1-88dd-3619de0c3ef9"'),
+    cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
+    page_size: z.number().int().min(1).max(100).optional().describe('Number of items per page. Defaults to 10, max 100.')
 });
 
 const RawAccessTokenAttributesSchema = z
@@ -32,7 +34,8 @@ const AccessTokenSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    tokens: z.array(AccessTokenSchema)
+    tokens: z.array(AccessTokenSchema),
+    next_cursor: z.string().optional()
 });
 
 function isUnknownRecord(value: unknown): value is Record<string, unknown> {
@@ -46,9 +49,22 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const pageSize = input.page_size ?? 10;
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a valid integer page number'
+            });
+        }
+        const pageNumber = input.cursor ? parseInt(input.cursor, 10) : 0;
+
         const response = await nango.get({
             // https://docs.datadoghq.com/api/latest/service-accounts/
             endpoint: `v2/service_accounts/${encodeURIComponent(input.serviceAccountId)}/access_tokens`,
+            params: {
+                'page[size]': String(pageSize),
+                'page[number]': String(pageNumber)
+            },
             retries: 3
         });
 
@@ -101,9 +117,27 @@ const action = createAction({
             });
         });
 
-        return {
+        const meta = isUnknownRecord(rawData['meta']) ? rawData['meta'] : undefined;
+        const page = meta && isUnknownRecord(meta['page']) ? meta['page'] : undefined;
+        const totalFilteredCount = page && typeof page['total_filtered_count'] === 'number' ? page['total_filtered_count'] : undefined;
+
+        let nextCursor: string | undefined;
+        if (totalFilteredCount !== undefined) {
+            if ((pageNumber + 1) * pageSize < totalFilteredCount) {
+                nextCursor = String(pageNumber + 1);
+            }
+        } else if (tokens.length === pageSize) {
+            nextCursor = String(pageNumber + 1);
+        }
+
+        const result: z.infer<typeof OutputSchema> = {
             tokens
         };
+        if (nextCursor !== undefined) {
+            result.next_cursor = nextCursor;
+        }
+
+        return result;
     }
 });
 

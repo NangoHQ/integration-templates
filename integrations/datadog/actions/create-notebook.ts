@@ -26,8 +26,10 @@ const ProviderNotebookDataSchema = z.object({
             cells: z.array(z.unknown()).optional(),
             time: z.unknown().optional(),
             status: z.string().optional(),
-            created_at: z.string().optional(),
-            modified_at: z.string().optional(),
+            // Datadog returns "created"/"modified" on the notebook resource (matches update-notebook.ts),
+            // not "created_at"/"modified_at".
+            created: z.string().optional(),
+            modified: z.string().optional(),
             url: z.string().optional()
         })
         .passthrough()
@@ -101,8 +103,8 @@ const action = createAction({
             ...(attributes.cells !== undefined && { cells: attributes.cells }),
             ...(attributes.time !== undefined && { time: attributes.time }),
             ...(attributes.status !== undefined && { status: attributes.status }),
-            ...(attributes.created_at !== undefined && { created_at: attributes.created_at }),
-            ...(attributes.modified_at !== undefined && { modified_at: attributes.modified_at }),
+            ...(attributes.created !== undefined && { created_at: attributes.created }),
+            ...(attributes.modified !== undefined && { modified_at: attributes.modified }),
             ...(attributes.url !== undefined && { url: attributes.url })
         };
     }

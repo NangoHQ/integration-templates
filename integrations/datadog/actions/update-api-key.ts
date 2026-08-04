@@ -17,7 +17,8 @@ const ProviderApiKeySchema = z.object({
         last4: z.string().optional(),
         last_used_date: z
             .object({
-                timestamp: z.string().optional(),
+                // Datadog: "null if no recent usage" (matches get-api-key.ts's handling of this same field).
+                timestamp: z.string().nullable().optional(),
                 description: z.string().optional()
             })
             .nullable()

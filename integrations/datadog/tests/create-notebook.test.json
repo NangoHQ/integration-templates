@@ -28,7 +28,9 @@
     "time": {
       "live_span": "1h"
     },
-    "status": "published"
+    "status": "published",
+    "created_at": "2026-08-03T22:36:16.536852+00:00",
+    "modified_at": "2026-08-03T22:36:16.536852+00:00"
   },
   "nango": {},
   "api": {

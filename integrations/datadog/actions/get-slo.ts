@@ -19,9 +19,9 @@ const SloQuerySchema = z.object({
 });
 
 const SloCreatorSchema = z.object({
-    name: z.string(),
-    handle: z.string(),
-    email: z.string()
+    name: z.string().nullable().optional(),
+    handle: z.string().optional(),
+    email: z.string().optional()
 });
 
 const SloQuerySpecSchema = z.object({
@@ -54,10 +54,13 @@ const ProviderSloSchema = z.object({
     thresholds: z.array(SloThresholdSchema),
     type: z.string(),
     type_id: z.number(),
-    description: z.string().optional(),
+    // Datadog: "Always included in service level objective responses (but may be `null`)."
+    description: z.string().nullable().optional(),
     timeframe: z.string().optional(),
     target_threshold: z.number().optional(),
     query: SloQuerySchema.optional(),
+    // Monitor-based SLOs are defined by monitor_ids instead of a query.
+    monitor_ids: z.array(z.number()).optional(),
     creator: SloCreatorSchema.optional(),
     created_at: z.number().optional(),
     modified_at: z.number().optional(),
@@ -81,6 +84,7 @@ const OutputSchema = z.object({
     timeframe: z.string().optional(),
     target_threshold: z.number().optional(),
     query: SloQuerySchema.optional(),
+    monitor_ids: z.array(z.number()).optional(),
     creator: SloCreatorSchema.optional(),
     created_at: z.number().optional(),
     modified_at: z.number().optional(),
@@ -112,10 +116,11 @@ const action = createAction({
             thresholds: slo.thresholds,
             type: slo.type,
             type_id: slo.type_id,
-            ...(slo.description !== undefined && { description: slo.description }),
+            ...(slo.description != null && { description: slo.description }),
             ...(slo.timeframe !== undefined && { timeframe: slo.timeframe }),
             ...(slo.target_threshold !== undefined && { target_threshold: slo.target_threshold }),
             ...(slo.query !== undefined && { query: slo.query }),
+            ...(slo.monitor_ids !== undefined && { monitor_ids: slo.monitor_ids }),
             ...(slo.creator !== undefined && { creator: slo.creator }),
             ...(slo.created_at !== undefined && { created_at: slo.created_at }),
             ...(slo.modified_at !== undefined && { modified_at: slo.modified_at }),

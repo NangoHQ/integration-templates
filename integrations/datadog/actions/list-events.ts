@@ -8,7 +8,24 @@ const InputSchema = z.object({
 });
 
 const ProviderEventSchema = z.object({
+    // Datadog's `id` is a 64-bit integer that can exceed Number.MAX_SAFE_INTEGER, so it loses precision
+    // once parsed as a JS number. `id_str` carries the exact same identifier as a string.
     id: z.number(),
+    id_str: z.string().optional(),
+    title: z.string().optional(),
+    text: z.string().optional(),
+    date_happened: z.number().optional(),
+    device_name: z.string().optional(),
+    host: z.string().optional(),
+    priority: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    url: z.string().optional(),
+    resource: z.string().optional(),
+    alert_type: z.string().optional()
+});
+
+const EventOutputSchema = z.object({
+    id: z.string(),
     title: z.string().optional(),
     text: z.string().optional(),
     date_happened: z.number().optional(),
@@ -22,7 +39,7 @@ const ProviderEventSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    events: z.array(ProviderEventSchema),
+    events: z.array(EventOutputSchema),
     next_cursor: z.string().optional()
 });
 
@@ -48,7 +65,10 @@ const action = createAction({
             params: {
                 start: String(input.start),
                 end: String(input.end),
-                page: String(page)
+                page: String(page),
+                // Without this, an event whose parent aggregate started outside [start, end] is omitted
+                // even if the event itself falls within the requested window (matches syncs/events.ts).
+                unaggregated: 'true'
             },
             retries: 3
         });
@@ -70,7 +90,21 @@ const action = createAction({
                     message: 'Failed to parse event from provider response'
                 });
             }
-            return parsed.data;
+            const event = parsed.data;
+            return {
+                // Prefer the exact string id; fall back to the (potentially imprecise) numeric id.
+                id: event.id_str ?? String(event.id),
+                ...(event.title !== undefined && { title: event.title }),
+                ...(event.text !== undefined && { text: event.text }),
+                ...(event.date_happened !== undefined && { date_happened: event.date_happened }),
+                ...(event.device_name !== undefined && { device_name: event.device_name }),
+                ...(event.host !== undefined && { host: event.host }),
+                ...(event.priority !== undefined && { priority: event.priority }),
+                ...(event.tags !== undefined && { tags: event.tags }),
+                ...(event.url !== undefined && { url: event.url }),
+                ...(event.resource !== undefined && { resource: event.resource }),
+                ...(event.alert_type !== undefined && { alert_type: event.alert_type })
+            };
         });
 
         const nextCursor = events.length > 0 ? String(page + 1) : undefined;
