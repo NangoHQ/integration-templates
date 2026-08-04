@@ -45,7 +45,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['users_read'],
+    scopes: ['user_access_read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {

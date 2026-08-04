@@ -33,7 +33,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['teams_read', 'teams_write'],
+    scopes: ['teams_read', 'teams_manage'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
