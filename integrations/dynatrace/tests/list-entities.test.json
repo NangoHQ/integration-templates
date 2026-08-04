@@ -1,0 +1,220 @@
+{
+  "input": {
+    "entitySelector": "type(HOST)"
+  },
+  "output": {
+    "totalCount": 17,
+    "pageSize": 50,
+    "items": [
+      {
+        "entityId": "HOST-15FE58391F97B7AA",
+        "displayName": "discovery-mode-demo-playground-infra-only-backend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-1FB3E0DC7CBD561B",
+        "displayName": "aks-default-18490522-vmss00004E.x1fxmamr1tou3djw0rchix4hre.bx.internal.cloudapp.net",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-466EB35893D0E3D4",
+        "displayName": "ip-10-0-0-53.ec2.internal",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-52F2AFF6CB80535A",
+        "displayName": "ip-172-31-84-42.ec2.internal",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-590BE325ED823E82",
+        "displayName": "ip-172-31-43-56.ec2.internal",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-7A69008725F666B6",
+        "displayName": "guard-duty-demo-playground-1",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-7B0C572333BB59C4",
+        "displayName": "frontend-slow-disk",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-8B9BAD0B04373647",
+        "displayName": "guard-duty-demo-playground-2",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-90BE36F3EFF5840F",
+        "displayName": "gke-gke-playground-default-node-pool-9af3c01d-qm1z.c.dynatrace-demoability.internal",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-90E63B5D3149C156",
+        "displayName": "gke-gke-playground-default-node-pool-9af3c01d-ccd5.c.dynatrace-demoability.internal",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-9C84B4E37F726C4A",
+        "displayName": "gke-gke-playground-default-node-pool-9af3c01d-36m9.c.dynatrace-demoability.internal",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-9EC6F4855BEAB718",
+        "displayName": "ip-172-31-70-214.ec2.internal",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-AE92D587F0AD60A0",
+        "displayName": "order-processor-playground",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-CC70A80847833C81",
+        "displayName": "gke-gke-playground-default-node-pool-9af3c01d-aqsf.c.dynatrace-demoability.internal",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-EBC5983479603BE2",
+        "displayName": "frontend-high-cpu",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-ED51E6E3ECA7BA67",
+        "displayName": "aks-default-18490522-vmss000000.x1fxmamr1tou3djw0rchix4hre.bx.internal.cloudapp.net",
+        "type": "HOST"
+      },
+      {
+        "entityId": "HOST-F2FFCDD042414500",
+        "displayName": "discovery-mode-demo-playground-discovery-frontend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net",
+        "type": "HOST"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/entities": {
+        "response": {
+          "totalCount": 17,
+          "pageSize": 50,
+          "entities": [
+            {
+              "entityId": "HOST-15FE58391F97B7AA",
+              "type": "HOST",
+              "displayName": "discovery-mode-demo-playground-infra-only-backend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net"
+            },
+            {
+              "entityId": "HOST-1FB3E0DC7CBD561B",
+              "type": "HOST",
+              "displayName": "aks-default-18490522-vmss00004E.x1fxmamr1tou3djw0rchix4hre.bx.internal.cloudapp.net"
+            },
+            {
+              "entityId": "HOST-466EB35893D0E3D4",
+              "type": "HOST",
+              "displayName": "ip-10-0-0-53.ec2.internal"
+            },
+            {
+              "entityId": "HOST-52F2AFF6CB80535A",
+              "type": "HOST",
+              "displayName": "ip-172-31-84-42.ec2.internal"
+            },
+            {
+              "entityId": "HOST-590BE325ED823E82",
+              "type": "HOST",
+              "displayName": "ip-172-31-43-56.ec2.internal"
+            },
+            {
+              "entityId": "HOST-7A69008725F666B6",
+              "type": "HOST",
+              "displayName": "guard-duty-demo-playground-1"
+            },
+            {
+              "entityId": "HOST-7B0C572333BB59C4",
+              "type": "HOST",
+              "displayName": "frontend-slow-disk"
+            },
+            {
+              "entityId": "HOST-8B9BAD0B04373647",
+              "type": "HOST",
+              "displayName": "guard-duty-demo-playground-2"
+            },
+            {
+              "entityId": "HOST-90BE36F3EFF5840F",
+              "type": "HOST",
+              "displayName": "gke-gke-playground-default-node-pool-9af3c01d-qm1z.c.dynatrace-demoability.internal"
+            },
+            {
+              "entityId": "HOST-90E63B5D3149C156",
+              "type": "HOST",
+              "displayName": "gke-gke-playground-default-node-pool-9af3c01d-ccd5.c.dynatrace-demoability.internal"
+            },
+            {
+              "entityId": "HOST-9C84B4E37F726C4A",
+              "type": "HOST",
+              "displayName": "gke-gke-playground-default-node-pool-9af3c01d-36m9.c.dynatrace-demoability.internal"
+            },
+            {
+              "entityId": "HOST-9EC6F4855BEAB718",
+              "type": "HOST",
+              "displayName": "ip-172-31-70-214.ec2.internal"
+            },
+            {
+              "entityId": "HOST-AE92D587F0AD60A0",
+              "type": "HOST",
+              "displayName": "order-processor-playground"
+            },
+            {
+              "entityId": "HOST-CC70A80847833C81",
+              "type": "HOST",
+              "displayName": "gke-gke-playground-default-node-pool-9af3c01d-aqsf.c.dynatrace-demoability.internal"
+            },
+            {
+              "entityId": "HOST-EBC5983479603BE2",
+              "type": "HOST",
+              "displayName": "frontend-high-cpu"
+            },
+            {
+              "entityId": "HOST-ED51E6E3ECA7BA67",
+              "type": "HOST",
+              "displayName": "aks-default-18490522-vmss000000.x1fxmamr1tou3djw0rchix4hre.bx.internal.cloudapp.net"
+            },
+            {
+              "entityId": "HOST-F2FFCDD042414500",
+              "type": "HOST",
+              "displayName": "discovery-mode-demo-playground-discovery-frontend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 16:47:25 GMT",
+          "content-type": "application/json",
+          "content-length": "2127",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1977",
+          "x-ratelimit-reset": "1785775693",
+          "etag": "W/\"84f-xiWXqwdrh0acVOA9O+YKmaDraJI\""
+        },
+        "hash": "927fe5e21c24c8ebdf5cfb791f193f183c381fbf",
+        "request": {
+          "params": {
+            "entitySelector": "type(HOST)"
+          }
+        }
+      }
+    }
+  }
+}

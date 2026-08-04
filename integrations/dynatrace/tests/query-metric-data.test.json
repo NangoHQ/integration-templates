@@ -1,0 +1,610 @@
+{
+  "input": {
+    "metricSelector": "builtin:host.cpu.usage",
+    "from": "now-2h",
+    "resolution": "1h"
+  },
+  "output": {
+    "totalCount": 15,
+    "nextPageKey": null,
+    "resolution": "1h",
+    "result": [
+      {
+        "metricId": "builtin:host.cpu.usage",
+        "dataPointCountRatio": 0.00009975,
+        "dimensionCountRatio": 0.00015,
+        "data": [
+          {
+            "dimensions": [
+              "HOST-52F2AFF6CB80535A"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-52F2AFF6CB80535A"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              18.9718017578125,
+              16.851959058973524,
+              16.923965680157696
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-590BE325ED823E82"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-590BE325ED823E82"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              10.335009765625,
+              10.222672526041666,
+              10.322693549262153
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-CC70A80847833C81"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-CC70A80847833C81"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              18.011063639322916,
+              18.104365963406032,
+              18.046240460431136
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-F2FFCDD042414500"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-F2FFCDD042414500"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              1.135989040798611,
+              1.1785564846462673,
+              1.2004383228443287
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-7A69008725F666B6"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-7A69008725F666B6"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              46.89301893446181,
+              44.15862113104926,
+              45.575952713577834
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-8B9BAD0B04373647"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-8B9BAD0B04373647"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              43.45193413628472,
+              43.91914121839735,
+              45.68040624547888
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-1FB3E0DC7CBD561B"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-1FB3E0DC7CBD561B"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              32.85354817708333,
+              23.425413852267795,
+              30.980048398618344
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-ED51E6E3ECA7BA67"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-ED51E6E3ECA7BA67"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              49.74469129774305,
+              33.08981539408366,
+              49.878685280128764
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-466EB35893D0E3D4"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-466EB35893D0E3D4"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              0.5312554253472223,
+              0.5276172214084202,
+              0.5291777434172453
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-EBC5983479603BE2"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-EBC5983479603BE2"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              99.99833374969248,
+              99.9984725689412,
+              99.99907982172789
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-7B0C572333BB59C4"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-7B0C572333BB59C4"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              78.59303724500867,
+              80.29565564261543,
+              78.53663828753042
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-15FE58391F97B7AA"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-15FE58391F97B7AA"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              45.795191786024304,
+              51.500946553548175,
+              51.78558581316913
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-90BE36F3EFF5840F"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-90BE36F3EFF5840F"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              90.80562761094835,
+              91.41063566737705,
+              91.49943245075367
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-9EC6F4855BEAB718"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-9EC6F4855BEAB718"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              75.32129143608941,
+              80.55540811750623,
+              80.41177844294795
+            ]
+          },
+          {
+            "dimensions": [
+              "HOST-AE92D587F0AD60A0"
+            ],
+            "dimensionMap": {
+              "dt.entity.host": "HOST-AE92D587F0AD60A0"
+            },
+            "timestamps": [
+              1785769200000,
+              1785772800000,
+              1785776400000
+            ],
+            "values": [
+              0.8497612847222222,
+              0.8321185641818576,
+              0.8309158104053442
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/metrics/query": {
+        "response": {
+          "totalCount": 15,
+          "nextPageKey": null,
+          "resolution": "1h",
+          "result": [
+            {
+              "metricId": "builtin:host.cpu.usage",
+              "dataPointCountRatio": 0.00009975,
+              "dimensionCountRatio": 0.00015,
+              "data": [
+                {
+                  "dimensions": [
+                    "HOST-52F2AFF6CB80535A"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-52F2AFF6CB80535A"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    18.9718017578125,
+                    16.851959058973524,
+                    16.923965680157696
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-590BE325ED823E82"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-590BE325ED823E82"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    10.335009765625,
+                    10.222672526041666,
+                    10.322693549262153
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-CC70A80847833C81"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-CC70A80847833C81"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    18.011063639322916,
+                    18.104365963406032,
+                    18.046240460431136
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-F2FFCDD042414500"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-F2FFCDD042414500"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    1.135989040798611,
+                    1.1785564846462673,
+                    1.2004383228443287
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-7A69008725F666B6"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-7A69008725F666B6"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    46.89301893446181,
+                    44.15862113104926,
+                    45.575952713577834
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-8B9BAD0B04373647"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-8B9BAD0B04373647"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    43.45193413628472,
+                    43.91914121839735,
+                    45.68040624547888
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-1FB3E0DC7CBD561B"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-1FB3E0DC7CBD561B"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    32.85354817708333,
+                    23.425413852267795,
+                    30.980048398618344
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-ED51E6E3ECA7BA67"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-ED51E6E3ECA7BA67"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    49.74469129774305,
+                    33.08981539408366,
+                    49.878685280128764
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-466EB35893D0E3D4"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-466EB35893D0E3D4"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    0.5312554253472223,
+                    0.5276172214084202,
+                    0.5291777434172453
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-EBC5983479603BE2"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-EBC5983479603BE2"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    99.99833374969248,
+                    99.9984725689412,
+                    99.99907982172789
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-7B0C572333BB59C4"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-7B0C572333BB59C4"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    78.59303724500867,
+                    80.29565564261543,
+                    78.53663828753042
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-15FE58391F97B7AA"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-15FE58391F97B7AA"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    45.795191786024304,
+                    51.500946553548175,
+                    51.78558581316913
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-90BE36F3EFF5840F"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-90BE36F3EFF5840F"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    90.80562761094835,
+                    91.41063566737705,
+                    91.49943245075367
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-9EC6F4855BEAB718"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-9EC6F4855BEAB718"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    75.32129143608941,
+                    80.55540811750623,
+                    80.41177844294795
+                  ]
+                },
+                {
+                  "dimensions": [
+                    "HOST-AE92D587F0AD60A0"
+                  ],
+                  "dimensionMap": {
+                    "dt.entity.host": "HOST-AE92D587F0AD60A0"
+                  },
+                  "timestamps": [
+                    1785769200000,
+                    1785772800000,
+                    1785776400000
+                  ],
+                  "values": [
+                    0.8497612847222222,
+                    0.8321185641818576,
+                    0.8309158104053442
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 16:46:27 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "3504",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1965",
+          "x-ratelimit-reset": "1785775631",
+          "etag": "W/\"db0-LopI7xaInzYqyIhzrzQbjF51ICk\""
+        },
+        "hash": "4e6ca5487625b6953cb06b450a08e7134a8bf272",
+        "request": {
+          "params": {
+            "from": "now-2h",
+            "metricSelector": "builtin:host.cpu.usage",
+            "resolution": "1h"
+          }
+        }
+      }
+    }
+  }
+}

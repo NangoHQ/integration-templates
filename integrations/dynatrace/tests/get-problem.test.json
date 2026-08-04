@@ -1,0 +1,362 @@
+{
+  "input": {
+    "problemId": "7107113792931331638_1785774900000V2"
+  },
+  "output": {
+    "problemId": "7107113792931331638_1785774900000V2",
+    "displayId": "P-2608312",
+    "title": "Postgres Availability",
+    "impactLevel": "ENVIRONMENT",
+    "severityLevel": "AVAILABILITY",
+    "status": "OPEN",
+    "affectedEntities": [
+      {
+        "entityId": {
+          "id": "ENVIRONMENT-0000000000000001",
+          "type": "ENVIRONMENT"
+        },
+        "name": "Dynatrace Playground"
+      }
+    ],
+    "impactedEntities": [
+      {
+        "entityId": {
+          "id": "ENVIRONMENT-0000000000000001",
+          "type": "ENVIRONMENT"
+        },
+        "name": "Dynatrace Playground"
+      }
+    ],
+    "rootCauseEntity": null,
+    "managementZones": [],
+    "startTime": 1785775080000,
+    "endTime": -1,
+    "entityTags": [],
+    "problemFilters": [
+      {
+        "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+        "name": "Default"
+      }
+    ],
+    "evidenceDetails": {
+      "totalCount": 1,
+      "details": [
+        {
+          "evidenceType": "EVENT",
+          "displayName": "Postgres Availability",
+          "entity": {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          },
+          "groupingEntity": null,
+          "rootCauseRelevant": false,
+          "eventId": "7107113792931331638_1785774900000",
+          "eventType": "AVAILABILITY_EVENT",
+          "data": {
+            "eventId": "7107113792931331638_1785774900000",
+            "startTime": 1785774900000,
+            "endTime": -1,
+            "eventType": "AVAILABILITY_EVENT",
+            "title": "Postgres Availability",
+            "entityId": {
+              "entityId": {
+                "id": "ENVIRONMENT-0000000000000001",
+                "type": "ENVIRONMENT"
+              },
+              "name": "Dynatrace Playground"
+            },
+            "properties": [
+              {
+                "key": "dt.event.allow_davis_merge",
+                "value": "true"
+              },
+              {
+                "key": "dt.event.allow_frequent_issue_detection",
+                "value": "false"
+              },
+              {
+                "key": "dt.event.description",
+                "value": "**Alert description:** An anomaly was detected with the status of pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432, involving unexpected negative or null values."
+              },
+              {
+                "key": "dt.event.dql_query",
+                "value": "timeseries uptime = max(postgres.uptime), by:{`dt.smartscape.db_instance_postgres`}, shift: -2m, interval: 60000ms\n   | lookup [smartscapeNodes \"DB_INSTANCE_POSTGRES\" | fields id, name], sourceField: `dt.smartscape.db_instance_postgres`, lookupField: id, fields: {name}\n   | fieldsAdd entity.name = name | filter (`dt.smartscape.db_instance_postgres` == toSmartscapeId(\"\"\"DB_INSTANCE_POSTGRES-E33B84E017FC2925\"\"\") AND `entity.name` == \"\"\"pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432\"\"\" AND `name` == \"\"\"pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432\"\"\")"
+              },
+              {
+                "key": "dt.event.group_label",
+                "value": "Availability"
+              },
+              {
+                "key": "dt.event.impact_level",
+                "value": "Environment"
+              },
+              {
+                "key": "dt.event.is_rootcause_relevant",
+                "value": "true"
+              },
+              {
+                "key": "dt.event.metric_threshold",
+                "value": "0.0"
+              },
+              {
+                "key": "dt.event.timeout",
+                "value": "15"
+              },
+              {
+                "key": "dt.event.title",
+                "value": "Postgres Availability"
+              },
+              {
+                "key": "dt.settings.object_id",
+                "value": "vu9U3hXa3q0AAAABAB9idWlsdGluOmRhdmlzLmFub21hbHktZGV0ZWN0b3JzAAZ0ZW5hbnQABnRlbmFudAAkOWQzNjNlNmYtMmZmMS0zNTM0LWIyNGQtZmM0MDE2MTAxZmVivu9U3hXa3q0"
+              },
+              {
+                "key": "entity.name",
+                "value": "pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432"
+              },
+              {
+                "key": "event.db_ready_made_alert_type",
+                "value": "DB_AVAILABILITY_EVENT"
+              }
+            ],
+            "status": "OPEN",
+            "correlationId": "92cba4614a1cc3a2",
+            "entityTags": [],
+            "managementZones": [],
+            "underMaintenance": false,
+            "suppressAlert": false,
+            "suppressProblem": false,
+            "frequentEvent": false
+          },
+          "startTime": 1785774900000,
+          "endTime": -1
+        }
+      ]
+    },
+    "recentComments": {
+      "totalCount": 3,
+      "comments": [
+        {
+          "id": "8675602222913308574_1785774900000",
+          "createdAtTimestamp": 1785775542590,
+          "content": "Updated test comment for validation",
+          "authorName": "api@nango.dev",
+          "context": "CUSTOM"
+        },
+        {
+          "id": "-1027260892921923058_1785774900000",
+          "createdAtTimestamp": 1785775542163,
+          "content": "Test comment for dryrun validation",
+          "authorName": "api@nango.dev",
+          "context": "Test"
+        },
+        {
+          "id": "-5261245238672308080_1785774900000",
+          "createdAtTimestamp": 1785775540338,
+          "content": "Test comment for update action",
+          "authorName": "api@nango.dev",
+          "context": "CUSTOM"
+        }
+      ]
+    },
+    "impactAnalysis": {
+      "impacts": []
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/problems/7107113792931331638_1785774900000V2": {
+        "response": {
+          "problemId": "7107113792931331638_1785774900000V2",
+          "displayId": "P-2608312",
+          "title": "Postgres Availability",
+          "impactLevel": "ENVIRONMENT",
+          "severityLevel": "AVAILABILITY",
+          "status": "OPEN",
+          "affectedEntities": [
+            {
+              "entityId": {
+                "id": "ENVIRONMENT-0000000000000001",
+                "type": "ENVIRONMENT"
+              },
+              "name": "Dynatrace Playground"
+            }
+          ],
+          "impactedEntities": [
+            {
+              "entityId": {
+                "id": "ENVIRONMENT-0000000000000001",
+                "type": "ENVIRONMENT"
+              },
+              "name": "Dynatrace Playground"
+            }
+          ],
+          "rootCauseEntity": null,
+          "managementZones": [],
+          "entityTags": [],
+          "problemFilters": [
+            {
+              "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+              "name": "Default"
+            }
+          ],
+          "startTime": 1785775080000,
+          "endTime": -1,
+          "evidenceDetails": {
+            "totalCount": 1,
+            "details": [
+              {
+                "evidenceType": "EVENT",
+                "displayName": "Postgres Availability",
+                "entity": {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                },
+                "groupingEntity": null,
+                "rootCauseRelevant": false,
+                "eventId": "7107113792931331638_1785774900000",
+                "eventType": "AVAILABILITY_EVENT",
+                "data": {
+                  "eventId": "7107113792931331638_1785774900000",
+                  "startTime": 1785774900000,
+                  "endTime": -1,
+                  "eventType": "AVAILABILITY_EVENT",
+                  "title": "Postgres Availability",
+                  "entityId": {
+                    "entityId": {
+                      "id": "ENVIRONMENT-0000000000000001",
+                      "type": "ENVIRONMENT"
+                    },
+                    "name": "Dynatrace Playground"
+                  },
+                  "properties": [
+                    {
+                      "key": "dt.event.allow_davis_merge",
+                      "value": "true"
+                    },
+                    {
+                      "key": "dt.event.allow_frequent_issue_detection",
+                      "value": "false"
+                    },
+                    {
+                      "key": "dt.event.description",
+                      "value": "**Alert description:** An anomaly was detected with the status of pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432, involving unexpected negative or null values."
+                    },
+                    {
+                      "key": "dt.event.dql_query",
+                      "value": "timeseries uptime = max(postgres.uptime), by:{`dt.smartscape.db_instance_postgres`}, shift: -2m, interval: 60000ms\n   | lookup [smartscapeNodes \"DB_INSTANCE_POSTGRES\" | fields id, name], sourceField: `dt.smartscape.db_instance_postgres`, lookupField: id, fields: {name}\n   | fieldsAdd entity.name = name | filter (`dt.smartscape.db_instance_postgres` == toSmartscapeId(\"\"\"DB_INSTANCE_POSTGRES-E33B84E017FC2925\"\"\") AND `entity.name` == \"\"\"pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432\"\"\" AND `name` == \"\"\"pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432\"\"\")"
+                    },
+                    {
+                      "key": "dt.event.group_label",
+                      "value": "Availability"
+                    },
+                    {
+                      "key": "dt.event.impact_level",
+                      "value": "Environment"
+                    },
+                    {
+                      "key": "dt.event.is_rootcause_relevant",
+                      "value": "true"
+                    },
+                    {
+                      "key": "dt.event.metric_threshold",
+                      "value": "0.0"
+                    },
+                    {
+                      "key": "dt.event.timeout",
+                      "value": "15"
+                    },
+                    {
+                      "key": "dt.event.title",
+                      "value": "Postgres Availability"
+                    },
+                    {
+                      "key": "dt.settings.object_id",
+                      "value": "vu9U3hXa3q0AAAABAB9idWlsdGluOmRhdmlzLmFub21hbHktZGV0ZWN0b3JzAAZ0ZW5hbnQABnRlbmFudAAkOWQzNjNlNmYtMmZmMS0zNTM0LWIyNGQtZmM0MDE2MTAxZmVivu9U3hXa3q0"
+                    },
+                    {
+                      "key": "entity.name",
+                      "value": "pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432"
+                    },
+                    {
+                      "key": "event.db_ready_made_alert_type",
+                      "value": "DB_AVAILABILITY_EVENT"
+                    }
+                  ],
+                  "status": "OPEN",
+                  "correlationId": "92cba4614a1cc3a2",
+                  "entityTags": [],
+                  "managementZones": [],
+                  "underMaintenance": false,
+                  "suppressAlert": false,
+                  "suppressProblem": false,
+                  "frequentEvent": false
+                },
+                "startTime": 1785774900000,
+                "endTime": -1
+              }
+            ]
+          },
+          "recentComments": {
+            "totalCount": 3,
+            "comments": [
+              {
+                "id": "8675602222913308574_1785774900000",
+                "createdAtTimestamp": 1785775542590,
+                "content": "Updated test comment for validation",
+                "authorName": "api@nango.dev",
+                "context": "CUSTOM"
+              },
+              {
+                "id": "-1027260892921923058_1785774900000",
+                "createdAtTimestamp": 1785775542163,
+                "content": "Test comment for dryrun validation",
+                "authorName": "api@nango.dev",
+                "context": "Test"
+              },
+              {
+                "id": "-5261245238672308080_1785774900000",
+                "createdAtTimestamp": 1785775540338,
+                "content": "Test comment for update action",
+                "authorName": "api@nango.dev",
+                "context": "CUSTOM"
+              }
+            ]
+          },
+          "impactAnalysis": {
+            "impacts": []
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 16:46:41 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "3724",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1919",
+          "x-ratelimit-reset": "1785775631",
+          "etag": "W/\"e8c-HKPX7Ds6FQfOEj6z/lb+RWO5qJk\""
+        },
+        "hash": "fe9d0d758db15ba89a07a919ec8338f1096c0197",
+        "request": {}
+      }
+    }
+  }
+}

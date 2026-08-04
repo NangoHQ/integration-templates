@@ -1384,6 +1384,33 @@ import './dropbox/actions/unshare-folder.js';
 import './dropbox/actions/upload-file.js';
 import './dropbox/actions/upload-large-file.js';
 
+// -- Integration: dynatrace
+import './dynatrace/syncs/entities.js';
+import './dynatrace/syncs/problems.js';
+import './dynatrace/actions/add-problem-comment.js';
+import './dynatrace/actions/delete-problem-comment.js';
+import './dynatrace/actions/get-entity.js';
+import './dynatrace/actions/get-metric-descriptor.js';
+import './dynatrace/actions/get-problem.js';
+import './dynatrace/actions/get-security-problem.js';
+import './dynatrace/actions/get-slo.js';
+import './dynatrace/actions/ingest-events.js';
+import './dynatrace/actions/list-api-tokens.js';
+import './dynatrace/actions/list-entities.js';
+import './dynatrace/actions/list-entity-types.js';
+import './dynatrace/actions/list-events.js';
+import './dynatrace/actions/list-metrics.js';
+import './dynatrace/actions/list-network-zones.js';
+import './dynatrace/actions/list-problem-comments.js';
+import './dynatrace/actions/list-problems.js';
+import './dynatrace/actions/list-releases.js';
+import './dynatrace/actions/list-security-problems.js';
+import './dynatrace/actions/list-settings-objects.js';
+import './dynatrace/actions/list-settings-schemas.js';
+import './dynatrace/actions/list-slos.js';
+import './dynatrace/actions/query-metric-data.js';
+import './dynatrace/actions/update-problem-comment.js';
+
 // -- Integration: elevenlabs
 import './elevenlabs/syncs/agents.js';
 import './elevenlabs/syncs/history.js';
