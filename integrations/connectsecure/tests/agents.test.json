@@ -1,0 +1,190 @@
+{
+    "nango": {
+        "getConnection": {},
+        "getMetadata": {
+            "tenant": "nango",
+            "base_url": "pod107.myconnectsecure.com",
+            "connection_config": {
+                "tenant": "nango",
+                "user_id": "384670636045300757",
+                "base_url": "pod107.myconnectsecure.com"
+            }
+        },
+        "batchSave": {
+            "Agent": [
+                {
+                    "id": "1591435",
+                    "company_id": "16637",
+                    "host_name": "Victors-MBP",
+                    "agent_type": "LIGHTWEIGHT",
+                    "agent_version": "4.3.93",
+                    "os_name": "macOS",
+                    "os_platform": "darwin",
+                    "os_version": "15.5",
+                    "created": "2026-07-28T08:57:56.358304",
+                    "updated": "2026-08-03T12:12:37.5078",
+                    "last_reported": "2026-08-03T17:47:51.33495",
+                    "last_scanned_time": "2026-08-03T14:19:13.820846",
+                    "ip": "192.168.8.195",
+                    "mac": "7c:f3:4d:ee:4d:88",
+                    "unique_id": "cb0578e7-58d3-5b69-9fe0-5812e9dbdc84"
+                }
+            ]
+        },
+        "batchDelete": {
+            "Agent": []
+        }
+    },
+    "api": {
+        "post": {
+            "/w/authorize": {
+                "response": {
+                    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlfdG9rZW4iOnRydWUsImVtYWlsIjoiYXBpQG5hbmdvLmRldiIsImV4cCI6MTc4NTc4NzAzMCwiZmlyc3RfbmFtZSI6Ik5hbmdvIERldmVsb3BlciIsImlzcyI6Imh0dHBzOi8vYXV0aHByb2QubXljb25uZWN0c2VjdXJlLmNvbSIsIm5hbWUiOiJOYW5nbyBEZXZlbG9wZXIiLCJzdWIiOiIzODMxMDkzNDU1NzI4MTU1NzQiLCJ1cm46eml0YWRlbDppYW06b3JnOnByb2plY3Q6cm9sZXMiOnsiYWRtaW4iOnsiMzgzMTA5MzQxMDkzMzYxMjM5IjoibmFuZ28uaHR0cHM6Ly9hdXRocHJvZC5teWNvbm5lY3RzZWN1cmUuY29tIn19LCJ1cm46eml0YWRlbDppYW06dXNlcjpyZXNvdXJjZW93bmVyOmlkIjoiMzgzMTA5MzQxMDkzMzYxMjM5IiwidXJuOnppdGFkZWw6aWFtOnVzZXI6cmVzb3VyY2Vvd25lcjpuYW1lIjoibmFuZ28ifQ.tTbSNvfy6S3qMOY8t8vGapIfQiOJsFiT9ujOiIx2uHc",
+                    "data": {
+                        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlfdG9rZW4iOnRydWUsImVtYWlsIjoiYXBpQG5hbmdvLmRldiIsImV4cCI6MTc4NTc4NzAzMCwiZmlyc3RfbmFtZSI6Ik5hbmdvIERldmVsb3BlciIsImlzcyI6Imh0dHBzOi8vYXV0aHByb2QubXljb25uZWN0c2VjdXJlLmNvbSIsIm5hbWUiOiJOYW5nbyBEZXZlbG9wZXIiLCJzdWIiOiIzODMxMDkzNDU1NzI4MTU1NzQiLCJ1cm46eml0YWRlbDppYW06b3JnOnByb2plY3Q6cm9sZXMiOnsiYWRtaW4iOnsiMzgzMTA5MzQxMDkzMzYxMjM5IjoibmFuZ28uaHR0cHM6Ly9hdXRocHJvZC5teWNvbm5lY3RzZWN1cmUuY29tIn19LCJ1cm46eml0YWRlbDppYW06dXNlcjpyZXNvdXJjZW93bmVyOmlkIjoiMzgzMTA5MzQxMDkzMzYxMjM5IiwidXJuOnppdGFkZWw6aWFtOnVzZXI6cmVzb3VyY2Vvd25lcjpuYW1lIjoibmFuZ28ifQ.tTbSNvfy6S3qMOY8t8vGapIfQiOJsFiT9ujOiIx2uHc",
+                        "user_id": "383109345572815574"
+                    },
+                    "expires_in": 3600,
+                    "status": true,
+                    "token_type": "bearer",
+                    "user_id": "383109345572815574"
+                },
+                "status": 200,
+                "headers": {
+                    "date": "Mon, 03 Aug 2026 17:57:10 GMT",
+                    "content-type": "application/json",
+                    "transfer-encoding": "chunked",
+                    "connection": "keep-alive",
+                    "x-xss-protection": "1; mode=block, 1; mode=block",
+                    "x-content-type-options": "nosniff",
+                    "x-download-options": "noopen",
+                    "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+                    "x-dns-prefetch-control": "off",
+                    "strict-transport-security": "max-age=5184000; includeSubDomains",
+                    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+                    "access-control-allow-origin": "https://portal.myconnectsecure.com",
+                    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+                    "x-ratelimit-limit": "2000",
+                    "x-ratelimit-remaining": "1980",
+                    "x-ratelimit-reset": "1785779872",
+                    "server": "cloudflare",
+                    "vary": "origin, access-control-request-method, access-control-request-headers",
+                    "access-control-allow-credentials": "true",
+                    "access-control-allow-methods": "GET, POST, OPTIONS",
+                    "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization",
+                    "cf-cache-status": "DYNAMIC",
+                    "set-cookie": "__cf_bm=yVU3OFROLBq3XYsKRz8XaYpqYdepU9KIROn524zK.eU-1785779829.9402187-1.0.1.1-n40Fwe0hm3ma6RMNT6fML4P_KNA8.ZBAWTG7_8INXmjKRhUTGVs_hgjcxd0f34PBBeYvtPTzWwW8X5wumialeyXrVcUFviQ1B70Xf8szANqr_WNkbFqFFxx1DHflY7g0; HttpOnly; SameSite=None; Secure; Path=/; Domain=myconnectsecure.com; Expires=Mon, 03 Aug 2026 18:27:10 GMT",
+                    "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+                    "referrer-policy": "same-origin, same-origin",
+                    "cf-ray": "a257340118f62095-PDX",
+                    "alt-svc": "h3=\":443\"; ma=86400"
+                },
+                "hash": "da42017bf67f88246e27afc81a9e830e4b9c6d8c",
+                "request": {}
+            }
+        },
+        "get": {
+            "/r/company/agents": {
+                "response": {
+                    "data": [
+                        {
+                            "ad_audit_enabled": null,
+                            "ad_controller": false,
+                            "ad_scan_enabled": null,
+                            "agent_deleted": false,
+                            "agent_type": "LIGHTWEIGHT",
+                            "agent_version": "4.3.93",
+                            "company_id": 16637,
+                            "company_ref_id": null,
+                            "created": "2026-07-28T08:57:56.358304",
+                            "dependency_status": {
+                                "nats_communication_status": true,
+                                "nats_error_message": "Nat's communication is successful",
+                                "reason": "All dependencies have been downloaded successfully.",
+                                "status": {
+                                    "connectsecurepatch_darwin": true,
+                                    "cyberutilities_darwin": true,
+                                    "main.ps1": true,
+                                    "osqueryi_darwin": true,
+                                    "scripts.zip": true
+                                }
+                            },
+                            "deprecated_time": null,
+                            "host_name": "Victors-MBP",
+                            "id": 1591435,
+                            "installed_by": "api@nango.dev",
+                            "interfaces": [],
+                            "ip": "192.168.8.195",
+                            "is_deprecated": false,
+                            "is_retired": false,
+                            "is_sse_enabled": false,
+                            "kernel": null,
+                            "last_ping_time": "2026-08-03T17:47:51.33495",
+                            "last_reported": "2026-08-03T17:47:51.33495",
+                            "last_scanned_time": "2026-08-03T14:19:13.820846",
+                            "mac": "7c:f3:4d:ee:4d:88",
+                            "max_thread_count": 0,
+                            "name": null,
+                            "nmap_interface": null,
+                            "old_id": null,
+                            "os_name": "macOS",
+                            "os_platform": "darwin",
+                            "os_type": "3",
+                            "os_version": "15.5",
+                            "patch_service_installed": false,
+                            "probe_setting": {},
+                            "reported": true,
+                            "suspected_agent": false,
+                            "tenantid": 383109341093361200,
+                            "unique_id": "cb0578e7-58d3-5b69-9fe0-5812e9dbdc84",
+                            "updated": "2026-08-03T12:12:37.5078"
+                        }
+                    ],
+                    "status": true,
+                    "total": 1
+                },
+                "status": 200,
+                "headers": {
+                    "date": "Mon, 03 Aug 2026 17:57:10 GMT",
+                    "content-type": "application/json",
+                    "transfer-encoding": "chunked",
+                    "connection": "keep-alive",
+                    "x-xss-protection": "1; mode=block, 1; mode=block",
+                    "x-content-type-options": "nosniff",
+                    "x-download-options": "noopen",
+                    "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+                    "x-dns-prefetch-control": "off",
+                    "strict-transport-security": "max-age=5184000; includeSubDomains",
+                    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+                    "access-control-allow-origin": "https://portal.myconnectsecure.com",
+                    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+                    "x-ratelimit-limit": "2000",
+                    "x-ratelimit-remaining": "1979",
+                    "x-ratelimit-reset": "1785779872",
+                    "server": "cloudflare",
+                    "vary": "origin, access-control-request-method, access-control-request-headers",
+                    "access-control-allow-credentials": "true",
+                    "access-control-allow-methods": "GET, POST, OPTIONS",
+                    "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization,e-user-id,E-User-Id",
+                    "cf-cache-status": "DYNAMIC",
+                    "set-cookie": "__cf_bm=Art.JhMGRfhBY9HZvGUCJe.0ZWO4doLJk6p6x16uWbw-1785779830.4409082-1.0.1.1-2hDkIrrqdt20OQO3v4BCpUOaGg88616be.5WDMqYeym4YfNAhP6bzWf.Fq1KyEcZeDf3FDaRTOWlIloAGyRcBwNcohidRJYZtbQDcvQhXIoVamfOt2VqfwPu12QovKV_; HttpOnly; SameSite=None; Secure; Path=/; Domain=myconnectsecure.com; Expires=Mon, 03 Aug 2026 18:27:10 GMT",
+                    "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+                    "referrer-policy": "same-origin, same-origin",
+                    "cf-ray": "a25734044c8afefe-PDX",
+                    "alt-svc": "h3=\":443\"; ma=86400"
+                },
+                "hash": "8bdb7a432e415ab75657af0f0f7794136bde7e1d",
+                "request": {
+                    "params": {
+                        "limit": "100",
+                        "skip": "0"
+                    },
+                    "headers": {
+                        "X-Tenant-Id": "nango",
+                        "X-User-Id": "383109345572815574"
+                    }
+                }
+            }
+        }
+    }
+}

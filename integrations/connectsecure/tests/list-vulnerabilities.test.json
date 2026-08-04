@@ -1,0 +1,1420 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 9.8,
+        "cve_id": "CVE-2025-43244",
+        "description": "A race condition was addressed with improved state handling. This issue is fixed in macOS Sequoia 15.6, macOS Sonoma 14.7.7, macOS Ventura 13.7.7. An app may be able to cause unexpected system termination.",
+        "epss_score": 0.00563,
+        "severity": "Critical"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 9.8,
+        "cve_id": "CVE-2025-43245",
+        "description": "A downgrade issue was addressed with additional code-signing restrictions. This issue is fixed in macOS Sequoia 15.6, macOS Sonoma 14.7.7, macOS Ventura 13.7.7. An app may be able to access protected user data.",
+        "epss_score": 0.00687,
+        "severity": "Critical"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 9.8,
+        "cve_id": "CVE-2026-16349",
+        "description": "Same-origin policy bypass in the DOM: Navigation component. This vulnerability was fixed in Firefox 153, Firefox ESR 115.38, Firefox ESR 140.13, Thunderbird 153, and Thunderbird 140.13.",
+        "epss_score": 0.00215,
+        "severity": "Critical"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 5.9,
+        "cve_id": "CVE-2025-6442",
+        "description": "Ruby WEBrick read_header HTTP Request Smuggling Vulnerability",
+        "epss_score": 0.00422,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 7.5,
+        "cve_id": "CVE-2026-28944",
+        "description": "The issue was addressed with improved memory handling. This issue is fixed in Safari 26.5, iOS 26.5 and iPadOS 26.5, macOS Tahoe 26.5, visionOS 26.5. Processing maliciously crafted web content may lead to an unexpected process crash.",
+        "epss_score": 0.00397,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 6.1,
+        "cve_id": "CVE-2026-17962",
+        "description": "Chromium: CVE-2026-17962 Inappropriate implementation in Blink",
+        "epss_score": 0.00152,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 6.5,
+        "cve_id": "CVE-2026-17840",
+        "description": "Chromium: CVE-2026-17840 Incorrect security UI in Passwords",
+        "epss_score": 0.00211,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 8.1,
+        "cve_id": "CVE-2026-17995",
+        "description": "Chromium: CVE-2026-17995 Out of bounds read in Dawn",
+        "epss_score": 0.00217,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 5.5,
+        "cve_id": "CVE-2022-22616",
+        "description": "This issue was addressed with improved checks. This issue is fixed in Security Update 2022-003 Catalina, macOS Monterey 12.3, macOS Big Sur 11.6.5. A maliciously crafted ZIP archive may bypass Gatekeeper checks.",
+        "epss_score": 0.07749,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 4.3,
+        "cve_id": "CVE-2026-17889",
+        "description": "Chromium: CVE-2026-17889 Uninitialized Use in WebXR",
+        "epss_score": 0.00206,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 9.1,
+        "cve_id": "CVE-2026-16359",
+        "description": "Incorrect boundary conditions in the Audio/Video: GMP component. This vulnerability was fixed in Firefox 153, Firefox ESR 115.38, Firefox ESR 140.13, Thunderbird 153, and Thunderbird 140.13.",
+        "epss_score": 0.00263,
+        "severity": "Critical"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 9.8,
+        "cve_id": "CVE-2025-43232",
+        "description": "A permissions issue was addressed with additional restrictions. This issue is fixed in macOS Sequoia 15.6, macOS Sonoma 14.7.7, macOS Ventura 13.7.7. An app may be able to bypass certain Privacy preferences.",
+        "epss_score": 0.00727,
+        "severity": "Critical"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 7.1,
+        "cve_id": "CVE-2026-17888",
+        "description": "Chromium: CVE-2026-17888 Insufficient validation of untrusted input in WebUI",
+        "epss_score": 0.00138,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 4.3,
+        "cve_id": "CVE-2026-17777",
+        "description": "Chromium: CVE-2026-17777 Inappropriate implementation in Autofill",
+        "epss_score": 0.00146,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 4.3,
+        "cve_id": "CVE-2026-17977",
+        "description": "Chromium: CVE-2026-17977 Policy bypass in CSS",
+        "epss_score": 0.00129,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 2,
+        "cve_id": "CVE-2025-43423",
+        "description": "A logging issue was addressed with improved data redaction. This issue is fixed in iOS 18.7.2 and iPadOS 18.7.2, iOS 26.1 and iPadOS 26.1, macOS Sequoia 15.7.2, macOS Tahoe 26.1, visionOS 26.1. An attacker with physical access to an unlocked device paired with a Mac may be able to view sensitive user information in system logging.",
+        "epss_score": 0.0023,
+        "severity": "Low"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 6.5,
+        "cve_id": "CVE-2026-17690",
+        "description": "Chromium: CVE-2026-17690 Insufficient validation of untrusted input in PDF",
+        "epss_score": 0.00286,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 3.1,
+        "cve_id": "CVE-2026-17702",
+        "description": "Chromium: CVE-2026-17702 Inappropriate implementation in Skia",
+        "epss_score": 0.00187,
+        "severity": "Low"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 7.5,
+        "cve_id": "CVE-2026-17898",
+        "description": "Use after free in DevTools in Google Chrome prior to 151.0.7922.72 allowed an attacker who convinced a user to install a malicious extension to execute arbitrary code inside a sandbox via a crafted Chrome Extension. (Chromium security severity: Low)",
+        "epss_score": 0.00181,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 4.3,
+        "cve_id": "CVE-2026-17954",
+        "description": "Chromium: CVE-2026-17954 Policy bypass in MHTML",
+        "epss_score": 0.0012,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 3.1,
+        "cve_id": "CVE-2026-17715",
+        "description": "Chromium: CVE-2026-17715 Inappropriate implementation in Passwords",
+        "epss_score": 0.00187,
+        "severity": "Low"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 5.5,
+        "cve_id": "CVE-2025-43409",
+        "description": "A permissions issue was addressed with additional sandbox restrictions. This issue is fixed in macOS Sequoia 15.7.2, macOS Tahoe 26.1. An app may be able to access sensitive user data.",
+        "epss_score": 0.00191,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 8.8,
+        "cve_id": "CVE-2026-17705",
+        "description": "Integer overflow in libxml in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chromium security severity: High)",
+        "epss_score": 0.00464,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 8.8,
+        "cve_id": "CVE-2026-16372",
+        "description": "Privilege escalation in the DOM: Content Processes component. This vulnerability was fixed in Firefox 153 and Thunderbird 153.",
+        "epss_score": 0.00272,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 9.6,
+        "cve_id": "CVE-2026-17652",
+        "description": "Chromium: CVE-2026-17652 Use after free in Views",
+        "epss_score": 0.00416,
+        "severity": "Critical"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 7.8,
+        "cve_id": "CVE-2025-43248",
+        "description": "A logic issue was addressed with improved restrictions. This issue is fixed in macOS Sequoia 15.6, macOS Sonoma 14.7.7. A malicious app may be able to gain root privileges.",
+        "epss_score": 0.0022,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 5.5,
+        "cve_id": "CVE-2026-17932",
+        "description": "Chromium: CVE-2026-17932 Use after free in DataTransfer",
+        "epss_score": 0.00081,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 5.5,
+        "cve_id": "CVE-2025-43215",
+        "description": "The issue was addressed with improved checks. This issue is fixed in macOS Sequoia 15.6. Processing a maliciously crafted image may result in disclosure of process memory.",
+        "epss_score": 0.00227,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 9.8,
+        "cve_id": "CVE-2026-64726",
+        "description": "The issue was addressed with improved memory handling. This issue is fixed in iOS 26.6 and iPadOS 26.6, macOS Tahoe 26.6, tvOS 26.6, visionOS 26.6, watchOS 26.6. An attacker in physical proximity may be able to corrupt process memory.",
+        "epss_score": 0.00431,
+        "severity": "Critical"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 7.1,
+        "cve_id": "CVE-2022-22625",
+        "description": "An out-of-bounds read was addressed with improved input validation. This issue is fixed in macOS Big Sur 11.6.5, macOS Monterey 12.3, Security Update 2022-003 Catalina. Processing a maliciously crafted AppleScript binary may result in unexpected application termination or disclosure of process memory.",
+        "epss_score": 0.01109,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 4.3,
+        "cve_id": "CVE-2026-17982",
+        "description": "Chromium: CVE-2026-17982 Insufficient validation of untrusted input in Cast",
+        "epss_score": 0.00203,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 9.8,
+        "cve_id": "CVE-2026-16356",
+        "description": "Sandbox escape due to use-after-free in the Disability Access APIs component. This vulnerability was fixed in Firefox 153, Firefox ESR 115.38, Firefox ESR 140.13, Thunderbird 153, and Thunderbird 140.13.",
+        "epss_score": 0.00394,
+        "severity": "Critical"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 9.6,
+        "cve_id": "CVE-2026-18015",
+        "description": "Chromium: CVE-2026-18015 Inappropriate implementation in Tint",
+        "epss_score": 0.00186,
+        "severity": "Critical"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 0,
+        "cve_id": "CVE-2026-17755",
+        "description": "Chromium: CVE-2026-17755 Incorrect security UI in Extensions",
+        "epss_score": 0.00133,
+        "severity": "Low"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 8.3,
+        "cve_id": "CVE-2025-58098",
+        "description": "Apache HTTP Server: Server Side Includes adds query string to #exec cmd=...",
+        "epss_score": 0.01515,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 4,
+        "cve_id": "CVE-2025-43265",
+        "description": "An out-of-bounds read was addressed with improved input validation. This issue is fixed in Safari 18.6, iOS 18.6 and iPadOS 18.6, macOS Sequoia 15.6, tvOS 18.6, visionOS 2.6, watchOS 11.6. Processing maliciously crafted web content may disclose internal states of the app.",
+        "epss_score": 0.00303,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 7.1,
+        "cve_id": "CVE-2026-17741",
+        "description": "Chromium: CVE-2026-17741 Insufficient validation of untrusted input in WebView",
+        "epss_score": 0.00181,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 5.5,
+        "cve_id": "CVE-2025-43321",
+        "description": "The issue was resolved by blocking unsigned services from launching on Intel Macs. This issue is fixed in macOS Sequoia 15.7, macOS Sonoma 14.8, macOS Tahoe 26. An app may be able to access protected user data.",
+        "epss_score": 0.00209,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 6.5,
+        "cve_id": "CVE-2026-17674",
+        "description": "Chromium: CVE-2026-17674 Inappropriate implementation in HTML",
+        "epss_score": 0.00391,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 5.5,
+        "cve_id": "CVE-2025-43319",
+        "description": "This issue was addressed by removing the vulnerable code. This issue is fixed in macOS Sequoia 15.7, macOS Sonoma 14.8, macOS Tahoe 26. An app may be able to access protected user data.",
+        "epss_score": 0.00209,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 5.5,
+        "cve_id": "CVE-2025-43463",
+        "description": "A parsing issue in the handling of directory paths was addressed with improved path validation. This issue is fixed in macOS Sequoia 15.7.3, macOS Sonoma 14.8.3, macOS Tahoe 26.1. An app may be able to access sensitive user data.",
+        "epss_score": 0.00204,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 4.3,
+        "cve_id": "CVE-2026-17662",
+        "description": "Chromium: CVE-2026-17662 Insufficient policy enforcement in Prefetch",
+        "epss_score": 0.00205,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 6.5,
+        "cve_id": "CVE-2025-24188",
+        "description": "A logic issue was addressed with improved checks. This issue is fixed in Safari 18.6, macOS Sequoia 15.6. Processing maliciously crafted web content may lead to an unexpected Safari crash.",
+        "epss_score": 0.0055,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 8.8,
+        "cve_id": "CVE-2026-17884",
+        "description": "Chromium: CVE-2026-17884 Object lifecycle issue in WebRTC",
+        "epss_score": 0.00244,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 9.6,
+        "cve_id": "CVE-2026-17704",
+        "description": "Chromium: CVE-2026-17704 Use after free in ANGLE",
+        "epss_score": 0.00387,
+        "severity": "Critical"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 6.5,
+        "cve_id": "CVE-2026-17821",
+        "description": "Chromium: CVE-2026-17821 Insufficient policy enforcement in Extensions",
+        "epss_score": 0.00178,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 6.2,
+        "cve_id": "CVE-2025-43414",
+        "description": "A permissions issue was addressed with improved validation. This issue is fixed in macOS Sequoia 15.7.2, macOS Sonoma 14.8.2, macOS Tahoe 26.1. A shortcut may be able to access files that are normally inaccessible to the Shortcuts app.",
+        "epss_score": 0.00209,
+        "severity": "Medium"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 7,
+        "cve_id": "CVE-2025-46284",
+        "description": "A race condition was addressed with additional validation. This issue is fixed in macOS Sequoia 15.7, macOS Tahoe 26. An app may be able to gain root privileges.",
+        "epss_score": 0.00103,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 7.8,
+        "cve_id": "CVE-2026-2664",
+        "description": "An out of bounds read vulnerability in the grpcfuse kernel module present in the Linux VM in Docker Desktop for Windows, Linux and macOS up to version 4.61.0 could allow a local attacker to cause an unspecified impact by writing to /proc/docker entries. The issue has been fixed in Docker Desktop 4.62.0 .",
+        "epss_score": 0.00186,
+        "severity": "High"
+      },
+      {
+        "affected_assets": 1,
+        "asset_ids": [
+          "152060779"
+        ],
+        "base_score": 7,
+        "cve_id": "CVE-2025-43304",
+        "description": "A race condition was addressed with improved state handling. This issue is fixed in macOS Sequoia 15.7, macOS Sonoma 14.8, macOS Tahoe 26. An app may be able to gain root privileges.",
+        "epss_score": 0.00235,
+        "severity": "High"
+      }
+    ],
+    "next_cursor": "50"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenant": "nango",
+      "base_url": "pod107.myconnectsecure.com",
+      "connection_config": {
+        "tenant": "nango",
+        "user_id": "383109345572815574",
+        "base_url": "pod107.myconnectsecure.com"
+      }
+    }
+  },
+  "api": {
+    "post": {
+      "/w/authorize": {
+        "response": {
+          "access_token": "<redacted>",
+          "data": {
+            "access_token": "<redacted>",
+            "user_id": "383109345572815574"
+          },
+          "expires_in": 3600,
+          "status": true,
+          "token_type": "bearer",
+          "user_id": "383109345572815574"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 20:12:19 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "https://portal.myconnectsecure.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1785787997",
+          "server": "cloudflare",
+          "vary": "origin, access-control-request-method, access-control-request-headers",
+          "access-control-allow-credentials": "true",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=t0oh8WEGS_AM78eH6dGErh7XcvWhKyHivuQU.ll0fFs-1785787939.1298184-1.0.1.1-_OgW0BLzvxAi0HXnHskykA8wOAQt6vfZSkgWPnnS223SYQxOk6Q6zARSv0VPxDDP5ryKfDmlLFppl3YrikmbSvUlD0XHJo9e4Kpll4p9RPL7FtIR63v4n81y8X4vzBlx; HttpOnly; SameSite=None; Secure; Path=/; Domain=myconnectsecure.com; Expires=Mon, 03 Aug 2026 20:42:19 GMT",
+          "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+          "referrer-policy": "same-origin, same-origin",
+          "cf-ray": "a257f9fb8f79a32d-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "da42017bf67f88246e27afc81a9e830e4b9c6d8c",
+        "request": {}
+      }
+    },
+    "get": {
+      "/r/report_queries/vulnerabilities_details": {
+        "response": {
+          "data": [
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 9.8,
+              "description": "A race condition was addressed with improved state handling. This issue is fixed in macOS Sequoia 15.6, macOS Sonoma 14.7.7, macOS Ventura 13.7.7. An app may be able to cause unexpected system termination.",
+              "epss_score": 0.00563,
+              "exploitability_score": 3.9,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2025-43244",
+              "severity": "Critical",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 9.8,
+              "description": "A downgrade issue was addressed with additional code-signing restrictions. This issue is fixed in macOS Sequoia 15.6, macOS Sonoma 14.7.7, macOS Ventura 13.7.7. An app may be able to access protected user data.",
+              "epss_score": 0.00687,
+              "exploitability_score": 3.9,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2025-43245",
+              "severity": "Critical",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 9.8,
+              "description": "Same-origin policy bypass in the DOM: Navigation component. This vulnerability was fixed in Firefox 153, Firefox ESR 115.38, Firefox ESR 140.13, Thunderbird 153, and Thunderbird 140.13.",
+              "epss_score": 0.00215,
+              "exploitability_score": 3.9,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2026-16349",
+              "severity": "Critical",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 5.9,
+              "description": "Ruby WEBrick read_header HTTP Request Smuggling Vulnerability",
+              "epss_score": 0.00422,
+              "exploitability_score": 2.2,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2025-6442",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 7.5,
+              "description": "The issue was addressed with improved memory handling. This issue is fixed in Safari 26.5, iOS 26.5 and iPadOS 26.5, macOS Tahoe 26.5, visionOS 26.5. Processing maliciously crafted web content may lead to an unexpected process crash.",
+              "epss_score": 0.00397,
+              "exploitability_score": 3.9,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2026-28944",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 6.1,
+              "description": "Chromium: CVE-2026-17962 Inappropriate implementation in Blink",
+              "epss_score": 0.00152,
+              "exploitability_score": 2.8,
+              "impact_score": 2.7,
+              "problem_name": "CVE-2026-17962",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 6.5,
+              "description": "Chromium: CVE-2026-17840 Incorrect security UI in Passwords",
+              "epss_score": 0.00211,
+              "exploitability_score": 2.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2026-17840",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 8.1,
+              "description": "Chromium: CVE-2026-17995 Out of bounds read in Dawn",
+              "epss_score": 0.00217,
+              "exploitability_score": 2.8,
+              "impact_score": 5.2,
+              "problem_name": "CVE-2026-17995",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 5.5,
+              "description": "This issue was addressed with improved checks. This issue is fixed in Security Update 2022-003 Catalina, macOS Monterey 12.3, macOS Big Sur 11.6.5. A maliciously crafted ZIP archive may bypass Gatekeeper checks.",
+              "epss_score": 0.07749,
+              "exploitability_score": 1.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2022-22616",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 4.3,
+              "description": "Chromium: CVE-2026-17889 Uninitialized Use in WebXR",
+              "epss_score": 0.00206,
+              "exploitability_score": 2.8,
+              "impact_score": 1.4,
+              "problem_name": "CVE-2026-17889",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 9.1,
+              "description": "Incorrect boundary conditions in the Audio/Video: GMP component. This vulnerability was fixed in Firefox 153, Firefox ESR 115.38, Firefox ESR 140.13, Thunderbird 153, and Thunderbird 140.13.",
+              "epss_score": 0.00263,
+              "exploitability_score": 3.9,
+              "impact_score": 5.2,
+              "problem_name": "CVE-2026-16359",
+              "severity": "Critical",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 9.8,
+              "description": "A permissions issue was addressed with additional restrictions. This issue is fixed in macOS Sequoia 15.6, macOS Sonoma 14.7.7, macOS Ventura 13.7.7. An app may be able to bypass certain Privacy preferences.",
+              "epss_score": 0.00727,
+              "exploitability_score": 3.9,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2025-43232",
+              "severity": "Critical",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 7.1,
+              "description": "Chromium: CVE-2026-17888 Insufficient validation of untrusted input in WebUI",
+              "epss_score": 0.00138,
+              "exploitability_score": 2.8,
+              "impact_score": 3.7,
+              "problem_name": "CVE-2026-17888",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 4.3,
+              "description": "Chromium: CVE-2026-17777 Inappropriate implementation in Autofill",
+              "epss_score": 0.00146,
+              "exploitability_score": 2.8,
+              "impact_score": 1.4,
+              "problem_name": "CVE-2026-17777",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 4.3,
+              "description": "Chromium: CVE-2026-17977 Policy bypass in CSS",
+              "epss_score": 0.00129,
+              "exploitability_score": 2.8,
+              "impact_score": 1.4,
+              "problem_name": "CVE-2026-17977",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 2,
+              "description": "A logging issue was addressed with improved data redaction. This issue is fixed in iOS 18.7.2 and iPadOS 18.7.2, iOS 26.1 and iPadOS 26.1, macOS Sequoia 15.7.2, macOS Tahoe 26.1, visionOS 26.1. An attacker with physical access to an unlocked device paired with a Mac may be able to view sensitive user information in system logging.",
+              "epss_score": 0.0023,
+              "exploitability_score": 0.5,
+              "impact_score": 1.4,
+              "problem_name": "CVE-2025-43423",
+              "severity": "Low",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 6.5,
+              "description": "Chromium: CVE-2026-17690 Insufficient validation of untrusted input in PDF",
+              "epss_score": 0.00286,
+              "exploitability_score": 2.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2026-17690",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 3.1,
+              "description": "Chromium: CVE-2026-17702 Inappropriate implementation in Skia",
+              "epss_score": 0.00187,
+              "exploitability_score": 1.6,
+              "impact_score": 1.4,
+              "problem_name": "CVE-2026-17702",
+              "severity": "Low",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 7.5,
+              "description": "Use after free in DevTools in Google Chrome prior to 151.0.7922.72 allowed an attacker who convinced a user to install a malicious extension to execute arbitrary code inside a sandbox via a crafted Chrome Extension. (Chromium security severity: Low)",
+              "epss_score": 0.00181,
+              "exploitability_score": 1.6,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2026-17898",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 4.3,
+              "description": "Chromium: CVE-2026-17954 Policy bypass in MHTML",
+              "epss_score": 0.0012,
+              "exploitability_score": 2.8,
+              "impact_score": 1.4,
+              "problem_name": "CVE-2026-17954",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 3.1,
+              "description": "Chromium: CVE-2026-17715 Inappropriate implementation in Passwords",
+              "epss_score": 0.00187,
+              "exploitability_score": 1.6,
+              "impact_score": 1.4,
+              "problem_name": "CVE-2026-17715",
+              "severity": "Low",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 5.5,
+              "description": "A permissions issue was addressed with additional sandbox restrictions. This issue is fixed in macOS Sequoia 15.7.2, macOS Tahoe 26.1. An app may be able to access sensitive user data.",
+              "epss_score": 0.00191,
+              "exploitability_score": 1.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2025-43409",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 8.8,
+              "description": "Integer overflow in libxml in Google Chrome prior to 151.0.7922.72 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chromium security severity: High)",
+              "epss_score": 0.00464,
+              "exploitability_score": 2.8,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2026-17705",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 8.8,
+              "description": "Privilege escalation in the DOM: Content Processes component. This vulnerability was fixed in Firefox 153 and Thunderbird 153.",
+              "epss_score": 0.00272,
+              "exploitability_score": 2.8,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2026-16372",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 9.6,
+              "description": "Chromium: CVE-2026-17652 Use after free in Views",
+              "epss_score": 0.00416,
+              "exploitability_score": 2.8,
+              "impact_score": 6,
+              "problem_name": "CVE-2026-17652",
+              "severity": "Critical",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 7.8,
+              "description": "A logic issue was addressed with improved restrictions. This issue is fixed in macOS Sequoia 15.6, macOS Sonoma 14.7.7. A malicious app may be able to gain root privileges.",
+              "epss_score": 0.0022,
+              "exploitability_score": 1.8,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2025-43248",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 5.5,
+              "description": "Chromium: CVE-2026-17932 Use after free in DataTransfer",
+              "epss_score": 0.00081,
+              "exploitability_score": 1.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2026-17932",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 5.5,
+              "description": "The issue was addressed with improved checks. This issue is fixed in macOS Sequoia 15.6. Processing a maliciously crafted image may result in disclosure of process memory.",
+              "epss_score": 0.00227,
+              "exploitability_score": 1.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2025-43215",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 9.8,
+              "description": "The issue was addressed with improved memory handling. This issue is fixed in iOS 26.6 and iPadOS 26.6, macOS Tahoe 26.6, tvOS 26.6, visionOS 26.6, watchOS 26.6. An attacker in physical proximity may be able to corrupt process memory.",
+              "epss_score": 0.00431,
+              "exploitability_score": 3.9,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2026-64726",
+              "severity": "Critical",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 7.1,
+              "description": "An out-of-bounds read was addressed with improved input validation. This issue is fixed in macOS Big Sur 11.6.5, macOS Monterey 12.3, Security Update 2022-003 Catalina. Processing a maliciously crafted AppleScript binary may result in unexpected application termination or disclosure of process memory.",
+              "epss_score": 0.01109,
+              "exploitability_score": 1.8,
+              "impact_score": 5.2,
+              "problem_name": "CVE-2022-22625",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 4.3,
+              "description": "Chromium: CVE-2026-17982 Insufficient validation of untrusted input in Cast",
+              "epss_score": 0.00203,
+              "exploitability_score": 2.8,
+              "impact_score": 1.4,
+              "problem_name": "CVE-2026-17982",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 9.8,
+              "description": "Sandbox escape due to use-after-free in the Disability Access APIs component. This vulnerability was fixed in Firefox 153, Firefox ESR 115.38, Firefox ESR 140.13, Thunderbird 153, and Thunderbird 140.13.",
+              "epss_score": 0.00394,
+              "exploitability_score": 3.9,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2026-16356",
+              "severity": "Critical",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 9.6,
+              "description": "Chromium: CVE-2026-18015 Inappropriate implementation in Tint",
+              "epss_score": 0.00186,
+              "exploitability_score": 2.8,
+              "impact_score": 6,
+              "problem_name": "CVE-2026-18015",
+              "severity": "Critical",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 0,
+              "description": "Chromium: CVE-2026-17755 Incorrect security UI in Extensions",
+              "epss_score": 0.00133,
+              "exploitability_score": 0,
+              "impact_score": 0,
+              "problem_name": "CVE-2026-17755",
+              "severity": "Low",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 8.3,
+              "description": "Apache HTTP Server: Server Side Includes adds query string to #exec cmd=...",
+              "epss_score": 0.01515,
+              "exploitability_score": 2.8,
+              "impact_score": 5.5,
+              "problem_name": "CVE-2025-58098",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 4,
+              "description": "An out-of-bounds read was addressed with improved input validation. This issue is fixed in Safari 18.6, iOS 18.6 and iPadOS 18.6, macOS Sequoia 15.6, tvOS 18.6, visionOS 2.6, watchOS 11.6. Processing maliciously crafted web content may disclose internal states of the app.",
+              "epss_score": 0.00303,
+              "exploitability_score": 2.5,
+              "impact_score": 1.4,
+              "problem_name": "CVE-2025-43265",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 7.1,
+              "description": "Chromium: CVE-2026-17741 Insufficient validation of untrusted input in WebView",
+              "epss_score": 0.00181,
+              "exploitability_score": 2.8,
+              "impact_score": 3.7,
+              "problem_name": "CVE-2026-17741",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 5.5,
+              "description": "The issue was resolved by blocking unsigned services from launching on Intel Macs. This issue is fixed in macOS Sequoia 15.7, macOS Sonoma 14.8, macOS Tahoe 26. An app may be able to access protected user data.",
+              "epss_score": 0.00209,
+              "exploitability_score": 1.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2025-43321",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 6.5,
+              "description": "Chromium: CVE-2026-17674 Inappropriate implementation in HTML",
+              "epss_score": 0.00391,
+              "exploitability_score": 2.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2026-17674",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 5.5,
+              "description": "This issue was addressed by removing the vulnerable code. This issue is fixed in macOS Sequoia 15.7, macOS Sonoma 14.8, macOS Tahoe 26. An app may be able to access protected user data.",
+              "epss_score": 0.00209,
+              "exploitability_score": 1.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2025-43319",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 5.5,
+              "description": "A parsing issue in the handling of directory paths was addressed with improved path validation. This issue is fixed in macOS Sequoia 15.7.3, macOS Sonoma 14.8.3, macOS Tahoe 26.1. An app may be able to access sensitive user data.",
+              "epss_score": 0.00204,
+              "exploitability_score": 1.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2025-43463",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 4.3,
+              "description": "Chromium: CVE-2026-17662 Insufficient policy enforcement in Prefetch",
+              "epss_score": 0.00205,
+              "exploitability_score": 2.8,
+              "impact_score": 1.4,
+              "problem_name": "CVE-2026-17662",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 6.5,
+              "description": "A logic issue was addressed with improved checks. This issue is fixed in Safari 18.6, macOS Sequoia 15.6. Processing maliciously crafted web content may lead to an unexpected Safari crash.",
+              "epss_score": 0.0055,
+              "exploitability_score": 2.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2025-24188",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 8.8,
+              "description": "Chromium: CVE-2026-17884 Object lifecycle issue in WebRTC",
+              "epss_score": 0.00244,
+              "exploitability_score": 2.8,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2026-17884",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 9.6,
+              "description": "Chromium: CVE-2026-17704 Use after free in ANGLE",
+              "epss_score": 0.00387,
+              "exploitability_score": 2.8,
+              "impact_score": 6,
+              "problem_name": "CVE-2026-17704",
+              "severity": "Critical",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 6.5,
+              "description": "Chromium: CVE-2026-17821 Insufficient policy enforcement in Extensions",
+              "epss_score": 0.00178,
+              "exploitability_score": 2.8,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2026-17821",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 6.2,
+              "description": "A permissions issue was addressed with improved validation. This issue is fixed in macOS Sequoia 15.7.2, macOS Sonoma 14.8.2, macOS Tahoe 26.1. A shortcut may be able to access files that are normally inaccessible to the Shortcuts app.",
+              "epss_score": 0.00209,
+              "exploitability_score": 2.5,
+              "impact_score": 3.6,
+              "problem_name": "CVE-2025-43414",
+              "severity": "Medium",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 7,
+              "description": "A race condition was addressed with additional validation. This issue is fixed in macOS Sequoia 15.7, macOS Tahoe 26. An app may be able to gain root privileges.",
+              "epss_score": 0.00103,
+              "exploitability_score": 1,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2025-46284",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 7.8,
+              "description": "An out of bounds read vulnerability in the grpcfuse kernel module present in the Linux VM in Docker Desktop for Windows, Linux and macOS up to version 4.61.0 could allow a local attacker to cause an unspecified impact by writing to /proc/docker entries. The issue has been fixed in Docker Desktop 4.62.0 .",
+              "epss_score": 0.00186,
+              "exploitability_score": 1.8,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2026-2664",
+              "severity": "High",
+              "total_count": 961
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "asset_ids": [
+                152060779
+              ],
+              "base_score": 7,
+              "description": "A race condition was addressed with improved state handling. This issue is fixed in macOS Sequoia 15.7, macOS Sonoma 14.8, macOS Tahoe 26. An app may be able to gain root privileges.",
+              "epss_score": 0.00235,
+              "exploitability_score": 1,
+              "impact_score": 5.9,
+              "problem_name": "CVE-2025-43304",
+              "severity": "High",
+              "total_count": 961
+            }
+          ],
+          "status": true,
+          "total": 961
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 20:12:19 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "https://portal.myconnectsecure.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1785787997",
+          "server": "cloudflare",
+          "vary": "origin, access-control-request-method, access-control-request-headers",
+          "access-control-allow-credentials": "true",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization,e-user-id,E-User-Id",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=ZLGzZyCJJ8IK1jlJVhFmzrTjCfPNOV4wyaMa0pNILJg-1785787939.5737922-1.0.1.1-Xi3RQCAeO_QhJ00gUYlai2DSv0Hz3NS22et8cyCrqFwFm.JX0g4RAWWWoQe0vZhzRy4uC7hFzySoPut1qitQ9A1y8q4GsEQCWfdmSC6o_0fPQMr5HM9elabxWJzAVDEP; HttpOnly; SameSite=None; Secure; Path=/; Domain=myconnectsecure.com; Expires=Mon, 03 Aug 2026 20:42:19 GMT",
+          "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+          "referrer-policy": "same-origin, same-origin",
+          "cf-ray": "a257f9fe598e8ce4-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "296231f4308a1d01297719f8b4c1a98c904e5d14",
+        "request": {
+          "params": {
+            "limit": "50",
+            "skip": "0"
+          },
+          "headers": {
+            "X-Tenant-Id": "nango",
+            "X-User-Id": "383109345572815574"
+          }
+        }
+      }
+    }
+  }
+}
