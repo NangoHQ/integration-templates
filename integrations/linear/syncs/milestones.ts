@@ -69,9 +69,10 @@ type MilestonesVariables = {
 
 const sync = createSync({
     description: 'Sync Linear milestones for project planning.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6min',
     autoStart: true,
+    scopes: ['read'],
     checkpoint: CheckpointSchema,
     endpoints: [
         {
@@ -135,7 +136,7 @@ const sync = createSync({
             `;
 
             const config: ProxyConfiguration = {
-                // https://linear.app/developers/docs/graphql/working-with-the-graphql-api
+                // https://linear.app/developers/graphql
                 endpoint: '/graphql',
                 data: {
                     query,
@@ -144,7 +145,7 @@ const sync = createSync({
                 retries: 3
             };
 
-            // https://linear.app/developers/docs/graphql/working-with-the-graphql-api
+            // https://linear.app/developers/graphql
             const response = await nango.post(config);
 
             const parsed = ResponseSchema.safeParse(response.data);

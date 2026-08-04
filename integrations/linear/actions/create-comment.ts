@@ -67,10 +67,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a comment on a Linear issue.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['write:comments'],
+    scopes: ['comments:create'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const mutation = `
@@ -108,7 +108,7 @@ const action = createAction({
         };
 
         const response = await nango.post({
-            // https://linear.app/developers/api-reference/graphql
+            // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
                 query: mutation,

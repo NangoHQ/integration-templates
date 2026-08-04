@@ -1,0 +1,4319 @@
+{
+  "input": {},
+  "output": {
+    "releases": [
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-1878B9505CB8A678",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "/opt/cloud-alerts-demo/dt-release-demo/Processor.java",
+        "problemCount": 0,
+        "product": "order-processing",
+        "releaseEntityId": "PROCESS_GROUP-522D10DF10142762",
+        "running": false,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "edition": "Adoptium",
+            "technology": "JAVA",
+            "verbatimType": "Java",
+            "version": "25.0.3"
+          }
+        ],
+        "stage": "production",
+        "throughput": 2266761.75,
+        "version": "1.0.9"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-F3C8DD9AB58E1E70",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "/opt/dt-release-demo/Processor.java",
+        "problemCount": 0,
+        "product": "order-processing",
+        "releaseEntityId": "PROCESS_GROUP-5D5A081D45237ED0",
+        "running": true,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "edition": "Adoptium",
+            "technology": "JAVA",
+            "verbatimType": "Java",
+            "version": "25.0.4"
+          }
+        ],
+        "stage": "production",
+        "throughput": 38298240.338768825,
+        "version": "1.0.9"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-793B7F1788F7F055",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "Accounting.dll accounting-*",
+        "problemCount": 0,
+        "product": "",
+        "releaseEntityId": "PROCESS_GROUP-39745FA6FD7D0965",
+        "running": false,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "edition": ".NET",
+            "technology": "DOTNET",
+            "verbatimType": "Dotnet",
+            "version": "8.0.27.0"
+          },
+          {
+            "edition": "System.Data.Common",
+            "technology": "ADO_NET",
+            "verbatimType": "ADO_NET",
+            "version": "8.0.2726.22922"
+          },
+          {
+            "edition": "CLR",
+            "technology": "CLR",
+            "verbatimType": "CLR",
+            "version": "8.0.27.0"
+          },
+          {
+            "technology": "CONFLUENT_KAFKA_CLIENT",
+            "verbatimType": "CONFLUENT_KAFKA_CLIENT",
+            "version": "2.11.0.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "glibc",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "2.36"
+          },
+          {
+            "edition": ".NET",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "1.15.3.2017"
+          },
+          {
+            "technology": "POSTGRE_DOTNET_DATA_PROVIDER",
+            "verbatimType": "postgre .NET Data Provider",
+            "version": "9.0.3.0"
+          }
+        ],
+        "stage": "astroshop",
+        "throughput": 5519936.909090909,
+        "version": ""
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-41554DF2BFCBA002",
+            "problems": [],
+            "securityVulnerabilities": [
+              "12624992972495918990"
+            ]
+          }
+        ],
+        "name": "aggregator-service easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-2263F93108F68023",
+        "running": true,
+        "securityVulnerabilitiesCount": 1,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "GO",
+            "verbatimType": "Go",
+            "version": "1.26.3"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          }
+        ],
+        "stage": "production",
+        "throughput": 29313357.488636363,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-BB36B776BE7E2254",
+            "problems": [],
+            "securityVulnerabilities": [
+              "5879834255623318749",
+              "724416131010190022"
+            ]
+          }
+        ],
+        "name": "app.jar easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-BC39D91A6215741D",
+        "running": true,
+        "securityVulnerabilitiesCount": 2,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "edition": "Adoptium",
+            "technology": "JAVA",
+            "verbatimType": "Java",
+            "version": "21.0.8"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "QOS_LOGBACK",
+            "verbatimType": "QOS_LOGBACK"
+          }
+        ],
+        "stage": "production",
+        "throughput": 38009351.37339246,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-8E2F56AF137CC91B",
+            "problems": [],
+            "securityVulnerabilities": [
+              "3502265907281635187",
+              "17298541638040527581",
+              "2699341067565434634",
+              "3813336248191979827",
+              "14175369845229507829",
+              "8828912542794219634",
+              "2697270167606488394",
+              "4652962478791170050",
+              "15910524575781210918",
+              "2827891730495457470",
+              "14711075732932702961",
+              "10763632372033119112",
+              "3400679170517685671",
+              "14628176234880500077",
+              "7421814806019427871",
+              "13500140233283119540",
+              "5090405471596487530",
+              "301544466617453837",
+              "12174526754697326161",
+              "1228907736015312478",
+              "7162224511840275487",
+              "16314727483330447586",
+              "3760401106105876897",
+              "9868706762787196772",
+              "3774976675874560818",
+              "11948815636156664487",
+              "10538538159161676721",
+              "8057580925661966446",
+              "6839854332912691056",
+              "17007786251727413852",
+              "14278766004398585278",
+              "10007256948109561913"
+            ]
+          }
+        ],
+        "name": "BrokerService.dll easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-B9A875B675166422",
+        "running": true,
+        "securityVulnerabilitiesCount": 32,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "edition": ".NET",
+            "technology": "DOTNET",
+            "verbatimType": "Dotnet",
+            "version": "8.0.18.0"
+          },
+          {
+            "edition": "System.Data.Common",
+            "technology": "ADO_NET",
+            "verbatimType": "ADO_NET",
+            "version": "8.0.1825.31117"
+          },
+          {
+            "technology": "ASP_NET_CORE",
+            "verbatimType": "ASP.NET CORE",
+            "version": "8.0.1825.31706"
+          },
+          {
+            "edition": "CLR",
+            "technology": "CLR",
+            "verbatimType": "CLR",
+            "version": "8.0.18.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "MSSQL_CLIENT",
+            "verbatimType": "MSSQL_CLIENT",
+            "version": "5.16.24240.5"
+          }
+        ],
+        "stage": "production",
+        "throughput": 7480663.111111111,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "buildVersion": "1.1.1.20260730-042524",
+            "entityId": "PROCESS_GROUP_INSTANCE-A33D7273EF4D340D",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260723-042526",
+            "entityId": "PROCESS_GROUP_INSTANCE-14CEFCAA85D5F08E",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260728-042525",
+            "entityId": "PROCESS_GROUP_INSTANCE-C05B08C0C72CC140",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260731-040023",
+            "entityId": "PROCESS_GROUP_INSTANCE-1BEACD0993B99FE9",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260801-042529",
+            "entityId": "PROCESS_GROUP_INSTANCE-67A065DEE0C1CFAC",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260723-040025",
+            "entityId": "PROCESS_GROUP_INSTANCE-37B018058A4357F7",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260803-042517",
+            "entityId": "PROCESS_GROUP_INSTANCE-F11DAD43C696AA69",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260729-042517",
+            "entityId": "PROCESS_GROUP_INSTANCE-3B6AB6EE4255745F",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260801-040029",
+            "entityId": "PROCESS_GROUP_INSTANCE-7A44459FFAE4D455",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260803-042517",
+            "entityId": "PROCESS_GROUP_INSTANCE-6ECD9AF3649DA48C",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260724-040017",
+            "entityId": "PROCESS_GROUP_INSTANCE-9312E4A095521254",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260722-040025",
+            "entityId": "PROCESS_GROUP_INSTANCE-EEC2972AD80377DE",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260731-042517",
+            "entityId": "PROCESS_GROUP_INSTANCE-EF2A2FF19B624F81",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260728-202516",
+            "entityId": "PROCESS_GROUP_INSTANCE-811EAA6A6D5C4469",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260727-040047",
+            "entityId": "PROCESS_GROUP_INSTANCE-2C542EEF095A5BAD",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260730-040032",
+            "entityId": "PROCESS_GROUP_INSTANCE-201D580D017D6E3E",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260730-042524",
+            "entityId": "PROCESS_GROUP_INSTANCE-2C77A42819755F7D",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260801-202516",
+            "entityId": "PROCESS_GROUP_INSTANCE-4063892D2280DFE7",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260724-042522",
+            "entityId": "PROCESS_GROUP_INSTANCE-52659D2B7EA4AE06",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260728-040017",
+            "entityId": "PROCESS_GROUP_INSTANCE-ACE4341251C464C2",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260724-042522",
+            "entityId": "PROCESS_GROUP_INSTANCE-96C13B71E8730294",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "BrokerService.dll easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-B9A875B675166422",
+        "running": false,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "edition": ".NET",
+            "technology": "DOTNET",
+            "verbatimType": "Dotnet",
+            "version": "8.0.18.0"
+          },
+          {
+            "edition": "System.Data.Common",
+            "technology": "ADO_NET",
+            "verbatimType": "ADO_NET",
+            "version": "8.0.1825.31117"
+          },
+          {
+            "technology": "ASP_NET_CORE",
+            "verbatimType": "ASP.NET CORE",
+            "version": "8.0.1825.31706"
+          },
+          {
+            "edition": "CLR",
+            "technology": "CLR",
+            "verbatimType": "CLR",
+            "version": "8.0.18.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": ".NET Core",
+            "technology": "DOTNET",
+            "verbatimType": "Dotnet"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "MSSQL_CLIENT",
+            "verbatimType": "MSSQL_CLIENT",
+            "version": "5.16.24240.5"
+          },
+          {
+            "edition": ".NET",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "1.15.3.2017"
+          }
+        ],
+        "stage": "production",
+        "throughput": 274393655.3615476,
+        "version": "1.1.1"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-88C21E4534EC1DE8",
+            "problems": [],
+            "securityVulnerabilities": [
+              "16976961604761907077",
+              "4008238194149009507",
+              "3911650769306681717",
+              "3936937730511210277",
+              "1806417568067487509",
+              "522822180691020149",
+              "5795707422234866321"
+            ]
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-E2F413253C006B72",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "build/src/main.js (easytrade-load-generator) easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-21E48F885ACCF22A",
+        "running": true,
+        "securityVulnerabilitiesCount": 7,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NODE_JS",
+            "verbatimType": "Node_js",
+            "version": "24.11.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "glibc",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "2.41"
+          }
+        ],
+        "stage": "production",
+        "throughput": 15863478.577994123,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-2FFC597FCC9241F4",
+            "problems": [],
+            "securityVulnerabilities": [
+              "13795413615019733338",
+              "10376738703241735743",
+              "1081418630014295188",
+              "7443305259587503371",
+              "15699452788619887668",
+              "2567207456321956862",
+              "4374629275630079178",
+              "4365486619696795125",
+              "12221378306324797476",
+              "11602685212763134275",
+              "11207221942644150303",
+              "3310020299446976751",
+              "16189503906157347220",
+              "11480914223611631405",
+              "9184174751313618919",
+              "8590695806631773531",
+              "10997722573754600964",
+              "12095892675663657152",
+              "7712027161588397174",
+              "11678709523234527065",
+              "6107173229056910058",
+              "18044996708830996545",
+              "31927140726656475",
+              "12624992972495918990",
+              "15182832947436065142",
+              "8433340233447809524",
+              "6501777276080538835",
+              "8036739847770072663",
+              "16179523304113195509",
+              "2214742517782493160",
+              "12824456585881960390",
+              "1300697805316325487",
+              "6145894411474681128",
+              "2825608353509361685",
+              "13963943407045027807",
+              "2417071847731309386"
+            ]
+          }
+        ],
+        "name": "checkout checkout-*",
+        "problemCount": 0,
+        "product": "",
+        "releaseEntityId": "PROCESS_GROUP-A703C7F95510D1E1",
+        "running": true,
+        "securityVulnerabilitiesCount": 36,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "GO",
+            "verbatimType": "Go",
+            "version": "1.24.13"
+          },
+          {
+            "technology": "AWS_SQS_CLIENT",
+            "verbatimType": "AWS_SQS_CLIENT",
+            "version": "1.42.11"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "technology": "GRPC",
+            "verbatimType": "GRPC",
+            "version": "1.75.1"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "1.38.0"
+          }
+        ],
+        "stage": "astroshop",
+        "throughput": 3068.6533203125,
+        "version": ""
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-F5DF0A7CF37DB7EA",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "consumeCandleData easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-555B434AFA4A7042",
+        "running": true,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "ONEAGENT_SDK",
+            "verbatimType": "ONEAGENT_SDK"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "glibc",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "2.39"
+          }
+        ],
+        "stage": "production",
+        "throughput": 4033467.1428571427,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "buildVersion": "1.1.1.20260724-202522",
+            "entityId": "PROCESS_GROUP_INSTANCE-2042796471CF5FFD",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260803-040052",
+            "entityId": "PROCESS_GROUP_INSTANCE-E8B039407BE20924",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260725-202527",
+            "entityId": "PROCESS_GROUP_INSTANCE-C5C246EAD8BCFF8E",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260727-042516",
+            "entityId": "PROCESS_GROUP_INSTANCE-00225E50AA6E3C27",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260729-202516",
+            "entityId": "PROCESS_GROUP_INSTANCE-7CA461B7FE5EFBEF",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260722-042523",
+            "entityId": "PROCESS_GROUP_INSTANCE-B5FA1DEA84EFCE0F",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260725-042521",
+            "entityId": "PROCESS_GROUP_INSTANCE-A34FC0ED2A34DAAF",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260802-042517",
+            "entityId": "PROCESS_GROUP_INSTANCE-774585046253294B",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260803-042517",
+            "entityId": "PROCESS_GROUP_INSTANCE-97F1A8D209857542",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "buildVersion": "1.1.1.20260726-042516",
+            "entityId": "PROCESS_GROUP_INSTANCE-1B6D86B4A02AF6FE",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "dotnet easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-9C4FDBCA7366F126",
+        "running": false,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": false,
+        "softwareTechs": [],
+        "stage": "production",
+        "throughput": 125845580.9725798,
+        "version": "1.1.1"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-DE38A3895672532A",
+            "problems": [],
+            "securityVulnerabilities": [
+              "3502265907281635187",
+              "17298541638040527581",
+              "2699341067565434634",
+              "3813336248191979827",
+              "14175369845229507829",
+              "8828912542794219634",
+              "2697270167606488394",
+              "4652962478791170050",
+              "15910524575781210918",
+              "2827891730495457470",
+              "14711075732932702961",
+              "10763632372033119112",
+              "3400679170517685671",
+              "14628176234880500077",
+              "7421814806019427871",
+              "13500140233283119540",
+              "5090405471596487530",
+              "301544466617453837",
+              "12174526754697326161",
+              "1228907736015312478",
+              "7162224511840275487",
+              "16314727483330447586",
+              "3760401106105876897",
+              "9868706762787196772",
+              "3774976675874560818",
+              "11948815636156664487",
+              "10538538159161676721",
+              "8057580925661966446",
+              "6839854332912691056",
+              "17007786251727413852",
+              "14278766004398585278",
+              "10007256948109561913"
+            ]
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-D44FE261DF652136",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "easyTradeLoginService.dll easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-A9E84EBB6665A1E2",
+        "running": true,
+        "securityVulnerabilitiesCount": 32,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "edition": ".NET",
+            "technology": "DOTNET",
+            "verbatimType": "Dotnet",
+            "version": "8.0.18.0"
+          },
+          {
+            "edition": "System.Data.Common",
+            "technology": "ADO_NET",
+            "verbatimType": "ADO_NET",
+            "version": "8.0.1825.31117"
+          },
+          {
+            "technology": "ASP_NET_CORE",
+            "verbatimType": "ASP.NET CORE",
+            "version": "8.0.1825.31706"
+          },
+          {
+            "edition": "CLR",
+            "technology": "CLR",
+            "verbatimType": "CLR",
+            "version": "8.0.18.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "MSSQL_CLIENT",
+            "verbatimType": "MSSQL_CLIENT",
+            "version": "5.16.24240.5"
+          },
+          {
+            "edition": ".NET",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "1.15.3.2017"
+          }
+        ],
+        "stage": "production",
+        "throughput": 73798832.84,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-B155AEB358B92F74",
+            "problems": [],
+            "securityVulnerabilities": [
+              "3502265907281635187",
+              "17298541638040527581",
+              "2699341067565434634",
+              "3813336248191979827",
+              "14175369845229507829",
+              "8828912542794219634",
+              "2697270167606488394",
+              "4652962478791170050",
+              "15910524575781210918",
+              "2827891730495457470",
+              "14711075732932702961",
+              "10763632372033119112",
+              "3400679170517685671",
+              "14628176234880500077",
+              "7421814806019427871",
+              "13500140233283119540",
+              "5090405471596487530",
+              "301544466617453837",
+              "12174526754697326161",
+              "1228907736015312478",
+              "7162224511840275487",
+              "16314727483330447586",
+              "3760401106105876897",
+              "9868706762787196772",
+              "3774976675874560818",
+              "11948815636156664487",
+              "10538538159161676721",
+              "8057580925661966446",
+              "6839854332912691056",
+              "17007786251727413852",
+              "14278766004398585278",
+              "10007256948109561913"
+            ]
+          }
+        ],
+        "name": "easyTradeManager.dll easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-9898642B3BD38179",
+        "running": true,
+        "securityVulnerabilitiesCount": 32,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "edition": ".NET",
+            "technology": "DOTNET",
+            "verbatimType": "Dotnet",
+            "version": "8.0.18.0"
+          },
+          {
+            "edition": "System.Data.Common",
+            "technology": "ADO_NET",
+            "verbatimType": "ADO_NET",
+            "version": "8.0.1825.31117"
+          },
+          {
+            "technology": "ASP_NET_CORE",
+            "verbatimType": "ASP.NET CORE",
+            "version": "8.0.1825.31706"
+          },
+          {
+            "edition": "CLR",
+            "technology": "CLR",
+            "verbatimType": "CLR",
+            "version": "8.0.18.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "MSSQL_CLIENT",
+            "verbatimType": "MSSQL_CLIENT",
+            "version": "5.16.24240.5"
+          },
+          {
+            "edition": ".NET",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "1.15.3.2017"
+          }
+        ],
+        "stage": "production",
+        "throughput": 425454229.4991319,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-7D108707D3FE564C",
+            "problems": [],
+            "securityVulnerabilities": [
+              "697394227850026450",
+              "12298512334971036351",
+              "2960224221477854522",
+              "4990974433164743668",
+              "3580107191860539676",
+              "17476754595071526637",
+              "7963618415673091048",
+              "12695136343552235532",
+              "7645686165172801256",
+              "14282142580345404459",
+              "142773141113245304",
+              "14532318584052300041",
+              "4311153053714515842",
+              "15845210183519456453",
+              "12358490766188712428",
+              "3879987550510608055",
+              "9710005106947642195",
+              "15030122387929828621",
+              "13082145647960346774",
+              "241316474438642389",
+              "15709844373426946223",
+              "14279045059044908376",
+              "17854304046701386593",
+              "16617560019467051797",
+              "17993154721776293038",
+              "506897419680391918",
+              "12538232785798622780",
+              "16935829543653549774",
+              "14887568902668671917",
+              "1278941457832141585",
+              "11515068045354941919",
+              "9826447127402189355",
+              "16441999453541971519"
+            ]
+          }
+        ],
+        "name": "index.js payment-*",
+        "problemCount": 0,
+        "product": "",
+        "releaseEntityId": "PROCESS_GROUP-A8F3F28ACD791524",
+        "running": true,
+        "securityVulnerabilitiesCount": 33,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NODE_JS",
+            "verbatimType": "Node_js",
+            "version": "22.22.3"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "Node.js",
+            "technology": "GRPC",
+            "verbatimType": "GRPC",
+            "version": "@grpc/grpc-js"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "edition": "Node.js",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "@opentelemetry/api"
+          }
+        ],
+        "stage": "astroshop",
+        "throughput": 5409189.979694813,
+        "version": ""
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-7BF814E34E0A5043",
+            "problems": [],
+            "securityVulnerabilities": [
+              "6431803682675524045",
+              "17291422970860976037",
+              "17736810376148854633",
+              "78117728232171765",
+              "2625726785177267157",
+              "15554607231409642486",
+              "3837460658370191281",
+              "10330957823829282400",
+              "10801845231543165274"
+            ]
+          }
+        ],
+        "name": "kafka.Kafka kafka-*",
+        "problemCount": 0,
+        "product": "",
+        "releaseEntityId": "PROCESS_GROUP-F1E67A9FC41B25F6",
+        "running": true,
+        "securityVulnerabilitiesCount": 9,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "KAFKA",
+            "verbatimType": "KAFKA"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "Adoptium",
+            "technology": "JAVA",
+            "verbatimType": "Java",
+            "version": "21.0.7"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "SCALA",
+            "verbatimType": "Scala",
+            "version": "2.13.15"
+          }
+        ],
+        "stage": "astroshop",
+        "throughput": 5675459.8083354505,
+        "version": ""
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-A770E1536D39AC75",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "load-generator load-generator-*",
+        "problemCount": 0,
+        "product": "",
+        "releaseEntityId": "PROCESS_GROUP-38BB98DEA68B0A3B",
+        "running": true,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "GO",
+            "verbatimType": "Go",
+            "version": "1.24.5"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          }
+        ],
+        "stage": "astroshop-cloud-backend",
+        "throughput": 440717.4090863047,
+        "version": ""
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-6F7608985934C699",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "nginx easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-29D6ED8F2BBB1ABD",
+        "running": true,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NGINX",
+            "verbatimType": "Nginx",
+            "version": "nginx/1.29.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          }
+        ],
+        "stage": "production",
+        "throughput": 77528723.44503546,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-C156743890E14A5F",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "nginx easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-F47682A17BEE366D",
+        "running": true,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NGINX",
+            "verbatimType": "Nginx",
+            "version": "nginx/1.29.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          }
+        ],
+        "stage": "production",
+        "throughput": 20439674.833333332,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-308079C7A0A9DF94",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "nginx frontend-*",
+        "problemCount": 0,
+        "product": "",
+        "releaseEntityId": "PROCESS_GROUP-5C97B1445A648AD9",
+        "running": true,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NGINX",
+            "verbatimType": "Nginx",
+            "version": "nginx/1.26.3"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          }
+        ],
+        "stage": "smartfreight",
+        "throughput": 3929241.951219512,
+        "version": ""
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-10BD5322992ECC6D",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "nginx ingress-nginx",
+        "problemCount": 0,
+        "product": "ingress-nginx",
+        "releaseEntityId": "PROCESS_GROUP-FE311AD526ECD259",
+        "running": true,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NGINX",
+            "verbatimType": "Nginx",
+            "version": "nginx/1.27.1"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          }
+        ],
+        "stage": "ingress-nginx",
+        "throughput": 11678748.710280374,
+        "version": "1.14.1"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-5832F3E3890273AF",
+            "problems": [],
+            "securityVulnerabilities": [
+              "15239029612528617044",
+              "17255456911553117603",
+              "16792442641102078411",
+              "11154488475741009842",
+              "16955246930944612060",
+              "2955931291327466360",
+              "6431803682675524045",
+              "17291422970860976037",
+              "5325500159349631887",
+              "18320398403022450700",
+              "6625582789676431379",
+              "12410461853754414442",
+              "15146667590056364986",
+              "11685678561092018735",
+              "17736810376148854633",
+              "78117728232171765",
+              "1565437917103942133",
+              "129251294942943602",
+              "11367705948128561019",
+              "7668076749967692581",
+              "10793235040354694660",
+              "12978932952777178036",
+              "4959998824385460941",
+              "13139907750986497461",
+              "7092769156976156486",
+              "3918375514596119241",
+              "13184341576078884027",
+              "11976753957714717137",
+              "15554607231409642486",
+              "13375728345173070140",
+              "6331828153233062012",
+              "17123486279462240943",
+              "14572737015939556298",
+              "12057026857175124724",
+              "14447386328188115301",
+              "3400444221308432221",
+              "1457626808473465638",
+              "10330957823829282400",
+              "10801845231543165274",
+              "1627671190432745117",
+              "16081076390296942267",
+              "14506297890939938163"
+            ]
+          }
+        ],
+        "name": "oteldemo.AdService ad-*",
+        "problemCount": 0,
+        "product": "",
+        "releaseEntityId": "PROCESS_GROUP-6ACEB6BB9B65901E",
+        "running": true,
+        "securityVulnerabilitiesCount": 42,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "edition": "Adoptium",
+            "technology": "JAVA",
+            "verbatimType": "Java",
+            "version": "21.0.11"
+          },
+          {
+            "technology": "APACHE_LOG4J",
+            "verbatimType": "APACHE_LOG4J",
+            "version": "2.25.2"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "technology": "GRPC",
+            "verbatimType": "GRPC",
+            "version": "1.75.0"
+          },
+          {
+            "edition": "glibc",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "2.43"
+          },
+          {
+            "edition": "Java",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "1.54.1"
+          }
+        ],
+        "stage": "astroshop",
+        "throughput": 5288176.309945372,
+        "version": ""
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-8308859B925403A3",
+            "problems": [],
+            "securityVulnerabilities": [
+              "12624992972495918990",
+              "15182832947436065142"
+            ]
+          }
+        ],
+        "name": "pricing-service easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-62DA92364D291173",
+        "running": true,
+        "securityVulnerabilitiesCount": 2,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "GO",
+            "verbatimType": "Go",
+            "version": "1.26.4"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.6"
+          }
+        ],
+        "stage": "production",
+        "throughput": 26985760.372093022,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-46801A8B1CFE0CD4",
+            "problems": [],
+            "securityVulnerabilities": [
+              "13795413615019733338",
+              "13464357819717500010",
+              "4300018779392022109",
+              "10376738703241735743",
+              "1081418630014295188",
+              "7443305259587503371",
+              "15699452788619887668",
+              "2567207456321956862",
+              "4374629275630079178",
+              "4365486619696795125",
+              "12221378306324797476",
+              "11602685212763134275",
+              "11207221942644150303",
+              "3310020299446976751",
+              "16189503906157347220",
+              "11480914223611631405",
+              "9184174751313618919",
+              "8590695806631773531",
+              "10997722573754600964",
+              "12095892675663657152",
+              "7712027161588397174",
+              "11678709523234527065",
+              "6107173229056910058",
+              "18044996708830996545",
+              "31927140726656475",
+              "12624992972495918990",
+              "15182832947436065142",
+              "8433340233447809524",
+              "6501777276080538835",
+              "8036739847770072663",
+              "10434082864303772668",
+              "16179523304113195509",
+              "2214742517782493160",
+              "12824456585881960390",
+              "1300697805316325487",
+              "6145894411474681128",
+              "13963943407045027807",
+              "2417071847731309386"
+            ]
+          }
+        ],
+        "name": "product-catalog product-catalog-*",
+        "problemCount": 0,
+        "product": "",
+        "releaseEntityId": "PROCESS_GROUP-59A012B21EA32F8C",
+        "running": true,
+        "securityVulnerabilitiesCount": 38,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "GO",
+            "verbatimType": "Go",
+            "version": "1.24.13"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "technology": "GRPC",
+            "verbatimType": "GRPC",
+            "version": "1.75.1"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "1.38.0"
+          }
+        ],
+        "stage": "astroshop",
+        "throughput": 11235512,
+        "version": ""
+      },
+      {
+        "affectedByProblems": true,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+            "problems": [
+              "P-2608308"
+            ],
+            "securityVulnerabilities": [
+              "3837750066390789659",
+              "653754270037246832",
+              "8261404982676157771",
+              "2960224221477854522",
+              "4990974433164743668",
+              "3580107191860539676",
+              "4092682927678165288",
+              "1091144306223037689",
+              "5119892264085789455",
+              "17731817109691430108",
+              "3598686708317561767",
+              "16142555706146400017",
+              "4786853704663420351",
+              "17044792044333232291",
+              "142773141113245304",
+              "6438203665982683447",
+              "14532318584052300041",
+              "7487796835650188078",
+              "6927389360143928753",
+              "799072727568521510",
+              "7471032378171744127",
+              "4311153053714515842",
+              "3454081566035867600",
+              "15845210183519456453",
+              "13123932813009550928",
+              "12358490766188712428",
+              "2723142078216999221",
+              "3879987550510608055",
+              "13082145647960346774",
+              "241316474438642389",
+              "10710617243145272624",
+              "4679789903020529202",
+              "16617560019467051797",
+              "2556131525198936847",
+              "12538232785798622780",
+              "16420857620448901149",
+              "2393078931706615815",
+              "17351356947021709398",
+              "18338485650759113995",
+              "1067911246264107983",
+              "11515068045354941919",
+              "9826447127402189355",
+              "16184669679373012643",
+              "14320509456022049363",
+              "15534735979287486164",
+              "16441999453541971519",
+              "18058111551737381332"
+            ]
+          }
+        ],
+        "name": "server.js (frontend) frontend-*",
+        "problemCount": 1,
+        "product": "",
+        "releaseEntityId": "PROCESS_GROUP-82114F36DB4F4CEF",
+        "running": true,
+        "securityVulnerabilitiesCount": 47,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NODE_JS",
+            "verbatimType": "Node_js",
+            "version": "22.22.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "Node.js",
+            "technology": "GRPC",
+            "verbatimType": "GRPC",
+            "version": "@grpc/grpc-js"
+          },
+          {
+            "edition": "glibc",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "2.36"
+          },
+          {
+            "edition": "Node.js",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "@opentelemetry/api"
+          }
+        ],
+        "stage": "astroshop",
+        "throughput": 5559823.053790047,
+        "version": ""
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-AF1469377690A24A",
+            "problems": [],
+            "securityVulnerabilities": [
+              "14102357608356184718",
+              "9558556182508818571",
+              "7109577968916492366",
+              "11749076692905322193",
+              "15554607231409642486",
+              "10801845231543165274"
+            ]
+          }
+        ],
+        "name": "SpringBoot com.dynatrace.easytrade.accountservice.AccountServiceApplic easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-2E209D190CCEF89A",
+        "running": true,
+        "securityVulnerabilitiesCount": 6,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "TOMCAT",
+            "verbatimType": "Tomcat",
+            "version": "11.0.22.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "Adoptium",
+            "technology": "JAVA",
+            "verbatimType": "Java",
+            "version": "21.0.8"
+          },
+          {
+            "technology": "JDK_HTTP_CLIENT",
+            "verbatimType": "JDK_HTTP_CLIENT"
+          },
+          {
+            "technology": "KOTLIN",
+            "verbatimType": "KOTLIN",
+            "version": "2.2.21"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "OK_HTTP_CLIENT",
+            "verbatimType": "OK_HTTP_CLIENT",
+            "version": "5.3.2"
+          },
+          {
+            "edition": "Java Agent",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "2.28.2-aws"
+          },
+          {
+            "technology": "QOS_LOGBACK",
+            "verbatimType": "QOS_LOGBACK",
+            "version": "1.5.34"
+          },
+          {
+            "edition": "Spring Boot",
+            "technology": "SPRING",
+            "verbatimType": "SPRING",
+            "version": "4.0.7"
+          }
+        ],
+        "stage": "production",
+        "throughput": 1716584.0247440273,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-D2226D4E1DBC6DF9",
+            "problems": [],
+            "securityVulnerabilities": [
+              "14102357608356184718",
+              "9558556182508818571",
+              "7109577968916492366",
+              "11749076692905322193",
+              "15554607231409642486",
+              "10801845231543165274"
+            ]
+          }
+        ],
+        "name": "SpringBoot com.dynatrace.easytrade.creditcardorderservice.Application easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-5B51EC730D7CC387",
+        "running": true,
+        "securityVulnerabilitiesCount": 6,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "TOMCAT",
+            "verbatimType": "Tomcat",
+            "version": "11.0.22.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "Adoptium",
+            "technology": "JAVA",
+            "verbatimType": "Java",
+            "version": "21.0.8"
+          },
+          {
+            "technology": "JDK_HTTP_CLIENT",
+            "verbatimType": "JDK_HTTP_CLIENT"
+          },
+          {
+            "technology": "KOTLIN",
+            "verbatimType": "KOTLIN",
+            "version": "2.2.21"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "OK_HTTP_CLIENT",
+            "verbatimType": "OK_HTTP_CLIENT",
+            "version": "5.3.2"
+          },
+          {
+            "edition": "Java Agent",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "2.28.2-aws"
+          },
+          {
+            "technology": "QOS_LOGBACK",
+            "verbatimType": "QOS_LOGBACK",
+            "version": "1.5.34"
+          },
+          {
+            "edition": "Spring Boot",
+            "technology": "SPRING",
+            "verbatimType": "SPRING",
+            "version": "4.0.7"
+          }
+        ],
+        "stage": "production",
+        "throughput": 6171820.258250452,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-FFCB9602EF10C0BC",
+            "problems": [],
+            "securityVulnerabilities": [
+              "14102357608356184718",
+              "9558556182508818571",
+              "7109577968916492366",
+              "11749076692905322193",
+              "15554607231409642486",
+              "10801845231543165274"
+            ]
+          }
+        ],
+        "name": "SpringBoot com.dynatrace.easytrade.engine.EngineApplication easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-BBA447EB9F94E231",
+        "running": true,
+        "securityVulnerabilitiesCount": 6,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "TOMCAT",
+            "verbatimType": "Tomcat",
+            "version": "11.0.22.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "Adoptium",
+            "technology": "JAVA",
+            "verbatimType": "Java",
+            "version": "21.0.8"
+          },
+          {
+            "technology": "JDK_HTTP_CLIENT",
+            "verbatimType": "JDK_HTTP_CLIENT"
+          },
+          {
+            "technology": "KOTLIN",
+            "verbatimType": "KOTLIN",
+            "version": "2.2.21"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "OK_HTTP_CLIENT",
+            "verbatimType": "OK_HTTP_CLIENT",
+            "version": "5.3.2"
+          },
+          {
+            "edition": "Java Agent",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "2.28.2-aws"
+          },
+          {
+            "technology": "QOS_LOGBACK",
+            "verbatimType": "QOS_LOGBACK",
+            "version": "1.5.34"
+          },
+          {
+            "edition": "Spring Boot",
+            "technology": "SPRING",
+            "verbatimType": "SPRING",
+            "version": "4.0.7"
+          }
+        ],
+        "stage": "production",
+        "throughput": 7170975.695997807,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-AE5B887706D89FC3",
+            "problems": [],
+            "securityVulnerabilities": [
+              "14102357608356184718",
+              "9558556182508818571",
+              "7109577968916492366",
+              "11749076692905322193",
+              "15554607231409642486",
+              "10801845231543165274"
+            ]
+          }
+        ],
+        "name": "SpringBoot com.dynatrace.easytrade.featureflagservice.Featureflagservi easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-64979A479CD1923F",
+        "running": true,
+        "securityVulnerabilitiesCount": 6,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "TOMCAT",
+            "verbatimType": "Tomcat",
+            "version": "11.0.22.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "Adoptium",
+            "technology": "JAVA",
+            "verbatimType": "Java",
+            "version": "21.0.8"
+          },
+          {
+            "technology": "KOTLIN",
+            "verbatimType": "KOTLIN",
+            "version": "2.2.21"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "technology": "OK_HTTP_CLIENT",
+            "verbatimType": "OK_HTTP_CLIENT",
+            "version": "5.3.2"
+          },
+          {
+            "edition": "Java Agent",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "2.28.2-aws"
+          },
+          {
+            "technology": "QOS_LOGBACK",
+            "verbatimType": "QOS_LOGBACK",
+            "version": "1.5.34"
+          },
+          {
+            "edition": "Spring Boot",
+            "technology": "SPRING",
+            "verbatimType": "SPRING",
+            "version": "4.0.7"
+          }
+        ],
+        "stage": "production",
+        "throughput": 36782949.58493262,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-86A48A9A28580FFB",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-4A57680F8C57D2B4",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "SpringBoot com.dynatrace.easytrade.thirdpartyservice.Application easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-5E19FE8AB541B3D0",
+        "running": true,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "TOMCAT",
+            "verbatimType": "Tomcat"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "Eclipse Adoptium",
+            "technology": "JAVA",
+            "verbatimType": "Java",
+            "version": "21.0.8"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC"
+          }
+        ],
+        "stage": "production",
+        "throughput": 62919077.57906205,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "buildVersion": "1.1.1.20260723-222522",
+            "entityId": "PROCESS_GROUP_INSTANCE-584F0B8BD7D5A554",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "src/app.js (easytrade_offer_service) easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-89F4E82A9105281A",
+        "running": false,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NODE_JS",
+            "verbatimType": "Node_js",
+            "version": "24.11.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC"
+          }
+        ],
+        "stage": "production",
+        "throughput": -1,
+        "version": "1.1.1"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": true,
+        "instances": [
+          {
+            "buildVersion": "1.1.1.20260802-222527",
+            "entityId": "PROCESS_GROUP_INSTANCE-532DA87375F67A77",
+            "problems": [],
+            "securityVulnerabilities": [
+              "16976961604761907077",
+              "4008238194149009507",
+              "3911650769306681717",
+              "3936937730511210277",
+              "9645089722467978320",
+              "15670055882958433855",
+              "522822180691020149",
+              "5795707422234866321",
+              "11841681742266334933",
+              "14320509456022049363"
+            ]
+          }
+        ],
+        "name": "src/app.js (easytrade_offer_service) easytrade production",
+        "problemCount": 0,
+        "product": "easytrade",
+        "releaseEntityId": "PROCESS_GROUP-89F4E82A9105281A",
+        "running": true,
+        "securityVulnerabilitiesCount": 10,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NODE_JS",
+            "verbatimType": "Node_js",
+            "version": "24.11.0"
+          },
+          {
+            "technology": "CONTAINERD",
+            "verbatimType": "CONTAINERD"
+          },
+          {
+            "edition": "musl",
+            "technology": "LIBC",
+            "verbatimType": "LIBC",
+            "version": "1.2.5"
+          },
+          {
+            "edition": "Node.js",
+            "technology": "OPENTELEMETRY",
+            "verbatimType": "OPENTELEMETRY",
+            "version": "@opentelemetry/api"
+          }
+        ],
+        "stage": "production",
+        "throughput": 3923374.449074074,
+        "version": "1.5.4"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-190124148A102235",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "validator.js",
+        "problemCount": 0,
+        "product": "order-processing",
+        "releaseEntityId": "PROCESS_GROUP-53548D9BC6BCA32F",
+        "running": false,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NODE_JS",
+            "verbatimType": "Node_js",
+            "version": "24.18.0"
+          }
+        ],
+        "stage": "production",
+        "throughput": -1,
+        "version": "1.0.9"
+      },
+      {
+        "affectedByProblems": false,
+        "affectedBySecurityVulnerabilities": false,
+        "instances": [
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-64670B187D5D5553",
+            "problems": [],
+            "securityVulnerabilities": []
+          }
+        ],
+        "name": "validator.js",
+        "problemCount": 0,
+        "product": "order-processing",
+        "releaseEntityId": "PROCESS_GROUP-CAF5DE9F8DF035F3",
+        "running": true,
+        "securityVulnerabilitiesCount": 0,
+        "securityVulnerabilitiesEnabled": true,
+        "softwareTechs": [
+          {
+            "technology": "NODE_JS",
+            "verbatimType": "Node_js",
+            "version": "24.18.1"
+          }
+        ],
+        "stage": "production",
+        "throughput": 404642182.15384614,
+        "version": "1.0.9"
+      }
+    ],
+    "totalCount": 33,
+    "releasesWithProblems": 1
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/releases": {
+        "response": {
+          "totalCount": 33,
+          "pageSize": 100,
+          "releases": [
+            {
+              "releaseEntityId": "PROCESS_GROUP-522D10DF10142762",
+              "name": "/opt/cloud-alerts-demo/dt-release-demo/Processor.java",
+              "product": "order-processing",
+              "stage": "production",
+              "version": "1.0.9",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-1878B9505CB8A678",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 2266761.75,
+              "running": false,
+              "softwareTechs": [
+                {
+                  "technology": "JAVA",
+                  "verbatimType": "Java",
+                  "edition": "Adoptium",
+                  "version": "25.0.3"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-5D5A081D45237ED0",
+              "name": "/opt/dt-release-demo/Processor.java",
+              "product": "order-processing",
+              "stage": "production",
+              "version": "1.0.9",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-F3C8DD9AB58E1E70",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 38298240.338768825,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "JAVA",
+                  "verbatimType": "Java",
+                  "edition": "Adoptium",
+                  "version": "25.0.4"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-39745FA6FD7D0965",
+              "name": "Accounting.dll accounting-*",
+              "product": "",
+              "stage": "astroshop",
+              "version": "",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-793B7F1788F7F055",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 5519936.909090909,
+              "running": false,
+              "softwareTechs": [
+                {
+                  "technology": "DOTNET",
+                  "verbatimType": "Dotnet",
+                  "edition": ".NET",
+                  "version": "8.0.27.0"
+                },
+                {
+                  "technology": "ADO_NET",
+                  "verbatimType": "ADO_NET",
+                  "edition": "System.Data.Common",
+                  "version": "8.0.2726.22922"
+                },
+                {
+                  "technology": "CLR",
+                  "verbatimType": "CLR",
+                  "edition": "CLR",
+                  "version": "8.0.27.0"
+                },
+                {
+                  "technology": "CONFLUENT_KAFKA_CLIENT",
+                  "verbatimType": "CONFLUENT_KAFKA_CLIENT",
+                  "version": "2.11.0.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "glibc",
+                  "version": "2.36"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": ".NET",
+                  "version": "1.15.3.2017"
+                },
+                {
+                  "technology": "POSTGRE_DOTNET_DATA_PROVIDER",
+                  "verbatimType": "postgre .NET Data Provider",
+                  "version": "9.0.3.0"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-2263F93108F68023",
+              "name": "aggregator-service easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-41554DF2BFCBA002",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "12624992972495918990"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 1,
+              "throughput": 29313357.488636363,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "GO",
+                  "verbatimType": "Go",
+                  "version": "1.26.3"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-BC39D91A6215741D",
+              "name": "app.jar easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-BB36B776BE7E2254",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "5879834255623318749",
+                    "724416131010190022"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 2,
+              "throughput": 38009351.37339246,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "JAVA",
+                  "verbatimType": "Java",
+                  "edition": "Adoptium",
+                  "version": "21.0.8"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "QOS_LOGBACK",
+                  "verbatimType": "QOS_LOGBACK"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-B9A875B675166422",
+              "name": "BrokerService.dll easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-8E2F56AF137CC91B",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "3502265907281635187",
+                    "17298541638040527581",
+                    "2699341067565434634",
+                    "3813336248191979827",
+                    "14175369845229507829",
+                    "8828912542794219634",
+                    "2697270167606488394",
+                    "4652962478791170050",
+                    "15910524575781210918",
+                    "2827891730495457470",
+                    "14711075732932702961",
+                    "10763632372033119112",
+                    "3400679170517685671",
+                    "14628176234880500077",
+                    "7421814806019427871",
+                    "13500140233283119540",
+                    "5090405471596487530",
+                    "301544466617453837",
+                    "12174526754697326161",
+                    "1228907736015312478",
+                    "7162224511840275487",
+                    "16314727483330447586",
+                    "3760401106105876897",
+                    "9868706762787196772",
+                    "3774976675874560818",
+                    "11948815636156664487",
+                    "10538538159161676721",
+                    "8057580925661966446",
+                    "6839854332912691056",
+                    "17007786251727413852",
+                    "14278766004398585278",
+                    "10007256948109561913"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 32,
+              "throughput": 7480663.111111111,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "DOTNET",
+                  "verbatimType": "Dotnet",
+                  "edition": ".NET",
+                  "version": "8.0.18.0"
+                },
+                {
+                  "technology": "ADO_NET",
+                  "verbatimType": "ADO_NET",
+                  "edition": "System.Data.Common",
+                  "version": "8.0.1825.31117"
+                },
+                {
+                  "technology": "ASP_NET_CORE",
+                  "verbatimType": "ASP.NET CORE",
+                  "version": "8.0.1825.31706"
+                },
+                {
+                  "technology": "CLR",
+                  "verbatimType": "CLR",
+                  "edition": "CLR",
+                  "version": "8.0.18.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "MSSQL_CLIENT",
+                  "verbatimType": "MSSQL_CLIENT",
+                  "version": "5.16.24240.5"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-B9A875B675166422",
+              "name": "BrokerService.dll easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.1.1",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-A33D7273EF4D340D",
+                  "buildVersion": "1.1.1.20260730-042524",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-14CEFCAA85D5F08E",
+                  "buildVersion": "1.1.1.20260723-042526",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-C05B08C0C72CC140",
+                  "buildVersion": "1.1.1.20260728-042525",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-1BEACD0993B99FE9",
+                  "buildVersion": "1.1.1.20260731-040023",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-67A065DEE0C1CFAC",
+                  "buildVersion": "1.1.1.20260801-042529",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-37B018058A4357F7",
+                  "buildVersion": "1.1.1.20260723-040025",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-F11DAD43C696AA69",
+                  "buildVersion": "1.1.1.20260803-042517",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-3B6AB6EE4255745F",
+                  "buildVersion": "1.1.1.20260729-042517",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-7A44459FFAE4D455",
+                  "buildVersion": "1.1.1.20260801-040029",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-6ECD9AF3649DA48C",
+                  "buildVersion": "1.1.1.20260803-042517",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-9312E4A095521254",
+                  "buildVersion": "1.1.1.20260724-040017",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-EEC2972AD80377DE",
+                  "buildVersion": "1.1.1.20260722-040025",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-EF2A2FF19B624F81",
+                  "buildVersion": "1.1.1.20260731-042517",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-811EAA6A6D5C4469",
+                  "buildVersion": "1.1.1.20260728-202516",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-2C542EEF095A5BAD",
+                  "buildVersion": "1.1.1.20260727-040047",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-201D580D017D6E3E",
+                  "buildVersion": "1.1.1.20260730-040032",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-2C77A42819755F7D",
+                  "buildVersion": "1.1.1.20260730-042524",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-4063892D2280DFE7",
+                  "buildVersion": "1.1.1.20260801-202516",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-52659D2B7EA4AE06",
+                  "buildVersion": "1.1.1.20260724-042522",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-ACE4341251C464C2",
+                  "buildVersion": "1.1.1.20260728-040017",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-96C13B71E8730294",
+                  "buildVersion": "1.1.1.20260724-042522",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 274393655.3615476,
+              "running": false,
+              "softwareTechs": [
+                {
+                  "technology": "DOTNET",
+                  "verbatimType": "Dotnet",
+                  "edition": ".NET",
+                  "version": "8.0.18.0"
+                },
+                {
+                  "technology": "ADO_NET",
+                  "verbatimType": "ADO_NET",
+                  "edition": "System.Data.Common",
+                  "version": "8.0.1825.31117"
+                },
+                {
+                  "technology": "ASP_NET_CORE",
+                  "verbatimType": "ASP.NET CORE",
+                  "version": "8.0.1825.31706"
+                },
+                {
+                  "technology": "CLR",
+                  "verbatimType": "CLR",
+                  "edition": "CLR",
+                  "version": "8.0.18.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "DOTNET",
+                  "verbatimType": "Dotnet",
+                  "edition": ".NET Core"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "MSSQL_CLIENT",
+                  "verbatimType": "MSSQL_CLIENT",
+                  "version": "5.16.24240.5"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": ".NET",
+                  "version": "1.15.3.2017"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-21E48F885ACCF22A",
+              "name": "build/src/main.js (easytrade-load-generator) easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-88C21E4534EC1DE8",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "16976961604761907077",
+                    "4008238194149009507",
+                    "3911650769306681717",
+                    "3936937730511210277",
+                    "1806417568067487509",
+                    "522822180691020149",
+                    "5795707422234866321"
+                  ]
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-E2F413253C006B72",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 7,
+              "throughput": 15863478.577994123,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "NODE_JS",
+                  "verbatimType": "Node_js",
+                  "version": "24.11.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "glibc",
+                  "version": "2.41"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-A703C7F95510D1E1",
+              "name": "checkout checkout-*",
+              "product": "",
+              "stage": "astroshop",
+              "version": "",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-2FFC597FCC9241F4",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "13795413615019733338",
+                    "10376738703241735743",
+                    "1081418630014295188",
+                    "7443305259587503371",
+                    "15699452788619887668",
+                    "2567207456321956862",
+                    "4374629275630079178",
+                    "4365486619696795125",
+                    "12221378306324797476",
+                    "11602685212763134275",
+                    "11207221942644150303",
+                    "3310020299446976751",
+                    "16189503906157347220",
+                    "11480914223611631405",
+                    "9184174751313618919",
+                    "8590695806631773531",
+                    "10997722573754600964",
+                    "12095892675663657152",
+                    "7712027161588397174",
+                    "11678709523234527065",
+                    "6107173229056910058",
+                    "18044996708830996545",
+                    "31927140726656475",
+                    "12624992972495918990",
+                    "15182832947436065142",
+                    "8433340233447809524",
+                    "6501777276080538835",
+                    "8036739847770072663",
+                    "16179523304113195509",
+                    "2214742517782493160",
+                    "12824456585881960390",
+                    "1300697805316325487",
+                    "6145894411474681128",
+                    "2825608353509361685",
+                    "13963943407045027807",
+                    "2417071847731309386"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 36,
+              "throughput": 3068.6533203125,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "GO",
+                  "verbatimType": "Go",
+                  "version": "1.24.13"
+                },
+                {
+                  "technology": "AWS_SQS_CLIENT",
+                  "verbatimType": "AWS_SQS_CLIENT",
+                  "version": "1.42.11"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "GRPC",
+                  "verbatimType": "GRPC",
+                  "version": "1.75.1"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "version": "1.38.0"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-555B434AFA4A7042",
+              "name": "consumeCandleData easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-F5DF0A7CF37DB7EA",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 4033467.1428571427,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "ONEAGENT_SDK",
+                  "verbatimType": "ONEAGENT_SDK"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "glibc",
+                  "version": "2.39"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-9C4FDBCA7366F126",
+              "name": "dotnet easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.1.1",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-2042796471CF5FFD",
+                  "buildVersion": "1.1.1.20260724-202522",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-E8B039407BE20924",
+                  "buildVersion": "1.1.1.20260803-040052",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-C5C246EAD8BCFF8E",
+                  "buildVersion": "1.1.1.20260725-202527",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-00225E50AA6E3C27",
+                  "buildVersion": "1.1.1.20260727-042516",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-7CA461B7FE5EFBEF",
+                  "buildVersion": "1.1.1.20260729-202516",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-B5FA1DEA84EFCE0F",
+                  "buildVersion": "1.1.1.20260722-042523",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-A34FC0ED2A34DAAF",
+                  "buildVersion": "1.1.1.20260725-042521",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-774585046253294B",
+                  "buildVersion": "1.1.1.20260802-042517",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-97F1A8D209857542",
+                  "buildVersion": "1.1.1.20260803-042517",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-1B6D86B4A02AF6FE",
+                  "buildVersion": "1.1.1.20260726-042516",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": false,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 125845580.9725798,
+              "running": false,
+              "softwareTechs": [],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-A9E84EBB6665A1E2",
+              "name": "easyTradeLoginService.dll easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-DE38A3895672532A",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "3502265907281635187",
+                    "17298541638040527581",
+                    "2699341067565434634",
+                    "3813336248191979827",
+                    "14175369845229507829",
+                    "8828912542794219634",
+                    "2697270167606488394",
+                    "4652962478791170050",
+                    "15910524575781210918",
+                    "2827891730495457470",
+                    "14711075732932702961",
+                    "10763632372033119112",
+                    "3400679170517685671",
+                    "14628176234880500077",
+                    "7421814806019427871",
+                    "13500140233283119540",
+                    "5090405471596487530",
+                    "301544466617453837",
+                    "12174526754697326161",
+                    "1228907736015312478",
+                    "7162224511840275487",
+                    "16314727483330447586",
+                    "3760401106105876897",
+                    "9868706762787196772",
+                    "3774976675874560818",
+                    "11948815636156664487",
+                    "10538538159161676721",
+                    "8057580925661966446",
+                    "6839854332912691056",
+                    "17007786251727413852",
+                    "14278766004398585278",
+                    "10007256948109561913"
+                  ]
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-D44FE261DF652136",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 32,
+              "throughput": 73798832.84,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "DOTNET",
+                  "verbatimType": "Dotnet",
+                  "edition": ".NET",
+                  "version": "8.0.18.0"
+                },
+                {
+                  "technology": "ADO_NET",
+                  "verbatimType": "ADO_NET",
+                  "edition": "System.Data.Common",
+                  "version": "8.0.1825.31117"
+                },
+                {
+                  "technology": "ASP_NET_CORE",
+                  "verbatimType": "ASP.NET CORE",
+                  "version": "8.0.1825.31706"
+                },
+                {
+                  "technology": "CLR",
+                  "verbatimType": "CLR",
+                  "edition": "CLR",
+                  "version": "8.0.18.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "MSSQL_CLIENT",
+                  "verbatimType": "MSSQL_CLIENT",
+                  "version": "5.16.24240.5"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": ".NET",
+                  "version": "1.15.3.2017"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-9898642B3BD38179",
+              "name": "easyTradeManager.dll easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-B155AEB358B92F74",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "3502265907281635187",
+                    "17298541638040527581",
+                    "2699341067565434634",
+                    "3813336248191979827",
+                    "14175369845229507829",
+                    "8828912542794219634",
+                    "2697270167606488394",
+                    "4652962478791170050",
+                    "15910524575781210918",
+                    "2827891730495457470",
+                    "14711075732932702961",
+                    "10763632372033119112",
+                    "3400679170517685671",
+                    "14628176234880500077",
+                    "7421814806019427871",
+                    "13500140233283119540",
+                    "5090405471596487530",
+                    "301544466617453837",
+                    "12174526754697326161",
+                    "1228907736015312478",
+                    "7162224511840275487",
+                    "16314727483330447586",
+                    "3760401106105876897",
+                    "9868706762787196772",
+                    "3774976675874560818",
+                    "11948815636156664487",
+                    "10538538159161676721",
+                    "8057580925661966446",
+                    "6839854332912691056",
+                    "17007786251727413852",
+                    "14278766004398585278",
+                    "10007256948109561913"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 32,
+              "throughput": 425454229.4991319,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "DOTNET",
+                  "verbatimType": "Dotnet",
+                  "edition": ".NET",
+                  "version": "8.0.18.0"
+                },
+                {
+                  "technology": "ADO_NET",
+                  "verbatimType": "ADO_NET",
+                  "edition": "System.Data.Common",
+                  "version": "8.0.1825.31117"
+                },
+                {
+                  "technology": "ASP_NET_CORE",
+                  "verbatimType": "ASP.NET CORE",
+                  "version": "8.0.1825.31706"
+                },
+                {
+                  "technology": "CLR",
+                  "verbatimType": "CLR",
+                  "edition": "CLR",
+                  "version": "8.0.18.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "MSSQL_CLIENT",
+                  "verbatimType": "MSSQL_CLIENT",
+                  "version": "5.16.24240.5"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": ".NET",
+                  "version": "1.15.3.2017"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-A8F3F28ACD791524",
+              "name": "index.js payment-*",
+              "product": "",
+              "stage": "astroshop",
+              "version": "",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-7D108707D3FE564C",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "697394227850026450",
+                    "12298512334971036351",
+                    "2960224221477854522",
+                    "4990974433164743668",
+                    "3580107191860539676",
+                    "17476754595071526637",
+                    "7963618415673091048",
+                    "12695136343552235532",
+                    "7645686165172801256",
+                    "14282142580345404459",
+                    "142773141113245304",
+                    "14532318584052300041",
+                    "4311153053714515842",
+                    "15845210183519456453",
+                    "12358490766188712428",
+                    "3879987550510608055",
+                    "9710005106947642195",
+                    "15030122387929828621",
+                    "13082145647960346774",
+                    "241316474438642389",
+                    "15709844373426946223",
+                    "14279045059044908376",
+                    "17854304046701386593",
+                    "16617560019467051797",
+                    "17993154721776293038",
+                    "506897419680391918",
+                    "12538232785798622780",
+                    "16935829543653549774",
+                    "14887568902668671917",
+                    "1278941457832141585",
+                    "11515068045354941919",
+                    "9826447127402189355",
+                    "16441999453541971519"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 33,
+              "throughput": 5409189.979694813,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "NODE_JS",
+                  "verbatimType": "Node_js",
+                  "version": "22.22.3"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "GRPC",
+                  "verbatimType": "GRPC",
+                  "edition": "Node.js",
+                  "version": "@grpc/grpc-js"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": "Node.js",
+                  "version": "@opentelemetry/api"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-F1E67A9FC41B25F6",
+              "name": "kafka.Kafka kafka-*",
+              "product": "",
+              "stage": "astroshop",
+              "version": "",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-7BF814E34E0A5043",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "6431803682675524045",
+                    "17291422970860976037",
+                    "17736810376148854633",
+                    "78117728232171765",
+                    "2625726785177267157",
+                    "15554607231409642486",
+                    "3837460658370191281",
+                    "10330957823829282400",
+                    "10801845231543165274"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 9,
+              "throughput": 5675459.8083354505,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "KAFKA",
+                  "verbatimType": "KAFKA"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "JAVA",
+                  "verbatimType": "Java",
+                  "edition": "Adoptium",
+                  "version": "21.0.7"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "SCALA",
+                  "verbatimType": "Scala",
+                  "version": "2.13.15"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-38BB98DEA68B0A3B",
+              "name": "load-generator load-generator-*",
+              "product": "",
+              "stage": "astroshop-cloud-backend",
+              "version": "",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-A770E1536D39AC75",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 440717.4090863047,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "GO",
+                  "verbatimType": "Go",
+                  "version": "1.24.5"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-29D6ED8F2BBB1ABD",
+              "name": "nginx easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-6F7608985934C699",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 77528723.44503546,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "NGINX",
+                  "verbatimType": "Nginx",
+                  "version": "nginx/1.29.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-F47682A17BEE366D",
+              "name": "nginx easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-C156743890E14A5F",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 20439674.833333332,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "NGINX",
+                  "verbatimType": "Nginx",
+                  "version": "nginx/1.29.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-5C97B1445A648AD9",
+              "name": "nginx frontend-*",
+              "product": "",
+              "stage": "smartfreight",
+              "version": "",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-308079C7A0A9DF94",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 3929241.951219512,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "NGINX",
+                  "verbatimType": "Nginx",
+                  "version": "nginx/1.26.3"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-FE311AD526ECD259",
+              "name": "nginx ingress-nginx",
+              "product": "ingress-nginx",
+              "stage": "ingress-nginx",
+              "version": "1.14.1",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-10BD5322992ECC6D",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 11678748.710280374,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "NGINX",
+                  "verbatimType": "Nginx",
+                  "version": "nginx/1.27.1"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-6ACEB6BB9B65901E",
+              "name": "oteldemo.AdService ad-*",
+              "product": "",
+              "stage": "astroshop",
+              "version": "",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-5832F3E3890273AF",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "15239029612528617044",
+                    "17255456911553117603",
+                    "16792442641102078411",
+                    "11154488475741009842",
+                    "16955246930944612060",
+                    "2955931291327466360",
+                    "6431803682675524045",
+                    "17291422970860976037",
+                    "5325500159349631887",
+                    "18320398403022450700",
+                    "6625582789676431379",
+                    "12410461853754414442",
+                    "15146667590056364986",
+                    "11685678561092018735",
+                    "17736810376148854633",
+                    "78117728232171765",
+                    "1565437917103942133",
+                    "129251294942943602",
+                    "11367705948128561019",
+                    "7668076749967692581",
+                    "10793235040354694660",
+                    "12978932952777178036",
+                    "4959998824385460941",
+                    "13139907750986497461",
+                    "7092769156976156486",
+                    "3918375514596119241",
+                    "13184341576078884027",
+                    "11976753957714717137",
+                    "15554607231409642486",
+                    "13375728345173070140",
+                    "6331828153233062012",
+                    "17123486279462240943",
+                    "14572737015939556298",
+                    "12057026857175124724",
+                    "14447386328188115301",
+                    "3400444221308432221",
+                    "1457626808473465638",
+                    "10330957823829282400",
+                    "10801845231543165274",
+                    "1627671190432745117",
+                    "16081076390296942267",
+                    "14506297890939938163"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 42,
+              "throughput": 5288176.309945372,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "JAVA",
+                  "verbatimType": "Java",
+                  "edition": "Adoptium",
+                  "version": "21.0.11"
+                },
+                {
+                  "technology": "APACHE_LOG4J",
+                  "verbatimType": "APACHE_LOG4J",
+                  "version": "2.25.2"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "GRPC",
+                  "verbatimType": "GRPC",
+                  "version": "1.75.0"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "glibc",
+                  "version": "2.43"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": "Java",
+                  "version": "1.54.1"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-62DA92364D291173",
+              "name": "pricing-service easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-8308859B925403A3",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "12624992972495918990",
+                    "15182832947436065142"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 2,
+              "throughput": 26985760.372093022,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "GO",
+                  "verbatimType": "Go",
+                  "version": "1.26.4"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.6"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-59A012B21EA32F8C",
+              "name": "product-catalog product-catalog-*",
+              "product": "",
+              "stage": "astroshop",
+              "version": "",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-46801A8B1CFE0CD4",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "13795413615019733338",
+                    "13464357819717500010",
+                    "4300018779392022109",
+                    "10376738703241735743",
+                    "1081418630014295188",
+                    "7443305259587503371",
+                    "15699452788619887668",
+                    "2567207456321956862",
+                    "4374629275630079178",
+                    "4365486619696795125",
+                    "12221378306324797476",
+                    "11602685212763134275",
+                    "11207221942644150303",
+                    "3310020299446976751",
+                    "16189503906157347220",
+                    "11480914223611631405",
+                    "9184174751313618919",
+                    "8590695806631773531",
+                    "10997722573754600964",
+                    "12095892675663657152",
+                    "7712027161588397174",
+                    "11678709523234527065",
+                    "6107173229056910058",
+                    "18044996708830996545",
+                    "31927140726656475",
+                    "12624992972495918990",
+                    "15182832947436065142",
+                    "8433340233447809524",
+                    "6501777276080538835",
+                    "8036739847770072663",
+                    "10434082864303772668",
+                    "16179523304113195509",
+                    "2214742517782493160",
+                    "12824456585881960390",
+                    "1300697805316325487",
+                    "6145894411474681128",
+                    "13963943407045027807",
+                    "2417071847731309386"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 38,
+              "throughput": 11235512,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "GO",
+                  "verbatimType": "Go",
+                  "version": "1.24.13"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "GRPC",
+                  "verbatimType": "GRPC",
+                  "version": "1.75.1"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "version": "1.38.0"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-82114F36DB4F4CEF",
+              "name": "server.js (frontend) frontend-*",
+              "product": "",
+              "stage": "astroshop",
+              "version": "",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                  "problems": [
+                    "P-2608308"
+                  ],
+                  "securityVulnerabilities": [
+                    "3837750066390789659",
+                    "653754270037246832",
+                    "8261404982676157771",
+                    "2960224221477854522",
+                    "4990974433164743668",
+                    "3580107191860539676",
+                    "4092682927678165288",
+                    "1091144306223037689",
+                    "5119892264085789455",
+                    "17731817109691430108",
+                    "3598686708317561767",
+                    "16142555706146400017",
+                    "4786853704663420351",
+                    "17044792044333232291",
+                    "142773141113245304",
+                    "6438203665982683447",
+                    "14532318584052300041",
+                    "7487796835650188078",
+                    "6927389360143928753",
+                    "799072727568521510",
+                    "7471032378171744127",
+                    "4311153053714515842",
+                    "3454081566035867600",
+                    "15845210183519456453",
+                    "13123932813009550928",
+                    "12358490766188712428",
+                    "2723142078216999221",
+                    "3879987550510608055",
+                    "13082145647960346774",
+                    "241316474438642389",
+                    "10710617243145272624",
+                    "4679789903020529202",
+                    "16617560019467051797",
+                    "2556131525198936847",
+                    "12538232785798622780",
+                    "16420857620448901149",
+                    "2393078931706615815",
+                    "17351356947021709398",
+                    "18338485650759113995",
+                    "1067911246264107983",
+                    "11515068045354941919",
+                    "9826447127402189355",
+                    "16184669679373012643",
+                    "14320509456022049363",
+                    "15534735979287486164",
+                    "16441999453541971519",
+                    "18058111551737381332"
+                  ]
+                }
+              ],
+              "problemCount": 1,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 47,
+              "throughput": 5559823.053790047,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "NODE_JS",
+                  "verbatimType": "Node_js",
+                  "version": "22.22.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "GRPC",
+                  "verbatimType": "GRPC",
+                  "edition": "Node.js",
+                  "version": "@grpc/grpc-js"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "glibc",
+                  "version": "2.36"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": "Node.js",
+                  "version": "@opentelemetry/api"
+                }
+              ],
+              "affectedByProblems": true,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-2E209D190CCEF89A",
+              "name": "SpringBoot com.dynatrace.easytrade.accountservice.AccountServiceApplic easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-AF1469377690A24A",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "14102357608356184718",
+                    "9558556182508818571",
+                    "7109577968916492366",
+                    "11749076692905322193",
+                    "15554607231409642486",
+                    "10801845231543165274"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 6,
+              "throughput": 1716584.0247440273,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "TOMCAT",
+                  "verbatimType": "Tomcat",
+                  "version": "11.0.22.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "JAVA",
+                  "verbatimType": "Java",
+                  "edition": "Adoptium",
+                  "version": "21.0.8"
+                },
+                {
+                  "technology": "JDK_HTTP_CLIENT",
+                  "verbatimType": "JDK_HTTP_CLIENT"
+                },
+                {
+                  "technology": "KOTLIN",
+                  "verbatimType": "KOTLIN",
+                  "version": "2.2.21"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "OK_HTTP_CLIENT",
+                  "verbatimType": "OK_HTTP_CLIENT",
+                  "version": "5.3.2"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": "Java Agent",
+                  "version": "2.28.2-aws"
+                },
+                {
+                  "technology": "QOS_LOGBACK",
+                  "verbatimType": "QOS_LOGBACK",
+                  "version": "1.5.34"
+                },
+                {
+                  "technology": "SPRING",
+                  "verbatimType": "SPRING",
+                  "edition": "Spring Boot",
+                  "version": "4.0.7"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-5B51EC730D7CC387",
+              "name": "SpringBoot com.dynatrace.easytrade.creditcardorderservice.Application easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-D2226D4E1DBC6DF9",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "14102357608356184718",
+                    "9558556182508818571",
+                    "7109577968916492366",
+                    "11749076692905322193",
+                    "15554607231409642486",
+                    "10801845231543165274"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 6,
+              "throughput": 6171820.258250452,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "TOMCAT",
+                  "verbatimType": "Tomcat",
+                  "version": "11.0.22.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "JAVA",
+                  "verbatimType": "Java",
+                  "edition": "Adoptium",
+                  "version": "21.0.8"
+                },
+                {
+                  "technology": "JDK_HTTP_CLIENT",
+                  "verbatimType": "JDK_HTTP_CLIENT"
+                },
+                {
+                  "technology": "KOTLIN",
+                  "verbatimType": "KOTLIN",
+                  "version": "2.2.21"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "OK_HTTP_CLIENT",
+                  "verbatimType": "OK_HTTP_CLIENT",
+                  "version": "5.3.2"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": "Java Agent",
+                  "version": "2.28.2-aws"
+                },
+                {
+                  "technology": "QOS_LOGBACK",
+                  "verbatimType": "QOS_LOGBACK",
+                  "version": "1.5.34"
+                },
+                {
+                  "technology": "SPRING",
+                  "verbatimType": "SPRING",
+                  "edition": "Spring Boot",
+                  "version": "4.0.7"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-BBA447EB9F94E231",
+              "name": "SpringBoot com.dynatrace.easytrade.engine.EngineApplication easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-FFCB9602EF10C0BC",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "14102357608356184718",
+                    "9558556182508818571",
+                    "7109577968916492366",
+                    "11749076692905322193",
+                    "15554607231409642486",
+                    "10801845231543165274"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 6,
+              "throughput": 7170975.695997807,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "TOMCAT",
+                  "verbatimType": "Tomcat",
+                  "version": "11.0.22.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "JAVA",
+                  "verbatimType": "Java",
+                  "edition": "Adoptium",
+                  "version": "21.0.8"
+                },
+                {
+                  "technology": "JDK_HTTP_CLIENT",
+                  "verbatimType": "JDK_HTTP_CLIENT"
+                },
+                {
+                  "technology": "KOTLIN",
+                  "verbatimType": "KOTLIN",
+                  "version": "2.2.21"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "OK_HTTP_CLIENT",
+                  "verbatimType": "OK_HTTP_CLIENT",
+                  "version": "5.3.2"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": "Java Agent",
+                  "version": "2.28.2-aws"
+                },
+                {
+                  "technology": "QOS_LOGBACK",
+                  "verbatimType": "QOS_LOGBACK",
+                  "version": "1.5.34"
+                },
+                {
+                  "technology": "SPRING",
+                  "verbatimType": "SPRING",
+                  "edition": "Spring Boot",
+                  "version": "4.0.7"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-64979A479CD1923F",
+              "name": "SpringBoot com.dynatrace.easytrade.featureflagservice.Featureflagservi easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-AE5B887706D89FC3",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "14102357608356184718",
+                    "9558556182508818571",
+                    "7109577968916492366",
+                    "11749076692905322193",
+                    "15554607231409642486",
+                    "10801845231543165274"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 6,
+              "throughput": 36782949.58493262,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "TOMCAT",
+                  "verbatimType": "Tomcat",
+                  "version": "11.0.22.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "JAVA",
+                  "verbatimType": "Java",
+                  "edition": "Adoptium",
+                  "version": "21.0.8"
+                },
+                {
+                  "technology": "KOTLIN",
+                  "verbatimType": "KOTLIN",
+                  "version": "2.2.21"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "OK_HTTP_CLIENT",
+                  "verbatimType": "OK_HTTP_CLIENT",
+                  "version": "5.3.2"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": "Java Agent",
+                  "version": "2.28.2-aws"
+                },
+                {
+                  "technology": "QOS_LOGBACK",
+                  "verbatimType": "QOS_LOGBACK",
+                  "version": "1.5.34"
+                },
+                {
+                  "technology": "SPRING",
+                  "verbatimType": "SPRING",
+                  "edition": "Spring Boot",
+                  "version": "4.0.7"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-5E19FE8AB541B3D0",
+              "name": "SpringBoot com.dynatrace.easytrade.thirdpartyservice.Application easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-86A48A9A28580FFB",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-4A57680F8C57D2B4",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 62919077.57906205,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "TOMCAT",
+                  "verbatimType": "Tomcat"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "JAVA",
+                  "verbatimType": "Java",
+                  "edition": "Eclipse Adoptium",
+                  "version": "21.0.8"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-89F4E82A9105281A",
+              "name": "src/app.js (easytrade_offer_service) easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.1.1",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-584F0B8BD7D5A554",
+                  "buildVersion": "1.1.1.20260723-222522",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": -1,
+              "running": false,
+              "softwareTechs": [
+                {
+                  "technology": "NODE_JS",
+                  "verbatimType": "Node_js",
+                  "version": "24.11.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-89F4E82A9105281A",
+              "name": "src/app.js (easytrade_offer_service) easytrade production",
+              "product": "easytrade",
+              "stage": "production",
+              "version": "1.5.4",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-532DA87375F67A77",
+                  "buildVersion": "1.1.1.20260802-222527",
+                  "problems": [],
+                  "securityVulnerabilities": [
+                    "16976961604761907077",
+                    "4008238194149009507",
+                    "3911650769306681717",
+                    "3936937730511210277",
+                    "9645089722467978320",
+                    "15670055882958433855",
+                    "522822180691020149",
+                    "5795707422234866321",
+                    "11841681742266334933",
+                    "14320509456022049363"
+                  ]
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 10,
+              "throughput": 3923374.449074074,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "NODE_JS",
+                  "verbatimType": "Node_js",
+                  "version": "24.11.0"
+                },
+                {
+                  "technology": "CONTAINERD",
+                  "verbatimType": "CONTAINERD"
+                },
+                {
+                  "technology": "LIBC",
+                  "verbatimType": "LIBC",
+                  "edition": "musl",
+                  "version": "1.2.5"
+                },
+                {
+                  "technology": "OPENTELEMETRY",
+                  "verbatimType": "OPENTELEMETRY",
+                  "edition": "Node.js",
+                  "version": "@opentelemetry/api"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": true
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-53548D9BC6BCA32F",
+              "name": "validator.js",
+              "product": "order-processing",
+              "stage": "production",
+              "version": "1.0.9",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-190124148A102235",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": -1,
+              "running": false,
+              "softwareTechs": [
+                {
+                  "technology": "NODE_JS",
+                  "verbatimType": "Node_js",
+                  "version": "24.18.0"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            },
+            {
+              "releaseEntityId": "PROCESS_GROUP-CAF5DE9F8DF035F3",
+              "name": "validator.js",
+              "product": "order-processing",
+              "stage": "production",
+              "version": "1.0.9",
+              "instances": [
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-64670B187D5D5553",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                }
+              ],
+              "problemCount": 0,
+              "securityVulnerabilitiesEnabled": true,
+              "securityVulnerabilitiesCount": 0,
+              "throughput": 404642182.15384614,
+              "running": true,
+              "softwareTechs": [
+                {
+                  "technology": "NODE_JS",
+                  "verbatimType": "Node_js",
+                  "version": "24.18.1"
+                }
+              ],
+              "affectedByProblems": false,
+              "affectedBySecurityVulnerabilities": false
+            }
+          ],
+          "releasesWithProblems": 1
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 16:49:42 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "40600",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1980",
+          "x-ratelimit-reset": "1785775817",
+          "etag": "W/\"9e98-M5MRqRBKZsMYU9AcX/8CpUJ33Vs\""
+        },
+        "hash": "19712d993d1f7a0cea415d70ba48f59f575a46e1",
+        "request": {}
+      }
+    }
+  }
+}

@@ -60,7 +60,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Linear comments with filtering and pagination.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -115,7 +115,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://linear.app/developers
+            // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
                 query,
