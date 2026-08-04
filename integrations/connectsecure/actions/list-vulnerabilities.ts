@@ -79,6 +79,12 @@ const action = createAction({
             });
         }
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (!Number.isSafeInteger(skip)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a valid skip offset integer'
+            });
+        }
 
         const limit = input.limit ?? 50;
 

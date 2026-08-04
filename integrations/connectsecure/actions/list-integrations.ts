@@ -195,6 +195,9 @@ const action = createAction({
                     break;
                 }
                 requestError = new Error(`API request failed with status ${response.status}`);
+                if (response.status !== 429 && response.status < 500) {
+                    break;
+                }
             } catch (err) {
                 requestError = err instanceof Error ? err : new Error(String(err));
             }

@@ -43,7 +43,7 @@ if (
         const result = await this.proxyData(proxyConfig);
         if (result.status && result.status >= 400) {
             const output = await this.getOutput();
-            const body = { data: output, status: true };
+            const body = { data: output, status: false };
             return {
                 ok: true,
                 status: 200,

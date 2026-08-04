@@ -1198,6 +1198,35 @@ import './confluence/actions/update-inline-comment.js';
 import './confluence/actions/update-page-property.js';
 import './confluence/actions/update-page.js';
 
+// -- Integration: connectsecure
+import './connectsecure/syncs/agents.js';
+import './connectsecure/syncs/assets.js';
+import './connectsecure/syncs/companies.js';
+import './connectsecure/syncs/compliance_master.js';
+import './connectsecure/syncs/problem_groups.js';
+import './connectsecure/syncs/users.js';
+import './connectsecure/syncs/vulnerabilities.js';
+import './connectsecure/actions/create-user.js';
+import './connectsecure/actions/get-asset.js';
+import './connectsecure/actions/get-company.js';
+import './connectsecure/actions/get-compliance-master.js';
+import './connectsecure/actions/get-password-policy.js';
+import './connectsecure/actions/list-agents.js';
+import './connectsecure/actions/list-approver-users.js';
+import './connectsecure/actions/list-assets.js';
+import './connectsecure/actions/list-companies.js';
+import './connectsecure/actions/list-compliance-types.js';
+import './connectsecure/actions/list-credentials.js';
+import './connectsecure/actions/list-integrations.js';
+import './connectsecure/actions/list-jobs.js';
+import './connectsecure/actions/list-problem-groups.js';
+import './connectsecure/actions/list-problems-summary.js';
+import './connectsecure/actions/list-roles.js';
+import './connectsecure/actions/list-settings.js';
+import './connectsecure/actions/list-users.js';
+import './connectsecure/actions/list-vulnerabilities.js';
+import './connectsecure/actions/update-user-role.js';
+
 // -- Integration: databricks-workspace
 import './databricks-workspace/actions/list-warehouses.js';
 

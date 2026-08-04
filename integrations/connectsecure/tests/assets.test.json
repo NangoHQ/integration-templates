@@ -1,0 +1,361 @@
+{
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenant": "nango",
+      "base_url": "pod107.myconnectsecure.com",
+      "connection_config": {
+        "tenant": "nango",
+        "user_id": "384670636045300757",
+        "base_url": "pod107.myconnectsecure.com"
+      }
+    },
+    "batchSave": {
+      "Asset": [
+        {
+          "id": "152060779",
+          "active_kernel": null,
+          "ad_check": "",
+          "agent_id": 1591435,
+          "agent_type": "LIGHTWEIGHT",
+          "architecture": "arm64",
+          "asset_category": "",
+          "asset_logon_time": null,
+          "asset_logon_user": null,
+          "asset_owner": null,
+          "asset_type": "discovered",
+          "auth_scan_status": true,
+          "auto_update": "",
+          "codename": "",
+          "company_id": 16637,
+          "configuration_id": null,
+          "cpu_core": "11",
+          "created": "2026-07-28T09:01:44.523454",
+          "cred_id": "",
+          "custom_profile_id": null,
+          "deprecated_time": null,
+          "device_type": null,
+          "discovered": "2026-07-28T09:01:44.523454",
+          "discovered_protocols": [
+            {
+              "credential_id": "",
+              "protocol": "LIGHTWEIGHT",
+              "status": true
+            }
+          ],
+          "discoverysettings_id": null,
+          "domain": "",
+          "domain_name": null,
+          "finger_print": {},
+          "firewall_release_notes": null,
+          "forest_name": null,
+          "fqdn": null,
+          "full_os_build": null,
+          "hardware_model": "",
+          "host_name": "Victors-MBP",
+          "icon": "apple.svg",
+          "importance": 25,
+          "install_required_patches": [],
+          "ip": "192.168.8.195",
+          "ip_extra": null,
+          "is_deleted": false,
+          "is_deprecated": false,
+          "is_firewall": false,
+          "is_oval": false,
+          "kernel": "24.5.0",
+          "last_discovered_time": "2026-08-03T17:59:18.081644",
+          "last_ping_time": "2026-08-03T14:19:13.932367",
+          "last_reset_time": null,
+          "logged_in_user": "provic",
+          "logged_user_time": "1785519114",
+          "mac": "7c:f3:4d:ee:4d:88",
+          "manual_tags": {},
+          "manufacturer": "Apple Inc.",
+          "name": "Victor\u2019s MacBook Pro",
+          "os_autoupdate": null,
+          "os_build": "24F74",
+          "os_cpe": null,
+          "os_full_name": null,
+          "os_install_date": "",
+          "os_model": null,
+          "os_name": "macOS",
+          "os_patches": [],
+          "os_vendor": null,
+          "os_version": "15.5",
+          "physical_memory": "19327352832",
+          "platform": "darwin",
+          "sc_boot_certupdated": null,
+          "scan_status": true,
+          "serial_number": "KV2YC772C5",
+          "snmp_cred_id": "",
+          "snmp_info": {},
+          "status": true,
+          "system_type": null,
+          "tags": {
+            "Asset Type": [
+              "Workstation"
+            ],
+            "Scan Status": [
+              "Scanned"
+            ],
+            "Windows11Compatible": []
+          },
+          "tenantid": 383109341093361200,
+          "tv_group": null,
+          "tv_year": null,
+          "unique_id": [
+            "62dc5619-9684-47da-bbd6-7b387a113e88",
+            "937df353-2aae-4c0d-8887-67cb38fa4ef2",
+            "25c5affb-44de-4cdc-bbad-8b19a19b0c25",
+            "b4bb3397-56ec-4642-887e-5b489aa2ec93",
+            "cb0578e7-58d3-5b69-9fe0-5812e9dbdc84",
+            "kv2yc772c5",
+            "victors-mbp",
+            "5df058f4-fe60-450a-aa52-5a3cd147d3f8",
+            "317251b3-bab0-4f7b-a57d-fce3e3ddf00e",
+            "4e95350c-23f9-466a-8990-312bd9ec748e",
+            "584ec488-9f06-45d4-bd1c-9ee1d7cff7bf",
+            "8e2a6e75-0495-4a55-9152-81a80644ee05",
+            "bad8703d-1678-4b85-8c11-7d23f83ee113",
+            "6e6860d2-27f1-42e9-9e16-0994a0496c1a",
+            "c6433a7a-85b9-499d-8023-24a906f64b1a",
+            "939ac78a-f1c3-4865-b694-e92e55287337",
+            "b654bc63-6e5f-4b71-abf0-36cb3e3628a7",
+            "78f780e8-d8a1-4b0e-b799-a5a74e141088",
+            "3c2fc8ef-a3e3-4c22-bc40-56f0bd16d95c",
+            "34c3a421-a89e-4f32-9d7e-e6c3f86deaff",
+            "d8ab87a9-d74d-489c-9269-528005531a94",
+            "f2b4e437-2b98-4727-8f15-c6e600ba3711"
+          ],
+          "updated": "2026-08-03T17:59:18.081644",
+          "uptime": "430760",
+          "visible_name": null,
+          "workgroup": null
+        }
+      ]
+    },
+    "batchDelete": {
+      "Asset": []
+    }
+  },
+  "api": {
+    "post": {
+      "/w/authorize": {
+        "response": {
+          "access_token": "<redacted>",
+          "data": {
+            "access_token": "<redacted>",
+            "user_id": "383109345572815574"
+          },
+          "expires_in": 3600,
+          "status": true,
+          "token_type": "bearer",
+          "user_id": "383109345572815574"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 18:08:38 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "https://portal.myconnectsecure.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1959",
+          "x-ratelimit-reset": "1785780552",
+          "server": "cloudflare",
+          "vary": "origin, access-control-request-method, access-control-request-headers",
+          "access-control-allow-credentials": "true",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+          "referrer-policy": "same-origin, same-origin",
+          "cf-ray": "a25744d19ba0cb73-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "da42017bf67f88246e27afc81a9e830e4b9c6d8c",
+        "request": {}
+      }
+    },
+    "get": {
+      "/r/asset/assets": {
+        "response": {
+          "data": [
+            {
+              "active_kernel": null,
+              "ad_check": "",
+              "agent_id": 1591435,
+              "agent_type": "LIGHTWEIGHT",
+              "architecture": "arm64",
+              "asset_category": "",
+              "asset_logon_time": null,
+              "asset_logon_user": null,
+              "asset_owner": null,
+              "asset_type": "discovered",
+              "auth_scan_status": true,
+              "auto_update": "",
+              "codename": "",
+              "company_id": 16637,
+              "configuration_id": null,
+              "cpu_core": "11",
+              "created": "2026-07-28T09:01:44.523454",
+              "cred_id": "",
+              "custom_profile_id": null,
+              "deprecated_time": null,
+              "device_type": null,
+              "discovered": "2026-07-28T09:01:44.523454",
+              "discovered_protocols": [
+                {
+                  "credential_id": "",
+                  "protocol": "LIGHTWEIGHT",
+                  "status": true
+                }
+              ],
+              "discoverysettings_id": null,
+              "domain": "",
+              "domain_name": null,
+              "finger_print": {},
+              "firewall_release_notes": null,
+              "forest_name": null,
+              "fqdn": null,
+              "full_os_build": null,
+              "hardware_model": "",
+              "host_name": "Victors-MBP",
+              "icon": "apple.svg",
+              "id": 152060779,
+              "importance": 25,
+              "install_required_patches": [],
+              "ip": "192.168.8.195",
+              "ip_extra": null,
+              "is_deleted": false,
+              "is_deprecated": false,
+              "is_firewall": false,
+              "is_oval": false,
+              "kernel": "24.5.0",
+              "last_discovered_time": "2026-08-03T17:59:18.081644",
+              "last_ping_time": "2026-08-03T14:19:13.932367",
+              "last_reset_time": null,
+              "logged_in_user": "provic",
+              "logged_user_time": "1785519114",
+              "mac": "7c:f3:4d:ee:4d:88",
+              "manual_tags": {},
+              "manufacturer": "Apple Inc.",
+              "name": "Victor\u2019s MacBook Pro",
+              "os_autoupdate": null,
+              "os_build": "24F74",
+              "os_cpe": null,
+              "os_full_name": null,
+              "os_install_date": "",
+              "os_model": null,
+              "os_name": "macOS",
+              "os_patches": [],
+              "os_vendor": null,
+              "os_version": "15.5",
+              "physical_memory": "19327352832",
+              "platform": "darwin",
+              "sc_boot_certupdated": null,
+              "scan_status": true,
+              "serial_number": "KV2YC772C5",
+              "snmp_cred_id": "",
+              "snmp_info": {},
+              "status": true,
+              "system_type": null,
+              "tags": {
+                "Asset Type": [
+                  "Workstation"
+                ],
+                "Scan Status": [
+                  "Scanned"
+                ],
+                "Windows11Compatible": []
+              },
+              "tenantid": 383109341093361200,
+              "tv_group": null,
+              "tv_year": null,
+              "unique_id": [
+                "62dc5619-9684-47da-bbd6-7b387a113e88",
+                "937df353-2aae-4c0d-8887-67cb38fa4ef2",
+                "25c5affb-44de-4cdc-bbad-8b19a19b0c25",
+                "b4bb3397-56ec-4642-887e-5b489aa2ec93",
+                "cb0578e7-58d3-5b69-9fe0-5812e9dbdc84",
+                "kv2yc772c5",
+                "victors-mbp",
+                "5df058f4-fe60-450a-aa52-5a3cd147d3f8",
+                "317251b3-bab0-4f7b-a57d-fce3e3ddf00e",
+                "4e95350c-23f9-466a-8990-312bd9ec748e",
+                "584ec488-9f06-45d4-bd1c-9ee1d7cff7bf",
+                "8e2a6e75-0495-4a55-9152-81a80644ee05",
+                "bad8703d-1678-4b85-8c11-7d23f83ee113",
+                "6e6860d2-27f1-42e9-9e16-0994a0496c1a",
+                "c6433a7a-85b9-499d-8023-24a906f64b1a",
+                "939ac78a-f1c3-4865-b694-e92e55287337",
+                "b654bc63-6e5f-4b71-abf0-36cb3e3628a7",
+                "78f780e8-d8a1-4b0e-b799-a5a74e141088",
+                "3c2fc8ef-a3e3-4c22-bc40-56f0bd16d95c",
+                "34c3a421-a89e-4f32-9d7e-e6c3f86deaff",
+                "d8ab87a9-d74d-489c-9269-528005531a94",
+                "f2b4e437-2b98-4727-8f15-c6e600ba3711"
+              ],
+              "updated": "2026-08-03T17:59:18.081644",
+              "uptime": "430760",
+              "visible_name": null,
+              "workgroup": null
+            }
+          ],
+          "status": true,
+          "total": 1
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 18:08:39 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "https://portal.myconnectsecure.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1958",
+          "x-ratelimit-reset": "1785780552",
+          "server": "cloudflare",
+          "vary": "origin, access-control-request-method, access-control-request-headers",
+          "access-control-allow-credentials": "true",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization,e-user-id,E-User-Id",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+          "referrer-policy": "same-origin, same-origin",
+          "cf-ray": "a25744d48d706c24-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "35305525e8a0571e2fa5f8100ae73b3927e3646e",
+        "request": {
+          "params": {
+            "limit": "5000",
+            "skip": "0"
+          },
+          "headers": {
+            "X-Tenant-Id": "nango",
+            "X-User-Id": "383109345572815574"
+          }
+        }
+      }
+    }
+  }
+}

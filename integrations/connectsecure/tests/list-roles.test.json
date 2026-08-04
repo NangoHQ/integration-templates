@@ -1,0 +1,158 @@
+{
+  "input": {},
+  "output": {
+    "roles": [
+      "activedirectoryviewer",
+      "activedirectorywriter",
+      "admin",
+      "approver",
+      "assetviewer",
+      "assetwriter",
+      "billingadmin",
+      "complianceviewer",
+      "compliancewriter",
+      "m365admin",
+      "piiviewer",
+      "piiwriter",
+      "reportadmin",
+      "reportassessmentadmin",
+      "vulnerabilityviewer",
+      "vulnerabilitywriter",
+      "trainingadmin",
+      "traininguser",
+      "tester"
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenant": "nango",
+      "base_url": "pod107.myconnectsecure.com",
+      "connection_config": {
+        "tenant": "nango",
+        "user_id": "384670636045300757",
+        "base_url": "pod107.myconnectsecure.com"
+      }
+    }
+  },
+  "api": {
+    "get": {
+      "/r/user/get_roles": [
+        {
+          "response": "",
+          "status": 401,
+          "headers": {
+            "date": "Mon, 03 Aug 2026 18:03:20 GMT",
+            "content-type": "text/html; charset=utf-8",
+            "content-length": "0",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block, 1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "https://portal.myconnectsecure.com",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1971",
+            "x-ratelimit-reset": "1785780201",
+            "server": "cloudflare",
+            "access-control-allow-methods": "GET, POST, OPTIONS, PATCH, DELETE, GET, POST, OPTIONS",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization,e-user-id,E-User-Id",
+            "cf-cache-status": "DYNAMIC",
+            "set-cookie": "__cf_bm=CG5fTO7VyO9VmUDbSro6ENRbsPxRRiT_iFWKYc2Rlf0-1785780200.5756412-1.0.1.1-0wOm6PLDXOnWorNwr6li6HjW4O6wsy0cfV9tHILX05zFrQC_oH4QpRlsBxOhtoOiMPU7qg3SlauRXkvSrtfnsQ4kVoO.Txa5gRSZhPXvUoozpnEyu6LiyQWIqfjDCZrH; HttpOnly; SameSite=None; Secure; Path=/; Domain=myconnectsecure.com; Expires=Mon, 03 Aug 2026 18:33:20 GMT",
+            "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+            "referrer-policy": "same-origin, same-origin",
+            "cf-ray": "a2573d0d9fa1cb90-PDX",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "etag": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+          },
+          "hash": "0481cb20e95f24015d1fbf481aa11a66c684cb52",
+          "request": {}
+        },
+        {
+          "response": {
+            "data": [
+              "activedirectoryviewer",
+              "activedirectorywriter",
+              "admin",
+              "approver",
+              "assetviewer",
+              "assetwriter",
+              "billingadmin",
+              "complianceviewer",
+              "compliancewriter",
+              "m365admin",
+              "piiviewer",
+              "piiwriter",
+              "reportadmin",
+              "reportassessmentadmin",
+              "vulnerabilityviewer",
+              "vulnerabilitywriter",
+              "trainingadmin",
+              "traininguser",
+              "tester"
+            ]
+          },
+          "status": 200,
+          "request": {
+            "headers": {
+              "X-Tenant-Id": "nango",
+              "X-User-Id": "383109345572815574"
+            }
+          }
+        }
+      ]
+    },
+    "post": {
+      "/w/authorize": {
+        "response": {
+          "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlfdG9rZW4iOnRydWUsImVtYWlsIjoiYXBpQG5hbmdvLmRldiIsImV4cCI6MTc4NTc4NzQwMSwiZmlyc3RfbmFtZSI6Ik5hbmdvIERldmVsb3BlciIsImlzcyI6Imh0dHBzOi8vYXV0aHByb2QubXljb25uZWN0c2VjdXJlLmNvbSIsIm5hbWUiOiJOYW5nbyBEZXZlbG9wZXIiLCJzdWIiOiIzODMxMDkzNDU1NzI4MTU1NzQiLCJ1cm46eml0YWRlbDppYW06b3JnOnByb2plY3Q6cm9sZXMiOnsiYWRtaW4iOnsiMzgzMTA5MzQxMDkzMzYxMjM5IjoibmFuZ28uaHR0cHM6Ly9hdXRocHJvZC5teWNvbm5lY3RzZWN1cmUuY29tIn19LCJ1cm46eml0YWRlbDppYW06dXNlcjpyZXNvdXJjZW93bmVyOmlkIjoiMzgzMTA5MzQxMDkzMzYxMjM5IiwidXJuOnppdGFkZWw6aWFtOnVzZXI6cmVzb3VyY2Vvd25lcjpuYW1lIjoibmFuZ28ifQ.Oe44iXQE6gkNyTA3hEUhDbDaiFIW1E5iam4uFSgQLeo",
+          "data": {
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlfdG9rZW4iOnRydWUsImVtYWlsIjoiYXBpQG5hbmdvLmRldiIsImV4cCI6MTc4NTc4NzQwMSwiZmlyc3RfbmFtZSI6Ik5hbmdvIERldmVsb3BlciIsImlzcyI6Imh0dHBzOi8vYXV0aHByb2QubXljb25uZWN0c2VjdXJlLmNvbSIsIm5hbWUiOiJOYW5nbyBEZXZlbG9wZXIiLCJzdWIiOiIzODMxMDkzNDU1NzI4MTU1NzQiLCJ1cm46eml0YWRlbDppYW06b3JnOnByb2plY3Q6cm9sZXMiOnsiYWRtaW4iOnsiMzgzMTA5MzQxMDkzMzYxMjM5IjoibmFuZ28uaHR0cHM6Ly9hdXRocHJvZC5teWNvbm5lY3RzZWN1cmUuY29tIn19LCJ1cm46eml0YWRlbDppYW06dXNlcjpyZXNvdXJjZW93bmVyOmlkIjoiMzgzMTA5MzQxMDkzMzYxMjM5IiwidXJuOnppdGFkZWw6aWFtOnVzZXI6cmVzb3VyY2Vvd25lcjpuYW1lIjoibmFuZ28ifQ.Oe44iXQE6gkNyTA3hEUhDbDaiFIW1E5iam4uFSgQLeo",
+            "user_id": "383109345572815574"
+          },
+          "expires_in": 3600,
+          "status": true,
+          "token_type": "bearer",
+          "user_id": "383109345572815574"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 18:03:21 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "https://portal.myconnectsecure.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1954",
+          "x-ratelimit-reset": "1785780201",
+          "server": "cloudflare",
+          "vary": "origin, access-control-request-method, access-control-request-headers",
+          "access-control-allow-credentials": "true",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=k.LTUmPNzYJNZnaK1O4V_z2OOy40ataNtHAAMN39p0o-1785780200.7374408-1.0.1.1-Entea3TAbWE6OCQbRw2nTYc8pPEbalgEW8NN.AI2zmLrFlsPi7Saxle3len7nKt9bAa21pg0f0wL6NO8WEFA3Ep1pU4G7SOdt6tLhxfcU_OF4VoPSPnB5a8eSZpFvurh; HttpOnly; SameSite=None; Secure; Path=/; Domain=myconnectsecure.com; Expires=Mon, 03 Aug 2026 18:33:21 GMT",
+          "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+          "referrer-policy": "same-origin, same-origin",
+          "cf-ray": "a2573d0e9fef0384-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "da42017bf67f88246e27afc81a9e830e4b9c6d8c",
+        "request": {}
+      }
+    }
+  }
+}

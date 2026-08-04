@@ -2,7 +2,8 @@ import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
-    tenant: z.string()
+    tenant: z.string().optional(),
+    connection_config: z.object({ tenant: z.string().optional() }).optional()
 });
 
 const AuthorizeResponseSchema = z
@@ -67,7 +68,7 @@ const sync = createSync({
         if (!tenant) {
             const metadata = await nango.getMetadata();
             const parsedMetadata = MetadataSchema.safeParse(metadata);
-            tenant = parsedMetadata.success ? parsedMetadata.data.tenant : undefined;
+            tenant = parsedMetadata.success ? (parsedMetadata.data.tenant ?? parsedMetadata.data.connection_config?.tenant) : undefined;
         }
 
         if (!tenant) {

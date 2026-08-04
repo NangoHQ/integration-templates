@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const ProblemGroupSchema = z.object({
@@ -25,6 +25,12 @@ const ProviderProblemGroupSchema = z.object({
     description: z.union([z.string(), z.null()]).optional(),
     created: z.string().optional(),
     updated: z.string().optional()
+});
+
+const ProviderResponseSchema = z.object({
+    data: z.array(z.unknown()),
+    status: z.boolean().optional(),
+    total: z.number().optional()
 });
 
 const AuthorizeResponseSchema = z
@@ -82,27 +88,37 @@ const sync = createSync({
 
         await nango.trackDeletesStart('ProblemGroup');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
-            endpoint: '/r/company/problem_groups',
-            headers: {
-                Authorization: `Bearer ${authData.access_token}`,
-                'X-Tenant-Id': tenant,
-                'X-User-Id': String(authData.user_id)
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'skip',
-                offset_calculation_method: 'by-response-size',
-                limit_name_in_request: 'limit',
-                limit: 5000,
-                response_path: 'data'
-            },
-            retries: 3
-        };
+        let skip = 0;
+        const limit = 5000;
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const problemGroups = page.map((item) => {
+        // nango.paginate() is avoided here on purpose: its offset mode extracts `response_path`
+        // and returns early on an empty array before `on_page` ever runs, so a provider error
+        // envelope (`status: false`, empty `data`) would look identical to "no more pages" and
+        // let trackDeletesEnd() below wipe every previously synced record. Manual pagination lets
+        // us check `status` on every page, including empty ones, before treating it as "done".
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true -- nango.paginate's offset mode returns early on an empty page before we can inspect `status`, see comment above.
+        while (true) {
+            // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
+            const response = await nango.get({
+                endpoint: '/r/company/problem_groups',
+                params: {
+                    skip: String(skip),
+                    limit: String(limit)
+                },
+                headers: {
+                    Authorization: `Bearer ${authData.access_token}`,
+                    'X-Tenant-Id': tenant,
+                    'X-User-Id': String(authData.user_id)
+                },
+                retries: 3
+            });
+
+            const parsedResponse = ProviderResponseSchema.parse(response.data);
+            if (parsedResponse.status === false) {
+                throw new Error('ConnectSecure returned a provider error while listing problem groups.');
+            }
+
+            const problemGroups = parsedResponse.data.map((item) => {
                 const group = ProviderProblemGroupSchema.parse(item);
                 return {
                     id: String(group.id),
@@ -121,6 +137,11 @@ const sync = createSync({
             if (problemGroups.length > 0) {
                 await nango.batchSave(problemGroups, 'ProblemGroup');
             }
+
+            if (parsedResponse.data.length < limit) {
+                break;
+            }
+            skip += parsedResponse.data.length;
         }
 
         await nango.trackDeletesEnd('ProblemGroup');

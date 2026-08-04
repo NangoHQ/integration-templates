@@ -1,0 +1,411 @@
+{
+  "input": {},
+  "output": {
+    "problems": [
+      {
+        "problem_name": "CVE-2013-5594",
+        "severity": "Medium",
+        "affected_assets": 1,
+        "affected_companies": 1,
+        "software_name": "Firefox"
+      },
+      {
+        "problem_name": "CVE-2021-30821",
+        "severity": "High",
+        "affected_assets": 1,
+        "affected_companies": 1,
+        "software_name": "macOS"
+      },
+      {
+        "problem_name": "CVE-2021-30824",
+        "severity": "High",
+        "affected_assets": 1,
+        "affected_companies": 1,
+        "software_name": "macOS"
+      },
+      {
+        "problem_name": "CVE-2021-30876",
+        "severity": "High",
+        "affected_assets": 1,
+        "affected_companies": 1,
+        "software_name": "macOS"
+      },
+      {
+        "problem_name": "CVE-2021-30877",
+        "severity": "High",
+        "affected_assets": 1,
+        "affected_companies": 1,
+        "software_name": "macOS"
+      },
+      {
+        "problem_name": "CVE-2021-30879",
+        "severity": "High",
+        "affected_assets": 1,
+        "affected_companies": 1,
+        "software_name": "macOS"
+      },
+      {
+        "problem_name": "CVE-2021-30880",
+        "severity": "High",
+        "affected_assets": 1,
+        "affected_companies": 1,
+        "software_name": "macOS"
+      },
+      {
+        "problem_name": "CVE-2021-30881",
+        "severity": "High",
+        "affected_assets": 1,
+        "affected_companies": 1,
+        "software_name": "macOS"
+      },
+      {
+        "problem_name": "CVE-2021-30892",
+        "severity": "Medium",
+        "affected_assets": 1,
+        "affected_companies": 1,
+        "software_name": "macOS"
+      },
+      {
+        "problem_name": "CVE-2021-30899",
+        "severity": "High",
+        "affected_assets": 1,
+        "affected_companies": 1,
+        "software_name": "macOS"
+      }
+    ],
+    "total": 961,
+    "next_cursor": "10"
+  },
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "tenant": "nango"
+      }
+    },
+    "getMetadata": {
+      "tenant": "nango",
+      "base_url": "pod107.myconnectsecure.com",
+      "connection_config": {
+        "tenant": "nango",
+        "user_id": "384670636045300757",
+        "base_url": "pod107.myconnectsecure.com"
+      }
+    }
+  },
+  "api": {
+    "post": {
+      "/w/authorize": {
+        "response": {
+          "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlfdG9rZW4iOnRydWUsImVtYWlsIjoiYXBpQG5hbmdvLmRldiIsImV4cCI6MTc4NTc4NzA0MCwiZmlyc3RfbmFtZSI6Ik5hbmdvIERldmVsb3BlciIsImlzcyI6Imh0dHBzOi8vYXV0aHByb2QubXljb25uZWN0c2VjdXJlLmNvbSIsIm5hbWUiOiJOYW5nbyBEZXZlbG9wZXIiLCJzdWIiOiIzODMxMDkzNDU1NzI4MTU1NzQiLCJ1cm46eml0YWRlbDppYW06b3JnOnByb2plY3Q6cm9sZXMiOnsiYWRtaW4iOnsiMzgzMTA5MzQxMDkzMzYxMjM5IjoibmFuZ28uaHR0cHM6Ly9hdXRocHJvZC5teWNvbm5lY3RzZWN1cmUuY29tIn19LCJ1cm46eml0YWRlbDppYW06dXNlcjpyZXNvdXJjZW93bmVyOmlkIjoiMzgzMTA5MzQxMDkzMzYxMjM5IiwidXJuOnppdGFkZWw6aWFtOnVzZXI6cmVzb3VyY2Vvd25lcjpuYW1lIjoibmFuZ28ifQ.irNa9toQQZIi4XIUrgdi14bGZS5ofZXQj9vnEJlWZCQ",
+          "data": {
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlfdG9rZW4iOnRydWUsImVtYWlsIjoiYXBpQG5hbmdvLmRldiIsImV4cCI6MTc4NTc4NzA0MCwiZmlyc3RfbmFtZSI6Ik5hbmdvIERldmVsb3BlciIsImlzcyI6Imh0dHBzOi8vYXV0aHByb2QubXljb25uZWN0c2VjdXJlLmNvbSIsIm5hbWUiOiJOYW5nbyBEZXZlbG9wZXIiLCJzdWIiOiIzODMxMDkzNDU1NzI4MTU1NzQiLCJ1cm46eml0YWRlbDppYW06b3JnOnByb2plY3Q6cm9sZXMiOnsiYWRtaW4iOnsiMzgzMTA5MzQxMDkzMzYxMjM5IjoibmFuZ28uaHR0cHM6Ly9hdXRocHJvZC5teWNvbm5lY3RzZWN1cmUuY29tIn19LCJ1cm46eml0YWRlbDppYW06dXNlcjpyZXNvdXJjZW93bmVyOmlkIjoiMzgzMTA5MzQxMDkzMzYxMjM5IiwidXJuOnppdGFkZWw6aWFtOnVzZXI6cmVzb3VyY2Vvd25lcjpuYW1lIjoibmFuZ28ifQ.irNa9toQQZIi4XIUrgdi14bGZS5ofZXQj9vnEJlWZCQ",
+            "user_id": "383109345572815574"
+          },
+          "expires_in": 3600,
+          "status": true,
+          "token_type": "bearer",
+          "user_id": "383109345572815574"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 17:57:20 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "https://portal.myconnectsecure.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1964",
+          "x-ratelimit-reset": "1785779872",
+          "server": "cloudflare",
+          "vary": "origin, access-control-request-method, access-control-request-headers",
+          "access-control-allow-credentials": "true",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=a_pHjEVfKZvLf26ZgeG1vBXyPUNazkWuKLDQaMNT73c-1785779839.983527-1.0.1.1-q8V1PV6rIwuMh.kLh6MBYwXP_JZX71TjcVrB8s2ddjaM_v0COSfU2DpwcOiI4OHZT2ZaJQD3OCXmzmGcNBOP1QNKw4i.j7MvJ6KdzmjaB_xzVBx38aF_CjVMKjLnxihZ; HttpOnly; SameSite=None; Secure; Path=/; Domain=myconnectsecure.com; Expires=Mon, 03 Aug 2026 18:27:20 GMT",
+          "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+          "referrer-policy": "same-origin, same-origin",
+          "cf-ray": "a257343fea0dfefd-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "da42017bf67f88246e27afc81a9e830e4b9c6d8c",
+        "request": {}
+      }
+    },
+    "get": {
+      "/r/report_queries/problems_summary": {
+        "response": {
+          "data": [
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "ast_type": "Internal",
+              "base_score": 4.3,
+              "cs_score": 4.3,
+              "description": "Mozilla Firefox before 25 allows modification of anonymous content of pluginProblem.xml binding",
+              "epss_score": 0.00683,
+              "exploitability_score": 2.8,
+              "first_vul_discovered": "2026-07-28T09:01:48.321249",
+              "impact_score": 1.4,
+              "ostype": "Mac",
+              "port": null,
+              "problem_name": "CVE-2013-5594",
+              "script_output": null,
+              "severity": "Medium",
+              "software_name": [
+                "Firefox"
+              ],
+              "total_count": 961,
+              "unconfirmed": false
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "ast_type": "Internal",
+              "base_score": 7.8,
+              "cs_score": 7.8,
+              "description": "A memory corruption issue was addressed with improved memory handling. This issue is fixed in macOS Monterey 12.0.1, Security Update 2021-007 Catalina, macOS Big Sur 11.6.1. A malicious application may be able to execute arbitrary code with kernel privileges.",
+              "epss_score": 0.01037,
+              "exploitability_score": 1.8,
+              "first_vul_discovered": "2026-08-01T11:28:49.069256",
+              "impact_score": 5.9,
+              "ostype": "Mac",
+              "port": null,
+              "problem_name": "CVE-2021-30821",
+              "script_output": null,
+              "severity": "High",
+              "software_name": [
+                "macOS"
+              ],
+              "total_count": 961,
+              "unconfirmed": false
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "ast_type": "Internal",
+              "base_score": 7.8,
+              "cs_score": 7.8,
+              "description": "A memory corruption issue was addressed with improved state management. This issue is fixed in macOS Monterey 12.0.1, Security Update 2021-007 Catalina, macOS Big Sur 11.6.1. A malicious application may be able to execute arbitrary code with kernel privileges.",
+              "epss_score": 0.01037,
+              "exploitability_score": 1.8,
+              "first_vul_discovered": "2026-08-01T11:28:49.069256",
+              "impact_score": 5.9,
+              "ostype": "Mac",
+              "port": null,
+              "problem_name": "CVE-2021-30824",
+              "script_output": null,
+              "severity": "High",
+              "software_name": [
+                "macOS"
+              ],
+              "total_count": 961,
+              "unconfirmed": false
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "ast_type": "Internal",
+              "base_score": 7.1,
+              "cs_score": 7.1,
+              "description": "An out-of-bounds read was addressed with improved bounds checking. This issue is fixed in macOS Monterey 12.0.1, Security Update 2021-007 Catalina, macOS Big Sur 11.6.1. Processing a maliciously crafted AppleScript binary may result in unexpected application termination or disclosure of process memory.",
+              "epss_score": 0.00889,
+              "exploitability_score": 1.8,
+              "first_vul_discovered": "2026-08-01T11:28:49.069256",
+              "impact_score": 5.2,
+              "ostype": "Mac",
+              "port": null,
+              "problem_name": "CVE-2021-30876",
+              "script_output": null,
+              "severity": "High",
+              "software_name": [
+                "macOS"
+              ],
+              "total_count": 961,
+              "unconfirmed": false
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "ast_type": "Internal",
+              "base_score": 7.1,
+              "cs_score": 7.1,
+              "description": "An out-of-bounds read was addressed with improved bounds checking. This issue is fixed in macOS Monterey 12.0.1, Security Update 2021-007 Catalina, macOS Big Sur 11.6.1. Processing a maliciously crafted AppleScript binary may result in unexpected application termination or disclosure of process memory.",
+              "epss_score": 0.00785,
+              "exploitability_score": 1.8,
+              "first_vul_discovered": "2026-08-01T11:28:49.069256",
+              "impact_score": 5.2,
+              "ostype": "Mac",
+              "port": null,
+              "problem_name": "CVE-2021-30877",
+              "script_output": null,
+              "severity": "High",
+              "software_name": [
+                "macOS"
+              ],
+              "total_count": 961,
+              "unconfirmed": false
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "ast_type": "Internal",
+              "base_score": 7.1,
+              "cs_score": 7.1,
+              "description": "An out-of-bounds read was addressed with improved bounds checking. This issue is fixed in macOS Monterey 12.0.1, Security Update 2021-007 Catalina, macOS Big Sur 11.6.1. Processing a maliciously crafted AppleScript binary may result in unexpected application termination or disclosure of process memory.",
+              "epss_score": 0.00871,
+              "exploitability_score": 1.8,
+              "first_vul_discovered": "2026-08-01T11:28:49.069256",
+              "impact_score": 5.2,
+              "ostype": "Mac",
+              "port": null,
+              "problem_name": "CVE-2021-30879",
+              "script_output": null,
+              "severity": "High",
+              "software_name": [
+                "macOS"
+              ],
+              "total_count": 961,
+              "unconfirmed": false
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "ast_type": "Internal",
+              "base_score": 7.1,
+              "cs_score": 7.1,
+              "description": "An out-of-bounds read was addressed with improved bounds checking. This issue is fixed in macOS Monterey 12.0.1, Security Update 2021-007 Catalina, macOS Big Sur 11.6.1. Processing a maliciously crafted AppleScript binary may result in unexpected application termination or disclosure of process memory.",
+              "epss_score": 0.00785,
+              "exploitability_score": 1.8,
+              "first_vul_discovered": "2026-08-01T11:28:49.069256",
+              "impact_score": 5.2,
+              "ostype": "Mac",
+              "port": null,
+              "problem_name": "CVE-2021-30880",
+              "script_output": null,
+              "severity": "High",
+              "software_name": [
+                "macOS"
+              ],
+              "total_count": 961,
+              "unconfirmed": false
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "ast_type": "Internal",
+              "base_score": 7.8,
+              "cs_score": 7.8,
+              "description": "An input validation issue was addressed with improved memory handling. This issue is fixed in iOS 15.1 and iPadOS 15.1, macOS Monterey 12.0.1, tvOS 15.1, watchOS 8.1, Security Update 2021-007 Catalina, macOS Big Sur 11.6.1. Unpacking a maliciously crafted archive may lead to arbitrary code execution.",
+              "epss_score": 0.01214,
+              "exploitability_score": 1.8,
+              "first_vul_discovered": "2026-08-01T11:28:49.069256",
+              "impact_score": 5.9,
+              "ostype": "Mac",
+              "port": null,
+              "problem_name": "CVE-2021-30881",
+              "script_output": null,
+              "severity": "High",
+              "software_name": [
+                "macOS"
+              ],
+              "total_count": 961,
+              "unconfirmed": false
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "ast_type": "Internal",
+              "base_score": 5.5,
+              "cs_score": 5.5,
+              "description": "An inherited permissions issue was addressed with additional restrictions. This issue is fixed in macOS Monterey 12.0.1, Security Update 2021-007 Catalina, macOS Big Sur 11.6.1. A malicious application may be able to modify protected parts of the file system.",
+              "epss_score": 0.10352,
+              "exploitability_score": 1.8,
+              "first_vul_discovered": "2026-08-01T11:28:49.069256",
+              "impact_score": 3.6,
+              "ostype": "Mac",
+              "port": null,
+              "problem_name": "CVE-2021-30892",
+              "script_output": null,
+              "severity": "Medium",
+              "software_name": [
+                "macOS"
+              ],
+              "total_count": 961,
+              "unconfirmed": false
+            },
+            {
+              "affected_assets": 1,
+              "affected_companies": 1,
+              "ast_type": "Internal",
+              "base_score": 7,
+              "cs_score": 7,
+              "description": "A race condition was addressed with improved state handling. This issue is fixed in macOS Monterey 12.0.1, Security Update 2021-007 Catalina, macOS Big Sur 11.6.1. A malicious application may be able to execute arbitrary code with kernel privileges.",
+              "epss_score": 0.00814,
+              "exploitability_score": 1,
+              "first_vul_discovered": "2026-08-01T11:28:49.069256",
+              "impact_score": 5.9,
+              "ostype": "Mac",
+              "port": null,
+              "problem_name": "CVE-2021-30899",
+              "script_output": null,
+              "severity": "High",
+              "software_name": [
+                "macOS"
+              ],
+              "total_count": 961,
+              "unconfirmed": false
+            }
+          ],
+          "status": true,
+          "total": 961
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 17:57:20 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "https://portal.myconnectsecure.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1963",
+          "x-ratelimit-reset": "1785779872",
+          "server": "cloudflare",
+          "vary": "origin, access-control-request-method, access-control-request-headers",
+          "access-control-allow-credentials": "true",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization,e-user-id,E-User-Id",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=rZUW2w91vkWsrbwpmc6T5Kee5ZHcXuM9puLfY79NkIk-1785779840.3581312-1.0.1.1-7UXd2qHANiA29LNM4I1osvPDcxKSJvQpWhM25bnkk3nVFI1ihl.FhPcsU3Jl.tCDemvMaeL1XFYqCYu6yKTCyqpW7b8JKPaR.S6__Z5EUwTuLNBdGU1m1J1UT_UtkkJq; HttpOnly; SameSite=None; Secure; Path=/; Domain=myconnectsecure.com; Expires=Mon, 03 Aug 2026 18:27:20 GMT",
+          "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+          "referrer-policy": "same-origin, same-origin",
+          "cf-ray": "a25734423a888639-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "8a8a719f645146bf7e7e197c4bd883dac3edef2b",
+        "request": {
+          "headers": {
+            "X-Tenant-Id": "nango",
+            "X-User-Id": "383109345572815574"
+          }
+        }
+      }
+    }
+  }
+}

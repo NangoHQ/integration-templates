@@ -46,6 +46,12 @@ const action = createAction({
             });
         }
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (!Number.isSafeInteger(skip)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a valid numeric skip offset'
+            });
+        }
         const limit = input.limit ?? 100;
 
         const connection = await nango.getConnection();
@@ -54,8 +60,10 @@ const action = createAction({
 
         if (!tenant) {
             const metadata = await nango.getMetadata();
-            const metadataParsed = z.object({ tenant: z.string() }).safeParse(metadata);
-            tenant = metadataParsed.success ? metadataParsed.data.tenant : undefined;
+            const metadataParsed = z
+                .object({ tenant: z.string().optional(), connection_config: z.object({ tenant: z.string().optional() }).optional() })
+                .safeParse(metadata);
+            tenant = metadataParsed.success ? (metadataParsed.data.tenant ?? metadataParsed.data.connection_config?.tenant) : undefined;
         }
 
         if (!tenant) {

@@ -115,6 +115,12 @@ const action = createAction({
             });
         }
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (!Number.isSafeInteger(skip)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Cursor must be a non-negative numeric skip offset.'
+            });
+        }
 
         const connection = await nango.getConnection();
         let baseUrl = connection.connection_config?.['base_url'];
@@ -192,6 +198,9 @@ const action = createAction({
                     break;
                 }
                 requestError = new Error(`ConnectSecure API returned ${fetchResponse.status}`);
+                if (fetchResponse.status !== 429 && fetchResponse.status < 500) {
+                    break;
+                }
             } catch (err) {
                 requestError = err instanceof Error ? err : new Error(String(err));
             }

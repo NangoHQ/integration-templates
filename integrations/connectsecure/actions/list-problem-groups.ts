@@ -157,6 +157,12 @@ const action = createAction({
             });
         }
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (!Number.isSafeInteger(skip)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Cursor must be a numeric offset.'
+            });
+        }
         const limit = input.limit ?? 100;
 
         const dataUrl = new URL(`https://${baseUrl}/r/company/problem_groups`);

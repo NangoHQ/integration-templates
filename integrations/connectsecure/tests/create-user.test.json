@@ -1,0 +1,129 @@
+{
+  "input": {
+    "email": "nango-test-1785780586@nango.dev",
+    "first_name": "Nango",
+    "last_name": "Test",
+    "roles": [
+      "assetviewer"
+    ],
+    "password": "NangoTest1!",
+    "mobile": ""
+  },
+  "output": {
+    "id": "384670636045300757",
+    "email": "nango-test-1785780586@nango.dev",
+    "first_name": "Nango",
+    "last_name": "Test",
+    "roles": [
+      "assetviewer"
+    ],
+    "mobile": ""
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenant": "nango",
+      "base_url": "pod107.myconnectsecure.com",
+      "connection_config": {
+        "tenant": "nango",
+        "user_id": "384670636045300757",
+        "base_url": "pod107.myconnectsecure.com"
+      }
+    }
+  },
+  "api": {
+    "post": {
+      "/w/authorize": {
+        "response": {
+          "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlfdG9rZW4iOnRydWUsImVtYWlsIjoiYXBpQG5hbmdvLmRldiIsImV4cCI6MTc4NTc4NzgzMCwiZmlyc3RfbmFtZSI6Ik5hbmdvIERldmVsb3BlciIsImlzcyI6Imh0dHBzOi8vYXV0aHByb2QubXljb25uZWN0c2VjdXJlLmNvbSIsIm5hbWUiOiJOYW5nbyBEZXZlbG9wZXIiLCJzdWIiOiIzODMxMDkzNDU1NzI4MTU1NzQiLCJ1cm46eml0YWRlbDppYW06b3JnOnByb2plY3Q6cm9sZXMiOnsiYWRtaW4iOnsiMzgzMTA5MzQxMDkzMzYxMjM5IjoibmFuZ28uaHR0cHM6Ly9hdXRocHJvZC5teWNvbm5lY3RzZWN1cmUuY29tIn19LCJ1cm46eml0YWRlbDppYW06dXNlcjpyZXNvdXJjZW93bmVyOmlkIjoiMzgzMTA5MzQxMDkzMzYxMjM5IiwidXJuOnppdGFkZWw6aWFtOnVzZXI6cmVzb3VyY2Vvd25lcjpuYW1lIjoibmFuZ28ifQ.dRvbopF11G-EcqSckJpjgg8vElCcOaLSO079GiGiDC8",
+          "data": {
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcGlfdG9rZW4iOnRydWUsImVtYWlsIjoiYXBpQG5hbmdvLmRldiIsImV4cCI6MTc4NTc4NzgzMCwiZmlyc3RfbmFtZSI6Ik5hbmdvIERldmVsb3BlciIsImlzcyI6Imh0dHBzOi8vYXV0aHByb2QubXljb25uZWN0c2VjdXJlLmNvbSIsIm5hbWUiOiJOYW5nbyBEZXZlbG9wZXIiLCJzdWIiOiIzODMxMDkzNDU1NzI4MTU1NzQiLCJ1cm46eml0YWRlbDppYW06b3JnOnByb2plY3Q6cm9sZXMiOnsiYWRtaW4iOnsiMzgzMTA5MzQxMDkzMzYxMjM5IjoibmFuZ28uaHR0cHM6Ly9hdXRocHJvZC5teWNvbm5lY3RzZWN1cmUuY29tIn19LCJ1cm46eml0YWRlbDppYW06dXNlcjpyZXNvdXJjZW93bmVyOmlkIjoiMzgzMTA5MzQxMDkzMzYxMjM5IiwidXJuOnppdGFkZWw6aWFtOnVzZXI6cmVzb3VyY2Vvd25lcjpuYW1lIjoibmFuZ28ifQ.dRvbopF11G-EcqSckJpjgg8vElCcOaLSO079GiGiDC8",
+            "user_id": "383109345572815574"
+          },
+          "expires_in": 3600,
+          "status": true,
+          "token_type": "bearer",
+          "user_id": "383109345572815574"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 18:10:30 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "https://portal.myconnectsecure.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1978",
+          "x-ratelimit-reset": "1785780678",
+          "server": "cloudflare",
+          "vary": "origin, access-control-request-method, access-control-request-headers",
+          "access-control-allow-credentials": "true",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=ibRVzSlTBTh9CcPDBtgHtsZNsRbU_MhrH1xqVksVILM-1785780629.8015256-1.0.1.1-LGJIiyxVQlwuwl6MsbW8EbZIjQDHkQuFVDkUmhv2WuQ5voWf1UhWuUKJZo149_frjnVrnGhxiRbFPfVqnf5LZO2CqVOf6EwFpe4JX1qNdQ5Jl9hMaaGW7tjE99G2j9OD; HttpOnly; SameSite=None; Secure; Path=/; Domain=myconnectsecure.com; Expires=Mon, 03 Aug 2026 18:40:30 GMT",
+          "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+          "referrer-policy": "same-origin, same-origin",
+          "cf-ray": "a25747884fa69935-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "da42017bf67f88246e27afc81a9e830e4b9c6d8c",
+        "request": {}
+      },
+      "/w/user/create_user": {
+        "response": "",
+        "status": 401,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 18:10:54 GMT",
+          "content-type": "text/html; charset=utf-8",
+          "content-length": "0",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN, SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "https://portal.myconnectsecure.com",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1975",
+          "x-ratelimit-reset": "1785780678",
+          "server": "cloudflare",
+          "access-control-allow-methods": "GET, POST, OPTIONS, PATCH, DELETE, GET, POST, OPTIONS",
+          "access-control-allow-credentials": "true",
+          "access-control-allow-headers": "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-pod-id,X-Pod-Id,X-User-Id,X-Tenant-Id,Authorization",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=nRgVDJtPY0rh4CMmOH2OBd_A51eKUNQHw52Fhoy5JnY-1785780654.734883-1.0.1.1-4P4MX8dihGADXw.g_1vyooagJmS_uEX47SBG4avfgzAaOrrnmylnPjj64ZOXOYhaekb0ucRqqeL330oHxTiMd2Yu9_SrnTACG1XEnVmCAKAZcS.yqPOAgbxKk819027a; HttpOnly; SameSite=None; Secure; Path=/; Domain=myconnectsecure.com; Expires=Mon, 03 Aug 2026 18:40:54 GMT",
+          "expect-ct": "max-age=86400, enforce, max-age=86400, enforce",
+          "referrer-policy": "same-origin, same-origin",
+          "cf-ray": "a25748241e18ac0d-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
+        },
+        "hash": "31625572effa22fd4fb1727a77ffa40e75c2cdcd",
+        "request": {
+          "data": {
+            "email": "nango-test-1785780586@nango.dev",
+            "first_name": "Nango",
+            "last_name": "Test",
+            "roles": [
+              "assetviewer"
+            ],
+            "password": "NangoTest1!",
+            "mobile": ""
+          }
+        }
+      }
+    }
+  }
+}

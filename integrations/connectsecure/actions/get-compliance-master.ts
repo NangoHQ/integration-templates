@@ -61,6 +61,12 @@ const action = createAction({
             });
         }
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (!Number.isSafeInteger(skip)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a valid numeric skip offset'
+            });
+        }
 
         const metadata = await nango.getMetadata<{ tenant?: string }>();
         const tenant = metadata?.tenant;

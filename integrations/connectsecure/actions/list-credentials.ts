@@ -49,8 +49,14 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Cursor must be a numeric offset.'
+            });
+        }
         const skip = input.cursor ? Number(input.cursor) : 0;
-        if (input.cursor !== undefined && Number.isNaN(skip)) {
+        if (!Number.isSafeInteger(skip)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'Cursor must be a numeric offset.'

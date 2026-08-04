@@ -19,7 +19,8 @@ const OutputSchema = z.object({
 });
 
 const MetadataSchema = z.object({
-    tenant: z.string()
+    tenant: z.string().optional(),
+    connection_config: z.object({ tenant: z.string().optional() }).optional()
 });
 
 const AuthorizeResponseSchema = z
@@ -56,6 +57,12 @@ const action = createAction({
             });
         }
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+        if (!Number.isSafeInteger(skip)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a valid numeric skip offset'
+            });
+        }
 
         const connection = await nango.getConnection();
         const connectionConfigTenant = connection.connection_config?.['tenant'];
@@ -63,7 +70,7 @@ const action = createAction({
 
         if (!tenantId) {
             const metadataParsed = MetadataSchema.safeParse(await nango.getMetadata());
-            tenantId = metadataParsed.success ? metadataParsed.data.tenant : undefined;
+            tenantId = metadataParsed.success ? (metadataParsed.data.tenant ?? metadataParsed.data.connection_config?.tenant) : undefined;
         }
 
         if (!tenantId) {
