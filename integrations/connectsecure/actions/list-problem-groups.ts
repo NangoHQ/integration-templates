@@ -150,6 +150,12 @@ const action = createAction({
         const token = authParsed.data.access_token;
         const userId = authParsed.data.user_id;
 
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Cursor must be a numeric offset.'
+            });
+        }
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
         const limit = input.limit ?? 100;
 
@@ -189,6 +195,7 @@ const action = createAction({
                 // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
                 dataResponse = await makeRequest();
                 if (dataResponse.ok) {
+                    dataError = undefined;
                     break;
                 }
                 dataError = new Error(`Data request returned ${dataResponse.status}`);
@@ -242,7 +249,7 @@ const action = createAction({
         });
 
         const total = 'total' in raw && typeof raw.total === 'number' ? raw.total : null;
-        const nextCursor = total !== null && skip + items.length < total ? String(skip + items.length) : undefined;
+        const nextCursor = items.length > 0 && total !== null && skip + items.length < total ? String(skip + items.length) : undefined;
 
         return {
             items,

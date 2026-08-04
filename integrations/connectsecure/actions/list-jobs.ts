@@ -39,21 +39,31 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (input.cursor !== undefined && Number.isNaN(skip)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid numeric skip offset'
             });
         }
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
         const limit = input.limit ?? 100;
 
-        const metadata = await nango.getMetadata();
-        const parsedMetadata = z
-            .object({
-                tenant: z.string()
-            })
-            .parse(metadata);
+        const connection = await nango.getConnection();
+        const connectionConfigTenant = connection.connection_config?.['tenant'];
+        let tenant: string | undefined = typeof connectionConfigTenant === 'string' ? connectionConfigTenant : undefined;
+
+        if (!tenant) {
+            const metadata = await nango.getMetadata();
+            const metadataParsed = z.object({ tenant: z.string() }).safeParse(metadata);
+            tenant = metadataParsed.success ? metadataParsed.data.tenant : undefined;
+        }
+
+        if (!tenant) {
+            throw new nango.ActionError({
+                type: 'missing_connection_config',
+                message: 'tenant is required in connection config or metadata'
+            });
+        }
 
         const authResponse = await nango.post({
             // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
@@ -80,7 +90,7 @@ const action = createAction({
             },
             headers: {
                 Authorization: `Bearer ${authData.access_token}`,
-                'X-Tenant-Id': parsedMetadata.tenant,
+                'X-Tenant-Id': tenant,
                 'X-User-Id': authData.user_id
             },
             retries: 3
@@ -101,7 +111,7 @@ const action = createAction({
         return {
             items,
             total,
-            ...(nextSkip < total && { next_cursor: String(nextSkip) })
+            ...(items.length > 0 && nextSkip < total && { next_cursor: String(nextSkip) })
         };
     }
 });

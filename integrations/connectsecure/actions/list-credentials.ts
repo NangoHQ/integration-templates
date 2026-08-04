@@ -50,11 +50,29 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const skip = input.cursor ? Number(input.cursor) : 0;
+        if (input.cursor !== undefined && Number.isNaN(skip)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Cursor must be a numeric offset.'
+            });
+        }
         const limit = 100;
 
         const connection = ConnectionSchema.parse(await nango.getConnection());
         const connectionConfig = connection.connection_config || {};
-        const tenant = typeof connectionConfig['tenant'] === 'string' ? connectionConfig['tenant'] : '';
+        let tenant = typeof connectionConfig['tenant'] === 'string' ? connectionConfig['tenant'] : '';
+
+        if (!tenant) {
+            const metadata = await nango.getMetadata();
+            const MetadataSchema = z.record(z.string(), z.unknown());
+            const metadataParsed = MetadataSchema.safeParse(metadata);
+            if (metadataParsed.success) {
+                const fromMeta = metadataParsed.data['tenant'];
+                if (typeof fromMeta === 'string') {
+                    tenant = fromMeta;
+                }
+            }
+        }
 
         if (!tenant) {
             throw new nango.ActionError({
@@ -97,8 +115,8 @@ const action = createAction({
 
         const parsed = ProviderResponseSchema.parse(response.data);
 
-        const hasMore = skip + parsed.data.length < parsed.total;
-        const nextCursor = hasMore ? String(skip + limit) : undefined;
+        const hasMore = parsed.data.length > 0 && skip + parsed.data.length < parsed.total;
+        const nextCursor = hasMore ? String(skip + parsed.data.length) : undefined;
 
         return {
             items: parsed.data,

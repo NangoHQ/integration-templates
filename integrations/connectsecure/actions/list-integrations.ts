@@ -174,21 +174,39 @@ const action = createAction({
         const userId = authParsed.data.user_id;
 
         // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
-        const response = await nango.uncontrolledFetch({
-            url: new URL(`${baseUrl}/r/integration/get_integrations`),
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-                'X-Tenant-Id': tenant,
-                'X-User-Id': userId
-            },
-            body: null
-        });
+        let response: Response | undefined;
+        let requestError: Error | undefined;
 
-        if (!response.ok) {
+        for (let attempt = 0; attempt < 3; attempt++) {
+            // @allowTryCatch Retry loop for transient network failures during data fetch
+            try {
+                response = await nango.uncontrolledFetch({
+                    url: new URL(`${baseUrl}/r/integration/get_integrations`),
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                        'X-Tenant-Id': tenant,
+                        'X-User-Id': userId
+                    },
+                    body: null
+                });
+                if (response.ok) {
+                    requestError = undefined;
+                    break;
+                }
+                requestError = new Error(`API request failed with status ${response.status}`);
+            } catch (err) {
+                requestError = err instanceof Error ? err : new Error(String(err));
+            }
+            if (attempt < 2) {
+                await new Promise((resolve) => setTimeout(resolve, 1000 * (attempt + 1)));
+            }
+        }
+
+        if (!response || !response.ok || requestError) {
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: `API request failed with status ${response.status}`
+                message: requestError ? requestError.message : `API request failed with status ${response?.status}`
             });
         }
 

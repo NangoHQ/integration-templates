@@ -54,13 +54,13 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 5000;
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (input.cursor && isNaN(skip)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid numeric skip offset'
             });
         }
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         const metadata = await nango.getMetadata<{ tenant?: string }>();
         const tenant = metadata?.tenant;
@@ -135,7 +135,7 @@ const action = createAction({
         });
 
         const nextSkip = skip + items.length;
-        const nextCursor = nextSkip < total ? String(nextSkip) : undefined;
+        const nextCursor = items.length > 0 && nextSkip < total ? String(nextSkip) : undefined;
 
         return {
             items,

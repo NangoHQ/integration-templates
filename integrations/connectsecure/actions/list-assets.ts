@@ -105,13 +105,13 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(skip)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a numeric skip offset'
             });
         }
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         const connection = await nango.getConnection();
         let baseUrl = connection.connection_config?.['base_url'];
@@ -202,7 +202,7 @@ const action = createAction({
         });
 
         const nextSkip = skip + assets.length;
-        const next_cursor = providerResponse.total !== undefined && nextSkip < providerResponse.total ? String(nextSkip) : undefined;
+        const next_cursor = assets.length > 0 && providerResponse.total !== undefined && nextSkip < providerResponse.total ? String(nextSkip) : undefined;
 
         return {
             assets,

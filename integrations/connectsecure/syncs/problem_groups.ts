@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ProblemGroupSchema = z.object({
@@ -25,12 +25,6 @@ const ProviderProblemGroupSchema = z.object({
     description: z.union([z.string(), z.null()]).optional(),
     created: z.string().optional(),
     updated: z.string().optional()
-});
-
-const ProviderResponseSchema = z.object({
-    data: z.array(z.unknown()),
-    status: z.boolean(),
-    total: z.number().optional()
 });
 
 const AuthorizeResponseSchema = z
@@ -64,7 +58,15 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /r/company/problem_groups with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor.
-        await nango.trackDeletesStart('ProblemGroup');
+        const connection = await nango.getConnection();
+        let tenant = connection.connection_config?.['tenant'];
+        if (!tenant) {
+            const metadata = await nango.getMetadata();
+            tenant = metadata?.['tenant'] ?? metadata?.['connection_config']?.['tenant'];
+        }
+        if (!tenant) {
+            throw new Error('Connection config must include tenant.');
+        }
 
         // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
         const authResponse = await nango.post({
@@ -78,46 +80,47 @@ const sync = createSync({
         }
         const authData = authParsed.data;
 
-        const connection = await nango.getConnection();
-        const tenant = connection.connection_config?.['tenant'];
-        if (!tenant) {
-            throw new Error('Connection config must include tenant.');
-        }
+        await nango.trackDeletesStart('ProblemGroup');
 
-        // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
-        const response = await nango.get({
+        const proxyConfig: ProxyConfiguration = {
+            // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
             endpoint: '/r/company/problem_groups',
-            params: {
-                limit: 5000
-            },
             headers: {
                 Authorization: `Bearer ${authData.access_token}`,
                 'X-Tenant-Id': tenant,
                 'X-User-Id': String(authData.user_id)
             },
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'skip',
+                offset_calculation_method: 'by-response-size',
+                limit_name_in_request: 'limit',
+                limit: 5000,
+                response_path: 'data'
+            },
             retries: 3
-        });
+        };
 
-        const parsedResponse = ProviderResponseSchema.parse(response.data);
+        for await (const page of nango.paginate(proxyConfig)) {
+            const problemGroups = page.map((item) => {
+                const group = ProviderProblemGroupSchema.parse(item);
+                return {
+                    id: String(group.id),
+                    problem_group_name: group.problem_group_name,
+                    problem_group_type: group.problem_group_type,
+                    ...(group.problem_group_sub_type != null && { problem_group_sub_type: group.problem_group_sub_type }),
+                    severity: group.severity,
+                    sequence: group.sequence,
+                    weightage: group.weightage,
+                    ...(group.description != null && { description: group.description }),
+                    ...(group.created !== undefined && { created: group.created }),
+                    ...(group.updated !== undefined && { updated: group.updated })
+                };
+            });
 
-        const problemGroups = parsedResponse.data.map((item) => {
-            const group = ProviderProblemGroupSchema.parse(item);
-            return {
-                id: String(group.id),
-                problem_group_name: group.problem_group_name,
-                problem_group_type: group.problem_group_type,
-                ...(group.problem_group_sub_type != null && { problem_group_sub_type: group.problem_group_sub_type }),
-                severity: group.severity,
-                sequence: group.sequence,
-                weightage: group.weightage,
-                ...(group.description != null && { description: group.description }),
-                ...(group.created !== undefined && { created: group.created }),
-                ...(group.updated !== undefined && { updated: group.updated })
-            };
-        });
-
-        if (problemGroups.length > 0) {
-            await nango.batchSave(problemGroups, 'ProblemGroup');
+            if (problemGroups.length > 0) {
+                await nango.batchSave(problemGroups, 'ProblemGroup');
+            }
         }
 
         await nango.trackDeletesEnd('ProblemGroup');

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    limit: z.number().optional().describe('Maximum number of records to return. Example: 5000'),
+    limit: z.number().int().positive().optional().describe('Maximum number of records to return. Example: 5000'),
     cursor: z.string().optional().describe('Pagination cursor (skip offset) from the previous response. Omit for the first page.'),
     sort: z.string().optional().describe('Optional sort expression. Example: "problem_name asc"')
 });
@@ -54,13 +54,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (input.cursor !== undefined && Number.isNaN(skip)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid numeric skip offset'
             });
         }
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
         const connection = await nango.getConnection();
         const config = connection.connection_config ?? {};
 
@@ -129,7 +129,7 @@ const action = createAction({
         });
 
         const nextSkip = skip + problems.length;
-        const nextCursor = nextSkip < total ? String(nextSkip) : undefined;
+        const nextCursor = problems.length > 0 && nextSkip < total ? String(nextSkip) : undefined;
 
         return {
             problems,

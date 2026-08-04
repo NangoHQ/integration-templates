@@ -6,7 +6,6 @@ const InputSchema = z.object({
 });
 
 const ConnectionConfigSchema = z.object({
-    base_url: z.string(),
     tenant: z.string()
 });
 
@@ -78,7 +77,7 @@ const action = createAction({
         if (!connectionConfig.success) {
             throw new nango.ActionError({
                 type: 'missing_connection_config',
-                message: 'Connection config must include base_url and tenant.'
+                message: 'Connection config must include tenant.'
             });
         }
         const tenant = connectionConfig.data.tenant;

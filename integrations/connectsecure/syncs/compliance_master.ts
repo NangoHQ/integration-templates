@@ -114,12 +114,13 @@ const sync = createSync({
             const checks = parsedPage.data.map((record) => {
                 const rawRemediationCommand = typeof record['remediation_command'] === 'string' ? record['remediation_command'] : undefined;
 
+                const remediation = record.remediation ?? rawRemediationCommand;
+
                 return {
                     id: record.check_id,
                     ...(record.cis_control != null && { cis_control: record.cis_control }),
                     ...(record.cis_title != null && { cis_title: record.cis_title }),
-                    ...(record.remediation != null && { remediation: record.remediation }),
-                    ...(rawRemediationCommand != null && { remediation: rawRemediationCommand })
+                    ...(remediation != null && { remediation })
                 };
             });
 

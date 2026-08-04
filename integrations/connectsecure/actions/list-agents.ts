@@ -49,16 +49,29 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(skip)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid numeric skip offset'
             });
         }
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 
-        const metadata = MetadataSchema.parse(await nango.getMetadata());
-        const tenantId = metadata.tenant;
+        const connection = await nango.getConnection();
+        const connectionConfigTenant = connection.connection_config?.['tenant'];
+        let tenantId: string | undefined = typeof connectionConfigTenant === 'string' ? connectionConfigTenant : undefined;
+
+        if (!tenantId) {
+            const metadataParsed = MetadataSchema.safeParse(await nango.getMetadata());
+            tenantId = metadataParsed.success ? metadataParsed.data.tenant : undefined;
+        }
+
+        if (!tenantId) {
+            throw new nango.ActionError({
+                type: 'missing_connection_config',
+                message: 'tenant is required in connection config or metadata'
+            });
+        }
 
         const authResponse = await nango.post({
             // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
@@ -112,7 +125,7 @@ const action = createAction({
             return AgentSchema.parse(item);
         });
 
-        const nextCursor = rawData.total !== undefined && rawData.total > skip + items.length ? String(skip + items.length) : undefined;
+        const nextCursor = items.length > 0 && rawData.total !== undefined && rawData.total > skip + items.length ? String(skip + items.length) : undefined;
 
         return {
             items,

@@ -2,8 +2,7 @@ import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
-    tenant: z.string(),
-    base_url: z.string()
+    tenant: z.string()
 });
 
 const AuthorizeResponseSchema = z
@@ -55,18 +54,25 @@ const sync = createSync({
     description: 'Sync user accounts in this tenant.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     models: {
         User: UserSchema
     },
 
     exec: async (nango) => {
-        const metadata = await nango.getMetadata();
-        const parsedMetadata = MetadataSchema.safeParse(metadata);
-        if (!parsedMetadata.success) {
-            throw new Error(`Failed to parse metadata: ${parsedMetadata.error.message}`);
+        const connection = await nango.getConnection();
+        const connectionConfigTenant = connection.connection_config?.['tenant'];
+        let tenant: string | undefined = typeof connectionConfigTenant === 'string' ? connectionConfigTenant : undefined;
+
+        if (!tenant) {
+            const metadata = await nango.getMetadata();
+            const parsedMetadata = MetadataSchema.safeParse(metadata);
+            tenant = parsedMetadata.success ? parsedMetadata.data.tenant : undefined;
         }
-        const tenant = parsedMetadata.data.tenant;
+
+        if (!tenant) {
+            throw new Error('tenant is required in connection config or metadata');
+        }
 
         // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
         const authResponse = await nango.post({

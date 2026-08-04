@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    tenant: z.string().optional().describe('Tenant ID. If omitted, reads from connection config.')
+    tenant: z.string().trim().min(1).optional().describe('Tenant ID. If omitted, reads from connection config.')
 });
 
 const OutputSchema = z.object({
@@ -14,7 +14,7 @@ const OutputSchema = z.object({
 });
 
 const ConnectionConfigSchema = z.object({
-    tenant: z.string()
+    tenant: z.string().trim().min(1)
 });
 
 const ProviderPasswordPolicySchema = z.object({

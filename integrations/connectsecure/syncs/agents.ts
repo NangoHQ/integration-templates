@@ -3,7 +3,10 @@ import { z } from 'zod';
 
 const ProviderAgentSchema = z
     .object({
-        id: z.coerce.string().describe('Agent identifier'),
+        id: z
+            .union([z.string(), z.number()])
+            .transform((value) => String(value))
+            .describe('Agent identifier'),
         company_id: z.coerce.string().optional().nullable().describe('Company identifier'),
         host_name: z.string().optional().nullable().describe('Host name'),
         agent_type: z.string().optional().nullable().describe('Agent type, e.g. LIGHTWEIGHT'),

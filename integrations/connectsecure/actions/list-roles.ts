@@ -148,7 +148,7 @@ const action = createAction({
                         tenant = fromMeta;
                     }
                 }
-                if (!baseUrl) {
+                if (!baseUrl || !tenant) {
                     const metaConfig = metadata['connection_config'];
                     if (metaConfig && typeof metaConfig === 'object' && metaConfig !== null) {
                         const ConfigSchema = z.record(z.string(), z.unknown());
@@ -168,10 +168,10 @@ const action = createAction({
             }
         }
 
-        if (!baseUrl || typeof baseUrl !== 'string') {
+        if (!baseUrl || !tenant || typeof baseUrl !== 'string' || typeof tenant !== 'string') {
             throw new nango.ActionError({
                 type: 'missing_connection_config',
-                message: 'base_url is required in connection config'
+                message: 'base_url and tenant are required in connection config'
             });
         }
 

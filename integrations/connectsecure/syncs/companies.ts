@@ -9,7 +9,6 @@ const CompanySchema = z.object({
 });
 
 const ConnectionConfigSchema = z.object({
-    base_url: z.string(),
     tenant: z.string()
 });
 
@@ -51,8 +50,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Company');
-
         const connection = await nango.getConnection();
         const parsedConfig = ConnectionConfigSchema.safeParse(connection.connection_config);
         let tenant = parsedConfig.success ? parsedConfig.data.tenant : undefined;
@@ -83,6 +80,8 @@ const sync = createSync({
             throw new Error('Failed to obtain access_token or user_id from /w/authorize');
         }
         const { access_token: accessToken, user_id: userId } = parsedAuth.data;
+
+        await nango.trackDeletesStart('Company');
 
         // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
         const proxyConfig: ProxyConfiguration = {

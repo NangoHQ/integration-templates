@@ -86,6 +86,8 @@ const sync = createSync({
             throw new Error('Failed to extract access_token from /w/authorize response');
         }
 
+        const effectiveUserId = userId ?? (authParsed.success ? authParsed.data.user_id : undefined);
+
         await nango.trackDeletesStart('Vulnerability');
 
         const proxyConfig: ProxyConfiguration = {
@@ -95,7 +97,7 @@ const sync = createSync({
                 Authorization: `Bearer ${accessToken}`,
                 'X-Tenant-Id': tenant,
                 Accept: 'application/json',
-                ...(typeof userId === 'string' && { 'X-User-Id': userId })
+                ...(typeof effectiveUserId === 'string' && { 'X-User-Id': effectiveUserId })
             },
             paginate: {
                 type: 'offset',

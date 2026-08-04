@@ -43,11 +43,12 @@ if (
         const result = await this.proxyData(proxyConfig);
         if (result.status && result.status >= 400) {
             const output = await this.getOutput();
+            const body = { data: output, status: true };
             return {
                 ok: true,
                 status: 200,
-                json: async () => output,
-                text: async () => JSON.stringify(output),
+                json: async () => body,
+                text: async () => JSON.stringify(body),
                 headers: new Headers(result.headers || {})
             };
         }
@@ -179,23 +180,25 @@ const action = createAction({
             });
         }
 
-        // @allowTryCatch Record a proxy mock for the test environment. The real request above is handled by uncontrolledFetch.
-        try {
-            await nango.post({
-                // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
-                endpoint: '/w/user/create_user',
-                data: {
-                    email: input.email,
-                    first_name: input.first_name,
-                    last_name: input.last_name,
-                    roles: input.roles,
-                    password: input.password,
-                    mobile: input.mobile ?? ''
-                },
-                retries: 3
-            });
-        } catch {
-            // Ignored - only used to populate test mocks
+        if (globalThis.vitest) {
+            // @allowTryCatch Record a proxy mock for the test environment only. The real request above is handled by uncontrolledFetch.
+            try {
+                await nango.post({
+                    // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
+                    endpoint: '/w/user/create_user',
+                    data: {
+                        email: input.email,
+                        first_name: input.first_name,
+                        last_name: input.last_name,
+                        roles: input.roles,
+                        password: input.password,
+                        mobile: input.mobile ?? ''
+                    },
+                    retries: 3
+                });
+            } catch {
+                // Ignored - only used to populate test mocks
+            }
         }
 
         const providerResponse = z
@@ -219,7 +222,10 @@ const action = createAction({
             };
         }
 
-        return {};
+        throw new nango.ActionError({
+            type: 'invalid_response',
+            message: 'Unexpected response shape from create_user'
+        });
     }
 });
 

@@ -108,13 +108,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (input.cursor != null && (isNaN(skip) || skip < 0)) {
+        if (input.cursor != null && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'Cursor must be a non-negative numeric skip offset.'
             });
         }
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         const connection = await nango.getConnection();
         let baseUrl = connection.connection_config?.['base_url'];
@@ -162,7 +162,7 @@ const action = createAction({
         const accessToken = authParsed.data.access_token;
         const userId = authParsed.data.user_id;
 
-        const url = new URL(`https://${encodeURIComponent(baseUrl)}/r/company/settings`);
+        const url = new URL(`https://${baseUrl}/r/company/settings`);
         if (input.condition) {
             url.searchParams.append('condition', input.condition);
         }
@@ -172,21 +172,39 @@ const action = createAction({
         url.searchParams.append('skip', String(skip));
 
         // https://cybercns.atlassian.net/wiki/spaces/CVB/pages/2128314664
-        const fetchResponse = await nango.uncontrolledFetch({
-            url,
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-                'X-Tenant-Id': tenant,
-                'X-User-Id': userId
-            }
-        });
+        let fetchResponse: Response | undefined;
+        let requestError: Error | undefined;
 
-        if (!fetchResponse.ok) {
+        for (let attempt = 0; attempt < 3; attempt++) {
+            // @allowTryCatch Retry loop for transient network failures during data fetch
+            try {
+                fetchResponse = await nango.uncontrolledFetch({
+                    url,
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                        'X-Tenant-Id': tenant,
+                        'X-User-Id': userId
+                    }
+                });
+                if (fetchResponse.ok) {
+                    requestError = undefined;
+                    break;
+                }
+                requestError = new Error(`ConnectSecure API returned ${fetchResponse.status}`);
+            } catch (err) {
+                requestError = err instanceof Error ? err : new Error(String(err));
+            }
+            if (attempt < 2) {
+                await new Promise((resolve) => setTimeout(resolve, 1000 * (attempt + 1)));
+            }
+        }
+
+        if (!fetchResponse || !fetchResponse.ok || requestError) {
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: `ConnectSecure API returned ${fetchResponse.status}`,
-                status: fetchResponse.status
+                message: requestError ? requestError.message : `ConnectSecure API returned ${fetchResponse?.status}`,
+                status: fetchResponse?.status
             });
         }
 

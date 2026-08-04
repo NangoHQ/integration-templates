@@ -20,7 +20,7 @@ const MetadataSchema = z.object({
 const ProviderUserSchema = z
     .object({
         id: z.string(),
-        email: z.string(),
+        email: z.string().optional(),
         first_name: z.string().optional(),
         last_name: z.string().optional(),
         roles: z.array(z.string()).optional(),
@@ -62,13 +62,13 @@ const action = createAction({
     metadata: MetadataSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (input.cursor !== undefined && Number.isNaN(skip)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid numeric skip offset'
             });
         }
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         const connection = await nango.getConnection();
         let baseUrl = connection.connection_config?.['base_url'];
@@ -137,7 +137,7 @@ const action = createAction({
         const total = parsedBody.total;
 
         const nextSkipValue = skip + items.length;
-        const nextCursor = total !== undefined && nextSkipValue < total ? String(nextSkipValue) : undefined;
+        const nextCursor = items.length > 0 && total !== undefined && nextSkipValue < total ? String(nextSkipValue) : undefined;
 
         return {
             items,

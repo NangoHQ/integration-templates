@@ -49,7 +49,8 @@ const OutputCompanySchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(OutputCompanySchema),
-    total: z.number().optional()
+    total: z.number().optional(),
+    next_cursor: z.string().optional().describe('Cursor for the next page, if more items exist.')
 });
 
 const action = createAction({
@@ -60,11 +61,34 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (input.cursor !== undefined && Number.isNaN(skip)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid numeric skip offset'
+            });
+        }
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
+
+        const connection = await nango.getConnection();
+        const connectionConfigTenant = connection.connection_config?.['tenant'];
+        let tenant: string | undefined = typeof connectionConfigTenant === 'string' ? connectionConfigTenant : undefined;
+
+        if (!tenant) {
+            const metadata = await nango.getMetadata();
+            const MetadataSchema = z.record(z.string(), z.unknown());
+            const metadataParsed = MetadataSchema.safeParse(metadata);
+            if (metadataParsed.success) {
+                const fromMeta = metadataParsed.data['tenant'];
+                if (typeof fromMeta === 'string') {
+                    tenant = fromMeta;
+                }
+            }
+        }
+
+        if (!tenant) {
+            throw new nango.ActionError({
+                type: 'missing_connection_config',
+                message: 'tenant is required in connection config or metadata'
             });
         }
 
@@ -94,6 +118,7 @@ const action = createAction({
             },
             headers: {
                 Authorization: `Bearer ${authData.access_token}`,
+                'X-Tenant-Id': tenant,
                 'X-User-Id': authData.user_id
             },
             retries: 3
@@ -119,9 +144,14 @@ const action = createAction({
             };
         });
 
+        const nextSkip = skip + items.length;
+        const nextCursor =
+            items.length > 0 && providerResponse.total !== undefined && nextSkip < providerResponse.total ? String(nextSkip) : undefined;
+
         return {
             items,
-            ...(providerResponse.total !== undefined && { total: providerResponse.total })
+            ...(providerResponse.total !== undefined && { total: providerResponse.total }),
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

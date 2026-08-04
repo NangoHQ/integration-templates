@@ -2,7 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    asset_id: z.string().describe('Asset ID. Example: "152060779"')
+    asset_id: z
+        .string()
+        .regex(/^\d+$/, 'asset_id must be a numeric string')
+        .describe('Asset ID. Example: "152060779"')
 });
 
 const ConnectionSchema = z
@@ -34,7 +37,13 @@ const AuthorizeResponseSchema = z
         message: 'Authorize response missing access_token or user_id'
     });
 
-const ProviderAssetSchema = z.object({}).passthrough();
+const ProviderAssetSchema = z
+    .object({
+        id: z.number().describe('Asset ID. Example: 152060779'),
+        company_id: z.number().optional().describe('Company ID. Example: 16637'),
+        host_name: z.string().optional().describe('Host name. Example: Victors-MBP')
+    })
+    .passthrough();
 
 const ProviderResponseSchema = z.object({
     data: z.array(ProviderAssetSchema),

@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (skip offset). Omit for the first page.'),
-    limit: z.number().optional().describe('Maximum number of items to return. Example: 50'),
+    limit: z.number().int().positive().optional().describe('Maximum number of items to return. Example: 50'),
     condition: z.string().optional().describe('SQL-like filter condition. Example: "base_score>9"')
 });
 
@@ -72,13 +72,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(skip)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid skip offset integer'
             });
         }
+        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         const limit = input.limit ?? 50;
 
@@ -157,7 +157,7 @@ const action = createAction({
         });
 
         const nextSkip = skip + rows.length;
-        const next_cursor = nextSkip < total ? String(nextSkip) : undefined;
+        const next_cursor = rows.length > 0 && nextSkip < total ? String(nextSkip) : undefined;
 
         return {
             items,
