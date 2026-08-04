@@ -2,11 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    resource_id: z
-        .string()
-        .trim()
-        .min(1)
-        .describe('Resource identifier formatted as {resource_type}:{resource_uuid}. Example: "dashboard:ste-gtd-5rx"')
+    resource_id: z.string().trim().min(1).describe('Resource identifier formatted as {resource_type}:{resource_uuid}. Example: "dashboard:ste-gtd-5rx"')
 });
 
 const RestrictionPolicyBindingSchema = z.object({

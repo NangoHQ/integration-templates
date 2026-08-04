@@ -4,10 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     start: z.number().describe('Start of the time range, as a POSIX timestamp. Example: 1722470400'),
     end: z.number().describe('End of the time range, as a POSIX timestamp. Example: 1754006400'),
-    cursor: z
-        .string()
-        .optional()
-        .describe('Pagination cursor (zero-based page number) from the previous response. Omit for the first page.')
+    cursor: z.string().optional().describe('Pagination cursor (zero-based page number) from the previous response. Omit for the first page.')
 });
 
 const ProviderEventSchema = z.object({

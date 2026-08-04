@@ -94,8 +94,7 @@ const action = createAction({
         const providerUsers = rawBody.data.map((item) => ProviderUserSchema.parse(item));
 
         const totalFilteredCount = rawBody.meta?.page?.total_filtered_count;
-        const nextCursor =
-            totalFilteredCount !== undefined && (pageNumber + 1) * pageSize < totalFilteredCount ? String(pageNumber + 1) : undefined;
+        const nextCursor = totalFilteredCount !== undefined && (pageNumber + 1) * pageSize < totalFilteredCount ? String(pageNumber + 1) : undefined;
 
         return {
             users: providerUsers.map((user) => ({

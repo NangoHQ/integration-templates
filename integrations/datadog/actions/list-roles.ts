@@ -88,8 +88,7 @@ const action = createAction({
             })) ?? [];
 
         const totalFilteredCount = providerResponse.meta?.page?.total_filtered_count;
-        const nextCursor =
-            totalFilteredCount !== undefined && (pageNumber + 1) * pageSize < totalFilteredCount ? String(pageNumber + 1) : undefined;
+        const nextCursor = totalFilteredCount !== undefined && (pageNumber + 1) * pageSize < totalFilteredCount ? String(pageNumber + 1) : undefined;
 
         return {
             items,

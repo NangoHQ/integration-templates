@@ -2,7 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    user_id: z.string().trim().min(1).describe('The UUID of the user whose pending invitations should be canceled. Example: "4dee724d-00cc-11ea-a77b-570c9d03c6c5"')
+    user_id: z
+        .string()
+        .trim()
+        .min(1)
+        .describe('The UUID of the user whose pending invitations should be canceled. Example: "4dee724d-00cc-11ea-a77b-570c9d03c6c5"')
 });
 
 const OutputSchema = z.object({});

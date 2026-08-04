@@ -9,10 +9,12 @@ const ThresholdSchema = z.object({
 const MetricInputSchema = z.object({
     type: z.literal('metric').describe('SLO type: metric.'),
     name: z.string().describe('Name of the SLO. Example: "My Service SLO"'),
-    query: z.object({
-        numerator: z.string().describe('Numerator query. Must end with .as_count(). Example: "sum:system.cpu.user{*}.as_count()"'),
-        denominator: z.string().describe('Denominator query. Must end with .as_count(). Example: "sum:system.cpu.user{*}.as_count()"')
-    }).describe('Metric query defining the numerator/denominator for the SLI.'),
+    query: z
+        .object({
+            numerator: z.string().describe('Numerator query. Must end with .as_count(). Example: "sum:system.cpu.user{*}.as_count()"'),
+            denominator: z.string().describe('Denominator query. Must end with .as_count(). Example: "sum:system.cpu.user{*}.as_count()"')
+        })
+        .describe('Metric query defining the numerator/denominator for the SLI.'),
     thresholds: z.array(ThresholdSchema).min(1).describe('Thresholds defining the SLO target over time.')
 });
 
