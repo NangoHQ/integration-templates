@@ -3412,6 +3412,15 @@ import './mandrill/actions/update-template.js';
 import './mandrill/actions/update-webhook.js';
 import './mandrill/actions/verify-sender-domain.js';
 
+// -- Integration: meilisearch
+import './meilisearch/actions/add-documents.js';
+import './meilisearch/actions/delete-documents.js';
+import './meilisearch/actions/generate-tenant-token.js';
+import './meilisearch/actions/get-documents.js';
+import './meilisearch/actions/get-task.js';
+import './meilisearch/actions/search-documents.js';
+import './meilisearch/actions/update-documents.js';
+
 // -- Integration: metabase
 import './metabase/syncs/users.js';
 import './metabase/actions/create-user.js';
