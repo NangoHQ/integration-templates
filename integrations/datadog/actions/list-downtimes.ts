@@ -3,8 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     current_only: z.boolean().optional().describe('Only return active downtimes. Default: false.'),
-    page_limit: z.number().optional().describe('Number of downtimes to return per page. Maximum 100.'),
-    page_offset: z.number().optional().describe('Offset for pagination.')
+    page_limit: z.number().int().min(1).max(100).optional().describe('Number of downtimes to return per page. Maximum 100.'),
+    page_offset: z.number().int().min(0).optional().describe('Offset for pagination.')
 });
 
 const DowntimeRecurrenceSchema = z

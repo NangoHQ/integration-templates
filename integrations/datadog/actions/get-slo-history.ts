@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    slo_id: z.string().describe('SLO ID. Example: "de718b2c100251b8b03b23c74b93e5cd"'),
+    slo_id: z.string().trim().min(1).describe('SLO ID. Example: "de718b2c100251b8b03b23c74b93e5cd"'),
     from_ts: z.number().describe('Start of the time window in Unix epoch seconds. Example: 1785192228'),
     to_ts: z.number().describe('End of the time window in Unix epoch seconds. Example: 1785797028')
 });

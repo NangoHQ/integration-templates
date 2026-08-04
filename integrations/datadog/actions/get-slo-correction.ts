@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    correction_id: z.string().describe('The ID of the SLO correction object. Example: "abc123"')
+    correction_id: z.string().trim().min(1).describe('The ID of the SLO correction object. Example: "abc123"')
 });
 
 const CreatorAttributesSchema = z.object({

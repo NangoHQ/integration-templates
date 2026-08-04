@@ -6,15 +6,24 @@ const ThresholdSchema = z.object({
     target: z.number().describe('Target percentage. Example: 99.0')
 });
 
-const InputSchema = z.object({
+const MetricInputSchema = z.object({
+    type: z.literal('metric').describe('SLO type: metric.'),
     name: z.string().describe('Name of the SLO. Example: "My Service SLO"'),
-    type: z.enum(['metric', 'monitor']).describe('SLO type: metric or monitor. Example: "metric"'),
     query: z.object({
-        numerator: z.string().describe('Numerator query. For metric type, must end with .as_count(). Example: "sum:system.cpu.user{*}.as_count()"'),
-        denominator: z.string().describe('Denominator query. For metric type, must end with .as_count(). Example: "sum:system.cpu.user{*}.as_count()"')
-    }),
+        numerator: z.string().describe('Numerator query. Must end with .as_count(). Example: "sum:system.cpu.user{*}.as_count()"'),
+        denominator: z.string().describe('Denominator query. Must end with .as_count(). Example: "sum:system.cpu.user{*}.as_count()"')
+    }).describe('Metric query defining the numerator/denominator for the SLI.'),
     thresholds: z.array(ThresholdSchema).min(1).describe('Thresholds defining the SLO target over time.')
 });
+
+const MonitorInputSchema = z.object({
+    type: z.literal('monitor').describe('SLO type: monitor.'),
+    name: z.string().describe('Name of the SLO. Example: "My Service SLO"'),
+    monitor_ids: z.array(z.number()).min(1).describe('IDs of the monitors that make up the monitor-based SLO. Example: [308771182]'),
+    thresholds: z.array(ThresholdSchema).min(1).describe('Thresholds defining the SLO target over time.')
+});
+
+const InputSchema = z.discriminatedUnion('type', [MetricInputSchema, MonitorInputSchema]);
 
 const ProviderSloSchema = z.object({
     id: z.string(),
@@ -23,10 +32,11 @@ const ProviderSloSchema = z.object({
     query: z
         .object({
             numerator: z.string().optional(),
-            denominator: z.string().optional(),
-            monitor_ids: z.array(z.number()).optional()
+            denominator: z.string().optional()
         })
-        .passthrough(),
+        .passthrough()
+        .optional(),
+    monitor_ids: z.array(z.number()).optional(),
     thresholds: z.array(
         z
             .object({
@@ -64,10 +74,11 @@ const OutputSchema = z.object({
     query: z
         .object({
             numerator: z.string().optional(),
-            denominator: z.string().optional(),
-            monitor_ids: z.array(z.number()).optional()
+            denominator: z.string().optional()
         })
-        .passthrough(),
+        .passthrough()
+        .optional(),
+    monitor_ids: z.array(z.number()).optional(),
     thresholds: z.array(
         z
             .object({
@@ -99,6 +110,8 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let requestData: Record<string, unknown>;
+
         if (input.type === 'metric') {
             const asCountRegex = /\.as_count\(\)$/;
             if (!asCountRegex.test(input.query.numerator)) {
@@ -113,17 +126,27 @@ const action = createAction({
                     message: 'Metric queries require the "as_count()" modifier on the denominator query.'
                 });
             }
+
+            requestData = {
+                name: input.name,
+                type: input.type,
+                query: input.query,
+                thresholds: input.thresholds
+            };
+        } else {
+            // Monitor-based SLOs reference monitors by id at the top level (no "query" object).
+            requestData = {
+                name: input.name,
+                type: input.type,
+                monitor_ids: input.monitor_ids,
+                thresholds: input.thresholds
+            };
         }
 
         // https://docs.datadoghq.com/api/latest/service-level-objectives/#create-an-slo-object
         const response = await nango.post({
             endpoint: 'v1/slo',
-            data: {
-                name: input.name,
-                type: input.type,
-                query: input.query,
-                thresholds: input.thresholds
-            },
+            data: requestData,
             retries: 3
         });
 
@@ -164,7 +187,8 @@ const action = createAction({
             id: slo.id,
             name: slo.name,
             type: slo.type,
-            query: slo.query,
+            ...(slo.query != null && { query: slo.query }),
+            ...(slo.monitor_ids != null && { monitor_ids: slo.monitor_ids }),
             thresholds: slo.thresholds.map((t) => ({
                 timeframe: t.timeframe,
                 target: t.target,

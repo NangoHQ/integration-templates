@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    correctionId: z.string().describe('The ID of the SLO correction to delete. Example: "c2a34c8a-8f8b-11f1-810a-da7ad0902002"')
+    correctionId: z.string().trim().min(1).describe('The ID of the SLO correction to delete. Example: "c2a34c8a-8f8b-11f1-810a-da7ad0902002"')
 });
 
 const OutputSchema = z.object({

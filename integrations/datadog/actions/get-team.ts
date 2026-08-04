@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    team_id: z.string().describe('The team\'s identifier. Example: "aeadc05e-98a8-11ec-ac2c-da7ad0900001"')
+    team_id: z.string().trim().min(1).describe('The team\'s identifier. Example: "aeadc05e-98a8-11ec-ac2c-da7ad0900001"')
 });
 
 const TeamAttributesSchema = z.object({

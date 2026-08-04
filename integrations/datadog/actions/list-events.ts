@@ -4,7 +4,10 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     start: z.number().describe('Start of the time range, as a POSIX timestamp. Example: 1722470400'),
     end: z.number().describe('End of the time range, as a POSIX timestamp. Example: 1754006400'),
-    cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.')
+    cursor: z
+        .string()
+        .optional()
+        .describe('Pagination cursor (zero-based page number) from the previous response. Omit for the first page.')
 });
 
 const ProviderEventSchema = z.object({
@@ -33,13 +36,14 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(page) || page < 1) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a positive integer page number'
+                message: 'cursor must be a non-negative integer page number'
             });
         }
+        // v1/events pagination is zero-based (page 0 is the first page), matching syncs/events.ts.
+        const page = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         // https://docs.datadoghq.com/api/latest/events/#get-a-list-of-events
         const response = await nango.get({

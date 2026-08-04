@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    user_id: z.string().describe('The user ID to disable. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"')
+    user_id: z.string().trim().min(1).describe('The user ID to disable. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"')
 });
 
 const OutputSchema = z.object({

@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
-    page_size: z.number().optional().describe('Number of cases per page. Maximum allowed value is 100.'),
+    page_size: z.number().int().min(1).max(100).optional().describe('Number of cases per page. Maximum allowed value is 100.'),
     filter: z.string().optional().describe('Search query filter.'),
     sort_field: z.enum(['created_at', 'priority', 'status']).optional().describe('Field to sort by.'),
     sort_asc: z.boolean().optional().describe('Sort ascending.')
@@ -109,13 +109,14 @@ const action = createAction({
     scopes: ['cases_read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const pageNumber = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(pageNumber) || pageNumber < 1) {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid positive integer representing a page number.'
             });
         }
+        // v2/cases page[number] is 1-based (page 0 is rejected by the API).
+        const pageNumber = input.cursor ? parseInt(input.cursor, 10) : 1;
 
         // https://docs.datadoghq.com/api/latest/case-management/search-cases/
         const response = await nango.get({

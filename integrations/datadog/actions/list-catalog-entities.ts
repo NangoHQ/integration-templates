@@ -6,10 +6,38 @@ const InputSchema = z.object({
     limit: z.number().optional().describe('Pagination limit. Example: 100')
 });
 
-const ProviderEntitySchema = z.object({}).passthrough();
+const CatalogEntityAttributesSchema = z
+    .object({
+        kind: z.string().optional(),
+        name: z.string().optional(),
+        namespace: z.string().optional(),
+        apiVersion: z.string().optional(),
+        owner: z.string().optional(),
+        description: z.string().optional()
+    })
+    .passthrough();
+
+const CatalogEntityMetaSchema = z
+    .object({
+        createdAt: z.string().optional(),
+        modifiedAt: z.string().optional(),
+        ingestionSource: z.string().optional(),
+        origin: z.string().optional()
+    })
+    .passthrough();
+
+const ProviderEntitySchema = z
+    .object({
+        id: z.string(),
+        type: z.string(),
+        attributes: CatalogEntityAttributesSchema.optional(),
+        relationships: z.record(z.string(), z.unknown()).optional(),
+        meta: CatalogEntityMetaSchema.optional()
+    })
+    .passthrough();
 
 const ProviderResponseSchema = z.object({
-    data: z.array(z.unknown()).optional(),
+    data: z.array(ProviderEntitySchema),
     meta: z
         .object({
             count: z.number().optional(),
@@ -30,8 +58,22 @@ const ProviderResponseSchema = z.object({
         .optional()
 });
 
+const OutputEntitySchema = z.object({
+    id: z.string(),
+    type: z.string(),
+    kind: z.string().optional(),
+    name: z.string().optional(),
+    namespace: z.string().optional(),
+    api_version: z.string().optional(),
+    owner: z.string().optional(),
+    description: z.string().optional(),
+    created_at: z.string().optional(),
+    modified_at: z.string().optional(),
+    relationships: z.record(z.string(), z.unknown()).optional()
+});
+
 const OutputSchema = z.object({
-    entities: z.array(ProviderEntitySchema),
+    entities: z.array(OutputEntitySchema),
     total: z.number().optional(),
     next_offset: z.number().optional()
 });
@@ -43,7 +85,7 @@ const action = createAction({
     output: OutputSchema,
     scopes: ['apm_service_catalog_read'],
 
-    exec: async (nango, input) => {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://docs.datadoghq.com/api/latest/software-catalog/
             endpoint: 'v2/catalog/entity',
@@ -63,11 +105,19 @@ const action = createAction({
         }
 
         const data = parsed.data;
-        const rawEntities = data.data ?? [];
-        const entities = rawEntities.map((item) => {
-            const parsedItem = ProviderEntitySchema.safeParse(item);
-            return parsedItem.success ? parsedItem.data : {};
-        });
+        const entities = data.data.map((item) => ({
+            id: item.id,
+            type: item.type,
+            ...(item.attributes?.kind !== undefined && { kind: item.attributes.kind }),
+            ...(item.attributes?.name !== undefined && { name: item.attributes.name }),
+            ...(item.attributes?.namespace !== undefined && { namespace: item.attributes.namespace }),
+            ...(item.attributes?.apiVersion !== undefined && { api_version: item.attributes.apiVersion }),
+            ...(item.attributes?.owner !== undefined && { owner: item.attributes.owner }),
+            ...(item.attributes?.description !== undefined && { description: item.attributes.description }),
+            ...(item.meta?.createdAt !== undefined && { created_at: item.meta.createdAt }),
+            ...(item.meta?.modifiedAt !== undefined && { modified_at: item.meta.modifiedAt }),
+            ...(item.relationships !== undefined && { relationships: item.relationships })
+        }));
 
         const metaPage = data.meta?.page ?? {};
         const total = metaPage.total ?? data.meta?.count;

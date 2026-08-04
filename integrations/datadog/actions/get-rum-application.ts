@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    app_id: z.string().describe('RUM application ID. Example: "f34e959e-2ec6-4cee-8122-b625abbfad05"')
+    app_id: z.string().trim().min(1).describe('RUM application ID. Example: "f34e959e-2ec6-4cee-8122-b625abbfad05"')
 });
 
 const ProviderRumApplicationAttributesSchema = z.object({

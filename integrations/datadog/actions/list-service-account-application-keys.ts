@@ -2,9 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    service_account_id: z.string().describe('The ID of the service account. Example: "39886536-8f56-11f1-88dd-3619de0c3ef9"'),
-    page_size: z.number().optional().describe('Number of items per page. Maximum 100.'),
-    page_number: z.number().optional().describe('Page number for offset-based pagination.'),
+    service_account_id: z.string().trim().min(1).describe('The ID of the service account. Example: "39886536-8f56-11f1-88dd-3619de0c3ef9"'),
+    page_size: z.number().int().min(1).max(100).optional().describe('Number of items per page. Maximum 100.'),
+    page_number: z.number().int().min(0).optional().describe('Page number for offset-based pagination.'),
     sort: z.string().optional().describe('Sort order. Examples: "created_at", "-created_at", "name", "-name".')
 });
 

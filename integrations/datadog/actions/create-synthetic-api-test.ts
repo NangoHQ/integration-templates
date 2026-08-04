@@ -33,6 +33,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['synthetics_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestMethod = input.request_method ?? 'GET';

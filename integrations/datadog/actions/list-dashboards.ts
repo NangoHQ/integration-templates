@@ -47,6 +47,12 @@ const action = createAction({
     scopes: ['dashboards_read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer offset'
+            });
+        }
         const limit = input.limit ?? 100;
         const start = input.cursor ? parseInt(input.cursor, 10) : 0;
 

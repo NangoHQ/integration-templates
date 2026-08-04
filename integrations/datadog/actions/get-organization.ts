@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    publicId: z.string().describe('The public ID of the organization. Example: "dff239f1-89cd-11f1-99ca-2e768c8f2b93"')
+    publicId: z.string().trim().min(1).describe('The public ID of the organization. Example: "dff239f1-89cd-11f1-99ca-2e768c8f2b93"')
 });
 
 const ProviderOrgSchema = z

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    role_id: z.string().describe('Role ID. Example: "dffc73ec-89cd-11f1-8e5b-da7ad0900002"')
+    role_id: z.string().trim().min(1).describe('Role ID. Example: "dffc73ec-89cd-11f1-8e5b-da7ad0900002"')
 });
 
 const ProviderPermissionSchema = z.object({

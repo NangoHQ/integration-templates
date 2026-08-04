@@ -9,7 +9,7 @@ const WidgetSchema = z
     .passthrough();
 
 const InputSchema = z.object({
-    dashboard_id: z.string().describe('The ID of the dashboard to update. Example: "abc-def-123"'),
+    dashboard_id: z.string().trim().min(1).describe('The ID of the dashboard to update. Example: "abc-def-123"'),
     title: z.string().describe('The new title for the dashboard.'),
     layout_type: z.string().describe('The layout type of the dashboard. Example: "ordered" or "free".'),
     description: z.string().nullable().optional().describe('The description of the dashboard.'),

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dashboardId: z.string().describe('The ID of the dashboard to delete. Example: "abc-def-123"')
+    dashboardId: z.string().trim().min(1).describe('The ID of the dashboard to delete. Example: "abc-def-123"')
 });
 
 const OutputSchema = z.object({

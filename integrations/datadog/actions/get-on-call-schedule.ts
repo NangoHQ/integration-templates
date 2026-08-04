@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    schedule_id: z.string().describe('The ID of the On-Call schedule. Example: "3653d3c6-0c75-11ea-ad28-fb5701eabc7d"')
+    schedule_id: z.string().trim().min(1).describe('The ID of the On-Call schedule. Example: "3653d3c6-0c75-11ea-ad28-fb5701eabc7d"')
 });
 
 const ScheduleRelationshipDataSchema = z.object({

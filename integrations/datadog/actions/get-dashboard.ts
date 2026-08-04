@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    dashboardId: z.string().describe('Dashboard ID. Example: "ste-gtd-5rx"')
+    dashboardId: z.string().trim().min(1).describe('Dashboard ID. Example: "ste-gtd-5rx"')
 });
 
 const OutputSchema = z.object({

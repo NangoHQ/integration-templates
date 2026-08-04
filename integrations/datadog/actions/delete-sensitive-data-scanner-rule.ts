@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    ruleId: z.string().describe('The unique ID of the scanning rule. Example: "abc-def-123"')
+    ruleId: z.string().trim().min(1).describe('The unique ID of the scanning rule. Example: "abc-def-123"')
 });
 
 const OutputSchema = z.object({

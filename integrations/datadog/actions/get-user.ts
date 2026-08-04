@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.string().describe('User ID. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"')
+    userId: z.string().trim().min(1).describe('User ID. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"')
 });
 
 const ProviderUserAttributesSchema = z.object({

@@ -89,7 +89,15 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = ConnectionSchema.parse(await nango.getConnection());
-        const siteParameter = connection.connection_config?.siteParameter ?? 'datadoghq.com';
+        const siteParameter = connection.connection_config?.siteParameter;
+
+        if (typeof siteParameter !== 'string' || !siteParameter) {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'connection_config.siteParameter is required to route the On-Call page to the correct Datadog cluster.'
+            });
+        }
+
         const baseUrl = getOnCallBaseUrl(siteParameter);
 
         const body = {

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    apiKeyId: z.string().describe('The ID of the API key to delete. Example: "1234567890abcdef"')
+    apiKeyId: z.string().trim().min(1).describe('The ID of the API key to delete. Example: "1234567890abcdef"')
 });
 
 const OutputSchema = z.object({
@@ -14,6 +14,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api_keys_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.datadoghq.com/api/latest/api-keys/#delete-an-api-key

@@ -2,7 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    resource_id: z.string().describe('The identifier for the resource, in the format resource_type:resource_id. Example: "dashboard:abc-def-ghi"')
+    resource_id: z
+        .string()
+        .trim()
+        .min(1)
+        .describe('The identifier for the resource, in the format resource_type:resource_id. Example: "dashboard:abc-def-ghi"')
 });
 
 const OutputSchema = z.object({

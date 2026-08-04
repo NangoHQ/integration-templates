@@ -9,7 +9,7 @@ const BindingSchema = z.object({
 });
 
 const InputSchema = z.object({
-    resource_id: z.string().describe('The identifier of the resource to restrict. Example: "abc-def-ghi"'),
+    resource_id: z.string().trim().min(1).describe('The identifier of the resource to restrict. Example: "abc-def-ghi"'),
     bindings: z.array(BindingSchema).min(1).describe('At least one binding is required. An empty array is rejected by the API.')
 });
 
@@ -36,6 +36,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['restriction_policies_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    app_id: z.string().describe('The ID of the RUM application to delete. Example: "9361fc7f-7206-40b0-9401-262b2896a5b0"')
+    app_id: z.string().trim().min(1).describe('The ID of the RUM application to delete. Example: "9361fc7f-7206-40b0-9401-262b2896a5b0"')
 });
 
 const OutputSchema = z.object({

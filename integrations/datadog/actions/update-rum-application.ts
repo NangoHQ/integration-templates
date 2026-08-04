@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    appId: z.string().describe('The RUM application ID. Example: "f34e959e-2ec6-4cee-8122-b625abbfad05"'),
+    appId: z.string().trim().min(1).describe('The RUM application ID. Example: "f34e959e-2ec6-4cee-8122-b625abbfad05"'),
     name: z.string().optional().describe('Updated name of the RUM application.'),
     type: z
         .enum(['browser', 'ios', 'android', 'react-native', 'flutter', 'roku', 'electron', 'unity', 'kotlin-multiplatform'])

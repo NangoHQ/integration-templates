@@ -2,19 +2,19 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    notebook_id: z.number().describe('The notebook ID. Example: 15174764')
+    notebook_id: z.union([z.number(), z.string()]).describe('The notebook ID. Example: 15174764')
 });
 
 const ProviderNotebookSchema = z
     .object({
-        id: z.number(),
+        id: z.union([z.number(), z.string()]),
         type: z.string(),
         attributes: z.record(z.string(), z.unknown())
     })
     .passthrough();
 
 const OutputSchema = z.object({
-    id: z.number(),
+    id: z.union([z.number(), z.string()]),
     type: z.string(),
     attributes: z.record(z.string(), z.unknown()).optional()
 });

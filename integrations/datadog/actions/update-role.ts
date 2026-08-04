@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    roleId: z.string().describe('Role ID. Example: "00000000-0000-0000-0000-000000000000"'),
+    roleId: z.string().trim().min(1).describe('Role ID. Example: "00000000-0000-0000-0000-000000000000"'),
     name: z.string().describe('New name for the role.')
 });
 
@@ -53,6 +53,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['user_access_manage'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.patch({

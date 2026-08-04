@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    hostname: z.string().describe('The hostname of the host to tag. Example: "my-host.example.com"'),
+    hostname: z.string().trim().min(1).describe('The hostname of the host to tag. Example: "my-host.example.com"'),
     tags: z.array(z.string()).describe('List of tags to apply to the host. Example: ["env:staging", "team:backend"]')
 });
 

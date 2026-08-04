@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    service_account_id: z.string().describe('The ID of the service account. Example: "39886536-8f56-11f1-88dd-3619de0c3ef9"'),
+    service_account_id: z.string().trim().min(1).describe('The ID of the service account. Example: "39886536-8f56-11f1-88dd-3619de0c3ef9"'),
     name: z.string().describe('Name of the access token. Example: "My Access Token"'),
     scopes: z.array(z.string()).describe('Array of scopes to grant the access token. Example: ["dashboards_read", "dashboards_write"]'),
     expires_at: z.string().optional().describe('Expiration date of the access token in ISO 8601 format. Example: "2025-12-31T23:59:59Z"')
@@ -81,7 +81,7 @@ const action = createAction({
             ...(attrs.public_portion != null && { public_portion: attrs.public_portion }),
             ...(attrs.created_at != null && { created_at: attrs.created_at }),
             ...(attrs.expires_at != null && { expires_at: attrs.expires_at }),
-            service_account_id: rel?.owned_by.data.id ?? ''
+            service_account_id: rel?.owned_by.data.id ?? input.service_account_id
         };
     }
 });

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    api_key_id: z.string().describe('The ID of the API key. Example: "12345678-1234-1234-1234-123456789abc"')
+    api_key_id: z.string().trim().min(1).describe('The ID of the API key. Example: "12345678-1234-1234-1234-123456789abc"')
 });
 
 const LastUsedDateSchema = z.object({

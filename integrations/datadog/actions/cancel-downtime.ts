@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    downtime_id: z.string().describe('The ID of the downtime to cancel. Example: "12345"')
+    downtime_id: z.string().trim().min(1).describe('The ID of the downtime to cancel. Example: "12345"')
 });
 
 const OutputSchema = z.object({

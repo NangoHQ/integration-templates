@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userInvitationUuid: z.string().describe('The UUID of the user invitation. Example: "00000000-0000-0000-0000-000000000000"')
+    userInvitationUuid: z.string().trim().min(1).describe('The UUID of the user invitation. Example: "00000000-0000-0000-0000-000000000000"')
 });
 
 const ProviderUserInvitationSchema = z.object({

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    publicId: z.string().describe('The public ID of the Synthetic API test to retrieve. Example: "igg-8su-c9q"')
+    publicId: z.string().trim().min(1).describe('The public ID of the Synthetic API test to retrieve. Example: "igg-8su-c9q"')
 });
 
 const CreatorSchema = z

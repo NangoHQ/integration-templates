@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import * as z from 'zod';
 
 const syntheticTestSchema = z.object({
@@ -23,10 +23,6 @@ type SyntheticTest = z.infer<typeof syntheticTestSchema>;
 
 const checkpointSchema = z.object({
     page_number: z.number().int().nonnegative()
-});
-
-const rawListResponseSchema = z.object({
-    tests: z.array(z.unknown())
 });
 
 const rawSyntheticTestSchema = z.object({
@@ -66,65 +62,56 @@ const sync = createSync({
         const checkpoint: z.infer<typeof checkpointSchema> | null = await nango.getCheckpoint();
         await nango.log('Starting synthetic tests sync', { checkpoint: checkpoint === null ? 'null' : JSON.stringify(checkpoint) });
 
+        let pageNumber = checkpoint?.page_number ?? 0;
+
         await nango.trackDeletesStart('SyntheticTest');
 
-        let pageNumber = checkpoint?.page_number ?? 0;
-        let hasMore = true;
-
-        while (hasMore) {
+        const proxyConfig: ProxyConfiguration = {
             // https://docs.datadoghq.com/api/latest/synthetics/#get-the-list-of-all-synthetic-tests
-            const response = await nango.get({
-                endpoint: 'v1/synthetics/tests',
-                retries: 3,
-                params: {
-                    page_size: PAGE_SIZE,
-                    page_number: pageNumber
-                }
-            });
+            endpoint: 'v1/synthetics/tests',
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'page_number',
+                offset_start_value: pageNumber,
+                offset_calculation_method: 'per-page',
+                limit_name_in_request: 'page_size',
+                limit: PAGE_SIZE,
+                response_path: 'tests'
+            },
+            retries: 3
+        };
 
-            const parsedList = rawListResponseSchema.safeParse(response.data);
-            if (!parsedList.success) {
-                throw new Error(`Failed to parse synthetic tests list: ${parsedList.error.message}`);
-            }
-
-            const testBatch = parsedList.data.tests;
-
+        for await (const page of nango.paginate(proxyConfig)) {
             const mappedTests: SyntheticTest[] = [];
-            for (const test of testBatch) {
-                if (test && typeof test === 'object') {
-                    const parsed = rawSyntheticTestSchema.safeParse(test);
-                    if (!parsed.success) {
-                        throw new Error(`Failed to parse synthetic test: ${parsed.error.message}`);
-                    }
-                    const raw = parsed.data;
-                    mappedTests.push({
-                        id: raw.public_id,
-                        public_id: raw.public_id,
-                        name: raw.name,
-                        type: raw.type,
-                        subtype: raw.subtype,
-                        status: raw.status,
-                        message: raw.message,
-                        tags: raw.tags,
-                        locations: raw.locations,
-                        monitor_id: raw.monitor_id,
-                        creator_email: raw.creator?.email,
-                        creator_handle: raw.creator?.handle,
-                        creator_name: raw.creator?.name ?? undefined,
-                        config: raw.config,
-                        options: raw.options
-                    });
+            for (const test of page) {
+                const parsed = rawSyntheticTestSchema.safeParse(test);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse synthetic test: ${parsed.error.message}`);
                 }
+                const raw = parsed.data;
+                mappedTests.push({
+                    id: raw.public_id,
+                    public_id: raw.public_id,
+                    name: raw.name,
+                    type: raw.type,
+                    subtype: raw.subtype,
+                    status: raw.status,
+                    message: raw.message,
+                    tags: raw.tags,
+                    locations: raw.locations,
+                    monitor_id: raw.monitor_id,
+                    creator_email: raw.creator?.email,
+                    creator_handle: raw.creator?.handle,
+                    creator_name: raw.creator?.name ?? undefined,
+                    config: raw.config,
+                    options: raw.options
+                });
             }
 
             if (mappedTests.length > 0) {
                 await nango.batchSave(mappedTests, 'SyntheticTest');
                 await nango.log(`Saved ${mappedTests.length} synthetic tests from page ${pageNumber}`);
-            }
-
-            hasMore = testBatch.length === PAGE_SIZE;
-            pageNumber += 1;
-            if (testBatch.length > 0) {
+                pageNumber += 1;
                 await nango.saveCheckpoint({ page_number: pageNumber });
             }
         }

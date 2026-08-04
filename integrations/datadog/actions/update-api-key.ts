@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    api_key_id: z.string().describe('The ID of the API key to update. Example: "001e9b92-4dd8-4a5e-ba6f-e6ec82ed80a3"'),
+    api_key_id: z.string().trim().min(1).describe('The ID of the API key to update. Example: "001e9b92-4dd8-4a5e-ba6f-e6ec82ed80a3"'),
     name: z.string().describe('The new name for the API key. Example: "Updated API Key Name"')
 });
 

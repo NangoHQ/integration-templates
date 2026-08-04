@@ -45,13 +45,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input) => {
-        const pageNumber = input.cursor ? Number(input.cursor) : 0;
-        if (Number.isNaN(pageNumber)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a valid page number string'
             });
         }
+        const pageNumber = input.cursor ? Number(input.cursor) : 0;
 
         const pageSize = 100;
 

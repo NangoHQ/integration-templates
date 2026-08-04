@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    public_id: z.string().describe('The public ID of the Synthetic API test to update. Example: "abc-def-123"'),
+    public_id: z.string().trim().min(1).describe('The public ID of the Synthetic API test to update. Example: "abc-def-123"'),
     name: z.string().optional().describe('New name for the test.'),
     message: z.string().optional().describe('New notification message for the test.'),
     status: z.enum(['live', 'paused']).optional().describe('Whether to start or pause the test.'),

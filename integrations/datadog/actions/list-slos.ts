@@ -71,13 +71,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input) => {
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(offset)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'Invalid cursor value.'
             });
         }
+        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         const limit = input.limit ?? 1000;
 

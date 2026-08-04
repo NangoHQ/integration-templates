@@ -36,14 +36,13 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const pageSize = input.page_size ?? 10;
-        const pageNumber = input.cursor ? parseInt(input.cursor, 10) : 0;
-
-        if (Number.isNaN(pageNumber)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a valid integer page number'
             });
         }
+        const pageNumber = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         const response = await nango.get({
             // https://docs.datadoghq.com/api/latest/key-management/#get-all-application-keys

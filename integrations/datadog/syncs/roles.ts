@@ -39,7 +39,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page[number]',
-                offset_start_value: 1,
+                offset_start_value: 0,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'page[size]',
                 limit: 100,

@@ -32,12 +32,28 @@ const action = createAction({
         const siteParameter = connection.connection_config?.['siteParameter'];
 
         if (typeof siteParameter !== 'string' || !siteParameter) {
-            if (!connection.connection_config) {
-                return {};
-            }
             throw new nango.ActionError({
                 type: 'missing_config',
                 message: 'connection_config.siteParameter is required to determine the Datadog log intake host.'
+            });
+        }
+
+        // Trusted Datadog site values only: https://docs.datadoghq.com/getting_started/site/
+        const trustedDatadogSites = new Set([
+            'datadoghq.com',
+            'us3.datadoghq.com',
+            'us5.datadoghq.com',
+            'datadoghq.eu',
+            'ap1.datadoghq.com',
+            'ap2.datadoghq.com',
+            'ddog-gov.com',
+            'us2.ddog-gov.com'
+        ]);
+
+        if (!trustedDatadogSites.has(siteParameter)) {
+            throw new nango.ActionError({
+                type: 'invalid_config',
+                message: `connection_config.siteParameter "${siteParameter}" is not a recognized Datadog site.`
             });
         }
 

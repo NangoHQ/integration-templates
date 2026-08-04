@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    role_id: z.string().describe('Role ID. Example: "28bd04aa-8f8e-11f1-92b1-da7ad0900002"')
+    role_id: z.string().trim().min(1).describe('Role ID. Example: "28bd04aa-8f8e-11f1-92b1-da7ad0900002"')
 });
 
 const OutputSchema = z.object({

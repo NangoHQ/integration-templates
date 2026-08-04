@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.string().describe('User ID. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"'),
+    userId: z.string().trim().min(1).describe('User ID. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"'),
     name: z.string().optional().describe('Full name of the user.'),
     email: z.string().optional().describe('Email address of the user.'),
     title: z.string().nullable().optional().describe('Job title of the user.'),
@@ -42,6 +42,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['users_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const attributes: Record<string, unknown> = {};

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    hostname: z.string().describe('The hostname to retrieve tags for. Example: "Victors-MacBook-Pro.local"')
+    hostname: z.string().trim().min(1).describe('The hostname to retrieve tags for. Example: "Victors-MacBook-Pro.local"')
 });
 
 const ProviderResponseSchema = z.object({

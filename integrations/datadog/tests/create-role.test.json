@@ -1,0 +1,152 @@
+{
+  "input": {
+    "name": "Nango Registry Test Role Create 1785796535"
+  },
+  "output": {
+    "id": "a78cf8d8-8f8b-11f1-98b6-da7ad0900002",
+    "type": "roles",
+    "name": "Nango Registry Test Role Create 1785796535",
+    "created_at": "2026-08-03T22:35:39.946187Z",
+    "modified_at": "2026-08-03T22:35:39.945293Z",
+    "user_count": 0,
+    "permissions": [
+      {
+        "id": "d90f6830-d3d8-11e9-a77a-b3404e5e9ee2",
+        "type": "permissions"
+      },
+      {
+        "id": "4441648c-d8b1-11e9-a77a-1b899a04b304",
+        "type": "permissions"
+      },
+      {
+        "id": "417ba636-2dce-11eb-84c0-6bce5b0d9de0",
+        "type": "permissions"
+      },
+      {
+        "id": "12efc20e-d36c-11eb-a9b8-da7ad0900002",
+        "type": "permissions"
+      },
+      {
+        "id": "7605ef24-f376-11eb-b90b-da7ad0900002",
+        "type": "permissions"
+      },
+      {
+        "id": "b6bf9ac6-9a59-11ec-8480-da7ad0900002",
+        "type": "permissions"
+      },
+      {
+        "id": "f8e941cf-e746-11ec-b22d-da7ad0900002",
+        "type": "permissions"
+      },
+      {
+        "id": "6c5ad874-7aff-11ed-a5cd-da7ad0900002",
+        "type": "permissions"
+      },
+      {
+        "id": "a8b4d6e8-4ea4-11ee-b482-da7ad0900002",
+        "type": "permissions"
+      },
+      {
+        "id": "50c270de-69ee-11ee-9151-da7ad0900002",
+        "type": "permissions"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/roles": {
+        "response": {
+          "data": {
+            "id": "a78cf8d8-8f8b-11f1-98b6-da7ad0900002",
+            "type": "roles",
+            "attributes": {
+              "created_at": "2026-08-03T22:35:39.946187Z",
+              "modified_at": "2026-08-03T22:35:39.945293Z",
+              "name": "Nango Registry Test Role Create 1785796535",
+              "team_count": 0,
+              "user_count": 0
+            },
+            "relationships": {
+              "permissions": {
+                "data": [
+                  {
+                    "id": "d90f6830-d3d8-11e9-a77a-b3404e5e9ee2",
+                    "type": "permissions"
+                  },
+                  {
+                    "id": "4441648c-d8b1-11e9-a77a-1b899a04b304",
+                    "type": "permissions"
+                  },
+                  {
+                    "id": "417ba636-2dce-11eb-84c0-6bce5b0d9de0",
+                    "type": "permissions"
+                  },
+                  {
+                    "id": "12efc20e-d36c-11eb-a9b8-da7ad0900002",
+                    "type": "permissions"
+                  },
+                  {
+                    "id": "7605ef24-f376-11eb-b90b-da7ad0900002",
+                    "type": "permissions"
+                  },
+                  {
+                    "id": "b6bf9ac6-9a59-11ec-8480-da7ad0900002",
+                    "type": "permissions"
+                  },
+                  {
+                    "id": "f8e941cf-e746-11ec-b22d-da7ad0900002",
+                    "type": "permissions"
+                  },
+                  {
+                    "id": "6c5ad874-7aff-11ed-a5cd-da7ad0900002",
+                    "type": "permissions"
+                  },
+                  {
+                    "id": "a8b4d6e8-4ea4-11ee-b482-da7ad0900002",
+                    "type": "permissions"
+                  },
+                  {
+                    "id": "50c270de-69ee-11ee-9151-da7ad0900002",
+                    "type": "permissions"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:35:40 GMT",
+          "content-type": "application/vnd.api+json",
+          "content-length": "966",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1943",
+          "x-ratelimit-reset": "1785796585",
+          "etag": "W/\"3c6-Z9QRbY6Hr8j6viB6L1Ja3qdy9LQ\""
+        },
+        "hash": "4545f8662c1f66949b949f11bf4df3ad9b1527b4",
+        "request": {
+          "data": {
+            "data": {
+              "type": "roles",
+              "attributes": {
+                "name": "Nango Registry Test Role Create 1785796535"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

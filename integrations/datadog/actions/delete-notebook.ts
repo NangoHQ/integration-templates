@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    notebook_id: z.string().describe('The ID of the notebook to delete. Example: "15174764"')
+    notebook_id: z.string().trim().min(1).describe('The ID of the notebook to delete. Example: "15174764"')
 });
 
 const OutputSchema = z.object({
@@ -14,6 +14,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['notebooks_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({

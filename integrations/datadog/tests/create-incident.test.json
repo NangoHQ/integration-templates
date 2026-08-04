@@ -1,0 +1,199 @@
+{
+  "input": {
+    "title": "Nango Registry Test Incident"
+  },
+  "output": {
+    "id": "c40bd820-5a77-4423-988c-e7ea866b4854",
+    "title": "Nango Registry Test Incident",
+    "created": "2026-08-03T22:46:42.072778Z",
+    "modified": "2026-08-03T22:46:42.072778Z",
+    "severity": "UNKNOWN",
+    "state": "active"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/incidents": {
+        "response": {
+          "data": {
+            "id": "c40bd820-5a77-4423-988c-e7ea866b4854",
+            "type": "incidents",
+            "attributes": {
+              "case_id": null,
+              "created": "2026-08-03T22:46:42.072778Z",
+              "created_by_uuid": "3eb2d4d6-9f22-4284-9a99-7df78ef473aa",
+              "creation_idempotency_key": null,
+              "customer_impact_duration": 0,
+              "customer_impact_end": null,
+              "customer_impact_scope": null,
+              "customer_impact_start": null,
+              "customer_impacted": null,
+              "declared": "2026-08-03T22:46:42.072778Z",
+              "declared_by_uuid": "3eb2d4d6-9f22-4284-9a99-7df78ef473aa",
+              "detected": "2026-08-03T22:46:42.072778Z",
+              "field_analytics": null,
+              "fields": {
+                "detection_method": {
+                  "type": "dropdown",
+                  "value": "unknown"
+                },
+                "root_cause": {
+                  "type": "textbox",
+                  "value": null
+                },
+                "services": {
+                  "type": "autocomplete",
+                  "value": null
+                },
+                "severity": {
+                  "type": "dropdown",
+                  "value": "UNKNOWN"
+                },
+                "slug": {
+                  "type": "textbox",
+                  "value": "IR-3"
+                },
+                "state": {
+                  "type": "dropdown",
+                  "value": "active"
+                },
+                "summary": {
+                  "type": "textbox",
+                  "value": null
+                },
+                "teams": {
+                  "type": "autocomplete",
+                  "value": null
+                }
+              },
+              "incident_type_uuid": "e52af609-c0e6-4fb3-bafd-2bca56135807",
+              "is_test": false,
+              "last_modified_by_uuid": "3eb2d4d6-9f22-4284-9a99-7df78ef473aa",
+              "modified": "2026-08-03T22:46:42.072778Z",
+              "non_datadog_creator": null,
+              "notification_handles": null,
+              "public_id": 3,
+              "resolved": null,
+              "severity": "UNKNOWN",
+              "state": "active",
+              "time_to_detect": 0,
+              "time_to_internal_response": 0,
+              "time_to_repair": 0,
+              "time_to_resolve": 0,
+              "title": "Nango Registry Test Incident",
+              "visibility": "organization"
+            },
+            "relationships": {
+              "attachments": {
+                "data": []
+              },
+              "commander_user": {
+                "data": null
+              },
+              "created_by_user": {
+                "data": {
+                  "id": "3eb2d4d6-9f22-4284-9a99-7df78ef473aa",
+                  "type": "users"
+                }
+              },
+              "declared_by_user": {
+                "data": {
+                  "id": "3eb2d4d6-9f22-4284-9a99-7df78ef473aa",
+                  "type": "users"
+                }
+              },
+              "impacts": {
+                "data": []
+              },
+              "incident_type": {
+                "data": {
+                  "id": "e52af609-c0e6-4fb3-bafd-2bca56135807",
+                  "type": "incident_types"
+                }
+              },
+              "integrations": {
+                "data": []
+              },
+              "last_modified_by_user": {
+                "data": {
+                  "id": "3eb2d4d6-9f22-4284-9a99-7df78ef473aa",
+                  "type": "users"
+                }
+              },
+              "responders": {
+                "data": []
+              },
+              "user_defined_fields": {
+                "data": [
+                  {
+                    "id": "d201e02a-62a1-4050-bfe9-26983b7045d9",
+                    "type": "user_defined_field"
+                  },
+                  {
+                    "id": "3e316d0d-e7bd-4de7-bfa0-99825ed73292",
+                    "type": "user_defined_field"
+                  },
+                  {
+                    "id": "0f680faa-6c80-4734-8a16-401f9a7d1c2a",
+                    "type": "user_defined_field"
+                  },
+                  {
+                    "id": "63d4da37-8c79-43f8-a012-36525c7b1356",
+                    "type": "user_defined_field"
+                  },
+                  {
+                    "id": "08cb0d4a-3a32-46e1-aa15-5ac6a4749189",
+                    "type": "user_defined_field"
+                  },
+                  {
+                    "id": "14b57c36-d08f-4881-b825-3147c3f511a0",
+                    "type": "user_defined_field"
+                  },
+                  {
+                    "id": "1c3bb650-9670-43fe-94aa-8bc16347e9e3",
+                    "type": "user_defined_field"
+                  },
+                  {
+                    "id": "f3ee0e0d-1223-4714-8cdb-ec3e2e2e1905",
+                    "type": "user_defined_field"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:46:42 GMT",
+          "content-type": "application/json",
+          "content-length": "2515",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1900",
+          "x-ratelimit-reset": "1785797209",
+          "etag": "W/\"9d3-CTTEXhk+pl6AtXL+m2YbnS5zVz8\""
+        },
+        "hash": "6d3153b6224104a51d52f33483c9948d2cdfc9b0",
+        "request": {
+          "data": {
+            "data": {
+              "type": "incidents",
+              "attributes": {
+                "title": "Nango Registry Test Incident"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

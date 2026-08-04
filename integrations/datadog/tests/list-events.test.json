@@ -1,0 +1,119 @@
+{
+  "input": {
+    "start": 1783036800,
+    "end": 1785801599
+  },
+  "output": {
+    "events": [
+      {
+        "id": 8749907730153866952,
+        "title": "Downtime on scope: {host:Victors-MacBook-Pro.local} expired",
+        "text": "Scheduled downtime over scope: {host:Victors-MacBook-Pro.local} has expired.",
+        "date_happened": 1785798008,
+        "host": "victors-macbook-pro.local",
+        "priority": "normal",
+        "tags": [
+          "audit",
+          "downtime",
+          "downtime_id:7279951185",
+          "host:victors-macbook-pro.local",
+          "monitor",
+          "source:datadog",
+          "source:monitor_audit_event"
+        ],
+        "url": "/event/event?id=8749907730153866952",
+        "resource": "/api/v1/events/8749907730153866952",
+        "alert_type": "info"
+      },
+      {
+        "id": 8749907731462644948,
+        "title": "Downtime on scope: {host:Victors-MacBook-Pro.local} expired",
+        "text": "Scheduled downtime over scope: {host:Victors-MacBook-Pro.local} has expired.",
+        "date_happened": 1785798008,
+        "host": "victors-macbook-pro.local",
+        "priority": "normal",
+        "tags": [
+          "audit",
+          "downtime",
+          "downtime_id:7279951937",
+          "host:victors-macbook-pro.local",
+          "monitor",
+          "source:datadog",
+          "source:monitor_audit_event"
+        ],
+        "url": "/event/event?id=8749907731462644948",
+        "resource": "/api/v1/events/8749907731462644948",
+        "alert_type": "info"
+      }
+    ],
+    "next_cursor": "1"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/events": {
+        "response": {
+          "events": [
+            {
+              "id": 8749907730153866952,
+              "title": "Downtime on scope: {host:Victors-MacBook-Pro.local} expired",
+              "text": "Scheduled downtime over scope: {host:Victors-MacBook-Pro.local} has expired.",
+              "priority": "normal",
+              "date_happened": 1785798008,
+              "source": "Monitor Audit Event",
+              "alert_type": "info",
+              "is_aggregate": false,
+              "tags": [
+                "audit",
+                "downtime",
+                "downtime_id:7279951185",
+                "host:victors-macbook-pro.local",
+                "monitor",
+                "source:datadog",
+                "source:monitor_audit_event"
+              ],
+              "host": "victors-macbook-pro.local",
+              "url": "/event/event?id=8749907730153866952",
+              "resource": "/api/v1/events/8749907730153866952"
+            },
+            {
+              "id": 8749907731462644948,
+              "title": "Downtime on scope: {host:Victors-MacBook-Pro.local} expired",
+              "text": "Scheduled downtime over scope: {host:Victors-MacBook-Pro.local} has expired.",
+              "priority": "normal",
+              "date_happened": 1785798008,
+              "source": "Monitor Audit Event",
+              "alert_type": "info",
+              "is_aggregate": false,
+              "tags": [
+                "audit",
+                "downtime",
+                "downtime_id:7279951937",
+                "host:victors-macbook-pro.local",
+                "monitor",
+                "source:datadog",
+                "source:monitor_audit_event"
+              ],
+              "host": "victors-macbook-pro.local",
+              "url": "/event/event?id=8749907731462644948",
+              "resource": "/api/v1/events/8749907731462644948"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 13:00:00 GMT",
+          "content-type": "application/json"
+        },
+        "hash": "8e6f9ab7cc0b2f6fcc2a2897d11c5d2687e7b542",
+        "request": {
+          "params": {
+            "end": "1785801599",
+            "page": "0",
+            "start": "1783036800"
+          }
+        }
+      }
+    }
+  }
+}

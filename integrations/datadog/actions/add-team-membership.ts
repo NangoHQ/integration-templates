@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    team_id: z.string().describe('The team ID. Example: "785d215c-9831-4702-8108-ff3b2db500c9"'),
-    user_id: z.string().describe('The user ID to add to the team. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"'),
+    team_id: z.string().trim().min(1).describe('The team ID. Example: "785d215c-9831-4702-8108-ff3b2db500c9"'),
+    user_id: z.string().trim().min(1).describe('The user ID to add to the team. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"'),
     role: z.string().describe('The role for the user in the team. Example: "admin" or "standard"')
 });
 

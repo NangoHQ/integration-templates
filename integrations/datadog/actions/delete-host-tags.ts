@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    hostname: z.string().describe('The name of the host to remove all tags from. Example: "Victors-MacBook-Pro.local"')
+    hostname: z.string().trim().min(1).describe('The name of the host to remove all tags from. Example: "Victors-MacBook-Pro.local"')
 });
 
 const OutputSchema = z.object({

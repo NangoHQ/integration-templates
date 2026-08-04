@@ -2,15 +2,15 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.string().describe('The ID of the user to list team memberships for. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"'),
+    userId: z.string().trim().min(1).describe('The ID of the user to list team memberships for. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"'),
     pageSize: z.number().optional().describe('Number of results to return per page. Example: 10'),
     pageOffset: z.number().optional().describe('Offset for pagination. Example: 0')
 });
 
 const TeamMembershipAttributesSchema = z.object({
-    role: z.string().optional(),
-    provisioned_by: z.string().optional(),
-    provisioned_at: z.string().optional()
+    role: z.string().nullable().optional(),
+    provisioned_by: z.string().nullable().optional(),
+    provisioned_at: z.string().nullable().optional()
 });
 
 const ResourceIdentifierSchema = z.object({
@@ -92,7 +92,7 @@ const action = createAction({
         const memberships = providerResponse.data.map((item) => ({
             id: item.id,
             type: item.type,
-            ...(item.attributes?.role !== undefined && { role: item.attributes.role }),
+            ...(item.attributes?.role != null && { role: item.attributes.role }),
             ...(item.relationships?.team?.data?.id !== undefined && { team_id: item.relationships.team.data.id }),
             ...(item.relationships?.user?.data?.id !== undefined && { user_id: item.relationships.user.data.id }),
             ...(item.attributes !== undefined && { attributes: item.attributes }),

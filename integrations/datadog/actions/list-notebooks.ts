@@ -2,7 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    cursor: z.string().optional().describe('Pagination cursor (offset) from the previous response. Omit for the first page.'),
+    limit: z.number().int().min(1).max(100).optional().describe('Maximum number of notebooks to return per page. Defaults to 100.')
 });
 
 const NotebookAttributesSchema = z
@@ -36,11 +37,23 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer offset'
+            });
+        }
+        const start = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const count = input.limit ?? 100;
+
+        // https://docs.datadoghq.com/api/latest/notebooks/#get-all-notebooks
+        // The "Get all notebooks" endpoint paginates with offset-based `start`/`count` query
+        // params (not `cursor`), and reports totals via `meta.page.total_filtered_count`.
         const response = await nango.get({
-            // https://docs.datadoghq.com/api/latest/notebooks/
             endpoint: 'v1/notebooks',
             params: {
-                ...(input.cursor !== undefined && { cursor: input.cursor })
+                start: String(start),
+                count: String(count)
             },
             retries: 3
         });
@@ -48,16 +61,28 @@ const action = createAction({
         const rawData = z
             .object({
                 data: z.array(z.unknown()).optional(),
-                meta: z.object({}).passthrough().optional()
+                meta: z
+                    .object({
+                        page: z
+                            .object({
+                                total_filtered_count: z.number().optional()
+                            })
+                            .passthrough()
+                            .optional()
+                    })
+                    .passthrough()
+                    .optional()
             })
             .passthrough()
             .parse(response.data);
 
         const notebooks = rawData.data ?? [];
+        const totalFilteredCount = rawData.meta?.page?.total_filtered_count;
+        const nextCursor = totalFilteredCount !== undefined && start + notebooks.length < totalFilteredCount ? String(start + notebooks.length) : undefined;
 
         return {
             notebooks: notebooks.map((item) => NotebookSchema.parse(item)),
-            next_cursor: undefined
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

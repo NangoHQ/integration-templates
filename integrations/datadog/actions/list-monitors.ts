@@ -34,13 +34,13 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const pageSize = input.page_size ?? 100;
-        const page = input.cursor ? Number(input.cursor) : 0;
-        if (Number.isNaN(page)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a valid page number.'
             });
         }
+        const page = input.cursor ? Number(input.cursor) : 0;
 
         const response = await nango.get({
             // https://docs.datadoghq.com/api/latest/monitors/#get-all-monitors

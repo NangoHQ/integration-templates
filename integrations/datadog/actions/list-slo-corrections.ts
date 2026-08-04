@@ -87,14 +87,13 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let offset = 0;
         if (input.cursor) {
-            const parsed = parseInt(input.cursor, 10);
-            if (Number.isNaN(parsed) || parsed < 0) {
+            if (!/^\d+$/.test(input.cursor)) {
                 throw new nango.ActionError({
                     type: 'invalid_input',
                     message: 'cursor must be a non-negative integer string'
                 });
             }
-            offset = parsed;
+            offset = parseInt(input.cursor, 10);
         }
 
         const limit = input.limit ?? 25;

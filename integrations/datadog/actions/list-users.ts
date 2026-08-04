@@ -2,7 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
-const InputSchema = z.object({});
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
+    page_size: z.number().int().min(1).max(1000).optional().describe('Number of users to return per page. Defaults to 100.')
+});
 
 const ProviderUserAttributesSchema = z
     .object({
@@ -33,7 +36,8 @@ const OutputUserSchema = z.object({
 });
 
 const OutputSchema = z.object({
-    users: z.array(OutputUserSchema)
+    users: z.array(OutputUserSchema),
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
@@ -43,10 +47,23 @@ const action = createAction({
     output: OutputSchema,
     scopes: ['users_read'],
 
-    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer page number'
+            });
+        }
+        const pageNumber = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const pageSize = input.page_size ?? 100;
+
         const config: ProxyConfiguration = {
             // https://docs.datadoghq.com/api/latest/users/#list-all-users
             endpoint: 'v2/users',
+            params: {
+                'page[number]': String(pageNumber),
+                'page[size]': String(pageSize)
+            },
             retries: 3
         };
 
@@ -61,11 +78,24 @@ const action = createAction({
 
         const rawBody = z
             .object({
-                data: z.array(z.unknown())
+                data: z.array(z.unknown()),
+                meta: z
+                    .object({
+                        page: z
+                            .object({
+                                total_filtered_count: z.number().optional()
+                            })
+                            .optional()
+                    })
+                    .optional()
             })
             .parse(response.data);
 
         const providerUsers = rawBody.data.map((item) => ProviderUserSchema.parse(item));
+
+        const totalFilteredCount = rawBody.meta?.page?.total_filtered_count;
+        const nextCursor =
+            totalFilteredCount !== undefined && (pageNumber + 1) * pageSize < totalFilteredCount ? String(pageNumber + 1) : undefined;
 
         return {
             users: providerUsers.map((user) => ({
@@ -75,7 +105,8 @@ const action = createAction({
                 ...(user.attributes?.handle != null && { handle: user.attributes.handle }),
                 ...(user.attributes?.status != null && { status: user.attributes.status }),
                 ...(user.attributes?.title != null && { title: user.attributes.title })
-            }))
+            })),
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

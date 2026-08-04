@@ -3,7 +3,8 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    cursor: z.string().optional().describe('Pagination cursor (zero-based page number) from the previous response. Omit for the first page.'),
+    page_size: z.number().int().min(1).max(100).optional().describe('Number of roles to return per page. Defaults to 100.')
 });
 
 const RoleAttributesSchema = z.object({
@@ -39,11 +40,23 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer page number'
+            });
+        }
+        const pageNumber = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const pageSize = input.page_size ?? 100;
+
+        // v2/roles paginates with `page[number]`/`page[size]` (matching syncs/roles.ts); it does not
+        // support a `page[cursor]` param, and reports totals via `meta.page.total_filtered_count`.
         const config: ProxyConfiguration = {
             // https://docs.datadoghq.com/api/latest/roles/
             endpoint: 'v2/roles',
             params: {
-                ...(input.cursor !== undefined && { 'page[cursor]': input.cursor })
+                'page[number]': String(pageNumber),
+                'page[size]': String(pageSize)
             },
             retries: 3
         };
@@ -55,9 +68,9 @@ const action = createAction({
                 data: z.array(ProviderRoleSchema).optional(),
                 meta: z
                     .object({
-                        pagination: z
+                        page: z
                             .object({
-                                next_cursor: z.string().optional()
+                                total_filtered_count: z.number().optional()
                             })
                             .optional()
                     })
@@ -74,11 +87,13 @@ const action = createAction({
                 ...(role.attributes?.user_count !== undefined && { user_count: role.attributes.user_count })
             })) ?? [];
 
+        const totalFilteredCount = providerResponse.meta?.page?.total_filtered_count;
+        const nextCursor =
+            totalFilteredCount !== undefined && (pageNumber + 1) * pageSize < totalFilteredCount ? String(pageNumber + 1) : undefined;
+
         return {
             items,
-            ...(providerResponse.meta?.pagination?.next_cursor !== undefined && {
-                next_cursor: providerResponse.meta.pagination.next_cursor
-            })
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

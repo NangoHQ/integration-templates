@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    serviceAccountId: z.string().describe('Service account ID. Example: "39886536-8f56-11f1-88dd-3619de0c3ef9"')
+    serviceAccountId: z.string().trim().min(1).describe('Service account ID. Example: "39886536-8f56-11f1-88dd-3619de0c3ef9"')
 });
 
 const RawAccessTokenAttributesSchema = z
@@ -71,8 +71,15 @@ const action = createAction({
                 });
             }
 
-            const id = typeof item['id'] === 'string' ? item['id'] : '';
-            const type = typeof item['type'] === 'string' ? item['type'] : '';
+            if (typeof item['id'] !== 'string' || typeof item['type'] !== 'string') {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Access token entry is missing a valid id or type'
+                });
+            }
+
+            const id = item['id'];
+            const type = item['type'];
             const rawAttributes = isUnknownRecord(item['attributes']) ? item['attributes'] : {};
 
             const parsedAttributes = RawAccessTokenAttributesSchema.parse(rawAttributes);

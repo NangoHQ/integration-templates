@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    slo_id: z.string().describe('The ID of the SLO to delete. Example: "36a7b293b95a55cda85b5ee2cf34a911"')
+    slo_id: z.string().trim().min(1).describe('The ID of the SLO to delete. Example: "36a7b293b95a55cda85b5ee2cf34a911"')
 });
 
 const ProviderDeleteResponseSchema = z.object({

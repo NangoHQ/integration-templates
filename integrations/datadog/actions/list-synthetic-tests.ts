@@ -1,7 +1,10 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({});
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
+    page_size: z.number().int().min(1).max(1000).optional().describe('Number of tests to return per page. Defaults to 100.')
+});
 
 const SyntheticTestSchema = z
     .object({
@@ -13,7 +16,8 @@ const SyntheticTestSchema = z
     .passthrough();
 
 const OutputSchema = z.object({
-    tests: z.array(SyntheticTestSchema).describe('List of synthetic tests.')
+    tests: z.array(SyntheticTestSchema).describe('List of synthetic tests.'),
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
@@ -23,10 +27,23 @@ const action = createAction({
     output: OutputSchema,
     scopes: ['synthetics_read'],
 
-    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer page number'
+            });
+        }
+        const pageNumber = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const pageSize = input.page_size ?? 100;
+
         const response = await nango.get({
             // https://docs.datadoghq.com/api/latest/synthetics/#get-the-list-of-all-tests
             endpoint: 'v1/synthetics/tests',
+            params: {
+                page_size: String(pageSize),
+                page_number: String(pageNumber)
+            },
             retries: 3
         });
 
@@ -48,8 +65,11 @@ const action = createAction({
             return parsedTest;
         });
 
+        const nextCursor = tests.length === pageSize ? String(pageNumber + 1) : undefined;
+
         return {
-            tests
+            tests,
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

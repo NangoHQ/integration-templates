@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    service_account_id: z.string().describe('The ID of the service account. Example: "39886536-8f56-11f1-88dd-3619de0c3ef9"'),
+    service_account_id: z.string().trim().min(1).describe('The ID of the service account. Example: "39886536-8f56-11f1-88dd-3619de0c3ef9"'),
     name: z.string().describe('Name of the application key. Example: "Test Key"')
 });
 

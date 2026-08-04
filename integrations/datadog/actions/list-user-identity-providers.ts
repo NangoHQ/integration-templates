@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.string().describe('User ID. Example: "00000000-0000-0000-0000-000000000000"')
+    userId: z.string().trim().min(1).describe('User ID. Example: "00000000-0000-0000-0000-000000000000"')
 });
 
 const IdentityProviderOverrideSchema = z

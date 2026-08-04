@@ -2,7 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userIds: z.array(z.string()).describe('User IDs of pending users to invite. Example: ["b8b30a2e-fdce-46d6-aef0-63ccf6155094"]')
+    userIds: z
+        .array(z.string().trim().min(1))
+        .min(1)
+        .describe('User IDs of pending users to invite. At least one is required. Example: ["b8b30a2e-fdce-46d6-aef0-63ccf6155094"]')
 });
 
 const ProviderResponseSchema = z.object({

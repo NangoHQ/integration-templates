@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    team_id: z.string().describe('The ID of the team to update. Example: "785d215c-9831-4702-8108-ff3b2db500c9"'),
+    team_id: z.string().trim().min(1).describe('The ID of the team to update. Example: "785d215c-9831-4702-8108-ff3b2db500c9"'),
     name: z.string().optional().describe('The new name for the team.'),
     handle: z.string().optional().describe('The new handle for the team.'),
     description: z.string().optional().describe('The new description for the team.')
@@ -39,6 +39,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['teams_read', 'teams_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const attributes = {

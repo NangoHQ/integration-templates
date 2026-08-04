@@ -25,7 +25,7 @@ const ProviderProjectSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    data: z.array(ProviderProjectSchema).optional()
+    data: z.array(ProviderProjectSchema)
 });
 
 const sync = createSync({
@@ -53,7 +53,7 @@ const sync = createSync({
             throw new Error(`Failed to parse case projects response: ${parsed.error.message}`);
         }
 
-        const items = parsed.data.data ?? [];
+        const items = parsed.data.data;
         const projects = items.map((item) => {
             const attrs = item.attributes;
             return {

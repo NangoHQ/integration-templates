@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    slo_id: z.string().describe('The ID of the SLO to retrieve. Example: "de718b2c100251b8b03b23c74b93e5cd"')
+    slo_id: z.string().trim().min(1).describe('The ID of the SLO to retrieve. Example: "de718b2c100251b8b03b23c74b93e5cd"')
 });
 
 const SloThresholdSchema = z.object({

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    team_id: z.string().describe('Team ID. Example: "785d215c-9831-4702-8108-ff3b2db500c9"'),
+    team_id: z.string().trim().min(1).describe('Team ID. Example: "785d215c-9831-4702-8108-ff3b2db500c9"'),
     limit: z.number().optional().describe('Number of memberships to return per page. Example: 20'),
     offset: z.number().optional().describe('Offset of the paginated results. Example: 0')
 });

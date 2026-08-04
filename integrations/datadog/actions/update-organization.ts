@@ -34,13 +34,13 @@ const InputSchema = z.object({
     name: z.string().max(32).optional().describe('The name of the organization, limited to 32 characters.'),
     billing: z
         .object({
-            type: z.string().optional().describe('The type of billing. Only `parent_billing` is supported.')
+            type: z.literal('parent_billing').optional().describe('The type of billing. Only `parent_billing` is supported.')
         })
         .optional()
         .describe('Billing configuration. Deprecated but retained for compatibility.'),
     subscription: z
         .object({
-            type: z.string().optional().describe('The subscription type. Types available are `trial`, `free`, and `pro`.')
+            type: z.enum(['trial', 'free', 'pro']).optional().describe('The subscription type. Types available are `trial`, `free`, and `pro`.')
         })
         .optional()
         .describe('Subscription configuration. Deprecated but retained for compatibility.'),

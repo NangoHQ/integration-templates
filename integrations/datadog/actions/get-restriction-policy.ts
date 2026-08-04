@@ -2,7 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    resourceId: z.string().describe('Resource identifier formatted as {resource_type}:{resource_uuid}. Example: "dashboard:ste-gtd-5rx"')
+    resource_id: z
+        .string()
+        .trim()
+        .min(1)
+        .describe('Resource identifier formatted as {resource_type}:{resource_uuid}. Example: "dashboard:ste-gtd-5rx"')
 });
 
 const RestrictionPolicyBindingSchema = z.object({
@@ -33,7 +37,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://docs.datadoghq.com/api/latest/restriction-policies/#get-a-restriction-policy
-            endpoint: `v2/restriction_policy/${encodeURIComponent(input.resourceId)}`,
+            endpoint: `v2/restriction_policy/${encodeURIComponent(input.resource_id)}`,
             retries: 3
         });
 
