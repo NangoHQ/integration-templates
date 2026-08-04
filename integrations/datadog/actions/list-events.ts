@@ -11,17 +11,17 @@ const ProviderEventSchema = z.object({
     // Datadog's `id` is a 64-bit integer that can exceed Number.MAX_SAFE_INTEGER, so it loses precision
     // once parsed as a JS number. `id_str` carries the exact same identifier as a string.
     id: z.number(),
-    id_str: z.string().optional(),
-    title: z.string().optional(),
-    text: z.string().optional(),
-    date_happened: z.number().optional(),
-    device_name: z.string().optional(),
-    host: z.string().optional(),
-    priority: z.string().optional(),
-    tags: z.array(z.string()).optional(),
-    url: z.string().optional(),
-    resource: z.string().optional(),
-    alert_type: z.string().optional()
+    id_str: z.string().nullish(),
+    title: z.string().nullish(),
+    text: z.string().nullish(),
+    date_happened: z.number().nullish(),
+    device_name: z.string().nullish(),
+    host: z.string().nullish(),
+    priority: z.string().nullish(),
+    tags: z.array(z.string()).nullish(),
+    url: z.string().nullish(),
+    resource: z.string().nullish(),
+    alert_type: z.string().nullish()
 });
 
 const EventOutputSchema = z.object({
@@ -94,16 +94,16 @@ const action = createAction({
             return {
                 // Prefer the exact string id; fall back to the (potentially imprecise) numeric id.
                 id: event.id_str ?? String(event.id),
-                ...(event.title !== undefined && { title: event.title }),
-                ...(event.text !== undefined && { text: event.text }),
-                ...(event.date_happened !== undefined && { date_happened: event.date_happened }),
-                ...(event.device_name !== undefined && { device_name: event.device_name }),
-                ...(event.host !== undefined && { host: event.host }),
-                ...(event.priority !== undefined && { priority: event.priority }),
-                ...(event.tags !== undefined && { tags: event.tags }),
-                ...(event.url !== undefined && { url: event.url }),
-                ...(event.resource !== undefined && { resource: event.resource }),
-                ...(event.alert_type !== undefined && { alert_type: event.alert_type })
+                ...(event.title != null && { title: event.title }),
+                ...(event.text != null && { text: event.text }),
+                ...(event.date_happened != null && { date_happened: event.date_happened }),
+                ...(event.device_name != null && { device_name: event.device_name }),
+                ...(event.host != null && { host: event.host }),
+                ...(event.priority != null && { priority: event.priority }),
+                ...(event.tags != null && { tags: event.tags }),
+                ...(event.url != null && { url: event.url }),
+                ...(event.resource != null && { resource: event.resource }),
+                ...(event.alert_type != null && { alert_type: event.alert_type })
             };
         });
 

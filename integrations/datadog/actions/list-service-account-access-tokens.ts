@@ -56,7 +56,13 @@ const action = createAction({
                 message: 'cursor must be a valid integer page number'
             });
         }
-        const pageNumber = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const pageNumber = input.cursor ? Number(input.cursor) : 0;
+        if (!Number.isSafeInteger(pageNumber)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor is too large to be represented safely'
+            });
+        }
 
         const response = await nango.get({
             // https://docs.datadoghq.com/api/latest/service-accounts/

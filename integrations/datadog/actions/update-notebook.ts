@@ -47,7 +47,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['notebooks_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const notebookId = String(input.notebook_id);

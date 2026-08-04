@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    notebook_id: z.union([z.number(), z.string()]).describe('The ID of the notebook to delete. Example: 15174764')
+    notebook_id: z.union([z.number(), z.string().trim().min(1)]).describe('The ID of the notebook to delete. Example: 15174764')
 });
 
 const OutputSchema = z.object({

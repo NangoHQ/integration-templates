@@ -81,7 +81,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['on_call_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const attributes: Record<string, unknown> = {

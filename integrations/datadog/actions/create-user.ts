@@ -65,7 +65,7 @@ const action = createAction({
     version: '3.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['user_access_manage'],
+    scopes: ['user_access_invite'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.datadoghq.com/api/latest/users/#create-a-user
