@@ -134,6 +134,26 @@ import './acuity-scheduling/actions/update-client.js';
 // -- Integration: adp
 import './adp/syncs/unified-employees.js';
 
+// -- Integration: agentcard
+import './agentcard/actions/create-withdrawal-recipient.js';
+import './agentcard/actions/delete-withdrawal-recipient.js';
+import './agentcard/actions/get-attachment-status.js';
+import './agentcard/actions/get-kyc-status.js';
+import './agentcard/actions/introspect-credential.js';
+import './agentcard/actions/list-withdrawal-recipients.js';
+import './agentcard/actions/list-withdrawals.js';
+import './agentcard/actions/record-consent.js';
+import './agentcard/actions/refresh-connection.js';
+import './agentcard/actions/simulate-kyc-outcome.js';
+import './agentcard/actions/start-card-attachment.js';
+import './agentcard/actions/start-connect.js';
+import './agentcard/actions/start-phone-verification.js';
+import './agentcard/actions/submit-kyc-information.js';
+import './agentcard/actions/upload-kyc-document-back.js';
+import './agentcard/actions/upload-kyc-document-front.js';
+import './agentcard/actions/verify-connect.js';
+import './agentcard/actions/verify-phone-code.js';
+
 // -- Integration: aircall
 import './aircall/syncs/calls.js';
 import './aircall/syncs/contacts.js';
