@@ -6013,6 +6013,25 @@ import './workday/actions/list-organizations.js';
 import './workday/actions/list-positions.js';
 import './workday/actions/list-workers.js';
 
+// -- Integration: workday-cc
+import './workday-cc/syncs/employees.js';
+import './workday-cc/syncs/groups.js';
+import './workday-cc/syncs/job-profiles.js';
+import './workday-cc/syncs/locations.js';
+import './workday-cc/syncs/organizations.js';
+import './workday-cc/syncs/positions.js';
+import './workday-cc/syncs/workers.js';
+import './workday-cc/actions/get-job-profile.js';
+import './workday-cc/actions/get-location.js';
+import './workday-cc/actions/get-organization.js';
+import './workday-cc/actions/get-position.js';
+import './workday-cc/actions/get-worker.js';
+import './workday-cc/actions/list-job-profiles.js';
+import './workday-cc/actions/list-locations.js';
+import './workday-cc/actions/list-organizations.js';
+import './workday-cc/actions/list-positions.js';
+import './workday-cc/actions/list-workers.js';
+
 // -- Integration: xero
 import './xero/syncs/accounts.js';
 import './xero/syncs/bank-transactions.js';
