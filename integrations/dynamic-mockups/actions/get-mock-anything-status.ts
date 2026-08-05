@@ -48,9 +48,9 @@ const ProviderInnerDataSchema = z
     .passthrough();
 
 const ProviderResponseSchema = z.object({
-    data: ProviderInnerDataSchema,
-    success: z.boolean(),
-    message: z.string()
+    data: ProviderInnerDataSchema.optional(),
+    success: z.boolean().optional(),
+    message: z.string().optional()
 });
 
 const OutputSchema = z
@@ -98,7 +98,14 @@ const action = createAction({
             if (wrapperParsed.data.success === false) {
                 throw new nango.ActionError({
                     type: 'provider_error',
-                    message: wrapperParsed.data.message
+                    message: wrapperParsed.data.message ?? 'The provider did not return the MockAnything task status.'
+                });
+            }
+
+            if (!wrapperParsed.data.data) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Provider returned an unexpected response shape'
                 });
             }
 

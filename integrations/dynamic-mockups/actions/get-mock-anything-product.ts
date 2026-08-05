@@ -91,7 +91,16 @@ const action = createAction({
             throw error;
         }
 
-        const providerProduct = ProviderProductSchema.parse(response.data.data);
+        const parsed = ProviderProductSchema.safeParse(response.data?.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Provider returned an unexpected response shape',
+                details: parsed.error.message
+            });
+        }
+
+        const providerProduct = parsed.data;
 
         return {
             uuid: providerProduct.uuid,

@@ -31,9 +31,9 @@ const ProviderDataSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    data: ProviderDataSchema,
-    success: z.boolean(),
-    message: z.string()
+    data: ProviderDataSchema.optional(),
+    success: z.boolean().optional(),
+    message: z.string().optional()
 });
 
 const OutputSchema = z.object({
@@ -56,12 +56,28 @@ const action = createAction({
 
         const response = await nango.get(config);
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Provider returned an unexpected response shape',
+                details: parsed.error.message
+            });
+        }
 
-        if (!providerResponse.success) {
+        const providerResponse = parsed.data;
+
+        if (providerResponse.success === false) {
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: providerResponse.message
+                message: providerResponse.message ?? 'The provider did not list MotionMockups models.'
+            });
+        }
+
+        if (!providerResponse.data) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Provider returned an unexpected response shape'
             });
         }
 

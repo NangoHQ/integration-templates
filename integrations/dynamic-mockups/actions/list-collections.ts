@@ -48,7 +48,7 @@ const action = createAction({
         if (providerData.success === false) {
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: providerData.message
+                message: providerData.message ?? 'The provider did not list collections.'
             });
         }
 

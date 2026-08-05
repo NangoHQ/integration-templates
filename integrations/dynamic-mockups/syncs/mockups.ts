@@ -80,8 +80,6 @@ const sync = createSync({
             items = raw.data;
         }
 
-        await nango.trackDeletesStart('Mockup');
-
         const mockups = items.map((item) => {
             const parsed = ProviderMockupSchema.parse(item);
             const { name, ...rest } = parsed;
@@ -91,6 +89,8 @@ const sync = createSync({
                 ...rest
             };
         });
+
+        await nango.trackDeletesStart('Mockup');
 
         if (mockups.length > 0) {
             await nango.batchSave(mockups, 'Mockup');

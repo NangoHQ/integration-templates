@@ -130,7 +130,7 @@ const action = createAction({
         if (wrapper.success === false) {
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: wrapper.message
+                message: wrapper.message ?? 'The provider did not upload the PSD file.'
             });
         }
 

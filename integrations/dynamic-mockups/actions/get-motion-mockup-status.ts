@@ -15,10 +15,12 @@ const ProviderVideoSchema = z.object({
 const StatusSchema = z.enum(['IN_QUEUE', 'PROCESSING', 'COMPLETED', 'FAILED', 'CANCELLED', 'ERROR']);
 
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        status: StatusSchema,
-        video: ProviderVideoSchema.optional()
-    }),
+    data: z
+        .object({
+            status: StatusSchema,
+            video: ProviderVideoSchema.optional()
+        })
+        .optional(),
     success: z.boolean().optional(),
     message: z.string().optional()
 });
@@ -84,7 +86,14 @@ const action = createAction({
         if (providerResponse.success === false) {
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: providerResponse.message
+                message: providerResponse.message ?? 'The provider did not return the MotionMockups request status.'
+            });
+        }
+
+        if (!providerResponse.data) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Provider returned an unexpected response shape'
             });
         }
 
