@@ -98,20 +98,24 @@ const action = createAction({
             });
 
             const company = ProviderCompanySchema.parse(companyResponse.data);
+            const ownerId = company.owner?.id ?? company.owner_id ?? undefined;
             const fullName = [company.owner?.first_name, company.owner?.last_name].filter(Boolean).join(' ');
-            companyOwner = company.owner
-                ? {
-                      ...(company.owner.id !== undefined && { id: company.owner.id }),
-                      ...(fullName !== '' && { full_name: fullName })
-                  }
-                : undefined;
+            if (ownerId != null || fullName !== '') {
+                companyOwner = {
+                    ...(ownerId != null && { id: ownerId }),
+                    ...(fullName !== '' && { full_name: fullName })
+                };
+            }
         }
+
+        // Preserve the customer's existing owner when no reassignment was requested.
+        const finalOwner = companyOwner ?? customer.owner;
 
         return {
             id: customer.id,
             ...(customer.company_id !== undefined && { company_id: customer.company_id }),
-            ...(companyOwner?.id != null && { owner_id: companyOwner.id }),
-            ...(companyOwner !== undefined && { owner: companyOwner }),
+            ...(finalOwner?.id != null && { owner_id: finalOwner.id }),
+            ...(finalOwner !== undefined && { owner: finalOwner }),
             ...(customer.health_score != null && { health_score: customer.health_score }),
             ...(customer.health_score_description != null && { health_score_description: customer.health_score_description }),
             ...(customer.days_in_health != null && { days_in_health: customer.days_in_health }),

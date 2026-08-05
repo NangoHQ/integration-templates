@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    page: z.number().optional().describe('Page number to fetch. Example: 1')
+    cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.')
 });
 
 const ProviderPaginationSchema = z.object({
@@ -33,7 +33,7 @@ const CompanyTagSchema = z.object({
 
 const OutputSchema = z.object({
     tags: z.array(CompanyTagSchema),
-    next_page: z.number().optional()
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
@@ -43,13 +43,14 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.page ?? 1;
-        if (!Number.isInteger(page) || page < 1) {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
             throw new nango.ActionError({
-                type: 'invalid_page',
-                message: 'page must be a positive integer'
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer page number'
             });
         }
+
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
 
         const response = await nango.get({
             // https://app.pipelinecrm.com/api/docs/introduction
@@ -69,7 +70,7 @@ const action = createAction({
                 ...(tag.created_at !== undefined && { created_at: tag.created_at }),
                 ...(tag.updated_at !== undefined && { updated_at: tag.updated_at })
             })),
-            ...(parsed.pagination.page < parsed.pagination.pages && { next_page: parsed.pagination.page + 1 })
+            ...(parsed.pagination.page < parsed.pagination.pages && { next_cursor: String(parsed.pagination.page + 1) })
         };
     }
 });
