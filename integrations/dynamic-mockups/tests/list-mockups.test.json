@@ -1,0 +1,1078 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "uuid": "444e0bee-a1a8-4bfa-a312-5f0eae1602d3",
+        "name": "Nango Registry Test - Image URL Mockup",
+        "thumbnail": "https://dm-prod-mockanything-ai.s3.eu-central-1.amazonaws.com/input_images/444e0bee-a1a8-4bfa-a312-5f0eae1602d3.jpg",
+        "smart_objects": [],
+        "text_layers": [],
+        "collections": [],
+        "thumbnails": [],
+        "products": [],
+        "type": "mockanything"
+      },
+      {
+        "uuid": "fdc23ce4-ef08-4a4f-86e3-a276cd5db493",
+        "name": "Nango Registry Test - Prompt Mockup",
+        "thumbnail": "https://dm-prod-mockanything-ai.s3.eu-central-1.amazonaws.com/ai_generated/fdc23ce4-ef08-4a4f-86e3-a276cd5db493.jpg",
+        "smart_objects": [],
+        "text_layers": [],
+        "collections": [],
+        "thumbnails": [],
+        "products": [],
+        "type": "mockanything"
+      },
+      {
+        "uuid": "b3bd6c6d-8d10-4342-8e24-8197ca367ee1",
+        "name": "Nango Registry Test - Product Mockup 2",
+        "thumbnail": "https://dm-prod-mockanything-ai.s3.eu-central-1.amazonaws.com/ai_generated/b3bd6c6d-8d10-4342-8e24-8197ca367ee1.jpg",
+        "smart_objects": [
+          {
+            "uuid": "bba35469-e614-448d-bd6c-17a6f9b41a4d",
+            "name": "Front",
+            "size": {
+              "width": 290,
+              "height": 290
+            },
+            "position": {
+              "top": 248,
+              "left": 297
+            },
+            "print_area_presets": [],
+            "decoration": {
+              "location": "front_pod_dickies_05_front",
+              "name": "Front"
+            }
+          }
+        ],
+        "text_layers": [],
+        "collections": [],
+        "thumbnails": [],
+        "products": [
+          {
+            "name": "Short Sleeve Performance Team Shirt",
+            "brand": "Dickies",
+            "category": "dress_shirt",
+            "subcategory": "short_sleeve",
+            "colors": [
+              {
+                "name": "Default",
+                "hex_code": null
+              }
+            ],
+            "uuid": "17212ae2-39cf-4af2-abd8-3960dddd1a87",
+            "slug": "dickies-05"
+          }
+        ],
+        "type": "mockanything"
+      },
+      {
+        "uuid": "573ec093-3a6e-4c83-856d-25121cc66d82",
+        "name": "Nango Dryrun Test PSD",
+        "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330576/thumbnail.webp",
+        "smart_objects": [
+          {
+            "uuid": "f46d0827-8373-4d72-a8bc-73ed02bb4b64",
+            "name": "Shape 1",
+            "size": {
+              "width": 22,
+              "height": 20
+            },
+            "position": {
+              "top": 28,
+              "left": 19
+            },
+            "print_area_presets": [
+              {
+                "uuid": "104d405e-d434-4cc9-b8bc-2079ee54cf33",
+                "name": "Default",
+                "thumbnails": [],
+                "size": {
+                  "width": 22,
+                  "height": 20
+                },
+                "position": {
+                  "top": 0,
+                  "left": 0
+                }
+              }
+            ]
+          }
+        ],
+        "text_layers": [],
+        "collections": [
+          {
+            "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+            "name": "Nango Registry Test Collection 1"
+          }
+        ],
+        "thumbnails": [
+          {
+            "width": 720,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330576/thumbnails/0ce8e6ccf9b2c6a8dff8cb5b2b2c034a_720.webp"
+          },
+          {
+            "width": 480,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330576/thumbnails/2014664fb6662fafeadf99219f1d7720_480.webp"
+          },
+          {
+            "width": 240,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330576/thumbnails/63deef491fd19ff6dc745a08b14c7510_240.webp"
+          }
+        ],
+        "products": [],
+        "type": "classic"
+      },
+      {
+        "uuid": "b695e04f-0582-40bc-a3f4-bbacc412aa0c",
+        "name": "Nango Dryrun Test PSD",
+        "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330575/thumbnail.webp",
+        "smart_objects": [
+          {
+            "uuid": "872002cc-0cf6-4c86-9d3c-708dc8d524fa",
+            "name": "Shape 1",
+            "size": {
+              "width": 22,
+              "height": 20
+            },
+            "position": {
+              "top": 28,
+              "left": 19
+            },
+            "print_area_presets": [
+              {
+                "uuid": "5609c54e-cff7-470c-9e51-9df2bbd1ac4f",
+                "name": "Default",
+                "thumbnails": [],
+                "size": {
+                  "width": 22,
+                  "height": 20
+                },
+                "position": {
+                  "top": 0,
+                  "left": 0
+                }
+              }
+            ]
+          }
+        ],
+        "text_layers": [],
+        "collections": [
+          {
+            "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+            "name": "Nango Registry Test Collection 1"
+          }
+        ],
+        "thumbnails": [
+          {
+            "width": 720,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330575/thumbnails/71c08943a03a073bf93fb26edefd75ea_720.webp"
+          },
+          {
+            "width": 480,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330575/thumbnails/a0a10de216e239dea69850e766a242eb_480.webp"
+          },
+          {
+            "width": 240,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330575/thumbnails/973835db3693c6c192baeada76af8a04_240.webp"
+          }
+        ],
+        "products": [],
+        "type": "classic"
+      },
+      {
+        "uuid": "5ce376da-ecea-4a16-b78c-d9a780a7f930",
+        "name": "Nango Dryrun Test PSD",
+        "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330574/thumbnail.webp",
+        "smart_objects": [
+          {
+            "uuid": "19ba0b11-a4a6-4e1c-9ebd-0973fc2c9aa8",
+            "name": "Shape 1",
+            "size": {
+              "width": 22,
+              "height": 20
+            },
+            "position": {
+              "top": 28,
+              "left": 19
+            },
+            "print_area_presets": [
+              {
+                "uuid": "549758aa-d818-4e4e-8b1c-25126023772e",
+                "name": "Default",
+                "thumbnails": [],
+                "size": {
+                  "width": 22,
+                  "height": 20
+                },
+                "position": {
+                  "top": 0,
+                  "left": 0
+                }
+              }
+            ]
+          }
+        ],
+        "text_layers": [],
+        "collections": [
+          {
+            "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+            "name": "Nango Registry Test Collection 1"
+          }
+        ],
+        "thumbnails": [
+          {
+            "width": 720,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330574/thumbnails/b6b8e7608fc48f3f5d5a43cfea94ec14_720.webp"
+          },
+          {
+            "width": 480,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330574/thumbnails/27f1255b0b77dc17f1669eda0f2f7aeb_480.webp"
+          },
+          {
+            "width": 240,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330574/thumbnails/738d36c84892540339c0fc8923d4a295_240.webp"
+          }
+        ],
+        "products": [],
+        "type": "classic"
+      },
+      {
+        "uuid": "5cafcdfc-52f1-4f28-bb32-4056d750bdfb",
+        "name": "Nango Dryrun Test PSD",
+        "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330573/thumbnail.webp",
+        "smart_objects": [
+          {
+            "uuid": "b351c474-aed9-4fd3-a225-f9edf2a13d84",
+            "name": "Shape 1",
+            "size": {
+              "width": 22,
+              "height": 20
+            },
+            "position": {
+              "top": 28,
+              "left": 19
+            },
+            "print_area_presets": [
+              {
+                "uuid": "c36e5b80-966d-4056-a650-d3706ba9de59",
+                "name": "Default",
+                "thumbnails": [],
+                "size": {
+                  "width": 22,
+                  "height": 20
+                },
+                "position": {
+                  "top": 0,
+                  "left": 0
+                }
+              }
+            ]
+          }
+        ],
+        "text_layers": [],
+        "collections": [
+          {
+            "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+            "name": "Nango Registry Test Collection 1"
+          }
+        ],
+        "thumbnails": [
+          {
+            "width": 720,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330573/thumbnails/ceffbe9d6f1a641aef39743d36b5d760_720.webp"
+          },
+          {
+            "width": 480,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330573/thumbnails/aeea1c8c3df7e1e4165b58273d01eb80_480.webp"
+          },
+          {
+            "width": 240,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330573/thumbnails/6d4e0fa5216a6bf1536471ca8166ccd6_240.webp"
+          }
+        ],
+        "products": [],
+        "type": "classic"
+      },
+      {
+        "uuid": "ec8c662f-aa64-41e4-b5b3-d310f541d40c",
+        "name": "Nango Dryrun Test PSD",
+        "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330572/thumbnail.webp",
+        "smart_objects": [
+          {
+            "uuid": "0aeec06f-c59c-4582-a8ff-f340b485cd22",
+            "name": "Shape 1",
+            "size": {
+              "width": 22,
+              "height": 20
+            },
+            "position": {
+              "top": 28,
+              "left": 19
+            },
+            "print_area_presets": [
+              {
+                "uuid": "dd3f1e4e-2b5b-4e80-94a0-f67b4a1c64a5",
+                "name": "Default",
+                "thumbnails": [],
+                "size": {
+                  "width": 22,
+                  "height": 20
+                },
+                "position": {
+                  "top": 0,
+                  "left": 0
+                }
+              }
+            ]
+          }
+        ],
+        "text_layers": [],
+        "collections": [
+          {
+            "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+            "name": "Nango Registry Test Collection 1"
+          }
+        ],
+        "thumbnails": [
+          {
+            "width": 720,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330572/thumbnails/3490addee13eb5a1be59bcc97b095ead_720.webp"
+          },
+          {
+            "width": 480,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330572/thumbnails/77e9200b8488e3ec64cfd10dcf96ec4a_480.webp"
+          },
+          {
+            "width": 240,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330572/thumbnails/7ad2c1ab65e19c18bd694346c60d3a5b_240.webp"
+          }
+        ],
+        "products": [],
+        "type": "classic"
+      },
+      {
+        "uuid": "6950e3b9-0034-43ac-b88e-5f5b79ad993d",
+        "name": "Nango Dryrun Test PSD",
+        "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330571/thumbnail.webp",
+        "smart_objects": [
+          {
+            "uuid": "d0d20f47-cf85-48a7-bc94-bca3483ae0b5",
+            "name": "Shape 1",
+            "size": {
+              "width": 22,
+              "height": 20
+            },
+            "position": {
+              "top": 28,
+              "left": 19
+            },
+            "print_area_presets": [
+              {
+                "uuid": "32c8ee54-7f05-41ae-9e44-1ff93ca15ea8",
+                "name": "Default",
+                "thumbnails": [],
+                "size": {
+                  "width": 22,
+                  "height": 20
+                },
+                "position": {
+                  "top": 0,
+                  "left": 0
+                }
+              }
+            ]
+          }
+        ],
+        "text_layers": [],
+        "collections": [
+          {
+            "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+            "name": "Nango Registry Test Collection 1"
+          }
+        ],
+        "thumbnails": [
+          {
+            "width": 720,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330571/thumbnails/9679a092db5212255e4290643a91fa75_720.webp"
+          },
+          {
+            "width": 480,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330571/thumbnails/b1f3e254d880ab04b994d4631577275a_480.webp"
+          },
+          {
+            "width": 240,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330571/thumbnails/82f6ff5764801bcdb8da385d5b0276ea_240.webp"
+          }
+        ],
+        "products": [],
+        "type": "classic"
+      },
+      {
+        "uuid": "8d52437b-add0-4c4a-b28f-09d025aa6d56",
+        "name": "Nango Registry Test PSD 3 (in collection)",
+        "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330559/thumbnail.webp",
+        "smart_objects": [
+          {
+            "uuid": "934ff139-716f-4288-823e-02dc34a04781",
+            "name": "Shape 1",
+            "size": {
+              "width": 22,
+              "height": 20
+            },
+            "position": {
+              "top": 28,
+              "left": 19
+            },
+            "print_area_presets": [
+              {
+                "uuid": "b7a3244e-b781-4386-8c19-8db70e87c559",
+                "name": "Default",
+                "thumbnails": [],
+                "size": {
+                  "width": 22,
+                  "height": 20
+                },
+                "position": {
+                  "top": 0,
+                  "left": 0
+                }
+              }
+            ]
+          }
+        ],
+        "text_layers": [],
+        "collections": [
+          {
+            "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+            "name": "Nango Registry Test Collection 1"
+          }
+        ],
+        "thumbnails": [
+          {
+            "width": 720,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330559/thumbnails/f1895c696bcd6a9abe05a707f4e6764d_720.webp"
+          },
+          {
+            "width": 480,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330559/thumbnails/c15eb2738dbbcca93ab5ad8d6381a10a_480.webp"
+          },
+          {
+            "width": 240,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330559/thumbnails/1ab7990da787bd6bdab71d695a545a64_240.webp"
+          }
+        ],
+        "products": [],
+        "type": "classic"
+      },
+      {
+        "uuid": "fa4ffaad-cef5-4205-99c7-cb03f73f0118",
+        "name": "Nango Registry Test PSD 2",
+        "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330558/thumbnail.webp",
+        "smart_objects": [
+          {
+            "uuid": "91afed3a-0f51-49e7-b562-f9474ae007dc",
+            "name": "Shape 1",
+            "size": {
+              "width": 22,
+              "height": 20
+            },
+            "position": {
+              "top": 28,
+              "left": 19
+            },
+            "print_area_presets": [
+              {
+                "uuid": "7c71005f-5bb7-4a87-a7ae-0ce6b72ddd57",
+                "name": "Default",
+                "thumbnails": [],
+                "size": {
+                  "width": 22,
+                  "height": 20
+                },
+                "position": {
+                  "top": 0,
+                  "left": 0
+                }
+              }
+            ]
+          }
+        ],
+        "text_layers": [],
+        "collections": [],
+        "thumbnails": [
+          {
+            "width": 720,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330558/thumbnails/40a39b5b525091df42f5d0be4ef6a2ea_720.webp"
+          },
+          {
+            "width": 480,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330558/thumbnails/1f9cf753fe0cf18ab6ac3029520fa6c6_480.webp"
+          },
+          {
+            "width": 240,
+            "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330558/thumbnails/a5e10c2b600b01ce71eb082c4e536870_240.webp"
+          }
+        ],
+        "products": [],
+        "type": "classic"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/mockups": {
+        "response": {
+          "data": [
+            {
+              "type": "mockanything",
+              "uuid": "444e0bee-a1a8-4bfa-a312-5f0eae1602d3",
+              "name": "Nango Registry Test - Image URL Mockup",
+              "thumbnail": "https://dm-prod-mockanything-ai.s3.eu-central-1.amazonaws.com/input_images/444e0bee-a1a8-4bfa-a312-5f0eae1602d3.jpg",
+              "smart_objects": [],
+              "text_layers": [],
+              "collections": [],
+              "thumbnails": [],
+              "products": []
+            },
+            {
+              "type": "mockanything",
+              "uuid": "fdc23ce4-ef08-4a4f-86e3-a276cd5db493",
+              "name": "Nango Registry Test - Prompt Mockup",
+              "thumbnail": "https://dm-prod-mockanything-ai.s3.eu-central-1.amazonaws.com/ai_generated/fdc23ce4-ef08-4a4f-86e3-a276cd5db493.jpg",
+              "smart_objects": [],
+              "text_layers": [],
+              "collections": [],
+              "thumbnails": [],
+              "products": []
+            },
+            {
+              "type": "mockanything",
+              "uuid": "b3bd6c6d-8d10-4342-8e24-8197ca367ee1",
+              "name": "Nango Registry Test - Product Mockup 2",
+              "thumbnail": "https://dm-prod-mockanything-ai.s3.eu-central-1.amazonaws.com/ai_generated/b3bd6c6d-8d10-4342-8e24-8197ca367ee1.jpg",
+              "smart_objects": [
+                {
+                  "uuid": "bba35469-e614-448d-bd6c-17a6f9b41a4d",
+                  "name": "Front",
+                  "size": {
+                    "width": 290,
+                    "height": 290
+                  },
+                  "position": {
+                    "top": 248,
+                    "left": 297
+                  },
+                  "print_area_presets": [],
+                  "decoration": {
+                    "location": "front_pod_dickies_05_front",
+                    "name": "Front"
+                  }
+                }
+              ],
+              "text_layers": [],
+              "collections": [],
+              "thumbnails": [],
+              "products": [
+                {
+                  "name": "Short Sleeve Performance Team Shirt",
+                  "brand": "Dickies",
+                  "category": "dress_shirt",
+                  "subcategory": "short_sleeve",
+                  "colors": [
+                    {
+                      "name": "Default",
+                      "hex_code": null
+                    }
+                  ],
+                  "uuid": "17212ae2-39cf-4af2-abd8-3960dddd1a87",
+                  "slug": "dickies-05"
+                }
+              ]
+            },
+            {
+              "type": "classic",
+              "uuid": "573ec093-3a6e-4c83-856d-25121cc66d82",
+              "name": "Nango Dryrun Test PSD",
+              "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330576/thumbnail.webp",
+              "smart_objects": [
+                {
+                  "uuid": "f46d0827-8373-4d72-a8bc-73ed02bb4b64",
+                  "name": "Shape 1",
+                  "size": {
+                    "width": 22,
+                    "height": 20
+                  },
+                  "position": {
+                    "top": 28,
+                    "left": 19
+                  },
+                  "print_area_presets": [
+                    {
+                      "uuid": "104d405e-d434-4cc9-b8bc-2079ee54cf33",
+                      "name": "Default",
+                      "thumbnails": [],
+                      "size": {
+                        "width": 22,
+                        "height": 20
+                      },
+                      "position": {
+                        "top": 0,
+                        "left": 0
+                      }
+                    }
+                  ]
+                }
+              ],
+              "text_layers": [],
+              "collections": [
+                {
+                  "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+                  "name": "Nango Registry Test Collection 1"
+                }
+              ],
+              "thumbnails": [
+                {
+                  "width": 720,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330576/thumbnails/0ce8e6ccf9b2c6a8dff8cb5b2b2c034a_720.webp"
+                },
+                {
+                  "width": 480,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330576/thumbnails/2014664fb6662fafeadf99219f1d7720_480.webp"
+                },
+                {
+                  "width": 240,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330576/thumbnails/63deef491fd19ff6dc745a08b14c7510_240.webp"
+                }
+              ],
+              "products": []
+            },
+            {
+              "type": "classic",
+              "uuid": "b695e04f-0582-40bc-a3f4-bbacc412aa0c",
+              "name": "Nango Dryrun Test PSD",
+              "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330575/thumbnail.webp",
+              "smart_objects": [
+                {
+                  "uuid": "872002cc-0cf6-4c86-9d3c-708dc8d524fa",
+                  "name": "Shape 1",
+                  "size": {
+                    "width": 22,
+                    "height": 20
+                  },
+                  "position": {
+                    "top": 28,
+                    "left": 19
+                  },
+                  "print_area_presets": [
+                    {
+                      "uuid": "5609c54e-cff7-470c-9e51-9df2bbd1ac4f",
+                      "name": "Default",
+                      "thumbnails": [],
+                      "size": {
+                        "width": 22,
+                        "height": 20
+                      },
+                      "position": {
+                        "top": 0,
+                        "left": 0
+                      }
+                    }
+                  ]
+                }
+              ],
+              "text_layers": [],
+              "collections": [
+                {
+                  "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+                  "name": "Nango Registry Test Collection 1"
+                }
+              ],
+              "thumbnails": [
+                {
+                  "width": 720,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330575/thumbnails/71c08943a03a073bf93fb26edefd75ea_720.webp"
+                },
+                {
+                  "width": 480,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330575/thumbnails/a0a10de216e239dea69850e766a242eb_480.webp"
+                },
+                {
+                  "width": 240,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330575/thumbnails/973835db3693c6c192baeada76af8a04_240.webp"
+                }
+              ],
+              "products": []
+            },
+            {
+              "type": "classic",
+              "uuid": "5ce376da-ecea-4a16-b78c-d9a780a7f930",
+              "name": "Nango Dryrun Test PSD",
+              "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330574/thumbnail.webp",
+              "smart_objects": [
+                {
+                  "uuid": "19ba0b11-a4a6-4e1c-9ebd-0973fc2c9aa8",
+                  "name": "Shape 1",
+                  "size": {
+                    "width": 22,
+                    "height": 20
+                  },
+                  "position": {
+                    "top": 28,
+                    "left": 19
+                  },
+                  "print_area_presets": [
+                    {
+                      "uuid": "549758aa-d818-4e4e-8b1c-25126023772e",
+                      "name": "Default",
+                      "thumbnails": [],
+                      "size": {
+                        "width": 22,
+                        "height": 20
+                      },
+                      "position": {
+                        "top": 0,
+                        "left": 0
+                      }
+                    }
+                  ]
+                }
+              ],
+              "text_layers": [],
+              "collections": [
+                {
+                  "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+                  "name": "Nango Registry Test Collection 1"
+                }
+              ],
+              "thumbnails": [
+                {
+                  "width": 720,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330574/thumbnails/b6b8e7608fc48f3f5d5a43cfea94ec14_720.webp"
+                },
+                {
+                  "width": 480,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330574/thumbnails/27f1255b0b77dc17f1669eda0f2f7aeb_480.webp"
+                },
+                {
+                  "width": 240,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330574/thumbnails/738d36c84892540339c0fc8923d4a295_240.webp"
+                }
+              ],
+              "products": []
+            },
+            {
+              "type": "classic",
+              "uuid": "5cafcdfc-52f1-4f28-bb32-4056d750bdfb",
+              "name": "Nango Dryrun Test PSD",
+              "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330573/thumbnail.webp",
+              "smart_objects": [
+                {
+                  "uuid": "b351c474-aed9-4fd3-a225-f9edf2a13d84",
+                  "name": "Shape 1",
+                  "size": {
+                    "width": 22,
+                    "height": 20
+                  },
+                  "position": {
+                    "top": 28,
+                    "left": 19
+                  },
+                  "print_area_presets": [
+                    {
+                      "uuid": "c36e5b80-966d-4056-a650-d3706ba9de59",
+                      "name": "Default",
+                      "thumbnails": [],
+                      "size": {
+                        "width": 22,
+                        "height": 20
+                      },
+                      "position": {
+                        "top": 0,
+                        "left": 0
+                      }
+                    }
+                  ]
+                }
+              ],
+              "text_layers": [],
+              "collections": [
+                {
+                  "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+                  "name": "Nango Registry Test Collection 1"
+                }
+              ],
+              "thumbnails": [
+                {
+                  "width": 720,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330573/thumbnails/ceffbe9d6f1a641aef39743d36b5d760_720.webp"
+                },
+                {
+                  "width": 480,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330573/thumbnails/aeea1c8c3df7e1e4165b58273d01eb80_480.webp"
+                },
+                {
+                  "width": 240,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330573/thumbnails/6d4e0fa5216a6bf1536471ca8166ccd6_240.webp"
+                }
+              ],
+              "products": []
+            },
+            {
+              "type": "classic",
+              "uuid": "ec8c662f-aa64-41e4-b5b3-d310f541d40c",
+              "name": "Nango Dryrun Test PSD",
+              "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330572/thumbnail.webp",
+              "smart_objects": [
+                {
+                  "uuid": "0aeec06f-c59c-4582-a8ff-f340b485cd22",
+                  "name": "Shape 1",
+                  "size": {
+                    "width": 22,
+                    "height": 20
+                  },
+                  "position": {
+                    "top": 28,
+                    "left": 19
+                  },
+                  "print_area_presets": [
+                    {
+                      "uuid": "dd3f1e4e-2b5b-4e80-94a0-f67b4a1c64a5",
+                      "name": "Default",
+                      "thumbnails": [],
+                      "size": {
+                        "width": 22,
+                        "height": 20
+                      },
+                      "position": {
+                        "top": 0,
+                        "left": 0
+                      }
+                    }
+                  ]
+                }
+              ],
+              "text_layers": [],
+              "collections": [
+                {
+                  "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+                  "name": "Nango Registry Test Collection 1"
+                }
+              ],
+              "thumbnails": [
+                {
+                  "width": 720,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330572/thumbnails/3490addee13eb5a1be59bcc97b095ead_720.webp"
+                },
+                {
+                  "width": 480,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330572/thumbnails/77e9200b8488e3ec64cfd10dcf96ec4a_480.webp"
+                },
+                {
+                  "width": 240,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330572/thumbnails/7ad2c1ab65e19c18bd694346c60d3a5b_240.webp"
+                }
+              ],
+              "products": []
+            },
+            {
+              "type": "classic",
+              "uuid": "6950e3b9-0034-43ac-b88e-5f5b79ad993d",
+              "name": "Nango Dryrun Test PSD",
+              "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330571/thumbnail.webp",
+              "smart_objects": [
+                {
+                  "uuid": "d0d20f47-cf85-48a7-bc94-bca3483ae0b5",
+                  "name": "Shape 1",
+                  "size": {
+                    "width": 22,
+                    "height": 20
+                  },
+                  "position": {
+                    "top": 28,
+                    "left": 19
+                  },
+                  "print_area_presets": [
+                    {
+                      "uuid": "32c8ee54-7f05-41ae-9e44-1ff93ca15ea8",
+                      "name": "Default",
+                      "thumbnails": [],
+                      "size": {
+                        "width": 22,
+                        "height": 20
+                      },
+                      "position": {
+                        "top": 0,
+                        "left": 0
+                      }
+                    }
+                  ]
+                }
+              ],
+              "text_layers": [],
+              "collections": [
+                {
+                  "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+                  "name": "Nango Registry Test Collection 1"
+                }
+              ],
+              "thumbnails": [
+                {
+                  "width": 720,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330571/thumbnails/9679a092db5212255e4290643a91fa75_720.webp"
+                },
+                {
+                  "width": 480,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330571/thumbnails/b1f3e254d880ab04b994d4631577275a_480.webp"
+                },
+                {
+                  "width": 240,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330571/thumbnails/82f6ff5764801bcdb8da385d5b0276ea_240.webp"
+                }
+              ],
+              "products": []
+            },
+            {
+              "type": "classic",
+              "uuid": "8d52437b-add0-4c4a-b28f-09d025aa6d56",
+              "name": "Nango Registry Test PSD 3 (in collection)",
+              "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330559/thumbnail.webp",
+              "smart_objects": [
+                {
+                  "uuid": "934ff139-716f-4288-823e-02dc34a04781",
+                  "name": "Shape 1",
+                  "size": {
+                    "width": 22,
+                    "height": 20
+                  },
+                  "position": {
+                    "top": 28,
+                    "left": 19
+                  },
+                  "print_area_presets": [
+                    {
+                      "uuid": "b7a3244e-b781-4386-8c19-8db70e87c559",
+                      "name": "Default",
+                      "thumbnails": [],
+                      "size": {
+                        "width": 22,
+                        "height": 20
+                      },
+                      "position": {
+                        "top": 0,
+                        "left": 0
+                      }
+                    }
+                  ]
+                }
+              ],
+              "text_layers": [],
+              "collections": [
+                {
+                  "uuid": "f035baed-db43-40d5-b260-cdc02458db93",
+                  "name": "Nango Registry Test Collection 1"
+                }
+              ],
+              "thumbnails": [
+                {
+                  "width": 720,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330559/thumbnails/f1895c696bcd6a9abe05a707f4e6764d_720.webp"
+                },
+                {
+                  "width": 480,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330559/thumbnails/c15eb2738dbbcca93ab5ad8d6381a10a_480.webp"
+                },
+                {
+                  "width": 240,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330559/thumbnails/1ab7990da787bd6bdab71d695a545a64_240.webp"
+                }
+              ],
+              "products": []
+            },
+            {
+              "type": "classic",
+              "uuid": "fa4ffaad-cef5-4205-99c7-cb03f73f0118",
+              "name": "Nango Registry Test PSD 2",
+              "thumbnail": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330558/thumbnail.webp",
+              "smart_objects": [
+                {
+                  "uuid": "91afed3a-0f51-49e7-b562-f9474ae007dc",
+                  "name": "Shape 1",
+                  "size": {
+                    "width": 22,
+                    "height": 20
+                  },
+                  "position": {
+                    "top": 28,
+                    "left": 19
+                  },
+                  "print_area_presets": [
+                    {
+                      "uuid": "7c71005f-5bb7-4a87-a7ae-0ce6b72ddd57",
+                      "name": "Default",
+                      "thumbnails": [],
+                      "size": {
+                        "width": 22,
+                        "height": 20
+                      },
+                      "position": {
+                        "top": 0,
+                        "left": 0
+                      }
+                    }
+                  ]
+                }
+              ],
+              "text_layers": [],
+              "collections": [],
+              "thumbnails": [
+                {
+                  "width": 720,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330558/thumbnails/40a39b5b525091df42f5d0be4ef6a2ea_720.webp"
+                },
+                {
+                  "width": 480,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330558/thumbnails/1f9cf753fe0cf18ab6ac3029520fa6c6_480.webp"
+                },
+                {
+                  "width": 240,
+                  "url": "https://app-dynamicmockups-production.s3.eu-central-1.amazonaws.com/mockup/330558/thumbnails/a5e10c2b600b01ce71eb082c4e536870_240.webp"
+                }
+              ],
+              "products": []
+            }
+          ],
+          "success": true,
+          "message": ""
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 15:40:22 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "500",
+          "x-ratelimit-remaining": "495",
+          "x-ratelimit-reset": "1785944456",
+          "server": "nginx",
+          "x-powered-by": "PHP/8.2.33",
+          "cache-control": "no-cache, private"
+        },
+        "hash": "b023fb60fa88ce7a6569b330b6af0772e5677269",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1591,6 +1591,24 @@ import './dropbox/actions/unshare-folder.js';
 import './dropbox/actions/upload-file.js';
 import './dropbox/actions/upload-large-file.js';
 
+// -- Integration: dynamic-mockups
+import './dynamic-mockups/syncs/catalogs.js';
+import './dynamic-mockups/syncs/collections.js';
+import './dynamic-mockups/syncs/mockups.js';
+import './dynamic-mockups/actions/create-collection.js';
+import './dynamic-mockups/actions/delete-psd.js';
+import './dynamic-mockups/actions/get-mock-anything-product.js';
+import './dynamic-mockups/actions/get-mock-anything-status.js';
+import './dynamic-mockups/actions/get-mockup.js';
+import './dynamic-mockups/actions/get-motion-mockup-status.js';
+import './dynamic-mockups/actions/list-catalogs.js';
+import './dynamic-mockups/actions/list-collections.js';
+import './dynamic-mockups/actions/list-mock-anything-styles.js';
+import './dynamic-mockups/actions/list-mockups.js';
+import './dynamic-mockups/actions/list-motion-mockup-models.js';
+import './dynamic-mockups/actions/search-mock-anything-products.js';
+import './dynamic-mockups/actions/upload-psd.js';
+
 // -- Integration: dynatrace
 import './dynatrace/syncs/entities.js';
 import './dynatrace/syncs/problems.js';

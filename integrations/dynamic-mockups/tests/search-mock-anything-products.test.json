@@ -1,0 +1,2806 @@
+{
+  "input": {
+    "query": "shirt"
+  },
+  "output": {
+    "products": [
+      {
+        "uuid": "17212ae2-39cf-4af2-abd8-3960dddd1a87",
+        "name": "Dickies 05 Short Sleeve Performance Team Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "ac6e01e4-0895-448c-b644-ea4b7d210bc8",
+        "name": "Boxercraft F50 Women's Flannel Shirt",
+        "sizes": [
+          {
+            "label": "XS",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "3b800d97-d41e-4b4c-851e-31226f27f531",
+        "name": "Dickies 05T Short Sleeve Performance Team Shirt - Tall Sizes",
+        "sizes": [
+          {
+            "label": "2XLT",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "3XLT",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "MT",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "LT",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "XLT",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "7d005e9a-1614-44e0-bb5f-1d66cc7cf814",
+        "name": "Paragon 700 Hatteras Performance Short Sleeve Fishing Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "4XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "5a6f40c7-9112-48aa-9d4e-505e783aeb85",
+        "name": "Paragon 702 Kitty Hawk Performance Long Sleeve Fishing Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "4XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "223dfb46-c70f-4eda-b8d0-31e45d621962",
+        "name": "Paragon 704 Women's Hatteras Performance Short Sleeve Fishing Shirt",
+        "sizes": [
+          {
+            "label": "XS",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "4122a936-11bf-452a-8492-cabb26482a83",
+        "name": "Paragon 709 Buxton Sublimated Long Sleeve Fishing Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "4a2b2210-57d6-4a2c-b018-b7b21fcc8653",
+        "name": "Augusta Sportswear 2600 Hyperform Compression Short Sleeve Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "9458d92f-8b2a-4a62-ad69-9f1993cf7738",
+        "name": "Augusta Sportswear 2601 Youth Hyperform Compression Short Sleeve Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "c8c15f36-0948-4db3-aa07-05e94e789252",
+        "name": "Augusta Sportswear 2602 Unisex Hyperform Sleeveless Compression Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "ed04b575-e4a9-4f76-a44e-1c4c9a73ba3d",
+        "name": "Augusta Sportswear 2604 Unisex Hyperform Compression Long Sleeve Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "d56ba2a4-dbea-49bd-8961-c59fc3541ac6",
+        "name": "Augusta Sportswear 2605 Youth Hyperform Compression Long Sleeve Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "7dc17ce7-2239-4685-b131-a89625b5f86b",
+        "name": "Augusta Sportswear 2790 Unisex Attain Color Secure® Performance Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "763e3a25-89c9-4fe6-ab95-252ef85392b4",
+        "name": "Augusta Sportswear 2796 Youth Attain Wicking Long Sleeve Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          }
+        ]
+      },
+      {
+        "uuid": "28493f31-5493-4685-89d5-7f7ec536af1d",
+        "name": "Berne Apparel SH67 Men's Caster Shirt Jacket",
+        "sizes": []
+      },
+      {
+        "uuid": "19e4b8d1-2790-487c-ba91-93c8e7f947ee",
+        "name": "Berne Apparel SH68 Men's Throttle Hooded Shirt Jacket",
+        "sizes": []
+      },
+      {
+        "uuid": "2bdd46bf-59fc-4b8f-90af-e13b9a7f9cb1",
+        "name": "Boxercraft FL01 Women's Loungelite Button-Back Shirt",
+        "sizes": [
+          {
+            "label": "XS",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          }
+        ]
+      },
+      {
+        "uuid": "1686f82b-7024-4917-a558-cded122b1876",
+        "name": "Bulwark QS40 iQ Series® Endurance Work Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "4XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "5XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "6XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "1c604cfa-ea48-4dc0-8ce7-9c5edecd23bc",
+        "name": "Bulwark QS41 Women's iQ Series® Endurance Long Sleeve Shirt",
+        "sizes": [
+          {
+            "label": "XS",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "9a22aa11-463e-4636-80eb-29474c90c265",
+        "name": "Bulwark QS50 iQ Series® Long Sleeve Comfort Woven Lightweight Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "4XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "5XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "6XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "cc5d5db1-c424-4c61-8be6-69e415a85015",
+        "name": "Bulwark QS51 Women's iQ Series® Comfort Woven Lightweight Shirt",
+        "sizes": [
+          {
+            "label": "XS",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "e45eb345-784b-4da5-a308-18725afa477d",
+        "name": "Bulwark QT32 Flame Resistant Long Sleeve Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "c32d130e-e157-4457-8908-668cabfc407e",
+        "name": "Bulwark SEL2 Long Sleeve Tagless Henley Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "4XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "3d4a63d9-4673-4c88-9619-697a0ddda018",
+        "name": "Bulwark SEL3 Women's Long Sleeve Tagless Henley Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "adde950e-5570-429d-a58e-d7e9395ec4ea",
+        "name": "Bulwark SES2 Snap-Front Uniform Shirt - EXCEL FR",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "04a14c1e-c221-43c8-90e8-a3545c893c9c",
+        "name": "Bulwark SET8 Flame-Resistant Excel FR® Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "4XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "0f47404b-5d90-44c0-9e26-0b4cc7897344",
+        "name": "Bulwark SEW2 Flame Resistant Excel Work Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "0c3355c7-0e5d-421b-944b-b89b090271c5",
+        "name": "Bulwark SLDT Enhanced Visibility Uniform Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "342b6743-95f3-429c-89bf-5701d622adbb",
+        "name": "Bulwark SLS2 Concealed-Gripper Pocketless Work Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "a3cd6c8d-9276-4a1f-8275-60780a5ede4b",
+        "name": "Bulwark SLU2 Dress Uniform Shirt - Excel FR ComforTouch - 7 oz.",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "356fd7ca-406f-4250-88a8-eaacf0e64aab",
+        "name": "Bulwark SLU3 Women's Dress Uniform Shirt - EXCEL FR® ComforTouch",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "8495da4d-f969-43cf-ad76-82966d96602d",
+        "name": "Bulwark SLU8 Uniform Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "628c9038-7dfd-4451-807d-f771ca24d090",
+        "name": "Bulwark SLUC Dress Uniform Shirt with CSA reflective trim - EXCEL FR® ComforTouch",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "e3665a30-3556-4551-9b80-80fb6399a845",
+        "name": "Bulwark SLW2 Work Shirt - EXCEL FR® ComforTouch",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "4XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "5XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "6XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "fc9afe4f-90c3-4344-91d6-1e4890a7d06a",
+        "name": "Bulwark SML2 Long Sleeve Henley Shirt- CoolTouch®2",
+        "sizes": [
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "e4684d3f-8432-4560-b341-c56ead2a3afe",
+        "name": "Bulwark SMS2 Concealed-Gripper Pocketless Long Sleeve Shirt - CoolTouch® 2",
+        "sizes": []
+      },
+      {
+        "uuid": "ffc3f3db-9f21-4e88-ad00-4653299e2fc3",
+        "name": "Bulwark SMU2 Uniform Shirt",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "7bdba655-1d5d-4a67-962e-655ae51495df",
+        "name": "Bulwark SMW4 High Visibility Long Sleeve Work Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "6d22f527-5ea9-4ddc-a9b9-9b006e00bb18",
+        "name": "Bulwark SND2 Uniform Shirt Nomex® IIIA",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "dc39e890-a52a-4bde-93cc-d8e89add216b",
+        "name": "Bulwark SNS2 Snap-Front Uniform Shirt - Nomex® IIIA - 4.5 oz.",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "a3350906-41d4-446f-a16b-4bb68ca883ff",
+        "name": "Bulwark SNS6 Snap-Front Uniform Shirt - Nomex® IIIA - 6 oz.",
+        "sizes": [
+          {
+            "label": "S",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "d02c675a-1376-4f06-b341-4aa98ed801ed",
+        "name": "Bulwark SWW2 Welding Work Shirt",
+        "sizes": [
+          {
+            "label": "M",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "L",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": true
+          },
+          {
+            "label": "XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "2XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          },
+          {
+            "label": "3XL",
+            "width_in": null,
+            "height_in": null,
+            "is_reference_size": false
+          }
+        ]
+      },
+      {
+        "uuid": "da18c2da-041b-4ca9-9b97-71ee0b1bcd26",
+        "name": "Burnside 2297 Men's Baja Short Sleeve Fishing Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "a9476e4b-e2a5-44b8-abde-b5bd053ac128",
+        "name": "Burnside 2299 Men's Baja Long Sleeve Fishing Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "e2fc6cba-87ff-41ca-8f8c-7fe5dedd946c",
+        "name": "Burnside 3291 Men's Technical Stretch Burn Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "5d8540bc-12af-4fb3-b3c8-948ccac8506e",
+        "name": "Burnside 4212 Youth Open Pocket Long Sleeve Flannel Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "f7bc78ee-fd66-40db-864f-743cc9e9d49b",
+        "name": "Burnside 5200 Women's Solid Flannel Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "306dda15-f74d-4637-b4fa-dc488dfc006b",
+        "name": "Burnside 5203 Women's Buffalo Plaid Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "890e3850-b0d8-4891-a379-e2288ae88745",
+        "name": "Burnside 5210 Women's Yarn-Dyed Long Sleeve Flannel Shirt",
+        "sizes": []
+      },
+      {
+        "uuid": "bfec225d-3f71-43c4-802f-5214077da242",
+        "name": "Burnside 5212 Women's No Pocket Yarn-Dyed Long Sleeve Flannel Shirt",
+        "sizes": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/mock-anything/products": {
+        "response": {
+          "data": [
+            {
+              "name": "Dickies 05 Short Sleeve Performance Team Shirt",
+              "sizes": [],
+              "uuid": "17212ae2-39cf-4af2-abd8-3960dddd1a87"
+            },
+            {
+              "name": "Boxercraft F50 Women's Flannel Shirt",
+              "sizes": [
+                {
+                  "label": "XS",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "ac6e01e4-0895-448c-b644-ea4b7d210bc8"
+            },
+            {
+              "name": "Dickies 05T Short Sleeve Performance Team Shirt - Tall Sizes",
+              "sizes": [
+                {
+                  "label": "2XLT",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "3XLT",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "MT",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "LT",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "XLT",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "3b800d97-d41e-4b4c-851e-31226f27f531"
+            },
+            {
+              "name": "Paragon 700 Hatteras Performance Short Sleeve Fishing Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "4XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "7d005e9a-1614-44e0-bb5f-1d66cc7cf814"
+            },
+            {
+              "name": "Paragon 702 Kitty Hawk Performance Long Sleeve Fishing Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "4XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "5a6f40c7-9112-48aa-9d4e-505e783aeb85"
+            },
+            {
+              "name": "Paragon 704 Women's Hatteras Performance Short Sleeve Fishing Shirt",
+              "sizes": [
+                {
+                  "label": "XS",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "223dfb46-c70f-4eda-b8d0-31e45d621962"
+            },
+            {
+              "name": "Paragon 709 Buxton Sublimated Long Sleeve Fishing Shirt",
+              "sizes": [],
+              "uuid": "4122a936-11bf-452a-8492-cabb26482a83"
+            },
+            {
+              "name": "Augusta Sportswear 2600 Hyperform Compression Short Sleeve Shirt",
+              "sizes": [],
+              "uuid": "4a2b2210-57d6-4a2c-b018-b7b21fcc8653"
+            },
+            {
+              "name": "Augusta Sportswear 2601 Youth Hyperform Compression Short Sleeve Shirt",
+              "sizes": [],
+              "uuid": "9458d92f-8b2a-4a62-ad69-9f1993cf7738"
+            },
+            {
+              "name": "Augusta Sportswear 2602 Unisex Hyperform Sleeveless Compression Shirt",
+              "sizes": [],
+              "uuid": "c8c15f36-0948-4db3-aa07-05e94e789252"
+            },
+            {
+              "name": "Augusta Sportswear 2604 Unisex Hyperform Compression Long Sleeve Shirt",
+              "sizes": [],
+              "uuid": "ed04b575-e4a9-4f76-a44e-1c4c9a73ba3d"
+            },
+            {
+              "name": "Augusta Sportswear 2605 Youth Hyperform Compression Long Sleeve Shirt",
+              "sizes": [],
+              "uuid": "d56ba2a4-dbea-49bd-8961-c59fc3541ac6"
+            },
+            {
+              "name": "Augusta Sportswear 2790 Unisex Attain Color Secure® Performance Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "7dc17ce7-2239-4685-b131-a89625b5f86b"
+            },
+            {
+              "name": "Augusta Sportswear 2796 Youth Attain Wicking Long Sleeve Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                }
+              ],
+              "uuid": "763e3a25-89c9-4fe6-ab95-252ef85392b4"
+            },
+            {
+              "name": "Berne Apparel SH67 Men's Caster Shirt Jacket",
+              "sizes": [],
+              "uuid": "28493f31-5493-4685-89d5-7f7ec536af1d"
+            },
+            {
+              "name": "Berne Apparel SH68 Men's Throttle Hooded Shirt Jacket",
+              "sizes": [],
+              "uuid": "19e4b8d1-2790-487c-ba91-93c8e7f947ee"
+            },
+            {
+              "name": "Boxercraft FL01 Women's Loungelite Button-Back Shirt",
+              "sizes": [
+                {
+                  "label": "XS",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                }
+              ],
+              "uuid": "2bdd46bf-59fc-4b8f-90af-e13b9a7f9cb1"
+            },
+            {
+              "name": "Bulwark QS40 iQ Series® Endurance Work Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "4XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "5XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "6XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "1686f82b-7024-4917-a558-cded122b1876"
+            },
+            {
+              "name": "Bulwark QS41 Women's iQ Series® Endurance Long Sleeve Shirt",
+              "sizes": [
+                {
+                  "label": "XS",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "1c604cfa-ea48-4dc0-8ce7-9c5edecd23bc"
+            },
+            {
+              "name": "Bulwark QS50 iQ Series® Long Sleeve Comfort Woven Lightweight Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "4XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "5XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "6XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "9a22aa11-463e-4636-80eb-29474c90c265"
+            },
+            {
+              "name": "Bulwark QS51 Women's iQ Series® Comfort Woven Lightweight Shirt",
+              "sizes": [
+                {
+                  "label": "XS",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "cc5d5db1-c424-4c61-8be6-69e415a85015"
+            },
+            {
+              "name": "Bulwark QT32 Flame Resistant Long Sleeve Shirt",
+              "sizes": [],
+              "uuid": "e45eb345-784b-4da5-a308-18725afa477d"
+            },
+            {
+              "name": "Bulwark SEL2 Long Sleeve Tagless Henley Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "4XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "c32d130e-e157-4457-8908-668cabfc407e"
+            },
+            {
+              "name": "Bulwark SEL3 Women's Long Sleeve Tagless Henley Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "3d4a63d9-4673-4c88-9619-697a0ddda018"
+            },
+            {
+              "name": "Bulwark SES2 Snap-Front Uniform Shirt - EXCEL FR",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "adde950e-5570-429d-a58e-d7e9395ec4ea"
+            },
+            {
+              "name": "Bulwark SET8 Flame-Resistant Excel FR® Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "4XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "04a14c1e-c221-43c8-90e8-a3545c893c9c"
+            },
+            {
+              "name": "Bulwark SEW2 Flame Resistant Excel Work Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "0f47404b-5d90-44c0-9e26-0b4cc7897344"
+            },
+            {
+              "name": "Bulwark SLDT Enhanced Visibility Uniform Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "0c3355c7-0e5d-421b-944b-b89b090271c5"
+            },
+            {
+              "name": "Bulwark SLS2 Concealed-Gripper Pocketless Work Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "342b6743-95f3-429c-89bf-5701d622adbb"
+            },
+            {
+              "name": "Bulwark SLU2 Dress Uniform Shirt - Excel FR ComforTouch - 7 oz.",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "a3cd6c8d-9276-4a1f-8275-60780a5ede4b"
+            },
+            {
+              "name": "Bulwark SLU3 Women's Dress Uniform Shirt - EXCEL FR® ComforTouch",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "356fd7ca-406f-4250-88a8-eaacf0e64aab"
+            },
+            {
+              "name": "Bulwark SLU8 Uniform Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "8495da4d-f969-43cf-ad76-82966d96602d"
+            },
+            {
+              "name": "Bulwark SLUC Dress Uniform Shirt with CSA reflective trim - EXCEL FR® ComforTouch",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "628c9038-7dfd-4451-807d-f771ca24d090"
+            },
+            {
+              "name": "Bulwark SLW2 Work Shirt - EXCEL FR® ComforTouch",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "4XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "5XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "6XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "e3665a30-3556-4551-9b80-80fb6399a845"
+            },
+            {
+              "name": "Bulwark SML2 Long Sleeve Henley Shirt- CoolTouch®2",
+              "sizes": [
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "fc9afe4f-90c3-4344-91d6-1e4890a7d06a"
+            },
+            {
+              "name": "Bulwark SMS2 Concealed-Gripper Pocketless Long Sleeve Shirt - CoolTouch® 2",
+              "sizes": [],
+              "uuid": "e4684d3f-8432-4560-b341-c56ead2a3afe"
+            },
+            {
+              "name": "Bulwark SMU2 Uniform Shirt",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "ffc3f3db-9f21-4e88-ad00-4653299e2fc3"
+            },
+            {
+              "name": "Bulwark SMW4 High Visibility Long Sleeve Work Shirt",
+              "sizes": [],
+              "uuid": "7bdba655-1d5d-4a67-962e-655ae51495df"
+            },
+            {
+              "name": "Bulwark SND2 Uniform Shirt Nomex® IIIA",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "6d22f527-5ea9-4ddc-a9b9-9b006e00bb18"
+            },
+            {
+              "name": "Bulwark SNS2 Snap-Front Uniform Shirt - Nomex® IIIA - 4.5 oz.",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "dc39e890-a52a-4bde-93cc-d8e89add216b"
+            },
+            {
+              "name": "Bulwark SNS6 Snap-Front Uniform Shirt - Nomex® IIIA - 6 oz.",
+              "sizes": [
+                {
+                  "label": "S",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "a3350906-41d4-446f-a16b-4bb68ca883ff"
+            },
+            {
+              "name": "Bulwark SWW2 Welding Work Shirt",
+              "sizes": [
+                {
+                  "label": "M",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "L",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": true
+                },
+                {
+                  "label": "XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "2XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                },
+                {
+                  "label": "3XL",
+                  "width_in": null,
+                  "height_in": null,
+                  "is_reference_size": false
+                }
+              ],
+              "uuid": "d02c675a-1376-4f06-b341-4aa98ed801ed"
+            },
+            {
+              "name": "Burnside 2297 Men's Baja Short Sleeve Fishing Shirt",
+              "sizes": [],
+              "uuid": "da18c2da-041b-4ca9-9b97-71ee0b1bcd26"
+            },
+            {
+              "name": "Burnside 2299 Men's Baja Long Sleeve Fishing Shirt",
+              "sizes": [],
+              "uuid": "a9476e4b-e2a5-44b8-abde-b5bd053ac128"
+            },
+            {
+              "name": "Burnside 3291 Men's Technical Stretch Burn Shirt",
+              "sizes": [],
+              "uuid": "e2fc6cba-87ff-41ca-8f8c-7fe5dedd946c"
+            },
+            {
+              "name": "Burnside 4212 Youth Open Pocket Long Sleeve Flannel Shirt",
+              "sizes": [],
+              "uuid": "5d8540bc-12af-4fb3-b3c8-948ccac8506e"
+            },
+            {
+              "name": "Burnside 5200 Women's Solid Flannel Shirt",
+              "sizes": [],
+              "uuid": "f7bc78ee-fd66-40db-864f-743cc9e9d49b"
+            },
+            {
+              "name": "Burnside 5203 Women's Buffalo Plaid Shirt",
+              "sizes": [],
+              "uuid": "306dda15-f74d-4637-b4fa-dc488dfc006b"
+            },
+            {
+              "name": "Burnside 5210 Women's Yarn-Dyed Long Sleeve Flannel Shirt",
+              "sizes": [],
+              "uuid": "890e3850-b0d8-4891-a379-e2288ae88745"
+            },
+            {
+              "name": "Burnside 5212 Women's No Pocket Yarn-Dyed Long Sleeve Flannel Shirt",
+              "sizes": [],
+              "uuid": "bfec225d-3f71-43c4-802f-5214077da242"
+            }
+          ],
+          "success": true,
+          "message": ""
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 15:39:12 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "500",
+          "x-ratelimit-remaining": "498",
+          "x-ratelimit-reset": "1785944395",
+          "server": "nginx",
+          "x-powered-by": "PHP/8.2.33",
+          "cache-control": "no-cache, private"
+        },
+        "hash": "d404c6793c2d0a2083305b88066248d73b1a096f",
+        "request": {
+          "params": {
+            "query": "shirt"
+          }
+        }
+      }
+    }
+  }
+}
