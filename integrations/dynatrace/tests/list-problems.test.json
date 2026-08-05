@@ -1,0 +1,5256 @@
+{
+  "input": {
+    "from": "-7d"
+  },
+  "output": {
+    "problems": [
+      {
+        "problemId": "7107113792931331638_1785774900000V2",
+        "displayId": "P-2608312",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "OPEN",
+        "startTime": 1785775080000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "6827991970533306155_1785774660000V2",
+        "displayId": "P-2608311",
+        "title": "Multiple infrastructure problems",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "OPEN",
+        "startTime": 1785774660000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "frontend"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "frontend"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+            "type": "CLOUD_APPLICATION"
+          },
+          "name": "frontend"
+        },
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [],
+        "k8s.namespace.name": [
+          "astroshop"
+        ],
+        "k8s.cluster.name": [
+          "aks-playground"
+        ],
+        "k8s.cluster.uid": [
+          "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+        ]
+      },
+      {
+        "problemId": "-7367198832943222116_1785773640000V2",
+        "displayId": "P-2608310",
+        "title": "User action duration degradation",
+        "impactLevel": "APPLICATION",
+        "severityLevel": "PERFORMANCE",
+        "status": "OPEN",
+        "startTime": 1785773940000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-F9D25E95F25AFE0A",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-F9D25E95F25AFE0A",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "SERVICE-EB9383023479296B",
+            "type": "SERVICE"
+          },
+          "name": "astroshop-frontend"
+        },
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "SLO_APP",
+            "stringRepresentation": "SLO_APP:astroshop",
+            "value": "astroshop"
+          }
+        ],
+        "problemFilters": []
+      },
+      {
+        "problemId": "518986019767721916_1785772860000V2",
+        "displayId": "P-2608308",
+        "title": "Long garbage-collection time",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "OPEN",
+        "startTime": 1785773040000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+              "type": "PROCESS_GROUP_INSTANCE"
+            },
+            "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+              "type": "PROCESS_GROUP_INSTANCE"
+            },
+            "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/name",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend",
+            "value": "frontend"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "stage",
+            "stringRepresentation": "[Kubernetes]stage:prod",
+            "value": "prod"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "opentelemetry.io/name",
+            "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend",
+            "value": "frontend"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_PRODUCT",
+            "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "astroshop.org/owner",
+            "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI",
+            "value": "Team-UI"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "namespace",
+            "stringRepresentation": "[Kubernetes]namespace:astroshop",
+            "value": "astroshop"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_VERSION",
+            "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/component",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend",
+            "value": "frontend"
+          }
+        ],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-5771044808986785792_1785772140000V2",
+        "displayId": "P-2608307",
+        "title": "Multiple infrastructure problems",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "OPEN",
+        "startTime": 1785772140000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "checkout"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "checkout"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+            "type": "CLOUD_APPLICATION"
+          },
+          "name": "checkout"
+        },
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ],
+        "k8s.namespace.name": [
+          "astroshop"
+        ],
+        "k8s.cluster.name": [
+          "aks-playground"
+        ],
+        "k8s.cluster.uid": [
+          "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+        ]
+      },
+      {
+        "problemId": "961047724928368224_1785771960000V2",
+        "displayId": "P-2608306",
+        "title": "Multiple infrastructure problems",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "OPEN",
+        "startTime": 1785771960000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "frontend"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "frontend"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+            "type": "CLOUD_APPLICATION"
+          },
+          "name": "frontend"
+        },
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ],
+        "k8s.namespace.name": [
+          "astroshop"
+        ],
+        "k8s.cluster.name": [
+          "aks-playground"
+        ],
+        "k8s.cluster.uid": [
+          "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+        ]
+      },
+      {
+        "problemId": "-1051935563709982898_1785760440000V2",
+        "displayId": "P-2608290",
+        "title": "Multiple environment problems",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "OPEN",
+        "startTime": 1785760620000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-6416426972756657096_1785744900000V2",
+        "displayId": "P-2608272",
+        "title": "Amazon EC2 CPU Utilization High",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "OPEN",
+        "startTime": 1785745500000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "4214286637456572880_1785744900000V2",
+        "displayId": "P-2608273",
+        "title": "Amazon EC2 CPU Utilization High",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "OPEN",
+        "startTime": 1785745500000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "8769981643858044755_1785744840000V2",
+        "displayId": "P-2608270",
+        "title": "Process CPU problem.",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "OPEN",
+        "startTime": 1785744900000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "PROCESS_GROUP_INSTANCE-7FB68AEA9C304C5C",
+              "type": "PROCESS_GROUP_INSTANCE"
+            },
+            "name": "webserver"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "PROCESS_GROUP_INSTANCE-7FB68AEA9C304C5C",
+              "type": "PROCESS_GROUP_INSTANCE"
+            },
+            "name": "webserver"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "PROCESS_GROUP-76DA97758FB16E12",
+            "type": "PROCESS_GROUP"
+          },
+          "name": "webserver"
+        },
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "env",
+            "stringRepresentation": "env:cloud-alerts-demo",
+            "value": "cloud-alerts-demo"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "app",
+            "stringRepresentation": "app"
+          }
+        ],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-3527210400835656221_1785736500000V2",
+        "displayId": "P-2608260",
+        "title": "AWS Lambda Error Rate High",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "ERROR",
+        "status": "OPEN",
+        "startTime": 1785736740000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-6660390653490635667_1785565900114V2",
+        "displayId": "P-260836",
+        "title": "Low available disk space percentage",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "OPEN",
+        "startTime": 1785565900114,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "HOST-EBC5983479603BE2",
+              "type": "HOST"
+            },
+            "name": "frontend-high-cpu"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "HOST-EBC5983479603BE2",
+              "type": "HOST"
+            },
+            "name": "frontend-high-cpu"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "HOST-EBC5983479603BE2",
+            "type": "HOST"
+          },
+          "name": "frontend-high-cpu"
+        },
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "env",
+            "stringRepresentation": "env:cloud-alerts-demo",
+            "value": "cloud-alerts-demo"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "app",
+            "stringRepresentation": "app"
+          }
+        ],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "4817626598374793251_1785511020000V2",
+        "displayId": "P-26074439",
+        "title": "Low disk space",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "OPEN",
+        "startTime": 1785511200000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "HOST-EBC5983479603BE2",
+              "type": "HOST"
+            },
+            "name": "frontend-high-cpu"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "HOST-EBC5983479603BE2",
+              "type": "HOST"
+            },
+            "name": "frontend-high-cpu"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "HOST-EBC5983479603BE2",
+            "type": "HOST"
+          },
+          "name": "frontend-high-cpu"
+        },
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "env",
+            "stringRepresentation": "env:cloud-alerts-demo",
+            "value": "cloud-alerts-demo"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "app",
+            "stringRepresentation": "app"
+          }
+        ],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "1891753502535485237_1785129780000V2",
+        "displayId": "P-26073744",
+        "title": "Cisco Memory Free critical low",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "CUSTOM_ALERT",
+        "status": "OPEN",
+        "startTime": 1785130080000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "2269283871360080048_1784901060000V2",
+        "displayId": "P-26073435",
+        "title": "AWS Lambda Error Rate High",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "ERROR",
+        "status": "OPEN",
+        "startTime": 1784901060000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "9088672128681485869_1783484100000V2",
+        "displayId": "P-2607769",
+        "title": "Cisco Memory Free critical low",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "CUSTOM_ALERT",
+        "status": "OPEN",
+        "startTime": 1783484400000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "1421845725553823284_1782396540000V2",
+        "displayId": "P-26063265",
+        "title": "Cisco Memory Free critical low",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "CUSTOM_ALERT",
+        "status": "OPEN",
+        "startTime": 1782396720000,
+        "endTime": -1,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "3942334568023846798_1785773100000V2",
+        "displayId": "P-2608309",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785773280000,
+        "endTime": 1785774660000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "4331196734923202431_1785771660000V2",
+        "displayId": "P-2608305",
+        "title": "Long garbage-collection time",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "CLOSED",
+        "startTime": 1785771960000,
+        "endTime": 1785772800000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+              "type": "PROCESS_GROUP_INSTANCE"
+            },
+            "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+              "type": "PROCESS_GROUP_INSTANCE"
+            },
+            "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "PROCESS_GROUP-82114F36DB4F4CEF",
+            "type": "PROCESS_GROUP"
+          },
+          "name": "server.js (frontend) frontend-*"
+        },
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/name",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend",
+            "value": "frontend"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "stage",
+            "stringRepresentation": "[Kubernetes]stage:prod",
+            "value": "prod"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "opentelemetry.io/name",
+            "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend",
+            "value": "frontend"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_PRODUCT",
+            "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "astroshop.org/owner",
+            "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI",
+            "value": "Team-UI"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "namespace",
+            "stringRepresentation": "[Kubernetes]namespace:astroshop",
+            "value": "astroshop"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_VERSION",
+            "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/component",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend",
+            "value": "frontend"
+          }
+        ],
+        "problemFilters": []
+      },
+      {
+        "problemId": "-1293514326522512675_1785771120000V2",
+        "displayId": "P-2608304",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785771300000,
+        "endTime": 1785772920000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-1298580190292100043_1785770400000V2",
+        "displayId": "P-2608303",
+        "title": "Request error rate increase",
+        "impactLevel": "APPLICATION",
+        "severityLevel": "ERROR",
+        "status": "CLOSED",
+        "startTime": 1785770700000,
+        "endTime": 1785771000000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-F9D25E95F25AFE0A",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-F9D25E95F25AFE0A",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "SLO_APP",
+            "stringRepresentation": "SLO_APP:astroshop",
+            "value": "astroshop"
+          }
+        ],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-3013164983406368482_1785769500000V2",
+        "displayId": "P-2608300",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785769680000,
+        "endTime": 1785771060000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-3781216472706249999_1785769564534V2",
+        "displayId": "P-2608296",
+        "title": "Http monitor global outage",
+        "impactLevel": "APPLICATION",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785769560000,
+        "endTime": 1785771720000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "SERVICE-5A0CD2879D2F37BE",
+              "type": "SERVICE"
+            },
+            "name": "image-provider-playground in us-east-1"
+          },
+          {
+            "entityId": {
+              "id": "SERVICE-EB9383023479296B",
+              "type": "SERVICE"
+            },
+            "name": "astroshop-frontend"
+          },
+          {
+            "entityId": {
+              "id": "SERVICE-4B45A7F99CF69DE4",
+              "type": "SERVICE"
+            },
+            "name": "[aks-playground][ingress-nginx] astroshop.playground.demoability.dynatracelabs.com:80,443"
+          },
+          {
+            "entityId": {
+              "id": "HTTP_CHECK-E5A76F73188F1C57",
+              "type": "HTTP_CHECK"
+            },
+            "name": "Astroshop - check binoculars image"
+          },
+          {
+            "entityId": {
+              "id": "SERVICE-B9FBF32425820672",
+              "type": "SERVICE"
+            },
+            "name": "image-provider-playground-products in us-east-1"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "HTTP_CHECK-E5A76F73188F1C57",
+              "type": "HTTP_CHECK"
+            },
+            "name": "Astroshop - check binoculars image"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "SERVICE-B9FBF32425820672",
+            "type": "SERVICE"
+          },
+          "name": "image-provider-playground-products in us-east-1"
+        },
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/name",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend",
+            "value": "frontend"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "azure.subscription",
+            "stringRepresentation": "azure.subscription:0ba838b1-5399-4a07-8496-eae30feb5ce5",
+            "value": "0ba838b1-5399-4a07-8496-eae30feb5ce5"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "k8s.namespace.label.kubernetes.io/metadata.name",
+            "stringRepresentation": "k8s.namespace.label.kubernetes.io/metadata.name:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "k8s.namespace.name",
+            "stringRepresentation": "k8s.namespace.name:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "stage",
+            "stringRepresentation": "[Kubernetes]stage:prod",
+            "value": "prod"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "k8s.cluster.name",
+            "stringRepresentation": "k8s.cluster.name:aks-playground",
+            "value": "aks-playground"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "opentelemetry.io/name",
+            "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend",
+            "value": "frontend"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_PRODUCT",
+            "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_VERSION",
+            "stringRepresentation": "[Environment]DT_RELEASE_VERSION:1.14.1",
+            "value": "1.14.1"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "astroshop.org/owner",
+            "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI",
+            "value": "Team-UI"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_VERSION",
+            "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "k8s.namespace.name",
+            "stringRepresentation": "k8s.namespace.name:astroshop",
+            "value": "astroshop"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "astroshop.org/owner",
+            "stringRepresentation": "astroshop.org/owner:Team-UI",
+            "value": "Team-UI"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/component",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend",
+            "value": "frontend"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "namespace",
+            "stringRepresentation": "[Kubernetes]namespace:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "helm.sh/chart",
+            "stringRepresentation": "[Kubernetes]helm.sh/chart:ingress-nginx-4.14.1",
+            "value": "ingress-nginx-4.14.1"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/part-of",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/part-of:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/name",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/instance",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/instance:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "namespace",
+            "stringRepresentation": "[Kubernetes]namespace:astroshop",
+            "value": "astroshop"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_PRODUCT",
+            "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/managed-by",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/managed-by:Helm",
+            "value": "Helm"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/component",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:controller",
+            "value": "controller"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "azure.location",
+            "stringRepresentation": "azure.location:eastus",
+            "value": "eastus"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/version",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/version:1.14.1",
+            "value": "1.14.1"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "azure.resource.group",
+            "stringRepresentation": "azure.resource.group:MC_aks-playground_playground-aks_eastus",
+            "value": "MC_aks-playground_playground-aks_eastus"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "k8s.namespace.label.kubernetes.io/metadata.name",
+            "stringRepresentation": "k8s.namespace.label.kubernetes.io/metadata.name:astroshop",
+            "value": "astroshop"
+          }
+        ],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ],
+        "k8s.namespace.name": [
+          "astroshop",
+          "ingress-nginx"
+        ],
+        "k8s.cluster.name": [
+          "aks-playground"
+        ],
+        "k8s.cluster.uid": [
+          "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+        ]
+      },
+      {
+        "problemId": "860598564003951267_1785769380000V2",
+        "displayId": "P-2608302",
+        "title": "AWS Lambda Error Rate High",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "ERROR",
+        "status": "CLOSED",
+        "startTime": 1785769500000,
+        "endTime": 1785771540000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-291839849817179343_1785767700000V2",
+        "displayId": "P-2608295",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785767880000,
+        "endTime": 1785769260000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-178960123611516556_1785765900000V2",
+        "displayId": "P-2608294",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785766080000,
+        "endTime": 1785767460000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "1473612627592139105_1785764100000V2",
+        "displayId": "P-2608293",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785764280000,
+        "endTime": 1785765660000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-8626816682364954318_1785762780000V2",
+        "displayId": "P-2608292",
+        "title": "Multiple infrastructure problems",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "CLOSED",
+        "startTime": 1785762780000,
+        "endTime": 1785769860000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "frontend"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "frontend"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ],
+        "k8s.namespace.name": [
+          "astroshop"
+        ],
+        "k8s.cluster.name": [
+          "aks-playground"
+        ],
+        "k8s.cluster.uid": [
+          "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+        ]
+      },
+      {
+        "problemId": "-3032399600128843367_1785762300000V2",
+        "displayId": "P-2608291",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785762480000,
+        "endTime": 1785763860000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "5761367343562677797_1785759000000V2",
+        "displayId": "P-2608289",
+        "title": "User action duration degradation",
+        "impactLevel": "APPLICATION",
+        "severityLevel": "PERFORMANCE",
+        "status": "CLOSED",
+        "startTime": 1785759300000,
+        "endTime": 1785759480000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-F9D25E95F25AFE0A",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-F9D25E95F25AFE0A",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "SLO_APP",
+            "stringRepresentation": "SLO_APP:astroshop",
+            "value": "astroshop"
+          }
+        ],
+        "problemFilters": []
+      },
+      {
+        "problemId": "1918112144405010899_1785758820000V2",
+        "displayId": "P-2608288",
+        "title": "JavaScript error rate increase",
+        "impactLevel": "APPLICATION",
+        "severityLevel": "ERROR",
+        "status": "CLOSED",
+        "startTime": 1785759120000,
+        "endTime": 1785760500000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-FDB6411FA4CF4B61",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop Pure OpenTelemetry"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-FDB6411FA4CF4B61",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop Pure OpenTelemetry"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "SLO_APP",
+            "stringRepresentation": "SLO_APP:astroshop pure opentelemetry",
+            "value": "astroshop pure opentelemetry"
+          }
+        ],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-5149836307395341469_1785758700000V2",
+        "displayId": "P-2608287",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785758880000,
+        "endTime": 1785760260000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-1872153525435990543_1785756900000V2",
+        "displayId": "P-2608286",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785757080000,
+        "endTime": 1785758700000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-3008404050813544037_1785755100000V2",
+        "displayId": "P-2608285",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785755280000,
+        "endTime": 1785756840000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "1198471782023028687_1785753300000V2",
+        "displayId": "P-2608283",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785753480000,
+        "endTime": 1785755100000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "4884938881423193310_1785752760000V2",
+        "displayId": "P-2608284",
+        "title": "Amazon SQS Message Age Anomaly High",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "CLOSED",
+        "startTime": 1785753360000,
+        "endTime": 1785764160000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "8754834980143501128_1785751500000V2",
+        "displayId": "P-2608282",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785751680000,
+        "endTime": 1785753240000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-4946629372697985505_1785750300000V2",
+        "displayId": "P-2608281",
+        "title": "Multiple infrastructure problems",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "CLOSED",
+        "startTime": 1785750300000,
+        "endTime": 1785770040000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "checkout"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "checkout"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+            "type": "CLOUD_APPLICATION"
+          },
+          "name": "checkout"
+        },
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ],
+        "k8s.namespace.name": [
+          "astroshop"
+        ],
+        "k8s.cluster.name": [
+          "aks-playground"
+        ],
+        "k8s.cluster.uid": [
+          "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+        ]
+      },
+      {
+        "problemId": "6840676766179091163_1785749700000V2",
+        "displayId": "P-2608280",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785749880000,
+        "endTime": 1785751440000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "8529133888870980523_1785748740000V2",
+        "displayId": "P-2608275",
+        "title": "Multiple application problems",
+        "impactLevel": "APPLICATION",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785749040000,
+        "endTime": 1785750000000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "SERVICE-71B86ACB795E7EB2",
+              "type": "SERVICE"
+            },
+            "name": "astroshop-checkout"
+          },
+          {
+            "entityId": {
+              "id": "APPLICATION-F9D25E95F25AFE0A",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop"
+          },
+          {
+            "entityId": {
+              "id": "SERVICE-EB9383023479296B",
+              "type": "SERVICE"
+            },
+            "name": "astroshop-frontend"
+          },
+          {
+            "entityId": {
+              "id": "SYNTHETIC_TEST-0344A2A2D92A7AF5",
+              "type": "SYNTHETIC_TEST"
+            },
+            "name": "Astroshop - Browser monitor"
+          },
+          {
+            "entityId": {
+              "id": "SERVICE-4B45A7F99CF69DE4",
+              "type": "SERVICE"
+            },
+            "name": "[aks-playground][ingress-nginx] astroshop.playground.demoability.dynatracelabs.com:80,443"
+          },
+          {
+            "entityId": {
+              "id": "SERVICE-CC3497069FC24E3B",
+              "type": "SERVICE"
+            },
+            "name": "astroshop-payment"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-F9D25E95F25AFE0A",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop"
+          },
+          {
+            "entityId": {
+              "id": "SYNTHETIC_TEST-0344A2A2D92A7AF5",
+              "type": "SYNTHETIC_TEST"
+            },
+            "name": "Astroshop - Browser monitor"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "SERVICE-CC3497069FC24E3B",
+            "type": "SERVICE"
+          },
+          "name": "astroshop-payment"
+        },
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/component",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:payment",
+            "value": "payment"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/name",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend",
+            "value": "frontend"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "azure.subscription",
+            "stringRepresentation": "azure.subscription:0ba838b1-5399-4a07-8496-eae30feb5ce5",
+            "value": "0ba838b1-5399-4a07-8496-eae30feb5ce5"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "k8s.namespace.label.kubernetes.io/metadata.name",
+            "stringRepresentation": "k8s.namespace.label.kubernetes.io/metadata.name:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "k8s.namespace.name",
+            "stringRepresentation": "k8s.namespace.name:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "stage",
+            "stringRepresentation": "[Kubernetes]stage:prod",
+            "value": "prod"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "k8s.cluster.name",
+            "stringRepresentation": "k8s.cluster.name:aks-playground",
+            "value": "aks-playground"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "opentelemetry.io/name",
+            "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend",
+            "value": "frontend"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_PRODUCT",
+            "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/name",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:checkout",
+            "value": "checkout"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_VERSION",
+            "stringRepresentation": "[Environment]DT_RELEASE_VERSION:1.14.1",
+            "value": "1.14.1"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "astroshop.org/owner",
+            "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI",
+            "value": "Team-UI"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_VERSION",
+            "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/component",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:checkout",
+            "value": "checkout"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "SLO_APP",
+            "stringRepresentation": "SLO_APP:astroshop",
+            "value": "astroshop"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "astroshop.org/owner",
+            "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-Financial-Services",
+            "value": "Team-Financial-Services"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "k8s.namespace.name",
+            "stringRepresentation": "k8s.namespace.name:astroshop",
+            "value": "astroshop"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "opentelemetry.io/name",
+            "stringRepresentation": "[Kubernetes]opentelemetry.io/name:checkout",
+            "value": "checkout"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "astroshop.org/owner",
+            "stringRepresentation": "astroshop.org/owner:Team-UI",
+            "value": "Team-UI"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/component",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend",
+            "value": "frontend"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "SLO_APP",
+            "stringRepresentation": "SLO_APP:astroshop - browser monitor",
+            "value": "astroshop - browser monitor"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "opentelemetry.io/name",
+            "stringRepresentation": "[Kubernetes]opentelemetry.io/name:payment",
+            "value": "payment"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "namespace",
+            "stringRepresentation": "[Kubernetes]namespace:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "helm.sh/chart",
+            "stringRepresentation": "[Kubernetes]helm.sh/chart:ingress-nginx-4.14.1",
+            "value": "ingress-nginx-4.14.1"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/part-of",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/part-of:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/name",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/name",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:payment",
+            "value": "payment"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/instance",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/instance:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "namespace",
+            "stringRepresentation": "[Kubernetes]namespace:astroshop",
+            "value": "astroshop"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "astroshop.org/owner",
+            "stringRepresentation": "astroshop.org/owner:Team-Financial-Services",
+            "value": "Team-Financial-Services"
+          },
+          {
+            "context": "ENVIRONMENT",
+            "key": "DT_RELEASE_PRODUCT",
+            "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT:ingress-nginx",
+            "value": "ingress-nginx"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/managed-by",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/managed-by:Helm",
+            "value": "Helm"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/component",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:controller",
+            "value": "controller"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "azure.location",
+            "stringRepresentation": "azure.location:eastus",
+            "value": "eastus"
+          },
+          {
+            "context": "KUBERNETES",
+            "key": "app.kubernetes.io/version",
+            "stringRepresentation": "[Kubernetes]app.kubernetes.io/version:1.14.1",
+            "value": "1.14.1"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "azure.resource.group",
+            "stringRepresentation": "azure.resource.group:MC_aks-playground_playground-aks_eastus",
+            "value": "MC_aks-playground_playground-aks_eastus"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "k8s.namespace.label.kubernetes.io/metadata.name",
+            "stringRepresentation": "k8s.namespace.label.kubernetes.io/metadata.name:astroshop",
+            "value": "astroshop"
+          }
+        ],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ],
+        "k8s.namespace.name": [
+          "astroshop",
+          "ingress-nginx"
+        ],
+        "k8s.cluster.name": [
+          "aks-playground"
+        ],
+        "k8s.cluster.uid": [
+          "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+        ]
+      },
+      {
+        "problemId": "-2181654626295536431_1785747900000V2",
+        "displayId": "P-2608274",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785748080000,
+        "endTime": 1785749460000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-1385394728878357475_1785746100000V2",
+        "displayId": "P-2608271",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785746280000,
+        "endTime": 1785747780000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "7954083982213760621_1785744300000V2",
+        "displayId": "P-2608269",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785744480000,
+        "endTime": 1785746040000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-4792019384633485347_1785743880000V2",
+        "displayId": "P-2608268",
+        "title": "User action duration degradation",
+        "impactLevel": "APPLICATION",
+        "severityLevel": "PERFORMANCE",
+        "status": "CLOSED",
+        "startTime": 1785744180000,
+        "endTime": 1785744600000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-55CF6DE67B41A20C",
+              "type": "APPLICATION"
+            },
+            "name": "EasyTrade"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-55CF6DE67B41A20C",
+              "type": "APPLICATION"
+            },
+            "name": "EasyTrade"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [
+          {
+            "id": "2442538069390471242",
+            "name": "EasyTrade"
+          }
+        ],
+        "entityTags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "SLO_APP",
+            "stringRepresentation": "SLO_APP:easytrade",
+            "value": "easytrade"
+          },
+          {
+            "context": "CONTEXTLESS",
+            "key": "dt.owner",
+            "stringRepresentation": "dt.owner:KDTDemo",
+            "value": "KDTDemo"
+          }
+        ],
+        "problemFilters": []
+      },
+      {
+        "problemId": "7970433775442837227_1785742500000V2",
+        "displayId": "P-2608267",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785742680000,
+        "endTime": 1785744180000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-8134473530172186958_1785740700000V2",
+        "displayId": "P-2608266",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785740880000,
+        "endTime": 1785742200000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-5060474893123908714_1785740760000V2",
+        "displayId": "P-2608265",
+        "title": "Multiple infrastructure problems",
+        "impactLevel": "INFRASTRUCTURE",
+        "severityLevel": "RESOURCE_CONTENTION",
+        "status": "CLOSED",
+        "startTime": 1785740760000,
+        "endTime": 1785749460000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "checkout"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+              "type": "CLOUD_APPLICATION"
+            },
+            "name": "checkout"
+          }
+        ],
+        "rootCauseEntity": {
+          "entityId": {
+            "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+            "type": "CLOUD_APPLICATION"
+          },
+          "name": "checkout"
+        },
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ],
+        "k8s.namespace.name": [
+          "astroshop"
+        ],
+        "k8s.cluster.name": [
+          "aks-playground"
+        ],
+        "k8s.cluster.uid": [
+          "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+        ]
+      },
+      {
+        "problemId": "-2428088581110824226_1785739920000V2",
+        "displayId": "P-2608264",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785740100000,
+        "endTime": 1785740520000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-6134139234510421779_1785738900000V2",
+        "displayId": "P-2608263",
+        "title": "Postgres Availability",
+        "impactLevel": "ENVIRONMENT",
+        "severityLevel": "AVAILABILITY",
+        "status": "CLOSED",
+        "startTime": 1785739080000,
+        "endTime": 1785740640000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "ENVIRONMENT-0000000000000001",
+              "type": "ENVIRONMENT"
+            },
+            "name": "Dynatrace Playground"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [],
+        "problemFilters": [
+          {
+            "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+            "name": "Default"
+          }
+        ]
+      },
+      {
+        "problemId": "-3935857994286544719_1785738060000V2",
+        "displayId": "P-2608262",
+        "title": "User action duration degradation",
+        "impactLevel": "APPLICATION",
+        "severityLevel": "PERFORMANCE",
+        "status": "CLOSED",
+        "startTime": 1785738360000,
+        "endTime": 1785739080000,
+        "affectedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-FDB6411FA4CF4B61",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop Pure OpenTelemetry"
+          }
+        ],
+        "impactedEntities": [
+          {
+            "entityId": {
+              "id": "APPLICATION-FDB6411FA4CF4B61",
+              "type": "APPLICATION"
+            },
+            "name": "Astroshop Pure OpenTelemetry"
+          }
+        ],
+        "rootCauseEntity": null,
+        "managementZones": [],
+        "entityTags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "SLO_APP",
+            "stringRepresentation": "SLO_APP:astroshop pure opentelemetry",
+            "value": "astroshop pure opentelemetry"
+          }
+        ],
+        "problemFilters": []
+      }
+    ],
+    "nextPageKey": "AQANMTc4NTE3MDg3MzY3MQEADTE3ODU3NzU2NzM2NzEBADNMb25nKDIpLUxvbmcoMTlmYzY0Y2Y0YzApLUxvbmcoYzk2MTA2MDFkYzJiNDhiMSktMzIAAAEAAAAyAAAAAA==",
+    "totalCount": 831,
+    "pageSize": 50,
+    "warnings": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/problems": {
+        "response": {
+          "totalCount": 831,
+          "pageSize": 50,
+          "nextPageKey": "AQANMTc4NTE3MDg3MzY3MQEADTE3ODU3NzU2NzM2NzEBADNMb25nKDIpLUxvbmcoMTlmYzY0Y2Y0YzApLUxvbmcoYzk2MTA2MDFkYzJiNDhiMSktMzIAAAEAAAAyAAAAAA==",
+          "problems": [
+            {
+              "problemId": "7107113792931331638_1785774900000V2",
+              "displayId": "P-2608312",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785775080000,
+              "endTime": -1
+            },
+            {
+              "problemId": "6827991970533306155_1785774660000V2",
+              "displayId": "P-2608311",
+              "title": "Multiple infrastructure problems",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "frontend"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "frontend"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+                  "type": "CLOUD_APPLICATION"
+                },
+                "name": "frontend"
+              },
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [],
+              "startTime": 1785774660000,
+              "endTime": -1,
+              "k8s.namespace.name": [
+                "astroshop"
+              ],
+              "k8s.cluster.name": [
+                "aks-playground"
+              ],
+              "k8s.cluster.uid": [
+                "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+              ]
+            },
+            {
+              "problemId": "-7367198832943222116_1785773640000V2",
+              "displayId": "P-2608310",
+              "title": "User action duration degradation",
+              "impactLevel": "APPLICATION",
+              "severityLevel": "PERFORMANCE",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-F9D25E95F25AFE0A",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-F9D25E95F25AFE0A",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "SERVICE-EB9383023479296B",
+                  "type": "SERVICE"
+                },
+                "name": "astroshop-frontend"
+              },
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "SLO_APP",
+                  "value": "astroshop",
+                  "stringRepresentation": "SLO_APP:astroshop"
+                }
+              ],
+              "problemFilters": [],
+              "startTime": 1785773940000,
+              "endTime": -1
+            },
+            {
+              "problemId": "518986019767721916_1785772860000V2",
+              "displayId": "P-2608308",
+              "title": "Long garbage-collection time",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                    "type": "PROCESS_GROUP_INSTANCE"
+                  },
+                  "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                    "type": "PROCESS_GROUP_INSTANCE"
+                  },
+                  "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/name",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "stage",
+                  "value": "prod",
+                  "stringRepresentation": "[Kubernetes]stage:prod"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "opentelemetry.io/name",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_PRODUCT",
+                  "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "astroshop.org/owner",
+                  "value": "Team-UI",
+                  "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "namespace",
+                  "value": "astroshop",
+                  "stringRepresentation": "[Kubernetes]namespace:astroshop"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_VERSION",
+                  "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/component",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend"
+                }
+              ],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785773040000,
+              "endTime": -1
+            },
+            {
+              "problemId": "-5771044808986785792_1785772140000V2",
+              "displayId": "P-2608307",
+              "title": "Multiple infrastructure problems",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "checkout"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "checkout"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+                  "type": "CLOUD_APPLICATION"
+                },
+                "name": "checkout"
+              },
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785772140000,
+              "endTime": -1,
+              "k8s.namespace.name": [
+                "astroshop"
+              ],
+              "k8s.cluster.name": [
+                "aks-playground"
+              ],
+              "k8s.cluster.uid": [
+                "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+              ]
+            },
+            {
+              "problemId": "961047724928368224_1785771960000V2",
+              "displayId": "P-2608306",
+              "title": "Multiple infrastructure problems",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "frontend"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "frontend"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+                  "type": "CLOUD_APPLICATION"
+                },
+                "name": "frontend"
+              },
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785771960000,
+              "endTime": -1,
+              "k8s.namespace.name": [
+                "astroshop"
+              ],
+              "k8s.cluster.name": [
+                "aks-playground"
+              ],
+              "k8s.cluster.uid": [
+                "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+              ]
+            },
+            {
+              "problemId": "-1051935563709982898_1785760440000V2",
+              "displayId": "P-2608290",
+              "title": "Multiple environment problems",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785760620000,
+              "endTime": -1
+            },
+            {
+              "problemId": "-6416426972756657096_1785744900000V2",
+              "displayId": "P-2608272",
+              "title": "Amazon EC2 CPU Utilization High",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785745500000,
+              "endTime": -1
+            },
+            {
+              "problemId": "4214286637456572880_1785744900000V2",
+              "displayId": "P-2608273",
+              "title": "Amazon EC2 CPU Utilization High",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785745500000,
+              "endTime": -1
+            },
+            {
+              "problemId": "8769981643858044755_1785744840000V2",
+              "displayId": "P-2608270",
+              "title": "Process CPU problem.",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "PROCESS_GROUP_INSTANCE-7FB68AEA9C304C5C",
+                    "type": "PROCESS_GROUP_INSTANCE"
+                  },
+                  "name": "webserver"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "PROCESS_GROUP_INSTANCE-7FB68AEA9C304C5C",
+                    "type": "PROCESS_GROUP_INSTANCE"
+                  },
+                  "name": "webserver"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "PROCESS_GROUP-76DA97758FB16E12",
+                  "type": "PROCESS_GROUP"
+                },
+                "name": "webserver"
+              },
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "env",
+                  "value": "cloud-alerts-demo",
+                  "stringRepresentation": "env:cloud-alerts-demo"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "app",
+                  "stringRepresentation": "app"
+                }
+              ],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785744900000,
+              "endTime": -1
+            },
+            {
+              "problemId": "-3527210400835656221_1785736500000V2",
+              "displayId": "P-2608260",
+              "title": "AWS Lambda Error Rate High",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "ERROR",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785736740000,
+              "endTime": -1
+            },
+            {
+              "problemId": "-6660390653490635667_1785565900114V2",
+              "displayId": "P-260836",
+              "title": "Low available disk space percentage",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "HOST-EBC5983479603BE2",
+                    "type": "HOST"
+                  },
+                  "name": "frontend-high-cpu"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "HOST-EBC5983479603BE2",
+                    "type": "HOST"
+                  },
+                  "name": "frontend-high-cpu"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "HOST-EBC5983479603BE2",
+                  "type": "HOST"
+                },
+                "name": "frontend-high-cpu"
+              },
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "env",
+                  "value": "cloud-alerts-demo",
+                  "stringRepresentation": "env:cloud-alerts-demo"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "app",
+                  "stringRepresentation": "app"
+                }
+              ],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785565900114,
+              "endTime": -1
+            },
+            {
+              "problemId": "4817626598374793251_1785511020000V2",
+              "displayId": "P-26074439",
+              "title": "Low disk space",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "HOST-EBC5983479603BE2",
+                    "type": "HOST"
+                  },
+                  "name": "frontend-high-cpu"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "HOST-EBC5983479603BE2",
+                    "type": "HOST"
+                  },
+                  "name": "frontend-high-cpu"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "HOST-EBC5983479603BE2",
+                  "type": "HOST"
+                },
+                "name": "frontend-high-cpu"
+              },
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "env",
+                  "value": "cloud-alerts-demo",
+                  "stringRepresentation": "env:cloud-alerts-demo"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "app",
+                  "stringRepresentation": "app"
+                }
+              ],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785511200000,
+              "endTime": -1
+            },
+            {
+              "problemId": "1891753502535485237_1785129780000V2",
+              "displayId": "P-26073744",
+              "title": "Cisco Memory Free critical low",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "CUSTOM_ALERT",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785130080000,
+              "endTime": -1
+            },
+            {
+              "problemId": "2269283871360080048_1784901060000V2",
+              "displayId": "P-26073435",
+              "title": "AWS Lambda Error Rate High",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "ERROR",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1784901060000,
+              "endTime": -1
+            },
+            {
+              "problemId": "9088672128681485869_1783484100000V2",
+              "displayId": "P-2607769",
+              "title": "Cisco Memory Free critical low",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "CUSTOM_ALERT",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1783484400000,
+              "endTime": -1
+            },
+            {
+              "problemId": "1421845725553823284_1782396540000V2",
+              "displayId": "P-26063265",
+              "title": "Cisco Memory Free critical low",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "CUSTOM_ALERT",
+              "status": "OPEN",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1782396720000,
+              "endTime": -1
+            },
+            {
+              "problemId": "3942334568023846798_1785773100000V2",
+              "displayId": "P-2608309",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785773280000,
+              "endTime": 1785774660000
+            },
+            {
+              "problemId": "4331196734923202431_1785771660000V2",
+              "displayId": "P-2608305",
+              "title": "Long garbage-collection time",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                    "type": "PROCESS_GROUP_INSTANCE"
+                  },
+                  "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                    "type": "PROCESS_GROUP_INSTANCE"
+                  },
+                  "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "PROCESS_GROUP-82114F36DB4F4CEF",
+                  "type": "PROCESS_GROUP"
+                },
+                "name": "server.js (frontend) frontend-*"
+              },
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/name",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "stage",
+                  "value": "prod",
+                  "stringRepresentation": "[Kubernetes]stage:prod"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "opentelemetry.io/name",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_PRODUCT",
+                  "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "astroshop.org/owner",
+                  "value": "Team-UI",
+                  "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "namespace",
+                  "value": "astroshop",
+                  "stringRepresentation": "[Kubernetes]namespace:astroshop"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_VERSION",
+                  "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/component",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend"
+                }
+              ],
+              "problemFilters": [],
+              "startTime": 1785771960000,
+              "endTime": 1785772800000
+            },
+            {
+              "problemId": "-1293514326522512675_1785771120000V2",
+              "displayId": "P-2608304",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785771300000,
+              "endTime": 1785772920000
+            },
+            {
+              "problemId": "-1298580190292100043_1785770400000V2",
+              "displayId": "P-2608303",
+              "title": "Request error rate increase",
+              "impactLevel": "APPLICATION",
+              "severityLevel": "ERROR",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-F9D25E95F25AFE0A",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-F9D25E95F25AFE0A",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "SLO_APP",
+                  "value": "astroshop",
+                  "stringRepresentation": "SLO_APP:astroshop"
+                }
+              ],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785770700000,
+              "endTime": 1785771000000
+            },
+            {
+              "problemId": "-3013164983406368482_1785769500000V2",
+              "displayId": "P-2608300",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785769680000,
+              "endTime": 1785771060000
+            },
+            {
+              "problemId": "-3781216472706249999_1785769564534V2",
+              "displayId": "P-2608296",
+              "title": "Http monitor global outage",
+              "impactLevel": "APPLICATION",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "SERVICE-5A0CD2879D2F37BE",
+                    "type": "SERVICE"
+                  },
+                  "name": "image-provider-playground in us-east-1"
+                },
+                {
+                  "entityId": {
+                    "id": "SERVICE-EB9383023479296B",
+                    "type": "SERVICE"
+                  },
+                  "name": "astroshop-frontend"
+                },
+                {
+                  "entityId": {
+                    "id": "SERVICE-4B45A7F99CF69DE4",
+                    "type": "SERVICE"
+                  },
+                  "name": "[aks-playground][ingress-nginx] astroshop.playground.demoability.dynatracelabs.com:80,443"
+                },
+                {
+                  "entityId": {
+                    "id": "HTTP_CHECK-E5A76F73188F1C57",
+                    "type": "HTTP_CHECK"
+                  },
+                  "name": "Astroshop - check binoculars image"
+                },
+                {
+                  "entityId": {
+                    "id": "SERVICE-B9FBF32425820672",
+                    "type": "SERVICE"
+                  },
+                  "name": "image-provider-playground-products in us-east-1"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "HTTP_CHECK-E5A76F73188F1C57",
+                    "type": "HTTP_CHECK"
+                  },
+                  "name": "Astroshop - check binoculars image"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "SERVICE-B9FBF32425820672",
+                  "type": "SERVICE"
+                },
+                "name": "image-provider-playground-products in us-east-1"
+              },
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/name",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "azure.subscription",
+                  "value": "0ba838b1-5399-4a07-8496-eae30feb5ce5",
+                  "stringRepresentation": "azure.subscription:0ba838b1-5399-4a07-8496-eae30feb5ce5"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "k8s.namespace.label.kubernetes.io/metadata.name",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "k8s.namespace.label.kubernetes.io/metadata.name:ingress-nginx"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "k8s.namespace.name",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "k8s.namespace.name:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "stage",
+                  "value": "prod",
+                  "stringRepresentation": "[Kubernetes]stage:prod"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "k8s.cluster.name",
+                  "value": "aks-playground",
+                  "stringRepresentation": "k8s.cluster.name:aks-playground"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "opentelemetry.io/name",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_PRODUCT",
+                  "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_VERSION",
+                  "value": "1.14.1",
+                  "stringRepresentation": "[Environment]DT_RELEASE_VERSION:1.14.1"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "astroshop.org/owner",
+                  "value": "Team-UI",
+                  "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_VERSION",
+                  "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "k8s.namespace.name",
+                  "value": "astroshop",
+                  "stringRepresentation": "k8s.namespace.name:astroshop"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "astroshop.org/owner",
+                  "value": "Team-UI",
+                  "stringRepresentation": "astroshop.org/owner:Team-UI"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/component",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "namespace",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "[Kubernetes]namespace:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "helm.sh/chart",
+                  "value": "ingress-nginx-4.14.1",
+                  "stringRepresentation": "[Kubernetes]helm.sh/chart:ingress-nginx-4.14.1"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/part-of",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/part-of:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/name",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/instance",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/instance:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "namespace",
+                  "value": "astroshop",
+                  "stringRepresentation": "[Kubernetes]namespace:astroshop"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_PRODUCT",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/managed-by",
+                  "value": "Helm",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/managed-by:Helm"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/component",
+                  "value": "controller",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:controller"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "azure.location",
+                  "value": "eastus",
+                  "stringRepresentation": "azure.location:eastus"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/version",
+                  "value": "1.14.1",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/version:1.14.1"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "azure.resource.group",
+                  "value": "MC_aks-playground_playground-aks_eastus",
+                  "stringRepresentation": "azure.resource.group:MC_aks-playground_playground-aks_eastus"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "k8s.namespace.label.kubernetes.io/metadata.name",
+                  "value": "astroshop",
+                  "stringRepresentation": "k8s.namespace.label.kubernetes.io/metadata.name:astroshop"
+                }
+              ],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785769560000,
+              "endTime": 1785771720000,
+              "k8s.namespace.name": [
+                "astroshop",
+                "ingress-nginx"
+              ],
+              "k8s.cluster.name": [
+                "aks-playground"
+              ],
+              "k8s.cluster.uid": [
+                "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+              ]
+            },
+            {
+              "problemId": "860598564003951267_1785769380000V2",
+              "displayId": "P-2608302",
+              "title": "AWS Lambda Error Rate High",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "ERROR",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785769500000,
+              "endTime": 1785771540000
+            },
+            {
+              "problemId": "-291839849817179343_1785767700000V2",
+              "displayId": "P-2608295",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785767880000,
+              "endTime": 1785769260000
+            },
+            {
+              "problemId": "-178960123611516556_1785765900000V2",
+              "displayId": "P-2608294",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785766080000,
+              "endTime": 1785767460000
+            },
+            {
+              "problemId": "1473612627592139105_1785764100000V2",
+              "displayId": "P-2608293",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785764280000,
+              "endTime": 1785765660000
+            },
+            {
+              "problemId": "-8626816682364954318_1785762780000V2",
+              "displayId": "P-2608292",
+              "title": "Multiple infrastructure problems",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "frontend"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-93823F77E6C7D860",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "frontend"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785762780000,
+              "endTime": 1785769860000,
+              "k8s.namespace.name": [
+                "astroshop"
+              ],
+              "k8s.cluster.name": [
+                "aks-playground"
+              ],
+              "k8s.cluster.uid": [
+                "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+              ]
+            },
+            {
+              "problemId": "-3032399600128843367_1785762300000V2",
+              "displayId": "P-2608291",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785762480000,
+              "endTime": 1785763860000
+            },
+            {
+              "problemId": "5761367343562677797_1785759000000V2",
+              "displayId": "P-2608289",
+              "title": "User action duration degradation",
+              "impactLevel": "APPLICATION",
+              "severityLevel": "PERFORMANCE",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-F9D25E95F25AFE0A",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-F9D25E95F25AFE0A",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "SLO_APP",
+                  "value": "astroshop",
+                  "stringRepresentation": "SLO_APP:astroshop"
+                }
+              ],
+              "problemFilters": [],
+              "startTime": 1785759300000,
+              "endTime": 1785759480000
+            },
+            {
+              "problemId": "1918112144405010899_1785758820000V2",
+              "displayId": "P-2608288",
+              "title": "JavaScript error rate increase",
+              "impactLevel": "APPLICATION",
+              "severityLevel": "ERROR",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-FDB6411FA4CF4B61",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop Pure OpenTelemetry"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-FDB6411FA4CF4B61",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop Pure OpenTelemetry"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "SLO_APP",
+                  "value": "astroshop pure opentelemetry",
+                  "stringRepresentation": "SLO_APP:astroshop pure opentelemetry"
+                }
+              ],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785759120000,
+              "endTime": 1785760500000
+            },
+            {
+              "problemId": "-5149836307395341469_1785758700000V2",
+              "displayId": "P-2608287",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785758880000,
+              "endTime": 1785760260000
+            },
+            {
+              "problemId": "-1872153525435990543_1785756900000V2",
+              "displayId": "P-2608286",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785757080000,
+              "endTime": 1785758700000
+            },
+            {
+              "problemId": "-3008404050813544037_1785755100000V2",
+              "displayId": "P-2608285",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785755280000,
+              "endTime": 1785756840000
+            },
+            {
+              "problemId": "1198471782023028687_1785753300000V2",
+              "displayId": "P-2608283",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785753480000,
+              "endTime": 1785755100000
+            },
+            {
+              "problemId": "4884938881423193310_1785752760000V2",
+              "displayId": "P-2608284",
+              "title": "Amazon SQS Message Age Anomaly High",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785753360000,
+              "endTime": 1785764160000
+            },
+            {
+              "problemId": "8754834980143501128_1785751500000V2",
+              "displayId": "P-2608282",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785751680000,
+              "endTime": 1785753240000
+            },
+            {
+              "problemId": "-4946629372697985505_1785750300000V2",
+              "displayId": "P-2608281",
+              "title": "Multiple infrastructure problems",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "checkout"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "checkout"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+                  "type": "CLOUD_APPLICATION"
+                },
+                "name": "checkout"
+              },
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785750300000,
+              "endTime": 1785770040000,
+              "k8s.namespace.name": [
+                "astroshop"
+              ],
+              "k8s.cluster.name": [
+                "aks-playground"
+              ],
+              "k8s.cluster.uid": [
+                "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+              ]
+            },
+            {
+              "problemId": "6840676766179091163_1785749700000V2",
+              "displayId": "P-2608280",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785749880000,
+              "endTime": 1785751440000
+            },
+            {
+              "problemId": "8529133888870980523_1785748740000V2",
+              "displayId": "P-2608275",
+              "title": "Multiple application problems",
+              "impactLevel": "APPLICATION",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "SERVICE-71B86ACB795E7EB2",
+                    "type": "SERVICE"
+                  },
+                  "name": "astroshop-checkout"
+                },
+                {
+                  "entityId": {
+                    "id": "APPLICATION-F9D25E95F25AFE0A",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop"
+                },
+                {
+                  "entityId": {
+                    "id": "SERVICE-EB9383023479296B",
+                    "type": "SERVICE"
+                  },
+                  "name": "astroshop-frontend"
+                },
+                {
+                  "entityId": {
+                    "id": "SYNTHETIC_TEST-0344A2A2D92A7AF5",
+                    "type": "SYNTHETIC_TEST"
+                  },
+                  "name": "Astroshop - Browser monitor"
+                },
+                {
+                  "entityId": {
+                    "id": "SERVICE-4B45A7F99CF69DE4",
+                    "type": "SERVICE"
+                  },
+                  "name": "[aks-playground][ingress-nginx] astroshop.playground.demoability.dynatracelabs.com:80,443"
+                },
+                {
+                  "entityId": {
+                    "id": "SERVICE-CC3497069FC24E3B",
+                    "type": "SERVICE"
+                  },
+                  "name": "astroshop-payment"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-F9D25E95F25AFE0A",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop"
+                },
+                {
+                  "entityId": {
+                    "id": "SYNTHETIC_TEST-0344A2A2D92A7AF5",
+                    "type": "SYNTHETIC_TEST"
+                  },
+                  "name": "Astroshop - Browser monitor"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "SERVICE-CC3497069FC24E3B",
+                  "type": "SERVICE"
+                },
+                "name": "astroshop-payment"
+              },
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/component",
+                  "value": "payment",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:payment"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/name",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "azure.subscription",
+                  "value": "0ba838b1-5399-4a07-8496-eae30feb5ce5",
+                  "stringRepresentation": "azure.subscription:0ba838b1-5399-4a07-8496-eae30feb5ce5"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "k8s.namespace.label.kubernetes.io/metadata.name",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "k8s.namespace.label.kubernetes.io/metadata.name:ingress-nginx"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "k8s.namespace.name",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "k8s.namespace.name:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "stage",
+                  "value": "prod",
+                  "stringRepresentation": "[Kubernetes]stage:prod"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "k8s.cluster.name",
+                  "value": "aks-playground",
+                  "stringRepresentation": "k8s.cluster.name:aks-playground"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "opentelemetry.io/name",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_PRODUCT",
+                  "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/name",
+                  "value": "checkout",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:checkout"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_VERSION",
+                  "value": "1.14.1",
+                  "stringRepresentation": "[Environment]DT_RELEASE_VERSION:1.14.1"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "astroshop.org/owner",
+                  "value": "Team-UI",
+                  "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_VERSION",
+                  "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/component",
+                  "value": "checkout",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:checkout"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "SLO_APP",
+                  "value": "astroshop",
+                  "stringRepresentation": "SLO_APP:astroshop"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "astroshop.org/owner",
+                  "value": "Team-Financial-Services",
+                  "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-Financial-Services"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "k8s.namespace.name",
+                  "value": "astroshop",
+                  "stringRepresentation": "k8s.namespace.name:astroshop"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "opentelemetry.io/name",
+                  "value": "checkout",
+                  "stringRepresentation": "[Kubernetes]opentelemetry.io/name:checkout"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "astroshop.org/owner",
+                  "value": "Team-UI",
+                  "stringRepresentation": "astroshop.org/owner:Team-UI"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/component",
+                  "value": "frontend",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "SLO_APP",
+                  "value": "astroshop - browser monitor",
+                  "stringRepresentation": "SLO_APP:astroshop - browser monitor"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "opentelemetry.io/name",
+                  "value": "payment",
+                  "stringRepresentation": "[Kubernetes]opentelemetry.io/name:payment"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "namespace",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "[Kubernetes]namespace:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "helm.sh/chart",
+                  "value": "ingress-nginx-4.14.1",
+                  "stringRepresentation": "[Kubernetes]helm.sh/chart:ingress-nginx-4.14.1"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/part-of",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/part-of:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/name",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/name",
+                  "value": "payment",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:payment"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/instance",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/instance:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "namespace",
+                  "value": "astroshop",
+                  "stringRepresentation": "[Kubernetes]namespace:astroshop"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "astroshop.org/owner",
+                  "value": "Team-Financial-Services",
+                  "stringRepresentation": "astroshop.org/owner:Team-Financial-Services"
+                },
+                {
+                  "context": "ENVIRONMENT",
+                  "key": "DT_RELEASE_PRODUCT",
+                  "value": "ingress-nginx",
+                  "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT:ingress-nginx"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/managed-by",
+                  "value": "Helm",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/managed-by:Helm"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/component",
+                  "value": "controller",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:controller"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "azure.location",
+                  "value": "eastus",
+                  "stringRepresentation": "azure.location:eastus"
+                },
+                {
+                  "context": "KUBERNETES",
+                  "key": "app.kubernetes.io/version",
+                  "value": "1.14.1",
+                  "stringRepresentation": "[Kubernetes]app.kubernetes.io/version:1.14.1"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "azure.resource.group",
+                  "value": "MC_aks-playground_playground-aks_eastus",
+                  "stringRepresentation": "azure.resource.group:MC_aks-playground_playground-aks_eastus"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "k8s.namespace.label.kubernetes.io/metadata.name",
+                  "value": "astroshop",
+                  "stringRepresentation": "k8s.namespace.label.kubernetes.io/metadata.name:astroshop"
+                }
+              ],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785749040000,
+              "endTime": 1785750000000,
+              "k8s.namespace.name": [
+                "astroshop",
+                "ingress-nginx"
+              ],
+              "k8s.cluster.name": [
+                "aks-playground"
+              ],
+              "k8s.cluster.uid": [
+                "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+              ]
+            },
+            {
+              "problemId": "-2181654626295536431_1785747900000V2",
+              "displayId": "P-2608274",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785748080000,
+              "endTime": 1785749460000
+            },
+            {
+              "problemId": "-1385394728878357475_1785746100000V2",
+              "displayId": "P-2608271",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785746280000,
+              "endTime": 1785747780000
+            },
+            {
+              "problemId": "7954083982213760621_1785744300000V2",
+              "displayId": "P-2608269",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785744480000,
+              "endTime": 1785746040000
+            },
+            {
+              "problemId": "-4792019384633485347_1785743880000V2",
+              "displayId": "P-2608268",
+              "title": "User action duration degradation",
+              "impactLevel": "APPLICATION",
+              "severityLevel": "PERFORMANCE",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-55CF6DE67B41A20C",
+                    "type": "APPLICATION"
+                  },
+                  "name": "EasyTrade"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-55CF6DE67B41A20C",
+                    "type": "APPLICATION"
+                  },
+                  "name": "EasyTrade"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [
+                {
+                  "id": "2442538069390471242",
+                  "name": "EasyTrade"
+                }
+              ],
+              "entityTags": [
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "SLO_APP",
+                  "value": "easytrade",
+                  "stringRepresentation": "SLO_APP:easytrade"
+                },
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "dt.owner",
+                  "value": "KDTDemo",
+                  "stringRepresentation": "dt.owner:KDTDemo"
+                }
+              ],
+              "problemFilters": [],
+              "startTime": 1785744180000,
+              "endTime": 1785744600000
+            },
+            {
+              "problemId": "7970433775442837227_1785742500000V2",
+              "displayId": "P-2608267",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785742680000,
+              "endTime": 1785744180000
+            },
+            {
+              "problemId": "-8134473530172186958_1785740700000V2",
+              "displayId": "P-2608266",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785740880000,
+              "endTime": 1785742200000
+            },
+            {
+              "problemId": "-5060474893123908714_1785740760000V2",
+              "displayId": "P-2608265",
+              "title": "Multiple infrastructure problems",
+              "impactLevel": "INFRASTRUCTURE",
+              "severityLevel": "RESOURCE_CONTENTION",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "checkout"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+                    "type": "CLOUD_APPLICATION"
+                  },
+                  "name": "checkout"
+                }
+              ],
+              "rootCauseEntity": {
+                "entityId": {
+                  "id": "CLOUD_APPLICATION-7D7961E55D2923B0",
+                  "type": "CLOUD_APPLICATION"
+                },
+                "name": "checkout"
+              },
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785740760000,
+              "endTime": 1785749460000,
+              "k8s.namespace.name": [
+                "astroshop"
+              ],
+              "k8s.cluster.name": [
+                "aks-playground"
+              ],
+              "k8s.cluster.uid": [
+                "e077e6bc-b5c5-44e6-aff9-ca409a77d820"
+              ]
+            },
+            {
+              "problemId": "-2428088581110824226_1785739920000V2",
+              "displayId": "P-2608264",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785740100000,
+              "endTime": 1785740520000
+            },
+            {
+              "problemId": "-6134139234510421779_1785738900000V2",
+              "displayId": "P-2608263",
+              "title": "Postgres Availability",
+              "impactLevel": "ENVIRONMENT",
+              "severityLevel": "AVAILABILITY",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "ENVIRONMENT-0000000000000001",
+                    "type": "ENVIRONMENT"
+                  },
+                  "name": "Dynatrace Playground"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [],
+              "problemFilters": [
+                {
+                  "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
+                  "name": "Default"
+                }
+              ],
+              "startTime": 1785739080000,
+              "endTime": 1785740640000
+            },
+            {
+              "problemId": "-3935857994286544719_1785738060000V2",
+              "displayId": "P-2608262",
+              "title": "User action duration degradation",
+              "impactLevel": "APPLICATION",
+              "severityLevel": "PERFORMANCE",
+              "status": "CLOSED",
+              "affectedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-FDB6411FA4CF4B61",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop Pure OpenTelemetry"
+                }
+              ],
+              "impactedEntities": [
+                {
+                  "entityId": {
+                    "id": "APPLICATION-FDB6411FA4CF4B61",
+                    "type": "APPLICATION"
+                  },
+                  "name": "Astroshop Pure OpenTelemetry"
+                }
+              ],
+              "rootCauseEntity": null,
+              "managementZones": [],
+              "entityTags": [
+                {
+                  "context": "CONTEXTLESS",
+                  "key": "SLO_APP",
+                  "value": "astroshop pure opentelemetry",
+                  "stringRepresentation": "SLO_APP:astroshop pure opentelemetry"
+                }
+              ],
+              "problemFilters": [],
+              "startTime": 1785738360000,
+              "endTime": 1785739080000
+            }
+          ],
+          "warnings": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 16:47:53 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "47285",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1926",
+          "x-ratelimit-reset": "1785775693",
+          "etag": "W/\"b8b5-/ui0SZbFPSlEdO80mZXnijXj4Tw\""
+        },
+        "hash": "d33e97177989322e0129df3fa88300b1c8fbea67",
+        "request": {
+          "params": {
+            "from": "-7d"
+          }
+        }
+      }
+    }
+  }
+}

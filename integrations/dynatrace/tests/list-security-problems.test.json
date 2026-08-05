@@ -1,0 +1,3580 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "securityProblemId": "4168609945108510827",
+        "displayId": "S-7",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JS-0000395-QS",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "qs vulnerable to Prototype Pollution",
+        "packageName": "qs",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/4168609945108510827",
+        "technology": "NODE_JS",
+        "firstSeenTimestamp": 1684244584886,
+        "lastUpdatedTimestamp": 1785436252825,
+        "cveIds": [
+          "CVE-2022-24999"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "12733349097218020748",
+        "displayId": "S-13",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0002463-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Uncontrolled Resource Consumption in FasterXML jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/12733349097218020748",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245364886,
+        "lastUpdatedTimestamp": 1784544507508,
+        "cveIds": [
+          "CVE-2022-42004"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "17738322927118826075",
+        "displayId": "S-17",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2023-JAVA-0000286-ORGSPRINGFRAMEWORKSPRINGWEBMVC",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Spring Framework is vulnerable to security bypass via mvcRequestMatcher pattern mismatch",
+        "packageName": "org.springframework:spring-webmvc",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/17738322927118826075",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245364886,
+        "lastUpdatedTimestamp": 1784544507508,
+        "cveIds": [
+          "CVE-2023-20860"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "2356628052091349554",
+        "displayId": "S-18",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2023-JAVA-0000915-ORGSPRINGFRAMEWORKSPRINGEXPRESSION",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Spring Framework vulnerable to denial of service",
+        "packageName": "org.springframework:spring-expression",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/2356628052091349554",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245364886,
+        "lastUpdatedTimestamp": 1784544507508,
+        "cveIds": [
+          "CVE-2023-20863"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "4324140675097181862",
+        "displayId": "S-14",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0001872-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Uncontrolled Resource Consumption in Jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/4324140675097181862",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245364886,
+        "lastUpdatedTimestamp": 1784544507508,
+        "cveIds": [
+          "CVE-2022-42003"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "653436289519081075",
+        "displayId": "S-16",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2023-JAVA-0000155-ORGSPRINGFRAMEWORKSPRINGEXPRESSION",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Spring Framework vulnerable to denial of service via specially crafted SpEL expression",
+        "packageName": "org.springframework:spring-expression",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/653436289519081075",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245364886,
+        "lastUpdatedTimestamp": 1784544507508,
+        "cveIds": [
+          "CVE-2023-20861"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "10388730011694321786",
+        "displayId": "S-35",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2021-2163",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2021-2163",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/10388730011694321786",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2021-2163"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "1045456869631985379",
+        "displayId": "S-19",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2012-2739",
+        "vulnerabilityType": "RUNTIME",
+        "title": "Cryptographic Issues",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/1045456869631985379",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2012-2739"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "11323848283383082003",
+        "displayId": "S-49",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21540",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21540",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/11323848283383082003",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21540"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "1144997230984903511",
+        "displayId": "S-42",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21299",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21299",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/1144997230984903511",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21299"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "12905996424718781834",
+        "displayId": "S-29",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2800",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2800",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/12905996424718781834",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2800"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "13100455881394701796",
+        "displayId": "S-46",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21349",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21349",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/13100455881394701796",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21349"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "14058974260406260812",
+        "displayId": "S-20",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2014-1876",
+        "vulnerabilityType": "RUNTIME",
+        "title": "Link Following",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/14058974260406260812",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2014-1876"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "15097177977484002004",
+        "displayId": "S-28",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2781",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2781",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/15097177977484002004",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2781"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "15343717074380388990",
+        "displayId": "S-48",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21365",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21365",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/15343717074380388990",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21365"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "16078735010538869828",
+        "displayId": "S-25",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2767",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2767",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/16078735010538869828",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2767"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "16307521683851225672",
+        "displayId": "S-40",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21294",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21294",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/16307521683851225672",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21294"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "16482704530847878836",
+        "displayId": "S-50",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21541",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21541",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/16482704530847878836",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21541"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "165963399334290483",
+        "displayId": "S-37",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21282",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21282",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/165963399334290483",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21282"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "17031388985207430910",
+        "displayId": "S-31",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "CVE-2020-2805",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2805",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/17031388985207430910",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2805"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "1756251065062028729",
+        "displayId": "S-51",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "CVE-2022-34169",
+        "vulnerabilityType": "RUNTIME",
+        "title": "Incorrect Conversion between Numeric Types",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/1756251065062028729",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-34169"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "17650354785050904860",
+        "displayId": "S-21",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2754",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2754",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/17650354785050904860",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2754"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "1809045738910086846",
+        "displayId": "S-41",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21296",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21296",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/1809045738910086846",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21296"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "18255256771166388974",
+        "displayId": "S-36",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21248",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21248",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/18255256771166388974",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21248"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "2666527971884295715",
+        "displayId": "S-45",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21341",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21341",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/2666527971884295715",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21341"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "4106733193979291134",
+        "displayId": "S-26",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2773",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2773",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/4106733193979291134",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2773"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "4490142413017885392",
+        "displayId": "S-30",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "CVE-2020-2803",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2803",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/4490142413017885392",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2803"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "5657022522230118114",
+        "displayId": "S-43",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21305",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21305",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/5657022522230118114",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21305"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "6164827137214517343",
+        "displayId": "S-38",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21283",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21283",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/6164827137214517343",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21283"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "6374510769892136255",
+        "displayId": "S-39",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21293",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21293",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/6374510769892136255",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21293"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "6440843820397792460",
+        "displayId": "S-47",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21360",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21360",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/6440843820397792460",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21360"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "6511814307148477265",
+        "displayId": "S-32",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2816",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2816",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/6511814307148477265",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2816"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "6559308239670527127",
+        "displayId": "S-27",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2778",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2778",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/6559308239670527127",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2778"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "6759554245709197492",
+        "displayId": "S-24",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2757",
+        "vulnerabilityType": "RUNTIME",
+        "title": "Deserialization of Untrusted Data",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/6759554245709197492",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2757"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "7670622539007844833",
+        "displayId": "S-22",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2755",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2755",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/7670622539007844833",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2755"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "7986793739429907062",
+        "displayId": "S-33",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2830",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2020-2830",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/7986793739429907062",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2830"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "8318475611582955583",
+        "displayId": "S-23",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2020-2756",
+        "vulnerabilityType": "RUNTIME",
+        "title": "Deserialization of Untrusted Data",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/8318475611582955583",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-2756"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "9007844411566394493",
+        "displayId": "S-44",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2022-21340",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2022-21340",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/9007844411566394493",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-21340"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "9526453555134840970",
+        "displayId": "S-34",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "CVE-2021-2161",
+        "vulnerabilityType": "RUNTIME",
+        "title": "CVE-2021-2161",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/9526453555134840970",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245526970,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2021-2161"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "10693169319370414393",
+        "displayId": "S-82",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000087-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of Untrusted Data in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/10693169319370414393",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-20330"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "10770987203927327722",
+        "displayId": "S-76",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2019-JAVA-0000098-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Polymorphic Typing issue in FasterXML jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/10770987203927327722",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-14540"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "11242075433507189074",
+        "displayId": "S-92",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000025-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/11242075433507189074",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-11112"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "11278730583098718798",
+        "displayId": "S-55",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000010-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "XML External Entity (XXE) Injection in Jackson Databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/11278730583098718798",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-25649"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "11334035716994662926",
+        "displayId": "S-72",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2019-JAVA-0000069-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of untrusted data in FasterXML jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/11334035716994662926",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-12814"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "11439726338471544303",
+        "displayId": "S-87",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000059-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/11439726338471544303",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-10672"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "11669026726468080523",
+        "displayId": "S-66",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000151-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/11669026726468080523",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36185"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "11759486712715154137",
+        "displayId": "S-98",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000066-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of untrusted data in Jackson Databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/11759486712715154137",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-14061"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "11846717422265660169",
+        "displayId": "S-104",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0000126-ORGJETBRAINSKOTLINKOTLINSTDLIB",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Improper Locking in JetBrains Kotlin",
+        "packageName": "org.jetbrains.kotlin:kotlin-stdlib",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/11846717422265660169",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-24329"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "11970714728337054003",
+        "displayId": "S-108",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0000668-ORGSPRINGFRAMEWORKSPRINGCORE",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Log entry injection in Spring Framework",
+        "packageName": "org.springframework:spring-core",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/11970714728337054003",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2021-22060"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "1229157899721804041",
+        "displayId": "S-54",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0002499-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind vulnerable to unsafe deserialization",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/1229157899721804041",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-10650"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "12547489962438189310",
+        "displayId": "S-70",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000076-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of untrusted data in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/12547489962438189310",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2021-20190"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "12784407003254001064",
+        "displayId": "S-64",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000164-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/12784407003254001064",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36179"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "1340823583484240022",
+        "displayId": "S-110",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0000181-ORGSPRINGFRAMEWORKSPRINGBEANS",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Remote Code Execution in Spring Framework",
+        "packageName": "org.springframework:spring-beans",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/1340823583484240022",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-22965"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "13509438992629074045",
+        "displayId": "S-97",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000094-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of untrusted data in Jackson Databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/13509438992629074045",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-14060"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "13797051661891548293",
+        "displayId": "S-100",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0000391-COMGOOGLECODEGSONGSON",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of Untrusted Data in Gson",
+        "packageName": "com.google.code.gson:gson",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/13797051661891548293",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-25647"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "13940310852150331491",
+        "displayId": "S-57",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000339-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Serialization gadgets exploit in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/13940310852150331491",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-35491"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "1403703998135981709",
+        "displayId": "S-71",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0000485-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deeply nested json in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/1403703998135981709",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36518"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "14577408665025044423",
+        "displayId": "S-53",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000331-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/14577408665025044423",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-24750"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "14679965108128660662",
+        "displayId": "S-85",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000069-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Polymorphic deserialization of malicious object in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/14679965108128660662",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-14892"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "1491991696349120037",
+        "displayId": "S-91",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000129-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/1491991696349120037",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-11111"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "15114590303519069119",
+        "displayId": "S-111",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0001503-ORGSPRINGFRAMEWORKSPRINGCONTEXT",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Improper handling of case sensitivity in Spring Framework",
+        "packageName": "org.springframework:spring-context",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/15114590303519069119",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-22968"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "1528078404132467721",
+        "displayId": "S-67",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000363-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/1528078404132467721",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36189"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "15348703491971085631",
+        "displayId": "S-86",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000077-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/15348703491971085631",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-10673"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "159360742952611631",
+        "displayId": "S-90",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000063-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/159360742952611631",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-11113"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "16507855049990639864",
+        "displayId": "S-101",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000098-ORGHIBERNATEVALIDATORHIBERNATEVALIDATOR",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "The SafeHtml annotation in Hibernate-Validator does not properly guard against XSS attacks",
+        "packageName": "org.hibernate.validator:hibernate-validator",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/16507855049990639864",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-10219"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "16614672089210102960",
+        "displayId": "S-65",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000141-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/16614672089210102960",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36182"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "16865935009843997632",
+        "displayId": "S-81",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2019-JAVA-0000091-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind polymorphic typing issue",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/16865935009843997632",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-17531"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "1720139812832559739",
+        "displayId": "S-74",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2019-JAVA-0000040-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of untrusted data in FasterXML jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/1720139812832559739",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-14379"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "17307334134612723731",
+        "displayId": "S-59",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000341-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/17307334134612723731",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36187"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "17558708164884021834",
+        "displayId": "S-80",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000072-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Improper Input Validation in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/17558708164884021834",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-17267"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "18279797694011274468",
+        "displayId": "S-60",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000287-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/18279797694011274468",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36184"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "18314394967693365239",
+        "displayId": "S-109",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0000469-ORGSPRINGFRAMEWORKSPRINGEXPRESSION",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Allocation of Resources Without Limits or Throttling in Spring Framework",
+        "packageName": "org.springframework:spring-expression",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/18314394967693365239",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-22950"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "18402046251829931452",
+        "displayId": "S-78",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2019-JAVA-0000121-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Polymorphic Typing in FasterXML jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/18402046251829931452",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-16942"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "2039861408676243188",
+        "displayId": "S-103",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0001290-ORGJETBRAINSKOTLINKOTLINSTDLIB",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Incorrect Default Permissions in JetBrains Kotlin",
+        "packageName": "org.jetbrains.kotlin:kotlin-stdlib",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/2039861408676243188",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-29582"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "225376027396657439",
+        "displayId": "S-96",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000099-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of untrusted data in Jackson Databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/225376027396657439",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-14195"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "2466438287278376021",
+        "displayId": "S-106",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0001553-ORGSPRINGFRAMEWORKSPRINGWEB",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Improper Privilege Management in Spring Framework",
+        "packageName": "org.springframework:spring-web",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/2466438287278376021",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2021-22118"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "2482086761260590027",
+        "displayId": "S-63",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000168-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/2482086761260590027",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36183"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "2706029017208379844",
+        "displayId": "S-99",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000238-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Code Injection in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/2706029017208379844",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-24616"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "3568452439279730083",
+        "displayId": "S-79",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2019-JAVA-0000079-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind polymorphic typing issue",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/3568452439279730083",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-16943"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "4743178970742750445",
+        "displayId": "S-69",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000197-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/4743178970742750445",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36181"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "52899766514994359",
+        "displayId": "S-94",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000003-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/52899766514994359",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-11619"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "5299986947609318358",
+        "displayId": "S-93",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000090-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/5299986947609318358",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-11620"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "5780713679806694733",
+        "displayId": "S-68",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000209-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/5780713679806694733",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36188"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "579880915179309720",
+        "displayId": "S-113",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000057-ORGSPRINGFRAMEWORKSPRINGWEB",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "RFD attack via Content-Disposition header sourced from request input by Spring MVC or Spring WebFlux Application",
+        "packageName": "org.springframework:spring-web",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/579880915179309720",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-5398"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "5876764290839205318",
+        "displayId": "S-58",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000088-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Serialization gadget exploit in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/5876764290839205318",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-35728"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "5994921607360954011",
+        "displayId": "S-73",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2019-JAVA-0000119-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of Untrusted Data in FasterXML jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/5994921607360954011",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-12384"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "6432733561186187551",
+        "displayId": "S-62",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000142-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/6432733561186187551",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36180"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "6448365148168721780",
+        "displayId": "S-102",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000346-ORGHIBERNATEVALIDATORHIBERNATEVALIDATOR",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Improper Input Validation in Hibernate Validator",
+        "packageName": "org.hibernate.validator:hibernate-validator",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/6448365148168721780",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-10693"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "6842135497410858860",
+        "displayId": "S-56",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000377-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Serialization gadgets exploit in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/6842135497410858860",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-35490"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "6918277047186708900",
+        "displayId": "S-84",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000028-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/6918277047186708900",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-9546"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "7417412078226472611",
+        "displayId": "S-95",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000064-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of untrusted data in Jackson Databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/7417412078226472611",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-14062"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "7678393544709366930",
+        "displayId": "S-105",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000350-ORGSPRINGFRAMEWORKSPRINGWEB",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Improper Input Validation in Spring Framework",
+        "packageName": "org.springframework:spring-web",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/7678393544709366930",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-5421"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "7733156690801805852",
+        "displayId": "S-107",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0002458-ORGSPRINGFRAMEWORKSPRINGCORE",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Improper Output Neutralization for Logs in Spring Framework",
+        "packageName": "org.springframework:spring-core",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/7733156690801805852",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2021-22096"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "7980536050210571488",
+        "displayId": "S-75",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2019-JAVA-0000050-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Polymorphic Typing issue in FasterXML jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/7980536050210571488",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2019-16335"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "806884447636261940",
+        "displayId": "S-88",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000043-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/806884447636261940",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-10969"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "8173080762443357716",
+        "displayId": "S-114",
+        "status": "OPEN",
+        "muted": true,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0001267-ORGSPRINGFRAMEWORKBOOTSPRINGBOOT",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Temporary Directory Hijacking to Local Privilege Escalation Vulnerability in org.springframework.boot:spring-boot",
+        "packageName": "org.springframework.boot:spring-boot",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/8173080762443357716",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-27772"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "9022831699892690206",
+        "displayId": "S-89",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000126-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/9022831699892690206",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-10968"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "9474917689418497023",
+        "displayId": "S-83",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2020-JAVA-0000022-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Deserialization of Untrusted Data in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/9474917689418497023",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-8840"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      },
+      {
+        "securityProblemId": "9829464823104950655",
+        "displayId": "S-112",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2022-JAVA-0001708-ORGSPRINGFRAMEWORKSPRINGBEANS",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Denial of service in Spring Framework",
+        "packageName": "org.springframework:spring-beans",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/9829464823104950655",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2022-22970"
+        ],
+        "lastOpenedTimestamp": 1784540007392
+      },
+      {
+        "securityProblemId": "9975990110345975314",
+        "displayId": "S-61",
+        "status": "OPEN",
+        "muted": false,
+        "externalVulnerabilityId": "DTV-2021-JAVA-0000357-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+        "vulnerabilityType": "THIRD_PARTY",
+        "title": "Unsafe Deserialization in jackson-databind",
+        "packageName": "com.fasterxml.jackson.core:jackson-databind",
+        "url": "https://playground.live.dynatrace.com/ui/security/problem/9975990110345975314",
+        "technology": "JAVA",
+        "firstSeenTimestamp": 1684245544886,
+        "lastUpdatedTimestamp": 1784540727657,
+        "cveIds": [
+          "CVE-2020-36186"
+        ],
+        "lastOpenedTimestamp": 1784540727397
+      }
+    ],
+    "nextPageKey": "vu8XQiDj3q0SIU59KgHvowAAAZ8uBx2uAAABn8iF5a4AAABkAAI0VT4tJAUu9QEAAQEADTE2ODQyNDU1NDQ4ODY0VT4tJAUu9QIAAQEAEzk5NzU5OTAxMTAzNDU5NzUzMTQAvu8XQiDj3q0",
+    "pageSize": 100,
+    "totalCount": 706
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/securityProblems": {
+        "response": {
+          "totalCount": 706,
+          "pageSize": 100,
+          "nextPageKey": "vu8XQiDj3q0SIU59KgHvowAAAZ8uBx2uAAABn8iF5a4AAABkAAI0VT4tJAUu9QEAAQEADTE2ODQyNDU1NDQ4ODY0VT4tJAUu9QIAAQEAEzk5NzU5OTAxMTAzNDU5NzUzMTQAvu8XQiDj3q0",
+          "securityProblems": [
+            {
+              "securityProblemId": "4168609945108510827",
+              "displayId": "S-7",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JS-0000395-QS",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "qs vulnerable to Prototype Pollution",
+              "packageName": "qs",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/4168609945108510827",
+              "technology": "NODE_JS",
+              "firstSeenTimestamp": 1684244584886,
+              "lastUpdatedTimestamp": 1785436252825,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-24999"
+              ]
+            },
+            {
+              "securityProblemId": "12733349097218020748",
+              "displayId": "S-13",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0002463-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Uncontrolled Resource Consumption in FasterXML jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/12733349097218020748",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245364886,
+              "lastUpdatedTimestamp": 1784544507508,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-42004"
+              ]
+            },
+            {
+              "securityProblemId": "17738322927118826075",
+              "displayId": "S-17",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2023-JAVA-0000286-ORGSPRINGFRAMEWORKSPRINGWEBMVC",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Spring Framework is vulnerable to security bypass via mvcRequestMatcher pattern mismatch",
+              "packageName": "org.springframework:spring-webmvc",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/17738322927118826075",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245364886,
+              "lastUpdatedTimestamp": 1784544507508,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2023-20860"
+              ]
+            },
+            {
+              "securityProblemId": "2356628052091349554",
+              "displayId": "S-18",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2023-JAVA-0000915-ORGSPRINGFRAMEWORKSPRINGEXPRESSION",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Spring Framework vulnerable to denial of service",
+              "packageName": "org.springframework:spring-expression",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/2356628052091349554",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245364886,
+              "lastUpdatedTimestamp": 1784544507508,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2023-20863"
+              ]
+            },
+            {
+              "securityProblemId": "4324140675097181862",
+              "displayId": "S-14",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0001872-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Uncontrolled Resource Consumption in Jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/4324140675097181862",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245364886,
+              "lastUpdatedTimestamp": 1784544507508,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-42003"
+              ]
+            },
+            {
+              "securityProblemId": "653436289519081075",
+              "displayId": "S-16",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2023-JAVA-0000155-ORGSPRINGFRAMEWORKSPRINGEXPRESSION",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Spring Framework vulnerable to denial of service via specially crafted SpEL expression",
+              "packageName": "org.springframework:spring-expression",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/653436289519081075",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245364886,
+              "lastUpdatedTimestamp": 1784544507508,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2023-20861"
+              ]
+            },
+            {
+              "securityProblemId": "10388730011694321786",
+              "displayId": "S-35",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2021-2163",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2021-2163",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/10388730011694321786",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2021-2163"
+              ]
+            },
+            {
+              "securityProblemId": "1045456869631985379",
+              "displayId": "S-19",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2012-2739",
+              "vulnerabilityType": "RUNTIME",
+              "title": "Cryptographic Issues",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/1045456869631985379",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2012-2739"
+              ]
+            },
+            {
+              "securityProblemId": "11323848283383082003",
+              "displayId": "S-49",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21540",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21540",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/11323848283383082003",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21540"
+              ]
+            },
+            {
+              "securityProblemId": "1144997230984903511",
+              "displayId": "S-42",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21299",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21299",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/1144997230984903511",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21299"
+              ]
+            },
+            {
+              "securityProblemId": "12905996424718781834",
+              "displayId": "S-29",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2800",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2800",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/12905996424718781834",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2800"
+              ]
+            },
+            {
+              "securityProblemId": "13100455881394701796",
+              "displayId": "S-46",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21349",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21349",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/13100455881394701796",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21349"
+              ]
+            },
+            {
+              "securityProblemId": "14058974260406260812",
+              "displayId": "S-20",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2014-1876",
+              "vulnerabilityType": "RUNTIME",
+              "title": "Link Following",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/14058974260406260812",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2014-1876"
+              ]
+            },
+            {
+              "securityProblemId": "15097177977484002004",
+              "displayId": "S-28",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2781",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2781",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/15097177977484002004",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2781"
+              ]
+            },
+            {
+              "securityProblemId": "15343717074380388990",
+              "displayId": "S-48",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21365",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21365",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/15343717074380388990",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21365"
+              ]
+            },
+            {
+              "securityProblemId": "16078735010538869828",
+              "displayId": "S-25",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2767",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2767",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/16078735010538869828",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2767"
+              ]
+            },
+            {
+              "securityProblemId": "16307521683851225672",
+              "displayId": "S-40",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21294",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21294",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/16307521683851225672",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21294"
+              ]
+            },
+            {
+              "securityProblemId": "16482704530847878836",
+              "displayId": "S-50",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21541",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21541",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/16482704530847878836",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21541"
+              ]
+            },
+            {
+              "securityProblemId": "165963399334290483",
+              "displayId": "S-37",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21282",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21282",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/165963399334290483",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21282"
+              ]
+            },
+            {
+              "securityProblemId": "17031388985207430910",
+              "displayId": "S-31",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "CVE-2020-2805",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2805",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/17031388985207430910",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2805"
+              ]
+            },
+            {
+              "securityProblemId": "1756251065062028729",
+              "displayId": "S-51",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "CVE-2022-34169",
+              "vulnerabilityType": "RUNTIME",
+              "title": "Incorrect Conversion between Numeric Types",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/1756251065062028729",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-34169"
+              ]
+            },
+            {
+              "securityProblemId": "17650354785050904860",
+              "displayId": "S-21",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2754",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2754",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/17650354785050904860",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2754"
+              ]
+            },
+            {
+              "securityProblemId": "1809045738910086846",
+              "displayId": "S-41",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21296",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21296",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/1809045738910086846",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21296"
+              ]
+            },
+            {
+              "securityProblemId": "18255256771166388974",
+              "displayId": "S-36",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21248",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21248",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/18255256771166388974",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21248"
+              ]
+            },
+            {
+              "securityProblemId": "2666527971884295715",
+              "displayId": "S-45",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21341",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21341",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/2666527971884295715",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21341"
+              ]
+            },
+            {
+              "securityProblemId": "4106733193979291134",
+              "displayId": "S-26",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2773",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2773",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/4106733193979291134",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2773"
+              ]
+            },
+            {
+              "securityProblemId": "4490142413017885392",
+              "displayId": "S-30",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "CVE-2020-2803",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2803",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/4490142413017885392",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2803"
+              ]
+            },
+            {
+              "securityProblemId": "5657022522230118114",
+              "displayId": "S-43",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21305",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21305",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/5657022522230118114",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21305"
+              ]
+            },
+            {
+              "securityProblemId": "6164827137214517343",
+              "displayId": "S-38",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21283",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21283",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/6164827137214517343",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21283"
+              ]
+            },
+            {
+              "securityProblemId": "6374510769892136255",
+              "displayId": "S-39",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21293",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21293",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/6374510769892136255",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21293"
+              ]
+            },
+            {
+              "securityProblemId": "6440843820397792460",
+              "displayId": "S-47",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21360",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21360",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/6440843820397792460",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21360"
+              ]
+            },
+            {
+              "securityProblemId": "6511814307148477265",
+              "displayId": "S-32",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2816",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2816",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/6511814307148477265",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2816"
+              ]
+            },
+            {
+              "securityProblemId": "6559308239670527127",
+              "displayId": "S-27",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2778",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2778",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/6559308239670527127",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2778"
+              ]
+            },
+            {
+              "securityProblemId": "6759554245709197492",
+              "displayId": "S-24",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2757",
+              "vulnerabilityType": "RUNTIME",
+              "title": "Deserialization of Untrusted Data",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/6759554245709197492",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2757"
+              ]
+            },
+            {
+              "securityProblemId": "7670622539007844833",
+              "displayId": "S-22",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2755",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2755",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/7670622539007844833",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2755"
+              ]
+            },
+            {
+              "securityProblemId": "7986793739429907062",
+              "displayId": "S-33",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2830",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2020-2830",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/7986793739429907062",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2830"
+              ]
+            },
+            {
+              "securityProblemId": "8318475611582955583",
+              "displayId": "S-23",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2020-2756",
+              "vulnerabilityType": "RUNTIME",
+              "title": "Deserialization of Untrusted Data",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/8318475611582955583",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-2756"
+              ]
+            },
+            {
+              "securityProblemId": "9007844411566394493",
+              "displayId": "S-44",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2022-21340",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2022-21340",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/9007844411566394493",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-21340"
+              ]
+            },
+            {
+              "securityProblemId": "9526453555134840970",
+              "displayId": "S-34",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "CVE-2021-2161",
+              "vulnerabilityType": "RUNTIME",
+              "title": "CVE-2021-2161",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/9526453555134840970",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245526970,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2021-2161"
+              ]
+            },
+            {
+              "securityProblemId": "10693169319370414393",
+              "displayId": "S-82",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000087-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of Untrusted Data in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/10693169319370414393",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-20330"
+              ]
+            },
+            {
+              "securityProblemId": "10770987203927327722",
+              "displayId": "S-76",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2019-JAVA-0000098-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Polymorphic Typing issue in FasterXML jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/10770987203927327722",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-14540"
+              ]
+            },
+            {
+              "securityProblemId": "11242075433507189074",
+              "displayId": "S-92",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000025-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/11242075433507189074",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-11112"
+              ]
+            },
+            {
+              "securityProblemId": "11278730583098718798",
+              "displayId": "S-55",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000010-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "XML External Entity (XXE) Injection in Jackson Databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/11278730583098718798",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-25649"
+              ]
+            },
+            {
+              "securityProblemId": "11334035716994662926",
+              "displayId": "S-72",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2019-JAVA-0000069-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of untrusted data in FasterXML jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/11334035716994662926",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-12814"
+              ]
+            },
+            {
+              "securityProblemId": "11439726338471544303",
+              "displayId": "S-87",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000059-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/11439726338471544303",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-10672"
+              ]
+            },
+            {
+              "securityProblemId": "11669026726468080523",
+              "displayId": "S-66",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000151-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/11669026726468080523",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36185"
+              ]
+            },
+            {
+              "securityProblemId": "11759486712715154137",
+              "displayId": "S-98",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000066-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of untrusted data in Jackson Databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/11759486712715154137",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-14061"
+              ]
+            },
+            {
+              "securityProblemId": "11846717422265660169",
+              "displayId": "S-104",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0000126-ORGJETBRAINSKOTLINKOTLINSTDLIB",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Improper Locking in JetBrains Kotlin",
+              "packageName": "org.jetbrains.kotlin:kotlin-stdlib",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/11846717422265660169",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2022-24329"
+              ]
+            },
+            {
+              "securityProblemId": "11970714728337054003",
+              "displayId": "S-108",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0000668-ORGSPRINGFRAMEWORKSPRINGCORE",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Log entry injection in Spring Framework",
+              "packageName": "org.springframework:spring-core",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/11970714728337054003",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2021-22060"
+              ]
+            },
+            {
+              "securityProblemId": "1229157899721804041",
+              "displayId": "S-54",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0002499-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind vulnerable to unsafe deserialization",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/1229157899721804041",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-10650"
+              ]
+            },
+            {
+              "securityProblemId": "12547489962438189310",
+              "displayId": "S-70",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000076-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of untrusted data in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/12547489962438189310",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2021-20190"
+              ]
+            },
+            {
+              "securityProblemId": "12784407003254001064",
+              "displayId": "S-64",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000164-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/12784407003254001064",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36179"
+              ]
+            },
+            {
+              "securityProblemId": "1340823583484240022",
+              "displayId": "S-110",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0000181-ORGSPRINGFRAMEWORKSPRINGBEANS",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Remote Code Execution in Spring Framework",
+              "packageName": "org.springframework:spring-beans",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/1340823583484240022",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-22965"
+              ]
+            },
+            {
+              "securityProblemId": "13509438992629074045",
+              "displayId": "S-97",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000094-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of untrusted data in Jackson Databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/13509438992629074045",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-14060"
+              ]
+            },
+            {
+              "securityProblemId": "13797051661891548293",
+              "displayId": "S-100",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0000391-COMGOOGLECODEGSONGSON",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of Untrusted Data in Gson",
+              "packageName": "com.google.code.gson:gson",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/13797051661891548293",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-25647"
+              ]
+            },
+            {
+              "securityProblemId": "13940310852150331491",
+              "displayId": "S-57",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000339-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Serialization gadgets exploit in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/13940310852150331491",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-35491"
+              ]
+            },
+            {
+              "securityProblemId": "1403703998135981709",
+              "displayId": "S-71",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0000485-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deeply nested json in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/1403703998135981709",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-36518"
+              ]
+            },
+            {
+              "securityProblemId": "14577408665025044423",
+              "displayId": "S-53",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000331-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/14577408665025044423",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-24750"
+              ]
+            },
+            {
+              "securityProblemId": "14679965108128660662",
+              "displayId": "S-85",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000069-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Polymorphic deserialization of malicious object in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/14679965108128660662",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-14892"
+              ]
+            },
+            {
+              "securityProblemId": "1491991696349120037",
+              "displayId": "S-91",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000129-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/1491991696349120037",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-11111"
+              ]
+            },
+            {
+              "securityProblemId": "15114590303519069119",
+              "displayId": "S-111",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0001503-ORGSPRINGFRAMEWORKSPRINGCONTEXT",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Improper handling of case sensitivity in Spring Framework",
+              "packageName": "org.springframework:spring-context",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/15114590303519069119",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-22968"
+              ]
+            },
+            {
+              "securityProblemId": "1528078404132467721",
+              "displayId": "S-67",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000363-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/1528078404132467721",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36189"
+              ]
+            },
+            {
+              "securityProblemId": "15348703491971085631",
+              "displayId": "S-86",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000077-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/15348703491971085631",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-10673"
+              ]
+            },
+            {
+              "securityProblemId": "159360742952611631",
+              "displayId": "S-90",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000063-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/159360742952611631",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-11113"
+              ]
+            },
+            {
+              "securityProblemId": "16507855049990639864",
+              "displayId": "S-101",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000098-ORGHIBERNATEVALIDATORHIBERNATEVALIDATOR",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "The SafeHtml annotation in Hibernate-Validator does not properly guard against XSS attacks",
+              "packageName": "org.hibernate.validator:hibernate-validator",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/16507855049990639864",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-10219"
+              ]
+            },
+            {
+              "securityProblemId": "16614672089210102960",
+              "displayId": "S-65",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000141-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/16614672089210102960",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36182"
+              ]
+            },
+            {
+              "securityProblemId": "16865935009843997632",
+              "displayId": "S-81",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2019-JAVA-0000091-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind polymorphic typing issue",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/16865935009843997632",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-17531"
+              ]
+            },
+            {
+              "securityProblemId": "1720139812832559739",
+              "displayId": "S-74",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2019-JAVA-0000040-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of untrusted data in FasterXML jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/1720139812832559739",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-14379"
+              ]
+            },
+            {
+              "securityProblemId": "17307334134612723731",
+              "displayId": "S-59",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000341-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/17307334134612723731",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36187"
+              ]
+            },
+            {
+              "securityProblemId": "17558708164884021834",
+              "displayId": "S-80",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000072-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Improper Input Validation in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/17558708164884021834",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-17267"
+              ]
+            },
+            {
+              "securityProblemId": "18279797694011274468",
+              "displayId": "S-60",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000287-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/18279797694011274468",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36184"
+              ]
+            },
+            {
+              "securityProblemId": "18314394967693365239",
+              "displayId": "S-109",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0000469-ORGSPRINGFRAMEWORKSPRINGEXPRESSION",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Allocation of Resources Without Limits or Throttling in Spring Framework",
+              "packageName": "org.springframework:spring-expression",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/18314394967693365239",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-22950"
+              ]
+            },
+            {
+              "securityProblemId": "18402046251829931452",
+              "displayId": "S-78",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2019-JAVA-0000121-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Polymorphic Typing in FasterXML jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/18402046251829931452",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-16942"
+              ]
+            },
+            {
+              "securityProblemId": "2039861408676243188",
+              "displayId": "S-103",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0001290-ORGJETBRAINSKOTLINKOTLINSTDLIB",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Incorrect Default Permissions in JetBrains Kotlin",
+              "packageName": "org.jetbrains.kotlin:kotlin-stdlib",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/2039861408676243188",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-29582"
+              ]
+            },
+            {
+              "securityProblemId": "225376027396657439",
+              "displayId": "S-96",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000099-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of untrusted data in Jackson Databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/225376027396657439",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-14195"
+              ]
+            },
+            {
+              "securityProblemId": "2466438287278376021",
+              "displayId": "S-106",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0001553-ORGSPRINGFRAMEWORKSPRINGWEB",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Improper Privilege Management in Spring Framework",
+              "packageName": "org.springframework:spring-web",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/2466438287278376021",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2021-22118"
+              ]
+            },
+            {
+              "securityProblemId": "2482086761260590027",
+              "displayId": "S-63",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000168-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/2482086761260590027",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36183"
+              ]
+            },
+            {
+              "securityProblemId": "2706029017208379844",
+              "displayId": "S-99",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000238-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Code Injection in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/2706029017208379844",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-24616"
+              ]
+            },
+            {
+              "securityProblemId": "3568452439279730083",
+              "displayId": "S-79",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2019-JAVA-0000079-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind polymorphic typing issue",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/3568452439279730083",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-16943"
+              ]
+            },
+            {
+              "securityProblemId": "4743178970742750445",
+              "displayId": "S-69",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000197-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/4743178970742750445",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36181"
+              ]
+            },
+            {
+              "securityProblemId": "52899766514994359",
+              "displayId": "S-94",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000003-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/52899766514994359",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-11619"
+              ]
+            },
+            {
+              "securityProblemId": "5299986947609318358",
+              "displayId": "S-93",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000090-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/5299986947609318358",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-11620"
+              ]
+            },
+            {
+              "securityProblemId": "5780713679806694733",
+              "displayId": "S-68",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000209-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/5780713679806694733",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36188"
+              ]
+            },
+            {
+              "securityProblemId": "579880915179309720",
+              "displayId": "S-113",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000057-ORGSPRINGFRAMEWORKSPRINGWEB",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "RFD attack via Content-Disposition header sourced from request input by Spring MVC or Spring WebFlux Application",
+              "packageName": "org.springframework:spring-web",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/579880915179309720",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-5398"
+              ]
+            },
+            {
+              "securityProblemId": "5876764290839205318",
+              "displayId": "S-58",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000088-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Serialization gadget exploit in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/5876764290839205318",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-35728"
+              ]
+            },
+            {
+              "securityProblemId": "5994921607360954011",
+              "displayId": "S-73",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2019-JAVA-0000119-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of Untrusted Data in FasterXML jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/5994921607360954011",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-12384"
+              ]
+            },
+            {
+              "securityProblemId": "6432733561186187551",
+              "displayId": "S-62",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000142-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/6432733561186187551",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36180"
+              ]
+            },
+            {
+              "securityProblemId": "6448365148168721780",
+              "displayId": "S-102",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000346-ORGHIBERNATEVALIDATORHIBERNATEVALIDATOR",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Improper Input Validation in Hibernate Validator",
+              "packageName": "org.hibernate.validator:hibernate-validator",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/6448365148168721780",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-10693"
+              ]
+            },
+            {
+              "securityProblemId": "6842135497410858860",
+              "displayId": "S-56",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000377-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Serialization gadgets exploit in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/6842135497410858860",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-35490"
+              ]
+            },
+            {
+              "securityProblemId": "6918277047186708900",
+              "displayId": "S-84",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000028-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/6918277047186708900",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-9546"
+              ]
+            },
+            {
+              "securityProblemId": "7417412078226472611",
+              "displayId": "S-95",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000064-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of untrusted data in Jackson Databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/7417412078226472611",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-14062"
+              ]
+            },
+            {
+              "securityProblemId": "7678393544709366930",
+              "displayId": "S-105",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000350-ORGSPRINGFRAMEWORKSPRINGWEB",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Improper Input Validation in Spring Framework",
+              "packageName": "org.springframework:spring-web",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/7678393544709366930",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2020-5421"
+              ]
+            },
+            {
+              "securityProblemId": "7733156690801805852",
+              "displayId": "S-107",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0002458-ORGSPRINGFRAMEWORKSPRINGCORE",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Improper Output Neutralization for Logs in Spring Framework",
+              "packageName": "org.springframework:spring-core",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/7733156690801805852",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2021-22096"
+              ]
+            },
+            {
+              "securityProblemId": "7980536050210571488",
+              "displayId": "S-75",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2019-JAVA-0000050-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Polymorphic Typing issue in FasterXML jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/7980536050210571488",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2019-16335"
+              ]
+            },
+            {
+              "securityProblemId": "806884447636261940",
+              "displayId": "S-88",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000043-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/806884447636261940",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-10969"
+              ]
+            },
+            {
+              "securityProblemId": "8173080762443357716",
+              "displayId": "S-114",
+              "status": "OPEN",
+              "muted": true,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0001267-ORGSPRINGFRAMEWORKBOOTSPRINGBOOT",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Temporary Directory Hijacking to Local Privilege Escalation Vulnerability in org.springframework.boot:spring-boot",
+              "packageName": "org.springframework.boot:spring-boot",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/8173080762443357716",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-27772"
+              ]
+            },
+            {
+              "securityProblemId": "9022831699892690206",
+              "displayId": "S-89",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000126-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "jackson-databind mishandles the interaction between serialization gadgets and typing",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/9022831699892690206",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-10968"
+              ]
+            },
+            {
+              "securityProblemId": "9474917689418497023",
+              "displayId": "S-83",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2020-JAVA-0000022-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Deserialization of Untrusted Data in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/9474917689418497023",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-8840"
+              ]
+            },
+            {
+              "securityProblemId": "9829464823104950655",
+              "displayId": "S-112",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2022-JAVA-0001708-ORGSPRINGFRAMEWORKSPRINGBEANS",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Denial of service in Spring Framework",
+              "packageName": "org.springframework:spring-beans",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/9829464823104950655",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540007392,
+              "cveIds": [
+                "CVE-2022-22970"
+              ]
+            },
+            {
+              "securityProblemId": "9975990110345975314",
+              "displayId": "S-61",
+              "status": "OPEN",
+              "muted": false,
+              "externalVulnerabilityId": "DTV-2021-JAVA-0000357-COMFASTERXMLJACKSONCOREJACKSONDATABIND",
+              "vulnerabilityType": "THIRD_PARTY",
+              "title": "Unsafe Deserialization in jackson-databind",
+              "packageName": "com.fasterxml.jackson.core:jackson-databind",
+              "url": "https://playground.live.dynatrace.com/ui/security/problem/9975990110345975314",
+              "technology": "JAVA",
+              "firstSeenTimestamp": 1684245544886,
+              "lastUpdatedTimestamp": 1784540727657,
+              "lastOpenedTimestamp": 1784540727397,
+              "cveIds": [
+                "CVE-2020-36186"
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 16:47:26 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "53496",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1971",
+          "x-ratelimit-reset": "1785775693",
+          "etag": "W/\"d0f8-aDvRzXYpjyWDFYHLvDUfIPfOED0\""
+        },
+        "hash": "1ae697a6fb27bcbd6fd6c957a14b64d1d163700b",
+        "request": {}
+      }
+    }
+  }
+}

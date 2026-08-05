@@ -31,13 +31,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Linear user by user ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.linear.app/docs/graphql/overview
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {

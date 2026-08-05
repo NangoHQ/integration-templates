@@ -66,7 +66,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing Linear project.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -90,7 +90,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://linear.app/developers
+            // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
                 query: `

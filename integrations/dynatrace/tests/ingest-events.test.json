@@ -1,0 +1,174 @@
+{
+  "input": {
+    "eventType": "CUSTOM_INFO",
+    "title": "Test event from Nango",
+    "entitySelector": "type(HOST)",
+    "timeout": 15
+  },
+  "output": {
+    "reportCount": 15,
+    "eventIngestResults": [
+      {
+        "correlationId": "2099f143ab766315",
+        "status": "OK"
+      },
+      {
+        "correlationId": "23287e1536f31ffc",
+        "status": "OK"
+      },
+      {
+        "correlationId": "c9f1a5893feabbdd",
+        "status": "OK"
+      },
+      {
+        "correlationId": "e886207bc811f55f",
+        "status": "OK"
+      },
+      {
+        "correlationId": "fa3176457e1333d5",
+        "status": "OK"
+      },
+      {
+        "correlationId": "f65a9a6e64a2e6a9",
+        "status": "OK"
+      },
+      {
+        "correlationId": "4948503d3e76f15d",
+        "status": "OK"
+      },
+      {
+        "correlationId": "9d711fb0de0b074e",
+        "status": "OK"
+      },
+      {
+        "correlationId": "35cc76df67d7dc82",
+        "status": "OK"
+      },
+      {
+        "correlationId": "fdc4c3ff357bc893",
+        "status": "OK"
+      },
+      {
+        "correlationId": "f128cc8c23f4f887",
+        "status": "OK"
+      },
+      {
+        "correlationId": "45f1dcd1e43490f8",
+        "status": "OK"
+      },
+      {
+        "correlationId": "5e0525d690758523",
+        "status": "OK"
+      },
+      {
+        "correlationId": "d68fb028d7c6e717",
+        "status": "OK"
+      },
+      {
+        "correlationId": "42823b1014153342",
+        "status": "OK"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/events/ingest": {
+        "response": {
+          "reportCount": 15,
+          "eventIngestResults": [
+            {
+              "correlationId": "2099f143ab766315",
+              "status": "OK"
+            },
+            {
+              "correlationId": "23287e1536f31ffc",
+              "status": "OK"
+            },
+            {
+              "correlationId": "c9f1a5893feabbdd",
+              "status": "OK"
+            },
+            {
+              "correlationId": "e886207bc811f55f",
+              "status": "OK"
+            },
+            {
+              "correlationId": "fa3176457e1333d5",
+              "status": "OK"
+            },
+            {
+              "correlationId": "f65a9a6e64a2e6a9",
+              "status": "OK"
+            },
+            {
+              "correlationId": "4948503d3e76f15d",
+              "status": "OK"
+            },
+            {
+              "correlationId": "9d711fb0de0b074e",
+              "status": "OK"
+            },
+            {
+              "correlationId": "35cc76df67d7dc82",
+              "status": "OK"
+            },
+            {
+              "correlationId": "fdc4c3ff357bc893",
+              "status": "OK"
+            },
+            {
+              "correlationId": "f128cc8c23f4f887",
+              "status": "OK"
+            },
+            {
+              "correlationId": "45f1dcd1e43490f8",
+              "status": "OK"
+            },
+            {
+              "correlationId": "5e0525d690758523",
+              "status": "OK"
+            },
+            {
+              "correlationId": "d68fb028d7c6e717",
+              "status": "OK"
+            },
+            {
+              "correlationId": "42823b1014153342",
+              "status": "OK"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 16:47:49 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "806",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1941",
+          "x-ratelimit-reset": "1785775693",
+          "etag": "W/\"326-3LlMXsFtRsMouvrpnEtwpTGqswc\""
+        },
+        "hash": "3264473edd6cbda46ed1cfcd6fe764ea1d110bef",
+        "request": {
+          "data": {
+            "eventType": "CUSTOM_INFO",
+            "title": "Test event from Nango",
+            "entitySelector": "type(HOST)",
+            "timeout": 15
+          }
+        }
+      }
+    }
+  }
+}

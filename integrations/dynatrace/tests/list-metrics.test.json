@@ -1,0 +1,1244 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "metricId": "builtin:apps.custom.reportedErrorCount",
+        "displayName": "Reported error count (by OS, app version) [custom]",
+        "description": "The number of all reported errors.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.custom.sessionCount",
+        "displayName": "Session count (by OS, app version) [custom]",
+        "description": "The number of captured user sessions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.mobile.sessionCount",
+        "displayName": "Session count (by OS, app version, crash replay feature status) [mobile]",
+        "description": "The number of captured user sessions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.mobile.sessionCount.sessionReplayStatus",
+        "displayName": "Session count (by OS, app version, full replay feature status) [mobile]",
+        "description": "The number of captured user sessions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.mobile.reportedErrorCount",
+        "displayName": "Reported error count (by OS, app version) [mobile]",
+        "description": "The number of all reported errors.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.apdex.osAndGeo",
+        "displayName": "Apdex (by OS, geolocation) [mobile, custom]",
+        "description": "The Apdex rating for all captured user actions.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.other.apdex.osAndVersion",
+        "displayName": "Apdex (by OS, app version) [mobile, custom]",
+        "description": "The Apdex rating for all captured user actions.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.other.crashAffectedUsers.os",
+        "displayName": "User count - estimated users affected by crashes (by OS) [mobile, custom]",
+        "description": "The estimated number of unique users affected by a crash. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.crashAffectedUsers.osAndVersion-std",
+        "displayName": "User count - estimated users affected by crashes (by OS, app version) [mobile, custom]",
+        "description": "The estimated number of unique users affected by a crash. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.crashAffectedUsersRate.os",
+        "displayName": "User rate - estimated users affected by crashes (by OS) [mobile, custom]",
+        "description": "The estimated percentage of unique users affected by a crash. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+        "unit": "Percent"
+      },
+      {
+        "metricId": "builtin:apps.other.crashCount.osAndGeo",
+        "displayName": "Crash count (by OS, geolocation) [mobile, custom]",
+        "description": "The number of detected crashes.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.crashCount.osAndVersion",
+        "displayName": "Crash count (by OS, app version) [mobile, custom]",
+        "description": "The number of detected crashes.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.crashCount.osAndVersion-std",
+        "displayName": "Crash count (by OS, app version) [mobile, custom]",
+        "description": "The number of detected crashes.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.crashFreeUsersRate.os",
+        "displayName": "User rate - estimated crash free users (by OS) [mobile, custom]",
+        "description": "The estimated percentage of unique users not affected by a crash. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+        "unit": "Percent"
+      },
+      {
+        "metricId": "builtin:apps.other.keyUserActions.apdexValue.os",
+        "displayName": "Apdex (by key user action, OS) [mobile, custom]",
+        "description": "The Apdex rating for all captured key user actions.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.other.keyUserActions.count.osAndApdex",
+        "displayName": "Action count (by key user action, OS, Apdex category) [mobile, custom]",
+        "description": "The number of captured key user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.keyUserActions.duration.os",
+        "displayName": "Action duration (by key user action, OS) [mobile, custom]",
+        "description": "The duration of key user actions.",
+        "unit": "MicroSecond"
+      },
+      {
+        "metricId": "builtin:apps.other.keyUserActions.reportedErrorCount.os",
+        "displayName": "Reported error count (by key user action, OS) [mobile, custom]",
+        "description": "The number of reported errors for key user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.keyUserActions.requestCount.os",
+        "displayName": "Request count (by key user action, OS) [mobile, custom]",
+        "description": "The number of captured web requests associated with key user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.keyUserActions.requestDuration.os",
+        "displayName": "Request duration (by key user action, OS) [mobile, custom]",
+        "description": "The duration of web requests for key user actions. Be aware that this metric is measured in microseconds while other request duration metrics for mobile and custom apps are measured in milliseconds.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.other.keyUserActions.requestErrorCount.os",
+        "displayName": "Request error count (by key user action, OS) [mobile, custom]",
+        "description": "The number of detected web request errors for key user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.keyUserActions.requestErrorRate.os",
+        "displayName": "Request error rate (by key user action, OS) [mobile, custom]",
+        "description": "The percentage of web requests with detected errors for key user actions",
+        "unit": "Percent"
+      },
+      {
+        "metricId": "builtin:apps.other.newUsers.os",
+        "displayName": "New user count (by OS) [mobile, custom]",
+        "description": "The number of users that launched the application(s) for the first time. The metric is tied to specific devices, so users are counted multiple times if they install the application on multiple devices. The metric doesn't distinguish between multiple users that share the same device and application installation.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.requestCount.osAndProvider",
+        "displayName": "Request count (by OS, provider) [mobile, custom]",
+        "description": "The number of captured web requests.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.requestCount.osAndVersion",
+        "displayName": "Request count (by OS, app version) [mobile, custom]",
+        "description": "The number of captured web requests.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.requestErrorCount.osAndProvider",
+        "displayName": "Request error count (by OS, provider) [mobile, custom]",
+        "description": "The number of detected web request errors.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.requestErrorCount.osAndVersion",
+        "displayName": "Request error count (by OS, app version) [mobile, custom]",
+        "description": "The number of detected web request errors.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.requestErrorRate.osAndProvider",
+        "displayName": "Request error rate (by OS, provider) [mobile, custom]",
+        "description": "The percentage of web requests with detected errors.",
+        "unit": "Percent"
+      },
+      {
+        "metricId": "builtin:apps.other.requestErrorRate.osAndVersion",
+        "displayName": "Request error rate (by OS, app version) [mobile, custom]",
+        "description": "The percentage of web requests with detected errors.",
+        "unit": "Percent"
+      },
+      {
+        "metricId": "builtin:apps.other.requestTimes.osAndProvider",
+        "displayName": "Request duration (by OS, provider) [mobile, custom]",
+        "description": "The duration of web requests.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.other.requestTimes.osAndVersion",
+        "displayName": "Request duration (by OS, app version) [mobile, custom]",
+        "description": "The duration of web requests.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.other.sessionCount.agentVersionAndOs",
+        "displayName": "Session count (by agent version, OS) [mobile, custom]",
+        "description": "The number of captured user sessions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.sessionCount.osAndCrashReportingLevel",
+        "displayName": "Session count (by OS, crash reporting level) [mobile, custom]",
+        "description": "The number of captured user sessions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.sessionCount.osAndDataCollectionLevel",
+        "displayName": "Session count (by OS, data collection level) [mobile, custom]",
+        "description": "The number of captured user sessions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.sessionCount.osAndGeo",
+        "displayName": "Session count - estimated (by OS, geolocation) [mobile, custom]",
+        "description": "The estimated number of captured user sessions. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of sessions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.sessionCount.osAndVersion-std",
+        "displayName": "Session count (by OS, app version) [mobile, custom]",
+        "description": "The number of captured user sessions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.uaCount.geoAndApdex",
+        "displayName": "Action count (by geolocation, Apdex category) [mobile, custom]",
+        "description": "The number of captured user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.uaCount.osAndApdex",
+        "displayName": "Action count (by OS, Apdex category) [mobile, custom]",
+        "description": "The number of captured user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.uaCount.osAndVersion",
+        "displayName": "Action count (by OS, app version) [mobile, custom]",
+        "description": "The number of captured user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.uaDuration.osAndVersion",
+        "displayName": "Action duration (by OS, app version) [mobile, custom]",
+        "description": "The duration of user actions.",
+        "unit": "MicroSecond"
+      },
+      {
+        "metricId": "builtin:apps.other.userCount.osAndGeo",
+        "displayName": "User count - estimated (by OS, geolocation) [mobile, custom]",
+        "description": "The estimated number of unique users that have a mapped geolocation. The metric is based on 'internalUserId'. When 'dataCollectionLevel' is set to 'performance' or 'off', 'internalUserId' is changed at each app start. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.other.userCount.osAndVersion-std",
+        "displayName": "User count - estimated (by OS, app version) [mobile, custom]",
+        "description": "The estimated number of unique users. The metric is based on 'internalUserId'. When 'dataCollectionLevel' is set to 'performance' or 'off', 'internalUserId' is changed at each app start. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.action.affectedUas",
+        "displayName": "User action rate - affected by JavaScript errors (by key user action, user type) [web]",
+        "description": "The percentage of key user actions with detected JavaScript errors.",
+        "unit": "Percent"
+      },
+      {
+        "metricId": "builtin:apps.web.action.apdex",
+        "displayName": "Apdex (by key user action) [web]",
+        "description": "The average Apdex rating for key user actions.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.web.action.count.custom.browser",
+        "displayName": "Action count - custom action (by key user action, browser) [web]",
+        "description": "The number of custom actions that are marked as key user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.action.count.load.browser",
+        "displayName": "Action count - load action (by key user action, browser) [web]",
+        "description": "The number of load actions that are marked as key user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.action.count.xhr.browser",
+        "displayName": "Action count - XHR action (by key user action, browser) [web]",
+        "description": "The number of XHR actions that are marked as key user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.action.cumulativeLayoutShift.load.userType",
+        "displayName": "Cumulative Layout Shift - load action (by key user action, user type) [web]",
+        "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions that are marked as key user actions.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.web.action.cumulativeLayoutShift.load.userType.geo",
+        "displayName": "Cumulative Layout Shift - load action (by key user action, geolocation, user type) [web]",
+        "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions that are marked as key user actions.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.web.action.cumulativeLayoutShift.load.browser",
+        "displayName": "Cumulative Layout Shift - load action (by key user action, browser) [web]",
+        "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions that are marked as key user actions.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.web.action.domInteractive.load.browser",
+        "displayName": "DOM interactive - load action (by key user action, browser) [web]",
+        "description": "The time taken until a page's status is set to \"interactive\" and it's ready to receive user input. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.duration.custom.browser",
+        "displayName": "Action duration - custom action (by key user action, browser) [web]",
+        "description": "The duration of custom actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.duration.load.browser",
+        "displayName": "Action duration - load action (by key user action, browser) [web]",
+        "description": "The duration of load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.duration.xhr.browser",
+        "displayName": "Action duration - XHR action (by key user action, browser) [web]",
+        "description": "The duration of XHR actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.firstByte.load.browser",
+        "displayName": "Time to first byte - load action (by key user action, browser) [web]",
+        "description": "The time taken until the first byte of the response is received from the server, relevant application caches, or a local resource. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.firstByte.xhr.browser",
+        "displayName": "Time to first byte - XHR action (by key user action, browser) [web]",
+        "description": "The time taken until the first byte of the response is received from the server, relevant application caches, or a local resource. Calculated for XHR actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.firstInputDelay.load.userType",
+        "displayName": "First Input Delay - load action (by key user action, user type) [web]",
+        "description": "The time from the first interaction with a page to when the user agent can respond to that interaction. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.firstInputDelay.load.userType.geo",
+        "displayName": "First Input Delay - load action (by key user action, geolocation, user type) [web]",
+        "description": "The time from the first interaction with a page to when the user agent can respond to that interaction. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.firstInputDelay.load.browser",
+        "displayName": "First Input Delay - load action (by key user action, browser) [web]",
+        "description": "The time from the first interaction with a page to when the user agent can respond to that interaction. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.largestContentfulPaint.load.userType",
+        "displayName": "Largest Contentful Paint - load action (by key user action, user type) [web]",
+        "description": "The time taken to render the largest element in the viewport. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.largestContentfulPaint.load.userType.geo",
+        "displayName": "Largest Contentful Paint - load action (by key user action, geolocation, user type) [web]",
+        "description": "The time taken to render the largest element in the viewport. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.largestContentfulPaint.load.browser",
+        "displayName": "Largest Contentful Paint - load action (by key user action, browser) [web]",
+        "description": "The time taken to render the largest element in the viewport. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.loadEventEnd.load.browser",
+        "displayName": "Load event end - load action (by key user action, browser) [web]",
+        "description": "The time taken to complete the load event of a page. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.loadEventStart.load.browser",
+        "displayName": "Load event start - load action (by key user action, browser) [web]",
+        "description": "The time taken to begin the load event of a page. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.networkContribution.load",
+        "displayName": "Network contribution - load action (by key user action, user type) [web]",
+        "description": "The time taken to request and receive resources (including DNS lookup, redirect, and TCP connect time). Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.networkContribution.xhr",
+        "displayName": "Network contribution - XHR action (by key user action, user type) [web]",
+        "description": "The time taken to request and receive resources (including DNS lookup, redirect, and TCP connect time). Calculated for XHR actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.responseEnd.load.browser",
+        "displayName": "Response end - load action (by key user action, browser) [web]",
+        "description": "(AKA HTML downloaded) The time taken until the user agent receives the last byte of the response or the transport connection is closed, whichever comes first. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.responseEnd.xhr.browser",
+        "displayName": "Response end - XHR action (by key user action, browser) [web]",
+        "description": "The time taken until the user agent receives the last byte of the response or the transport connection is closed, whichever comes first. Calculated for XHR actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.serverContribution.load",
+        "displayName": "Server contribution - load action (by key user action, user type) [web]",
+        "description": "The time spent on server-side processing for a page. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.serverContribution.xhr",
+        "displayName": "Server contribution - XHR action (by key user action, user type) [web]",
+        "description": "The time spent on server-side processing for a page. Calculated for XHR actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.speedIndex.load.browser",
+        "displayName": "Speed index - load action (by key user action, browser) [web]",
+        "description": "The score measuring how quickly the visible parts of a page are rendered. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.visuallyComplete.load.browser",
+        "displayName": "Visually complete - load action (by key user action, browser) [web]",
+        "description": "The time taken to fully render content in the viewport. Calculated for load actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.visuallyComplete.xhr.browser",
+        "displayName": "Visually complete - XHR action (by key user action, browser) [web]",
+        "description": "The time taken to fully render content in the viewport. Calculated for XHR actions that are marked as key user actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.action.countOfErrors",
+        "displayName": "Error count (by key user action, user type, error type, error origin) [web]",
+        "description": "The number of detected errors that occurred during key user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.action.countOfUserActionsWithErrors",
+        "displayName": "User action count with errors (by key user action, user type) [web]",
+        "description": "The number of key user actions with detected errors.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.action.jsErrorsDuringUa",
+        "displayName": "JavaScript errors count during user actions (by key user action, user type) [web]",
+        "description": "The number of detected JavaScript errors that occurred during key user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.action.jsErrorsWithoutUa",
+        "displayName": "JavaScript error count without user actions (by key user action, user type) [web]",
+        "description": "The number of detected standalone JavaScript errors (occurred between key user actions).",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.action.percentageOfUserActionsAffectedByErrors",
+        "displayName": "User action rate - affected by errors (by key user action, user type) [web]",
+        "description": "The percentage of key user actions with detected errors.",
+        "unit": "Percent"
+      },
+      {
+        "metricId": "builtin:apps.web.actionCount.custom.browser",
+        "displayName": "Action count - custom action (by browser) [web]",
+        "description": "The number of custom actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.actionCount.load.browser",
+        "displayName": "Action count - load action (by browser) [web]",
+        "description": "The number of load actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.actionCount.xhr.browser",
+        "displayName": "Action count - XHR action (by browser) [web]",
+        "description": "The number of XHR actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.actionCount.category",
+        "displayName": "Action count (by Apdex category) [web]",
+        "description": "The number of user actions.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.actionCount.summary",
+        "displayName": "Action with key performance metric count (by action type, geolocation, user type) [web]",
+        "description": "The number of user actions that have a key performance metric and mapped geolocation.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.actionDuration.custom.browser",
+        "displayName": "Action duration - custom action (by browser) [web]",
+        "description": "The duration of custom actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.actionDuration.load.browser",
+        "displayName": "Action duration - load action (by browser) [web]",
+        "description": "The duration of load actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.actionDuration.xhr.browser",
+        "displayName": "Action duration - XHR action (by browser) [web]",
+        "description": "The duration of XHR actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.actionsPerSession",
+        "displayName": "Actions per session average (by users, user type) [web]",
+        "description": "The average number of user actions per user session.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.activeSessions",
+        "displayName": "Session count - estimated active sessions (by users, user type) [web]",
+        "description": "The estimated number of active user sessions. An active session is one in which a user has been confirmed to still be active at a given time. For this high-cardinality metric, the HyperLogLog algorithm is used to approximate the session count.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.activeUsersEst",
+        "displayName": "User count - estimated active users (by users, user type) [web]",
+        "description": "The estimated number of unique active users. For this high-cardinality metric, the HyperLogLog algorithm is used to approximate the user count.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.affectedUas",
+        "displayName": "User action rate - affected by JavaScript errors (by user type) [web]",
+        "description": "The percentage of user actions with detected JavaScript errors.",
+        "unit": "Percent"
+      },
+      {
+        "metricId": "builtin:apps.web.apdex.userType",
+        "displayName": "Apdex (by user type) [web]",
+        "description": "",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.web.apdex.userType.geoBig",
+        "displayName": "Apdex (by geolocation, user type) [web]",
+        "description": "The average Apdex rating for user actions that have a mapped geolocation.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.web.bouncedSessionRatio",
+        "displayName": "Bounce rate (by users, user type) [web]",
+        "description": "The percentage of sessions in which users viewed only a single page and triggered only a single web request. Calculated by dividing single-page sessions by all sessions.",
+        "unit": "Percent"
+      },
+      {
+        "metricId": "builtin:apps.web.conversionRate",
+        "displayName": "Conversion rate - sessions (by users, user type) [web]",
+        "description": "The percentage of sessions in which at least one conversion goal was reached. Calculated by dividing converted sessions by all sessions.",
+        "unit": "Percent"
+      },
+      {
+        "metricId": "builtin:apps.web.converted",
+        "displayName": "Session count - converted sessions (by users, user type) [web]",
+        "description": "The number of sessions in which at least one conversion goal was reached.",
+        "unit": "Count"
+      },
+      {
+        "metricId": "builtin:apps.web.cumulativeLayoutShift.load.userType",
+        "displayName": "Cumulative Layout Shift - load action (by user type) [web]",
+        "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.web.cumulativeLayoutShift.load.userType.geo",
+        "displayName": "Cumulative Layout Shift - load action (by geolocation, user type) [web]",
+        "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.web.cumulativeLayoutShift.load.browser",
+        "displayName": "Cumulative Layout Shift - load action (by browser) [web]",
+        "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions.",
+        "unit": "Unspecified"
+      },
+      {
+        "metricId": "builtin:apps.web.domInteractive.load.browser",
+        "displayName": "DOM interactive - load action (by browser) [web]",
+        "description": "The time taken until a page's status is set to \"interactive\" and it's ready to receive user input. Calculated for load actions.",
+        "unit": "MilliSecond"
+      },
+      {
+        "metricId": "builtin:apps.web.endedSessions",
+        "displayName": "Session count - estimated ended sessions (by users, user type) [web]",
+        "description": "The number of completed user sessions.",
+        "unit": "Count"
+      }
+    ],
+    "nextPageKey": "__-rq96t3q0HBAABAgMBAB5idWlsdGluOmFwcHMud2ViLmVuZGVkU2Vzc2lvbnMAAAAAAAAAZAABAAEqAAAAAAAAAAPQkAAAAGMEAAABn4BrRKcEAAABn8iETKcBAQAA__-rq96t3q0",
+    "totalCount": 4466
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/metrics": {
+        "response": {
+          "totalCount": 4466,
+          "nextPageKey": "__-rq96t3q0HBAABAgMBAB5idWlsdGluOmFwcHMud2ViLmVuZGVkU2Vzc2lvbnMAAAAAAAAAZAABAAEqAAAAAAAAAAPQkAAAAGMEAAABn4BrRKcEAAABn8iETKcBAQAA__-rq96t3q0",
+          "metrics": [
+            {
+              "metricId": "builtin:apps.custom.reportedErrorCount",
+              "displayName": "Reported error count (by OS, app version) [custom]",
+              "description": "The number of all reported errors.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.custom.sessionCount",
+              "displayName": "Session count (by OS, app version) [custom]",
+              "description": "The number of captured user sessions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.mobile.sessionCount",
+              "displayName": "Session count (by OS, app version, crash replay feature status) [mobile]",
+              "description": "The number of captured user sessions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.mobile.sessionCount.sessionReplayStatus",
+              "displayName": "Session count (by OS, app version, full replay feature status) [mobile]",
+              "description": "The number of captured user sessions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.mobile.reportedErrorCount",
+              "displayName": "Reported error count (by OS, app version) [mobile]",
+              "description": "The number of all reported errors.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.apdex.osAndGeo",
+              "displayName": "Apdex (by OS, geolocation) [mobile, custom]",
+              "description": "The Apdex rating for all captured user actions.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.other.apdex.osAndVersion",
+              "displayName": "Apdex (by OS, app version) [mobile, custom]",
+              "description": "The Apdex rating for all captured user actions.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.other.crashAffectedUsers.os",
+              "displayName": "User count - estimated users affected by crashes (by OS) [mobile, custom]",
+              "description": "The estimated number of unique users affected by a crash. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.crashAffectedUsers.osAndVersion-std",
+              "displayName": "User count - estimated users affected by crashes (by OS, app version) [mobile, custom]",
+              "description": "The estimated number of unique users affected by a crash. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.crashAffectedUsersRate.os",
+              "displayName": "User rate - estimated users affected by crashes (by OS) [mobile, custom]",
+              "description": "The estimated percentage of unique users affected by a crash. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+              "unit": "Percent"
+            },
+            {
+              "metricId": "builtin:apps.other.crashCount.osAndGeo",
+              "displayName": "Crash count (by OS, geolocation) [mobile, custom]",
+              "description": "The number of detected crashes.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.crashCount.osAndVersion",
+              "displayName": "Crash count (by OS, app version) [mobile, custom]",
+              "description": "The number of detected crashes.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.crashCount.osAndVersion-std",
+              "displayName": "Crash count (by OS, app version) [mobile, custom]",
+              "description": "The number of detected crashes.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.crashFreeUsersRate.os",
+              "displayName": "User rate - estimated crash free users (by OS) [mobile, custom]",
+              "description": "The estimated percentage of unique users not affected by a crash. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+              "unit": "Percent"
+            },
+            {
+              "metricId": "builtin:apps.other.keyUserActions.apdexValue.os",
+              "displayName": "Apdex (by key user action, OS) [mobile, custom]",
+              "description": "The Apdex rating for all captured key user actions.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.other.keyUserActions.count.osAndApdex",
+              "displayName": "Action count (by key user action, OS, Apdex category) [mobile, custom]",
+              "description": "The number of captured key user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.keyUserActions.duration.os",
+              "displayName": "Action duration (by key user action, OS) [mobile, custom]",
+              "description": "The duration of key user actions.",
+              "unit": "MicroSecond"
+            },
+            {
+              "metricId": "builtin:apps.other.keyUserActions.reportedErrorCount.os",
+              "displayName": "Reported error count (by key user action, OS) [mobile, custom]",
+              "description": "The number of reported errors for key user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.keyUserActions.requestCount.os",
+              "displayName": "Request count (by key user action, OS) [mobile, custom]",
+              "description": "The number of captured web requests associated with key user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.keyUserActions.requestDuration.os",
+              "displayName": "Request duration (by key user action, OS) [mobile, custom]",
+              "description": "The duration of web requests for key user actions. Be aware that this metric is measured in microseconds while other request duration metrics for mobile and custom apps are measured in milliseconds.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.other.keyUserActions.requestErrorCount.os",
+              "displayName": "Request error count (by key user action, OS) [mobile, custom]",
+              "description": "The number of detected web request errors for key user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.keyUserActions.requestErrorRate.os",
+              "displayName": "Request error rate (by key user action, OS) [mobile, custom]",
+              "description": "The percentage of web requests with detected errors for key user actions",
+              "unit": "Percent"
+            },
+            {
+              "metricId": "builtin:apps.other.newUsers.os",
+              "displayName": "New user count (by OS) [mobile, custom]",
+              "description": "The number of users that launched the application(s) for the first time. The metric is tied to specific devices, so users are counted multiple times if they install the application on multiple devices. The metric doesn't distinguish between multiple users that share the same device and application installation.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.requestCount.osAndProvider",
+              "displayName": "Request count (by OS, provider) [mobile, custom]",
+              "description": "The number of captured web requests.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.requestCount.osAndVersion",
+              "displayName": "Request count (by OS, app version) [mobile, custom]",
+              "description": "The number of captured web requests.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.requestErrorCount.osAndProvider",
+              "displayName": "Request error count (by OS, provider) [mobile, custom]",
+              "description": "The number of detected web request errors.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.requestErrorCount.osAndVersion",
+              "displayName": "Request error count (by OS, app version) [mobile, custom]",
+              "description": "The number of detected web request errors.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.requestErrorRate.osAndProvider",
+              "displayName": "Request error rate (by OS, provider) [mobile, custom]",
+              "description": "The percentage of web requests with detected errors.",
+              "unit": "Percent"
+            },
+            {
+              "metricId": "builtin:apps.other.requestErrorRate.osAndVersion",
+              "displayName": "Request error rate (by OS, app version) [mobile, custom]",
+              "description": "The percentage of web requests with detected errors.",
+              "unit": "Percent"
+            },
+            {
+              "metricId": "builtin:apps.other.requestTimes.osAndProvider",
+              "displayName": "Request duration (by OS, provider) [mobile, custom]",
+              "description": "The duration of web requests.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.other.requestTimes.osAndVersion",
+              "displayName": "Request duration (by OS, app version) [mobile, custom]",
+              "description": "The duration of web requests.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.other.sessionCount.agentVersionAndOs",
+              "displayName": "Session count (by agent version, OS) [mobile, custom]",
+              "description": "The number of captured user sessions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.sessionCount.osAndCrashReportingLevel",
+              "displayName": "Session count (by OS, crash reporting level) [mobile, custom]",
+              "description": "The number of captured user sessions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.sessionCount.osAndDataCollectionLevel",
+              "displayName": "Session count (by OS, data collection level) [mobile, custom]",
+              "description": "The number of captured user sessions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.sessionCount.osAndGeo",
+              "displayName": "Session count - estimated (by OS, geolocation) [mobile, custom]",
+              "description": "The estimated number of captured user sessions. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of sessions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.sessionCount.osAndVersion-std",
+              "displayName": "Session count (by OS, app version) [mobile, custom]",
+              "description": "The number of captured user sessions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.uaCount.geoAndApdex",
+              "displayName": "Action count (by geolocation, Apdex category) [mobile, custom]",
+              "description": "The number of captured user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.uaCount.osAndApdex",
+              "displayName": "Action count (by OS, Apdex category) [mobile, custom]",
+              "description": "The number of captured user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.uaCount.osAndVersion",
+              "displayName": "Action count (by OS, app version) [mobile, custom]",
+              "description": "The number of captured user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.uaDuration.osAndVersion",
+              "displayName": "Action duration (by OS, app version) [mobile, custom]",
+              "description": "The duration of user actions.",
+              "unit": "MicroSecond"
+            },
+            {
+              "metricId": "builtin:apps.other.userCount.osAndGeo",
+              "displayName": "User count - estimated (by OS, geolocation) [mobile, custom]",
+              "description": "The estimated number of unique users that have a mapped geolocation. The metric is based on 'internalUserId'. When 'dataCollectionLevel' is set to 'performance' or 'off', 'internalUserId' is changed at each app start. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.other.userCount.osAndVersion-std",
+              "displayName": "User count - estimated (by OS, app version) [mobile, custom]",
+              "description": "The estimated number of unique users. The metric is based on 'internalUserId'. When 'dataCollectionLevel' is set to 'performance' or 'off', 'internalUserId' is changed at each app start. For this high cardinality metric, the HyperLogLog algorithm is used to approximate the number of users.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.action.affectedUas",
+              "displayName": "User action rate - affected by JavaScript errors (by key user action, user type) [web]",
+              "description": "The percentage of key user actions with detected JavaScript errors.",
+              "unit": "Percent"
+            },
+            {
+              "metricId": "builtin:apps.web.action.apdex",
+              "displayName": "Apdex (by key user action) [web]",
+              "description": "The average Apdex rating for key user actions.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.web.action.count.custom.browser",
+              "displayName": "Action count - custom action (by key user action, browser) [web]",
+              "description": "The number of custom actions that are marked as key user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.action.count.load.browser",
+              "displayName": "Action count - load action (by key user action, browser) [web]",
+              "description": "The number of load actions that are marked as key user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.action.count.xhr.browser",
+              "displayName": "Action count - XHR action (by key user action, browser) [web]",
+              "description": "The number of XHR actions that are marked as key user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.action.cumulativeLayoutShift.load.userType",
+              "displayName": "Cumulative Layout Shift - load action (by key user action, user type) [web]",
+              "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions that are marked as key user actions.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.web.action.cumulativeLayoutShift.load.userType.geo",
+              "displayName": "Cumulative Layout Shift - load action (by key user action, geolocation, user type) [web]",
+              "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions that are marked as key user actions.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.web.action.cumulativeLayoutShift.load.browser",
+              "displayName": "Cumulative Layout Shift - load action (by key user action, browser) [web]",
+              "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions that are marked as key user actions.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.web.action.domInteractive.load.browser",
+              "displayName": "DOM interactive - load action (by key user action, browser) [web]",
+              "description": "The time taken until a page's status is set to \"interactive\" and it's ready to receive user input. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.duration.custom.browser",
+              "displayName": "Action duration - custom action (by key user action, browser) [web]",
+              "description": "The duration of custom actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.duration.load.browser",
+              "displayName": "Action duration - load action (by key user action, browser) [web]",
+              "description": "The duration of load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.duration.xhr.browser",
+              "displayName": "Action duration - XHR action (by key user action, browser) [web]",
+              "description": "The duration of XHR actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.firstByte.load.browser",
+              "displayName": "Time to first byte - load action (by key user action, browser) [web]",
+              "description": "The time taken until the first byte of the response is received from the server, relevant application caches, or a local resource. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.firstByte.xhr.browser",
+              "displayName": "Time to first byte - XHR action (by key user action, browser) [web]",
+              "description": "The time taken until the first byte of the response is received from the server, relevant application caches, or a local resource. Calculated for XHR actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.firstInputDelay.load.userType",
+              "displayName": "First Input Delay - load action (by key user action, user type) [web]",
+              "description": "The time from the first interaction with a page to when the user agent can respond to that interaction. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.firstInputDelay.load.userType.geo",
+              "displayName": "First Input Delay - load action (by key user action, geolocation, user type) [web]",
+              "description": "The time from the first interaction with a page to when the user agent can respond to that interaction. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.firstInputDelay.load.browser",
+              "displayName": "First Input Delay - load action (by key user action, browser) [web]",
+              "description": "The time from the first interaction with a page to when the user agent can respond to that interaction. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.largestContentfulPaint.load.userType",
+              "displayName": "Largest Contentful Paint - load action (by key user action, user type) [web]",
+              "description": "The time taken to render the largest element in the viewport. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.largestContentfulPaint.load.userType.geo",
+              "displayName": "Largest Contentful Paint - load action (by key user action, geolocation, user type) [web]",
+              "description": "The time taken to render the largest element in the viewport. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.largestContentfulPaint.load.browser",
+              "displayName": "Largest Contentful Paint - load action (by key user action, browser) [web]",
+              "description": "The time taken to render the largest element in the viewport. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.loadEventEnd.load.browser",
+              "displayName": "Load event end - load action (by key user action, browser) [web]",
+              "description": "The time taken to complete the load event of a page. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.loadEventStart.load.browser",
+              "displayName": "Load event start - load action (by key user action, browser) [web]",
+              "description": "The time taken to begin the load event of a page. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.networkContribution.load",
+              "displayName": "Network contribution - load action (by key user action, user type) [web]",
+              "description": "The time taken to request and receive resources (including DNS lookup, redirect, and TCP connect time). Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.networkContribution.xhr",
+              "displayName": "Network contribution - XHR action (by key user action, user type) [web]",
+              "description": "The time taken to request and receive resources (including DNS lookup, redirect, and TCP connect time). Calculated for XHR actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.responseEnd.load.browser",
+              "displayName": "Response end - load action (by key user action, browser) [web]",
+              "description": "(AKA HTML downloaded) The time taken until the user agent receives the last byte of the response or the transport connection is closed, whichever comes first. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.responseEnd.xhr.browser",
+              "displayName": "Response end - XHR action (by key user action, browser) [web]",
+              "description": "The time taken until the user agent receives the last byte of the response or the transport connection is closed, whichever comes first. Calculated for XHR actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.serverContribution.load",
+              "displayName": "Server contribution - load action (by key user action, user type) [web]",
+              "description": "The time spent on server-side processing for a page. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.serverContribution.xhr",
+              "displayName": "Server contribution - XHR action (by key user action, user type) [web]",
+              "description": "The time spent on server-side processing for a page. Calculated for XHR actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.speedIndex.load.browser",
+              "displayName": "Speed index - load action (by key user action, browser) [web]",
+              "description": "The score measuring how quickly the visible parts of a page are rendered. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.visuallyComplete.load.browser",
+              "displayName": "Visually complete - load action (by key user action, browser) [web]",
+              "description": "The time taken to fully render content in the viewport. Calculated for load actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.visuallyComplete.xhr.browser",
+              "displayName": "Visually complete - XHR action (by key user action, browser) [web]",
+              "description": "The time taken to fully render content in the viewport. Calculated for XHR actions that are marked as key user actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.action.countOfErrors",
+              "displayName": "Error count (by key user action, user type, error type, error origin) [web]",
+              "description": "The number of detected errors that occurred during key user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.action.countOfUserActionsWithErrors",
+              "displayName": "User action count with errors (by key user action, user type) [web]",
+              "description": "The number of key user actions with detected errors.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.action.jsErrorsDuringUa",
+              "displayName": "JavaScript errors count during user actions (by key user action, user type) [web]",
+              "description": "The number of detected JavaScript errors that occurred during key user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.action.jsErrorsWithoutUa",
+              "displayName": "JavaScript error count without user actions (by key user action, user type) [web]",
+              "description": "The number of detected standalone JavaScript errors (occurred between key user actions).",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.action.percentageOfUserActionsAffectedByErrors",
+              "displayName": "User action rate - affected by errors (by key user action, user type) [web]",
+              "description": "The percentage of key user actions with detected errors.",
+              "unit": "Percent"
+            },
+            {
+              "metricId": "builtin:apps.web.actionCount.custom.browser",
+              "displayName": "Action count - custom action (by browser) [web]",
+              "description": "The number of custom actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.actionCount.load.browser",
+              "displayName": "Action count - load action (by browser) [web]",
+              "description": "The number of load actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.actionCount.xhr.browser",
+              "displayName": "Action count - XHR action (by browser) [web]",
+              "description": "The number of XHR actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.actionCount.category",
+              "displayName": "Action count (by Apdex category) [web]",
+              "description": "The number of user actions.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.actionCount.summary",
+              "displayName": "Action with key performance metric count (by action type, geolocation, user type) [web]",
+              "description": "The number of user actions that have a key performance metric and mapped geolocation.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.actionDuration.custom.browser",
+              "displayName": "Action duration - custom action (by browser) [web]",
+              "description": "The duration of custom actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.actionDuration.load.browser",
+              "displayName": "Action duration - load action (by browser) [web]",
+              "description": "The duration of load actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.actionDuration.xhr.browser",
+              "displayName": "Action duration - XHR action (by browser) [web]",
+              "description": "The duration of XHR actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.actionsPerSession",
+              "displayName": "Actions per session average (by users, user type) [web]",
+              "description": "The average number of user actions per user session.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.activeSessions",
+              "displayName": "Session count - estimated active sessions (by users, user type) [web]",
+              "description": "The estimated number of active user sessions. An active session is one in which a user has been confirmed to still be active at a given time. For this high-cardinality metric, the HyperLogLog algorithm is used to approximate the session count.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.activeUsersEst",
+              "displayName": "User count - estimated active users (by users, user type) [web]",
+              "description": "The estimated number of unique active users. For this high-cardinality metric, the HyperLogLog algorithm is used to approximate the user count.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.affectedUas",
+              "displayName": "User action rate - affected by JavaScript errors (by user type) [web]",
+              "description": "The percentage of user actions with detected JavaScript errors.",
+              "unit": "Percent"
+            },
+            {
+              "metricId": "builtin:apps.web.apdex.userType",
+              "displayName": "Apdex (by user type) [web]",
+              "description": "",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.web.apdex.userType.geoBig",
+              "displayName": "Apdex (by geolocation, user type) [web]",
+              "description": "The average Apdex rating for user actions that have a mapped geolocation.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.web.bouncedSessionRatio",
+              "displayName": "Bounce rate (by users, user type) [web]",
+              "description": "The percentage of sessions in which users viewed only a single page and triggered only a single web request. Calculated by dividing single-page sessions by all sessions.",
+              "unit": "Percent"
+            },
+            {
+              "metricId": "builtin:apps.web.conversionRate",
+              "displayName": "Conversion rate - sessions (by users, user type) [web]",
+              "description": "The percentage of sessions in which at least one conversion goal was reached. Calculated by dividing converted sessions by all sessions.",
+              "unit": "Percent"
+            },
+            {
+              "metricId": "builtin:apps.web.converted",
+              "displayName": "Session count - converted sessions (by users, user type) [web]",
+              "description": "The number of sessions in which at least one conversion goal was reached.",
+              "unit": "Count"
+            },
+            {
+              "metricId": "builtin:apps.web.cumulativeLayoutShift.load.userType",
+              "displayName": "Cumulative Layout Shift - load action (by user type) [web]",
+              "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.web.cumulativeLayoutShift.load.userType.geo",
+              "displayName": "Cumulative Layout Shift - load action (by geolocation, user type) [web]",
+              "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.web.cumulativeLayoutShift.load.browser",
+              "displayName": "Cumulative Layout Shift - load action (by browser) [web]",
+              "description": "The score measuring the unexpected shifting of visible webpage elements. Calculated for load actions.",
+              "unit": "Unspecified"
+            },
+            {
+              "metricId": "builtin:apps.web.domInteractive.load.browser",
+              "displayName": "DOM interactive - load action (by browser) [web]",
+              "description": "The time taken until a page's status is set to \"interactive\" and it's ready to receive user input. Calculated for load actions.",
+              "unit": "MilliSecond"
+            },
+            {
+              "metricId": "builtin:apps.web.endedSessions",
+              "displayName": "Session count - estimated ended sessions (by users, user type) [web]",
+              "description": "The number of completed user sessions.",
+              "unit": "Count"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 16:45:41 GMT",
+          "content-type": "application/json;charset=utf-8",
+          "content-length": "26739",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1956",
+          "x-ratelimit-reset": "1785775571",
+          "etag": "W/\"6873-lH8MYQ0vDn4ZTd9iyawkgFl13ag\""
+        },
+        "hash": "9d252a57a18cbd4ae7838a2d792be5e9bcacb6f5",
+        "request": {}
+      }
+    }
+  }
+}

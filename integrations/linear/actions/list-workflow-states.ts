@@ -59,7 +59,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List Linear workflow states across teams.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['read'],

@@ -36,14 +36,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Resolve a Linear comment thread.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://developers.linear.app/docs/graphql/working-with-the-graphql-api
+            // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
                 query: `

@@ -1198,6 +1198,35 @@ import './confluence/actions/update-inline-comment.js';
 import './confluence/actions/update-page-property.js';
 import './confluence/actions/update-page.js';
 
+// -- Integration: connectsecure
+import './connectsecure/syncs/agents.js';
+import './connectsecure/syncs/assets.js';
+import './connectsecure/syncs/companies.js';
+import './connectsecure/syncs/compliance_master.js';
+import './connectsecure/syncs/problem_groups.js';
+import './connectsecure/syncs/users.js';
+import './connectsecure/syncs/vulnerabilities.js';
+import './connectsecure/actions/create-user.js';
+import './connectsecure/actions/get-asset.js';
+import './connectsecure/actions/get-company.js';
+import './connectsecure/actions/get-compliance-master.js';
+import './connectsecure/actions/get-password-policy.js';
+import './connectsecure/actions/list-agents.js';
+import './connectsecure/actions/list-approver-users.js';
+import './connectsecure/actions/list-assets.js';
+import './connectsecure/actions/list-companies.js';
+import './connectsecure/actions/list-compliance-types.js';
+import './connectsecure/actions/list-credentials.js';
+import './connectsecure/actions/list-integrations.js';
+import './connectsecure/actions/list-jobs.js';
+import './connectsecure/actions/list-problem-groups.js';
+import './connectsecure/actions/list-problems-summary.js';
+import './connectsecure/actions/list-roles.js';
+import './connectsecure/actions/list-settings.js';
+import './connectsecure/actions/list-users.js';
+import './connectsecure/actions/list-vulnerabilities.js';
+import './connectsecure/actions/update-user-role.js';
+
 // -- Integration: databricks-workspace
 import './databricks-workspace/actions/list-warehouses.js';
 
@@ -1515,6 +1544,33 @@ import './dropbox/actions/share-folder.js';
 import './dropbox/actions/unshare-folder.js';
 import './dropbox/actions/upload-file.js';
 import './dropbox/actions/upload-large-file.js';
+
+// -- Integration: dynatrace
+import './dynatrace/syncs/entities.js';
+import './dynatrace/syncs/problems.js';
+import './dynatrace/actions/add-problem-comment.js';
+import './dynatrace/actions/delete-problem-comment.js';
+import './dynatrace/actions/get-entity.js';
+import './dynatrace/actions/get-metric-descriptor.js';
+import './dynatrace/actions/get-problem.js';
+import './dynatrace/actions/get-security-problem.js';
+import './dynatrace/actions/get-slo.js';
+import './dynatrace/actions/ingest-events.js';
+import './dynatrace/actions/list-api-tokens.js';
+import './dynatrace/actions/list-entities.js';
+import './dynatrace/actions/list-entity-types.js';
+import './dynatrace/actions/list-events.js';
+import './dynatrace/actions/list-metrics.js';
+import './dynatrace/actions/list-network-zones.js';
+import './dynatrace/actions/list-problem-comments.js';
+import './dynatrace/actions/list-problems.js';
+import './dynatrace/actions/list-releases.js';
+import './dynatrace/actions/list-security-problems.js';
+import './dynatrace/actions/list-settings-objects.js';
+import './dynatrace/actions/list-settings-schemas.js';
+import './dynatrace/actions/list-slos.js';
+import './dynatrace/actions/query-metric-data.js';
+import './dynatrace/actions/update-problem-comment.js';
 
 // -- Integration: elevenlabs
 import './elevenlabs/syncs/agents.js';

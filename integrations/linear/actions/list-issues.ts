@@ -72,10 +72,10 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Linear issues with filtering and pagination.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['issues:read'],
+    scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const query = `
@@ -131,7 +131,7 @@ const action = createAction({
             variables['filter'] = input.filter;
         }
 
-        // https://linear.app/developers/api-graphql
+        // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {
