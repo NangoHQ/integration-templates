@@ -1,106 +1,52 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
-const PAGE_SIZE = 500;
+const DynatraceProblemSchema = z.object({
+    problemId: z.string(),
+    displayId: z.string().nullable().optional(),
+    title: z.string().nullable().optional(),
+    impactLevel: z.string().nullable().optional(),
+    severityLevel: z.string().nullable().optional(),
+    status: z.string().nullable().optional(),
+    affectedEntities: z.array(z.object({}).passthrough()).nullable().optional(),
+    impactedEntities: z.array(z.object({}).passthrough()).nullable().optional(),
+    rootCauseEntity: z.object({}).passthrough().nullable().optional(),
+    managementZones: z.array(z.object({}).passthrough()).nullable().optional(),
+    tags: z.array(z.object({}).passthrough()).nullable().optional(),
+    problemFilters: z.array(z.object({}).passthrough()).nullable().optional(),
+    startTime: z.number().nullable().optional(),
+    endTime: z.number().nullable().optional(),
+    recentComments: z.object({}).passthrough().nullable().optional(),
+    impactAnalysis: z.object({}).passthrough().nullable().optional(),
+    problemDetails: z.object({}).passthrough().nullable().optional()
+});
 
-const EntityStubSchema = z
-    .object({
-        entityId: z
-            .object({
-                id: z.string(),
-                type: z.string()
-            })
-            .passthrough(),
-        name: z.string().optional()
-    })
-    .passthrough();
-
-const METagSchema = z
-    .object({
-        context: z.string().optional(),
-        key: z.string().optional(),
-        stringRepresentation: z.string().optional(),
-        value: z.string().optional()
-    })
-    .passthrough();
-
-const ManagementZoneSchema = z
-    .object({
-        id: z.string().optional(),
-        name: z.string().optional()
-    })
-    .passthrough();
-
-const AlertingProfileStubSchema = z
-    .object({
-        id: z.string().optional(),
-        name: z.string().optional()
-    })
-    .passthrough();
-
-const RecentCommentSchema = z
-    .object({
-        authorName: z.string().optional(),
-        content: z.string().optional(),
-        context: z.string().optional(),
-        createdAtTimestamp: z.number().optional(),
-        id: z.string().optional()
-    })
-    .passthrough();
-
-const RecentCommentsListSchema = z
-    .object({
-        comments: z.array(RecentCommentSchema).optional(),
-        nextPageKey: z.string().optional(),
-        pageSize: z.number().optional(),
-        totalCount: z.number().optional()
-    })
-    .passthrough();
-
-const ProviderProblemSchema = z
-    .object({
-        problemId: z.string(),
-        displayId: z.string().optional(),
-        title: z.string(),
-        status: z.string(),
-        severityLevel: z.string().optional(),
-        impactLevel: z.string().optional(),
-        startTime: z.number().optional(),
-        endTime: z.number().optional(),
-        rootCauseEntity: EntityStubSchema.nullable().optional(),
-        affectedEntities: z.array(EntityStubSchema).optional(),
-        impactedEntities: z.array(EntityStubSchema).optional(),
-        entityTags: z.array(METagSchema).optional(),
-        problemFilters: z.array(AlertingProfileStubSchema).optional(),
-        managementZones: z.array(ManagementZoneSchema).optional(),
-        recentComments: RecentCommentsListSchema.optional()
-    })
-    .passthrough();
-
-const ProviderProblemsListSchema = z.object({
-    problems: z.array(ProviderProblemSchema),
-    nextPageKey: z.string().nullable().optional(),
+const ProblemListResponseSchema = z.object({
+    problems: z.array(DynatraceProblemSchema),
+    totalCount: z.number().optional(),
     pageSize: z.number().optional(),
-    totalCount: z.number().optional()
+    nextPageKey: z.string().optional()
 });
 
 const ProblemSchema = z.object({
     id: z.string(),
     problemId: z.string(),
     displayId: z.string().optional(),
-    title: z.string(),
-    status: z.string(),
-    severityLevel: z.string().optional(),
+    title: z.string().optional(),
     impactLevel: z.string().optional(),
+    severityLevel: z.string().optional(),
+    status: z.string().optional(),
+    affectedEntities: z.array(z.object({}).passthrough()).optional(),
+    impactedEntities: z.array(z.object({}).passthrough()).optional(),
+    rootCauseEntity: z.object({}).passthrough().optional(),
+    managementZones: z.array(z.object({}).passthrough()).optional(),
+    tags: z.array(z.object({}).passthrough()).optional(),
+    problemFilters: z.array(z.object({}).passthrough()).optional(),
     startTime: z.number().optional(),
     endTime: z.number().optional(),
-    rootCauseEntity: EntityStubSchema.nullable().optional(),
-    affectedEntities: z.array(EntityStubSchema).optional(),
-    impactedEntities: z.array(EntityStubSchema).optional(),
-    entityTags: z.array(METagSchema).optional(),
-    problemFilters: z.array(AlertingProfileStubSchema).optional(),
-    managementZones: z.array(ManagementZoneSchema).optional(),
-    recentComments: RecentCommentsListSchema.optional()
+    recentComments: z.object({}).passthrough().optional(),
+    impactAnalysis: z.object({}).passthrough().optional(),
+    problemDetails: z.object({}).passthrough().optional()
 });
 
 const CheckpointSchema = z.object({
@@ -108,8 +54,27 @@ const CheckpointSchema = z.object({
     openProblemIds: z.string()
 });
 
-function isProblemStillOpen(status: string): boolean {
-    return status !== 'CLOSED';
+function normalizeProblem(raw: z.infer<typeof DynatraceProblemSchema>): z.infer<typeof ProblemSchema> {
+    return {
+        id: raw.problemId,
+        problemId: raw.problemId,
+        displayId: raw.displayId ?? undefined,
+        title: raw.title ?? undefined,
+        impactLevel: raw.impactLevel ?? undefined,
+        severityLevel: raw.severityLevel ?? undefined,
+        status: raw.status ?? undefined,
+        affectedEntities: raw.affectedEntities ?? undefined,
+        impactedEntities: raw.impactedEntities ?? undefined,
+        rootCauseEntity: raw.rootCauseEntity ?? undefined,
+        managementZones: raw.managementZones ?? undefined,
+        tags: raw.tags ?? undefined,
+        problemFilters: raw.problemFilters ?? undefined,
+        startTime: raw.startTime ?? undefined,
+        endTime: raw.endTime ?? undefined,
+        recentComments: raw.recentComments ?? undefined,
+        impactAnalysis: raw.impactAnalysis ?? undefined,
+        problemDetails: raw.problemDetails ?? undefined
+    };
 }
 
 const sync = createSync({
@@ -123,174 +88,63 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // Save the run start as the next lower bound so changes during this run are re-read instead of skipped.
-        const syncStartedAt = new Date().toISOString();
         const checkpoint = await nango.getCheckpoint();
+        const fromValue = checkpoint?.from ?? '-1h';
+        const openProblemIds = checkpoint?.openProblemIds ? checkpoint.openProblemIds.split(',') : [];
+        const runStart = new Date().toISOString();
 
-        let from: string;
-        let previousOpenIds: string[];
-        const isInitialSync = checkpoint === null || checkpoint === undefined;
-        if (isInitialSync) {
-            from = 'now-1h';
-            previousOpenIds = [];
-        } else {
-            const checkpointParsed = CheckpointSchema.safeParse(checkpoint);
-            if (!checkpointParsed.success) {
-                throw new Error(`Invalid checkpoint: ${checkpointParsed.error.message}`);
-            }
-            from = checkpointParsed.data.from;
-            previousOpenIds =
-                checkpointParsed.data.openProblemIds.length > 0 ? checkpointParsed.data.openProblemIds.split(',').filter((id) => id.length > 0) : [];
-        }
+        const problemsMap = new Map<string, z.infer<typeof ProblemSchema>>();
 
-        const newProblems = new Map<string, z.infer<typeof ProviderProblemSchema>>();
-        let nextPageKey: string | null | undefined = undefined;
+        let nextPageKey: string | undefined;
+        let hasMorePages = true;
 
-        do {
-            const params: Record<string, string | number> = {};
-            if (nextPageKey) {
-                params['nextPageKey'] = nextPageKey;
-            } else {
-                params['from'] = from;
-                params['pageSize'] = PAGE_SIZE;
-            }
-
-            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/get-problems-list
-            const response = await nango.get({
+        while (hasMorePages) {
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems
+            const listResponse = await nango.get({
                 endpoint: '/api/v2/problems',
-                params,
+                params: nextPageKey ? { nextPageKey } : { from: fromValue, pageSize: 500 },
                 retries: 3
             });
 
-            const listParsed = ProviderProblemsListSchema.safeParse(response.data);
-            if (!listParsed.success) {
-                throw new Error(`Failed to parse problems list: ${listParsed.error.message}`);
+            const parsedList = ProblemListResponseSchema.safeParse(listResponse.data);
+            if (!parsedList.success) {
+                throw new Error(`Failed to parse problems list response: ${parsedList.error.message}`);
             }
 
-            for (const problem of listParsed.data.problems) {
-                newProblems.set(problem.problemId, problem);
+            for (const raw of parsedList.data.problems) {
+                problemsMap.set(raw.problemId, normalizeProblem(raw));
             }
 
-            nextPageKey = listParsed.data.nextPageKey ?? undefined;
-            if (typeof nextPageKey === 'string' && nextPageKey.trim() === '') {
-                nextPageKey = undefined;
-            }
-        } while (nextPageKey);
-
-        if (isInitialSync) {
-            // The time-windowed query above only covers problems that started within the last hour, so a
-            // connection created while a problem has already been open longer than that would otherwise
-            // never see it. Backfill all currently open problems regardless of start time: an explicit
-            // far-in-the-past `from` is used instead of omitting it, so this doesn't rely on undocumented
-            // default-timeframe behavior when a status filter is present.
-            let backfillPageKey: string | null | undefined = undefined;
-            do {
-                const backfillParams: Record<string, string | number> = {};
-                if (backfillPageKey) {
-                    backfillParams['nextPageKey'] = backfillPageKey;
-                } else {
-                    backfillParams['problemSelector'] = 'status(open)';
-                    backfillParams['from'] = '-10y';
-                    backfillParams['pageSize'] = PAGE_SIZE;
-                }
-
-                // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/get-problems-list
-                const backfillResponse = await nango.get({
-                    endpoint: '/api/v2/problems',
-                    params: backfillParams,
-                    retries: 3
-                });
-
-                const backfillParsed = ProviderProblemsListSchema.safeParse(backfillResponse.data);
-                if (!backfillParsed.success) {
-                    throw new Error(`Failed to parse open problems backfill: ${backfillParsed.error.message}`);
-                }
-
-                for (const problem of backfillParsed.data.problems) {
-                    newProblems.set(problem.problemId, problem);
-                }
-
-                backfillPageKey = backfillParsed.data.nextPageKey ?? undefined;
-                if (typeof backfillPageKey === 'string' && backfillPageKey.trim() === '') {
-                    backfillPageKey = undefined;
-                }
-            } while (backfillPageKey);
+            nextPageKey = parsedList.data.nextPageKey;
+            hasMorePages = Boolean(nextPageKey);
         }
 
-        const currentOpenIds = new Set<string>();
-        for (const [, problem] of newProblems) {
-            if (isProblemStillOpen(problem.status)) {
-                currentOpenIds.add(problem.problemId);
-            }
-        }
+        for (const problemId of openProblemIds) {
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems
+            const response = await nango.get({
+                endpoint: `/api/v2/problems/${encodeURIComponent(problemId)}`,
+                retries: 3
+            });
 
-        const extraProblems = new Map<string, z.infer<typeof ProviderProblemSchema>>();
-        for (const problemId of previousOpenIds) {
-            if (newProblems.has(problemId)) {
-                continue;
+            const parsed = DynatraceProblemSchema.safeParse(response.data);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse problem ${problemId}: ${parsed.error.message}`);
             }
 
-            // @allowTryCatch: a previously open problem may have been deleted or purged,
-            // in which case we skip it and stop tracking it as open.
-            try {
-                // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/get-problem
-                const response = await nango.get({
-                    endpoint: `/api/v2/problems/${encodeURIComponent(problemId)}`,
-                    retries: 3
-                });
-
-                const problemParsed = ProviderProblemSchema.safeParse(response.data);
-                if (!problemParsed.success) {
-                    throw new Error(`Failed to parse problem ${problemId}: ${problemParsed.error.message}`);
-                }
-
-                if (isProblemStillOpen(problemParsed.data.status)) {
-                    currentOpenIds.add(problemId);
-                }
-                extraProblems.set(problemId, problemParsed.data);
-            } catch (err) {
-                if (err instanceof Error && (err.message.includes('404') || err.message.includes('Not Found'))) {
-                    await nango.log(`Problem ${problemId} not found, skipping re-fetch`);
-                    continue;
-                }
-                throw err;
-            }
+            problemsMap.set(parsed.data.problemId, normalizeProblem(parsed.data));
         }
 
-        const allProblems = new Map<string, z.infer<typeof ProviderProblemSchema>>();
-        for (const [, problem] of newProblems) {
-            allProblems.set(problem.problemId, problem);
-        }
-        for (const [, problem] of extraProblems) {
-            allProblems.set(problem.problemId, problem);
+        const problems = Array.from(problemsMap.values());
+
+        if (problems.length > 0) {
+            await nango.batchSave(problems, 'Problem');
         }
 
-        const mapped = Array.from(allProblems.values()).map((problem) => ({
-            id: problem.problemId,
-            problemId: problem.problemId,
-            ...(problem.displayId != null && { displayId: problem.displayId }),
-            title: problem.title,
-            status: problem.status,
-            ...(problem.severityLevel != null && { severityLevel: problem.severityLevel }),
-            ...(problem.impactLevel != null && { impactLevel: problem.impactLevel }),
-            ...(problem.startTime != null && { startTime: problem.startTime }),
-            ...(problem.endTime != null && { endTime: problem.endTime }),
-            ...(problem.rootCauseEntity != null && { rootCauseEntity: problem.rootCauseEntity }),
-            ...(problem.affectedEntities != null && { affectedEntities: problem.affectedEntities }),
-            ...(problem.impactedEntities != null && { impactedEntities: problem.impactedEntities }),
-            ...(problem.entityTags != null && { entityTags: problem.entityTags }),
-            ...(problem.problemFilters != null && { problemFilters: problem.problemFilters }),
-            ...(problem.managementZones != null && { managementZones: problem.managementZones }),
-            ...(problem.recentComments != null && { recentComments: problem.recentComments })
-        }));
-
-        if (mapped.length > 0) {
-            await nango.batchSave(mapped, 'Problem');
-        }
+        const newOpenProblemIds = problems.filter((problem) => problem.status !== 'RESOLVED').map((problem) => problem.problemId);
 
         await nango.saveCheckpoint({
-            from: syncStartedAt,
-            openProblemIds: Array.from(currentOpenIds).sort().join(',')
+            from: runStart,
+            openProblemIds: newOpenProblemIds.join(',')
         });
     }
 });

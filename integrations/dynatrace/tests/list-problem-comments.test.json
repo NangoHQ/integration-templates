@@ -1,86 +1,112 @@
 {
   "input": {
-    "problemId": "7107113792931331638_1785774900000V2"
+    "problemId": "6853744532401203457_1785946260000V2"
   },
   "output": {
     "comments": [
       {
-        "id": "8675602222913308574_1785774900000",
-        "content": "Updated test comment for validation",
-        "createdAtTimestamp": 1785775542590,
+        "id": "-534010142936216870_1785946260000",
+        "createdAtTimestamp": 1785946896051,
+        "content": "Nango dryrun validation comment",
         "authorName": "api@nango.dev",
-        "context": "CUSTOM"
+        "context": "nango-test"
       },
       {
-        "id": "-1027260892921923058_1785774900000",
-        "content": "Test comment for dryrun validation",
-        "createdAtTimestamp": 1785775542163,
+        "id": "8257806961457627416_1785946260000",
+        "createdAtTimestamp": 1785946884839,
+        "content": "Nango dryrun validation comment",
         "authorName": "api@nango.dev",
-        "context": "Test"
+        "context": "nango-test"
       },
       {
-        "id": "-5261245238672308080_1785774900000",
-        "content": "Test comment for update action",
-        "createdAtTimestamp": 1785775540338,
+        "id": "5224381453063112182_1785946260000",
+        "createdAtTimestamp": 1785946858715,
+        "content": "Nango dryrun validation comment",
         "authorName": "api@nango.dev",
-        "context": "CUSTOM"
+        "context": "nango-test"
+      },
+      {
+        "id": "489352738828520925_1785946260000",
+        "createdAtTimestamp": 1785946854698,
+        "content": "Temporary test comment for delete action",
+        "authorName": "api@nango.dev"
       }
-    ],
-    "totalCount": 3
+    ]
   },
   "nango": {},
   "api": {
     "get": {
-      "/api/v2/problems/7107113792931331638_1785774900000V2/comments": {
+      "/api/v2/problems/6853744532401203457_1785946260000V2/comments": {
         "response": {
-          "totalCount": 3,
-          "pageSize": 10,
+          "totalCount": 4,
+          "pageSize": 50,
           "comments": [
             {
-              "id": "8675602222913308574_1785774900000",
-              "createdAtTimestamp": 1785775542590,
-              "content": "Updated test comment for validation",
+              "id": "-534010142936216870_1785946260000",
+              "createdAtTimestamp": 1785946896051,
+              "content": "Nango dryrun validation comment",
               "authorName": "api@nango.dev",
-              "context": "CUSTOM"
+              "context": "nango-test"
             },
             {
-              "id": "-1027260892921923058_1785774900000",
-              "createdAtTimestamp": 1785775542163,
-              "content": "Test comment for dryrun validation",
+              "id": "8257806961457627416_1785946260000",
+              "createdAtTimestamp": 1785946884839,
+              "content": "Nango dryrun validation comment",
               "authorName": "api@nango.dev",
-              "context": "Test"
+              "context": "nango-test"
             },
             {
-              "id": "-5261245238672308080_1785774900000",
-              "createdAtTimestamp": 1785775540338,
-              "content": "Test comment for update action",
+              "id": "5224381453063112182_1785946260000",
+              "createdAtTimestamp": 1785946858715,
+              "content": "Nango dryrun validation comment",
               "authorName": "api@nango.dev",
-              "context": "CUSTOM"
+              "context": "nango-test"
+            },
+            {
+              "id": "489352738828520925_1785946260000",
+              "createdAtTimestamp": 1785946854698,
+              "content": "Temporary test comment for delete action",
+              "authorName": "api@nango.dev"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 03 Aug 2026 16:47:20 GMT",
+          "date": "Wed, 05 Aug 2026 16:21:58 GMT",
           "content-type": "application/json;charset=utf-8",
-          "content-length": "559",
+          "content-length": "724",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "strict-transport-security": "max-age=31536000;includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1989",
-          "x-ratelimit-reset": "1785775693",
-          "etag": "W/\"22f-5xlWl/RzUMqDfDhL4hfpU632BiY\""
+          "x-ratelimit-remaining": "1963",
+          "x-ratelimit-reset": "1785946947",
+          "vary": "Accept-Encoding",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_23_sn_FA2EA3E07AE4E5766F1E4E8389CBCA2D_perc_100000_ol_0_mul_1_app-3Ad2f4a377001040b0_1_rcs-3Acss_1; Path=/; Domain=.dynatrace.com; secure",
+          "x-oneagent-js-injection": "true",
+          "server-timing": "dtTrId;desc=\"6a736326000000004d54bbd122609fe7\", dtSInfo;desc=\"0\", dtRpid;desc=\"1107447774\"",
+          "traceresponse": "00-6a736326000000004d54bbd122609fe7-a85c16922cd9897b-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt",
+          "cache-control": "no-store, no-cache",
+          "pragma": "no-cache",
+          "x-robots-tag": "noindex",
+          "dynatrace-response-source": "Cluster",
+          "server": "ruxit server",
+          "etag": "W/\"2d4-S0bOmeJzalFuI6T+5NqX5WIzvRk\""
         },
-        "hash": "d6a0c69053db10d00264f220e9c4fd8ee1a4081e",
-        "request": {}
+        "hash": "d133913e6a2adda22e6a184b5a9ce9d1a6da757d",
+        "request": {
+          "params": {
+            "pageSize": "50"
+          }
+        }
       }
     }
   }

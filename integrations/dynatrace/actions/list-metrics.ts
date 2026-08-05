@@ -2,35 +2,25 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    metricSelector: z.string().optional().describe('Metric selector filter. Example: "builtin:host.cpu.usage"'),
-    text: z.string().optional().describe('Text search filter for metric keys'),
+    metricSelector: z.string().optional().describe('Metric selector to filter metric keys. Example: "builtin:host.cpu.idle"'),
+    text: z.string().optional().describe('Search term to filter metrics by key, display name, or description.'),
     cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.'),
-    pageSize: z
-        .number()
-        .int()
-        .min(1)
-        .max(500)
-        .optional()
-        .describe('Page size for results. Max 500 (higher values are silently capped by the API). Defaults to API default.')
+    pageSize: z.number().int().min(1).max(500).optional().describe('Number of results per page. Max 500.')
 });
 
-const MetricDefaultAggregationSchema = z.object({
+const DefaultAggregationSchema = z.object({
     type: z.string().optional()
 });
 
-const MetricDimensionDefinitionSchema = z.object({
+const DimensionDefinitionSchema = z.object({
     key: z.string().optional(),
     name: z.string().optional(),
-    displayName: z.string().optional(),
-    index: z.number().optional(),
-    type: z.string().optional()
+    index: z.number().int().optional(),
+    type: z.string().optional(),
+    displayName: z.string().optional()
 });
 
-const MetricValueTypeSchema = z.object({
-    type: z.string().optional()
-});
-
-const MetricSchema = z.object({
+const MetricDescriptorSchema = z.object({
     metricId: z.string(),
     displayName: z.string().optional(),
     description: z.string().optional(),
@@ -38,81 +28,83 @@ const MetricSchema = z.object({
     entityType: z.array(z.string()).optional(),
     aggregationTypes: z.array(z.string()).optional(),
     transformations: z.array(z.string()).optional(),
-    defaultAggregation: MetricDefaultAggregationSchema.optional(),
-    dimensionDefinitions: z.array(MetricDimensionDefinitionSchema).optional(),
-    tags: z.array(z.string()).optional(),
-    metricValueType: MetricValueTypeSchema.optional(),
+    defaultAggregation: DefaultAggregationSchema.optional(),
+    dimensionDefinitions: z.array(DimensionDefinitionSchema).optional(),
+    dduBillable: z.boolean().optional(),
     created: z.number().optional(),
     lastWritten: z.number().optional(),
-    dduBillable: z.boolean().optional(),
-    billable: z.boolean().optional(),
-    latency: z.number().optional(),
-    minimumValue: z.number().optional(),
-    maximumValue: z.number().optional(),
-    impactRelevant: z.boolean().optional(),
-    rootCauseRelevant: z.boolean().optional(),
-    scalar: z.boolean().optional(),
-    resolutionInfSupported: z.boolean().optional(),
-    warnings: z.array(z.string()).optional()
+    tags: z.array(z.string()).optional(),
+    metricValueType: z
+        .object({
+            type: z.string().optional()
+        })
+        .optional()
 });
 
 const OutputSchema = z.object({
-    items: z.array(MetricSchema),
+    metrics: z.array(MetricDescriptorSchema),
     nextPageKey: z.string().optional(),
-    totalCount: z.number().optional(),
+    totalCount: z.number().int().optional(),
     warnings: z.array(z.string()).optional()
 });
 
 const action = createAction({
-    description: 'List/search available metric keys',
+    description: 'List/search available metric keys.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['metrics.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // Dynatrace requires nextPageKey to be sent alone on continuation requests; filters/pageSize are only valid on the first page.
-        const params: Record<string, string> = input.cursor
-            ? { nextPageKey: input.cursor }
-            : {
-                  ...(input.metricSelector !== undefined && { metricSelector: input.metricSelector }),
-                  ...(input.text !== undefined && { text: input.text }),
-                  ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) })
-              };
-
+        // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/metric-v2/get-all-metrics
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/metric-v2/get-all-metrics
             endpoint: '/api/v2/metrics',
-            params,
+            params: {
+                ...(input.metricSelector !== undefined && { metricSelector: input.metricSelector }),
+                ...(input.text !== undefined && { text: input.text }),
+                ...(input.cursor !== undefined && { nextPageKey: input.cursor }),
+                ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) })
+            },
             retries: 3
         });
 
-        const providerResponse = z
-            .object({
-                metrics: z.array(z.unknown()).optional(),
-                nextPageKey: z.string().nullable().optional(),
-                totalCount: z.number().optional(),
-                warnings: z.array(z.string()).optional()
-            })
-            .parse(response.data);
-
-        const items = (providerResponse.metrics ?? []).map((metric) => {
-            const parsed = MetricSchema.safeParse(metric);
-            if (!parsed.success) {
-                throw new nango.ActionError({
-                    type: 'parse_error',
-                    message: 'Failed to parse metric descriptor',
-                    details: parsed.error.message
-                });
-            }
-            return parsed.data;
+        const rawResponseSchema = z.object({
+            metrics: z.array(z.unknown()).optional(),
+            nextPageKey: z.string().optional().nullable(),
+            totalCount: z.number().optional(),
+            warnings: z.array(z.unknown()).optional()
         });
 
+        const rawParse = rawResponseSchema.safeParse(response.data);
+        if (!rawParse.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Expected an object response from Dynatrace metrics API.'
+            });
+        }
+
+        const raw = rawParse.data;
+        const rawMetrics = raw.metrics ?? [];
+        const rawWarnings = raw.warnings ?? [];
+
+        const parsedMetrics = rawMetrics
+            .map((item: unknown) => {
+                if (typeof item !== 'object' || item === null) {
+                    return null;
+                }
+                const parsed = MetricDescriptorSchema.safeParse(item);
+                if (!parsed.success) {
+                    return null;
+                }
+                return parsed.data;
+            })
+            .filter((m: z.infer<typeof MetricDescriptorSchema> | null): m is z.infer<typeof MetricDescriptorSchema> => m !== null);
+
         return {
-            items,
-            ...(providerResponse.nextPageKey != null && { nextPageKey: providerResponse.nextPageKey }),
-            ...(providerResponse.totalCount !== undefined && { totalCount: providerResponse.totalCount }),
-            ...(providerResponse.warnings !== undefined && { warnings: providerResponse.warnings })
+            metrics: parsedMetrics,
+            ...(typeof raw.nextPageKey === 'string' && { nextPageKey: raw.nextPageKey }),
+            ...(typeof raw.totalCount === 'number' && { totalCount: raw.totalCount }),
+            warnings: rawWarnings.filter((w: unknown): w is string => typeof w === 'string')
         };
     }
 });
