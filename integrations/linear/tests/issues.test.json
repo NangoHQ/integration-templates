@@ -4,179 +4,128 @@
     "batchSave": {
       "Issue": [
         {
-          "id": "7cae264c-3f43-401b-ae22-322868db57c6",
-          "identifier": "NAN-3",
-          "title": "Connect your tools",
-          "description": "Integrations turn Linear into your source of truth around product development. Keep data in sync, and eliminate manual updates between tools.\n\n![connect-your-tools.png](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/c2eae035-37e2-4754-adcb-b8305431aa1f/c92d70c7-e6d0-4fa2-a0fd-78f6e780993a)\n\n### **Key integrations**\n\n* [**Slack**](<https://linear.app/settings/integrations/slack>)\n  Create issues from Slack messages and sync threads\n* [**GitHub**](<https://linear.app/settings/integrations/github>)** / **[**GitLab**](<https://linear.app/settings/integrations/gitlab>)\n  Automate your pull request, commit workflows, and keep issues synced both ways\n* [**Agents**](<https://linear.app/integrations/agents>)\n  Deploy AI agents that work alongside you as teammates\n\n### **Browse all integrations**\n\nDiscover 150+ available connections in our [integration directory](<https://linear.app/integrations>) – from bug creation via support tools (Intercom, Zendesk), to issues created from design explorations (Figma).\n\n### **Linear API**\n\nIf you need something more custom, you can build directly on the Linear API (built on GraphQL). [See our Dev Docs to learn more](<https://linear.app/developers>).",
+          "id": "d12c5fa1-d3e6-493a-8873-f511870c8427",
+          "identifier": "NAN-6",
+          "title": "Nango Registry Test Issue 2",
+          "description": "Seeded for registry validation",
+          "updatedAt": "2026-08-04T12:00:30.441Z",
+          "createdAt": "2026-08-03T22:09:38.562Z",
           "state": {
-            "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
-            "name": "Todo",
-            "color": "#e2e2e2"
+            "id": "1d5f00e6-da6c-44d9-bb95-3f753c0011ba",
+            "name": "Backlog"
+          },
+          "assignee": {
+            "id": "b14d8004-1a6b-4cfd-a831-585f018c0276",
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          },
+          "team": {
+            "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+            "name": "Nango",
+            "key": "NAN"
           },
           "labels": [],
-          "updatedAt": "2026-04-24T10:17:58.980Z",
-          "createdAt": "2026-04-21T07:37:24.757Z",
-          "url": "https://linear.app/nango-api/issue/NAN-3/connect-your-tools",
+          "url": "https://linear.app/nango/issue/NAN-6",
           "priority": 0
         },
         {
-          "id": "396009f0-d5bf-4d7a-ba9a-fe401b8540cd",
-          "identifier": "NAN-1",
-          "title": "Get familiar with Linear",
-          "description": "Welcome to Linear! \n\nWatch an introductory video and access a list of resources below.\n\n[LinearH264Version_1.mp4](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/a044fb03-9b84-470c-ab6f-8eae613e2529/98d7274d-de7f-4910-b3f3-f72e8e286a98)\n\n### **Choose your setup guide** based on your company stage:\n\n* [Small teams](<https://linear.app/docs/how-to-use-linear-small-teams>)\n  For early-stage startups and projects\n* [Startups & mid-size companies](<https://linear.app/docs/how-to-use-linear-startups-mid-size-companies>)\n  For growing teams with cross-functional needs\n* [Large & scaling companies](<https://linear.app/docs/how-to-use-linear-large-scaling-companies>)\n  For enterprise and high-growth teams with complex workflows\n\n### **Need help getting started?**\n\n* [Join our Slack community](<https://linear.app/join-slack>)\n  Connect with other Linear users and get tips\n* [Join a live ](<https://lu.ma/welcome-to-linear?utm_source=docs>)[onboarding](<https://lu.ma/welcome-to-linear?utm_source=onboarding>)[ ](<https://lu.ma/welcome-to-linear?utm_source=docs>)[session](<https://lu.ma/welcome-to-linear?utm_source=onboarding>)\n  Learn the essentials and see demos of core workflows\n\n---\n\nIf you have any questions hit `?` in the bottom left > Contact us.\n\n![contactlinear (1).gif](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/bc9bbf62-4192-411f-88f6-c89c9150503e/4df0346e-803b-4f58-8527-4aeb30d88411)",
-          "state": {
-            "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
-            "name": "Todo",
-            "color": "#e2e2e2"
-          },
-          "labels": [],
-          "updatedAt": "2026-04-24T10:17:58.980Z",
-          "createdAt": "2026-04-21T07:37:24.757Z",
-          "url": "https://linear.app/nango-api/issue/NAN-1/get-familiar-with-linear",
-          "priority": 0
-        },
-        {
-          "id": "279ef2ef-47e2-4a1b-989e-d82c59432aa1",
-          "identifier": "NAN-19",
-          "title": "Temporary issue for unarchive test",
-          "state": {
-            "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-            "name": "Backlog",
-            "color": "#bec2c8"
-          },
-          "labels": [],
-          "updatedAt": "2026-04-24T10:17:54.580Z",
-          "createdAt": "2026-04-24T10:17:54.580Z",
-          "url": "https://linear.app/nango-api/issue/NAN-19/temporary-issue-for-unarchive-test",
-          "priority": 0
-        },
-        {
-          "id": "1f1f4dcf-f179-4bff-aeb4-04de02242832",
-          "identifier": "NAN-14",
-          "title": "Test issue for comment creation",
-          "state": {
-            "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-            "name": "Backlog",
-            "color": "#bec2c8"
-          },
-          "labels": [],
-          "updatedAt": "2026-04-24T10:13:14.964Z",
-          "createdAt": "2026-04-24T10:07:09.287Z",
-          "url": "https://linear.app/nango-api/issue/NAN-14/test-issue-for-comment-creation",
-          "priority": 0
-        },
-        {
-          "id": "dc41e9ac-66ff-4a46-b818-906c68d4364f",
+          "id": "6948bf28-149d-489b-8f0d-eebae9be8324",
           "identifier": "NAN-5",
-          "title": "Test Issue Updated via Nango Action",
-          "description": "This is a test issue created by the Nango action for validation.",
+          "title": "Nango Registry Test Issue 1 (updated)",
+          "description": "Seeded for registry validation",
+          "updatedAt": "2026-08-04T11:59:25.203Z",
+          "createdAt": "2026-08-03T22:09:27.508Z",
           "state": {
-            "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-            "name": "Backlog",
-            "color": "#bec2c8"
+            "id": "1d5f00e6-da6c-44d9-bb95-3f753c0011ba",
+            "name": "Backlog"
           },
-          "labels": [
-            {
-              "id": "9e19c152-7d16-4362-8695-91c555b8411e",
-              "name": "Feature",
-              "color": "#BB87FC"
-            }
-          ],
-          "updatedAt": "2026-04-24T10:10:26.639Z",
-          "createdAt": "2026-04-22T07:39:52.741Z",
-          "url": "https://linear.app/nango-api/issue/NAN-5/test-issue-updated-via-nango-action",
+          "team": {
+            "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+            "name": "Nango",
+            "key": "NAN"
+          },
+          "labels": [],
+          "url": "https://linear.app/nango/issue/NAN-5",
           "priority": 1
         },
         {
-          "id": "d786ac7b-52ca-4bc0-a90a-1f5f5fe3c79c",
-          "identifier": "NAN-18",
-          "title": "Test issue from dryrun",
+          "id": "474bae6c-f186-4cb7-8c9e-d6cd8e654165",
+          "identifier": "NAN-4",
+          "title": "Import your data",
+          "description": "Sync data between Linear and your other tools.\n\n![import-your-data.png](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/80d7e050-dd1f-4d4f-8257-b29c16087017/65c16454-30f3-4f4a-8f25-c2428d64ff57)\n\nWhether you're exploring Linear, running a pilot, or ready for full migration, we\u2019ve got you covered.\u00a0\n\n### **Exploring Linear:**\n\n* [**Pitch Linear**](<https://linear.app/switch/pitch-guide>)\n  Build your business case and get organizational buy-in\n* [**Run a pilot**](<https://linear.app/switch/pilot-guide>)\n  Test Linear with a small team before rolling out company-wide\n\n### **Ready to migrate:**\n\n* [**Migration guide**](<https://linear.app/switch/migration-guide>) \n  Step-by-step process for importing data and rolling out Linear\n\n---\n\nIf you have any questions hit `?` in the bottom left > Contact us.\n\n![contactlinear (1).gif](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/191f6985-8562-4f62-9482-a094b69c4756/0e4ff63b-3da2-4699-912b-04afb68511e8)",
+          "updatedAt": "2026-08-03T22:23:41.960Z",
+          "createdAt": "2026-03-19T14:38:36.124Z",
           "state": {
-            "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-            "name": "Backlog",
-            "color": "#bec2c8"
+            "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
+            "name": "Todo"
+          },
+          "team": {
+            "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+            "name": "Nango",
+            "key": "NAN"
           },
           "labels": [],
-          "updatedAt": "2026-04-24T10:10:03.776Z",
-          "createdAt": "2026-04-24T10:10:03.776Z",
-          "url": "https://linear.app/nango-api/issue/NAN-18/test-issue-from-dryrun",
-          "priority": 0
-        },
-        {
-          "id": "8b6b444d-cd24-4fab-afe8-0361a2e9c5bf",
-          "identifier": "NAN-17",
-          "title": "Test issue from dryrun",
-          "state": {
-            "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-            "name": "Backlog",
-            "color": "#bec2c8"
-          },
-          "labels": [],
-          "updatedAt": "2026-04-24T10:09:55.417Z",
-          "createdAt": "2026-04-24T10:09:55.417Z",
-          "url": "https://linear.app/nango-api/issue/NAN-17/test-issue-from-dryrun",
-          "priority": 0
-        },
-        {
-          "id": "cbe6805e-7665-4f31-8797-895b6fd2a0a1",
-          "identifier": "NAN-16",
-          "title": "Test issue from dryrun with options",
-          "description": "A description in markdown",
-          "state": {
-            "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
-            "name": "Todo",
-            "color": "#e2e2e2"
-          },
-          "labels": [],
-          "updatedAt": "2026-04-24T10:09:28.316Z",
-          "createdAt": "2026-04-24T10:09:28.316Z",
-          "url": "https://linear.app/nango-api/issue/NAN-16/test-issue-from-dryrun-with-options",
+          "url": "https://linear.app/nango/issue/NAN-4",
           "priority": 2
         },
         {
-          "id": "0d726cc7-f618-4341-87b4-8b327bcadb9e",
-          "identifier": "NAN-12",
-          "title": "Updated title via Nango action",
+          "id": "28465a38-eb0f-4732-970f-149704b25e34",
+          "identifier": "NAN-1",
+          "title": "Get familiar with Linear",
+          "description": "Welcome to Linear!\u00a0\n\nWatch an introductory video and access a list of resources below.\n\n[LinearH264Version_1.mp4](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/a044fb03-9b84-470c-ab6f-8eae613e2529/98d7274d-de7f-4910-b3f3-f72e8e286a98)\n\n### **Choose your setup guide** based on your company stage:\n\n* [Small teams](<https://linear.app/docs/how-to-use-linear-small-teams>)\n  For early-stage startups and projects\n* [Startups & mid-size companies](<https://linear.app/docs/how-to-use-linear-startups-mid-size-companies>)\n  For growing teams with cross-functional needs\n* [Large & scaling companies](<https://linear.app/docs/how-to-use-linear-large-scaling-companies>)\n  For enterprise and high-growth teams with complex workflows\n\n### **Need help getting started?**\n\n* [Join our Slack community](<https://linear.app/join-slack>)\n  Connect with other Linear users and get tips\n* [Join a live ](<https://lu.ma/welcome-to-linear?utm_source=docs>)[onboarding](<https://lu.ma/welcome-to-linear?utm_source=onboarding>)[ ](<https://lu.ma/welcome-to-linear?utm_source=docs>)[session](<https://lu.ma/welcome-to-linear?utm_source=onboarding>)\n  Learn the essentials and see demos of core workflows\n\n---\n\nIf you have any questions hit `?` in the bottom left > Contact us.\n\n![contactlinear (1).gif](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/bc9bbf62-4192-411f-88f6-c89c9150503e/4df0346e-803b-4f58-8527-4aeb30d88411)",
+          "updatedAt": "2026-08-03T22:23:40.655Z",
+          "createdAt": "2026-03-19T14:38:36.124Z",
           "state": {
-            "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-            "name": "Backlog",
-            "color": "#bec2c8"
+            "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
+            "name": "Todo"
+          },
+          "team": {
+            "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+            "name": "Nango",
+            "key": "NAN"
           },
           "labels": [],
-          "updatedAt": "2026-04-24T10:05:33.636Z",
-          "createdAt": "2026-04-24T10:03:13.238Z",
-          "url": "https://linear.app/nango-api/issue/NAN-12/updated-title-via-nango-action",
-          "priority": 0
+          "url": "https://linear.app/nango/issue/NAN-1",
+          "priority": 3
         },
         {
-          "id": "2f168b2e-2277-4e93-b1d3-1dff05d87739",
-          "identifier": "NAN-13",
-          "title": "Test issue from dryrun",
-          "state": {
-            "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-            "name": "Backlog",
-            "color": "#bec2c8"
-          },
-          "labels": [],
-          "updatedAt": "2026-04-24T10:05:05.221Z",
-          "createdAt": "2026-04-24T10:05:05.221Z",
-          "url": "https://linear.app/nango-api/issue/NAN-13/test-issue-from-dryrun",
-          "priority": 0
-        },
-        {
-          "id": "0e0c7eb3-e917-4ff0-85aa-a8141d7c2144",
+          "id": "18759c95-a0cb-4005-ba48-eb6cc1344687",
           "identifier": "NAN-2",
           "title": "Set up your teams",
-          "description": "This workspace is a container for your organization’s work. \n\n* [Learn more about Workspaces](<https://linear.app/docs/workspaces>)\n  How to configure settings and workflows \n\nTeams are how you organize people and work in Linear.\n\n* [Learn about Teams](<https://linear.app/docs/teams>)\n  How to structure teams and configure workflows\n\nTeams are made of members with defined roles (Admin, Member, Guest).\n\n* [Learn more about Members](<https://linear.app/docs/invite-members>)\n  Add your team and assign roles\n\n---\n\nReady to add your team? Invite via CSV or a unique link in [settings](<http://linear.app/settings/members>).",
+          "description": "This workspace is a container for your organization\u2019s work.\u00a0\n\n* [Learn more about Workspaces](<https://linear.app/docs/workspaces>)\n  How to configure settings and workflows\u00a0\n\nTeams are how you organize people and work in Linear.\n\n* [Learn about Teams](<https://linear.app/docs/teams>)\n  How to structure teams and configure workflows\n\nTeams are made of members with defined roles (Admin, Member, Guest).\n\n* [Learn more about Members](<https://linear.app/docs/invite-members>)\n  Add your team and assign roles\n\n---\n\nReady to add your team? Invite via CSV or a unique link in [settings](<http://linear.app/settings/members>).",
+          "updatedAt": "2026-03-19T14:38:36.124Z",
+          "createdAt": "2026-03-19T14:38:36.124Z",
           "state": {
-            "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
-            "name": "Todo",
-            "color": "#e2e2e2"
+            "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
+            "name": "Todo"
+          },
+          "team": {
+            "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+            "name": "Nango",
+            "key": "NAN"
           },
           "labels": [],
-          "updatedAt": "2026-04-22T07:43:27.834Z",
-          "createdAt": "2026-04-21T07:37:24.757Z",
-          "url": "https://linear.app/nango-api/issue/NAN-2/set-up-your-teams",
+          "url": "https://linear.app/nango/issue/NAN-2",
+          "priority": 4
+        },
+        {
+          "id": "1108544d-c7d4-40cb-93aa-c9fca5ca790f",
+          "identifier": "NAN-3",
+          "title": "Connect your tools",
+          "description": "Integrations turn Linear into your source of truth around product development. Keep data in sync, and eliminate manual updates between tools.\n\n![connect-your-tools.png](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/c2eae035-37e2-4754-adcb-b8305431aa1f/c92d70c7-e6d0-4fa2-a0fd-78f6e780993a)\n\n### **Key integrations**\n\n* [**Slack**](<https://linear.app/settings/integrations/slack>)\n  Create issues from Slack messages and sync threads\n* [**GitHub**](<https://linear.app/settings/integrations/github>)** / **[**GitLab**](<https://linear.app/settings/integrations/gitlab>)\n  Automate your pull request, commit workflows, and keep issues synced both ways\n* [**Agents**](<https://linear.app/integrations/agents>)\n  Deploy AI agents that work alongside you as teammates\n\n### **Browse all integrations**\n\nDiscover 150+ available connections in our [integration directory](<https://linear.app/integrations>) \u2013 from bug creation via support tools (Intercom, Zendesk), to issues created from design explorations (Figma).\n\n### **Linear API**\n\nIf you need something more custom, you can build directly on the Linear API (built on GraphQL). [See our Dev Docs to learn more](<https://linear.app/developers>).",
+          "updatedAt": "2026-03-19T14:38:36.124Z",
+          "createdAt": "2026-03-19T14:38:36.124Z",
+          "state": {
+            "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
+            "name": "Todo"
+          },
+          "team": {
+            "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+            "name": "Nango",
+            "key": "NAN"
+          },
+          "labels": [],
+          "url": "https://linear.app/nango/issue/NAN-3",
           "priority": 0
         }
       ]
@@ -193,253 +142,182 @@
             "issues": {
               "nodes": [
                 {
-                  "id": "7cae264c-3f43-401b-ae22-322868db57c6",
-                  "identifier": "NAN-3",
-                  "title": "Connect your tools",
-                  "description": "Integrations turn Linear into your source of truth around product development. Keep data in sync, and eliminate manual updates between tools.\n\n![connect-your-tools.png](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/c2eae035-37e2-4754-adcb-b8305431aa1f/c92d70c7-e6d0-4fa2-a0fd-78f6e780993a)\n\n### **Key integrations**\n\n* [**Slack**](<https://linear.app/settings/integrations/slack>)\n  Create issues from Slack messages and sync threads\n* [**GitHub**](<https://linear.app/settings/integrations/github>)** / **[**GitLab**](<https://linear.app/settings/integrations/gitlab>)\n  Automate your pull request, commit workflows, and keep issues synced both ways\n* [**Agents**](<https://linear.app/integrations/agents>)\n  Deploy AI agents that work alongside you as teammates\n\n### **Browse all integrations**\n\nDiscover 150+ available connections in our [integration directory](<https://linear.app/integrations>) – from bug creation via support tools (Intercom, Zendesk), to issues created from design explorations (Figma).\n\n### **Linear API**\n\nIf you need something more custom, you can build directly on the Linear API (built on GraphQL). [See our Dev Docs to learn more](<https://linear.app/developers>).",
+                  "id": "d12c5fa1-d3e6-493a-8873-f511870c8427",
+                  "identifier": "NAN-6",
+                  "title": "Nango Registry Test Issue 2",
+                  "description": "Seeded for registry validation",
+                  "updatedAt": "2026-08-04T12:00:30.441Z",
+                  "createdAt": "2026-08-03T22:09:38.562Z",
+                  "archivedAt": null,
+                  "trashed": null,
                   "state": {
-                    "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
-                    "name": "Todo",
-                    "color": "#e2e2e2"
+                    "id": "1d5f00e6-da6c-44d9-bb95-3f753c0011ba",
+                    "name": "Backlog"
                   },
-                  "assignee": null,
+                  "assignee": {
+                    "id": "b14d8004-1a6b-4cfd-a831-585f018c0276",
+                    "name": "Nango Developer",
+                    "email": "api@nango.dev"
+                  },
+                  "team": {
+                    "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+                    "name": "Nango",
+                    "key": "NAN"
+                  },
                   "labels": {
                     "nodes": []
                   },
                   "project": null,
                   "cycle": null,
-                  "updatedAt": "2026-04-24T10:17:58.980Z",
-                  "createdAt": "2026-04-21T07:37:24.757Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-3/connect-your-tools",
+                  "url": "https://linear.app/nango/issue/NAN-6",
                   "priority": 0
                 },
                 {
-                  "id": "396009f0-d5bf-4d7a-ba9a-fe401b8540cd",
-                  "identifier": "NAN-1",
-                  "title": "Get familiar with Linear",
-                  "description": "Welcome to Linear! \n\nWatch an introductory video and access a list of resources below.\n\n[LinearH264Version_1.mp4](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/a044fb03-9b84-470c-ab6f-8eae613e2529/98d7274d-de7f-4910-b3f3-f72e8e286a98)\n\n### **Choose your setup guide** based on your company stage:\n\n* [Small teams](<https://linear.app/docs/how-to-use-linear-small-teams>)\n  For early-stage startups and projects\n* [Startups & mid-size companies](<https://linear.app/docs/how-to-use-linear-startups-mid-size-companies>)\n  For growing teams with cross-functional needs\n* [Large & scaling companies](<https://linear.app/docs/how-to-use-linear-large-scaling-companies>)\n  For enterprise and high-growth teams with complex workflows\n\n### **Need help getting started?**\n\n* [Join our Slack community](<https://linear.app/join-slack>)\n  Connect with other Linear users and get tips\n* [Join a live ](<https://lu.ma/welcome-to-linear?utm_source=docs>)[onboarding](<https://lu.ma/welcome-to-linear?utm_source=onboarding>)[ ](<https://lu.ma/welcome-to-linear?utm_source=docs>)[session](<https://lu.ma/welcome-to-linear?utm_source=onboarding>)\n  Learn the essentials and see demos of core workflows\n\n---\n\nIf you have any questions hit `?` in the bottom left > Contact us.\n\n![contactlinear (1).gif](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/bc9bbf62-4192-411f-88f6-c89c9150503e/4df0346e-803b-4f58-8527-4aeb30d88411)",
-                  "state": {
-                    "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
-                    "name": "Todo",
-                    "color": "#e2e2e2"
-                  },
-                  "assignee": null,
-                  "labels": {
-                    "nodes": []
-                  },
-                  "project": null,
-                  "cycle": null,
-                  "updatedAt": "2026-04-24T10:17:58.980Z",
-                  "createdAt": "2026-04-21T07:37:24.757Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-1/get-familiar-with-linear",
-                  "priority": 0
-                },
-                {
-                  "id": "279ef2ef-47e2-4a1b-989e-d82c59432aa1",
-                  "identifier": "NAN-19",
-                  "title": "Temporary issue for unarchive test",
-                  "description": null,
-                  "state": {
-                    "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-                    "name": "Backlog",
-                    "color": "#bec2c8"
-                  },
-                  "assignee": null,
-                  "labels": {
-                    "nodes": []
-                  },
-                  "project": null,
-                  "cycle": null,
-                  "updatedAt": "2026-04-24T10:17:54.580Z",
-                  "createdAt": "2026-04-24T10:17:54.580Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-19/temporary-issue-for-unarchive-test",
-                  "priority": 0
-                },
-                {
-                  "id": "1f1f4dcf-f179-4bff-aeb4-04de02242832",
-                  "identifier": "NAN-14",
-                  "title": "Test issue for comment creation",
-                  "description": null,
-                  "state": {
-                    "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-                    "name": "Backlog",
-                    "color": "#bec2c8"
-                  },
-                  "assignee": null,
-                  "labels": {
-                    "nodes": []
-                  },
-                  "project": null,
-                  "cycle": null,
-                  "updatedAt": "2026-04-24T10:13:14.964Z",
-                  "createdAt": "2026-04-24T10:07:09.287Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-14/test-issue-for-comment-creation",
-                  "priority": 0
-                },
-                {
-                  "id": "dc41e9ac-66ff-4a46-b818-906c68d4364f",
+                  "id": "6948bf28-149d-489b-8f0d-eebae9be8324",
                   "identifier": "NAN-5",
-                  "title": "Test Issue Updated via Nango Action",
-                  "description": "This is a test issue created by the Nango action for validation.",
+                  "title": "Nango Registry Test Issue 1 (updated)",
+                  "description": "Seeded for registry validation",
+                  "updatedAt": "2026-08-04T11:59:25.203Z",
+                  "createdAt": "2026-08-03T22:09:27.508Z",
+                  "archivedAt": null,
+                  "trashed": null,
                   "state": {
-                    "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-                    "name": "Backlog",
-                    "color": "#bec2c8"
+                    "id": "1d5f00e6-da6c-44d9-bb95-3f753c0011ba",
+                    "name": "Backlog"
                   },
                   "assignee": null,
+                  "team": {
+                    "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+                    "name": "Nango",
+                    "key": "NAN"
+                  },
                   "labels": {
-                    "nodes": [
-                      {
-                        "id": "9e19c152-7d16-4362-8695-91c555b8411e",
-                        "name": "Feature",
-                        "color": "#BB87FC"
-                      }
-                    ]
+                    "nodes": []
                   },
                   "project": null,
                   "cycle": null,
-                  "updatedAt": "2026-04-24T10:10:26.639Z",
-                  "createdAt": "2026-04-22T07:39:52.741Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-5/test-issue-updated-via-nango-action",
+                  "url": "https://linear.app/nango/issue/NAN-5",
                   "priority": 1
                 },
                 {
-                  "id": "d786ac7b-52ca-4bc0-a90a-1f5f5fe3c79c",
-                  "identifier": "NAN-18",
-                  "title": "Test issue from dryrun",
-                  "description": null,
+                  "id": "474bae6c-f186-4cb7-8c9e-d6cd8e654165",
+                  "identifier": "NAN-4",
+                  "title": "Import your data",
+                  "description": "Sync data between Linear and your other tools.\n\n![import-your-data.png](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/80d7e050-dd1f-4d4f-8257-b29c16087017/65c16454-30f3-4f4a-8f25-c2428d64ff57)\n\nWhether you're exploring Linear, running a pilot, or ready for full migration, we\u2019ve got you covered.\u00a0\n\n### **Exploring Linear:**\n\n* [**Pitch Linear**](<https://linear.app/switch/pitch-guide>)\n  Build your business case and get organizational buy-in\n* [**Run a pilot**](<https://linear.app/switch/pilot-guide>)\n  Test Linear with a small team before rolling out company-wide\n\n### **Ready to migrate:**\n\n* [**Migration guide**](<https://linear.app/switch/migration-guide>) \n  Step-by-step process for importing data and rolling out Linear\n\n---\n\nIf you have any questions hit `?` in the bottom left > Contact us.\n\n![contactlinear (1).gif](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/191f6985-8562-4f62-9482-a094b69c4756/0e4ff63b-3da2-4699-912b-04afb68511e8)",
+                  "updatedAt": "2026-08-03T22:23:41.960Z",
+                  "createdAt": "2026-03-19T14:38:36.124Z",
+                  "archivedAt": null,
+                  "trashed": null,
                   "state": {
-                    "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-                    "name": "Backlog",
-                    "color": "#bec2c8"
+                    "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
+                    "name": "Todo"
                   },
                   "assignee": null,
+                  "team": {
+                    "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+                    "name": "Nango",
+                    "key": "NAN"
+                  },
                   "labels": {
                     "nodes": []
                   },
                   "project": null,
                   "cycle": null,
-                  "updatedAt": "2026-04-24T10:10:03.776Z",
-                  "createdAt": "2026-04-24T10:10:03.776Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-18/test-issue-from-dryrun",
-                  "priority": 0
-                },
-                {
-                  "id": "8b6b444d-cd24-4fab-afe8-0361a2e9c5bf",
-                  "identifier": "NAN-17",
-                  "title": "Test issue from dryrun",
-                  "description": null,
-                  "state": {
-                    "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-                    "name": "Backlog",
-                    "color": "#bec2c8"
-                  },
-                  "assignee": null,
-                  "labels": {
-                    "nodes": []
-                  },
-                  "project": null,
-                  "cycle": null,
-                  "updatedAt": "2026-04-24T10:09:55.417Z",
-                  "createdAt": "2026-04-24T10:09:55.417Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-17/test-issue-from-dryrun",
-                  "priority": 0
-                },
-                {
-                  "id": "cbe6805e-7665-4f31-8797-895b6fd2a0a1",
-                  "identifier": "NAN-16",
-                  "title": "Test issue from dryrun with options",
-                  "description": "A description in markdown",
-                  "state": {
-                    "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
-                    "name": "Todo",
-                    "color": "#e2e2e2"
-                  },
-                  "assignee": null,
-                  "labels": {
-                    "nodes": []
-                  },
-                  "project": null,
-                  "cycle": null,
-                  "updatedAt": "2026-04-24T10:09:28.316Z",
-                  "createdAt": "2026-04-24T10:09:28.316Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-16/test-issue-from-dryrun-with-options",
+                  "url": "https://linear.app/nango/issue/NAN-4",
                   "priority": 2
                 },
                 {
-                  "id": "0d726cc7-f618-4341-87b4-8b327bcadb9e",
-                  "identifier": "NAN-12",
-                  "title": "Updated title via Nango action",
-                  "description": null,
+                  "id": "28465a38-eb0f-4732-970f-149704b25e34",
+                  "identifier": "NAN-1",
+                  "title": "Get familiar with Linear",
+                  "description": "Welcome to Linear!\u00a0\n\nWatch an introductory video and access a list of resources below.\n\n[LinearH264Version_1.mp4](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/a044fb03-9b84-470c-ab6f-8eae613e2529/98d7274d-de7f-4910-b3f3-f72e8e286a98)\n\n### **Choose your setup guide** based on your company stage:\n\n* [Small teams](<https://linear.app/docs/how-to-use-linear-small-teams>)\n  For early-stage startups and projects\n* [Startups & mid-size companies](<https://linear.app/docs/how-to-use-linear-startups-mid-size-companies>)\n  For growing teams with cross-functional needs\n* [Large & scaling companies](<https://linear.app/docs/how-to-use-linear-large-scaling-companies>)\n  For enterprise and high-growth teams with complex workflows\n\n### **Need help getting started?**\n\n* [Join our Slack community](<https://linear.app/join-slack>)\n  Connect with other Linear users and get tips\n* [Join a live ](<https://lu.ma/welcome-to-linear?utm_source=docs>)[onboarding](<https://lu.ma/welcome-to-linear?utm_source=onboarding>)[ ](<https://lu.ma/welcome-to-linear?utm_source=docs>)[session](<https://lu.ma/welcome-to-linear?utm_source=onboarding>)\n  Learn the essentials and see demos of core workflows\n\n---\n\nIf you have any questions hit `?` in the bottom left > Contact us.\n\n![contactlinear (1).gif](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/bc9bbf62-4192-411f-88f6-c89c9150503e/4df0346e-803b-4f58-8527-4aeb30d88411)",
+                  "updatedAt": "2026-08-03T22:23:40.655Z",
+                  "createdAt": "2026-03-19T14:38:36.124Z",
+                  "archivedAt": null,
+                  "trashed": null,
                   "state": {
-                    "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-                    "name": "Backlog",
-                    "color": "#bec2c8"
+                    "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
+                    "name": "Todo"
                   },
                   "assignee": null,
+                  "team": {
+                    "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+                    "name": "Nango",
+                    "key": "NAN"
+                  },
                   "labels": {
                     "nodes": []
                   },
                   "project": null,
                   "cycle": null,
-                  "updatedAt": "2026-04-24T10:05:33.636Z",
-                  "createdAt": "2026-04-24T10:03:13.238Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-12/updated-title-via-nango-action",
-                  "priority": 0
+                  "url": "https://linear.app/nango/issue/NAN-1",
+                  "priority": 3
                 },
                 {
-                  "id": "2f168b2e-2277-4e93-b1d3-1dff05d87739",
-                  "identifier": "NAN-13",
-                  "title": "Test issue from dryrun",
-                  "description": null,
-                  "state": {
-                    "id": "abe68e7e-3982-4aa6-8efa-c866ac1a3ae1",
-                    "name": "Backlog",
-                    "color": "#bec2c8"
-                  },
-                  "assignee": null,
-                  "labels": {
-                    "nodes": []
-                  },
-                  "project": null,
-                  "cycle": null,
-                  "updatedAt": "2026-04-24T10:05:05.221Z",
-                  "createdAt": "2026-04-24T10:05:05.221Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-13/test-issue-from-dryrun",
-                  "priority": 0
-                },
-                {
-                  "id": "0e0c7eb3-e917-4ff0-85aa-a8141d7c2144",
+                  "id": "18759c95-a0cb-4005-ba48-eb6cc1344687",
                   "identifier": "NAN-2",
                   "title": "Set up your teams",
-                  "description": "This workspace is a container for your organization’s work. \n\n* [Learn more about Workspaces](<https://linear.app/docs/workspaces>)\n  How to configure settings and workflows \n\nTeams are how you organize people and work in Linear.\n\n* [Learn about Teams](<https://linear.app/docs/teams>)\n  How to structure teams and configure workflows\n\nTeams are made of members with defined roles (Admin, Member, Guest).\n\n* [Learn more about Members](<https://linear.app/docs/invite-members>)\n  Add your team and assign roles\n\n---\n\nReady to add your team? Invite via CSV or a unique link in [settings](<http://linear.app/settings/members>).",
+                  "description": "This workspace is a container for your organization\u2019s work.\u00a0\n\n* [Learn more about Workspaces](<https://linear.app/docs/workspaces>)\n  How to configure settings and workflows\u00a0\n\nTeams are how you organize people and work in Linear.\n\n* [Learn about Teams](<https://linear.app/docs/teams>)\n  How to structure teams and configure workflows\n\nTeams are made of members with defined roles (Admin, Member, Guest).\n\n* [Learn more about Members](<https://linear.app/docs/invite-members>)\n  Add your team and assign roles\n\n---\n\nReady to add your team? Invite via CSV or a unique link in [settings](<http://linear.app/settings/members>).",
+                  "updatedAt": "2026-03-19T14:38:36.124Z",
+                  "createdAt": "2026-03-19T14:38:36.124Z",
+                  "archivedAt": null,
+                  "trashed": null,
                   "state": {
-                    "id": "0acb183e-bbac-43ff-86f5-ffe6c188224e",
-                    "name": "Todo",
-                    "color": "#e2e2e2"
+                    "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
+                    "name": "Todo"
                   },
                   "assignee": null,
+                  "team": {
+                    "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+                    "name": "Nango",
+                    "key": "NAN"
+                  },
                   "labels": {
                     "nodes": []
                   },
                   "project": null,
                   "cycle": null,
-                  "updatedAt": "2026-04-22T07:43:27.834Z",
-                  "createdAt": "2026-04-21T07:37:24.757Z",
-                  "url": "https://linear.app/nango-api/issue/NAN-2/set-up-your-teams",
+                  "url": "https://linear.app/nango/issue/NAN-2",
+                  "priority": 4
+                },
+                {
+                  "id": "1108544d-c7d4-40cb-93aa-c9fca5ca790f",
+                  "identifier": "NAN-3",
+                  "title": "Connect your tools",
+                  "description": "Integrations turn Linear into your source of truth around product development. Keep data in sync, and eliminate manual updates between tools.\n\n![connect-your-tools.png](https://uploads.linear.app/fe63b3e2-bf87-46c0-8784-cd7d639287c8/c2eae035-37e2-4754-adcb-b8305431aa1f/c92d70c7-e6d0-4fa2-a0fd-78f6e780993a)\n\n### **Key integrations**\n\n* [**Slack**](<https://linear.app/settings/integrations/slack>)\n  Create issues from Slack messages and sync threads\n* [**GitHub**](<https://linear.app/settings/integrations/github>)** / **[**GitLab**](<https://linear.app/settings/integrations/gitlab>)\n  Automate your pull request, commit workflows, and keep issues synced both ways\n* [**Agents**](<https://linear.app/integrations/agents>)\n  Deploy AI agents that work alongside you as teammates\n\n### **Browse all integrations**\n\nDiscover 150+ available connections in our [integration directory](<https://linear.app/integrations>) \u2013 from bug creation via support tools (Intercom, Zendesk), to issues created from design explorations (Figma).\n\n### **Linear API**\n\nIf you need something more custom, you can build directly on the Linear API (built on GraphQL). [See our Dev Docs to learn more](<https://linear.app/developers>).",
+                  "updatedAt": "2026-03-19T14:38:36.124Z",
+                  "createdAt": "2026-03-19T14:38:36.124Z",
+                  "archivedAt": null,
+                  "trashed": null,
+                  "state": {
+                    "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
+                    "name": "Todo"
+                  },
+                  "assignee": null,
+                  "team": {
+                    "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+                    "name": "Nango",
+                    "key": "NAN"
+                  },
+                  "labels": {
+                    "nodes": []
+                  },
+                  "project": null,
+                  "cycle": null,
+                  "url": "https://linear.app/nango/issue/NAN-3",
                   "priority": 0
                 }
               ],
               "pageInfo": {
                 "hasNextPage": false,
-                "endCursor": "0e0c7eb3-e917-4ff0-85aa-a8141d7c2144"
+                "endCursor": "1108544d-c7d4-40cb-93aa-c9fca5ca790f"
               }
             }
           }
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 24 Apr 2026 10:19:21 GMT",
+          "date": "Tue, 04 Aug 2026 12:01:49 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -449,33 +327,36 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4984",
-          "x-ratelimit-reset": "1777025990",
-          "cf-ray": "9f145e824d4e5ed3-PDX",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1785844964",
+          "cf-ray": "a25d68d8cc2d5f03-PDX",
           "cf-cache-status": "DYNAMIC",
           "cache-control": "no-store",
-          "etag": "W/\"214d-7A/dYgOMrPeqmxn08o7vNNjYjhI\"",
-          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzcwMjU5NjEsImV4cCI6MTc3NzYzMDc2MX0.tt7MdzFkmLRpPz-sf7OsoqDRl4QS-6A7KP_7uDc6ZhA; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "etag": "W/\"1c78-Jpt9PZl8qwINv85I96FtZ1kEq3M\"",
+          "server": "cloudflare",
+          "set-cookie": "<redacted>",
+          "vary": "Accept-Encoding",
           "via": "1.1 google",
           "alt-svc": "h3=\":443\"; ma=86400",
-          "x-complexity": "12",
+          "x-complexity": "13",
           "x-ratelimit-complexity-limit": "2000000",
-          "x-ratelimit-complexity-remaining": "1916954",
-          "x-ratelimit-complexity-reset": "1777029561403",
+          "x-ratelimit-complexity-remaining": "1999987",
+          "x-ratelimit-complexity-reset": "1785848509420",
           "x-ratelimit-requests-limit": "5000",
           "x-ratelimit-requests-remaining": "4999",
-          "x-ratelimit-requests-reset": "1777029561403",
-          "x-request-id": "9f145e8274715ed3-PDX",
-          "vary": "Accept-Encoding",
-          "server": "cloudflare"
+          "x-ratelimit-requests-reset": "1785848509420",
+          "x-request-id": "a25d68d8dafa5f03-PDX"
         },
-        "hash": "0b6ac29200833e3676890f02f5967802154dd9b5",
+        "hash": "b6fa9bed8979e35b0b6c4cf5b3b1fe00cebca976",
         "request": {
-          "data": "sha1:ac7f24799863c8e085d34fe7d1a388771530ff85"
+          "data": {
+            "query": "query Issues($after: String, $filter: IssueFilter) {\n  issues(after: $after, first: 100, orderBy: updatedAt, filter: $filter) {\n    nodes {\n      id\n      identifier\n      title\n      description\n      updatedAt\n      createdAt\n      archivedAt\n      trashed\n      state { id name }\n      assignee { id name email }\n      team { id name key }\n      labels { nodes { id name } }\n      project { id name state }\n      cycle { id name }\n      url\n      priority\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}",
+            "variables": {}
+          }
         }
       }
     }

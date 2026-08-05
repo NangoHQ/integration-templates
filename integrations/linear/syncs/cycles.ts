@@ -5,16 +5,12 @@ const MetadataSchema = z.object({
     teamId: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    updatedAfter: z.string()
-});
-
 const ProviderCycleNodeSchema = z.object({
     id: z.string(),
     name: z.string().optional().nullable(),
     number: z.number(),
-    startsAt: z.string(),
-    endsAt: z.string(),
+    startsAt: z.string().optional().nullable(),
+    endsAt: z.string().optional().nullable(),
     team: z
         .object({
             id: z.string()
@@ -25,19 +21,6 @@ const ProviderCycleNodeSchema = z.object({
     updatedAt: z.string(),
     completedAt: z.string().optional().nullable(),
     archivedAt: z.string().optional().nullable()
-});
-
-const CycleSchema = z.object({
-    id: z.string(),
-    name: z.string().optional(),
-    number: z.number(),
-    startsAt: z.string(),
-    endsAt: z.string(),
-    teamId: z.string().optional(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    completedAt: z.string().optional(),
-    archivedAt: z.string().optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -56,9 +39,27 @@ const ProviderResponseSchema = z.object({
     errors: z.array(z.unknown()).optional()
 });
 
+const CycleSchema = z.object({
+    id: z.string(),
+    name: z.string().optional(),
+    number: z.number(),
+    startsAt: z.string().optional(),
+    endsAt: z.string().optional(),
+    teamId: z.string().optional(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    completedAt: z.string().optional(),
+    archivedAt: z.string().optional()
+});
+
+const CheckpointSchema = z.object({
+    updated_after: z.string(),
+    cursor: z.string()
+});
+
 const CYCLES_QUERY = `
-query Cycles($first: Int, $after: String, $filter: CycleFilter, $orderBy: PaginationOrderBy) {
-    cycles(first: $first, after: $after, filter: $filter, orderBy: $orderBy) {
+query Cycles($first: Int!, $after: String, $includeArchived: Boolean, $filter: CycleFilter) {
+    cycles(first: $first, after: $after, includeArchived: $includeArchived, filter: $filter, orderBy: updatedAt) {
         nodes {
             id
             name
@@ -78,11 +79,12 @@ query Cycles($first: Int, $after: String, $filter: CycleFilter, $orderBy: Pagina
             endCursor
         }
     }
-}`;
+}
+`;
 
 const sync = createSync({
     description: 'Sync Linear cycles for planning and iteration tracking.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['read'],
@@ -94,34 +96,46 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.safeParse(checkpointRaw ?? { updated_after: '', cursor: '' });
+        if (!checkpoint.success) {
+            throw new Error(`Invalid checkpoint: ${checkpoint.error.message}`);
+        }
         const metadata = await nango.getMetadata();
 
-        const filter: Record<string, unknown> = {};
-        if (checkpoint?.['updatedAfter']) {
-            filter['updatedAt'] = { gte: checkpoint['updatedAfter'] };
-        }
-        if (metadata?.['teamId']) {
-            filter['team'] = { id: { eq: metadata['teamId'] } };
-        }
+        const updatedAfter = checkpoint.data.updated_after.length > 0 ? checkpoint.data.updated_after : undefined;
 
         let hasNextPage = true;
-        let endCursor: string | undefined;
-        let highestUpdatedAt: string | undefined;
+        let endCursor = checkpoint.data.cursor.length > 0 ? checkpoint.data.cursor : undefined;
+        let firstUpdatedAt: string | undefined;
+
+        interface GraphQLVariables {
+            first: number;
+            includeArchived: boolean;
+            after?: string;
+            filter?: { updatedAt?: { gte: string }; team?: { id: { eq: string } } };
+        }
 
         while (hasNextPage) {
-            const variables: Record<string, unknown> = {
+            const variables: GraphQLVariables = {
                 first: 100,
-                orderBy: 'updatedAt'
+                includeArchived: true
             };
-            if (endCursor) {
-                variables['after'] = endCursor;
+            const filter: NonNullable<GraphQLVariables['filter']> = {};
+            if (updatedAfter) {
+                filter.updatedAt = { gte: updatedAfter };
+            }
+            if (metadata?.['teamId']) {
+                filter.team = { id: { eq: metadata['teamId'] } };
             }
             if (Object.keys(filter).length > 0) {
-                variables['filter'] = filter;
+                variables.filter = filter;
+            }
+            if (endCursor) {
+                variables.after = endCursor;
             }
 
-            // https://linear.app/developers/graphql
+            // https://linear.app/developers
             const response = await nango.post({
                 endpoint: '/graphql',
                 data: {
@@ -142,6 +156,11 @@ const sync = createSync({
             const nodes = parsed.data.cycles.nodes;
             const pageInfo = parsed.data.cycles.pageInfo;
 
+            const firstNode = nodes[0];
+            if (firstNode && firstUpdatedAt === undefined) {
+                firstUpdatedAt = firstNode.updatedAt;
+            }
+
             const cycles = [];
             for (const rawNode of nodes) {
                 const node = ProviderCycleNodeSchema.parse(rawNode);
@@ -149,8 +168,8 @@ const sync = createSync({
                     id: node.id,
                     ...(node.name != null && { name: node.name }),
                     number: node.number,
-                    startsAt: node.startsAt,
-                    endsAt: node.endsAt,
+                    ...(node.startsAt != null && { startsAt: node.startsAt }),
+                    ...(node.endsAt != null && { endsAt: node.endsAt }),
                     ...(node.team?.id != null && { teamId: node.team.id }),
                     createdAt: node.createdAt,
                     updatedAt: node.updatedAt,
@@ -161,23 +180,23 @@ const sync = createSync({
 
             if (cycles.length > 0) {
                 await nango.batchSave(cycles, 'Cycle');
-                if (!highestUpdatedAt) {
-                    const firstCycle = cycles[0];
-                    if (firstCycle) {
-                        highestUpdatedAt = firstCycle.updatedAt;
-                    }
-                }
             }
 
             hasNextPage = pageInfo.hasNextPage;
             endCursor = pageInfo.endCursor ?? undefined;
+            if (hasNextPage && endCursor) {
+                await nango.saveCheckpoint({
+                    updated_after: updatedAfter ?? '',
+                    cursor: endCursor
+                });
+            }
             if (!hasNextPage || !endCursor) {
                 break;
             }
         }
 
-        if (highestUpdatedAt) {
-            await nango.saveCheckpoint({ updatedAfter: highestUpdatedAt });
+        if (firstUpdatedAt) {
+            await nango.saveCheckpoint({ updated_after: firstUpdatedAt, cursor: '' });
         }
     }
 });

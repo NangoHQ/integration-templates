@@ -1,163 +1,159 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
-const CheckpointSchema = z.object({
-    updated_after: z.string()
-});
-
-const ProjectSchema = z.object({
-    id: z.string(),
-    name: z.string(),
-    state: z.string().optional(),
-    status: z
-        .object({
-            id: z.string(),
-            name: z.string(),
-            type: z.string(),
-            color: z.string().optional()
-        })
-        .optional(),
-    progress: z.number().optional(),
-    startDate: z.string().optional(),
-    targetDate: z.string().optional(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    lead: z
-        .object({
-            id: z.string(),
-            name: z.string().optional(),
-            email: z.string().optional()
-        })
-        .optional(),
-    teams: z
-        .array(
-            z.object({
-                id: z.string(),
-                key: z.string().optional(),
-                name: z.string().optional()
-            })
-        )
-        .optional()
-});
-
-const LinearProjectStatusSchema = z.object({
-    id: z.string(),
-    name: z.string(),
-    type: z.string(),
-    color: z.string().optional().nullable()
-});
-
-const LinearUserSchema = z.object({
-    id: z.string(),
-    name: z.string().optional().nullable(),
-    email: z.string().optional().nullable()
-});
-
-const LinearTeamSchema = z.object({
+const TeamSchema = z.object({
     id: z.string(),
     key: z.string().optional(),
     name: z.string().optional()
 });
 
-const LinearProjectNodeSchema = z.object({
+const ProjectSchema = z.object({
     id: z.string(),
     name: z.string(),
-    state: z.string().optional().nullable(),
-    status: LinearProjectStatusSchema.nullable(),
-    progress: z.number().nullable(),
-    startDate: z.string().optional().nullable(),
-    targetDate: z.string().optional().nullable(),
+    description: z.string().optional(),
+    state: z.string().optional(),
+    statusId: z.string().optional(),
+    statusName: z.string().optional(),
+    progress: z.number().optional(),
+    scope: z.number().optional(),
+    leadId: z.string().optional(),
+    leadName: z.string().optional(),
+    leadEmail: z.string().optional(),
+    startDate: z.string().optional(),
+    targetDate: z.string().optional(),
     createdAt: z.string(),
     updatedAt: z.string(),
-    lead: LinearUserSchema.nullable(),
-    teams: z
-        .object({
-            nodes: z.array(LinearTeamSchema).optional()
-        })
-        .nullable()
+    archivedAt: z.string().optional(),
+    trashed: z.boolean().optional(),
+    url: z.string().optional(),
+    slugId: z.string().optional(),
+    color: z.string().optional(),
+    icon: z.string().optional(),
+    teams: z.array(TeamSchema).optional()
 });
 
-const LinearProjectsResponseSchema = z.object({
+const LeadSchema = z
+    .object({
+        id: z.string(),
+        name: z.string().optional(),
+        email: z.string().optional()
+    })
+    .nullable();
+
+const StatusSchema = z
+    .object({
+        id: z.string(),
+        name: z.string().optional()
+    })
+    .nullable();
+
+const ProjectNodeSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    description: z.string().nullish(),
+    state: z.string().nullish(),
+    status: StatusSchema,
+    progress: z.number().nullish(),
+    scope: z.number().nullish(),
+    lead: LeadSchema,
+    startDate: z.string().nullish(),
+    targetDate: z.string().nullish(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    archivedAt: z.string().nullish(),
+    trashed: z.boolean().nullish(),
+    url: z.string().nullish(),
+    slugId: z.string().nullish(),
+    color: z.string().nullish(),
+    icon: z.string().nullish(),
+    teams: z
+        .object({
+            nodes: z.array(TeamSchema)
+        })
+        .nullish()
+});
+
+const PageInfoSchema = z.object({
+    hasNextPage: z.boolean(),
+    endCursor: z.string().nullish()
+});
+
+const ProjectsResponseSchema = z.object({
     data: z.object({
         projects: z.object({
-            nodes: z.array(LinearProjectNodeSchema),
-            pageInfo: z.object({
-                hasNextPage: z.boolean(),
-                endCursor: z.string().optional().nullable()
-            })
+            nodes: z.array(ProjectNodeSchema),
+            pageInfo: PageInfoSchema
         })
     })
 });
 
 const sync = createSync({
     description: 'Sync Linear projects with lead, status, and progress fields',
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['read'],
-    checkpoint: CheckpointSchema,
-    models: {
-        Project: ProjectSchema
-    },
     endpoints: [
         {
             method: 'POST',
             path: '/syncs/projects'
         }
     ],
+    models: {
+        Project: ProjectSchema
+    },
+
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        const checkpointParse = CheckpointSchema.safeParse(rawCheckpoint ?? { updated_after: '' });
-        if (!checkpointParse.success) {
-            await nango.log('Invalid checkpoint', { error: checkpointParse.error.format() });
-            throw new Error('Invalid checkpoint');
-        }
-        const checkpoint = checkpointParse.data;
+        await nango.trackDeletesStart('Project');
 
-        let hasNextPage = true;
-        let endCursor: string | undefined;
-        let firstUpdatedAt: string | undefined;
+        const limit = 100;
+        let after: string | undefined;
+        let hasNext = true;
 
-        while (hasNextPage) {
-            const variables: {
-                first: number;
-                orderBy: string;
-                after?: string;
-                filter?: { updatedAt?: { gte: string } };
-            } = {
-                first: 50,
-                orderBy: 'updatedAt',
-                ...(endCursor && { after: endCursor }),
-                ...(checkpoint.updated_after && { filter: { updatedAt: { gte: checkpoint.updated_after } } })
+        while (hasNext) {
+            const variables: Record<string, unknown> = {
+                first: limit
             };
+            if (after !== undefined) {
+                variables['after'] = after;
+            }
 
+            // https://linear.app/developers/graphql
             const response = await nango.post({
-                // https://linear.app/developers/graphql
                 endpoint: '/graphql',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 data: {
                     query: `
-                        query Projects($filter: ProjectFilter, $first: Int, $after: String, $orderBy: PaginationOrderBy) {
-                            projects(filter: $filter, first: $first, after: $after, orderBy: $orderBy) {
+                        query Projects($first: Int, $after: String) {
+                            projects(first: $first, after: $after) {
                                 nodes {
                                     id
                                     name
+                                    description
                                     state
                                     status {
                                         id
                                         name
-                                        type
-                                        color
                                     }
                                     progress
-                                    startDate
-                                    targetDate
-                                    createdAt
-                                    updatedAt
+                                    scope
                                     lead {
                                         id
                                         name
                                         email
                                     }
+                                    startDate
+                                    targetDate
+                                    createdAt
+                                    updatedAt
+                                    archivedAt
+                                    trashed
+                                    url
+                                    slugId
+                                    color
+                                    icon
                                     teams {
                                         nodes {
                                             id
@@ -178,76 +174,53 @@ const sync = createSync({
                 retries: 3
             });
 
-            const data: unknown = response.data;
-            const parsed = LinearProjectsResponseSchema.safeParse(data);
+            const parsed = ProjectsResponseSchema.safeParse(response.data);
             if (!parsed.success) {
-                await nango.log('Unexpected Linear projects response', { error: parsed.error.format() });
-                throw new Error('Unexpected Linear projects response structure');
+                throw new Error('Invalid GraphQL response structure: ' + parsed.error.message);
             }
 
-            const nodes = parsed.data.data.projects.nodes;
-            const pageInfo = parsed.data.data.projects.pageInfo;
+            const { nodes, pageInfo } = parsed.data.data.projects;
 
-            if (!Array.isArray(nodes)) {
-                throw new Error('Linear projects nodes is not an array');
+            const projects = nodes.map((node) => {
+                const lead = node.lead;
+                const status = node.status;
+                return {
+                    id: node.id,
+                    name: node.name,
+                    ...(node.description != null && { description: node.description }),
+                    ...(node.state != null && { state: node.state }),
+                    ...(status?.id != null && { statusId: status.id }),
+                    ...(status?.name != null && { statusName: status.name }),
+                    ...(node.progress != null && { progress: node.progress }),
+                    ...(node.scope != null && { scope: node.scope }),
+                    ...(lead?.id != null && { leadId: lead.id }),
+                    ...(lead?.name != null && { leadName: lead.name }),
+                    ...(lead?.email != null && { leadEmail: lead.email }),
+                    ...(node.startDate != null && { startDate: node.startDate }),
+                    ...(node.targetDate != null && { targetDate: node.targetDate }),
+                    createdAt: node.createdAt,
+                    updatedAt: node.updatedAt,
+                    ...(node.archivedAt != null && { archivedAt: node.archivedAt }),
+                    ...(node.trashed != null && { trashed: node.trashed }),
+                    ...(node.url != null && { url: node.url }),
+                    ...(node.slugId != null && { slugId: node.slugId }),
+                    ...(node.color != null && { color: node.color }),
+                    ...(node.icon != null && { icon: node.icon }),
+                    ...(node.teams?.nodes != null && { teams: node.teams.nodes })
+                };
+            });
+
+            if (projects.length > 0) {
+                await nango.batchSave(projects, 'Project');
             }
 
-            if (nodes.length === 0) {
-                hasNextPage = false;
-                continue;
-            }
-
-            const projects = nodes.map((node) => ({
-                id: node.id,
-                name: node.name,
-                ...(node.state != null && { state: node.state }),
-                ...(node.status != null && {
-                    status: {
-                        id: node.status.id,
-                        name: node.status.name,
-                        type: node.status.type,
-                        ...(node.status.color != null && { color: node.status.color })
-                    }
-                }),
-                ...(node.progress != null && { progress: node.progress }),
-                ...(node.startDate != null && { startDate: node.startDate }),
-                ...(node.targetDate != null && { targetDate: node.targetDate }),
-                createdAt: node.createdAt,
-                updatedAt: node.updatedAt,
-                ...(node.lead != null && {
-                    lead: {
-                        id: node.lead.id,
-                        ...(node.lead.name != null && { name: node.lead.name }),
-                        ...(node.lead.email != null && { email: node.lead.email })
-                    }
-                }),
-                ...(node.teams?.nodes != null && {
-                    teams: node.teams.nodes.map((team) => ({
-                        id: team.id,
-                        ...(team.key != null && { key: team.key }),
-                        ...(team.name != null && { name: team.name })
-                    }))
-                })
-            }));
-
-            await nango.batchSave(projects, 'Project');
-
-            const firstNode = nodes[0];
-            if (!firstUpdatedAt && firstNode) {
-                firstUpdatedAt = firstNode.updatedAt;
-            }
-
-            hasNextPage = pageInfo.hasNextPage;
-            endCursor = pageInfo.endCursor ?? undefined;
-
-            if (!hasNextPage || !endCursor) {
-                hasNextPage = false;
+            hasNext = pageInfo.hasNextPage && pageInfo.endCursor != null;
+            if (hasNext) {
+                after = pageInfo.endCursor ?? undefined;
             }
         }
 
-        if (firstUpdatedAt) {
-            await nango.saveCheckpoint({ updated_after: firstUpdatedAt });
-        }
+        await nango.trackDeletesEnd('Project');
     }
 });
 

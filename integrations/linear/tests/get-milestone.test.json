@@ -1,0 +1,79 @@
+{
+  "input": {
+    "milestoneId": "1c52e20d-a929-4a42-88e6-72ef225d9403"
+  },
+  "output": {
+    "id": "1c52e20d-a929-4a42-88e6-72ef225d9403",
+    "name": "Nango Registry Test Milestone (updated)",
+    "targetDate": "2026-09-01",
+    "project": {
+      "id": "315645a9-58c2-4f65-9628-3ce3ad2b6401",
+      "name": "Nango Registry Test Project"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "projectMilestone": {
+              "id": "1c52e20d-a929-4a42-88e6-72ef225d9403",
+              "name": "Nango Registry Test Milestone (updated)",
+              "targetDate": "2026-09-01",
+              "project": {
+                "id": "315645a9-58c2-4f65-9628-3ce3ad2b6401",
+                "name": "Nango Registry Test Project"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 11:59:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1849",
+          "x-ratelimit-reset": "1785844774",
+          "cf-ray": "a25d65456b87ff07-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"f4-ftEgdJyECGMK6XPbvXzNevuqeuY\"",
+          "server": "cloudflare",
+          "set-cookie": "uploadsSig:37160989-b7da-498c-9fea-8710ffad9b49=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiMzcxNjA5ODktYjdkYS00OThjLTlmZWEtODcxMGZmYWQ5YjQ5Iiwib3JnYW5pemF0aW9uSWRzIjpbIjg4MmI0ODZlLTg2Y2QtNDNkZS04OGJjLTIyZmRmNzY5MDJhNSJdLCJpYXQiOjE3ODU4NDQ3NjIsImV4cCI6MTc4NjQ0OTU2Mn0.NyD4F-pg0vLDkgB_UgbGaHam6j6BW4iNltNQxLnlO0Q; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "4",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999990",
+          "x-ratelimit-complexity-reset": "1785848362512",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4997",
+          "x-ratelimit-requests-reset": "1785848362512",
+          "x-request-id": "a25d65457ce9ff07-PDX"
+        },
+        "hash": "faa19a988d74dff87a11a50d11d22730558a782d",
+        "request": {
+          "data": {
+            "query": "query ProjectMilestone($id: String!) {\n    projectMilestone(id: $id) {\n        id\n        name\n        targetDate\n        project {\n            id\n            name\n        }\n    }\n}",
+            "variables": {
+              "id": "1c52e20d-a929-4a42-88e6-72ef225d9403"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "nango": {
+    "batchSave": {
+      "Initiative": [
+        {
+          "id": "eacaecd9-b44c-4eac-b482-1d5ae96b440b",
+          "name": "Nango Create Initiative Dryrun Test 2",
+          "description": "Updated casing test",
+          "status": "Active",
+          "createdAt": "2026-08-04T12:04:31.012Z",
+          "updatedAt": "2026-08-04T12:04:31.012Z",
+          "projects": []
+        },
+        {
+          "id": "e82bcaab-0b7a-454a-88e9-d229c779a61f",
+          "name": "Nango Create Initiative Dryrun Test 2",
+          "description": "Updated casing test",
+          "status": "Active",
+          "createdAt": "2026-08-04T12:04:24.091Z",
+          "updatedAt": "2026-08-04T12:04:24.091Z",
+          "projects": []
+        },
+        {
+          "id": "c7a0687f-c1af-49aa-9e38-0110df470848",
+          "name": "Nango Create Initiative Dryrun Test",
+          "description": "Created via dryrun for testing create initiative action",
+          "status": "Active",
+          "createdAt": "2026-08-04T12:00:33.504Z",
+          "updatedAt": "2026-08-04T12:00:33.504Z",
+          "projects": []
+        },
+        {
+          "id": "f39da10b-5fbe-4601-bf3b-70d1c2c3701f",
+          "name": "Nango Create Initiative Dryrun Test",
+          "description": "Created via dryrun for testing create initiative action",
+          "status": "Active",
+          "createdAt": "2026-08-04T12:00:24.913Z",
+          "updatedAt": "2026-08-04T12:00:24.913Z",
+          "projects": []
+        },
+        {
+          "id": "7bf5d043-8868-454c-9da8-6948a8d21972",
+          "name": "Nango Registry Test Initiative",
+          "description": "Updated description from Nango action test.",
+          "status": "Active",
+          "createdAt": "2026-08-03T22:17:11.117Z",
+          "updatedAt": "2026-08-04T12:14:41.398Z",
+          "projects": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "Initiative": []
+    }
+  },
+  "api": {
+    "post": {
+      "/graphql": [
+        {
+          "response": {
+            "data": {
+              "initiatives": {
+                "nodes": [
+                  {
+                    "id": "eacaecd9-b44c-4eac-b482-1d5ae96b440b",
+                    "name": "Nango Create Initiative Dryrun Test 2",
+                    "description": "Updated casing test",
+                    "status": "Active",
+                    "createdAt": "2026-08-04T12:04:31.012Z",
+                    "updatedAt": "2026-08-04T12:04:31.012Z",
+                    "projects": {
+                      "nodes": []
+                    }
+                  },
+                  {
+                    "id": "e82bcaab-0b7a-454a-88e9-d229c779a61f",
+                    "name": "Nango Create Initiative Dryrun Test 2",
+                    "description": "Updated casing test",
+                    "status": "Active",
+                    "createdAt": "2026-08-04T12:04:24.091Z",
+                    "updatedAt": "2026-08-04T12:04:24.091Z",
+                    "projects": {
+                      "nodes": []
+                    }
+                  },
+                  {
+                    "id": "c7a0687f-c1af-49aa-9e38-0110df470848",
+                    "name": "Nango Create Initiative Dryrun Test",
+                    "description": "Created via dryrun for testing create initiative action",
+                    "status": "Active",
+                    "createdAt": "2026-08-04T12:00:33.504Z",
+                    "updatedAt": "2026-08-04T12:00:33.504Z",
+                    "projects": {
+                      "nodes": []
+                    }
+                  },
+                  {
+                    "id": "f39da10b-5fbe-4601-bf3b-70d1c2c3701f",
+                    "name": "Nango Create Initiative Dryrun Test",
+                    "description": "Created via dryrun for testing create initiative action",
+                    "status": "Active",
+                    "createdAt": "2026-08-04T12:00:24.913Z",
+                    "updatedAt": "2026-08-04T12:00:24.913Z",
+                    "projects": {
+                      "nodes": []
+                    }
+                  },
+                  {
+                    "id": "7bf5d043-8868-454c-9da8-6948a8d21972",
+                    "name": "Nango Registry Test Initiative",
+                    "description": "Updated description from Nango action test.",
+                    "status": "Active",
+                    "createdAt": "2026-08-03T22:17:11.117Z",
+                    "updatedAt": "2026-08-04T12:14:41.398Z",
+                    "projects": {
+                      "nodes": []
+                    }
+                  }
+                ],
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": "7bf5d043-8868-454c-9da8-6948a8d21972"
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Tue, 04 Aug 2026 13:29:26 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1985",
+            "x-ratelimit-reset": "1785850201",
+            "cf-ray": "a25de9337a49b7b9-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "cache-control": "no-store",
+            "etag": "W/\"5ab-+Dl/ZXK+eATfCBO82UDyRMGntAs\"",
+            "server": "cloudflare",
+            "set-cookie": "uploadsSig:37160989-b7da-498c-9fea-8710ffad9b49=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiMzcxNjA5ODktYjdkYS00OThjLTlmZWEtODcxMGZmYWQ5YjQ5Iiwib3JnYW5pemF0aW9uSWRzIjpbIjg4MmI0ODZlLTg2Y2QtNDNkZS04OGJjLTIyZmRmNzY5MDJhNSJdLCJpYXQiOjE3ODU4NTAxNjYsImV4cCI6MTc4NjQ1NDk2Nn0.GpgpBnnXL859ffjcES5bcWU2EEp8Q7lc4SJxPGRZMdk; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+            "vary": "Accept-Encoding",
+            "via": "1.1 google",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-complexity": "3185",
+            "x-ratelimit-complexity-limit": "2000000",
+            "x-ratelimit-complexity-remaining": "1992111",
+            "x-ratelimit-complexity-reset": "1785853766368",
+            "x-ratelimit-requests-limit": "5000",
+            "x-ratelimit-requests-remaining": "4999",
+            "x-ratelimit-requests-reset": "1785853766368",
+            "x-request-id": "a25de9337d3bb7b9-PDX"
+          },
+          "hash": "87ef7e65355d87c8d78254dbadbfa396a53b1c51",
+          "request": {
+            "data": {
+              "query": "\n                    query Initiatives($after: String, $first: Int) {\n                        initiatives(after: $after, first: $first) {\n                            nodes {\n                                id\n                                name\n                                description\n                                status\n                                createdAt\n                                updatedAt\n                                projects {\n                                    nodes {\n                                        id\n                                        name\n                                    }\n                                }\n                            }\n                            pageInfo {\n                                hasNextPage\n                                endCursor\n                            }\n                        }\n                    }\n                ",
+              "variables": {
+                "first": 50
+              }
+            }
+          }
+        },
+        {
+          "response": {
+            "data": {
+              "initiatives": {
+                "nodes": [],
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": null
+                }
+              }
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Tue, 04 Aug 2026 13:29:26 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1984",
+            "x-ratelimit-reset": "1785850201",
+            "cf-ray": "a25de9366bccdfd2-PDX",
+            "cf-cache-status": "DYNAMIC",
+            "cache-control": "no-store",
+            "etag": "W/\"58-BKzmyeyBg3YLSsAfnHRok+qgviU\"",
+            "server": "cloudflare",
+            "set-cookie": "uploadsSig:37160989-b7da-498c-9fea-8710ffad9b49=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiMzcxNjA5ODktYjdkYS00OThjLTlmZWEtODcxMGZmYWQ5YjQ5Iiwib3JnYW5pemF0aW9uSWRzIjpbIjg4MmI0ODZlLTg2Y2QtNDNkZS04OGJjLTIyZmRmNzY5MDJhNSJdLCJpYXQiOjE3ODU4NTAxNjYsImV4cCI6MTc4NjQ1NDk2Nn0.GpgpBnnXL859ffjcES5bcWU2EEp8Q7lc4SJxPGRZMdk; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+            "vary": "Accept-Encoding",
+            "via": "1.1 google",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "x-complexity": "3185",
+            "x-ratelimit-complexity-limit": "2000000",
+            "x-ratelimit-complexity-remaining": "1988926",
+            "x-ratelimit-complexity-reset": "1785853766844",
+            "x-ratelimit-requests-limit": "5000",
+            "x-ratelimit-requests-remaining": "4998",
+            "x-ratelimit-requests-reset": "1785853766844",
+            "x-request-id": "a25de936783bdfd2-PDX"
+          },
+          "hash": "0103e1388097250cee406357964883781713b623",
+          "request": {
+            "data": "sha1:0ab4a6d6c310b51b623f0db9b29617a26bf650d9"
+          }
+        }
+      ]
+    }
+  }
+}

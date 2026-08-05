@@ -2,17 +2,30 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    labelId: z.string().describe('The ID of the issue label to delete. Example: "label-uuid"')
+    id: z.string().describe('The ID of the issue label to delete. Example: "b08dbaa2-5ecc-4770-acaf-23894ce84e64"')
 });
 
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        issueLabelDelete: z.object({
-            entityId: z.string(),
-            lastSyncId: z.number(),
-            success: z.boolean()
+    data: z
+        .object({
+            issueLabelDelete: z
+                .object({
+                    success: z.boolean(),
+                    entityId: z.string().optional(),
+                    lastSyncId: z.number().optional()
+                })
+                .nullable()
+                .optional()
         })
-    })
+        .optional(),
+    errors: z
+        .array(
+            z.object({
+                message: z.string(),
+                extensions: z.unknown().optional()
+            })
+        )
+        .optional()
 });
 
 const OutputSchema = z.object({
@@ -23,38 +36,59 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Linear issue label.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://linear.app/developers/graphql
+            // https://linear.app/developers
             endpoint: '/graphql',
             data: {
-                query: 'mutation IssueLabelDelete($id: String!) { issueLabelDelete(id: $id) { entityId lastSyncId success } }',
-                variables: {
-                    id: input.labelId
-                }
+                query: 'mutation IssueLabelDelete($id: String!) { issueLabelDelete(id: $id) { success entityId lastSyncId } }',
+                variables: { id: input.id }
             },
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
-
-        if (!providerResponse.data.issueLabelDelete.success) {
+        if (!response.data || typeof response.data !== 'object') {
             throw new nango.ActionError({
-                type: 'delete_failed',
-                message: 'Failed to delete issue label',
-                labelId: input.labelId
+                type: 'provider_error',
+                message: 'Unexpected response from Linear API.'
+            });
+        }
+
+        const providerResponse = ProviderResponseSchema.safeParse(response.data);
+        if (!providerResponse.success) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Unexpected response shape from Linear API.',
+                details: providerResponse.error.issues
+            });
+        }
+
+        const firstError = providerResponse.data.errors?.[0];
+        if (firstError) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: firstError.message
+            });
+        }
+
+        const deleteResult = providerResponse.data.data?.issueLabelDelete;
+        if (!deleteResult) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: `Issue label not found: ${input.id}`
             });
         }
 
         return {
-            success: providerResponse.data.issueLabelDelete.success,
-            entityId: providerResponse.data.issueLabelDelete.entityId,
-            lastSyncId: providerResponse.data.issueLabelDelete.lastSyncId
+            success: deleteResult.success,
+            ...(deleteResult.entityId !== undefined && { entityId: deleteResult.entityId }),
+            ...(deleteResult.lastSyncId !== undefined && { lastSyncId: deleteResult.lastSyncId })
         };
     }
 });

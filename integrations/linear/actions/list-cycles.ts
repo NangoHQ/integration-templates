@@ -2,30 +2,32 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    first: z.number().optional().describe('Number of cycles to return. Example: 10'),
-    after: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+    first: z.number().optional().describe('Number of items to return per page. Default: 50.'),
+    teamId: z.string().optional().describe('Filter cycles by team ID.'),
     filter: z.record(z.string(), z.unknown()).optional().describe('Cycle filter object. Example: { team: { id: { eq: "team-id" } } }'),
     orderBy: z.string().optional().describe('Order by field. Example: "updatedAt" or "createdAt"')
 });
 
-const TeamSchema = z.object({
+const ProviderTeamSchema = z.object({
     id: z.string(),
-    name: z.string().optional()
+    name: z.string().nullable().optional()
 });
 
-const ProviderCycleSchema = z.object({
+const ProviderCycleNodeSchema = z.object({
     id: z.string(),
     name: z.string().nullable().optional(),
-    number: z.number().nullable().optional(),
+    number: z.number(),
     startsAt: z.string().nullable().optional(),
     endsAt: z.string().nullable().optional(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
     completedAt: z.string().nullable().optional(),
-    createdAt: z.string().nullable().optional(),
-    updatedAt: z.string().nullable().optional(),
-    team: TeamSchema.nullable().optional()
+    team: ProviderTeamSchema,
+    progress: z.number().nullable().optional()
 });
 
-const PageInfoSchema = z.object({
+const ProviderPageInfoSchema = z.object({
     hasNextPage: z.boolean(),
     endCursor: z.string().nullable().optional()
 });
@@ -34,7 +36,7 @@ const ProviderCyclesResponseSchema = z.object({
     data: z.object({
         cycles: z.object({
             nodes: z.array(z.unknown()),
-            pageInfo: PageInfoSchema
+            pageInfo: ProviderPageInfoSchema
         })
     })
 });
@@ -42,72 +44,79 @@ const ProviderCyclesResponseSchema = z.object({
 const OutputCycleSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
-    number: z.number().optional(),
+    number: z.number(),
     startsAt: z.string().optional(),
     endsAt: z.string().optional(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
     completedAt: z.string().optional(),
-    createdAt: z.string().optional(),
-    updatedAt: z.string().optional(),
-    team: TeamSchema.optional()
+    team: z.object({
+        id: z.string(),
+        name: z.string().optional()
+    }),
+    progress: z.number().optional()
 });
 
 const OutputSchema = z.object({
-    nodes: z.array(OutputCycleSchema),
-    pageInfo: PageInfoSchema
+    items: z.array(OutputCycleSchema),
+    nextCursor: z.string().optional()
 });
 
 const action = createAction({
     description: 'List Linear cycles with filtering and pagination.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const query = `
-            query Cycles($first: Int, $after: String, $filter: CycleFilter, $orderBy: PaginationOrderBy) {
-                cycles(first: $first, after: $after, filter: $filter, orderBy: $orderBy) {
-                    nodes {
-                        id
-                        name
-                        number
-                        startsAt
-                        endsAt
-                        completedAt
-                        createdAt
-                        updatedAt
-                        team {
-                            id
-                            name
-                        }
-                    }
-                    pageInfo {
-                        hasNextPage
-                        endCursor
-                    }
-                }
-            }
-        `;
+        const first = input.first ?? 50;
 
-        const variables: Record<string, unknown> = {};
-        if (input.first !== undefined) {
-            variables['first'] = input.first;
+        const filter: Record<string, unknown> = { ...(input.filter ?? {}) };
+        if (input.teamId && !('team' in filter)) {
+            filter['team'] = { id: { eq: input.teamId } };
         }
-        if (input.after !== undefined) {
-            variables['after'] = input.after;
+
+        const variables: Record<string, unknown> = {
+            first,
+            orderBy: input.orderBy ?? 'updatedAt'
+        };
+        if (input.cursor) {
+            variables['after'] = input.cursor;
         }
-        if (input.filter !== undefined) {
-            variables['filter'] = input.filter;
-        }
-        if (input.orderBy !== undefined) {
-            variables['orderBy'] = input.orderBy;
+        if (Object.keys(filter).length > 0) {
+            variables['filter'] = filter;
         }
 
         const response = await nango.post({
             // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
-                query,
+                query: `
+                    query Cycles($first: Int!, $after: String, $filter: CycleFilter, $orderBy: PaginationOrderBy) {
+                        cycles(first: $first, after: $after, filter: $filter, orderBy: $orderBy) {
+                            nodes {
+                                id
+                                name
+                                number
+                                startsAt
+                                endsAt
+                                createdAt
+                                updatedAt
+                                completedAt
+                                team {
+                                    id
+                                    name
+                                }
+                                progress
+                            }
+                            pageInfo {
+                                hasNextPage
+                                endCursor
+                            }
+                        }
+                    }
+                `,
                 variables
             },
             retries: 3
@@ -117,49 +126,44 @@ const action = createAction({
         if (!parsed.success) {
             throw new nango.ActionError({
                 type: 'invalid_response',
-                message: 'Unexpected response structure from Linear API',
+                message: 'Invalid response structure from Linear API',
                 details: parsed.error.message
             });
         }
 
-        const cyclesData = parsed.data.data.cycles;
-        const nodes = cyclesData.nodes;
-        const pageInfo = cyclesData.pageInfo;
+        const { nodes, pageInfo } = parsed.data.data.cycles;
 
-        const mappedNodes = nodes
-            .map((node) => {
-                const parsedNode = ProviderCycleSchema.safeParse(node);
-                if (!parsedNode.success) {
-                    return null;
-                }
+        const items = nodes.map((node) => {
+            const cycle = ProviderCycleNodeSchema.safeParse(node);
+            if (!cycle.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Invalid cycle node in response',
+                    details: cycle.error.message
+                });
+            }
 
-                const cycle = parsedNode.data;
-                return {
-                    id: cycle.id,
-                    ...(cycle.name !== undefined && cycle.name !== null && { name: cycle.name }),
-                    ...(cycle.number !== undefined && cycle.number !== null && { number: cycle.number }),
-                    ...(cycle.startsAt !== undefined && cycle.startsAt !== null && { startsAt: cycle.startsAt }),
-                    ...(cycle.endsAt !== undefined && cycle.endsAt !== null && { endsAt: cycle.endsAt }),
-                    ...(cycle.completedAt !== undefined && cycle.completedAt !== null && { completedAt: cycle.completedAt }),
-                    ...(cycle.createdAt !== undefined && cycle.createdAt !== null && { createdAt: cycle.createdAt }),
-                    ...(cycle.updatedAt !== undefined && cycle.updatedAt !== null && { updatedAt: cycle.updatedAt }),
-                    ...(cycle.team !== undefined &&
-                        cycle.team !== null && {
-                            team: {
-                                id: cycle.team.id,
-                                ...(cycle.team.name !== undefined && cycle.team.name !== null && { name: cycle.team.name })
-                            }
-                        })
-                };
-            })
-            .filter((item) => item !== null);
+            const c = cycle.data;
+            return {
+                id: c.id,
+                ...(c.name != null && { name: c.name }),
+                number: c.number,
+                ...(c.startsAt != null && { startsAt: c.startsAt }),
+                ...(c.endsAt != null && { endsAt: c.endsAt }),
+                createdAt: c.createdAt,
+                updatedAt: c.updatedAt,
+                ...(c.completedAt != null && { completedAt: c.completedAt }),
+                team: {
+                    id: c.team.id,
+                    ...(c.team.name != null && { name: c.team.name })
+                },
+                ...(c.progress != null && { progress: c.progress })
+            };
+        });
 
         return {
-            nodes: mappedNodes,
-            pageInfo: {
-                hasNextPage: pageInfo.hasNextPage,
-                endCursor: pageInfo.endCursor ?? null
-            }
+            items,
+            ...(pageInfo.hasNextPage && pageInfo.endCursor && { nextCursor: pageInfo.endCursor })
         };
     }
 });

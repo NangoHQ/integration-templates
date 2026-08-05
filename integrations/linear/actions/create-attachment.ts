@@ -1,24 +1,15 @@
 import { z } from 'zod';
+import type { ProxyConfiguration } from 'nango';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    issueId: z
-        .string()
-        .describe(
-            'The issue to associate the attachment with. Can be a UUID or issue identifier (e.g., LIN-123). Example: "590a1127-f98b-49fc-ba74-2df8751c089e"'
-        ),
-    title: z.string().describe('The attachment title. Example: "Exception"'),
-    url: z.string().describe('Attachment location which is also used as a unique identifier for the attachment. Example: "https://example.com/123"'),
-    subtitle: z.string().optional().describe('The attachment subtitle. Example: "Open"'),
-    iconUrl: z
-        .string()
-        .optional()
-        .describe('An icon url to display with the attachment. Should be of jpg or png format. Example: "https://example.com/icon.png"'),
-    metadata: z
-        .record(z.string(), z.unknown())
-        .optional()
-        .describe('Attachment metadata object with string and number values. Example: {"exceptionId": "exc-123"}'),
-    groupBySource: z.boolean().optional().describe('Indicates if attachments for the same source application should be grouped in the Linear UI.'),
+    issueId: z.string().describe('ID of the issue to attach to. Example: "6948bf28-149d-489b-8f0d-eebae9be8324"'),
+    title: z.string().describe('Title of the attachment. Example: "Design Mockup"'),
+    url: z.string().describe('URL of the attachment. Example: "https://example.com/mockup.png"'),
+    subtitle: z.string().optional().describe('Optional subtitle of the attachment.'),
+    metadata: z.record(z.string(), z.unknown()).optional().describe('Optional JSON metadata for the attachment.'),
+    iconUrl: z.string().optional().describe('Optional URL of the attachment icon.'),
+    groupBySource: z.boolean().optional().describe('Whether to group the attachment by its source.'),
     createAsUser: z
         .string()
         .optional()
@@ -28,31 +19,46 @@ const InputSchema = z.object({
     commentBody: z.string().optional().describe('Create a linked comment with markdown body.')
 });
 
-const ProviderAttachmentSchema = z.object({
-    id: z.string(),
-    url: z.string(),
-    title: z.string(),
-    subtitle: z.string().nullable().optional(),
-    metadata: z.record(z.string(), z.unknown()).nullable().optional()
-});
-
-const ProviderPayloadSchema = z.object({
-    success: z.boolean(),
-    attachment: ProviderAttachmentSchema.nullable().optional()
+const ProviderResponseSchema = z.object({
+    data: z.object({
+        attachmentCreate: z.object({
+            success: z.boolean(),
+            attachment: z.object({
+                id: z.string(),
+                title: z.string().nullable().optional(),
+                subtitle: z.string().nullable().optional(),
+                url: z.string().nullable().optional(),
+                metadata: z.unknown().nullable().optional(),
+                sourceType: z.string().nullable().optional(),
+                createdAt: z.string().nullable().optional(),
+                updatedAt: z.string().nullable().optional(),
+                issue: z
+                    .object({
+                        id: z.string()
+                    })
+                    .nullable()
+                    .optional()
+            })
+        })
+    })
 });
 
 const OutputSchema = z.object({
     id: z.string(),
     success: z.boolean(),
-    title: z.string(),
-    url: z.string(),
+    title: z.string().optional(),
     subtitle: z.string().optional(),
-    metadata: z.record(z.string(), z.unknown()).optional()
+    url: z.string().optional(),
+    metadata: z.unknown().optional(),
+    sourceType: z.string().optional(),
+    createdAt: z.string().optional(),
+    updatedAt: z.string().optional(),
+    issueId: z.string().optional()
 });
 
 const action = createAction({
     description: 'Create an attachment on a Linear issue.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['issues:create', 'comments:create'],
@@ -72,65 +78,74 @@ const action = createAction({
             }
         };
 
-        // https://linear.app/developers/attachments
-        const response = await nango.post({
+        const config: ProxyConfiguration = {
+            // https://linear.app/developers
             endpoint: '/graphql',
             data: {
-                query: `
-                    mutation AttachmentCreate($input: AttachmentCreateInput!) {
-                        attachmentCreate(input: $input) {
-                            success
-                            attachment {
+                query: `mutation AttachmentCreate($input: AttachmentCreateInput!) {
+                    attachmentCreate(input: $input) {
+                        success
+                        attachment {
+                            id
+                            title
+                            subtitle
+                            url
+                            metadata
+                            sourceType
+                            createdAt
+                            updatedAt
+                            issue {
                                 id
-                                url
-                                title
-                                subtitle
-                                metadata
                             }
                         }
                     }
-                `,
+                }`,
                 variables
             },
             retries: 3
-        });
+        };
 
-        const responseData = z
-            .object({
-                data: z.object({
-                    attachmentCreate: ProviderPayloadSchema
-                }),
-                errors: z.array(z.unknown()).optional()
-            })
-            .parse(response.data);
+        const response = await nango.post(config);
 
-        if (responseData.errors && responseData.errors.length > 0) {
+        if (
+            response.data &&
+            typeof response.data === 'object' &&
+            'errors' in response.data &&
+            Array.isArray(response.data.errors) &&
+            response.data.errors.length > 0
+        ) {
+            const firstError = response.data.errors[0];
             throw new nango.ActionError({
                 type: 'graphql_error',
-                message: 'GraphQL error occurred while creating attachment.',
-                errors: responseData.errors
+                message:
+                    typeof firstError === 'object' && firstError !== null && 'message' in firstError && typeof firstError.message === 'string'
+                        ? firstError.message
+                        : 'GraphQL error',
+                errors: response.data.errors
             });
         }
 
-        const payload = responseData.data.attachmentCreate;
-
-        if (!payload.success || !payload.attachment) {
+        const providerResponse = ProviderResponseSchema.parse(response.data);
+        if (!providerResponse.data.attachmentCreate.success) {
             throw new nango.ActionError({
-                type: 'creation_failed',
-                message: 'Attachment creation failed or returned no attachment.',
-                success: payload.success
+                type: 'create_failed',
+                message: 'Attachment creation was not successful.'
             });
         }
 
-        const attachment = payload.attachment;
+        const attachment = providerResponse.data.attachmentCreate.attachment;
 
         return {
             id: attachment.id,
-            success: payload.success,
-            title: attachment.title,
-            url: attachment.url,
+            success: providerResponse.data.attachmentCreate.success,
+            ...(attachment.title != null && { title: attachment.title }),
             ...(attachment.subtitle != null && { subtitle: attachment.subtitle }),
-            ...(attachment.metadata != null && { metadata: attachment.metadata })
+            ...(attachment.url != null && { url: attachment.url }),
+            ...(attachment.metadata != null && { metadata: attachment.metadata }),
+            ...(attachment.sourceType != null && { sourceType: attachment.sourceType }),
+            ...(attachment.createdAt != null && { createdAt: attachment.createdAt }),
+            ...(attachment.updatedAt != null && { updatedAt: attachment.updatedAt }),
+            ...(attachment.issue != null && { issueId: attachment.issue.id })
         };
     }
 });

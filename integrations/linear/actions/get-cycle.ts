@@ -2,38 +2,38 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The unique identifier of the Linear cycle. Example: "cycle-id-123"')
-});
-
-const ProviderTeamSchema = z.object({
-    id: z.string(),
-    name: z.string()
+    id: z.string().describe('Cycle ID. Example: "b5327ded-caa0-4290-9f8f-dd2c4ba6eff2"')
 });
 
 const ProviderCycleSchema = z.object({
     id: z.string(),
-    team: ProviderTeamSchema.nullable().optional(),
-    progress: z.number().nullable().optional(),
-    startsAt: z.string().nullable().optional(),
-    endsAt: z.string().nullable().optional()
+    name: z.string(),
+    team: z.object({
+        id: z.string(),
+        name: z.string().optional()
+    }),
+    progress: z.number(),
+    startsAt: z.string(),
+    endsAt: z.string(),
+    archivedAt: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
-    team: z
-        .object({
-            id: z.string(),
-            name: z.string()
-        })
-        .optional(),
-    progress: z.number().optional(),
-    startsAt: z.string().optional(),
-    endsAt: z.string().optional()
+    name: z.string(),
+    team: z.object({
+        id: z.string(),
+        name: z.string().optional()
+    }),
+    progress: z.number(),
+    startsAt: z.string(),
+    endsAt: z.string(),
+    archivedAt: z.string().optional()
 });
 
 const action = createAction({
     description: 'Retrieve a Linear cycle by cycle ID.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -43,7 +43,19 @@ const action = createAction({
             // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
-                query: 'query Cycle($id: String!) { cycle(id: $id) { id team { id name } progress startsAt endsAt } }',
+                query: `
+                    query GetCycle($id: String!) {
+                        cycle(id: $id) {
+                            id
+                            name
+                            team { id name }
+                            progress
+                            startsAt
+                            endsAt
+                            archivedAt
+                        }
+                    }
+                `,
                 variables: {
                     id: input.id
                 }
@@ -64,15 +76,15 @@ const action = createAction({
 
         return {
             id: providerCycle.id,
-            ...(providerCycle.team != null && {
-                team: {
-                    id: providerCycle.team.id,
-                    name: providerCycle.team.name
-                }
-            }),
-            ...(providerCycle.progress != null && { progress: providerCycle.progress }),
-            ...(providerCycle.startsAt != null && { startsAt: providerCycle.startsAt }),
-            ...(providerCycle.endsAt != null && { endsAt: providerCycle.endsAt })
+            name: providerCycle.name,
+            team: {
+                id: providerCycle.team.id,
+                ...(providerCycle.team.name !== undefined && { name: providerCycle.team.name })
+            },
+            progress: providerCycle.progress,
+            startsAt: providerCycle.startsAt,
+            endsAt: providerCycle.endsAt,
+            ...(providerCycle.archivedAt != null && { archivedAt: providerCycle.archivedAt })
         };
     }
 });

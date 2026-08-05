@@ -6,7 +6,7 @@ const ProjectSchema = z.object({
     name: z.string().optional()
 });
 
-const MilestoneSchema = z.object({
+const ProjectMilestoneSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
     description: z.string().optional(),
@@ -56,7 +56,7 @@ const ResponseSchema = z.object({
     })
 });
 
-type MilestonesVariables = {
+type ProjectMilestonesVariables = {
     first: number;
     after: string | null;
     orderBy: string;
@@ -68,20 +68,20 @@ type MilestonesVariables = {
 };
 
 const sync = createSync({
-    description: 'Sync Linear milestones for project planning.',
-    version: '3.0.1',
+    description: 'Sync Linear project milestones for project planning.',
+    version: '1.0.0',
     frequency: 'every 6min',
     autoStart: true,
     scopes: ['read'],
     checkpoint: CheckpointSchema,
     endpoints: [
         {
-            method: 'POST',
-            path: '/syncs/milestones'
+            method: 'GET',
+            path: '/syncs/project_milestones'
         }
     ],
     models: {
-        Milestone: MilestoneSchema
+        ProjectMilestone: ProjectMilestoneSchema
     },
 
     exec: async (nango) => {
@@ -96,7 +96,7 @@ const sync = createSync({
         let highWaterMark: string | undefined;
 
         while (hasMore) {
-            const variables: MilestonesVariables = {
+            const variables: ProjectMilestonesVariables = {
                 first: pageSize,
                 after: after || null,
                 orderBy: 'updatedAt'
@@ -145,7 +145,6 @@ const sync = createSync({
                 retries: 3
             };
 
-            // https://linear.app/developers/graphql
             const response = await nango.post(config);
 
             const parsed = ResponseSchema.safeParse(response.data);
@@ -180,7 +179,7 @@ const sync = createSync({
                 continue;
             }
 
-            await nango.batchSave(milestones, 'Milestone');
+            await nango.batchSave(milestones, 'ProjectMilestone');
 
             const firstRecord = milestones[0];
             if (!highWaterMark && firstRecord) {

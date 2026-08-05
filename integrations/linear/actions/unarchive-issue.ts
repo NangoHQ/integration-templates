@@ -1,11 +1,38 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import * as z from 'zod';
 
-const inputSchema = z.object({
-    id: z.string().min(1)
+const InputSchema = z.object({
+    id: z.string().describe('The identifier of the issue to unarchive. Example: "6948bf28-149d-489b-8f0d-eebae9be8324"')
 });
 
-const outputSchema = z.object({
+const ProviderResponseSchema = z.object({
+    data: z
+        .object({
+            issueUnarchive: z.object({
+                success: z.boolean(),
+                entity: z
+                    .object({
+                        id: z.string(),
+                        identifier: z.string(),
+                        title: z.string(),
+                        archivedAt: z.string().nullable().optional()
+                    })
+                    .nullable()
+                    .optional()
+            })
+        })
+        .optional(),
+    errors: z
+        .array(
+            z.object({
+                message: z.string(),
+                extensions: z.record(z.string(), z.unknown()).optional()
+            })
+        )
+        .optional()
+});
+
+const OutputSchema = z.object({
     success: z.boolean(),
     issueId: z.string().nullable(),
     identifier: z.string().nullable(),
@@ -13,41 +40,22 @@ const outputSchema = z.object({
     archivedAt: z.string().nullable()
 });
 
-const graphQLResponseSchema = z.object({
-    data: z.object({
-        issueUnarchive: z.object({
-            success: z.boolean(),
-            lastSyncId: z.number(),
-            entity: z
-                .object({
-                    id: z.string(),
-                    identifier: z.string(),
-                    title: z.string(),
-                    archivedAt: z.string().nullable()
-                })
-                .nullable()
-        })
-    })
-});
-
 const action = createAction({
     description: 'Restore an archived Linear issue.',
-    version: '1.0.2',
-    input: inputSchema,
-    output: outputSchema,
+    version: '1.0.3',
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['write'],
 
-    exec: async (nango, input) => {
-        // https://linear.app/developers/graphql
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://linear.app/developers
         const response = await nango.post({
             endpoint: '/graphql',
-            retries: 3,
             data: {
                 query: `
                     mutation IssueUnarchive($id: String!) {
                         issueUnarchive(id: $id) {
                             success
-                            lastSyncId
                             entity {
                                 id
                                 identifier
@@ -60,15 +68,29 @@ const action = createAction({
                 variables: {
                     id: input.id
                 }
-            }
+            },
+            retries: 3
         });
 
-        const parsed = graphQLResponseSchema.safeParse(response.data);
-        if (!parsed.success) {
-            throw new Error(`Invalid GraphQL response: ${parsed.error.message}`);
+        const parsed = ProviderResponseSchema.parse(response.data);
+
+        const errors = parsed.errors;
+        const firstError = errors?.find(() => true);
+        if (firstError) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: firstError.message
+            });
         }
 
-        const payload = parsed.data.data.issueUnarchive;
+        if (!parsed.data || !parsed.data.issueUnarchive) {
+            throw new nango.ActionError({
+                type: 'unexpected_response',
+                message: 'GraphQL response did not contain issueUnarchive data.'
+            });
+        }
+
+        const payload = parsed.data.issueUnarchive;
 
         return {
             success: payload.success,
