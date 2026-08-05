@@ -1,0 +1,95 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+
+const InputSchema = z.object({
+    id: z.number().describe('Customer ID. Example: 1223501'),
+    owner_id: z.number().optional().describe('The ID of the owner to assign to this customer.'),
+    health_score_description: z.string().optional().describe('Explanation or notes for the health score.')
+});
+
+const ProviderCustomerSchema = z.object({
+    id: z.number(),
+    company_id: z.number().optional(),
+    owner_id: z.number().nullable().optional(),
+    owner: z
+        .object({
+            id: z.number().optional(),
+            full_name: z.string().optional()
+        })
+        .optional(),
+    health_score: z.string().nullable().optional(),
+    health_score_description: z.string().nullable().optional(),
+    days_in_health: z.number().nullable().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional()
+});
+
+const OutputSchema = z.object({
+    id: z.number(),
+    company_id: z.number().optional(),
+    owner_id: z.number().optional(),
+    owner: z
+        .object({
+            id: z.number().optional(),
+            full_name: z.string().optional()
+        })
+        .optional(),
+    health_score: z.string().optional(),
+    health_score_description: z.string().optional(),
+    days_in_health: z.number().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional()
+});
+
+const action = createAction({
+    description: 'Update a customer record (e.g. reassign owner).',
+    version: '1.0.0',
+    input: InputSchema,
+    output: OutputSchema,
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const payload: { owner_id?: number; health_score_description?: string } = {};
+
+        if (input.owner_id !== undefined) {
+            payload.owner_id = input.owner_id;
+        }
+
+        if (input.health_score_description !== undefined) {
+            payload.health_score_description = input.health_score_description;
+        }
+
+        const response = await nango.put({
+            // https://app.pipelinecrm.com/api/docs/introduction
+            endpoint: `api/v3/customers/${encodeURIComponent(String(input.id))}`,
+            data: {
+                customer: payload
+            },
+            retries: 3
+        });
+
+        const raw = response.data;
+        if (!raw || typeof raw !== 'object') {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Pipeline CRM API.'
+            });
+        }
+
+        const customer = ProviderCustomerSchema.parse(raw);
+
+        return {
+            id: customer.id,
+            ...(customer.company_id !== undefined && { company_id: customer.company_id }),
+            ...(customer.owner_id != null && { owner_id: customer.owner_id }),
+            ...(customer.owner !== undefined && { owner: customer.owner }),
+            ...(customer.health_score != null && { health_score: customer.health_score }),
+            ...(customer.health_score_description != null && { health_score_description: customer.health_score_description }),
+            ...(customer.days_in_health != null && { days_in_health: customer.days_in_health }),
+            ...(customer.created_at !== undefined && { created_at: customer.created_at }),
+            ...(customer.updated_at !== undefined && { updated_at: customer.updated_at })
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
