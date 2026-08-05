@@ -78,10 +78,10 @@ const action = createAction({
             ...(providerAttachment.expires_at !== undefined && { expires_at: providerAttachment.expires_at }),
             ...(providerAttachment.card !== undefined && {
                 card: {
-                    ...(providerAttachment.card.network !== null && { network: providerAttachment.card.network }),
-                    ...(providerAttachment.card.brand !== null && { brand: providerAttachment.card.brand }),
-                    ...(providerAttachment.card.last4 !== null && { last4: providerAttachment.card.last4 }),
-                    ...(providerAttachment.card.art_url !== null && { art_url: providerAttachment.card.art_url })
+                    ...(providerAttachment.card.network != null && { network: providerAttachment.card.network }),
+                    ...(providerAttachment.card.brand != null && { brand: providerAttachment.card.brand }),
+                    ...(providerAttachment.card.last4 != null && { last4: providerAttachment.card.last4 }),
+                    ...(providerAttachment.card.art_url != null && { art_url: providerAttachment.card.art_url })
                 }
             }),
             ...(providerAttachment.reason !== undefined && { reason: providerAttachment.reason }),

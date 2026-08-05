@@ -51,4 +51,6 @@ const input: Parameters<typeof run>[0] = {
     issuing_country: 'US'
 };
 
-nango.log(await run(input));
+const result = await run(input);
+// eslint-disable-next-line @nangohq/custom-integrations-linting/no-console-log -- standalone script (no nango.log here); `result.extracted` carries identity-document PII, so only log the non-sensitive status fields.
+console.log({ object: result.object, status: result.status, reason: result.reason, warnings: result.warnings });
