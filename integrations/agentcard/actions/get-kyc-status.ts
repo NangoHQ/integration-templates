@@ -8,7 +8,7 @@ const InputSchema = z.object({
 const ProviderKycStatusSchema = z
     .object({
         status: z.string().describe('Current KYC status. Examples: "needs_information", "awaiting_documents", "approved"'),
-        required_fields: z.array(z.string()).optional()
+        required_fields: z.array(z.string()).optional().nullable()
     })
     .passthrough();
 
@@ -25,7 +25,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://docs.agentcard.sh
+            // https://docs.agentcard.sh/companies/api/reference/kyc-status
             endpoint: '/api/v2/kyc',
             params: {
                 user_id: input.user_id
@@ -37,7 +37,7 @@ const action = createAction({
 
         return {
             status: data.status,
-            ...(data.required_fields !== undefined && { required_fields: data.required_fields })
+            ...(data.required_fields != null && { required_fields: data.required_fields })
         };
     }
 });

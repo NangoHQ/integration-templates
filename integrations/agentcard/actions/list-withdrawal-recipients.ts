@@ -31,6 +31,7 @@ const InputSchema = z.object({
 
 export default createAction({
     description: "List a connected user's saved, active withdrawal bank destinations.",
+    version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango: NangoAction, input: z.infer<typeof InputSchema>): Promise<z.infer<typeof OutputSchema>> => {

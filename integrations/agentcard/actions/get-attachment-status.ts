@@ -6,10 +6,10 @@ const InputSchema = z.object({
 });
 
 const ProviderCardSchema = z.object({
-    network: z.string().nullable(),
-    brand: z.string().nullable(),
-    last4: z.string().nullable(),
-    art_url: z.string().nullable()
+    network: z.string().nullable().optional(),
+    brand: z.string().nullable().optional(),
+    last4: z.string().nullable().optional(),
+    art_url: z.string().nullable().optional()
 });
 
 const ProviderAttachmentSchema = z.object({
@@ -51,7 +51,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://docs.agentcard.sh
+            // https://docs.agentcard.sh/companies/api/reference/attach-status
             endpoint: '/api/v2/attach',
             params: {
                 user_id: input.user_id

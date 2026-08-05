@@ -29,7 +29,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://docs.agentcard.sh/api-reference/connect/verify
+            // https://docs.agentcard.sh/companies/api/reference/connect-verify
             endpoint: '/api/v2/connect/verify',
             data: {
                 connect_id: input.connect_id,

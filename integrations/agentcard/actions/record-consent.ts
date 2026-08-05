@@ -31,7 +31,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://docs.agentcard.sh/api-reference/connect/consent
+            // https://docs.agentcard.sh/companies/api/reference/connect-consent
             endpoint: '/api/v2/connect/consent',
             data: {
                 user_id: input.user_id,

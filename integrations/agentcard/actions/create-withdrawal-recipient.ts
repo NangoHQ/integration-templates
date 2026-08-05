@@ -7,7 +7,7 @@ const InputSchema = z.object({
     beneficiary_name: z.string().describe("The account holder's legal name."),
     country_code: z.string().describe('ISO 3166-1 alpha-2 country of the bank account. Example: "US"'),
     nickname: z.string().optional().describe('Optional nickname for this recipient.'),
-    email: z.string().optional().describe('Optional email address.'),
+    email: z.string().email().optional().describe('Optional email address.'),
     routing_number: z.string().optional().describe('ACH: 9-digit ABA routing number.'),
     account_number: z.string().optional().describe('ACH: the account number.'),
     account_type: z.enum(['checking', 'savings']).optional().describe("ACH only. Either 'checking' or 'savings'."),

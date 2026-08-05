@@ -27,7 +27,7 @@ const action = createAction({
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://docs.agentcard.sh/api-reference/v2/introduction
+            // https://docs.agentcard.sh/companies/api/reference/introspect
             endpoint: '/api/v2',
             retries: 3
         });

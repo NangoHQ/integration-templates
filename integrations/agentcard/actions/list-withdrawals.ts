@@ -29,7 +29,7 @@ const WithdrawalSchema = z.object({
     user_id: z.string(),
     status: z.enum(['requested', 'processing', 'completed', 'rejected']),
     rail: z.enum(['bank', 'address']),
-    amount_cents: z.number(),
+    amount_cents: z.number().int(),
     destination_address: z.string().nullable().optional(),
     failure_code: z.string().nullable().optional(),
     completed_at: z.string().nullable().optional(),
@@ -49,7 +49,7 @@ const OutputSchema = z.object({
             user_id: z.string(),
             status: z.enum(['requested', 'processing', 'completed', 'rejected']),
             rail: z.enum(['bank', 'address']),
-            amount_cents: z.number(),
+            amount_cents: z.number().int(),
             destination_address: z.string().optional(),
             failure_code: z.string().optional(),
             completed_at: z.string().optional(),
@@ -68,7 +68,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://docs.agentcard.sh/api/v2/wallet/withdrawals
+            // https://docs.agentcard.sh/companies/api/reference/wallet-withdrawals-list
             endpoint: '/api/v2/wallet/withdrawals',
             params: {
                 user_id: input.user_id

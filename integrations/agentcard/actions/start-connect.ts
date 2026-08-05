@@ -2,22 +2,11 @@ import type { ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z
-    .object({
-        email: z.string().email().optional().describe("The user's email address. Provide this or phone, not both."),
-        phone: z.string().optional().describe("The user's phone number in E.164 format (e.g. +15551234567). Provide this or email, not both."),
-        external_user_id: z.string().max(255).optional().describe('Optional. Your own identifier for the user, stored on the attempt for your reference.')
-    })
-    .refine(
-        (data) => {
-            const hasEmail = data.email !== undefined;
-            const hasPhone = data.phone !== undefined;
-            return (hasEmail && !hasPhone) || (!hasEmail && hasPhone);
-        },
-        {
-            message: 'Provide exactly one of email or phone.'
-        }
-    );
+const InputSchema = z.object({
+    email: z.string().email().optional().describe("The user's email address. Provide this or phone, not both."),
+    phone: z.string().e164().optional().describe("The user's phone number in E.164 format (e.g. +15551234567). Provide this or email, not both."),
+    external_user_id: z.string().max(255).optional().describe('Optional. Your own identifier for the user, stored on the attempt for your reference.')
+});
 
 const ProviderConnectAttemptSchema = z.object({
     object: z.literal('connect_attempt'),
@@ -39,6 +28,13 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if ((input.email === undefined) === (input.phone === undefined)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Provide exactly one of email or phone.'
+            });
+        }
+
         const data: Record<string, string> = {};
         if (input.email !== undefined) {
             data['email'] = input.email;
@@ -51,7 +47,7 @@ const action = createAction({
         }
 
         const config: ProxyConfiguration = {
-            // https://docs.agentcard.sh/api-reference/connect/send-a-code
+            // https://docs.agentcard.sh/companies/api/reference/connect-start
             endpoint: '/api/v2/connect/start',
             data,
             retries: 3

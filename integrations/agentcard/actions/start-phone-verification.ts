@@ -5,6 +5,7 @@ const InputSchema = z.object({
     user_id: z.string().describe('Connected user ID. Example: "cmseows7p000fk604g3qee8bs"'),
     phone_number: z
         .string()
+        .e164()
         .optional()
         .describe(
             'E.164 phone number to send the verification code to. Only used if the user has no phone on file; otherwise the on-file number is used instead. Example: "+15551234567"'

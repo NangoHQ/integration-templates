@@ -26,16 +26,17 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://docs.agentcard.sh/api-reference/connect/refresh-token
+            // https://docs.agentcard.sh/companies/api/reference/connect-refresh
             endpoint: '/api/v2/connect/refresh',
             data: {
                 refresh_token: input.refresh_token
             },
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- The refresh token rotates and is invalidated on first use; retrying with the same (now-consumed) token after a lost response fails with invalid_refresh_token.
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

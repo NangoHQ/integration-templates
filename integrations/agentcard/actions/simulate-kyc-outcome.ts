@@ -11,11 +11,11 @@ const ProviderKycStateSchema = z.object({
     object: z.string().optional(),
     status: z.string(),
     simulated: z.boolean().optional(),
-    reason: z.string().optional(),
-    required_fields: z.array(z.string()).optional(),
-    iframe_url: z.string().optional(),
-    warnings: z.array(z.string()).optional(),
-    extracted: z.record(z.string(), z.string()).optional()
+    reason: z.string().optional().nullable(),
+    required_fields: z.array(z.string()).optional().nullable(),
+    iframe_url: z.string().optional().nullable(),
+    warnings: z.array(z.string()).optional().nullable(),
+    extracted: z.record(z.string(), z.string()).optional().nullable()
 });
 
 const OutputSchema = z.object({
@@ -36,7 +36,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://docs.agentcard.sh/api-reference/identity-verification/simulate-an-outcome
+            // https://docs.agentcard.sh/companies/api/reference/kyc-simulate
             endpoint: '/api/v2/kyc/simulate',
             data: {
                 user_id: input.user_id,
@@ -51,11 +51,11 @@ const action = createAction({
         return {
             status: providerKyc.status,
             ...(providerKyc.simulated !== undefined && { simulated: providerKyc.simulated }),
-            ...(providerKyc.reason !== undefined && { reason: providerKyc.reason }),
-            ...(providerKyc.required_fields !== undefined && { required_fields: providerKyc.required_fields }),
-            ...(providerKyc.iframe_url !== undefined && { iframe_url: providerKyc.iframe_url }),
-            ...(providerKyc.warnings !== undefined && { warnings: providerKyc.warnings }),
-            ...(providerKyc.extracted !== undefined && { extracted: providerKyc.extracted })
+            ...(providerKyc.reason != null && { reason: providerKyc.reason }),
+            ...(providerKyc.required_fields != null && { required_fields: providerKyc.required_fields }),
+            ...(providerKyc.iframe_url != null && { iframe_url: providerKyc.iframe_url }),
+            ...(providerKyc.warnings != null && { warnings: providerKyc.warnings }),
+            ...(providerKyc.extracted != null && { extracted: providerKyc.extracted })
         };
     }
 });

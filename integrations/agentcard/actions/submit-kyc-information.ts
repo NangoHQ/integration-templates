@@ -7,7 +7,7 @@ const InputSchema = z.object({
     last_name: z.string().optional(),
     date_of_birth: z.string().optional().describe('ISO 8601 date, YYYY-MM-DD.'),
     national_id_number: z.string().optional(),
-    phone_number: z.string().optional().describe('E.164 format with country code. Example: "+15551234567"'),
+    phone_number: z.string().e164().optional().describe('E.164 format with country code. Example: "+15551234567"'),
     address_line1: z.string().optional(),
     address_line2: z.string().optional(),
     address_city: z.string().optional(),
@@ -19,11 +19,11 @@ const InputSchema = z.object({
 const ProviderKycStateSchema = z.object({
     object: z.string(),
     status: z.string(),
-    required_fields: z.array(z.string()).optional(),
-    iframe_url: z.string().optional(),
-    warnings: z.array(z.string()).optional(),
-    extracted: z.record(z.string(), z.string()).optional(),
-    reason: z.string().optional()
+    required_fields: z.array(z.string()).optional().nullable(),
+    iframe_url: z.string().optional().nullable(),
+    warnings: z.array(z.string()).optional().nullable(),
+    extracted: z.record(z.string(), z.string()).optional().nullable(),
+    reason: z.string().optional().nullable()
 });
 
 const OutputSchema = z.object({
@@ -41,7 +41,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {
@@ -83,7 +83,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://docs.agentcard.sh/api-reference/kyc/submit-information
+            // https://docs.agentcard.sh/companies/api/reference/kyc-submit-information
             endpoint: '/api/v2/kyc/information',
             data: body,
             retries: 3
@@ -94,11 +94,11 @@ const action = createAction({
         return {
             object: kycState.object,
             status: kycState.status,
-            ...(kycState.required_fields !== undefined && { required_fields: kycState.required_fields }),
-            ...(kycState.iframe_url !== undefined && { iframe_url: kycState.iframe_url }),
-            ...(kycState.warnings !== undefined && { warnings: kycState.warnings }),
-            ...(kycState.extracted !== undefined && { extracted: kycState.extracted }),
-            ...(kycState.reason !== undefined && { reason: kycState.reason })
+            ...(kycState.required_fields != null && { required_fields: kycState.required_fields }),
+            ...(kycState.iframe_url != null && { iframe_url: kycState.iframe_url }),
+            ...(kycState.warnings != null && { warnings: kycState.warnings }),
+            ...(kycState.extracted != null && { extracted: kycState.extracted }),
+            ...(kycState.reason != null && { reason: kycState.reason })
         };
     }
 });

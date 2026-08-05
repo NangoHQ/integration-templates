@@ -149,8 +149,6 @@ import './agentcard/actions/start-card-attachment.js';
 import './agentcard/actions/start-connect.js';
 import './agentcard/actions/start-phone-verification.js';
 import './agentcard/actions/submit-kyc-information.js';
-import './agentcard/actions/upload-kyc-document-back.js';
-import './agentcard/actions/upload-kyc-document-front.js';
 import './agentcard/actions/verify-connect.js';
 import './agentcard/actions/verify-phone-code.js';
 
