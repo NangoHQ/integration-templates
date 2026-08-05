@@ -742,6 +742,34 @@ import './baserow/actions/move-row.js';
 import './baserow/actions/update-row.js';
 import './baserow/actions/verify-password-field.js';
 
+// -- Integration: basin
+import './basin/syncs/form_webhooks.js';
+import './basin/syncs/forms.js';
+import './basin/syncs/projects.js';
+import './basin/syncs/submissions.js';
+import './basin/actions/create-form-webhook.js';
+import './basin/actions/create-form.js';
+import './basin/actions/create-project.js';
+import './basin/actions/delete-form-webhook.js';
+import './basin/actions/delete-form.js';
+import './basin/actions/delete-project.js';
+import './basin/actions/delete-submission.js';
+import './basin/actions/get-form-webhook.js';
+import './basin/actions/get-form.js';
+import './basin/actions/get-project.js';
+import './basin/actions/get-submission.js';
+import './basin/actions/list-domains.js';
+import './basin/actions/list-form-views.js';
+import './basin/actions/list-form-webhooks.js';
+import './basin/actions/list-forms.js';
+import './basin/actions/list-projects.js';
+import './basin/actions/list-submissions.js';
+import './basin/actions/refire-submission-webhooks.js';
+import './basin/actions/update-form-webhook.js';
+import './basin/actions/update-form.js';
+import './basin/actions/update-project.js';
+import './basin/actions/update-submission.js';
+
 // -- Integration: bigcommerce
 import './bigcommerce/syncs/brands.js';
 import './bigcommerce/syncs/categories.js';
