@@ -84,7 +84,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing Linear initiative.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -156,14 +156,30 @@ const action = createAction({
             });
         }
 
-        if (!providerResponse.data || !providerResponse.data.initiativeUpdate || !providerResponse.data.initiativeUpdate.initiative) {
+        if (!providerResponse.data || !providerResponse.data.initiativeUpdate) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Initiative not found after update.'
             });
         }
 
-        const initiative = providerResponse.data.initiativeUpdate.initiative;
+        const updateResult = providerResponse.data.initiativeUpdate;
+
+        if (!updateResult.success) {
+            throw new nango.ActionError({
+                type: 'update_failed',
+                message: 'Linear reported that the initiative update was not successful.'
+            });
+        }
+
+        if (!updateResult.initiative) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Initiative not found after update.'
+            });
+        }
+
+        const initiative = updateResult.initiative;
 
         return {
             id: initiative.id,

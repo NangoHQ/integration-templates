@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('Project ID. Example: "315645a9-58c2-4f65-9628-3ce3ad2b6401"')
+    projectId: z.string().describe('The identifier of the project to restore. Example: "315645a9-58c2-4f65-9628-3ce3ad2b6401"')
 });
 
 const ProviderProjectSchema = z.object({
@@ -47,7 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore an archived Linear project.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -75,7 +75,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.id
+                    id: input.projectId
                 }
             },
             retries: 3
@@ -106,7 +106,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Project not found or was deleted',
-                projectId: input.id
+                projectId: input.projectId
             });
         }
 

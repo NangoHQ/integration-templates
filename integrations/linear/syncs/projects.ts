@@ -89,7 +89,7 @@ const ProjectsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Linear projects with lead, status, and progress fields',
-    version: '3.0.2',
+    version: '3.0.3',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['read'],
@@ -104,11 +104,13 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Project');
-
+        // Full refresh on every run (no `updatedAt.gte` filter): `trackDeletes` infers deletions from the
+        // records absent in this run, so it must see the complete project set or it would delete everything
+        // outside an incremental window.
         const limit = 100;
         let after: string | undefined;
         let hasNext = true;
+        let deleteTrackingStarted = false;
 
         while (hasNext) {
             const variables: Record<string, unknown> = {
@@ -181,6 +183,13 @@ const sync = createSync({
 
             const { nodes, pageInfo } = parsed.data.data.projects;
 
+            // Only open delete tracking once the first page has been fetched and validated, so a failing
+            // request or response never leaves tracking open with nothing saved against it.
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('Project');
+                deleteTrackingStarted = true;
+            }
+
             const projects = nodes.map((node) => {
                 const lead = node.lead;
                 const status = node.status;
@@ -214,13 +223,21 @@ const sync = createSync({
                 await nango.batchSave(projects, 'Project');
             }
 
-            hasNext = pageInfo.hasNextPage && pageInfo.endCursor != null;
+            if (pageInfo.hasNextPage && pageInfo.endCursor == null) {
+                // Stopping here would hand an incomplete project set to delete tracking, which would delete
+                // every project on the pages we never fetched. Fail the run instead.
+                throw new Error('Inconsistent Linear pagination state: hasNextPage is true but endCursor is missing');
+            }
+
+            hasNext = pageInfo.hasNextPage;
             if (hasNext) {
                 after = pageInfo.endCursor ?? undefined;
             }
         }
 
-        await nango.trackDeletesEnd('Project');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('Project');
+        }
     }
 });
 

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The ID of the issue label to delete. Example: "b08dbaa2-5ecc-4770-acaf-23894ce84e64"')
+    labelId: z.string().describe('The ID of the issue label to delete. Example: "b08dbaa2-5ecc-4770-acaf-23894ce84e64"')
 });
 
 const ProviderResponseSchema = z.object({
@@ -17,6 +17,7 @@ const ProviderResponseSchema = z.object({
                 .nullable()
                 .optional()
         })
+        .nullable()
         .optional(),
     errors: z
         .array(
@@ -36,7 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Linear issue label.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -47,7 +48,7 @@ const action = createAction({
             endpoint: '/graphql',
             data: {
                 query: 'mutation IssueLabelDelete($id: String!) { issueLabelDelete(id: $id) { success entityId lastSyncId } }',
-                variables: { id: input.id }
+                variables: { id: input.labelId }
             },
             // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
             retries: 0
@@ -81,7 +82,7 @@ const action = createAction({
         if (!deleteResult) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Issue label not found: ${input.id}`
+                message: `Issue label not found: ${input.labelId}`
             });
         }
 

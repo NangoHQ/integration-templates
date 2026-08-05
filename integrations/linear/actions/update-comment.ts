@@ -4,7 +4,7 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
     id: z.string().describe('Comment ID. Example: "005502bb-b9c5-4354-b5e6-6463c24a1806"'),
-    body: z.string().optional().describe('Updated comment body text.')
+    body: z.string().describe('Updated comment body text.')
 });
 
 const ProviderCommentSchema = z.object({
@@ -48,10 +48,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a comment on a Linear issue.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['comments:create', 'write'],
+    scopes: ['write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const mutation = `
@@ -82,7 +82,7 @@ const action = createAction({
         const variables = {
             id: input.id,
             input: {
-                ...(input.body !== undefined && { body: input.body })
+                body: input.body
             }
         };
 
@@ -107,8 +107,10 @@ const action = createAction({
                                 success: z.boolean(),
                                 comment: ProviderCommentSchema.nullable()
                             })
+                            .nullable()
                             .optional()
                     })
+                    .nullable()
                     .optional(),
                 errors: z
                     .array(

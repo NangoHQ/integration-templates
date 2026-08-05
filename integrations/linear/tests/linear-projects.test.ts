@@ -48,6 +48,50 @@ describe('linear projects tests', () => {
         }
     });
 
+    it('should not open or close delete tracking when the first page fails', async () => {
+        const { nangoMock } = createTestContext();
+        const trackDeletesStartSpy = vi.spyOn(nangoMock, 'trackDeletesStart');
+        const trackDeletesEndSpy = vi.spyOn(nangoMock, 'trackDeletesEnd');
+
+        vi.spyOn(nangoMock, 'post').mockRejectedValue(new Error('Linear request failed'));
+
+        await expect(createSync.exec(nangoMock)).rejects.toThrow('Linear request failed');
+
+        expect(trackDeletesStartSpy).not.toHaveBeenCalled();
+        expect(trackDeletesEndSpy).not.toHaveBeenCalled();
+    });
+
+    it('should track deletes only after a page has been validated', async () => {
+        const { nangoMock } = createTestContext();
+        const trackDeletesStartSpy = vi.spyOn(nangoMock, 'trackDeletesStart');
+        const trackDeletesEndSpy = vi.spyOn(nangoMock, 'trackDeletesEnd');
+
+        await createSync.exec(nangoMock);
+
+        expect(trackDeletesStartSpy).toHaveBeenCalledTimes(1);
+        expect(trackDeletesEndSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('should fail rather than truncate when hasNextPage is true without an endCursor', async () => {
+        const { nangoMock } = createTestContext();
+        const trackDeletesEndSpy = vi.spyOn(nangoMock, 'trackDeletesEnd');
+
+        vi.spyOn(nangoMock, 'post').mockResolvedValue({
+            data: {
+                data: {
+                    projects: {
+                        nodes: [],
+                        pageInfo: { hasNextPage: true, endCursor: null }
+                    }
+                }
+            }
+        });
+
+        await expect(createSync.exec(nangoMock)).rejects.toThrow('Inconsistent Linear pagination state');
+
+        expect(trackDeletesEndSpy).not.toHaveBeenCalled();
+    });
+
     it('should get, map correctly the data and batchDelete the result', async () => {
         const { nangoMock } = createTestContext();
         const batchDeleteSpy = vi.spyOn(nangoMock, 'batchDelete');

@@ -57,6 +57,11 @@ const CheckpointSchema = z.object({
     cursor: z.string()
 });
 
+// Shape persisted by version 1.0.1 of this sync, kept so existing connections can be migrated in place.
+const LegacyCheckpointSchema = z.object({
+    updatedAfter: z.string()
+});
+
 const CYCLES_QUERY = `
 query Cycles($first: Int!, $after: String, $includeArchived: Boolean, $filter: CycleFilter) {
     cycles(first: $first, after: $after, includeArchived: $includeArchived, filter: $filter, orderBy: updatedAt) {
@@ -84,7 +89,7 @@ query Cycles($first: Int!, $after: String, $includeArchived: Boolean, $filter: C
 
 const sync = createSync({
     description: 'Sync Linear cycles for planning and iteration tracking.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['read'],
@@ -97,16 +102,26 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpointRaw = await nango.getCheckpoint();
-        const checkpoint = CheckpointSchema.safeParse(checkpointRaw ?? { updated_after: '', cursor: '' });
-        if (!checkpoint.success) {
-            throw new Error(`Invalid checkpoint: ${checkpoint.error.message}`);
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpointRaw ?? { updated_after: '', cursor: '' });
+
+        let checkpointData: z.infer<typeof CheckpointSchema>;
+        if (parsedCheckpoint.success) {
+            checkpointData = parsedCheckpoint.data;
+        } else {
+            // Migrate the legacy `{ updatedAfter }` checkpoint persisted by 1.0.1 instead of failing the run.
+            const legacyCheckpoint = LegacyCheckpointSchema.safeParse(checkpointRaw);
+            if (!legacyCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            checkpointData = { updated_after: legacyCheckpoint.data.updatedAfter, cursor: '' };
         }
+
         const metadata = await nango.getMetadata();
 
-        const updatedAfter = checkpoint.data.updated_after.length > 0 ? checkpoint.data.updated_after : undefined;
+        const updatedAfter = checkpointData.updated_after.length > 0 ? checkpointData.updated_after : undefined;
 
         let hasNextPage = true;
-        let endCursor = checkpoint.data.cursor.length > 0 ? checkpoint.data.cursor : undefined;
+        let endCursor = checkpointData.cursor.length > 0 ? checkpointData.cursor : undefined;
         let firstUpdatedAt: string | undefined;
 
         interface GraphQLVariables {

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The identifier of the issue to remove the label from. Example: "6948bf28-149d-489b-8f0d-eebae9be8324"'),
+    issueId: z.string().describe('The identifier of the issue to remove the label from. Example: "6948bf28-149d-489b-8f0d-eebae9be8324"'),
     labelId: z.string().describe('The identifier of the label to remove from the issue. Example: "b08dbaa2-5ecc-4770-acaf-23894ce84e64"')
 });
 
@@ -31,16 +31,18 @@ const ProviderResponseSchema = z.object({
                         .optional()
                         .nullable()
                 })
+                .nullable()
                 .optional()
         })
-        .nullable(),
+        .nullable()
+        .optional(),
     errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const OutputSchema = z.object({
     success: z.boolean(),
-    issueId: z.string().optional(),
-    labelId: z.string().optional(),
+    issueId: z.string(),
+    labelId: z.string(),
     issue: z
         .object({
             id: z.string(),
@@ -53,7 +55,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a label from a Linear issue',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -77,7 +79,7 @@ const action = createAction({
                     }
                 `,
                 variables: {
-                    id: input.id,
+                    id: input.issueId,
                     labelId: input.labelId
                 }
             },
@@ -87,14 +89,12 @@ const action = createAction({
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
         const errors = providerResponse.errors;
-        if (errors) {
-            for (const error of errors) {
-                throw new nango.ActionError({
-                    type: 'linear_api_error',
-                    message: error.message,
-                    code: error.extensions?.code
-                });
-            }
+        if (errors && errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'linear_api_error',
+                message: errors.map((error) => error.message).join(', '),
+                code: errors[0]?.extensions?.code
+            });
         }
 
         if (!providerResponse.data || !providerResponse.data.issueRemoveLabel) {
@@ -108,7 +108,7 @@ const action = createAction({
 
         return {
             success: result.success,
-            issueId: input.id,
+            issueId: input.issueId,
             labelId: input.labelId,
             ...(result.issue && {
                 issue: {

@@ -38,7 +38,7 @@ const ProviderInitiativeNodeSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Linear initiatives and their project relationships',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['read'],
@@ -50,7 +50,7 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: no incremental filter was live-tested end-to-end for initiatives.
         // updatedAt fields exist but were not verified for this resource in this pass.
-        await nango.trackDeletesStart('Initiative');
+        let deleteTrackingStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://linear.app/developers/graphql
@@ -129,12 +129,22 @@ const sync = createSync({
                     };
                 });
 
+            // Start delete tracking only once a page has been fetched and fully validated, so a failed
+            // request never opens tracking. If a later page fails, the thrown error aborts the run before
+            // trackDeletesEnd, so tracking is never finalized on a partial dataset.
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('Initiative');
+                deleteTrackingStarted = true;
+            }
+
             if (initiatives.length > 0) {
                 await nango.batchSave(initiatives, 'Initiative');
             }
         }
 
-        await nango.trackDeletesEnd('Initiative');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('Initiative');
+        }
     }
 });
 

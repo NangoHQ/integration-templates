@@ -16,7 +16,27 @@
         },
         "progress": 0
       }
-    ]
+    ],
+    "nodes": [
+      {
+        "id": "6a771b35-93e3-41fd-afa0-1ad45aad259f",
+        "name": "Nango Registry Test Cycle",
+        "number": 3,
+        "startsAt": "2026-08-04T00:00:00.000Z",
+        "endsAt": "2026-08-18T00:00:00.000Z",
+        "createdAt": "2026-08-04T12:02:58.691Z",
+        "updatedAt": "2026-08-04T12:02:58.691Z",
+        "team": {
+          "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
+          "name": "Nango"
+        },
+        "progress": 0
+      }
+    ],
+    "pageInfo": {
+      "hasNextPage": false,
+      "endCursor": null
+    }
   },
   "nango": {},
   "api": {

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The ID of the comment to delete. Example: "005502bb-b9c5-4354-b5e6-6463c24a1806"')
+    commentId: z.string().describe('The ID of the comment to delete. Example: "005502bb-b9c5-4354-b5e6-6463c24a1806"')
 });
 
 const GraphQLErrorSchema = z.object({
@@ -24,10 +24,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a comment from a Linear issue.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['comments:create', 'write'],
+    scopes: ['write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -36,7 +36,7 @@ const action = createAction({
             data: {
                 query: 'mutation CommentDelete($id: String!) { commentDelete(id: $id) { success } }',
                 variables: {
-                    id: input.id
+                    id: input.commentId
                 }
             },
             retries: 10

@@ -4,8 +4,18 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     projectId: z.string().describe('Project ID. Example: "315645a9-58c2-4f65-9628-3ce3ad2b6401"'),
     name: z.string().describe('Milestone name. Example: "Q3 Launch"'),
-    targetDate: z.string().optional().describe('Target date as an ISO 8601 date string (YYYY-MM-DD). Example: "2026-09-01"')
+    targetDate: z
+        .string()
+        .regex(/^\d{4}-\d{2}-\d{2}$/, 'Must be in YYYY-MM-DD format.')
+        .optional()
+        .describe('Target date as an ISO 8601 date string (YYYY-MM-DD). Example: "2026-09-01"')
 });
+
+const GraphQLErrorSchema = z
+    .object({
+        message: z.string()
+    })
+    .passthrough();
 
 const ProviderResponseSchema = z.object({
     data: z
@@ -35,7 +45,8 @@ const ProviderResponseSchema = z.object({
                 .optional()
         })
         .nullable()
-        .optional()
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const OutputSchema = z.object({
@@ -54,7 +65,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a milestone within a Linear project',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -90,10 +101,20 @@ const action = createAction({
                     }
                 }
             },
-            retries: 3
+            // Creating a milestone is not idempotent: a retry after a failed response could create a duplicate.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
+
+        if (providerResponse.errors && providerResponse.errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: providerResponse.errors.map((e) => e.message).join(', ')
+            });
+        }
+
         const createResult = providerResponse.data?.projectMilestoneCreate;
 
         if (!createResult || !createResult.success || !createResult.projectMilestone) {

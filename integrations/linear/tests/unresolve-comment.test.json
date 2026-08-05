@@ -3,7 +3,9 @@
     "id": "005502bb-b9c5-4354-b5e6-6463c24a1806"
   },
   "output": {
-    "id": "005502bb-b9c5-4354-b5e6-6463c24a1806",
+    "success": true,
+    "lastSyncId": "558425495",
+    "commentId": "005502bb-b9c5-4354-b5e6-6463c24a1806",
     "resolvedAt": null
   },
   "nango": {},
@@ -14,6 +16,7 @@
           "data": {
             "commentUnresolve": {
               "success": true,
+              "lastSyncId": 558425495,
               "comment": {
                 "id": "005502bb-b9c5-4354-b5e6-6463c24a1806",
                 "resolvedAt": null
@@ -56,15 +59,6 @@
           "x-ratelimit-requests-remaining": "4999",
           "x-ratelimit-requests-reset": "1785848938689",
           "x-request-id": "a25d735679590d87-PDX"
-        },
-        "hash": "195e5d9c20768dc85dab8abe8dbf139147d68e1c",
-        "request": {
-          "data": {
-            "query": "mutation CommentUnresolve($id: String!) {\n                    commentUnresolve(id: $id) {\n                        success\n                        comment {\n                            id\n                            resolvedAt\n                        }\n                    }\n                }",
-            "variables": {
-              "id": "005502bb-b9c5-4354-b5e6-6463c24a1806"
-            }
-          }
         }
       }
     }

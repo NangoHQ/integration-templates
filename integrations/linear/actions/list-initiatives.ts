@@ -36,13 +36,25 @@ const PageInfoSchema = z.object({
     endCursor: z.string().nullable().optional()
 });
 
-const ProviderResponseSchema = z.object({
-    data: z.object({
-        initiatives: z.object({
-            nodes: z.array(InitiativeNodeSchema),
-            pageInfo: PageInfoSchema
-        })
+const GraphQLErrorSchema = z
+    .object({
+        message: z.string()
     })
+    .passthrough();
+
+const ProviderResponseSchema = z.object({
+    data: z
+        .object({
+            initiatives: z
+                .object({
+                    nodes: z.array(InitiativeNodeSchema),
+                    pageInfo: PageInfoSchema
+                })
+                .optional()
+        })
+        .nullable()
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const OutputItemSchema = z.object({
@@ -73,7 +85,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Linear initiatives with pagination.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -136,7 +148,21 @@ const action = createAction({
             });
         }
 
-        const { initiatives } = parsed.data.data;
+        if (parsed.data.errors && parsed.data.errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: parsed.data.errors.map((e) => e.message).join(', ')
+            });
+        }
+
+        const initiatives = parsed.data.data?.initiatives;
+        if (!initiatives) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Invalid or missing initiatives data in Linear API response.'
+            });
+        }
+
         const items = initiatives.nodes.map((node) => ({
             id: node.id,
             name: node.name,

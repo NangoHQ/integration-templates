@@ -41,6 +41,12 @@ const ListOutputSchema = z.object({
     nextCursor: z.string().optional()
 });
 
+const GraphQLErrorSchema = z
+    .object({
+        message: z.string()
+    })
+    .passthrough();
+
 const GraphQLResponseSchema = z.object({
     data: z
         .object({
@@ -51,12 +57,14 @@ const GraphQLResponseSchema = z.object({
                 })
                 .optional()
         })
-        .optional()
+        .nullable()
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const action = createAction({
     description: 'List Linear project milestones with pagination.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['read'],
@@ -98,6 +106,14 @@ const action = createAction({
         });
 
         const parsed = GraphQLResponseSchema.parse(response.data);
+
+        if (parsed.errors && parsed.errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: parsed.errors.map((e) => e.message).join(', ')
+            });
+        }
+
         const projectMilestones = parsed.data?.projectMilestones;
 
         if (!projectMilestones || !Array.isArray(projectMilestones.nodes)) {

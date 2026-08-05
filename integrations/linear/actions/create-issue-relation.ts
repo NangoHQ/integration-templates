@@ -21,19 +21,18 @@ const ProviderIssueRelationSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        issueRelationCreate: z.object({
-            success: z.boolean(),
-            issueRelation: ProviderIssueRelationSchema.nullable()
+    data: z
+        .object({
+            issueRelationCreate: z
+                .object({
+                    success: z.boolean(),
+                    issueRelation: ProviderIssueRelationSchema.nullable().optional()
+                })
+                .nullable()
+                .optional()
         })
-    }),
-    errors: z
-        .array(
-            z.object({
-                message: z.string()
-            })
-        )
-        .default([])
+        .nullable()
+        .optional()
 });
 
 const OutputSchema = z.object({
@@ -47,7 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a relationship between two Linear issues.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'], // Linear GraphQL mutations require a write-capable token
@@ -87,6 +86,16 @@ const action = createAction({
             retries: 3
         });
 
+        // Check GraphQL errors before validating the payload shape so provider messages are preserved.
+        const errorCheck = z.object({ errors: z.array(z.object({ message: z.string() })).min(1) }).safeParse(response.data);
+        if (errorCheck.success) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: errorCheck.data.errors.map((error) => error.message).join(', '),
+                errors: errorCheck.data.errors
+            });
+        }
+
         const parsedResult = ProviderResponseSchema.safeParse(response.data);
         if (!parsedResult.success) {
             throw new nango.ActionError({
@@ -96,17 +105,16 @@ const action = createAction({
             });
         }
 
-        const parsed = parsedResult.data;
+        const issueRelationCreate = parsedResult.data.data?.issueRelationCreate;
 
-        const firstError = parsed.errors[0];
-        if (firstError) {
+        if (!issueRelationCreate || !issueRelationCreate.success) {
             throw new nango.ActionError({
-                type: 'graphql_error',
-                message: firstError.message
+                type: 'creation_failed',
+                message: 'Linear reported issue relation creation failed.'
             });
         }
 
-        const relation = parsed.data.issueRelationCreate.issueRelation;
+        const relation = issueRelationCreate.issueRelation;
         if (!relation) {
             throw new nango.ActionError({
                 type: 'creation_failed',

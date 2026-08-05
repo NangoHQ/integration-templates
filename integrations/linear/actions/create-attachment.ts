@@ -19,28 +19,36 @@ const InputSchema = z.object({
     commentBody: z.string().optional().describe('Create a linked comment with markdown body.')
 });
 
-const ProviderResponseSchema = z.object({
-    data: z.object({
-        attachmentCreate: z.object({
-            success: z.boolean(),
-            attachment: z.object({
-                id: z.string(),
-                title: z.string().nullable().optional(),
-                subtitle: z.string().nullable().optional(),
-                url: z.string().nullable().optional(),
-                metadata: z.unknown().nullable().optional(),
-                sourceType: z.string().nullable().optional(),
-                createdAt: z.string().nullable().optional(),
-                updatedAt: z.string().nullable().optional(),
-                issue: z
-                    .object({
-                        id: z.string()
-                    })
-                    .nullable()
-                    .optional()
-            })
+const ProviderAttachmentSchema = z.object({
+    id: z.string(),
+    title: z.string().nullable().optional(),
+    subtitle: z.string().nullable().optional(),
+    url: z.string().nullable().optional(),
+    metadata: z.unknown().nullable().optional(),
+    sourceType: z.string().nullable().optional(),
+    createdAt: z.string().nullable().optional(),
+    updatedAt: z.string().nullable().optional(),
+    issue: z
+        .object({
+            id: z.string()
         })
-    })
+        .nullable()
+        .optional()
+});
+
+const ProviderResponseSchema = z.object({
+    data: z
+        .object({
+            attachmentCreate: z
+                .object({
+                    success: z.boolean(),
+                    attachment: ProviderAttachmentSchema.nullable().optional()
+                })
+                .nullable()
+                .optional()
+        })
+        .nullable()
+        .optional()
 });
 
 const OutputSchema = z.object({
@@ -58,7 +66,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an attachment on a Linear issue.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['issues:create', 'comments:create'],
@@ -125,19 +133,30 @@ const action = createAction({
             });
         }
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
-        if (!providerResponse.data.attachmentCreate.success) {
+        const parsedResult = ProviderResponseSchema.safeParse(response.data);
+        if (!parsedResult.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Linear API.',
+                details: parsedResult.error.issues
+            });
+        }
+
+        const providerResponse = parsedResult.data;
+        const attachmentCreate = providerResponse.data?.attachmentCreate;
+
+        if (!attachmentCreate || !attachmentCreate.success || !attachmentCreate.attachment) {
             throw new nango.ActionError({
                 type: 'create_failed',
                 message: 'Attachment creation was not successful.'
             });
         }
 
-        const attachment = providerResponse.data.attachmentCreate.attachment;
+        const attachment = attachmentCreate.attachment;
 
         return {
             id: attachment.id,
-            success: providerResponse.data.attachmentCreate.success,
+            success: attachmentCreate.success,
             ...(attachment.title != null && { title: attachment.title }),
             ...(attachment.subtitle != null && { subtitle: attachment.subtitle }),
             ...(attachment.url != null && { url: attachment.url }),

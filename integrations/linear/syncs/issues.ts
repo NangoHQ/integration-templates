@@ -13,7 +13,8 @@ const IssueSchema = z.object({
     state: z
         .object({
             id: z.string(),
-            name: z.string()
+            name: z.string(),
+            color: z.string().optional()
         })
         .optional(),
     assignee: z
@@ -34,7 +35,8 @@ const IssueSchema = z.object({
         .array(
             z.object({
                 id: z.string(),
-                name: z.string()
+                name: z.string(),
+                color: z.string().optional()
             })
         )
         .optional(),
@@ -63,12 +65,14 @@ const CheckpointSchema = z.object({
 
 const LinearLabelSchema = z.object({
     id: z.string(),
-    name: z.string()
+    name: z.string(),
+    color: z.string().nullable().optional()
 });
 
 const LinearStateSchema = z.object({
     id: z.string(),
-    name: z.string()
+    name: z.string(),
+    color: z.string().nullable().optional()
 });
 
 const LinearAssigneeSchema = z.object({
@@ -133,7 +137,7 @@ const LinearIssuesResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Linear issues with state, assignee, labels, project, and cycle data.',
-    version: '3.0.2',
+    version: '3.0.3',
     frequency: 'every 5 minutes',
     autoStart: true,
     scopes: ['read'],
@@ -210,10 +214,10 @@ const sync = createSync({
       createdAt
       archivedAt
       trashed
-      state { id name }
+      state { id name color }
       assignee { id name email }
       team { id name key }
-      labels { nodes { id name } }
+      labels { nodes { id name color } }
       project { id name state }
       cycle { id name }
       url
@@ -254,7 +258,13 @@ const sync = createSync({
                 createdAt: node.createdAt,
                 ...(node.archivedAt != null && { archivedAt: node.archivedAt }),
                 ...(node.trashed != null && { trashed: node.trashed }),
-                ...(node.state != null && { state: { id: node.state.id, name: node.state.name } }),
+                ...(node.state != null && {
+                    state: {
+                        id: node.state.id,
+                        name: node.state.name,
+                        ...(node.state.color != null && { color: node.state.color })
+                    }
+                }),
                 ...(node.assignee != null && {
                     assignee: {
                         id: node.assignee.id,
@@ -272,7 +282,8 @@ const sync = createSync({
                 ...(node.labels != null && {
                     labels: (node.labels.nodes ?? []).map((label) => ({
                         id: label.id,
-                        name: label.name
+                        name: label.name,
+                        ...(label.color != null && { color: label.color })
                     }))
                 }),
                 ...(node.project != null && {

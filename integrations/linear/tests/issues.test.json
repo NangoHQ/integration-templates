@@ -12,7 +12,8 @@
           "createdAt": "2026-08-03T22:09:38.562Z",
           "state": {
             "id": "1d5f00e6-da6c-44d9-bb95-3f753c0011ba",
-            "name": "Backlog"
+            "name": "Backlog",
+            "color": "#bec2c8"
           },
           "assignee": {
             "id": "b14d8004-1a6b-4cfd-a831-585f018c0276",
@@ -24,7 +25,13 @@
             "name": "Nango",
             "key": "NAN"
           },
-          "labels": [],
+          "labels": [
+            {
+              "id": "3f4a1c22-9f5e-4a41-9c1e-5b8de4a2f001",
+              "name": "Bug",
+              "color": "#EB5757"
+            }
+          ],
           "url": "https://linear.app/nango/issue/NAN-6",
           "priority": 0
         },
@@ -37,7 +44,8 @@
           "createdAt": "2026-08-03T22:09:27.508Z",
           "state": {
             "id": "1d5f00e6-da6c-44d9-bb95-3f753c0011ba",
-            "name": "Backlog"
+            "name": "Backlog",
+            "color": "#bec2c8"
           },
           "team": {
             "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
@@ -57,7 +65,8 @@
           "createdAt": "2026-03-19T14:38:36.124Z",
           "state": {
             "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
-            "name": "Todo"
+            "name": "Todo",
+            "color": "#e2e2e2"
           },
           "team": {
             "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
@@ -77,7 +86,8 @@
           "createdAt": "2026-03-19T14:38:36.124Z",
           "state": {
             "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
-            "name": "Todo"
+            "name": "Todo",
+            "color": "#e2e2e2"
           },
           "team": {
             "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
@@ -97,7 +107,8 @@
           "createdAt": "2026-03-19T14:38:36.124Z",
           "state": {
             "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
-            "name": "Todo"
+            "name": "Todo",
+            "color": "#e2e2e2"
           },
           "team": {
             "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
@@ -117,7 +128,8 @@
           "createdAt": "2026-03-19T14:38:36.124Z",
           "state": {
             "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
-            "name": "Todo"
+            "name": "Todo",
+            "color": "#e2e2e2"
           },
           "team": {
             "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
@@ -152,7 +164,8 @@
                   "trashed": null,
                   "state": {
                     "id": "1d5f00e6-da6c-44d9-bb95-3f753c0011ba",
-                    "name": "Backlog"
+                    "name": "Backlog",
+                    "color": "#bec2c8"
                   },
                   "assignee": {
                     "id": "b14d8004-1a6b-4cfd-a831-585f018c0276",
@@ -165,7 +178,13 @@
                     "key": "NAN"
                   },
                   "labels": {
-                    "nodes": []
+                    "nodes": [
+                      {
+                        "id": "3f4a1c22-9f5e-4a41-9c1e-5b8de4a2f001",
+                        "name": "Bug",
+                        "color": "#EB5757"
+                      }
+                    ]
                   },
                   "project": null,
                   "cycle": null,
@@ -183,7 +202,8 @@
                   "trashed": null,
                   "state": {
                     "id": "1d5f00e6-da6c-44d9-bb95-3f753c0011ba",
-                    "name": "Backlog"
+                    "name": "Backlog",
+                    "color": "#bec2c8"
                   },
                   "assignee": null,
                   "team": {
@@ -210,7 +230,8 @@
                   "trashed": null,
                   "state": {
                     "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
-                    "name": "Todo"
+                    "name": "Todo",
+                    "color": "#e2e2e2"
                   },
                   "assignee": null,
                   "team": {
@@ -237,7 +258,8 @@
                   "trashed": null,
                   "state": {
                     "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
-                    "name": "Todo"
+                    "name": "Todo",
+                    "color": "#e2e2e2"
                   },
                   "assignee": null,
                   "team": {
@@ -264,7 +286,8 @@
                   "trashed": null,
                   "state": {
                     "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
-                    "name": "Todo"
+                    "name": "Todo",
+                    "color": "#e2e2e2"
                   },
                   "assignee": null,
                   "team": {
@@ -291,7 +314,8 @@
                   "trashed": null,
                   "state": {
                     "id": "8b9e9188-578c-400a-8eda-f2d6999d4a60",
-                    "name": "Todo"
+                    "name": "Todo",
+                    "color": "#e2e2e2"
                   },
                   "assignee": null,
                   "team": {
@@ -350,13 +374,6 @@
           "x-ratelimit-requests-remaining": "4999",
           "x-ratelimit-requests-reset": "1785848509420",
           "x-request-id": "a25d68d8dafa5f03-PDX"
-        },
-        "hash": "b6fa9bed8979e35b0b6c4cf5b3b1fe00cebca976",
-        "request": {
-          "data": {
-            "query": "query Issues($after: String, $filter: IssueFilter) {\n  issues(after: $after, first: 100, orderBy: updatedAt, filter: $filter) {\n    nodes {\n      id\n      identifier\n      title\n      description\n      updatedAt\n      createdAt\n      archivedAt\n      trashed\n      state { id name }\n      assignee { id name email }\n      team { id name key }\n      labels { nodes { id name } }\n      project { id name state }\n      cycle { id name }\n      url\n      priority\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}",
-            "variables": {}
-          }
         }
       }
     }

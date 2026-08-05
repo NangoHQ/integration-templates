@@ -15,13 +15,26 @@ const ProviderInitiativeSchema = z.object({
     updatedAt: z.string().nullable()
 });
 
-const ProviderResponseSchema = z.object({
-    data: z.object({
-        initiativeCreate: z.object({
-            success: z.boolean(),
-            initiative: ProviderInitiativeSchema.nullable()
-        })
+const GraphQLErrorSchema = z
+    .object({
+        message: z.string()
     })
+    .passthrough();
+
+const ProviderResponseSchema = z.object({
+    data: z
+        .object({
+            initiativeCreate: z
+                .object({
+                    success: z.boolean(),
+                    initiative: ProviderInitiativeSchema.nullable()
+                })
+                .nullable()
+                .optional()
+        })
+        .nullable()
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const OutputSchema = z.object({
@@ -35,7 +48,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a Linear initiative',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -71,7 +84,9 @@ const action = createAction({
                 query,
                 variables
             },
-            retries: 1
+            // Creating an initiative is not idempotent: a retry after a failed response could create a duplicate.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.safeParse(response.data);
@@ -83,8 +98,15 @@ const action = createAction({
             });
         }
 
-        const result = parsed.data.data.initiativeCreate;
-        if (!result.success || !result.initiative) {
+        if (parsed.data.errors && parsed.data.errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: parsed.data.errors.map((e) => e.message).join(', ')
+            });
+        }
+
+        const result = parsed.data.data?.initiativeCreate;
+        if (!result || !result.success || !result.initiative) {
             throw new nango.ActionError({
                 type: 'creation_failed',
                 message: 'Initiative creation failed or returned no initiative'

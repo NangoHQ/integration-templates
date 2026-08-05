@@ -5,7 +5,12 @@ const InputSchema = z.object({
     id: z.string().describe('The identifier of the project milestone to update. Example: "1c52e20d-a929-4a42-88e6-72ef225d9403"'),
     name: z.string().optional().describe('The new name of the milestone.'),
     description: z.string().nullable().optional().describe('The new description. Pass null to clear.'),
-    targetDate: z.string().nullable().optional().describe('The target date in YYYY-MM-DD format. Pass null to clear.'),
+    targetDate: z
+        .string()
+        .regex(/^\d{4}-\d{2}-\d{2}$/, 'Must be in YYYY-MM-DD format.')
+        .nullable()
+        .optional()
+        .describe('The target date in YYYY-MM-DD format. Pass null to clear.'),
     projectId: z.string().nullable().optional().describe('The identifier of the project to associate with the milestone. Pass null to clear.')
 });
 
@@ -63,7 +68,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing Linear project milestone.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],

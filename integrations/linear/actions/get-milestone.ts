@@ -17,10 +17,20 @@ const ProviderMilestoneSchema = z.object({
     project: ProviderProjectSchema.nullable().optional()
 });
 
-const ProviderResponseSchema = z.object({
-    data: z.object({
-        projectMilestone: ProviderMilestoneSchema.nullable().optional()
+const GraphQLErrorSchema = z
+    .object({
+        message: z.string()
     })
+    .passthrough();
+
+const ProviderResponseSchema = z.object({
+    data: z
+        .object({
+            projectMilestone: ProviderMilestoneSchema.nullable().optional()
+        })
+        .nullable()
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const OutputSchema = z.object({
@@ -37,7 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Linear project milestone by milestone ID.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -66,7 +76,15 @@ const action = createAction({
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);
-        const milestone = parsed.data.projectMilestone;
+
+        if (parsed.errors && parsed.errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: parsed.errors.map((e) => e.message).join(', ')
+            });
+        }
+
+        const milestone = parsed.data?.projectMilestone;
 
         if (!milestone) {
             throw new nango.ActionError({

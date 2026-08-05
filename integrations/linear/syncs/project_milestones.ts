@@ -51,9 +51,13 @@ const ProjectMilestoneConnectionSchema = z.object({
 });
 
 const ResponseSchema = z.object({
-    data: z.object({
-        projectMilestones: ProjectMilestoneConnectionSchema
-    })
+    data: z
+        .object({
+            projectMilestones: ProjectMilestoneConnectionSchema
+        })
+        .nullable()
+        .optional(),
+    errors: z.array(z.unknown()).optional()
 });
 
 type ProjectMilestonesVariables = {
@@ -69,7 +73,7 @@ type ProjectMilestonesVariables = {
 
 const sync = createSync({
     description: 'Sync Linear project milestones for project planning.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every 6min',
     autoStart: true,
     scopes: ['read'],
@@ -150,6 +154,14 @@ const sync = createSync({
             const parsed = ResponseSchema.safeParse(response.data);
             if (!parsed.success) {
                 throw new Error('Unexpected response shape: ' + parsed.error.message);
+            }
+
+            if (parsed.data.errors && parsed.data.errors.length > 0) {
+                throw new Error(`GraphQL errors: ${JSON.stringify(parsed.data.errors)}`);
+            }
+
+            if (!parsed.data.data) {
+                throw new Error('Missing projectMilestones data in GraphQL response');
             }
 
             const connection = parsed.data.data.projectMilestones;

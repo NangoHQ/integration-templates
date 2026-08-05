@@ -3,6 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+    after: z.string().optional().describe('Deprecated alias for `cursor`, retained for backwards compatibility. `cursor` wins when both are provided.'),
     first: z.number().optional().describe('Number of items to return per page. Default: 50.'),
     teamId: z.string().optional().describe('Filter cycles by team ID.'),
     filter: z.record(z.string(), z.unknown()).optional().describe('Cycle filter object. Example: { team: { id: { eq: "team-id" } } }'),
@@ -59,12 +60,18 @@ const OutputCycleSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(OutputCycleSchema),
-    nextCursor: z.string().optional()
+    nextCursor: z.string().optional(),
+    // Legacy fields retained for backwards compatibility: `nodes` mirrors `items` and `pageInfo` is derived from `nextCursor`.
+    nodes: z.array(OutputCycleSchema),
+    pageInfo: z.object({
+        hasNextPage: z.boolean(),
+        endCursor: z.string().nullable()
+    })
 });
 
 const action = createAction({
     description: 'List Linear cycles with filtering and pagination.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -81,8 +88,10 @@ const action = createAction({
             first,
             orderBy: input.orderBy ?? 'updatedAt'
         };
-        if (input.cursor) {
-            variables['after'] = input.cursor;
+        // `cursor` is the canonical input; `after` is the legacy alias and only applies when `cursor` is absent.
+        const after = input.cursor ?? input.after;
+        if (after) {
+            variables['after'] = after;
         }
         if (Object.keys(filter).length > 0) {
             variables['filter'] = filter;
@@ -161,9 +170,16 @@ const action = createAction({
             };
         });
 
+        const nextCursor = pageInfo.hasNextPage && pageInfo.endCursor ? pageInfo.endCursor : undefined;
+
         return {
             items,
-            ...(pageInfo.hasNextPage && pageInfo.endCursor && { nextCursor: pageInfo.endCursor })
+            ...(nextCursor !== undefined && { nextCursor }),
+            nodes: items,
+            pageInfo: {
+                hasNextPage: !!nextCursor,
+                endCursor: nextCursor ?? null
+            }
         };
     }
 });

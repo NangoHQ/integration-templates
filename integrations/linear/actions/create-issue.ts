@@ -11,7 +11,7 @@ const InputSchema = z.object({
     teamId: z.string().describe('Team ID. Example: "9ce955cd-b013-4e79-bd0a-41bec5a67dd1"'),
     title: z.string().describe('Issue title'),
     description: z.string().optional().describe('Issue description'),
-    priority: z.number().int().min(0).max(4).optional().describe('Priority from 0 (no priority) to 4 (urgent)'),
+    priority: z.number().int().min(0).max(4).optional().describe('Priority: 0 = no priority, 1 = urgent, 2 = high, 3 = medium, 4 = low'),
     assigneeId: z.string().optional().describe('User ID to assign the issue to'),
     stateId: z.string().optional().describe('Workflow state ID'),
     cycleId: z.string().optional().describe('Cycle ID'),
@@ -51,7 +51,7 @@ const MutationResponseSchema = z
             .object({
                 issueCreate: z.object({
                     success: z.boolean(),
-                    issue: IssueSchema
+                    issue: IssueSchema.nullable().optional()
                 })
             })
             .nullable()
@@ -73,13 +73,19 @@ const OutputSchema = z.object({
     cycle: IdNameSchema.optional(),
     labels: z.array(IdNameSchema).optional(),
     project: IdNameSchema.optional(),
+    // Legacy flat identifier fields, retained alongside the nested objects above for backwards compatibility.
+    stateId: z.string().optional(),
+    assigneeId: z.string().optional(),
+    teamId: z.string().optional(),
+    cycleId: z.string().optional(),
+    projectId: z.string().optional(),
     createdAt: z.string().optional(),
     updatedAt: z.string().optional()
 });
 
 const action = createAction({
     description: 'Create a new Linear issue',
-    version: '3.0.3',
+    version: '3.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['issues:create'],
@@ -173,7 +179,7 @@ const action = createAction({
             });
         }
 
-        if (!parsed.data || !parsed.data.issueCreate.success) {
+        if (!parsed.data || !parsed.data.issueCreate.success || !parsed.data.issueCreate.issue) {
             throw new nango.ActionError({
                 type: 'creation_failed',
                 message: 'Linear reported issue creation failed.'
@@ -189,12 +195,12 @@ const action = createAction({
             ...(issue.url != null && { url: issue.url }),
             ...(issue.description != null && { description: issue.description }),
             ...(issue.priority != null && { priority: issue.priority }),
-            ...(issue.state != null && { state: issue.state }),
-            ...(issue.assignee != null && { assignee: issue.assignee }),
-            ...(issue.team != null && { team: issue.team }),
-            ...(issue.cycle != null && { cycle: issue.cycle }),
+            ...(issue.state != null && { state: issue.state, stateId: issue.state.id }),
+            ...(issue.assignee != null && { assignee: issue.assignee, assigneeId: issue.assignee.id }),
+            ...(issue.team != null && { team: issue.team, teamId: issue.team.id }),
+            ...(issue.cycle != null && { cycle: issue.cycle, cycleId: issue.cycle.id }),
             ...(issue.labels != null && { labels: issue.labels.nodes }),
-            ...(issue.project != null && { project: issue.project }),
+            ...(issue.project != null && { project: issue.project, projectId: issue.project.id }),
             ...(issue.createdAt != null && { createdAt: issue.createdAt }),
             ...(issue.updatedAt != null && { updatedAt: issue.updatedAt })
         };

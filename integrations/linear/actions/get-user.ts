@@ -26,15 +26,16 @@ const OutputSchema = z.object({
 const GraphQLResponseSchema = z.object({
     data: z
         .object({
-            user: ProviderUserSchema
+            user: ProviderUserSchema.nullable()
         })
+        .nullable()
         .optional(),
     errors: z.array(z.unknown()).optional()
 });
 
 const action = createAction({
     description: 'Retrieve a Linear user by user ID.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

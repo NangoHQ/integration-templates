@@ -15,10 +15,12 @@
       "id": "1d5f00e6-da6c-44d9-bb95-3f753c0011ba",
       "name": "Backlog"
     },
+    "stateId": "1d5f00e6-da6c-44d9-bb95-3f753c0011ba",
     "team": {
       "id": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
       "name": "Nango"
     },
+    "teamId": "9ce955cd-b013-4e79-bd0a-41bec5a67dd1",
     "labels": [],
     "url": "https://linear.app/nango/issue/NAN-9",
     "createdAt": "2026-08-04T12:02:54.132Z",

@@ -2,25 +2,29 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The identifier of the issue to unarchive. Example: "6948bf28-149d-489b-8f0d-eebae9be8324"')
+    id: z.string().min(1).describe('The identifier of the issue to unarchive. Example: "6948bf28-149d-489b-8f0d-eebae9be8324"')
 });
 
 const ProviderResponseSchema = z.object({
     data: z
         .object({
-            issueUnarchive: z.object({
-                success: z.boolean(),
-                entity: z
-                    .object({
-                        id: z.string(),
-                        identifier: z.string(),
-                        title: z.string(),
-                        archivedAt: z.string().nullable().optional()
-                    })
-                    .nullable()
-                    .optional()
-            })
+            issueUnarchive: z
+                .object({
+                    success: z.boolean(),
+                    entity: z
+                        .object({
+                            id: z.string(),
+                            identifier: z.string(),
+                            title: z.string(),
+                            archivedAt: z.string().nullable().optional()
+                        })
+                        .nullable()
+                        .optional()
+                })
+                .nullable()
+                .optional()
         })
+        .nullable()
         .optional(),
     errors: z
         .array(
@@ -42,7 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore an archived Linear issue.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -72,16 +76,26 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = ProviderResponseSchema.parse(response.data);
-
-        const errors = parsed.errors;
-        const firstError = errors?.find(() => true);
-        if (firstError) {
+        // Check GraphQL errors before validating the payload shape so provider messages are preserved.
+        const errorCheck = z.object({ errors: z.array(z.object({ message: z.string() })).min(1) }).safeParse(response.data);
+        if (errorCheck.success) {
             throw new nango.ActionError({
                 type: 'graphql_error',
-                message: firstError.message
+                message: errorCheck.data.errors.map((error) => error.message).join(', '),
+                errors: errorCheck.data.errors
             });
         }
+
+        const parsedResult = ProviderResponseSchema.safeParse(response.data);
+        if (!parsedResult.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Linear API.',
+                details: parsedResult.error.issues
+            });
+        }
+
+        const parsed = parsedResult.data;
 
         if (!parsed.data || !parsed.data.issueUnarchive) {
             throw new nango.ActionError({

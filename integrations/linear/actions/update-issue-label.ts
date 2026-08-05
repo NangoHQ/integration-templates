@@ -28,18 +28,29 @@ const OutputSchema = z.object({
     archivedAt: z.string().optional()
 });
 
+const GraphQLErrorSchema = z.object({
+    message: z.string()
+});
+
 const IssueLabelUpdateResponseSchema = z.object({
-    data: z.object({
-        issueLabelUpdate: z.object({
-            success: z.boolean(),
-            issueLabel: ProviderIssueLabelSchema
+    data: z
+        .object({
+            issueLabelUpdate: z
+                .object({
+                    success: z.boolean(),
+                    issueLabel: ProviderIssueLabelSchema.nullable().optional()
+                })
+                .nullable()
+                .optional()
         })
-    })
+        .nullable()
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const action = createAction({
     description: 'Update an existing Linear issue label',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -101,7 +112,23 @@ const action = createAction({
             });
         }
 
-        const updateResult = parsed.data.data.issueLabelUpdate;
+        const graphqlErrors = parsed.data.errors;
+        if (graphqlErrors && graphqlErrors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: graphqlErrors.map((error) => error.message).join(', '),
+                labelId: input.id
+            });
+        }
+
+        const updateResult = parsed.data.data?.issueLabelUpdate;
+
+        if (!updateResult) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Linear API did not return an issueLabelUpdate payload'
+            });
+        }
 
         if (updateResult.success === false) {
             throw new nango.ActionError({
@@ -112,6 +139,14 @@ const action = createAction({
         }
 
         const issueLabel = updateResult.issueLabel;
+
+        if (!issueLabel) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Linear API did not return the updated issue label',
+                labelId: input.id
+            });
+        }
 
         return {
             id: issueLabel.id,

@@ -7,33 +7,54 @@ const InputSchema = z.object({
 
 const ProviderCycleSchema = z.object({
     id: z.string(),
-    name: z.string(),
-    team: z.object({
-        id: z.string(),
-        name: z.string().optional()
-    }),
-    progress: z.number(),
-    startsAt: z.string(),
-    endsAt: z.string(),
+    name: z.string().nullable().optional(),
+    team: z
+        .object({
+            id: z.string(),
+            name: z.string().nullable().optional()
+        })
+        .nullable()
+        .optional(),
+    progress: z.number().nullable().optional(),
+    startsAt: z.string().nullable().optional(),
+    endsAt: z.string().nullable().optional(),
     archivedAt: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
-    name: z.string(),
-    team: z.object({
-        id: z.string(),
-        name: z.string().optional()
-    }),
-    progress: z.number(),
-    startsAt: z.string(),
-    endsAt: z.string(),
+    name: z.string().optional(),
+    team: z
+        .object({
+            id: z.string(),
+            name: z.string().optional()
+        })
+        .optional(),
+    progress: z.number().optional(),
+    startsAt: z.string().optional(),
+    endsAt: z.string().optional(),
     archivedAt: z.string().optional()
+});
+
+const GraphQLResponseSchema = z.object({
+    data: z
+        .object({
+            cycle: z.unknown().optional()
+        })
+        .nullable()
+        .optional(),
+    errors: z
+        .array(
+            z.object({
+                message: z.string().optional()
+            })
+        )
+        .optional()
 });
 
 const action = createAction({
     description: 'Retrieve a Linear cycle by cycle ID.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -63,7 +84,25 @@ const action = createAction({
             retries: 3
         });
 
-        const cycleData = response.data?.data?.cycle;
+        const graphQLResponse = GraphQLResponseSchema.safeParse(response.data);
+
+        if (!graphQLResponse.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response shape from Linear API.'
+            });
+        }
+
+        // Linear returns a top-level `errors` array on partial/full failures, sometimes alongside `data: null`.
+        const errors = graphQLResponse.data.errors;
+        if (errors && errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: errors[0]?.message ?? 'Linear API returned GraphQL errors.'
+            });
+        }
+
+        const cycleData = graphQLResponse.data.data?.cycle;
 
         if (!cycleData) {
             throw new nango.ActionError({
@@ -76,14 +115,16 @@ const action = createAction({
 
         return {
             id: providerCycle.id,
-            name: providerCycle.name,
-            team: {
-                id: providerCycle.team.id,
-                ...(providerCycle.team.name !== undefined && { name: providerCycle.team.name })
-            },
-            progress: providerCycle.progress,
-            startsAt: providerCycle.startsAt,
-            endsAt: providerCycle.endsAt,
+            ...(providerCycle.name != null && { name: providerCycle.name }),
+            ...(providerCycle.team != null && {
+                team: {
+                    id: providerCycle.team.id,
+                    ...(providerCycle.team.name != null && { name: providerCycle.team.name })
+                }
+            }),
+            ...(providerCycle.progress != null && { progress: providerCycle.progress }),
+            ...(providerCycle.startsAt != null && { startsAt: providerCycle.startsAt }),
+            ...(providerCycle.endsAt != null && { endsAt: providerCycle.endsAt }),
             ...(providerCycle.archivedAt != null && { archivedAt: providerCycle.archivedAt })
         };
     }

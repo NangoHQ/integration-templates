@@ -5,9 +5,9 @@ const InputSchema = z.object({
     teamId: z.string().describe('Team ID. Example: "9ce955cd-b013-4e79-bd0a-41bec5a67dd1"'),
     name: z.string().describe('Cycle name. Example: "Sprint 1"'),
     description: z.string().optional().describe('The description of the cycle.'),
-    startsAt: z.string().describe('ISO 8601 start datetime. Example: "2024-01-01T00:00:00Z"'),
-    endsAt: z.string().describe('ISO 8601 end datetime. Example: "2024-01-14T23:59:59Z"'),
-    completedAt: z.string().optional().describe('The completion date of the cycle in ISO 8601 format.')
+    startsAt: z.string().datetime().describe('ISO 8601 start datetime. Example: "2024-01-01T00:00:00Z"'),
+    endsAt: z.string().datetime().describe('ISO 8601 end datetime. Example: "2024-01-14T23:59:59Z"'),
+    completedAt: z.string().datetime().optional().describe('The completion date of the cycle in ISO 8601 format.')
 });
 
 const ProviderCycleSchema = z.object({
@@ -15,9 +15,9 @@ const ProviderCycleSchema = z.object({
     name: z.string(),
     number: z.number(),
     description: z.string().nullable().optional(),
-    startsAt: z.string().optional(),
-    endsAt: z.string().optional(),
-    completedAt: z.string().nullable().optional(),
+    startsAt: z.string().datetime().optional(),
+    endsAt: z.string().datetime().optional(),
+    completedAt: z.string().datetime().nullable().optional(),
     isActive: z.boolean().optional(),
     isNext: z.boolean().optional(),
     isPrevious: z.boolean().optional(),
@@ -27,6 +27,25 @@ const ProviderCycleSchema = z.object({
             id: z.string(),
             name: z.string().optional()
         })
+        .optional()
+});
+
+const GraphQLResponseSchema = z.object({
+    data: z
+        .object({
+            cycleCreate: z.object({
+                success: z.boolean(),
+                cycle: z.unknown().optional()
+            })
+        })
+        .nullable()
+        .optional(),
+    errors: z
+        .array(
+            z.object({
+                message: z.string().optional()
+            })
+        )
         .optional()
 });
 
@@ -52,7 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a cycle for a Linear team.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -102,19 +121,7 @@ const action = createAction({
             retries: 10
         });
 
-        if (response.data == null || typeof response.data !== 'object') {
-            throw new nango.ActionError({
-                type: 'api_error',
-                message: 'Unexpected response from Linear API.'
-            });
-        }
-
-        const graphQLResponse = z
-            .object({
-                errors: z.array(z.unknown()).optional(),
-                data: z.unknown()
-            })
-            .safeParse(response.data);
+        const graphQLResponse = GraphQLResponseSchema.safeParse(response.data);
 
         if (!graphQLResponse.success) {
             throw new nango.ActionError({
@@ -123,38 +130,26 @@ const action = createAction({
             });
         }
 
-        if (graphQLResponse.data.errors && graphQLResponse.data.errors.length > 0) {
-            const firstError = z.object({ message: z.string() }).safeParse(graphQLResponse.data.errors[0]);
+        // Linear returns a top-level `errors` array on partial/full failures, sometimes alongside `data: null`.
+        const errors = graphQLResponse.data.errors;
+        if (errors && errors.length > 0) {
             throw new nango.ActionError({
                 type: 'api_error',
-                message: firstError.success ? firstError.data.message : 'Linear API returned GraphQL errors.'
+                message: errors[0]?.message ?? 'Linear API returned GraphQL errors.'
             });
         }
 
-        const cycleCreateResult = z
-            .object({
-                cycleCreate: z.object({
-                    success: z.boolean(),
-                    cycle: z.unknown()
-                })
-            })
-            .safeParse(graphQLResponse.data.data);
+        const payload = graphQLResponse.data.data?.cycleCreate;
 
-        if (!cycleCreateResult.success) {
+        if (!payload || !payload.success || !payload.cycle) {
             throw new nango.ActionError({
-                type: 'api_error',
-                message: 'Unexpected response shape from Linear API: missing cycleCreate.'
+                type: 'creation_failed',
+                message: 'Cycle creation failed or returned no cycle.',
+                success: payload?.success ?? false
             });
         }
 
-        if (cycleCreateResult.data.cycleCreate.success !== true) {
-            throw new nango.ActionError({
-                type: 'api_error',
-                message: 'Linear cycleCreate reported failure.'
-            });
-        }
-
-        const providerCycle = ProviderCycleSchema.parse(cycleCreateResult.data.cycleCreate.cycle);
+        const providerCycle = ProviderCycleSchema.parse(payload.cycle);
 
         return {
             id: providerCycle.id,
