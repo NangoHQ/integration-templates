@@ -1,0 +1,121 @@
+{
+  "input": {
+    "name": "Nango Registry Test Synthetic Dryrun",
+    "request_url": "https://example.com",
+    "message": "Nango registry test message",
+    "status": "paused"
+  },
+  "output": {
+    "public_id": "gtd-ykn-83s",
+    "name": "Nango Registry Test Synthetic Dryrun",
+    "type": "api",
+    "subtype": "http",
+    "status": "paused",
+    "created_at": "2026-08-03T22:47:16.044685+00:00",
+    "modified_at": "2026-08-03T22:47:16.044685+00:00"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/synthetics/tests/api": {
+        "response": {
+          "public_id": "gtd-ykn-83s",
+          "name": "Nango Registry Test Synthetic Dryrun",
+          "status": "paused",
+          "type": "api",
+          "subtype": "http",
+          "tags": [],
+          "created_at": "2026-08-03T22:47:16.044685+00:00",
+          "modified_at": "2026-08-03T22:47:16.044685+00:00",
+          "config": {
+            "request": {
+              "method": "GET",
+              "url": "https://example.com"
+            },
+            "assertions": [
+              {
+                "type": "statusCode",
+                "operator": "is",
+                "target": 200
+              }
+            ]
+          },
+          "message": "Nango registry test message",
+          "options": {
+            "tick_every": 900,
+            "bits_ai_auto_investigate": false
+          },
+          "locations": [
+            "aws:us-east-1"
+          ],
+          "created_by": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          },
+          "deleted_at": null,
+          "monitor_id": 310795902,
+          "org_id": 1984731,
+          "modified_by": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:47:16 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "12000",
+          "x-ratelimit-remaining": "11999",
+          "x-ratelimit-reset": "45",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "60",
+          "x-ratelimit-name": "synthetics_create_test"
+        },
+        "hash": "2c81a38ab6ab6c2c93e028c3e60cfbb07e74d78b",
+        "request": {
+          "data": {
+            "name": "Nango Registry Test Synthetic Dryrun",
+            "type": "api",
+            "subtype": "http",
+            "config": {
+              "request": {
+                "method": "GET",
+                "url": "https://example.com"
+              },
+              "assertions": [
+                {
+                  "type": "statusCode",
+                  "operator": "is",
+                  "target": 200
+                }
+              ]
+            },
+            "locations": [
+              "aws:us-east-1"
+            ],
+            "options": {
+              "tick_every": 900
+            },
+            "message": "Nango registry test message",
+            "status": "paused"
+          }
+        }
+      }
+    }
+  }
+}

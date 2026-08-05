@@ -1,0 +1,228 @@
+{
+  "input": {
+    "public_id": "zpz-2q8-4xd",
+    "name": "Nango Registry Test Synthetic Action (updated)",
+    "tags": [
+      "env:registry",
+      "source:nango-action-test"
+    ]
+  },
+  "output": {
+    "public_id": "zpz-2q8-4xd",
+    "name": "Nango Registry Test Synthetic Action (updated)",
+    "type": "api",
+    "status": "live",
+    "subtype": "http",
+    "message": "Test message",
+    "tags": [
+      "env:registry",
+      "source:nango-action-test"
+    ],
+    "locations": [
+      "aws:us-east-1"
+    ],
+    "monitor_id": 310918557,
+    "config": {
+      "assertions": [
+        {
+          "type": "statusCode",
+          "operator": "is",
+          "target": 200
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": "https://example.com"
+      }
+    },
+    "options": {
+      "tick_every": 60,
+      "min_location_failed": 1,
+      "bits_ai_auto_investigate": false
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/synthetics/tests/api/zpz-2q8-4xd": {
+        "response": {
+          "public_id": "zpz-2q8-4xd",
+          "name": "Nango Registry Test Synthetic Action (updated)",
+          "status": "live",
+          "type": "api",
+          "subtype": "http",
+          "tags": [
+            "env:registry",
+            "source:nango-action-test"
+          ],
+          "created_at": "2026-08-04T04:56:42.070712+00:00",
+          "modified_at": "2026-08-04T04:56:50.405708+00:00",
+          "config": {
+            "assertions": [
+              {
+                "type": "statusCode",
+                "operator": "is",
+                "target": 200
+              }
+            ],
+            "request": {
+              "method": "GET",
+              "url": "https://example.com"
+            }
+          },
+          "message": "Test message",
+          "options": {
+            "tick_every": 60,
+            "min_location_failed": 1
+          },
+          "locations": [
+            "aws:us-east-1"
+          ],
+          "monitor_id": 310918557,
+          "creator": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 04:56:59 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1450",
+          "x-ratelimit-remaining": "1447",
+          "x-ratelimit-reset": "1",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "60",
+          "x-ratelimit-name": "synthetics_export"
+        },
+        "hash": "3d4b23fc428ef414189b25411d367e4e0e572353",
+        "request": {}
+      }
+    },
+    "put": {
+      "/v1/synthetics/tests/api/zpz-2q8-4xd": {
+        "response": {
+          "org_id": 1984731,
+          "public_id": "zpz-2q8-4xd",
+          "name": "Nango Registry Test Synthetic Action (updated)",
+          "status": "live",
+          "type": "api",
+          "tags": [
+            "env:registry",
+            "source:nango-action-test"
+          ],
+          "message": "Test message",
+          "options": {
+            "tick_every": 60,
+            "min_location_failed": 1,
+            "bits_ai_auto_investigate": false
+          },
+          "locations": [
+            "aws:us-east-1"
+          ],
+          "created_at": "2026-08-04T04:56:42.070712+00:00",
+          "modified_at": "2026-08-04T04:56:59.369461+00:00",
+          "config": {
+            "assertions": [
+              {
+                "type": "statusCode",
+                "operator": "is",
+                "target": 200
+              }
+            ],
+            "request": {
+              "method": "GET",
+              "url": "https://example.com"
+            }
+          },
+          "overall_state_modified": "1970-01-01T00:00:00+00:00",
+          "subtype": "http",
+          "monitor_id": 310918557,
+          "created_by": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          },
+          "modified_by": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          },
+          "overall_state": 2
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 04:56:59 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "500",
+          "x-ratelimit-remaining": "498",
+          "x-ratelimit-reset": "1",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "60",
+          "x-ratelimit-name": "synthetics_edit_test"
+        },
+        "hash": "109722c4e4548deaab3d71a5b760375f2b555942",
+        "request": {
+          "data": {
+            "type": "api",
+            "name": "Nango Registry Test Synthetic Action (updated)",
+            "config": {
+              "assertions": [
+                {
+                  "type": "statusCode",
+                  "operator": "is",
+                  "target": 200
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "url": "https://example.com"
+              }
+            },
+            "locations": [
+              "aws:us-east-1"
+            ],
+            "options": {
+              "tick_every": 60,
+              "min_location_failed": 1
+            },
+            "message": "Test message",
+            "status": "live",
+            "subtype": "http",
+            "tags": [
+              "env:registry",
+              "source:nango-action-test"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

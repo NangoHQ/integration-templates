@@ -1,0 +1,112 @@
+{
+  "input": {
+    "name": "Nango Registry Test Scanner Group",
+    "product_list": [
+      "logs"
+    ],
+    "filter_query": "source:nango-registry-audit",
+    "config_id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9"
+  },
+  "output": {
+    "id": "2a711bfb-8170-4870-9935-6329e35e2ef9",
+    "name": "Nango Registry Test Scanner Group",
+    "is_enabled": true,
+    "product_list": [
+      "logs"
+    ],
+    "filter_query": "source:nango-registry-audit"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/sensitive-data-scanner/config/groups": {
+        "response": {
+          "data": {
+            "id": "2a711bfb-8170-4870-9935-6329e35e2ef9",
+            "type": "sensitive_data_scanner_group",
+            "attributes": {
+              "description": "",
+              "filter": {
+                "query": "source:nango-registry-audit"
+              },
+              "is_enabled": true,
+              "name": "Nango Registry Test Scanner Group",
+              "product_list": [
+                "logs"
+              ],
+              "samplings": []
+            },
+            "relationships": {
+              "configuration": {
+                "data": {
+                  "id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9",
+                  "type": "sensitive_data_scanner_configuration"
+                }
+              },
+              "rules": {
+                "data": []
+              },
+              "targeted_obfuscations": {
+                "data": []
+              }
+            }
+          },
+          "meta": {
+            "group_count_limit": 20,
+            "rule_count_limit": 750,
+            "custom_rule_count_limit": 100,
+            "has_cascading_enabled": false,
+            "is_configuration_superseded": false,
+            "min_sampling_rate": 10,
+            "is_onboarded_to_telemetry": true
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:37:38 GMT",
+          "content-type": "application/vnd.api+json",
+          "content-length": "699",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1966",
+          "x-ratelimit-reset": "1785796707",
+          "etag": "W/\"2bb-u+mdDLSfz/Qe6gyQQ0kmBhiHhG8\""
+        },
+        "hash": "d7268d0d8d96d4deddbb2ef37f27c1edc20251e1",
+        "request": {
+          "data": {
+            "data": {
+              "type": "sensitive_data_scanner_group",
+              "attributes": {
+                "name": "Nango Registry Test Scanner Group",
+                "is_enabled": true,
+                "product_list": [
+                  "logs"
+                ],
+                "filter": {
+                  "query": "source:nango-registry-audit"
+                }
+              },
+              "relationships": {
+                "configuration": {
+                  "data": {
+                    "id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

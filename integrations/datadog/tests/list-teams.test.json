@@ -1,0 +1,248 @@
+{
+  "input": {},
+  "output": {
+    "teams": [
+      {
+        "id": "3cc34fc6-d4c1-4570-b6ff-c7c7767852e4",
+        "name": "Nango Delete Team Test 1785795172484",
+        "handle": "nango-delete-team-test-1785795172484",
+        "created_at": "2026-08-03T22:12:52.702177+00:00",
+        "modified_at": "2026-08-03T22:12:52.702177+00:00",
+        "user_count": 0,
+        "link_count": 0
+      },
+      {
+        "id": "3fc3d158-2d96-434b-8175-8652d710ab3b",
+        "name": "Nango Delete Team Test 1785795176160",
+        "handle": "nango-delete-team-test-1785795176160",
+        "created_at": "2026-08-03T22:12:56.400106+00:00",
+        "modified_at": "2026-08-03T22:12:56.400106+00:00",
+        "user_count": 0,
+        "link_count": 0
+      },
+      {
+        "id": "785d215c-9831-4702-8108-ff3b2db500c9",
+        "name": "Nango Registry Test Team 1",
+        "handle": "nango-registry-test-team-1",
+        "description": "Nango Registry Test Team 1 (updated by dryrun)",
+        "created_at": "2026-08-03T16:01:32.313251+00:00",
+        "modified_at": "2026-08-03T22:37:34.486177+00:00",
+        "user_count": 2,
+        "link_count": 0
+      },
+      {
+        "id": "135bb838-8a03-4aee-aeb3-fa6bf680021f",
+        "name": "Nango Registry Test Team 1785797181",
+        "handle": "nango-test-1785797181",
+        "created_at": "2026-08-03T22:46:27.451875+00:00",
+        "modified_at": "2026-08-03T22:46:27.451875+00:00",
+        "user_count": 0,
+        "link_count": 0
+      },
+      {
+        "id": "133d05a5-ee43-4103-8d80-9e63b1b1b31a",
+        "name": "Nango Registry Test Team 1785797261",
+        "handle": "nango-test-1785797261",
+        "created_at": "2026-08-03T22:47:47.045739+00:00",
+        "modified_at": "2026-08-03T22:47:47.045739+00:00",
+        "user_count": 0,
+        "link_count": 0
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/team": {
+        "response": {
+          "data": [
+            {
+              "id": "3cc34fc6-d4c1-4570-b6ff-c7c7767852e4",
+              "type": "team",
+              "attributes": {
+                "created_at": "2026-08-03T22:12:52.702177+00:00",
+                "description": null,
+                "handle": "nango-delete-team-test-1785795172484",
+                "is_managed": false,
+                "link_count": 0,
+                "modified_at": "2026-08-03T22:12:52.702177+00:00",
+                "name": "Nango Delete Team Test 1785795172484",
+                "summary": null,
+                "user_count": 0
+              },
+              "relationships": {
+                "team_links": {
+                  "data": [],
+                  "links": {
+                    "related": "/api/v2/team/3cc34fc6-d4c1-4570-b6ff-c7c7767852e4/links"
+                  }
+                },
+                "user_team_permissions": {
+                  "data": null,
+                  "links": {
+                    "related": "/api/v2/team/3cc34fc6-d4c1-4570-b6ff-c7c7767852e4/permission-settings"
+                  }
+                }
+              }
+            },
+            {
+              "id": "3fc3d158-2d96-434b-8175-8652d710ab3b",
+              "type": "team",
+              "attributes": {
+                "created_at": "2026-08-03T22:12:56.400106+00:00",
+                "description": null,
+                "handle": "nango-delete-team-test-1785795176160",
+                "is_managed": false,
+                "link_count": 0,
+                "modified_at": "2026-08-03T22:12:56.400106+00:00",
+                "name": "Nango Delete Team Test 1785795176160",
+                "summary": null,
+                "user_count": 0
+              },
+              "relationships": {
+                "team_links": {
+                  "data": [],
+                  "links": {
+                    "related": "/api/v2/team/3fc3d158-2d96-434b-8175-8652d710ab3b/links"
+                  }
+                },
+                "user_team_permissions": {
+                  "data": null,
+                  "links": {
+                    "related": "/api/v2/team/3fc3d158-2d96-434b-8175-8652d710ab3b/permission-settings"
+                  }
+                }
+              }
+            },
+            {
+              "id": "785d215c-9831-4702-8108-ff3b2db500c9",
+              "type": "team",
+              "attributes": {
+                "created_at": "2026-08-03T16:01:32.313251+00:00",
+                "description": "Nango Registry Test Team 1 (updated by dryrun)",
+                "handle": "nango-registry-test-team-1",
+                "is_managed": false,
+                "link_count": 0,
+                "modified_at": "2026-08-03T22:37:34.486177+00:00",
+                "name": "Nango Registry Test Team 1",
+                "summary": "Nango Registry Test Team 1 (updated by dryrun)",
+                "user_count": 2
+              },
+              "relationships": {
+                "team_links": {
+                  "data": [],
+                  "links": {
+                    "related": "/api/v2/team/785d215c-9831-4702-8108-ff3b2db500c9/links"
+                  }
+                },
+                "user_team_permissions": {
+                  "data": null,
+                  "links": {
+                    "related": "/api/v2/team/785d215c-9831-4702-8108-ff3b2db500c9/permission-settings"
+                  }
+                }
+              }
+            },
+            {
+              "id": "135bb838-8a03-4aee-aeb3-fa6bf680021f",
+              "type": "team",
+              "attributes": {
+                "created_at": "2026-08-03T22:46:27.451875+00:00",
+                "description": null,
+                "handle": "nango-test-1785797181",
+                "is_managed": false,
+                "link_count": 0,
+                "modified_at": "2026-08-03T22:46:27.451875+00:00",
+                "name": "Nango Registry Test Team 1785797181",
+                "summary": null,
+                "user_count": 0
+              },
+              "relationships": {
+                "team_links": {
+                  "data": [],
+                  "links": {
+                    "related": "/api/v2/team/135bb838-8a03-4aee-aeb3-fa6bf680021f/links"
+                  }
+                },
+                "user_team_permissions": {
+                  "data": null,
+                  "links": {
+                    "related": "/api/v2/team/135bb838-8a03-4aee-aeb3-fa6bf680021f/permission-settings"
+                  }
+                }
+              }
+            },
+            {
+              "id": "133d05a5-ee43-4103-8d80-9e63b1b1b31a",
+              "type": "team",
+              "attributes": {
+                "created_at": "2026-08-03T22:47:47.045739+00:00",
+                "description": null,
+                "handle": "nango-test-1785797261",
+                "is_managed": false,
+                "link_count": 0,
+                "modified_at": "2026-08-03T22:47:47.045739+00:00",
+                "name": "Nango Registry Test Team 1785797261",
+                "summary": null,
+                "user_count": 0
+              },
+              "relationships": {
+                "team_links": {
+                  "data": [],
+                  "links": {
+                    "related": "/api/v2/team/133d05a5-ee43-4103-8d80-9e63b1b1b31a/links"
+                  }
+                },
+                "user_team_permissions": {
+                  "data": null,
+                  "links": {
+                    "related": "/api/v2/team/133d05a5-ee43-4103-8d80-9e63b1b1b31a/permission-settings"
+                  }
+                }
+              }
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "type": "offset_limit",
+              "offset": 0,
+              "limit": 100,
+              "total": 5,
+              "first_offset": 0,
+              "prev_offset": null,
+              "next_offset": null,
+              "last_offset": 0
+            }
+          },
+          "links": {
+            "self": "https://api.datadoghq.com/api/v2/team",
+            "first": "https://api.datadoghq.com/api/v2/team?page[limit]=100&page[offset]=0",
+            "last": "https://api.datadoghq.com/api/v2/team?page[limit]=100&page[offset]=0"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:51:17 GMT",
+          "content-type": "application/vnd.api+json",
+          "content-length": "3420",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1932",
+          "x-ratelimit-reset": "1785797517",
+          "etag": "W/\"d5c-UduRbXvEQU+5nKlIaURQqGNT5gg\""
+        },
+        "hash": "6c0b0b00f25b15edeaaad3bee84f6415c04f85ff",
+        "request": {}
+      }
+    }
+  }
+}

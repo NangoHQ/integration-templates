@@ -1,0 +1,136 @@
+{
+  "input": {
+    "name": "Nango Registry Test Notebook - Dryrun",
+    "cells": [
+      {
+        "text": "# Test Notebook\n\nCreated during Nango registry validation."
+      }
+    ],
+    "time": {
+      "live_span": "1h"
+    }
+  },
+  "output": {
+    "id": "15178045",
+    "name": "Nango Registry Test Notebook - Dryrun",
+    "cells": [
+      {
+        "type": "notebook_cells",
+        "id": "zgro2byi",
+        "attributes": {
+          "definition": {
+            "type": "markdown",
+            "text": "# Test Notebook\n\nCreated during Nango registry validation."
+          }
+        }
+      }
+    ],
+    "time": {
+      "live_span": "1h"
+    },
+    "status": "published",
+    "created_at": "2026-08-03T22:36:16.536852+00:00",
+    "modified_at": "2026-08-03T22:36:16.536852+00:00"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/notebooks": {
+        "response": {
+          "data": {
+            "type": "notebooks",
+            "id": 15178045,
+            "attributes": {
+              "name": "Nango Registry Test Notebook - Dryrun",
+              "cells": [
+                {
+                  "type": "notebook_cells",
+                  "id": "zgro2byi",
+                  "attributes": {
+                    "definition": {
+                      "type": "markdown",
+                      "text": "# Test Notebook\n\nCreated during Nango registry validation."
+                    }
+                  }
+                }
+              ],
+              "time": {
+                "live_span": "1h"
+              },
+              "metadata": {
+                "take_snapshots": false,
+                "is_template": false,
+                "is_favorite": false,
+                "type": null
+              },
+              "template_variables": [],
+              "dropdown_templates": [],
+              "status": "published",
+              "modified": "2026-08-03T22:36:16.536852+00:00",
+              "created": "2026-08-03T22:36:16.536852+00:00",
+              "deleted": null,
+              "tags": [],
+              "author": {
+                "name": "Nango Developer",
+                "handle": "api@nango.dev",
+                "email": "api@nango.dev",
+                "icon": "https://secure.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=retro&s=48",
+                "title": "",
+                "verified": true,
+                "disabled": false,
+                "status": "Active"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:36:16 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "28",
+          "x-ratelimit-reset": "44",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "60",
+          "x-ratelimit-name": "notebooks_create_public_api"
+        },
+        "hash": "cf6334d65715595c4aca1043c868380e5e9e9eea",
+        "request": {
+          "data": {
+            "data": {
+              "type": "notebooks",
+              "attributes": {
+                "name": "Nango Registry Test Notebook - Dryrun",
+                "cells": [
+                  {
+                    "type": "notebook_cells",
+                    "attributes": {
+                      "definition": {
+                        "type": "markdown",
+                        "text": "# Test Notebook\n\nCreated during Nango registry validation."
+                      }
+                    }
+                  }
+                ],
+                "time": {
+                  "live_span": "1h"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

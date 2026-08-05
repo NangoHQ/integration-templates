@@ -1,32 +1,31 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, IdEntity } from '../models.js';
+
+const InputSchema = z.object({
+    user_id: z.string().trim().min(1).describe('The user ID to disable. Example: "b8b30a2e-fdce-46d6-aef0-63ccf6155094"')
+});
+
+const OutputSchema = z.object({
+    user_id: z.string(),
+    disabled: z.boolean()
+});
 
 const action = createAction({
-    description: 'Disables a user in Datadog',
-    version: '2.0.1',
-
-    input: IdEntity,
-    output: SuccessResponse,
+    description: 'Disable (deactivate) a user, preventing further login.',
+    version: '3.0.0',
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['user_access_manage'],
-
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        if (!input || !input.id) {
-            throw new nango.ActionError({
-                message: 'Id is required'
-            });
-        }
-
-        const config: ProxyConfiguration = {
-            // https://docs.datadoghq.com/api/latest/users/?code-lang=typescript#disable-a-user
-            endpoint: `/v2/users/${input.id}`,
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        await nango.delete({
+            // https://docs.datadoghq.com/api/latest/users/#disable-a-user
+            endpoint: `v2/users/${encodeURIComponent(input.user_id)}`,
             retries: 3
-        };
-
-        await nango.delete(config);
+        });
 
         return {
-            success: true
+            user_id: input.user_id,
+            disabled: true
         };
     }
 });

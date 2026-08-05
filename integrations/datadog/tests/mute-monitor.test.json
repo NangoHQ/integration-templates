@@ -1,0 +1,79 @@
+{
+  "input": {
+    "monitor_id": 310917674
+  },
+  "output": {
+    "id": 310917674,
+    "name": "Nango Registry Test Mute Monitor",
+    "type": "metric alert",
+    "query": "avg(last_5m):sum:system.net.bytes_rcvd{*} > 100",
+    "silenced": {
+      "*": null
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/monitor/310917674/mute": {
+        "response": {
+          "id": 310917674,
+          "org_id": 1984731,
+          "type": "metric alert",
+          "name": "Nango Registry Test Mute Monitor",
+          "message": "Test monitor for mute action validation",
+          "tags": [],
+          "query": "avg(last_5m):sum:system.net.bytes_rcvd{*} > 100",
+          "options": {
+            "notify_no_data": false,
+            "thresholds": {
+              "critical": 100
+            },
+            "notify_audit": false,
+            "new_host_delay": 300,
+            "include_tags": true,
+            "silenced": {
+              "*": null
+            }
+          },
+          "multi": false,
+          "created_at": 1785819098000,
+          "created": "2026-08-04T04:51:38.976071+00:00",
+          "modified": "2026-08-04T04:51:38.976071+00:00",
+          "deleted": null,
+          "priority": null,
+          "restricted_roles": null,
+          "restriction_policy": {
+            "bindings": []
+          },
+          "draft_status": "published",
+          "overall_state_modified": null,
+          "overall_state": "No Data"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 04:52:24 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1955",
+          "x-ratelimit-reset": "1785819153",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding"
+        },
+        "hash": "5c5eeb0fd8bd195fb20d03c19bbd9e8c1deee451",
+        "request": {}
+      }
+    }
+  }
+}
