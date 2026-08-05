@@ -4,13 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-        pageSize: z
-            .number()
-            .int()
-            .min(1)
-            .max(10000)
-            .optional()
-            .describe('The number of SLOs per page. Max 10000 (25 when evaluate is true).'),
+        pageSize: z.number().int().min(1).max(10000).optional().describe('The number of SLOs per page. Max 10000 (25 when evaluate is true).'),
         sloSelector: z.string().optional().describe('Filter SLOs by ID, name, health state, text, or management zone.'),
         sort: z.enum(['name', '-name']).optional().describe('Sort by name in ascending or descending order.'),
         enabledSlos: z.enum(['true', 'false', 'all']).optional().describe('Filter by enabled status: true, false, or all.'),

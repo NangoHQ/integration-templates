@@ -97,7 +97,10 @@ const action = createAction({
                 useRateMetric: z.boolean().optional(),
                 denominatorValue: z.number().optional(),
                 numeratorValue: z.number().optional(),
-                problemFilters: z.union([z.string(), z.array(z.string())]).optional().nullable(),
+                problemFilters: z
+                    .union([z.string(), z.array(z.string())])
+                    .optional()
+                    .nullable(),
                 errorBudgetBurnRate: z
                     .object({
                         burnRateType: z.string().optional(),

@@ -3,13 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    pageSize: z
-        .number()
-        .int()
-        .min(100)
-        .max(10000)
-        .optional()
-        .describe('Number of items per page. Must be between 100 and 10000. Defaults to 100.')
+    pageSize: z.number().int().min(100).max(10000).optional().describe('Number of items per page. Must be between 100 and 10000. Defaults to 100.')
 });
 
 const ProviderApiTokenSchema = z.object({
@@ -50,9 +44,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Dynatrace rejects continuation requests that include any parameter besides nextPageKey.
-        const params: Record<string, string | number> = input.cursor
-            ? { nextPageKey: input.cursor }
-            : { pageSize: input.pageSize ?? 100 };
+        const params: Record<string, string | number> = input.cursor ? { nextPageKey: input.cursor } : { pageSize: input.pageSize ?? 100 };
 
         const response = await nango.get({
             // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/tokens-v2/api-tokens/get-all
