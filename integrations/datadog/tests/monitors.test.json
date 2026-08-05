@@ -1,0 +1,1131 @@
+{
+  "nango": {
+    "batchSave": {
+      "Monitor": [
+        {
+          "id": "308771182",
+          "name": "CPU usage is high for host {{host.name}}",
+          "type": "query alert",
+          "query": "avg(last_5m):100 - avg:system.cpu.idle{*} by {host} > 90",
+          "message": "## 🚨 What’s happening\n\nHigh CPU usage detected on host {{host.name}}.\n\nThis means the host is spending most of its time actively processing, with very little idle CPU capacity available. It typically signals that the system is under heavy load — either from intense workloads, misbehaving processes, or increased traffic.\n\n---\n\n## 📈 Impact\n\nIf CPU usage remains high over time, it can lead to:\n\n- Sluggish application and system performance\n- Delayed or stalled background jobs\n- Timeouts, degraded services, or crashes due to resource exhaustion\n\nThis may affect critical applications running on this host and lead to broader service degradation if not addressed promptly.\n\n---\n\n## Runbook\n\n### Initial Troubleshooting Steps\n\n1. **Identify the affected host** from the alert.\n2. Open [**Infrastructure > Host Details**](/infrastructure?tags=host%3A{{host.name}}) in Datadog.\n3. In the **Metrics** tab, examine:\n   - `system.cpu.user`, `system.cpu.system`, `system.cpu.idle`\n   - `process.cpu.total_pct`, `process.*` metrics\n4. Use [**Live Processes**](/process?query=host%3A{{host.name}}) to view real-time CPU usage.\n5. SSH into the host (if needed) and run:\n   ```bash\n   top -o %CPU\n   \n### Cause and Resolution\n\nCause | Resolution\n------|------\nRunaway processes | **Restart or stop** high-CPU processes if they’re stuck or misbehaving.\n------|------\nTraffic/load spike | Scale out or up the infrastructure\n------|------\nCode/deployment issue | Roll back recent changes or investigate further.\n------|------\nContainer/JVM misconfiguration | Tune resource limits and runtime settings\n        \n###  Related links\n\n* [Host Map](/infrastructure/map)\n* [Live Processes](/process?query=host%3A{{host.name}})\n* [System Dashboards](/dashboard/lists)\n* [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n* [Logs](/logs?query=host:{{host.name}})\n* [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n* [Metrics Explorer (system.cpu.idle)](/metric/explorer?exp_metric=system.cpu.idle&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n### Who should be notified?\n\nAssign the appropriate notification handle for this alert (e.g., `@slack-infra`, `@pagerduty-core-systems`):  \n`@your-team-handle`",
+          "tags": [
+            "integration:host",
+            "monitor_pack:host"
+          ],
+          "options": {
+            "thresholds": {
+              "critical": 90
+            },
+            "notify_audit": false,
+            "include_tags": false,
+            "notify_no_data": false,
+            "new_host_delay": 300,
+            "silenced": {}
+          },
+          "created": "2026-07-27T15:27:29.805834+00:00",
+          "modified": "2026-07-27T15:27:29.805834+00:00",
+          "overall_state": "OK",
+          "overall_state_modified": "2026-07-27T15:27:31+00:00",
+          "multi": true,
+          "creator": {
+            "name": "Datadog Support",
+            "handle": "support-nangodev-npsukaogqnfl",
+            "email": "support-user-prod@datadoghq.com"
+          }
+        },
+        {
+          "id": "308771187",
+          "name": "Disk latency is high for host {{host.name}} on device {{device.name}}",
+          "type": "query alert",
+          "query": "avg(last_5m):avg:system.io.await{*} by {device} > 500",
+          "message": "## 🚨 What’s happening\n\nHigh disk I/O wait time detected on host {{host.name}}.\n\nThis means one or more devices on the host are taking a long time to complete disk operations — averaging over 500ms in the last 5 minutes. High I/O wait time typically occurs when the system is frequently waiting for disk reads or writes to finish, often due to storage contention or inefficient disk usage by running processes.\n\n---\n\n## 📈 Impact\n\nIf I/O wait remains high, it can lead to:\n\n- Slower application and system performance, especially for disk-intensive services\n- Delayed job processing or database queries\n- Risk of timeouts or service degradation due to blocked I/O operations\n\nSustained disk latency can have cascading effects on dependent services and degrade user experience.\n\n---\n\n## Runbook\n\n### Initial Troubleshooting Steps\n\n## 🛠 How to fix (Runbook)\n\n### 🔍 Initial troubleshooting\n\n1. Identify the affected host and device from the alert.\n2. Open [**Infrastructure > Host Details**](/infrastructure) for {{host.name}}.\n3. In the **Metrics tab**, examine:\n   - `system.io.await` by device\n   - `system.disk.read_time`, `system.disk.write_time`, `system.disk.in_use`\n4. Use [**Live Processes**](/process) to find I/O-heavy processes.\n5. SSH into the host and run:\n   ```bash\n   iostat -xd 1 3\n   \n### Cause and Resolution\n\nCause | Resolution\n------|------\nDisk-heavy processes | Restart or optimize services with high I/O usage\n------|------\nBackup jobs, ETLs, logging | Schedule or throttle non-critical workloads\n------|------\nUnderlying disk performance | Check for slow or saturated disks, especially on network-attached volumes (e.g., EBS, NFS)\n------|------\nScale-out option | Move I/O-intensive tasks to separate or faster storage tiers\n        \n###  Related links\n\n* [Host Map](/infrastructure/map)\n* [Live Processes](/process?query=host%3A{{host.name}})\n* [System Dashboards](/dashboard/lists)\n* [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n* [Logs](/logs?query=device:{{device.name}})\n* [Metrics Explorer (system.io.await)](/metric/explorer?exp_metric=system.io.await&exp_scope=device:{{device.name}}&exp_agg=avg&exp_type=line)\n\n### Who should be notified?\n\nAssign the appropriate notification handle for this alert (e.g., `@slack-infra`, `@pagerduty-core-systems`):  \n`@your-team-handle`",
+          "tags": [
+            "integration:host",
+            "monitor_pack:host"
+          ],
+          "options": {
+            "thresholds": {
+              "critical": 500
+            },
+            "notify_audit": false,
+            "include_tags": false,
+            "notify_no_data": false,
+            "new_host_delay": 300,
+            "silenced": {}
+          },
+          "created": "2026-07-27T15:27:29.930923+00:00",
+          "modified": "2026-07-27T15:27:29.930923+00:00",
+          "overall_state": "OK",
+          "overall_state_modified": "2026-07-27T15:27:37+00:00",
+          "multi": true,
+          "creator": {
+            "name": "Datadog Support",
+            "handle": "support-nangodev-npsukaogqnfl",
+            "email": "support-user-prod@datadoghq.com"
+          }
+        },
+        {
+          "id": "308771188",
+          "name": "Disk usage is high for host {{host.name}} on device {{device.name}}",
+          "type": "query alert",
+          "query": "max(next_3d):forecast((1 - avg:system.disk.free{*} by {host,device} / avg:system.disk.total{*} by {host,device}) * 100, \"seasonal\", 1, interval=\"60m\", seasonality=\"weekly\") >= 99",
+          "message": "## 🚨 What’s happening\n\nLow disk capacity detected on host {{host.name}}.\n\nThis alert indicates that one or more filesystems are **over 90% full**, meaning they are at risk of running out of space for applications to write. If unaddressed, writes will fail and applications may crash. Investigate and free space by deleting or archiving data, or by expanding the volume.\n\n---\n\n## 📈 Impact\n\nWhen disks run out of space, it can result in:\n\n- Applications failing on writes (such as databases, services writing logs, or temp files)\n- Stuck or crashing jobs (logging, backups, compactions, builds)\n- Node instability (for example, kubelet/daemon issues or package updates failing)\n\nSpace exhaustion can quickly degrade services, especially on hosts that handle large volumes of data or critical workloads.\n\n---\n\n## 🛠 How to fix (Runbook)\n\n### 🔍 Initial troubleshooting\n\n1. Identify the affected host and device/mount point from the alert.\n2. Open [**Infrastructure → Host Details**](/infrastructure) for **{{host.name}}**.\n3. In the **Metrics** tab, review:\n   - `system.disk.in_use` (fraction of space used)\n   - `system.disk.total`, `system.disk.used`, `system.disk.free`\n4. SSH into the host to find large directories/files (Linux/macOS):\n   ```bash\n   # Top space consumers by directory (human-readable)\n   sudo du -xhd1 / | sort -h | tail -n 20\n\n   # Top 50 largest files (avoid virtual filesystems)\n   sudo find / -xdev -type f -printf '%s %p\n' 2>/dev/null | sort -nr | head -50\n\n   # Filesystem usage\n   df -h\n   ```\n\n   On systems with `ncdu`:\n\n   ```bash\n   sudo ncdu -x /\n   ```\n\n   For Docker-heavy hosts:\n\n   ```bash\n   docker system df\n   docker ps --filter status=exited --format '{{.ID}}\t{{.Names}}'\n   ```\n\n> ⚠️ Be cautious with deletions. Prefer archiving/moving off-host or rotating/truncating logs using the owning service.\n\n### 🧹 Common causes & resolutions\n\nCause | How to resolve safely\n------|------\nRunaway logs (app, systemd/journal) | Rotate/compress logs; fix log levels. For journald: `journalctl --disk-usage`, then set retention (`/etc/systemd/journald.conf`). For example, `SystemMaxUse=1G`, and `sudo systemctl restart systemd-journald`.\nLeftover build/artifact/temp files | Clean workspace caches and temp dirs (`/tmp`, build caches). Add periodic cleanup to CI or cron.\nOld backups/snapshots on the host | Move backups to object storage; prune old sets per retention policy; avoid storing backups on root volumes.\nContainer images/volumes piling up | Remove unused images/containers/volumes once verified: `docker image prune -a`, `docker container prune`, `docker volume ls` (review before removing).\nApplication data growth (DBs, queues) | Purge/archive old data; enable partitioning/TTL; move cold data to cheaper storage; consider resizing the volume.\nLarge core dumps or crash artifacts | Review & archive off-host; tune core dump settings to limit or disable where appropriate.\n\n\n### 🔗 Related links\n\n* [Host Map](/infrastructure/map)\n* [Live Processes](/process?query=host%3A{{host.name}})\n* [System Dashboards](/dashboard/lists)\n* [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n* [Logs](/logs?query=device:{{device.name}}+host:{{host.name}})\n* [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n* [Metrics Explorer (system.disk.free)](/metric/explorer?exp_metric=system.disk.free&exp_scope=device:{{device.name}},host:{{host.name}}&exp_agg=avg&exp_type=line)\n* [Metrics Explorer (system.disk.total)](/metric/explorer?exp_metric=system.disk.total&exp_scope=device:{{device.name}},host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n### 👥 Who should be notified?\n\nAssign the appropriate notification handle for this alert (for example, `@slack-infra`, `@pagerduty-core-systems`):  \n`@your-team-handle`",
+          "tags": [
+            "integration:host",
+            "monitor_pack:host"
+          ],
+          "options": {
+            "thresholds": {
+              "critical": 99,
+              "critical_recovery": 89
+            },
+            "notify_audit": false,
+            "include_tags": false,
+            "notify_no_data": false,
+            "new_host_delay": 300,
+            "silenced": {}
+          },
+          "created": "2026-07-27T15:27:30.096343+00:00",
+          "modified": "2026-07-27T15:27:30.096343+00:00",
+          "overall_state": "OK",
+          "overall_state_modified": "2026-07-27T15:27:38+00:00",
+          "multi": true,
+          "creator": {
+            "name": "Datadog Support",
+            "handle": "support-nangodev-npsukaogqnfl",
+            "email": "support-user-prod@datadoghq.com"
+          }
+        },
+        {
+          "id": "308771189",
+          "name": "System load is high for host {{host.name}}",
+          "type": "query alert",
+          "query": "avg(last_5m):avg:system.load.norm.1{*} by {host} > 1",
+          "message": "## 🚨 What’s happening\n\nHigh 1-minute load average detected on host {{host.name}}.\n\nThis alert means the system has more processes waiting to run than it can efficiently handle. A high load average often indicates that the host is under significant resource pressure — typically due to CPU saturation, blocked I/O, or memory contention. While some load is normal, consistently high load (especially relative to the number of CPU cores) can signal an unhealthy or overloaded system.\n\n---\n\n## 📈 Impact\n\nIf load remains high, the host may experience:\n\n- Slower system and application performance\n- Backlogged scheduled jobs or delayed processing\n- Increased risk of timeouts, dropped requests, or service degradation\n\nIn environments with strict performance requirements, high load can quickly lead to cascading failures or degraded user experience.\n\n---\n\n## 🛠 How to fix (Runbook)\n\n### 🔍 Initial troubleshooting\n\n1. Identify the affected host from the alert.\n2. Open [**Infrastructure > Host Details**](/infrastructure) for {{host.name}}.\n3. In the **Metrics tab**, examine:\n   - `system.load.1`\n   - `system.cpu.user`, `system.cpu.system`, `system.io.await`, `system.mem.pct_usable`\n4. Use [**Live Processes**](/process) to find CPU- or I/O-heavy processes.\n5. SSH into the host and run:\n   ```bash\n   uptime\n   top -o %CPU\n   \n### Cause and Resolution\n\nCause | Resolution\n------|------\nCPU-bound processes: | Restart or optimize heavy applications\n------|------\nBlocked I/O or memory pressure | Investigate disk or memory bottlenecks\n------|------\nConcurrent workload spikes | Throttle or redistribute jobs across hosts\n------|------\nConfiguration changes | Roll back recent updates or autoscaling settings if related\n\n        \n###  Related links\n\n* [Host Map](/infrastructure/map)\n* [Live Processes](/process?query=host%3A{{host.name}})\n* [System Dashboards](/dashboard/lists)\n* [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n* [Logs](/logs?query=host:{{host.name}})\n* [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n* [Metrics Explorer (system.load.norm.1)](/metric/explorer?exp_metric=system.load.norm.1&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n### Who should be notified?\n\nAssign the appropriate notification handle for this alert (e.g., `@slack-infra`, `@pagerduty-core-systems`):  \n`@your-team-handle`",
+          "tags": [
+            "integration:host",
+            "monitor_pack:host"
+          ],
+          "options": {
+            "thresholds": {
+              "critical": 1
+            },
+            "notify_audit": false,
+            "include_tags": false,
+            "notify_no_data": false,
+            "new_host_delay": 300,
+            "silenced": {}
+          },
+          "created": "2026-07-27T15:27:30.224783+00:00",
+          "modified": "2026-07-27T15:27:30.224783+00:00",
+          "overall_state": "OK",
+          "overall_state_modified": "2026-08-03T19:22:29+00:00",
+          "multi": true,
+          "creator": {
+            "name": "Datadog Support",
+            "handle": "support-nangodev-npsukaogqnfl",
+            "email": "support-user-prod@datadoghq.com"
+          }
+        },
+        {
+          "id": "308771190",
+          "name": "Network traffic (received) is high on host {{host.name}}",
+          "type": "query alert",
+          "query": "avg(last_15m):avg:system.net.bytes_rcvd{*} by {host} / (1024 * 1024 * 1024) > 0.08",
+          "message": "## 🚨 What's happening\n\nHigh **incoming network traffic** detected on host {{host.name}}.\n\nThis means the host is receiving a sustained high volume of data — with the 15-minute average of `system.net.bytes_rcvd` exceeding **80 MB/min**. This typically indicates heavy data ingestion, large transfers, or inefficient service communication patterns.\n\n***\n\n## 📈 Impact\n\nIf network traffic remains elevated, it can lead to:\n\n-   **Bandwidth saturation**, packet loss, or throttling\n-   **Latency or degraded performance** in network-bound services\n-   **Slow log shipping**, delayed data pipelines, or failed syncs\n-   **Contended resources** in multi-tenant environments (e.g., containers)\n\nThis may impact the host's ability to serve real-time workloads or maintain timely communication with external systems, APIs, or databases.\n\n***\n\n## 🛠️ Runbook\n\n### Initial Troubleshooting Steps\n\n1.  **Identify the affected host** from the alert.\n\n2.  Open [**Infrastructure > Host Details**](/infrastructure) in Datadog.\n\n3.  In the **Metrics** tab, examine:\n\n    -   `system.net.bytes_rcvd`, `system.net.bytes_sent`\n    -   Interface metrics (`system.net.iface.*`)\n\n4.  Check application logs for unexpected ingest behavior.\n\n5.  Use tools like `iftop`, `nload`, or `netstat` to inspect top inbound connections.\n\n6.  (If needed) SSH into the host and run:\n\n    ```\n    bash\n    CopyEdit\n    sudo iftop -i <interface>\n    ```\n\n***\n\n### Cause and Resolution\n\n| Cause                                           | Resolution                                                  |\n| ----------------------------------------------- | ----------------------------------------------------------- |\n| Large file transfers (e.g., backups, ingestion) | Schedule during off-peak hours or limit transfer rate       |\n| Misconfigured agents or services                | Review configs and reduce polling or payload size           |\n| Unexpected traffic spike or DDoS                | Block IPs, apply rate limits, or enable network protections |\n| Log/metric flooding from other systems          | Throttle integrations or export rates                       |\n\n***\n\n### 🔗 Related links\n\n-   [Host Map](/infrastructure/map)\n-   [Live Processes](/process)\n-   [System Dashboards](/dashboard/lists)\n-   [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n-   [Logs](/logs?query=host:{{host.name}})\n-   [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n-   [Metrics Explorer (system.net.bytes_rcvd)](/metric/explorer?exp_metric=system.net.bytes_rcvd&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n***\n\n### 📣 Who should be notified?\n\nPlease assign the appropriate notification handle for this alert (e.g., `@slack-networking`, `@pagerduty-platform-oncall`):\\\n`@your-team-handle`",
+          "tags": [
+            "integration:host",
+            "monitor_pack:host"
+          ],
+          "options": {
+            "thresholds": {
+              "critical": 0.08
+            },
+            "notify_audit": false,
+            "include_tags": false,
+            "notify_no_data": false,
+            "new_host_delay": 300,
+            "silenced": {}
+          },
+          "created": "2026-07-27T15:27:30.344778+00:00",
+          "modified": "2026-07-27T15:27:30.344778+00:00",
+          "overall_state": "OK",
+          "overall_state_modified": "2026-07-27T15:27:41+00:00",
+          "multi": true,
+          "creator": {
+            "name": "Datadog Support",
+            "handle": "support-nangodev-npsukaogqnfl",
+            "email": "support-user-prod@datadoghq.com"
+          }
+        },
+        {
+          "id": "308771192",
+          "name": "Network traffic (sent) is high on host {{host.name}}",
+          "type": "query alert",
+          "query": "avg(last_15m):avg:system.net.bytes_sent{*} by {host} / (1024 * 1024 * 1024) > 0.08",
+          "message": "## 🚨 What's happening\n\nHigh outgoing network traffic detected on host {{host.name}}.\n\nThis means the host is sending a sustained high volume of data — with the 15-minute average of `system.net.bytes_sent` exceeding **80 MB/min**. This typically points to large data exports, logging spikes, backup activity, or misconfigured services.\n\n***\n\n## 📈 Impact\n\nIf network traffic remains elevated, it can lead to:\n\n-   **Bandwidth saturation**, resulting in packet loss or throttling\n-   **Degraded performance** for outbound services like APIs, exporters, or clients\n-   **Delays in data processing**, backups, or inter-service communication\n-   **Resource contention** on shared hosts or virtualized environments\n\nThis may prevent the host from reliably transmitting time-sensitive or critical data, potentially impacting service-level objectives.\n\n***\n\n## Runbook\n\n### Initial Troubleshooting Steps\n\n1.  **Identify the affected host** from the alert.\n\n2.  Open [**Infrastructure > Host Details**](/infrastructure) in Datadog.\n\n3.  In the **Metrics** tab, examine:\n\n    -   `system.net.bytes_sent`, `system.net.bytes_rcvd`\n    -   Interface metrics (`system.net.iface.*`)\n\n4.  Check application logs or exporters for spikes in outbound traffic.\n\n5.  Use tools like `iftop`, `nload`, or `netstat` to inspect top outbound connections.\n\n6.  (If needed) SSH into the host and run:\n\n    ```\n    bash\n    CopyEdit\n    sudo iftop -i <interface>\n    ```\n\n### Cause and Resolution\n\n| Cause                                            | Resolution                                      |\n| ------------------------------------------------ | ----------------------------------------------- |\n| Large data exports (e.g., backups, log shipping) | Schedule exports off-peak or throttle bandwidth |\n| Misconfigured services flooding traffic          | Review configs and reduce payloads or frequency |\n| Traffic spike from application behavior          | Add caching or batching; review architecture    |\n| Third-party abuse or unintended syncs            | Audit external endpoints and restrict access    |\n\n***\n\n### Related links\n\n-   [Host Map](/infrastructure/map)\n-   [Live Processes](/process)\n-   [System Dashboards](/dashboard/lists)\n-   [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n-   [Logs](/logs?query=host:{{host.name}})\n-   [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n-   [Metrics Explorer (system.net.bytes_sent)](/metric/explorer?exp_metric=system.net.bytes_sent&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n***\n\n### Who should be notified?\n\nPlease assign the appropriate notification handle for this alert (e.g., `@slack-networking`, `@pagerduty-platform-oncall`):\\\n`@your-team-handle`",
+          "tags": [
+            "integration:host",
+            "monitor_pack:host"
+          ],
+          "options": {
+            "thresholds": {
+              "critical": 0.08
+            },
+            "notify_audit": false,
+            "include_tags": false,
+            "notify_no_data": false,
+            "new_host_delay": 300,
+            "silenced": {}
+          },
+          "created": "2026-07-27T15:27:30.464253+00:00",
+          "modified": "2026-07-27T15:27:30.464253+00:00",
+          "overall_state": "OK",
+          "overall_state_modified": "2026-07-27T15:27:41+00:00",
+          "multi": true,
+          "creator": {
+            "name": "Datadog Support",
+            "handle": "support-nangodev-npsukaogqnfl",
+            "email": "support-user-prod@datadoghq.com"
+          }
+        },
+        {
+          "id": "308771193",
+          "name": "Memory space is low for host {{host.name}}",
+          "type": "query alert",
+          "query": "avg(last_5m):avg:system.mem.pct_usable{*} by {host} < 0.1",
+          "message": "## 🚨 What's happening\n\nLow available memory detected on host {{host.name}}.\n\nThis means the host has less than **10% usable memory** on average over the last 5 minutes, based on the `system.mem.pct_usable` metric. This typically indicates that applications or services are consuming most of the RAM, leaving little room for new processes or memory-intensive operations.\n\n***\n\n## 📈 Impact\n\nIf memory remains low, it can lead to:\n\n-   **Slower application performance** due to increased paging or swapping\n-   **Crashes or restarts** of services that can’t allocate enough memory\n-   **System instability** or degraded responsiveness under load\n-   **Failure of background jobs** or scheduled tasks\n\nThis may impact key services running on the host and disrupt user-facing or backend operations.\n\n***\n\n## Runbook\n\n### Initial Troubleshooting Steps\n\n1.  **Identify the affected host** from the alert.\n\n2.  Open [**Infrastructure > Host Details**](/infrastructure) in Datadog.\n\n3.  In the **Metrics** tab, examine:\n\n    -   `system.mem.pct_usable`, `system.mem.total`, `system.mem.used`\n    -   `process.mem.rss`, `process.mem.real`, or specific memory-hungry processes\n\n4.  Use [**Live Processes**](/process) to check which processes are using the most memory.\n\n5.  SSH into the host and run:\n\n    ```\n    bash\n    CopyEdit\n    top -o %MEM\n    ```\n\n***\n\n### Cause and Resolution\n\n| Cause                                      | Resolution                                                |\n| ------------------------------------------ | --------------------------------------------------------- |\n| Memory leaks or runaway processes          | Restart or stop problematic processes                     |\n| Memory-intensive workloads                 | Scale up memory capacity or move workloads to other nodes |\n| Background jobs or batch tasks overlapping | Stagger or reschedule heavy memory consumers              |\n| Misconfigured applications or JVMs         | Tune memory settings (e.g., heap size, buffers)           |\n\n***\n\n### Related links\n\n-   [Host Map](/infrastructure/map)\n-   [Live Processes](/process)\n-   [System Dashboards](/dashboard/lists)\n-   [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n-   [Logs](/logs?query=host:{{host.name}})\n-   [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n-   [Metrics Explorer (system.mem.pct_usable)](/metric/explorer?exp_metric=system.mem.pct_usable&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n***\n\n### Who should be notified?\n\nPlease assign the appropriate notification handle for this alert (e.g., `@slack-infra`, `@pagerduty-core-systems`):\\\n`@your-team-handle`",
+          "tags": [
+            "integration:host",
+            "monitor_pack:host"
+          ],
+          "options": {
+            "thresholds": {
+              "critical": 0.1
+            },
+            "notify_audit": false,
+            "include_tags": false,
+            "notify_no_data": false,
+            "new_host_delay": 300,
+            "silenced": {}
+          },
+          "created": "2026-07-27T15:27:30.587223+00:00",
+          "modified": "2026-07-27T15:27:30.587223+00:00",
+          "overall_state": "OK",
+          "overall_state_modified": "2026-07-30T14:00:33+00:00",
+          "multi": true,
+          "creator": {
+            "name": "Datadog Support",
+            "handle": "support-nangodev-npsukaogqnfl",
+            "email": "support-user-prod@datadoghq.com"
+          }
+        },
+        {
+          "id": "310573211",
+          "name": "Nango Registry Test Monitor Action",
+          "type": "metric alert",
+          "query": "avg(last_5m):avg:nango.registry.test.metric{*} > 0.5",
+          "message": "Test monitor created by Nango action build",
+          "tags": [
+            "source:nango-action"
+          ],
+          "options": {
+            "notify_no_data": false,
+            "notify_audit": false,
+            "new_host_delay": 300,
+            "include_tags": true,
+            "silenced": {}
+          },
+          "created": "2026-08-03T14:39:33.374212+00:00",
+          "modified": "2026-08-03T14:39:33.374212+00:00",
+          "overall_state": "Alert",
+          "overall_state_modified": "2026-08-03T14:39:44+00:00",
+          "multi": false,
+          "creator": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "310573421",
+          "name": "Nango Registry Test Monitor Action Save",
+          "type": "metric alert",
+          "query": "avg(last_5m):avg:nango.registry.test.metric{*} > 0.5",
+          "message": "Test monitor created by Nango action build save",
+          "tags": [
+            "source:nango-action-save"
+          ],
+          "options": {
+            "notify_no_data": false,
+            "notify_audit": false,
+            "new_host_delay": 300,
+            "include_tags": true,
+            "silenced": {}
+          },
+          "created": "2026-08-03T14:40:05.904630+00:00",
+          "modified": "2026-08-03T14:40:05.904630+00:00",
+          "overall_state": "Alert",
+          "overall_state_modified": "2026-08-03T14:40:13+00:00",
+          "multi": false,
+          "creator": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "310781867",
+          "name": "Nango Registry Test Monitor For Update",
+          "type": "metric alert",
+          "query": "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
+          "message": "Updated message via Nango update-monitor action",
+          "tags": [],
+          "options": {
+            "notify_no_data": false,
+            "notify_audit": false,
+            "new_host_delay": 300,
+            "include_tags": true,
+            "silenced": {}
+          },
+          "created": "2026-08-03T22:14:16.412408+00:00",
+          "modified": "2026-08-03T22:14:42.330926+00:00",
+          "overall_state": "No Data",
+          "overall_state_modified": "2026-08-03T22:14:23+00:00",
+          "multi": false,
+          "creator": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "310792870",
+          "name": "Nango Registry Test Monitor Create Action",
+          "type": "metric alert",
+          "query": "avg(last_5m):avg:nango.registry.test.metric{*} > 1",
+          "message": "Test monitor created by Nango create-monitor action.",
+          "tags": [
+            "nango:registry",
+            "env:test"
+          ],
+          "options": {
+            "notify_no_data": false,
+            "notify_audit": false,
+            "new_host_delay": 300,
+            "include_tags": true,
+            "silenced": {}
+          },
+          "created": "2026-08-03T22:40:08.682868+00:00",
+          "modified": "2026-08-03T22:40:08.682868+00:00",
+          "overall_state": "Alert",
+          "overall_state_modified": "2026-08-03T22:40:13+00:00",
+          "multi": false,
+          "creator": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "310793067",
+          "name": "Nango Registry Test Monitor Create Action Save",
+          "type": "metric alert",
+          "query": "avg(last_5m):avg:nango.registry.test.metric{*} > 2",
+          "message": "Test monitor created by Nango create-monitor action.",
+          "tags": [
+            "nango:registry",
+            "env:test"
+          ],
+          "options": {
+            "notify_no_data": false,
+            "notify_audit": false,
+            "new_host_delay": 300,
+            "include_tags": true,
+            "silenced": {}
+          },
+          "created": "2026-08-03T22:40:46.019979+00:00",
+          "modified": "2026-08-03T22:40:46.019979+00:00",
+          "overall_state": "Alert",
+          "overall_state_modified": "2026-08-03T22:40:53+00:00",
+          "multi": false,
+          "creator": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "310795608",
+          "name": "[Synthetics] Nango Registry Test Synthetic Dryrun",
+          "type": "synthetics alert",
+          "query": "no_query",
+          "message": "Nango registry test message",
+          "tags": [
+            "probe_dc:aws:us-east-1",
+            "check_type:api",
+            "check_status:paused",
+            "ci_execution_rule:blocking"
+          ],
+          "options": {
+            "on_missing_data": "show_no_data",
+            "notify_audit": false,
+            "new_host_delay": 300,
+            "include_tags": true,
+            "silenced": {}
+          },
+          "created": "2026-08-03T22:46:38.343409+00:00",
+          "modified": "2026-08-03T22:46:38.343409+00:00",
+          "overall_state": "No Data",
+          "overall_state_modified": "2026-08-03T22:46:49+00:00",
+          "multi": false,
+          "creator": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "310795902",
+          "name": "[Synthetics] Nango Registry Test Synthetic Dryrun",
+          "type": "synthetics alert",
+          "query": "no_query",
+          "message": "Nango registry test message",
+          "tags": [
+            "probe_dc:aws:us-east-1",
+            "check_type:api",
+            "check_status:paused",
+            "ci_execution_rule:blocking"
+          ],
+          "options": {
+            "on_missing_data": "show_no_data",
+            "notify_audit": false,
+            "new_host_delay": 300,
+            "include_tags": true,
+            "silenced": {}
+          },
+          "created": "2026-08-03T22:47:15.969777+00:00",
+          "modified": "2026-08-03T22:47:15.969777+00:00",
+          "overall_state": "No Data",
+          "overall_state_modified": "2026-08-03T22:47:43+00:00",
+          "multi": false,
+          "creator": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "310796773",
+          "name": "[Synthetics] Nango Registry Test Synthetic Get 1785797405316",
+          "type": "synthetics alert",
+          "query": "no_query",
+          "message": "Nango Registry Test Synthetic Get",
+          "tags": [
+            "nango:registry:test",
+            "probe_dc:aws:us-east-1",
+            "check_type:api",
+            "check_status:paused",
+            "ci_execution_rule:blocking"
+          ],
+          "options": {
+            "on_missing_data": "show_no_data",
+            "notify_audit": false,
+            "new_host_delay": 300,
+            "include_tags": true,
+            "silenced": {}
+          },
+          "created": "2026-08-03T22:50:05.608285+00:00",
+          "modified": "2026-08-03T22:50:05.608285+00:00",
+          "overall_state": "No Data",
+          "overall_state_modified": "2026-08-03T22:50:14+00:00",
+          "multi": false,
+          "creator": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        },
+        {
+          "id": "310918557",
+          "name": "[Synthetics] Nango Registry Test Synthetic Action (updated)",
+          "type": "synthetics alert",
+          "query": "no_query",
+          "message": "Test message",
+          "tags": [
+            "env:registry",
+            "source:nango-action-test",
+            "probe_dc:aws:us-east-1",
+            "check_type:api",
+            "check_status:live",
+            "ci_execution_rule:blocking"
+          ],
+          "options": {
+            "on_missing_data": "show_no_data",
+            "notify_audit": false,
+            "new_host_delay": 300,
+            "include_tags": true,
+            "silenced": {}
+          },
+          "created": "2026-08-04T04:56:42.034113+00:00",
+          "modified": "2026-08-04T04:56:59.397126+00:00",
+          "overall_state": "OK",
+          "overall_state_modified": "2026-08-04T04:57:27+00:00",
+          "multi": false,
+          "creator": {
+            "name": "Nango Developer",
+            "handle": "api@nango.dev",
+            "email": "api@nango.dev"
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Monitor": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/monitor": {
+        "response": [
+          {
+            "id": 308771182,
+            "org_id": 1984731,
+            "type": "query alert",
+            "name": "CPU usage is high for host {{host.name}}",
+            "message": "## 🚨 What’s happening\n\nHigh CPU usage detected on host {{host.name}}.\n\nThis means the host is spending most of its time actively processing, with very little idle CPU capacity available. It typically signals that the system is under heavy load — either from intense workloads, misbehaving processes, or increased traffic.\n\n---\n\n## 📈 Impact\n\nIf CPU usage remains high over time, it can lead to:\n\n- Sluggish application and system performance\n- Delayed or stalled background jobs\n- Timeouts, degraded services, or crashes due to resource exhaustion\n\nThis may affect critical applications running on this host and lead to broader service degradation if not addressed promptly.\n\n---\n\n## Runbook\n\n### Initial Troubleshooting Steps\n\n1. **Identify the affected host** from the alert.\n2. Open [**Infrastructure > Host Details**](/infrastructure?tags=host%3A{{host.name}}) in Datadog.\n3. In the **Metrics** tab, examine:\n   - `system.cpu.user`, `system.cpu.system`, `system.cpu.idle`\n   - `process.cpu.total_pct`, `process.*` metrics\n4. Use [**Live Processes**](/process?query=host%3A{{host.name}}) to view real-time CPU usage.\n5. SSH into the host (if needed) and run:\n   ```bash\n   top -o %CPU\n   \n### Cause and Resolution\n\nCause | Resolution\n------|------\nRunaway processes | **Restart or stop** high-CPU processes if they’re stuck or misbehaving.\n------|------\nTraffic/load spike | Scale out or up the infrastructure\n------|------\nCode/deployment issue | Roll back recent changes or investigate further.\n------|------\nContainer/JVM misconfiguration | Tune resource limits and runtime settings\n        \n###  Related links\n\n* [Host Map](/infrastructure/map)\n* [Live Processes](/process?query=host%3A{{host.name}})\n* [System Dashboards](/dashboard/lists)\n* [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n* [Logs](/logs?query=host:{{host.name}})\n* [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n* [Metrics Explorer (system.cpu.idle)](/metric/explorer?exp_metric=system.cpu.idle&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n### Who should be notified?\n\nAssign the appropriate notification handle for this alert (e.g., `@slack-infra`, `@pagerduty-core-systems`):  \n`@your-team-handle`",
+            "tags": [
+              "integration:host",
+              "monitor_pack:host"
+            ],
+            "query": "avg(last_5m):100 - avg:system.cpu.idle{*} by {host} > 90",
+            "options": {
+              "thresholds": {
+                "critical": 90
+              },
+              "notify_audit": false,
+              "include_tags": false,
+              "notify_no_data": false,
+              "new_host_delay": 300,
+              "silenced": {}
+            },
+            "multi": true,
+            "created_at": 1785166049000,
+            "created": "2026-07-27T15:27:29.805834+00:00",
+            "modified": "2026-07-27T15:27:29.805834+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-07-27T15:27:31+00:00",
+            "overall_state": "OK",
+            "creator": {
+              "name": "Datadog Support",
+              "email": "support-user-prod@datadoghq.com",
+              "handle": "support-nangodev-npsukaogqnfl",
+              "id": 69379536
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 308771187,
+            "org_id": 1984731,
+            "type": "query alert",
+            "name": "Disk latency is high for host {{host.name}} on device {{device.name}}",
+            "message": "## 🚨 What’s happening\n\nHigh disk I/O wait time detected on host {{host.name}}.\n\nThis means one or more devices on the host are taking a long time to complete disk operations — averaging over 500ms in the last 5 minutes. High I/O wait time typically occurs when the system is frequently waiting for disk reads or writes to finish, often due to storage contention or inefficient disk usage by running processes.\n\n---\n\n## 📈 Impact\n\nIf I/O wait remains high, it can lead to:\n\n- Slower application and system performance, especially for disk-intensive services\n- Delayed job processing or database queries\n- Risk of timeouts or service degradation due to blocked I/O operations\n\nSustained disk latency can have cascading effects on dependent services and degrade user experience.\n\n---\n\n## Runbook\n\n### Initial Troubleshooting Steps\n\n## 🛠 How to fix (Runbook)\n\n### 🔍 Initial troubleshooting\n\n1. Identify the affected host and device from the alert.\n2. Open [**Infrastructure > Host Details**](/infrastructure) for {{host.name}}.\n3. In the **Metrics tab**, examine:\n   - `system.io.await` by device\n   - `system.disk.read_time`, `system.disk.write_time`, `system.disk.in_use`\n4. Use [**Live Processes**](/process) to find I/O-heavy processes.\n5. SSH into the host and run:\n   ```bash\n   iostat -xd 1 3\n   \n### Cause and Resolution\n\nCause | Resolution\n------|------\nDisk-heavy processes | Restart or optimize services with high I/O usage\n------|------\nBackup jobs, ETLs, logging | Schedule or throttle non-critical workloads\n------|------\nUnderlying disk performance | Check for slow or saturated disks, especially on network-attached volumes (e.g., EBS, NFS)\n------|------\nScale-out option | Move I/O-intensive tasks to separate or faster storage tiers\n        \n###  Related links\n\n* [Host Map](/infrastructure/map)\n* [Live Processes](/process?query=host%3A{{host.name}})\n* [System Dashboards](/dashboard/lists)\n* [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n* [Logs](/logs?query=device:{{device.name}})\n* [Metrics Explorer (system.io.await)](/metric/explorer?exp_metric=system.io.await&exp_scope=device:{{device.name}}&exp_agg=avg&exp_type=line)\n\n### Who should be notified?\n\nAssign the appropriate notification handle for this alert (e.g., `@slack-infra`, `@pagerduty-core-systems`):  \n`@your-team-handle`",
+            "tags": [
+              "integration:host",
+              "monitor_pack:host"
+            ],
+            "query": "avg(last_5m):avg:system.io.await{*} by {device} > 500",
+            "options": {
+              "thresholds": {
+                "critical": 500
+              },
+              "notify_audit": false,
+              "include_tags": false,
+              "notify_no_data": false,
+              "new_host_delay": 300,
+              "silenced": {}
+            },
+            "multi": true,
+            "created_at": 1785166049000,
+            "created": "2026-07-27T15:27:29.930923+00:00",
+            "modified": "2026-07-27T15:27:29.930923+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-07-27T15:27:37+00:00",
+            "overall_state": "OK",
+            "creator": {
+              "name": "Datadog Support",
+              "email": "support-user-prod@datadoghq.com",
+              "handle": "support-nangodev-npsukaogqnfl",
+              "id": 69379536
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 308771188,
+            "org_id": 1984731,
+            "type": "query alert",
+            "name": "Disk usage is high for host {{host.name}} on device {{device.name}}",
+            "message": "## 🚨 What’s happening\n\nLow disk capacity detected on host {{host.name}}.\n\nThis alert indicates that one or more filesystems are **over 90% full**, meaning they are at risk of running out of space for applications to write. If unaddressed, writes will fail and applications may crash. Investigate and free space by deleting or archiving data, or by expanding the volume.\n\n---\n\n## 📈 Impact\n\nWhen disks run out of space, it can result in:\n\n- Applications failing on writes (such as databases, services writing logs, or temp files)\n- Stuck or crashing jobs (logging, backups, compactions, builds)\n- Node instability (for example, kubelet/daemon issues or package updates failing)\n\nSpace exhaustion can quickly degrade services, especially on hosts that handle large volumes of data or critical workloads.\n\n---\n\n## 🛠 How to fix (Runbook)\n\n### 🔍 Initial troubleshooting\n\n1. Identify the affected host and device/mount point from the alert.\n2. Open [**Infrastructure → Host Details**](/infrastructure) for **{{host.name}}**.\n3. In the **Metrics** tab, review:\n   - `system.disk.in_use` (fraction of space used)\n   - `system.disk.total`, `system.disk.used`, `system.disk.free`\n4. SSH into the host to find large directories/files (Linux/macOS):\n   ```bash\n   # Top space consumers by directory (human-readable)\n   sudo du -xhd1 / | sort -h | tail -n 20\n\n   # Top 50 largest files (avoid virtual filesystems)\n   sudo find / -xdev -type f -printf '%s %p\n' 2>/dev/null | sort -nr | head -50\n\n   # Filesystem usage\n   df -h\n   ```\n\n   On systems with `ncdu`:\n\n   ```bash\n   sudo ncdu -x /\n   ```\n\n   For Docker-heavy hosts:\n\n   ```bash\n   docker system df\n   docker ps --filter status=exited --format '{{.ID}}\t{{.Names}}'\n   ```\n\n> ⚠️ Be cautious with deletions. Prefer archiving/moving off-host or rotating/truncating logs using the owning service.\n\n### 🧹 Common causes & resolutions\n\nCause | How to resolve safely\n------|------\nRunaway logs (app, systemd/journal) | Rotate/compress logs; fix log levels. For journald: `journalctl --disk-usage`, then set retention (`/etc/systemd/journald.conf`). For example, `SystemMaxUse=1G`, and `sudo systemctl restart systemd-journald`.\nLeftover build/artifact/temp files | Clean workspace caches and temp dirs (`/tmp`, build caches). Add periodic cleanup to CI or cron.\nOld backups/snapshots on the host | Move backups to object storage; prune old sets per retention policy; avoid storing backups on root volumes.\nContainer images/volumes piling up | Remove unused images/containers/volumes once verified: `docker image prune -a`, `docker container prune`, `docker volume ls` (review before removing).\nApplication data growth (DBs, queues) | Purge/archive old data; enable partitioning/TTL; move cold data to cheaper storage; consider resizing the volume.\nLarge core dumps or crash artifacts | Review & archive off-host; tune core dump settings to limit or disable where appropriate.\n\n\n### 🔗 Related links\n\n* [Host Map](/infrastructure/map)\n* [Live Processes](/process?query=host%3A{{host.name}})\n* [System Dashboards](/dashboard/lists)\n* [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n* [Logs](/logs?query=device:{{device.name}}+host:{{host.name}})\n* [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n* [Metrics Explorer (system.disk.free)](/metric/explorer?exp_metric=system.disk.free&exp_scope=device:{{device.name}},host:{{host.name}}&exp_agg=avg&exp_type=line)\n* [Metrics Explorer (system.disk.total)](/metric/explorer?exp_metric=system.disk.total&exp_scope=device:{{device.name}},host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n### 👥 Who should be notified?\n\nAssign the appropriate notification handle for this alert (for example, `@slack-infra`, `@pagerduty-core-systems`):  \n`@your-team-handle`",
+            "tags": [
+              "integration:host",
+              "monitor_pack:host"
+            ],
+            "query": "max(next_3d):forecast((1 - avg:system.disk.free{*} by {host,device} / avg:system.disk.total{*} by {host,device}) * 100, \"seasonal\", 1, interval=\"60m\", seasonality=\"weekly\") >= 99",
+            "options": {
+              "thresholds": {
+                "critical": 99,
+                "critical_recovery": 89
+              },
+              "notify_audit": false,
+              "include_tags": false,
+              "notify_no_data": false,
+              "new_host_delay": 300,
+              "silenced": {}
+            },
+            "multi": true,
+            "created_at": 1785166050000,
+            "created": "2026-07-27T15:27:30.096343+00:00",
+            "modified": "2026-07-27T15:27:30.096343+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-07-27T15:27:38+00:00",
+            "overall_state": "OK",
+            "creator": {
+              "name": "Datadog Support",
+              "email": "support-user-prod@datadoghq.com",
+              "handle": "support-nangodev-npsukaogqnfl",
+              "id": 69379536
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 308771189,
+            "org_id": 1984731,
+            "type": "query alert",
+            "name": "System load is high for host {{host.name}}",
+            "message": "## 🚨 What’s happening\n\nHigh 1-minute load average detected on host {{host.name}}.\n\nThis alert means the system has more processes waiting to run than it can efficiently handle. A high load average often indicates that the host is under significant resource pressure — typically due to CPU saturation, blocked I/O, or memory contention. While some load is normal, consistently high load (especially relative to the number of CPU cores) can signal an unhealthy or overloaded system.\n\n---\n\n## 📈 Impact\n\nIf load remains high, the host may experience:\n\n- Slower system and application performance\n- Backlogged scheduled jobs or delayed processing\n- Increased risk of timeouts, dropped requests, or service degradation\n\nIn environments with strict performance requirements, high load can quickly lead to cascading failures or degraded user experience.\n\n---\n\n## 🛠 How to fix (Runbook)\n\n### 🔍 Initial troubleshooting\n\n1. Identify the affected host from the alert.\n2. Open [**Infrastructure > Host Details**](/infrastructure) for {{host.name}}.\n3. In the **Metrics tab**, examine:\n   - `system.load.1`\n   - `system.cpu.user`, `system.cpu.system`, `system.io.await`, `system.mem.pct_usable`\n4. Use [**Live Processes**](/process) to find CPU- or I/O-heavy processes.\n5. SSH into the host and run:\n   ```bash\n   uptime\n   top -o %CPU\n   \n### Cause and Resolution\n\nCause | Resolution\n------|------\nCPU-bound processes: | Restart or optimize heavy applications\n------|------\nBlocked I/O or memory pressure | Investigate disk or memory bottlenecks\n------|------\nConcurrent workload spikes | Throttle or redistribute jobs across hosts\n------|------\nConfiguration changes | Roll back recent updates or autoscaling settings if related\n\n        \n###  Related links\n\n* [Host Map](/infrastructure/map)\n* [Live Processes](/process?query=host%3A{{host.name}})\n* [System Dashboards](/dashboard/lists)\n* [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n* [Logs](/logs?query=host:{{host.name}})\n* [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n* [Metrics Explorer (system.load.norm.1)](/metric/explorer?exp_metric=system.load.norm.1&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n### Who should be notified?\n\nAssign the appropriate notification handle for this alert (e.g., `@slack-infra`, `@pagerduty-core-systems`):  \n`@your-team-handle`",
+            "tags": [
+              "integration:host",
+              "monitor_pack:host"
+            ],
+            "query": "avg(last_5m):avg:system.load.norm.1{*} by {host} > 1",
+            "options": {
+              "thresholds": {
+                "critical": 1
+              },
+              "notify_audit": false,
+              "include_tags": false,
+              "notify_no_data": false,
+              "new_host_delay": 300,
+              "silenced": {}
+            },
+            "multi": true,
+            "created_at": 1785166050000,
+            "created": "2026-07-27T15:27:30.224783+00:00",
+            "modified": "2026-07-27T15:27:30.224783+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-08-03T19:22:29+00:00",
+            "overall_state": "OK",
+            "creator": {
+              "name": "Datadog Support",
+              "email": "support-user-prod@datadoghq.com",
+              "handle": "support-nangodev-npsukaogqnfl",
+              "id": 69379536
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 308771190,
+            "org_id": 1984731,
+            "type": "query alert",
+            "name": "Network traffic (received) is high on host {{host.name}}",
+            "message": "## 🚨 What's happening\n\nHigh **incoming network traffic** detected on host {{host.name}}.\n\nThis means the host is receiving a sustained high volume of data — with the 15-minute average of `system.net.bytes_rcvd` exceeding **80 MB/min**. This typically indicates heavy data ingestion, large transfers, or inefficient service communication patterns.\n\n***\n\n## 📈 Impact\n\nIf network traffic remains elevated, it can lead to:\n\n-   **Bandwidth saturation**, packet loss, or throttling\n-   **Latency or degraded performance** in network-bound services\n-   **Slow log shipping**, delayed data pipelines, or failed syncs\n-   **Contended resources** in multi-tenant environments (e.g., containers)\n\nThis may impact the host's ability to serve real-time workloads or maintain timely communication with external systems, APIs, or databases.\n\n***\n\n## 🛠️ Runbook\n\n### Initial Troubleshooting Steps\n\n1.  **Identify the affected host** from the alert.\n\n2.  Open [**Infrastructure > Host Details**](/infrastructure) in Datadog.\n\n3.  In the **Metrics** tab, examine:\n\n    -   `system.net.bytes_rcvd`, `system.net.bytes_sent`\n    -   Interface metrics (`system.net.iface.*`)\n\n4.  Check application logs for unexpected ingest behavior.\n\n5.  Use tools like `iftop`, `nload`, or `netstat` to inspect top inbound connections.\n\n6.  (If needed) SSH into the host and run:\n\n    ```\n    bash\n    CopyEdit\n    sudo iftop -i <interface>\n    ```\n\n***\n\n### Cause and Resolution\n\n| Cause                                           | Resolution                                                  |\n| ----------------------------------------------- | ----------------------------------------------------------- |\n| Large file transfers (e.g., backups, ingestion) | Schedule during off-peak hours or limit transfer rate       |\n| Misconfigured agents or services                | Review configs and reduce polling or payload size           |\n| Unexpected traffic spike or DDoS                | Block IPs, apply rate limits, or enable network protections |\n| Log/metric flooding from other systems          | Throttle integrations or export rates                       |\n\n***\n\n### 🔗 Related links\n\n-   [Host Map](/infrastructure/map)\n-   [Live Processes](/process)\n-   [System Dashboards](/dashboard/lists)\n-   [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n-   [Logs](/logs?query=host:{{host.name}})\n-   [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n-   [Metrics Explorer (system.net.bytes_rcvd)](/metric/explorer?exp_metric=system.net.bytes_rcvd&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n***\n\n### 📣 Who should be notified?\n\nPlease assign the appropriate notification handle for this alert (e.g., `@slack-networking`, `@pagerduty-platform-oncall`):\\\n`@your-team-handle`",
+            "tags": [
+              "integration:host",
+              "monitor_pack:host"
+            ],
+            "query": "avg(last_15m):avg:system.net.bytes_rcvd{*} by {host} / (1024 * 1024 * 1024) > 0.08",
+            "options": {
+              "thresholds": {
+                "critical": 0.08
+              },
+              "notify_audit": false,
+              "include_tags": false,
+              "notify_no_data": false,
+              "new_host_delay": 300,
+              "silenced": {}
+            },
+            "multi": true,
+            "created_at": 1785166050000,
+            "created": "2026-07-27T15:27:30.344778+00:00",
+            "modified": "2026-07-27T15:27:30.344778+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-07-27T15:27:41+00:00",
+            "overall_state": "OK",
+            "creator": {
+              "name": "Datadog Support",
+              "email": "support-user-prod@datadoghq.com",
+              "handle": "support-nangodev-npsukaogqnfl",
+              "id": 69379536
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 308771192,
+            "org_id": 1984731,
+            "type": "query alert",
+            "name": "Network traffic (sent) is high on host {{host.name}}",
+            "message": "## 🚨 What's happening\n\nHigh outgoing network traffic detected on host {{host.name}}.\n\nThis means the host is sending a sustained high volume of data — with the 15-minute average of `system.net.bytes_sent` exceeding **80 MB/min**. This typically points to large data exports, logging spikes, backup activity, or misconfigured services.\n\n***\n\n## 📈 Impact\n\nIf network traffic remains elevated, it can lead to:\n\n-   **Bandwidth saturation**, resulting in packet loss or throttling\n-   **Degraded performance** for outbound services like APIs, exporters, or clients\n-   **Delays in data processing**, backups, or inter-service communication\n-   **Resource contention** on shared hosts or virtualized environments\n\nThis may prevent the host from reliably transmitting time-sensitive or critical data, potentially impacting service-level objectives.\n\n***\n\n## Runbook\n\n### Initial Troubleshooting Steps\n\n1.  **Identify the affected host** from the alert.\n\n2.  Open [**Infrastructure > Host Details**](/infrastructure) in Datadog.\n\n3.  In the **Metrics** tab, examine:\n\n    -   `system.net.bytes_sent`, `system.net.bytes_rcvd`\n    -   Interface metrics (`system.net.iface.*`)\n\n4.  Check application logs or exporters for spikes in outbound traffic.\n\n5.  Use tools like `iftop`, `nload`, or `netstat` to inspect top outbound connections.\n\n6.  (If needed) SSH into the host and run:\n\n    ```\n    bash\n    CopyEdit\n    sudo iftop -i <interface>\n    ```\n\n### Cause and Resolution\n\n| Cause                                            | Resolution                                      |\n| ------------------------------------------------ | ----------------------------------------------- |\n| Large data exports (e.g., backups, log shipping) | Schedule exports off-peak or throttle bandwidth |\n| Misconfigured services flooding traffic          | Review configs and reduce payloads or frequency |\n| Traffic spike from application behavior          | Add caching or batching; review architecture    |\n| Third-party abuse or unintended syncs            | Audit external endpoints and restrict access    |\n\n***\n\n### Related links\n\n-   [Host Map](/infrastructure/map)\n-   [Live Processes](/process)\n-   [System Dashboards](/dashboard/lists)\n-   [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n-   [Logs](/logs?query=host:{{host.name}})\n-   [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n-   [Metrics Explorer (system.net.bytes_sent)](/metric/explorer?exp_metric=system.net.bytes_sent&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n***\n\n### Who should be notified?\n\nPlease assign the appropriate notification handle for this alert (e.g., `@slack-networking`, `@pagerduty-platform-oncall`):\\\n`@your-team-handle`",
+            "tags": [
+              "integration:host",
+              "monitor_pack:host"
+            ],
+            "query": "avg(last_15m):avg:system.net.bytes_sent{*} by {host} / (1024 * 1024 * 1024) > 0.08",
+            "options": {
+              "thresholds": {
+                "critical": 0.08
+              },
+              "notify_audit": false,
+              "include_tags": false,
+              "notify_no_data": false,
+              "new_host_delay": 300,
+              "silenced": {}
+            },
+            "multi": true,
+            "created_at": 1785166050000,
+            "created": "2026-07-27T15:27:30.464253+00:00",
+            "modified": "2026-07-27T15:27:30.464253+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-07-27T15:27:41+00:00",
+            "overall_state": "OK",
+            "creator": {
+              "name": "Datadog Support",
+              "email": "support-user-prod@datadoghq.com",
+              "handle": "support-nangodev-npsukaogqnfl",
+              "id": 69379536
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 308771193,
+            "org_id": 1984731,
+            "type": "query alert",
+            "name": "Memory space is low for host {{host.name}}",
+            "message": "## 🚨 What's happening\n\nLow available memory detected on host {{host.name}}.\n\nThis means the host has less than **10% usable memory** on average over the last 5 minutes, based on the `system.mem.pct_usable` metric. This typically indicates that applications or services are consuming most of the RAM, leaving little room for new processes or memory-intensive operations.\n\n***\n\n## 📈 Impact\n\nIf memory remains low, it can lead to:\n\n-   **Slower application performance** due to increased paging or swapping\n-   **Crashes or restarts** of services that can’t allocate enough memory\n-   **System instability** or degraded responsiveness under load\n-   **Failure of background jobs** or scheduled tasks\n\nThis may impact key services running on the host and disrupt user-facing or backend operations.\n\n***\n\n## Runbook\n\n### Initial Troubleshooting Steps\n\n1.  **Identify the affected host** from the alert.\n\n2.  Open [**Infrastructure > Host Details**](/infrastructure) in Datadog.\n\n3.  In the **Metrics** tab, examine:\n\n    -   `system.mem.pct_usable`, `system.mem.total`, `system.mem.used`\n    -   `process.mem.rss`, `process.mem.real`, or specific memory-hungry processes\n\n4.  Use [**Live Processes**](/process) to check which processes are using the most memory.\n\n5.  SSH into the host and run:\n\n    ```\n    bash\n    CopyEdit\n    top -o %MEM\n    ```\n\n***\n\n### Cause and Resolution\n\n| Cause                                      | Resolution                                                |\n| ------------------------------------------ | --------------------------------------------------------- |\n| Memory leaks or runaway processes          | Restart or stop problematic processes                     |\n| Memory-intensive workloads                 | Scale up memory capacity or move workloads to other nodes |\n| Background jobs or batch tasks overlapping | Stagger or reschedule heavy memory consumers              |\n| Misconfigured applications or JVMs         | Tune memory settings (e.g., heap size, buffers)           |\n\n***\n\n### Related links\n\n-   [Host Map](/infrastructure/map)\n-   [Live Processes](/process)\n-   [System Dashboards](/dashboard/lists)\n-   [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n-   [Logs](/logs?query=host:{{host.name}})\n-   [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n-   [Metrics Explorer (system.mem.pct_usable)](/metric/explorer?exp_metric=system.mem.pct_usable&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n***\n\n### Who should be notified?\n\nPlease assign the appropriate notification handle for this alert (e.g., `@slack-infra`, `@pagerduty-core-systems`):\\\n`@your-team-handle`",
+            "tags": [
+              "integration:host",
+              "monitor_pack:host"
+            ],
+            "query": "avg(last_5m):avg:system.mem.pct_usable{*} by {host} < 0.1",
+            "options": {
+              "thresholds": {
+                "critical": 0.1
+              },
+              "notify_audit": false,
+              "include_tags": false,
+              "notify_no_data": false,
+              "new_host_delay": 300,
+              "silenced": {}
+            },
+            "multi": true,
+            "created_at": 1785166050000,
+            "created": "2026-07-27T15:27:30.587223+00:00",
+            "modified": "2026-07-27T15:27:30.587223+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-07-30T14:00:33+00:00",
+            "overall_state": "OK",
+            "creator": {
+              "name": "Datadog Support",
+              "email": "support-user-prod@datadoghq.com",
+              "handle": "support-nangodev-npsukaogqnfl",
+              "id": 69379536
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 310573211,
+            "org_id": 1984731,
+            "type": "metric alert",
+            "name": "Nango Registry Test Monitor Action",
+            "message": "Test monitor created by Nango action build",
+            "tags": [
+              "source:nango-action"
+            ],
+            "query": "avg(last_5m):avg:nango.registry.test.metric{*} > 0.5",
+            "options": {
+              "notify_no_data": false,
+              "notify_audit": false,
+              "new_host_delay": 300,
+              "include_tags": true,
+              "silenced": {}
+            },
+            "multi": false,
+            "created_at": 1785767973000,
+            "created": "2026-08-03T14:39:33.374212+00:00",
+            "modified": "2026-08-03T14:39:33.374212+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-08-03T14:39:44+00:00",
+            "overall_state": "Alert",
+            "creator": {
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "handle": "api@nango.dev",
+              "id": 69379535
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 310573421,
+            "org_id": 1984731,
+            "type": "metric alert",
+            "name": "Nango Registry Test Monitor Action Save",
+            "message": "Test monitor created by Nango action build save",
+            "tags": [
+              "source:nango-action-save"
+            ],
+            "query": "avg(last_5m):avg:nango.registry.test.metric{*} > 0.5",
+            "options": {
+              "notify_no_data": false,
+              "notify_audit": false,
+              "new_host_delay": 300,
+              "include_tags": true,
+              "silenced": {}
+            },
+            "multi": false,
+            "created_at": 1785768005000,
+            "created": "2026-08-03T14:40:05.904630+00:00",
+            "modified": "2026-08-03T14:40:05.904630+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-08-03T14:40:13+00:00",
+            "overall_state": "Alert",
+            "creator": {
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "handle": "api@nango.dev",
+              "id": 69379535
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 310781867,
+            "org_id": 1984731,
+            "type": "metric alert",
+            "name": "Nango Registry Test Monitor For Update",
+            "message": "Updated message via Nango update-monitor action",
+            "tags": [],
+            "query": "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
+            "options": {
+              "notify_no_data": false,
+              "notify_audit": false,
+              "new_host_delay": 300,
+              "include_tags": true,
+              "silenced": {}
+            },
+            "multi": false,
+            "created_at": 1785795256000,
+            "created": "2026-08-03T22:14:16.412408+00:00",
+            "modified": "2026-08-03T22:14:42.330926+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-08-03T22:14:23+00:00",
+            "overall_state": "No Data",
+            "creator": {
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "handle": "api@nango.dev",
+              "id": 69379535
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 310792870,
+            "org_id": 1984731,
+            "type": "metric alert",
+            "name": "Nango Registry Test Monitor Create Action",
+            "message": "Test monitor created by Nango create-monitor action.",
+            "tags": [
+              "nango:registry",
+              "env:test"
+            ],
+            "query": "avg(last_5m):avg:nango.registry.test.metric{*} > 1",
+            "options": {
+              "notify_no_data": false,
+              "notify_audit": false,
+              "new_host_delay": 300,
+              "include_tags": true,
+              "silenced": {}
+            },
+            "multi": false,
+            "created_at": 1785796808000,
+            "created": "2026-08-03T22:40:08.682868+00:00",
+            "modified": "2026-08-03T22:40:08.682868+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-08-03T22:40:13+00:00",
+            "overall_state": "Alert",
+            "creator": {
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "handle": "api@nango.dev",
+              "id": 69379535
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 310793067,
+            "org_id": 1984731,
+            "type": "metric alert",
+            "name": "Nango Registry Test Monitor Create Action Save",
+            "message": "Test monitor created by Nango create-monitor action.",
+            "tags": [
+              "nango:registry",
+              "env:test"
+            ],
+            "query": "avg(last_5m):avg:nango.registry.test.metric{*} > 2",
+            "options": {
+              "notify_no_data": false,
+              "notify_audit": false,
+              "new_host_delay": 300,
+              "include_tags": true,
+              "silenced": {}
+            },
+            "multi": false,
+            "created_at": 1785796846000,
+            "created": "2026-08-03T22:40:46.019979+00:00",
+            "modified": "2026-08-03T22:40:46.019979+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-08-03T22:40:53+00:00",
+            "overall_state": "Alert",
+            "creator": {
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "handle": "api@nango.dev",
+              "id": 69379535
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 310795608,
+            "org_id": 1984731,
+            "type": "synthetics alert",
+            "name": "[Synthetics] Nango Registry Test Synthetic Dryrun",
+            "message": "Nango registry test message",
+            "tags": [
+              "probe_dc:aws:us-east-1",
+              "check_type:api",
+              "check_status:paused",
+              "ci_execution_rule:blocking"
+            ],
+            "query": "no_query",
+            "options": {
+              "on_missing_data": "show_no_data",
+              "notify_audit": false,
+              "new_host_delay": 300,
+              "include_tags": true,
+              "silenced": {}
+            },
+            "multi": false,
+            "created_at": 1785797198000,
+            "created": "2026-08-03T22:46:38.343409+00:00",
+            "modified": "2026-08-03T22:46:38.343409+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-08-03T22:46:49+00:00",
+            "overall_state": "No Data",
+            "creator": {
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "handle": "api@nango.dev",
+              "id": 69379535
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 310795902,
+            "org_id": 1984731,
+            "type": "synthetics alert",
+            "name": "[Synthetics] Nango Registry Test Synthetic Dryrun",
+            "message": "Nango registry test message",
+            "tags": [
+              "probe_dc:aws:us-east-1",
+              "check_type:api",
+              "check_status:paused",
+              "ci_execution_rule:blocking"
+            ],
+            "query": "no_query",
+            "options": {
+              "on_missing_data": "show_no_data",
+              "notify_audit": false,
+              "new_host_delay": 300,
+              "include_tags": true,
+              "silenced": {}
+            },
+            "multi": false,
+            "created_at": 1785797235000,
+            "created": "2026-08-03T22:47:15.969777+00:00",
+            "modified": "2026-08-03T22:47:15.969777+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-08-03T22:47:43+00:00",
+            "overall_state": "No Data",
+            "creator": {
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "handle": "api@nango.dev",
+              "id": 69379535
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 310796773,
+            "org_id": 1984731,
+            "type": "synthetics alert",
+            "name": "[Synthetics] Nango Registry Test Synthetic Get 1785797405316",
+            "message": "Nango Registry Test Synthetic Get",
+            "tags": [
+              "nango:registry:test",
+              "probe_dc:aws:us-east-1",
+              "check_type:api",
+              "check_status:paused",
+              "ci_execution_rule:blocking"
+            ],
+            "query": "no_query",
+            "options": {
+              "on_missing_data": "show_no_data",
+              "notify_audit": false,
+              "new_host_delay": 300,
+              "include_tags": true,
+              "silenced": {}
+            },
+            "multi": false,
+            "created_at": 1785797405000,
+            "created": "2026-08-03T22:50:05.608285+00:00",
+            "modified": "2026-08-03T22:50:05.608285+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-08-03T22:50:14+00:00",
+            "overall_state": "No Data",
+            "creator": {
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "handle": "api@nango.dev",
+              "id": 69379535
+            },
+            "matching_downtimes": []
+          },
+          {
+            "id": 310918557,
+            "org_id": 1984731,
+            "type": "synthetics alert",
+            "name": "[Synthetics] Nango Registry Test Synthetic Action (updated)",
+            "message": "Test message",
+            "tags": [
+              "env:registry",
+              "source:nango-action-test",
+              "probe_dc:aws:us-east-1",
+              "check_type:api",
+              "check_status:live",
+              "ci_execution_rule:blocking"
+            ],
+            "query": "no_query",
+            "options": {
+              "on_missing_data": "show_no_data",
+              "notify_audit": false,
+              "new_host_delay": 300,
+              "include_tags": true,
+              "silenced": {}
+            },
+            "multi": false,
+            "created_at": 1785819402000,
+            "created": "2026-08-04T04:56:42.034113+00:00",
+            "modified": "2026-08-04T04:56:59.397126+00:00",
+            "deleted": null,
+            "priority": null,
+            "restricted_roles": null,
+            "draft_status": "published",
+            "overall_state_modified": "2026-08-04T04:57:27+00:00",
+            "overall_state": "OK",
+            "creator": {
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "handle": "api@nango.dev",
+              "id": 69379535
+            },
+            "matching_downtimes": []
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 08:56:48 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "1000",
+          "x-ratelimit-remaining": "998",
+          "x-ratelimit-reset": "2",
+          "etag": "W/\"02eeb237643816543d8216c087c04513\"",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "10",
+          "x-ratelimit-name": "get_all_monitors"
+        },
+        "hash": "649a20034297c8f36deb152382782be723856d97",
+        "request": {
+          "params": {
+            "page": "0",
+            "page_size": "100"
+          }
+        }
+      }
+    }
+  }
+}

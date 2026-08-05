@@ -1,0 +1,306 @@
+{
+  "input": {
+    "query": "*",
+    "from": "now-7d",
+    "to": "now",
+    "limit": 10
+  },
+  "output": {
+    "logs": [
+      {
+        "id": "AwAAAZ_Jx_cQM4ZMRgAAABhBWl9KeF9jUUFBQXh6cFpfc1g5MVV3QUEAAAAkZjE5ZmM5YzctZjcxMC00ZmM1LTk1ZDctNTI0NWFlMmFlYjQzAAAAAA",
+        "type": "log",
+        "attributes": {
+          "status": "info",
+          "service": "nango-registry-test",
+          "tags": [
+            "datadog.submission_auth:api_key",
+            "source:nango-registry-audit"
+          ],
+          "timestamp": "2026-08-03T22:39:13.168Z",
+          "attributes": {
+            "service": "nango-registry-test"
+          },
+          "message": "Nango registry test log line"
+        }
+      },
+      {
+        "id": "AwAAAZ_Jx9DZpFLAagAAABhBWl9KeDlEWkFBQXJ2andNaUVxTnlBQUEAAAAkZjE5ZmM5YzctZDBkOS00MGY1LTljZWItZGZhNWM1YTQ3YzRlAAAAAA",
+        "type": "log",
+        "attributes": {
+          "status": "info",
+          "service": "nango-registry-test",
+          "tags": [
+            "datadog.submission_auth:api_key",
+            "source:nango-registry-audit"
+          ],
+          "timestamp": "2026-08-03T22:39:03.385Z",
+          "attributes": {
+            "service": "nango-registry-test"
+          },
+          "message": "Nango registry test log line"
+        }
+      },
+      {
+        "id": "AwAAAZ_IEUZpHJOQoQAAABhBWl9JRVVacEFBQnlTeC1CSjc4SDJnQUEAAAAkZjE5ZmM4MTEtNDY2OS00OTUzLTk4OTAtNjMzYTIxYTQ2MjVkAAAAAA",
+        "type": "log",
+        "attributes": {
+          "status": "info",
+          "service": "nango-registry-test",
+          "tags": [
+            "datadog.submission_auth:api_key",
+            "source:nango-registry-audit"
+          ],
+          "timestamp": "2026-08-03T14:40:03.177Z",
+          "attributes": {
+            "service": "nango-registry-test"
+          },
+          "message": "Nango registry test log"
+        }
+      },
+      {
+        "id": "AwAAAZ_IDV6pKwPODAAAABhBWl9JRFY2cEFBRFhuNjVfU2JLd0lRQUEAAAAkZjE5ZmM4MTEtNDY2OS00OTUzLTk4OTAtNjMzYTIxYTQ2MjVkAAAAAQ",
+        "type": "log",
+        "attributes": {
+          "status": "info",
+          "service": "nango-registry-test",
+          "tags": [
+            "datadog.submission_auth:api_key",
+            "source:nango-registry-audit"
+          ],
+          "timestamp": "2026-08-03T14:35:47.241Z",
+          "attributes": {
+            "service": "nango-registry-test"
+          },
+          "message": "Nango registry test log"
+        }
+      },
+      {
+        "id": "AwAAAZ_IDTvwyLPfMwAAABhBWl9JRFR2d0FBRDAySElVVzJkTzRnQUEAAAAkZjE5ZmM4MTEtNDY2OS00OTUzLTk4OTAtNjMzYTIxYTQ2MjVkAAAAAg",
+        "type": "log",
+        "attributes": {
+          "status": "info",
+          "service": "nango-registry-test",
+          "tags": [
+            "datadog.submission_auth:api_key",
+            "source:nango-registry-audit"
+          ],
+          "timestamp": "2026-08-03T14:35:38.352Z",
+          "attributes": {
+            "service": "nango-registry-test"
+          },
+          "message": "Nango registry test log"
+        }
+      },
+      {
+        "id": "AwAAAZ_H-2eSx9hTjgAAABhBWl9ILTJlU0FBRE1XTWJ5UFJKXzhBQUEAAAAkZjE5ZmM3ZmItNjc5Mi00NzI0LWIxYTAtODk0MTZhMzI3M2MzAAAAAA",
+        "type": "log",
+        "attributes": {
+          "status": "info",
+          "service": "nango-registry-test",
+          "tags": [
+            "datadog.submission_auth:api_key",
+            "source:nango-registry-audit"
+          ],
+          "timestamp": "2026-08-03T14:16:09.874Z",
+          "attributes": {
+            "service": "nango-registry-test"
+          },
+          "message": "Nango registry test log line"
+        }
+      },
+      {
+        "id": "AwAAAZ_H-wDb-i3kxAAAABhBWl9ILXdEYkFBQ1FnNXV3SXhseVl3QUEAAAAkZjE5ZmM3ZmItNjc5Mi00NzI0LWIxYTAtODk0MTZhMzI3M2MzAAAAAQ",
+        "type": "log",
+        "attributes": {
+          "status": "info",
+          "service": "nango-registry-test",
+          "tags": [
+            "datadog.submission_auth:api_key",
+            "source:nango-registry-audit"
+          ],
+          "timestamp": "2026-08-03T14:15:43.579Z",
+          "attributes": {
+            "service": "nango-registry-test"
+          },
+          "message": "Nango registry test log line"
+        }
+      }
+    ],
+    "status": "done",
+    "elapsed": 42,
+    "request_id": "pddv1ChZBVmhFVkNYTVJVV1gxLWJEYU5fdzRRIiwKHMCdOXRpJhxugvngBT7UtLTiNTKZdwew3frI1wgSDEabhbaF7RiR2i7Alg"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/logs/events/search": {
+        "response": {
+          "data": [
+            {
+              "id": "AwAAAZ_Jx_cQM4ZMRgAAABhBWl9KeF9jUUFBQXh6cFpfc1g5MVV3QUEAAAAkZjE5ZmM5YzctZjcxMC00ZmM1LTk1ZDctNTI0NWFlMmFlYjQzAAAAAA",
+              "type": "log",
+              "attributes": {
+                "service": "nango-registry-test",
+                "attributes": {
+                  "service": "nango-registry-test"
+                },
+                "message": "Nango registry test log line",
+                "status": "info",
+                "timestamp": "2026-08-03T22:39:13.168Z",
+                "tags": [
+                  "datadog.submission_auth:api_key",
+                  "source:nango-registry-audit"
+                ]
+              }
+            },
+            {
+              "id": "AwAAAZ_Jx9DZpFLAagAAABhBWl9KeDlEWkFBQXJ2andNaUVxTnlBQUEAAAAkZjE5ZmM5YzctZDBkOS00MGY1LTljZWItZGZhNWM1YTQ3YzRlAAAAAA",
+              "type": "log",
+              "attributes": {
+                "service": "nango-registry-test",
+                "attributes": {
+                  "service": "nango-registry-test"
+                },
+                "message": "Nango registry test log line",
+                "status": "info",
+                "timestamp": "2026-08-03T22:39:03.385Z",
+                "tags": [
+                  "datadog.submission_auth:api_key",
+                  "source:nango-registry-audit"
+                ]
+              }
+            },
+            {
+              "id": "AwAAAZ_IEUZpHJOQoQAAABhBWl9JRVVacEFBQnlTeC1CSjc4SDJnQUEAAAAkZjE5ZmM4MTEtNDY2OS00OTUzLTk4OTAtNjMzYTIxYTQ2MjVkAAAAAA",
+              "type": "log",
+              "attributes": {
+                "service": "nango-registry-test",
+                "attributes": {
+                  "service": "nango-registry-test"
+                },
+                "message": "Nango registry test log",
+                "status": "info",
+                "timestamp": "2026-08-03T14:40:03.177Z",
+                "tags": [
+                  "datadog.submission_auth:api_key",
+                  "source:nango-registry-audit"
+                ]
+              }
+            },
+            {
+              "id": "AwAAAZ_IDV6pKwPODAAAABhBWl9JRFY2cEFBRFhuNjVfU2JLd0lRQUEAAAAkZjE5ZmM4MTEtNDY2OS00OTUzLTk4OTAtNjMzYTIxYTQ2MjVkAAAAAQ",
+              "type": "log",
+              "attributes": {
+                "service": "nango-registry-test",
+                "attributes": {
+                  "service": "nango-registry-test"
+                },
+                "message": "Nango registry test log",
+                "status": "info",
+                "timestamp": "2026-08-03T14:35:47.241Z",
+                "tags": [
+                  "datadog.submission_auth:api_key",
+                  "source:nango-registry-audit"
+                ]
+              }
+            },
+            {
+              "id": "AwAAAZ_IDTvwyLPfMwAAABhBWl9JRFR2d0FBRDAySElVVzJkTzRnQUEAAAAkZjE5ZmM4MTEtNDY2OS00OTUzLTk4OTAtNjMzYTIxYTQ2MjVkAAAAAg",
+              "type": "log",
+              "attributes": {
+                "service": "nango-registry-test",
+                "attributes": {
+                  "service": "nango-registry-test"
+                },
+                "message": "Nango registry test log",
+                "status": "info",
+                "timestamp": "2026-08-03T14:35:38.352Z",
+                "tags": [
+                  "datadog.submission_auth:api_key",
+                  "source:nango-registry-audit"
+                ]
+              }
+            },
+            {
+              "id": "AwAAAZ_H-2eSx9hTjgAAABhBWl9ILTJlU0FBRE1XTWJ5UFJKXzhBQUEAAAAkZjE5ZmM3ZmItNjc5Mi00NzI0LWIxYTAtODk0MTZhMzI3M2MzAAAAAA",
+              "type": "log",
+              "attributes": {
+                "service": "nango-registry-test",
+                "attributes": {
+                  "service": "nango-registry-test"
+                },
+                "message": "Nango registry test log line",
+                "status": "info",
+                "timestamp": "2026-08-03T14:16:09.874Z",
+                "tags": [
+                  "datadog.submission_auth:api_key",
+                  "source:nango-registry-audit"
+                ]
+              }
+            },
+            {
+              "id": "AwAAAZ_H-wDb-i3kxAAAABhBWl9ILXdEYkFBQ1FnNXV3SXhseVl3QUEAAAAkZjE5ZmM3ZmItNjc5Mi00NzI0LWIxYTAtODk0MTZhMzI3M2MzAAAAAQ",
+              "type": "log",
+              "attributes": {
+                "service": "nango-registry-test",
+                "attributes": {
+                  "service": "nango-registry-test"
+                },
+                "message": "Nango registry test log line",
+                "status": "info",
+                "timestamp": "2026-08-03T14:15:43.579Z",
+                "tags": [
+                  "datadog.submission_auth:api_key",
+                  "source:nango-registry-audit"
+                ]
+              }
+            }
+          ],
+          "meta": {
+            "elapsed": 42,
+            "request_id": "pddv1ChZBVmhFVkNYTVJVV1gxLWJEYU5fdzRRIiwKHMCdOXRpJhxugvngBT7UtLTiNTKZdwew3frI1wgSDEabhbaF7RiR2i7Alg",
+            "status": "done"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:48:39 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "300",
+          "x-ratelimit-remaining": "298",
+          "x-ratelimit-reset": "21",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "60",
+          "x-ratelimit-name": "logs_public_search_api"
+        },
+        "hash": "9aa2838541de8059702db114dcb3f0e480ab9533",
+        "request": {
+          "data": {
+            "filter": {
+              "query": "*",
+              "from": "now-7d",
+              "to": "now"
+            },
+            "page": {
+              "limit": 10
+            }
+          }
+        }
+      }
+    }
+  }
+}

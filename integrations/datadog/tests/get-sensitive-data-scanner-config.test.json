@@ -1,0 +1,270 @@
+{
+  "input": {},
+  "output": {
+    "data": {
+      "id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9",
+      "type": "sensitive_data_scanner_configuration",
+      "relationships": {
+        "groups": {
+          "data": [
+            {
+              "id": "f5912e53-b3ad-4c19-b9d8-0dce6e5e238a",
+              "type": "sensitive_data_scanner_group"
+            },
+            {
+              "id": "67596a87-f646-48ed-9ef2-cb143da81941",
+              "type": "sensitive_data_scanner_group"
+            },
+            {
+              "id": "2a711bfb-8170-4870-9935-6329e35e2ef9",
+              "type": "sensitive_data_scanner_group"
+            }
+          ]
+        }
+      }
+    },
+    "included": [
+      {
+        "id": "f5912e53-b3ad-4c19-b9d8-0dce6e5e238a",
+        "type": "sensitive_data_scanner_group",
+        "attributes": {
+          "description": "",
+          "filter": {
+            "query": "*"
+          },
+          "is_enabled": true,
+          "name": "Nango Registry Test Group",
+          "product_list": [
+            "logs"
+          ],
+          "samplings": []
+        },
+        "relationships": {
+          "configuration": {
+            "data": {
+              "id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9",
+              "type": "sensitive_data_scanner_configuration"
+            }
+          },
+          "rules": {
+            "data": []
+          }
+        }
+      },
+      {
+        "id": "67596a87-f646-48ed-9ef2-cb143da81941",
+        "type": "sensitive_data_scanner_group",
+        "attributes": {
+          "description": "",
+          "filter": {
+            "query": "source:nango-registry-audit"
+          },
+          "is_enabled": true,
+          "name": "Nango Registry Test Scanner Group",
+          "product_list": [
+            "logs"
+          ],
+          "samplings": []
+        },
+        "relationships": {
+          "configuration": {
+            "data": {
+              "id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9",
+              "type": "sensitive_data_scanner_configuration"
+            }
+          },
+          "rules": {
+            "data": []
+          }
+        }
+      },
+      {
+        "id": "2a711bfb-8170-4870-9935-6329e35e2ef9",
+        "type": "sensitive_data_scanner_group",
+        "attributes": {
+          "description": "",
+          "filter": {
+            "query": "source:nango-registry-audit"
+          },
+          "is_enabled": true,
+          "name": "Nango Registry Test Scanner Group",
+          "product_list": [
+            "logs"
+          ],
+          "samplings": []
+        },
+        "relationships": {
+          "configuration": {
+            "data": {
+              "id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9",
+              "type": "sensitive_data_scanner_configuration"
+            }
+          },
+          "rules": {
+            "data": []
+          }
+        }
+      }
+    ],
+    "meta": {
+      "group_count_limit": 20,
+      "rule_count_limit": 750,
+      "custom_rule_count_limit": 100,
+      "group_targeted_obfuscation_limit": 50,
+      "org_targeted_obfuscation_limit": 1000,
+      "has_cascading_enabled": false,
+      "is_configuration_superseded": false,
+      "is_float_sampling_rate_enabled": false,
+      "min_sampling_rate": 10,
+      "is_onboarded_to_telemetry": true
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/sensitive-data-scanner/config": {
+        "response": {
+          "data": {
+            "id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9",
+            "type": "sensitive_data_scanner_configuration",
+            "relationships": {
+              "groups": {
+                "data": [
+                  {
+                    "id": "f5912e53-b3ad-4c19-b9d8-0dce6e5e238a",
+                    "type": "sensitive_data_scanner_group"
+                  },
+                  {
+                    "id": "67596a87-f646-48ed-9ef2-cb143da81941",
+                    "type": "sensitive_data_scanner_group"
+                  },
+                  {
+                    "id": "2a711bfb-8170-4870-9935-6329e35e2ef9",
+                    "type": "sensitive_data_scanner_group"
+                  }
+                ]
+              }
+            }
+          },
+          "meta": {
+            "group_count_limit": 20,
+            "rule_count_limit": 750,
+            "custom_rule_count_limit": 100,
+            "group_targeted_obfuscation_limit": 50,
+            "org_targeted_obfuscation_limit": 1000,
+            "has_cascading_enabled": false,
+            "is_configuration_superseded": false,
+            "is_float_sampling_rate_enabled": false,
+            "min_sampling_rate": 10,
+            "is_onboarded_to_telemetry": true
+          },
+          "included": [
+            {
+              "id": "f5912e53-b3ad-4c19-b9d8-0dce6e5e238a",
+              "type": "sensitive_data_scanner_group",
+              "attributes": {
+                "description": "",
+                "filter": {
+                  "query": "*"
+                },
+                "is_enabled": true,
+                "name": "Nango Registry Test Group",
+                "product_list": [
+                  "logs"
+                ],
+                "samplings": []
+              },
+              "relationships": {
+                "configuration": {
+                  "data": {
+                    "id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9",
+                    "type": "sensitive_data_scanner_configuration"
+                  }
+                },
+                "rules": {
+                  "data": []
+                }
+              }
+            },
+            {
+              "id": "67596a87-f646-48ed-9ef2-cb143da81941",
+              "type": "sensitive_data_scanner_group",
+              "attributes": {
+                "description": "",
+                "filter": {
+                  "query": "source:nango-registry-audit"
+                },
+                "is_enabled": true,
+                "name": "Nango Registry Test Scanner Group",
+                "product_list": [
+                  "logs"
+                ],
+                "samplings": []
+              },
+              "relationships": {
+                "configuration": {
+                  "data": {
+                    "id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9",
+                    "type": "sensitive_data_scanner_configuration"
+                  }
+                },
+                "rules": {
+                  "data": []
+                }
+              }
+            },
+            {
+              "id": "2a711bfb-8170-4870-9935-6329e35e2ef9",
+              "type": "sensitive_data_scanner_group",
+              "attributes": {
+                "description": "",
+                "filter": {
+                  "query": "source:nango-registry-audit"
+                },
+                "is_enabled": true,
+                "name": "Nango Registry Test Scanner Group",
+                "product_list": [
+                  "logs"
+                ],
+                "samplings": []
+              },
+              "relationships": {
+                "configuration": {
+                  "data": {
+                    "id": "8d530dd336ad14fc686e8901c41d18f5d49342d61dccc1b8b4e8b1fe777d82a9",
+                    "type": "sensitive_data_scanner_configuration"
+                  }
+                },
+                "rules": {
+                  "data": []
+                }
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:40:04 GMT",
+          "content-type": "application/vnd.api+json",
+          "content-length": "2063",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1951",
+          "x-ratelimit-reset": "1785796836",
+          "etag": "W/\"80f-gtx4vdXHgL7okzBkStosuXhnO3o\""
+        },
+        "hash": "edf8423e299baa89cb46cdc7289bb8fb5cf052cc",
+        "request": {}
+      }
+    }
+  }
+}
