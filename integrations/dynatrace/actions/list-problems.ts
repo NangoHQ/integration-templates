@@ -1,157 +1,109 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const EntityStubSchema = z
-    .object({
-        entityId: z
-            .object({
-                id: z.string(),
-                type: z.string()
-            })
-            .passthrough(),
-        name: z.string().optional()
-    })
-    .passthrough();
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+    from: z.string().optional().describe('Start of the requested timeframe. Example: "-7d" or epoch milliseconds.'),
+    to: z.string().optional().describe('End of the requested timeframe.'),
+    problemSelector: z.string().optional().describe('Selector to filter problems. Example: status("open")'),
+    pageSize: z.number().int().min(1).max(500).optional().describe('Amount of problems per page. Max 500.'),
+    sort: z.string().optional().describe('Sort criteria. Example: "-startTime"'),
+    fields: z.string().optional().describe('Additional fields to include. Example: "evidenceDetails,impactAnalysis,recentComments"')
+});
 
-const METagSchema = z
-    .object({
-        context: z.string().optional(),
-        key: z.string().optional(),
-        stringRepresentation: z.string().optional(),
-        value: z.string().optional()
-    })
-    .passthrough();
+const EntityStubSchema = z.object({
+    entityId: z.object({
+        id: z.string(),
+        type: z.string()
+    }),
+    name: z.string().optional()
+});
 
-const ManagementZoneSchema = z
-    .object({
-        id: z.string().optional(),
-        name: z.string().optional()
-    })
-    .passthrough();
+const METagSchema = z.object({
+    context: z.string().optional(),
+    key: z.string().optional(),
+    stringRepresentation: z.string().optional(),
+    value: z.string().optional()
+});
 
-const AlertingProfileStubSchema = z
-    .object({
-        id: z.string().optional(),
-        name: z.string().optional()
-    })
-    .passthrough();
+const ManagementZoneSchema = z.object({
+    id: z.string(),
+    name: z.string()
+});
 
-const LinkedProblemSchema = z
-    .object({
-        displayId: z.string().optional(),
-        problemId: z.string().optional()
-    })
-    .passthrough();
+const AlertingProfileStubSchema = z.object({
+    id: z.string(),
+    name: z.string()
+});
 
-const RecentCommentSchema = z
-    .object({
-        authorName: z.string().optional(),
-        content: z.string().optional(),
-        context: z.string().optional(),
-        createdAtTimestamp: z.number().optional(),
-        id: z.string().optional()
-    })
-    .passthrough();
-
-const RecentCommentsListSchema = z
-    .object({
-        comments: z.array(RecentCommentSchema).optional(),
-        nextPageKey: z.string().optional(),
-        pageSize: z.number().optional(),
-        totalCount: z.number().optional()
-    })
-    .passthrough();
-
-const EvidenceDetailSchema = z
-    .object({
-        displayName: z.string().optional(),
-        evidenceType: z.string().optional(),
-        rootCauseRelevant: z.boolean().optional(),
-        startTime: z.number().optional()
-    })
-    .passthrough();
-
-const EvidenceDetailsSchema = z
-    .object({
-        details: z.array(EvidenceDetailSchema).optional(),
-        totalCount: z.number().optional()
-    })
-    .passthrough();
-
-const ImpactSchema = z
-    .object({
-        impactType: z.string().optional(),
-        estimatedAffectedUsers: z.number().optional()
-    })
-    .passthrough();
-
-const ImpactAnalysisSchema = z
-    .object({
-        impacts: z.array(ImpactSchema).optional()
-    })
-    .passthrough();
+const LinkedProblemSchema = z.object({
+    displayId: z.string(),
+    problemId: z.string()
+});
 
 const ProblemSchema = z
     .object({
         problemId: z.string(),
-        displayId: z.string().optional(),
-        title: z.string().optional(),
+        displayId: z.string(),
+        title: z.string(),
+        severityLevel: z.string(),
+        status: z.string(),
+        startTime: z.number(),
+        endTime: z.number(),
         impactLevel: z.string().optional(),
-        severityLevel: z.string().optional(),
-        status: z.string().optional(),
-        startTime: z.number().optional(),
-        endTime: z.number().optional(),
         affectedEntities: z.array(EntityStubSchema).optional(),
         impactedEntities: z.array(EntityStubSchema).optional(),
-        rootCauseEntity: EntityStubSchema.nullable().optional(),
-        managementZones: z.array(ManagementZoneSchema).optional(),
+        rootCauseEntity: z.union([EntityStubSchema, z.null()]).optional(),
         entityTags: z.array(METagSchema).optional(),
+        managementZones: z.array(ManagementZoneSchema).optional(),
         problemFilters: z.array(AlertingProfileStubSchema).optional(),
         linkedProblemInfo: LinkedProblemSchema.optional(),
-        recentComments: RecentCommentsListSchema.optional(),
-        evidenceDetails: EvidenceDetailsSchema.optional(),
-        impactAnalysis: ImpactAnalysisSchema.optional()
+        evidenceDetails: z.record(z.string(), z.unknown()).optional(),
+        impactAnalysis: z.record(z.string(), z.unknown()).optional(),
+        recentComments: z.record(z.string(), z.unknown()).optional(),
+        'k8s.cluster.name': z.array(z.string()).optional(),
+        'k8s.cluster.uid': z.array(z.string()).optional(),
+        'k8s.namespace.name': z.array(z.string()).optional()
     })
     .passthrough();
 
 const ProviderResponseSchema = z.object({
     problems: z.array(ProblemSchema),
     nextPageKey: z.string().nullable().optional(),
-    totalCount: z.number().optional(),
-    pageSize: z.number().optional(),
+    totalCount: z.number(),
+    pageSize: z.number(),
     warnings: z.array(z.string()).optional()
-});
-
-const InputSchema = z.object({
-    from: z.string().optional().describe('Start of the time window. Accepts relative expressions like "-1h", "-7d", or epoch millis.'),
-    problemSelector: z.string().optional().describe('Problem selector string to filter results.'),
-    cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from a previous response.'),
-    pageSize: z.number().int().min(1).max(500).optional().describe('Number of results per page. Max 500.')
 });
 
 const OutputSchema = z.object({
     problems: z.array(ProblemSchema),
-    nextPageKey: z.string().nullable().optional(),
-    totalCount: z.number().optional(),
-    pageSize: z.number().optional(),
+    nextPageKey: z.string().optional(),
+    totalCount: z.number(),
+    pageSize: z.number(),
     warnings: z.array(z.string()).optional()
 });
 
 const action = createAction({
-    description: 'List detected problems (Davis AI-correlated issues) in a time window.',
-    version: '1.0.0',
+    description: 'List detected problems in a time window.',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['problems.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // Dynatrace requires nextPageKey to be sent alone on continuation requests; filters/pageSize are only valid on the first page.
-        const params: Record<string, string> = input.cursor
-            ? { nextPageKey: input.cursor }
+        // Dynatrace rejects continuation requests that include any parameter besides nextPageKey and fields.
+        const params: Record<string, string | number> = input.cursor
+            ? {
+                  nextPageKey: input.cursor,
+                  ...(input.fields !== undefined && { fields: input.fields })
+              }
             : {
                   ...(input.from !== undefined && { from: input.from }),
+                  ...(input.to !== undefined && { to: input.to }),
                   ...(input.problemSelector !== undefined && { problemSelector: input.problemSelector }),
-                  ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) })
+                  ...(input.pageSize !== undefined && { pageSize: input.pageSize }),
+                  ...(input.sort !== undefined && { sort: input.sort }),
+                  ...(input.fields !== undefined && { fields: input.fields })
               };
 
         const response = await nango.get({
@@ -161,28 +113,23 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data || typeof response.data !== 'object') {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Unexpected non-object response from Dynatrace problems API'
-            });
-        }
-
         const parsed = ProviderResponseSchema.safeParse(response.data);
         if (!parsed.success) {
             throw new nango.ActionError({
-                type: 'validation_error',
-                message: 'Response validation failed',
-                details: parsed.error.issues
+                type: 'invalid_response',
+                message: 'Unexpected response from Dynatrace problems API',
+                details: parsed.error.message
             });
         }
 
+        const { problems, totalCount, pageSize, nextPageKey, warnings } = parsed.data;
+
         return {
-            problems: parsed.data.problems,
-            ...(parsed.data.nextPageKey != null && { nextPageKey: parsed.data.nextPageKey }),
-            ...(parsed.data.totalCount !== undefined && { totalCount: parsed.data.totalCount }),
-            ...(parsed.data.pageSize !== undefined && { pageSize: parsed.data.pageSize }),
-            ...(parsed.data.warnings !== undefined && { warnings: parsed.data.warnings })
+            problems,
+            totalCount,
+            pageSize,
+            ...(nextPageKey != null && { nextPageKey }),
+            ...(warnings !== undefined && { warnings })
         };
     }
 });
