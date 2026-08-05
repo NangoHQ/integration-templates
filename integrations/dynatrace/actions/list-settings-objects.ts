@@ -54,7 +54,7 @@ const SettingsObjectSchema = z.object({
 });
 
 const ProviderListResponseSchema = z.object({
-    items: z.array(SettingsObjectSchema).optional(),
+    items: z.array(SettingsObjectSchema),
     nextPageKey: z.string().nullable().optional(),
     pageSize: z.number().optional(),
     totalCount: z.number().optional()
@@ -69,7 +69,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List configured objects for a given Settings 2.0 schema.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['settings.read'],
@@ -95,7 +95,7 @@ const action = createAction({
         const providerResponse = ProviderListResponseSchema.parse(response.data);
 
         return {
-            items: providerResponse.items ?? [],
+            items: providerResponse.items,
             ...(providerResponse.nextPageKey != null && { nextPageKey: providerResponse.nextPageKey }),
             ...(providerResponse.pageSize != null && { pageSize: providerResponse.pageSize }),
             ...(providerResponse.totalCount != null && { totalCount: providerResponse.totalCount })

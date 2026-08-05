@@ -71,17 +71,21 @@ const action = createAction({
     scopes: ['events.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Dynatrace rejects continuation requests that include any parameter besides nextPageKey.
+        const params: Record<string, string | number> = input.cursor
+            ? { nextPageKey: input.cursor }
+            : {
+                  ...(input.from !== undefined && { from: input.from }),
+                  ...(input.to !== undefined && { to: input.to }),
+                  ...(input.eventSelector !== undefined && { eventSelector: input.eventSelector }),
+                  ...(input.entitySelector !== undefined && { entitySelector: input.entitySelector }),
+                  ...(input.pageSize !== undefined && { pageSize: input.pageSize })
+              };
+
         const response = await nango.get({
             // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/events-v2/get-events
             endpoint: '/api/v2/events',
-            params: {
-                ...(input.from !== undefined && { from: input.from }),
-                ...(input.to !== undefined && { to: input.to }),
-                ...(input.eventSelector !== undefined && { eventSelector: input.eventSelector }),
-                ...(input.entitySelector !== undefined && { entitySelector: input.entitySelector }),
-                ...(input.pageSize !== undefined && { pageSize: input.pageSize }),
-                ...(input.cursor !== undefined && { nextPageKey: input.cursor })
-            },
+            params,
             retries: 3
         });
 

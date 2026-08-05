@@ -12,11 +12,249 @@
     "title": "qs vulnerable to Prototype Pollution",
     "packageName": "qs",
     "url": "https://playground.live.dynatrace.com/ui/security/problem/4168609945108510827",
+    "description": "qs before 6.10.3 allows attackers to cause a Node process hang because an `__ proto__` key can be used. In many typical web framework use cases, an unauthenticated remote attacker can place the attack payload in the query string of the URL that is used to visit the application, such as `a[__proto__]=b&a[__proto__]&a[length]=100000000`. The fix was backported to qs 6.9.7, 6.8.3, 6.7.3, 6.6.1, 6.5.3, 6.4.1, 6.3.3, and 6.2.4.",
+    "remediationDescription": "Upgrade `qs` to version 6.2.4, 6.3.3, 6.4.1, 6.5.3, 6.6.1, 6.7.3, 6.8.3, 6.9.7, 6.10.3 or higher.",
     "technology": "NODE_JS",
     "firstSeenTimestamp": 1684244584886,
     "lastUpdatedTimestamp": 1785810723400,
+    "lastOpenedTimestamp": 1784540007392,
+    "riskAssessment": {
+      "riskLevel": "MEDIUM",
+      "riskScore": 6.5,
+      "riskVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/MAV:A",
+      "baseRiskLevel": "HIGH",
+      "baseRiskScore": 7.5,
+      "baseRiskVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      "exposure": "NOT_DETECTED",
+      "dataAssets": "REACHABLE",
+      "publicExploit": "NOT_AVAILABLE",
+      "vulnerableFunctionUsage": "NOT_AVAILABLE",
+      "assessmentAccuracy": "FULL",
+      "assessmentAccuracyDetails": {
+        "reducedReasons": []
+      },
+      "vulnerableFunctionRestartRequired": false
+    },
+    "managementZones": [],
     "cveIds": [
       "CVE-2022-24999"
+    ],
+    "globalCounts": {
+      "affectedNodes": 0,
+      "affectedProcessGroupInstances": 1,
+      "affectedProcessGroups": 1,
+      "exposedProcessGroups": 0,
+      "reachableDataAssets": 1,
+      "relatedApplications": 0,
+      "relatedAttacks": 0,
+      "relatedHosts": 1,
+      "relatedKubernetesClusters": 1,
+      "relatedKubernetesWorkloads": 1,
+      "relatedServices": 1,
+      "vulnerableComponents": 1
+    },
+    "events": [
+      {
+        "timestamp": 1784542647531,
+        "reason": "ASSESSMENT_CHANGED",
+        "riskAssessmentSnapshot": {
+          "baseRiskScore": 7.5,
+          "changes": {
+            "deltaNumberOfReachableDataAssets": -1
+          },
+          "exposure": "NOT_DETECTED",
+          "numberOfAffectedEntities": 1,
+          "numberOfAffectedNodes": 0,
+          "numberOfAffectedProcessGroups": 1,
+          "numberOfReachableDataAssets": 1,
+          "numberOfRelatedAttacks": 0,
+          "publicExploit": "NOT_AVAILABLE",
+          "riskLevel": "MEDIUM",
+          "riskScore": 6.5,
+          "vulnerableFunctionUsage": "NOT_AVAILABLE"
+        }
+      },
+      {
+        "timestamp": 1784540727668,
+        "reason": "ASSESSMENT_CHANGED",
+        "riskAssessmentSnapshot": {
+          "baseRiskScore": 7.5,
+          "changes": {
+            "deltaNumberOfAffectedProcessGroups": 1,
+            "deltaNumberOfReachableDataAssets": 2
+          },
+          "exposure": "NOT_DETECTED",
+          "numberOfAffectedEntities": 1,
+          "numberOfAffectedNodes": 0,
+          "numberOfAffectedProcessGroups": 1,
+          "numberOfReachableDataAssets": 2,
+          "numberOfRelatedAttacks": 0,
+          "publicExploit": "NOT_AVAILABLE",
+          "riskLevel": "MEDIUM",
+          "riskScore": 6.5,
+          "vulnerableFunctionUsage": "NOT_AVAILABLE"
+        }
+      },
+      {
+        "timestamp": 1784540007420,
+        "reason": "SECURITY_PROBLEM_REOPENED",
+        "riskAssessmentSnapshot": {
+          "baseRiskScore": 7.5,
+          "exposure": "NOT_DETECTED",
+          "numberOfAffectedEntities": 0,
+          "numberOfAffectedNodes": 0,
+          "numberOfAffectedProcessGroups": 0,
+          "numberOfReachableDataAssets": 0,
+          "numberOfRelatedAttacks": 0,
+          "publicExploit": "NOT_AVAILABLE",
+          "riskLevel": "MEDIUM",
+          "riskScore": 6.5,
+          "vulnerableFunctionUsage": "NOT_AVAILABLE"
+        }
+      },
+      {
+        "timestamp": 1784539107415,
+        "reason": "SECURITY_PROBLEM_RESOLVED",
+        "riskAssessmentSnapshot": {
+          "baseRiskScore": 7.5,
+          "exposure": "NOT_DETECTED",
+          "numberOfAffectedEntities": 0,
+          "numberOfAffectedNodes": 0,
+          "numberOfAffectedProcessGroups": 0,
+          "numberOfReachableDataAssets": 0,
+          "numberOfRelatedAttacks": 0,
+          "publicExploit": "NOT_AVAILABLE",
+          "riskLevel": "MEDIUM",
+          "riskScore": 6.5,
+          "vulnerableFunctionUsage": "NOT_AVAILABLE"
+        }
+      },
+      {
+        "timestamp": 1783506418208,
+        "reason": "ASSESSMENT_CHANGED",
+        "riskAssessmentSnapshot": {
+          "baseRiskScore": 7.5,
+          "changes": {
+            "deltaNumberOfReachableDataAssets": -1
+          },
+          "exposure": "NOT_DETECTED",
+          "numberOfAffectedEntities": 1,
+          "numberOfAffectedNodes": 0,
+          "numberOfAffectedProcessGroups": 1,
+          "numberOfReachableDataAssets": 1,
+          "numberOfRelatedAttacks": 0,
+          "publicExploit": "NOT_AVAILABLE",
+          "riskLevel": "MEDIUM",
+          "riskScore": 6.5,
+          "vulnerableFunctionUsage": "NOT_AVAILABLE"
+        }
+      },
+      {
+        "timestamp": 1783503718206,
+        "reason": "ASSESSMENT_CHANGED",
+        "riskAssessmentSnapshot": {
+          "baseRiskScore": 7.5,
+          "changes": {
+            "deltaNumberOfReachableDataAssets": 1
+          },
+          "exposure": "NOT_DETECTED",
+          "numberOfAffectedEntities": 1,
+          "numberOfAffectedNodes": 0,
+          "numberOfAffectedProcessGroups": 1,
+          "numberOfReachableDataAssets": 2,
+          "numberOfRelatedAttacks": 0,
+          "publicExploit": "NOT_AVAILABLE",
+          "riskLevel": "MEDIUM",
+          "riskScore": 6.5,
+          "vulnerableFunctionUsage": "NOT_AVAILABLE"
+        }
+      },
+      {
+        "timestamp": 1783418247089,
+        "reason": "SECURITY_PROBLEM_REOPENED",
+        "riskAssessmentSnapshot": {
+          "baseRiskScore": 7.5,
+          "exposure": "NOT_DETECTED",
+          "numberOfAffectedEntities": 1,
+          "numberOfAffectedNodes": 0,
+          "numberOfAffectedProcessGroups": 1,
+          "numberOfReachableDataAssets": 1,
+          "numberOfRelatedAttacks": 0,
+          "publicExploit": "NOT_AVAILABLE",
+          "riskLevel": "MEDIUM",
+          "riskScore": 6.5,
+          "vulnerableFunctionUsage": "NOT_AVAILABLE"
+        }
+      },
+      {
+        "timestamp": 1782470250287,
+        "reason": "SECURITY_PROBLEM_RESOLVED",
+        "riskAssessmentSnapshot": {
+          "baseRiskScore": 7.5,
+          "exposure": "NOT_DETECTED",
+          "numberOfAffectedEntities": 0,
+          "numberOfAffectedNodes": 0,
+          "numberOfAffectedProcessGroups": 0,
+          "numberOfReachableDataAssets": 0,
+          "numberOfRelatedAttacks": 0,
+          "publicExploit": "NOT_AVAILABLE",
+          "riskLevel": "HIGH",
+          "riskScore": 7.5,
+          "vulnerableFunctionUsage": "NOT_AVAILABLE"
+        }
+      },
+      {
+        "timestamp": 1782469770337,
+        "reason": "ASSESSMENT_CHANGED",
+        "riskAssessmentSnapshot": {
+          "baseRiskScore": 7.5,
+          "changes": {
+            "deltaNumberOfReachableDataAssets": -1,
+            "deltaRiskScore": 1.0
+          },
+          "exposure": "NOT_DETECTED",
+          "numberOfAffectedEntities": 1,
+          "numberOfAffectedNodes": 0,
+          "numberOfAffectedProcessGroups": 1,
+          "numberOfReachableDataAssets": 0,
+          "numberOfRelatedAttacks": 0,
+          "publicExploit": "NOT_AVAILABLE",
+          "riskLevel": "HIGH",
+          "riskScore": 7.5,
+          "vulnerableFunctionUsage": "NOT_AVAILABLE"
+        }
+      },
+      {
+        "timestamp": 1780309643353,
+        "reason": "ASSESSMENT_CHANGED",
+        "riskAssessmentSnapshot": {
+          "baseRiskScore": 7.5,
+          "changes": {
+            "deltaNumberOfReachableDataAssets": 1
+          },
+          "exposure": "NOT_DETECTED",
+          "numberOfAffectedEntities": 1,
+          "numberOfAffectedNodes": 0,
+          "numberOfAffectedProcessGroups": 1,
+          "numberOfReachableDataAssets": 1,
+          "numberOfRelatedAttacks": 0,
+          "publicExploit": "NOT_AVAILABLE",
+          "riskLevel": "MEDIUM",
+          "riskScore": 6.5,
+          "vulnerableFunctionUsage": "NOT_AVAILABLE"
+        }
+      }
+    ],
+    "vulnerableComponents": [
+      {
+        "id": "SOFTWARE_COMPONENT-65F22630B5ED9EBA",
+        "displayName": "qs:6.5.2",
+        "shortName": "qs",
+        "numberOfAffectedEntities": 1,
+        "affectedEntities": [
+          "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+        ]
+      }
     ]
   },
   "nango": {},
@@ -33,12 +271,249 @@
           "title": "qs vulnerable to Prototype Pollution",
           "packageName": "qs",
           "url": "https://playground.live.dynatrace.com/ui/security/problem/4168609945108510827",
+          "description": "qs before 6.10.3 allows attackers to cause a Node process hang because an `__ proto__` key can be used. In many typical web framework use cases, an unauthenticated remote attacker can place the attack payload in the query string of the URL that is used to visit the application, such as `a[__proto__]=b&a[__proto__]&a[length]=100000000`. The fix was backported to qs 6.9.7, 6.8.3, 6.7.3, 6.6.1, 6.5.3, 6.4.1, 6.3.3, and 6.2.4.",
+          "remediationDescription": "Upgrade `qs` to version 6.2.4, 6.3.3, 6.4.1, 6.5.3, 6.6.1, 6.7.3, 6.8.3, 6.9.7, 6.10.3 or higher.",
           "technology": "NODE_JS",
           "firstSeenTimestamp": 1684244584886,
           "lastUpdatedTimestamp": 1785810723400,
           "lastOpenedTimestamp": 1784540007392,
+          "riskAssessment": {
+            "riskLevel": "MEDIUM",
+            "riskScore": 6.5,
+            "riskVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/MAV:A",
+            "baseRiskLevel": "HIGH",
+            "baseRiskScore": 7.5,
+            "baseRiskVector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "exposure": "NOT_DETECTED",
+            "dataAssets": "REACHABLE",
+            "publicExploit": "NOT_AVAILABLE",
+            "vulnerableFunctionUsage": "NOT_AVAILABLE",
+            "assessmentAccuracy": "FULL",
+            "assessmentAccuracyDetails": {
+              "reducedReasons": []
+            },
+            "vulnerableFunctionRestartRequired": false
+          },
+          "managementZones": [],
           "cveIds": [
             "CVE-2022-24999"
+          ],
+          "globalCounts": {
+            "affectedNodes": 0,
+            "affectedProcessGroupInstances": 1,
+            "affectedProcessGroups": 1,
+            "exposedProcessGroups": 0,
+            "reachableDataAssets": 1,
+            "relatedApplications": 0,
+            "relatedAttacks": 0,
+            "relatedHosts": 1,
+            "relatedKubernetesClusters": 1,
+            "relatedKubernetesWorkloads": 1,
+            "relatedServices": 1,
+            "vulnerableComponents": 1
+          },
+          "events": [
+            {
+              "timestamp": 1784542647531,
+              "reason": "ASSESSMENT_CHANGED",
+              "riskAssessmentSnapshot": {
+                "baseRiskScore": 7.5,
+                "changes": {
+                  "deltaNumberOfReachableDataAssets": -1
+                },
+                "exposure": "NOT_DETECTED",
+                "numberOfAffectedEntities": 1,
+                "numberOfAffectedNodes": 0,
+                "numberOfAffectedProcessGroups": 1,
+                "numberOfReachableDataAssets": 1,
+                "numberOfRelatedAttacks": 0,
+                "publicExploit": "NOT_AVAILABLE",
+                "riskLevel": "MEDIUM",
+                "riskScore": 6.5,
+                "vulnerableFunctionUsage": "NOT_AVAILABLE"
+              }
+            },
+            {
+              "timestamp": 1784540727668,
+              "reason": "ASSESSMENT_CHANGED",
+              "riskAssessmentSnapshot": {
+                "baseRiskScore": 7.5,
+                "changes": {
+                  "deltaNumberOfAffectedProcessGroups": 1,
+                  "deltaNumberOfReachableDataAssets": 2
+                },
+                "exposure": "NOT_DETECTED",
+                "numberOfAffectedEntities": 1,
+                "numberOfAffectedNodes": 0,
+                "numberOfAffectedProcessGroups": 1,
+                "numberOfReachableDataAssets": 2,
+                "numberOfRelatedAttacks": 0,
+                "publicExploit": "NOT_AVAILABLE",
+                "riskLevel": "MEDIUM",
+                "riskScore": 6.5,
+                "vulnerableFunctionUsage": "NOT_AVAILABLE"
+              }
+            },
+            {
+              "timestamp": 1784540007420,
+              "reason": "SECURITY_PROBLEM_REOPENED",
+              "riskAssessmentSnapshot": {
+                "baseRiskScore": 7.5,
+                "exposure": "NOT_DETECTED",
+                "numberOfAffectedEntities": 0,
+                "numberOfAffectedNodes": 0,
+                "numberOfAffectedProcessGroups": 0,
+                "numberOfReachableDataAssets": 0,
+                "numberOfRelatedAttacks": 0,
+                "publicExploit": "NOT_AVAILABLE",
+                "riskLevel": "MEDIUM",
+                "riskScore": 6.5,
+                "vulnerableFunctionUsage": "NOT_AVAILABLE"
+              }
+            },
+            {
+              "timestamp": 1784539107415,
+              "reason": "SECURITY_PROBLEM_RESOLVED",
+              "riskAssessmentSnapshot": {
+                "baseRiskScore": 7.5,
+                "exposure": "NOT_DETECTED",
+                "numberOfAffectedEntities": 0,
+                "numberOfAffectedNodes": 0,
+                "numberOfAffectedProcessGroups": 0,
+                "numberOfReachableDataAssets": 0,
+                "numberOfRelatedAttacks": 0,
+                "publicExploit": "NOT_AVAILABLE",
+                "riskLevel": "MEDIUM",
+                "riskScore": 6.5,
+                "vulnerableFunctionUsage": "NOT_AVAILABLE"
+              }
+            },
+            {
+              "timestamp": 1783506418208,
+              "reason": "ASSESSMENT_CHANGED",
+              "riskAssessmentSnapshot": {
+                "baseRiskScore": 7.5,
+                "changes": {
+                  "deltaNumberOfReachableDataAssets": -1
+                },
+                "exposure": "NOT_DETECTED",
+                "numberOfAffectedEntities": 1,
+                "numberOfAffectedNodes": 0,
+                "numberOfAffectedProcessGroups": 1,
+                "numberOfReachableDataAssets": 1,
+                "numberOfRelatedAttacks": 0,
+                "publicExploit": "NOT_AVAILABLE",
+                "riskLevel": "MEDIUM",
+                "riskScore": 6.5,
+                "vulnerableFunctionUsage": "NOT_AVAILABLE"
+              }
+            },
+            {
+              "timestamp": 1783503718206,
+              "reason": "ASSESSMENT_CHANGED",
+              "riskAssessmentSnapshot": {
+                "baseRiskScore": 7.5,
+                "changes": {
+                  "deltaNumberOfReachableDataAssets": 1
+                },
+                "exposure": "NOT_DETECTED",
+                "numberOfAffectedEntities": 1,
+                "numberOfAffectedNodes": 0,
+                "numberOfAffectedProcessGroups": 1,
+                "numberOfReachableDataAssets": 2,
+                "numberOfRelatedAttacks": 0,
+                "publicExploit": "NOT_AVAILABLE",
+                "riskLevel": "MEDIUM",
+                "riskScore": 6.5,
+                "vulnerableFunctionUsage": "NOT_AVAILABLE"
+              }
+            },
+            {
+              "timestamp": 1783418247089,
+              "reason": "SECURITY_PROBLEM_REOPENED",
+              "riskAssessmentSnapshot": {
+                "baseRiskScore": 7.5,
+                "exposure": "NOT_DETECTED",
+                "numberOfAffectedEntities": 1,
+                "numberOfAffectedNodes": 0,
+                "numberOfAffectedProcessGroups": 1,
+                "numberOfReachableDataAssets": 1,
+                "numberOfRelatedAttacks": 0,
+                "publicExploit": "NOT_AVAILABLE",
+                "riskLevel": "MEDIUM",
+                "riskScore": 6.5,
+                "vulnerableFunctionUsage": "NOT_AVAILABLE"
+              }
+            },
+            {
+              "timestamp": 1782470250287,
+              "reason": "SECURITY_PROBLEM_RESOLVED",
+              "riskAssessmentSnapshot": {
+                "baseRiskScore": 7.5,
+                "exposure": "NOT_DETECTED",
+                "numberOfAffectedEntities": 0,
+                "numberOfAffectedNodes": 0,
+                "numberOfAffectedProcessGroups": 0,
+                "numberOfReachableDataAssets": 0,
+                "numberOfRelatedAttacks": 0,
+                "publicExploit": "NOT_AVAILABLE",
+                "riskLevel": "HIGH",
+                "riskScore": 7.5,
+                "vulnerableFunctionUsage": "NOT_AVAILABLE"
+              }
+            },
+            {
+              "timestamp": 1782469770337,
+              "reason": "ASSESSMENT_CHANGED",
+              "riskAssessmentSnapshot": {
+                "baseRiskScore": 7.5,
+                "changes": {
+                  "deltaNumberOfReachableDataAssets": -1,
+                  "deltaRiskScore": 1.0
+                },
+                "exposure": "NOT_DETECTED",
+                "numberOfAffectedEntities": 1,
+                "numberOfAffectedNodes": 0,
+                "numberOfAffectedProcessGroups": 1,
+                "numberOfReachableDataAssets": 0,
+                "numberOfRelatedAttacks": 0,
+                "publicExploit": "NOT_AVAILABLE",
+                "riskLevel": "HIGH",
+                "riskScore": 7.5,
+                "vulnerableFunctionUsage": "NOT_AVAILABLE"
+              }
+            },
+            {
+              "timestamp": 1780309643353,
+              "reason": "ASSESSMENT_CHANGED",
+              "riskAssessmentSnapshot": {
+                "baseRiskScore": 7.5,
+                "changes": {
+                  "deltaNumberOfReachableDataAssets": 1
+                },
+                "exposure": "NOT_DETECTED",
+                "numberOfAffectedEntities": 1,
+                "numberOfAffectedNodes": 0,
+                "numberOfAffectedProcessGroups": 1,
+                "numberOfReachableDataAssets": 1,
+                "numberOfRelatedAttacks": 0,
+                "publicExploit": "NOT_AVAILABLE",
+                "riskLevel": "MEDIUM",
+                "riskScore": 6.5,
+                "vulnerableFunctionUsage": "NOT_AVAILABLE"
+              }
+            }
+          ],
+          "vulnerableComponents": [
+            {
+              "id": "SOFTWARE_COMPONENT-65F22630B5ED9EBA",
+              "displayName": "qs:6.5.2",
+              "shortName": "qs",
+              "numberOfAffectedEntities": 1,
+              "affectedEntities": [
+                "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+              ]
+            }
           ],
           "muteStateChangeInProgress": false
         },
@@ -74,7 +549,11 @@
           "etag": "W/\"209-bMDIka7gCSqCyjK05KgJDQdrWfw\""
         },
         "hash": "1d83ccb97fc75544b2797199515a3bd8d0603058",
-        "request": {}
+        "request": {
+          "params": {
+            "fields": "+riskAssessment,+managementZones,+codeLevelVulnerabilityDetails,+globalCounts,+description,+remediationDescription,+events,+entryPoints,+vulnerableComponents"
+          }
+        }
       }
     }
   }

@@ -48,7 +48,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get full details of a single SLO.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['slo.read'],
@@ -97,7 +97,7 @@ const action = createAction({
                 useRateMetric: z.boolean().optional(),
                 denominatorValue: z.number().optional(),
                 numeratorValue: z.number().optional(),
-                problemFilters: z.array(z.string()).optional().nullable(),
+                problemFilters: z.union([z.string(), z.array(z.string())]).optional().nullable(),
                 errorBudgetBurnRate: z
                     .object({
                         burnRateType: z.string().optional(),
@@ -140,7 +140,7 @@ const action = createAction({
             ...(slo.useRateMetric !== undefined && { useRateMetric: slo.useRateMetric }),
             ...(slo.denominatorValue !== undefined && { denominatorValue: slo.denominatorValue }),
             ...(slo.numeratorValue !== undefined && { numeratorValue: slo.numeratorValue }),
-            ...(slo.problemFilters !== undefined && slo.problemFilters !== null && { problemFilters: slo.problemFilters }),
+            ...(slo.problemFilters != null && { problemFilters: Array.isArray(slo.problemFilters) ? slo.problemFilters : [slo.problemFilters] }),
             ...(slo.errorBudgetBurnRate !== undefined && slo.errorBudgetBurnRate !== null && { errorBudgetBurnRate: slo.errorBudgetBurnRate })
         };
     }

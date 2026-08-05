@@ -36,7 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List software releases/deployments tracked for monitored entities.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['releases.read'],
@@ -66,13 +66,13 @@ const action = createAction({
             .object({
                 nextPageKey: z.string().nullable().optional(),
                 pageSize: z.number().optional(),
-                releases: z.array(z.unknown()).optional(),
+                releases: z.array(z.unknown()),
                 releasesWithProblems: z.number().optional(),
                 totalCount: z.number().optional()
             })
             .parse(response.data);
 
-        const items = (releasesResponse.releases || []).map((release: unknown) => {
+        const items = releasesResponse.releases.map((release: unknown) => {
             return ReleaseSchema.parse(release);
         });
 

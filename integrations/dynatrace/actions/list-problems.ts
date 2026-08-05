@@ -67,11 +67,20 @@ const ProblemSchema = z
     })
     .passthrough();
 
+const ProviderResponseSchema = z.object({
+    problems: z.array(z.unknown()),
+    nextPageKey: z.string().nullable().optional(),
+    totalCount: z.number(),
+    pageSize: z.number(),
+    warnings: z.array(z.string()).optional()
+});
+
 const OutputSchema = z.object({
     problems: z.array(ProblemSchema),
     nextPageKey: z.string().optional(),
     totalCount: z.number(),
-    pageSize: z.number()
+    pageSize: z.number(),
+    warnings: z.array(z.string()).optional()
 });
 
 const action = createAction({
@@ -82,29 +91,20 @@ const action = createAction({
     scopes: ['problems.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const params: Record<string, string | number> = {};
-
-        if (input.cursor !== undefined) {
-            params['nextPageKey'] = input.cursor;
-        }
-        if (input.from !== undefined) {
-            params['from'] = input.from;
-        }
-        if (input.to !== undefined) {
-            params['to'] = input.to;
-        }
-        if (input.problemSelector !== undefined) {
-            params['problemSelector'] = input.problemSelector;
-        }
-        if (input.pageSize !== undefined) {
-            params['pageSize'] = input.pageSize;
-        }
-        if (input.sort !== undefined) {
-            params['sort'] = input.sort;
-        }
-        if (input.fields !== undefined) {
-            params['fields'] = input.fields;
-        }
+        // Dynatrace rejects continuation requests that include any parameter besides nextPageKey and fields.
+        const params: Record<string, string | number> = input.cursor
+            ? {
+                  nextPageKey: input.cursor,
+                  ...(input.fields !== undefined && { fields: input.fields })
+              }
+            : {
+                  ...(input.from !== undefined && { from: input.from }),
+                  ...(input.to !== undefined && { to: input.to }),
+                  ...(input.problemSelector !== undefined && { problemSelector: input.problemSelector }),
+                  ...(input.pageSize !== undefined && { pageSize: input.pageSize }),
+                  ...(input.sort !== undefined && { sort: input.sort }),
+                  ...(input.fields !== undefined && { fields: input.fields })
+              };
 
         const response = await nango.get({
             // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/get-problems-list
@@ -113,30 +113,23 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data || typeof response.data !== 'object' || Array.isArray(response.data)) {
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
             throw new nango.ActionError({
                 type: 'invalid_response',
-                message: 'Unexpected response from Dynatrace problems API'
+                message: 'Unexpected response from Dynatrace problems API',
+                details: parsed.error.message
             });
         }
 
-        const data = response.data;
-
-        const problems = 'problems' in data && Array.isArray(data.problems) ? data.problems : [];
-        const totalCount = 'totalCount' in data && typeof data.totalCount === 'number' ? data.totalCount : 0;
-        const pageSize = 'pageSize' in data && typeof data.pageSize === 'number' ? data.pageSize : 0;
-        const nextPageKey =
-            'nextPageKey' in data && data.nextPageKey === null
-                ? undefined
-                : 'nextPageKey' in data && typeof data.nextPageKey === 'string'
-                  ? data.nextPageKey
-                  : undefined;
+        const { problems, totalCount, pageSize, nextPageKey, warnings } = parsed.data;
 
         return {
             problems: problems.map((item: unknown) => ProblemSchema.parse(item)),
             totalCount,
             pageSize,
-            ...(nextPageKey !== undefined && { nextPageKey })
+            ...(nextPageKey != null && { nextPageKey }),
+            ...(warnings !== undefined && { warnings })
         };
     }
 });

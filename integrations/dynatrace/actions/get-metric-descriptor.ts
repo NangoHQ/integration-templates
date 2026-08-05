@@ -11,9 +11,9 @@ const MetricDefaultAggregationSchema = z.object({
 
 const MetricDimensionDefinitionSchema = z.object({
     key: z.string(),
-    name: z.string(),
+    name: z.string().nullable(),
     displayName: z.string(),
-    index: z.number(),
+    index: z.number().nullable(),
     type: z.string()
 });
 

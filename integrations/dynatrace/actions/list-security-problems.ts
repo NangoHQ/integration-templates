@@ -85,7 +85,9 @@ const SecurityProblemListSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(SecurityProblemSchema),
-    nextPageKey: z.string().optional()
+    nextPageKey: z.string().optional(),
+    pageSize: z.number(),
+    totalCount: z.number()
 });
 
 const action = createAction({
@@ -96,18 +98,22 @@ const action = createAction({
     scopes: ['securityProblems.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Dynatrace rejects continuation requests that include any parameter besides nextPageKey.
+        const params: Record<string, string> = input.cursor
+            ? { nextPageKey: input.cursor }
+            : {
+                  ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) }),
+                  ...(input.securityProblemSelector !== undefined && { securityProblemSelector: input.securityProblemSelector }),
+                  ...(input.sort !== undefined && { sort: input.sort }),
+                  ...(input.fields !== undefined && { fields: input.fields }),
+                  ...(input.from !== undefined && { from: input.from }),
+                  ...(input.to !== undefined && { to: input.to })
+              };
+
         const response = await nango.get({
             // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/application-security/vulnerabilities/get-vulnerabilities
             endpoint: '/api/v2/securityProblems',
-            params: {
-                ...(input.cursor !== undefined && { nextPageKey: input.cursor }),
-                ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) }),
-                ...(input.securityProblemSelector !== undefined && { securityProblemSelector: input.securityProblemSelector }),
-                ...(input.sort !== undefined && { sort: input.sort }),
-                ...(input.fields !== undefined && { fields: input.fields }),
-                ...(input.from !== undefined && { from: input.from }),
-                ...(input.to !== undefined && { to: input.to })
-            },
+            params,
             retries: 3
         });
 
@@ -115,7 +121,9 @@ const action = createAction({
 
         return {
             items: list.securityProblems,
-            ...(list.nextPageKey != null && { nextPageKey: list.nextPageKey })
+            ...(list.nextPageKey != null && { nextPageKey: list.nextPageKey }),
+            pageSize: list.pageSize,
+            totalCount: list.totalCount
         };
     }
 });

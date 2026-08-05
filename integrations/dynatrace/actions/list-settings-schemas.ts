@@ -7,10 +7,10 @@ const SchemaStubSchema = z.object({
     schemaId: z.string(),
     displayName: z.string(),
     latestSchemaVersion: z.string(),
-    maturity: z.string().optional(),
-    multiObject: z.boolean().optional(),
-    ordered: z.boolean().optional(),
-    ownerBasedAccessControl: z.boolean().optional()
+    maturity: z.string().nullable().optional(),
+    multiObject: z.boolean().nullable().optional(),
+    ordered: z.boolean().nullable().optional(),
+    ownerBasedAccessControl: z.boolean().nullable().optional()
 });
 
 const OutputSchema = z.object({
@@ -20,7 +20,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List available Settings 2.0 schema IDs',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['settings.read'],

@@ -16,8 +16,8 @@ const ProviderCommentSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     totalCount: z.number(),
-    pageSize: z.number(),
-    nextPageKey: z.string().optional(),
+    pageSize: z.number().optional(),
+    nextPageKey: z.string().nullable().optional(),
     comments: z.array(ProviderCommentSchema.passthrough())
 });
 
@@ -31,6 +31,7 @@ const OutputSchema = z.object({
             context: z.string().optional()
         })
     ),
+    totalCount: z.number(),
     nextPageKey: z.string().optional()
 });
 
@@ -42,12 +43,12 @@ const action = createAction({
     scopes: ['problems.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Dynatrace rejects continuation requests that include any parameter besides nextPageKey.
         const response = await nango.get({
             // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems-api#get-problem-comments
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}/comments`,
             params: {
-                ...(input.cursor !== undefined && { nextPageKey: input.cursor }),
-                pageSize: '50'
+                ...(input.cursor !== undefined && { nextPageKey: input.cursor })
             },
             retries: 3
         });
@@ -62,7 +63,8 @@ const action = createAction({
                 authorName: comment.authorName,
                 ...(comment.context !== undefined && { context: comment.context })
             })),
-            ...(providerResponse.nextPageKey !== undefined && { nextPageKey: providerResponse.nextPageKey })
+            totalCount: providerResponse.totalCount,
+            ...(providerResponse.nextPageKey != null && { nextPageKey: providerResponse.nextPageKey })
         };
     }
 });

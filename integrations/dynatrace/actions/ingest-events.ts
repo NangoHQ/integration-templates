@@ -19,9 +19,13 @@ const InputSchema = z.object({
         .describe('Event type. Example: "CUSTOM_INFO"'),
     title: z.string().describe('Event title. Example: "Deployment started"'),
     entitySelector: z.string().optional().describe('Entity selector expression. Example: "type(HOST)"'),
-    description: z.string().optional().describe('Detailed description of the event.'),
-    properties: z.record(z.string(), z.string()).optional().describe('Custom properties as key-value pairs.'),
-    timeout: z.number().optional().describe('Timeout in minutes before the event auto-expires.')
+    properties: z
+        .record(z.string(), z.union([z.string(), z.number(), z.boolean()]))
+        .optional()
+        .describe('Custom properties as key-value pairs. Values must be strings, numbers, or booleans.'),
+    startTime: z.number().optional().describe('The start time of the event, in UTC milliseconds.'),
+    endTime: z.number().optional().describe('The end time of the event, in UTC milliseconds.'),
+    timeout: z.number().optional().describe('Timeout in minutes before the event auto-expires. Defaults to 15.')
 });
 
 const EventIngestResultSchema = z.object({
@@ -51,8 +55,9 @@ const action = createAction({
             eventType: input.eventType,
             title: input.title,
             ...(input.entitySelector !== undefined && { entitySelector: input.entitySelector }),
-            ...(input.description !== undefined && { description: input.description }),
             ...(input.properties !== undefined && { properties: input.properties }),
+            ...(input.startTime !== undefined && { startTime: input.startTime }),
+            ...(input.endTime !== undefined && { endTime: input.endTime }),
             ...(input.timeout !== undefined && { timeout: input.timeout })
         };
 
@@ -60,7 +65,8 @@ const action = createAction({
             // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/events-v2/post-event
             endpoint: '/api/v2/events/ingest',
             data: body,
-            retries: 3
+            // Event ingestion is not idempotent, so keep retries at the minimum allowed value to limit duplicate-event risk on transient failures.
+            retries: 1
         });
 
         if (!response.data) {

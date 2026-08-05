@@ -14,8 +14,8 @@ const DefaultAggregationSchema = z.object({
 
 const DimensionDefinitionSchema = z.object({
     key: z.string().optional(),
-    name: z.string().optional(),
-    index: z.number().int().optional(),
+    name: z.string().nullable().optional(),
+    index: z.number().int().nullable().optional(),
     type: z.string().optional(),
     displayName: z.string().optional()
 });
@@ -50,21 +50,25 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List/search available metric keys.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['metrics.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/metric-v2/get-all-metrics
+        // Dynatrace rejects continuation requests that include any parameter besides nextPageKey.
+        const params: Record<string, string> = input.cursor
+            ? { nextPageKey: input.cursor }
+            : {
+                  ...(input.metricSelector !== undefined && { metricSelector: input.metricSelector }),
+                  ...(input.text !== undefined && { text: input.text }),
+                  ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) })
+              };
+
         const response = await nango.get({
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/metric-v2/get-all-metrics
             endpoint: '/api/v2/metrics',
-            params: {
-                ...(input.metricSelector !== undefined && { metricSelector: input.metricSelector }),
-                ...(input.text !== undefined && { text: input.text }),
-                ...(input.cursor !== undefined && { nextPageKey: input.cursor }),
-                ...(input.pageSize !== undefined && { pageSize: String(input.pageSize) })
-            },
+            params,
             retries: 3
         });
 
@@ -87,18 +91,17 @@ const action = createAction({
         const rawMetrics = raw.metrics ?? [];
         const rawWarnings = raw.warnings ?? [];
 
-        const parsedMetrics = rawMetrics
-            .map((item: unknown) => {
-                if (typeof item !== 'object' || item === null) {
-                    return null;
-                }
-                const parsed = MetricDescriptorSchema.safeParse(item);
-                if (!parsed.success) {
-                    return null;
-                }
-                return parsed.data;
-            })
-            .filter((m: z.infer<typeof MetricDescriptorSchema> | null): m is z.infer<typeof MetricDescriptorSchema> => m !== null);
+        const parsedMetrics = rawMetrics.map((item: unknown) => {
+            const parsed = MetricDescriptorSchema.safeParse(item);
+            if (!parsed.success) {
+                throw new nango.ActionError({
+                    type: 'parse_error',
+                    message: 'Failed to parse metric descriptor from Dynatrace metrics API.',
+                    details: parsed.error.message
+                });
+            }
+            return parsed.data;
+        });
 
         return {
             metrics: parsedMetrics,

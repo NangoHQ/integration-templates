@@ -26,7 +26,7 @@ const EvidenceDetailSchema = z.object({
     evidenceType: z.string(),
     displayName: z.string(),
     entity: EntityReferenceSchema,
-    groupingEntity: EntityReferenceSchema,
+    groupingEntity: EntityReferenceSchema.nullable().optional(),
     rootCauseRelevant: z.boolean(),
     metricId: z.string().optional(),
     unit: z.string().optional(),

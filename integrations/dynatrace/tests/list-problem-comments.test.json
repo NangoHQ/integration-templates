@@ -31,7 +31,8 @@
         "content": "Temporary test comment for delete action",
         "authorName": "api@nango.dev"
       }
-    ]
+    ],
+    "totalCount": 4
   },
   "nango": {},
   "api": {
@@ -103,9 +104,7 @@
         },
         "hash": "d133913e6a2adda22e6a184b5a9ce9d1a6da757d",
         "request": {
-          "params": {
-            "pageSize": "50"
-          }
+          "params": {}
         }
       }
     }

@@ -27,6 +27,7 @@ const MetricSeriesCollectionSchema = z.object({
 
 const OutputSchema = z.object({
     totalCount: z.number().optional(),
+    nextPageKey: z.string().nullable().optional(),
     resolution: z.string().optional(),
     result: z.array(MetricSeriesCollectionSchema),
     warnings: z.array(z.string()).optional()
@@ -34,7 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Query time-series data points for one or more metrics.',
-    version: '1.0.0',
+    version: '1.1.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['metrics.read'],

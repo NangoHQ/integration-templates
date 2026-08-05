@@ -1,12 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    entitySelector: z.string().describe('Entity selector expression. Example: "type(HOST)"'),
-    pageSize: z.number().optional().describe('Number of results per page. Default: 50.'),
-    fields: z.string().optional().describe('Fields to include in the response. Example: "+properties,+tags,+fromRelationships,+toRelationships"'),
-    cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.')
-});
+const InputSchema = z
+    .object({
+        entitySelector: z
+            .string()
+            .optional()
+            .describe('Entity selector expression. Example: "type(HOST)". Required for the first page; omit on subsequent pages when passing cursor.'),
+        pageSize: z.number().optional().describe('Number of results per page. Default: 50.'),
+        fields: z.string().optional().describe('Fields to include in the response. Example: "+properties,+tags,+fromRelationships,+toRelationships"'),
+        cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.')
+    })
+    .refine((input) => input.cursor !== undefined || input.entitySelector !== undefined, {
+        message: 'entitySelector is required when cursor is not provided',
+        path: ['entitySelector']
+    });
 
 const ProviderEntitySchema = z
     .object({
@@ -17,7 +25,7 @@ const ProviderEntitySchema = z
     .passthrough();
 
 const ProviderResponseSchema = z.object({
-    entities: z.array(z.unknown()).optional(),
+    entities: z.array(z.unknown()),
     nextPageKey: z.string().optional().nullable(),
     pageSize: z.number().optional(),
     totalCount: z.number().optional()
@@ -32,7 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List monitored entities (hosts, services, applications, process groups, etc.) matching an entity selector.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['entities.read'],
@@ -45,6 +53,13 @@ const action = createAction({
                 nextPageKey: input.cursor
             };
         } else {
+            if (!input.entitySelector) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'entitySelector is required when cursor is not provided'
+                });
+            }
+
             params = {
                 entitySelector: input.entitySelector
             };
@@ -66,8 +81,7 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
-        const rawEntities = providerResponse.entities ?? [];
-        const entities = rawEntities.map((item) => ProviderEntitySchema.parse(item));
+        const entities = providerResponse.entities.map((item) => ProviderEntitySchema.parse(item));
 
         return {
             entities,

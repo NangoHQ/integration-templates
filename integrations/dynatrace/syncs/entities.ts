@@ -46,12 +46,12 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
 
-        if (!checkpoint) {
-            await nango.trackDeletesStart('Entity');
-        }
-
         let entityTypeIndex = checkpoint?.entityTypeIndex ?? 0;
         let nextPageKey = checkpoint?.nextPageKey || undefined;
+        // Only started once a checkpoint-less run's first page has been fetched and validated, so a
+        // failure before that point (e.g. a network or parse error) never leaves delete-tracking open
+        // without any checkpoint to resume from.
+        let deleteTrackingStarted = Boolean(checkpoint);
 
         while (entityTypeIndex < entityTypes.length) {
             const entityType = entityTypes[entityTypeIndex];
@@ -75,6 +75,11 @@ const sync = createSync({
 
                 const listResponse = EntityListResponseSchema.parse(response.data);
                 const entities = z.array(ProviderEntitySchema).parse(listResponse.entities);
+
+                if (!deleteTrackingStarted) {
+                    await nango.trackDeletesStart('Entity');
+                    deleteTrackingStarted = true;
+                }
 
                 const records = entities.map((entity) => ({
                     id: entity.entityId,

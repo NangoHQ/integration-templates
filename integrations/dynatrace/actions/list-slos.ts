@@ -1,10 +1,25 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    pageSize: z.number().int().min(1).max(10000).optional().describe('The number of SLOs per page. Max 10000.')
-});
+const InputSchema = z
+    .object({
+        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+        pageSize: z
+            .number()
+            .int()
+            .min(1)
+            .max(10000)
+            .optional()
+            .describe('The number of SLOs per page. Max 10000 (25 when evaluate is true).'),
+        sloSelector: z.string().optional().describe('Filter SLOs by ID, name, health state, text, or management zone.'),
+        sort: z.enum(['name', '-name']).optional().describe('Sort by name in ascending or descending order.'),
+        enabledSlos: z.enum(['true', 'false', 'all']).optional().describe('Filter by enabled status: true, false, or all.'),
+        evaluate: z.enum(['true', 'false']).optional().describe('Whether to evaluate SLOs. When true, maximum pageSize is 25.')
+    })
+    .refine((input) => input.evaluate !== 'true' || input.pageSize === undefined || input.pageSize <= 25, {
+        message: 'pageSize must be 25 or less when evaluate is true',
+        path: ['pageSize']
+    });
 
 const SloBurnRateSchema = z.object({
     burnRateType: z.string().optional(),
@@ -54,7 +69,7 @@ const OutputSchema = z.object({
 });
 
 const ProviderSloResponseSchema = z.object({
-    slo: z.array(z.unknown()).optional(),
+    slo: z.array(z.unknown()),
     nextPageKey: z.string().nullable().optional(),
     pageSize: z.number().int().optional(),
     totalCount: z.number().int().optional()
@@ -62,25 +77,33 @@ const ProviderSloResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Service Level Objectives.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['slo.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Dynatrace rejects continuation requests that include any parameter besides nextPageKey.
+        const params: Record<string, string | number> = input.cursor
+            ? { nextPageKey: input.cursor }
+            : {
+                  ...(input.pageSize !== undefined && { pageSize: input.pageSize }),
+                  ...(input.sloSelector !== undefined && { sloSelector: input.sloSelector }),
+                  ...(input.sort !== undefined && { sort: input.sort }),
+                  ...(input.enabledSlos !== undefined && { enabledSlos: input.enabledSlos }),
+                  ...(input.evaluate !== undefined && { evaluate: input.evaluate })
+              };
+
         // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/service-level-objectives-classic/get-all
         const response = await nango.get({
             endpoint: '/api/v2/slo',
-            params: {
-                ...(input.cursor && { nextPageKey: input.cursor }),
-                ...(input.pageSize && { pageSize: String(input.pageSize) })
-            },
+            params,
             retries: 3
         });
 
         const providerData = ProviderSloResponseSchema.parse(response.data);
 
-        const items = (providerData.slo || []).map((item: unknown) => {
+        const items = providerData.slo.map((item: unknown) => {
             const slo = SloSchema.parse(item);
             return slo;
         });

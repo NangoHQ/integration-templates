@@ -285,7 +285,8 @@
         "dataPointCountRatio": 0.00011925,
         "dimensionCountRatio": 0.00015
       }
-    ]
+    ],
+    "nextPageKey": null
   },
   "nango": {},
   "api": {
