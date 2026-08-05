@@ -39,10 +39,12 @@ const action = createAction({
 
         const response = await nango.put({
             // https://app.pipelinecrm.com/api/docs/introduction
+            // Pipeline silently ignores this update unless read_at is sent alongside seen.
             endpoint: `/api/v3/account_notifications/${encodeURIComponent(String(input.id))}`,
             data: {
                 account_notification: {
-                    seen: seen
+                    seen: seen,
+                    read_at: seen ? new Date().toISOString() : null
                 }
             },
             retries: 1

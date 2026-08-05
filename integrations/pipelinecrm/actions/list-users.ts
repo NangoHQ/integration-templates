@@ -2,35 +2,34 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
     email: z.string().optional().describe('Filter by email address. Example: "user@example.com"'),
     admin: z.boolean().optional().describe('Filter by admin status.'),
     including_inactive: z.boolean().optional().describe('Include inactive users in results.'),
     user_level: z.number().optional().describe('Filter by user level. Example: 1, 2, or 3.')
 });
 
-const ProviderUserSchema = z
-    .object({
-        id: z.number(),
-        email: z.string().optional(),
-        first_name: z.string().optional(),
-        last_name: z.string().optional(),
-        admin: z.boolean().optional(),
-        user_level: z.number().optional(),
-        created_at: z.string().optional(),
-        updated_at: z.string().optional()
-    })
-    .passthrough();
+const ProviderUserSchema = z.object({
+    id: z.number(),
+    email: z.string().optional(),
+    first_name: z.string().optional(),
+    last_name: z.string().optional(),
+    admin: z.boolean().optional(),
+    user_level: z.number().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional()
+});
 
 const ProviderPaginationSchema = z.object({
-    next_cursor: z.string().optional(),
-    total_entries: z.number().optional(),
-    total_pages: z.number().optional(),
-    current_page: z.number().optional()
+    page: z.number(),
+    pages: z.number(),
+    per_page: z.number(),
+    total: z.number()
 });
 
 const ProviderListResponseSchema = z.object({
-    entries: z.array(z.unknown()),
-    pagination: ProviderPaginationSchema.optional()
+    entries: z.array(ProviderUserSchema),
+    pagination: ProviderPaginationSchema
 });
 
 const OutputSchema = z.object({
@@ -45,7 +44,17 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const params: Record<string, string | number> = {};
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (isNaN(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer page number'
+            });
+        }
+
+        const params: Record<string, string | number> = {
+            page: page.toString()
+        };
         if (input.email !== undefined) {
             params['conditions[email]'] = input.email;
         }
@@ -67,13 +76,11 @@ const action = createAction({
         });
 
         const listResponse = ProviderListResponseSchema.parse(response.data);
-
-        const users = listResponse.entries.map((entry: unknown) => ProviderUserSchema.parse(entry));
-        const nextCursor = listResponse.pagination?.next_cursor;
+        const hasMore = listResponse.pagination.page < listResponse.pagination.pages;
 
         return {
-            users,
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            users: listResponse.entries,
+            ...(hasMore && { next_cursor: (page + 1).toString() })
         };
     }
 });

@@ -25,8 +25,11 @@ const DealSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string(),
+    last_full_sync: z.string()
 });
+
+const FULL_SYNC_INTERVAL_MS = 24 * 60 * 60 * 1000;
 
 const RawDealSchema = z.object({
     id: z.number(),
@@ -59,9 +62,10 @@ const RawDealSchema = z.object({
             name: z.string().nullish()
         })
         .nullish(),
-    owner: z
+    user: z
         .object({
-            full_name: z.string().nullish()
+            first_name: z.string().nullish(),
+            last_name: z.string().nullish()
         })
         .nullish(),
     custom_fields: z.record(z.string(), z.unknown()).nullish()
@@ -78,18 +82,22 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        const updatedAfter =
-            checkpoint && typeof checkpoint === 'object' && 'updated_after' in checkpoint && typeof checkpoint.updated_after === 'string'
-                ? checkpoint.updated_after
-                : undefined;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
+        const updatedAfter = checkpointResult.success ? checkpointResult.data.updated_after : undefined;
         const isFirstRun = updatedAfter === undefined;
         const syncStartTime = new Date()
             .toISOString()
             .replace('T', ' ')
             .replace(/\.\d+Z$/, '');
 
-        if (isFirstRun) {
+        // Incremental runs only fetch deals modified since the last checkpoint, so deals deleted
+        // in Pipeline in between never show up in an incremental page. Periodically fall back to a
+        // full, unfiltered enumeration bracketed by delete-tracking so deletions are eventually caught.
+        const lastFullSync = checkpointResult.success ? new Date(checkpointResult.data.last_full_sync).getTime() : NaN;
+        const isFullSync = isFirstRun || isNaN(lastFullSync) || Date.now() - lastFullSync >= FULL_SYNC_INTERVAL_MS;
+
+        if (isFullSync) {
             await nango.trackDeletesStart('Deal');
         }
 
@@ -98,7 +106,7 @@ const sync = createSync({
             per_page: 200
         };
 
-        if (updatedAfter) {
+        if (updatedAfter && !isFullSync) {
             params['conditions%5Bdeal_modified%5D%5Bfrom_date%5D'] = updatedAfter;
         }
 
@@ -155,7 +163,7 @@ const sync = createSync({
                     currency_code: d.currency?.code ?? undefined,
                     deal_stage_name: d.deal_stage?.name ?? undefined,
                     company_name: d.company?.name ?? undefined,
-                    owner_name: d.owner?.full_name ?? undefined,
+                    owner_name: [d.user?.first_name, d.user?.last_name].filter(Boolean).join(' ') || undefined,
                     custom_fields: d.custom_fields ?? undefined
                 };
             });
@@ -167,12 +175,13 @@ const sync = createSync({
             await nango.batchSave(deals, 'Deal');
         }
 
-        if (isFirstRun) {
+        if (isFullSync) {
             await nango.trackDeletesEnd('Deal');
         }
 
         await nango.saveCheckpoint({
-            updated_after: syncStartTime
+            updated_after: syncStartTime,
+            last_full_sync: isFullSync ? syncStartTime : new Date(lastFullSync).toISOString()
         });
     }
 });

@@ -123,9 +123,13 @@ const action = createAction({
         let page = 1;
         if (input.cursor) {
             const parsed = parseInt(input.cursor, 10);
-            if (!isNaN(parsed) && parsed > 0) {
-                page = parsed;
+            if (isNaN(parsed) || parsed < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a positive integer page number'
+                });
             }
+            page = parsed;
         }
 
         // https://app.pipelinecrm.com/openapi.yaml

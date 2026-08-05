@@ -21,13 +21,6 @@ const PersonSummarySchema = z
     })
     .passthrough();
 
-const OwnerSchema = z
-    .object({
-        id: z.number().nullish(),
-        full_name: z.string().nullish()
-    })
-    .passthrough();
-
 const DealSchema = z
     .object({
         id: z.number(),
@@ -50,7 +43,7 @@ const DealSchema = z
         deal_loss_reason_notes: z.string().nullish(),
         deal_won_reason_id: z.number().nullish(),
         deal_won_reason_notes: z.string().nullish(),
-        deal_source: z.number().nullish(),
+        source_id: z.number().nullish(),
         custom_fields: z.record(z.string(), z.unknown()).nullish(),
         tag_ids: z.array(z.number()).nullish(),
         address_1: z.string().nullish(),
@@ -59,10 +52,10 @@ const DealSchema = z
         state: z.string().nullish(),
         postal_code: z.string().nullish(),
         country: z.string().nullish(),
-        owner: OwnerSchema.nullish(),
+        user: PersonSummarySchema.nullish(),
         import_id: z.number().nullish(),
         expected_close_date_event_id: z.number().nullish(),
-        primary_contact: OwnerSchema.nullish(),
+        primary_contact: PersonSummarySchema.nullish(),
         people: z.array(PersonSummarySchema).nullish(),
         collaborators: z.array(PersonSummarySchema).nullish(),
         company: NestedIdNameSchema.nullish(),

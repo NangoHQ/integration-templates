@@ -61,10 +61,6 @@ const sync = createSync({
             .replace('T', ' ')
             .replace(/\.\d+Z$/, '');
 
-        if (isFirstRun) {
-            await nango.trackDeletesStart('Person');
-        }
-
         const params: Record<string, string> = {};
         if (checkpointData) {
             params['conditions%5Bperson_modified%5D%5Bfrom_date%5D'] = checkpointData['updated_after'];
@@ -85,6 +81,8 @@ const sync = createSync({
             },
             retries: 3
         };
+
+        let deletesTrackingStarted = false;
 
         for await (const batch of nango.paginate(proxyConfig)) {
             const rawRecords = z.array(z.unknown()).parse(batch);
@@ -114,12 +112,19 @@ const sync = createSync({
                 });
             }
 
+            // Deferred until a page has actually been parsed successfully, so a failure on the very
+            // first page never leaves a delete-tracking session open without a matching end.
+            if (isFirstRun && !deletesTrackingStarted) {
+                await nango.trackDeletesStart('Person');
+                deletesTrackingStarted = true;
+            }
+
             if (people.length > 0) {
                 await nango.batchSave(people, 'Person');
             }
         }
 
-        if (isFirstRun) {
+        if (deletesTrackingStarted) {
             await nango.trackDeletesEnd('Person');
         }
 

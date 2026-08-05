@@ -171,7 +171,7 @@ const action = createAction({
             dealPayload['deal_won_reason_notes'] = input.deal_won_reason_notes;
         }
         if (input.deal_source !== undefined) {
-            dealPayload['deal_source'] = input.deal_source;
+            dealPayload['source_id'] = input.deal_source;
         }
         if (input.custom_fields !== undefined) {
             dealPayload['custom_fields'] = input.custom_fields;

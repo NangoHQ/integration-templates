@@ -48,7 +48,14 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? Number(input.cursor) : 1;
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (isNaN(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer page number'
+            });
+        }
+
         const response = await nango.get({
             // https://app.pipelinecrm.com/openapi.yaml
             endpoint: 'api/v3/admin/lead_sources',

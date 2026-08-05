@@ -1,0 +1,77 @@
+{
+  "input": {
+    "note_id": 889038936,
+    "comment": "Nango dryrun test comment"
+  },
+  "output": {
+    "id": 12196050,
+    "comment": "Nango dryrun test comment",
+    "note_id": 889038936,
+    "user_id": 843757,
+    "created_at": "2026/08/05 09:53:15 -0400",
+    "updated_at": "2026/08/05 09:53:15 -0400",
+    "user": {
+      "id": 843757,
+      "first_name": "Nango",
+      "last_name": "Developer"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v3/notes/889038936/comments.json": {
+        "response": {
+          "id": 12196050,
+          "user_id": 843757,
+          "note_id": 889038936,
+          "comment": "Nango dryrun test comment",
+          "created_at": "2026/08/05 09:53:15 -0400",
+          "updated_at": "2026/08/05 09:53:15 -0400",
+          "edited_by_user_id": null,
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer",
+            "avatar_thumb_url": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 13:53:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "10",
+          "x-ratelimit-reset": "1785937996",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Origin",
+          "cache-control": "no-store",
+          "etag": "W/\"765316378a2aa0dfbd2f7ed3dcecff47\"",
+          "x-request-id": "06466fd3-5f82-4197-a7aa-afbede556441",
+          "x-runtime": "0.312001",
+          "x-permitted-cross-domain-policies": "none",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a2664976ebb2f3b4-PDX"
+        },
+        "hash": "03cd5d96d66e2f4fed7560ed6ef0cc5c856b3bb8",
+        "request": {
+          "data": {
+            "comment": {
+              "comment": "Nango dryrun test comment"
+            }
+          }
+        }
+      }
+    }
+  }
+}

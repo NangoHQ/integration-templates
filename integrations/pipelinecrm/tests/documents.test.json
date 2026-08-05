@@ -1,0 +1,159 @@
+{
+  "nango": {
+    "batchSave": {
+      "Document": [
+        {
+          "id": "192570877",
+          "title": "Nango Registry Test Document",
+          "created_at": "2026/08/05 09:35:38 -0400",
+          "updated_at": "2026/08/05 09:35:39 -0400",
+          "deal_id": "55383278",
+          "company_id": "138551860",
+          "document_type": "others",
+          "upload_status": 2,
+          "size_in_k": 12.95,
+          "upload_state": "complete"
+        },
+        {
+          "id": "192570829",
+          "title": "Nango Registry Test Document",
+          "created_at": "2026/08/05 09:35:23 -0400",
+          "updated_at": "2026/08/05 09:35:26 -0400",
+          "deal_id": "55383278",
+          "company_id": "138551860",
+          "document_type": "others",
+          "upload_status": 2,
+          "size_in_k": 12.95,
+          "upload_state": "complete"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Document": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v3/documents": {
+        "response": {
+          "entries": [
+            {
+              "id": 192570877,
+              "title": "Nango Registry Test Document",
+              "created_at": "2026/08/05 09:35:38 -0400",
+              "updated_at": "2026/08/05 09:35:39 -0400",
+              "owner_id": 843757,
+              "person_id": null,
+              "deal_id": 55383278,
+              "company_id": 138551860,
+              "calendar_entry_id": null,
+              "document_type": "others",
+              "upload_status": 2,
+              "upload_status_error_message": null,
+              "public_link": "https://pipeline-live-userdata.s3.amazonaws.com/uploaded_documents/f8bd2fa5-252e-4325-940d-61d8d3e9185f/Nango%20Registry%20Test%20Document?response-content-disposition=inline%3B%20filename%20%3D%22Nango%2520Registry%2520Test%2520Document%22&response-content-type=application%2Foctet-stream&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA3RYXT6AYUXCUNN3N%2F20260805%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260805T150830Z&X-Amz-Expires=16129&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF0aCXVzLWVhc3QtMSJIMEYCIQDb8ayEoMi7Qdj1dR01x5MWc2kJ%2FiPcGWYqPjvAxuufxAIhAMBByLCIJ5NA7pTylW2bdKAt23z39nHi%2B1GDdoA6kpTHKrIFCCYQABoMNzk0MDgxNjIwMDE3IgxzHcSd7JCVIQ9TFUsqjwV82mVpbI2BZGPa6dMggUgHGwPWkiyvNEuEufWscDeJmbSg%2BX0ai66UNU6NC6rG7Y7bpiBY18KMyNcsesniTyvVChPrTL5NsA6R3snA1LRqrPHOq1aPU9Hnaw9OX8ToCJQe7HcSolDSlzW6rW2AXKFtymcYQw9FgE9JZRzxtLIavoiUAVz9ShSEyea2jjC%2BduJaluBEUf7hbTn5PejWOk1UoeQg9L7BpkKt6roFjZrDAfMEug54bfdpVM34FpeTKytN4roit3A0LICWNmM1jHvIXGfMbPewAd8CBG90hee9Ta%2F4vdK%2FWAsQYo06r0cI29MQ4w7G4c9v2Nx7Jk8TwmDllCCdKzU17DeLzh7gNjmHqotumTSPIi6%2BGUB9TFiWVFjp384cDP0n0lD0N6o1Bo4BugcntGr3ggksa5NGKPW0nB%2BfZG6l3vrYEJqOGxm7l2ep7RBAjQu6xGG%2Bsq9VmDC53e9EENrIjZ7swoOdnTSwigyQQlnwIVnHm%2F0SZ8R7DAYjYIcQdQp5FfO%2BE%2FTG5%2BCPnQLvNGzgOE1v24iNvBM027EgitvOMMZMi0NvJXhJLVWWdDvRGIqeaP3hpicEnoKdH30VNCIvkH6w239MJZ%2BWYTUiKe%2FvKCYIyhB8X2b84fnyzRTcj8famgKtcAlx%2FVi3q4CYib%2BNy9oJG76z1pjsgS3Dj7MzLTQqtztw9gODCQvnF1y7HjG0q87ySZBfuQtJsi2VP3sa7JS2dj0liXixJJia5wspqfdBCF7xDeyuc561r9enwd48nRWDn30Im1jeT38WSRLReNCAkG%2B54zbc4z%2FINFcmpIsxyisKve8YGJY99fNjGrydMq3JP603sFADfGf9DU9nrVecIWg%2F4H72MNvozNMGOrABBSWX%2FEJmdWdWjmA%2BtVRs%2BwXyp0YpjUq5thrvPHJlJ7LYoIDztiSmI3BsG%2Fx9Gf1wxvOYrdP2BmzHr2wjb%2B6verKJIlffwjzlS0rlQFqvYENouYt0X5UsD0oU9n0n%2FTgivTNNCxpVKqa73Fcbp42YUKL8etLBG0QHRbXXg9lkn0wtWifcb1hSuh2e0W7lax%2BRlGdo2b0sQrqCUx58VGLIM9U2D2tNrmwFfkLbOHNskQo%3D&X-Amz-SignedHeaders=host&X-Amz-Signature=4fe63a37f47cce5b7498c8735c5063d5559cf6cc24806e8b793ca74a2cfe9a26",
+              "size_in_k": 12.95,
+              "upload_state": "complete",
+              "etag": "2942bfabb3d05332b66eb128e0842cff",
+              "document_tag_ids": [],
+              "owner_name": "Nango Developer",
+              "owner": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer"
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "person": null,
+              "calendar_entry": null,
+              "document_tags": []
+            },
+            {
+              "id": 192570829,
+              "title": "Nango Registry Test Document",
+              "created_at": "2026/08/05 09:35:23 -0400",
+              "updated_at": "2026/08/05 09:35:26 -0400",
+              "owner_id": 843757,
+              "person_id": null,
+              "deal_id": 55383278,
+              "company_id": 138551860,
+              "calendar_entry_id": null,
+              "document_type": "others",
+              "upload_status": 2,
+              "upload_status_error_message": null,
+              "public_link": "https://pipeline-live-userdata.s3.amazonaws.com/uploaded_documents/9fd3f8ca-2379-4246-965c-15b63290c3b7/Nango%20Registry%20Test%20Document?response-content-disposition=inline%3B%20filename%20%3D%22Nango%2520Registry%2520Test%2520Document%22&response-content-type=application%2Foctet-stream&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA3RYXT6AYUXCUNN3N%2F20260805%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260805T150830Z&X-Amz-Expires=16129&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF0aCXVzLWVhc3QtMSJIMEYCIQDb8ayEoMi7Qdj1dR01x5MWc2kJ%2FiPcGWYqPjvAxuufxAIhAMBByLCIJ5NA7pTylW2bdKAt23z39nHi%2B1GDdoA6kpTHKrIFCCYQABoMNzk0MDgxNjIwMDE3IgxzHcSd7JCVIQ9TFUsqjwV82mVpbI2BZGPa6dMggUgHGwPWkiyvNEuEufWscDeJmbSg%2BX0ai66UNU6NC6rG7Y7bpiBY18KMyNcsesniTyvVChPrTL5NsA6R3snA1LRqrPHOq1aPU9Hnaw9OX8ToCJQe7HcSolDSlzW6rW2AXKFtymcYQw9FgE9JZRzxtLIavoiUAVz9ShSEyea2jjC%2BduJaluBEUf7hbTn5PejWOk1UoeQg9L7BpkKt6roFjZrDAfMEug54bfdpVM34FpeTKytN4roit3A0LICWNmM1jHvIXGfMbPewAd8CBG90hee9Ta%2F4vdK%2FWAsQYo06r0cI29MQ4w7G4c9v2Nx7Jk8TwmDllCCdKzU17DeLzh7gNjmHqotumTSPIi6%2BGUB9TFiWVFjp384cDP0n0lD0N6o1Bo4BugcntGr3ggksa5NGKPW0nB%2BfZG6l3vrYEJqOGxm7l2ep7RBAjQu6xGG%2Bsq9VmDC53e9EENrIjZ7swoOdnTSwigyQQlnwIVnHm%2F0SZ8R7DAYjYIcQdQp5FfO%2BE%2FTG5%2BCPnQLvNGzgOE1v24iNvBM027EgitvOMMZMi0NvJXhJLVWWdDvRGIqeaP3hpicEnoKdH30VNCIvkH6w239MJZ%2BWYTUiKe%2FvKCYIyhB8X2b84fnyzRTcj8famgKtcAlx%2FVi3q4CYib%2BNy9oJG76z1pjsgS3Dj7MzLTQqtztw9gODCQvnF1y7HjG0q87ySZBfuQtJsi2VP3sa7JS2dj0liXixJJia5wspqfdBCF7xDeyuc561r9enwd48nRWDn30Im1jeT38WSRLReNCAkG%2B54zbc4z%2FINFcmpIsxyisKve8YGJY99fNjGrydMq3JP603sFADfGf9DU9nrVecIWg%2F4H72MNvozNMGOrABBSWX%2FEJmdWdWjmA%2BtVRs%2BwXyp0YpjUq5thrvPHJlJ7LYoIDztiSmI3BsG%2Fx9Gf1wxvOYrdP2BmzHr2wjb%2B6verKJIlffwjzlS0rlQFqvYENouYt0X5UsD0oU9n0n%2FTgivTNNCxpVKqa73Fcbp42YUKL8etLBG0QHRbXXg9lkn0wtWifcb1hSuh2e0W7lax%2BRlGdo2b0sQrqCUx58VGLIM9U2D2tNrmwFfkLbOHNskQo%3D&X-Amz-SignedHeaders=host&X-Amz-Signature=8bd53e2afe205510a1d95db3ec4a3e915e08ecabead54161cc1628d4243729e3",
+              "size_in_k": 12.95,
+              "upload_state": "complete",
+              "etag": "2942bfabb3d05332b66eb128e0842cff",
+              "document_tag_ids": [],
+              "owner_name": "Nango Developer",
+              "owner": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer"
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "person": null,
+              "calendar_entry": null,
+              "document_tags": []
+            }
+          ],
+          "pagination": {
+            "page": 1,
+            "page_var": "page",
+            "per_page": 100,
+            "pages": 1,
+            "total": 2
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 15:08:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "10",
+          "x-ratelimit-reset": "1785942511",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Origin",
+          "cache-control": "no-store",
+          "etag": "W/\"bf0b1f692da43bb057e419272eea2ba4\"",
+          "x-request-id": "ccc440e8-6cba-45c6-900f-08323c348f82",
+          "x-runtime": "0.073928",
+          "x-permitted-cross-domain-policies": "none",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a266b7b3abc21c37-PDX"
+        },
+        "hash": "27aaac40af2e7fa58de920dc791b230e21a0fd85",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}

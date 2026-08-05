@@ -53,7 +53,12 @@ const sync = createSync({
 
         const proxyConfig: ProxyConfiguration = {
             // https://app.pipelinecrm.com/api/docs/introduction
+            // Without this condition, the API only returns active users, so deactivated
+            // (but not deleted) users would otherwise be marked as deleted by delete-tracking.
             endpoint: '/api/v3/admin/users',
+            params: {
+                'conditions[including_inactive]': 'true'
+            },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',

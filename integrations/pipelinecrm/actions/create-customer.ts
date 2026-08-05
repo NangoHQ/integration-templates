@@ -8,14 +8,14 @@ const InputSchema = z.object({
 const ProviderCustomerSchema = z.object({
     id: z.number(),
     company_id: z.number(),
-    health_score: z.number().nullable().optional(),
+    health_score: z.union([z.string(), z.number()]).nullable().optional(),
     owner_id: z.number().nullable().optional()
 });
 
 const OutputSchema = z.object({
     id: z.number(),
     company_id: z.number(),
-    health_score: z.number().optional(),
+    health_score: z.union([z.string(), z.number()]).optional(),
     owner_id: z.number().optional()
 });
 

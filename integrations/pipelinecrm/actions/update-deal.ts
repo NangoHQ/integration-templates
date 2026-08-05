@@ -55,7 +55,7 @@ const DealSchema = z
         deal_loss_reason_notes: z.string().nullable().optional(),
         deal_won_reason_id: z.number().nullable().optional(),
         deal_won_reason_notes: z.string().nullable().optional(),
-        deal_source: z.number().nullable().optional(),
+        source_id: z.number().nullable().optional(),
         custom_fields: z.record(z.string(), z.unknown()).nullable().optional(),
         tag_ids: z.array(z.number()).nullable().optional(),
         address_1: z.string().nullable().optional(),
@@ -66,24 +66,25 @@ const DealSchema = z
         country: z.string().nullable().optional(),
         created_at: z.string().nullable().optional(),
         updated_at: z.string().nullable().optional(),
-        owner: z
+        user: z
             .object({
                 id: z.number(),
-                full_name: z.string()
+                first_name: z.string().nullable().optional(),
+                last_name: z.string().nullable().optional()
             })
             .nullable()
             .optional(),
         company: z
             .object({
                 id: z.number(),
-                name: z.string()
+                name: z.string().nullable().optional()
             })
             .nullable()
             .optional(),
         deal_stage: z
             .object({
                 id: z.number(),
-                name: z.string()
+                name: z.string().nullable().optional()
             })
             .nullable()
             .optional(),
@@ -91,7 +92,7 @@ const DealSchema = z
             .array(
                 z.object({
                     id: z.number(),
-                    name: z.string()
+                    name: z.string().nullable().optional()
                 })
             )
             .nullable()
@@ -127,7 +128,7 @@ const action = createAction({
         if (input.deal_loss_reason_notes !== undefined) dealPayload['deal_loss_reason_notes'] = input.deal_loss_reason_notes;
         if (input.deal_won_reason_id !== undefined) dealPayload['deal_won_reason_id'] = input.deal_won_reason_id;
         if (input.deal_won_reason_notes !== undefined) dealPayload['deal_won_reason_notes'] = input.deal_won_reason_notes;
-        if (input.deal_source !== undefined) dealPayload['deal_source'] = input.deal_source;
+        if (input.deal_source !== undefined) dealPayload['source_id'] = input.deal_source;
         if (input.custom_fields !== undefined) dealPayload['custom_fields'] = input.custom_fields;
         if (input.tag_ids !== undefined) dealPayload['tag_ids'] = input.tag_ids;
         if (input.address_1 !== undefined) dealPayload['address_1'] = input.address_1;

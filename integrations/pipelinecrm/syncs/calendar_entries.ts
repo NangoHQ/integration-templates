@@ -10,8 +10,8 @@ const CalendarEntryResponseSchema = z.object({
     updated_at: z.string(),
     created_at: z.string().optional().nullable(),
     due_date: z.string().optional().nullable(),
-    start_date: z.string().optional().nullable(),
-    end_date: z.string().optional().nullable(),
+    start_time: z.string().optional().nullable(),
+    end_time: z.string().optional().nullable(),
     association_type: z.string().optional().nullable(),
     association_id: z.union([z.string(), z.number()]).optional().nullable(),
     owner_id: z.union([z.string(), z.number()]).optional().nullable()
@@ -26,8 +26,8 @@ const CalendarEntryModelSchema = z.object({
     updated_at: z.string(),
     created_at: z.string().optional(),
     due_date: z.string().optional(),
-    start_date: z.string().optional(),
-    end_date: z.string().optional(),
+    start_time: z.string().optional(),
+    end_time: z.string().optional(),
     association_type: z.string().optional(),
     association_id: z.string().optional(),
     owner_id: z.string().optional()
@@ -111,8 +111,8 @@ const sync = createSync({
                     updated_at: entry.updated_at,
                     ...(entry.created_at != null && { created_at: entry.created_at }),
                     ...(entry.due_date != null && { due_date: entry.due_date }),
-                    ...(entry.start_date != null && { start_date: entry.start_date }),
-                    ...(entry.end_date != null && { end_date: entry.end_date }),
+                    ...(entry.start_time != null && { start_time: entry.start_time }),
+                    ...(entry.end_time != null && { end_time: entry.end_time }),
                     ...(entry.association_type != null && { association_type: entry.association_type }),
                     ...(entry.association_id != null && { association_id: String(entry.association_id) }),
                     ...(entry.owner_id != null && { owner_id: String(entry.owner_id) })

@@ -8,27 +8,28 @@ const InputSchema = z.object({
 const PipelineStageSchema = z.object({
     id: z.number(),
     name: z.string(),
-    position: z.number().optional(),
-    pipeline_id: z.number().optional()
+    percent: z.number().optional(),
+    deal_pipeline_id: z.number().optional()
 });
 
 const ProviderDealPipelineSchema = z.object({
     id: z.number(),
     name: z.string(),
     pipeline_type: z.string(),
-    lost_stage: PipelineStageSchema.optional(),
-    won_stage: PipelineStageSchema.optional(),
+    lost_stage: PipelineStageSchema.nullable().optional(),
+    won_stage: PipelineStageSchema.nullable().optional(),
     has_deals: z.boolean().optional(),
     count_deals: z.number().optional()
 });
 
 const ProviderListResponseSchema = z.object({
     entries: z.array(ProviderDealPipelineSchema),
-    pagination: z
-        .object({
-            next_cursor: z.string().optional().nullable()
-        })
-        .optional()
+    pagination: z.object({
+        page: z.number(),
+        pages: z.number(),
+        per_page: z.number(),
+        total: z.number()
+    })
 });
 
 const OutputPipelineSchema = z.object({
@@ -53,11 +54,19 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input) => {
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (isNaN(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer page number'
+            });
+        }
+
         const response = await nango.get({
             // https://app.pipelinecrm.com/api/docs/introduction
             endpoint: '/api/v3/admin/deal_pipelines',
             params: {
-                ...(input.cursor !== undefined && input.cursor !== '' && { cursor: input.cursor })
+                page: page.toString()
             },
             retries: 3
         });
@@ -68,15 +77,17 @@ const action = createAction({
             id: entry.id,
             name: entry.name,
             pipeline_type: entry.pipeline_type,
-            ...(entry.lost_stage !== undefined && { lost_stage: entry.lost_stage }),
-            ...(entry.won_stage !== undefined && { won_stage: entry.won_stage }),
+            ...(entry.lost_stage != null && { lost_stage: entry.lost_stage }),
+            ...(entry.won_stage != null && { won_stage: entry.won_stage }),
             ...(entry.has_deals !== undefined && { has_deals: entry.has_deals }),
             ...(entry.count_deals !== undefined && { count_deals: entry.count_deals })
         }));
 
+        const nextCursor = parsed.pagination.page < parsed.pagination.pages ? String(parsed.pagination.page + 1) : undefined;
+
         return {
             items,
-            ...(parsed.pagination?.next_cursor != null && parsed.pagination.next_cursor !== '' && { next_cursor: parsed.pagination.next_cursor })
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('Document ID. Example: "192568972"')
+    id: z.number().int().min(1).describe('Document ID. Example: 192568972')
 });
 
 const OwnerSchema = z

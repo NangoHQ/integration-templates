@@ -28,17 +28,17 @@ const ProviderLabelSchema = z
         name: z.string(),
         custom_field_group_id: z.number().nullable().optional(),
         field_type: z.string(),
-        position: z.number().optional(),
-        record_type: z.string().optional(),
+        position: z.number().nullable().optional(),
+        record_type: z.string().nullable().optional(),
         report_behavior: z.string().nullable().optional(),
-        type: z.string().optional(),
+        type: z.string().nullable().optional(),
         is_required: z.boolean().nullable().optional(),
         created_at: z.string(),
         updated_at: z.string(),
-        output_type: z.string().optional(),
-        custom_field_label_dropdown_entries: z.array(ProviderDropdownEntrySchema).optional(),
-        locked: z.boolean().optional(),
-        custom_field_permissions: z.array(z.unknown()).optional()
+        output_type: z.string().nullable().optional(),
+        custom_field_label_dropdown_entries: z.array(ProviderDropdownEntrySchema).nullable().optional(),
+        locked: z.boolean().nullable().optional(),
+        custom_field_permissions: z.array(z.unknown()).nullable().optional()
     })
     .passthrough();
 
@@ -89,6 +89,12 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (isNaN(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer page number'
+            });
+        }
 
         // https://app.pipelinecrm.com/openapi.yaml
         const response = await nango.get({

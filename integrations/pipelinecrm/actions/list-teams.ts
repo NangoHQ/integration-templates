@@ -1,7 +1,9 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({});
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.')
+});
 
 const TeamSchema = z
     .object({
@@ -11,16 +13,21 @@ const TeamSchema = z
     })
     .passthrough();
 
+const ProviderPaginationSchema = z.object({
+    page: z.number(),
+    pages: z.number(),
+    per_page: z.number(),
+    total: z.number()
+});
+
+const ProviderListSchema = z.object({
+    entries: z.array(TeamSchema),
+    pagination: ProviderPaginationSchema
+});
+
 const ListTeamsOutputSchema = z.object({
     entries: z.array(TeamSchema),
-    pagination: z
-        .object({
-            current_page: z.number().optional(),
-            total_pages: z.number().optional(),
-            total_entries: z.number().optional(),
-            per_page: z.number().optional()
-        })
-        .optional()
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
@@ -29,23 +36,31 @@ const action = createAction({
     input: InputSchema,
     output: ListTeamsOutputSchema,
 
-    exec: async (nango, _input): Promise<z.infer<typeof ListTeamsOutputSchema>> => {
-        const response = await nango.get({
-            // https://app.pipelinecrm.com/api/docs/introduction
-            endpoint: 'api/v3/admin/teams',
-            retries: 3
-        });
-
-        const raw = response.data;
-        if (!raw || typeof raw !== 'object') {
+    exec: async (nango, input): Promise<z.infer<typeof ListTeamsOutputSchema>> => {
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (isNaN(page) || page < 1) {
             throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Unexpected response format from teams endpoint'
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer page number'
             });
         }
 
-        const parsed = ListTeamsOutputSchema.parse(raw);
-        return parsed;
+        const response = await nango.get({
+            // https://app.pipelinecrm.com/api/docs/introduction
+            endpoint: 'api/v3/admin/teams',
+            params: {
+                page: page.toString()
+            },
+            retries: 3
+        });
+
+        const parsed = ProviderListSchema.parse(response.data);
+        const hasMore = parsed.pagination.page < parsed.pagination.pages;
+
+        return {
+            entries: parsed.entries,
+            ...(hasMore && { next_cursor: (page + 1).toString() })
+        };
     }
 });
 

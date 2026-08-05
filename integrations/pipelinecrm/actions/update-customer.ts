@@ -10,18 +10,30 @@ const InputSchema = z.object({
 const ProviderCustomerSchema = z.object({
     id: z.number(),
     company_id: z.number().optional(),
-    owner_id: z.number().nullable().optional(),
     owner: z
         .object({
             id: z.number().optional(),
             full_name: z.string().optional()
         })
         .optional(),
-    health_score: z.string().nullable().optional(),
+    health_score: z.union([z.string(), z.number()]).nullable().optional(),
     health_score_description: z.string().nullable().optional(),
     days_in_health: z.number().nullable().optional(),
     created_at: z.string().optional(),
     updated_at: z.string().optional()
+});
+
+const ProviderCompanySchema = z.object({
+    id: z.number(),
+    owner_id: z.number().nullable().optional(),
+    owner: z
+        .object({
+            id: z.number().optional(),
+            first_name: z.string().optional(),
+            last_name: z.string().optional()
+        })
+        .nullable()
+        .optional()
 });
 
 const OutputSchema = z.object({
@@ -34,7 +46,7 @@ const OutputSchema = z.object({
             full_name: z.string().optional()
         })
         .optional(),
-    health_score: z.string().optional(),
+    health_score: z.union([z.string(), z.number()]).optional(),
     health_score_description: z.string().optional(),
     days_in_health: z.number().optional(),
     created_at: z.string().optional(),
@@ -48,11 +60,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const payload: { owner_id?: number; health_score_description?: string } = {};
-
-        if (input.owner_id !== undefined) {
-            payload.owner_id = input.owner_id;
-        }
+        const payload: { health_score_description?: string } = {};
 
         if (input.health_score_description !== undefined) {
             payload.health_score_description = input.health_score_description;
@@ -77,11 +85,33 @@ const action = createAction({
 
         const customer = ProviderCustomerSchema.parse(raw);
 
+        // The customers endpoint does not accept owner_id; ownership lives on the underlying company record.
+        let companyOwner: { id?: number; full_name?: string } | undefined;
+        if (input.owner_id !== undefined && customer.company_id !== undefined) {
+            const companyResponse = await nango.put({
+                // https://app.pipelinecrm.com/api/docs/introduction
+                endpoint: `api/v3/companies/${encodeURIComponent(String(customer.company_id))}`,
+                data: {
+                    company: { owner_id: input.owner_id }
+                },
+                retries: 3
+            });
+
+            const company = ProviderCompanySchema.parse(companyResponse.data);
+            const fullName = [company.owner?.first_name, company.owner?.last_name].filter(Boolean).join(' ');
+            companyOwner = company.owner
+                ? {
+                      ...(company.owner.id !== undefined && { id: company.owner.id }),
+                      ...(fullName !== '' && { full_name: fullName })
+                  }
+                : undefined;
+        }
+
         return {
             id: customer.id,
             ...(customer.company_id !== undefined && { company_id: customer.company_id }),
-            ...(customer.owner_id != null && { owner_id: customer.owner_id }),
-            ...(customer.owner !== undefined && { owner: customer.owner }),
+            ...(companyOwner?.id != null && { owner_id: companyOwner.id }),
+            ...(companyOwner !== undefined && { owner: companyOwner }),
             ...(customer.health_score != null && { health_score: customer.health_score }),
             ...(customer.health_score_description != null && { health_score_description: customer.health_score_description }),
             ...(customer.days_in_health != null && { days_in_health: customer.days_in_health }),

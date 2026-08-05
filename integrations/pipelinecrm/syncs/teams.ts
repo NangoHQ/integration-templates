@@ -11,8 +11,8 @@ const ProviderTeamSchema = z.object({
     name: z.string().optional(),
     parent_id: z.number().nullable().optional(),
     permissions: PermissionsSchema.optional(),
-    height: z.number().optional(),
-    depth: z.number().optional()
+    height: z.number().nullable().optional(),
+    depth: z.number().nullable().optional()
 });
 
 const TeamSchema = z.object({

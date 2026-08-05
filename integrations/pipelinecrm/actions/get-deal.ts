@@ -27,7 +27,7 @@ const ProviderDealSchema = z
         deal_loss_reason_notes: z.string().nullish(),
         deal_won_reason_id: z.number().nullish(),
         deal_won_reason_notes: z.string().nullish(),
-        deal_source: z.number().nullish(),
+        source_id: z.number().nullish(),
         custom_fields: z.record(z.string(), z.unknown()).nullish(),
         tag_ids: z.array(z.number()).nullish(),
         address_1: z.string().nullish(),
@@ -36,10 +36,11 @@ const ProviderDealSchema = z
         state: z.string().nullish(),
         postal_code: z.string().nullish(),
         country: z.string().nullish(),
-        owner: z
+        user: z
             .object({
                 id: z.number(),
-                full_name: z.string().nullish()
+                first_name: z.string().nullish(),
+                last_name: z.string().nullish()
             })
             .nullish(),
         primary_contact: z
@@ -61,7 +62,6 @@ const ProviderDealSchema = z
             .array(
                 z.object({
                     id: z.number(),
-                    api_key: z.string().nullish(),
                     first_name: z.string().nullish(),
                     last_name: z.string().nullish()
                 })
@@ -138,7 +138,7 @@ const OutputSchema = z
         deal_loss_reason_notes: z.string().optional(),
         deal_won_reason_id: z.number().optional(),
         deal_won_reason_notes: z.string().optional(),
-        deal_source: z.number().optional(),
+        source_id: z.number().optional(),
         custom_fields: z.record(z.string(), z.unknown()).optional(),
         tag_ids: z.array(z.number()).optional(),
         address_1: z.string().optional(),
@@ -147,10 +147,11 @@ const OutputSchema = z
         state: z.string().optional(),
         postal_code: z.string().optional(),
         country: z.string().optional(),
-        owner: z
+        user: z
             .object({
                 id: z.number(),
-                full_name: z.string().optional()
+                first_name: z.string().optional(),
+                last_name: z.string().optional()
             })
             .optional(),
         primary_contact: z
@@ -172,7 +173,6 @@ const OutputSchema = z
             .array(
                 z.object({
                     id: z.number(),
-                    api_key: z.string().optional(),
                     first_name: z.string().optional(),
                     last_name: z.string().optional()
                 })

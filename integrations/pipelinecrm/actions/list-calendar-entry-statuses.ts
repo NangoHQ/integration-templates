@@ -1,7 +1,9 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({});
+const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.')
+});
 
 const CalendarEntryStatusSchema = z.object({
     id: z.number(),
@@ -16,14 +18,12 @@ const CalendarEntryStatusSchema = z.object({
 
 const ProviderListSchema = z.object({
     entries: z.array(CalendarEntryStatusSchema),
-    pagination: z
-        .object({
-            page: z.number().optional(),
-            per_page: z.number().optional(),
-            pages: z.number().optional(),
-            total: z.number().optional()
-        })
-        .optional()
+    pagination: z.object({
+        page: z.number(),
+        per_page: z.number(),
+        pages: z.number(),
+        total: z.number()
+    })
 });
 
 const OutputSchema = z.object({
@@ -36,7 +36,8 @@ const OutputSchema = z.object({
             hex_color: z.string().optional(),
             in_use: z.boolean().optional()
         })
-    )
+    ),
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
@@ -46,14 +47,26 @@ const action = createAction({
     output: OutputSchema,
     scopes: [],
 
-    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (isNaN(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer page number'
+            });
+        }
+
         const response = await nango.get({
             // https://app.pipelinecrm.com/api/docs/introduction
             endpoint: '/api/v3/admin/calendar_entry_statuses',
+            params: {
+                page: page.toString()
+            },
             retries: 3
         });
 
         const providerList = ProviderListSchema.parse(response.data);
+        const hasMore = providerList.pagination.page < providerList.pagination.pages;
 
         return {
             entries: providerList.entries.map((status) => ({
@@ -63,7 +76,8 @@ const action = createAction({
                 ...(status.position !== undefined && { position: status.position }),
                 ...(status.hex_color !== undefined && { hex_color: status.hex_color }),
                 ...(status.in_use !== undefined && { in_use: status.in_use })
-            }))
+            })),
+            ...(hasMore && { next_cursor: (page + 1).toString() })
         };
     }
 });

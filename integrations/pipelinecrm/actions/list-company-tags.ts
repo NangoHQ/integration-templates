@@ -1,7 +1,9 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({});
+const InputSchema = z.object({
+    page: z.number().optional().describe('Page number to fetch. Example: 1')
+});
 
 const ProviderPaginationSchema = z.object({
     page: z.number(),
@@ -40,10 +42,21 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
 
-    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const page = input.page ?? 1;
+        if (!Number.isInteger(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_page',
+                message: 'page must be a positive integer'
+            });
+        }
+
         const response = await nango.get({
             // https://app.pipelinecrm.com/api/docs/introduction
             endpoint: 'api/v3/admin/company_tags',
+            params: {
+                page: page.toString()
+            },
             retries: 3
         });
 

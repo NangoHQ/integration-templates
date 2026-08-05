@@ -5,6 +5,8 @@ const InputSchema = z.object({
     user_id: z.string().describe('User ID. Example: "843757"')
 });
 
+const ProviderUserSchema = z.object({ api_key: z.unknown() }).passthrough();
+
 const OutputSchema = z.object({}).passthrough();
 
 const action = createAction({
@@ -30,9 +32,9 @@ const action = createAction({
             });
         }
 
-        const user = OutputSchema.parse(response.data);
+        const { api_key: _apiKey, ...user } = ProviderUserSchema.parse(response.data);
 
-        return user;
+        return OutputSchema.parse(user);
     }
 });
 

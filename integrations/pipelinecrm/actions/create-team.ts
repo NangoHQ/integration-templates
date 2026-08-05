@@ -13,8 +13,8 @@ const ProviderTeamSchema = z.object({
     created_at: z.string().describe('Creation timestamp. Example: "2026/08/05 09:53:03 -0400"'),
     updated_at: z.string().describe('Update timestamp. Example: "2026/08/05 09:53:03 -0400"'),
     permissions: z.object({}).passthrough().describe('Team permissions object'),
-    height: z.number().nullable().describe('Team height in the hierarchy. Example: 0'),
-    depth: z.number().nullable().describe('Team depth in the hierarchy. Example: 0')
+    height: z.number().nullable().optional().describe('Team height in the hierarchy. Example: 0'),
+    depth: z.number().nullable().optional().describe('Team depth in the hierarchy. Example: 0')
 });
 
 const OutputSchema = z.object({
@@ -25,8 +25,8 @@ const OutputSchema = z.object({
     created_at: z.string().describe('Creation timestamp. Example: "2026/08/05 09:53:03 -0400"'),
     updated_at: z.string().describe('Update timestamp. Example: "2026/08/05 09:53:03 -0400"'),
     permissions: z.object({}).passthrough().describe('Team permissions object'),
-    height: z.number().nullable().describe('Team height in the hierarchy. Example: 0'),
-    depth: z.number().nullable().describe('Team depth in the hierarchy. Example: 0')
+    height: z.number().nullable().optional().describe('Team height in the hierarchy. Example: 0'),
+    depth: z.number().nullable().optional().describe('Team depth in the hierarchy. Example: 0')
 });
 
 const action = createAction({

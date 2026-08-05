@@ -15,6 +15,16 @@ const ListOutputSchema = z.object({
     next_cursor: z.string().optional()
 });
 
+const ProviderResponseSchema = z.object({
+    entries: z.array(z.unknown()),
+    pagination: z.object({
+        page: z.number(),
+        pages: z.number(),
+        per_page: z.number(),
+        total: z.number()
+    })
+});
+
 const action = createAction({
     description: 'List categories that can be assigned to a calendar entry (task or event).',
     version: '1.0.0',
@@ -22,28 +32,26 @@ const action = createAction({
     output: ListOutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
-        const params: Record<string, string> = {};
-        if (input.cursor !== undefined) {
-            params['cursor'] = input.cursor;
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (isNaN(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer page number'
+            });
         }
 
         const response = await nango.get({
             // https://app.pipelinecrm.com/api/docs/introduction
             endpoint: '/api/v3/admin/event_categories',
-            params,
+            params: {
+                page: page.toString()
+            },
             retries: 3
         });
 
-        const raw = response.data;
-        if (raw == null) {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Provider returned an empty response.'
-            });
-        }
-
-        const entriesArray = Array.isArray(raw.entries) ? raw.entries : [];
-        const nextCursor = raw.pagination != null && typeof raw.pagination.next_cursor === 'string' ? raw.pagination.next_cursor : undefined;
+        const raw = ProviderResponseSchema.parse(response.data);
+        const entriesArray = raw.entries;
+        const nextCursor = raw.pagination.page < raw.pagination.pages ? String(raw.pagination.page + 1) : undefined;
 
         const categories = entriesArray.map((item: unknown) => {
             const parsed = CategorySchema.safeParse(item);

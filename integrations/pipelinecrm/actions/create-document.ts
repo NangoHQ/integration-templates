@@ -16,8 +16,8 @@ const ProviderDocumentSchema = z.object({
     deal_id: z.number().nullable().optional(),
     person_id: z.number().nullable().optional(),
     company_id: z.number().nullable().optional(),
-    upload_state: z.string().optional(),
-    size_in_k: z.number().optional(),
+    upload_state: z.string().nullable().optional(),
+    size_in_k: z.number().nullable().optional(),
     created_at: z.string().optional(),
     updated_at: z.string().optional()
 });
@@ -78,8 +78,8 @@ const action = createAction({
             ...(providerDocument.deal_id != null && { deal_id: providerDocument.deal_id }),
             ...(providerDocument.person_id != null && { person_id: providerDocument.person_id }),
             ...(providerDocument.company_id != null && { company_id: providerDocument.company_id }),
-            ...(providerDocument.upload_state !== undefined && { upload_state: providerDocument.upload_state }),
-            ...(providerDocument.size_in_k !== undefined && { size_in_k: providerDocument.size_in_k }),
+            ...(providerDocument.upload_state != null && { upload_state: providerDocument.upload_state }),
+            ...(providerDocument.size_in_k != null && { size_in_k: providerDocument.size_in_k }),
             ...(providerDocument.created_at !== undefined && { created_at: providerDocument.created_at }),
             ...(providerDocument.updated_at !== undefined && { updated_at: providerDocument.updated_at })
         };
