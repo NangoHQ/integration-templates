@@ -1,0 +1,328 @@
+{
+  "input": {
+    "project_id": "6a71de59f55241acad0cd44e"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "6a71df8992e09607f906dc21",
+        "title": "Product Data",
+        "is_required_for_material_release": true,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc22",
+        "title": "Mock-ups",
+        "is_required_for_material_release": true,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc23",
+        "title": "Samples",
+        "is_required_for_material_release": true,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc24",
+        "title": "Warranty Information",
+        "is_required_for_material_release": false,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc25",
+        "title": "Closeout",
+        "is_required_for_material_release": false,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc26",
+        "title": "Manufacturer's Qualifications",
+        "is_required_for_material_release": false,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc27",
+        "title": "Calculations",
+        "is_required_for_material_release": true,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc28",
+        "title": "Inspections",
+        "is_required_for_material_release": false,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc29",
+        "title": "Schedule",
+        "is_required_for_material_release": false,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc2a",
+        "title": "Sustainability Information",
+        "is_required_for_material_release": false,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc2b",
+        "title": "Installer's Qualifications",
+        "is_required_for_material_release": false,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc2c",
+        "title": "Shop Drawings",
+        "is_required_for_material_release": true,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      },
+      {
+        "id": "6a71df8992e09607f906dc20",
+        "title": "Nango Registry Test Submittal Type",
+        "is_required_for_material_release": false,
+        "created_by": "6a71da8692e09607f906d9e4",
+        "created_at": "2026-08-04T12:48:09Z",
+        "updated_by": "6a71da8692e09607f906d9e4",
+        "updated_at": "2026-08-04T12:48:09Z",
+        "project_id": "6a71de59f55241acad0cd44e"
+      }
+    ],
+    "total": 13,
+    "page": 1,
+    "per_page": 15
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/pub/submittal-types": {
+        "response": {
+          "items": [
+            {
+              "id": "6a71df8992e09607f906dc21",
+              "title": "Product Data",
+              "is_required_for_material_release": true,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc22",
+              "title": "Mock-ups",
+              "is_required_for_material_release": true,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc23",
+              "title": "Samples",
+              "is_required_for_material_release": true,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc24",
+              "title": "Warranty Information",
+              "is_required_for_material_release": false,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc25",
+              "title": "Closeout",
+              "is_required_for_material_release": false,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc26",
+              "title": "Manufacturer's Qualifications",
+              "is_required_for_material_release": false,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc27",
+              "title": "Calculations",
+              "is_required_for_material_release": true,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc28",
+              "title": "Inspections",
+              "is_required_for_material_release": false,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc29",
+              "title": "Schedule",
+              "is_required_for_material_release": false,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc2a",
+              "title": "Sustainability Information",
+              "is_required_for_material_release": false,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc2b",
+              "title": "Installer's Qualifications",
+              "is_required_for_material_release": false,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc2c",
+              "title": "Shop Drawings",
+              "is_required_for_material_release": true,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            },
+            {
+              "id": "6a71df8992e09607f906dc20",
+              "title": "Nango Registry Test Submittal Type",
+              "is_required_for_material_release": false,
+              "created_by": "6a71da8692e09607f906d9e4",
+              "created_at": "2026-08-04T12:48:09Z",
+              "updated_by": "6a71da8692e09607f906d9e4",
+              "updated_at": "2026-08-04T12:48:09Z",
+              "project_id": "6a71de59f55241acad0cd44e"
+            }
+          ],
+          "total": 13,
+          "page": 1,
+          "per_page": 15,
+          "first_page_url": "https://nangotest.ingenious.build/api/v2/pub/submittal-types?project_id=6a71de59f55241acad0cd44e&per_page=15&subdomain=nangotest&apptype=owner&page=1",
+          "last_page_url": "https://nangotest.ingenious.build/api/v2/pub/submittal-types?project_id=6a71de59f55241acad0cd44e&per_page=15&subdomain=nangotest&apptype=owner&page=1",
+          "next_page_url": null,
+          "prev_page_url": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 14:35:31 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "60",
+          "x-ratelimit-remaining": "47",
+          "x-ratelimit-reset": "1785854141",
+          "cache-control": "no-cache, private",
+          "cross-origin-resource-policy": "same-site",
+          "set-cookie": "<redacted>",
+          "vary": "Origin,Accept-Encoding",
+          "x-date": "Tue, 04 Aug 2026 14:35:31 GMT",
+          "x-machine": "icon-api-5bf8644d8c-mdmkf",
+          "x-request-id": "2312017f-512c-489c-b51e-31e35b369dfa",
+          "x-envoy-upstream-service-time": "292",
+          "server": "istio-envoy",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "792b954df83ab24020ba1f247a94970aaded1e4d",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "15",
+            "project_id": "6a71de59f55241acad0cd44e"
+          }
+        }
+      }
+    }
+  }
+}

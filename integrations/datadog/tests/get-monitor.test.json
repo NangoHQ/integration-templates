@@ -1,0 +1,114 @@
+{
+  "input": {
+    "monitor_id": 308771182
+  },
+  "output": {
+    "id": 308771182,
+    "org_id": 1984731,
+    "type": "query alert",
+    "name": "CPU usage is high for host {{host.name}}",
+    "message": "## 🚨 What’s happening\n\nHigh CPU usage detected on host {{host.name}}.\n\nThis means the host is spending most of its time actively processing, with very little idle CPU capacity available. It typically signals that the system is under heavy load — either from intense workloads, misbehaving processes, or increased traffic.\n\n---\n\n## 📈 Impact\n\nIf CPU usage remains high over time, it can lead to:\n\n- Sluggish application and system performance\n- Delayed or stalled background jobs\n- Timeouts, degraded services, or crashes due to resource exhaustion\n\nThis may affect critical applications running on this host and lead to broader service degradation if not addressed promptly.\n\n---\n\n## Runbook\n\n### Initial Troubleshooting Steps\n\n1. **Identify the affected host** from the alert.\n2. Open [**Infrastructure > Host Details**](/infrastructure?tags=host%3A{{host.name}}) in Datadog.\n3. In the **Metrics** tab, examine:\n   - `system.cpu.user`, `system.cpu.system`, `system.cpu.idle`\n   - `process.cpu.total_pct`, `process.*` metrics\n4. Use [**Live Processes**](/process?query=host%3A{{host.name}}) to view real-time CPU usage.\n5. SSH into the host (if needed) and run:\n   ```bash\n   top -o %CPU\n   \n### Cause and Resolution\n\nCause | Resolution\n------|------\nRunaway processes | **Restart or stop** high-CPU processes if they’re stuck or misbehaving.\n------|------\nTraffic/load spike | Scale out or up the infrastructure\n------|------\nCode/deployment issue | Roll back recent changes or investigate further.\n------|------\nContainer/JVM misconfiguration | Tune resource limits and runtime settings\n        \n###  Related links\n\n* [Host Map](/infrastructure/map)\n* [Live Processes](/process?query=host%3A{{host.name}})\n* [System Dashboards](/dashboard/lists)\n* [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n* [Logs](/logs?query=host:{{host.name}})\n* [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n* [Metrics Explorer (system.cpu.idle)](/metric/explorer?exp_metric=system.cpu.idle&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n### Who should be notified?\n\nAssign the appropriate notification handle for this alert (e.g., `@slack-infra`, `@pagerduty-core-systems`):  \n`@your-team-handle`",
+    "tags": [
+      "integration:host",
+      "monitor_pack:host"
+    ],
+    "query": "avg(last_5m):100 - avg:system.cpu.idle{*} by {host} > 90",
+    "options": {
+      "thresholds": {
+        "critical": 90
+      },
+      "notify_audit": false,
+      "include_tags": false,
+      "notify_no_data": false,
+      "new_host_delay": 300,
+      "silenced": {}
+    },
+    "multi": true,
+    "created_at": 1785166049000,
+    "created": "2026-07-27T15:27:29.805834+00:00",
+    "modified": "2026-07-27T15:27:29.805834+00:00",
+    "deleted": null,
+    "priority": null,
+    "restricted_roles": null,
+    "draft_status": "published",
+    "overall_state_modified": "2026-07-27T15:27:31+00:00",
+    "overall_state": "OK",
+    "creator": {
+      "name": "Datadog Support",
+      "email": "support-user-prod@datadoghq.com",
+      "handle": "support-nangodev-npsukaogqnfl",
+      "id": 69379536
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/monitor/308771182": {
+        "response": {
+          "id": 308771182,
+          "org_id": 1984731,
+          "type": "query alert",
+          "name": "CPU usage is high for host {{host.name}}",
+          "message": "## 🚨 What’s happening\n\nHigh CPU usage detected on host {{host.name}}.\n\nThis means the host is spending most of its time actively processing, with very little idle CPU capacity available. It typically signals that the system is under heavy load — either from intense workloads, misbehaving processes, or increased traffic.\n\n---\n\n## 📈 Impact\n\nIf CPU usage remains high over time, it can lead to:\n\n- Sluggish application and system performance\n- Delayed or stalled background jobs\n- Timeouts, degraded services, or crashes due to resource exhaustion\n\nThis may affect critical applications running on this host and lead to broader service degradation if not addressed promptly.\n\n---\n\n## Runbook\n\n### Initial Troubleshooting Steps\n\n1. **Identify the affected host** from the alert.\n2. Open [**Infrastructure > Host Details**](/infrastructure?tags=host%3A{{host.name}}) in Datadog.\n3. In the **Metrics** tab, examine:\n   - `system.cpu.user`, `system.cpu.system`, `system.cpu.idle`\n   - `process.cpu.total_pct`, `process.*` metrics\n4. Use [**Live Processes**](/process?query=host%3A{{host.name}}) to view real-time CPU usage.\n5. SSH into the host (if needed) and run:\n   ```bash\n   top -o %CPU\n   \n### Cause and Resolution\n\nCause | Resolution\n------|------\nRunaway processes | **Restart or stop** high-CPU processes if they’re stuck or misbehaving.\n------|------\nTraffic/load spike | Scale out or up the infrastructure\n------|------\nCode/deployment issue | Roll back recent changes or investigate further.\n------|------\nContainer/JVM misconfiguration | Tune resource limits and runtime settings\n        \n###  Related links\n\n* [Host Map](/infrastructure/map)\n* [Live Processes](/process?query=host%3A{{host.name}})\n* [System Dashboards](/dashboard/lists)\n* [Monitor Documentation](https://docs.datadoghq.com/monitors/)\n* [Logs](/logs?query=host:{{host.name}})\n* [Infrastructure](/infrastructure/hosts?scope=host:{{host.name}})\n* [Metrics Explorer (system.cpu.idle)](/metric/explorer?exp_metric=system.cpu.idle&exp_scope=host:{{host.name}}&exp_agg=avg&exp_type=line)\n\n### Who should be notified?\n\nAssign the appropriate notification handle for this alert (e.g., `@slack-infra`, `@pagerduty-core-systems`):  \n`@your-team-handle`",
+          "tags": [
+            "integration:host",
+            "monitor_pack:host"
+          ],
+          "query": "avg(last_5m):100 - avg:system.cpu.idle{*} by {host} > 90",
+          "options": {
+            "thresholds": {
+              "critical": 90
+            },
+            "notify_audit": false,
+            "include_tags": false,
+            "notify_no_data": false,
+            "new_host_delay": 300,
+            "silenced": {}
+          },
+          "multi": true,
+          "created_at": 1785166049000,
+          "created": "2026-07-27T15:27:29.805834+00:00",
+          "modified": "2026-07-27T15:27:29.805834+00:00",
+          "deleted": null,
+          "priority": null,
+          "restricted_roles": null,
+          "draft_status": "published",
+          "overall_state_modified": "2026-07-27T15:27:31+00:00",
+          "overall_state": "OK",
+          "creator": {
+            "name": "Datadog Support",
+            "email": "support-user-prod@datadoghq.com",
+            "handle": "support-nangodev-npsukaogqnfl",
+            "id": 69379536
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:45:10 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "3000",
+          "x-ratelimit-remaining": "2999",
+          "x-ratelimit-reset": "10",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "10",
+          "x-ratelimit-name": "get_monitors"
+        },
+        "hash": "56d4beb4a5b4c6928f310f80a6fb56a383130e00",
+        "request": {}
+      }
+    }
+  }
+}

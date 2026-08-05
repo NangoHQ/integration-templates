@@ -1,0 +1,125 @@
+{
+  "input": {
+    "rfi_id": "6a71e00ff55241acad0cd5b4",
+    "text": "Nango Registry Test RFI Solution",
+    "is_official": true,
+    "cost_impact": "no",
+    "schedule_impact": "no"
+  },
+  "output": {
+    "id": "6a71f95997628b231f0c2ed5",
+    "text": "Nango Registry Test RFI Solution",
+    "is_official": true,
+    "cost_impact": "no",
+    "schedule_impact": "no",
+    "created_at": "2026-08-04T14:38:17Z",
+    "created_by": "6a71da8692e09607f906d9e4",
+    "updated_at": "2026-08-04T14:38:17Z",
+    "updated_by": "6a71da8692e09607f906d9e4",
+    "document_ids": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v2/pub/rfi-solutions": {
+        "response": {
+          "id": "6a71f95997628b231f0c2ed5"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 14:38:17 GMT",
+          "content-type": "application/json",
+          "content-length": "33",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "30",
+          "x-ratelimit-remaining": "23",
+          "x-ratelimit-reset": "1785854322",
+          "cache-control": "no-cache, private",
+          "cross-origin-resource-policy": "same-site",
+          "set-cookie": "api_session=7ldH7if36Frrp2p7epYihNb1nVMmVyaI6XTAruQM; expires=Fri, 07 Aug 2026 14:38:17 GMT; Max-Age=259200; path=/; domain=.ingenious.build; secure; httponly; samesite=lax",
+          "vary": "Origin",
+          "x-date": "Tue, 04 Aug 2026 14:38:17 GMT",
+          "x-machine": "icon-api-5bf8644d8c-mdmkf",
+          "x-request-id": "4590b408-9680-4397-b0ff-30a153baf1d0",
+          "x-envoy-upstream-service-time": "360",
+          "server": "istio-envoy",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000",
+          "etag": "W/\"21-lzbHJyzPZk1810b16R20YfQ99xU\""
+        },
+        "hash": "0d1fb1277d7b80a0251f3e998bd5f5b7d2b6c3d8",
+        "request": {
+          "data": {
+            "rfi_id": "6a71e00ff55241acad0cd5b4",
+            "text": "Nango Registry Test RFI Solution",
+            "is_official": true,
+            "cost_impact": "no",
+            "schedule_impact": "no"
+          }
+        }
+      }
+    },
+    "get": {
+      "/api/v2/pub/rfi-solutions/6a71f95997628b231f0c2ed5": {
+        "response": {
+          "id": "6a71f95997628b231f0c2ed5",
+          "text": "Nango Registry Test RFI Solution",
+          "is_official": true,
+          "cost_impact": "no",
+          "cost_impact_value": null,
+          "schedule_impact": "no",
+          "schedule_impact_value": null,
+          "schedule_impact_type": null,
+          "created_at": "2026-08-04T14:38:17Z",
+          "created_by": "6a71da8692e09607f906d9e4",
+          "updated_at": "2026-08-04T14:38:17Z",
+          "updated_by": "6a71da8692e09607f906d9e4",
+          "document_ids": [],
+          "source_platform": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 14:38:17 GMT",
+          "content-type": "application/json",
+          "content-length": "411",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "60",
+          "x-ratelimit-remaining": "59",
+          "x-ratelimit-reset": "1785854322",
+          "cache-control": "no-cache, private",
+          "cross-origin-resource-policy": "same-site",
+          "set-cookie": "api_session=K3IpeD3pCvQC5pJtqSY2ylifZIWmqMnrPZseyLmW; expires=Fri, 07 Aug 2026 14:38:17 GMT; Max-Age=259200; path=/; domain=.ingenious.build; secure; httponly; samesite=lax",
+          "vary": "Origin",
+          "x-date": "Tue, 04 Aug 2026 14:38:17 GMT",
+          "x-machine": "icon-api-5bf8644d8c-mdmkf",
+          "x-request-id": "2a861528-bae2-4f2b-b2ca-e1c2600894f0",
+          "x-envoy-upstream-service-time": "294",
+          "server": "istio-envoy",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "etag": "W/\"19b-pIQetFG1w6H/Lf8GaRatV7FOuks\""
+        },
+        "hash": "a3c3aaa5f72fbc433821645cf69ba1c438db64fd",
+        "request": {}
+      }
+    }
+  }
+}

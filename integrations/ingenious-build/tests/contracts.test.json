@@ -1,0 +1,230 @@
+{
+  "nango": {
+    "batchSave": {
+      "Contract": [
+        {
+          "id": "6a71f9bf9873c2fc6d0da2c7",
+          "generated_id": "NANGOT26000001-3",
+          "custom_id": null,
+          "name": "Nango Registry Test Contract Dryrun",
+          "description": null,
+          "project_id": "6a71de59f55241acad0cd44e",
+          "contract_holder": "principal",
+          "total_value": "1000.00",
+          "vendor_company_id": "6a71ddac92e09607f906db63",
+          "vendor_contact_id": "6a71ddac92e09607f906db64",
+          "client_company_id": "6a6b8337374668eea203ccb7",
+          "client_contact_id": "6a71da8692e09607f906d9e4",
+          "status": "draft",
+          "sov_status": "not-approved",
+          "retention": 0,
+          "effective_date": "2026-08-04T00:00:00Z",
+          "initiation_date": "2026-08-04T00:00:00Z",
+          "source": "public-api",
+          "type": "standard",
+          "created_at": "2026-08-04T14:40:00Z",
+          "updated_at": "2026-08-04T14:40:00Z",
+          "wbs1": null,
+          "accounting_company_id": null,
+          "payment_term_id": null
+        },
+        {
+          "id": "6a71f9b497628b231f0c2f0f",
+          "generated_id": "NANGOT26000001-2",
+          "custom_id": null,
+          "name": "Nango Registry Test Contract Dryrun",
+          "description": null,
+          "project_id": "6a71de59f55241acad0cd44e",
+          "contract_holder": "principal",
+          "total_value": "1000.00",
+          "vendor_company_id": "6a71ddac92e09607f906db63",
+          "vendor_contact_id": "6a71ddac92e09607f906db64",
+          "client_company_id": "6a6b8337374668eea203ccb7",
+          "client_contact_id": "6a71da8692e09607f906d9e4",
+          "status": "draft",
+          "sov_status": "not-approved",
+          "retention": 0,
+          "effective_date": "2026-08-04T00:00:00Z",
+          "initiation_date": "2026-08-04T00:00:00Z",
+          "source": "public-api",
+          "type": "standard",
+          "created_at": "2026-08-04T14:39:49Z",
+          "updated_at": "2026-08-04T14:39:49Z",
+          "wbs1": null,
+          "accounting_company_id": null,
+          "payment_term_id": null
+        },
+        {
+          "id": "6a71df4b92e09607f906dc08",
+          "generated_id": "NANGOT26000001-1",
+          "custom_id": null,
+          "name": "Nango Registry Test Contract 1",
+          "description": null,
+          "project_id": "6a71de59f55241acad0cd44e",
+          "contract_holder": "principal",
+          "total_value": "1000.00",
+          "vendor_company_id": "6a71ddac92e09607f906db63",
+          "vendor_contact_id": "6a71ddac92e09607f906db64",
+          "client_company_id": "6a6b8337374668eea203ccb7",
+          "client_contact_id": "6a71da8692e09607f906d9e4",
+          "status": "draft",
+          "sov_status": "not-approved",
+          "retention": 0,
+          "effective_date": "2026-08-04T00:00:00Z",
+          "initiation_date": "2026-08-04T00:00:00Z",
+          "source": "public-api",
+          "type": "standard",
+          "created_at": "2026-08-04T12:47:07Z",
+          "updated_at": "2026-08-04T12:47:07Z",
+          "wbs1": null,
+          "accounting_company_id": null,
+          "payment_term_id": null
+        }
+      ]
+    },
+    "batchDelete": {
+      "Contract": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/pub/contracts": {
+        "response": {
+          "items": [
+            {
+              "id": "6a71f9bf9873c2fc6d0da2c7",
+              "generated_id": "NANGOT26000001-3",
+              "custom_id": null,
+              "name": "Nango Registry Test Contract Dryrun",
+              "description": null,
+              "project_id": "6a71de59f55241acad0cd44e",
+              "contract_holder": "principal",
+              "total_value": "1000.00",
+              "vendor_company_id": "6a71ddac92e09607f906db63",
+              "vendor_contact_id": "6a71ddac92e09607f906db64",
+              "client_company_id": "6a6b8337374668eea203ccb7",
+              "client_contact_id": "6a71da8692e09607f906d9e4",
+              "status": "draft",
+              "sov_status": "not-approved",
+              "retention": 0,
+              "effective_date": "2026-08-04T00:00:00Z",
+              "initiation_date": "2026-08-04T00:00:00Z",
+              "source": "public-api",
+              "type": "standard",
+              "created_at": "2026-08-04T14:40:00Z",
+              "updated_at": "2026-08-04T14:40:00Z",
+              "wbs1": null,
+              "project_sites": [
+                "6a71f9c09873c2fc6d0da2ce"
+              ],
+              "accounting_company_id": null,
+              "payment_term_id": null
+            },
+            {
+              "id": "6a71f9b497628b231f0c2f0f",
+              "generated_id": "NANGOT26000001-2",
+              "custom_id": null,
+              "name": "Nango Registry Test Contract Dryrun",
+              "description": null,
+              "project_id": "6a71de59f55241acad0cd44e",
+              "contract_holder": "principal",
+              "total_value": "1000.00",
+              "vendor_company_id": "6a71ddac92e09607f906db63",
+              "vendor_contact_id": "6a71ddac92e09607f906db64",
+              "client_company_id": "6a6b8337374668eea203ccb7",
+              "client_contact_id": "6a71da8692e09607f906d9e4",
+              "status": "draft",
+              "sov_status": "not-approved",
+              "retention": 0,
+              "effective_date": "2026-08-04T00:00:00Z",
+              "initiation_date": "2026-08-04T00:00:00Z",
+              "source": "public-api",
+              "type": "standard",
+              "created_at": "2026-08-04T14:39:49Z",
+              "updated_at": "2026-08-04T14:39:49Z",
+              "wbs1": null,
+              "project_sites": [
+                "6a71f9b597628b231f0c2f16"
+              ],
+              "accounting_company_id": null,
+              "payment_term_id": null
+            },
+            {
+              "id": "6a71df4b92e09607f906dc08",
+              "generated_id": "NANGOT26000001-1",
+              "custom_id": null,
+              "name": "Nango Registry Test Contract 1",
+              "description": null,
+              "project_id": "6a71de59f55241acad0cd44e",
+              "contract_holder": "principal",
+              "total_value": "1000.00",
+              "vendor_company_id": "6a71ddac92e09607f906db63",
+              "vendor_contact_id": "6a71ddac92e09607f906db64",
+              "client_company_id": "6a6b8337374668eea203ccb7",
+              "client_contact_id": "6a71da8692e09607f906d9e4",
+              "status": "draft",
+              "sov_status": "not-approved",
+              "retention": 0,
+              "effective_date": "2026-08-04T00:00:00Z",
+              "initiation_date": "2026-08-04T00:00:00Z",
+              "source": "public-api",
+              "type": "standard",
+              "created_at": "2026-08-04T12:47:07Z",
+              "updated_at": "2026-08-04T12:47:07Z",
+              "wbs1": null,
+              "project_sites": [
+                "6a71df4b92e09607f906dc0f"
+              ],
+              "accounting_company_id": null,
+              "payment_term_id": null
+            }
+          ],
+          "total": 3,
+          "page": 1,
+          "per_page": 100,
+          "first_page_url": "https://nangotest.ingenious.build/api/v2/pub/contracts?page=1",
+          "last_page_url": "https://nangotest.ingenious.build/api/v2/pub/contracts?page=1",
+          "next_page_url": null,
+          "prev_page_url": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 15:55:21 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "60",
+          "x-ratelimit-remaining": "59",
+          "x-ratelimit-reset": "1785858978",
+          "cache-control": "no-cache, private",
+          "cross-origin-resource-policy": "same-site",
+          "set-cookie": "api_session=z1TPw6TNIWxJVdxL1FDognMtZIhJVaril0c66LZ1; expires=Fri, 07 Aug 2026 15:55:21 GMT; Max-Age=259200; path=/; domain=.ingenious.build; secure; httponly; samesite=lax",
+          "vary": "Origin,Accept-Encoding",
+          "x-date": "Tue, 04 Aug 2026 15:55:21 GMT",
+          "x-machine": "icon-api-57dddf756d-8fsrv",
+          "x-request-id": "94c3812f-5704-42f8-a000-71decf5811df",
+          "x-envoy-upstream-service-time": "354",
+          "server": "istio-envoy",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "607b89852e8be6c746d09ca76a7d2d7b504024ae",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}

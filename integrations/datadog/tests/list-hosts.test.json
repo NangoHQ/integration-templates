@@ -1,0 +1,442 @@
+{
+  "input": {},
+  "output": {
+    "host_list": [
+      {
+        "id": 87961584953736,
+        "name": "Victors-MacBook-Pro.local",
+        "host_name": "Victors-MacBook-Pro.local",
+        "aliases": [
+          "Victors-MacBook-Pro.local"
+        ],
+        "apps": [
+          "agent",
+          "ntp"
+        ],
+        "up": true,
+        "metrics": {
+          "cpu": 9.521088,
+          "iowait": 0,
+          "load": 0.21582563
+        },
+        "meta": {
+          "fbsdV": [
+            "",
+            "",
+            ""
+          ],
+          "socket-fqdn": "Victors-MBP",
+          "logs_agent": {
+            "auto_multi_line_detection_enabled": false,
+            "transport": ""
+          },
+          "agent_flavor": "agent",
+          "timezones": [
+            "EAT"
+          ],
+          "cpuCores": 11,
+          "winV": [
+            "",
+            "",
+            ""
+          ],
+          "nixV": [
+            "",
+            "",
+            ""
+          ],
+          "pythonV": "unused",
+          "agent_checks": [
+            [
+              "telemetry",
+              "telemetry",
+              "telemetry",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "cloud_hostinfo",
+              "cloud_hostinfo",
+              "cloud_hostinfo",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "ntp",
+              "ntp",
+              "ntp:3c427a42a70bbf8",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "container_image",
+              "container_image",
+              "container_image",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "memory",
+              "memory",
+              "memory",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "io",
+              "io",
+              "io",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "cpu",
+              "cpu",
+              "cpu",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "network",
+              "network",
+              "network:4b0649b7e11f0772",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "load",
+              "load",
+              "load",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "disk",
+              "disk",
+              "disk:67cc0574430a16ba",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "container_lifecycle",
+              "container_lifecycle",
+              "container_lifecycle",
+              "OK",
+              "",
+              "",
+              []
+            ],
+            [
+              "uptime",
+              "uptime",
+              "uptime",
+              "OK",
+              "",
+              "",
+              []
+            ]
+          ],
+          "platform": "darwin",
+          "macV": [
+            "15.5",
+            [
+              "",
+              "",
+              ""
+            ],
+            "arm64"
+          ],
+          "install_method": {
+            "installer_version": "install_script_mac-2.1.0",
+            "tool": "install_script_mac",
+            "tool_version": "install_script_mac"
+          },
+          "network": null,
+          "gohai": "{\"cpu\":{\"cache_size\":\"4160 KB\",\"cache_size_l1\":\"65536\",\"cache_size_l2\":\"4194304\",\"cpu_cores\":\"11\",\"cpu_logical_processors\":\"11\",\"cpu_pkgs\":\"1\",\"family\":\"1598941843\",\"model_name\":\"Apple M3 Pro\"},\"filesystem\":[{\"kb_size\":\"482797652\",\"mounted_on\":\"/System/Volumes/Update\",\"name\":\"/dev/disk3s4\"},{\"kb_size\":\"512000\",\"mounted_on\":\"/System/Volumes/xarts\",\"name\":\"/dev/disk1s2\"},{\"kb_size\":\"512000\",\"mounted_on\":\"/System/Volumes/iSCPreboot\",\"name\":\"/dev/disk1s1\"},{\"kb_size\":\"512000\",\"mounted_on\":\"/System/Volumes/Hardware\",\"name\":\"/dev/disk1s3\"},{\"kb_size\":\"482797652\",\"mounted_on\":\"/System/Volumes/Update/mnt1\",\"name\":\"/dev/disk3s1\"},{\"kb_size\":\"482797652\",\"mounted_on\":\"/\",\"name\":\"/dev/disk3s1s1\"},{\"kb_size\":\"482797652\",\"mounted_on\":\"/System/Volumes/VM\",\"name\":\"/dev/disk3s6\"},{\"kb_size\":\"482797652\",\"mounted_on\":\"/System/Volumes/Preboot\",\"name\":\"/dev/disk3s2\"}],\"memory\":{\"swap_total\":\"10485760kB\",\"total\":\"19327352832\"},\"network\":{\"interfaces\":[{\"ipv4\":[],\"ipv6\":[],\"name\":\"anpi1\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"anpi2\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"anpi0\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en4\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en5\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en6\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en1\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en2\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en3\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"bridge0\"},{\"ipv4\":[],\"ipv6\":[\"fe80::508e:95fa:3f3b:3a4f\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun0\"},{\"ipv4\":[],\"ipv6\":[\"fe80::fdc7:c335:3103:db90\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun1\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"ap1\"},{\"ipv4\":[\"192.168.8.195\"],\"ipv4-network\":\"192.168.8.0/24\",\"ipv6\":[\"fe80::1c0d:2ec6:fe9:79e3\",\"fdc4:2b44:6f62:c200:185d:bdd2:b670:a19e\"],\"ipv6-network\":\"fdc4:2b44:6f62:c200::/64\",\"macaddress\":\"7c:f3:4d:ee:4d:88\",\"name\":\"en0\"},{\"ipv4\":[],\"ipv6\":[\"fe80::407c:e4ff:fefb:9268\"],\"ipv6-network\":\"fe80::/64\",\"macaddress\":\"42:7c:e4:fb:92:68\",\"name\":\"awdl0\"},{\"ipv4\":[],\"ipv6\":[\"fe80::407c:e4ff:fefb:9268\"],\"ipv6-network\":\"fe80::/64\",\"macaddress\":\"42:7c:e4:fb:92:68\",\"name\":\"llw0\"},{\"ipv4\":[],\"ipv6\":[\"fe80::c6e4:4793:6ff1:4f70\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun2\"},{\"ipv4\":[],\"ipv6\":[\"fe80::ce81:b1c:bd2c:69e\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun3\"},{\"ipv4\":[],\"ipv6\":[\"fe80::3d2d:f9ec:a3:3dd\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun4\"},{\"ipv4\":[],\"ipv6\":[\"fe80::8c8e:31a7:d584:2201\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun5\"}],\"ipaddress\":\"192.168.8.195\",\"ipaddressv6\":\"fe80::508e:95fa:3f3b:3a4f\",\"macaddress\":\"7c:f3:4d:ee:4d:88\"},\"platform\":{\"GOOARCH\":\"arm64\",\"GOOS\":\"darwin\",\"goV\":\"1.26.5\",\"hardware_platform\":\"arm64\",\"hostname\":\"Victors-MBP\",\"kernel_name\":\"Darwin\",\"kernel_release\":\"24.5.0\",\"kernel_version\":\"Darwin Kernel Version 24.5.0: Tue Apr 22 19:54:29 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T6030\",\"machine\":\"arm64\",\"os\":\"Darwin\",\"processor\":\"arm\"}}",
+          "machine": "arm64",
+          "agent_version": "7.81.2",
+          "fips_mode": false,
+          "socket-hostname": "Victors-MBP",
+          "processor": "Apple M3 Pro",
+          "host_id": 87961584953736
+        },
+        "tags_by_source": {
+          "Users": [
+            "nango-registry-test:audit",
+            "nango.registry.test.tag:add-host-tags-action"
+          ],
+          "Datadog": [
+            "host:Victors-MacBook-Pro.local"
+          ]
+        },
+        "sources": [
+          "agent"
+        ],
+        "last_reported_time": 1785796387,
+        "is_muted": true,
+        "mute_timeout": 1785798000
+      }
+    ],
+    "total_matching": 1,
+    "total_returned": 1
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/hosts": {
+        "response": {
+          "host_list": [
+            {
+              "id": 87961584953736,
+              "tags_by_source": {
+                "Users": [
+                  "nango-registry-test:audit",
+                  "nango.registry.test.tag:add-host-tags-action"
+                ],
+                "Datadog": [
+                  "host:Victors-MacBook-Pro.local"
+                ]
+              },
+              "aliases": [
+                "Victors-MacBook-Pro.local"
+              ],
+              "apps": [
+                "agent",
+                "ntp"
+              ],
+              "sources": [
+                "agent"
+              ],
+              "name": "Victors-MacBook-Pro.local",
+              "host_name": "Victors-MacBook-Pro.local",
+              "up": true,
+              "last_reported_time": 1785796387,
+              "is_muted": true,
+              "mute_timeout": 1785798000,
+              "meta": {
+                "fbsdV": [
+                  "",
+                  "",
+                  ""
+                ],
+                "socket-fqdn": "Victors-MBP",
+                "logs_agent": {
+                  "auto_multi_line_detection_enabled": false,
+                  "transport": ""
+                },
+                "agent_flavor": "agent",
+                "timezones": [
+                  "EAT"
+                ],
+                "cpuCores": 11,
+                "winV": [
+                  "",
+                  "",
+                  ""
+                ],
+                "nixV": [
+                  "",
+                  "",
+                  ""
+                ],
+                "pythonV": "unused",
+                "agent_checks": [
+                  [
+                    "telemetry",
+                    "telemetry",
+                    "telemetry",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "cloud_hostinfo",
+                    "cloud_hostinfo",
+                    "cloud_hostinfo",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "ntp",
+                    "ntp",
+                    "ntp:3c427a42a70bbf8",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "container_image",
+                    "container_image",
+                    "container_image",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "memory",
+                    "memory",
+                    "memory",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "io",
+                    "io",
+                    "io",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "cpu",
+                    "cpu",
+                    "cpu",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "network",
+                    "network",
+                    "network:4b0649b7e11f0772",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "load",
+                    "load",
+                    "load",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "disk",
+                    "disk",
+                    "disk:67cc0574430a16ba",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "container_lifecycle",
+                    "container_lifecycle",
+                    "container_lifecycle",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ],
+                  [
+                    "uptime",
+                    "uptime",
+                    "uptime",
+                    "OK",
+                    "",
+                    "",
+                    []
+                  ]
+                ],
+                "platform": "darwin",
+                "macV": [
+                  "15.5",
+                  [
+                    "",
+                    "",
+                    ""
+                  ],
+                  "arm64"
+                ],
+                "install_method": {
+                  "installer_version": "install_script_mac-2.1.0",
+                  "tool": "install_script_mac",
+                  "tool_version": "install_script_mac"
+                },
+                "network": null,
+                "gohai": "{\"cpu\":{\"cache_size\":\"4160 KB\",\"cache_size_l1\":\"65536\",\"cache_size_l2\":\"4194304\",\"cpu_cores\":\"11\",\"cpu_logical_processors\":\"11\",\"cpu_pkgs\":\"1\",\"family\":\"1598941843\",\"model_name\":\"Apple M3 Pro\"},\"filesystem\":[{\"kb_size\":\"482797652\",\"mounted_on\":\"/System/Volumes/Update\",\"name\":\"/dev/disk3s4\"},{\"kb_size\":\"512000\",\"mounted_on\":\"/System/Volumes/xarts\",\"name\":\"/dev/disk1s2\"},{\"kb_size\":\"512000\",\"mounted_on\":\"/System/Volumes/iSCPreboot\",\"name\":\"/dev/disk1s1\"},{\"kb_size\":\"512000\",\"mounted_on\":\"/System/Volumes/Hardware\",\"name\":\"/dev/disk1s3\"},{\"kb_size\":\"482797652\",\"mounted_on\":\"/System/Volumes/Update/mnt1\",\"name\":\"/dev/disk3s1\"},{\"kb_size\":\"482797652\",\"mounted_on\":\"/\",\"name\":\"/dev/disk3s1s1\"},{\"kb_size\":\"482797652\",\"mounted_on\":\"/System/Volumes/VM\",\"name\":\"/dev/disk3s6\"},{\"kb_size\":\"482797652\",\"mounted_on\":\"/System/Volumes/Preboot\",\"name\":\"/dev/disk3s2\"}],\"memory\":{\"swap_total\":\"10485760kB\",\"total\":\"19327352832\"},\"network\":{\"interfaces\":[{\"ipv4\":[],\"ipv6\":[],\"name\":\"anpi1\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"anpi2\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"anpi0\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en4\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en5\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en6\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en1\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en2\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"en3\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"bridge0\"},{\"ipv4\":[],\"ipv6\":[\"fe80::508e:95fa:3f3b:3a4f\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun0\"},{\"ipv4\":[],\"ipv6\":[\"fe80::fdc7:c335:3103:db90\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun1\"},{\"ipv4\":[],\"ipv6\":[],\"name\":\"ap1\"},{\"ipv4\":[\"192.168.8.195\"],\"ipv4-network\":\"192.168.8.0/24\",\"ipv6\":[\"fe80::1c0d:2ec6:fe9:79e3\",\"fdc4:2b44:6f62:c200:185d:bdd2:b670:a19e\"],\"ipv6-network\":\"fdc4:2b44:6f62:c200::/64\",\"macaddress\":\"7c:f3:4d:ee:4d:88\",\"name\":\"en0\"},{\"ipv4\":[],\"ipv6\":[\"fe80::407c:e4ff:fefb:9268\"],\"ipv6-network\":\"fe80::/64\",\"macaddress\":\"42:7c:e4:fb:92:68\",\"name\":\"awdl0\"},{\"ipv4\":[],\"ipv6\":[\"fe80::407c:e4ff:fefb:9268\"],\"ipv6-network\":\"fe80::/64\",\"macaddress\":\"42:7c:e4:fb:92:68\",\"name\":\"llw0\"},{\"ipv4\":[],\"ipv6\":[\"fe80::c6e4:4793:6ff1:4f70\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun2\"},{\"ipv4\":[],\"ipv6\":[\"fe80::ce81:b1c:bd2c:69e\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun3\"},{\"ipv4\":[],\"ipv6\":[\"fe80::3d2d:f9ec:a3:3dd\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun4\"},{\"ipv4\":[],\"ipv6\":[\"fe80::8c8e:31a7:d584:2201\"],\"ipv6-network\":\"fe80::/64\",\"name\":\"utun5\"}],\"ipaddress\":\"192.168.8.195\",\"ipaddressv6\":\"fe80::508e:95fa:3f3b:3a4f\",\"macaddress\":\"7c:f3:4d:ee:4d:88\"},\"platform\":{\"GOOARCH\":\"arm64\",\"GOOS\":\"darwin\",\"goV\":\"1.26.5\",\"hardware_platform\":\"arm64\",\"hostname\":\"Victors-MBP\",\"kernel_name\":\"Darwin\",\"kernel_release\":\"24.5.0\",\"kernel_version\":\"Darwin Kernel Version 24.5.0: Tue Apr 22 19:54:29 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T6030\",\"machine\":\"arm64\",\"os\":\"Darwin\",\"processor\":\"arm\"}}",
+                "machine": "arm64",
+                "agent_version": "7.81.2",
+                "fips_mode": false,
+                "socket-hostname": "Victors-MBP",
+                "processor": "Apple M3 Pro",
+                "host_id": 87961584953736
+              },
+              "metrics": {
+                "cpu": 9.521088,
+                "iowait": 0,
+                "load": 0.21582563
+              }
+            }
+          ],
+          "total_returned": 1,
+          "total_matching": 1,
+          "exact_total_matching": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:50:05 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "50",
+          "x-ratelimit-remaining": "49",
+          "x-ratelimit-reset": "47",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "50",
+          "x-ratelimit-name": "get_all_hosts"
+        },
+        "hash": "52dd1e01efd995affba29e953ab862696dbcc15a",
+        "request": {
+          "params": {
+            "start": "0",
+            "count": "100"
+          }
+        }
+      }
+    }
+  }
+}
