@@ -1,0 +1,268 @@
+{
+  "input": {},
+  "output": {
+    "locations": [
+      {
+        "id": "aws:af-south-1",
+        "name": "Cape Town (AWS)"
+      },
+      {
+        "id": "aws:ap-east-1",
+        "name": "Hong Kong (AWS)"
+      },
+      {
+        "id": "aws:ap-northeast-1",
+        "name": "Tokyo (AWS)"
+      },
+      {
+        "id": "aws:ap-northeast-2",
+        "name": "Seoul (AWS)"
+      },
+      {
+        "id": "aws:ap-northeast-3",
+        "name": "Osaka (AWS)"
+      },
+      {
+        "id": "aws:ap-south-1",
+        "name": "Mumbai (AWS)"
+      },
+      {
+        "id": "aws:ap-southeast-1",
+        "name": "Singapore (AWS)"
+      },
+      {
+        "id": "aws:ap-southeast-2",
+        "name": "Sydney (AWS)"
+      },
+      {
+        "id": "aws:ap-southeast-3",
+        "name": "Jakarta (AWS)"
+      },
+      {
+        "id": "aws:ca-central-1",
+        "name": "Canada Central (AWS)"
+      },
+      {
+        "id": "aws:eu-central-1",
+        "name": "Frankfurt (AWS)"
+      },
+      {
+        "id": "aws:eu-north-1",
+        "name": "Stockholm (AWS)"
+      },
+      {
+        "id": "aws:eu-south-1",
+        "name": "Milan (AWS)"
+      },
+      {
+        "id": "aws:eu-west-1",
+        "name": "Ireland (AWS)"
+      },
+      {
+        "id": "aws:eu-west-2",
+        "name": "London (AWS)"
+      },
+      {
+        "id": "aws:eu-west-3",
+        "name": "Paris (AWS)"
+      },
+      {
+        "id": "aws:sa-east-1",
+        "name": "São Paulo (AWS)"
+      },
+      {
+        "id": "aws:us-east-1",
+        "name": "N. Virginia (AWS)"
+      },
+      {
+        "id": "aws:us-east-2",
+        "name": "Ohio (AWS)"
+      },
+      {
+        "id": "aws:us-west-1",
+        "name": "N. California (AWS)"
+      },
+      {
+        "id": "aws:us-west-2",
+        "name": "Oregon (AWS)"
+      },
+      {
+        "id": "azure:eastus",
+        "name": "Virginia (Azure)"
+      },
+      {
+        "id": "gcp:asia-northeast1",
+        "name": "Tokyo (GCP)"
+      },
+      {
+        "id": "gcp:europe-west3",
+        "name": "Frankfurt (GCP)"
+      },
+      {
+        "id": "gcp:us-east4",
+        "name": "Virginia (GCP)"
+      },
+      {
+        "id": "gcp:us-south1",
+        "name": "Dallas (GCP)"
+      },
+      {
+        "id": "gcp:us-west1",
+        "name": "Oregon (GCP)"
+      },
+      {
+        "id": "gcp:us-west2",
+        "name": "Los Angeles (GCP)"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/synthetics/locations": {
+        "response": {
+          "locations": [
+            {
+              "id": "aws:af-south-1",
+              "name": "Cape Town (AWS)"
+            },
+            {
+              "id": "aws:ap-east-1",
+              "name": "Hong Kong (AWS)"
+            },
+            {
+              "id": "aws:ap-northeast-1",
+              "name": "Tokyo (AWS)"
+            },
+            {
+              "id": "aws:ap-northeast-2",
+              "name": "Seoul (AWS)"
+            },
+            {
+              "id": "aws:ap-northeast-3",
+              "name": "Osaka (AWS)"
+            },
+            {
+              "id": "aws:ap-south-1",
+              "name": "Mumbai (AWS)"
+            },
+            {
+              "id": "aws:ap-southeast-1",
+              "name": "Singapore (AWS)"
+            },
+            {
+              "id": "aws:ap-southeast-2",
+              "name": "Sydney (AWS)"
+            },
+            {
+              "id": "aws:ap-southeast-3",
+              "name": "Jakarta (AWS)"
+            },
+            {
+              "id": "aws:ca-central-1",
+              "name": "Canada Central (AWS)"
+            },
+            {
+              "id": "aws:eu-central-1",
+              "name": "Frankfurt (AWS)"
+            },
+            {
+              "id": "aws:eu-north-1",
+              "name": "Stockholm (AWS)"
+            },
+            {
+              "id": "aws:eu-south-1",
+              "name": "Milan (AWS)"
+            },
+            {
+              "id": "aws:eu-west-1",
+              "name": "Ireland (AWS)"
+            },
+            {
+              "id": "aws:eu-west-2",
+              "name": "London (AWS)"
+            },
+            {
+              "id": "aws:eu-west-3",
+              "name": "Paris (AWS)"
+            },
+            {
+              "id": "aws:sa-east-1",
+              "name": "São Paulo (AWS)"
+            },
+            {
+              "id": "aws:us-east-1",
+              "name": "N. Virginia (AWS)"
+            },
+            {
+              "id": "aws:us-east-2",
+              "name": "Ohio (AWS)"
+            },
+            {
+              "id": "aws:us-west-1",
+              "name": "N. California (AWS)"
+            },
+            {
+              "id": "aws:us-west-2",
+              "name": "Oregon (AWS)"
+            },
+            {
+              "id": "azure:eastus",
+              "name": "Virginia (Azure)"
+            },
+            {
+              "id": "gcp:asia-northeast1",
+              "name": "Tokyo (GCP)"
+            },
+            {
+              "id": "gcp:europe-west3",
+              "name": "Frankfurt (GCP)"
+            },
+            {
+              "id": "gcp:us-east4",
+              "name": "Virginia (GCP)"
+            },
+            {
+              "id": "gcp:us-south1",
+              "name": "Dallas (GCP)"
+            },
+            {
+              "id": "gcp:us-west1",
+              "name": "Oregon (GCP)"
+            },
+            {
+              "id": "gcp:us-west2",
+              "name": "Los Angeles (GCP)"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:51:11 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "12000",
+          "x-ratelimit-remaining": "11998",
+          "x-ratelimit-reset": "49",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "60",
+          "x-ratelimit-name": "synthetics_get_all_locations"
+        },
+        "hash": "32ee0fa0fca51d4e96fc67ca27075ba7ce436770",
+        "request": {}
+      }
+    }
+  }
+}

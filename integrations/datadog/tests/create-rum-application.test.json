@@ -1,0 +1,90 @@
+{
+  "input": {
+    "name": "Nango Registry Test RUM App Save",
+    "type": "browser"
+  },
+  "output": {
+    "application_id": "0f135ed3-3554-495e-a1b1-a17892576cb4",
+    "client_token": "pub0af892f857cade6eedaca192b8af1460",
+    "api_key_id": 1654029,
+    "name": "Nango Registry Test RUM App Save",
+    "type": "browser",
+    "created_at": 1785796574674,
+    "updated_at": 1785796574674
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/rum/applications": {
+        "response": {
+          "data": {
+            "id": "0f135ed3-3554-495e-a1b1-a17892576cb4",
+            "type": "rum_application",
+            "attributes": {
+              "api_key_id": 1654029,
+              "apm_rum_flat_sampling_replay_enabled": true,
+              "apm_rum_flat_sampling_replay_sample_rate": 1,
+              "application_id": "0f135ed3-3554-495e-a1b1-a17892576cb4",
+              "client_token": "pub0af892f857cade6eedaca192b8af1460",
+              "created_at": 1785796574674,
+              "created_by_handle": "api@nango.dev",
+              "error_tracking_exclusion_filter_enabled": false,
+              "is_active": false,
+              "name": "Nango Registry Test RUM App Save",
+              "ootb_metrics_installed": false,
+              "org_id": 1984731,
+              "product_analytics_replay_sample_rate": 100,
+              "product_scales": {
+                "rum_event_processing_scale": {
+                  "state": "ALL",
+                  "last_modified_at": 1785796574674
+                },
+                "product_analytics_retention_scale": {
+                  "state": "NONE",
+                  "last_modified_at": 1785796574674
+                }
+              },
+              "short_name": "nango_registry_test_rum_app_save",
+              "tags": [],
+              "type": "browser",
+              "updated_at": 1785796574674,
+              "updated_by_handle": "api@nango.dev"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:36:14 GMT",
+          "content-type": "application/vnd.api+json",
+          "content-length": "896",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1872",
+          "x-ratelimit-reset": "1785796585",
+          "etag": "W/\"380-ylfhMFV2cQI1Ctv30nM7KkZsq1Y\""
+        },
+        "hash": "336d28bc5c851b13c3214eaf095dee2a8a822bd3",
+        "request": {
+          "data": {
+            "data": {
+              "type": "rum_application_create",
+              "attributes": {
+                "name": "Nango Registry Test RUM App Save",
+                "type": "browser"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "nango": {
+    "batchSave": {
+      "Role": [
+        {
+          "id": "dffc73ec-89cd-11f1-8e5b-da7ad0900002",
+          "name": "Datadog Admin Role",
+          "created_at": "2026-07-27T15:14:34.437144Z",
+          "modified_at": "2026-07-27T15:14:34.435847Z"
+        },
+        {
+          "id": "e017c782-89cd-11f1-853a-da7ad0900002",
+          "name": "Datadog Read Only Role",
+          "created_at": "2026-07-27T15:14:34.616124Z",
+          "modified_at": "2026-07-27T15:14:34.614927Z"
+        },
+        {
+          "id": "e00c821e-89cd-11f1-8d26-da7ad0900002",
+          "name": "Datadog Standard Role",
+          "created_at": "2026-07-27T15:14:34.534782Z",
+          "modified_at": "2026-07-27T15:14:34.541022Z"
+        },
+        {
+          "id": "a78cf8d8-8f8b-11f1-98b6-da7ad0900002",
+          "name": "Nango Registry Test Role Create 1785796535",
+          "created_at": "2026-08-03T22:35:39.946187Z",
+          "modified_at": "2026-08-03T22:35:39.945293Z"
+        },
+        {
+          "id": "a30e1a9e-8f8b-11f1-9ef9-da7ad0900002",
+          "name": "Nango Registry Test Role Updated",
+          "created_at": "2026-08-03T22:35:32.403931Z",
+          "modified_at": "2026-08-04T04:49:54.856971Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Role": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v2/roles": {
+        "response": {
+          "data": [
+            {
+              "id": "dffc73ec-89cd-11f1-8e5b-da7ad0900002",
+              "type": "roles",
+              "attributes": {
+                "created_at": "2026-07-27T15:14:34.437144Z",
+                "managed": true,
+                "modified_at": "2026-07-27T15:14:34.435847Z",
+                "name": "Datadog Admin Role",
+                "team_count": 0,
+                "user_count": 1
+              }
+            },
+            {
+              "id": "e017c782-89cd-11f1-853a-da7ad0900002",
+              "type": "roles",
+              "attributes": {
+                "created_at": "2026-07-27T15:14:34.616124Z",
+                "managed": true,
+                "modified_at": "2026-07-27T15:14:34.614927Z",
+                "name": "Datadog Read Only Role",
+                "team_count": 0,
+                "user_count": 0
+              }
+            },
+            {
+              "id": "e00c821e-89cd-11f1-8d26-da7ad0900002",
+              "type": "roles",
+              "attributes": {
+                "created_at": "2026-07-27T15:14:34.534782Z",
+                "managed": true,
+                "modified_at": "2026-07-27T15:14:34.541022Z",
+                "name": "Datadog Standard Role",
+                "team_count": 0,
+                "user_count": 0
+              }
+            },
+            {
+              "id": "a78cf8d8-8f8b-11f1-98b6-da7ad0900002",
+              "type": "roles",
+              "attributes": {
+                "created_at": "2026-08-03T22:35:39.946187Z",
+                "created_by_handle": "api@nango.dev",
+                "modified_at": "2026-08-03T22:35:39.945293Z",
+                "modified_by_handle": "api@nango.dev",
+                "name": "Nango Registry Test Role Create 1785796535",
+                "team_count": 0,
+                "user_count": 0
+              }
+            },
+            {
+              "id": "a30e1a9e-8f8b-11f1-9ef9-da7ad0900002",
+              "type": "roles",
+              "attributes": {
+                "created_at": "2026-08-03T22:35:32.403931Z",
+                "created_by_handle": "api@nango.dev",
+                "modified_at": "2026-08-04T04:49:54.856971Z",
+                "modified_by_handle": "api@nango.dev",
+                "name": "Nango Registry Test Role Updated",
+                "team_count": 0,
+                "user_count": 0
+              }
+            }
+          ],
+          "meta": {
+            "page": {
+              "total_count": 5,
+              "total_filtered_count": 5
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/vnd.api+json",
+          "date": "Tue, 04 Aug 2026 13:00:00 GMT"
+        },
+        "hash": "29383656d8061f4d8e5f7b7fd995c306fc1f1d2f",
+        "request": {
+          "params": {
+            "page[number]": "0",
+            "page[size]": "100"
+          }
+        }
+      }
+    }
+  }
+}
