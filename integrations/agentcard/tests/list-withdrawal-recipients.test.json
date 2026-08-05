@@ -1,0 +1,96 @@
+{
+  "input": {
+    "user_id": "cmsf6dosc003bjs04kkhju9na"
+  },
+  "output": {
+    "object": "list",
+    "data": [
+      {
+        "object": "withdrawal_recipient",
+        "user_id": "cmsf6dosc003bjs04kkhju9na",
+        "id": "wrec_b26eeebe4e03ab6c748cdc0a",
+        "type": "ach",
+        "nickname": "Test Account",
+        "beneficiary_name": "Nango Test",
+        "country_code": "US",
+        "currency": "usd",
+        "bank_name": null,
+        "account_number_last4": "••••6789",
+        "routing_number": "021000021",
+        "account_type": "checking",
+        "iban_last4": null,
+        "swift_code": null,
+        "created_at": "2026-08-04T21:33:48.115Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/wallet/withdrawal-recipients": {
+        "response": {
+          "object": "list",
+          "data": [
+            {
+              "object": "withdrawal_recipient",
+              "user_id": "cmsf6dosc003bjs04kkhju9na",
+              "id": "wrec_b26eeebe4e03ab6c748cdc0a",
+              "type": "ach",
+              "nickname": "Test Account",
+              "beneficiary_name": "Nango Test",
+              "country_code": "US",
+              "currency": "usd",
+              "bank_name": null,
+              "account_number_last4": "••••6789",
+              "routing_number": "021000021",
+              "account_type": "checking",
+              "iban_last4": null,
+              "swift_code": null,
+              "created_at": "2026-08-04T21:33:48.115Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 21:34:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "433",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1967",
+          "x-ratelimit-reset": "1785879273",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "content-security-policy": "default-src 'self';script-src 'self';style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;font-src 'self' https://fonts.gstatic.com https://agentcard.sh https://agentcard.sh https://www.agentcard.sh;img-src 'self' data: https://agentcard.sh https://agentcard.sh https://www.agentcard.sh;connect-src 'self';form-action 'self';base-uri 'self';frame-ancestors 'self';object-src 'none';script-src-attr 'none';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "etag": "W/\"1b1-D13PYDo4QCNuxwbig5XyX2RFzC8\"",
+          "origin-agent-cluster": "?1",
+          "ratelimit-limit": "300",
+          "ratelimit-policy": "300;w=900",
+          "ratelimit-remaining": "279",
+          "ratelimit-reset": "806",
+          "referrer-policy": "no-referrer",
+          "server": "Vercel",
+          "x-permitted-cross-domain-policies": "none",
+          "x-vercel-cache": "BYPASS",
+          "x-vercel-id": "pdx1::iad1::gj4z7-1785879240098-e49177628b33"
+        },
+        "hash": "68fba72e1c71cc5fb7203e7998e2cc2faaa10236",
+        "request": {
+          "params": {
+            "user_id": "cmsf6dosc003bjs04kkhju9na"
+          }
+        }
+      }
+    }
+  }
+}
