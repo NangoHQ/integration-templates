@@ -4,22 +4,20 @@
   },
   "output": {
     "entityId": "HOST-15FE58391F97B7AA",
-    "type": "HOST",
     "displayName": "discovery-mode-demo-playground-infra-only-backend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net",
-    "firstSeenTms": 1739978658969,
-    "lastSeenTms": 1785775545263,
+    "type": "HOST",
     "properties": {
       "bitness": "64",
       "autoInjection": "ENABLED",
       "installerTrackedDownload": false,
       "additionalSystemInfo": [
         {
-          "value": "0",
-          "key": "system.processor.frequency.max"
-        },
-        {
           "value": "Microsoft Corporation",
           "key": "system.vendor"
+        },
+        {
+          "value": "0",
+          "key": "system.processor.frequency.max"
         },
         {
           "value": "0000-0018-0579-3298-3148-1681-77",
@@ -34,12 +32,12 @@
           "key": "system.board.serial"
         },
         {
-          "value": "0",
-          "key": "system.processor.frequency.min"
-        },
-        {
           "value": "16766754816",
           "key": "system.memory.size"
+        },
+        {
+          "value": "0",
+          "key": "system.processor.frequency.min"
         },
         {
           "value": "AMD EPYC 7763 64-Core Processor",
@@ -86,14 +84,14 @@
       "detectedName": "discovery-mode-demo-playground-infra-only-backend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net",
       "installerVersion": "1.339.71.20260706-161947",
       "standalone": false,
-      "azureEnvironment": "AzurePublicCloud",
       "hasPublicTraffic": false,
+      "azureEnvironment": "AzurePublicCloud",
       "ipAddress": [
         "10.0.1.4"
       ],
       "hypervisorType": "HYPER_V",
-      "networkZone": "default",
       "hostGroupName": "discovery-mode-demo",
+      "networkZone": "default",
       "standaloneSpecialAgentsOnly": false,
       "logicalCpuCores": 2,
       "isMonitoringCandidate": false,
@@ -169,15 +167,20 @@
         "source": "Environment tags"
       }
     ],
-    "managementZones": [],
-    "icon": {
-      "primaryIconType": "linux",
-      "secondaryIconType": "microsoft-azure-signet"
-    },
     "fromRelationships": {
+      "isInstanceOf": [
+        {
+          "id": "HOST_GROUP-BF12A356ED87B2FB",
+          "type": "HOST_GROUP"
+        }
+      ],
       "isNetworkClientOfHost": [
         {
           "id": "HOST-15FE58391F97B7AA",
+          "type": "HOST"
+        },
+        {
+          "id": "HOST-1FB3E0DC7CBD561B",
           "type": "HOST"
         },
         {
@@ -189,18 +192,8 @@
           "type": "HOST"
         },
         {
-          "id": "HOST-90E63B5D3149C156",
-          "type": "HOST"
-        },
-        {
           "id": "HOST-ED51E6E3ECA7BA67",
           "type": "HOST"
-        }
-      ],
-      "isInstanceOf": [
-        {
-          "id": "HOST_GROUP-BF12A356ED87B2FB",
-          "type": "HOST_GROUP"
         }
       ],
       "runsOn": [
@@ -223,16 +216,6 @@
           "type": "MULTIPROTOCOL_MONITOR"
         }
       ],
-      "isSiteOf": [
-        {
-          "id": "AZURE_REGION-A51D9F7F90897B6B",
-          "type": "AZURE_REGION"
-        },
-        {
-          "id": "GEOLOC_SITE-A06532A613FF5535",
-          "type": "GEOLOC_SITE"
-        }
-      ],
       "isCgiOfHost": [
         {
           "id": "CONTAINER_GROUP_INSTANCE-1DEEC92F018BCFBF",
@@ -247,11 +230,11 @@
           "type": "CONTAINER_GROUP_INSTANCE"
         },
         {
-          "id": "CONTAINER_GROUP_INSTANCE-07E01A6242833B0C",
+          "id": "CONTAINER_GROUP_INSTANCE-A22263D6D1B4DA8F",
           "type": "CONTAINER_GROUP_INSTANCE"
         },
         {
-          "id": "CONTAINER_GROUP_INSTANCE-A22263D6D1B4DA8F",
+          "id": "CONTAINER_GROUP_INSTANCE-07E01A6242833B0C",
           "type": "CONTAINER_GROUP_INSTANCE"
         },
         {
@@ -297,6 +280,44 @@
         {
           "id": "CONTAINER_GROUP_INSTANCE-5924DE73779930E3",
           "type": "CONTAINER_GROUP_INSTANCE"
+        }
+      ],
+      "isSiteOf": [
+        {
+          "id": "AZURE_REGION-A51D9F7F90897B6B",
+          "type": "AZURE_REGION"
+        },
+        {
+          "id": "GEOLOC_SITE-A06532A613FF5535",
+          "type": "GEOLOC_SITE"
+        }
+      ],
+      "isDiskOf": [
+        {
+          "id": "DISK-1B7F94BF010D4D01",
+          "type": "DISK"
+        },
+        {
+          "id": "DISK-B558F93D69FCC3F9",
+          "type": "DISK"
+        },
+        {
+          "id": "DISK-89156283A4C16BF9",
+          "type": "DISK"
+        },
+        {
+          "id": "DISK-AB01FE5D63A613C1",
+          "type": "DISK"
+        },
+        {
+          "id": "DISK-BD56B55F83D32C83",
+          "type": "DISK"
+        }
+      ],
+      "isNetworkInterfaceOf": [
+        {
+          "id": "NETWORK_INTERFACE-15FE58342583EAAB",
+          "type": "NETWORK_INTERFACE"
         }
       ],
       "isProcessOf": [
@@ -502,35 +523,14 @@
           "id": "PROCESS_GROUP-BDC362925058E61F",
           "type": "PROCESS_GROUP"
         }
-      ],
-      "isNetworkInterfaceOf": [
-        {
-          "id": "NETWORK_INTERFACE-15FE58342583EAAB",
-          "type": "NETWORK_INTERFACE"
-        }
-      ],
-      "isDiskOf": [
-        {
-          "id": "DISK-1B7F94BF010D4D01",
-          "type": "DISK"
-        },
-        {
-          "id": "DISK-B558F93D69FCC3F9",
-          "type": "DISK"
-        },
-        {
-          "id": "DISK-89156283A4C16BF9",
-          "type": "DISK"
-        },
-        {
-          "id": "DISK-AB01FE5D63A613C1",
-          "type": "DISK"
-        },
-        {
-          "id": "DISK-BD56B55F83D32C83",
-          "type": "DISK"
-        }
       ]
+    },
+    "firstSeenTms": 1739978658969,
+    "lastSeenTms": 1785946845518,
+    "managementZones": [],
+    "icon": {
+      "primaryIconType": "linux",
+      "secondaryIconType": "microsoft-azure-signet"
     }
   },
   "nango": {},
@@ -542,19 +542,19 @@
           "type": "HOST",
           "displayName": "discovery-mode-demo-playground-infra-only-backend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net",
           "firstSeenTms": 1739978658969,
-          "lastSeenTms": 1785775545263,
+          "lastSeenTms": 1785946845518,
           "properties": {
             "bitness": "64",
             "autoInjection": "ENABLED",
             "installerTrackedDownload": false,
             "additionalSystemInfo": [
               {
-                "value": "0",
-                "key": "system.processor.frequency.max"
-              },
-              {
                 "value": "Microsoft Corporation",
                 "key": "system.vendor"
+              },
+              {
+                "value": "0",
+                "key": "system.processor.frequency.max"
               },
               {
                 "value": "0000-0018-0579-3298-3148-1681-77",
@@ -569,12 +569,12 @@
                 "key": "system.board.serial"
               },
               {
-                "value": "0",
-                "key": "system.processor.frequency.min"
-              },
-              {
                 "value": "16766754816",
                 "key": "system.memory.size"
+              },
+              {
+                "value": "0",
+                "key": "system.processor.frequency.min"
               },
               {
                 "value": "AMD EPYC 7763 64-Core Processor",
@@ -621,14 +621,14 @@
             "detectedName": "discovery-mode-demo-playground-infra-only-backend.quqmw1x5d5guzki1puffgup5qc.bx.internal.cloudapp.net",
             "installerVersion": "1.339.71.20260706-161947",
             "standalone": false,
-            "azureEnvironment": "AzurePublicCloud",
             "hasPublicTraffic": false,
+            "azureEnvironment": "AzurePublicCloud",
             "ipAddress": [
               "10.0.1.4"
             ],
             "hypervisorType": "HYPER_V",
-            "networkZone": "default",
             "hostGroupName": "discovery-mode-demo",
+            "networkZone": "default",
             "standaloneSpecialAgentsOnly": false,
             "logicalCpuCores": 2,
             "isMonitoringCandidate": false,
@@ -710,9 +710,19 @@
             "secondaryIconType": "microsoft-azure-signet"
           },
           "fromRelationships": {
+            "isInstanceOf": [
+              {
+                "id": "HOST_GROUP-BF12A356ED87B2FB",
+                "type": "HOST_GROUP"
+              }
+            ],
             "isNetworkClientOfHost": [
               {
                 "id": "HOST-15FE58391F97B7AA",
+                "type": "HOST"
+              },
+              {
+                "id": "HOST-1FB3E0DC7CBD561B",
                 "type": "HOST"
               },
               {
@@ -724,18 +734,8 @@
                 "type": "HOST"
               },
               {
-                "id": "HOST-90E63B5D3149C156",
-                "type": "HOST"
-              },
-              {
                 "id": "HOST-ED51E6E3ECA7BA67",
                 "type": "HOST"
-              }
-            ],
-            "isInstanceOf": [
-              {
-                "id": "HOST_GROUP-BF12A356ED87B2FB",
-                "type": "HOST_GROUP"
               }
             ],
             "runsOn": [
@@ -758,16 +758,6 @@
                 "type": "MULTIPROTOCOL_MONITOR"
               }
             ],
-            "isSiteOf": [
-              {
-                "id": "AZURE_REGION-A51D9F7F90897B6B",
-                "type": "AZURE_REGION"
-              },
-              {
-                "id": "GEOLOC_SITE-A06532A613FF5535",
-                "type": "GEOLOC_SITE"
-              }
-            ],
             "isCgiOfHost": [
               {
                 "id": "CONTAINER_GROUP_INSTANCE-1DEEC92F018BCFBF",
@@ -782,11 +772,11 @@
                 "type": "CONTAINER_GROUP_INSTANCE"
               },
               {
-                "id": "CONTAINER_GROUP_INSTANCE-07E01A6242833B0C",
+                "id": "CONTAINER_GROUP_INSTANCE-A22263D6D1B4DA8F",
                 "type": "CONTAINER_GROUP_INSTANCE"
               },
               {
-                "id": "CONTAINER_GROUP_INSTANCE-A22263D6D1B4DA8F",
+                "id": "CONTAINER_GROUP_INSTANCE-07E01A6242833B0C",
                 "type": "CONTAINER_GROUP_INSTANCE"
               },
               {
@@ -832,6 +822,44 @@
               {
                 "id": "CONTAINER_GROUP_INSTANCE-5924DE73779930E3",
                 "type": "CONTAINER_GROUP_INSTANCE"
+              }
+            ],
+            "isSiteOf": [
+              {
+                "id": "AZURE_REGION-A51D9F7F90897B6B",
+                "type": "AZURE_REGION"
+              },
+              {
+                "id": "GEOLOC_SITE-A06532A613FF5535",
+                "type": "GEOLOC_SITE"
+              }
+            ],
+            "isDiskOf": [
+              {
+                "id": "DISK-1B7F94BF010D4D01",
+                "type": "DISK"
+              },
+              {
+                "id": "DISK-B558F93D69FCC3F9",
+                "type": "DISK"
+              },
+              {
+                "id": "DISK-89156283A4C16BF9",
+                "type": "DISK"
+              },
+              {
+                "id": "DISK-AB01FE5D63A613C1",
+                "type": "DISK"
+              },
+              {
+                "id": "DISK-BD56B55F83D32C83",
+                "type": "DISK"
+              }
+            ],
+            "isNetworkInterfaceOf": [
+              {
+                "id": "NETWORK_INTERFACE-15FE58342583EAAB",
+                "type": "NETWORK_INTERFACE"
               }
             ],
             "isProcessOf": [
@@ -1037,40 +1065,12 @@
                 "id": "PROCESS_GROUP-BDC362925058E61F",
                 "type": "PROCESS_GROUP"
               }
-            ],
-            "isNetworkInterfaceOf": [
-              {
-                "id": "NETWORK_INTERFACE-15FE58342583EAAB",
-                "type": "NETWORK_INTERFACE"
-              }
-            ],
-            "isDiskOf": [
-              {
-                "id": "DISK-1B7F94BF010D4D01",
-                "type": "DISK"
-              },
-              {
-                "id": "DISK-B558F93D69FCC3F9",
-                "type": "DISK"
-              },
-              {
-                "id": "DISK-89156283A4C16BF9",
-                "type": "DISK"
-              },
-              {
-                "id": "DISK-AB01FE5D63A613C1",
-                "type": "DISK"
-              },
-              {
-                "id": "DISK-BD56B55F83D32C83",
-                "type": "DISK"
-              }
             ]
           }
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 03 Aug 2026 16:46:37 GMT",
+          "date": "Wed, 05 Aug 2026 16:22:51 GMT",
           "content-type": "application/json",
           "content-length": "10075",
           "connection": "keep-alive",
@@ -1079,14 +1079,25 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "strict-transport-security": "max-age=31536000;includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1929",
-          "x-ratelimit-reset": "1785775631",
-          "etag": "W/\"275b-RxTQAn1EgAhGaMgbx2szvFzLSBk\""
+          "x-ratelimit-remaining": "1947",
+          "x-ratelimit-reset": "1785947008",
+          "vary": "Accept-Encoding",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_5_sn_6EDA5F7DEE5E1820C3D113E7672D26D9_perc_100000_ol_0_mul_1_app-3Ad2f4a377001040b0_1_rcs-3Acss_0; Path=/; Domain=.dynatrace.com; secure",
+          "x-oneagent-js-injection": "true",
+          "server-timing": "dtTrId;desc=\"6a73635b0000000008094784593feeb2\", dtSInfo;desc=\"0\", dtRpid;desc=\"-519638146\"",
+          "traceresponse": "00-6a73635b0000000008094784593feeb2-4c427cabd81a21af-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt",
+          "cache-control": "no-store, no-cache",
+          "pragma": "no-cache",
+          "dynatrace-response-source": "Cluster",
+          "x-robots-tag": "noindex",
+          "server": "ruxit server",
+          "etag": "W/\"275b-ViuTqyhbHLkmfeK4Z2/+r5An+E0\""
         },
         "hash": "98316b90c6cfa63688302088dc49af6179e29b56",
         "request": {
