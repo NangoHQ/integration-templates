@@ -1,0 +1,275 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "6a6b8355ba8f04257e09702d",
+        "first_name": "Kelvin",
+        "last_name": "Wari",
+        "company_id": "6a6b8337374668eea203ccb7",
+        "company_name": "Nango",
+        "office_phone": "",
+        "cell_phone": "",
+        "email": "kelvin@nango.dev",
+        "custom_attributes": [],
+        "additional_business_units": [],
+        "is_archived": false,
+        "is_admin": true,
+        "last_login": "2026-08-04T12:24:06Z",
+        "client_company_ids": [],
+        "location_ids": [],
+        "project_roles": {
+          "additional_project_role_ids": []
+        },
+        "account_type_id": "6a6b8337374668eea203ccb8",
+        "created_at": "2026-07-30T17:01:09Z",
+        "updated_at": "2026-08-04T12:24:06Z"
+      },
+      {
+        "id": "6a71de1392e09607f906db73",
+        "first_name": "Nango",
+        "last_name": "RegistryEmployeeDisposable",
+        "company_id": "6a6b8337374668eea203ccb7",
+        "company_name": "Nango",
+        "office_phone": "",
+        "cell_phone": "",
+        "email": "nango-registry-employee-disposable@example.com",
+        "custom_attributes": [],
+        "additional_business_units": [],
+        "is_archived": false,
+        "is_admin": false,
+        "client_company_ids": [],
+        "location_ids": [],
+        "project_roles": {
+          "additional_project_role_ids": []
+        },
+        "account_type_id": "6a6b8338374668eea203cd45",
+        "created_at": "2026-08-04T12:41:56Z",
+        "updated_at": "2026-08-04T14:35:43Z"
+      },
+      {
+        "id": "6a71f87a9873c2fc6d0da1be",
+        "first_name": "Nango",
+        "last_name": "Registry Test",
+        "company_id": "6a6b8337374668eea203ccb7",
+        "company_name": "Nango",
+        "office_phone": "",
+        "cell_phone": "",
+        "email": "nango.registry.test.employee.20260804a@example.com",
+        "custom_attributes": [],
+        "additional_business_units": [],
+        "is_archived": false,
+        "is_admin": false,
+        "client_company_ids": [],
+        "location_ids": [],
+        "project_roles": {
+          "additional_project_role_ids": []
+        },
+        "account_type_id": "6a6b8338374668eea203cd45",
+        "created_at": "2026-08-04T14:34:34Z",
+        "updated_at": "2026-08-04T14:34:34Z"
+      },
+      {
+        "id": "6a71f88897628b231f0c2e72",
+        "first_name": "Nango",
+        "last_name": "Registry Test",
+        "company_id": "6a6b8337374668eea203ccb7",
+        "company_name": "Nango",
+        "office_phone": "",
+        "cell_phone": "",
+        "email": "nango.registry.test.employee.20260804b@example.com",
+        "custom_attributes": [],
+        "additional_business_units": [],
+        "is_archived": false,
+        "is_admin": false,
+        "client_company_ids": [],
+        "location_ids": [],
+        "project_roles": {
+          "additional_project_role_ids": []
+        },
+        "account_type_id": "6a6b8338374668eea203cd45",
+        "created_at": "2026-08-04T14:34:48Z",
+        "updated_at": "2026-08-04T14:34:49Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/pub/employees": {
+        "response": {
+          "items": [
+            {
+              "secondary_email": null,
+              "termination_date": null,
+              "id": "6a6b8355ba8f04257e09702d",
+              "first_name": "Kelvin",
+              "last_name": "Wari",
+              "company_id": "6a6b8337374668eea203ccb7",
+              "company_name": "Nango",
+              "title": null,
+              "office_phone": "",
+              "cell_phone": "",
+              "email": "kelvin@nango.dev",
+              "assigned_office_location_id": null,
+              "custom_id": null,
+              "custom_attributes": [],
+              "supervisor_id": null,
+              "business_unit": null,
+              "additional_business_units": [],
+              "is_archived": false,
+              "is_admin": true,
+              "last_login": "2026-08-04T12:24:06Z",
+              "client_company_ids": [],
+              "location_ids": [],
+              "project_roles": {
+                "primary_project_role_id": null,
+                "additional_project_role_ids": []
+              },
+              "account_type_id": "6a6b8337374668eea203ccb8",
+              "created_at": "2026-07-30T17:01:09Z",
+              "updated_at": "2026-08-04T12:24:06Z"
+            },
+            {
+              "secondary_email": null,
+              "termination_date": null,
+              "id": "6a71de1392e09607f906db73",
+              "first_name": "Nango",
+              "last_name": "RegistryEmployeeDisposable",
+              "company_id": "6a6b8337374668eea203ccb7",
+              "company_name": "Nango",
+              "title": null,
+              "office_phone": "",
+              "cell_phone": "",
+              "email": "nango-registry-employee-disposable@example.com",
+              "assigned_office_location_id": null,
+              "custom_id": null,
+              "custom_attributes": [],
+              "supervisor_id": null,
+              "business_unit": null,
+              "additional_business_units": [],
+              "is_archived": false,
+              "is_admin": false,
+              "last_login": null,
+              "client_company_ids": [],
+              "location_ids": [],
+              "project_roles": {
+                "primary_project_role_id": null,
+                "additional_project_role_ids": []
+              },
+              "account_type_id": "6a6b8338374668eea203cd45",
+              "created_at": "2026-08-04T12:41:56Z",
+              "updated_at": "2026-08-04T14:35:43Z"
+            },
+            {
+              "secondary_email": null,
+              "termination_date": null,
+              "id": "6a71f87a9873c2fc6d0da1be",
+              "first_name": "Nango",
+              "last_name": "Registry Test",
+              "company_id": "6a6b8337374668eea203ccb7",
+              "company_name": "Nango",
+              "title": null,
+              "office_phone": "",
+              "cell_phone": "",
+              "email": "nango.registry.test.employee.20260804a@example.com",
+              "assigned_office_location_id": null,
+              "custom_id": null,
+              "custom_attributes": [],
+              "supervisor_id": null,
+              "business_unit": null,
+              "additional_business_units": [],
+              "is_archived": false,
+              "is_admin": false,
+              "last_login": null,
+              "client_company_ids": [],
+              "location_ids": [],
+              "project_roles": {
+                "primary_project_role_id": null,
+                "additional_project_role_ids": []
+              },
+              "account_type_id": "6a6b8338374668eea203cd45",
+              "created_at": "2026-08-04T14:34:34Z",
+              "updated_at": "2026-08-04T14:34:34Z"
+            },
+            {
+              "secondary_email": null,
+              "termination_date": null,
+              "id": "6a71f88897628b231f0c2e72",
+              "first_name": "Nango",
+              "last_name": "Registry Test",
+              "company_id": "6a6b8337374668eea203ccb7",
+              "company_name": "Nango",
+              "title": null,
+              "office_phone": "",
+              "cell_phone": "",
+              "email": "nango.registry.test.employee.20260804b@example.com",
+              "assigned_office_location_id": null,
+              "custom_id": null,
+              "custom_attributes": [],
+              "supervisor_id": null,
+              "business_unit": null,
+              "additional_business_units": [],
+              "is_archived": false,
+              "is_admin": false,
+              "last_login": null,
+              "client_company_ids": [],
+              "location_ids": [],
+              "project_roles": {
+                "primary_project_role_id": null,
+                "additional_project_role_ids": []
+              },
+              "account_type_id": "6a6b8338374668eea203cd45",
+              "created_at": "2026-08-04T14:34:48Z",
+              "updated_at": "2026-08-04T14:34:49Z"
+            }
+          ],
+          "total": 4,
+          "page": 1,
+          "per_page": 20,
+          "first_page_url": "https://nangotest.ingenious.build/api/v2/pub/employees?page=1",
+          "last_page_url": "https://nangotest.ingenious.build/api/v2/pub/employees?page=1",
+          "next_page_url": null,
+          "prev_page_url": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 14:43:39 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "60",
+          "x-ratelimit-remaining": "51",
+          "x-ratelimit-reset": "1785854669",
+          "cache-control": "no-cache, private",
+          "cross-origin-resource-policy": "same-site",
+          "set-cookie": "api_session=eMsL4R09YawCGpKxkSVJ6zHKuBojnT2Ta64BO4ZJ; expires=Fri, 07 Aug 2026 14:43:39 GMT; Max-Age=259200; path=/; domain=.ingenious.build; secure; httponly; samesite=lax",
+          "vary": "Origin,Accept-Encoding",
+          "x-date": "Tue, 04 Aug 2026 14:43:39 GMT",
+          "x-machine": "icon-api-5bf8644d8c-mdmkf",
+          "x-request-id": "35fae987-3557-48a5-9387-3136fa92f137",
+          "x-envoy-upstream-service-time": "297",
+          "server": "istio-envoy",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "75f09e2f90007fdfcf75c677ed3c114aaa854a6f",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "20"
+          }
+        }
+      }
+    }
+  }
+}
