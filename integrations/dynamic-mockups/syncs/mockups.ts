@@ -34,7 +34,11 @@ const MockupSchema = z
     })
     .passthrough();
 
-const ListMockupsResponseSchema = z.union([z.array(z.unknown()), z.object({ mockups: z.array(z.unknown()) }), z.object({ data: z.array(z.unknown()) })]);
+const ListMockupsResponseSchema = z.union([
+    z.array(z.unknown()),
+    z.object({ mockups: z.array(z.unknown()), success: z.boolean().optional(), message: z.string().optional() }),
+    z.object({ data: z.array(z.unknown()), success: z.boolean().optional(), message: z.string().optional() })
+]);
 
 const sync = createSync({
     description: 'Sync mockup templates (both classic PSD-based and MockAnything AI-generated) in this account.',
@@ -49,11 +53,14 @@ const sync = createSync({
         // Blocker: provider only exposes /api/v1/mockups with no changed-since filter,
         // no deleted-record endpoint, no resumable cursor, and no timestamp fields
         // on mockup objects. Full refresh is required.
-        await nango.trackDeletesStart('Mockup');
 
-        // https://docs.dynamicmockups.com/
+        // https://docs.dynamicmockups.com/api-reference/get-mockups-api
+        // include_all_catalogs is required, otherwise the provider only returns mockups from the default catalog.
         const response = await nango.get({
             endpoint: '/v1/mockups',
+            params: {
+                include_all_catalogs: 'true'
+            },
             retries: 3
         });
 
@@ -62,12 +69,18 @@ const sync = createSync({
         if (Array.isArray(raw)) {
             items = raw;
         } else if ('mockups' in raw) {
+            if (raw.success === false) {
+                throw new Error(`Provider returned an unsuccessful mockups response: ${raw.message ?? 'unknown error'}`);
+            }
             items = raw.mockups;
-        } else if ('data' in raw) {
-            items = raw.data;
         } else {
-            throw new Error('Unexpected mockups list response shape');
+            if (raw.success === false) {
+                throw new Error(`Provider returned an unsuccessful mockups response: ${raw.message ?? 'unknown error'}`);
+            }
+            items = raw.data;
         }
+
+        await nango.trackDeletesStart('Mockup');
 
         const mockups = items.map((item) => {
             const parsed = ProviderMockupSchema.parse(item);

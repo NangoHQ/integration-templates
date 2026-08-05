@@ -31,11 +31,13 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // https://docs.dynamicmockups.com/
-        await nango.trackDeletesStart('Collection');
-
+        // https://docs.dynamicmockups.com/api-reference/get-collections-api
+        // include_all_catalogs is required, otherwise the provider only returns collections from the default catalog.
         const response = await nango.get({
             endpoint: '/v1/collections',
+            params: {
+                include_all_catalogs: 'true'
+            },
             retries: 3
         });
 
@@ -51,11 +53,17 @@ const sync = createSync({
             throw new Error(`Invalid collections envelope: ${envelope.error.message}`);
         }
 
+        if (envelope.data.success === false) {
+            throw new Error(`Provider returned an unsuccessful collections response: ${envelope.data.message ?? 'unknown error'}`);
+        }
+
         const parsed = ProviderCollectionSchema.array().safeParse(envelope.data.data);
 
         if (!parsed.success) {
             throw new Error(`Invalid collections response: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('Collection');
 
         const collections = parsed.data.map((collection) => ({
             id: collection.uuid,

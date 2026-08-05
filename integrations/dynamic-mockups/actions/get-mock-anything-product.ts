@@ -30,6 +30,14 @@ const ProviderProductSchema = z.object({
     supported_sizes: z.array(z.string())
 });
 
+const AxiosErrorSchema = z.object({
+    response: z
+        .object({
+            status: z.number()
+        })
+        .optional()
+});
+
 const OutputSchema = z.object({
     uuid: z.string(),
     name: z.string(),
@@ -62,18 +70,25 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.dynamicmockups.com/
-        const response = await nango.get({
-            endpoint: `/v1/mock-anything/products/${encodeURIComponent(input.uuid)}`,
-            retries: 3
-        });
-
-        if (!response.data || !response.data.data) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Product not found',
-                uuid: input.uuid
+        // @allowTryCatch Map provider 404 to a typed ActionError so callers receive a clean not-found message instead of a raw Axios error.
+        let response;
+        try {
+            // https://docs.dynamicmockups.com/
+            response = await nango.get({
+                endpoint: `/v1/mock-anything/products/${encodeURIComponent(input.uuid)}`,
+                retries: 3
             });
+        } catch (error) {
+            const parsed = AxiosErrorSchema.safeParse(error);
+            if (parsed.success && parsed.data.response?.status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Product not found',
+                    uuid: input.uuid
+                });
+            }
+
+            throw error;
         }
 
         const providerProduct = ProviderProductSchema.parse(response.data.data);

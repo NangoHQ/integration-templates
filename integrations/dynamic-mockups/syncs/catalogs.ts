@@ -44,6 +44,10 @@ const sync = createSync({
             throw new Error(`Failed to parse catalogs response: ${parsed.error.message}`);
         }
 
+        if (parsed.data.success === false) {
+            throw new Error(`Provider returned an unsuccessful catalogs response: ${parsed.data.message ?? 'unknown error'}`);
+        }
+
         await nango.trackDeletesStart('Catalog');
 
         const catalogs = parsed.data.data.map((catalog) => ({

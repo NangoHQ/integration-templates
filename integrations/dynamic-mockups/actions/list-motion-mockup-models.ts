@@ -58,6 +58,13 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
+        if (!providerResponse.success) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerResponse.message
+            });
+        }
+
         return {
             models: providerResponse.data.models,
             default_model: providerResponse.data.default_model

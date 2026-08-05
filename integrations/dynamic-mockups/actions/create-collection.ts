@@ -18,17 +18,7 @@ const ProviderCollectionSchema = z.object({
     updated_at: z.string()
 });
 
-const OutputSchema = z.object({
-    id: z.number(),
-    uuid: z.string(),
-    workspace_id: z.number(),
-    catalog_id: z.number(),
-    name: z.string(),
-    slug: z.string(),
-    is_published: z.number(),
-    created_at: z.string(),
-    updated_at: z.string()
-});
+const OutputSchema = ProviderCollectionSchema;
 
 const action = createAction({
     description: 'Create a new collection to group mockups for bulk/collection-based rendering.',
@@ -61,19 +51,7 @@ const action = createAction({
             })
             .parse(response.data);
 
-        const providerCollection = responseBody.data;
-
-        return {
-            id: providerCollection.id,
-            uuid: providerCollection.uuid,
-            workspace_id: providerCollection.workspace_id,
-            catalog_id: providerCollection.catalog_id,
-            name: providerCollection.name,
-            slug: providerCollection.slug,
-            is_published: providerCollection.is_published,
-            created_at: providerCollection.created_at,
-            updated_at: providerCollection.updated_at
-        };
+        return responseBody.data;
     }
 });
 

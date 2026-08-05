@@ -42,7 +42,7 @@ const ProviderInnerDataSchema = z
         image_url: z.string().nullable().optional(),
         selected_size: z.string().nullable().optional(),
         aspect_ratio: z.string().nullable().optional(),
-        mockup: z.union([MockupSchema, z.null()]).optional(),
+        mockup: MockupSchema.nullable().optional(),
         warnings: z.array(z.unknown()).optional()
     })
     .passthrough();
@@ -92,6 +92,13 @@ const action = createAction({
                     type: 'invalid_response',
                     message: 'Provider returned an unexpected response shape',
                     details: wrapperParsed.error.message
+                });
+            }
+
+            if (wrapperParsed.data.success === false) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: wrapperParsed.data.message
                 });
             }
 
