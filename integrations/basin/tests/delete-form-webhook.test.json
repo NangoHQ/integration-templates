@@ -1,0 +1,76 @@
+{
+  "input": {
+    "webhook_id": 10119
+  },
+  "output": {
+    "id": 10119,
+    "form_id": 73320,
+    "name": "Nango Registry Test Webhook Disposable 4",
+    "url": "https://example.com/webhook",
+    "format": "json",
+    "trigger_when_spam": false,
+    "enabled": true,
+    "created_at": "2026-08-04T22:19:34.271Z",
+    "updated_at": "2026-08-04T22:19:34.271Z",
+    "failure_count": 0,
+    "signing_secret": "fd849fb4faa6b4ee953069cdf4781c34eea73de11a3479f3f9087b1f16cc10cc"
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/v1/form_webhooks/10119": {
+        "response": {
+          "id": 10119,
+          "created_at": "2026-08-04T22:19:34.271Z",
+          "updated_at": "2026-08-04T22:19:34.271Z",
+          "failure_count": 0,
+          "last_failure_at": null,
+          "signing_secret": "fd849fb4faa6b4ee953069cdf4781c34eea73de11a3479f3f9087b1f16cc10cc",
+          "form_id": 73320,
+          "name": "Nango Registry Test Webhook Disposable 4",
+          "url": "https://example.com/webhook",
+          "format": "json",
+          "trigger_when_spam": false,
+          "enabled": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 22:19:39 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://www.gstatic.cn https://www.recaptcha.net https://googleads.g.doubleclick.net https://maps.googleapis.com https://apis.google.com https://accounts.google.com https://zapier.com https://cdn.zapier.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://js.hcaptcha.com https://hcaptcha.com https://cdn.jsdelivr.net https://cdn.form.io https://unpkg.com https://cdnjs.cloudflare.com https://dev.visualwebsiteoptimizer.com https://r.wdfl.co https://consent.cookiebot.com https://consentcdn.cookiebot.com https://assets.calendly.com https://api.trustedform.com https://js.usebasin.com https://ch.usebasin.com https://ch-beta.usebasin.com https://hf.usebasin.com https://hf-beta.usebasin.com https://cdn.tailwindcss.com https://embed.integrately.com https://testimonial.to http://basin.local; script-src-elem 'self' 'unsafe-inline' https://js.stripe.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://www.gstatic.cn https://www.recaptcha.net https://googleads.g.doubleclick.net https://maps.googleapis.com https://apis.google.com https://accounts.google.com https://zapier.com https://cdn.zapier.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://js.hcaptcha.com https://hcaptcha.com https://cdn.jsdelivr.net https://cdn.form.io https://unpkg.com https://cdnjs.cloudflare.com https://dev.visualwebsiteoptimizer.com https://r.wdfl.co https://consent.cookiebot.com https://consentcdn.cookiebot.com https://assets.calendly.com https://api.trustedform.com https://js.usebasin.com https://ch.usebasin.com https://ch-beta.usebasin.com https://hf.usebasin.com https://hf-beta.usebasin.com https://embed.integrately.com https://testimonial.to http://basin.local; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com https://fonts.googleapis.com https://cdn.zapier.com https://assets.calendly.com https://embed.integrately.com https://cdn.tailwindcss.com http://basin.local; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://unpkg.com data:; media-src 'self' https: data:; img-src 'self' https: data: blob:; connect-src 'self' wss: https://js.stripe.com https://api.stripe.com https://checkout.stripe.com https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://region1.analytics.google.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googleadservices.com https://www.google.com https://zapier.com https://api.zapier.com https://www.gstatic.com https://maps.googleapis.com https://apis.google.com https://accounts.google.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://cloudflareinsights.com https://hcaptcha.com https://js.hcaptcha.com https://dev.visualwebsiteoptimizer.com https://vis.visualwebsiteoptimizer.com https://www.recaptcha.net https://r.wdfl.co https://api.getrewardful.com https://consent.cookiebot.com https://consentcdn.cookiebot.com https://assets.calendly.com https://calendly.com https://cdn.jsdelivr.net https://tile.openstreetmap.org https://nominatim.openstreetmap.org https://api.geoapify.com https://api.mapbox.com https://api.trustedform.com https://ch.usebasin.com https://ch-beta.usebasin.com https://usebasin.com https://js.usebasin.com https://embed.integrately.com http://basin.local; frame-src 'self' https://js.stripe.com https://www.google.com https://www.recaptcha.net https://challenges.cloudflare.com https://hcaptcha.com https://newassets.hcaptcha.com https://www.googletagmanager.com https://connect.cookiebot.com https://consentcdn.cookiebot.com https://assets.calendly.com https://calendly.com https://docs.google.com https://content.googleapis.com https://www.youtube-nocookie.com https://www.youtube.com https://codesandbox.io https://embed-v2.testimonial.to http://basin.local; frame-ancestors 'self' https://usebasin.com; worker-src 'self' blob: data: https://cdn.jsdelivr.net; object-src 'none'; base-uri 'self'; report-uri https://usebasin.com/csp-violation-report",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1785882029",
+          "status": "200 OK",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "vary": "Origin",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "feature-policy": "camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; geolocation 'none'; accelerometer 'none'; autoplay 'none'; encrypted-media 'none'; fullscreen 'self'; magnetometer 'none'; midi 'none'; payment 'self'; picture-in-picture 'none'; sync-xhr 'none'",
+          "x-request-id": "6df424c3-6738-4dfd-857d-3edebe2069ad",
+          "etag": "W/\"e871b9763839d6472c189ff799c7b0c8\"",
+          "x-runtime": "0.034480",
+          "set-cookie": "_basin_session=CJsjKbP94DYSN9GFKulEsPOd8IAejqDWAH97B120l6OWyeO%2FVVTXzh0lWY54rCnagEGC4Q4YifjxlmkLr6pI6yhaTHQQ7d0Smwuz%2FL39TCXIHrsS53XosLQ9XrcMFaim5DYAvJzWngxkERYkJ8ETrUf5RW%2F7ssqDy%2BvqT7xRn7qb9K4Ejyy2hYO201OS%2BF8QEPWffOA0o7oczRRUCsjrfm%2FDu7cv6uv7pdwvWkY6IATU5JbxrGSRaXtSSTkc9ISjREmeA3bX65lreEbYR%2BMGxMFzSuuTpv5YdWENx%2BcwxUcYrU5mX89HDuRsNDz0XWekiZMtW80Yj741pqW%2FXB9cSBzB--J2USjoKIKvOQRvGk--X%2Fl3K%2FbHBI75aj6mnVjpEg%3D%3D; path=/; secure; httponly; samesite=lax",
+          "x-powered-by": "cloud66",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=a1R6EqkGmombjFPUSV8vrxgAI8%2BE1r1ylrvxts87P94VdYOw1Ju1pxc1Fb9HujZkOrMbpWxe7MyBkUmSgAGqjPgqubFY9K3OT6JPTLh%2F%2FI7YHKvSJMMWw33AnBUqzQ%3D%3D\"}]}",
+          "server": "cloudflare",
+          "cf-ray": "a260f1e5cb45302c-PDX"
+        },
+        "hash": "cdb489865f9d58a98e9e219094715b28ff50fe18",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "input": {
+    "project_id": 59616
+  },
+  "output": {
+    "id": 59616,
+    "name": "Nango Registry Test Project Disposable 2",
+    "created_at": "2026-08-04T22:20:51.963Z",
+    "updated_at": "2026-08-04T22:20:51.963Z"
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/v1/projects/59616": {
+        "response": {
+          "id": 59616,
+          "created_at": "2026-08-04T22:20:51.963Z",
+          "updated_at": "2026-08-04T22:20:51.963Z",
+          "name": "Nango Registry Test Project Disposable 2"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 22:20:57 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://www.gstatic.cn https://www.recaptcha.net https://googleads.g.doubleclick.net https://maps.googleapis.com https://apis.google.com https://accounts.google.com https://zapier.com https://cdn.zapier.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://js.hcaptcha.com https://hcaptcha.com https://cdn.jsdelivr.net https://cdn.form.io https://unpkg.com https://cdnjs.cloudflare.com https://dev.visualwebsiteoptimizer.com https://r.wdfl.co https://consent.cookiebot.com https://consentcdn.cookiebot.com https://assets.calendly.com https://api.trustedform.com https://js.usebasin.com https://ch.usebasin.com https://ch-beta.usebasin.com https://hf.usebasin.com https://hf-beta.usebasin.com https://cdn.tailwindcss.com https://embed.integrately.com https://testimonial.to http://basin.local; script-src-elem 'self' 'unsafe-inline' https://js.stripe.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://www.gstatic.cn https://www.recaptcha.net https://googleads.g.doubleclick.net https://maps.googleapis.com https://apis.google.com https://accounts.google.com https://zapier.com https://cdn.zapier.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://js.hcaptcha.com https://hcaptcha.com https://cdn.jsdelivr.net https://cdn.form.io https://unpkg.com https://cdnjs.cloudflare.com https://dev.visualwebsiteoptimizer.com https://r.wdfl.co https://consent.cookiebot.com https://consentcdn.cookiebot.com https://assets.calendly.com https://api.trustedform.com https://js.usebasin.com https://ch.usebasin.com https://ch-beta.usebasin.com https://hf.usebasin.com https://hf-beta.usebasin.com https://embed.integrately.com https://testimonial.to http://basin.local; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com https://fonts.googleapis.com https://cdn.zapier.com https://assets.calendly.com https://embed.integrately.com https://cdn.tailwindcss.com http://basin.local; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net https://unpkg.com data:; media-src 'self' https: data:; img-src 'self' https: data: blob:; connect-src 'self' wss: https://js.stripe.com https://api.stripe.com https://checkout.stripe.com https://www.googletagmanager.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://region1.analytics.google.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://pagead2.googlesyndication.com https://www.googleadservices.com https://www.google.com https://zapier.com https://api.zapier.com https://www.gstatic.com https://maps.googleapis.com https://apis.google.com https://accounts.google.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://cloudflareinsights.com https://hcaptcha.com https://js.hcaptcha.com https://dev.visualwebsiteoptimizer.com https://vis.visualwebsiteoptimizer.com https://www.recaptcha.net https://r.wdfl.co https://api.getrewardful.com https://consent.cookiebot.com https://consentcdn.cookiebot.com https://assets.calendly.com https://calendly.com https://cdn.jsdelivr.net https://tile.openstreetmap.org https://nominatim.openstreetmap.org https://api.geoapify.com https://api.mapbox.com https://api.trustedform.com https://ch.usebasin.com https://ch-beta.usebasin.com https://usebasin.com https://js.usebasin.com https://embed.integrately.com http://basin.local; frame-src 'self' https://js.stripe.com https://www.google.com https://www.recaptcha.net https://challenges.cloudflare.com https://hcaptcha.com https://newassets.hcaptcha.com https://www.googletagmanager.com https://connect.cookiebot.com https://consentcdn.cookiebot.com https://assets.calendly.com https://calendly.com https://docs.google.com https://content.googleapis.com https://www.youtube-nocookie.com https://www.youtube.com https://codesandbox.io https://embed-v2.testimonial.to http://basin.local; frame-ancestors 'self' https://usebasin.com; worker-src 'self' blob: data: https://cdn.jsdelivr.net; object-src 'none'; base-uri 'self'; report-uri https://usebasin.com/csp-violation-report",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1966",
+          "x-ratelimit-reset": "1785882095",
+          "status": "200 OK",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "vary": "Origin",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "x-permitted-cross-domain-policies": "none",
+          "feature-policy": "camera 'none'; gyroscope 'none'; microphone 'none'; usb 'none'; geolocation 'none'; accelerometer 'none'; autoplay 'none'; encrypted-media 'none'; fullscreen 'self'; magnetometer 'none'; midi 'none'; payment 'self'; picture-in-picture 'none'; sync-xhr 'none'",
+          "x-request-id": "28a27cc0-4539-4290-87eb-02efff63abbd",
+          "etag": "W/\"c038eaff8af082ba0ca2bcd8af8b217f\"",
+          "x-runtime": "0.025377",
+          "set-cookie": "<redacted>",
+          "x-powered-by": "cloud66",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ups3k4yQCrOSpPDR%2FxjQ%2FhRklBoEUhNQkl4MKXVkwwoPU7nUe5WhnKu6XRWHeynTi02TFX7ok%2FN6pMMmi2v2u8xcJDjT8WpG83a8wreCL78pgXn%2B6ZMzJVWA89kSew%3D%3D\"}]}",
+          "server": "cloudflare",
+          "cf-ray": "a260f3c8ed476c17-PDX"
+        },
+        "hash": "45fdda7ceffd1e8fed4257ce74fc21c85fc6b76d",
+        "request": {}
+      }
+    }
+  }
+}

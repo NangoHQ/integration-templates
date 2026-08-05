@@ -1,0 +1,140 @@
+{
+  "input": {
+    "name": "Nango Registry Test SLO 3",
+    "type": "metric",
+    "query": {
+      "numerator": "sum:system.cpu.user{*}.as_count()",
+      "denominator": "sum:system.cpu.user{*}.as_count()"
+    },
+    "thresholds": [
+      {
+        "timeframe": "7d",
+        "target": 99
+      }
+    ]
+  },
+  "output": {
+    "id": "3e290fe2d6445d1692b92ddaca66cbcf",
+    "name": "Nango Registry Test SLO 3",
+    "type": "metric",
+    "query": {
+      "numerator": "sum:system.cpu.user{*}.as_count()",
+      "denominator": "sum:system.cpu.user{*}.as_count()"
+    },
+    "thresholds": [
+      {
+        "timeframe": "7d",
+        "target": 99,
+        "target_display": "99."
+      }
+    ],
+    "created_at": 1785797186,
+    "modified_at": 1785797186,
+    "description": "",
+    "tags": [],
+    "creator": {
+      "name": "Nango Developer",
+      "handle": "api@nango.dev",
+      "email": "api@nango.dev"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v1/slo": {
+        "response": {
+          "data": [
+            {
+              "id": "3e290fe2d6445d1692b92ddaca66cbcf",
+              "name": "Nango Registry Test SLO 3",
+              "tags": [],
+              "monitor_tags": [],
+              "thresholds": [
+                {
+                  "timeframe": "7d",
+                  "target": 99,
+                  "target_display": "99."
+                }
+              ],
+              "type": "metric",
+              "type_id": 1,
+              "description": "",
+              "timeframe": "7d",
+              "target_threshold": 99,
+              "query": {
+                "numerator": "sum:system.cpu.user{*}.as_count()",
+                "denominator": "sum:system.cpu.user{*}.as_count()"
+              },
+              "creator": {
+                "name": "Nango Developer",
+                "handle": "api@nango.dev",
+                "email": "api@nango.dev"
+              },
+              "created_at": 1785797186,
+              "modified_at": 1785797186,
+              "sli_specification": {
+                "count": {
+                  "queries": [
+                    {
+                      "data_source": "metrics",
+                      "name": "query1",
+                      "query": "sum:system.cpu.user{*}.as_count()"
+                    }
+                  ],
+                  "good_events_formula": {
+                    "formula": "query1"
+                  },
+                  "total_events_formula": {
+                    "formula": "query1"
+                  }
+                }
+              }
+            }
+          ],
+          "error": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:46:26 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "200",
+          "x-ratelimit-remaining": "198",
+          "x-ratelimit-reset": "34",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "60",
+          "x-ratelimit-name": "slo_create"
+        },
+        "hash": "8a902095b12cf0a0d2109804f48c5ad53483c051",
+        "request": {
+          "data": {
+            "name": "Nango Registry Test SLO 3",
+            "type": "metric",
+            "query": {
+              "numerator": "sum:system.cpu.user{*}.as_count()",
+              "denominator": "sum:system.cpu.user{*}.as_count()"
+            },
+            "thresholds": [
+              {
+                "timeframe": "7d",
+                "target": 99
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

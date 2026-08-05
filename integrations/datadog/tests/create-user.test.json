@@ -1,0 +1,94 @@
+{
+  "input": {
+    "email": "nango-test-create-user-2@example.com",
+    "name": "Nango Test User 2",
+    "title": "Registry Auditor"
+  },
+  "output": {
+    "id": "8456f665-80c6-41d1-80d2-86d2762760ce",
+    "email": "nango-test-create-user-2@example.com",
+    "name": "Nango Test User 2",
+    "title": "Registry Auditor",
+    "status": "Pending",
+    "created_at": "2026-08-03T22:35:46.992608+00:00",
+    "modified_at": "2026-08-03T22:35:46.992608+00:00",
+    "disabled": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/users": {
+        "response": {
+          "data": {
+            "type": "users",
+            "id": "8456f665-80c6-41d1-80d2-86d2762760ce",
+            "attributes": {
+              "uuid": "8456f665-80c6-41d1-80d2-86d2762760ce",
+              "name": "Nango Test User 2",
+              "handle": "nango-test-create-user-2@example.com",
+              "created_at": "2026-08-03T22:35:46.992608+00:00",
+              "modified_at": "2026-08-03T22:35:46.992608+00:00",
+              "email": "nango-test-create-user-2@example.com",
+              "icon": "https://secure.gravatar.com/avatar/94f690757672d4e0be5d16a34b84457e?s=48&d=retro",
+              "title": "Registry Auditor",
+              "verified": false,
+              "service_account": false,
+              "disabled": false,
+              "allowed_login_methods": [],
+              "status": "Pending",
+              "last_login_time": null
+            },
+            "relationships": {
+              "roles": {
+                "data": []
+              },
+              "org": {
+                "data": {
+                  "type": "orgs",
+                  "id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93"
+                }
+              }
+            }
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:35:47 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "100",
+          "x-ratelimit-remaining": "98",
+          "x-ratelimit-reset": "14",
+          "document-policy": "js-profiling",
+          "content-security-policy": "frame-ancestors 'self'; report-uri https://logs.browser-intake-datadoghq.com/api/v2/logs?dd-api-key=pube4f163c23bbf91c16b8f57f56af9fc58&dd-evp-origin=content-security-policy&ddsource=csp-report&ddtags=site%3Adatadoghq.com",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "60",
+          "x-ratelimit-name": "create_user_api"
+        },
+        "hash": "88fe1b4b2ba34feb04db9542d6ca03b303bc09b5",
+        "request": {
+          "data": {
+            "data": {
+              "type": "users",
+              "attributes": {
+                "email": "nango-test-create-user-2@example.com",
+                "name": "Nango Test User 2",
+                "title": "Registry Auditor"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
