@@ -255,7 +255,53 @@
           "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
         ]
       }
-    ]
+    ],
+    "affectedEntities": [
+      "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+    ],
+    "relatedEntities": {
+      "applications": [],
+      "services": [
+        {
+          "id": "SERVICE-5B0BEF3F32F3E20A",
+          "numberOfAffectedEntities": 1,
+          "affectedEntities": [
+            "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+          ],
+          "exposure": "NOT_DETECTED"
+        }
+      ],
+      "hosts": [
+        {
+          "id": "HOST-9EC6F4855BEAB718",
+          "numberOfAffectedEntities": 1,
+          "affectedEntities": [
+            "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+          ]
+        }
+      ],
+      "databases": [
+        "SERVICE-0D2F060060AFA583"
+      ],
+      "kubernetesWorkloads": [
+        {
+          "id": "CLOUD_APPLICATION-B2C81630A4DBDC5A",
+          "numberOfAffectedEntities": 1,
+          "affectedEntities": [
+            "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+          ]
+        }
+      ],
+      "kubernetesClusters": [
+        {
+          "id": "KUBERNETES_CLUSTER-E36B9977DDD2B7B7",
+          "numberOfAffectedEntities": 1,
+          "affectedEntities": [
+            "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+          ]
+        }
+      ]
+    }
   },
   "nango": {},
   "api": {
@@ -515,7 +561,53 @@
               ]
             }
           ],
-          "muteStateChangeInProgress": false
+          "muteStateChangeInProgress": false,
+          "affectedEntities": [
+            "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+          ],
+          "relatedEntities": {
+            "applications": [],
+            "services": [
+              {
+                "id": "SERVICE-5B0BEF3F32F3E20A",
+                "numberOfAffectedEntities": 1,
+                "affectedEntities": [
+                  "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+                ],
+                "exposure": "NOT_DETECTED"
+              }
+            ],
+            "hosts": [
+              {
+                "id": "HOST-9EC6F4855BEAB718",
+                "numberOfAffectedEntities": 1,
+                "affectedEntities": [
+                  "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+                ]
+              }
+            ],
+            "databases": [
+              "SERVICE-0D2F060060AFA583"
+            ],
+            "kubernetesWorkloads": [
+              {
+                "id": "CLOUD_APPLICATION-B2C81630A4DBDC5A",
+                "numberOfAffectedEntities": 1,
+                "affectedEntities": [
+                  "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+                ]
+              }
+            ],
+            "kubernetesClusters": [
+              {
+                "id": "KUBERNETES_CLUSTER-E36B9977DDD2B7B7",
+                "numberOfAffectedEntities": 1,
+                "affectedEntities": [
+                  "PROCESS_GROUP_INSTANCE-34D4708EC331ED37"
+                ]
+              }
+            ]
+          }
         },
         "status": 200,
         "headers": {
@@ -548,10 +640,9 @@
           "server": "ruxit server",
           "etag": "W/\"209-bMDIka7gCSqCyjK05KgJDQdrWfw\""
         },
-        "hash": "1d83ccb97fc75544b2797199515a3bd8d0603058",
         "request": {
           "params": {
-            "fields": "+riskAssessment,+managementZones,+codeLevelVulnerabilityDetails,+globalCounts,+description,+remediationDescription,+events,+entryPoints,+vulnerableComponents"
+            "fields": "+riskAssessment,+managementZones,+codeLevelVulnerabilityDetails,+globalCounts,+description,+remediationDescription,+events,+entryPoints,+vulnerableComponents,+affectedEntities,+relatedEntities"
           }
         }
       }

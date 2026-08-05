@@ -68,7 +68,7 @@ const ProblemSchema = z
     .passthrough();
 
 const ProviderResponseSchema = z.object({
-    problems: z.array(z.unknown()),
+    problems: z.array(ProblemSchema),
     nextPageKey: z.string().nullable().optional(),
     totalCount: z.number(),
     pageSize: z.number(),
@@ -85,7 +85,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List detected problems in a time window.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['problems.read'],
@@ -125,7 +125,7 @@ const action = createAction({
         const { problems, totalCount, pageSize, nextPageKey, warnings } = parsed.data;
 
         return {
-            problems: problems.map((item: unknown) => ProblemSchema.parse(item)),
+            problems,
             totalCount,
             pageSize,
             ...(nextPageKey != null && { nextPageKey }),

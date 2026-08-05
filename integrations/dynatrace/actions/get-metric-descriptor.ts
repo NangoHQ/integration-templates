@@ -61,7 +61,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get the full descriptor (unit, dimensions, aggregation types) for a single metric.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['metrics.read'],

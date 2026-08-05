@@ -7,7 +7,8 @@ const InputSchema = z.object({
     from: z.string().optional().describe('Start of the requested timeframe. Example: "now-2h" or "2021-01-25T05:57:01.123+01:00"'),
     to: z.string().optional().describe('End of the requested timeframe. Example: "now" or "2021-01-25T06:57:01.123+01:00"'),
     entitySelector: z.string().optional().describe('Entity scope of the query. Example: "type(HOST),entityId(HOST-123)"'),
-    mzSelector: z.string().optional().describe('Management zone scope of the query. Example: "mzId(123),mzName("name")"')
+    mzSelector: z.string().optional().describe('Management zone scope of the query. Example: "mzId(123),mzName("name")"'),
+    cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.')
 });
 
 const MetricSeriesSchema = z.object({
@@ -41,17 +42,22 @@ const action = createAction({
     scopes: ['metrics.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Dynatrace rejects continuation requests that include any parameter besides nextPageKey.
+        const params: Record<string, string> = input.cursor
+            ? { nextPageKey: input.cursor }
+            : {
+                  metricSelector: input.metricSelector,
+                  ...(input.resolution !== undefined && { resolution: input.resolution }),
+                  ...(input.from !== undefined && { from: input.from }),
+                  ...(input.to !== undefined && { to: input.to }),
+                  ...(input.entitySelector !== undefined && { entitySelector: input.entitySelector }),
+                  ...(input.mzSelector !== undefined && { mzSelector: input.mzSelector })
+              };
+
         const response = await nango.get({
             // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/metric-v2/get-data-points
             endpoint: '/api/v2/metrics/query',
-            params: {
-                metricSelector: input.metricSelector,
-                ...(input.resolution !== undefined && { resolution: input.resolution }),
-                ...(input.from !== undefined && { from: input.from }),
-                ...(input.to !== undefined && { to: input.to }),
-                ...(input.entitySelector !== undefined && { entitySelector: input.entitySelector }),
-                ...(input.mzSelector !== undefined && { mzSelector: input.mzSelector })
-            },
+            params,
             retries: 3
         });
 

@@ -61,19 +61,31 @@ const SecurityProblemEventSchema = z
     })
     .passthrough();
 
-const AffectedEntitySchema = z
+const RelatedEntityRefSchema = z
     .object({
         id: z.string().optional(),
-        type: z.string().optional(),
-        numberOfAffectedEntities: z.number().optional()
+        numberOfAffectedEntities: z.number().optional(),
+        affectedEntities: z.array(z.string()).optional()
     })
     .passthrough();
 
-const RelatedEntitySchema = z
+const RelatedServiceSchema = z
     .object({
         id: z.string().optional(),
-        type: z.string().optional(),
-        affectedEntities: z.array(AffectedEntitySchema).optional()
+        numberOfAffectedEntities: z.number().optional(),
+        affectedEntities: z.array(z.string()).optional(),
+        exposure: z.string().optional()
+    })
+    .passthrough();
+
+const RelatedEntitiesSchema = z
+    .object({
+        applications: z.array(RelatedEntityRefSchema).optional(),
+        services: z.array(RelatedServiceSchema).optional(),
+        hosts: z.array(RelatedEntityRefSchema).optional(),
+        databases: z.array(z.string()).optional(),
+        kubernetesWorkloads: z.array(RelatedEntityRefSchema).optional(),
+        kubernetesClusters: z.array(RelatedEntityRefSchema).optional()
     })
     .passthrough();
 
@@ -119,7 +131,7 @@ const OutputSchema = z.object({
     codeLevelVulnerabilityDetails: CodeLevelVulnerabilityDetailsSchema.optional(),
     entryPoints: EntryPointsSchema.optional(),
     events: z.array(SecurityProblemEventSchema).optional(),
-    relatedEntities: z.array(RelatedEntitySchema).optional(),
+    relatedEntities: RelatedEntitiesSchema.optional(),
     vulnerableComponents: z.array(VulnerableComponentSchema).optional(),
     managementZones: z.array(ManagementZoneSchema).optional(),
     globalCounts: GlobalCountsSchema.optional()
@@ -127,7 +139,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get full details of a single security problem.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['securityProblems.read'],
@@ -139,7 +151,7 @@ const action = createAction({
         const response = await nango.get({
             endpoint: `/api/v2/securityProblems/${encodedId}`,
             params: {
-                fields: '+riskAssessment,+managementZones,+codeLevelVulnerabilityDetails,+globalCounts,+description,+remediationDescription,+events,+entryPoints,+vulnerableComponents'
+                fields: '+riskAssessment,+managementZones,+codeLevelVulnerabilityDetails,+globalCounts,+description,+remediationDescription,+events,+entryPoints,+vulnerableComponents,+affectedEntities,+relatedEntities'
             },
             retries: 3
         });

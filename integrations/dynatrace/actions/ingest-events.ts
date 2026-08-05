@@ -23,9 +23,9 @@ const InputSchema = z.object({
         .record(z.string(), z.union([z.string(), z.number(), z.boolean()]))
         .optional()
         .describe('Custom properties as key-value pairs. Values must be strings, numbers, or booleans.'),
-    startTime: z.number().optional().describe('The start time of the event, in UTC milliseconds.'),
-    endTime: z.number().optional().describe('The end time of the event, in UTC milliseconds.'),
-    timeout: z.number().optional().describe('Timeout in minutes before the event auto-expires. Defaults to 15.')
+    startTime: z.number().int().optional().describe('The start time of the event, in UTC milliseconds.'),
+    endTime: z.number().int().optional().describe('The end time of the event, in UTC milliseconds.'),
+    timeout: z.number().int().optional().describe('Timeout in minutes before the event auto-expires. Defaults to 15.')
 });
 
 const EventIngestResultSchema = z.object({
@@ -45,7 +45,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Push a custom event (info, alert, or annotation) onto one or more entities.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['events.ingest'],

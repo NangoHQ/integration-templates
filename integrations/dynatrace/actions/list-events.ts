@@ -65,7 +65,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List events in a time window',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['events.read'],

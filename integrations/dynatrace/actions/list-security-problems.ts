@@ -3,7 +3,13 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-    pageSize: z.number().optional().describe('The amount of security problems in a single response payload. The maximal allowed page size is 500.'),
+    pageSize: z
+        .number()
+        .int()
+        .min(1)
+        .max(500)
+        .optional()
+        .describe('The amount of security problems in a single response payload. The maximal allowed page size is 500.'),
     securityProblemSelector: z
         .string()
         .optional()
@@ -92,7 +98,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List detected security vulnerabilities (Runtime Application Protection).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['securityProblems.read'],

@@ -7,7 +7,7 @@ const InputSchema = z
             .string()
             .optional()
             .describe('Entity selector expression. Example: "type(HOST)". Required for the first page; omit on subsequent pages when passing cursor.'),
-        pageSize: z.number().optional().describe('Number of results per page. Default: 50.'),
+        pageSize: z.number().int().min(1).max(10000).optional().describe('Number of results per page. Default: 50.'),
         fields: z.string().optional().describe('Fields to include in the response. Example: "+properties,+tags,+fromRelationships,+toRelationships"'),
         cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.')
     })
