@@ -1315,7 +1315,11 @@
           "cache-control": "no-cache, private"
         },
         "hash": "b023fb60fa88ce7a6569b330b6af0772e5677269",
-        "request": {}
+        "request": {
+          "params": {
+            "include_all_catalogs": "true"
+          }
+        }
       }
     }
   }

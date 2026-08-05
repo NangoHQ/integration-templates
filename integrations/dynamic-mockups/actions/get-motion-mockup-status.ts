@@ -12,21 +12,33 @@ const ProviderVideoSchema = z.object({
     file_size: z.number()
 });
 
+const StatusSchema = z.enum(['IN_QUEUE', 'PROCESSING', 'COMPLETED', 'FAILED', 'CANCELLED', 'ERROR']);
+
 const ProviderResponseSchema = z.object({
     data: z.object({
-        status: z.enum(['IN_QUEUE', 'IN_PROGRESS', 'COMPLETED']),
+        status: StatusSchema,
         video: ProviderVideoSchema.optional()
-    })
+    }),
+    success: z.boolean().optional(),
+    message: z.string().optional()
 });
 
 const OutputSchema = z.object({
-    status: z.enum(['IN_QUEUE', 'IN_PROGRESS', 'COMPLETED']),
+    status: StatusSchema,
     video: z
         .object({
             url: z.string(),
             content_type: z.string(),
             file_name: z.string(),
             file_size: z.number()
+        })
+        .optional()
+});
+
+const AxiosErrorSchema = z.object({
+    response: z
+        .object({
+            status: z.number()
         })
         .optional()
 });
@@ -38,13 +50,43 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://docs.dynamicmockups.com/
-            endpoint: `/v1/motion-mockups/status/${encodeURIComponent(input.requestId)}`,
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch Map provider 404 to a typed ActionError so callers receive a clean not-found message instead of a raw Axios error.
+        try {
+            response = await nango.get({
+                // https://docs.dynamicmockups.com/
+                endpoint: `/v1/motion-mockups/status/${encodeURIComponent(input.requestId)}`,
+                retries: 3
+            });
+        } catch (error) {
+            const parsedError = AxiosErrorSchema.safeParse(error);
+            if (parsedError.success && parsedError.data.response?.status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'MotionMockups request with provided requestId not found.'
+                });
+            }
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
+            throw error;
+        }
+
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Provider returned an unexpected response shape',
+                details: parsed.error.message
+            });
+        }
+
+        const providerResponse = parsed.data;
+
+        if (providerResponse.success === false) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerResponse.message
+            });
+        }
 
         return {
             status: providerResponse.data.status,

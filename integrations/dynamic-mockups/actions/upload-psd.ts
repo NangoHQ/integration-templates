@@ -34,6 +34,16 @@ const TextLayerSchema = z
     })
     .passthrough();
 
+const CollectionSchema = z.object({
+    uuid: z.string(),
+    name: z.string()
+});
+
+const ThumbnailSchema = z.object({
+    width: z.number(),
+    url: z.string()
+});
+
 const OutputSchema = z.object({
     psd_uuid: z.string(),
     psd_name: z.string(),
@@ -42,8 +52,8 @@ const OutputSchema = z.object({
     thumbnail: z.string().optional(),
     smart_objects: z.array(SmartObjectSchema).optional(),
     text_layers: z.array(TextLayerSchema).optional(),
-    collections: z.array(z.unknown()).optional(),
-    thumbnails: z.array(z.unknown()).optional()
+    collections: z.array(CollectionSchema).optional(),
+    thumbnails: z.array(ThumbnailSchema).optional()
 });
 
 const RawPsdOnlyResponseSchema = z.object({
@@ -55,10 +65,10 @@ const RawMockupResponseSchema = z.object({
     uuid: z.string(),
     name: z.string(),
     thumbnail: z.string().optional(),
-    smart_objects: z.array(z.unknown()).optional(),
-    text_layers: z.array(z.unknown()).optional(),
-    collections: z.array(z.unknown()).optional(),
-    thumbnails: z.array(z.unknown()).optional(),
+    smart_objects: z.array(SmartObjectSchema).optional(),
+    text_layers: z.array(TextLayerSchema).optional(),
+    collections: z.array(CollectionSchema).optional(),
+    thumbnails: z.array(ThumbnailSchema).optional(),
     psd: z.object({
         uuid: z.string(),
         name: z.string()
@@ -102,9 +112,11 @@ const action = createAction({
 
         const response = await nango.post({
             // https://docs.dynamicmockups.com/
+            // retries is kept minimal: this endpoint creates a PSD/mockup resource, so retrying a
+            // transient failure risks replaying an already-processed upload and creating duplicates.
             endpoint: '/v1/psd/upload',
             data: body,
-            retries: 10
+            retries: 1
         });
 
         const WrapperSchema = z.object({
@@ -114,6 +126,14 @@ const action = createAction({
         });
 
         const wrapper = WrapperSchema.parse(response.data);
+
+        if (wrapper.success === false) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: wrapper.message
+            });
+        }
+
         const inner = wrapper.data;
 
         if (typeof inner !== 'object' || inner === null || Array.isArray(inner)) {
@@ -132,12 +152,8 @@ const action = createAction({
                 mockup_uuid: mockup.uuid,
                 mockup_name: mockup.name,
                 ...(mockup.thumbnail !== undefined && { thumbnail: mockup.thumbnail }),
-                ...(mockup.smart_objects !== undefined && {
-                    smart_objects: mockup.smart_objects.map((so) => SmartObjectSchema.parse(so))
-                }),
-                ...(mockup.text_layers !== undefined && {
-                    text_layers: mockup.text_layers.map((tl) => TextLayerSchema.parse(tl))
-                }),
+                ...(mockup.smart_objects !== undefined && { smart_objects: mockup.smart_objects }),
+                ...(mockup.text_layers !== undefined && { text_layers: mockup.text_layers }),
                 ...(mockup.collections !== undefined && { collections: mockup.collections }),
                 ...(mockup.thumbnails !== undefined && { thumbnails: mockup.thumbnails })
             };

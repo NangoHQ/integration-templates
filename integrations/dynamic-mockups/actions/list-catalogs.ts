@@ -6,24 +6,16 @@ const InputSchema = z.object({});
 const CatalogSchema = z.object({
     uuid: z.string(),
     name: z.string(),
-    type: z.enum(['custom', 'default']),
-    created_at: z.string(),
-    created_at_timestamp: z.number()
+    type: z.string(),
+    created_at: z.string().optional(),
+    created_at_timestamp: z.number().optional()
 });
 
 const ProviderResponseSchema = z.object({
     data: z.array(CatalogSchema)
 });
 
-const OutputSchema = z.array(
-    z.object({
-        uuid: z.string(),
-        name: z.string(),
-        type: z.enum(['custom', 'default']),
-        created_at: z.string(),
-        created_at_timestamp: z.number()
-    })
-);
+const OutputSchema = z.array(CatalogSchema);
 
 const action = createAction({
     description: 'List catalogs (top-level containers that scope mockups/collections; every workspace has at least a Default catalog).',
@@ -44,8 +36,8 @@ const action = createAction({
             uuid: catalog.uuid,
             name: catalog.name,
             type: catalog.type,
-            created_at: catalog.created_at,
-            created_at_timestamp: catalog.created_at_timestamp
+            ...(catalog.created_at != null && { created_at: catalog.created_at }),
+            ...(catalog.created_at_timestamp != null && { created_at_timestamp: catalog.created_at_timestamp })
         }));
     }
 });

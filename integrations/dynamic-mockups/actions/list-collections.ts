@@ -39,9 +39,18 @@ const action = createAction({
 
         const providerData = z
             .object({
-                data: z.array(z.unknown())
+                data: z.array(z.unknown()),
+                success: z.boolean().optional(),
+                message: z.string().optional()
             })
             .parse(response.data);
+
+        if (providerData.success === false) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerData.message
+            });
+        }
 
         const data = providerData.data.map((item: unknown) => {
             const collection = ProviderCollectionSchema.parse(item);

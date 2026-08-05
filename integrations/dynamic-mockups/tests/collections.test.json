@@ -88,7 +88,11 @@
           "cache-control": "no-cache, private"
         },
         "hash": "c6149442408908803a6d42bccf96ded165fa8826",
-        "request": {}
+        "request": {
+          "params": {
+            "include_all_catalogs": "true"
+          }
+        }
       }
     }
   }
