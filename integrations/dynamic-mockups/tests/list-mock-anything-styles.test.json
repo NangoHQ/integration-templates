@@ -1,0 +1,254 @@
+{
+  "input": {},
+  "output": {
+    "styles": [
+      {
+        "id": "baseline",
+        "description": "Default — no stylistic modification. Matches today's pipeline behavior exactly. Safe to use with every model.",
+        "available_with": [
+          "nano_banana",
+          "nano_banana_pro",
+          "nano_banana_2",
+          "nano_banana_lite",
+          "seedream_4_0",
+          "seedream_4_5",
+          "seedream_5_0_lite",
+          "gpt_image_2",
+          "gpt_image_2_high"
+        ]
+      },
+      {
+        "id": "fashion",
+        "description": "Editorial luxury campaign — slow-shutter panning, COS/A.P.C. voice, literary interior narration around the product.",
+        "available_with": [
+          "nano_banana_pro",
+          "nano_banana_2",
+          "gpt_image_2",
+          "gpt_image_2_high"
+        ]
+      },
+      {
+        "id": "moody-dark-editorial",
+        "description": "Single tungsten source, Rembrandt falloff, archival cinema stillness for low-key magazine editorial.",
+        "available_with": [
+          "nano_banana_pro",
+          "nano_banana_2",
+          "gpt_image_2",
+          "gpt_image_2_high"
+        ]
+      },
+      {
+        "id": "night-photograph",
+        "description": "Direct on-camera flash, wet urban sidewalk, caught between one thing and the next — Daido/Moriyama documentary register.",
+        "available_with": [
+          "nano_banana_pro",
+          "nano_banana_2",
+          "gpt_image_2",
+          "gpt_image_2_high"
+        ]
+      },
+      {
+        "id": "polaroid",
+        "description": "SX-70 instant film style — warm whites, soft light leaks, quiet morning intimacy.",
+        "available_with": [
+          "nano_banana_pro",
+          "nano_banana_2",
+          "gpt_image_2",
+          "gpt_image_2_high"
+        ]
+      },
+      {
+        "id": "quiet-morning",
+        "description": "Warm desaturated domestic stillness — soft window light, knit and walnut textures, unhurried gifting.",
+        "available_with": [
+          "nano_banana_pro",
+          "nano_banana_2",
+          "gpt_image_2",
+          "gpt_image_2_high"
+        ]
+      },
+      {
+        "id": "studio-flash-portrait",
+        "description": "Bare hard flash on warm-white seamless — frontal stare, sunglasses as a wall, hard body-shadow cast onto the paper.",
+        "available_with": [
+          "nano_banana_pro",
+          "nano_banana_2",
+          "gpt_image_2",
+          "gpt_image_2_high"
+        ]
+      },
+      {
+        "id": "ugc",
+        "description": "User-generated content — mirror selfie, friend snapshot, careless iPhone POV for authentic social-media-native imagery.",
+        "available_with": [
+          "nano_banana_pro",
+          "nano_banana_2",
+          "gpt_image_2",
+          "gpt_image_2_high"
+        ]
+      },
+      {
+        "id": "urban",
+        "description": "90s skate magazine — pushed 35mm, heavy grain, low angle, raw street documentary energy.",
+        "available_with": [
+          "nano_banana_pro",
+          "nano_banana_2",
+          "gpt_image_2",
+          "gpt_image_2_high"
+        ]
+      },
+      {
+        "id": "y2k-mirror-selfie",
+        "description": "Early-2000s digital camera with harsh super-flash, nostalgic bedroom backdrop. Y2K Tumblr aesthetic.",
+        "available_with": [
+          "nano_banana_pro",
+          "nano_banana_2",
+          "gpt_image_2",
+          "gpt_image_2_high"
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/mock-anything/styles": {
+        "response": {
+          "data": [
+            {
+              "id": "baseline",
+              "description": "Default — no stylistic modification. Matches today's pipeline behavior exactly. Safe to use with every model.",
+              "available_with": [
+                "nano_banana",
+                "nano_banana_pro",
+                "nano_banana_2",
+                "nano_banana_lite",
+                "seedream_4_0",
+                "seedream_4_5",
+                "seedream_5_0_lite",
+                "gpt_image_2",
+                "gpt_image_2_high"
+              ]
+            },
+            {
+              "id": "fashion",
+              "description": "Editorial luxury campaign — slow-shutter panning, COS/A.P.C. voice, literary interior narration around the product.",
+              "available_with": [
+                "nano_banana_pro",
+                "nano_banana_2",
+                "gpt_image_2",
+                "gpt_image_2_high"
+              ]
+            },
+            {
+              "id": "moody-dark-editorial",
+              "description": "Single tungsten source, Rembrandt falloff, archival cinema stillness for low-key magazine editorial.",
+              "available_with": [
+                "nano_banana_pro",
+                "nano_banana_2",
+                "gpt_image_2",
+                "gpt_image_2_high"
+              ]
+            },
+            {
+              "id": "night-photograph",
+              "description": "Direct on-camera flash, wet urban sidewalk, caught between one thing and the next — Daido/Moriyama documentary register.",
+              "available_with": [
+                "nano_banana_pro",
+                "nano_banana_2",
+                "gpt_image_2",
+                "gpt_image_2_high"
+              ]
+            },
+            {
+              "id": "polaroid",
+              "description": "SX-70 instant film style — warm whites, soft light leaks, quiet morning intimacy.",
+              "available_with": [
+                "nano_banana_pro",
+                "nano_banana_2",
+                "gpt_image_2",
+                "gpt_image_2_high"
+              ]
+            },
+            {
+              "id": "quiet-morning",
+              "description": "Warm desaturated domestic stillness — soft window light, knit and walnut textures, unhurried gifting.",
+              "available_with": [
+                "nano_banana_pro",
+                "nano_banana_2",
+                "gpt_image_2",
+                "gpt_image_2_high"
+              ]
+            },
+            {
+              "id": "studio-flash-portrait",
+              "description": "Bare hard flash on warm-white seamless — frontal stare, sunglasses as a wall, hard body-shadow cast onto the paper.",
+              "available_with": [
+                "nano_banana_pro",
+                "nano_banana_2",
+                "gpt_image_2",
+                "gpt_image_2_high"
+              ]
+            },
+            {
+              "id": "ugc",
+              "description": "User-generated content — mirror selfie, friend snapshot, careless iPhone POV for authentic social-media-native imagery.",
+              "available_with": [
+                "nano_banana_pro",
+                "nano_banana_2",
+                "gpt_image_2",
+                "gpt_image_2_high"
+              ]
+            },
+            {
+              "id": "urban",
+              "description": "90s skate magazine — pushed 35mm, heavy grain, low angle, raw street documentary energy.",
+              "available_with": [
+                "nano_banana_pro",
+                "nano_banana_2",
+                "gpt_image_2",
+                "gpt_image_2_high"
+              ]
+            },
+            {
+              "id": "y2k-mirror-selfie",
+              "description": "Early-2000s digital camera with harsh super-flash, nostalgic bedroom backdrop. Y2K Tumblr aesthetic.",
+              "available_with": [
+                "nano_banana_pro",
+                "nano_banana_2",
+                "gpt_image_2",
+                "gpt_image_2_high"
+              ]
+            }
+          ],
+          "success": true,
+          "message": ""
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 15:33:07 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "500",
+          "x-ratelimit-remaining": "492",
+          "x-ratelimit-reset": "1785944006",
+          "server": "nginx",
+          "x-powered-by": "PHP/8.2.33",
+          "cache-control": "no-cache, private"
+        },
+        "hash": "fcdf6ef5ea2c026443a3d3053f04e1d2fdf12dc3",
+        "request": {}
+      }
+    }
+  }
+}
