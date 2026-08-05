@@ -15,6 +15,7 @@
           "is_archived": false,
           "currency_code": "KES",
           "company_name": "Nango Registry Test Company",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -34,6 +35,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Qualified",
           "company_name": "Nango Registry Test Company 2",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -53,6 +55,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Qualified",
           "company_name": "Nango Registry Test Company 2",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -67,6 +70,7 @@
           "updated_at": "2026/08/05 09:40:41 -0400",
           "is_archived": false,
           "currency_code": "KES",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -86,6 +90,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Qualified",
           "company_name": "Nango Registry Test Company 2",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -105,6 +110,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Qualified",
           "company_name": "Nango Registry Test Company 2",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -127,6 +133,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Won",
           "company_name": "Spencer-Hamill",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -149,6 +156,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Lost",
           "company_name": "Kutch, Conroy and Cruickshank",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -170,6 +178,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Presentation",
           "company_name": "Daugherty Inc",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -191,6 +200,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Qualified",
           "company_name": "Daniel Group",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -212,6 +222,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Qualified",
           "company_name": "Spencer-Hamill",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -233,6 +244,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Negotiation",
           "company_name": "Daugherty Inc",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }
@@ -254,6 +266,7 @@
           "currency_code": "KES",
           "deal_stage_name": "Request for Info",
           "company_name": "Daniel Group",
+          "owner_name": "Nango Developer",
           "custom_fields": {
             "custom_label_4005325": null
           }

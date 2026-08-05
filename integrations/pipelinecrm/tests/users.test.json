@@ -12,7 +12,7 @@
           "account_id": "482622",
           "updated_at": "2026/08/05 09:40:14 -0400",
           "last_seen_at": "2026/08/05 09:39:01 -0400",
-          "work_phone": "302) 219-6023‬",
+          "work_phone": "302) 219-6023\u202c",
           "mobile_number": "555-0199",
           "full_name": "Nango Developer",
           "read_only": false
@@ -55,7 +55,7 @@
               "csv_decimal_mark": ".",
               "mobile_number": "555-0199",
               "mobile_country_code": 1,
-              "work_phone": "302) 219-6023‬",
+              "work_phone": "302) 219-6023\u202c",
               "data_reassigned_at": null,
               "last_seen_at": "2026/08/05 09:39:01 -0400",
               "receives_sms_reminders": null,
@@ -275,11 +275,11 @@
           "cf-cache-status": "DYNAMIC",
           "cf-ray": "a26636ebfaccdab7-PDX"
         },
-        "hash": "95100eff1cfe659ffc02f916acda0c31df84ce33",
         "request": {
           "params": {
             "page": "1",
-            "per_page": "100"
+            "per_page": "100",
+            "conditions[including_inactive]": "true"
           }
         }
       }
