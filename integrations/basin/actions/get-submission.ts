@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    submission_id: z.number().describe('Submission ID. Example: 60737785')
+    submission_id: z.number().int().positive().describe('Submission ID. Example: 60737785')
 });
 
 const ProviderAttachmentSchema = z.object({
@@ -38,8 +38,15 @@ const ProviderSubmissionSchema = z.object({
     payload_params: z.record(z.string(), z.unknown()).optional(),
     form_id: z.number(),
     spam: z.boolean(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional(),
     read: z.boolean(),
     trash: z.boolean(),
+    source_url: z.string().nullable().optional(),
+    source_host: z.string().nullable().optional(),
+    source_path: z.string().nullable().optional(),
+    source_query: z.string().nullable().optional(),
+    source_fragment: z.string().nullable().optional(),
     spam_reason: z.string().nullable().optional(),
     webhook_sent_at: z.string().nullable().optional(),
     ip: z.string().nullable().optional(),
@@ -58,8 +65,15 @@ const OutputSchema = z.object({
     payload_params: z.record(z.string(), z.unknown()).optional(),
     form_id: z.number(),
     spam: z.boolean(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional(),
     read: z.boolean(),
     trash: z.boolean(),
+    source_url: z.string().optional(),
+    source_host: z.string().optional(),
+    source_path: z.string().optional(),
+    source_query: z.string().optional(),
+    source_fragment: z.string().optional(),
     spam_reason: z.string().optional(),
     webhook_sent_at: z.string().optional(),
     ip: z.string().optional(),
@@ -86,7 +100,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Submission not found',
@@ -102,8 +116,15 @@ const action = createAction({
             ...(providerSubmission.payload_params != null && { payload_params: providerSubmission.payload_params }),
             form_id: providerSubmission.form_id,
             spam: providerSubmission.spam,
+            ...(providerSubmission.created_at != null && { created_at: providerSubmission.created_at }),
+            ...(providerSubmission.updated_at != null && { updated_at: providerSubmission.updated_at }),
             read: providerSubmission.read,
             trash: providerSubmission.trash,
+            ...(providerSubmission.source_url != null && { source_url: providerSubmission.source_url }),
+            ...(providerSubmission.source_host != null && { source_host: providerSubmission.source_host }),
+            ...(providerSubmission.source_path != null && { source_path: providerSubmission.source_path }),
+            ...(providerSubmission.source_query != null && { source_query: providerSubmission.source_query }),
+            ...(providerSubmission.source_fragment != null && { source_fragment: providerSubmission.source_fragment }),
             ...(providerSubmission.spam_reason != null && { spam_reason: providerSubmission.spam_reason }),
             ...(providerSubmission.webhook_sent_at != null && { webhook_sent_at: providerSubmission.webhook_sent_at }),
             ...(providerSubmission.ip != null && { ip: providerSubmission.ip }),

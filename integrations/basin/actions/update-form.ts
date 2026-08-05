@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('Form ID. Example: 73320'),
+    id: z.number().int().positive().describe('Form ID. Example: 73320'),
     name: z.string().optional(),
     redirect_url: z.string().nullable().optional(),
     project_id: z.number().optional(),
@@ -20,7 +20,7 @@ const InputSchema = z.object({
 const ProviderFormSchema = z
     .object({
         id: z.number(),
-        uuid: z.string().optional(),
+        uuid: z.string().nullable().optional(),
         name: z.string().optional(),
         timezone: z.string().optional(),
         redirect_url: z.string().nullable().optional(),
@@ -132,7 +132,7 @@ const action = createAction({
         };
         const response = await nango.put(config);
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Form not found or update failed',

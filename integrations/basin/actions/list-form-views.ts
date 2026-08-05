@@ -14,7 +14,7 @@ const FormViewSchema = z
         form_id: z.number(),
         form_uuid: z.string(),
         schema: z.unknown().optional(),
-        custom_css: z.string().optional(),
+        custom_css: z.string().nullable().optional(),
         iframe: z.unknown().optional(),
         embed_code: z.string().optional()
     })
@@ -29,7 +29,7 @@ const MetaSchema = z.object({
 const OutputSchema = z.object({
     form_views: z.array(FormViewSchema),
     meta: MetaSchema,
-    next_cursor: z.string().optional()
+    next_page: z.string().optional()
 });
 
 const action = createAction({
@@ -40,8 +40,8 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(page) || page < 1) {
+        const page = input.cursor === undefined ? 1 : Number(input.cursor);
+        if (!Number.isInteger(page) || page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a positive integer page number.'
@@ -73,7 +73,7 @@ const action = createAction({
 
         const providerResponse = z
             .object({
-                form_views: z.array(z.unknown()).default([]),
+                form_views: z.array(z.unknown()),
                 meta: z.object({
                     count: z.number(),
                     page: z.number(),
@@ -95,12 +95,12 @@ const action = createAction({
         });
 
         const hasMore = providerResponse.meta.count > providerResponse.meta.page * providerResponse.meta.per_page;
-        const next_cursor = hasMore ? String(providerResponse.meta.page + 1) : undefined;
+        const nextPage = hasMore ? String(providerResponse.meta.page + 1) : undefined;
 
         return {
             form_views: form_views,
             meta: providerResponse.meta,
-            ...(next_cursor !== undefined && { next_cursor: next_cursor })
+            ...(nextPage !== undefined && { next_page: nextPage })
         };
     }
 });

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    project_id: z.number().describe('Project ID. Example: 59611')
+    project_id: z.number().int().positive().describe('Project ID. Example: 59611')
 });
 
 const ProviderProjectSchema = z.object({
@@ -31,6 +31,14 @@ const action = createAction({
             endpoint: `/v1/projects/${encodeURIComponent(input.project_id)}`,
             retries: 3
         });
+
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Project not found',
+                project_id: input.project_id
+            });
+        }
 
         const providerProject = ProviderProjectSchema.parse(response.data);
 

@@ -12,7 +12,9 @@
     "enabled": true,
     "failure_count": 8,
     "last_failure_at": "2026-08-04T22:15:26.216Z",
-    "signing_secret": "ba06a670ff1afcb897a7f230916228853cfff45d787d4a7d8ca7e0171bf5c439"
+    "signing_secret": "ba06a670ff1afcb897a7f230916228853cfff45d787d4a7d8ca7e0171bf5c439",
+    "created_at": "2026-08-04T22:09:12.398Z",
+    "updated_at": "2026-08-04T22:09:39.638Z"
   },
   "nango": {},
   "api": {

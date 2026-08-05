@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    projectId: z.number().describe('Project ID. Example: 59612'),
+    project_id: z.number().int().positive().describe('Project ID. Example: 59612'),
     name: z.string().describe('New project name. Example: "Updated Project Name"')
 });
 
@@ -29,12 +29,20 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({
             // https://usebasin.com/api_docs/v1/swagger.yaml
-            endpoint: `/v1/projects/${encodeURIComponent(input.projectId)}`,
+            endpoint: `/v1/projects/${encodeURIComponent(input.project_id)}`,
             data: {
                 name: input.name
             },
             retries: 1
         });
+
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Project not found',
+                project_id: input.project_id
+            });
+        }
 
         const providerProject = ProviderProjectSchema.parse(response.data);
 

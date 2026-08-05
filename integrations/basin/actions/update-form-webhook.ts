@@ -2,11 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.number().describe('Form webhook ID. Example: 10113'),
-    form_id: z.number().optional().describe('ID of the associated form.'),
+    id: z.number().int().positive().describe('Form webhook ID. Example: 10113'),
+    form_id: z.number().int().positive().optional().describe('ID of the associated form.'),
     name: z.string().optional().describe('Webhook name.'),
     url: z.string().optional().describe('Webhook URL.'),
-    format: z.string().optional().describe('Webhook format (e.g., json, slack).'),
+    format: z.enum(['json', 'slack']).optional().describe('Webhook format (e.g., json, slack).'),
     trigger_when_spam: z.boolean().optional().describe('Whether to trigger on spam submissions.'),
     enabled: z.boolean().optional().describe('Whether the webhook is enabled.')
 });
@@ -75,6 +75,14 @@ const action = createAction({
             data: updateBody,
             retries: 3
         });
+
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Form webhook not found',
+                webhook_id: input.id
+            });
+        }
 
         const providerWebhook = ProviderFormWebhookSchema.parse(response.data);
 

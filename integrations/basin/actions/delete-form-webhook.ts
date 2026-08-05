@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    webhook_id: z.number().describe('ID of the form webhook to delete. Example: 10115')
+    webhook_id: z.number().int().positive().describe('ID of the form webhook to delete. Example: 10115')
 });
 
 const ProviderFormWebhookSchema = z
@@ -17,25 +17,25 @@ const ProviderFormWebhookSchema = z
         created_at: z.string(),
         updated_at: z.string(),
         failure_count: z.number(),
-        last_failure_at: z.string().nullable()
+        last_failure_at: z.string().nullable(),
+        signing_secret: z.string().nullable().optional()
     })
     .passthrough();
 
-const OutputSchema = z
-    .object({
-        id: z.number(),
-        form_id: z.number(),
-        name: z.string(),
-        url: z.string(),
-        format: z.string(),
-        trigger_when_spam: z.boolean(),
-        enabled: z.boolean(),
-        created_at: z.string(),
-        updated_at: z.string(),
-        failure_count: z.number(),
-        last_failure_at: z.string().optional()
-    })
-    .passthrough();
+const OutputSchema = z.object({
+    id: z.number(),
+    form_id: z.number(),
+    name: z.string(),
+    url: z.string(),
+    format: z.string(),
+    trigger_when_spam: z.boolean(),
+    enabled: z.boolean(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    failure_count: z.number(),
+    last_failure_at: z.string().optional(),
+    signing_secret: z.string().optional()
+});
 
 const action = createAction({
     description: 'Delete a form webhook.',
@@ -51,11 +51,29 @@ const action = createAction({
             retries: 3
         });
 
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Form webhook not found',
+                webhook_id: input.webhook_id
+            });
+        }
+
         const providerWebhook = ProviderFormWebhookSchema.parse(response.data);
 
         return {
-            ...providerWebhook,
-            last_failure_at: providerWebhook.last_failure_at ?? undefined
+            id: providerWebhook.id,
+            form_id: providerWebhook.form_id,
+            name: providerWebhook.name,
+            url: providerWebhook.url,
+            format: providerWebhook.format,
+            trigger_when_spam: providerWebhook.trigger_when_spam,
+            enabled: providerWebhook.enabled,
+            created_at: providerWebhook.created_at,
+            updated_at: providerWebhook.updated_at,
+            failure_count: providerWebhook.failure_count,
+            ...(providerWebhook.last_failure_at != null && { last_failure_at: providerWebhook.last_failure_at }),
+            ...(providerWebhook.signing_secret != null && { signing_secret: providerWebhook.signing_secret })
         };
     }
 });

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    form_id: z.number().describe('Form ID. Example: 72983')
+    form_id: z.number().int().positive().describe('Form ID. Example: 72983')
 });
 
 const ProviderFormSchema = z
@@ -14,12 +14,12 @@ const ProviderFormSchema = z
         redirect_url: z.string().nullable().optional(),
         use_ajax: z.boolean().optional(),
         notification_emails: z.string().optional(),
-        notification_cc_emails: z.string().optional(),
-        notification_bcc_emails: z.string().optional(),
+        notification_cc_emails: z.string().nullable().optional(),
+        notification_bcc_emails: z.string().nullable().optional(),
         autoreply: z.boolean().optional(),
         autoreply_body: z.string().nullable().optional(),
-        autoreply_subject: z.string().optional(),
-        autoreply_from_name: z.string().optional(),
+        autoreply_subject: z.string().nullable().optional(),
+        autoreply_from_name: z.string().nullable().optional(),
         force_recaptcha: z.boolean().optional(),
         force_hcaptcha: z.boolean().optional(),
         force_turnstile: z.boolean().optional(),
@@ -51,7 +51,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Form not found',

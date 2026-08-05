@@ -2,10 +2,10 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    form_id: z.number().describe('Form ID to attach the webhook to. Example: 72983'),
+    form_id: z.number().int().positive().describe('Form ID to attach the webhook to. Example: 72983'),
     name: z.string().describe('Webhook name. Example: "Nango Registry Test Webhook"'),
     url: z.string().describe('Webhook URL. Example: "https://example.com/webhook"'),
-    format: z.string().describe('Webhook format. Use "json" or "slack". Example: "json"'),
+    format: z.enum(['json', 'slack']).describe('Webhook format. Use "json" or "slack". Example: "json"'),
     enabled: z.boolean().describe('Whether the webhook is enabled. Example: true')
 });
 
@@ -56,6 +56,7 @@ const action = createAction({
                 format: input.format,
                 enabled: input.enabled
             },
+            // Non-idempotent: a retry after a timeout could create a duplicate webhook.
             retries: 1
         });
 

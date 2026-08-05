@@ -33,11 +33,7 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
 
-        if (!checkpoint) {
-            // Basin paginates the full list but exposes no changed-since filter or deleted feed.
-            await nango.trackDeletesStart('Project');
-        }
-
+        let trackingStarted = false;
         let page = checkpoint?.page ?? 1;
 
         while (true) {
@@ -58,6 +54,14 @@ const sync = createSync({
 
             if (!parsedBody.success) {
                 throw new Error(`Failed to parse projects page: ${parsedBody.error.message}`);
+            }
+
+            if (!trackingStarted) {
+                // Basin paginates the full list but exposes no changed-since filter or deleted feed.
+                // Started here (after the first page validates) and on every execution of a
+                // checkpointed run, so a resumed invocation stays inside the active delete window.
+                await nango.trackDeletesStart('Project');
+                trackingStarted = true;
             }
 
             const projects = parsedBody.data.projects.map((record) => ({

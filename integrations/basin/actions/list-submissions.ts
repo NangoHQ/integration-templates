@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    form_id: z.number().describe('Form ID. Example: 72983'),
+    form_id: z.number().int().positive().describe('Form ID. Example: 72983'),
     filter_by: z
         .enum(['new', 'spam', 'trash', 'all'])
         .optional()
@@ -31,7 +31,9 @@ const MetaSchema = z.object({
     inbox_count: z.number(),
     spam_count: z.number(),
     trash_count: z.number(),
-    page: z.number(),
+    // Basin echoes back `page` as the same type it was sent as (a string, since it's a
+    // query param) whenever a page is explicitly requested, instead of always a number.
+    page: z.coerce.number(),
     per_page: z.number(),
     form_name: z.string()
 });
@@ -66,10 +68,14 @@ const action = createAction({
             params['date_range'] = input.date_range;
         }
         if (input.cursor !== undefined) {
-            const pageNum = parseInt(input.cursor, 10);
-            if (!Number.isNaN(pageNum)) {
-                params['page'] = pageNum;
+            const pageNum = Number(input.cursor);
+            if (!Number.isInteger(pageNum) || pageNum < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a positive integer page number.'
+                });
             }
+            params['page'] = pageNum;
         }
 
         const response = await nango.get({

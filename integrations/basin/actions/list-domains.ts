@@ -25,7 +25,7 @@ const ListResponseSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(DomainSchema),
-    next_cursor: z.string().optional()
+    next_page: z.string().optional()
 });
 
 const action = createAction({
@@ -47,12 +47,12 @@ const action = createAction({
         });
 
         const parsed = ListResponseSchema.parse(response.data);
-        const hasMore = parsed.domains.length === parsed.meta.per_page;
-        const nextCursor = hasMore ? String(parsed.meta.page + 1) : undefined;
+        const hasMore = parsed.meta.count > parsed.meta.page * parsed.meta.per_page;
+        const nextPage = hasMore ? String(parsed.meta.page + 1) : undefined;
 
         return {
             items: parsed.domains,
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            ...(nextPage !== undefined && { next_page: nextPage })
         };
     }
 });

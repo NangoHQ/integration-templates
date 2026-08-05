@@ -3,8 +3,25 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     name: z.string().describe('Form name. Example: "My Form"'),
-    project_id: z.number().describe('Project ID to associate the form with. Example: 59242')
+    project_id: z.number().int().positive().describe('Project ID to associate the form with. Example: 59242')
 });
+
+const ProviderFormWebhookSchema = z
+    .object({
+        id: z.number(),
+        form_id: z.number(),
+        name: z.string(),
+        url: z.string(),
+        format: z.string(),
+        enabled: z.boolean(),
+        trigger_when_spam: z.boolean().optional(),
+        signing_secret: z.string().optional(),
+        failure_count: z.number().optional(),
+        last_failure_at: z.string().nullable().optional(),
+        created_at: z.string().optional(),
+        updated_at: z.string().optional()
+    })
+    .passthrough();
 
 const ProviderFormSchema = z.object({
     id: z.number(),
@@ -65,76 +82,13 @@ const ProviderFormSchema = z.object({
     created_at: z.string(),
     updated_at: z.string(),
     project_name: z.string(),
-    form_webhooks: z.array(z.unknown()),
+    form_webhooks: z.array(ProviderFormWebhookSchema),
     inbox_count: z.number(),
     spam_count: z.number(),
     trash_count: z.number()
 });
 
-const OutputSchema = z.object({
-    id: z.number(),
-    uuid: z.string().optional(),
-    name: z.string(),
-    timezone: z.string(),
-    redirect_url: z.string().optional(),
-    use_ajax: z.boolean(),
-    notification_emails: z.string(),
-    autoreply: z.boolean(),
-    autoreply_body: z.string().optional(),
-    whitelist_source_domains: z.string().optional(),
-    force_recaptcha: z.boolean(),
-    force_hcaptcha: z.boolean(),
-    force_turnstile: z.boolean(),
-    turnstile_site_key: z.string().optional(),
-    turnstile_secret: z.string().optional(),
-    notification_cc_emails: z.string().optional(),
-    notification_bcc_emails: z.string().optional(),
-    notification_subject: z.string().optional(),
-    notification_from_name: z.string().optional(),
-    autoreply_subject: z.string().optional(),
-    autoreply_from_name: z.string().optional(),
-    autoreply_greeting: z.string().optional(),
-    autoreply_name: z.string().optional(),
-    autoreply_title: z.string().optional(),
-    autoreply_email: z.string().optional(),
-    logo: z.string().optional(),
-    button_background_color: z.string().optional(),
-    button_text_color: z.string().optional(),
-    data_receipt_email: z.boolean(),
-    retention_days: z.number(),
-    hide_dashboard_button: z.boolean(),
-    exclude_submitter_from_reply: z.boolean(),
-    custom_template: z.string().optional(),
-    use_custom_template: z.boolean(),
-    autoreply_custom_template: z.string().optional(),
-    autoreply_use_custom_template: z.boolean(),
-    notification_mail_template_id: z.number().optional(),
-    auto_response_mail_template_id: z.number().optional(),
-    confirmation_mail_template_id: z.number().optional(),
-    honeypot_field: z.string().optional(),
-    recaptcha_failed_url: z.string().optional(),
-    domain_id: z.number().optional(),
-    domain_email: z.string().optional(),
-    duplicate_filter: z.boolean(),
-    project_id: z.number(),
-    redirect_heading: z.string().optional(),
-    redirect_message: z.string().optional(),
-    redirect_button_background_color: z.string().optional(),
-    redirect_button_text: z.string().optional(),
-    redirect_button_text_color: z.string().optional(),
-    content_blacklist: z.array(z.unknown()).optional(),
-    allowed_domains: z.array(z.unknown()).optional(),
-    blocked_domains: z.array(z.unknown()).optional(),
-    smtp_email_validation: z.boolean(),
-    contribute_to_spam_training: z.boolean(),
-    created_at: z.string(),
-    updated_at: z.string(),
-    project_name: z.string(),
-    form_webhooks: z.array(z.unknown()),
-    inbox_count: z.number(),
-    spam_count: z.number(),
-    trash_count: z.number()
-});
+const OutputSchema = ProviderFormSchema;
 
 const action = createAction({
     description: 'Create a new form.',
@@ -150,75 +104,11 @@ const action = createAction({
                 name: input.name,
                 project_id: input.project_id
             },
-            retries: 10
+            // Non-idempotent: a retry after a timeout could create a duplicate form.
+            retries: 1
         });
 
-        const providerForm = ProviderFormSchema.parse(response.data);
-
-        return {
-            id: providerForm.id,
-            ...(providerForm.uuid != null && { uuid: providerForm.uuid }),
-            name: providerForm.name,
-            timezone: providerForm.timezone,
-            ...(providerForm.redirect_url != null && { redirect_url: providerForm.redirect_url }),
-            use_ajax: providerForm.use_ajax,
-            notification_emails: providerForm.notification_emails,
-            autoreply: providerForm.autoreply,
-            ...(providerForm.autoreply_body != null && { autoreply_body: providerForm.autoreply_body }),
-            ...(providerForm.whitelist_source_domains != null && { whitelist_source_domains: providerForm.whitelist_source_domains }),
-            force_recaptcha: providerForm.force_recaptcha,
-            force_hcaptcha: providerForm.force_hcaptcha,
-            force_turnstile: providerForm.force_turnstile,
-            ...(providerForm.turnstile_site_key != null && { turnstile_site_key: providerForm.turnstile_site_key }),
-            ...(providerForm.turnstile_secret != null && { turnstile_secret: providerForm.turnstile_secret }),
-            ...(providerForm.notification_cc_emails != null && { notification_cc_emails: providerForm.notification_cc_emails }),
-            ...(providerForm.notification_bcc_emails != null && { notification_bcc_emails: providerForm.notification_bcc_emails }),
-            ...(providerForm.notification_subject != null && { notification_subject: providerForm.notification_subject }),
-            ...(providerForm.notification_from_name != null && { notification_from_name: providerForm.notification_from_name }),
-            ...(providerForm.autoreply_subject != null && { autoreply_subject: providerForm.autoreply_subject }),
-            ...(providerForm.autoreply_from_name != null && { autoreply_from_name: providerForm.autoreply_from_name }),
-            ...(providerForm.autoreply_greeting != null && { autoreply_greeting: providerForm.autoreply_greeting }),
-            ...(providerForm.autoreply_name != null && { autoreply_name: providerForm.autoreply_name }),
-            ...(providerForm.autoreply_title != null && { autoreply_title: providerForm.autoreply_title }),
-            ...(providerForm.autoreply_email != null && { autoreply_email: providerForm.autoreply_email }),
-            ...(providerForm.logo != null && { logo: providerForm.logo }),
-            ...(providerForm.button_background_color != null && { button_background_color: providerForm.button_background_color }),
-            ...(providerForm.button_text_color != null && { button_text_color: providerForm.button_text_color }),
-            data_receipt_email: providerForm.data_receipt_email,
-            retention_days: providerForm.retention_days,
-            hide_dashboard_button: providerForm.hide_dashboard_button,
-            exclude_submitter_from_reply: providerForm.exclude_submitter_from_reply,
-            ...(providerForm.custom_template != null && { custom_template: providerForm.custom_template }),
-            use_custom_template: providerForm.use_custom_template,
-            ...(providerForm.autoreply_custom_template != null && { autoreply_custom_template: providerForm.autoreply_custom_template }),
-            autoreply_use_custom_template: providerForm.autoreply_use_custom_template,
-            ...(providerForm.notification_mail_template_id != null && { notification_mail_template_id: providerForm.notification_mail_template_id }),
-            ...(providerForm.auto_response_mail_template_id != null && { auto_response_mail_template_id: providerForm.auto_response_mail_template_id }),
-            ...(providerForm.confirmation_mail_template_id != null && { confirmation_mail_template_id: providerForm.confirmation_mail_template_id }),
-            ...(providerForm.honeypot_field != null && { honeypot_field: providerForm.honeypot_field }),
-            ...(providerForm.recaptcha_failed_url != null && { recaptcha_failed_url: providerForm.recaptcha_failed_url }),
-            ...(providerForm.domain_id != null && { domain_id: providerForm.domain_id }),
-            ...(providerForm.domain_email != null && { domain_email: providerForm.domain_email }),
-            duplicate_filter: providerForm.duplicate_filter,
-            project_id: providerForm.project_id,
-            ...(providerForm.redirect_heading != null && { redirect_heading: providerForm.redirect_heading }),
-            ...(providerForm.redirect_message != null && { redirect_message: providerForm.redirect_message }),
-            ...(providerForm.redirect_button_background_color != null && { redirect_button_background_color: providerForm.redirect_button_background_color }),
-            ...(providerForm.redirect_button_text != null && { redirect_button_text: providerForm.redirect_button_text }),
-            ...(providerForm.redirect_button_text_color != null && { redirect_button_text_color: providerForm.redirect_button_text_color }),
-            ...(providerForm.content_blacklist != null && { content_blacklist: providerForm.content_blacklist }),
-            ...(providerForm.allowed_domains != null && { allowed_domains: providerForm.allowed_domains }),
-            ...(providerForm.blocked_domains != null && { blocked_domains: providerForm.blocked_domains }),
-            smtp_email_validation: providerForm.smtp_email_validation,
-            contribute_to_spam_training: providerForm.contribute_to_spam_training,
-            created_at: providerForm.created_at,
-            updated_at: providerForm.updated_at,
-            project_name: providerForm.project_name,
-            form_webhooks: providerForm.form_webhooks,
-            inbox_count: providerForm.inbox_count,
-            spam_count: providerForm.spam_count,
-            trash_count: providerForm.trash_count
-        };
+        return ProviderFormSchema.parse(response.data);
     }
 });
 

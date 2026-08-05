@@ -51,11 +51,7 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
 
-        if (!checkpoint) {
-            // Basin paginates the full list but exposes no changed-since filter or deleted feed.
-            await nango.trackDeletesStart('FormWebhook');
-        }
-
+        let trackingStarted = false;
         let page = checkpoint?.page ?? 1;
 
         while (true) {
@@ -83,6 +79,14 @@ const sync = createSync({
 
             if (!parsedBody.success) {
                 throw new Error(`Failed to parse form webhooks response: ${parsedBody.error.message}`);
+            }
+
+            if (!trackingStarted) {
+                // Basin paginates the full list but exposes no changed-since filter or deleted feed.
+                // Started here (after the first page validates) and on every execution of a
+                // checkpointed run, so a resumed invocation stays inside the active delete window.
+                await nango.trackDeletesStart('FormWebhook');
+                trackingStarted = true;
             }
 
             const records = parsedBody.data.form_webhooks.map((record) => ({

@@ -131,6 +131,14 @@ const SubmissionSchema = z.object({
 
 const filters: readonly ['new', 'spam', 'trash'] = ['new', 'spam', 'trash'];
 
+// Basin's /v1/submissions/ endpoint echoes back `meta.page` as the same type it was
+// sent as (a string, since it's a query param) instead of always returning a number.
+const SubmissionsMetaSchema = z.object({
+    count: z.coerce.number(),
+    page: z.coerce.number(),
+    per_page: z.coerce.number()
+});
+
 const CheckpointSchema = z.object({
     form_page: z.number().int().positive(),
     form_index: z.number().int().nonnegative(),
@@ -138,7 +146,8 @@ const CheckpointSchema = z.object({
         .number()
         .int()
         .min(0)
-        .max(filters.length - 1)
+        .max(filters.length - 1),
+    submission_page: z.number().int().positive()
 });
 
 const sync = createSync({
@@ -155,15 +164,12 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
 
-        if (!checkpoint) {
-            // Basin paginates forms but exposes no incremental or deleted feed for submissions.
-            await nango.trackDeletesStart('Submission');
-        }
-
+        let trackingStarted = false;
         const seenIds = new Set<string>();
         let formPage = checkpoint?.form_page ?? 1;
         const initialFormIndex = checkpoint?.form_index ?? 0;
         const initialFilterIndex = checkpoint?.filter_index ?? 0;
+        const initialSubmissionPage = checkpoint?.submission_page ?? 1;
 
         while (true) {
             const formsResponse = await nango.get({
@@ -186,6 +192,14 @@ const sync = createSync({
                 throw new Error(`Failed to parse forms page ${formPage}: ${parsedForms.error.message}`);
             }
 
+            if (!trackingStarted) {
+                // Basin paginates forms but exposes no incremental or deleted feed for submissions.
+                // Started here (after the first page validates) and on every execution of a
+                // checkpointed run, so a resumed invocation stays inside the active delete window.
+                await nango.trackDeletesStart('Submission');
+                trackingStarted = true;
+            }
+
             const forms: FormItem[] = parsedForms.data.forms;
 
             if (forms.length === 0) {
@@ -196,137 +210,166 @@ const sync = createSync({
 
             for (let formIndex = pageFormStartIndex; formIndex < forms.length; formIndex += 1) {
                 const form = forms[formIndex]!;
-                const pageFilterStartIndex = formPage === (checkpoint?.form_page ?? 1) && formIndex === initialFormIndex ? initialFilterIndex : 0;
+                const isResumedForm = formPage === (checkpoint?.form_page ?? 1) && formIndex === initialFormIndex;
+                const pageFilterStartIndex = isResumedForm ? initialFilterIndex : 0;
 
                 for (let filterIndex = pageFilterStartIndex; filterIndex < filters.length; filterIndex += 1) {
                     const filterBy = filters[filterIndex]!;
+                    const isResumedFilter = isResumedForm && filterIndex === initialFilterIndex;
+                    let submissionPage = isResumedFilter ? initialSubmissionPage : 1;
 
-                    // https://usebasin.com/api_docs/v1/swagger.yaml
-                    const response = await nango.get({
-                        endpoint: '/v1/submissions/',
-                        params: {
-                            form_id: String(form.id),
-                            filter_by: filterBy
-                        },
-                        retries: 3
-                    });
+                    while (true) {
+                        // https://usebasin.com/api_docs/v1/swagger.yaml
+                        const response = await nango.get({
+                            endpoint: '/v1/submissions/',
+                            params: {
+                                form_id: String(form.id),
+                                filter_by: filterBy,
+                                page: submissionPage,
+                                per_page: 100
+                            },
+                            retries: 3
+                        });
 
-                    const envelope = z
-                        .object({
-                            submissions: z.array(z.unknown())
-                        })
-                        .safeParse(response.data);
+                        const envelope = z
+                            .object({
+                                submissions: z.array(z.unknown()),
+                                meta: SubmissionsMetaSchema
+                            })
+                            .safeParse(response.data);
 
-                    if (!envelope.success) {
-                        throw new Error(`Failed to parse submissions envelope for form ${form.id} filter ${filterBy}: ${envelope.error.message}`);
-                    }
-
-                    const submissions: SubmissionModel[] = [];
-
-                    for (const raw of envelope.data.submissions) {
-                        const parsed = ProviderSubmissionSchema.safeParse(raw);
-                        if (!parsed.success) {
-                            throw new Error(`Failed to parse submission for form ${form.id}: ${parsed.error.message}`);
+                        if (!envelope.success) {
+                            throw new Error(
+                                `Failed to parse submissions envelope for form ${form.id} filter ${filterBy} page ${submissionPage}: ${envelope.error.message}`
+                            );
                         }
 
-                        const sub: ProviderSubmission = parsed.data;
-                        const id = String(sub.id);
-                        if (seenIds.has(id)) {
+                        const submissions: SubmissionModel[] = [];
+
+                        for (const raw of envelope.data.submissions) {
+                            const parsed = ProviderSubmissionSchema.safeParse(raw);
+                            if (!parsed.success) {
+                                throw new Error(`Failed to parse submission for form ${form.id}: ${parsed.error.message}`);
+                            }
+
+                            const sub: ProviderSubmission = parsed.data;
+                            const id = String(sub.id);
+                            if (seenIds.has(id)) {
+                                continue;
+                            }
+                            seenIds.add(id);
+
+                            const mapped: SubmissionModel = {
+                                id,
+                                form_id: sub.form_id,
+                                spam: sub.spam,
+                                created_at: sub.created_at,
+                                updated_at: sub.updated_at,
+                                read: sub.read,
+                                trash: sub.trash
+                            };
+
+                            if (sub.email != null) {
+                                mapped.email = sub.email;
+                            }
+                            if (sub.source_url != null) {
+                                mapped.source_url = sub.source_url;
+                            }
+                            if (sub.source_host != null) {
+                                mapped.source_host = sub.source_host;
+                            }
+                            if (sub.source_path != null) {
+                                mapped.source_path = sub.source_path;
+                            }
+                            if (sub.source_query != null) {
+                                mapped.source_query = sub.source_query;
+                            }
+                            if (sub.source_fragment != null) {
+                                mapped.source_fragment = sub.source_fragment;
+                            }
+                            if (sub.payload_params != null) {
+                                mapped.payload_params = sub.payload_params;
+                            }
+                            if (sub.spam_reason != null) {
+                                mapped.spam_reason = sub.spam_reason;
+                            }
+                            if (sub.webhook_sent_at != null) {
+                                mapped.webhook_sent_at = sub.webhook_sent_at;
+                            }
+                            if (sub.ip != null) {
+                                mapped.ip = sub.ip;
+                            }
+                            if (sub.referrer != null) {
+                                mapped.referrer = sub.referrer;
+                            }
+                            if (sub.user_agent != null) {
+                                mapped.user_agent = sub.user_agent;
+                            }
+                            if (sub.geocoded_country != null) {
+                                mapped.geocoded_country = sub.geocoded_country;
+                            }
+                            if (sub.geocoded_region != null) {
+                                mapped.geocoded_region = sub.geocoded_region;
+                            }
+                            if (sub.geocoded_city != null) {
+                                mapped.geocoded_city = sub.geocoded_city;
+                            }
+                            if (sub.attachments != null) {
+                                mapped.attachments = sub.attachments;
+                            }
+                            if (sub.form != null) {
+                                if (sub.form.name != null) {
+                                    mapped.form_name = sub.form.name;
+                                }
+                                if (sub.form.uuid != null) {
+                                    mapped.form_uuid = sub.form.uuid;
+                                }
+                            }
+
+                            submissions.push(mapped);
+                        }
+
+                        if (submissions.length > 0) {
+                            await nango.batchSave(submissions, 'Submission');
+                        }
+
+                        const { meta } = envelope.data;
+                        const hasMoreSubmissionPages = meta.count > meta.page * meta.per_page;
+
+                        if (hasMoreSubmissionPages) {
+                            await nango.saveCheckpoint({
+                                form_page: formPage,
+                                form_index: formIndex,
+                                filter_index: filterIndex,
+                                submission_page: submissionPage + 1
+                            });
+                            submissionPage += 1;
                             continue;
                         }
-                        seenIds.add(id);
 
-                        const mapped: SubmissionModel = {
-                            id,
-                            form_id: sub.form_id,
-                            spam: sub.spam,
-                            created_at: sub.created_at,
-                            updated_at: sub.updated_at,
-                            read: sub.read,
-                            trash: sub.trash
-                        };
-
-                        if (sub.email != null) {
-                            mapped.email = sub.email;
-                        }
-                        if (sub.source_url != null) {
-                            mapped.source_url = sub.source_url;
-                        }
-                        if (sub.source_host != null) {
-                            mapped.source_host = sub.source_host;
-                        }
-                        if (sub.source_path != null) {
-                            mapped.source_path = sub.source_path;
-                        }
-                        if (sub.source_query != null) {
-                            mapped.source_query = sub.source_query;
-                        }
-                        if (sub.source_fragment != null) {
-                            mapped.source_fragment = sub.source_fragment;
-                        }
-                        if (sub.payload_params != null) {
-                            mapped.payload_params = sub.payload_params;
-                        }
-                        if (sub.spam_reason != null) {
-                            mapped.spam_reason = sub.spam_reason;
-                        }
-                        if (sub.webhook_sent_at != null) {
-                            mapped.webhook_sent_at = sub.webhook_sent_at;
-                        }
-                        if (sub.ip != null) {
-                            mapped.ip = sub.ip;
-                        }
-                        if (sub.referrer != null) {
-                            mapped.referrer = sub.referrer;
-                        }
-                        if (sub.user_agent != null) {
-                            mapped.user_agent = sub.user_agent;
-                        }
-                        if (sub.geocoded_country != null) {
-                            mapped.geocoded_country = sub.geocoded_country;
-                        }
-                        if (sub.geocoded_region != null) {
-                            mapped.geocoded_region = sub.geocoded_region;
-                        }
-                        if (sub.geocoded_city != null) {
-                            mapped.geocoded_city = sub.geocoded_city;
-                        }
-                        if (sub.attachments != null) {
-                            mapped.attachments = sub.attachments;
-                        }
-                        if (sub.form != null) {
-                            if (sub.form.name != null) {
-                                mapped.form_name = sub.form.name;
-                            }
-                            if (sub.form.uuid != null) {
-                                mapped.form_uuid = sub.form.uuid;
-                            }
-                        }
-
-                        submissions.push(mapped);
-                    }
-
-                    if (submissions.length > 0) {
-                        await nango.batchSave(submissions, 'Submission');
+                        break;
                     }
 
                     if (filterIndex + 1 < filters.length) {
                         await nango.saveCheckpoint({
                             form_page: formPage,
                             form_index: formIndex,
-                            filter_index: filterIndex + 1
+                            filter_index: filterIndex + 1,
+                            submission_page: 1
                         });
                     } else if (formIndex + 1 < forms.length) {
                         await nango.saveCheckpoint({
                             form_page: formPage,
                             form_index: formIndex + 1,
-                            filter_index: 0
+                            filter_index: 0,
+                            submission_page: 1
                         });
                     } else {
                         await nango.saveCheckpoint({
                             form_page: formPage + 1,
                             form_index: 0,
-                            filter_index: 0
+                            filter_index: 0,
+                            submission_page: 1
                         });
                     }
                 }

@@ -36,7 +36,8 @@ const action = createAction({
             data: {
                 name: input.name
             },
-            retries: 3
+            // Non-idempotent: a retry after a timeout could create a duplicate project.
+            retries: 1
         });
 
         const providerProject = ProviderProjectSchema.parse(response.data);

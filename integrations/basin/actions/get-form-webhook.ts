@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    webhook_id: z.number().describe('Form webhook ID. Example: 10113')
+    webhook_id: z.number().int().positive().describe('Form webhook ID. Example: 10113')
 });
 
 const ProviderFormWebhookSchema = z.object({
@@ -15,7 +15,9 @@ const ProviderFormWebhookSchema = z.object({
     enabled: z.boolean(),
     failure_count: z.number(),
     last_failure_at: z.string().nullable().optional(),
-    signing_secret: z.string().nullable().optional()
+    signing_secret: z.string().nullable().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional()
 });
 
 const OutputSchema = z.object({
@@ -28,7 +30,9 @@ const OutputSchema = z.object({
     enabled: z.boolean(),
     failure_count: z.number(),
     last_failure_at: z.string().optional(),
-    signing_secret: z.string().optional()
+    signing_secret: z.string().optional(),
+    created_at: z.string().optional(),
+    updated_at: z.string().optional()
 });
 
 const action = createAction({
@@ -44,6 +48,14 @@ const action = createAction({
             retries: 3
         });
 
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Form webhook not found',
+                webhook_id: input.webhook_id
+            });
+        }
+
         const providerWebhook = ProviderFormWebhookSchema.parse(response.data);
 
         return {
@@ -56,7 +68,9 @@ const action = createAction({
             enabled: providerWebhook.enabled,
             failure_count: providerWebhook.failure_count,
             ...(providerWebhook.last_failure_at != null && { last_failure_at: providerWebhook.last_failure_at }),
-            ...(providerWebhook.signing_secret != null && { signing_secret: providerWebhook.signing_secret })
+            ...(providerWebhook.signing_secret != null && { signing_secret: providerWebhook.signing_secret }),
+            ...(providerWebhook.created_at != null && { created_at: providerWebhook.created_at }),
+            ...(providerWebhook.updated_at != null && { updated_at: providerWebhook.updated_at })
         };
     }
 });

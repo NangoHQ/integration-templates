@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    page: z.number().optional().describe('Page number for pagination. Defaults to 1.'),
+    page: z.number().int().positive().optional().describe('Page number for pagination. Defaults to 1.'),
     query: z.string().optional().describe('Search query filtering by id, name, uuid, or project_id.')
 });
 

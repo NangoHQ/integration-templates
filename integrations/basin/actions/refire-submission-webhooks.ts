@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    submission_id: z.number().describe('Submission ID. Example: 61109858')
+    submission_id: z.number().int().positive().describe('Submission ID. Example: 61109858')
 });
 
 const ProviderResponseSchema = z.object({
@@ -25,7 +25,8 @@ const action = createAction({
         const response = await nango.post({
             // https://docs.usebasin.com/developer-features/api-reference/
             endpoint: `v1/submissions/${encodeURIComponent(String(input.submission_id))}/refire_webhooks`,
-            retries: 3
+            // Non-idempotent: a retry after a timeout could re-fire webhooks that already went out.
+            retries: 1
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

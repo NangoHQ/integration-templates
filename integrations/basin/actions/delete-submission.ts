@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    submissionId: z.number().describe('Submission ID to delete. Example: 61110051')
+    submission_id: z.number().int().positive().describe('Submission ID to delete. Example: 61110051')
 });
 
 const FormSchema = z.object({
@@ -12,7 +12,7 @@ const FormSchema = z.object({
 
 const OutputSchema = z.object({
     id: z.number(),
-    email: z.string(),
+    email: z.string().nullable().optional(),
     source_url: z.string().nullable().optional(),
     source_host: z.string().nullable().optional(),
     source_path: z.string().nullable().optional(),
@@ -34,7 +34,7 @@ const OutputSchema = z.object({
     geocoded_region: z.string().nullable().optional(),
     geocoded_city: z.string().nullable().optional(),
     attachments: z.array(z.unknown()).nullable().optional(),
-    form: FormSchema
+    form: FormSchema.nullable().optional()
 });
 
 const action = createAction({
@@ -47,7 +47,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.usebasin.com/developer-features/api-reference/
         const response = await nango.delete({
-            endpoint: `v1/submissions/${encodeURIComponent(String(input.submissionId))}`,
+            endpoint: `v1/submissions/${encodeURIComponent(String(input.submission_id))}`,
             retries: 10
         });
 
@@ -55,7 +55,7 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Submission not found',
-                submission_id: input.submissionId
+                submission_id: input.submission_id
             });
         }
 

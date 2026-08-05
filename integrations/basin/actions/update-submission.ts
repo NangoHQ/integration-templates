@@ -1,12 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    submissionId: z.string().describe('Submission ID. Example: "61109858"'),
-    read: z.boolean().optional().describe('Mark the submission as read or unread.'),
-    spam: z.boolean().optional().describe('Mark the submission as spam or not spam.'),
-    trash: z.boolean().optional().describe('Mark the submission as trashed or not trashed.')
-});
+const InputSchema = z
+    .object({
+        submission_id: z.string().describe('Submission ID. Example: "61109858"'),
+        read: z.boolean().optional().describe('Mark the submission as read or unread.'),
+        spam: z.boolean().optional().describe('Mark the submission as spam or not spam.'),
+        trash: z.boolean().optional().describe('Mark the submission as trashed or not trashed.')
+    })
+    .refine((data) => data.read !== undefined || data.spam !== undefined || data.trash !== undefined, {
+        message: 'At least one of read, spam, or trash must be provided.'
+    });
 
 const ProviderSubmissionSchema = z
     .object({
@@ -47,12 +51,20 @@ const action = createAction({
 
         const response = await nango.patch({
             // https://docs.usebasin.com/developer-features/api-reference/
-            endpoint: `v1/submissions/${encodeURIComponent(input.submissionId)}`,
+            endpoint: `v1/submissions/${encodeURIComponent(input.submission_id)}`,
             data: {
                 submission: submissionBody
             },
             retries: 3
         });
+
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Submission not found',
+                submission_id: input.submission_id
+            });
+        }
 
         const providerSubmission = ProviderSubmissionSchema.parse(response.data);
 

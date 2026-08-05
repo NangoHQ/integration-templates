@@ -87,7 +87,7 @@ const action = createAction({
             retries: 10
         });
 
-        if (!response.data) {
+        if (response.status === 404) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'Form not found',
