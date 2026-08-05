@@ -15,11 +15,14 @@ const ProviderResponseSchema = z.object({
             commentUnresolve: z
                 .object({
                     success: z.boolean(),
-                    lastSyncId: z.union([z.string(), z.number()]),
-                    comment: z.object({
-                        id: z.string(),
-                        resolvedAt: z.string().nullable().optional()
-                    })
+                    lastSyncId: z.union([z.string(), z.number()]).nullable().optional(),
+                    comment: z
+                        .object({
+                            id: z.string(),
+                            resolvedAt: z.string().nullable().optional()
+                        })
+                        .nullable()
+                        .optional()
                 })
                 .nullable()
                 .optional()
@@ -38,7 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Reopen a previously resolved Linear comment thread.',
-    version: '1.0.4',
+    version: '1.0.5',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -88,6 +91,13 @@ const action = createAction({
                 type: 'unresolve_failed',
                 message: 'Failed to unresolve comment',
                 commentId: input.id
+            });
+        }
+
+        if (result.lastSyncId == null || !result.comment) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Linear API did not return the unresolved comment details.'
             });
         }
 

@@ -84,7 +84,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing Linear initiative.',
-    version: '1.0.1',
+    version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],

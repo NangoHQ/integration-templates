@@ -54,7 +54,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Linear cycle by cycle ID.',
-    version: '1.0.4',
+    version: '1.0.5',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -102,9 +102,29 @@ const action = createAction({
             });
         }
 
-        const cycleData = graphQLResponse.data.data?.cycle;
+        const data = graphQLResponse.data.data;
 
-        if (!cycleData) {
+        // No `data` and no `errors` is a malformed envelope, not a missing cycle.
+        if (data == null) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response shape from Linear API.'
+            });
+        }
+
+        // Linear always returns the `cycle` key (as `null` when the cycle does not exist), so an entirely
+        // absent key means the envelope is malformed rather than the cycle being missing.
+        if (!('cycle' in data)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response shape from Linear API.'
+            });
+        }
+
+        const cycleData = data.cycle;
+
+        // Only an explicit `null` is a genuine not-found.
+        if (cycleData === null) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: `Cycle with id ${input.id} not found.`

@@ -89,7 +89,7 @@ const ProjectsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Linear projects with lead, status, and progress fields',
-    version: '3.0.3',
+    version: '3.0.4',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['read'],
@@ -183,8 +183,15 @@ const sync = createSync({
 
             const { nodes, pageInfo } = parsed.data.data.projects;
 
-            // Only open delete tracking once the first page has been fetched and validated, so a failing
-            // request or response never leaves tracking open with nothing saved against it.
+            // Validate pagination state before touching delete tracking or saving anything: stopping mid-way
+            // would hand an incomplete project set to delete tracking, which would delete every project on
+            // the pages we never fetched. Fail the run instead.
+            if (pageInfo.hasNextPage && pageInfo.endCursor == null) {
+                throw new Error('Inconsistent Linear pagination state: hasNextPage is true but endCursor is missing');
+            }
+
+            // Only open delete tracking once the first page has been fetched and fully validated, so a failing
+            // request or malformed response never leaves tracking open with nothing saved against it.
             if (!deleteTrackingStarted) {
                 await nango.trackDeletesStart('Project');
                 deleteTrackingStarted = true;
@@ -221,12 +228,6 @@ const sync = createSync({
 
             if (projects.length > 0) {
                 await nango.batchSave(projects, 'Project');
-            }
-
-            if (pageInfo.hasNextPage && pageInfo.endCursor == null) {
-                // Stopping here would hand an incomplete project set to delete tracking, which would delete
-                // every project on the pages we never fetched. Fail the run instead.
-                throw new Error('Inconsistent Linear pagination state: hasNextPage is true but endCursor is missing');
             }
 
             hasNext = pageInfo.hasNextPage;

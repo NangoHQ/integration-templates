@@ -46,7 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore an archived Linear issue.',
-    version: '1.0.4',
+    version: '1.0.5',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -77,7 +77,20 @@ const action = createAction({
         });
 
         // Check GraphQL errors before validating the payload shape so provider messages are preserved.
-        const errorCheck = z.object({ errors: z.array(z.object({ message: z.string() })).min(1) }).safeParse(response.data);
+        // `.passthrough()` keeps provider diagnostics such as `extensions` instead of stripping them.
+        const errorCheck = z
+            .object({
+                errors: z
+                    .array(
+                        z
+                            .object({
+                                message: z.string()
+                            })
+                            .passthrough()
+                    )
+                    .min(1)
+            })
+            .safeParse(response.data);
         if (errorCheck.success) {
             throw new nango.ActionError({
                 type: 'graphql_error',

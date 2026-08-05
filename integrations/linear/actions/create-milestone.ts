@@ -7,6 +7,16 @@ const InputSchema = z.object({
     targetDate: z
         .string()
         .regex(/^\d{4}-\d{2}-\d{2}$/, 'Must be in YYYY-MM-DD format.')
+        .refine(
+            (value) => {
+                // Reject impossible calendar dates (e.g. 2024-13-40, 2024-02-30) that the format
+                // regex alone accepts. Parsing as UTC avoids timezone shifts, and comparing the
+                // round-tripped ISO date catches rollovers such as Feb 30 -> Mar 1.
+                const parsed = new Date(`${value}T00:00:00.000Z`);
+                return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
+            },
+            { message: 'Must be a valid calendar date.' }
+        )
         .optional()
         .describe('Target date as an ISO 8601 date string (YYYY-MM-DD). Example: "2026-09-01"')
 });
@@ -65,7 +75,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a milestone within a Linear project',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],

@@ -45,11 +45,14 @@ const GraphQLErrorSchema = z
 const ProviderResponseSchema = z.object({
     data: z
         .object({
+            // Linear returns `initiatives: null` alongside a top-level `errors` array on partial
+            // failures, so this connection must be nullable for the error branch below to be reached.
             initiatives: z
                 .object({
                     nodes: z.array(InitiativeNodeSchema),
                     pageInfo: PageInfoSchema
                 })
+                .nullable()
                 .optional()
         })
         .nullable()
@@ -85,7 +88,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Linear initiatives with pagination.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

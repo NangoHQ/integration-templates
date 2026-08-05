@@ -73,14 +73,24 @@ describe('linear projects tests', () => {
     });
 
     it('should fail rather than truncate when hasNextPage is true without an endCursor', async () => {
-        const { nangoMock } = createTestContext();
+        const { nangoMock, batchSaveSpy } = createTestContext();
+        const trackDeletesStartSpy = vi.spyOn(nangoMock, 'trackDeletesStart');
         const trackDeletesEndSpy = vi.spyOn(nangoMock, 'trackDeletesEnd');
 
         vi.spyOn(nangoMock, 'post').mockResolvedValue({
             data: {
                 data: {
                     projects: {
-                        nodes: [],
+                        nodes: [
+                            {
+                                id: 'project-1',
+                                name: 'Project 1',
+                                status: null,
+                                lead: null,
+                                createdAt: '2026-08-04T12:02:58.691Z',
+                                updatedAt: '2026-08-04T12:02:58.691Z'
+                            }
+                        ],
                         pageInfo: { hasNextPage: true, endCursor: null }
                     }
                 }
@@ -89,6 +99,10 @@ describe('linear projects tests', () => {
 
         await expect(createSync.exec(nangoMock)).rejects.toThrow('Inconsistent Linear pagination state');
 
+        // The pagination-consistency check must run before delete tracking is opened and before any records
+        // are saved, otherwise a malformed first page leaves tracking open against a partial project set.
+        expect(trackDeletesStartSpy).not.toHaveBeenCalled();
+        expect(batchSaveSpy).not.toHaveBeenCalled();
         expect(trackDeletesEndSpy).not.toHaveBeenCalled();
     });
 

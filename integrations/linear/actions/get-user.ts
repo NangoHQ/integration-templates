@@ -35,7 +35,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Linear user by user ID.',
-    version: '1.0.4',
+    version: '1.0.5',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -68,15 +68,17 @@ const action = createAction({
             });
         }
 
-        if (parsed.data.errors && parsed.data.errors.length > 0) {
+        const body = parsed.data;
+
+        if (body.errors && body.errors.length > 0) {
             throw new nango.ActionError({
                 type: 'graphql_error',
                 message: 'GraphQL query failed.',
-                errors: parsed.data.errors
+                errors: body.errors
             });
         }
 
-        const providerUser = parsed.data.data?.user;
+        const providerUser = body.data?.user;
         if (!providerUser) {
             throw new nango.ActionError({
                 type: 'not_found',

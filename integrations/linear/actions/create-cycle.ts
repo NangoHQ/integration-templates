@@ -33,10 +33,15 @@ const ProviderCycleSchema = z.object({
 const GraphQLResponseSchema = z.object({
     data: z
         .object({
-            cycleCreate: z.object({
-                success: z.boolean(),
-                cycle: z.unknown().optional()
-            })
+            // Nullable/optional so a failed mutation (`errors` present alongside `cycleCreate: null`) still
+            // parses and the top-level `errors` check below can surface Linear's real error message.
+            cycleCreate: z
+                .object({
+                    success: z.boolean(),
+                    cycle: z.unknown().optional()
+                })
+                .nullable()
+                .optional()
         })
         .nullable()
         .optional(),
@@ -71,7 +76,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a cycle for a Linear team.',
-    version: '1.0.4',
+    version: '1.0.5',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],

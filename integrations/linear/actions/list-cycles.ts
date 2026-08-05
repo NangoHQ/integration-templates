@@ -61,7 +61,7 @@ const OutputCycleSchema = z.object({
 const OutputSchema = z.object({
     items: z.array(OutputCycleSchema),
     nextCursor: z.string().optional(),
-    // Legacy fields retained for backwards compatibility: `nodes` mirrors `items` and `pageInfo` is derived from `nextCursor`.
+    // Legacy fields retained for backwards compatibility: `nodes` mirrors `items` and `pageInfo` mirrors Linear's raw `pageInfo`.
     nodes: z.array(OutputCycleSchema),
     pageInfo: z.object({
         hasNextPage: z.boolean(),
@@ -71,7 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Linear cycles with filtering and pagination.',
-    version: '1.0.4',
+    version: '1.0.5',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -176,9 +176,11 @@ const action = createAction({
             items,
             ...(nextCursor !== undefined && { nextCursor }),
             nodes: items,
+            // Legacy `pageInfo` mirrors Linear's raw `pageInfo` verbatim: deriving it from `nextCursor` would
+            // drop the real terminal `endCursor`, since `nextCursor` is omitted once `hasNextPage` is false.
             pageInfo: {
-                hasNextPage: !!nextCursor,
-                endCursor: nextCursor ?? null
+                hasNextPage: pageInfo.hasNextPage,
+                endCursor: pageInfo.endCursor ?? null
             }
         };
     }
