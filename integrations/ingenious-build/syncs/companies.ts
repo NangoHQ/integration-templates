@@ -3,21 +3,21 @@ import { z } from 'zod';
 
 const ProviderCompanySchema = z.object({
     id: z.string(),
-    name: z.string().nullable(),
-    account_type: z.string().nullable(),
-    address1: z.string().nullable(),
-    address2: z.string().nullable(),
-    city: z.string().nullable(),
-    state: z.string().nullable(),
-    zip: z.string().nullable(),
-    country_code: z.string().nullable(),
-    phone: z.string().nullable(),
-    email: z.string().nullable(),
-    website: z.string().nullable(),
-    custom_id: z.string().nullable(),
-    office_locations: z.array(z.string()).optional(),
-    is_archived: z.boolean().nullable(),
-    tags: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
+    name: z.string().nullish(),
+    account_type: z.string().nullish(),
+    address1: z.string().nullish(),
+    address2: z.string().nullish(),
+    city: z.string().nullish(),
+    state: z.string().nullish(),
+    zip: z.string().nullish(),
+    country_code: z.string().nullish(),
+    phone: z.string().nullish(),
+    email: z.string().nullish(),
+    website: z.string().nullish(),
+    custom_id: z.string().nullish(),
+    office_locations: z.array(z.string()).nullish(),
+    is_archived: z.boolean().nullish(),
+    tags: z.array(z.object({ id: z.string().nullish(), name: z.string().nullish() })).nullish(),
     created_at: z.string(),
     updated_at: z.string()
 });
@@ -38,7 +38,7 @@ const CompanySchema = z.object({
     custom_id: z.string().optional(),
     office_locations: z.array(z.string()).optional(),
     is_archived: z.boolean().optional(),
-    tags: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
+    tags: z.array(z.object({ id: z.string().optional(), name: z.string().optional() })).optional(),
     created_at: z.string(),
     updated_at: z.string()
 });
@@ -63,10 +63,10 @@ const sync = createSync({
 
         // Blocker: provider only exposes page/per_page pagination with no verified
         // modified-since query parameter for incremental filtering. Resume the
-        // current full scan by checkpointing the next page instead.
-        if (nextPage === 1) {
-            await nango.trackDeletesStart('Company');
-        }
+        // current full scan by checkpointing the next page instead. Delete tracking is
+        // started only once the first page has been fetched and validated (below), so a failure
+        // on the very first request never leaves delete tracking started with nothing enumerated.
+        let deletesStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://api.ingenious.build/reference/indexcompanypubv2
@@ -112,17 +112,25 @@ const sync = createSync({
                     ...(record.custom_id != null && { custom_id: record.custom_id }),
                     ...(record.office_locations != null && { office_locations: record.office_locations }),
                     ...(record.is_archived != null && { is_archived: record.is_archived }),
-                    ...(record.tags != null && { tags: record.tags }),
+                    ...(record.tags != null && {
+                        tags: record.tags.map((tag) => ({
+                            ...(tag.id != null && { id: tag.id }),
+                            ...(tag.name != null && { name: tag.name })
+                        }))
+                    }),
                     created_at: record.created_at,
                     updated_at: record.updated_at
                 };
             });
 
-            if (companies.length === 0) {
-                continue;
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Company');
+                deletesStarted = true;
             }
 
-            await nango.batchSave(companies, 'Company');
+            if (companies.length > 0) {
+                await nango.batchSave(companies, 'Company');
+            }
 
             if (nextPage !== undefined) {
                 await nango.saveCheckpoint({ page: nextPage });
@@ -130,7 +138,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Company');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('Company');
+        }
     }
 });
 

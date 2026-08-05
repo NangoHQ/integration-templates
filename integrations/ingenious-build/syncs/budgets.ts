@@ -58,10 +58,10 @@ const sync = createSync({
         let nextPage: number | undefined = checkpoint && typeof checkpoint['page'] === 'number' ? checkpoint['page'] : 1;
 
         // Blocker: the /api/v2/pub/budgets list endpoint has no verified incremental
-        // filter. Resume the current full scan by checkpointing the next page.
-        if (nextPage === 1) {
-            await nango.trackDeletesStart('Budget');
-        }
+        // filter. Resume the current full scan by checkpointing the next page. Delete tracking is
+        // started only once the first page has been fetched and validated (below), so a failure
+        // on the very first request never leaves delete tracking started with nothing enumerated.
+        let deletesStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://api.ingenious.build/reference/indexbudgetpubv2
@@ -112,6 +112,11 @@ const sync = createSync({
                 budgets.push(budget);
             }
 
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Budget');
+                deletesStarted = true;
+            }
+
             if (budgets.length > 0) {
                 await nango.batchSave(budgets, 'Budget');
             }
@@ -122,7 +127,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Budget');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('Budget');
+        }
     }
 });
 

@@ -33,7 +33,10 @@ const action = createAction({
                 base_currency: input.base_currency,
                 ...(input.status !== undefined && { status: input.status })
             },
-            retries: 3
+            // No provider-supported idempotency key exists for this endpoint. A single write
+            // retry (the same convention used by other Ingenious Build create actions) bounds
+            // the risk of creating a duplicate project on a transient failure.
+            retries: 1
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

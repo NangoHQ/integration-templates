@@ -1,0 +1,582 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "6a6b8337374668eea203ccb8",
+        "name": "Administrator",
+        "permissions": {
+          "resources": {
+            "projects": {
+              "can_manage_projects_and_its_resources_without_invitation": true,
+              "can_start_and_copy_projects": true,
+              "can_manage_users_project_role_on_project_directory": true,
+              "can_override_approvals": true
+            },
+            "project_financials": {
+              "can_view_budget": true,
+              "can_approve_budget": true,
+              "can_create_and_edit_budget": true,
+              "can_view_invoices": true,
+              "can_approve_invoices": true,
+              "can_create_and_edit_invoices": true,
+              "can_view_contracts": true,
+              "can_approve_contracts": true,
+              "can_create_and_edit_contracts": true,
+              "can_view_contract_changes": true,
+              "can_approve_contract_changes": true,
+              "can_create_and_edit_contract_changes": true,
+              "can_view_bid_packages": true,
+              "can_create_and_edit_bid_packages": true,
+              "can_view_cash_flow": true,
+              "can_create_and_edit_cash_flow": true,
+              "can_manage_direct_costs": true,
+              "can_access_project_financials": true,
+              "can_view_project_funding": true,
+              "can_create_and_edit_project_funding": true
+            },
+            "capital_plan": {
+              "can_view_pipelines_and_capital_plans": false,
+              "can_manage_pipelines_and_capital_plans": false
+            },
+            "portfolios_buildings_sites": {
+              "can_manage_buildings_and_sites_and_enter_new_addresses": true,
+              "can_manage_accessible_portfolios": true
+            },
+            "financials_and_rfps": {
+              "can_manage_rfps": true,
+              "can_manage_funding_sources": true
+            },
+            "workspace_configuration": {
+              "can_manage_company_settings": true,
+              "can_manage_company_list_and_templates": true,
+              "can_manage_employee_records_and_invitations_and_new_requests": true,
+              "can_manage_custom_account_types_and_project_roles": true,
+              "can_manage_vendor_engagements": true,
+              "can_manage_reports": false,
+              "can_manage_workspace_documents": true,
+              "can_manage_accounting_companies": true
+            },
+            "data_management": {
+              "can_create_access_tokens_and_oauth": true,
+              "can_manage_integrations": true,
+              "can_access_mcp": true
+            }
+          }
+        },
+        "created_at": "2026-07-30T17:00:39Z",
+        "updated_at": "2026-07-30T17:00:39Z"
+      },
+      {
+        "id": "6a6b8338374668eea203cce7",
+        "name": "Leadership",
+        "permissions": {
+          "resources": {
+            "projects": {
+              "can_manage_projects_and_its_resources_without_invitation": false,
+              "can_start_and_copy_projects": true,
+              "can_manage_users_project_role_on_project_directory": true,
+              "can_override_approvals": false
+            },
+            "project_financials": {
+              "can_view_budget": true,
+              "can_approve_budget": true,
+              "can_create_and_edit_budget": true,
+              "can_view_invoices": true,
+              "can_approve_invoices": true,
+              "can_create_and_edit_invoices": true,
+              "can_view_contracts": true,
+              "can_approve_contracts": true,
+              "can_create_and_edit_contracts": true,
+              "can_view_contract_changes": true,
+              "can_approve_contract_changes": true,
+              "can_create_and_edit_contract_changes": true,
+              "can_view_bid_packages": true,
+              "can_create_and_edit_bid_packages": true,
+              "can_view_cash_flow": true,
+              "can_create_and_edit_cash_flow": false,
+              "can_manage_direct_costs": true,
+              "can_access_project_financials": true,
+              "can_view_project_funding": true,
+              "can_create_and_edit_project_funding": true
+            },
+            "capital_plan": {
+              "can_view_pipelines_and_capital_plans": false,
+              "can_manage_pipelines_and_capital_plans": false
+            },
+            "portfolios_buildings_sites": {
+              "can_manage_buildings_and_sites_and_enter_new_addresses": true,
+              "can_manage_accessible_portfolios": false
+            },
+            "financials_and_rfps": {
+              "can_manage_rfps": true,
+              "can_manage_funding_sources": true
+            },
+            "workspace_configuration": {
+              "can_manage_company_settings": false,
+              "can_manage_company_list_and_templates": false,
+              "can_manage_employee_records_and_invitations_and_new_requests": false,
+              "can_manage_custom_account_types_and_project_roles": false,
+              "can_manage_vendor_engagements": true,
+              "can_manage_reports": false,
+              "can_manage_workspace_documents": false,
+              "can_manage_accounting_companies": false
+            },
+            "data_management": {
+              "can_create_access_tokens_and_oauth": false,
+              "can_manage_integrations": false,
+              "can_access_mcp": true
+            }
+          }
+        },
+        "created_at": "2026-07-30T17:00:40Z",
+        "updated_at": "2026-07-30T17:00:40Z"
+      },
+      {
+        "id": "6a6b8338374668eea203cd16",
+        "name": "Biz Ops",
+        "permissions": {
+          "resources": {
+            "projects": {
+              "can_manage_projects_and_its_resources_without_invitation": true,
+              "can_start_and_copy_projects": true,
+              "can_manage_users_project_role_on_project_directory": true,
+              "can_override_approvals": false
+            },
+            "project_financials": {
+              "can_view_budget": true,
+              "can_approve_budget": true,
+              "can_create_and_edit_budget": true,
+              "can_view_invoices": true,
+              "can_approve_invoices": true,
+              "can_create_and_edit_invoices": true,
+              "can_view_contracts": true,
+              "can_approve_contracts": true,
+              "can_create_and_edit_contracts": true,
+              "can_view_contract_changes": true,
+              "can_approve_contract_changes": true,
+              "can_create_and_edit_contract_changes": true,
+              "can_view_bid_packages": true,
+              "can_create_and_edit_bid_packages": true,
+              "can_view_cash_flow": true,
+              "can_create_and_edit_cash_flow": false,
+              "can_manage_direct_costs": true,
+              "can_access_project_financials": true,
+              "can_view_project_funding": true,
+              "can_create_and_edit_project_funding": true
+            },
+            "capital_plan": {
+              "can_view_pipelines_and_capital_plans": false,
+              "can_manage_pipelines_and_capital_plans": false
+            },
+            "portfolios_buildings_sites": {
+              "can_manage_buildings_and_sites_and_enter_new_addresses": true,
+              "can_manage_accessible_portfolios": false
+            },
+            "financials_and_rfps": {
+              "can_manage_rfps": true,
+              "can_manage_funding_sources": true
+            },
+            "workspace_configuration": {
+              "can_manage_company_settings": false,
+              "can_manage_company_list_and_templates": false,
+              "can_manage_employee_records_and_invitations_and_new_requests": false,
+              "can_manage_custom_account_types_and_project_roles": false,
+              "can_manage_vendor_engagements": true,
+              "can_manage_reports": false,
+              "can_manage_workspace_documents": false,
+              "can_manage_accounting_companies": false
+            },
+            "data_management": {
+              "can_create_access_tokens_and_oauth": false,
+              "can_manage_integrations": false,
+              "can_access_mcp": true
+            }
+          }
+        },
+        "created_at": "2026-07-30T17:00:40Z",
+        "updated_at": "2026-07-30T17:00:40Z"
+      },
+      {
+        "id": "6a6b8338374668eea203cd45",
+        "name": "Standard",
+        "permissions": {
+          "resources": {
+            "projects": {
+              "can_manage_projects_and_its_resources_without_invitation": false,
+              "can_start_and_copy_projects": true,
+              "can_manage_users_project_role_on_project_directory": false,
+              "can_override_approvals": false
+            },
+            "project_financials": {
+              "can_view_budget": true,
+              "can_approve_budget": true,
+              "can_create_and_edit_budget": true,
+              "can_view_invoices": true,
+              "can_approve_invoices": true,
+              "can_create_and_edit_invoices": true,
+              "can_view_contracts": true,
+              "can_approve_contracts": true,
+              "can_create_and_edit_contracts": true,
+              "can_view_contract_changes": true,
+              "can_approve_contract_changes": true,
+              "can_create_and_edit_contract_changes": true,
+              "can_view_bid_packages": true,
+              "can_create_and_edit_bid_packages": true,
+              "can_view_cash_flow": true,
+              "can_create_and_edit_cash_flow": false,
+              "can_manage_direct_costs": true,
+              "can_access_project_financials": true,
+              "can_view_project_funding": true,
+              "can_create_and_edit_project_funding": true
+            },
+            "capital_plan": {
+              "can_view_pipelines_and_capital_plans": false,
+              "can_manage_pipelines_and_capital_plans": false
+            },
+            "portfolios_buildings_sites": {
+              "can_manage_buildings_and_sites_and_enter_new_addresses": true,
+              "can_manage_accessible_portfolios": false
+            },
+            "financials_and_rfps": {
+              "can_manage_rfps": true,
+              "can_manage_funding_sources": true
+            },
+            "workspace_configuration": {
+              "can_manage_company_settings": false,
+              "can_manage_company_list_and_templates": false,
+              "can_manage_employee_records_and_invitations_and_new_requests": false,
+              "can_manage_custom_account_types_and_project_roles": false,
+              "can_manage_vendor_engagements": true,
+              "can_manage_reports": false,
+              "can_manage_workspace_documents": false,
+              "can_manage_accounting_companies": false
+            },
+            "data_management": {
+              "can_create_access_tokens_and_oauth": false,
+              "can_manage_integrations": false,
+              "can_access_mcp": true
+            }
+          }
+        },
+        "created_at": "2026-07-30T17:00:40Z",
+        "updated_at": "2026-07-30T17:00:40Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v2/pub/account-types": {
+        "response": {
+          "items": [
+            {
+              "id": "6a6b8337374668eea203ccb8",
+              "name": "Administrator",
+              "permissions": {
+                "resources": {
+                  "projects": {
+                    "can_manage_projects_and_its_resources_without_invitation": true,
+                    "can_start_and_copy_projects": true,
+                    "can_manage_users_project_role_on_project_directory": true,
+                    "can_override_approvals": true
+                  },
+                  "project_financials": {
+                    "can_view_budget": true,
+                    "can_approve_budget": true,
+                    "can_create_and_edit_budget": true,
+                    "can_view_invoices": true,
+                    "can_approve_invoices": true,
+                    "can_create_and_edit_invoices": true,
+                    "can_view_contracts": true,
+                    "can_approve_contracts": true,
+                    "can_create_and_edit_contracts": true,
+                    "can_view_contract_changes": true,
+                    "can_approve_contract_changes": true,
+                    "can_create_and_edit_contract_changes": true,
+                    "can_view_bid_packages": true,
+                    "can_create_and_edit_bid_packages": true,
+                    "can_view_cash_flow": true,
+                    "can_create_and_edit_cash_flow": true,
+                    "can_manage_direct_costs": true,
+                    "can_access_project_financials": true,
+                    "can_view_project_funding": true,
+                    "can_create_and_edit_project_funding": true
+                  },
+                  "capital_plan": {
+                    "can_view_pipelines_and_capital_plans": false,
+                    "can_manage_pipelines_and_capital_plans": false
+                  },
+                  "portfolios_buildings_sites": {
+                    "can_manage_buildings_and_sites_and_enter_new_addresses": true,
+                    "can_manage_accessible_portfolios": true
+                  },
+                  "financials_and_rfps": {
+                    "can_manage_rfps": true,
+                    "can_manage_funding_sources": true
+                  },
+                  "workspace_configuration": {
+                    "can_manage_company_settings": true,
+                    "can_manage_company_list_and_templates": true,
+                    "can_manage_employee_records_and_invitations_and_new_requests": true,
+                    "can_manage_custom_account_types_and_project_roles": true,
+                    "can_manage_vendor_engagements": true,
+                    "can_manage_reports": false,
+                    "can_manage_workspace_documents": true,
+                    "can_manage_accounting_companies": true
+                  },
+                  "data_management": {
+                    "can_create_access_tokens_and_oauth": true,
+                    "can_manage_integrations": true,
+                    "can_access_mcp": true
+                  }
+                }
+              },
+              "created_at": "2026-07-30T17:00:39Z",
+              "updated_at": "2026-07-30T17:00:39Z"
+            },
+            {
+              "id": "6a6b8338374668eea203cce7",
+              "name": "Leadership",
+              "permissions": {
+                "resources": {
+                  "projects": {
+                    "can_manage_projects_and_its_resources_without_invitation": false,
+                    "can_start_and_copy_projects": true,
+                    "can_manage_users_project_role_on_project_directory": true,
+                    "can_override_approvals": false
+                  },
+                  "project_financials": {
+                    "can_view_budget": true,
+                    "can_approve_budget": true,
+                    "can_create_and_edit_budget": true,
+                    "can_view_invoices": true,
+                    "can_approve_invoices": true,
+                    "can_create_and_edit_invoices": true,
+                    "can_view_contracts": true,
+                    "can_approve_contracts": true,
+                    "can_create_and_edit_contracts": true,
+                    "can_view_contract_changes": true,
+                    "can_approve_contract_changes": true,
+                    "can_create_and_edit_contract_changes": true,
+                    "can_view_bid_packages": true,
+                    "can_create_and_edit_bid_packages": true,
+                    "can_view_cash_flow": true,
+                    "can_create_and_edit_cash_flow": false,
+                    "can_manage_direct_costs": true,
+                    "can_access_project_financials": true,
+                    "can_view_project_funding": true,
+                    "can_create_and_edit_project_funding": true
+                  },
+                  "capital_plan": {
+                    "can_view_pipelines_and_capital_plans": false,
+                    "can_manage_pipelines_and_capital_plans": false
+                  },
+                  "portfolios_buildings_sites": {
+                    "can_manage_buildings_and_sites_and_enter_new_addresses": true,
+                    "can_manage_accessible_portfolios": false
+                  },
+                  "financials_and_rfps": {
+                    "can_manage_rfps": true,
+                    "can_manage_funding_sources": true
+                  },
+                  "workspace_configuration": {
+                    "can_manage_company_settings": false,
+                    "can_manage_company_list_and_templates": false,
+                    "can_manage_employee_records_and_invitations_and_new_requests": false,
+                    "can_manage_custom_account_types_and_project_roles": false,
+                    "can_manage_vendor_engagements": true,
+                    "can_manage_reports": false,
+                    "can_manage_workspace_documents": false,
+                    "can_manage_accounting_companies": false
+                  },
+                  "data_management": {
+                    "can_create_access_tokens_and_oauth": false,
+                    "can_manage_integrations": false,
+                    "can_access_mcp": true
+                  }
+                }
+              },
+              "created_at": "2026-07-30T17:00:40Z",
+              "updated_at": "2026-07-30T17:00:40Z"
+            },
+            {
+              "id": "6a6b8338374668eea203cd16",
+              "name": "Biz Ops",
+              "permissions": {
+                "resources": {
+                  "projects": {
+                    "can_manage_projects_and_its_resources_without_invitation": true,
+                    "can_start_and_copy_projects": true,
+                    "can_manage_users_project_role_on_project_directory": true,
+                    "can_override_approvals": false
+                  },
+                  "project_financials": {
+                    "can_view_budget": true,
+                    "can_approve_budget": true,
+                    "can_create_and_edit_budget": true,
+                    "can_view_invoices": true,
+                    "can_approve_invoices": true,
+                    "can_create_and_edit_invoices": true,
+                    "can_view_contracts": true,
+                    "can_approve_contracts": true,
+                    "can_create_and_edit_contracts": true,
+                    "can_view_contract_changes": true,
+                    "can_approve_contract_changes": true,
+                    "can_create_and_edit_contract_changes": true,
+                    "can_view_bid_packages": true,
+                    "can_create_and_edit_bid_packages": true,
+                    "can_view_cash_flow": true,
+                    "can_create_and_edit_cash_flow": false,
+                    "can_manage_direct_costs": true,
+                    "can_access_project_financials": true,
+                    "can_view_project_funding": true,
+                    "can_create_and_edit_project_funding": true
+                  },
+                  "capital_plan": {
+                    "can_view_pipelines_and_capital_plans": false,
+                    "can_manage_pipelines_and_capital_plans": false
+                  },
+                  "portfolios_buildings_sites": {
+                    "can_manage_buildings_and_sites_and_enter_new_addresses": true,
+                    "can_manage_accessible_portfolios": false
+                  },
+                  "financials_and_rfps": {
+                    "can_manage_rfps": true,
+                    "can_manage_funding_sources": true
+                  },
+                  "workspace_configuration": {
+                    "can_manage_company_settings": false,
+                    "can_manage_company_list_and_templates": false,
+                    "can_manage_employee_records_and_invitations_and_new_requests": false,
+                    "can_manage_custom_account_types_and_project_roles": false,
+                    "can_manage_vendor_engagements": true,
+                    "can_manage_reports": false,
+                    "can_manage_workspace_documents": false,
+                    "can_manage_accounting_companies": false
+                  },
+                  "data_management": {
+                    "can_create_access_tokens_and_oauth": false,
+                    "can_manage_integrations": false,
+                    "can_access_mcp": true
+                  }
+                }
+              },
+              "created_at": "2026-07-30T17:00:40Z",
+              "updated_at": "2026-07-30T17:00:40Z"
+            },
+            {
+              "id": "6a6b8338374668eea203cd45",
+              "name": "Standard",
+              "permissions": {
+                "resources": {
+                  "projects": {
+                    "can_manage_projects_and_its_resources_without_invitation": false,
+                    "can_start_and_copy_projects": true,
+                    "can_manage_users_project_role_on_project_directory": false,
+                    "can_override_approvals": false
+                  },
+                  "project_financials": {
+                    "can_view_budget": true,
+                    "can_approve_budget": true,
+                    "can_create_and_edit_budget": true,
+                    "can_view_invoices": true,
+                    "can_approve_invoices": true,
+                    "can_create_and_edit_invoices": true,
+                    "can_view_contracts": true,
+                    "can_approve_contracts": true,
+                    "can_create_and_edit_contracts": true,
+                    "can_view_contract_changes": true,
+                    "can_approve_contract_changes": true,
+                    "can_create_and_edit_contract_changes": true,
+                    "can_view_bid_packages": true,
+                    "can_create_and_edit_bid_packages": true,
+                    "can_view_cash_flow": true,
+                    "can_create_and_edit_cash_flow": false,
+                    "can_manage_direct_costs": true,
+                    "can_access_project_financials": true,
+                    "can_view_project_funding": true,
+                    "can_create_and_edit_project_funding": true
+                  },
+                  "capital_plan": {
+                    "can_view_pipelines_and_capital_plans": false,
+                    "can_manage_pipelines_and_capital_plans": false
+                  },
+                  "portfolios_buildings_sites": {
+                    "can_manage_buildings_and_sites_and_enter_new_addresses": true,
+                    "can_manage_accessible_portfolios": false
+                  },
+                  "financials_and_rfps": {
+                    "can_manage_rfps": true,
+                    "can_manage_funding_sources": true
+                  },
+                  "workspace_configuration": {
+                    "can_manage_company_settings": false,
+                    "can_manage_company_list_and_templates": false,
+                    "can_manage_employee_records_and_invitations_and_new_requests": false,
+                    "can_manage_custom_account_types_and_project_roles": false,
+                    "can_manage_vendor_engagements": true,
+                    "can_manage_reports": false,
+                    "can_manage_workspace_documents": false,
+                    "can_manage_accounting_companies": false
+                  },
+                  "data_management": {
+                    "can_create_access_tokens_and_oauth": false,
+                    "can_manage_integrations": false,
+                    "can_access_mcp": true
+                  }
+                }
+              },
+              "created_at": "2026-07-30T17:00:40Z",
+              "updated_at": "2026-07-30T17:00:40Z"
+            }
+          ],
+          "total": 4,
+          "page": 1,
+          "per_page": 20,
+          "first_page_url": "https://nangotest.ingenious.build/api/v2/pub/account-types?page=1",
+          "last_page_url": "https://nangotest.ingenious.build/api/v2/pub/account-types?page=1",
+          "next_page_url": null,
+          "prev_page_url": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 14:37:30 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=63072000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "60",
+          "x-ratelimit-remaining": "53",
+          "x-ratelimit-reset": "1785854261",
+          "cache-control": "no-cache, private",
+          "cross-origin-resource-policy": "same-site",
+          "set-cookie": "api_session=KNb787WV4MrjS0W8iDGsjgpaGIaYYWi9botAomEH; expires=Fri, 07 Aug 2026 14:37:30 GMT; Max-Age=259200; path=/; domain=.ingenious.build; secure; httponly; samesite=lax",
+          "vary": "Origin,Accept-Encoding",
+          "x-date": "Tue, 04 Aug 2026 14:37:30 GMT",
+          "x-machine": "icon-api-5bf8644d8c-mdmkf",
+          "x-request-id": "900acf9c-72b6-4b6b-a906-1ac806e0c6cc",
+          "x-envoy-upstream-service-time": "264",
+          "server": "istio-envoy",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "41070825ff3e2eab48bbbeea2f7c4bb78beae25b",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "20"
+          }
+        }
+      }
+    }
+  }
+}

@@ -32,15 +32,16 @@ const ProviderCompanySchema = z.object({
     email: z.string().nullable().optional(),
     website: z.string().nullable().optional(),
     custom_id: z.string().nullable().optional(),
-    office_locations: z.array(z.string()).optional(),
+    office_locations: z.array(z.string()).nullable().optional(),
     is_archived: z.boolean().nullable().optional(),
     tags: z
         .array(
             z.object({
-                id: z.string(),
-                name: z.string()
+                id: z.string().nullable().optional(),
+                name: z.string().nullable().optional()
             })
         )
+        .nullable()
         .optional(),
     created_at: z.string().optional(),
     updated_at: z.string().optional()
@@ -65,8 +66,8 @@ const OutputSchema = z.object({
     tags: z
         .array(
             z.object({
-                id: z.string(),
-                name: z.string()
+                id: z.string().optional(),
+                name: z.string().optional()
             })
         )
         .optional(),
@@ -154,7 +155,12 @@ const action = createAction({
             ...(providerCompany.custom_id != null && { custom_id: providerCompany.custom_id }),
             ...(providerCompany.office_locations != null && { office_locations: providerCompany.office_locations }),
             ...(providerCompany.is_archived != null && { is_archived: providerCompany.is_archived }),
-            ...(providerCompany.tags != null && { tags: providerCompany.tags }),
+            ...(providerCompany.tags != null && {
+                tags: providerCompany.tags.map((tag) => ({
+                    ...(tag.id != null && { id: tag.id }),
+                    ...(tag.name != null && { name: tag.name })
+                }))
+            }),
             ...(providerCompany.created_at != null && { created_at: providerCompany.created_at }),
             ...(providerCompany.updated_at != null && { updated_at: providerCompany.updated_at })
         };

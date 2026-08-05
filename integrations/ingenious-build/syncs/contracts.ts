@@ -41,7 +41,7 @@ const ContractSchema = z.object({
     client_contact_id: z.string().optional(),
     status: z.string().optional(),
     sov_status: z.string().optional(),
-    retention: z.number().optional(),
+    retention: z.number().nullable().optional(),
     effective_date: z.string().nullable().optional(),
     initiation_date: z.string().nullable().optional(),
     source: z.string().optional(),
@@ -80,10 +80,10 @@ const sync = createSync({
         let nextPage: number | undefined = checkpoint && typeof checkpoint['page'] === 'number' ? checkpoint['page'] : 1;
 
         // Full refresh: provider V2 list endpoint has no viable incremental filter confirmed live.
-        // Resume the current full scan by checkpointing the next page.
-        if (nextPage === 1) {
-            await nango.trackDeletesStart('Contract');
-        }
+        // Resume the current full scan by checkpointing the next page. Delete tracking is
+        // started only once the first page has been fetched and validated (below), so a failure
+        // on the very first request never leaves delete tracking started with nothing enumerated.
+        let deletesStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://api.ingenious.build/reference/a7f30cc208e5c50b2929494bcdf0d715.md
@@ -136,6 +136,11 @@ const sync = createSync({
                 };
             });
 
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Contract');
+                deletesStarted = true;
+            }
+
             if (contracts.length > 0) {
                 await nango.batchSave(contracts, 'Contract');
             }
@@ -146,7 +151,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Contract');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('Contract');
+        }
     }
 });
 

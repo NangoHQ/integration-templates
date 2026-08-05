@@ -82,10 +82,10 @@ const sync = createSync({
         let nextPage: number | undefined = checkpoint && typeof checkpoint['page'] === 'number' ? checkpoint['page'] : 1;
 
         // Blocker: no viable incremental/changed-since filter confirmed live for this list endpoint.
-        // Resume the current full refresh by checkpointing the next page.
-        if (nextPage === 1) {
-            await nango.trackDeletesStart('Employee');
-        }
+        // Resume the current full refresh by checkpointing the next page. Delete tracking is
+        // started only once the first page has been fetched and validated (below), so a failure
+        // on the very first request never leaves delete tracking started with nothing enumerated.
+        let deletesStarted = false;
 
         // https://api.ingenious.build/reference/indexemployeepubv2.md
         const proxyConfig: ProxyConfiguration = {
@@ -147,6 +147,11 @@ const sync = createSync({
                 };
             });
 
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Employee');
+                deletesStarted = true;
+            }
+
             if (employees.length > 0) {
                 await nango.batchSave(employees, 'Employee');
             }
@@ -157,7 +162,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Employee');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('Employee');
+        }
     }
 });
 

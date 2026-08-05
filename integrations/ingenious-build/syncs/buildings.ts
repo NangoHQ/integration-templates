@@ -61,10 +61,10 @@ const sync = createSync({
         let nextPage: number | undefined = checkpoint && typeof checkpoint['page'] === 'number' ? checkpoint['page'] : 1;
 
         // Blocker: the buildings list is page-based only, so checkpoint the next
-        // page of the current full refresh instead of an incremental filter.
-        if (nextPage === 1) {
-            await nango.trackDeletesStart('Building');
-        }
+        // page of the current full refresh instead of an incremental filter. Delete tracking is
+        // started only once the first page has been fetched and validated (below), so a failure
+        // on the very first request never leaves delete tracking started with nothing enumerated.
+        let deletesStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://api.ingenious.build/reference/v2-get-buildings
@@ -97,6 +97,11 @@ const sync = createSync({
                 buildings.push(parsed.data);
             }
 
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Building');
+                deletesStarted = true;
+            }
+
             if (buildings.length > 0) {
                 await nango.batchSave(buildings, 'Building');
             }
@@ -107,7 +112,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Building');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('Building');
+        }
     }
 });
 

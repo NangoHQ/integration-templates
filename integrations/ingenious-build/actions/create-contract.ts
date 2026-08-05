@@ -69,7 +69,10 @@ const action = createAction({
                 ...(input.accounting_company_id !== undefined && { accounting_company_id: input.accounting_company_id }),
                 ...(input.payment_term_id !== undefined && { payment_term_id: input.payment_term_id })
             },
-            retries: 3
+            // No provider-supported idempotency key exists for this endpoint. A single write
+            // retry (the same convention used by other Ingenious Build create actions) bounds
+            // the risk of creating a duplicate contract on a transient failure.
+            retries: 1
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

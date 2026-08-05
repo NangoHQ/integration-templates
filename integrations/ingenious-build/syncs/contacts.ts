@@ -3,21 +3,21 @@ import { z } from 'zod';
 
 const RawContactSchema = z.object({
     id: z.string(),
-    first_name: z.string().optional(),
-    last_name: z.string().optional(),
-    full_name: z.string().optional(),
-    email: z.string().optional(),
-    title: z.string().nullable().optional(),
-    prefix: z.string().nullable().optional(),
-    office_phone: z.string().nullable().optional(),
-    cell_phone: z.string().nullable().optional(),
-    country_code: z.string().nullable().optional(),
-    internal_notes: z.string().nullable().optional(),
-    is_archived: z.boolean().optional(),
-    status: z.string().optional(),
-    company_id: z.string().optional(),
-    created_at: z.string().optional(),
-    updated_at: z.string().optional()
+    first_name: z.string().nullish(),
+    last_name: z.string().nullish(),
+    full_name: z.string().nullish(),
+    email: z.string().nullish(),
+    title: z.string().nullish(),
+    prefix: z.string().nullish(),
+    office_phone: z.string().nullish(),
+    cell_phone: z.string().nullish(),
+    country_code: z.string().nullish(),
+    internal_notes: z.string().nullish(),
+    is_archived: z.boolean().nullish(),
+    status: z.string().nullish(),
+    company_id: z.string().nullish(),
+    created_at: z.string().nullish(),
+    updated_at: z.string().nullish()
 });
 
 const ContactSchema = z.object({
@@ -59,10 +59,10 @@ const sync = createSync({
 
         // Blocker: provider only exposes /api/v2/pub/contacts with page/per_page pagination.
         // No incremental/modified-since filter was found on this endpoint's query params,
-        // so resume the current full refresh by checkpointing the next page.
-        if (nextPage === 1) {
-            await nango.trackDeletesStart('Contact');
-        }
+        // so resume the current full refresh by checkpointing the next page. Delete tracking is
+        // started only once the first page has been fetched and validated (below), so a failure
+        // on the very first request never leaves delete tracking started with nothing enumerated.
+        let deletesStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://api.ingenious.build/reference/indexcontactpubv2.md
@@ -108,6 +108,11 @@ const sync = createSync({
                 );
             }
 
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Contact');
+                deletesStarted = true;
+            }
+
             if (contacts.length > 0) {
                 await nango.batchSave(contacts, 'Contact');
             }
@@ -118,7 +123,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Contact');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('Contact');
+        }
     }
 });
 

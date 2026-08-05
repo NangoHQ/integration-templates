@@ -56,9 +56,35 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let page = 1;
+        let perPage = input.per_page;
+
+        // The page size is encoded in the cursor (rather than relying solely on the page number)
+        // so that a caller supplying a different per_page on a follow-up call can't desync the
+        // scan and skip or repeat tasks.
+        if (input.cursor !== undefined) {
+            const match = /^(\d+):(\d+)$/.exec(input.cursor);
+            const pageStr = match?.[1];
+            const perPageStr = match?.[2];
+            if (pageStr === undefined || perPageStr === undefined) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
+            page = parseInt(pageStr, 10);
+            perPage = parseInt(perPageStr, 10);
+            if (page < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
+        }
+
         const params: Record<string, string | number | string[]> = {
-            ...(input.cursor && { page: input.cursor }),
-            ...(input.per_page !== undefined && { per_page: input.per_page }),
+            page: String(page),
+            ...(perPage !== undefined && { per_page: perPage }),
             ...(input.project_id && { project_id: input.project_id }),
             ...(input.type && { type: input.type }),
             ...(input.statuses && { statuses: input.statuses }),
@@ -117,7 +143,7 @@ const action = createAction({
         if (nextPageUrl) {
             const match = nextPageUrl.match(/[?&]page=([^&]+)/);
             if (match && match[1]) {
-                nextCursor = match[1];
+                nextCursor = `${match[1]}:${perPage ?? 20}`;
             }
         }
 

@@ -81,12 +81,30 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (isNaN(page) || page < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'cursor must be a positive integer string'
-            });
+        let page = 1;
+        let perPage = input.per_page;
+
+        // The page size is encoded in the cursor (rather than relying solely on the page number)
+        // so that a caller supplying a different per_page on a follow-up call can't desync the
+        // scan and skip or repeat RFIs.
+        if (input.cursor !== undefined) {
+            const match = /^(\d+):(\d+)$/.exec(input.cursor);
+            const pageStr = match?.[1];
+            const perPageStr = match?.[2];
+            if (pageStr === undefined || perPageStr === undefined) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
+            page = parseInt(pageStr, 10);
+            perPage = parseInt(perPageStr, 10);
+            if (page < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
         }
 
         // https://api.ingenious.build/reference/v2-get-rfis-list-1.md
@@ -94,7 +112,7 @@ const action = createAction({
             endpoint: '/api/v2/pub/rfis',
             params: {
                 page: page,
-                ...(input.per_page !== undefined && { per_page: input.per_page }),
+                ...(perPage !== undefined && { per_page: perPage }),
                 ...(input.project_id !== undefined && { project_id: input.project_id }),
                 ...(input.statuses !== undefined && input.statuses.length > 0 && { statuses: input.statuses })
             },
@@ -103,7 +121,7 @@ const action = createAction({
 
         const raw = ListResponseSchema.parse(response.data);
 
-        const nextCursor = raw.next_page_url != null ? String(page + 1) : undefined;
+        const nextCursor = raw.next_page_url != null ? `${page + 1}:${perPage ?? 20}` : undefined;
 
         return {
             items: raw.items,

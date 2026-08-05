@@ -24,7 +24,7 @@ const ProviderProjectSchema = z.object({
     risk: z.string().nullable().optional(),
     financial_health: z.string().nullable().optional(),
     scheduled_health: z.string().nullable().optional(),
-    employees: ProviderEmployeeSchema.optional(),
+    employees: ProviderEmployeeSchema.nullable().optional(),
     client_company_id: z.string().nullable().optional(),
     client_contact_id: z.string().nullable().optional(),
     currency: z.string().nullable().optional(),

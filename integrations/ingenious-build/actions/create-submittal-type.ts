@@ -48,7 +48,10 @@ const action = createAction({
                 title: input.title,
                 is_required_for_material_release: input.is_required_for_material_release
             },
-            retries: 3
+            // No provider-supported idempotency key exists for this endpoint. A single write
+            // retry (the same convention used by other Ingenious Build create actions) bounds
+            // the risk of creating a duplicate submittal type on a transient failure.
+            retries: 1
         });
 
         const created = CreateResponseSchema.parse(createResponse.data);

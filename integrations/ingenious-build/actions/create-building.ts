@@ -55,6 +55,9 @@ const action = createAction({
                 ...(input.owner_contact_id !== undefined && { owner_contact_id: input.owner_contact_id }),
                 ...(input.owner_company_id !== undefined && { owner_company_id: input.owner_company_id })
             },
+            // No provider-supported idempotency key exists for this endpoint. A single write
+            // retry (the same convention used by other Ingenious Build create actions) bounds
+            // the risk of creating a duplicate building on a transient failure.
             retries: 1
         });
 

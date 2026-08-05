@@ -64,10 +64,11 @@ const sync = createSync({
         let nextPage: number | undefined = checkpoint && typeof checkpoint['page'] === 'number' ? checkpoint['page'] : 1;
 
         // Blocker: provider only exposes /api/v2/pub/submittals with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor beyond page/per_page.
-        if (nextPage === 1) {
-            await nango.trackDeletesStart('Submittal');
-        }
+        // no deleted-record endpoint, and no resumable cursor beyond page/per_page. Delete
+        // tracking is started only once the first page has been fetched and validated (below),
+        // so a failure on the very first request never leaves delete tracking started with
+        // nothing enumerated.
+        let deletesStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://api.ingenious.build/reference/v2-get-submittals-list.md
@@ -114,6 +115,11 @@ const sync = createSync({
                 updated_at: submittal.updated_at
             }));
 
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Submittal');
+                deletesStarted = true;
+            }
+
             if (submittals.length > 0) {
                 await nango.batchSave(submittals, 'Submittal');
             }
@@ -124,7 +130,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Submittal');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('Submittal');
+        }
     }
 });
 

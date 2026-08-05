@@ -134,14 +134,14 @@ const BudgetSchema = z.object({
     type: z.string().optional(),
     project_id: z.string().optional(),
     status: z.string().optional(),
-    is_shared: z.boolean().optional(),
+    is_shared: z.boolean().nullable().optional(),
     items: z.preprocess((val) => (val === null ? undefined : val), z.array(BudgetLineItemSchema).optional()),
     totals: z.preprocess((val) => (val === null ? undefined : val), z.array(BudgetTotalsSchema).optional()),
     categories: z.preprocess((val) => (val === null ? undefined : val), z.array(BudgetCategorySchema).optional()),
     phases: z.preprocess((val) => (val === null ? undefined : val), z.array(BudgetPhaseSchema).optional()),
     financeable_sites: z.preprocess((val) => (val === null ? undefined : val), z.array(BudgetFinanceableSiteSchema).optional()),
     cost_code_lists: z.preprocess((val) => (val === null ? undefined : val), z.array(z.string()).optional()),
-    has_approved_phase: z.boolean().optional(),
+    has_approved_phase: z.boolean().nullable().optional(),
     created_by: z.string().optional(),
     created_at: z.string().optional(),
     updated_by: z.string().optional(),
@@ -171,15 +171,31 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? Number(input.cursor) : 1;
-        if (Number.isNaN(page) || page < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'cursor must be a valid positive integer'
-            });
-        }
+        let page = 1;
+        let perPage = input.per_page ?? 20;
 
-        const perPage = input.per_page ?? 20;
+        // The page size is encoded in the cursor (rather than relying solely on the page number)
+        // so that a caller supplying a different per_page on a follow-up call can't desync the
+        // scan and skip or repeat budgets.
+        if (input.cursor !== undefined) {
+            const match = /^(\d+):(\d+)$/.exec(input.cursor);
+            const pageStr = match?.[1];
+            const perPageStr = match?.[2];
+            if (pageStr === undefined || perPageStr === undefined) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
+            page = parseInt(pageStr, 10);
+            perPage = parseInt(perPageStr, 10);
+            if (page < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
+        }
 
         // https://api.ingenious.build/reference/indexbudgetpubv2.md
         const response = await nango.get({
@@ -195,7 +211,7 @@ const action = createAction({
 
         const items = parsed.items.map((item) => BudgetSchema.parse(item));
 
-        const nextCursor = parsed.next_page_url != null && parsed.page != null ? String(parsed.page + 1) : undefined;
+        const nextCursor = parsed.next_page_url != null ? `${page + 1}:${perPage}` : undefined;
 
         return {
             items,

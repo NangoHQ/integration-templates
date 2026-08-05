@@ -12,8 +12,8 @@ const DailyLogSchema = z
         total_hours: z.number().nullable().optional(),
         total_delay_hours: z.number().nullable().optional(),
         person_count: z.number().nullable().optional(),
-        safety_incidents_count: z.number(),
-        safety_violations_count: z.number(),
+        safety_incidents_count: z.number().nullish(),
+        safety_violations_count: z.number().nullish(),
         created_at: z.string(),
         updated_at: z.string()
     })
@@ -39,10 +39,11 @@ const sync = createSync({
 
         // Blocker: provider only exposes /api/v2/pub/daily-logs with no reliable
         // changed-since filter for incremental sync, no deleted-record endpoint,
-        // and no resumable cursor. Resume the current full scan by page instead.
-        if (nextPage === 1) {
-            await nango.trackDeletesStart('DailyLog');
-        }
+        // and no resumable cursor. Resume the current full scan by page instead. Delete tracking
+        // is started only once the first page has been fetched and validated (below), so a
+        // failure on the very first request never leaves delete tracking started with nothing
+        // enumerated.
+        let deletesStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://api.ingenious.build/reference/v2-list-daily-logs.md
@@ -76,6 +77,11 @@ const sync = createSync({
                 logs.push(parsed.data);
             }
 
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('DailyLog');
+                deletesStarted = true;
+            }
+
             if (logs.length > 0) {
                 await nango.batchSave(logs, 'DailyLog');
             }
@@ -86,7 +92,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('DailyLog');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('DailyLog');
+        }
     }
 });
 

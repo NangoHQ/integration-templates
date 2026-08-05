@@ -33,7 +33,10 @@ const action = createAction({
                 ...(input.cost_code_list_id !== undefined && { cost_code_list_id: input.cost_code_list_id }),
                 ...(input.cost_code_template_id !== undefined && { cost_code_template_id: input.cost_code_template_id })
             },
-            retries: 10
+            // No provider-supported idempotency key exists for this endpoint. A single write
+            // retry (the same convention used by other Ingenious Build create actions) bounds
+            // the risk of creating a duplicate budget on a transient failure.
+            retries: 1
         });
 
         if (!response.data) {

@@ -32,7 +32,10 @@ const action = createAction({
                 email: input.email,
                 account_type_id: input.account_type_id
             },
-            retries: 3
+            // No provider-supported idempotency key exists for this endpoint. A single write
+            // retry (the same convention used by other Ingenious Build create actions) bounds
+            // the risk of creating a duplicate employee on a transient failure.
+            retries: 1
         });
 
         if (response.status < 200 || response.status >= 300) {

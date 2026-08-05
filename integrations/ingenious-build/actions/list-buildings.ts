@@ -11,7 +11,7 @@ const AddressSchema = z.object({
     admin_area_1: z.string().nullable().optional(),
     admin_area_1_code: z.string().nullable().optional(),
     locality: z.string().nullable().optional(),
-    address_line_1: z.string().optional(),
+    address_line_1: z.string().nullable().optional(),
     address_line_2: z.string().nullable().optional(),
     postal_code: z.string().nullable().optional()
 });
@@ -50,24 +50,38 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let page: number | undefined;
+        let page = 1;
+        let perPage = input.per_page ?? 20;
+
+        // The page size is encoded in the cursor (rather than relying solely on the page number)
+        // so that a caller supplying a different per_page on a follow-up call can't desync the
+        // scan and skip or repeat buildings.
         if (input.cursor !== undefined) {
-            const parsed = parseInt(input.cursor, 10);
-            if (isNaN(parsed) || parsed < 1) {
+            const match = /^(\d+):(\d+)$/.exec(input.cursor);
+            const pageStr = match?.[1];
+            const perPageStr = match?.[2];
+            if (pageStr === undefined || perPageStr === undefined) {
                 throw new nango.ActionError({
                     type: 'invalid_cursor',
-                    message: 'cursor must be a positive integer representing a page number.'
+                    message: 'cursor must be a value returned by a previous call to this action'
                 });
             }
-            page = parsed;
+            page = parseInt(pageStr, 10);
+            perPage = parseInt(perPageStr, 10);
+            if (page < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
         }
 
         const response = await nango.get({
             // https://api.ingenious.build/reference/v2-get-buildings.md
             endpoint: '/api/v2/pub/buildings',
             params: {
-                ...(page !== undefined && { page }),
-                per_page: input.per_page ?? 20
+                page,
+                per_page: perPage
             },
             retries: 3
         });
@@ -100,10 +114,9 @@ const action = createAction({
             };
         });
 
-        const currentPage = providerResponse.page ?? page ?? 1;
         return {
             items,
-            ...(providerResponse.next_page_url != null && { next_cursor: String(currentPage + 1) })
+            ...(providerResponse.next_page_url != null && { next_cursor: `${page + 1}:${perPage}` })
         };
     }
 });

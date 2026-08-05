@@ -4,31 +4,31 @@ import { z } from 'zod';
 const ProviderProjectSchema = z
     .object({
         id: z.string(),
-        custom_id: z.string().nullable(),
-        name: z.string().nullable(),
-        type: z.string().nullable(),
-        description: z.string().nullable(),
-        phase: z.string().nullable(),
-        unit_type: z.string().nullable(),
-        sector: z.string().nullable(),
-        status_id: z.number().nullable(),
-        status_name: z.string().nullable(),
-        health: z.string().nullable(),
-        risk: z.string().nullable(),
-        financial_health: z.string().nullable(),
-        scheduled_health: z.string().nullable(),
-        client_company_id: z.string().nullable(),
-        client_contact_id: z.string().nullable(),
-        currency: z.string().nullable(),
-        base_line_start_date: z.string().nullable(),
-        base_line_end_date: z.string().nullable(),
-        forecasted_start_date: z.string().nullable(),
-        forecasted_end_date: z.string().nullable(),
-        business_unit_id: z.string().nullable(),
-        office_location_id: z.string().nullable(),
-        exclusions: z.string().nullable(),
-        scope: z.string().nullable(),
-        accounting_company_id: z.string().nullable(),
+        custom_id: z.string().nullish(),
+        name: z.string().nullish(),
+        type: z.string().nullish(),
+        description: z.string().nullish(),
+        phase: z.string().nullish(),
+        unit_type: z.string().nullish(),
+        sector: z.string().nullish(),
+        status_id: z.number().nullish(),
+        status_name: z.string().nullish(),
+        health: z.string().nullish(),
+        risk: z.string().nullish(),
+        financial_health: z.string().nullish(),
+        scheduled_health: z.string().nullish(),
+        client_company_id: z.string().nullish(),
+        client_contact_id: z.string().nullish(),
+        currency: z.string().nullish(),
+        base_line_start_date: z.string().nullish(),
+        base_line_end_date: z.string().nullish(),
+        forecasted_start_date: z.string().nullish(),
+        forecasted_end_date: z.string().nullish(),
+        business_unit_id: z.string().nullish(),
+        office_location_id: z.string().nullish(),
+        exclusions: z.string().nullish(),
+        scope: z.string().nullish(),
+        accounting_company_id: z.string().nullish(),
         generated_id: z.string(),
         created_by: z.string(),
         created_at: z.string(),
@@ -88,10 +88,10 @@ const sync = createSync({
         let nextPage: number | undefined = checkpoint && typeof checkpoint['page'] === 'number' ? checkpoint['page'] : 1;
 
         // Blocker: no verified changed-since query param was found on this endpoint
-        // in this pass, so resume the current full refresh by page instead.
-        if (nextPage === 1) {
-            await nango.trackDeletesStart('Project');
-        }
+        // in this pass, so resume the current full refresh by page instead. Delete tracking is
+        // started only once the first page has been fetched and validated (below), so a failure
+        // on the very first request never leaves delete tracking started with nothing enumerated.
+        let deletesStarted = false;
 
         for await (const page of nango.paginate({
             // https://api.ingenious.build/reference/indexprojectpubv2.md
@@ -148,6 +148,11 @@ const sync = createSync({
                 updated_at: record.updated_at
             }));
 
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Project');
+                deletesStarted = true;
+            }
+
             if (projects.length > 0) {
                 await nango.batchSave(projects, 'Project');
             }
@@ -158,7 +163,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Project');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('Project');
+        }
     }
 });
 

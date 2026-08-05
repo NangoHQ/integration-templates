@@ -35,7 +35,10 @@ const action = createAction({
                 ...(input.description !== undefined && { description: input.description }),
                 ...(input.original_created_at !== undefined && { original_created_at: input.original_created_at })
             },
-            retries: 10
+            // No provider-supported idempotency key exists for this endpoint. A single write
+            // retry (the same convention used by other Ingenious Build create actions) bounds
+            // the risk of creating a duplicate file record/download on a transient failure.
+            retries: 1
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

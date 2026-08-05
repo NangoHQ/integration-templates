@@ -99,11 +99,11 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
 
         // Blocker: provider only exposes /api/v2/pub/contracted-invoices with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor beyond page/per_page.
+        // no deleted-record endpoint, and no resumable cursor beyond page/per_page. Delete tracking is
+        // started only once the first page has been fetched and validated (below), so a failure
+        // on the very first request never leaves delete tracking started with nothing enumerated.
         let page = checkpoint && typeof checkpoint['page'] === 'number' ? checkpoint['page'] : 1;
-        if (page === 1) {
-            await nango.trackDeletesStart('ContractedInvoice');
-        }
+        let deletesStarted = false;
 
         const perPage = 100;
         let hasNextPage = true;
@@ -168,9 +168,18 @@ const sync = createSync({
                 };
             });
 
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('ContractedInvoice');
+                deletesStarted = true;
+            }
+
             await nango.batchSave(invoices, 'ContractedInvoice');
 
-            hasNextPage = parsed.next_page_url != null && rawItems.length === perPage;
+            // The provider's own next_page_url is the authoritative end-of-list signal. A page
+            // shorter than perPage does not necessarily mean this was the last page, so relying
+            // on item count here (in addition to/instead of next_page_url) can drop invoices and
+            // close delete-tracking before enumeration is actually complete.
+            hasNextPage = parsed.next_page_url != null;
             page++;
 
             if (hasNextPage) {
@@ -179,7 +188,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('ContractedInvoice');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('ContractedInvoice');
+        }
     }
 });
 

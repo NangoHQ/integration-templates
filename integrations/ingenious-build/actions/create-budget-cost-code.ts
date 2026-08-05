@@ -62,7 +62,10 @@ const action = createAction({
                 ...(input.lines !== undefined && { lines: input.lines }),
                 ...(input.budget_rom_value !== undefined && { budget_rom_value: input.budget_rom_value })
             },
-            retries: 10
+            // No provider-supported idempotency key exists for this endpoint. A single write
+            // retry (the same convention used by other Ingenious Build create actions) bounds
+            // the risk of creating a duplicate cost code on a transient failure.
+            retries: 1
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

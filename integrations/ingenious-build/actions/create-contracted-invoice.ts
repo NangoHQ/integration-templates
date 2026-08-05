@@ -39,6 +39,9 @@ const action = createAction({
                 wbs1: input.wbs1,
                 items: input.items ?? []
             },
+            // No provider-supported idempotency key exists for this endpoint. A single write
+            // retry (the same convention used by other Ingenious Build create actions) bounds
+            // the risk of creating a duplicate AP invoice on a transient failure.
             retries: 1
         });
 

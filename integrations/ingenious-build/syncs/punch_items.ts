@@ -65,10 +65,10 @@ const sync = createSync({
         let nextPage: number | undefined = checkpoint && typeof checkpoint['page'] === 'number' ? checkpoint['page'] : 1;
 
         // Blocker: punch items only expose page/per_page pagination, so resume the
-        // current full refresh by checkpointing the next page.
-        if (nextPage === 1) {
-            await nango.trackDeletesStart('PunchItem');
-        }
+        // current full refresh by checkpointing the next page. Delete tracking is
+        // started only once the first page has been fetched and validated (below), so a failure
+        // on the very first request never leaves delete tracking started with nothing enumerated.
+        let deletesStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://api.ingenious.build/reference/v2-get-punch-items-list
@@ -120,6 +120,11 @@ const sync = createSync({
                     solution_ids: item.solution_ids
                 }));
 
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('PunchItem');
+                deletesStarted = true;
+            }
+
             if (punchItems.length > 0) {
                 await nango.batchSave(punchItems, 'PunchItem');
             }
@@ -130,7 +135,10 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('PunchItem');
+
+        if (deletesStarted) {
+            await nango.trackDeletesEnd('PunchItem');
+        }
     }
 });
 

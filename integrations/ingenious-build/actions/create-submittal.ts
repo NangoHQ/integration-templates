@@ -103,7 +103,10 @@ const action = createAction({
                 ...(input.source_platform !== undefined && { source_platform: input.source_platform }),
                 ...(input.external_reference_url !== undefined && { external_reference_url: input.external_reference_url })
             },
-            retries: 10
+            // No provider-supported idempotency key exists for this endpoint. A single write
+            // retry (the same convention used by other Ingenious Build create actions) bounds
+            // the risk of creating a duplicate submittal on a transient failure.
+            retries: 1
         });
 
         if (!createResponse.data) {

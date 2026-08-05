@@ -43,7 +43,7 @@ const ProviderResponseSchema = z.object({
 
 const OutputSchema = z.object({
     items: z.array(CompanySchema),
-    next_page: z.string().optional()
+    next_cursor: z.string().optional()
 });
 
 const action = createAction({
@@ -53,14 +53,38 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? Number(input.cursor) : 1;
+        let page = 1;
+        let perPage = input.per_page ?? 20;
+
+        // The page size is encoded in the cursor (rather than relying solely on the page number)
+        // so that a caller supplying a different per_page on a follow-up call can't desync the
+        // scan and skip or repeat companies.
+        if (input.cursor !== undefined) {
+            const match = /^(\d+):(\d+)$/.exec(input.cursor);
+            const pageStr = match?.[1];
+            const perPageStr = match?.[2];
+            if (pageStr === undefined || perPageStr === undefined) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
+            page = parseInt(pageStr, 10);
+            perPage = parseInt(perPageStr, 10);
+            if (page < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
+        }
 
         const response = await nango.get({
             // https://api.ingenious.build/reference/indexcompanypubv2
             endpoint: '/api/v2/pub/companies',
             params: {
                 page: String(page),
-                per_page: String(input.per_page ?? 20),
+                per_page: String(perPage),
                 ...(input.show_archived !== undefined && { show_archived: input.show_archived })
             },
             retries: 3
@@ -68,11 +92,11 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        const nextPage = providerResponse.next_page_url != null ? String(page + 1) : undefined;
+        const nextCursor = providerResponse.next_page_url != null ? `${page + 1}:${perPage}` : undefined;
 
         return {
             items: providerResponse.items,
-            ...(nextPage !== undefined && { next_page: nextPage })
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

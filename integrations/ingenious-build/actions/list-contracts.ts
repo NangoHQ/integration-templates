@@ -111,17 +111,35 @@ const action = createAction({
     output: ListOutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(page) || page < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'cursor must be a positive integer'
-            });
+        let page = 1;
+        let perPage = input.per_page ?? 20;
+
+        // The page size is encoded in the cursor (rather than relying solely on the page number)
+        // so that a caller supplying a different per_page on a follow-up call can't desync the
+        // scan and skip or repeat contracts.
+        if (input.cursor !== undefined) {
+            const match = /^(\d+):(\d+)$/.exec(input.cursor);
+            const pageStr = match?.[1];
+            const perPageStr = match?.[2];
+            if (pageStr === undefined || perPageStr === undefined) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
+            page = parseInt(pageStr, 10);
+            perPage = parseInt(perPageStr, 10);
+            if (page < 1) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a value returned by a previous call to this action'
+                });
+            }
         }
 
         const params: Record<string, string> = {
             page: String(page),
-            per_page: String(input.per_page ?? 20)
+            per_page: String(perPage)
         };
 
         if (input.project_id !== undefined) {
@@ -187,7 +205,7 @@ const action = createAction({
         }));
 
         const hasMore = data.page * data.per_page < data.total;
-        const next_cursor = hasMore ? String(data.page + 1) : undefined;
+        const next_cursor = hasMore ? `${data.page + 1}:${perPage}` : undefined;
 
         return {
             items,
