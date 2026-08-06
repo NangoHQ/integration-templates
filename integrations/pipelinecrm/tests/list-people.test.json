@@ -1,0 +1,461 @@
+{
+  "input": {
+    "per_page": 2
+  },
+  "output": {
+    "items": [
+      {
+        "id": 1309859837,
+        "first_name": "Nango",
+        "last_name": "RegistryTest2",
+        "type": "Contact",
+        "position": null,
+        "phone": null,
+        "email": "nango-registry-test-2@example.com",
+        "email2": null,
+        "home_email": null,
+        "mobile": null,
+        "home_phone": null,
+        "fax": null,
+        "website": null,
+        "instant_message": null,
+        "twitter": null,
+        "linked_in_url": null,
+        "facebook_url": null,
+        "summary": null,
+        "company_name": "Nango Registry Test Company 2",
+        "full_name": "Nango RegistryTest2",
+        "company_id": 138551861,
+        "user_id": 843757,
+        "created_by_user_id": 843757,
+        "viewed_at": null,
+        "created_at": "2026/08/05 09:01:01 -0400",
+        "updated_at": "2026/08/05 09:07:28 -0400",
+        "unsubscribed": false,
+        "bounced": false,
+        "last_emailed_at": null,
+        "is_sample": false,
+        "is_key_contact": null,
+        "relationship": null,
+        "deal_ids": [
+          55383279,
+          55383569,
+          55383580,
+          55383582
+        ],
+        "shared_user_ids": [],
+        "project_shared_user_ids": [],
+        "image_thumb_url": "//assets.pipelinecrm.com/current/webpack/images/thumb/missing.png",
+        "image_mobile_url": "//assets.pipelinecrm.com/current/webpack/images/mobile/missing.png",
+        "company": {
+          "id": 138551861,
+          "name": "Nango Registry Test Company 2"
+        },
+        "user": {
+          "id": 843757,
+          "first_name": "Nango",
+          "last_name": "Developer"
+        },
+        "created_by_user": {
+          "id": 843757,
+          "first_name": "Nango",
+          "last_name": "Developer"
+        },
+        "lead_status": null,
+        "lead_source": null,
+        "deals": [
+          {
+            "id": 55383279,
+            "name": "Nango Registry Test Deal 2"
+          },
+          {
+            "id": 55383569,
+            "name": "Nango Registry Test Deal Create"
+          },
+          {
+            "id": 55383580,
+            "name": "Nango Registry Test Deal Create"
+          },
+          {
+            "id": 55383582,
+            "name": "Nango Registry Test Deal Create"
+          }
+        ],
+        "custom_fields": {},
+        "predefined_contacts_tag_ids": [],
+        "predefined_contacts_tags": [],
+        "home_address_1": null,
+        "home_address_2": null,
+        "home_city": null,
+        "home_state": null,
+        "home_postal_code": null,
+        "home_country": null,
+        "work_address_1": null,
+        "work_address_2": null,
+        "work_city": null,
+        "work_state": null,
+        "work_postal_code": null,
+        "work_country": null,
+        "next_entry_due": "2026/08/21 10:00:00 -0400",
+        "next_entry_all_day": false,
+        "next_entry_name": "Nango Registry Test Event 1",
+        "next_entry_id": 355945537,
+        "work_address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+%2C+++",
+        "home_address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+%2C+++",
+        "company_address_google_maps_url": null,
+        "has_work_address": false,
+        "has_company_address": false,
+        "date_of_first_activity": "2026/08/05 09:04:05 -0400",
+        "days_since_last_activity": 0,
+        "hours_to_first_activity": "0.05",
+        "total_pipeline": "17000.0",
+        "won_deals_total": "0.0"
+      },
+      {
+        "id": 1309859835,
+        "first_name": "Nango",
+        "last_name": "RegistryTest1",
+        "type": "Contact",
+        "position": "Registry Auditor",
+        "phone": null,
+        "email": "nango-registry-test-1@example.com",
+        "email2": null,
+        "home_email": null,
+        "mobile": null,
+        "home_phone": null,
+        "fax": null,
+        "website": null,
+        "instant_message": null,
+        "twitter": null,
+        "linked_in_url": null,
+        "facebook_url": null,
+        "summary": null,
+        "company_name": "Nango Registry Test Company",
+        "full_name": "Nango RegistryTest1",
+        "company_id": 138551860,
+        "user_id": 843757,
+        "created_by_user_id": 843757,
+        "viewed_at": null,
+        "created_at": "2026/08/05 09:00:48 -0400",
+        "updated_at": "2026/08/05 09:02:10 -0400",
+        "unsubscribed": false,
+        "bounced": false,
+        "last_emailed_at": null,
+        "is_sample": false,
+        "is_key_contact": false,
+        "relationship": null,
+        "deal_ids": [
+          55383278
+        ],
+        "shared_user_ids": [],
+        "project_shared_user_ids": [],
+        "image_thumb_url": "//assets.pipelinecrm.com/current/webpack/images/thumb/missing.png",
+        "image_mobile_url": "//assets.pipelinecrm.com/current/webpack/images/mobile/missing.png",
+        "company": {
+          "id": 138551860,
+          "name": "Nango Registry Test Company"
+        },
+        "user": {
+          "id": 843757,
+          "first_name": "Nango",
+          "last_name": "Developer"
+        },
+        "created_by_user": {
+          "id": 843757,
+          "first_name": "Nango",
+          "last_name": "Developer"
+        },
+        "lead_status": null,
+        "lead_source": null,
+        "deals": [
+          {
+            "id": 55383278,
+            "name": "Nango Registry Test Deal 1"
+          }
+        ],
+        "custom_fields": {},
+        "predefined_contacts_tag_ids": [],
+        "predefined_contacts_tags": [],
+        "home_address_1": null,
+        "home_address_2": null,
+        "home_city": null,
+        "home_state": null,
+        "home_postal_code": null,
+        "home_country": null,
+        "work_address_1": null,
+        "work_address_2": null,
+        "work_city": null,
+        "work_state": null,
+        "work_postal_code": null,
+        "work_country": null,
+        "next_entry_due": null,
+        "next_entry_all_day": null,
+        "next_entry_name": null,
+        "next_entry_id": null,
+        "work_address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+%2C+++",
+        "home_address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+%2C+++",
+        "company_address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+San+Francisco%2C+++",
+        "has_work_address": false,
+        "has_company_address": true,
+        "date_of_first_activity": null,
+        "days_since_last_activity": null,
+        "hours_to_first_activity": null,
+        "total_pipeline": "0.0",
+        "won_deals_total": "0.0"
+      }
+    ],
+    "next_cursor": "2"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v3/people": {
+        "response": {
+          "entries": [
+            {
+              "id": 1309859837,
+              "first_name": "Nango",
+              "last_name": "RegistryTest2",
+              "type": "Contact",
+              "position": null,
+              "phone": null,
+              "email": "nango-registry-test-2@example.com",
+              "home_address_1": null,
+              "home_address_2": null,
+              "home_city": null,
+              "home_state": null,
+              "home_postal_code": null,
+              "home_country": null,
+              "home_email": null,
+              "home_phone": null,
+              "work_address_1": null,
+              "work_address_2": null,
+              "work_city": null,
+              "work_state": null,
+              "work_postal_code": null,
+              "work_country": null,
+              "user_id": 843757,
+              "viewed_at": null,
+              "created_at": "2026/08/05 09:01:01 -0400",
+              "updated_at": "2026/08/05 09:07:28 -0400",
+              "mobile": null,
+              "company_id": 138551861,
+              "fax": null,
+              "website": null,
+              "email2": null,
+              "instant_message": null,
+              "twitter": null,
+              "linked_in_url": null,
+              "facebook_url": null,
+              "summary": null,
+              "unsubscribed": false,
+              "bounced": false,
+              "last_emailed_at": null,
+              "is_sample": false,
+              "created_by_user_id": 843757,
+              "next_entry_due": "2026/08/21 10:00:00 -0400",
+              "next_entry_all_day": false,
+              "next_entry_name": "Nango Registry Test Event 1",
+              "next_entry_id": 355945537,
+              "is_key_contact": null,
+              "relationship": null,
+              "company_name": "Nango Registry Test Company 2",
+              "full_name": "Nango RegistryTest2",
+              "deal_ids": [
+                55383279,
+                55383569,
+                55383580,
+                55383582
+              ],
+              "image_thumb_url": "//assets.pipelinecrm.com/current/webpack/images/thumb/missing.png",
+              "image_mobile_url": "//assets.pipelinecrm.com/current/webpack/images/mobile/missing.png",
+              "work_address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+%2C+++",
+              "home_address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+%2C+++",
+              "company_address_google_maps_url": null,
+              "has_work_address": false,
+              "has_company_address": false,
+              "shared_user_ids": [],
+              "project_shared_user_ids": [],
+              "date_of_first_activity": "2026/08/05 09:04:05 -0400",
+              "days_since_last_activity": 0,
+              "hours_to_first_activity": "0.05",
+              "deals": [
+                {
+                  "id": 55383279,
+                  "name": "Nango Registry Test Deal 2"
+                },
+                {
+                  "id": 55383569,
+                  "name": "Nango Registry Test Deal Create"
+                },
+                {
+                  "id": 55383580,
+                  "name": "Nango Registry Test Deal Create"
+                },
+                {
+                  "id": 55383582,
+                  "name": "Nango Registry Test Deal Create"
+                }
+              ],
+              "company": {
+                "id": 138551861,
+                "name": "Nango Registry Test Company 2"
+              },
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer"
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer"
+              },
+              "lead_status": null,
+              "lead_source": null,
+              "predefined_contacts_tag_ids": [],
+              "predefined_contacts_tags": [],
+              "custom_fields": {},
+              "total_pipeline": "17000.0",
+              "won_deals_total": "0.0"
+            },
+            {
+              "id": 1309859835,
+              "first_name": "Nango",
+              "last_name": "RegistryTest1",
+              "type": "Contact",
+              "position": "Registry Auditor",
+              "phone": null,
+              "email": "nango-registry-test-1@example.com",
+              "home_address_1": null,
+              "home_address_2": null,
+              "home_city": null,
+              "home_state": null,
+              "home_postal_code": null,
+              "home_country": null,
+              "home_email": null,
+              "home_phone": null,
+              "work_address_1": null,
+              "work_address_2": null,
+              "work_city": null,
+              "work_state": null,
+              "work_postal_code": null,
+              "work_country": null,
+              "user_id": 843757,
+              "viewed_at": null,
+              "created_at": "2026/08/05 09:00:48 -0400",
+              "updated_at": "2026/08/05 09:02:10 -0400",
+              "mobile": null,
+              "company_id": 138551860,
+              "fax": null,
+              "website": null,
+              "email2": null,
+              "instant_message": null,
+              "twitter": null,
+              "linked_in_url": null,
+              "facebook_url": null,
+              "summary": null,
+              "unsubscribed": false,
+              "bounced": false,
+              "last_emailed_at": null,
+              "is_sample": false,
+              "created_by_user_id": 843757,
+              "next_entry_due": null,
+              "next_entry_all_day": null,
+              "next_entry_name": null,
+              "next_entry_id": null,
+              "is_key_contact": false,
+              "relationship": null,
+              "company_name": "Nango Registry Test Company",
+              "full_name": "Nango RegistryTest1",
+              "deal_ids": [
+                55383278
+              ],
+              "image_thumb_url": "//assets.pipelinecrm.com/current/webpack/images/thumb/missing.png",
+              "image_mobile_url": "//assets.pipelinecrm.com/current/webpack/images/mobile/missing.png",
+              "work_address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+%2C+++",
+              "home_address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+%2C+++",
+              "company_address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+San+Francisco%2C+++",
+              "has_work_address": false,
+              "has_company_address": true,
+              "shared_user_ids": [],
+              "project_shared_user_ids": [],
+              "date_of_first_activity": null,
+              "days_since_last_activity": null,
+              "hours_to_first_activity": null,
+              "deals": [
+                {
+                  "id": 55383278,
+                  "name": "Nango Registry Test Deal 1"
+                }
+              ],
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer"
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer"
+              },
+              "lead_status": null,
+              "lead_source": null,
+              "predefined_contacts_tag_ids": [],
+              "predefined_contacts_tags": [],
+              "custom_fields": {},
+              "total_pipeline": "0.0",
+              "won_deals_total": "0.0"
+            }
+          ],
+          "pagination": {
+            "page": 1,
+            "page_var": "page",
+            "per_page": 2,
+            "pages": 6,
+            "total": 11
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 13:42:08 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "10",
+          "x-ratelimit-reset": "1785937329",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Origin",
+          "cache-control": "no-store",
+          "etag": "W/\"327c54e78a7b8c128b88f79858119cd6\"",
+          "x-request-id": "6b02fe93-4045-4abc-b8b4-a39a7d07217b",
+          "x-runtime": "0.141020",
+          "x-permitted-cross-domain-policies": "none",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a266392f2a55758f-PDX"
+        },
+        "hash": "529e4f03e8e675b4bffcd8123700cbb7bd4eefee",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "2"
+          }
+        }
+      }
+    }
+  }
+}

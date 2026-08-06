@@ -1,0 +1,446 @@
+{
+  "input": {},
+  "output": {
+    "entries": [
+      {
+        "id": 7198039,
+        "custom_field_label_id": 4005323,
+        "name": "Region 1",
+        "position": 1,
+        "created_at": "2026/08/05 08:45:06 -0400",
+        "updated_at": "2026/08/05 08:45:06 -0400"
+      },
+      {
+        "id": 7198040,
+        "custom_field_label_id": 4005323,
+        "name": "Region 2",
+        "position": 2,
+        "created_at": "2026/08/05 08:45:06 -0400",
+        "updated_at": "2026/08/05 08:45:06 -0400"
+      },
+      {
+        "id": 7198041,
+        "custom_field_label_id": 4005323,
+        "name": "Region 3",
+        "position": 3,
+        "created_at": "2026/08/05 08:45:06 -0400",
+        "updated_at": "2026/08/05 08:45:06 -0400"
+      },
+      {
+        "id": 7198042,
+        "custom_field_label_id": 4005324,
+        "name": "Industry 1",
+        "position": 1,
+        "created_at": "2026/08/05 08:45:07 -0400",
+        "updated_at": "2026/08/05 08:45:07 -0400"
+      },
+      {
+        "id": 7198043,
+        "custom_field_label_id": 4005324,
+        "name": "Industry 2",
+        "position": 2,
+        "created_at": "2026/08/05 08:45:07 -0400",
+        "updated_at": "2026/08/05 08:45:07 -0400"
+      },
+      {
+        "id": 7198044,
+        "custom_field_label_id": 4005324,
+        "name": "Industry 3",
+        "position": 3,
+        "created_at": "2026/08/05 08:45:07 -0400",
+        "updated_at": "2026/08/05 08:45:07 -0400"
+      },
+      {
+        "id": 7198045,
+        "custom_field_label_id": 4005325,
+        "name": "Product 1",
+        "position": 1,
+        "created_at": "2026/08/05 08:45:07 -0400",
+        "updated_at": "2026/08/05 08:45:07 -0400"
+      },
+      {
+        "id": 7198046,
+        "custom_field_label_id": 4005325,
+        "name": "Product 2",
+        "position": 2,
+        "created_at": "2026/08/05 08:45:07 -0400",
+        "updated_at": "2026/08/05 08:45:07 -0400"
+      },
+      {
+        "id": 7198047,
+        "custom_field_label_id": 4005325,
+        "name": "Product 3",
+        "position": 3,
+        "created_at": "2026/08/05 08:45:07 -0400",
+        "updated_at": "2026/08/05 08:45:07 -0400"
+      },
+      {
+        "id": 7198048,
+        "custom_field_label_id": 4005326,
+        "name": "High",
+        "position": 1,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198049,
+        "custom_field_label_id": 4005326,
+        "name": "Medium",
+        "position": 2,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198050,
+        "custom_field_label_id": 4005326,
+        "name": "Low",
+        "position": 3,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198051,
+        "custom_field_label_id": 4005327,
+        "name": "Client Onboarding",
+        "position": 1,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198052,
+        "custom_field_label_id": 4005327,
+        "name": "Service Delivery",
+        "position": 2,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198053,
+        "custom_field_label_id": 4005327,
+        "name": "Internal Operations",
+        "position": 3,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198054,
+        "custom_field_label_id": 4005327,
+        "name": "Event / Campaign",
+        "position": 4,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198055,
+        "custom_field_label_id": 4005329,
+        "name": "Sales",
+        "position": 1,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198056,
+        "custom_field_label_id": 4005329,
+        "name": "Operations",
+        "position": 2,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198057,
+        "custom_field_label_id": 4005329,
+        "name": "Marketing",
+        "position": 3,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198058,
+        "custom_field_label_id": 4005329,
+        "name": "Customer Success",
+        "position": 4,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198059,
+        "custom_field_label_id": 4005329,
+        "name": "Implementation",
+        "position": 5,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198060,
+        "custom_field_label_id": 4005330,
+        "name": "On Track",
+        "position": 1,
+        "created_at": "2026/08/05 08:45:22 -0400",
+        "updated_at": "2026/08/05 08:45:22 -0400"
+      },
+      {
+        "id": 7198061,
+        "custom_field_label_id": 4005330,
+        "name": "Needs Attention",
+        "position": 2,
+        "created_at": "2026/08/05 08:45:23 -0400",
+        "updated_at": "2026/08/05 08:45:23 -0400"
+      },
+      {
+        "id": 7198062,
+        "custom_field_label_id": 4005330,
+        "name": "At Risk",
+        "position": 3,
+        "created_at": "2026/08/05 08:45:23 -0400",
+        "updated_at": "2026/08/05 08:45:23 -0400"
+      }
+    ],
+    "pagination": {
+      "page": 1,
+      "pages": 1,
+      "total": 24,
+      "per_page": 200,
+      "page_var": "page"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v3/admin/custom_field_label_dropdown_entries": {
+        "response": {
+          "entries": [
+            {
+              "id": 7198039,
+              "name": "Region 1",
+              "custom_field_label_id": 4005323,
+              "position": 1,
+              "created_at": "2026/08/05 08:45:06 -0400",
+              "updated_at": "2026/08/05 08:45:06 -0400"
+            },
+            {
+              "id": 7198040,
+              "name": "Region 2",
+              "custom_field_label_id": 4005323,
+              "position": 2,
+              "created_at": "2026/08/05 08:45:06 -0400",
+              "updated_at": "2026/08/05 08:45:06 -0400"
+            },
+            {
+              "id": 7198041,
+              "name": "Region 3",
+              "custom_field_label_id": 4005323,
+              "position": 3,
+              "created_at": "2026/08/05 08:45:06 -0400",
+              "updated_at": "2026/08/05 08:45:06 -0400"
+            },
+            {
+              "id": 7198042,
+              "name": "Industry 1",
+              "custom_field_label_id": 4005324,
+              "position": 1,
+              "created_at": "2026/08/05 08:45:07 -0400",
+              "updated_at": "2026/08/05 08:45:07 -0400"
+            },
+            {
+              "id": 7198043,
+              "name": "Industry 2",
+              "custom_field_label_id": 4005324,
+              "position": 2,
+              "created_at": "2026/08/05 08:45:07 -0400",
+              "updated_at": "2026/08/05 08:45:07 -0400"
+            },
+            {
+              "id": 7198044,
+              "name": "Industry 3",
+              "custom_field_label_id": 4005324,
+              "position": 3,
+              "created_at": "2026/08/05 08:45:07 -0400",
+              "updated_at": "2026/08/05 08:45:07 -0400"
+            },
+            {
+              "id": 7198045,
+              "name": "Product 1",
+              "custom_field_label_id": 4005325,
+              "position": 1,
+              "created_at": "2026/08/05 08:45:07 -0400",
+              "updated_at": "2026/08/05 08:45:07 -0400"
+            },
+            {
+              "id": 7198046,
+              "name": "Product 2",
+              "custom_field_label_id": 4005325,
+              "position": 2,
+              "created_at": "2026/08/05 08:45:07 -0400",
+              "updated_at": "2026/08/05 08:45:07 -0400"
+            },
+            {
+              "id": 7198047,
+              "name": "Product 3",
+              "custom_field_label_id": 4005325,
+              "position": 3,
+              "created_at": "2026/08/05 08:45:07 -0400",
+              "updated_at": "2026/08/05 08:45:07 -0400"
+            },
+            {
+              "id": 7198048,
+              "name": "High",
+              "custom_field_label_id": 4005326,
+              "position": 1,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198049,
+              "name": "Medium",
+              "custom_field_label_id": 4005326,
+              "position": 2,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198050,
+              "name": "Low",
+              "custom_field_label_id": 4005326,
+              "position": 3,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198051,
+              "name": "Client Onboarding",
+              "custom_field_label_id": 4005327,
+              "position": 1,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198052,
+              "name": "Service Delivery",
+              "custom_field_label_id": 4005327,
+              "position": 2,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198053,
+              "name": "Internal Operations",
+              "custom_field_label_id": 4005327,
+              "position": 3,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198054,
+              "name": "Event / Campaign",
+              "custom_field_label_id": 4005327,
+              "position": 4,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198055,
+              "name": "Sales",
+              "custom_field_label_id": 4005329,
+              "position": 1,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198056,
+              "name": "Operations",
+              "custom_field_label_id": 4005329,
+              "position": 2,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198057,
+              "name": "Marketing",
+              "custom_field_label_id": 4005329,
+              "position": 3,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198058,
+              "name": "Customer Success",
+              "custom_field_label_id": 4005329,
+              "position": 4,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198059,
+              "name": "Implementation",
+              "custom_field_label_id": 4005329,
+              "position": 5,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198060,
+              "name": "On Track",
+              "custom_field_label_id": 4005330,
+              "position": 1,
+              "created_at": "2026/08/05 08:45:22 -0400",
+              "updated_at": "2026/08/05 08:45:22 -0400"
+            },
+            {
+              "id": 7198061,
+              "name": "Needs Attention",
+              "custom_field_label_id": 4005330,
+              "position": 2,
+              "created_at": "2026/08/05 08:45:23 -0400",
+              "updated_at": "2026/08/05 08:45:23 -0400"
+            },
+            {
+              "id": 7198062,
+              "name": "At Risk",
+              "custom_field_label_id": 4005330,
+              "position": 3,
+              "created_at": "2026/08/05 08:45:23 -0400",
+              "updated_at": "2026/08/05 08:45:23 -0400"
+            }
+          ],
+          "pagination": {
+            "page": 1,
+            "page_var": "page",
+            "per_page": 200,
+            "pages": 1,
+            "total": 24
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 13:38:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "10",
+          "x-ratelimit-reset": "1785937132",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Origin",
+          "cache-control": "no-store",
+          "etag": "W/\"868a453f4b0cb13aca489374917cc4a3\"",
+          "x-request-id": "1fcdc701-7bb0-49ee-8b65-632b4b3de421",
+          "x-runtime": "0.046317",
+          "x-permitted-cross-domain-policies": "none",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a266345cc9621ef3-PDX"
+        },
+        "hash": "fd1f8d7e462402fdfd8583326f590932942102e0",
+        "request": {}
+      }
+    }
+  }
+}
