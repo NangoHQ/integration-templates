@@ -1,0 +1,60 @@
+{
+  "input": {
+    "file": "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+    "filename": "test.gif",
+    "contentType": "image/gif"
+  },
+  "output": null,
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/accounts/me/settings/virtual_backgrounds": {
+        "response": {
+          "code": -1,
+          "message": "Required part 'file' is not present."
+        },
+        "status": 400,
+        "headers": {
+          "date": "Thu, 06 Aug 2026 12:27:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "60",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1786019284",
+          "x-zm-trackingid": "v=2.0;clid=us05;rid=WEB_d7ef9bbeca24fd37b8860f87c2028299",
+          "cache-control": "no-cache, no-store, must-revalidate, no-transform",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "set-cookie": "<redacted>",
+          "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+          "x-ratelimit-category": "Medium",
+          "x-zm-zoneid": "VA2",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=KxMOpnz%2BvsXEFIoCRm%2FbeiYPomcpWrG5S5qLlx5dg4PCP03Mfs52lJhqMyg2578a6SwVfgnc9fnaT1k40c2KuTm6whG9PFE9TDlBl70eBWfVLTSVReXmMrnzXpi9\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a26e09647b508bee-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"3c-+EFif1rOjX5TWLeb48p4KqjDXcw\""
+        },
+        "hash": "a617117996af71c5da6054fd24f333d22104c312",
+        "request": {
+          "headers": {
+            "Content-Type": "multipart/form-data; boundary=NangoFormBoundary000000000000"
+          },
+          "data": "--NangoFormBoundary000000000000\r\nContent-Disposition: form-data; name=\"file\"; filename=\"test.gif\"\r\nContent-Type: image/gif\r\n\r\nR0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7\r\n--NangoFormBoundary000000000000--\r\n"
+        }
+      }
+    }
+  }
+}

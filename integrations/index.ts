@@ -6526,3 +6526,20 @@ import './zoom/actions/update-meeting-registrant.js';
 import './zoom/actions/update-meeting.js';
 import './zoom/actions/update-user.js';
 import './zoom/actions/update-webinar.js';
+
+// -- Integration: zoom-cc
+import './zoom-cc/syncs/data_requests.js';
+import './zoom-cc/syncs/sub_accounts.js';
+import './zoom-cc/actions/cancel-data-request.js';
+import './zoom-cc/actions/create-data-request.js';
+import './zoom-cc/actions/delete-information-barrier-policy.js';
+import './zoom-cc/actions/get-account-details.js';
+import './zoom-cc/actions/get-aic-roi-kpis.js';
+import './zoom-cc/actions/get-data-request-files.js';
+import './zoom-cc/actions/get-webinar-participant-qos.js';
+import './zoom-cc/actions/list-data-requests.js';
+import './zoom-cc/actions/list-sub-accounts.js';
+import './zoom-cc/actions/list-trusted-domains.js';
+import './zoom-cc/actions/update-lock-settings.js';
+import './zoom-cc/actions/update-registration-settings.js';
+import './zoom-cc/actions/upload-virtual-background-file.js';
