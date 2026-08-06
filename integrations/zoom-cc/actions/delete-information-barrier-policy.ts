@@ -50,7 +50,7 @@ const action = createAction({
                 data: response.data
             });
         } catch (err) {
-            const error = z
+            const nangoErrorShape = z
                 .object({
                     status: z.number(),
                     payload: z
@@ -61,12 +61,28 @@ const action = createAction({
                         .optional()
                 })
                 .safeParse(err);
-            if (error.success && (error.data.status === 400 || error.data.status === 404)) {
+            if (nangoErrorShape.success && (nangoErrorShape.data.status === 400 || nangoErrorShape.data.status === 404)) {
                 return {
                     policyId: input.policyId,
                     success: false
                 };
             }
+
+            const axiosErrorShape = z
+                .object({
+                    response: z.object({
+                        status: z.number(),
+                        data: z.unknown().optional()
+                    })
+                })
+                .safeParse(err);
+            if (axiosErrorShape.success && (axiosErrorShape.data.response.status === 400 || axiosErrorShape.data.response.status === 404)) {
+                return {
+                    policyId: input.policyId,
+                    success: false
+                };
+            }
+
             throw err;
         }
     }

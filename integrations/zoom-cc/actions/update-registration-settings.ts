@@ -85,6 +85,14 @@ function isExpectedProviderError(err: unknown): { code: number; message: string 
         }
     }
 
+    // Thrown Nango-shaped error path ({ status, payload }), as surfaced by e.g. list-trusted-domains.ts
+    if ('status' in err && err.status === 400 && 'payload' in err && typeof err.payload === 'object' && err.payload !== null) {
+        const parsed = ProviderErrorSchema.safeParse(err.payload);
+        if (parsed.success) {
+            return { code: parsed.data.code, message: parsed.data.message };
+        }
+    }
+
     return null;
 }
 
@@ -93,7 +101,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['account:write:admin'],
+    scopes: ['account:update:registration_settings:admin', 'account:update:registration_settings:master'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const accountId = input.account_id ?? 'me';

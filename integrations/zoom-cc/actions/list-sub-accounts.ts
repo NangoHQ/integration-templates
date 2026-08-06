@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    page_size: z.number().optional().describe('The number of records returned within a single API call. Max: 300.'),
+    page_size: z.number().int().min(1).max(300).optional().describe('The number of records returned within a single API call. Max: 300.'),
     next_page_token: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
 });
 
@@ -16,7 +16,7 @@ const ProviderAccountSchema = z
         subscription_end_time: z.string().optional(),
         created_at: z.string().optional(),
         owner_email: z.string().optional(),
-        account_number: z.string().optional()
+        account_number: z.number().optional()
     })
     .passthrough();
 

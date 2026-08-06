@@ -11,6 +11,11 @@ const ProviderRequestSchema = z.object({
     failed_reason: z.string().optional()
 });
 
+const ProviderResponseSchema = z.object({
+    records: z.array(ProviderRequestSchema),
+    next_page_token: z.string().optional()
+});
+
 const DataRequestSchema = z.object({
     id: z.string(),
     request_id: z.string().optional(),
@@ -20,11 +25,6 @@ const DataRequestSchema = z.object({
     files_count: z.number().int().optional(),
     created_at: z.string().optional(),
     failed_reason: z.string().optional()
-});
-
-const ProviderResponseSchema = z.object({
-    records: z.array(ProviderRequestSchema),
-    next_page_token: z.string().optional()
 });
 
 const CheckpointSchema = z.object({
@@ -54,10 +54,12 @@ const sync = createSync({
         // interrupted run instead of restarting from page 1.
         let nextPageToken = parsedCheckpoint?.success ? parsedCheckpoint.data.next_page_token : undefined;
 
-        if (!nextPageToken) {
-            await nango.trackDeletesStart('DataRequest');
-        }
+        // Call unconditionally (even on a resumed run) so the deletion-tracking window always
+        // covers this execution's full fetch, per Nango's guidance to call trackDeletesStart
+        // before fetching any data on every execution attempt.
+        await nango.trackDeletesStart('DataRequest');
 
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true -- terminates via the break below; guarded against a repeated cursor to avoid looping forever
         while (true) {
             // https://developers.zoom.us/docs/api/
             const response = await nango.get({
@@ -92,11 +94,15 @@ const sync = createSync({
                 await nango.batchSave(records, 'DataRequest');
             }
 
-            nextPageToken = parsedResponse.data.next_page_token;
+            const newNextPageToken = parsedResponse.data.next_page_token;
 
-            if (!nextPageToken) {
+            // Guard against a provider bug returning the same cursor forever: without this,
+            // a repeated next_page_token would make this loop run indefinitely.
+            if (!newNextPageToken || newNextPageToken === nextPageToken) {
                 break;
             }
+
+            nextPageToken = newNextPageToken;
 
             await nango.saveCheckpoint({
                 next_page_token: nextPageToken

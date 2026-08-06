@@ -34,7 +34,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['data_request:read:list_data_requests'],
+    scopes: ['data_request:read:history:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.zoom.us/docs/api/#tag/Data-Compliance/GET/data_requests/requests

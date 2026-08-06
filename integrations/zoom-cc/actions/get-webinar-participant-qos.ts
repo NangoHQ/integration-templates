@@ -60,6 +60,37 @@ const InputSchema = z.object({
 
 const OutputSchema = ProviderQosSchema;
 
+function matchesPlanTierPayload(payload: unknown): boolean {
+    return (
+        typeof payload === 'object' &&
+        payload !== null &&
+        'code' in payload &&
+        payload.code === 200 &&
+        'message' in payload &&
+        typeof payload.message === 'string' &&
+        payload.message.includes('only available for')
+    );
+}
+
+function isPlanTierBlockedError(err: unknown): boolean {
+    if (typeof err !== 'object' || err === null) {
+        return false;
+    }
+
+    if ('response' in err && typeof err.response === 'object' && err.response !== null) {
+        const response = err.response;
+        if ('status' in response && response.status === 400 && 'data' in response && matchesPlanTierPayload(response.data)) {
+            return true;
+        }
+    }
+
+    if ('status' in err && err.status === 400 && 'payload' in err && matchesPlanTierPayload(err.payload)) {
+        return true;
+    }
+
+    return false;
+}
+
 const action = createAction({
     description: 'Get QoS data for one specific participant of a specific webinar.',
     version: '1.0.0',
@@ -69,9 +100,10 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.zoom.us/docs/api/qss/
-        // @allowTryCatch: The Zoom Dashboard API returns a plan-tier 400 for Free accounts.
-        // The mock test framework does not throw on non-2xx, so we guard with status.
-        // In production nango.get() throws before reaching this check, preserving error propagation.
+        // @allowTryCatch: The Zoom Dashboard API returns a documented plan-tier 400 ("only available
+        // for ZMP and Business or higher accounts") for Free accounts. The mock test framework does
+        // not throw on non-2xx, so we guard with status; in production nango.get() throws instead,
+        // handled in the catch below. Any other failure is rethrown so callers/retries see it.
         try {
             const response = await nango.get({
                 endpoint: `/metrics/webinars/${encodeURIComponent(input.webinarId)}/participants/${encodeURIComponent(input.participantId)}/qos`,
@@ -82,8 +114,15 @@ const action = createAction({
                 baseUrlOverride: 'https://api.zoom.us/v2'
             });
 
-            if (response.status >= 400) {
-                return {};
+            if (response.status === 400) {
+                if (matchesPlanTierPayload(response.data)) {
+                    return {};
+                }
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: 'Zoom API returned an unexpected 400 error.',
+                    details: response.data
+                });
             }
 
             if (!response.data) {
@@ -96,7 +135,7 @@ const action = createAction({
             const providerQos = ProviderQosSchema.parse(response.data);
             return providerQos;
         } catch (err) {
-            if (nango.isCLI) {
+            if (isPlanTierBlockedError(err)) {
                 return {};
             }
             throw err;

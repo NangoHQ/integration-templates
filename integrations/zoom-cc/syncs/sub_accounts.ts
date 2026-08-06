@@ -4,7 +4,7 @@ import { z } from 'zod';
 const SubAccountSchema = z.object({
     id: z.string(),
     account_name: z.string().optional(),
-    account_number: z.string().optional(),
+    account_number: z.number().optional(),
     account_type: z.string().optional(),
     seats: z.number().optional(),
     sub_account_token: z.string().optional()
@@ -41,10 +41,12 @@ const sync = createSync({
 
         let nextPageToken = parsedCheckpoint?.success ? parsedCheckpoint.data.next_page_token : undefined;
 
-        if (!nextPageToken) {
-            await nango.trackDeletesStart('SubAccount');
-        }
+        // Call unconditionally (even on a resumed run) so the deletion-tracking window always
+        // covers this execution's full fetch, per Nango's guidance to call trackDeletesStart
+        // before fetching any data on every execution attempt.
+        await nango.trackDeletesStart('SubAccount');
 
+        // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true -- terminates via the break below; guarded against a repeated cursor to avoid looping forever
         while (true) {
             // https://developers.zoom.us/docs/api/
             const response = await nango.get({
@@ -67,11 +69,15 @@ const sync = createSync({
                 await nango.batchSave(mapped, 'SubAccount');
             }
 
-            nextPageToken = parsedResponse.data.next_page_token;
+            const newNextPageToken = parsedResponse.data.next_page_token;
 
-            if (!nextPageToken) {
+            // Guard against a provider bug returning the same cursor forever: without this,
+            // a repeated next_page_token would make this loop run indefinitely.
+            if (!newNextPageToken || newNextPageToken === nextPageToken) {
                 break;
             }
+
+            nextPageToken = newNextPageToken;
 
             await nango.saveCheckpoint({
                 next_page_token: nextPageToken

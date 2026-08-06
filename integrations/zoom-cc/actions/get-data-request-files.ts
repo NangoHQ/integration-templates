@@ -16,7 +16,7 @@ const ProviderFileSchema = z
 const ProviderResponseSchema = z
     .object({
         request_id: z.string().optional(),
-        files_count: z.number().optional(),
+        files_count: z.coerce.number().optional(),
         files: z.array(ProviderFileSchema).optional().nullable()
     })
     .passthrough();
@@ -38,7 +38,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['data_request:read:admin'],
+    scopes: ['data_request:read:download:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const isFilesNotReadyError = (error: unknown): boolean => {

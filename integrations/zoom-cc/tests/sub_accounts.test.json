@@ -1,7 +1,23 @@
 {
   "nango": {
     "batchSave": {
-      "SubAccount": []
+      "SubAccount": [
+        {
+          "id": "abcDEF123ghiJKL456",
+          "account_name": "Acme Support Team",
+          "account_number": 1234567890,
+          "account_type": "Pro",
+          "seats": 5,
+          "sub_account_token": "sub-account-token-1"
+        },
+        {
+          "id": "mnoPQR789stuVWX012",
+          "account_name": "Acme Sales Team",
+          "account_number": 1234567891,
+          "account_type": "Basic",
+          "seats": 1
+        }
+      ]
     },
     "batchDelete": {
       "SubAccount": []
@@ -9,55 +25,54 @@
   },
   "api": {
     "get": {
-      "/v2/accounts": {
-        "response": {
-          "page_size": 100,
-          "total_records": 0,
-          "next_page_token": "",
-          "accounts": []
+      "/v2/accounts": [
+        {
+          "response": {
+            "page_size": 100,
+            "total_records": 2,
+            "next_page_token": "next-page-token-abc",
+            "accounts": [
+              {
+                "id": "abcDEF123ghiJKL456",
+                "account_name": "Acme Support Team",
+                "account_number": 1234567890,
+                "account_type": "Pro",
+                "seats": 5,
+                "sub_account_token": "sub-account-token-1"
+              }
+            ]
+          },
+          "status": 200,
+          "request": {
+            "params": {
+              "page_size": "100"
+            }
+          }
         },
-        "status": 200,
-        "headers": {
-          "date": "Thu, 06 Aug 2026 13:05:16 GMT",
-          "content-type": "application/json;charset=UTF-8",
-          "content-length": "70",
-          "connection": "keep-alive",
-          "x-xss-protection": "1; mode=block",
-          "x-content-type-options": "nosniff",
-          "x-download-options": "noopen",
-          "x-frame-options": "SAMEORIGIN",
-          "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=31536000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-          "access-control-allow-origin": "*",
-          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1988",
-          "x-ratelimit-reset": "1786021556",
-          "x-zm-trackingid": "v=2.0;clid=us05;rid=WEB_17b77ca5bfcb9381b9e3ea7eb1c3d1e6",
-          "cache-control": "no-cache, no-store, must-revalidate, no-transform",
-          "pragma": "no-cache",
-          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
-          "set-cookie": "zm_aid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, zm_haid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, zm_tmaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, zm_htmaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, cred=D5ECEFF1FC2F9F3EAC057A830DF13051; Path=/; Secure; HttpOnly, _zm_ctaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, _zm_chtaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, _zm_mtk_guid=574704c0fe594f7d920c40683c2d6c64; Expires=Sat, 05 Aug 2028 13:05:16 GMT; Max-Age=63072000; Domain=zoom.us; Path=/; Secure, __cf_bm=zgaU6ZkeIh4cPun4nSPd465wi2eqqxmsIA8hQ2v7Ycc-1786021516-1.0.1.1-wbNqUJGFnGZpUx2HGzAN_GVXMVfnycCSy1k2jPXrgKV.VRO6qlE1mGWvvvp_hgRbVbJmEvOh7mUqqWXuPSURgRPOOAHZ9Tg_WruO6b7AlVY; path=/; expires=Thu, 06-Aug-26 13:35:16 GMT; domain=.zoom.us; HttpOnly; Secure; SameSite=None",
-          "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
-          "x-ratelimit-category": "Medium",
-          "x-zm-zoneid": "VA2",
-          "referrer-policy": "strict-origin-when-cross-origin",
-          "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=6bwC2A8ejKl6s8w0tu1vZmsv5u%2FMEiRLeGpPxhF61orFbOwRC1Yoeklt5HbYvHcgNTbKuCXHS3872dFWh5hiw9tojse6zdWZEn%2BOxsEQMOU1x%2Bs%2BA2GeC6lHu23i\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
-          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
-          "server": "cloudflare",
-          "cf-ray": "a26e408d3b73e5c0-PDX",
-          "alt-svc": "h3=\":443\"; ma=86400",
-          "etag": "W/\"46-euo/5FL0ms1FfSev+uypdoRKVdY\""
-        },
-        "hash": "5a4bb7e1197fcd6329f417cf1857ab09f620420c",
-        "request": {
-          "params": {
-            "page_size": "100"
+        {
+          "response": {
+            "page_size": 100,
+            "total_records": 2,
+            "next_page_token": "",
+            "accounts": [
+              {
+                "id": "mnoPQR789stuVWX012",
+                "account_name": "Acme Sales Team",
+                "account_number": 1234567891,
+                "account_type": "Basic",
+                "seats": 1
+              }
+            ]
+          },
+          "status": 200,
+          "request": {
+            "params": {
+              "page_size": "100",
+              "next_page_token": "next-page-token-abc"
+            }
           }
         }
-      }
+      ]
     }
   }
 }

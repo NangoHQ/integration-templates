@@ -17,9 +17,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Get the connected account's own basic details (plan type, seats, owner, creation date).",
+    version: '1.0.0',
     input: z.object({}),
     output: OutputSchema,
-    scopes: ['account:read'],
+    scopes: ['account:read:admin'],
     exec: async (nango, _input) => {
         // https://developers.zoom.us/docs/api/
         const response = await nango.get({

@@ -5,10 +5,13 @@ const ExportInputSchema = z
     .object({
         emails: z.array(z.string().email()).min(1).max(10),
         request_type: z.literal('EXPORT'),
-        start_date: z.string().describe('Start date in ISO 8601 format. Example: 2024-01-01T00:00:00Z'),
-        end_date: z.string().describe('End date in ISO 8601 format. Must be strictly after start_date. Example: 2024-12-31T23:59:59Z')
+        start_date: z.string().datetime({ offset: true }).describe('Start date in ISO 8601 format. Example: 2024-01-01T00:00:00Z'),
+        end_date: z
+            .string()
+            .datetime({ offset: true })
+            .describe('End date in ISO 8601 format. Must be strictly after start_date. Example: 2024-12-31T23:59:59Z')
     })
-    .refine((data) => data.end_date > data.start_date, {
+    .refine((data) => new Date(data.end_date).getTime() > new Date(data.start_date).getTime(), {
         message: 'end_date must be strictly after start_date',
         path: ['end_date']
     });
@@ -43,7 +46,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['data_request:write:data_request'],
+    scopes: ['data_request:write:request:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {
@@ -58,9 +61,11 @@ const action = createAction({
 
         const config: ProxyConfiguration = {
             // https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#tag/data-compliance/operation/createDataRequest
+            // retries: 1 (not 3) because this POST is non-idempotent — retrying a transient failure
+            // with the default retry count would risk filing duplicate GDPR export/deletion requests.
             endpoint: '/v2/data_requests/requests',
             data: body,
-            retries: 3
+            retries: 1
         };
 
         const response = await nango.post(config);

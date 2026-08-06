@@ -3,7 +3,10 @@
     "requestId": "2085327946910044162"
   },
   "output": {
-    "requestId": "2085327946910044162"
+    "requestId": "2085327946910044162",
+    "success": false,
+    "errorCode": 14106,
+    "errorMessage": "Your data request is processing, and can no longer be canceled."
   },
   "nango": {},
   "api": {
