@@ -42,7 +42,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['iam:policies:write'],
+    scopes: ['iam-policies-management'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
@@ -65,7 +65,8 @@ const action = createAction({
                 tags: input.tags,
                 statementQuery: input.statementQuery
             },
-            retries: 1
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const providerPolicy = ProviderPolicySchema.parse(response.data);

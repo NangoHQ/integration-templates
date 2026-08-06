@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z.object({
     groupUuid: z.string().describe('The UUID of the user group. Example: "0bb8915e-fe63-4e37-a1ba-102e7daa375a"'),
-    scopeType: z.string().describe('The type of the permission scope. Example: "account"'),
+    scopeType: z.enum(['account', 'tenant', 'management-zone']).describe('The type of the permission scope.'),
     scope: z.string().describe('The scope of the permission. Example: "9610a717-798c-423b-a80f-97cfebe72f89"'),
     permissionName: z.string().describe('The name of the permission. Example: "account-viewer"')
 });

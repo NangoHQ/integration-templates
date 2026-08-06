@@ -22,11 +22,17 @@ const AccountPolicySchema = z.object({
     category: z.string()
 });
 
+const MetadataSchema = z.object({
+    accountUuid: z.string()
+});
+
 const sync = createSync({
     description: 'Sync custom access policies defined at this account level (excludes Dynatrace built-in/global policies).',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
+    trackDeletes: true,
+    metadata: MetadataSchema,
     models: {
         AccountPolicy: AccountPolicySchema
     },
@@ -37,16 +43,11 @@ const sync = createSync({
         // filter, no deleted-record endpoint, and no resumable cursor or pagination.
 
         const metadata = await nango.getMetadata();
-        const metadataSchema = z.object({
-            accountUuid: z.string()
-        });
-        const parsedMetadata = metadataSchema.safeParse(metadata);
+        const parsedMetadata = MetadataSchema.safeParse(metadata);
         if (!parsedMetadata.success) {
             throw new Error(`Missing or invalid accountUuid in metadata: ${parsedMetadata.error.message}`);
         }
         const accountUuid = parsedMetadata.data.accountUuid;
-
-        await nango.trackDeletesStart('AccountPolicy');
 
         // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management/list-account-policies
         const response = await nango.get({
@@ -58,6 +59,8 @@ const sync = createSync({
         if (!parsedResponse.success) {
             throw new Error(`Failed to parse policies response: ${parsedResponse.error.message}`);
         }
+
+        await nango.trackDeletesStart('AccountPolicy');
 
         const policies = parsedResponse.data.policies.map((policy) => {
             return {

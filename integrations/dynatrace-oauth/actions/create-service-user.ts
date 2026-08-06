@@ -15,9 +15,9 @@ const ProviderResponseSchema = z.object({
     uid: z.string(),
     email: z.string(),
     name: z.string(),
-    surname: z.string(),
-    createdAt: z.string(),
-    groupUuid: z.string()
+    surname: z.string().optional(),
+    createdAt: z.string().optional(),
+    groupUuid: z.string().optional()
 });
 
 const OutputSchema = z.object({
@@ -34,7 +34,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['iam:service-users:use'],
+    scopes: ['account-idm-write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let accountUuid = input.accountUuid;
@@ -61,7 +61,15 @@ const action = createAction({
             retries: 3
         });
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
+        const parsedResponse = ProviderResponseSchema.safeParse(response.data);
+        if (!parsedResponse.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Provider returned an unexpected response shape.',
+                details: parsedResponse.error.issues
+            });
+        }
+        const providerResponse = parsedResponse.data;
 
         return {
             uid: providerResponse.uid,

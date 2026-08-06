@@ -63,8 +63,10 @@ const sync = createSync({
     description: 'Sync platform token metadata (never the plaintext secret, which is only ever returned once at creation) issued in this account.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
+    trackDeletes: true,
     checkpoint: CheckpointSchema,
+    metadata: MetadataSchema,
     models: {
         PlatformToken: PlatformTokenModelSchema
     },
@@ -79,11 +81,12 @@ const sync = createSync({
         const accountUuid = parsedMetadata.data.accountUuid;
         const checkpoint = await nango.getCheckpoint();
         const requestedPageSize = 100;
+        const isFreshRun = checkpoint?.nextPage == null;
         let nextPage = checkpoint?.nextPage ?? 1;
 
         // Dynatrace only exposes page/size pagination here, so we checkpoint the
         // next page for mid-run recovery and clear it after a complete full refresh.
-        await nango.trackDeletesStart('PlatformToken');
+        let isFirstIteration = true;
 
         while (true) {
             const response = await nango.get({
@@ -99,6 +102,14 @@ const sync = createSync({
             if (!parsedResponse.success) {
                 throw new Error(`Failed to parse platform tokens response: ${parsedResponse.error.message}`);
             }
+
+            // Only (re)start delete-tracking once, after the first page of a fresh full
+            // refresh has been fetched and validated. A resumed run (checkpoint present)
+            // preserves the tracking window already opened by the run it's resuming.
+            if (isFirstIteration && isFreshRun) {
+                await nango.trackDeletesStart('PlatformToken');
+            }
+            isFirstIteration = false;
 
             const currentPage = parsedResponse.data.pageNumber ?? nextPage;
             const currentPageSize = parsedResponse.data.pageSize ?? requestedPageSize;

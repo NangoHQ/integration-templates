@@ -23,7 +23,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['iam:bindings:read'],
+    scopes: ['iam-policies-management'],
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
         const parsedMetadata = z

@@ -50,7 +50,7 @@ const action = createAction({
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['iam:users:read'],
+    scopes: ['account-idm-read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
@@ -67,7 +67,7 @@ const action = createAction({
 
         // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management/get-user
         const response = await nango.get({
-            endpoint: `/iam/v1/accounts/${accountUuid}/users/${encodeURIComponent(input.email)}`,
+            endpoint: `/iam/v1/accounts/${encodeURIComponent(accountUuid)}/users/${encodeURIComponent(input.email)}`,
             retries: 3
         });
 

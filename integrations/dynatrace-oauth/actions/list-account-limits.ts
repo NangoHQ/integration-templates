@@ -30,7 +30,7 @@ const action = createAction({
     version: '1.0.0',
     input: z.object({}),
     output: OutputSchema,
-    scopes: ['iam:limits:read'],
+    scopes: ['account-idm-read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();

@@ -8,8 +8,12 @@ const InputSchema = z.object({
         .string()
         .optional()
         .describe(
-            'Level ID. For account level, the account UUID. For global level, the literal string "global". Defaults to connection_config.accountUuid for account level, or "global" for global level.'
+            'Level ID. For account level, the account UUID. For global level, the literal string "global". Defaults to metadata.accountUuid (the canonical source; falls back to connection_config.accountUuid) for account level, or "global" for global level.'
         )
+});
+
+const AccountUuidSchema = z.object({
+    accountUuid: z.string().min(1)
 });
 
 const ProviderConditionSchema = z.object({
@@ -63,28 +67,33 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['iam:policies:read'],
+    scopes: ['iam-policies-management'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const levelType = input.levelType ?? 'account';
         let resolvedLevelId = input.levelId;
 
+        if (levelType === 'global' && resolvedLevelId !== undefined && resolvedLevelId !== 'global') {
+            throw new nango.ActionError({
+                type: 'invalid_level_id',
+                message: 'levelId must be "global" (or omitted) when levelType is "global".',
+                levelType: levelType,
+                levelId: resolvedLevelId
+            });
+        }
+
         if (!resolvedLevelId) {
             if (levelType === 'global') {
                 resolvedLevelId = 'global';
             } else {
-                const metadata = await nango.getMetadata();
-                const metadataAccountUuid = metadata && typeof metadata === 'object' && 'accountUuid' in metadata ? metadata['accountUuid'] : undefined;
-                if (typeof metadataAccountUuid === 'string') {
-                    resolvedLevelId = metadataAccountUuid;
+                const metadataResult = AccountUuidSchema.safeParse(await nango.getMetadata());
+                if (metadataResult.success) {
+                    resolvedLevelId = metadataResult.data.accountUuid;
                 } else {
                     const connection = await nango.getConnection();
-                    const configAccountUuid =
-                        connection.connection_config && typeof connection.connection_config === 'object' && 'accountUuid' in connection.connection_config
-                            ? connection.connection_config['accountUuid']
-                            : undefined;
-                    if (typeof configAccountUuid === 'string') {
-                        resolvedLevelId = configAccountUuid;
+                    const configResult = AccountUuidSchema.safeParse(connection.connection_config);
+                    if (configResult.success) {
+                        resolvedLevelId = configResult.data.accountUuid;
                     } else {
                         throw new nango.ActionError({
                             type: 'missing_account_uuid',

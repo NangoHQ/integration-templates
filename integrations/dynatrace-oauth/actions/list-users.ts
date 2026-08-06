@@ -4,25 +4,25 @@ import { createAction } from 'nango';
 const InputSchema = z.object({});
 
 const ProviderUserLoginMetadataSchema = z.object({
-    successfulLoginCounter: z.number().optional(),
-    failedLoginCounter: z.number().optional(),
-    lastSuccessfulLogin: z.string().optional(),
-    lastFailedLogin: z.string().nullable().optional(),
-    createdAt: z.string().optional(),
-    updatedAt: z.string().optional(),
-    resetPasswordTokenSentAt: z.string().nullable().optional(),
-    lastSuccessfulBasicAuthentication: z.string().nullable().optional()
+    successfulLoginCounter: z.number().nullish(),
+    failedLoginCounter: z.number().nullish(),
+    lastSuccessfulLogin: z.string().nullish(),
+    lastFailedLogin: z.string().nullish(),
+    createdAt: z.string().nullish(),
+    updatedAt: z.string().nullish(),
+    resetPasswordTokenSentAt: z.string().nullish(),
+    lastSuccessfulBasicAuthentication: z.string().nullish()
 });
 
 const ProviderUserSchema = z.object({
     uid: z.string(),
     email: z.string(),
-    name: z.string().optional(),
-    surname: z.string().optional(),
-    type: z.string().optional(),
-    userStatus: z.string().optional(),
-    emergencyContact: z.boolean().optional(),
-    userLoginMetadata: ProviderUserLoginMetadataSchema.optional()
+    name: z.string().nullish(),
+    surname: z.string().nullish(),
+    type: z.string().nullish(),
+    userStatus: z.string().nullish(),
+    emergencyContact: z.boolean().nullish(),
+    userLoginMetadata: ProviderUserLoginMetadataSchema.nullish()
 });
 
 const ProviderListResponseSchema = z.object({
@@ -57,18 +57,20 @@ const OutputSchema = z.object({
     items: z.array(UserSchema)
 });
 
-function normalizeUserLoginMetadata(meta: z.infer<typeof ProviderUserLoginMetadataSchema> | undefined): z.infer<typeof UserLoginMetadataSchema> | undefined {
-    if (!meta) {
+function normalizeUserLoginMetadata(
+    meta: z.infer<typeof ProviderUserLoginMetadataSchema> | null | undefined
+): z.infer<typeof UserLoginMetadataSchema> | undefined {
+    if (meta == null) {
         return undefined;
     }
 
     return {
-        ...(meta.successfulLoginCounter !== undefined && { successfulLoginCounter: meta.successfulLoginCounter }),
-        ...(meta.failedLoginCounter !== undefined && { failedLoginCounter: meta.failedLoginCounter }),
-        ...(meta.lastSuccessfulLogin !== undefined && { lastSuccessfulLogin: meta.lastSuccessfulLogin }),
+        ...(meta.successfulLoginCounter != null && { successfulLoginCounter: meta.successfulLoginCounter }),
+        ...(meta.failedLoginCounter != null && { failedLoginCounter: meta.failedLoginCounter }),
+        ...(meta.lastSuccessfulLogin != null && { lastSuccessfulLogin: meta.lastSuccessfulLogin }),
         ...(meta.lastFailedLogin != null && { lastFailedLogin: meta.lastFailedLogin }),
-        ...(meta.createdAt !== undefined && { createdAt: meta.createdAt }),
-        ...(meta.updatedAt !== undefined && { updatedAt: meta.updatedAt }),
+        ...(meta.createdAt != null && { createdAt: meta.createdAt }),
+        ...(meta.updatedAt != null && { updatedAt: meta.updatedAt }),
         ...(meta.resetPasswordTokenSentAt != null && { resetPasswordTokenSentAt: meta.resetPasswordTokenSentAt }),
         ...(meta.lastSuccessfulBasicAuthentication != null && { lastSuccessfulBasicAuthentication: meta.lastSuccessfulBasicAuthentication })
     };
@@ -78,12 +80,12 @@ function normalizeUser(user: z.infer<typeof ProviderUserSchema>): z.infer<typeof
     return {
         uid: user.uid,
         email: user.email,
-        ...(user.name !== undefined && { name: user.name }),
-        ...(user.surname !== undefined && { surname: user.surname }),
-        ...(user.type !== undefined && { type: user.type }),
-        ...(user.userStatus !== undefined && { userStatus: user.userStatus }),
-        ...(user.emergencyContact !== undefined && { emergencyContact: user.emergencyContact }),
-        ...(user.userLoginMetadata !== undefined && { userLoginMetadata: normalizeUserLoginMetadata(user.userLoginMetadata) })
+        ...(user.name != null && { name: user.name }),
+        ...(user.surname != null && { surname: user.surname }),
+        ...(user.type != null && { type: user.type }),
+        ...(user.userStatus != null && { userStatus: user.userStatus }),
+        ...(user.emergencyContact != null && { emergencyContact: user.emergencyContact }),
+        ...(user.userLoginMetadata != null && { userLoginMetadata: normalizeUserLoginMetadata(user.userLoginMetadata) })
     };
 }
 

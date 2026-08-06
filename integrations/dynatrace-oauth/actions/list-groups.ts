@@ -46,7 +46,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['iam:groups:read'],
+    scopes: ['account-idm-read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

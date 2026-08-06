@@ -6,6 +6,10 @@ const InputSchema = z.object({
         .string()
         .optional()
         .describe('Dynatrace account UUID. If omitted, it will be read from the connection configuration. Example: "9610a717-798c-423b-a80f-97cfebe72f89"'),
+    environmentId: z
+        .string()
+        .optional()
+        .describe('Environment ID the token is scoped to. If omitted, the account\'s first environment is used. Example: "nsf52867"'),
     name: z.string().describe('Name of the platform token. Example: "Nango Test Token"'),
     scope: z.array(z.string()).describe('OAuth scopes for the token. Example: ["storage:logs:read"]'),
     tags: z.array(z.string()).optional(),
@@ -45,7 +49,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['platform-token:tokens:manage'],
+    scopes: ['platform-token:tokens:manage', 'account-env-read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let accountUuid = input.accountUuid;
@@ -61,22 +65,26 @@ const action = createAction({
             accountUuid = configParse.data.accountUuid;
         }
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/environment-management-api/get-environments-api-v2
-        const envResponse = await nango.get({
-            endpoint: `/env/v2/accounts/${encodeURIComponent(accountUuid)}/environments`,
-            retries: 3
-        });
-
-        const envList = EnvironmentListSchema.parse(envResponse.data);
-        const firstEnv = envList.data[0];
-        if (!firstEnv) {
-            throw new nango.ActionError({
-                type: 'no_environments',
-                message: 'No environments found in the account.'
+        let environmentId = input.environmentId;
+        if (!environmentId) {
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/environment-management-api/get-environments-api-v2
+            const envResponse = await nango.get({
+                endpoint: `/env/v2/accounts/${encodeURIComponent(accountUuid)}/environments`,
+                retries: 3
             });
+
+            const envList = EnvironmentListSchema.parse(envResponse.data);
+            const firstEnv = envList.data[0];
+            if (!firstEnv) {
+                throw new nango.ActionError({
+                    type: 'no_environments',
+                    message: 'No environments found in the account.'
+                });
+            }
+
+            environmentId = firstEnv.id;
         }
 
-        const environmentId = firstEnv.id;
         const resource = `urn:dtenvironment:${environmentId}`;
 
         // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/platform-tokens-api/post-platform-token

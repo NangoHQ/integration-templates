@@ -1,0 +1,246 @@
+{
+  "input": {
+    "email": "api+dev@nango.dev"
+  },
+  "output": {
+    "uid": "e4acaab2-f6f8-4215-a6b5-bd56b69e23e4",
+    "email": "api+dev@nango.dev",
+    "name": "",
+    "surname": "",
+    "type": "DEFAULT",
+    "userLoginMetadata": {
+      "successfulLoginCounter": 4,
+      "failedLoginCounter": 0,
+      "lastSuccessfulLogin": "2026-08-05T15:16:33.000Z",
+      "lastFailedLogin": null,
+      "resetPasswordTokenSentAt": null,
+      "lastSuccessfulBasicAuthentication": null,
+      "createdAt": "2026-08-05T15:02:00.000Z",
+      "updatedAt": "2026-08-05T15:16:33.000Z"
+    },
+    "userStatus": "ACTIVE",
+    "emergencyContact": false,
+    "groups": [
+      {
+        "uuid": "d2b8f7cd-be74-40e0-ac11-3dfc32ef5d4e",
+        "owner": "LOCAL",
+        "hidden": false,
+        "description": "You can view and manage user groups",
+        "createdAt": "2026-08-05T15:09:48.000Z",
+        "updatedAt": "2026-08-05T15:09:48.000Z",
+        "accountName": "Public Trial api+dev@nango.dev",
+        "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "groupName": "Account Admins"
+      },
+      {
+        "uuid": "15037631-d369-4630-a7e7-08058c870d0d",
+        "owner": "LOCAL",
+        "hidden": false,
+        "description": "You can view licensing information for the account",
+        "createdAt": "2026-08-05T15:09:48.000Z",
+        "updatedAt": "2026-08-05T15:09:48.000Z",
+        "accountName": "Public Trial api+dev@nango.dev",
+        "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "groupName": "Account Viewers"
+      },
+      {
+        "uuid": "3ff4aa6a-df19-44a7-9f5b-4d924dc2b283",
+        "owner": "ALL_USERS",
+        "hidden": false,
+        "description": "Default permissions applying to all users",
+        "createdAt": "2026-08-05T15:09:48.000Z",
+        "updatedAt": "2026-08-05T15:09:48.000Z",
+        "accountName": "Public Trial api+dev@nango.dev",
+        "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "groupName": "Default group with all users"
+      },
+      {
+        "uuid": "d9258cc6-a86d-40cb-b3f3-01d8c40658c3",
+        "owner": "LOCAL",
+        "hidden": false,
+        "description": "Full access to all functions in all environments of the account",
+        "createdAt": "2026-08-05T15:09:48.000Z",
+        "updatedAt": "2026-08-05T15:09:48.000Z",
+        "accountName": "Public Trial api+dev@nango.dev",
+        "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "groupName": "Environment Admins"
+      },
+      {
+        "uuid": "8c64a11f-d9f5-424c-ad92-bfa17f157caf",
+        "owner": "LOCAL",
+        "hidden": false,
+        "description": "Basic access to Dynatrace in all environments of the account",
+        "createdAt": "2026-08-05T15:09:48.000Z",
+        "updatedAt": "2026-08-05T15:09:48.000Z",
+        "accountName": "Public Trial api+dev@nango.dev",
+        "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "groupName": "Environment Users"
+      },
+      {
+        "uuid": "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+        "owner": "LOCAL",
+        "hidden": false,
+        "description": "Access advanced features in all environments of the account",
+        "createdAt": "2026-08-05T15:09:48.000Z",
+        "updatedAt": "2026-08-05T15:09:48.000Z",
+        "accountName": "Public Trial api+dev@nango.dev",
+        "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "groupName": "Environment Professionals"
+      },
+      {
+        "uuid": "bc36a93d-5df3-4c7e-a1c3-aad2ca9395b0",
+        "owner": "LOCAL",
+        "hidden": false,
+        "description": "test group 2",
+        "createdAt": "2026-08-05T15:42:19.000Z",
+        "updatedAt": "2026-08-05T15:42:19.000Z",
+        "accountName": "Public Trial api+dev@nango.dev",
+        "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "groupName": "Nango Registry Test Group 2"
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89"
+    }
+  },
+  "api": {
+    "get": {
+      "/iam/v1/accounts/9610a717-798c-423b-a80f-97cfebe72f89/users/api%2Bdev%40nango.dev": {
+        "response": {
+          "uid": "e4acaab2-f6f8-4215-a6b5-bd56b69e23e4",
+          "email": "api+dev@nango.dev",
+          "name": "",
+          "surname": "",
+          "type": "DEFAULT",
+          "userLoginMetadata": {
+            "successfulLoginCounter": 4,
+            "failedLoginCounter": 0,
+            "lastSuccessfulLogin": "2026-08-05T15:16:33.000Z",
+            "lastFailedLogin": null,
+            "resetPasswordTokenSentAt": null,
+            "lastSuccessfulBasicAuthentication": null,
+            "createdAt": "2026-08-05T15:02:00.000Z",
+            "updatedAt": "2026-08-05T15:16:33.000Z"
+          },
+          "userStatus": "ACTIVE",
+          "emergencyContact": false,
+          "groups": [
+            {
+              "uuid": "d2b8f7cd-be74-40e0-ac11-3dfc32ef5d4e",
+              "owner": "LOCAL",
+              "hidden": false,
+              "description": "You can view and manage user groups",
+              "createdAt": "2026-08-05T15:09:48.000Z",
+              "updatedAt": "2026-08-05T15:09:48.000Z",
+              "accountName": "Public Trial api+dev@nango.dev",
+              "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "groupName": "Account Admins"
+            },
+            {
+              "uuid": "15037631-d369-4630-a7e7-08058c870d0d",
+              "owner": "LOCAL",
+              "hidden": false,
+              "description": "You can view licensing information for the account",
+              "createdAt": "2026-08-05T15:09:48.000Z",
+              "updatedAt": "2026-08-05T15:09:48.000Z",
+              "accountName": "Public Trial api+dev@nango.dev",
+              "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "groupName": "Account Viewers"
+            },
+            {
+              "uuid": "3ff4aa6a-df19-44a7-9f5b-4d924dc2b283",
+              "owner": "ALL_USERS",
+              "hidden": false,
+              "description": "Default permissions applying to all users",
+              "createdAt": "2026-08-05T15:09:48.000Z",
+              "updatedAt": "2026-08-05T15:09:48.000Z",
+              "accountName": "Public Trial api+dev@nango.dev",
+              "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "groupName": "Default group with all users"
+            },
+            {
+              "uuid": "d9258cc6-a86d-40cb-b3f3-01d8c40658c3",
+              "owner": "LOCAL",
+              "hidden": false,
+              "description": "Full access to all functions in all environments of the account",
+              "createdAt": "2026-08-05T15:09:48.000Z",
+              "updatedAt": "2026-08-05T15:09:48.000Z",
+              "accountName": "Public Trial api+dev@nango.dev",
+              "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "groupName": "Environment Admins"
+            },
+            {
+              "uuid": "8c64a11f-d9f5-424c-ad92-bfa17f157caf",
+              "owner": "LOCAL",
+              "hidden": false,
+              "description": "Basic access to Dynatrace in all environments of the account",
+              "createdAt": "2026-08-05T15:09:48.000Z",
+              "updatedAt": "2026-08-05T15:09:48.000Z",
+              "accountName": "Public Trial api+dev@nango.dev",
+              "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "groupName": "Environment Users"
+            },
+            {
+              "uuid": "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+              "owner": "LOCAL",
+              "hidden": false,
+              "description": "Access advanced features in all environments of the account",
+              "createdAt": "2026-08-05T15:09:48.000Z",
+              "updatedAt": "2026-08-05T15:09:48.000Z",
+              "accountName": "Public Trial api+dev@nango.dev",
+              "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "groupName": "Environment Professionals"
+            },
+            {
+              "uuid": "bc36a93d-5df3-4c7e-a1c3-aad2ca9395b0",
+              "owner": "LOCAL",
+              "hidden": false,
+              "description": "test group 2",
+              "createdAt": "2026-08-05T15:42:19.000Z",
+              "updatedAt": "2026-08-05T15:42:19.000Z",
+              "accountName": "Public Trial api+dev@nango.dev",
+              "accountUUID": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "groupName": "Nango Registry Test Group 2"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 06 Aug 2026 11:00:47 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2958",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1948",
+          "x-ratelimit-reset": "1786014066",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "etag": "W/\"b8e-fL5eiIWwew56mCnWdB92zH5L9DY:dtagent10343260715123811rAi8\"",
+          "server-timing": "dtTrId;desc=\"6a74695e000000002f52f0c8a47257ea\", dtSInfo;desc=\"0\", dtRpid;desc=\"-1621907857\"",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_18_sn_4F5CD1A1DA5E5875FE6B55E14DB0BF56_perc_100000_ol_0_mul_1_app-3Aea7c4b59f27d43eb_1_rcs-3Acss_1; Path=/; Domain=.dynatrace.com",
+          "traceresponse": "00-6a74695e000000002f52f0c8a47257ea-bcf1eda6e11bbb94-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt"
+        },
+        "hash": "6decc56a22f98d1624be59daa656494b90c2eda0",
+        "request": {}
+      }
+    }
+  }
+}

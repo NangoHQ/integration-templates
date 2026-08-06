@@ -22,7 +22,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['iam:policies:read'],
+    scopes: ['iam-policies-management'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

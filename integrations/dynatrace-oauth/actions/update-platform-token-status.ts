@@ -16,7 +16,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['platform-token:tokens:write'],
+    scopes: ['platform-token:tokens:manage'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/platform-tokens/update-platform-token-status

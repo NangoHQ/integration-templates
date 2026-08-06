@@ -54,7 +54,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['iam:groups:read'],
+    scopes: ['account-idm-read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let accountUuid = input.accountUuid;

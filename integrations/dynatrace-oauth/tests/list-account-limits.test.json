@@ -1,0 +1,122 @@
+{
+  "input": {},
+  "output": {
+    "pageSize": 1000,
+    "pageNumber": 1,
+    "total": 6,
+    "results": [
+      {
+        "limitType": "REGULAR_USER",
+        "limitValue": 10000,
+        "currentValue": 8
+      },
+      {
+        "limitType": "MAX_GROUPS_PER_ACCOUNT",
+        "limitValue": 5000,
+        "currentValue": 17
+      },
+      {
+        "limitType": "MAX_PERMISSIONS_PER_GROUP",
+        "limitValue": 1000,
+        "currentValue": 3
+      },
+      {
+        "limitType": "MAX_PLATFORM_TOKENS_PER_USER",
+        "limitValue": 50,
+        "currentValue": 4
+      },
+      {
+        "limitType": "MAX_PLATFORM_TOKENS_PER_SERVICE_USER",
+        "limitValue": 100,
+        "currentValue": 1
+      },
+      {
+        "limitType": "MAX_PLATFORM_TOKENS_PER_ACCOUNT",
+        "limitValue": 50000,
+        "currentValue": 5
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89"
+    }
+  },
+  "api": {
+    "get": {
+      "/iam/v1/accounts/9610a717-798c-423b-a80f-97cfebe72f89/limits": {
+        "response": {
+          "pageSize": 1000,
+          "pageNumber": 1,
+          "total": 6,
+          "results": [
+            {
+              "limitType": "REGULAR_USER",
+              "limitValue": 10000,
+              "currentValue": 8
+            },
+            {
+              "limitType": "MAX_GROUPS_PER_ACCOUNT",
+              "limitValue": 5000,
+              "currentValue": 17
+            },
+            {
+              "limitType": "MAX_PERMISSIONS_PER_GROUP",
+              "limitValue": 1000,
+              "currentValue": 3
+            },
+            {
+              "limitType": "MAX_PLATFORM_TOKENS_PER_USER",
+              "limitValue": 50,
+              "currentValue": 4
+            },
+            {
+              "limitType": "MAX_PLATFORM_TOKENS_PER_SERVICE_USER",
+              "limitValue": 100,
+              "currentValue": 1
+            },
+            {
+              "limitType": "MAX_PLATFORM_TOKENS_PER_ACCOUNT",
+              "limitValue": 50000,
+              "currentValue": 5
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 06 Aug 2026 11:03:40 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "520",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1949",
+          "x-ratelimit-reset": "1786014259",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "etag": "W/\"208-BQFBzs42NpZU5OyRhl0nivwFTzw:dtagent10343260715123811rAi8\"",
+          "server-timing": "dtTrId;desc=\"6a746a0b00000000382ececa0c820a3b\", dtSInfo;desc=\"0\", dtRpid;desc=\"-1038700188\"",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_30_sn_B11CBA736D2CBB42A32E13CFC55B5781_perc_100000_ol_0_mul_1_app-3Aea7c4b59f27d43eb_1_rcs-3Acss_1; Path=/; Domain=.dynatrace.com",
+          "traceresponse": "00-6a746a0b00000000382ececa0c820a3b-94125f3e58f5d316-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt"
+        },
+        "hash": "30c18f15f547afb6ef4d4b234c75780690dad5f8",
+        "request": {}
+      }
+    }
+  }
+}

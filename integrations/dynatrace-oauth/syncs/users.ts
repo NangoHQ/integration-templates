@@ -6,8 +6,8 @@ const UserSchema = z.object({
     email: z.string(),
     name: z.string().optional(),
     surname: z.string().optional(),
-    type: z.string(),
-    userStatus: z.string(),
+    type: z.string().optional(),
+    userStatus: z.string().optional(),
     emergencyContact: z.boolean().optional()
 });
 
@@ -17,11 +17,11 @@ const ListUsersResponseSchema = z.object({
         z.object({
             uid: z.string(),
             email: z.string(),
-            name: z.string().optional(),
-            surname: z.string().optional(),
-            type: z.string(),
-            userStatus: z.string(),
-            emergencyContact: z.boolean().optional()
+            name: z.string().nullish(),
+            surname: z.string().nullish(),
+            type: z.string().nullish(),
+            userStatus: z.string().nullish(),
+            emergencyContact: z.boolean().nullish()
         })
     )
 });
@@ -35,6 +35,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    trackDeletes: true,
     models: {
         User: UserSchema
     },
@@ -58,8 +59,6 @@ const sync = createSync({
             throw new Error('Missing accountUuid in connection config or metadata');
         }
 
-        await nango.trackDeletesStart('User');
-
         // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/accounts-users/get-all-users
         const response = await nango.get({
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/users`,
@@ -72,13 +71,15 @@ const sync = createSync({
             throw new Error(`Failed to parse list-users response: ${parsed.error.message}`);
         }
 
+        await nango.trackDeletesStart('User');
+
         const users = parsed.data.items.map((user) => ({
             id: user.uid,
             email: user.email,
             ...(user.name != null && user.name !== '' && { name: user.name }),
             ...(user.surname != null && user.surname !== '' && { surname: user.surname }),
-            type: user.type,
-            userStatus: user.userStatus,
+            ...(user.type != null && { type: user.type }),
+            ...(user.userStatus != null && { userStatus: user.userStatus }),
             ...(user.emergencyContact != null && { emergencyContact: user.emergencyContact })
         }));
 

@@ -28,6 +28,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    trackDeletes: true,
     models: {
         Environment: EnvironmentSchema
     },

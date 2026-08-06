@@ -18,7 +18,7 @@ export default createAction({
     version: '1.0.0',
     input: z.void(),
     output: outputSchema,
-    scopes: ['account-idm-read'],
+    scopes: ['iam-policies-management'],
 
     exec: async (nango, _input) => {
         // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api

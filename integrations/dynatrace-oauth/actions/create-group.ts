@@ -18,7 +18,7 @@ const ProviderGroupSchema = z.object({
     uuid: z.string(),
     name: z.string(),
     owner: z.string(),
-    description: z.string(),
+    description: z.string().nullable(),
     hidden: z.boolean(),
     createdAt: z.string().nullable().optional(),
     updatedAt: z.string().nullable().optional()

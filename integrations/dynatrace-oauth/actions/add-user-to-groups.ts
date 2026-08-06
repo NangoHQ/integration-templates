@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    email: z.string().describe('User email address. Must be URL-encoded if it contains special characters like +. Example: "user@example.com"'),
-    group_uuids: z.array(z.string()).describe('Array of group UUIDs to add the user to. Example: ["0bb8915e-fe63-4e37-a1ba-102e7daa375a"]')
+    email: z.string().describe('User email address, in plain (non-URL-encoded) form. Example: "user@example.com"'),
+    group_uuids: z.array(z.string()).max(200).describe('Array of group UUIDs to add the user to. Max 200. Example: ["0bb8915e-fe63-4e37-a1ba-102e7daa375a"]')
 });
 
 const OutputSchema = z.object({
@@ -12,7 +12,7 @@ const OutputSchema = z.object({
 
 const ConnectionConfigSchema = z
     .object({
-        accountUuid: z.string()
+        accountUuid: z.string().min(1)
     })
     .passthrough();
 

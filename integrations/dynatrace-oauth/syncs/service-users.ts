@@ -3,14 +3,14 @@ import { z } from 'zod';
 
 const ProviderServiceUserSchema = z.object({
     uid: z.string(),
-    login: z.string(),
-    email: z.string(),
-    name: z.string(),
-    surname: z.string().optional(),
-    type: z.string(),
-    userStatus: z.string(),
-    description: z.string().optional(),
-    createdAt: z.string()
+    login: z.string().nullish(),
+    email: z.string().nullish(),
+    name: z.string().nullish(),
+    surname: z.string().nullish(),
+    type: z.string().nullish(),
+    userStatus: z.string().nullish(),
+    description: z.string().nullish(),
+    createdAt: z.string().nullish()
 });
 
 const ProviderResponseSchema = z.object({
@@ -25,14 +25,14 @@ const ConnectionConfigSchema = z.object({
 const ServiceUserSchema = z.object({
     id: z.string(),
     uid: z.string(),
-    login: z.string(),
-    email: z.string(),
-    name: z.string(),
+    login: z.string().optional(),
+    email: z.string().optional(),
+    name: z.string().optional(),
     surname: z.string().optional(),
-    type: z.string(),
-    userStatus: z.string(),
+    type: z.string().optional(),
+    userStatus: z.string().optional(),
     description: z.string().optional(),
-    createdAt: z.string()
+    createdAt: z.string().optional()
 });
 
 const sync = createSync({
@@ -40,6 +40,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    trackDeletes: true,
     models: {
         ServiceUser: ServiceUserSchema
     },
@@ -63,8 +64,6 @@ const sync = createSync({
             throw new Error('Missing accountUuid in connection configuration or metadata');
         }
 
-        await nango.trackDeletesStart('ServiceUser');
-
         // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-users-api/list-service-users
         const response = await nango.get({
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/service-users`,
@@ -76,17 +75,19 @@ const sync = createSync({
             throw new Error(`Failed to parse service users response: ${parsedResponse.error.message}`);
         }
 
+        await nango.trackDeletesStart('ServiceUser');
+
         const serviceUsers = parsedResponse.data.results.map((user) => ({
             id: user.uid,
             uid: user.uid,
-            login: user.login,
-            email: user.email,
-            name: user.name,
+            ...(user.login != null && { login: user.login }),
+            ...(user.email != null && { email: user.email }),
+            ...(user.name != null && { name: user.name }),
             ...(user.surname != null && { surname: user.surname }),
-            type: user.type,
-            userStatus: user.userStatus,
+            ...(user.type != null && { type: user.type }),
+            ...(user.userStatus != null && { userStatus: user.userStatus }),
             ...(user.description != null && { description: user.description }),
-            createdAt: user.createdAt
+            ...(user.createdAt != null && { createdAt: user.createdAt })
         }));
 
         if (serviceUsers.length > 0) {

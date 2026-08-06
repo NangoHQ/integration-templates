@@ -35,7 +35,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['account-idm-write'],
+    scopes: ['iam-policies-management'],
 
     exec: async (nango, input) => {
         let accountUuid;

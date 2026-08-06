@@ -1,9 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    email: z.string().describe('User email address. Must be URL-encoded if it contains special characters like +. Example: "user@example.com"'),
+    email: z.string().describe('User email address, in plain (non-URL-encoded) form. Example: "user@example.com"'),
     groupUuids: z.array(z.string()).describe('Array of group UUIDs to remove the user from. Example: ["0bb8915e-fe63-4e37-a1ba-102e7daa375a"]')
 });
 
@@ -42,16 +41,18 @@ const action = createAction({
 
         const encodedEmail = encodeURIComponent(input.email);
 
-        const config: ProxyConfiguration = {
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management/remove-user-from-groups
-            endpoint: `iam/v1/accounts/${accountUuid}/users/${encodedEmail}/groups`,
-            params: {
-                'group-uuid': input.groupUuids
-            },
-            retries: 3
-        };
+        // Dynatrace expects one repeated `group-uuid` query key per UUID, not a single
+        // comma-joined value, so the query string is built manually.
+        const queryString = new URLSearchParams();
+        for (const groupUuid of input.groupUuids) {
+            queryString.append('group-uuid', groupUuid);
+        }
 
-        const response = await nango.delete(config);
+        const response = await nango.delete({
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management/remove-user-from-groups
+            endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/users/${encodedEmail}/groups?${queryString.toString()}`,
+            retries: 3
+        });
 
         if (response.status !== 200) {
             throw new nango.ActionError({

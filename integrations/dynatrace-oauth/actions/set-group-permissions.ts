@@ -7,8 +7,8 @@ const MetadataSchema = z.object({
 
 const PermissionSchema = z.object({
     permissionName: z.string().describe('Permission name. Example: "account-company-info"'),
-    scope: z.string().describe('Scope identifier. Example: "*"'),
-    scopeType: z.string().describe('Scope type. Example: "account"')
+    scope: z.string().describe('Scope identifier: an account UUID, environment ID, or "{environmentId}:{managementZoneId}" for a management zone.'),
+    scopeType: z.enum(['account', 'tenant', 'management-zone']).describe('Scope type.')
 });
 
 const InputSchema = z.object({

@@ -33,7 +33,7 @@ const action = createAction({
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['iam:service-users:use'],
+    scopes: ['account-idm-read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = MetadataSchema.parse(await nango.getMetadata());

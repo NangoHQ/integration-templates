@@ -30,6 +30,7 @@ const sync = createSync({
     description: 'Sync user groups in this account.',
     version: '1.0.0',
     frequency: 'every hour',
+    trackDeletes: true,
     models: {
         Group: GroupSchema
     },
@@ -45,8 +46,6 @@ const sync = createSync({
         }
         const accountUuid = parsedMetadata.data.accountUuid;
 
-        await nango.trackDeletesStart('Group');
-
         // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/groups-api
         const response = await nango.get({
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/groups`,
@@ -57,6 +56,8 @@ const sync = createSync({
         if (!parsed.success) {
             throw new Error(`Failed to parse groups response: ${parsed.error.message}`);
         }
+
+        await nango.trackDeletesStart('Group');
 
         const groups = parsed.data.items.map((group) => ({
             id: group.uuid,
