@@ -55,6 +55,11 @@ describe('dynatrace-oauth service-users tests', () => {
         await createSync.exec(nangoMock);
 
         for (const model of models) {
+            // Regardless of whether this recorded run had any records to delete, the sync
+            // must always open and close its delete-tracking window for a full-refresh model.
+            expect(nangoMock.trackDeletesStart).toHaveBeenCalledWith(model);
+            expect(nangoMock.trackDeletesEnd).toHaveBeenCalledWith(model);
+
             const batchDeleteData = await nangoMock.getBatchDeleteData(model);
             if (batchDeleteData && batchDeleteData.length > 0) {
                 const spiedData = batchDeleteSpy.mock.calls.flatMap((call) => {
