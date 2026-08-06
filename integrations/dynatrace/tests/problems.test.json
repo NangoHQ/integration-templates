@@ -2856,12 +2856,11 @@
             "x-ratelimit-reset": "1785792280",
             "etag": "W/\"3d92-52A3TzCWKQiDnjDxKszqutn6M+M\""
           },
-          "hash": "a32bde243fd996f5b55c67f110833d834270bb01",
           "request": {
             "params": {
-              "from": "-10y",
+              "from": "now-120M",
               "pageSize": "500",
-              "problemSelector": "status(open)"
+              "problemSelector": "status(\"open\")"
             }
           }
         }

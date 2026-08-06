@@ -7,10 +7,11 @@ const EntityStubSchema = z
     .object({
         entityId: z
             .object({
-                id: z.string(),
-                type: z.string()
+                id: z.string().optional(),
+                type: z.string().optional()
             })
-            .passthrough(),
+            .passthrough()
+            .optional(),
         name: z.string().optional()
     })
     .passthrough();
@@ -189,8 +190,8 @@ const sync = createSync({
                 if (backfillPageKey) {
                     backfillParams['nextPageKey'] = backfillPageKey;
                 } else {
-                    backfillParams['problemSelector'] = 'status(open)';
-                    backfillParams['from'] = '-10y';
+                    backfillParams['problemSelector'] = 'status("open")';
+                    backfillParams['from'] = 'now-120M';
                     backfillParams['pageSize'] = PAGE_SIZE;
                 }
 

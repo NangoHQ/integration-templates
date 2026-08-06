@@ -14,11 +14,11 @@
         "url": "https://playground.live.dynatrace.com/ui/security/problem/4168609945108510827",
         "technology": "NODE_JS",
         "firstSeenTimestamp": 1684244584886,
-        "lastUpdatedTimestamp": 1785436252825,
+        "lastUpdatedTimestamp": 1785810723400,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-24999"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "12733349097218020748",
@@ -33,10 +33,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245364886,
         "lastUpdatedTimestamp": 1784544507508,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-42004"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "17738322927118826075",
@@ -51,10 +51,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245364886,
         "lastUpdatedTimestamp": 1784544507508,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2023-20860"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "2356628052091349554",
@@ -69,10 +69,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245364886,
         "lastUpdatedTimestamp": 1784544507508,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2023-20863"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "4324140675097181862",
@@ -87,10 +87,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245364886,
         "lastUpdatedTimestamp": 1784544507508,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-42003"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "653436289519081075",
@@ -105,10 +105,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245364886,
         "lastUpdatedTimestamp": 1784544507508,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2023-20861"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "10388730011694321786",
@@ -122,10 +122,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2021-2163"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "1045456869631985379",
@@ -139,10 +139,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2012-2739"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "11323848283383082003",
@@ -156,10 +156,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21540"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "1144997230984903511",
@@ -173,10 +173,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21299"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "12905996424718781834",
@@ -190,10 +190,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2800"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "13100455881394701796",
@@ -207,10 +207,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21349"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "14058974260406260812",
@@ -224,10 +224,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2014-1876"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "15097177977484002004",
@@ -241,10 +241,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2781"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "15343717074380388990",
@@ -258,10 +258,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21365"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "16078735010538869828",
@@ -275,10 +275,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2767"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "16307521683851225672",
@@ -292,10 +292,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21294"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "16482704530847878836",
@@ -309,10 +309,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21541"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "165963399334290483",
@@ -326,10 +326,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21282"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "17031388985207430910",
@@ -343,10 +343,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2805"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "1756251065062028729",
@@ -360,10 +360,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-34169"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "17650354785050904860",
@@ -377,10 +377,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2754"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "1809045738910086846",
@@ -394,10 +394,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21296"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "18255256771166388974",
@@ -411,10 +411,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21248"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "2666527971884295715",
@@ -428,10 +428,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21341"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "4106733193979291134",
@@ -445,10 +445,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2773"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "4490142413017885392",
@@ -462,10 +462,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2803"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "5657022522230118114",
@@ -479,10 +479,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21305"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "6164827137214517343",
@@ -496,10 +496,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21283"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "6374510769892136255",
@@ -513,10 +513,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21293"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "6440843820397792460",
@@ -530,10 +530,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21360"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "6511814307148477265",
@@ -547,10 +547,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2816"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "6559308239670527127",
@@ -564,10 +564,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2778"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "6759554245709197492",
@@ -581,10 +581,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2757"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "7670622539007844833",
@@ -598,10 +598,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2755"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "7986793739429907062",
@@ -615,10 +615,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2830"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "8318475611582955583",
@@ -632,10 +632,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-2756"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "9007844411566394493",
@@ -649,10 +649,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-21340"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "9526453555134840970",
@@ -666,10 +666,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245526970,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2021-2161"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "10693169319370414393",
@@ -684,10 +684,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-20330"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "10770987203927327722",
@@ -702,10 +702,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-14540"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "11242075433507189074",
@@ -720,10 +720,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-11112"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "11278730583098718798",
@@ -738,10 +738,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-25649"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "11334035716994662926",
@@ -756,10 +756,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-12814"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "11439726338471544303",
@@ -774,10 +774,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-10672"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "11669026726468080523",
@@ -792,10 +792,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36185"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "11759486712715154137",
@@ -810,10 +810,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-14061"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "11846717422265660169",
@@ -828,10 +828,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2022-24329"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "11970714728337054003",
@@ -846,10 +846,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2021-22060"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "1229157899721804041",
@@ -864,10 +864,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-10650"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "12547489962438189310",
@@ -882,10 +882,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2021-20190"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "12784407003254001064",
@@ -900,10 +900,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36179"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "1340823583484240022",
@@ -918,10 +918,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-22965"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "13509438992629074045",
@@ -936,10 +936,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-14060"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "13797051661891548293",
@@ -954,10 +954,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-25647"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "13940310852150331491",
@@ -972,10 +972,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-35491"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "1403703998135981709",
@@ -990,10 +990,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-36518"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "14577408665025044423",
@@ -1008,10 +1008,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-24750"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "14679965108128660662",
@@ -1026,10 +1026,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-14892"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "1491991696349120037",
@@ -1044,10 +1044,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-11111"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "15114590303519069119",
@@ -1062,10 +1062,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-22968"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "1528078404132467721",
@@ -1080,10 +1080,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36189"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "15348703491971085631",
@@ -1098,10 +1098,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-10673"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "159360742952611631",
@@ -1116,10 +1116,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-11113"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "16507855049990639864",
@@ -1134,10 +1134,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-10219"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "16614672089210102960",
@@ -1152,10 +1152,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36182"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "16865935009843997632",
@@ -1170,10 +1170,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-17531"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "1720139812832559739",
@@ -1188,10 +1188,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-14379"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "17307334134612723731",
@@ -1206,10 +1206,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36187"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "17558708164884021834",
@@ -1224,10 +1224,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-17267"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "18279797694011274468",
@@ -1242,10 +1242,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36184"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "18314394967693365239",
@@ -1260,10 +1260,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-22950"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "18402046251829931452",
@@ -1278,10 +1278,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-16942"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "2039861408676243188",
@@ -1296,10 +1296,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-29582"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "225376027396657439",
@@ -1314,10 +1314,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-14195"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "2466438287278376021",
@@ -1332,10 +1332,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2021-22118"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "2482086761260590027",
@@ -1350,10 +1350,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36183"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "2706029017208379844",
@@ -1368,10 +1368,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-24616"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "3568452439279730083",
@@ -1386,10 +1386,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-16943"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "4743178970742750445",
@@ -1404,10 +1404,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36181"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "52899766514994359",
@@ -1422,10 +1422,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-11619"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "5299986947609318358",
@@ -1440,10 +1440,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-11620"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "5780713679806694733",
@@ -1458,10 +1458,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36188"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "579880915179309720",
@@ -1476,10 +1476,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-5398"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "5876764290839205318",
@@ -1494,10 +1494,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-35728"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "5994921607360954011",
@@ -1512,10 +1512,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-12384"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "6432733561186187551",
@@ -1530,10 +1530,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36180"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "6448365148168721780",
@@ -1548,10 +1548,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-10693"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "6842135497410858860",
@@ -1566,10 +1566,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-35490"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "6918277047186708900",
@@ -1584,10 +1584,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-9546"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "7417412078226472611",
@@ -1602,10 +1602,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-14062"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "7678393544709366930",
@@ -1620,10 +1620,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2020-5421"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "7733156690801805852",
@@ -1638,10 +1638,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2021-22096"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "7980536050210571488",
@@ -1656,10 +1656,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2019-16335"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "806884447636261940",
@@ -1674,10 +1674,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-10969"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "8173080762443357716",
@@ -1692,10 +1692,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-27772"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "9022831699892690206",
@@ -1710,10 +1710,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-10968"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "9474917689418497023",
@@ -1728,10 +1728,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-8840"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       },
       {
         "securityProblemId": "9829464823104950655",
@@ -1746,10 +1746,10 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540007392,
         "cveIds": [
           "CVE-2022-22970"
-        ],
-        "lastOpenedTimestamp": 1784540007392
+        ]
       },
       {
         "securityProblemId": "9975990110345975314",
@@ -1764,24 +1764,24 @@
         "technology": "JAVA",
         "firstSeenTimestamp": 1684245544886,
         "lastUpdatedTimestamp": 1784540727657,
+        "lastOpenedTimestamp": 1784540727397,
         "cveIds": [
           "CVE-2020-36186"
-        ],
-        "lastOpenedTimestamp": 1784540727397
+        ]
       }
     ],
-    "nextPageKey": "vu8XQiDj3q0SIU59KgHvowAAAZ8uBx2uAAABn8iF5a4AAABkAAI0VT4tJAUu9QEAAQEADTE2ODQyNDU1NDQ4ODY0VT4tJAUu9QIAAQEAEzk5NzU5OTAxMTAzNDU5NzUzMTQAvu8XQiDj3q0",
+    "nextPageKey": "vu8XQiDj3q0SIU59KgHvowAAAZ84O6HqAAABn9K6aeoAAABkAAI0VT4tJAUu9QEAAQEADTE2ODQyNDU1NDQ4ODY0VT4tJAUu9QIAAQEAEzk5NzU5OTAxMTAzNDU5NzUzMTQAvu8XQiDj3q0",
     "pageSize": 100,
-    "totalCount": 706
+    "totalCount": 708
   },
   "nango": {},
   "api": {
     "get": {
       "/api/v2/securityProblems": {
         "response": {
-          "totalCount": 706,
+          "totalCount": 708,
           "pageSize": 100,
-          "nextPageKey": "vu8XQiDj3q0SIU59KgHvowAAAZ8uBx2uAAABn8iF5a4AAABkAAI0VT4tJAUu9QEAAQEADTE2ODQyNDU1NDQ4ODY0VT4tJAUu9QIAAQEAEzk5NzU5OTAxMTAzNDU5NzUzMTQAvu8XQiDj3q0",
+          "nextPageKey": "vu8XQiDj3q0SIU59KgHvowAAAZ84O6HqAAABn9K6aeoAAABkAAI0VT4tJAUu9QEAAQEADTE2ODQyNDU1NDQ4ODY0VT4tJAUu9QIAAQEAEzk5NzU5OTAxMTAzNDU5NzUzMTQAvu8XQiDj3q0",
           "securityProblems": [
             {
               "securityProblemId": "4168609945108510827",
@@ -1795,7 +1795,7 @@
               "url": "https://playground.live.dynatrace.com/ui/security/problem/4168609945108510827",
               "technology": "NODE_JS",
               "firstSeenTimestamp": 1684244584886,
-              "lastUpdatedTimestamp": 1785436252825,
+              "lastUpdatedTimestamp": 1785810723400,
               "lastOpenedTimestamp": 1784540007392,
               "cveIds": [
                 "CVE-2022-24999"
@@ -3554,7 +3554,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 03 Aug 2026 16:47:26 GMT",
+          "date": "Wed, 05 Aug 2026 16:21:00 GMT",
           "content-type": "application/json;charset=utf-8",
           "content-length": "53496",
           "connection": "keep-alive",
@@ -3563,14 +3563,25 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "strict-transport-security": "max-age=31536000;includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1971",
-          "x-ratelimit-reset": "1785775693",
-          "etag": "W/\"d0f8-aDvRzXYpjyWDFYHLvDUfIPfOED0\""
+          "x-ratelimit-remaining": "1908",
+          "x-ratelimit-reset": "1785946887",
+          "vary": "Accept-Encoding",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_35_sn_865063484A19889E4982E05BEAA3EBD5_perc_100000_ol_0_mul_1_app-3Ad2f4a377001040b0_1_rcs-3Acss_0; Path=/; Domain=.dynatrace.com; secure",
+          "x-oneagent-js-injection": "true",
+          "server-timing": "dtTrId;desc=\"6a7362eb000000005f6f4756dc0b7594\", dtSInfo;desc=\"0\", dtRpid;desc=\"-2106425181\"",
+          "traceresponse": "00-6a7362eb000000005f6f4756dc0b7594-3da55c8833fc5290-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt",
+          "cache-control": "no-store, no-cache",
+          "pragma": "no-cache",
+          "dynatrace-response-source": "Cluster",
+          "x-robots-tag": "noindex",
+          "server": "ruxit server",
+          "etag": "W/\"d0f8-mjvdHfOOSN58KTzRY1zAA9q+AZ8\""
         },
         "hash": "1ae697a6fb27bcbd6fd6c957a14b64d1d163700b",
         "request": {}

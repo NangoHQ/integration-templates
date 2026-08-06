@@ -2,41 +2,50 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    problemId: z.string().describe('The ID of the problem to list comments for. Example: "-8606659165870343936_1785774900000V2"'),
-    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    problemId: z.string().describe('Problem ID. Example: "6853744532401203457_1785946260000V2"'),
+    cursor: z.string().optional().describe('Pagination cursor (nextPageKey) from the previous response. Omit for the first page.')
 });
 
 const ProviderCommentSchema = z.object({
     id: z.string(),
-    content: z.string(),
     createdAtTimestamp: z.number(),
+    content: z.string(),
     authorName: z.string(),
-    context: z.string()
+    context: z.string().optional()
 });
 
-const ProviderCommentsListSchema = z.object({
-    comments: z.array(ProviderCommentSchema),
+const ProviderResponseSchema = z.object({
     totalCount: z.number(),
+    pageSize: z.number().optional(),
     nextPageKey: z.string().nullable().optional(),
-    pageSize: z.number().optional()
+    comments: z.array(ProviderCommentSchema.passthrough())
 });
 
 const OutputSchema = z.object({
-    comments: z.array(ProviderCommentSchema),
+    comments: z.array(
+        z.object({
+            id: z.string(),
+            createdAtTimestamp: z.number(),
+            content: z.string(),
+            authorName: z.string(),
+            context: z.string().optional()
+        })
+    ),
     totalCount: z.number(),
     nextPageKey: z.string().optional()
 });
 
 const action = createAction({
     description: 'List comments on a problem.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['problems.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // Dynatrace rejects continuation requests that include any parameter besides nextPageKey.
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/comments/get-all
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems-api#get-problem-comments
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}/comments`,
             params: {
                 ...(input.cursor !== undefined && { nextPageKey: input.cursor })
@@ -44,12 +53,18 @@ const action = createAction({
             retries: 3
         });
 
-        const providerData = ProviderCommentsListSchema.parse(response.data);
+        const providerResponse = ProviderResponseSchema.parse(response.data);
 
         return {
-            comments: providerData.comments,
-            totalCount: providerData.totalCount,
-            ...(providerData.nextPageKey != null && { nextPageKey: providerData.nextPageKey })
+            comments: providerResponse.comments.map((comment) => ({
+                id: comment.id,
+                createdAtTimestamp: comment.createdAtTimestamp,
+                content: comment.content,
+                authorName: comment.authorName,
+                ...(comment.context !== undefined && { context: comment.context })
+            })),
+            totalCount: providerResponse.totalCount,
+            ...(providerResponse.nextPageKey != null && { nextPageKey: providerResponse.nextPageKey })
         };
     }
 });

@@ -2,17 +2,16 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    problemId: z.string().describe('The ID of the problem. Example: "P-2608312"'),
-    commentId: z.string().describe('The ID of the comment to update. Example: "8675602222913308574_1785774900000"'),
-    message: z.string().describe('The new text of the comment.'),
-    context: z.string().describe('The context of the comment. Example: "CUSTOM"')
+    problemId: z.string().describe('Problem ID. Example: "-232322341223"'),
+    commentId: z.string().describe('Comment ID. Example: "123e4567-e89b-12d3-a456-426614174000"'),
+    message: z.string().describe('The updated comment text.'),
+    context: z.string().optional().describe('The comment context. Example: "CUSTOM"')
 });
 
 const OutputSchema = z.object({
     problemId: z.string(),
     commentId: z.string(),
-    message: z.string(),
-    context: z.string()
+    updated: z.boolean()
 });
 
 const action = createAction({
@@ -20,24 +19,28 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['problems.read', 'problems.write'],
+    scopes: ['problems.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/put-comment
+        const data: { message: string; context?: string } = {
+            message: input.message
+        };
+
+        if (input.context !== undefined) {
+            data.context = input.context;
+        }
+
         await nango.put({
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/comments
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}/comments/${encodeURIComponent(input.commentId)}`,
-            data: {
-                message: input.message,
-                context: input.context
-            },
-            retries: 1
+            data,
+            retries: 3
         });
 
         return {
             problemId: input.problemId,
             commentId: input.commentId,
-            message: input.message,
-            context: input.context
+            updated: true
         };
     }
 });

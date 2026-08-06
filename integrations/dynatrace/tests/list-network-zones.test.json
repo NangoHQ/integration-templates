@@ -1,7 +1,7 @@
 {
   "input": {},
   "output": {
-    "networkZones": [
+    "items": [
       {
         "id": "default",
         "description": "The default network zone. This is the network zone for OneAgents or ActiveGates that do not have any network zone configured.",
@@ -50,7 +50,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 03 Aug 2026 16:44:36 GMT",
+          "date": "Wed, 05 Aug 2026 16:21:18 GMT",
           "content-type": "application/json;charset=utf-8",
           "content-length": "538",
           "connection": "keep-alive",
@@ -59,13 +59,24 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "strict-transport-security": "max-age=31536000;includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1976",
-          "x-ratelimit-reset": "1785775504",
+          "x-ratelimit-remaining": "1862",
+          "x-ratelimit-reset": "1785946887",
+          "vary": "Accept-Encoding",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_19_sn_A1751D619D88945E834B0C99EB2682C5_perc_100000_ol_0_mul_1_app-3Ad2f4a377001040b0_1_rcs-3Acss_0; Path=/; Domain=.dynatrace.com; secure",
+          "x-oneagent-js-injection": "true",
+          "server-timing": "dtTrId;desc=\"6a7362fe000000007c4431f787606302\", dtSInfo;desc=\"0\", dtRpid;desc=\"-264987752\"",
+          "traceresponse": "00-6a7362fe000000007c4431f787606302-c8f0f7f9faac663b-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt",
+          "cache-control": "no-store, no-cache",
+          "pragma": "no-cache",
+          "dynatrace-response-source": "Cluster",
+          "x-robots-tag": "noindex",
+          "server": "ruxit server",
           "etag": "W/\"21a-3HcELqVXbxoyOWw/RyhyzEnyMsU\""
         },
         "hash": "d570b83ba37ada6c4d15111373f68cd096ccb0f3",
