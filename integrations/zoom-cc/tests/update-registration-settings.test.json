@@ -1,0 +1,68 @@
+{
+  "input": {
+    "options": {
+      "host_email_notification": true
+    }
+  },
+  "output": {
+    "success": false,
+    "error_code": 200,
+    "error_message": "Only available for Paid account."
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/accounts/me/settings/registration": {
+        "response": {
+          "code": 200,
+          "message": "Only available for Paid account."
+        },
+        "status": 400,
+        "headers": {
+          "date": "Thu, 06 Aug 2026 12:20:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "57",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1990",
+          "x-ratelimit-reset": "1786018886",
+          "x-zm-trackingid": "v=2.0;clid=us05;rid=WEB_fc6d7ad2c430667ca2c7eb411e397d8c",
+          "cache-control": "no-cache, no-store, must-revalidate, no-transform",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "set-cookie": "zm_aid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, zm_haid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, zm_tmaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, zm_htmaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, cred=DBDF236B88044B67539D183E4DE4C836; Path=/; Secure; HttpOnly, _zm_ctaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, _zm_chtaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, _zm_mtk_guid=4139ce1ece4444e9b179288f1a38576d; Expires=Sat, 05 Aug 2028 12:20:36 GMT; Max-Age=63072000; Domain=zoom.us; Path=/; Secure, _zm_ctaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, _zm_chtaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, _zm_mtk_guid=7638fd7d4a71481b9cbdf893c2021777; Expires=Sat, 05 Aug 2028 12:20:36 GMT; Max-Age=63072000; Domain=zoom.us; Path=/; Secure, __cf_bm=MogEc635byFwApWaj69cKVWs58NJCIJTbO0BqBmvWBE-1786018836-1.0.1.1-NTKE22jf6D4TCbJQRpdI1Rb.JMto9IphWgQdnfUcbY0k09ySI_TbVThmrJU5OwW5lLsyuCIvT0.H1cKTB8l8_p4gCKDqv7CMHjjBDEMQl_w; path=/; expires=Thu, 06-Aug-26 12:50:36 GMT; domain=.zoom.us; HttpOnly; Secure; SameSite=None",
+          "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+          "x-ratelimit-category": "Medium",
+          "x-zm-zoneid": "VA2",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=MS9Rfv7GHZ2BTfYOpbH1eb6BA%2BEhxlnhywR%2FhPP8qk3IrVFj9O%2F2uBAoydOL6WZjwy3Wt7yvZzRtpM0Mm6Nu6Q7sWL%2BA1gwHsM6YTfiZCImyRvMs1pKS8IWJ41VS\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a26dff20cfe8efd6-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"39-MQrAH2IoAA2ViFL6zxggGFcBtOQ\""
+        },
+        "hash": "d9f86118c8bf093ecce0f83910fa8355bb83da43",
+        "request": {
+          "params": {
+            "type": "webinar"
+          },
+          "data": {
+            "options": {
+              "host_email_notification": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
