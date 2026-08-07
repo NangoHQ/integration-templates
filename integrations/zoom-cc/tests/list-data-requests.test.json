@@ -1,0 +1,127 @@
+{
+  "input": {},
+  "output": {
+    "total_records": 2,
+    "records": [
+      {
+        "request_id": "2085327946910044162",
+        "request_type": "EXPORT",
+        "created_at": "2026-08-06T11:31:40.722Z",
+        "start_at": "2026-07-01T00:00Z",
+        "end_at": "2026-08-06T00:00Z",
+        "requestor_user_id": "_rvy35H7Sx2rTplFO1PgGg",
+        "requestor_name": "Integration Developer",
+        "account_id": "DaVHmHOWQcCf2juv51RGsg",
+        "user_identifier": "api@nango.dev",
+        "data_type": [
+          "All Internal Data"
+        ],
+        "state": "Processing",
+        "files_count": 0,
+        "is_current_user": true
+      },
+      {
+        "request_id": "2085327651031248899",
+        "request_type": "EXPORT",
+        "created_at": "2026-08-06T11:30:30.183Z",
+        "start_at": "2026-07-01T00:00Z",
+        "end_at": "2026-08-06T00:00Z",
+        "requestor_user_id": "_rvy35H7Sx2rTplFO1PgGg",
+        "requestor_name": "Integration Developer",
+        "account_id": "DaVHmHOWQcCf2juv51RGsg",
+        "user_identifier": "api+dev@nango.dev",
+        "data_type": [
+          "All Internal Data"
+        ],
+        "state": "Failed",
+        "files_count": 0,
+        "failed_reason": "No internal user was found using this email.",
+        "is_current_user": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/data_requests/requests": {
+        "response": {
+          "total_records": 2,
+          "records": [
+            {
+              "request_id": "2085327946910044162",
+              "request_type": "EXPORT",
+              "created_at": "2026-08-06T11:31:40.722Z",
+              "start_at": "2026-07-01T00:00Z",
+              "end_at": "2026-08-06T00:00Z",
+              "requestor_user_id": "_rvy35H7Sx2rTplFO1PgGg",
+              "requestor_name": "Integration Developer",
+              "account_id": "DaVHmHOWQcCf2juv51RGsg",
+              "user_identifier": "api@nango.dev",
+              "data_type": [
+                "All Internal Data"
+              ],
+              "state": "Processing",
+              "files_count": "0",
+              "is_current_user": true
+            },
+            {
+              "request_id": "2085327651031248899",
+              "request_type": "EXPORT",
+              "created_at": "2026-08-06T11:30:30.183Z",
+              "start_at": "2026-07-01T00:00Z",
+              "end_at": "2026-08-06T00:00Z",
+              "requestor_user_id": "_rvy35H7Sx2rTplFO1PgGg",
+              "requestor_name": "Integration Developer",
+              "account_id": "DaVHmHOWQcCf2juv51RGsg",
+              "user_identifier": "api+dev@nango.dev",
+              "data_type": [
+                "All Internal Data"
+              ],
+              "state": "Failed",
+              "files_count": "0",
+              "failed_reason": "No internal user was found using this email.",
+              "is_current_user": true
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 06 Aug 2026 12:09:24 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "924",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1974",
+          "x-ratelimit-reset": "1786018216",
+          "x-zm-trackingid": "v=2.0;clid=us05;rid=WEB_53dc4ed52d00b848cd853f0e6c75d3f9",
+          "cache-control": "no-cache, no-store, must-revalidate, no-transform",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "set-cookie": "zm_aid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, zm_haid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, zm_tmaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, zm_htmaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, cred=78C2F456391EBCCED87C358BB34D5B83; Path=/; Secure; HttpOnly, _zm_ctaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, _zm_chtaid=; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly, _zm_mtk_guid=39f3ef61ef45463bafef40a291b51068; Expires=Sat, 05 Aug 2028 12:09:24 GMT; Max-Age=63072000; Domain=zoom.us; Path=/; Secure, __cf_bm=YFCab6ymDnYXy0GIDYEwNVsgRh1MPY.FPVBoKOZg5.o-1786018164-1.0.1.1-ETHXNIZ6anAuJGXOrO.jGx.JYCKi6Ib2ncBYGAF6XXwDuRMXB0CultgQ0nQslkYyauaMfMwK67h0m.0UftSRkqD847F5IO6V9qRn9oTND3Q; path=/; expires=Thu, 06-Aug-26 12:39:24 GMT; domain=.zoom.us; HttpOnly; Secure; SameSite=None",
+          "vary": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+          "x-ratelimit-category": "Light",
+          "x-zm-zoneid": "VA2",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=d0xx%2Faq3%2BD8JTn2%2F0Bi5sf%2BhqdzImP%2BqnS6KrruBBFaUHFQ%2FOkFjAQbUPJUp20djbjfwtmS%2BedzG1r1ycmhvdxTDT%2BqDjhc4XjQ3tz%2FaZtEn3wFBGNT3U%2FcxBRgL\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a26deeb6be539790-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"39c-3ZRxrgz+3Y7c6SeNnrqR8gcsFdg\""
+        },
+        "hash": "7cfe45a5955ab8cb81a7302ad0f7b565e7f5ade7",
+        "request": {}
+      }
+    }
+  }
+}
