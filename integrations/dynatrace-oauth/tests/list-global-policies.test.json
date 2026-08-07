@@ -1,0 +1,1339 @@
+{
+  "input": null,
+  "output": {
+    "policies": [
+      {
+        "uuid": "efbb8157-dbe5-431e-ab6b-1d6ce9014144",
+        "name": "AppEngine - Admin",
+        "description": "Grants admin permissions to view, run, and install Dynatrace Apps, and view workflows.",
+        "tags": [
+          "app-engine",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "11967887-90ee-4801-aa63-2d608d25eb8a",
+        "name": "AppEngine - Manage EdgeConnect",
+        "description": "Grants full access to manage EdgeConnect.",
+        "tags": [
+          "app-engine",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "8ba05b4b-8d08-45b4-bbd7-f49d6e67a242",
+        "name": "Email Service - allow to send email",
+        "description": "Grants permission to send emails from `@apps.dynatrace.com` using a public send email API endpoint.",
+        "tags": [
+          "email-control",
+          "email-service",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "942f7318-6141-4cd2-8cc4-496b81b7e4c4",
+        "name": "Settings Writer",
+        "description": "Grants permission to read and write Dynatrace settings.",
+        "tags": [
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "816c81fa-fda0-4e03-88dc-7186aacd4d0f",
+        "name": "Storage All System Data Read",
+        "description": "Grants unconditional access to all Grail system tables prefixed with \"dt.\".",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "d30d2c06-f148-45d6-82dc-dc76044868dc",
+        "name": "Read BizEvents",
+        "description": "Grants unconditional access to the bizevents table and to all bizevent buckets, including all custom bizevent buckets.",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "3ab3fed9-d59c-4a2c-ab5c-dc0136737e95",
+        "name": "AutomationEngine - User access",
+        "description": "Grants basic read access to workflows.",
+        "tags": [
+          "automation-engine",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "815e91d0-fb79-45ae-83e8-21a636758a74",
+        "name": "Extensions - Admin access",
+        "description": "Grants access to view, add, activate, update, and delete all the extensions and their monitoring configurations.",
+        "tags": [
+          "extensions",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "2b16c4fe-b54e-4325-94dd-cb3dea0b0041",
+        "name": "Hub Catalog Read",
+        "description": "Grants read access to the Hub catalog content.",
+        "tags": [
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "7b4b486f-42d2-4e66-abb3-a3a48c02aa49",
+        "name": "Ingest Events write",
+        "description": "Grants permission to write events to the ingest endpoints.",
+        "tags": [
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "23c9698e-4011-4594-8be8-f61006927fd9",
+        "name": "Settings Reader",
+        "description": "Grants read access to Dynatrace settings.",
+        "tags": [
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "fb562df6-e77a-4e4a-903e-7fa9db75a910",
+        "name": "Read Application Snapshots",
+        "description": "Grants read access to the Grail application snapshots table.",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "8f8de0e5-66f3-4656-b8e1-d2c03fc28721",
+        "name": "Read Entities",
+        "description": "Grants read access to all entities.",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "dca03294-6852-4c9e-9d1b-70dd3f42fa5c",
+        "name": "Read Events",
+        "description": "Grants unconditional access to the Grail events table and to all event buckets (excluding security events).",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "7f8475de-1afd-4f3a-b5b3-7994b363eff4",
+        "name": "Read Logs",
+        "description": "Grants unconditional access to the logs table and all log buckets, including all custom log buckets.",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "72283365-44f0-445f-9169-8565e9d2e1d1",
+        "name": "Storage Metrics Write",
+        "description": "Grants permission to write metrics to Grail.",
+        "tags": [
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "c9fbe9a4-178c-45ab-b7b5-06e03d9a4eff",
+        "name": "Read System Events",
+        "description": "Grants read access to all Dynatrace system events data.",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "bf2b930c-fedc-42c0-a5c8-8b5b99d4f4d0",
+        "name": "Read Sensitive Data",
+        "description": "Grants unconditional permissions to read sensitive data in Dynatrace.",
+        "tags": [
+          "storage",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "d5219bca-41fb-4587-af1f-2df0ad148037",
+        "name": "Read Security Events",
+        "description": "Grants unconditional access to the security events from both, `events` and `security.events` tables and to the default security event buckets.",
+        "tags": [
+          "grail",
+          "security",
+          "storage",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "6ead3459-0fbe-4922-a578-a7cc8c528026",
+        "name": "Data-Acquisition AWS Integration",
+        "description": "Grants permissions to configure and ingest AWS data through Data-Acquisition APIs.",
+        "tags": [
+          "dac",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      },
+      {
+        "uuid": "accb78b7-325b-4029-98e7-cbb296447ded",
+        "name": "Read User Replays",
+        "description": "Grants read access to all user replay data",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "2f52ab7c-0093-45ce-9c8e-7a04350a9934",
+        "name": "Azure Native Dynatrace Service Integration",
+        "description": "Grants permissions to configure and manage Azure native features for ANDS, including logs ingest and installation of Azure extensions for Virtual Machines, App Services, ARC Machine, and Azure Kubernetes Services.",
+        "tags": [
+          "liftr-management-api",
+          "azure-native-dynatrace-service",
+          "ands",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      },
+      {
+        "uuid": "870b84b5-5600-4c65-ab2d-8f396e63a64c",
+        "name": "Read Spans",
+        "description": "Grants unconditional access to the spans table and all spans buckets, including all custom spans buckets.",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "7629a85c-fa75-41be-ad99-5b1bac50aac6",
+        "name": "Storage Default Monitoring Read",
+        "description": "Grants unconditional access to all the Grail tables and default buckets (excluding security events).",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "d449c847-133f-4081-ac92-04c3ece2c783",
+        "name": "OpenPipeline Ingest",
+        "description": "Grants permission to ingest data into OpenPipeline.",
+        "tags": [
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "d679864b-4925-4279-8d6f-b7013c0dcda5",
+        "name": "Kubernetes Ingest",
+        "description": "Grants permissions for Kubernetes ingest",
+        "tags": [
+          "k8s",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      },
+      {
+        "uuid": "c15240c8-c4c4-42c3-bc01-6a77bd20438a",
+        "name": "Kubernetes Onboarding",
+        "description": "Grants permissions for Kubernetes onboarding",
+        "tags": [
+          "k8s",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      },
+      {
+        "uuid": "11c4a7e9-b92e-4902-b533-042b61108f15",
+        "name": "Kubernetes Operator",
+        "description": "Grants permissions for Kubernetes operator",
+        "tags": [
+          "k8s",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      },
+      {
+        "uuid": "243f8cae-3b2d-4fd6-b00a-0106e5eb7309",
+        "name": "Hyperscaler authentication service",
+        "description": "Grants permissions to authenticate against hyperscalers.",
+        "tags": [
+          "hyperscaler-authentication-service",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "67a792fa-e2c5-48ee-b179-fa00d7ce04e6",
+        "name": "Data-Acquisition GCP Integration",
+        "description": "Grants permissions to configure and ingest GCP data through Data-Acquisition APIs.",
+        "tags": [
+          "dac",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      },
+      {
+        "uuid": "ee8bcb76-745a-4d02-80fe-4301edcb1f6e",
+        "name": "Data-Acquisition AWS Integration App",
+        "description": "Grants permissions to users who will manage (create/modify/delete) AWS connections in the fleet managment app.",
+        "tags": [
+          "dac",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      },
+      {
+        "uuid": "4a3065f8-c651-4441-b51c-f9c860859fe4",
+        "name": "Data-Acquisition Cloud Integrations All",
+        "description": "Grants permissions to users who will manage (create/modify/delete) cloud connections in the Fleet Management app. Use policy boundaries to restrict to a particular hyperscaler if needed.",
+        "tags": [
+          "dac",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      },
+      {
+        "uuid": "b803f44e-6241-4364-a705-8bc906a439d6",
+        "name": "DtWiz Ingestion User",
+        "description": "Grants permissions to users or service users who should be able to ingest data using dtwiz",
+        "tags": [
+          "dtwiz",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      },
+      {
+        "uuid": "491aaa59-056d-4d86-a228-b4aea153de38",
+        "name": "Environment role - View logs",
+        "description": "Permission to access 'Log Viewer' features (equivalence RBAC permission).",
+        "tags": [
+          "iam",
+          "cluster",
+          "log",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "9e78dc2a-35ed-4f12-b01e-07c2b3ad81f1",
+        "name": "Environment role - Access environment",
+        "description": "Permission to access 'Environment Roles Viewer' features (equivalence RBAC permission).",
+        "tags": [
+          "iam",
+          "cluster",
+          "roles",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "d9764328-69e7-4c84-aaed-532005da3660",
+        "name": "Environment role - Download/install OneAgent",
+        "description": "Permission to access 'Agent Install' features (equivalence RBAC permission). Management zones not supported.",
+        "tags": [
+          "iam",
+          "cluster",
+          "agent",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "af6bff99-ef45-4bc8-8791-4006cd4eed35",
+        "name": "AppEngine - User",
+        "description": "Grants basic access to AppEngine, that is to run Dynatrace Apps and Launcher, gives read access to workflows.",
+        "tags": [
+          "app-engine",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "2531f5a6-330e-4cf3-853f-f0d17403d9d8",
+        "name": "Read User Events",
+        "description": "Grants read access to all User Events data",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "4027a8f6-5f67-4563-af11-86e891aaeabf",
+        "name": "AppEngine - Developer access",
+        "description": "Grants permissions to install and delete customs apps. You need to add an additional `app-engine:apps:run` permission to run Dynatrace Apps and Launcher. permission is necessary to access AppEngine.",
+        "tags": [
+          "app-engine",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "0def15e0-4057-417a-b4f0-72961f7740c2",
+        "name": "Environment role - View sensitive request data",
+        "description": "Permission to access 'View Sensitive Request Data' features (equivalence RBAC permission).",
+        "tags": [
+          "iam",
+          "cluster",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "8957b9af-3acd-4735-81f8-dac5cf328f6e",
+        "name": "Environment role - Change monitoring settings",
+        "description": "Permission to access 'Environment Manage Settings' features (equivalence RBAC permission).",
+        "tags": [
+          "iam",
+          "cluster",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "5d4c420b-131e-48ee-9526-beef01787968",
+        "name": "Read Metrics",
+        "description": "Grants unconditional access to the metrics table and all metrics buckets, including all custom metrics buckets.",
+        "tags": [
+          "storage",
+          "grailStorageReplayEventsReadCustomerFacing",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "5e4fef77-2fc8-46ff-8588-1b164ee253f4",
+        "name": "Environment role - Configure capture of sensitive data",
+        "description": "Permission to access 'Configure Request Capture Data' features (equivalence RBAC permission). Management zones not supported.",
+        "tags": [
+          "iam",
+          "cluster",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "cdc83ae6-6d0c-4379-9216-731b23fa4831",
+        "name": "Read User Sessions",
+        "description": "Grants read access to all User Sessions data",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "edb4a1c6-0bfb-4d97-936c-08f2082b9a75",
+        "name": "Environment role - Replay session data without masking",
+        "description": "Permission to access 'Replay Sessions Without Masking' features (equivalence RBAC permission).",
+        "tags": [
+          "iam",
+          "cluster",
+          "sessions",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "3ad08231-c7b2-4824-b5bd-116c4636c620",
+        "name": "Extensions - User access",
+        "description": "Grants access to view all the extensions and their monitoring configurations.",
+        "tags": [
+          "extensions",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "49a7ef2d-171a-4731-9927-45ad36148cd9",
+        "name": "Environment role - Manage security problems",
+        "description": "Permission to access 'Manage Security Problems' features (equivalence RBAC permission).",
+        "tags": [
+          "iam",
+          "cluster",
+          "security",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "03a6bd88-88ea-4659-93b7-27ce62409809",
+        "name": "Environment role - Replay session data",
+        "description": "Permission to access 'Replay Sessions With Masking' features (equivalence RBAC permission).",
+        "tags": [
+          "iam",
+          "cluster",
+          "sessions",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "4372c093-4ae7-4471-af29-647efce0e2fe",
+        "name": "Environment role - View security problems",
+        "description": "Permission to access 'View Security Problems' features (equivalence RBAC permission).",
+        "tags": [
+          "iam",
+          "cluster",
+          "security",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "c3d5edb8-0814-463d-aad4-4485a5d2ea69",
+        "name": "Data Processing and Storage",
+        "description": "Grants access to the Grail bucket management and configuration of OpenPipeline processing capabilities.",
+        "tags": [
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "cb7a16c5-d6a8-442e-9509-9fd596c6d9c6",
+        "name": "All Grail data read access",
+        "description": "Grants unconditional access to ALL Grail tables and to ALL Grail buckets.",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "258356c8-3f23-4286-a8b0-d3780d80afc5",
+        "name": "AutomationEngine - Admin access",
+        "description": "Grants admin access to workflows.",
+        "tags": [
+          "automation-engine",
+          "Heimdall"
+        ],
+        "category": "LEGACY"
+      },
+      {
+        "uuid": "0f08839d-4371-4d25-be2f-827456158c6f",
+        "name": "Read Smartscape",
+        "description": "Grants read access to all Smartscape data",
+        "tags": [
+          "storage",
+          "grail",
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DATA_ACCESS"
+      },
+      {
+        "uuid": "68c7f84a-8abf-44b9-a776-c37f73d55000",
+        "name": "Admin User",
+        "description": "Grants administrative access across all Platform Services.",
+        "tags": [
+          "Heimdall"
+        ],
+        "category": "DYNATRACE_ACCESS"
+      },
+      {
+        "uuid": "d07b0c23-a859-45ef-ab33-757dd879f03e",
+        "name": "Pro User",
+        "description": "Grants advanced permissions to build, deploy, and run fully featured Dynatrace Apps and automated workflows that make the use of key Platform Services.",
+        "tags": [
+          "no-heimdall-bindings",
+          "Heimdall"
+        ],
+        "category": "DYNATRACE_ACCESS"
+      },
+      {
+        "uuid": "76d228f1-ec0a-4a65-8dc0-f4bbfdd66b6b",
+        "name": "Standard User",
+        "description": "Grants access to Dynatrace environment and run Dynatrace Apps.",
+        "tags": [
+          "Heimdall"
+        ],
+        "category": "DYNATRACE_ACCESS"
+      },
+      {
+        "uuid": "649a8e77-d31d-4d06-93d0-69c7bc276ab3",
+        "name": "DtWiz Configuration User",
+        "description": "Grants permissions to users who should be able to configure a dtwiz integration",
+        "tags": [
+          "dtwiz",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      },
+      {
+        "uuid": "845a0450-6f8b-457d-9702-69e1e74c0fd8",
+        "name": "Bluebox by Dynatrace Service Integration",
+        "description": "Grants permissions to Bluebox service users to read observability data, ingest telemetry via OpenPipeline, and manage automations, documents, and SLOs within the customer's Dynatrace environment.",
+        "tags": [
+          "bluebox",
+          "bluebox-by-dynatrace",
+          "ai-first",
+          "Heimdall"
+        ],
+        "category": "INTEGRATIONS"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/iam/v1/repo/global/global/policies": {
+        "response": {
+          "policies": [
+            {
+              "uuid": "efbb8157-dbe5-431e-ab6b-1d6ce9014144",
+              "name": "AppEngine - Admin",
+              "description": "Grants admin permissions to view, run, and install Dynatrace Apps, and view workflows.",
+              "tags": [
+                "app-engine",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "11967887-90ee-4801-aa63-2d608d25eb8a",
+              "name": "AppEngine - Manage EdgeConnect",
+              "description": "Grants full access to manage EdgeConnect.",
+              "tags": [
+                "app-engine",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "8ba05b4b-8d08-45b4-bbd7-f49d6e67a242",
+              "name": "Email Service - allow to send email",
+              "description": "Grants permission to send emails from `@apps.dynatrace.com` using a public send email API endpoint.",
+              "tags": [
+                "email-control",
+                "email-service",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "942f7318-6141-4cd2-8cc4-496b81b7e4c4",
+              "name": "Settings Writer",
+              "description": "Grants permission to read and write Dynatrace settings.",
+              "tags": [
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "816c81fa-fda0-4e03-88dc-7186aacd4d0f",
+              "name": "Storage All System Data Read",
+              "description": "Grants unconditional access to all Grail system tables prefixed with \"dt.\".",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "d30d2c06-f148-45d6-82dc-dc76044868dc",
+              "name": "Read BizEvents",
+              "description": "Grants unconditional access to the bizevents table and to all bizevent buckets, including all custom bizevent buckets.",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "3ab3fed9-d59c-4a2c-ab5c-dc0136737e95",
+              "name": "AutomationEngine - User access",
+              "description": "Grants basic read access to workflows.",
+              "tags": [
+                "automation-engine",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "815e91d0-fb79-45ae-83e8-21a636758a74",
+              "name": "Extensions - Admin access",
+              "description": "Grants access to view, add, activate, update, and delete all the extensions and their monitoring configurations.",
+              "tags": [
+                "extensions",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "2b16c4fe-b54e-4325-94dd-cb3dea0b0041",
+              "name": "Hub Catalog Read",
+              "description": "Grants read access to the Hub catalog content.",
+              "tags": [
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "7b4b486f-42d2-4e66-abb3-a3a48c02aa49",
+              "name": "Ingest Events write",
+              "description": "Grants permission to write events to the ingest endpoints.",
+              "tags": [
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "23c9698e-4011-4594-8be8-f61006927fd9",
+              "name": "Settings Reader",
+              "description": "Grants read access to Dynatrace settings.",
+              "tags": [
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "fb562df6-e77a-4e4a-903e-7fa9db75a910",
+              "name": "Read Application Snapshots",
+              "description": "Grants read access to the Grail application snapshots table.",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "8f8de0e5-66f3-4656-b8e1-d2c03fc28721",
+              "name": "Read Entities",
+              "description": "Grants read access to all entities.",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "dca03294-6852-4c9e-9d1b-70dd3f42fa5c",
+              "name": "Read Events",
+              "description": "Grants unconditional access to the Grail events table and to all event buckets (excluding security events).",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "7f8475de-1afd-4f3a-b5b3-7994b363eff4",
+              "name": "Read Logs",
+              "description": "Grants unconditional access to the logs table and all log buckets, including all custom log buckets.",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "72283365-44f0-445f-9169-8565e9d2e1d1",
+              "name": "Storage Metrics Write",
+              "description": "Grants permission to write metrics to Grail.",
+              "tags": [
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "c9fbe9a4-178c-45ab-b7b5-06e03d9a4eff",
+              "name": "Read System Events",
+              "description": "Grants read access to all Dynatrace system events data.",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "bf2b930c-fedc-42c0-a5c8-8b5b99d4f4d0",
+              "name": "Read Sensitive Data",
+              "description": "Grants unconditional permissions to read sensitive data in Dynatrace.",
+              "tags": [
+                "storage",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "d5219bca-41fb-4587-af1f-2df0ad148037",
+              "name": "Read Security Events",
+              "description": "Grants unconditional access to the security events from both, `events` and `security.events` tables and to the default security event buckets.",
+              "tags": [
+                "grail",
+                "security",
+                "storage",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "6ead3459-0fbe-4922-a578-a7cc8c528026",
+              "name": "Data-Acquisition AWS Integration",
+              "description": "Grants permissions to configure and ingest AWS data through Data-Acquisition APIs.",
+              "tags": [
+                "dac",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            },
+            {
+              "uuid": "accb78b7-325b-4029-98e7-cbb296447ded",
+              "name": "Read User Replays",
+              "description": "Grants read access to all user replay data",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "2f52ab7c-0093-45ce-9c8e-7a04350a9934",
+              "name": "Azure Native Dynatrace Service Integration",
+              "description": "Grants permissions to configure and manage Azure native features for ANDS, including logs ingest and installation of Azure extensions for Virtual Machines, App Services, ARC Machine, and Azure Kubernetes Services.",
+              "tags": [
+                "liftr-management-api",
+                "azure-native-dynatrace-service",
+                "ands",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            },
+            {
+              "uuid": "870b84b5-5600-4c65-ab2d-8f396e63a64c",
+              "name": "Read Spans",
+              "description": "Grants unconditional access to the spans table and all spans buckets, including all custom spans buckets.",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "7629a85c-fa75-41be-ad99-5b1bac50aac6",
+              "name": "Storage Default Monitoring Read",
+              "description": "Grants unconditional access to all the Grail tables and default buckets (excluding security events).",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "d449c847-133f-4081-ac92-04c3ece2c783",
+              "name": "OpenPipeline Ingest",
+              "description": "Grants permission to ingest data into OpenPipeline.",
+              "tags": [
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "d679864b-4925-4279-8d6f-b7013c0dcda5",
+              "name": "Kubernetes Ingest",
+              "description": "Grants permissions for Kubernetes ingest",
+              "tags": [
+                "k8s",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            },
+            {
+              "uuid": "c15240c8-c4c4-42c3-bc01-6a77bd20438a",
+              "name": "Kubernetes Onboarding",
+              "description": "Grants permissions for Kubernetes onboarding",
+              "tags": [
+                "k8s",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            },
+            {
+              "uuid": "11c4a7e9-b92e-4902-b533-042b61108f15",
+              "name": "Kubernetes Operator",
+              "description": "Grants permissions for Kubernetes operator",
+              "tags": [
+                "k8s",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            },
+            {
+              "uuid": "243f8cae-3b2d-4fd6-b00a-0106e5eb7309",
+              "name": "Hyperscaler authentication service",
+              "description": "Grants permissions to authenticate against hyperscalers.",
+              "tags": [
+                "hyperscaler-authentication-service",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "67a792fa-e2c5-48ee-b179-fa00d7ce04e6",
+              "name": "Data-Acquisition GCP Integration",
+              "description": "Grants permissions to configure and ingest GCP data through Data-Acquisition APIs.",
+              "tags": [
+                "dac",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            },
+            {
+              "uuid": "ee8bcb76-745a-4d02-80fe-4301edcb1f6e",
+              "name": "Data-Acquisition AWS Integration App",
+              "description": "Grants permissions to users who will manage (create/modify/delete) AWS connections in the fleet managment app.",
+              "tags": [
+                "dac",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            },
+            {
+              "uuid": "4a3065f8-c651-4441-b51c-f9c860859fe4",
+              "name": "Data-Acquisition Cloud Integrations All",
+              "description": "Grants permissions to users who will manage (create/modify/delete) cloud connections in the Fleet Management app. Use policy boundaries to restrict to a particular hyperscaler if needed.",
+              "tags": [
+                "dac",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            },
+            {
+              "uuid": "b803f44e-6241-4364-a705-8bc906a439d6",
+              "name": "DtWiz Ingestion User",
+              "description": "Grants permissions to users or service users who should be able to ingest data using dtwiz",
+              "tags": [
+                "dtwiz",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            },
+            {
+              "uuid": "491aaa59-056d-4d86-a228-b4aea153de38",
+              "name": "Environment role - View logs",
+              "description": "Permission to access 'Log Viewer' features (equivalence RBAC permission).",
+              "tags": [
+                "iam",
+                "cluster",
+                "log",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "9e78dc2a-35ed-4f12-b01e-07c2b3ad81f1",
+              "name": "Environment role - Access environment",
+              "description": "Permission to access 'Environment Roles Viewer' features (equivalence RBAC permission).",
+              "tags": [
+                "iam",
+                "cluster",
+                "roles",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "d9764328-69e7-4c84-aaed-532005da3660",
+              "name": "Environment role - Download/install OneAgent",
+              "description": "Permission to access 'Agent Install' features (equivalence RBAC permission). Management zones not supported.",
+              "tags": [
+                "iam",
+                "cluster",
+                "agent",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "af6bff99-ef45-4bc8-8791-4006cd4eed35",
+              "name": "AppEngine - User",
+              "description": "Grants basic access to AppEngine, that is to run Dynatrace Apps and Launcher, gives read access to workflows.",
+              "tags": [
+                "app-engine",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "2531f5a6-330e-4cf3-853f-f0d17403d9d8",
+              "name": "Read User Events",
+              "description": "Grants read access to all User Events data",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "4027a8f6-5f67-4563-af11-86e891aaeabf",
+              "name": "AppEngine - Developer access",
+              "description": "Grants permissions to install and delete customs apps. You need to add an additional `app-engine:apps:run` permission to run Dynatrace Apps and Launcher. permission is necessary to access AppEngine.",
+              "tags": [
+                "app-engine",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "0def15e0-4057-417a-b4f0-72961f7740c2",
+              "name": "Environment role - View sensitive request data",
+              "description": "Permission to access 'View Sensitive Request Data' features (equivalence RBAC permission).",
+              "tags": [
+                "iam",
+                "cluster",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "8957b9af-3acd-4735-81f8-dac5cf328f6e",
+              "name": "Environment role - Change monitoring settings",
+              "description": "Permission to access 'Environment Manage Settings' features (equivalence RBAC permission).",
+              "tags": [
+                "iam",
+                "cluster",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "5d4c420b-131e-48ee-9526-beef01787968",
+              "name": "Read Metrics",
+              "description": "Grants unconditional access to the metrics table and all metrics buckets, including all custom metrics buckets.",
+              "tags": [
+                "storage",
+                "grailStorageReplayEventsReadCustomerFacing",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "5e4fef77-2fc8-46ff-8588-1b164ee253f4",
+              "name": "Environment role - Configure capture of sensitive data",
+              "description": "Permission to access 'Configure Request Capture Data' features (equivalence RBAC permission). Management zones not supported.",
+              "tags": [
+                "iam",
+                "cluster",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "cdc83ae6-6d0c-4379-9216-731b23fa4831",
+              "name": "Read User Sessions",
+              "description": "Grants read access to all User Sessions data",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "edb4a1c6-0bfb-4d97-936c-08f2082b9a75",
+              "name": "Environment role - Replay session data without masking",
+              "description": "Permission to access 'Replay Sessions Without Masking' features (equivalence RBAC permission).",
+              "tags": [
+                "iam",
+                "cluster",
+                "sessions",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "3ad08231-c7b2-4824-b5bd-116c4636c620",
+              "name": "Extensions - User access",
+              "description": "Grants access to view all the extensions and their monitoring configurations.",
+              "tags": [
+                "extensions",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "49a7ef2d-171a-4731-9927-45ad36148cd9",
+              "name": "Environment role - Manage security problems",
+              "description": "Permission to access 'Manage Security Problems' features (equivalence RBAC permission).",
+              "tags": [
+                "iam",
+                "cluster",
+                "security",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "03a6bd88-88ea-4659-93b7-27ce62409809",
+              "name": "Environment role - Replay session data",
+              "description": "Permission to access 'Replay Sessions With Masking' features (equivalence RBAC permission).",
+              "tags": [
+                "iam",
+                "cluster",
+                "sessions",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "4372c093-4ae7-4471-af29-647efce0e2fe",
+              "name": "Environment role - View security problems",
+              "description": "Permission to access 'View Security Problems' features (equivalence RBAC permission).",
+              "tags": [
+                "iam",
+                "cluster",
+                "security",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "c3d5edb8-0814-463d-aad4-4485a5d2ea69",
+              "name": "Data Processing and Storage",
+              "description": "Grants access to the Grail bucket management and configuration of OpenPipeline processing capabilities.",
+              "tags": [
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "cb7a16c5-d6a8-442e-9509-9fd596c6d9c6",
+              "name": "All Grail data read access",
+              "description": "Grants unconditional access to ALL Grail tables and to ALL Grail buckets.",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "258356c8-3f23-4286-a8b0-d3780d80afc5",
+              "name": "AutomationEngine - Admin access",
+              "description": "Grants admin access to workflows.",
+              "tags": [
+                "automation-engine",
+                "Heimdall"
+              ],
+              "category": "LEGACY"
+            },
+            {
+              "uuid": "0f08839d-4371-4d25-be2f-827456158c6f",
+              "name": "Read Smartscape",
+              "description": "Grants read access to all Smartscape data",
+              "tags": [
+                "storage",
+                "grail",
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DATA_ACCESS"
+            },
+            {
+              "uuid": "68c7f84a-8abf-44b9-a776-c37f73d55000",
+              "name": "Admin User",
+              "description": "Grants administrative access across all Platform Services.",
+              "tags": [
+                "Heimdall"
+              ],
+              "category": "DYNATRACE_ACCESS"
+            },
+            {
+              "uuid": "d07b0c23-a859-45ef-ab33-757dd879f03e",
+              "name": "Pro User",
+              "description": "Grants advanced permissions to build, deploy, and run fully featured Dynatrace Apps and automated workflows that make the use of key Platform Services.",
+              "tags": [
+                "no-heimdall-bindings",
+                "Heimdall"
+              ],
+              "category": "DYNATRACE_ACCESS"
+            },
+            {
+              "uuid": "76d228f1-ec0a-4a65-8dc0-f4bbfdd66b6b",
+              "name": "Standard User",
+              "description": "Grants access to Dynatrace environment and run Dynatrace Apps.",
+              "tags": [
+                "Heimdall"
+              ],
+              "category": "DYNATRACE_ACCESS"
+            },
+            {
+              "uuid": "649a8e77-d31d-4d06-93d0-69c7bc276ab3",
+              "name": "DtWiz Configuration User",
+              "description": "Grants permissions to users who should be able to configure a dtwiz integration",
+              "tags": [
+                "dtwiz",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            },
+            {
+              "uuid": "845a0450-6f8b-457d-9702-69e1e74c0fd8",
+              "name": "Bluebox by Dynatrace Service Integration",
+              "description": "Grants permissions to Bluebox service users to read observability data, ingest telemetry via OpenPipeline, and manage automations, documents, and SLOs within the customer's Dynatrace environment.",
+              "tags": [
+                "bluebox",
+                "bluebox-by-dynatrace",
+                "ai-first",
+                "Heimdall"
+              ],
+              "category": "INTEGRATIONS"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 06 Aug 2026 10:57:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "15014",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1984",
+          "x-ratelimit-reset": "1786013886",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "etag": "W/\"3aa6-s63rih5RMIJcekkJof5nP4nwBSg:dtagent10343260715123811rAi8\"",
+          "server-timing": "dtTrId;desc=\"6a74688a000000001b92c08062c82ce6\", dtSInfo;desc=\"0\", dtRpid;desc=\"1723639914\"",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_30_sn_EC80E938C8ACBA41468B0E106053D3B5_perc_100000_ol_0_mul_1_app-3Aea7c4b59f27d43eb_1_rcs-3Acss_0; Path=/; Domain=.dynatrace.com",
+          "traceresponse": "00-6a74688a000000001b92c08062c82ce6-8be9c77d6b60ff98-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt"
+        },
+        "hash": "9b086f05f7eaa871f4c036869ce6145e1fe63637",
+        "request": {}
+      }
+    }
+  }
+}

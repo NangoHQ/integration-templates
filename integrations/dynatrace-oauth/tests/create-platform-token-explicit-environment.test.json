@@ -1,0 +1,43 @@
+{
+  "input": {
+    "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+    "environmentId": "custom12345",
+    "name": "Nango Registry Test Token Explicit Env",
+    "scope": [
+      "storage:logs:read"
+    ]
+  },
+  "output": {
+    "name": "Nango Registry Test Token Explicit Env",
+    "tokenId": "dt0s16.EXPLICITENV",
+    "token": "dt0s16.EXPLICITENV.REDACTED0000000000000000000000000000000000000000000000000000000"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/iam/v1/accounts/9610a717-798c-423b-a80f-97cfebe72f89/platform-tokens": {
+        "response": {
+          "name": "Nango Registry Test Token Explicit Env",
+          "tokenId": "dt0s16.EXPLICITENV",
+          "token": "dt0s16.EXPLICITENV.REDACTED0000000000000000000000000000000000000000000000000000000"
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "hash": "",
+        "request": {
+          "data": {
+            "name": "Nango Registry Test Token Explicit Env",
+            "scope": [
+              "storage:logs:read"
+            ],
+            "resource": [
+              "urn:dtenvironment:custom12345"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
