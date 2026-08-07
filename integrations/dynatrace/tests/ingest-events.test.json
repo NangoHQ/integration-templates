@@ -1,71 +1,73 @@
 {
   "input": {
     "eventType": "CUSTOM_INFO",
-    "title": "Test event from Nango",
+    "title": "Nango test event",
     "entitySelector": "type(HOST)",
-    "timeout": 15
+    "properties": {
+      "source": "nango"
+    }
   },
   "output": {
     "reportCount": 15,
     "eventIngestResults": [
       {
-        "correlationId": "2099f143ab766315",
+        "correlationId": "43dce678584aee3",
         "status": "OK"
       },
       {
-        "correlationId": "23287e1536f31ffc",
+        "correlationId": "ca81587f32384097",
         "status": "OK"
       },
       {
-        "correlationId": "c9f1a5893feabbdd",
+        "correlationId": "5c02b77110a08c25",
         "status": "OK"
       },
       {
-        "correlationId": "e886207bc811f55f",
+        "correlationId": "aa2fea79a7d4029b",
         "status": "OK"
       },
       {
-        "correlationId": "fa3176457e1333d5",
+        "correlationId": "5eab2bb7800af45",
         "status": "OK"
       },
       {
-        "correlationId": "f65a9a6e64a2e6a9",
+        "correlationId": "41e21a0f32023ed4",
         "status": "OK"
       },
       {
-        "correlationId": "4948503d3e76f15d",
+        "correlationId": "6e5bdd6f427d5381",
         "status": "OK"
       },
       {
-        "correlationId": "9d711fb0de0b074e",
+        "correlationId": "e5dfa5c609246d67",
         "status": "OK"
       },
       {
-        "correlationId": "35cc76df67d7dc82",
+        "correlationId": "d012361536a88df0",
         "status": "OK"
       },
       {
-        "correlationId": "fdc4c3ff357bc893",
+        "correlationId": "5e794b5c3e0e39b",
         "status": "OK"
       },
       {
-        "correlationId": "f128cc8c23f4f887",
+        "correlationId": "ea35908cadd1c68",
         "status": "OK"
       },
       {
-        "correlationId": "45f1dcd1e43490f8",
+        "correlationId": "cdff3aa5c5096cdc",
         "status": "OK"
       },
       {
-        "correlationId": "5e0525d690758523",
+        "correlationId": "6c9418547da6385e",
         "status": "OK"
       },
       {
-        "correlationId": "d68fb028d7c6e717",
+        "correlationId": "16d9a3845345a22f",
         "status": "OK"
       },
       {
-        "correlationId": "42823b1014153342",
+        "correlationId": "d4f40a2cf1fede92",
         "status": "OK"
       }
     ]
@@ -78,94 +80,110 @@
           "reportCount": 15,
           "eventIngestResults": [
             {
-              "correlationId": "2099f143ab766315",
+              "correlationId": "43dce678584aee3",
               "status": "OK"
             },
             {
-              "correlationId": "23287e1536f31ffc",
+              "correlationId": "ca81587f32384097",
               "status": "OK"
             },
             {
-              "correlationId": "c9f1a5893feabbdd",
+              "correlationId": "5c02b77110a08c25",
               "status": "OK"
             },
             {
-              "correlationId": "e886207bc811f55f",
+              "correlationId": "aa2fea79a7d4029b",
               "status": "OK"
             },
             {
-              "correlationId": "fa3176457e1333d5",
+              "correlationId": "5eab2bb7800af45",
               "status": "OK"
             },
             {
-              "correlationId": "f65a9a6e64a2e6a9",
+              "correlationId": "41e21a0f32023ed4",
               "status": "OK"
             },
             {
-              "correlationId": "4948503d3e76f15d",
+              "correlationId": "6e5bdd6f427d5381",
               "status": "OK"
             },
             {
-              "correlationId": "9d711fb0de0b074e",
+              "correlationId": "e5dfa5c609246d67",
               "status": "OK"
             },
             {
-              "correlationId": "35cc76df67d7dc82",
+              "correlationId": "d012361536a88df0",
               "status": "OK"
             },
             {
-              "correlationId": "fdc4c3ff357bc893",
+              "correlationId": "5e794b5c3e0e39b",
               "status": "OK"
             },
             {
-              "correlationId": "f128cc8c23f4f887",
+              "correlationId": "ea35908cadd1c68",
               "status": "OK"
             },
             {
-              "correlationId": "45f1dcd1e43490f8",
+              "correlationId": "cdff3aa5c5096cdc",
               "status": "OK"
             },
             {
-              "correlationId": "5e0525d690758523",
+              "correlationId": "6c9418547da6385e",
               "status": "OK"
             },
             {
-              "correlationId": "d68fb028d7c6e717",
+              "correlationId": "16d9a3845345a22f",
               "status": "OK"
             },
             {
-              "correlationId": "42823b1014153342",
+              "correlationId": "d4f40a2cf1fede92",
               "status": "OK"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 03 Aug 2026 16:47:49 GMT",
+          "date": "Wed, 05 Aug 2026 16:21:27 GMT",
           "content-type": "application/json;charset=utf-8",
-          "content-length": "806",
+          "content-length": "802",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "strict-transport-security": "max-age=31536000;includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1941",
-          "x-ratelimit-reset": "1785775693",
-          "etag": "W/\"326-3LlMXsFtRsMouvrpnEtwpTGqswc\""
+          "x-ratelimit-remaining": "1838",
+          "x-ratelimit-reset": "1785946887",
+          "vary": "Accept-Encoding",
+          "traceresponse": "00-6a736307000000001d328c3520555b2b-6fd0e49df73d971e-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt",
+          "x-oneagent-js-injection": "true",
+          "server-timing": "dtTrId;desc=\"6a736307000000001d328c3520555b2b\", dtSInfo;desc=\"0\"",
+          "traffic-source": "UNKNOWN",
+          "dynatrace-response-source": "Cluster",
+          "dynatrace-response-id": "PBCPI31R6OT2",
+          "cross-origin-opener-policy": "same-origin",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "cache-control": "no-store, no-cache",
+          "pragma": "no-cache",
+          "x-robots-tag": "noindex",
+          "server": "ruxit gateway",
+          "etag": "W/\"322-1IQ9hdpqdTJhXiSYoSvIaiga7Nc\""
         },
-        "hash": "3264473edd6cbda46ed1cfcd6fe764ea1d110bef",
+        "hash": "f6a61adc7feb5fd4905096f9ebeb7ec39ce743b0",
         "request": {
           "data": {
             "eventType": "CUSTOM_INFO",
-            "title": "Test event from Nango",
+            "title": "Nango test event",
             "entitySelector": "type(HOST)",
-            "timeout": 15
+            "properties": {
+              "source": "nango"
+            }
           }
         }
       }

@@ -1,0 +1,230 @@
+{
+  "input": {
+    "id": 55383278
+  },
+  "output": {
+    "id": 55383278,
+    "name": "Nango Registry Test Deal 1",
+    "summary": "Nango action updated summary",
+    "user_id": 843757,
+    "is_archived": false,
+    "value": "1000.0",
+    "primary_contact_id": 1309859835,
+    "person_ids": [
+      1309859835
+    ],
+    "shared_user_ids": [],
+    "company_id": 138551860,
+    "custom_fields": {},
+    "tag_ids": [],
+    "primary_contact": {
+      "id": 1309859835
+    },
+    "people": [
+      {
+        "id": 1309859835,
+        "first_name": "Nango",
+        "last_name": "RegistryTest1"
+      }
+    ],
+    "collaborators": [],
+    "company": {
+      "id": 138551860,
+      "name": "Nango Registry Test Company"
+    },
+    "currency": {
+      "code": "KES",
+      "name": "Kenyan Shilling",
+      "symbol": "KSh"
+    },
+    "possible_notify_user_ids": [],
+    "tags": [],
+    "created_at": "2026/08/05 09:01:14 -0400",
+    "updated_at": "2026/08/05 09:40:28 -0400",
+    "deal_pipeline_id": 339554,
+    "is_sample": false,
+    "created_by_user_id": 843757,
+    "updated_by_user_id": 843757,
+    "next_entry_due": "2026/08/10",
+    "next_entry_all_day": true,
+    "next_entry_name": "Direct Test Task",
+    "next_entry_id": 355945872,
+    "project_shared_user_ids": [],
+    "value_in_cents": 100000,
+    "date_of_first_activity": "2026/08/05 09:03:52 -0400",
+    "days_since_last_activity": 0,
+    "hours_to_first_activity": "0.04",
+    "user": {
+      "id": 843757,
+      "first_name": "Nango",
+      "last_name": "Developer"
+    },
+    "created_by_user": {
+      "id": 843757,
+      "first_name": "Nango",
+      "last_name": "Developer"
+    },
+    "updated_by_user": {
+      "id": 843757,
+      "first_name": "Nango",
+      "last_name": "Developer"
+    },
+    "deal_pipeline": {
+      "id": 339554,
+      "name": "Sales Pipeline",
+      "default": true
+    },
+    "deal_product_lines_ids": [],
+    "product_lines": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v3/deals/55383278": {
+        "response": {
+          "id": 55383278,
+          "name": "Nango Registry Test Deal 1",
+          "summary": "Nango action updated summary",
+          "user_id": 843757,
+          "created_at": "2026/08/05 09:01:14 -0400",
+          "updated_at": "2026/08/05 09:40:28 -0400",
+          "is_archived": false,
+          "is_example": null,
+          "source_id": null,
+          "primary_contact_id": 1309859835,
+          "company_id": 138551860,
+          "deal_stage_id": null,
+          "deal_loss_reason_id": null,
+          "deal_loss_reason_notes": null,
+          "deal_won_reason_id": null,
+          "deal_won_reason_notes": null,
+          "expected_close_date": null,
+          "deal_pipeline_id": 339554,
+          "status": null,
+          "probability": null,
+          "value": "1000.0",
+          "closed_time": null,
+          "expected_close_date_event_id": null,
+          "import_id": null,
+          "is_sample": false,
+          "revenue_type_id": null,
+          "created_by_user_id": 843757,
+          "updated_by_user_id": 843757,
+          "next_entry_due": "2026/08/10",
+          "next_entry_all_day": true,
+          "next_entry_name": "Direct Test Task",
+          "next_entry_id": 355945872,
+          "address_1": null,
+          "address_2": null,
+          "city": null,
+          "postal_code": null,
+          "state": null,
+          "country": null,
+          "person_ids": [
+            1309859835
+          ],
+          "shared_user_ids": [],
+          "project_shared_user_ids": [],
+          "value_in_cents": 100000,
+          "date_of_first_activity": "2026/08/05 09:03:52 -0400",
+          "days_since_last_activity": 0,
+          "hours_to_first_activity": "0.04",
+          "days_in_stage": null,
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          },
+          "primary_contact": {
+            "id": 1309859835,
+            "first_name": "Nango",
+            "last_name": "RegistryTest1",
+            "phone": null,
+            "mobile": null,
+            "home_phone": null,
+            "email": "nango-registry-test-1@example.com",
+            "email2": null,
+            "home_email": null
+          },
+          "people": [
+            {
+              "id": 1309859835,
+              "first_name": "Nango",
+              "last_name": "RegistryTest1"
+            }
+          ],
+          "company": {
+            "id": 138551860,
+            "name": "Nango Registry Test Company",
+            "is_customer": true
+          },
+          "currency": {
+            "code": "KES",
+            "symbol": "KSh",
+            "name": "Kenyan Shilling"
+          },
+          "created_by_user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          },
+          "updated_by_user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          },
+          "deal_pipeline": {
+            "id": 339554,
+            "name": "Sales Pipeline",
+            "default": true
+          },
+          "deal_stage": null,
+          "deal_status": null,
+          "deal_loss_reason": null,
+          "deal_won_reason": null,
+          "revenue_type": null,
+          "deal_copy": null,
+          "collaborators": [],
+          "custom_fields": {
+            "custom_label_4005325": null
+          },
+          "possible_notify_user_ids": [],
+          "deal_product_lines_ids": [],
+          "product_lines": [],
+          "tag_ids": [],
+          "tags": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 13:40:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "10",
+          "x-ratelimit-reset": "1785937237",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Origin",
+          "cache-control": "no-store",
+          "etag": "W/\"d3e87bd9e3c4b43c003fea2de4fbc89b\"",
+          "x-request-id": "ee50a7bb-c35f-4108-a5c8-bb34a2e50c74",
+          "x-runtime": "0.094914",
+          "x-permitted-cross-domain-policies": "none",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a26636f22c7cdab7-PDX"
+        },
+        "hash": "8402d37d57559ab3596961cb53d7d708eb07c2c0",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "input": {
+    "api_key_id": "09c58624-18e0-4a84-9c45-2bd40cdca0fd"
+  },
+  "output": {
+    "type": "api_keys",
+    "id": "09c58624-18e0-4a84-9c45-2bd40cdca0fd",
+    "category": "default",
+    "created_at": "2026-08-03T22:22:01.354743+00:00",
+    "date_last_used": null,
+    "key": "5e4bac0240130d62b08af713b2bd4a89",
+    "last4": "4a89",
+    "last_used_date": {
+      "timestamp": null,
+      "description": "Timestamp of when this key was last used in the past thirty (30) days, null if no recent usage"
+    },
+    "modified_at": "2026-08-03T22:22:01.354743+00:00",
+    "name": "Nango Registry Test API Key Action",
+    "private_action_runner_enroll_enabled": false,
+    "remote_config_read_enabled": true,
+    "status": "active",
+    "used_in_last_24_hours": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/api_keys/09c58624-18e0-4a84-9c45-2bd40cdca0fd": {
+        "response": {
+          "data": {
+            "id": "09c58624-18e0-4a84-9c45-2bd40cdca0fd",
+            "type": "api_keys",
+            "attributes": {
+              "category": "default",
+              "created_at": "2026-08-03T22:22:01.354743+00:00",
+              "date_last_used": null,
+              "key": "5e4bac0240130d62b08af713b2bd4a89",
+              "last4": "4a89",
+              "last_used_date": {
+                "timestamp": null,
+                "description": "Timestamp of when this key was last used in the past thirty (30) days, null if no recent usage"
+              },
+              "modified_at": "2026-08-03T22:22:01.354743+00:00",
+              "name": "Nango Registry Test API Key Action",
+              "private_action_runner_enroll_enabled": false,
+              "remote_config_read_enabled": true,
+              "status": "active",
+              "used_in_last_24_hours": false
+            },
+            "relationships": {
+              "created_by": {
+                "data": {
+                  "id": "3eb2d4d6-9f22-4284-9a99-7df78ef473aa",
+                  "type": "users"
+                }
+              },
+              "leak_information": {
+                "data": null
+              },
+              "modified_by": {
+                "data": {
+                  "id": "3eb2d4d6-9f22-4284-9a99-7df78ef473aa",
+                  "type": "users"
+                }
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:52:36 GMT",
+          "content-type": "application/json",
+          "content-length": "819",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1956",
+          "x-ratelimit-reset": "1785797587",
+          "etag": "W/\"333-OSwiGdMOcVuVS62Zrhw3UvKuVsI\""
+        },
+        "hash": "c2408154c09d618e2d34ecea948b12f62b7344b1",
+        "request": {}
+      }
+    }
+  }
+}

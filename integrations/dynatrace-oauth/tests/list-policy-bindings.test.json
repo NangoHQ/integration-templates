@@ -1,0 +1,276 @@
+{
+  "input": {},
+  "output": {
+    "levelType": "account",
+    "levelId": "9610a717-798c-423b-a80f-97cfebe72f89",
+    "policyBindings": [
+      {
+        "policyUuid": "195f4ab3-a5d3-47d1-a2d5-9490d2e6c1c9",
+        "groups": [
+          "bc36a93d-5df3-4c7e-a1c3-aad2ca9395b0"
+        ]
+      },
+      {
+        "policyUuid": "3233765d-90f5-4396-9330-77353ac22eff",
+        "groups": [
+          "1800a553-44f2-4806-8586-84dbb19425ee"
+        ]
+      },
+      {
+        "policyUuid": "5d4c420b-131e-48ee-9526-beef01787968",
+        "groups": [
+          "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+          "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+        ]
+      },
+      {
+        "policyUuid": "68c7f84a-8abf-44b9-a776-c37f73d55000",
+        "groups": [
+          "d9258cc6-a86d-40cb-b3f3-01d8c40658c3"
+        ]
+      },
+      {
+        "policyUuid": "6e6edf99-3ef3-40f5-adc5-635401719672",
+        "groups": [
+          "0bb8915e-fe63-4e37-a1ba-102e7daa375a"
+        ]
+      },
+      {
+        "policyUuid": "76d228f1-ec0a-4a65-8dc0-f4bbfdd66b6b",
+        "groups": [
+          "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+        ]
+      },
+      {
+        "policyUuid": "7f8475de-1afd-4f3a-b5b3-7994b363eff4",
+        "groups": [
+          "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+          "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+        ]
+      },
+      {
+        "policyUuid": "870b84b5-5600-4c65-ab2d-8f396e63a64c",
+        "groups": [
+          "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+          "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+        ]
+      },
+      {
+        "policyUuid": "8f8de0e5-66f3-4656-b8e1-d2c03fc28721",
+        "groups": [
+          "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+          "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+        ]
+      },
+      {
+        "policyUuid": "af27441c-50f8-11ec-bf63-0242ac130002",
+        "groups": [
+          "1800a553-44f2-4806-8586-84dbb19425ee"
+        ]
+      },
+      {
+        "policyUuid": "bf2b930c-fedc-42c0-a5c8-8b5b99d4f4d0",
+        "groups": [
+          "d9258cc6-a86d-40cb-b3f3-01d8c40658c3"
+        ]
+      },
+      {
+        "policyUuid": "c3d5edb8-0814-463d-aad4-4485a5d2ea69",
+        "groups": [
+          "d9258cc6-a86d-40cb-b3f3-01d8c40658c3"
+        ]
+      },
+      {
+        "policyUuid": "cb7a16c5-d6a8-442e-9509-9fd596c6d9c6",
+        "groups": [
+          "d9258cc6-a86d-40cb-b3f3-01d8c40658c3"
+        ]
+      },
+      {
+        "policyUuid": "cdc83ae6-6d0c-4379-9216-731b23fa4831",
+        "groups": [
+          "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+          "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+        ]
+      },
+      {
+        "policyUuid": "d07b0c23-a859-45ef-ab33-757dd879f03e",
+        "groups": [
+          "80d8c1ff-5051-4ab0-a579-484c6c8aed09"
+        ]
+      },
+      {
+        "policyUuid": "d449c847-133f-4081-ac92-04c3ece2c783",
+        "groups": [
+          "d9258cc6-a86d-40cb-b3f3-01d8c40658c3"
+        ]
+      },
+      {
+        "policyUuid": "dca03294-6852-4c9e-9d1b-70dd3f42fa5c",
+        "groups": [
+          "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+          "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+        ]
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89"
+    }
+  },
+  "api": {
+    "get": {
+      "/iam/v1/repo/account/9610a717-798c-423b-a80f-97cfebe72f89/bindings": {
+        "response": {
+          "levelType": "account",
+          "levelId": "9610a717-798c-423b-a80f-97cfebe72f89",
+          "policyBindings": [
+            {
+              "policyUuid": "195f4ab3-a5d3-47d1-a2d5-9490d2e6c1c9",
+              "groups": [
+                "bc36a93d-5df3-4c7e-a1c3-aad2ca9395b0"
+              ]
+            },
+            {
+              "policyUuid": "3233765d-90f5-4396-9330-77353ac22eff",
+              "groups": [
+                "1800a553-44f2-4806-8586-84dbb19425ee"
+              ]
+            },
+            {
+              "policyUuid": "5d4c420b-131e-48ee-9526-beef01787968",
+              "groups": [
+                "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+                "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+              ]
+            },
+            {
+              "policyUuid": "68c7f84a-8abf-44b9-a776-c37f73d55000",
+              "groups": [
+                "d9258cc6-a86d-40cb-b3f3-01d8c40658c3"
+              ]
+            },
+            {
+              "policyUuid": "6e6edf99-3ef3-40f5-adc5-635401719672",
+              "groups": [
+                "0bb8915e-fe63-4e37-a1ba-102e7daa375a"
+              ]
+            },
+            {
+              "policyUuid": "76d228f1-ec0a-4a65-8dc0-f4bbfdd66b6b",
+              "groups": [
+                "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+              ]
+            },
+            {
+              "policyUuid": "7f8475de-1afd-4f3a-b5b3-7994b363eff4",
+              "groups": [
+                "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+                "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+              ]
+            },
+            {
+              "policyUuid": "870b84b5-5600-4c65-ab2d-8f396e63a64c",
+              "groups": [
+                "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+                "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+              ]
+            },
+            {
+              "policyUuid": "8f8de0e5-66f3-4656-b8e1-d2c03fc28721",
+              "groups": [
+                "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+                "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+              ]
+            },
+            {
+              "policyUuid": "af27441c-50f8-11ec-bf63-0242ac130002",
+              "groups": [
+                "1800a553-44f2-4806-8586-84dbb19425ee"
+              ]
+            },
+            {
+              "policyUuid": "bf2b930c-fedc-42c0-a5c8-8b5b99d4f4d0",
+              "groups": [
+                "d9258cc6-a86d-40cb-b3f3-01d8c40658c3"
+              ]
+            },
+            {
+              "policyUuid": "c3d5edb8-0814-463d-aad4-4485a5d2ea69",
+              "groups": [
+                "d9258cc6-a86d-40cb-b3f3-01d8c40658c3"
+              ]
+            },
+            {
+              "policyUuid": "cb7a16c5-d6a8-442e-9509-9fd596c6d9c6",
+              "groups": [
+                "d9258cc6-a86d-40cb-b3f3-01d8c40658c3"
+              ]
+            },
+            {
+              "policyUuid": "cdc83ae6-6d0c-4379-9216-731b23fa4831",
+              "groups": [
+                "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+                "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+              ]
+            },
+            {
+              "policyUuid": "d07b0c23-a859-45ef-ab33-757dd879f03e",
+              "groups": [
+                "80d8c1ff-5051-4ab0-a579-484c6c8aed09"
+              ]
+            },
+            {
+              "policyUuid": "d449c847-133f-4081-ac92-04c3ece2c783",
+              "groups": [
+                "d9258cc6-a86d-40cb-b3f3-01d8c40658c3"
+              ]
+            },
+            {
+              "policyUuid": "dca03294-6852-4c9e-9d1b-70dd3f42fa5c",
+              "groups": [
+                "80d8c1ff-5051-4ab0-a579-484c6c8aed09",
+                "8c64a11f-d9f5-424c-ad92-bfa17f157caf"
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 06 Aug 2026 11:09:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2093",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1960",
+          "x-ratelimit-reset": "1786014585",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "etag": "W/\"82d-miYCslWSohjkXt7q5akOAiGzPws:dtagent10343260715123811rAi8\"",
+          "server-timing": "dtTrId;desc=\"6a746b5b000000001adb7a7a3668421c\", dtSInfo;desc=\"0\", dtRpid;desc=\"805958159\"",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_32_sn_51AA9C832787D20D2FFA07B1E2A44E52_perc_100000_ol_0_mul_1_app-3Aea7c4b59f27d43eb_1_rcs-3Acss_0; Path=/; Domain=.dynatrace.com",
+          "traceresponse": "00-6a746b5b000000001adb7a7a3668421c-8e535f99e3bf8046-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt"
+        },
+        "hash": "ef855304aaee609ac6ded0328106fcd9c8ec1b01",
+        "request": {}
+      }
+    }
+  }
+}

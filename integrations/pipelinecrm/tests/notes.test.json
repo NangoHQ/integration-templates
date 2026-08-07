@@ -1,0 +1,1523 @@
+{
+  "nango": {
+    "batchSave": {
+      "Note": [
+        {
+          "id": "889038818",
+          "user_id": 843757,
+          "content": "Company Nango Registry Test Company was converted to a customer and the owner has been set to Nango Developer",
+          "company_id": 138551860,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 09:02:45 -0400",
+          "updated_at": "2026/08/05 09:02:45 -0400",
+          "primary_association_id": 138551860,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889038843",
+          "user_id": 843757,
+          "content": "Company Nango Registry Test Company was reverted from a Customer",
+          "company_id": 138551860,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 09:03:02 -0400",
+          "updated_at": "2026/08/05 09:03:02 -0400",
+          "primary_association_id": 138551860,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889038911",
+          "user_id": 843757,
+          "content": "Company Nango Registry Test Company 2 was converted to a customer and the owner has been set to Nango Developer",
+          "company_id": 138551861,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 09:03:24 -0400",
+          "updated_at": "2026/08/05 09:03:24 -0400",
+          "primary_association_id": 138551861,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889038936",
+          "user_id": 843757,
+          "content": "Updated content for dryrun test 6",
+          "deal_id": 55383278,
+          "company_id": 138551860,
+          "created_at": "2026/08/05 09:03:52 -0400",
+          "updated_at": "2026/08/05 10:23:46 -0400",
+          "primary_association_id": 55383278,
+          "primary_association_type": "Deal",
+          "notify_user_ids": [
+            843757
+          ],
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889038957",
+          "user_id": 843757,
+          "content": "Nango registry test note 2",
+          "deal_id": 55383279,
+          "company_id": 138551861,
+          "person_id": 1309859837,
+          "created_at": "2026/08/05 09:04:05 -0400",
+          "updated_at": "2026/08/05 09:04:05 -0400",
+          "primary_association_id": 55383279,
+          "primary_association_type": "Deal",
+          "notify_user_ids": [
+            843757
+          ],
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889039471",
+          "user_id": 843757,
+          "content": "completed task titled \"Nango Registry Test Task 1\".",
+          "deal_id": 55383278,
+          "company_id": 138551860,
+          "note_category_id": 350563,
+          "created_at": "2026/08/05 09:07:37 -0400",
+          "updated_at": "2026/08/05 09:07:38 -0400",
+          "primary_association_id": 55383278,
+          "primary_association_type": "Deal",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 350563,
+            "name": "CalendarTask"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889043518",
+          "user_id": 843757,
+          "content": "Nango Registry Test Note",
+          "deal_id": 55383278,
+          "company_id": 138551860,
+          "created_at": "2026/08/05 09:33:25 -0400",
+          "updated_at": "2026/08/05 09:33:25 -0400",
+          "primary_association_id": 55383278,
+          "primary_association_type": "Deal",
+          "notify_user_ids": [
+            843757
+          ],
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889043546",
+          "user_id": 843757,
+          "content": "Nango Registry Test Note",
+          "deal_id": 55383278,
+          "company_id": 138551860,
+          "created_at": "2026/08/05 09:33:32 -0400",
+          "updated_at": "2026/08/05 09:33:32 -0400",
+          "primary_association_id": 55383278,
+          "primary_association_type": "Deal",
+          "notify_user_ids": [
+            843757
+          ],
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889044538",
+          "user_id": 843757,
+          "content": "Company Nango Registry Test Company was converted to a customer and the owner has been set to Nango Developer",
+          "company_id": 138551860,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 09:40:16 -0400",
+          "updated_at": "2026/08/05 09:40:16 -0400",
+          "primary_association_id": 138551860,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889045528",
+          "user_id": 843757,
+          "content": "Company Temp Delete Customer Test was converted to a customer and the owner has been set to Nango Developer",
+          "company_id": 138552014,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 09:46:31 -0400",
+          "updated_at": "2026/08/05 09:46:31 -0400",
+          "primary_association_id": 138552014,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889045546",
+          "user_id": 843757,
+          "content": "Company Temp Delete Customer Test 2 was converted to a customer and the owner has been set to Nango Developer",
+          "company_id": 138552015,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 09:46:37 -0400",
+          "updated_at": "2026/08/05 09:46:37 -0400",
+          "primary_association_id": 138552015,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889046930",
+          "user_id": 843757,
+          "content": "Company Temp Delete Customer Test 2 was reverted from a Customer",
+          "company_id": 138552015,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 09:55:35 -0400",
+          "updated_at": "2026/08/05 09:55:35 -0400",
+          "primary_association_id": 138552015,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889047633",
+          "user_id": 843757,
+          "content": "Company Temp Delete Customer Test was reverted from a Customer",
+          "company_id": 138552014,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 09:59:38 -0400",
+          "updated_at": "2026/08/05 09:59:38 -0400",
+          "primary_association_id": 138552014,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889047669",
+          "user_id": 843757,
+          "content": "Company Temp Delete Customer Test 1 was converted to a customer and the owner has been set to Nango Developer",
+          "company_id": 138552083,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 09:59:53 -0400",
+          "updated_at": "2026/08/05 09:59:53 -0400",
+          "primary_association_id": 138552083,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889047672",
+          "user_id": 843757,
+          "content": "Company Temp Delete Customer Test 2 was converted to a customer and the owner has been set to Nango Developer",
+          "company_id": 138552084,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 09:59:55 -0400",
+          "updated_at": "2026/08/05 09:59:55 -0400",
+          "primary_association_id": 138552084,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889047721",
+          "user_id": 843757,
+          "content": "Company Temp Delete Customer Test 1 was reverted from a Customer",
+          "company_id": 138552083,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 10:00:12 -0400",
+          "updated_at": "2026/08/05 10:00:12 -0400",
+          "primary_association_id": 138552083,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889047767",
+          "user_id": 843757,
+          "content": "Company Temp Delete Customer Test 2 was reverted from a Customer",
+          "company_id": 138552084,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 10:00:21 -0400",
+          "updated_at": "2026/08/05 10:00:21 -0400",
+          "primary_association_id": 138552084,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889047883",
+          "user_id": 843757,
+          "content": "Company Temp Delete Customer Test Final was converted to a customer and the owner has been set to Nango Developer",
+          "company_id": 138552090,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 10:00:50 -0400",
+          "updated_at": "2026/08/05 10:00:50 -0400",
+          "primary_association_id": 138552090,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        },
+        {
+          "id": "889047923",
+          "user_id": 843757,
+          "content": "Company Temp Delete Customer Test Final was reverted from a Customer",
+          "company_id": 138552090,
+          "note_category_id": 918878,
+          "created_at": "2026/08/05 10:01:05 -0400",
+          "updated_at": "2026/08/05 10:01:05 -0400",
+          "primary_association_id": 138552090,
+          "primary_association_type": "Company",
+          "notify_user_ids": [
+            843757
+          ],
+          "note_category": {
+            "id": 918878,
+            "name": "Customer"
+          },
+          "user": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Note": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v3/notes": {
+        "response": {
+          "entries": [
+            {
+              "id": 889038818,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 09:02:45 -0400",
+              "updated_at": "2026/08/05 09:02:45 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138551860,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Nango Registry Test Company was converted to a customer and the owner has been set to Nango Developer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889038843,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 09:03:02 -0400",
+              "updated_at": "2026/08/05 09:03:02 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138551860,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Nango Registry Test Company was reverted from a Customer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889038911,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138551861,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 09:03:24 -0400",
+              "updated_at": "2026/08/05 09:03:24 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138551861,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Nango Registry Test Company 2 was converted to a customer and the owner has been set to Nango Developer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138551861,
+                "name": "Nango Registry Test Company 2"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889038936,
+              "title": null,
+              "deal_id": 55383278,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": null,
+              "created_at": "2026/08/05 09:03:52 -0400",
+              "updated_at": "2026/08/05 10:23:46 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Deal",
+              "primary_association_id": 55383278,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Updated content for dryrun test 6",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": [
+                  {
+                    "id": 12196050,
+                    "user_id": 843757,
+                    "note_id": 889038936,
+                    "comment": "Nango dryrun test comment",
+                    "created_at": "2026/08/05 09:53:15 -0400",
+                    "updated_at": "2026/08/05 09:53:15 -0400",
+                    "edited_by_user_id": null,
+                    "user": {
+                      "id": 843757,
+                      "first_name": "Nango",
+                      "last_name": "Developer",
+                      "avatar_thumb_url": null
+                    }
+                  },
+                  {
+                    "id": 12196048,
+                    "user_id": 843757,
+                    "note_id": 889038936,
+                    "comment": "Nango dryrun test comment",
+                    "created_at": "2026/08/05 09:53:08 -0400",
+                    "updated_at": "2026/08/05 09:53:08 -0400",
+                    "edited_by_user_id": null,
+                    "user": {
+                      "id": 843757,
+                      "first_name": "Nango",
+                      "last_name": "Developer",
+                      "avatar_thumb_url": null
+                    }
+                  },
+                  {
+                    "id": 12196044,
+                    "user_id": 843757,
+                    "note_id": 889038936,
+                    "comment": "Nango dryrun test comment",
+                    "created_at": "2026/08/05 09:51:18 -0400",
+                    "updated_at": "2026/08/05 09:51:18 -0400",
+                    "edited_by_user_id": null,
+                    "user": {
+                      "id": 843757,
+                      "first_name": "Nango",
+                      "last_name": "Developer",
+                      "avatar_thumb_url": null
+                    }
+                  },
+                  {
+                    "id": 12195967,
+                    "user_id": 843757,
+                    "note_id": 889038936,
+                    "comment": "Updated via Nango dryrun test",
+                    "created_at": "2026/08/05 09:06:05 -0400",
+                    "updated_at": "2026/08/05 10:23:46 -0400",
+                    "edited_by_user_id": null,
+                    "user": {
+                      "id": 843757,
+                      "first_name": "Nango",
+                      "last_name": "Developer",
+                      "avatar_thumb_url": null
+                    }
+                  }
+                ]
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889038957,
+              "title": null,
+              "deal_id": 55383279,
+              "person_id": 1309859837,
+              "company_id": 138551861,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": null,
+              "created_at": "2026/08/05 09:04:05 -0400",
+              "updated_at": "2026/08/05 09:04:05 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Deal",
+              "primary_association_id": 55383279,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Nango registry test note 2",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "deal": {
+                "id": 55383279,
+                "name": "Nango Registry Test Deal 2"
+              },
+              "person": {
+                "id": 1309859837,
+                "first_name": "Nango",
+                "last_name": "RegistryTest2"
+              },
+              "company": {
+                "id": 138551861,
+                "name": "Nango Registry Test Company 2"
+              },
+              "note_category": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889039471,
+              "title": null,
+              "deal_id": 55383278,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 350563,
+              "created_at": "2026/08/05 09:07:37 -0400",
+              "updated_at": "2026/08/05 09:07:38 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Deal",
+              "primary_association_id": 55383278,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "completed task titled \"Nango Registry Test Task 1\".",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": {
+                "id": 350563,
+                "name": "CalendarTask"
+              },
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889043518,
+              "title": null,
+              "deal_id": 55383278,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": null,
+              "created_at": "2026/08/05 09:33:25 -0400",
+              "updated_at": "2026/08/05 09:33:25 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Deal",
+              "primary_association_id": 55383278,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Nango Registry Test Note",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889043546,
+              "title": null,
+              "deal_id": 55383278,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": null,
+              "created_at": "2026/08/05 09:33:32 -0400",
+              "updated_at": "2026/08/05 09:33:32 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Deal",
+              "primary_association_id": 55383278,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Nango Registry Test Note",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889044538,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 09:40:16 -0400",
+              "updated_at": "2026/08/05 09:40:16 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138551860,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Nango Registry Test Company was converted to a customer and the owner has been set to Nango Developer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889045528,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138552014,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 09:46:31 -0400",
+              "updated_at": "2026/08/05 09:46:31 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138552014,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Temp Delete Customer Test was converted to a customer and the owner has been set to Nango Developer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138552014,
+                "name": "Temp Delete Customer Test"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889045546,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138552015,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 09:46:37 -0400",
+              "updated_at": "2026/08/05 09:46:37 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138552015,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Temp Delete Customer Test 2 was converted to a customer and the owner has been set to Nango Developer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138552015,
+                "name": "Temp Delete Customer Test 2"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889046930,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138552015,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 09:55:35 -0400",
+              "updated_at": "2026/08/05 09:55:35 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138552015,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Temp Delete Customer Test 2 was reverted from a Customer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138552015,
+                "name": "Temp Delete Customer Test 2"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889047633,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138552014,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 09:59:38 -0400",
+              "updated_at": "2026/08/05 09:59:38 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138552014,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Temp Delete Customer Test was reverted from a Customer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138552014,
+                "name": "Temp Delete Customer Test"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889047669,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138552083,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 09:59:53 -0400",
+              "updated_at": "2026/08/05 09:59:53 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138552083,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Temp Delete Customer Test 1 was converted to a customer and the owner has been set to Nango Developer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138552083,
+                "name": "Temp Delete Customer Test 1"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889047672,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138552084,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 09:59:55 -0400",
+              "updated_at": "2026/08/05 09:59:55 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138552084,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Temp Delete Customer Test 2 was converted to a customer and the owner has been set to Nango Developer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138552084,
+                "name": "Temp Delete Customer Test 2"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889047721,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138552083,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 10:00:12 -0400",
+              "updated_at": "2026/08/05 10:00:12 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138552083,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Temp Delete Customer Test 1 was reverted from a Customer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138552083,
+                "name": "Temp Delete Customer Test 1"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889047767,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138552084,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 10:00:21 -0400",
+              "updated_at": "2026/08/05 10:00:21 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138552084,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Temp Delete Customer Test 2 was reverted from a Customer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138552084,
+                "name": "Temp Delete Customer Test 2"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889047883,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138552090,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 10:00:50 -0400",
+              "updated_at": "2026/08/05 10:00:50 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138552090,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Temp Delete Customer Test Final was converted to a customer and the owner has been set to Nango Developer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138552090,
+                "name": "Temp Delete Customer Test Final"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889047923,
+              "title": null,
+              "deal_id": null,
+              "person_id": null,
+              "company_id": 138552090,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 918878,
+              "created_at": "2026/08/05 10:01:05 -0400",
+              "updated_at": "2026/08/05 10:01:05 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Company",
+              "primary_association_id": 138552090,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Company Temp Delete Customer Test Final was reverted from a Customer",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "company": {
+                "id": 138552090,
+                "name": "Temp Delete Customer Test Final"
+              },
+              "note_category": {
+                "id": 918878,
+                "name": "Customer"
+              },
+              "deal": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            }
+          ],
+          "pagination": {
+            "page": 1,
+            "page_var": "page",
+            "per_page": 100,
+            "pages": 1,
+            "total": 19
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 15:08:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "10",
+          "x-ratelimit-reset": "1785942524",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Origin",
+          "cache-control": "no-store",
+          "etag": "W/\"7612d06715c241f193fa24b225c0d972\"",
+          "x-request-id": "8bda48de-9ea8-4169-8b28-ebc416b81e71",
+          "x-runtime": "0.105210",
+          "x-permitted-cross-domain-policies": "none",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a266b8014ba5fc1e-PDX"
+        },
+        "hash": "e6590086882d38c08c2f519865714991c7247d30",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}

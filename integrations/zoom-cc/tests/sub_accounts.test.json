@@ -1,0 +1,78 @@
+{
+  "nango": {
+    "batchSave": {
+      "SubAccount": [
+        {
+          "id": "abcDEF123ghiJKL456",
+          "account_name": "Acme Support Team",
+          "account_number": 1234567890,
+          "account_type": "Pro",
+          "seats": 5,
+          "sub_account_token": "sub-account-token-1"
+        },
+        {
+          "id": "mnoPQR789stuVWX012",
+          "account_name": "Acme Sales Team",
+          "account_number": 1234567891,
+          "account_type": "Basic",
+          "seats": 1
+        }
+      ]
+    },
+    "batchDelete": {
+      "SubAccount": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v2/accounts": [
+        {
+          "response": {
+            "page_size": 100,
+            "total_records": 2,
+            "next_page_token": "next-page-token-abc",
+            "accounts": [
+              {
+                "id": "abcDEF123ghiJKL456",
+                "account_name": "Acme Support Team",
+                "account_number": 1234567890,
+                "account_type": "Pro",
+                "seats": 5,
+                "sub_account_token": "sub-account-token-1"
+              }
+            ]
+          },
+          "status": 200,
+          "request": {
+            "params": {
+              "page_size": "100"
+            }
+          }
+        },
+        {
+          "response": {
+            "page_size": 100,
+            "total_records": 2,
+            "next_page_token": "",
+            "accounts": [
+              {
+                "id": "mnoPQR789stuVWX012",
+                "account_name": "Acme Sales Team",
+                "account_number": 1234567891,
+                "account_type": "Basic",
+                "seats": 1
+              }
+            ]
+          },
+          "status": 200,
+          "request": {
+            "params": {
+              "page_size": "100",
+              "next_page_token": "next-page-token-abc"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

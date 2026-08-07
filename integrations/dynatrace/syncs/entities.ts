@@ -1,91 +1,119 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
-const ProviderEntitySchema = z
-    .object({
-        entityId: z.string(),
-        type: z.string(),
-        displayName: z.string().nullish(),
-        properties: z.record(z.string(), z.unknown()).nullish(),
-        tags: z.array(z.record(z.string(), z.unknown())).nullish()
-    })
-    .passthrough();
+const ProviderEntitySchema = z.object({
+    entityId: z.string(),
+    displayName: z.string().optional(),
+    type: z.string(),
+    properties: z.record(z.string(), z.unknown()).optional(),
+    tags: z.array(z.unknown()).optional()
+});
 
 const EntityListResponseSchema = z.object({
-    entities: z.array(ProviderEntitySchema),
+    entities: z.array(z.unknown()),
     nextPageKey: z.string().optional(),
-    totalCount: z.number().optional(),
-    pageSize: z.number().optional()
+    pageSize: z.number().optional(),
+    totalCount: z.number().optional()
 });
 
 const EntitySchema = z.object({
     id: z.string(),
     entityId: z.string(),
-    type: z.string(),
     displayName: z.string().optional(),
+    type: z.string(),
     properties: z.record(z.string(), z.unknown()).optional(),
-    tags: z.array(z.record(z.string(), z.unknown())).optional()
+    tags: z.array(z.unknown()).optional()
 });
 
+const CheckpointSchema = z.object({
+    entityTypeIndex: z.number(),
+    nextPageKey: z.string()
+});
+
+const entityTypes = ['HOST', 'SERVICE', 'APPLICATION', 'PROCESS_GROUP'];
+
 const sync = createSync({
-    description: 'Sync monitored entities (hosts, services, applications, process groups) and their properties.',
+    description: 'Sync monitored entities (hosts, services, applications, process groups) and their properties',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Entity: EntitySchema
     },
 
     exec: async (nango) => {
-        const entityTypes = ['HOST', 'SERVICE', 'APPLICATION', 'PROCESS_GROUP'];
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
 
-        await nango.trackDeletesStart('Entity');
+        let entityTypeIndex = checkpoint?.entityTypeIndex ?? 0;
+        let nextPageKey = checkpoint?.nextPageKey || undefined;
+        // Only started once a checkpoint-less run's first page has been fetched and validated, so a
+        // failure before that point (e.g. a network or parse error) never leaves delete-tracking open
+        // without any checkpoint to resume from.
+        let deleteTrackingStarted = Boolean(checkpoint);
 
-        for (const entityType of entityTypes) {
-            let nextPageKey: string | undefined;
+        while (entityTypeIndex < entityTypes.length) {
+            const entityType = entityTypes[entityTypeIndex];
 
-            do {
-                const params: Record<string, string | number> = nextPageKey
-                    ? { nextPageKey }
-                    : {
-                          entitySelector: `type(${entityType})`,
-                          fields: '+properties,+tags',
-                          pageSize: 100
-                      };
-
-                const config: ProxyConfiguration = {
-                    // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/entities/get-entities
+            // Dynatrace requires nextPageKey to replace all other query params on subsequent pages,
+            // which nango.paginate cannot do (it appends the cursor to existing params).
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-while-true
+            while (true) {
+                // https://docs.dynatrace.com/docs/dynatrace-api/environment-api
+                const response = await nango.get({
                     endpoint: '/api/v2/entities',
-                    params,
+                    params: nextPageKey
+                        ? { nextPageKey }
+                        : {
+                              entitySelector: `type(${entityType})`,
+                              fields: '+properties,+tags',
+                              pageSize: 5
+                          },
                     retries: 3
-                };
+                });
 
-                const response = await nango.get(config);
+                const listResponse = EntityListResponseSchema.parse(response.data);
+                const entities = z.array(ProviderEntitySchema).parse(listResponse.entities);
 
-                const parsed = EntityListResponseSchema.safeParse(response.data);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse entities response for ${entityType}: ${parsed.error.message}`);
+                if (!deleteTrackingStarted) {
+                    await nango.trackDeletesStart('Entity');
+                    deleteTrackingStarted = true;
                 }
 
-                const { entities, nextPageKey: nextKey } = parsed.data;
+                const records = entities.map((entity) => ({
+                    id: entity.entityId,
+                    entityId: entity.entityId,
+                    displayName: entity.displayName,
+                    type: entity.type,
+                    ...(entity.properties !== undefined && { properties: entity.properties }),
+                    ...(entity.tags !== undefined && { tags: entity.tags })
+                }));
 
-                if (entities.length > 0) {
-                    const mapped = entities.map((entity) => ({
-                        id: entity.entityId,
-                        entityId: entity.entityId,
-                        type: entity.type,
-                        ...(entity.displayName != null && { displayName: entity.displayName }),
-                        ...(entity.properties != null && { properties: entity.properties }),
-                        ...(entity.tags != null && { tags: entity.tags })
-                    }));
-
-                    await nango.batchSave(mapped, 'Entity');
+                if (records.length > 0) {
+                    await nango.batchSave(records, 'Entity');
                 }
 
-                nextPageKey = nextKey;
-            } while (nextPageKey);
+                const upcomingPageKey = listResponse.nextPageKey;
+                const nextEntityTypeIndex = upcomingPageKey ? entityTypeIndex : entityTypeIndex + 1;
+
+                if (upcomingPageKey || nextEntityTypeIndex < entityTypes.length) {
+                    await nango.saveCheckpoint({
+                        entityTypeIndex: nextEntityTypeIndex,
+                        nextPageKey: upcomingPageKey ?? ''
+                    });
+                }
+
+                nextPageKey = upcomingPageKey;
+                if (!upcomingPageKey) {
+                    entityTypeIndex = nextEntityTypeIndex;
+                    nextPageKey = undefined;
+                    break;
+                }
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Entity');
     }
 });

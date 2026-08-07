@@ -1,0 +1,136 @@
+{
+  "input": {},
+  "output": {
+    "entities": [
+      {
+        "id": "84129098-52f9-411e-93f0-679d3b87db6d",
+        "type": "entity",
+        "kind": "service",
+        "name": "nango-registry-test-service",
+        "namespace": "default",
+        "api_version": "v2.2",
+        "owner": "nango-registry-audit",
+        "created_at": "2026-08-03T16:14:16.576412Z",
+        "modified_at": "2026-08-03T16:14:16.576412391Z"
+      },
+      {
+        "id": "baf880de-3d7c-4326-8c1f-42259f909024",
+        "type": "entity",
+        "kind": "service",
+        "name": "nango-registry-test-service-2",
+        "namespace": "default",
+        "api_version": "v2.2",
+        "owner": "nango-registry-audit",
+        "description": "Nango registry test service definition",
+        "created_at": "2026-08-03T22:13:23.730238Z",
+        "modified_at": "2026-08-03T22:13:23.730238711Z"
+      },
+      {
+        "id": "2f5c28f9-1dc4-46b6-b86a-1f2f1cbd2e65",
+        "type": "entity",
+        "kind": "service",
+        "name": "nango-registry-test-service-3",
+        "namespace": "default",
+        "api_version": "v2.2",
+        "owner": "nango-registry-audit",
+        "description": "Nango registry test service definition",
+        "created_at": "2026-08-03T22:13:50.664833Z",
+        "modified_at": "2026-08-03T22:13:50.664833374Z"
+      }
+    ],
+    "total": 3
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/catalog/entity": {
+        "response": {
+          "data": [
+            {
+              "id": "84129098-52f9-411e-93f0-679d3b87db6d",
+              "type": "entity",
+              "attributes": {
+                "apiVersion": "v2.2",
+                "kind": "service",
+                "name": "nango-registry-test-service",
+                "namespace": "default",
+                "owner": "nango-registry-audit"
+              },
+              "meta": {
+                "createdAt": "2026-08-03T16:14:16.576412Z",
+                "modifiedAt": "2026-08-03T16:14:16.576412391Z",
+                "ingestionSource": "api",
+                "origin": "unknown"
+              }
+            },
+            {
+              "id": "baf880de-3d7c-4326-8c1f-42259f909024",
+              "type": "entity",
+              "attributes": {
+                "apiVersion": "v2.2",
+                "description": "Nango registry test service definition",
+                "kind": "service",
+                "name": "nango-registry-test-service-2",
+                "namespace": "default",
+                "owner": "nango-registry-audit"
+              },
+              "meta": {
+                "createdAt": "2026-08-03T22:13:23.730238Z",
+                "modifiedAt": "2026-08-03T22:13:23.730238711Z",
+                "ingestionSource": "api",
+                "origin": "unknown"
+              }
+            },
+            {
+              "id": "2f5c28f9-1dc4-46b6-b86a-1f2f1cbd2e65",
+              "type": "entity",
+              "attributes": {
+                "apiVersion": "v2.2",
+                "description": "Nango registry test service definition",
+                "kind": "service",
+                "name": "nango-registry-test-service-3",
+                "namespace": "default",
+                "owner": "nango-registry-audit"
+              },
+              "meta": {
+                "createdAt": "2026-08-03T22:13:50.664833Z",
+                "modifiedAt": "2026-08-03T22:13:50.664833374Z",
+                "ingestionSource": "api",
+                "origin": "unknown"
+              }
+            }
+          ],
+          "meta": {
+            "count": 3,
+            "includeCount": 0
+          },
+          "links": {
+            "self": "/api/v2/catalog/entity?page%5Blimit%5D=100&page%5Boffset%5D=0"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:51:11 GMT",
+          "content-type": "application/vnd.api+json",
+          "content-length": "1278",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1952",
+          "x-ratelimit-reset": "1785797517",
+          "etag": "W/\"4fe-kgs0AvMX48UmzpFNmlnSysp1NdM\""
+        },
+        "hash": "499d120d480bfa4c6621066e1fecd5a5dde9c040",
+        "request": {}
+      }
+    }
+  }
+}

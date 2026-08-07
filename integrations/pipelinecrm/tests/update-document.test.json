@@ -1,0 +1,90 @@
+{
+  "input": {
+    "id": 192568972,
+    "url": "https://example.com/test.pdf"
+  },
+  "output": {
+    "id": 192568972,
+    "title": "Nango Registry Test Document Updated",
+    "updated_at": "2026/08/05 09:40:15 -0400"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/v3/documents/192568972": {
+        "response": {
+          "id": 192568972,
+          "title": "Nango Registry Test Document Updated",
+          "created_at": "2026/08/05 09:08:06 -0400",
+          "updated_at": "2026/08/05 09:40:15 -0400",
+          "owner_id": 843757,
+          "person_id": null,
+          "deal_id": 55383278,
+          "company_id": 138551860,
+          "calendar_entry_id": null,
+          "document_type": "others",
+          "upload_status": 1,
+          "upload_status_error_message": "Server responded with 404 Not Found",
+          "public_link": "https://pipeline-live-userdata.s3.amazonaws.com/uploaded_documents/77d456df-9658-43d8-b954-3088c001df10/nango-registry-test-doc.pdf?response-content-disposition=inline%3B%20filename%20%3D%22Nango%2520Registry%2520Test%2520Document%2520Updated%22&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA3RYXT6AYV3X5SW5B%2F20260805%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260805T134016Z&X-Amz-Expires=21423&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF0aCXVzLWVhc3QtMSJHMEUCIAkqEDhvTmlKGMGKBdJGGqPeik%2BTdjUyeutoZzlcYN7CAiEAnpLRZboALrBpHXehRJzbcUZ%2FpNojhk5LiZrUQCvV5mcqswUIJhAAGgw3OTQwODE2MjAwMTciDDEcJHngNBr4YCnhryqQBeuPNF2GpQPVcoD7R%2FbvQ6%2BL%2B8RcisKLn05AlqLcWJlUO5E1jKPkgni63F%2FquU9hbaMxzl0686ON8bV3pSdbfoInF85IyQVrgY%2BoIsGvAK5Vs%2FiDLP3y%2FYF1KqrGkGq6FbWvespNnQKN0aoeSCQk4Vtg55Ckk1xqYiTnDtnIYE011Of%2B4nE06DQhQYdWJBHauoP4ne6NmU2W8Bp4f1%2BnLjK8JN6w27hIkJsy22cVI4OiaQnAuRAc%2FBjcwDS4ZpInjhx8jux0WRj%2B1N5GN6Zqk8%2FAu1pXaNXpv8zAgkWRgH3UDVchv%2FdMmQEBRq1OinVF%2FP91ys68ZuWKqWriy0pHYncPbHfTVN7L4Tr3uDXFhy3qVDYGzqqF4LboCZPKIYI%2FWXuBwH9rQ%2Fdd7LGOhoDI2wb4jS48DfRlNIYLDyVtOWbRvU6G%2BUqFtJ0rFyuK0QioxQeNBkv7GL7TOLaep16xDunRIKGa5PKDwHhReTlHdGfAY78iFZ3DqGPFmx8GTuD%2BUUsnsHnLfT0JjVVfVS2bRL%2FAdEPe%2FCijvkP3m83c4EbDheyuXcwq0yVQnMx%2FlAjKl%2BFEwP7jwgiVLnl2pet6p1i9HXfbCeRKrPTz6DSl%2FNYDto4duUdMxhuua09ocXsmurVlLYRPkw8EkvLsXzfie9RsMvzFvQsvQEHM5val8sAwRVUzxKXZWuIXfJ7A5Nf808%2Bll8k8qZgYG2eaYks9WocwMbt%2BckQsyAf%2F4bN%2B%2BuU8%2BHst5lX0YJtPE4wqI36npVTw1WaCLc3G1rrAAb1jrj8%2BEdZRzxIc%2BLL%2FVp27vNFRCZeBxBahVNRjzO2%2Fx%2BKae0poy%2BoPOb9qNAbvOzS4SgioPALgSlr19ehK%2FrlSkYaaMNvozNMGOrEBn4BhwhgdnZ0lp9AA3hnE53lqvKHh2AnY%2FEUuQ4rIw2Rr%2B722kNamevP5F1j14BYns7KhdzKRjCiib0aHnQmIe6qW04XVfL4pLvlaxXTMzbQeY4IEovOkoLPLVGe25Lim%2BR%2F6ypBHNCA%2B1GcVDNueknRwMd4lRcj0vl%2FC93VVr4IEJr5YL25AWzCLuv7GJdK50tCTc8mphtMHafV9upEhRW42XRmi7XYX%2BZL41sdL2cSf&X-Amz-SignedHeaders=host&X-Amz-Signature=fd07bf7d9e724768892d4f740accd5b81e6abfaa1dbdda9daf3981edd4ac2067",
+          "size_in_k": 12.95,
+          "upload_state": "pending",
+          "etag": "2942bfabb3d05332b66eb128e0842cff",
+          "document_tag_ids": [],
+          "owner_name": "Nango Developer",
+          "owner": {
+            "id": 843757,
+            "first_name": "Nango",
+            "last_name": "Developer"
+          },
+          "deal": {
+            "id": 55383278,
+            "name": "Nango Registry Test Deal 1"
+          },
+          "company": {
+            "id": 138551860,
+            "name": "Nango Registry Test Company"
+          },
+          "person": null,
+          "calendar_entry": null,
+          "document_tags": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 13:40:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "10",
+          "x-ratelimit-reset": "1785937216",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Origin",
+          "cache-control": "no-store",
+          "etag": "W/\"51a3471bcfa9cc32d29a2cbb1ce671c5\"",
+          "x-request-id": "f61eb06a-632b-44f6-9775-8f05b19c448c",
+          "x-runtime": "0.382229",
+          "x-permitted-cross-domain-policies": "none",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a266366dc8024598-PDX"
+        },
+        "hash": "bb3430430446b1c271c0a1ad51891c3c7c0f6b1a",
+        "request": {
+          "data": {
+            "document": {
+              "url": "https://example.com/test.pdf"
+            }
+          }
+        }
+      }
+    }
+  }
+}

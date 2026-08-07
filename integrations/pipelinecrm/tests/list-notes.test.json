@@ -1,0 +1,412 @@
+{
+  "input": {
+    "deal_id": 55383278
+  },
+  "output": {
+    "items": [
+      {
+        "id": 889038936,
+        "content": "Nango registry test note 1 (updated)",
+        "user_id": 843757,
+        "deal_id": 55383278,
+        "company_id": 138551860,
+        "created_at": "2026/08/05 09:03:52 -0400",
+        "updated_at": "2026/08/05 09:06:24 -0400",
+        "user": {
+          "id": 843757,
+          "first_name": "Nango",
+          "last_name": "Developer"
+        }
+      },
+      {
+        "id": 889039471,
+        "content": "completed task titled \"Nango Registry Test Task 1\".",
+        "user_id": 843757,
+        "deal_id": 55383278,
+        "company_id": 138551860,
+        "created_at": "2026/08/05 09:07:37 -0400",
+        "updated_at": "2026/08/05 09:07:38 -0400",
+        "note_category_id": 350563,
+        "note_category": {
+          "id": 350563,
+          "name": "CalendarTask"
+        },
+        "user": {
+          "id": 843757,
+          "first_name": "Nango",
+          "last_name": "Developer"
+        }
+      },
+      {
+        "id": 889043518,
+        "content": "Nango Registry Test Note",
+        "user_id": 843757,
+        "deal_id": 55383278,
+        "company_id": 138551860,
+        "created_at": "2026/08/05 09:33:25 -0400",
+        "updated_at": "2026/08/05 09:33:25 -0400",
+        "user": {
+          "id": 843757,
+          "first_name": "Nango",
+          "last_name": "Developer"
+        }
+      },
+      {
+        "id": 889043546,
+        "content": "Nango Registry Test Note",
+        "user_id": 843757,
+        "deal_id": 55383278,
+        "company_id": 138551860,
+        "created_at": "2026/08/05 09:33:32 -0400",
+        "updated_at": "2026/08/05 09:33:32 -0400",
+        "user": {
+          "id": 843757,
+          "first_name": "Nango",
+          "last_name": "Developer"
+        }
+      },
+      {
+        "id": 889044304,
+        "title": "Nango Delete Test Note 2",
+        "content": "Temporary note for delete-note action testing",
+        "user_id": 843757,
+        "deal_id": 55383278,
+        "company_id": 138551860,
+        "created_at": "2026/08/05 09:38:40 -0400",
+        "updated_at": "2026/08/05 09:38:40 -0400",
+        "user": {
+          "id": 843757,
+          "first_name": "Nango",
+          "last_name": "Developer"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v3/notes.json": {
+        "response": {
+          "entries": [
+            {
+              "id": 889038936,
+              "title": null,
+              "deal_id": 55383278,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": null,
+              "created_at": "2026/08/05 09:03:52 -0400",
+              "updated_at": "2026/08/05 09:06:24 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Deal",
+              "primary_association_id": 55383278,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Nango registry test note 1 (updated)",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": [
+                  {
+                    "id": 12195967,
+                    "user_id": 843757,
+                    "note_id": 889038936,
+                    "comment": "Nango registry test comment (updated)",
+                    "created_at": "2026/08/05 09:06:05 -0400",
+                    "updated_at": "2026/08/05 09:06:24 -0400",
+                    "edited_by_user_id": null,
+                    "user": {
+                      "id": 843757,
+                      "first_name": "Nango",
+                      "last_name": "Developer",
+                      "avatar_thumb_url": null
+                    }
+                  }
+                ]
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889039471,
+              "title": null,
+              "deal_id": 55383278,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": 350563,
+              "created_at": "2026/08/05 09:07:37 -0400",
+              "updated_at": "2026/08/05 09:07:38 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Deal",
+              "primary_association_id": 55383278,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "completed task titled \"Nango Registry Test Task 1\".",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": {
+                "id": 350563,
+                "name": "CalendarTask"
+              },
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889043518,
+              "title": null,
+              "deal_id": 55383278,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": null,
+              "created_at": "2026/08/05 09:33:25 -0400",
+              "updated_at": "2026/08/05 09:33:25 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Deal",
+              "primary_association_id": 55383278,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Nango Registry Test Note",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889043546,
+              "title": null,
+              "deal_id": 55383278,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": null,
+              "created_at": "2026/08/05 09:33:32 -0400",
+              "updated_at": "2026/08/05 09:33:32 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Deal",
+              "primary_association_id": 55383278,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Nango Registry Test Note",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            },
+            {
+              "id": 889044304,
+              "title": "Nango Delete Test Note 2",
+              "deal_id": 55383278,
+              "person_id": null,
+              "company_id": 138551860,
+              "project_id": null,
+              "created_by_user_id": 843757,
+              "note_category_id": null,
+              "created_at": "2026/08/05 09:38:40 -0400",
+              "updated_at": "2026/08/05 09:38:40 -0400",
+              "is_sent_message": null,
+              "primary_association_type": "Deal",
+              "primary_association_id": 55383278,
+              "is_private": false,
+              "sms_direction": null,
+              "sms_contact_number": null,
+              "sms_user_number": null,
+              "notify_user_ids": [
+                843757
+              ],
+              "content": "Temporary note for delete-note action testing",
+              "user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "created_by_user": {
+                "id": 843757,
+                "first_name": "Nango",
+                "last_name": "Developer",
+                "avatar_thumb_url": null
+              },
+              "deal": {
+                "id": 55383278,
+                "name": "Nango Registry Test Deal 1"
+              },
+              "company": {
+                "id": 138551860,
+                "name": "Nango Registry Test Company"
+              },
+              "note_category": null,
+              "person": null,
+              "project": null,
+              "comments": {
+                "entries": []
+              },
+              "documents": [],
+              "user_id": 843757
+            }
+          ],
+          "pagination": {
+            "page": 1,
+            "page_var": "page",
+            "per_page": 200,
+            "pages": 1,
+            "total": 5
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 13:40:32 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "10",
+          "x-ratelimit-reset": "1785937233",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Origin",
+          "cache-control": "no-store",
+          "etag": "W/\"33cdbb994428c91afb4181713aa992b0\"",
+          "x-request-id": "ef21f035-9790-4a17-a071-238a4a8d26bf",
+          "x-runtime": "0.080419",
+          "x-permitted-cross-domain-policies": "none",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a26636d43d11fef7-PDX"
+        },
+        "hash": "5a57205811f90e8ea71e5165c4753f0f39c9e594",
+        "request": {
+          "params": {
+            "deal_id": "55383278",
+            "page": "1"
+          }
+        }
+      }
+    }
+  }
+}

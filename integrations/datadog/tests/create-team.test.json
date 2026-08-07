@@ -1,0 +1,86 @@
+{
+  "input": {
+    "name": "Nango Registry Test Team 1785797261",
+    "handle": "nango-test-1785797261"
+  },
+  "output": {
+    "id": "133d05a5-ee43-4103-8d80-9e63b1b1b31a",
+    "type": "team",
+    "name": "Nango Registry Test Team 1785797261",
+    "handle": "nango-test-1785797261"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v2/team": {
+        "response": {
+          "data": {
+            "id": "133d05a5-ee43-4103-8d80-9e63b1b1b31a",
+            "type": "team",
+            "attributes": {
+              "avatar": null,
+              "banner": 6,
+              "created_at": "2026-08-03T22:47:47.045739+00:00",
+              "description": null,
+              "handle": "nango-test-1785797261",
+              "hidden_modules": null,
+              "is_managed": false,
+              "link_count": 0,
+              "modified_at": "2026-08-03T22:47:47.045739+00:00",
+              "name": "Nango Registry Test Team 1785797261",
+              "summary": null,
+              "user_count": 0,
+              "visible_modules": null
+            },
+            "relationships": {
+              "team_links": {
+                "data": [],
+                "links": {
+                  "related": "/api/v2/team/133d05a5-ee43-4103-8d80-9e63b1b1b31a/links"
+                }
+              },
+              "user_team_permissions": {
+                "data": null,
+                "links": {
+                  "related": "/api/v2/team/133d05a5-ee43-4103-8d80-9e63b1b1b31a/permission-settings"
+                }
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:47:47 GMT",
+          "content-type": "application/vnd.api+json",
+          "content-length": "662",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1933",
+          "x-ratelimit-reset": "1785797269",
+          "etag": "W/\"296-j7Edxe1u62dBogWJWh6htOedAJk\""
+        },
+        "hash": "7f7f991c8ea00a8c22ff0a1f932536f6d5b17dc8",
+        "request": {
+          "data": {
+            "data": {
+              "type": "team",
+              "attributes": {
+                "name": "Nango Registry Test Team 1785797261",
+                "handle": "nango-test-1785797261"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

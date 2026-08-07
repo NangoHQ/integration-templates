@@ -1,0 +1,59 @@
+{
+  "input": {
+    "email": "api+dev@nango.dev",
+    "groupUuids": [
+      "0bb8915e-fe63-4e37-a1ba-102e7daa375a"
+    ]
+  },
+  "output": {
+    "success": true
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89"
+    }
+  },
+  "api": {
+    "delete": {
+      "/iam/v1/accounts/9610a717-798c-423b-a80f-97cfebe72f89/users/api%2Bdev%40nango.dev/groups": {
+        "response": "",
+        "status": 200,
+        "headers": {
+          "date": "Thu, 06 Aug 2026 10:59:55 GMT",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1935",
+          "x-ratelimit-reset": "1786014006",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "server-timing": "dtTrId;desc=\"6a74692a000000004ae86689a43140ec\", dtSInfo;desc=\"0\", dtRpid;desc=\"684050011\"",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_15_sn_67B62AB55782A7182574E1F3C2405E8A_perc_100000_ol_0_mul_1_app-3Aea7c4b59f27d43eb_1_rcs-3Acss_0; Path=/; Domain=.dynatrace.com",
+          "traceresponse": "00-6a74692a000000004ae86689a43140ec-76fa19e4f8f71120-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt"
+        },
+        "hash": "6a58834b8a940d727738e406508f3829097ebd6b",
+        "request": {
+          "params": {
+            "group-uuid": "0bb8915e-fe63-4e37-a1ba-102e7daa375a"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,22 +1,24 @@
 {
   "input": {},
   "output": {
-    "apiTokens": [
+    "items": [
       {
         "id": "dt0c01.FG4ZSQ4PE3R4FYVNNQN6U2KU",
         "name": "funcGen2",
-        "owner": "api@nango.dev",
         "enabled": true,
+        "owner": "api@nango.dev",
         "creationDate": "2026-08-03T16:11:05.790Z"
       },
       {
         "id": "dt0c01.OKY422TJ4XKBBVWDI7V2SXOK",
         "name": "functionGeneration",
-        "owner": "api@nango.dev",
         "enabled": true,
+        "owner": "api@nango.dev",
         "creationDate": "2026-07-29T13:46:27.432Z"
       }
-    ]
+    ],
+    "pageSize": 100,
+    "totalCount": 2
   },
   "nango": {},
   "api": {
@@ -44,7 +46,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 03 Aug 2026 16:48:55 GMT",
+          "date": "Wed, 05 Aug 2026 16:22:09 GMT",
           "content-type": "application/json;charset=utf-8",
           "content-length": "335",
           "connection": "keep-alive",
@@ -53,13 +55,24 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "strict-transport-security": "max-age=31536000;includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1972",
-          "x-ratelimit-reset": "1785775757",
+          "x-ratelimit-remaining": "1943",
+          "x-ratelimit-reset": "1785946947",
+          "vary": "Accept-Encoding",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_29_sn_8D62957579E9E8731BD9F964DBC628AA_perc_100000_ol_0_mul_1_app-3Ad2f4a377001040b0_1_rcs-3Acss_0; Path=/; Domain=.dynatrace.com; secure",
+          "x-oneagent-js-injection": "true",
+          "server-timing": "dtTrId;desc=\"6a7363300000000007ffa347e0a83169\", dtSInfo;desc=\"0\", dtRpid;desc=\"-1758338316\"",
+          "traceresponse": "00-6a7363300000000007ffa347e0a83169-b60c3d9c2fd20044-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt",
+          "cache-control": "no-store, no-cache",
+          "pragma": "no-cache",
+          "dynatrace-response-source": "Cluster",
+          "x-robots-tag": "noindex",
+          "server": "ruxit server",
           "etag": "W/\"14f-AEVKC98b7T6SeiAArzesgrQnHhk\""
         },
         "hash": "927165fd07e65c8d0e22e0bb5b334d1ea00c88ac",

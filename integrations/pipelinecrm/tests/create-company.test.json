@@ -1,0 +1,151 @@
+{
+  "input": {
+    "name": "Nango Registry Test Company Dryrun 2026-08-05"
+  },
+  "output": {
+    "id": 138552056,
+    "name": "Nango Registry Test Company Dryrun 2026-08-05",
+    "description": null,
+    "email": null,
+    "web": null,
+    "fax": null,
+    "address_1": null,
+    "address_2": null,
+    "city": null,
+    "state": null,
+    "postal_code": null,
+    "country": null,
+    "facebook_url": null,
+    "linked_in_url": null,
+    "twitter": null,
+    "instant_message": null,
+    "phone1": null,
+    "phone2": null,
+    "phone3": null,
+    "phone4": null,
+    "phone1_desc": null,
+    "phone2_desc": null,
+    "phone3_desc": null,
+    "phone4_desc": null,
+    "owner_id": null,
+    "shared_user_ids": [],
+    "tag_ids": [],
+    "custom_fields": {
+      "custom_label_4005323": null,
+      "custom_label_4005324": null
+    },
+    "created_at": "2026/08/05 09:55:19 -0400",
+    "updated_at": "2026/08/05 09:55:19 -0400",
+    "image_thumb_url": "//assets.pipelinecrm.com/current/webpack/images/thumb/missing_company.png",
+    "image_mobile_url": "//assets.pipelinecrm.com/current/webpack/images/mobile/missing_company.png",
+    "possible_notify_user_ids": [],
+    "next_entry_name": null,
+    "next_entry_id": null,
+    "next_entry_due": null,
+    "next_entry_all_day": null,
+    "tags": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/companies.json": {
+        "response": {
+          "id": 138552056,
+          "name": "Nango Registry Test Company Dryrun 2026-08-05",
+          "address_1": null,
+          "address_2": null,
+          "city": null,
+          "postal_code": null,
+          "state": null,
+          "fax": null,
+          "email": null,
+          "web": null,
+          "phone1": null,
+          "phone1_desc": null,
+          "phone2": null,
+          "phone2_desc": null,
+          "phone3": null,
+          "phone3_desc": null,
+          "phone4": null,
+          "phone4_desc": null,
+          "country": null,
+          "description": null,
+          "instant_message": null,
+          "twitter": null,
+          "linked_in_url": null,
+          "facebook_url": null,
+          "updated_at": "2026/08/05 09:55:19 -0400",
+          "created_at": "2026/08/05 09:55:19 -0400",
+          "import_id": null,
+          "owner_id": null,
+          "is_sample": false,
+          "next_entry_due": null,
+          "next_entry_all_day": null,
+          "next_entry_name": null,
+          "next_entry_id": null,
+          "image_thumb_url": "//assets.pipelinecrm.com/current/webpack/images/thumb/missing_company.png",
+          "image_mobile_url": "//assets.pipelinecrm.com/current/webpack/images/mobile/missing_company.png",
+          "address_google_maps_url": "http://maps.google.com/maps?q=%2C+%2C+%2C+++",
+          "shared_user_ids": [],
+          "project_shared_user_ids": [],
+          "twitter_url": null,
+          "milestones": [],
+          "is_customer": false,
+          "custom_fields": {
+            "custom_label_4005323": null,
+            "custom_label_4005324": null
+          },
+          "possible_notify_user_ids": [],
+          "customer": null,
+          "currency": {
+            "id": 77,
+            "name": "Kenyan Shilling",
+            "code": "KES",
+            "symbol": "KSh",
+            "decimal_places": 2
+          },
+          "total_pipeline": 0,
+          "won_deals_total": 0,
+          "tag_ids": [],
+          "tags": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 13:55:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "10",
+          "x-ratelimit-reset": "1785938120",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Origin",
+          "cache-control": "no-store",
+          "etag": "W/\"6646c443bf80650925cc84bea9cc5c0d\"",
+          "x-request-id": "03685ffa-086b-4bde-9de8-7a01a100f949",
+          "x-runtime": "0.192464",
+          "x-permitted-cross-domain-policies": "none",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a2664c7f08d296ba-PDX"
+        },
+        "hash": "700e4f03f82ccc76b6ac62eacb9fc929a2f61a12",
+        "request": {
+          "data": {
+            "company": {
+              "name": "Nango Registry Test Company Dryrun 2026-08-05"
+            }
+          }
+        }
+      }
+    }
+  }
+}

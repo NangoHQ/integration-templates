@@ -1,0 +1,3847 @@
+{
+  "input": {
+    "start": "2026-08-01T00:00:00Z",
+    "product_families": "infra_hosts"
+  },
+  "output": {
+    "data": [
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T00:00:00+00:00"
+        },
+        "id": "9da200c14890aa46d4b7f767b3ed1993295fb2d141eb486aa26cdebd4dcd947c",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T01:00:00+00:00"
+        },
+        "id": "0e638fc8a7bcf8b4b9f2b161a051706785becae7d6f2821ffcf6214fef29136f",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T02:00:00+00:00"
+        },
+        "id": "87f4bf592e68b16dc2c3e8c9b34b4fcc1c3d1f827ec5f738990f2834ac15d207",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T03:00:00+00:00"
+        },
+        "id": "0a21b873bcb16525af0283020c87af4ab83325b5cd581b63df1831a8e9e9fa1b",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T04:00:00+00:00"
+        },
+        "id": "f6fe92fd5b64b402d2f5071ff82e1fd65630dfc965bf59fedc2d6c247f17451b",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T05:00:00+00:00"
+        },
+        "id": "0c4bc6e47a62bd5a03aa63b197f7ef6bf3b634360c789599781f14d073f8efd9",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T06:00:00+00:00"
+        },
+        "id": "718b02393b78d78ff63e71903b95215cff472d39a0075671a06f779531493731",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T07:00:00+00:00"
+        },
+        "id": "d6cd7612704082c7db758eec90d0d4632487ea8ddde6ac2dc3d370b054201c73",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T08:00:00+00:00"
+        },
+        "id": "1254c010979208b38f3f3c8f6d82b188bb2c4d84189635fd0469ff46afdfb37c",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T09:00:00+00:00"
+        },
+        "id": "adf3817235d1cad7e56f520f54d1dac1488817961c971a600bee441cb2866fc8",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T10:00:00+00:00"
+        },
+        "id": "9cda90c76821f4038e539990334b938f806f73684bc3638f0409a9017ebc617b",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T11:00:00+00:00"
+        },
+        "id": "c1edb39137ece5993213e9699c51adf0f80faaacaa6b7006759ab7f71fc3fa64",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T12:00:00+00:00"
+        },
+        "id": "b06e7b4aeebc5e505b003b501db76e1b64c4fe37be79cfad0516f177208e2dee",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T13:00:00+00:00"
+        },
+        "id": "9edc8a97fcbcd11041a3991710e233849df5f8868f142688371d70b7716289cb",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T14:00:00+00:00"
+        },
+        "id": "9708adf870661f093ca92218203b0f3fdbb92622dbe607dab0acce311921dddc",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T15:00:00+00:00"
+        },
+        "id": "b16807dd902e40462e51456f3113f89c3eea30a1ff44aaf2bba89691a81d12cb",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T16:00:00+00:00"
+        },
+        "id": "3d1ca6bf6b268466a0230c733ec25efe27352fcee50908676daa4706a628c644",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T17:00:00+00:00"
+        },
+        "id": "c5027e432fcd48e173f1d2e4a6ef5d5910f7f8954eabc624891976b3c80e2dad",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T18:00:00+00:00"
+        },
+        "id": "89b6a09f693becc566a746a013db8dd302d3a6a41256ab147712c3733023551d",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T19:00:00+00:00"
+        },
+        "id": "2f881746066544dbc804540ed1d1b5b8265110d634b4436d647419b8652ab5c4",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T20:00:00+00:00"
+        },
+        "id": "f66cd7988e9fab17711e25d82a818239ae9efe7d5401a44e5ab8fa050cac99c8",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T21:00:00+00:00"
+        },
+        "id": "eb38b2f9c71e1728bbf9704be2ae1b8b6a1432cd8a7e273a507df8c51e0c732e",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T22:00:00+00:00"
+        },
+        "id": "64bcd09c81c5a5016daccadaac306e14be8174014eebd7cda6209b48c2abf840",
+        "type": "usage_timeseries"
+      },
+      {
+        "attributes": {
+          "account_name": "NangoDev",
+          "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "measurements": [
+            {
+              "usage_type": "agent_host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "alibaba_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "aws_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "azure_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "gcp_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "heroku_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "host_count",
+              "value": 1
+            },
+            {
+              "usage_type": "infra_basic_agent_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_basic_vsphere_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "infra_edge_monitoring_devices_count",
+              "value": 0
+            },
+            {
+              "usage_type": "nutanix_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "oci_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "opentelemetry_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "proxmox_host_count",
+              "value": 0
+            },
+            {
+              "usage_type": "vsphere_host_count",
+              "value": 0
+            }
+          ],
+          "org_name": "NangoDev",
+          "product_family": "infra_hosts",
+          "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+          "region": "us",
+          "timestamp": "2026-08-01T23:00:00+00:00"
+        },
+        "id": "3a1aa1ad9952601761d11bab14659c8d4b30424e9c3d59c80d116533014b1da6",
+        "type": "usage_timeseries"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/usage/hourly_usage": {
+        "response": {
+          "data": [
+            {
+              "id": "9da200c14890aa46d4b7f767b3ed1993295fb2d141eb486aa26cdebd4dcd947c",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T00:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "0e638fc8a7bcf8b4b9f2b161a051706785becae7d6f2821ffcf6214fef29136f",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T01:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "87f4bf592e68b16dc2c3e8c9b34b4fcc1c3d1f827ec5f738990f2834ac15d207",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T02:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "0a21b873bcb16525af0283020c87af4ab83325b5cd581b63df1831a8e9e9fa1b",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T03:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "f6fe92fd5b64b402d2f5071ff82e1fd65630dfc965bf59fedc2d6c247f17451b",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T04:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "0c4bc6e47a62bd5a03aa63b197f7ef6bf3b634360c789599781f14d073f8efd9",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T05:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "718b02393b78d78ff63e71903b95215cff472d39a0075671a06f779531493731",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T06:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "d6cd7612704082c7db758eec90d0d4632487ea8ddde6ac2dc3d370b054201c73",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T07:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "1254c010979208b38f3f3c8f6d82b188bb2c4d84189635fd0469ff46afdfb37c",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T08:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "adf3817235d1cad7e56f520f54d1dac1488817961c971a600bee441cb2866fc8",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T09:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "9cda90c76821f4038e539990334b938f806f73684bc3638f0409a9017ebc617b",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T10:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "c1edb39137ece5993213e9699c51adf0f80faaacaa6b7006759ab7f71fc3fa64",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T11:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "b06e7b4aeebc5e505b003b501db76e1b64c4fe37be79cfad0516f177208e2dee",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T12:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "9edc8a97fcbcd11041a3991710e233849df5f8868f142688371d70b7716289cb",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T13:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "9708adf870661f093ca92218203b0f3fdbb92622dbe607dab0acce311921dddc",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T14:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "b16807dd902e40462e51456f3113f89c3eea30a1ff44aaf2bba89691a81d12cb",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T15:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3d1ca6bf6b268466a0230c733ec25efe27352fcee50908676daa4706a628c644",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T16:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "c5027e432fcd48e173f1d2e4a6ef5d5910f7f8954eabc624891976b3c80e2dad",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T17:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "89b6a09f693becc566a746a013db8dd302d3a6a41256ab147712c3733023551d",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T18:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "2f881746066544dbc804540ed1d1b5b8265110d634b4436d647419b8652ab5c4",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T19:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "f66cd7988e9fab17711e25d82a818239ae9efe7d5401a44e5ab8fa050cac99c8",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T20:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "eb38b2f9c71e1728bbf9704be2ae1b8b6a1432cd8a7e273a507df8c51e0c732e",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T21:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "64bcd09c81c5a5016daccadaac306e14be8174014eebd7cda6209b48c2abf840",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T22:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "3a1aa1ad9952601761d11bab14659c8d4b30424e9c3d59c80d116533014b1da6",
+              "type": "usage_timeseries",
+              "attributes": {
+                "product_family": "infra_hosts",
+                "org_name": "NangoDev",
+                "public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "account_name": "NangoDev",
+                "account_public_id": "dff239f1-89cd-11f1-99ca-2e768c8f2b93",
+                "region": "us",
+                "timestamp": "2026-08-01T23:00:00+00:00",
+                "measurements": [
+                  {
+                    "usage_type": "agent_host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "alibaba_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "aws_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "azure_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "gcp_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "heroku_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "host_count",
+                    "value": 1
+                  },
+                  {
+                    "usage_type": "infra_basic_agent_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_basic_vsphere_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "infra_edge_monitoring_devices_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "nutanix_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "oci_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "opentelemetry_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "proxmox_host_count",
+                    "value": 0
+                  },
+                  {
+                    "usage_type": "vsphere_host_count",
+                    "value": 0
+                  }
+                ]
+              }
+            }
+          ],
+          "meta": {
+            "pagination": {
+              "next_record_id": null
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 03 Aug 2026 22:53:23 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "9",
+          "x-ratelimit-reset": "10",
+          "vary": "Accept-Encoding",
+          "x-ratelimit-period": "30",
+          "x-ratelimit-name": "usage_metering"
+        },
+        "hash": "947f9c348cbffb8758c1df5d84291f0769da90bf",
+        "request": {
+          "params": {
+            "filter[product_families]": "infra_hosts",
+            "filter[timestamp][start]": "2026-08-01T00:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}

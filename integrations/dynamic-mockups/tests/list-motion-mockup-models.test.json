@@ -1,0 +1,336 @@
+{
+  "input": {},
+  "output": {
+    "models": [
+      {
+        "value": "kling_v2.6",
+        "display_name": "Kling v2.6 Pro",
+        "default_duration": "5",
+        "durations": [
+          {
+            "seconds": 5,
+            "credits": {
+              "audio_off": 40,
+              "audio_on": 80
+            },
+            "estimated_time_minutes": 2
+          },
+          {
+            "seconds": 10,
+            "credits": {
+              "audio_off": 80,
+              "audio_on": 160
+            },
+            "estimated_time_minutes": 3
+          }
+        ],
+        "aspect_ratios": null,
+        "default_aspect_ratio": null,
+        "supports_aspect_ratio": false
+      },
+      {
+        "value": "kling_v3_pro",
+        "display_name": "Kling V3 Pro",
+        "default_duration": "5",
+        "durations": [
+          {
+            "seconds": 3,
+            "credits": {
+              "audio_off": 78,
+              "audio_on": 117
+            },
+            "estimated_time_minutes": 4
+          },
+          {
+            "seconds": 4,
+            "credits": {
+              "audio_off": 104,
+              "audio_on": 156
+            },
+            "estimated_time_minutes": 4
+          },
+          {
+            "seconds": 5,
+            "credits": {
+              "audio_off": 130,
+              "audio_on": 195
+            },
+            "estimated_time_minutes": 7
+          },
+          {
+            "seconds": 6,
+            "credits": {
+              "audio_off": 156,
+              "audio_on": 234
+            },
+            "estimated_time_minutes": 7
+          },
+          {
+            "seconds": 7,
+            "credits": {
+              "audio_off": 182,
+              "audio_on": 273
+            },
+            "estimated_time_minutes": 7
+          },
+          {
+            "seconds": 8,
+            "credits": {
+              "audio_off": 208,
+              "audio_on": 312
+            },
+            "estimated_time_minutes": 7
+          },
+          {
+            "seconds": 9,
+            "credits": {
+              "audio_off": 234,
+              "audio_on": 351
+            },
+            "estimated_time_minutes": 7
+          },
+          {
+            "seconds": 10,
+            "credits": {
+              "audio_off": 260,
+              "audio_on": 390
+            },
+            "estimated_time_minutes": 10
+          },
+          {
+            "seconds": 11,
+            "credits": {
+              "audio_off": 286,
+              "audio_on": 429
+            },
+            "estimated_time_minutes": 10
+          },
+          {
+            "seconds": 12,
+            "credits": {
+              "audio_off": 312,
+              "audio_on": 468
+            },
+            "estimated_time_minutes": 10
+          },
+          {
+            "seconds": 13,
+            "credits": {
+              "audio_off": 338,
+              "audio_on": 507
+            },
+            "estimated_time_minutes": 15
+          },
+          {
+            "seconds": 14,
+            "credits": {
+              "audio_off": 364,
+              "audio_on": 546
+            },
+            "estimated_time_minutes": 15
+          },
+          {
+            "seconds": 15,
+            "credits": {
+              "audio_off": 390,
+              "audio_on": 585
+            },
+            "estimated_time_minutes": 15
+          }
+        ],
+        "aspect_ratios": [
+          "16:9",
+          "9:16",
+          "1:1"
+        ],
+        "default_aspect_ratio": "16:9",
+        "supports_aspect_ratio": true
+      }
+    ],
+    "default_model": "kling_v2.6"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/motion-mockups/models": {
+        "response": {
+          "data": {
+            "models": [
+              {
+                "value": "kling_v2.6",
+                "display_name": "Kling v2.6 Pro",
+                "default_duration": "5",
+                "durations": [
+                  {
+                    "seconds": 5,
+                    "credits": {
+                      "audio_off": 40,
+                      "audio_on": 80
+                    },
+                    "estimated_time_minutes": 2
+                  },
+                  {
+                    "seconds": 10,
+                    "credits": {
+                      "audio_off": 80,
+                      "audio_on": 160
+                    },
+                    "estimated_time_minutes": 3
+                  }
+                ],
+                "aspect_ratios": null,
+                "default_aspect_ratio": null,
+                "supports_aspect_ratio": false
+              },
+              {
+                "value": "kling_v3_pro",
+                "display_name": "Kling V3 Pro",
+                "default_duration": "5",
+                "durations": [
+                  {
+                    "seconds": 3,
+                    "credits": {
+                      "audio_off": 78,
+                      "audio_on": 117
+                    },
+                    "estimated_time_minutes": 4
+                  },
+                  {
+                    "seconds": 4,
+                    "credits": {
+                      "audio_off": 104,
+                      "audio_on": 156
+                    },
+                    "estimated_time_minutes": 4
+                  },
+                  {
+                    "seconds": 5,
+                    "credits": {
+                      "audio_off": 130,
+                      "audio_on": 195
+                    },
+                    "estimated_time_minutes": 7
+                  },
+                  {
+                    "seconds": 6,
+                    "credits": {
+                      "audio_off": 156,
+                      "audio_on": 234
+                    },
+                    "estimated_time_minutes": 7
+                  },
+                  {
+                    "seconds": 7,
+                    "credits": {
+                      "audio_off": 182,
+                      "audio_on": 273
+                    },
+                    "estimated_time_minutes": 7
+                  },
+                  {
+                    "seconds": 8,
+                    "credits": {
+                      "audio_off": 208,
+                      "audio_on": 312
+                    },
+                    "estimated_time_minutes": 7
+                  },
+                  {
+                    "seconds": 9,
+                    "credits": {
+                      "audio_off": 234,
+                      "audio_on": 351
+                    },
+                    "estimated_time_minutes": 7
+                  },
+                  {
+                    "seconds": 10,
+                    "credits": {
+                      "audio_off": 260,
+                      "audio_on": 390
+                    },
+                    "estimated_time_minutes": 10
+                  },
+                  {
+                    "seconds": 11,
+                    "credits": {
+                      "audio_off": 286,
+                      "audio_on": 429
+                    },
+                    "estimated_time_minutes": 10
+                  },
+                  {
+                    "seconds": 12,
+                    "credits": {
+                      "audio_off": 312,
+                      "audio_on": 468
+                    },
+                    "estimated_time_minutes": 10
+                  },
+                  {
+                    "seconds": 13,
+                    "credits": {
+                      "audio_off": 338,
+                      "audio_on": 507
+                    },
+                    "estimated_time_minutes": 15
+                  },
+                  {
+                    "seconds": 14,
+                    "credits": {
+                      "audio_off": 364,
+                      "audio_on": 546
+                    },
+                    "estimated_time_minutes": 15
+                  },
+                  {
+                    "seconds": 15,
+                    "credits": {
+                      "audio_off": 390,
+                      "audio_on": 585
+                    },
+                    "estimated_time_minutes": 15
+                  }
+                ],
+                "aspect_ratios": [
+                  "16:9",
+                  "9:16",
+                  "1:1"
+                ],
+                "default_aspect_ratio": "16:9",
+                "supports_aspect_ratio": true
+              }
+            ],
+            "default_model": "kling_v2.6"
+          },
+          "success": true,
+          "message": "Available image-to-video models"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 15:32:19 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "500",
+          "x-ratelimit-remaining": "492",
+          "x-ratelimit-reset": "1785943942",
+          "server": "nginx",
+          "x-powered-by": "PHP/8.2.33",
+          "cache-control": "no-cache, private"
+        },
+        "hash": "1bac81ddbd9ce680feb4b69e74fc90e06662234a",
+        "request": {}
+      }
+    }
+  }
+}
