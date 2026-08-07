@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    projectId: z.string().describe('The identifier of the project to restore. Example: "123e4567-e89b-12d3-a456-426614174000"')
+    projectId: z.string().describe('The identifier of the project to restore. Example: "315645a9-58c2-4f65-9628-3ce3ad2b6401"')
 });
 
 const ProviderProjectSchema = z.object({
@@ -16,11 +16,18 @@ const ProviderProjectSchema = z.object({
     url: z.string().optional()
 });
 
+const GraphQLErrorResponseSchema = z.object({
+    errors: z.array(
+        z.object({
+            message: z.string()
+        })
+    )
+});
+
 const ProviderResponseSchema = z.object({
     data: z.object({
         projectUnarchive: z.object({
             success: z.boolean(),
-            lastSyncId: z.number(),
             entity: ProviderProjectSchema.nullable()
         })
     })
@@ -34,12 +41,13 @@ const OutputSchema = z.object({
     archivedAt: z.string().nullable().optional(),
     createdAt: z.string(),
     updatedAt: z.string(),
-    url: z.string().optional()
+    url: z.string().optional(),
+    success: z.boolean()
 });
 
 const action = createAction({
     description: 'Restore an archived Linear project.',
-    version: '1.0.2',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -50,10 +58,9 @@ const action = createAction({
             endpoint: '/graphql',
             data: {
                 query: `
-                    mutation projectUnarchive($id: String!) {
+                    mutation ProjectUnarchive($id: String!) {
                         projectUnarchive(id: $id) {
                             success
-                            lastSyncId
                             entity {
                                 id
                                 name
@@ -74,8 +81,26 @@ const action = createAction({
             retries: 3
         });
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
-        const project = providerResponse.data.projectUnarchive.entity;
+        const errorResponse = GraphQLErrorResponseSchema.safeParse(response.data);
+        if (errorResponse.success && errorResponse.data.errors.length > 0) {
+            const firstError = errorResponse.data.errors[0];
+            if (firstError) {
+                throw new nango.ActionError({
+                    type: 'graphql_error',
+                    message: firstError.message
+                });
+            }
+        }
+
+        const providerResponse = ProviderResponseSchema.safeParse(response.data);
+        if (!providerResponse.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Invalid response from Linear API'
+            });
+        }
+
+        const project = providerResponse.data.data.projectUnarchive.entity;
 
         if (!project) {
             throw new nango.ActionError({
@@ -93,7 +118,8 @@ const action = createAction({
             ...(project.archivedAt !== undefined && { archivedAt: project.archivedAt }),
             createdAt: project.createdAt,
             updatedAt: project.updatedAt,
-            ...(project.url !== undefined && { url: project.url })
+            ...(project.url !== undefined && { url: project.url }),
+            success: providerResponse.data.data.projectUnarchive.success
         };
     }
 });

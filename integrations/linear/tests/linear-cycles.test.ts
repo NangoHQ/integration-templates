@@ -48,6 +48,22 @@ describe('linear cycles tests', () => {
         }
     });
 
+    it('should migrate a legacy v1.0.1 checkpoint instead of failing the run', async () => {
+        const { nangoMock, batchSaveSpy } = createTestContext();
+        const saveCheckpointSpy = vi.spyOn(nangoMock, 'saveCheckpoint');
+
+        // v1.0.1 persisted `{ updatedAfter }`; the current schema expects `{ updated_after, cursor }`.
+        nangoMock.getCheckpoint.mockResolvedValue({ updatedAfter: '2026-08-01T00:00:00.000Z' });
+
+        await createSync.exec(nangoMock);
+
+        expect(batchSaveSpy).toHaveBeenCalled();
+        expect(saveCheckpointSpy).toHaveBeenCalledWith({
+            updated_after: expect.any(String),
+            cursor: ''
+        });
+    });
+
     it('should get, map correctly the data and batchDelete the result', async () => {
         const { nangoMock } = createTestContext();
         const batchDeleteSpy = vi.spyOn(nangoMock, 'batchDelete');

@@ -1,12 +1,12 @@
 {
   "input": {
-    "userId": "5e854765-e42d-4ce6-9e66-789add44f493"
+    "userId": "b14d8004-1a6b-4cfd-a831-585f018c0276"
   },
   "output": {
-    "id": "5e854765-e42d-4ce6-9e66-789add44f493",
-    "name": "victor+linear@nango.dev",
-    "email": "victor+linear@nango.dev",
-    "displayName": "victorlinear",
+    "id": "b14d8004-1a6b-4cfd-a831-585f018c0276",
+    "name": "Nango Developer",
+    "email": "api@nango.dev",
+    "displayName": "api",
     "admin": true,
     "active": true
   },
@@ -17,10 +17,10 @@
         "response": {
           "data": {
             "user": {
-              "id": "5e854765-e42d-4ce6-9e66-789add44f493",
-              "name": "victor+linear@nango.dev",
-              "email": "victor+linear@nango.dev",
-              "displayName": "victorlinear",
+              "id": "b14d8004-1a6b-4cfd-a831-585f018c0276",
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "displayName": "api",
               "admin": true,
               "active": true
             }
@@ -28,7 +28,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 24 Apr 2026 10:00:50 GMT",
+          "date": "Tue, 04 Aug 2026 12:03:06 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -38,36 +38,36 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4996",
-          "x-ratelimit-reset": "1777024906",
-          "cf-ray": "9f14436398d98736-PDX",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1942",
+          "x-ratelimit-reset": "1785845028",
+          "cf-ray": "a25d6ab98bb2495f-PDX",
           "cf-cache-status": "DYNAMIC",
           "cache-control": "no-store",
-          "etag": "W/\"bb-VObKhGQlp9lEI2ydPv1SBV4nzpw\"",
+          "etag": "W/\"a0-cA9UdwusEKtzXr9Vni4PznzQRYw\"",
+          "server": "cloudflare",
           "set-cookie": "<redacted>",
+          "vary": "Accept-Encoding",
           "via": "1.1 google",
           "alt-svc": "h3=\":443\"; ma=86400",
           "x-complexity": "2",
           "x-ratelimit-complexity-limit": "2000000",
-          "x-ratelimit-complexity-remaining": "1999998",
-          "x-ratelimit-complexity-reset": "1777028450557",
+          "x-ratelimit-complexity-remaining": "1999595",
+          "x-ratelimit-complexity-reset": "1785848585967",
           "x-ratelimit-requests-limit": "5000",
-          "x-ratelimit-requests-remaining": "4999",
-          "x-ratelimit-requests-reset": "1777028450557",
-          "x-request-id": "9f144363b2e38736-PDX",
-          "vary": "Accept-Encoding",
-          "server": "cloudflare"
+          "x-ratelimit-requests-remaining": "4997",
+          "x-ratelimit-requests-reset": "1785848585967",
+          "x-request-id": "a25d6ab99a69495f-PDX"
         },
-        "hash": "0706897db0389977113da9e7a55a701869a86331",
+        "hash": "e48e0e0d6da9c2d60e6cf602dc70b6c22b214230",
         "request": {
           "data": {
-            "query": "query user($id: String!) { user(id: $id) { id name email displayName admin active } }",
+            "query": "query User($id: String!) { user(id: $id) { id name email displayName admin active } }",
             "variables": {
-              "id": "5e854765-e42d-4ce6-9e66-789add44f493"
+              "id": "b14d8004-1a6b-4cfd-a831-585f018c0276"
             }
           }
         }

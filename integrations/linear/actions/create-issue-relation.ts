@@ -2,56 +2,58 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    issueId: z.string().describe('ID of the primary issue. Example: "c5748ccf-c67f-4af4-bd74-fe513dc4c054"'),
-    relatedIssueId: z.string().describe('ID of the related issue. Example: "71bc4480-3aa1-4c56-b657-827996658662"'),
-    type: z.enum(['blocks', 'blocked_by', 'duplicate', 'duplicate_of', 'related']).describe('Type of relationship between the issues.')
+    issueId: z.string().describe('ID of the primary issue. Example: "6948bf28-149d-489b-8f0d-eebae9be8324"'),
+    relatedIssueId: z.string().describe('ID of the related issue. Example: "d12c5fa1-d3e6-493a-8873-f511870c8427"'),
+    type: z.enum(['blocks', 'duplicate', 'related', 'similar']).describe('Type of relationship between the issues.')
 });
 
-const IssueRelationSchema = z.object({
+const ProviderIssueRelationSchema = z.object({
     id: z.string(),
     type: z.string(),
-    issue: z
-        .object({
-            id: z.string(),
-            identifier: z.string()
-        })
-        .optional(),
-    relatedIssue: z
-        .object({
-            id: z.string(),
-            identifier: z.string()
-        })
-        .optional()
+    issue: z.object({
+        id: z.string(),
+        identifier: z.string().optional()
+    }),
+    relatedIssue: z.object({
+        id: z.string(),
+        identifier: z.string().optional()
+    })
 });
 
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        issueRelationCreate: z.object({
-            success: z.boolean(),
-            issueRelation: IssueRelationSchema.nullable().optional()
+    data: z
+        .object({
+            issueRelationCreate: z
+                .object({
+                    success: z.boolean(),
+                    issueRelation: ProviderIssueRelationSchema.nullable().optional()
+                })
+                .nullable()
+                .optional()
         })
-    })
+        .nullable()
+        .optional()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
     type: z.string(),
-    issueId: z.string().optional(),
+    issueId: z.string(),
     issueIdentifier: z.string().optional(),
-    relatedIssueId: z.string().optional(),
+    relatedIssueId: z.string(),
     relatedIssueIdentifier: z.string().optional()
 });
 
 const action = createAction({
     description: 'Create a relationship between two Linear issues.',
-    version: '1.0.2',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'], // Linear GraphQL mutations require a write-capable token
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://linear.app/developers/graphql
         const response = await nango.post({
+            // https://linear.app/developers
             endpoint: '/graphql',
             data: {
                 query: `
@@ -81,46 +83,52 @@ const action = createAction({
                     }
                 }
             },
-            retries: 1
+            retries: 3
         });
 
-        const parsed = ProviderResponseSchema.safeParse(response.data);
+        // Check GraphQL errors before validating the payload shape so provider messages are preserved.
+        const errorCheck = z.object({ errors: z.array(z.object({ message: z.string() })).min(1) }).safeParse(response.data);
+        if (errorCheck.success) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: errorCheck.data.errors.map((error) => error.message).join(', '),
+                errors: errorCheck.data.errors
+            });
+        }
 
-        if (!parsed.success) {
+        const parsedResult = ProviderResponseSchema.safeParse(response.data);
+        if (!parsedResult.success) {
             throw new nango.ActionError({
                 type: 'invalid_response',
                 message: 'Unexpected response from Linear API.',
-                details: parsed.error.issues
+                details: parsedResult.error.issues
             });
         }
 
-        const result = parsed.data.data.issueRelationCreate;
+        const issueRelationCreate = parsedResult.data.data?.issueRelationCreate;
 
-        if (!result.success) {
+        if (!issueRelationCreate || !issueRelationCreate.success) {
             throw new nango.ActionError({
                 type: 'creation_failed',
-                message: 'Linear reported the issue relation creation was not successful.'
+                message: 'Linear reported issue relation creation failed.'
             });
         }
 
-        if (!result.issueRelation) {
+        const relation = issueRelationCreate.issueRelation;
+        if (!relation) {
             throw new nango.ActionError({
-                type: 'missing_relation',
-                message: 'Linear did not return the created issue relation.'
+                type: 'creation_failed',
+                message: 'issueRelationCreate succeeded but returned no issueRelation.'
             });
         }
 
         return {
-            id: result.issueRelation.id,
-            type: result.issueRelation.type,
-            ...(result.issueRelation.issue != null && {
-                issueId: result.issueRelation.issue.id,
-                issueIdentifier: result.issueRelation.issue.identifier
-            }),
-            ...(result.issueRelation.relatedIssue != null && {
-                relatedIssueId: result.issueRelation.relatedIssue.id,
-                relatedIssueIdentifier: result.issueRelation.relatedIssue.identifier
-            })
+            id: relation.id,
+            type: relation.type,
+            issueId: relation.issue.id,
+            ...(relation.issue.identifier != null && { issueIdentifier: relation.issue.identifier }),
+            relatedIssueId: relation.relatedIssue.id,
+            ...(relation.relatedIssue.identifier != null && { relatedIssueIdentifier: relation.relatedIssue.identifier })
         };
     }
 });

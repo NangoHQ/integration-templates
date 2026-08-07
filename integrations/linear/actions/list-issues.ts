@@ -2,77 +2,117 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
     first: z.number().int().min(1).max(100).optional().describe('Number of issues to return per page. Example: 50'),
-    after: z.string().optional().describe('Pagination cursor for forward pagination. Example: "eyJvcmRlciI6..."'),
     orderBy: z.string().optional().describe('Field to order by. Example: "updatedAt" or "createdAt"'),
-    filter: z.record(z.string(), z.unknown()).optional().describe('Issue filter object. Example: { state: { type: { eq: "started" } } }')
+    filter: z.record(z.string(), z.unknown()).optional().describe('Issue filter object. Example: { team: { id: { eq: "team-id" } } }')
 });
 
-const IssueSchema = z.object({
+const IssueNodeSchema = z.object({
     id: z.string(),
     identifier: z.string(),
     title: z.string(),
-    description: z.string().nullish(),
-    priority: z.number().nullish(),
+    description: z.string().optional().nullable(),
+    priority: z.number().optional().nullable(),
     state: z
         .object({
             id: z.string(),
             name: z.string(),
-            type: z.string(),
-            color: z.string().nullish()
+            type: z.string().optional(),
+            color: z.string().optional().nullable()
         })
-        .nullish(),
-    team: z
-        .object({
-            id: z.string(),
-            key: z.string(),
-            name: z.string()
-        })
-        .nullish(),
+        .optional()
+        .nullable(),
     assignee: z
         .object({
             id: z.string(),
             name: z.string(),
-            email: z.string().nullish()
+            email: z.string().optional().nullable()
         })
-        .nullish(),
-    createdAt: z.string().nullish(),
-    updatedAt: z.string().nullish(),
-    url: z.string().nullish()
+        .optional()
+        .nullable(),
+    team: z
+        .object({
+            id: z.string(),
+            name: z.string(),
+            key: z.string().optional()
+        })
+        .optional()
+        .nullable(),
+    project: z
+        .object({
+            id: z.string(),
+            name: z.string()
+        })
+        .optional()
+        .nullable(),
+    cycle: z
+        .object({
+            id: z.string(),
+            name: z.string()
+        })
+        .optional()
+        .nullable(),
+    labels: z
+        .object({
+            nodes: z
+                .array(
+                    z.object({
+                        id: z.string(),
+                        name: z.string()
+                    })
+                )
+                .optional()
+                .nullable()
+        })
+        .optional()
+        .nullable(),
+    createdAt: z.string().optional(),
+    updatedAt: z.string().optional(),
+    archivedAt: z.string().optional().nullable(),
+    url: z.string().optional().nullable()
 });
 
 const PageInfoSchema = z.object({
     hasNextPage: z.boolean(),
     hasPreviousPage: z.boolean(),
-    startCursor: z.string().nullable().optional(),
-    endCursor: z.string().nullable().optional()
-});
-
-const OutputSchema = z.object({
-    issues: z.array(IssueSchema),
-    pageInfo: PageInfoSchema,
-    nextCursor: z.string().optional().describe('Convenience field matching pageInfo.endCursor when hasNextPage is true')
-});
-
-const GraphQLErrorSchema = z.object({
-    message: z.string()
+    startCursor: z.string().optional().nullable(),
+    endCursor: z.string().optional().nullable()
 });
 
 const GraphQLResponseSchema = z.object({
     data: z
         .object({
-            issues: z.object({
-                nodes: z.array(z.unknown()),
-                pageInfo: PageInfoSchema
-            })
+            issues: z
+                .object({
+                    nodes: z.array(z.unknown()),
+                    pageInfo: PageInfoSchema
+                })
+                .optional()
+                .nullable()
         })
-        .optional(),
-    errors: z.array(GraphQLErrorSchema).optional()
+        .optional()
+        .nullable(),
+    errors: z
+        .array(
+            z.object({
+                message: z.string(),
+                extensions: z.record(z.string(), z.unknown()).optional()
+            })
+        )
+        .optional()
+        .nullable()
+});
+
+const OutputSchema = z.object({
+    items: z.array(IssueNodeSchema),
+    pageInfo: PageInfoSchema,
+    nextCursor: z.string().optional()
 });
 
 const action = createAction({
     description: 'List Linear issues with filtering and pagination.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -93,18 +133,33 @@ const action = createAction({
                             type
                             color
                         }
-                        team {
-                            id
-                            key
-                            name
-                        }
                         assignee {
                             id
                             name
                             email
                         }
+                        team {
+                            id
+                            name
+                            key
+                        }
+                        project {
+                            id
+                            name
+                        }
+                        cycle {
+                            id
+                            name
+                        }
+                        labels {
+                            nodes {
+                                id
+                                name
+                            }
+                        }
                         createdAt
                         updatedAt
+                        archivedAt
                         url
                     }
                     pageInfo {
@@ -121,8 +176,8 @@ const action = createAction({
         if (input.first !== undefined) {
             variables['first'] = input.first;
         }
-        if (input.after !== undefined && input.after !== '') {
-            variables['after'] = input.after;
+        if (input.cursor !== undefined && input.cursor !== '') {
+            variables['after'] = input.cursor;
         }
         if (input.orderBy !== undefined && input.orderBy !== '') {
             variables['orderBy'] = input.orderBy;
@@ -131,7 +186,7 @@ const action = createAction({
             variables['filter'] = input.filter;
         }
 
-        // https://linear.app/developers/graphql
+        // https://linear.app/developers/api-graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {
@@ -159,7 +214,7 @@ const action = createAction({
 
         const responseErrors = parsedResponse.data.errors;
         if (responseErrors && responseErrors.length > 0) {
-            const firstError = responseErrors.at(0);
+            const firstError = responseErrors[0];
             if (firstError) {
                 throw new nango.ActionError({
                     type: 'graphql_error',
@@ -169,28 +224,27 @@ const action = createAction({
             }
         }
 
-        if (!parsedResponse.data.data || !parsedResponse.data.data.issues) {
+        const issuesData = parsedResponse.data.data?.issues;
+        if (!issuesData) {
             throw new nango.ActionError({
                 type: 'invalid_response',
                 message: 'Missing issues data in GraphQL response'
             });
         }
 
-        const connection = parsedResponse.data.data.issues;
-
-        const parsedNodes = z.array(IssueSchema).safeParse(connection.nodes);
+        const parsedNodes = z.array(IssueNodeSchema).safeParse(issuesData.nodes);
         if (!parsedNodes.success) {
             throw new nango.ActionError({
-                type: 'validation_error',
+                type: 'invalid_response',
                 message: 'Failed to validate issue nodes from provider response',
                 details: parsedNodes.error.issues
             });
         }
 
         return {
-            issues: parsedNodes.data,
-            pageInfo: connection.pageInfo,
-            ...(connection.pageInfo.hasNextPage && connection.pageInfo.endCursor != null && { nextCursor: connection.pageInfo.endCursor })
+            items: parsedNodes.data,
+            pageInfo: issuesData.pageInfo,
+            ...(issuesData.pageInfo.hasNextPage && issuesData.pageInfo.endCursor != null && { nextCursor: issuesData.pageInfo.endCursor })
         };
     }
 });

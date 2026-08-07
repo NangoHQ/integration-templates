@@ -2,161 +2,176 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    id: z.string().describe('The identifier of the cycle to update. Example: "cycle-id"'),
+    id: z.string().describe('Cycle ID. Example: "b5327ded-caa0-4290-9f8f-dd2c4ba6eff2"'),
     name: z.string().optional().describe('The custom name of the cycle.'),
     description: z.string().optional().describe('The description of the cycle.'),
-    startsAt: z.string().optional().describe('The start date and time of the cycle. ISO 8601 format.'),
-    endsAt: z.string().optional().describe('The end date and time of the cycle. ISO 8601 format.'),
+    startsAt: z.string().optional().describe('The start date of the cycle (ISO 8601).'),
+    endsAt: z.string().optional().describe('The end date of the cycle (ISO 8601).'),
     completedAt: z.string().nullable().optional().describe('The completion time of the cycle. Pass null to mark as uncompleted.')
+});
+
+const ProviderTeamSchema = z.object({
+    id: z.string(),
+    name: z.string().nullable()
 });
 
 const ProviderCycleSchema = z.object({
     id: z.string(),
     name: z.string().nullable(),
-    description: z.string().nullable(),
-    startsAt: z.string(),
-    endsAt: z.string(),
-    completedAt: z.string().nullable(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
+    description: z.string().nullable().optional(),
     number: z.number(),
-    isActive: z.boolean(),
-    isFuture: z.boolean(),
-    isNext: z.boolean(),
-    isPast: z.boolean(),
-    isPrevious: z.boolean(),
-    progress: z.number()
+    startsAt: z.string().nullable(),
+    endsAt: z.string().nullable(),
+    completedAt: z.string().nullable(),
+    createdAt: z.string().optional(),
+    updatedAt: z.string().optional(),
+    isActive: z.boolean().optional(),
+    isFuture: z.boolean().optional(),
+    isNext: z.boolean().optional(),
+    isPast: z.boolean().optional(),
+    isPrevious: z.boolean().optional(),
+    progress: z.number().optional(),
+    archivedAt: z.string().nullable(),
+    team: ProviderTeamSchema.nullable()
 });
 
-const GraphQLResponseSchema = z.object({
+const ProviderPayloadSchema = z.object({
+    success: z.boolean(),
+    cycle: ProviderCycleSchema.nullable()
+});
+
+const ProviderResponseSchema = z.object({
     data: z
         .object({
-            cycleUpdate: z
-                .object({
-                    success: z.boolean(),
-                    lastSyncId: z.number(),
-                    cycle: ProviderCycleSchema.nullable()
-                })
-                .nullable()
+            cycleUpdate: ProviderPayloadSchema
         })
-        .nullable()
-        .optional(),
-    errors: z
-        .array(
-            z.object({
-                message: z.string()
-            })
-        )
-        .optional()
+        .nullable(),
+    errors: z.array(z.object({ message: z.string() })).optional()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
     description: z.string().optional(),
-    startsAt: z.string(),
-    endsAt: z.string(),
-    completedAt: z.string().nullable().optional(),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    number: z.number(),
-    isActive: z.boolean(),
-    isFuture: z.boolean(),
-    isNext: z.boolean(),
-    isPast: z.boolean(),
-    isPrevious: z.boolean(),
-    progress: z.number()
+    number: z.number().optional(),
+    startsAt: z.string().optional(),
+    endsAt: z.string().optional(),
+    completedAt: z.string().optional(),
+    createdAt: z.string().optional(),
+    updatedAt: z.string().optional(),
+    isActive: z.boolean().optional(),
+    isFuture: z.boolean().optional(),
+    isNext: z.boolean().optional(),
+    isPast: z.boolean().optional(),
+    isPrevious: z.boolean().optional(),
+    progress: z.number().optional(),
+    archivedAt: z.string().optional(),
+    team: z
+        .object({
+            id: z.string(),
+            name: z.string().optional()
+        })
+        .optional()
 });
 
 const action = createAction({
     description: 'Update an existing Linear cycle.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const cycleInput = {
-            ...(input.name !== undefined && { name: input.name }),
-            ...(input.description !== undefined && { description: input.description }),
-            ...(input.startsAt !== undefined && { startsAt: input.startsAt }),
-            ...(input.endsAt !== undefined && { endsAt: input.endsAt }),
-            ...(input.completedAt !== undefined && { completedAt: input.completedAt })
-        };
+        const mutation = `
+            mutation CycleUpdate($id: String!, $input: CycleUpdateInput!) {
+                cycleUpdate(id: $id, input: $input) {
+                    success
+                    cycle {
+                        id
+                        name
+                        description
+                        number
+                        startsAt
+                        endsAt
+                        completedAt
+                        createdAt
+                        updatedAt
+                        isActive
+                        isFuture
+                        isNext
+                        isPast
+                        isPrevious
+                        progress
+                        archivedAt
+                        team {
+                            id
+                            name
+                        }
+                    }
+                }
+            }
+        `;
 
         // https://linear.app/developers/graphql
         const response = await nango.post({
             endpoint: '/graphql',
             data: {
-                query: `
-                    mutation CycleUpdate($id: String!, $input: CycleUpdateInput!) {
-                        cycleUpdate(id: $id, input: $input) {
-                            success
-                            lastSyncId
-                            cycle {
-                                id
-                                name
-                                description
-                                startsAt
-                                endsAt
-                                completedAt
-                                createdAt
-                                updatedAt
-                                number
-                                isActive
-                                isFuture
-                                isNext
-                                isPast
-                                isPrevious
-                                progress
-                            }
-                        }
-                    }
-                `,
+                query: mutation,
                 variables: {
                     id: input.id,
-                    input: cycleInput
+                    input: {
+                        ...(input.name !== undefined && { name: input.name }),
+                        ...(input.description !== undefined && { description: input.description }),
+                        ...(input.startsAt !== undefined && { startsAt: input.startsAt }),
+                        ...(input.endsAt !== undefined && { endsAt: input.endsAt }),
+                        ...(input.completedAt !== undefined && { completedAt: input.completedAt })
+                    }
                 }
             },
-            retries: 1
+            retries: 3
         });
 
-        const providerPayload = GraphQLResponseSchema.parse(response.data);
+        const body = ProviderResponseSchema.parse(response.data);
 
-        if (providerPayload.errors && providerPayload.errors.length > 0) {
-            const firstError = providerPayload.errors[0];
+        if (body.errors && body.errors.length > 0) {
             throw new nango.ActionError({
                 type: 'graphql_error',
-                message: firstError?.message ?? 'GraphQL error occurred.'
+                message: body.errors.map((e) => e.message).join(', ')
             });
         }
 
-        const payload = providerPayload.data?.cycleUpdate;
-        if (!payload || !payload.success || payload.cycle == null) {
+        if (!body.data || !body.data.cycleUpdate.success || !body.data.cycleUpdate.cycle) {
             throw new nango.ActionError({
                 type: 'update_failed',
-                message: 'Cycle update failed or returned no cycle data.'
+                message: 'Cycle update was not successful.'
             });
         }
 
-        const cycle = payload.cycle;
+        const cycle = body.data.cycleUpdate.cycle;
 
         return {
             id: cycle.id,
             ...(cycle.name != null && { name: cycle.name }),
             ...(cycle.description != null && { description: cycle.description }),
-            startsAt: cycle.startsAt,
-            endsAt: cycle.endsAt,
-            ...(cycle.completedAt !== undefined && { completedAt: cycle.completedAt }),
-            createdAt: cycle.createdAt,
-            updatedAt: cycle.updatedAt,
             number: cycle.number,
-            isActive: cycle.isActive,
-            isFuture: cycle.isFuture,
-            isNext: cycle.isNext,
-            isPast: cycle.isPast,
-            isPrevious: cycle.isPrevious,
-            progress: cycle.progress
+            ...(cycle.startsAt != null && { startsAt: cycle.startsAt }),
+            ...(cycle.endsAt != null && { endsAt: cycle.endsAt }),
+            ...(cycle.completedAt != null && { completedAt: cycle.completedAt }),
+            ...(cycle.createdAt !== undefined && { createdAt: cycle.createdAt }),
+            ...(cycle.updatedAt !== undefined && { updatedAt: cycle.updatedAt }),
+            ...(cycle.isActive !== undefined && { isActive: cycle.isActive }),
+            ...(cycle.isFuture !== undefined && { isFuture: cycle.isFuture }),
+            ...(cycle.isNext !== undefined && { isNext: cycle.isNext }),
+            ...(cycle.isPast !== undefined && { isPast: cycle.isPast }),
+            ...(cycle.isPrevious !== undefined && { isPrevious: cycle.isPrevious }),
+            ...(cycle.progress !== undefined && { progress: cycle.progress }),
+            ...(cycle.archivedAt != null && { archivedAt: cycle.archivedAt }),
+            ...(cycle.team != null && {
+                team: {
+                    id: cycle.team.id,
+                    ...(cycle.team.name != null && { name: cycle.team.name })
+                }
+            })
         };
     }
 });

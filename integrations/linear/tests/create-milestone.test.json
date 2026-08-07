@@ -1,0 +1,92 @@
+{
+  "input": {
+    "projectId": "315645a9-58c2-4f65-9628-3ce3ad2b6401",
+    "name": "Save Test Milestone",
+    "targetDate": "2026-10-01"
+  },
+  "output": {
+    "id": "a2c756e2-269e-4381-91fe-40bd1d28fb16",
+    "name": "Save Test Milestone",
+    "targetDate": "2026-10-01",
+    "createdAt": "2026-08-04T12:05:03.252Z",
+    "updatedAt": "2026-08-04T12:05:03.252Z",
+    "project": {
+      "id": "315645a9-58c2-4f65-9628-3ce3ad2b6401",
+      "name": "Nango Registry Test Project"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "projectMilestoneCreate": {
+              "success": true,
+              "projectMilestone": {
+                "id": "a2c756e2-269e-4381-91fe-40bd1d28fb16",
+                "name": "Save Test Milestone",
+                "targetDate": "2026-10-01",
+                "createdAt": "2026-08-04T12:05:03.252Z",
+                "updatedAt": "2026-08-04T12:05:03.252Z",
+                "project": {
+                  "id": "315645a9-58c2-4f65-9628-3ce3ad2b6401",
+                  "name": "Nango Registry Test Project"
+                }
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 12:05:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1785845151",
+          "cf-ray": "a25d6d96ed0af3b4-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"158-1mTUvkFED0B0CaDPhX247TeeM2k\"",
+          "server": "cloudflare",
+          "set-cookie": "uploadsSig:37160989-b7da-498c-9fea-8710ffad9b49=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiMzcxNjA5ODktYjdkYS00OThjLTlmZWEtODcxMGZmYWQ5YjQ5Iiwib3JnYW5pemF0aW9uSWRzIjpbIjg4MmI0ODZlLTg2Y2QtNDNkZS04OGJjLTIyZmRmNzY5MDJhNSJdLCJpYXQiOjE3ODU4NDUxMDMsImV4cCI6MTc4NjQ0OTkwM30.99icU66jT3_PKJm67j6cEbDtb5SnjSaGW1xiV7-_nGU; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "5",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999995",
+          "x-ratelimit-complexity-reset": "1785848703248",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1785848703248",
+          "x-request-id": "a25d6d96fae9f3b4-PDX"
+        },
+        "hash": "78c648bcaae4ec7d15a9fa290a533b1532652034",
+        "request": {
+          "data": {
+            "query": "\n                    mutation CreateProjectMilestone($input: ProjectMilestoneCreateInput!) {\n                        projectMilestoneCreate(input: $input) {\n                            success\n                            projectMilestone {\n                                id\n                                name\n                                targetDate\n                                createdAt\n                                updatedAt\n                                project {\n                                    id\n                                    name\n                                }\n                            }\n                        }\n                    }\n                ",
+            "variables": {
+              "input": {
+                "projectId": "315645a9-58c2-4f65-9628-3ce3ad2b6401",
+                "name": "Save Test Milestone",
+                "targetDate": "2026-10-01"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

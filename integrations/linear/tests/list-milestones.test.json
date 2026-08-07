@@ -1,0 +1,90 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "1c52e20d-a929-4a42-88e6-72ef225d9403",
+        "name": "Nango Registry Test Milestone (updated)",
+        "targetDate": "2026-09-01",
+        "createdAt": "2026-08-03T22:10:52.962Z",
+        "updatedAt": "2026-08-03T22:20:09.436Z",
+        "projectId": "315645a9-58c2-4f65-9628-3ce3ad2b6401"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "projectMilestones": {
+              "nodes": [
+                {
+                  "id": "1c52e20d-a929-4a42-88e6-72ef225d9403",
+                  "name": "Nango Registry Test Milestone (updated)",
+                  "description": null,
+                  "targetDate": "2026-09-01",
+                  "createdAt": "2026-08-03T22:10:52.962Z",
+                  "updatedAt": "2026-08-03T22:20:09.436Z",
+                  "project": {
+                    "id": "315645a9-58c2-4f65-9628-3ce3ad2b6401"
+                  }
+                }
+              ],
+              "pageInfo": {
+                "hasNextPage": false,
+                "endCursor": "1c52e20d-a929-4a42-88e6-72ef225d9403"
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 04 Aug 2026 11:58:24 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1895",
+          "x-ratelimit-reset": "1785844713",
+          "cf-ray": "a25d63daacf33e6d-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-store",
+          "etag": "W/\"191-HcNZ06teZv49C/mt5odwvCiT4A0\"",
+          "server": "cloudflare",
+          "set-cookie": "uploadsSig:37160989-b7da-498c-9fea-8710ffad9b49=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiMzcxNjA5ODktYjdkYS00OThjLTlmZWEtODcxMGZmYWQ5YjQ5Iiwib3JnYW5pemF0aW9uSWRzIjpbIjg4MmI0ODZlLTg2Y2QtNDNkZS04OGJjLTIyZmRmNzY5MDJhNSJdLCJpYXQiOjE3ODU4NDQ3MDQsImV4cCI6MTc4NjQ0OTUwNH0.6IQ5w4L-n9WOo2LOKOyyNKzuscXXfBjeIdUg55ZydGI; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "vary": "Accept-Encoding",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-complexity": "196",
+          "x-ratelimit-complexity-limit": "2000000",
+          "x-ratelimit-complexity-remaining": "1999804",
+          "x-ratelimit-complexity-reset": "1785848304486",
+          "x-ratelimit-requests-limit": "5000",
+          "x-ratelimit-requests-remaining": "4999",
+          "x-ratelimit-requests-reset": "1785848304486",
+          "x-request-id": "a25d63dabfcf3e6d-PDX"
+        },
+        "hash": "8719690cf33e87b695dfe563ed1863d027b88a0c",
+        "request": {
+          "data": {
+            "query": "\n            query ProjectMilestones($first: Int, $after: String) {\n                projectMilestones(first: $first, after: $after) {\n                    nodes {\n                        id\n                        name\n                        description\n                        targetDate\n                        createdAt\n                        updatedAt\n                        project {\n                            id\n                        }\n                    }\n                    pageInfo {\n                        hasNextPage\n                        endCursor\n                    }\n                }\n            }\n        ",
+            "variables": {
+              "first": 50
+            }
+          }
+        }
+      }
+    }
+  }
+}

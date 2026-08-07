@@ -1,16 +1,14 @@
 {
   "input": {
-    "id": "6ed69839-92f8-4ce6-bf84-2c3ae8b08d17",
-    "name": "test-label-12345-updated",
-    "description": "Updated description via action"
+    "id": "b08dbaa2-5ecc-4770-acaf-23894ce84e64",
+    "color": "#ff5733"
   },
   "output": {
-    "id": "6ed69839-92f8-4ce6-bf84-2c3ae8b08d17",
-    "name": "test-label-12345-updated",
-    "color": "#FF0000",
-    "description": "Updated description via action",
-    "createdAt": "2026-04-24T10:01:10.807Z",
-    "updatedAt": "2026-04-24T10:05:21.572Z"
+    "id": "b08dbaa2-5ecc-4770-acaf-23894ce84e64",
+    "name": "nango-registry-test",
+    "color": "#ff5733",
+    "createdAt": "2026-06-01T10:00:00.000Z",
+    "updatedAt": "2026-08-04T11:59:15.000Z"
   },
   "nango": {},
   "api": {
@@ -21,12 +19,12 @@
             "issueLabelUpdate": {
               "success": true,
               "issueLabel": {
-                "id": "6ed69839-92f8-4ce6-bf84-2c3ae8b08d17",
-                "name": "test-label-12345-updated",
-                "color": "#FF0000",
-                "description": "Updated description via action",
-                "createdAt": "2026-04-24T10:01:10.807Z",
-                "updatedAt": "2026-04-24T10:05:21.572Z",
+                "id": "b08dbaa2-5ecc-4770-acaf-23894ce84e64",
+                "name": "nango-registry-test",
+                "color": "#ff5733",
+                "description": null,
+                "createdAt": "2026-06-01T10:00:00.000Z",
+                "updatedAt": "2026-08-04T11:59:15.000Z",
                 "archivedAt": null
               }
             }
@@ -34,7 +32,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 24 Apr 2026 10:05:32 GMT",
+          "date": "Tue, 04 Aug 2026 11:59:15 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -44,39 +42,37 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4927",
-          "x-ratelimit-reset": "1777025150",
-          "cf-ray": "9f144a4748e81f9b-PDX",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1875",
+          "x-ratelimit-reset": "1785844774",
+          "cf-ray": "a25d65186e56c895-PDX",
           "cf-cache-status": "DYNAMIC",
           "cache-control": "no-store",
-          "etag": "W/\"12d-1ExgWFQ3sSW49kM3wgvjMcb/tok\"",
-          "set-cookie": "uploadsSig:d92d14b4-1a60-42bc-9927-374dadd3844c=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiZDkyZDE0YjQtMWE2MC00MmJjLTk5MjctMzc0ZGFkZDM4NDRjIiwib3JnYW5pemF0aW9uSWRzIjpbImQ1YWUyZGQ3LTczY2YtNDlkMi1hZjZlLTUxNzcxNjdmN2E1ZSJdLCJpYXQiOjE3NzcwMjUxMzIsImV4cCI6MTc3NzYyOTkzMn0.ZkaCmZHOrWNjs9wnGHmj0iluMQfEdtErwqlp7eIT5lo; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "etag": "W/\"ac-AQ96oOCjCU1MDEz1URNBQikaqkc\"",
+          "server": "cloudflare",
+          "set-cookie": "uploadsSig:37160989-b7da-498c-9fea-8710ffad9b49=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyQWNjb3VudElkIjoiMzcxNjA5ODktYjdkYS00OThjLTlmZWEtODcxMGZmYWQ5YjQ5Iiwib3JnYW5pemF0aW9uSWRzIjpbIjg4MmI0ODZlLTg2Y2QtNDNkZS04OGJjLTIyZmRmNzY5MDJhNSJdLCJpYXQiOjE3ODU4NDQ3NTUsImV4cCI6MTc4NjQ0OTU1NX0.UIC8ee3IlIWiM3leax-7vEaisWSyCvzdaI6X9V7JoZY; Domain=.linear.app; HttpOnly; Max-Age=604800; SameSite=None; Secure",
+          "vary": "Accept-Encoding",
           "via": "1.1 google",
           "alt-svc": "h3=\":443\"; ma=86400",
           "x-complexity": "3",
           "x-ratelimit-complexity-limit": "2000000",
-          "x-ratelimit-complexity-remaining": "1999997",
-          "x-ratelimit-complexity-reset": "1777028732741",
+          "x-ratelimit-complexity-remaining": "1997728",
+          "x-ratelimit-complexity-reset": "1785848355325",
           "x-ratelimit-requests-limit": "5000",
           "x-ratelimit-requests-remaining": "4999",
-          "x-ratelimit-requests-reset": "1777028732741",
-          "x-request-id": "9f144a4762031f9b-PDX",
-          "vary": "Accept-Encoding",
-          "server": "cloudflare"
+          "x-ratelimit-requests-reset": "1785848355325",
+          "x-request-id": "a25d65187dc4c895-PDX"
         },
-        "hash": "87852a206e99b42e860999757d73e0b9146befae",
         "request": {
           "data": {
-            "query": "\n            mutation UpdateIssueLabel($id: String!, $input: IssueLabelUpdateInput!) {\n                issueLabelUpdate(id: $id, input: $input) {\n                    success\n                    issueLabel {\n                        id\n                        name\n                        color\n                        description\n                        createdAt\n                        updatedAt\n                        archivedAt\n                    }\n                }\n            }\n        ",
+            "query": "\n            mutation IssueLabelUpdate($id: String!, $input: IssueLabelUpdateInput!) {\n                issueLabelUpdate(id: $id, input: $input) {\n                    success\n                    issueLabel {\n                        id\n                        name\n                        color\n                        description\n                        createdAt\n                        updatedAt\n                        archivedAt\n                    }\n                }\n            }\n        ",
             "variables": {
-              "id": "6ed69839-92f8-4ce6-bf84-2c3ae8b08d17",
+              "id": "b08dbaa2-5ecc-4770-acaf-23894ce84e64",
               "input": {
-                "name": "test-label-12345-updated",
-                "description": "Updated description via action"
+                "color": "#ff5733"
               }
             }
           }
