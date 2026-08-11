@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner (user or organization).'),
         repo: z.string().describe('Repository name.'),
-        per_page: z.number().optional().describe('Number of results per page (max 100).'),
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100).'),
         cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.')
     })
     .describe('Input to list releases for a GitHub repository.');
@@ -42,7 +42,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['repo'],
+    scopes: ['contents:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;

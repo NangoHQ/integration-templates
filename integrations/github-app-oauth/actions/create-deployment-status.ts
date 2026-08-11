@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner (user or organization name). Example: "nango-provisioned-apps"'),
         repo: z.string().describe('Repository name. Example: "nango"'),
-        deployment_id: z.number().describe('The unique identifier of the deployment. Example: 5850133226'),
+        deployment_id: z.number().int().positive().describe('The unique identifier of the deployment. Example: 5850133226'),
         state: z.enum(['success', 'failure', 'error', 'in_progress', 'queued', 'pending']).describe('The state of the status.'),
         description: z.string().optional().describe('A short description of the status.')
     })
@@ -25,7 +25,7 @@ const OutputSchema = z
         id: z.number().describe('The unique identifier of the deployment status.'),
         node_id: z.string().describe('The global node ID of the deployment status.'),
         state: z.string().describe('The state of the deployment status.'),
-        description: z.string().optional().describe('A short description of the status.'),
+        description: z.string().nullable().optional().describe('A short description of the status.'),
         environment: z.string().optional().describe('The name of the target deployment environment.'),
         environment_url: z.string().optional().describe('The URL for the deployed environment.'),
         log_url: z.string().optional().describe('The URL for the deployment status log.'),
@@ -49,6 +49,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['deployments:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -58,7 +59,9 @@ const action = createAction({
                 state: input.state,
                 ...(input.description !== undefined && { description: input.description })
             },
-            retries: 10
+            // Kept low: creating a deployment status is not idempotent, so retrying a request whose
+            // response was lost (while GitHub still accepted it) would create duplicate statuses.
+            retries: 1
         });
 
         const providerStatus = OutputSchema.parse(response.data);

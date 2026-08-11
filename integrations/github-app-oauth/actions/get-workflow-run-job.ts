@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('The account owner of the repository. Example: "octocat"'),
         repo: z.string().describe('The name of the repository. Example: "hello-world"'),
-        job_id: z.number().describe('The unique identifier of the job. Must come from list-workflow-run-jobs, not the run_id. Example: 12345')
+        job_id: z.number().int().positive().describe('The unique identifier of the job. Must come from list-workflow-run-jobs, not the run_id. Example: 12345')
     })
     .describe('Input parameters for retrieving a single workflow run job.');
 
@@ -41,8 +41,8 @@ const OutputSchema = z
         runner_name: z.string().nullable().describe('The name of the runner executing this job.'),
         runner_group_id: z.number().nullable().describe('The ID of the runner group.'),
         runner_group_name: z.string().nullable().describe('The name of the runner group.'),
-        workflow_name: z.string().nullable().describe('The name of the workflow.'),
-        head_branch: z.string().nullable().describe('The branch the workflow run was triggered from.')
+        workflow_name: z.string().nullable().optional().describe('The name of the workflow.'),
+        head_branch: z.string().nullable().optional().describe('The branch the workflow run was triggered from.')
     })
     .describe('Details of a single workflow run job, including execution steps, runner information, and outcome.');
 
@@ -56,7 +56,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['repo'],
+    scopes: ['actions:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

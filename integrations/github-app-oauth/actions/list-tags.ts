@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner. Example: "octocat"'),
         repo: z.string().describe('Repository name. Example: "Hello-World"'),
-        per_page: z.number().optional().describe('Number of results per page. Maximum 100.'),
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page. Maximum 100.'),
         cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
     })
     .describe('Input to list tags in a GitHub repository.');
@@ -40,16 +40,16 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['contents:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const perPage = input.per_page ?? 30;
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
 
-        if (Number.isNaN(page)) {
+        if (Number.isNaN(page) || page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a valid page number'
+                message: 'cursor must be a positive integer string representing a page number.'
             });
         }
 

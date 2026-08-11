@@ -36,7 +36,9 @@ const action = createAction({
                 ref: input.ref,
                 ...(input.inputs !== undefined && { inputs: input.inputs })
             },
-            retries: 3
+            // Kept low: this POST is not idempotent, so retrying a request whose response was lost
+            // (while GitHub still accepted the dispatch) would trigger duplicate workflow runs.
+            retries: 1
         });
 
         return null;

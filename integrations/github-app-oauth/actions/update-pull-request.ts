@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner login. Example: "octocat".'),
         repo: z.string().describe('Repository name. Example: "Hello-World".'),
-        pull_number: z.number().describe('Pull request number to update. Example: 1.'),
+        pull_number: z.number().int().positive().describe('Pull request number to update. Example: 1.'),
         title: z.string().optional().describe('New title for the pull request.'),
         body: z.string().nullable().optional().describe('New body for the pull request. Pass null to clear the body.'),
         state: z.enum(['open', 'closed']).optional().describe('New state for the pull request. Either "open" or "closed".'),
@@ -29,7 +29,7 @@ const ProviderPullRequestSchema = z.object({
     body: z.string().nullable(),
     state: z.string(),
     html_url: z.string(),
-    user: ProviderUserSchema,
+    user: ProviderUserSchema.nullable(),
     head: ProviderHeadBaseSchema,
     base: ProviderHeadBaseSchema,
     created_at: z.string(),
@@ -49,7 +49,8 @@ const OutputSchema = z
                 login: z.string().describe('GitHub username of the PR author.'),
                 id: z.number().describe('GitHub user ID of the PR author.')
             })
-            .describe('User who created the pull request.'),
+            .optional()
+            .describe('User who created the pull request, when known.'),
         head: z
             .object({
                 ref: z.string().describe('Name of the branch the PR changes come from.'),
@@ -103,7 +104,7 @@ const action = createAction({
             ...(providerPull.body !== null && { body: providerPull.body }),
             state: providerPull.state,
             html_url: providerPull.html_url,
-            user: providerPull.user,
+            ...(providerPull.user != null && { user: providerPull.user }),
             head: providerPull.head,
             base: providerPull.base,
             created_at: providerPull.created_at,

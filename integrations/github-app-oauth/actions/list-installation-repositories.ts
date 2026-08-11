@@ -46,7 +46,10 @@ const RepositorySchema = z
 const OutputSchema = z
     .object({
         total_count: z.number().describe('Total number of repositories accessible to the installation.'),
-        repository_selection: z.enum(['all', 'selected']).describe('Whether the installation has access to all repositories or only selected ones.'),
+        repository_selection: z
+            .enum(['all', 'selected'])
+            .optional()
+            .describe('Whether the installation has access to all repositories or only selected ones, when provided.'),
         repositories: z.array(RepositorySchema).describe('Array of repositories accessible to this installation.')
     })
     .describe('Output containing repositories accessible to the GitHub App installation.');
@@ -61,6 +64,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['metadata:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/rest/reference/apps#list-repositories-accessible-to-the-app-installation
@@ -76,7 +80,7 @@ const action = createAction({
         const providerResponse = z
             .object({
                 total_count: z.number(),
-                repository_selection: z.enum(['all', 'selected']),
+                repository_selection: z.enum(['all', 'selected']).optional(),
                 repositories: z.array(z.unknown())
             })
             .parse(response.data);
@@ -85,7 +89,7 @@ const action = createAction({
 
         return {
             total_count: providerResponse.total_count,
-            repository_selection: providerResponse.repository_selection,
+            ...(providerResponse.repository_selection !== undefined && { repository_selection: providerResponse.repository_selection }),
             repositories
         };
     }

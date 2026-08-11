@@ -20,6 +20,7 @@ const ProviderCommitSchema = z.object({
                 email: z.string(),
                 date: z.string()
             })
+            .nullable()
             .optional()
     })
 });
@@ -80,6 +81,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['contents:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/commits/commits#compare-two-commits

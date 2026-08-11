@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner login name. Example: "octocat"'),
         repo: z.string().describe('Repository name. Example: "Hello-World"'),
-        pull_number: z.number().describe('Pull request number. Example: 1'),
+        pull_number: z.number().int().positive().describe('Pull request number. Example: 1'),
         body: z.string().optional().describe('The body text of the review. Optional when event is "APPROVE", otherwise recommended.'),
         event: z
             .enum(['COMMENT', 'APPROVE', 'REQUEST_CHANGES'])
@@ -50,6 +50,13 @@ const action = createAction({
     scopes: ['pull_requests:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if ((input.event === 'COMMENT' || input.event === 'REQUEST_CHANGES') && !input.body) {
+            throw new nango.ActionError({
+                type: 'missing_body',
+                message: 'The body field is required when event is COMMENT or REQUEST_CHANGES.'
+            });
+        }
+
         const requestBody: {
             body?: string;
             event: 'COMMENT' | 'APPROVE' | 'REQUEST_CHANGES';

@@ -13,20 +13,16 @@ const GitHubBranchSchema = z.object({
     protection_url: z.string().optional()
 });
 
-const GitHubRepoListSchema = z.object({
-    repositories: z.array(
-        z.object({
-            owner: z.object({
-                login: z.string()
-            }),
-            name: z.string()
-        })
-    )
+const GitHubRepositorySchema = z.object({
+    owner: z.object({
+        login: z.string()
+    }),
+    name: z.string()
 });
 
 const BranchSchema = z
     .object({
-        id: z.string().describe('Stable identifier for the branch, using the branch name.'),
+        id: z.string().describe('Stable identifier for the branch, qualified by repository owner and name.'),
         name: z.string().describe('The name of the branch.'),
         repo_owner: z.string().describe('The owner (user or organization) of the repository this branch belongs to.'),
         repo_name: z.string().describe('The name of the repository this branch belongs to.'),
@@ -48,69 +44,68 @@ const sync = createSync({
 
     exec: async (nango) => {
         // https://docs.github.com/en/rest/reference/apps#list-repositories-accessible-to-the-app-installation
-        const reposResponse = await nango.get({
-            endpoint: '/installation/repositories',
-            params: {
-                per_page: 100
-            },
-            retries: 3
-        });
-
-        const reposParsed = GitHubRepoListSchema.safeParse(reposResponse.data);
-        if (!reposParsed.success) {
-            throw new Error(`Failed to parse repository list: ${reposParsed.error.message}`);
-        }
-
-        const repositories = reposParsed.data.repositories;
-        if (repositories.length === 0) {
-            throw new Error('No repositories accessible to this installation');
-        }
-
-        const firstRepo = repositories[0];
-        if (!firstRepo) {
-            throw new Error('No repositories accessible to this installation');
-        }
-
-        const owner = firstRepo.owner.login;
-        const repo = firstRepo.name;
-
-        await nango.trackDeletesStart('Branch');
-
-        // https://docs.github.com/en/rest/branches/branches#list-branches
+        const repositories: Array<{ owner: string; name: string }> = [];
         for await (const page of nango.paginate({
-            endpoint: `repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/branches`,
+            endpoint: '/installation/repositories',
             paginate: {
-                type: 'link',
                 limit_name_in_request: 'per_page',
-                limit: 100
+                limit: 100,
+                response_path: 'repositories'
             },
             retries: 3
         })) {
-            if (!Array.isArray(page)) {
-                throw new Error('Unexpected non-array page from paginate');
+            for (const raw of page) {
+                const parsed = GitHubRepositorySchema.parse(raw);
+                repositories.push({ owner: parsed.owner.login, name: parsed.name });
             }
+        }
 
-            const branches = [];
-            for (const branch of page) {
-                const parsed = GitHubBranchSchema.safeParse(branch);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse branch: ${parsed.error.message}`);
+        if (repositories.length === 0) {
+            // An empty response may be transient rather than a genuine "installation has no
+            // repositories" state. Skip the run instead of reconciling away every synced branch.
+            await nango.log('No repositories accessible to this installation; skipping this run.', { level: 'warn' });
+            return;
+        }
+
+        await nango.trackDeletesStart('Branch');
+
+        for (const { owner, name: repo } of repositories) {
+            // https://docs.github.com/en/rest/branches/branches#list-branches
+            for await (const page of nango.paginate({
+                endpoint: `repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/branches`,
+                paginate: {
+                    type: 'link',
+                    limit_name_in_request: 'per_page',
+                    limit: 100
+                },
+                retries: 3
+            })) {
+                if (!Array.isArray(page)) {
+                    throw new Error('Unexpected non-array page from paginate');
                 }
 
-                branches.push({
-                    id: parsed.data.name,
-                    name: parsed.data.name,
-                    repo_owner: owner,
-                    repo_name: repo,
-                    commit_sha: parsed.data.commit.sha,
-                    commit_url: parsed.data.commit.url,
-                    protected: parsed.data.protected,
-                    protection_url: parsed.data.protection_url
-                });
-            }
+                const branches = [];
+                for (const branch of page) {
+                    const parsed = GitHubBranchSchema.safeParse(branch);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse branch: ${parsed.error.message}`);
+                    }
 
-            if (branches.length > 0) {
-                await nango.batchSave(branches, 'Branch');
+                    branches.push({
+                        id: `${owner}/${repo}/${parsed.data.name}`,
+                        name: parsed.data.name,
+                        repo_owner: owner,
+                        repo_name: repo,
+                        commit_sha: parsed.data.commit.sha,
+                        commit_url: parsed.data.commit.url,
+                        protected: parsed.data.protected,
+                        protection_url: parsed.data.protection_url
+                    });
+                }
+
+                if (branches.length > 0) {
+                    await nango.batchSave(branches, 'Branch');
+                }
             }
         }
 

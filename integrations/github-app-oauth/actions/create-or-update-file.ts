@@ -68,9 +68,10 @@ const action = createAction({
             body['sha'] = input.sha;
         }
 
+        const encodedPath = input.path.split('/').map(encodeURIComponent).join('/');
         const response = await nango.put({
             // https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents
-            endpoint: `repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/contents/${encodeURIComponent(input.path)}`,
+            endpoint: `repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/contents/${encodedPath}`,
             data: body,
             retries: 3
         });

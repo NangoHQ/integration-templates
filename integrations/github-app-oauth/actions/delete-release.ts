@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('Repository name. Example: "nango"'),
-        release_id: z.number().describe('Release ID to delete. Example: 12345')
+        release_id: z.number().int().positive().describe('Release ID to delete. Example: 12345')
     })
     .describe('Parameters for deleting a GitHub release');
 
@@ -21,7 +21,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['repo'],
+    scopes: ['contents:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({

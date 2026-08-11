@@ -5,9 +5,9 @@ const InputSchema = z
     .object({
         owner: z.string().describe('The account owner of the repository. The name is not case sensitive.'),
         repo: z.string().describe('The name of the repository without the .git extension. The name is not case sensitive.'),
-        pull_number: z.number().describe('The number that identifies the pull request.'),
-        per_page: z.number().optional().describe('The number of results per page (max 100).'),
-        page: z.number().optional().describe('Page number of the results to fetch.')
+        pull_number: z.number().int().positive().describe('The number that identifies the pull request.'),
+        per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page (max 100).'),
+        page: z.number().int().positive().optional().describe('Page number of the results to fetch.')
     })
     .describe('Input parameters for listing pull request reviews.');
 

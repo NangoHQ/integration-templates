@@ -13,8 +13,8 @@ const InputSchema = z
             .describe('Filter by head branch name in the format user:ref-name or organization:ref-name. Example: "octocat:feature-branch"'),
         sort: z.enum(['created', 'updated', 'popularity', 'long-running']).optional().describe('Sort criteria. Defaults to "created".'),
         direction: z.enum(['asc', 'desc']).optional().describe('Sort direction. Defaults to "desc" for created/updated/popularity, "asc" for long-running.'),
-        per_page: z.number().optional().describe('Number of results per page (max 100). Defaults to 30.'),
-        page: z.number().optional().describe('Page number of results. Defaults to 1.')
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100). Defaults to 30.'),
+        page: z.number().int().positive().optional().describe('Page number of results. Defaults to 1.')
     })
     .describe('Input parameters for listing pull requests in a repository.');
 

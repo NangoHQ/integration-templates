@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('The account owner of the repository.'),
         repo: z.string().describe('The name of the repository without the .git extension.'),
-        run_id: z.number().describe('The unique identifier of the workflow run. Example: 31489919982'),
+        run_id: z.number().int().positive().describe('The unique identifier of the workflow run. Example: 31489919982'),
         exclude_pull_requests: z.boolean().optional().describe('If true, pull requests are omitted from the response.')
     })
     .describe('Input for retrieving a single workflow run.');
@@ -86,7 +86,7 @@ const OutputSchema = z
         run_attempt: z.number().optional().describe('The attempt number of the workflow run.'),
         event: z.string().describe('The event that triggered the workflow run.'),
         status: z.string().optional().describe('The status of the workflow run.'),
-        conclusion: z.string().optional().describe('The conclusion of the workflow run.'),
+        conclusion: z.string().nullable().optional().describe('The conclusion of the workflow run.'),
         workflow_id: z.number().describe('The ID of the workflow.'),
         url: z.string().describe('The REST API URL for the workflow run.'),
         html_url: z.string().describe('The HTML URL for the workflow run.'),
@@ -102,7 +102,7 @@ const OutputSchema = z
         artifacts_url: z.string().describe('The REST API URL for the artifacts of the workflow run.'),
         cancel_url: z.string().describe('The REST API URL to cancel the workflow run.'),
         rerun_url: z.string().describe('The REST API URL to rerun the workflow run.'),
-        previous_attempt_url: z.string().optional().describe('The REST API URL for the previous attempt of the workflow run.'),
+        previous_attempt_url: z.string().nullable().optional().describe('The REST API URL for the previous attempt of the workflow run.'),
         workflow_url: z.string().describe('The REST API URL for the workflow.'),
         head_commit: HeadCommitSchema.optional().describe('The head commit of the workflow run.'),
         display_title: z.string().describe('The display title of the workflow run.')
@@ -119,6 +119,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['actions:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

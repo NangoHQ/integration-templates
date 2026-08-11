@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner. Example: "octocat"'),
         repo: z.string().describe('Repository name. Example: "Hello-World"'),
-        comment_id: z.number().describe('The unique identifier of the comment.')
+        comment_id: z.number().int().positive().describe('The unique identifier of the comment.')
     })
     .describe('Parameters for deleting a GitHub issue or pull request comment.');
 

@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner. Example: "octo-org".'),
         repo: z.string().describe('Repository name. Example: "hello-world".'),
-        per_page: z.number().optional().describe('Number of results per page (max 100). Default: 30.'),
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100). Default: 30.'),
         cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.')
     })
     .describe('Parameters for listing GitHub Actions workflows in a repository.');
@@ -50,6 +50,13 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (isNaN(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer string representing a page number.'
+            });
+        }
+
         const perPage = input.per_page ?? 30;
 
         const response = await nango.get({

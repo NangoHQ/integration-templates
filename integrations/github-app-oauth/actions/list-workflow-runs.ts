@@ -16,8 +16,8 @@ const InputSchema = z
                 'Filter by run status. Examples: "completed", "action_required", "cancelled", "failure", "neutral", "skipped", "stale", "success", "timed_out", "in_progress", "queued", "requested", "waiting".'
             ),
         branch: z.string().optional().describe('Filter by the branch the workflow run was triggered against. Example: "master".'),
-        per_page: z.number().optional().describe('Number of results per page (max 100). Default: 30.'),
-        page: z.number().optional().describe('Page number of the results to fetch. Default: 1.')
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100). Default: 30.'),
+        page: z.number().int().positive().optional().describe('Page number of the results to fetch. Default: 1.')
     })
     .describe('Input for listing GitHub Actions workflow runs.');
 

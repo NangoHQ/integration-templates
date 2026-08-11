@@ -6,7 +6,7 @@ const InputSchema = z
         owner: z.string().describe('The account owner of the repository. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('The name of the repository. Example: "nango"'),
         deployment_id: z.number().int().describe('The ID of the deployment whose statuses to list. Example: 5850133226'),
-        per_page: z.number().int().optional().describe('The number of results per page (max 100).'),
+        per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page (max 100).'),
         cursor: z.string().optional().describe('Page number for offset-based pagination. Omit for the first page.')
     })
     .describe('Input for listing deployment statuses');
@@ -48,6 +48,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['deployments:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? Number(input.cursor) : 1;

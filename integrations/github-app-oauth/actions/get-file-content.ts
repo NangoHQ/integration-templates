@@ -27,7 +27,7 @@ const ProviderDirItemSchema = z.object({
     path: z.string(),
     sha: z.string(),
     size: z.number(),
-    type: z.enum(['file', 'dir', 'symlink']),
+    type: z.enum(['file', 'dir', 'symlink', 'submodule']),
     html_url: z.string().optional(),
     git_url: z.string().optional(),
     download_url: z.string().nullable().optional()
@@ -54,7 +54,7 @@ const DirectoryOutputSchema = z.object({
                 path: z.string().describe('The item path.'),
                 sha: z.string().describe('The SHA hash of the item.'),
                 size: z.number().describe('The item size in bytes.'),
-                type: z.enum(['file', 'dir', 'symlink']).describe('The type of the item — file, directory, or symlink.'),
+                type: z.enum(['file', 'dir', 'symlink', 'submodule']).describe('The type of the item — file, directory, symlink, or submodule.'),
                 html_url: z.string().optional().describe('The URL to view the item on GitHub.'),
                 git_url: z.string().optional().describe('The Git URL of the item.'),
                 download_url: z.string().optional().nullable().describe('The direct download URL for the item, if available.')
@@ -75,10 +75,12 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['contents:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const encodedPath = input.path.split('/').map(encodeURIComponent).join('/');
         const endpoint = input.path
-            ? `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/contents/${encodeURIComponent(input.path)}`
+            ? `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/contents/${encodedPath}`
             : `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/contents`;
 
         const response = await nango.get({

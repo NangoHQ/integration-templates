@@ -6,7 +6,7 @@ const InputSchema = z
         owner: z.string().describe('Repository owner. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('Repository name. Example: "nango"'),
         issue_or_pr_number: z.number().describe('Issue or pull request number. Example: 1'),
-        per_page: z.number().optional().describe('Number of results per page. Maximum: 100.'),
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page. Maximum: 100.'),
         cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.')
     })
     .describe('Input for listing issue or pull request comments.');
@@ -19,7 +19,7 @@ const CommentUserSchema = z.object({
 const CommentSchema = z.object({
     id: z.number().describe('Comment ID.'),
     body: z.string().describe('Comment body text.'),
-    user: CommentUserSchema.describe('User who created the comment.'),
+    user: CommentUserSchema.optional().describe('User who created the comment, when known.'),
     created_at: z.string().describe('ISO 8601 timestamp when the comment was created.'),
     updated_at: z.string().describe('ISO 8601 timestamp when the comment was last updated.'),
     html_url: z.string().describe('URL to view the comment on GitHub.')
@@ -35,10 +35,13 @@ const OutputSchema = z
 const ProviderCommentSchema = z.object({
     id: z.number(),
     body: z.string(),
-    user: z.object({
-        login: z.string(),
-        id: z.number()
-    }),
+    user: z
+        .object({
+            login: z.string(),
+            id: z.number()
+        })
+        .nullable()
+        .optional(),
     created_at: z.string(),
     updated_at: z.string(),
     html_url: z.string()
@@ -54,6 +57,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['issues:read', 'pull_requests:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
@@ -82,10 +86,7 @@ const action = createAction({
             comments: comments.map((comment) => ({
                 id: comment.id,
                 body: comment.body,
-                user: {
-                    login: comment.user.login,
-                    id: comment.user.id
-                },
+                ...(comment.user != null && { user: { login: comment.user.login, id: comment.user.id } }),
                 created_at: comment.created_at,
                 updated_at: comment.updated_at,
                 html_url: comment.html_url

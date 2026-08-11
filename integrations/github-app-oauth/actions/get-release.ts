@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('Repository name. Example: "nango"'),
-        release_id: z.number().describe('Release ID. Example: 368711502')
+        release_id: z.number().int().positive().describe('Release ID. Example: 368711502')
     })
     .describe('Input to fetch a single GitHub release by its numeric ID.');
 
@@ -52,7 +52,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['repo'],
+    scopes: ['contents:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/releases/releases#get-a-release

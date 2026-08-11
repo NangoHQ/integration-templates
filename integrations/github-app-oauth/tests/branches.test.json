@@ -3,7 +3,7 @@
     "batchSave": {
       "Branch": [
         {
-          "id": "master",
+          "id": "nango-provisioned-apps/nango/master",
           "name": "master",
           "repo_owner": "nango-provisioned-apps",
           "repo_name": "nango",
@@ -12,7 +12,7 @@
           "protected": false
         },
         {
-          "id": "merge-test-branch",
+          "id": "nango-provisioned-apps/nango/merge-test-branch",
           "name": "merge-test-branch",
           "repo_owner": "nango-provisioned-apps",
           "repo_name": "nango",
@@ -21,7 +21,7 @@
           "protected": false
         },
         {
-          "id": "merge-test-branch-2",
+          "id": "nango-provisioned-apps/nango/merge-test-branch-2",
           "name": "merge-test-branch-2",
           "repo_owner": "nango-provisioned-apps",
           "repo_name": "nango",
@@ -30,7 +30,7 @@
           "protected": false
         },
         {
-          "id": "nango-merge-test-2026-08-11",
+          "id": "nango-provisioned-apps/nango/nango-merge-test-2026-08-11",
           "name": "nango-merge-test-2026-08-11",
           "repo_owner": "nango-provisioned-apps",
           "repo_name": "nango",
@@ -39,7 +39,7 @@
           "protected": false
         },
         {
-          "id": "temp-merge-test-1786464845945",
+          "id": "nango-provisioned-apps/nango/temp-merge-test-1786464845945",
           "name": "temp-merge-test-1786464845945",
           "repo_owner": "nango-provisioned-apps",
           "repo_name": "nango",
@@ -135,7 +135,7 @@
               "clone_url": "https://github.com/nango-provisioned-apps/nango.git",
               "svn_url": "https://github.com/nango-provisioned-apps/nango",
               "homepage": "https://nango.dev",
-              "size": 311860,
+              "size": 311869,
               "stargazers_count": 0,
               "watchers_count": 0,
               "language": "TypeScript",
@@ -180,7 +180,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Tue, 11 Aug 2026 18:40:05 GMT",
+          "date": "Tue, 11 Aug 2026 23:24:43 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -194,20 +194,20 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4982",
-          "x-ratelimit-reset": "1786476100",
+          "x-ratelimit-remaining": "4986",
+          "x-ratelimit-reset": "1786491997",
           "cache-control": "private, max-age=60, s-maxage=60",
           "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
-          "etag": "W/\"f8a229fedacaf05201dd8d076fd52388e70f91b3643879c8e965796d04535e44\"",
+          "etag": "W/\"2dfa6935bb176a15a9dd7403735162c92d5e4d2a1550d0878a80f7db0ff8be9d\"",
           "x-github-media-type": "github.v3",
           "x-accepted-github-permissions": "allows_permissionless_access=true",
           "x-github-api-version-selected": "2022-11-28",
           "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
           "content-security-policy": "default-src 'none'",
           "server": "github.com",
-          "x-ratelimit-used": "18",
+          "x-ratelimit-used": "14",
           "x-ratelimit-resource": "core",
-          "x-github-request-id": "C1FC:1B096E:1064794:10B0DE4:6A7B6C71",
+          "x-github-request-id": "433E:2E7153:AEBF1:B319E:6A7BAF3B",
           "x-github-edge-region": "sea"
         },
         "hash": "4fbf670710134832b7b756117923b2945182d1b2",
@@ -262,7 +262,7 @@
         ],
         "status": 200,
         "headers": {
-          "date": "Tue, 11 Aug 2026 18:40:06 GMT",
+          "date": "Tue, 11 Aug 2026 23:24:44 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -276,20 +276,20 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4981",
-          "x-ratelimit-reset": "1786476100",
+          "x-ratelimit-remaining": "4985",
+          "x-ratelimit-reset": "1786491997",
           "cache-control": "private, max-age=60, s-maxage=60",
           "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
-          "etag": "W/\"781c86381cc00a3a77ef375578f61efbbaecdbaa79cfbbbf237a0e18e98cdf40\"",
+          "etag": "W/\"8d7d997e95b5419b6566a7235d591aa9e6d3929e19073b38345e0b5860ead20b\"",
           "x-github-media-type": "github.v3",
           "x-accepted-github-permissions": "contents=read",
           "x-github-api-version-selected": "2022-11-28",
           "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
           "content-security-policy": "default-src 'none'",
           "server": "github.com",
-          "x-ratelimit-used": "19",
+          "x-ratelimit-used": "15",
           "x-ratelimit-resource": "core",
-          "x-github-request-id": "7CFF:21267:103264D:107F8D5:6A7B6C6D",
+          "x-github-request-id": "2A8D:34D2C:CAC1D:CF3E9:6A7BAF3B",
           "x-github-edge-region": "sea"
         },
         "hash": "291535b764d1776f1b2a4716be476fe5d8af2be0",

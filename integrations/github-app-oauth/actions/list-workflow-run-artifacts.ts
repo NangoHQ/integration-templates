@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner. Example: "octo-org"'),
         repo: z.string().describe('Repository name. Example: "hello-world"'),
-        run_id: z.number().describe('Workflow run ID. Example: 123456789'),
+        run_id: z.number().int().positive().describe('Workflow run ID. Example: 123456789'),
         cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
         per_page: z.number().min(1).max(100).optional().describe('Number of results per page. Maximum 100.')
     })
@@ -33,7 +33,7 @@ const ArtifactSchema = z
         created_at: z.string().optional().describe('Creation timestamp in ISO 8601 format.'),
         expires_at: z.string().optional().describe('Expiration timestamp in ISO 8601 format.'),
         updated_at: z.string().optional().describe('Last updated timestamp in ISO 8601 format.'),
-        workflow_run: WorkflowRunSchema.optional().describe('Workflow run that produced this artifact.')
+        workflow_run: WorkflowRunSchema.optional().describe('Workflow run that produced this artifact, when known.')
     })
     .describe('A workflow run artifact.');
 
@@ -88,17 +88,18 @@ const action = createAction({
                     url: z.string().optional(),
                     archive_download_url: z.string().optional(),
                     expired: z.boolean().optional(),
-                    created_at: z.string().optional(),
-                    expires_at: z.string().optional(),
-                    updated_at: z.string().optional(),
+                    created_at: z.string().nullable().optional(),
+                    expires_at: z.string().nullable().optional(),
+                    updated_at: z.string().nullable().optional(),
                     workflow_run: z
                         .object({
                             id: z.number(),
                             repository_id: z.number(),
                             head_repository_id: z.number().optional(),
-                            head_branch: z.string().optional(),
+                            head_branch: z.string().nullable().optional(),
                             head_sha: z.string().optional()
                         })
+                        .nullable()
                         .optional()
                 })
             )
@@ -117,15 +118,15 @@ const action = createAction({
                 ...(artifact.url !== undefined && { url: artifact.url }),
                 ...(artifact.archive_download_url !== undefined && { archive_download_url: artifact.archive_download_url }),
                 ...(artifact.expired !== undefined && { expired: artifact.expired }),
-                ...(artifact.created_at !== undefined && { created_at: artifact.created_at }),
-                ...(artifact.expires_at !== undefined && { expires_at: artifact.expires_at }),
-                ...(artifact.updated_at !== undefined && { updated_at: artifact.updated_at }),
-                ...(artifact.workflow_run !== undefined && {
+                ...(artifact.created_at != null && { created_at: artifact.created_at }),
+                ...(artifact.expires_at != null && { expires_at: artifact.expires_at }),
+                ...(artifact.updated_at != null && { updated_at: artifact.updated_at }),
+                ...(artifact.workflow_run != null && {
                     workflow_run: {
                         id: artifact.workflow_run.id,
                         repository_id: artifact.workflow_run.repository_id,
                         ...(artifact.workflow_run.head_repository_id !== undefined && { head_repository_id: artifact.workflow_run.head_repository_id }),
-                        ...(artifact.workflow_run.head_branch !== undefined && { head_branch: artifact.workflow_run.head_branch }),
+                        ...(artifact.workflow_run.head_branch != null && { head_branch: artifact.workflow_run.head_branch }),
                         ...(artifact.workflow_run.head_sha !== undefined && { head_sha: artifact.workflow_run.head_sha })
                     }
                 })

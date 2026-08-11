@@ -7,7 +7,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('The account owner of the repository.'),
         repo: z.string().describe('The name of the repository.'),
-        pull_number: z.number().describe('The number that identifies the pull request.'),
+        pull_number: z.number().int().positive().describe('The number that identifies the pull request.'),
         commit_title: z.string().optional().describe('Title for the automatic commit message.'),
         commit_message: z.string().optional().describe('Extra detail to append to automatic commit message.'),
         merge_method: MergeMethodSchema.optional().describe('The merge method to use. Defaults to merge if omitted.')
@@ -38,7 +38,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pull_requests'],
+    scopes: ['contents:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({

@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('The account owner of the repository. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('The name of the repository. Example: "nango"'),
-        pull_number: z.number().describe('The number of the pull request. Example: 1'),
+        pull_number: z.number().int().positive().describe('The number of the pull request. Example: 1'),
         cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.')
     })
     .describe('Input to list the commits included in a pull request.');
@@ -22,8 +22,8 @@ const RawCommitSchema = z.object({
     commit: z
         .object({
             message: z.string().optional(),
-            author: RawCommitPersonSchema.optional(),
-            committer: RawCommitPersonSchema.optional()
+            author: RawCommitPersonSchema.nullable().optional(),
+            committer: RawCommitPersonSchema.nullable().optional()
         })
         .optional(),
     html_url: z.string().optional(),
@@ -68,10 +68,10 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const perPage = 100;
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(page)) {
+        if (Number.isNaN(page) || page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a valid page number'
+                message: 'cursor must be a positive integer string representing a page number.'
             });
         }
 

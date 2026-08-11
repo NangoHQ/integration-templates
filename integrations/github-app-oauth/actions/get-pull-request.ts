@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner. Example: "octocat"'),
         repo: z.string().describe('Repository name. Example: "Hello-World"'),
-        pull_number: z.number().describe('Pull request number. Example: 1')
+        pull_number: z.number().int().positive().describe('Pull request number. Example: 1')
     })
     .describe('Input parameters for retrieving a single pull request.');
 

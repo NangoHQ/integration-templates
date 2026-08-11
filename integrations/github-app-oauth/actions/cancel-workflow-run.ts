@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('The account owner of the repository. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('The name of the repository. Example: "nango"'),
-        run_id: z.number().describe('The unique identifier of the workflow run to cancel. Example: 31510968015')
+        run_id: z.number().int().positive().describe('The unique identifier of the workflow run to cancel. Example: 31510968015')
     })
     .describe('Input parameters for canceling a workflow run.');
 

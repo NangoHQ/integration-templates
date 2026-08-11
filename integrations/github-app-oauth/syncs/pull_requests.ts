@@ -5,6 +5,8 @@ const PullRequestSchema = z
     .object({
         id: z.string().describe('The unique identifier of the pull request'),
         number: z.number().describe('The pull request number within the repository'),
+        repository_owner: z.string().describe('The owner of the repository this pull request belongs to'),
+        repository_name: z.string().describe('The name of the repository this pull request belongs to'),
         title: z.string().describe('The title of the pull request'),
         state: z.string().describe('The state of the pull request (e.g., open, closed)'),
         created_at: z.string().describe('The ISO 8601 timestamp when the pull request was created'),
@@ -24,7 +26,10 @@ const PullRequestSchema = z
     .describe('A GitHub pull request in a repository');
 
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    // JSON-encoded Record<string, string> mapping "owner/repo" to the ISO 8601 updated_at
+    // high-water mark synced for that repository. Nested objects aren't supported in checkpoints,
+    // so the per-repository map is serialized into this single string field.
+    repos: z.string()
 });
 
 const GitHubUserSchema = z.object({
@@ -62,18 +67,7 @@ const GitHubPullSchema = z.object({
 });
 
 const GitHubRepoSchema = z.object({
-    id: z.number(),
-    name: z.string(),
-    full_name: z.string(),
-    owner: z
-        .object({
-            login: z.string()
-        })
-        .optional()
-});
-
-const GitHubReposResponseSchema = z.object({
-    repositories: z.array(GitHubRepoSchema)
+    full_name: z.string()
 });
 
 const sync = createSync({
@@ -88,42 +82,71 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpointRaw = await nango.getCheckpoint();
-        const isFullRefresh = checkpointRaw == null;
         const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
-        const updatedAfter = checkpoint?.updated_after;
-        let maxUpdatedAt = updatedAfter;
+        const repoCheckpoints: Record<string, string> = checkpoint?.repos ? z.record(z.string(), z.string()).parse(JSON.parse(checkpoint.repos)) : {};
 
         // https://docs.github.com/rest/reference/apps#list-repositories-accessible-to-the-app-installation
-        const reposResponse = await nango.get({
+        const repos: Array<{ owner: string; name: string; fullName: string }> = [];
+        for await (const page of nango.paginate({
             endpoint: '/installation/repositories',
-            params: {
-                per_page: 100
+            paginate: {
+                limit_name_in_request: 'per_page',
+                limit: 100,
+                response_path: 'repositories'
             },
             retries: 3
-        });
-
-        const reposData = GitHubReposResponseSchema.parse(reposResponse.data);
-        const repos = reposData.repositories;
+        })) {
+            for (const raw of page) {
+                const repo = GitHubRepoSchema.parse(raw);
+                const parts = repo.full_name.split('/');
+                const owner = parts[0];
+                const name = parts[1];
+                if (parts.length !== 2 || !owner || !name) {
+                    throw new Error(`Invalid repository full_name: ${repo.full_name}`);
+                }
+                repos.push({ owner, name, fullName: repo.full_name });
+            }
+        }
 
         if (repos.length === 0) {
+            // An empty response may be transient (e.g. a provider hiccup) rather than a real
+            // "all repositories were removed" event. Skip the run rather than risk reconciling
+            // away every previously synced pull request.
+            await nango.log('No repositories accessible to this installation; skipping this run.', { level: 'warn' });
             return;
         }
 
-        if (isFullRefresh) {
-            await nango.trackDeletesStart('PullRequest');
+        // Repositories that were synced before but are no longer accessible to the installation
+        // (e.g. the app was uninstalled from them) need their previously synced pull requests removed.
+        const currentRepoNames = new Set(repos.map((repo) => repo.fullName));
+        const removedRepoNames = Object.keys(repoCheckpoints).filter((fullName) => !currentRepoNames.has(fullName));
+
+        if (removedRepoNames.length > 0) {
+            const removedRepoNameSet = new Set(removedRepoNames);
+            const toDelete: Array<{ id: string }> = [];
+
+            for await (const record of nango.listRecords<{ id: string; repository_owner: string; repository_name: string }>('PullRequest')) {
+                if (removedRepoNameSet.has(`${record['repository_owner']}/${record['repository_name']}`)) {
+                    toDelete.push({ id: String(record['id']) });
+                }
+            }
+
+            if (toDelete.length > 0) {
+                await nango.batchDelete(toDelete, 'PullRequest');
+            }
+
+            for (const fullName of removedRepoNames) {
+                delete repoCheckpoints[fullName];
+            }
         }
 
         for (const repo of repos) {
-            const parts = repo.full_name.split('/');
-            if (parts.length < 2) {
-                throw new Error(`Invalid repository full_name: ${repo.full_name}`);
-            }
-            const owner = parts[0] ?? '';
-            const repoName = parts[1] ?? '';
+            const updatedAfter = repoCheckpoints[repo.fullName];
+            let maxUpdatedAt = updatedAfter;
 
             // https://docs.github.com/rest/pulls/pulls#list-pull-requests
             const proxyConfig = {
-                endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repoName)}/pulls`,
+                endpoint: `/repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.name)}/pulls`,
                 params: {
                     state: 'all',
                     sort: 'updated',
@@ -145,6 +168,9 @@ const sync = createSync({
                 for (const raw of items) {
                     const pr = GitHubPullSchema.parse(raw);
 
+                    // Only stop early once we've established a high-water mark for this specific
+                    // repository. A repository seen for the first time has no watermark yet, so it
+                    // gets a full backfill instead of being cut short by another repository's checkpoint.
                     if (updatedAfter !== undefined && pr.updated_at < updatedAfter) {
                         shouldStop = true;
                         break;
@@ -157,6 +183,8 @@ const sync = createSync({
                     prs.push({
                         id: String(pr.id),
                         number: pr.number,
+                        repository_owner: repo.owner,
+                        repository_name: repo.name,
                         title: pr.title,
                         state: pr.state,
                         created_at: pr.created_at,
@@ -180,17 +208,15 @@ const sync = createSync({
                     break;
                 }
             }
+
+            if (maxUpdatedAt !== undefined) {
+                repoCheckpoints[repo.fullName] = maxUpdatedAt;
+            }
         }
 
-        if (isFullRefresh) {
-            await nango.trackDeletesEnd('PullRequest');
-        }
-
-        if (maxUpdatedAt !== undefined && maxUpdatedAt !== updatedAfter) {
-            await nango.saveCheckpoint({
-                updated_after: maxUpdatedAt
-            });
-        }
+        await nango.saveCheckpoint({
+            repos: JSON.stringify(repoCheckpoints)
+        });
     }
 });
 

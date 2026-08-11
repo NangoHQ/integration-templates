@@ -13,8 +13,8 @@ const JobStepSchema = z.object({
 const JobSchema = z.object({
     id: z.number().describe('Unique identifier of the job.'),
     run_id: z.number().describe('Identifier of the workflow run this job belongs to.'),
-    workflow_name: z.string().describe('Name of the workflow.'),
-    head_branch: z.string().describe('Branch the workflow run was triggered from.'),
+    workflow_name: z.string().nullable().optional().describe('Name of the workflow.'),
+    head_branch: z.string().nullable().optional().describe('Branch the workflow run was triggered from.'),
     run_url: z.string().describe('API URL for the workflow run.'),
     run_attempt: z.number().describe('Attempt number of the workflow run.'),
     node_id: z.string().describe('Global node ID for the job.'),
@@ -40,9 +40,9 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner name. Example: "nango-provisioned-apps".'),
         repo: z.string().describe('Repository name. Example: "nango".'),
-        run_id: z.number().describe('Unique identifier of the workflow run. Example: 31489919982.'),
+        run_id: z.number().int().positive().describe('Unique identifier of the workflow run. Example: 31489919982.'),
         cursor: z.string().optional().describe('Pagination cursor. For this endpoint this is the page number as a string. Omit for the first page.'),
-        per_page: z.number().optional().describe('Number of results per page. Maximum is 100. Defaults to 30.')
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page. Maximum is 100. Defaults to 30.')
     })
     .describe('Input parameters for listing workflow run jobs.');
 
@@ -63,7 +63,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['actions:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;

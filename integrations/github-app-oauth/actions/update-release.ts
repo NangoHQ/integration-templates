@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner. Example: "nango-provisioned-apps".'),
         repo: z.string().describe('Repository name. Example: "nango".'),
-        release_id: z.number().describe('Release ID to update. Example: 12345678.'),
+        release_id: z.number().int().positive().describe('Release ID to update. Example: 12345678.'),
         tag_name: z.string().optional().describe('New tag name for the release.'),
         name: z.string().optional().describe('New name or title for the release.'),
         body: z.string().optional().describe('New description body for the release.'),

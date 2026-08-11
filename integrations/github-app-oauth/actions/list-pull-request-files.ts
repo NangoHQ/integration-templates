@@ -5,11 +5,19 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner username. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('Repository name. Example: "nango"'),
-        pull_number: z.number().int().describe('Pull request number. Example: 1'),
+        pull_number: z.number().int().positive().describe('Pull request number. Example: 1'),
         cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
         per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page. Maximum 100. Defaults to 30.')
     })
     .describe('Input parameters for listing pull request files');
+
+// Bounds each file's patch text so that a full page of large diffs can't exceed Nango's action
+// output size limit; GitHub itself omits `patch` once a single file's diff is too large.
+const MAX_PATCH_LENGTH = 10_000;
+
+const truncatePatch = (patch: string): string => {
+    return patch.length > MAX_PATCH_LENGTH ? `${patch.slice(0, MAX_PATCH_LENGTH)}\n... (patch truncated)` : patch;
+};
 
 const ProviderFileSchema = z.object({
     sha: z.string(),
@@ -94,7 +102,7 @@ const action = createAction({
                 blob_url: file.blob_url,
                 raw_url: file.raw_url,
                 contents_url: file.contents_url,
-                ...(file.patch !== undefined && { patch: file.patch }),
+                ...(file.patch !== undefined && { patch: truncatePatch(file.patch) }),
                 ...(file.previous_filename !== undefined && { previous_filename: file.previous_filename })
             })),
             ...(files.length === perPage && { next_cursor: String(page + 1) })

@@ -123,6 +123,13 @@ const sync = createSync({
             }
         }
 
+        if (repos.length === 0) {
+            // An empty response may be transient rather than a genuine "installation has no
+            // repositories" state. Skip the run instead of reconciling away every synced release.
+            await nango.log('No repositories accessible to this installation; skipping this run.', { level: 'warn' });
+            return;
+        }
+
         await nango.trackDeletesStart('Release');
 
         for (const repo of repos) {

@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('Repository name. Example: "nango"'),
-        comment_id: z.number().describe('The unique identifier of the comment. Example: 123456'),
+        comment_id: z.number().int().positive().describe('The unique identifier of the comment. Example: 123456'),
         body: z.string().describe('The updated text of the comment.')
     })
     .describe('Input to update an existing issue or pull request comment.');

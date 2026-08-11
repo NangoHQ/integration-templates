@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('The account owner of the repository. Example: "nango-provisioned-apps".'),
         repo: z.string().describe('The name of the repository. Example: "nango".'),
-        run_id: z.number().describe('The unique identifier of the workflow run to re-run. Example: 1234567890.')
+        run_id: z.number().int().positive().describe('The unique identifier of the workflow run to re-run. Example: 1234567890.')
     })
     .describe('Input for re-running a completed GitHub Actions workflow run.');
 
