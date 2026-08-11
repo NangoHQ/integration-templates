@@ -25,10 +25,9 @@ const AccountUuidSchema = z.object({
 
 const sync = createSync({
     description: 'Sync the monitoring environments (tenants) belonging to this account.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
-    trackDeletes: true,
     models: {
         Environment: EnvironmentSchema
     },

@@ -28,10 +28,9 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync custom access policies defined at this account level (excludes Dynatrace built-in/global policies).',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: false,
-    trackDeletes: true,
     metadata: MetadataSchema,
     models: {
         AccountPolicy: AccountPolicySchema

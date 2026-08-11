@@ -61,10 +61,9 @@ const ProviderPlatformTokensResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync platform token metadata (never the plaintext secret, which is only ever returned once at creation) issued in this account.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: false,
-    trackDeletes: true,
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
     models: {
