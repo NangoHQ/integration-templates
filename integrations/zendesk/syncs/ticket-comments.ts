@@ -45,33 +45,36 @@ const CheckpointSchema = z.object({
 
 type Checkpoint = z.infer<typeof CheckpointSchema>;
 
+const MetadataSchema = z.object({
+    ticket_ids: z.array(z.number())
+});
+
 const sync = createSync({
-    description: 'Sync comments for tickets in scope',
-    version: '1.0.0',
+    description: 'Sync comments for tickets provided in metadata',
+    version: '2.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
     endpoints: [{ method: 'POST', path: '/syncs/ticket-comments' }],
+    metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {
         TicketComment: TicketCommentRecordSchema
     },
 
     exec: async (nango) => {
+        const parsedMetadata = MetadataSchema.safeParse(await nango.getMetadata());
+        if (!parsedMetadata.success || parsedMetadata.data.ticket_ids.length === 0) {
+            throw new Error('ticket_ids is required in metadata and must not be empty');
+        }
+
+        const { ticket_ids: ticketIds } = parsedMetadata.data;
+
         const checkpoint = await nango.getCheckpoint();
         const currentCheckpoint: Checkpoint = checkpoint ?? { ticket_id: 0, page: 1 };
-
-        // Get parent sync state - ticket IDs to process
-        const parentMetadata = await nango.getMetadata<{
-            ticket_ids?: number[];
-        }>();
-
-        const ticketIds = parentMetadata?.ticket_ids;
-
-        if (!ticketIds || ticketIds.length === 0) {
-            await nango.clearCheckpoint();
-            await nango.log('No ticket IDs provided in metadata - skipping sync');
-            return;
-        }
+        // Tracks whether a checkpoint row actually exists, so we only ever call
+        // clearCheckpoint() when there is something to clear - calling it when nothing
+        // was ever saved raises a checkpoint_conflict error.
+        let checkpointExists = checkpoint !== null;
 
         // Sort ticket IDs to ensure consistent ordering
         const sortedTicketIds = [...ticketIds].sort((a, b) => a - b);
@@ -147,6 +150,7 @@ const sync = createSync({
                         page
                     };
                     await nango.saveCheckpoint(nextCheckpoint);
+                    checkpointExists = true;
                 }
             }
 
@@ -158,10 +162,13 @@ const sync = createSync({
                     page: 1
                 };
                 await nango.saveCheckpoint(ticketCheckpoint);
+                checkpointExists = true;
             }
         }
 
-        await nango.clearCheckpoint();
+        if (checkpointExists) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 

@@ -48,6 +48,14 @@ describe('zendesk ticket-comments tests', () => {
         }
     });
 
+    it('should throw when ticket_ids is missing or empty in metadata', async () => {
+        const { nangoMock } = createTestContext();
+
+        vi.spyOn(nangoMock, 'getMetadata').mockResolvedValueOnce({ ticket_ids: [] });
+
+        await expect(createSync.exec(nangoMock)).rejects.toThrow('ticket_ids is required in metadata and must not be empty');
+    });
+
     it('should get, map correctly the data and batchDelete the result', async () => {
         const { nangoMock } = createTestContext();
         const batchDeleteSpy = vi.spyOn(nangoMock, 'batchDelete');
