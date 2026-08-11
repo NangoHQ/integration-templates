@@ -32,10 +32,9 @@ const AccountUuidSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users in this Dynatrace account.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
-    trackDeletes: true,
     models: {
         User: UserSchema
     },

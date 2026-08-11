@@ -28,9 +28,8 @@ const GroupSchema = z.object({
 
 const sync = createSync({
     description: 'Sync user groups in this account.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
-    trackDeletes: true,
     models: {
         Group: GroupSchema
     },
