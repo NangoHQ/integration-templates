@@ -1,0 +1,348 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango",
+    "base": "56e002425a9ae58fa6d9f925db841ca7653c31e2",
+    "head": "bac832441b1394af728f897269e9983a3667cb46"
+  },
+  "output": {
+    "status": "ahead",
+    "ahead_by": 1,
+    "behind_by": 0,
+    "total_commits": 1,
+    "commits": [
+      {
+        "sha": "bac832441b1394af728f897269e9983a3667cb46",
+        "message": "Nango registry test: permanent seed file 1",
+        "author_name": "testnangoapi[bot]",
+        "author_email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+        "author_date": "2026-08-11T12:16:10Z"
+      }
+    ],
+    "files": [
+      {
+        "filename": "NANGO_REGISTRY_TEST_1.md",
+        "status": "added",
+        "additions": 1,
+        "deletions": 0,
+        "changes": 1,
+        "patch": "@@ -0,0 +1 @@\n+Nango registry test permanent seed file 1"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/nango-provisioned-apps/nango/compare/56e002425a9ae58fa6d9f925db841ca7653c31e2...bac832441b1394af728f897269e9983a3667cb46": {
+        "response": {
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/compare/56e002425a9ae58fa6d9f925db841ca7653c31e2...bac832441b1394af728f897269e9983a3667cb46",
+          "html_url": "https://github.com/nango-provisioned-apps/nango/compare/56e002425a9ae58fa6d9f925db841ca7653c31e2...bac832441b1394af728f897269e9983a3667cb46",
+          "permalink_url": "https://github.com/nango-provisioned-apps/nango/compare/nango-provisioned-apps:56e0024...nango-provisioned-apps:bac8324",
+          "diff_url": "https://github.com/nango-provisioned-apps/nango/compare/56e002425a9ae58fa6d9f925db841ca7653c31e2...bac832441b1394af728f897269e9983a3667cb46.diff",
+          "patch_url": "https://github.com/nango-provisioned-apps/nango/compare/56e002425a9ae58fa6d9f925db841ca7653c31e2...bac832441b1394af728f897269e9983a3667cb46.patch",
+          "base_commit": {
+            "sha": "56e002425a9ae58fa6d9f925db841ca7653c31e2",
+            "node_id": "C_kwDOT1NNv9oAKDU2ZTAwMjQyNWE5YWU1OGZhNmQ5ZjkyNWRiODQxY2E3NjUzYzMxZTI",
+            "commit": {
+              "author": {
+                "name": "testnangoapi[bot]",
+                "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+                "date": "2026-08-11T12:09:24Z"
+              },
+              "committer": {
+                "name": "GitHub",
+                "email": "noreply@github.com",
+                "date": "2026-08-11T12:09:24Z"
+              },
+              "message": "Nango registry test: add workflow",
+              "tree": {
+                "sha": "9aead90bd0370808b35dbd3ca89d823d5a4df5c4",
+                "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/trees/9aead90bd0370808b35dbd3ca89d823d5a4df5c4"
+              },
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/commits/56e002425a9ae58fa6d9f925db841ca7653c31e2",
+              "comment_count": 0,
+              "verification": {
+                "verified": true,
+                "reason": "valid",
+                "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqexD0CRC1aQ7uu5UhlAAAMwkQAFrKwIV67zAEPfj8jcGEFSBH\nNJpeY3XtJmQhskAed7a+92Q7xq/ZHUPNWuGEGF/8VS5R6nbexABeP4iSkc9/lhwZ\nJSclsnLhErC9I6h4gHIrUB2jnAys7BJR538oCl476+OvxJSXcH+hATl2b3Ee1L42\nas+RwRhuNubERhVhgP3nuEd+vGCeV9X2fAP65DgH9x1BYcxYAg+1/6WQp39TU5EG\ni+03XMuLzTjcAJB7Vy9R1SPvJNrLgccA4D1Qy4kiWcrBWol2MPzfNwqkgxJteNMi\ndeHsgXOvPB4DQBeOjTdWsrQrBK+5AtnWShzi+E5XbC7Dd6QqaXkn/L7cbD65Jrak\nlJKnaGU75GR0/N52PcNN/p7Ls8WPYqotMo3UEPJwdfhVBJQK91ph6K4GPgrpxMo+\nUJ9Mu1Gkgdntpyh3oqB8JTX4FiN4WooRa6guohCmEZt/5ZpRbbeJ35gG7nPsVKsP\nQ5GY7E6MHkWZwJS+RMrYlHTjhInMHhQcxZ9jHpMHMLLZ74qUaiafHJlH4lxsv/iv\n/3FarBuoYi+2BpYr5QldWSrYycat0KUsftkNT0WkbwAtTjiFsRVuwoEEx9OWlwtK\nogDRLmAKepqoenaV+rnIINzXSMrJRZnRwIxLuZqfc+2IyNfbdm1t18aI1pqgszly\n9FQaMqVno8PICzFaoOFR\n=8C1s\n-----END PGP SIGNATURE-----\n",
+                "payload": "tree 9aead90bd0370808b35dbd3ca89d823d5a4df5c4\nparent 0d8a30b689d23c95c5fcadf9d947fbc3b38a59ff\nauthor testnangoapi[bot] <280313874+testnangoapi[bot]@users.noreply.github.com> 1786450164 +0000\ncommitter GitHub <noreply@github.com> 1786450164 +0000\n\nNango registry test: add workflow",
+                "verified_at": "2026-08-11T12:09:25Z"
+              }
+            },
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/56e002425a9ae58fa6d9f925db841ca7653c31e2",
+            "html_url": "https://github.com/nango-provisioned-apps/nango/commit/56e002425a9ae58fa6d9f925db841ca7653c31e2",
+            "comments_url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/56e002425a9ae58fa6d9f925db841ca7653c31e2/comments",
+            "author": {
+              "login": "testnangoapi[bot]",
+              "id": 280313874,
+              "node_id": "BOT_kgDOELVAEg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/testnangoapi%5Bbot%5D",
+              "html_url": "https://github.com/apps/testnangoapi",
+              "followers_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/followers",
+              "following_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/following{/other_user}",
+              "gists_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/subscriptions",
+              "organizations_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/orgs",
+              "repos_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/repos",
+              "events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/received_events",
+              "type": "Bot",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "committer": {
+              "login": "web-flow",
+              "id": 19864447,
+              "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+              "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/web-flow",
+              "html_url": "https://github.com/web-flow",
+              "followers_url": "https://api.github.com/users/web-flow/followers",
+              "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+              "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+              "organizations_url": "https://api.github.com/users/web-flow/orgs",
+              "repos_url": "https://api.github.com/users/web-flow/repos",
+              "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/web-flow/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "parents": [
+              {
+                "sha": "0d8a30b689d23c95c5fcadf9d947fbc3b38a59ff",
+                "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/0d8a30b689d23c95c5fcadf9d947fbc3b38a59ff",
+                "html_url": "https://github.com/nango-provisioned-apps/nango/commit/0d8a30b689d23c95c5fcadf9d947fbc3b38a59ff"
+              }
+            ]
+          },
+          "merge_base_commit": {
+            "sha": "56e002425a9ae58fa6d9f925db841ca7653c31e2",
+            "node_id": "C_kwDOT1NNv9oAKDU2ZTAwMjQyNWE5YWU1OGZhNmQ5ZjkyNWRiODQxY2E3NjUzYzMxZTI",
+            "commit": {
+              "author": {
+                "name": "testnangoapi[bot]",
+                "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+                "date": "2026-08-11T12:09:24Z"
+              },
+              "committer": {
+                "name": "GitHub",
+                "email": "noreply@github.com",
+                "date": "2026-08-11T12:09:24Z"
+              },
+              "message": "Nango registry test: add workflow",
+              "tree": {
+                "sha": "9aead90bd0370808b35dbd3ca89d823d5a4df5c4",
+                "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/trees/9aead90bd0370808b35dbd3ca89d823d5a4df5c4"
+              },
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/commits/56e002425a9ae58fa6d9f925db841ca7653c31e2",
+              "comment_count": 0,
+              "verification": {
+                "verified": true,
+                "reason": "valid",
+                "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqexD0CRC1aQ7uu5UhlAAAMwkQAFrKwIV67zAEPfj8jcGEFSBH\nNJpeY3XtJmQhskAed7a+92Q7xq/ZHUPNWuGEGF/8VS5R6nbexABeP4iSkc9/lhwZ\nJSclsnLhErC9I6h4gHIrUB2jnAys7BJR538oCl476+OvxJSXcH+hATl2b3Ee1L42\nas+RwRhuNubERhVhgP3nuEd+vGCeV9X2fAP65DgH9x1BYcxYAg+1/6WQp39TU5EG\ni+03XMuLzTjcAJB7Vy9R1SPvJNrLgccA4D1Qy4kiWcrBWol2MPzfNwqkgxJteNMi\ndeHsgXOvPB4DQBeOjTdWsrQrBK+5AtnWShzi+E5XbC7Dd6QqaXkn/L7cbD65Jrak\nlJKnaGU75GR0/N52PcNN/p7Ls8WPYqotMo3UEPJwdfhVBJQK91ph6K4GPgrpxMo+\nUJ9Mu1Gkgdntpyh3oqB8JTX4FiN4WooRa6guohCmEZt/5ZpRbbeJ35gG7nPsVKsP\nQ5GY7E6MHkWZwJS+RMrYlHTjhInMHhQcxZ9jHpMHMLLZ74qUaiafHJlH4lxsv/iv\n/3FarBuoYi+2BpYr5QldWSrYycat0KUsftkNT0WkbwAtTjiFsRVuwoEEx9OWlwtK\nogDRLmAKepqoenaV+rnIINzXSMrJRZnRwIxLuZqfc+2IyNfbdm1t18aI1pqgszly\n9FQaMqVno8PICzFaoOFR\n=8C1s\n-----END PGP SIGNATURE-----\n",
+                "payload": "tree 9aead90bd0370808b35dbd3ca89d823d5a4df5c4\nparent 0d8a30b689d23c95c5fcadf9d947fbc3b38a59ff\nauthor testnangoapi[bot] <280313874+testnangoapi[bot]@users.noreply.github.com> 1786450164 +0000\ncommitter GitHub <noreply@github.com> 1786450164 +0000\n\nNango registry test: add workflow",
+                "verified_at": "2026-08-11T12:09:25Z"
+              }
+            },
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/56e002425a9ae58fa6d9f925db841ca7653c31e2",
+            "html_url": "https://github.com/nango-provisioned-apps/nango/commit/56e002425a9ae58fa6d9f925db841ca7653c31e2",
+            "comments_url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/56e002425a9ae58fa6d9f925db841ca7653c31e2/comments",
+            "author": {
+              "login": "testnangoapi[bot]",
+              "id": 280313874,
+              "node_id": "BOT_kgDOELVAEg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/testnangoapi%5Bbot%5D",
+              "html_url": "https://github.com/apps/testnangoapi",
+              "followers_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/followers",
+              "following_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/following{/other_user}",
+              "gists_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/subscriptions",
+              "organizations_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/orgs",
+              "repos_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/repos",
+              "events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/received_events",
+              "type": "Bot",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "committer": {
+              "login": "web-flow",
+              "id": 19864447,
+              "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+              "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/web-flow",
+              "html_url": "https://github.com/web-flow",
+              "followers_url": "https://api.github.com/users/web-flow/followers",
+              "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+              "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+              "organizations_url": "https://api.github.com/users/web-flow/orgs",
+              "repos_url": "https://api.github.com/users/web-flow/repos",
+              "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/web-flow/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "parents": [
+              {
+                "sha": "0d8a30b689d23c95c5fcadf9d947fbc3b38a59ff",
+                "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/0d8a30b689d23c95c5fcadf9d947fbc3b38a59ff",
+                "html_url": "https://github.com/nango-provisioned-apps/nango/commit/0d8a30b689d23c95c5fcadf9d947fbc3b38a59ff"
+              }
+            ]
+          },
+          "status": "ahead",
+          "ahead_by": 1,
+          "behind_by": 0,
+          "total_commits": 1,
+          "commits": [
+            {
+              "sha": "bac832441b1394af728f897269e9983a3667cb46",
+              "node_id": "C_kwDOT1NNv9oAKGJhYzgzMjQ0MWIxMzk0YWY3MjhmODk3MjY5ZTk5ODNhMzY2N2NiNDY",
+              "commit": {
+                "author": {
+                  "name": "testnangoapi[bot]",
+                  "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+                  "date": "2026-08-11T12:16:10Z"
+                },
+                "committer": {
+                  "name": "GitHub",
+                  "email": "noreply@github.com",
+                  "date": "2026-08-11T12:16:10Z"
+                },
+                "message": "Nango registry test: permanent seed file 1",
+                "tree": {
+                  "sha": "7d5478367845cbac75929a8e5728913336306fea",
+                  "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/trees/7d5478367845cbac75929a8e5728913336306fea"
+                },
+                "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/commits/bac832441b1394af728f897269e9983a3667cb46",
+                "comment_count": 0,
+                "verification": {
+                  "verified": true,
+                  "reason": "valid",
+                  "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqexKKCRC1aQ7uu5UhlAAAd9UQAKxV0weJlClYyGlsVRJ2Xe8Y\neLFNFX+GWttmzje7k7pwMUT/fMoDywM6ZzUVuJRFp/fodiPqU9Up09BUetJHtX6m\nl7NkEn53iYUV6X6wTWWYC+24mbr6/Tuauu0BlCJhEHRpMA0WbN838HOUedvioFQV\nMo6gFENifX5tvPUYYV8CYTynKUTAjbJkOgPeT8ctB5Lk5Zm2FIcXUMly66Xfj+Sx\nYV+BNzUKrhovlVOOEfyUAPTVo0jjPc7A2UsVihQS751+iQifp+iHoVlVh5yBjIrX\nbtwDxkN1tGFmlgD20AICmIILqXF1gCR3NVGd8EKfHerKaueHmip/3mot1S9hJD6Y\nFTNcftMYiJM1IIw7kOZVKQblMdM++caiZY9VVPS7riKDZcWL9EXG+L7c1kn+Wn06\nzNVb1mz1uIzJFgOv59kWrWgb+i51xSL93obYJy+mZcFQ6QkYUYhH3b5q6r+k2hjs\nnk8ND8EywLAyjxY3f6kWg8y3En2sotVpsjGXFO42BAJMmkeXWJFUJpq7Ow91fbhF\ngYvLFvi792uixi+8KzjoN+UKqunjKNU0eLXiSfbaMc620oC8Cw1VZqfB9r9Wr+2K\nGQNFaL80AY4pI/7zTqnMLRiDjj9xBzpZyi/WYrFjCoumAb0nUdtb70rSrPpkXKTI\nk3KyoVipgmlW536BYSLm\n=b2ki\n-----END PGP SIGNATURE-----\n",
+                  "payload": "tree 7d5478367845cbac75929a8e5728913336306fea\nparent 56e002425a9ae58fa6d9f925db841ca7653c31e2\nauthor testnangoapi[bot] <280313874+testnangoapi[bot]@users.noreply.github.com> 1786450570 +0000\ncommitter GitHub <noreply@github.com> 1786450570 +0000\n\nNango registry test: permanent seed file 1",
+                  "verified_at": "2026-08-11T12:16:11Z"
+                }
+              },
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/bac832441b1394af728f897269e9983a3667cb46",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/commit/bac832441b1394af728f897269e9983a3667cb46",
+              "comments_url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/bac832441b1394af728f897269e9983a3667cb46/comments",
+              "author": {
+                "login": "testnangoapi[bot]",
+                "id": 280313874,
+                "node_id": "BOT_kgDOELVAEg",
+                "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/testnangoapi%5Bbot%5D",
+                "html_url": "https://github.com/apps/testnangoapi",
+                "followers_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/followers",
+                "following_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/following{/other_user}",
+                "gists_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/subscriptions",
+                "organizations_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/orgs",
+                "repos_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/repos",
+                "events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/received_events",
+                "type": "Bot",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "committer": {
+                "login": "web-flow",
+                "id": 19864447,
+                "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+                "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+                "gravatar_id": "",
+                "url": "https://api.github.com/users/web-flow",
+                "html_url": "https://github.com/web-flow",
+                "followers_url": "https://api.github.com/users/web-flow/followers",
+                "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+                "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+                "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+                "organizations_url": "https://api.github.com/users/web-flow/orgs",
+                "repos_url": "https://api.github.com/users/web-flow/repos",
+                "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+                "received_events_url": "https://api.github.com/users/web-flow/received_events",
+                "type": "User",
+                "user_view_type": "public",
+                "site_admin": false
+              },
+              "parents": [
+                {
+                  "sha": "56e002425a9ae58fa6d9f925db841ca7653c31e2",
+                  "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/56e002425a9ae58fa6d9f925db841ca7653c31e2",
+                  "html_url": "https://github.com/nango-provisioned-apps/nango/commit/56e002425a9ae58fa6d9f925db841ca7653c31e2"
+                }
+              ]
+            }
+          ],
+          "files": [
+            {
+              "sha": "fa1dd213f78d785cfd4db08944d32825a52e3c64",
+              "filename": "NANGO_REGISTRY_TEST_1.md",
+              "status": "added",
+              "additions": 1,
+              "deletions": 0,
+              "changes": 1,
+              "blob_url": "https://github.com/nango-provisioned-apps/nango/blob/bac832441b1394af728f897269e9983a3667cb46/NANGO_REGISTRY_TEST_1.md",
+              "raw_url": "https://github.com/nango-provisioned-apps/nango/raw/bac832441b1394af728f897269e9983a3667cb46/NANGO_REGISTRY_TEST_1.md",
+              "contents_url": "https://api.github.com/repos/nango-provisioned-apps/nango/contents/NANGO_REGISTRY_TEST_1.md?ref=bac832441b1394af728f897269e9983a3667cb46",
+              "patch": "@@ -0,0 +1 @@\n+Nango registry test permanent seed file 1"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 15:49:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4907",
+          "x-ratelimit-reset": "1786466677",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"c7f807b84e689262232f0521af2fd657728be0a6bb20990e85ae89b147bcafd2\"",
+          "last-modified": "Tue, 11 Aug 2026 12:16:10 GMT",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "contents=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "93",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "EDEB:337B64:1F39F5:1FD27B:6A7B4489",
+          "x-github-edge-region": "sea"
+        },
+        "hash": "004b03b5502c2a839e0d544fda766b77606de166",
+        "request": {}
+      }
+    }
+  }
+}
