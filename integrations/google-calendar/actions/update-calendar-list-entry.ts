@@ -1,62 +1,61 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const ReminderSchema = z.object({
-    method: z.enum(['email', 'popup']),
-    minutes: z.number().int().min(0).max(40320)
+const DefaultReminderSchema = z.object({
+    method: z.string().describe('Reminder delivery method. Possible values: "email", "popup".'),
+    minutes: z.number().describe('Minutes before event start when the reminder triggers. Valid values: 0 to 40320.')
 });
 
 const NotificationSchema = z.object({
-    type: z.enum(['eventCreation', 'eventChange', 'eventCancellation', 'eventResponse', 'agenda']),
-    method: z.enum(['email'])
+    type: z.string().describe('Notification type. Possible values: "eventCreation", "eventChange", "eventCancellation", "eventResponse", "agenda".'),
+    method: z.string().describe('Notification delivery method. Possible value: "email".')
 });
 
-const InputSchema = z.object({
-    calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar. Example: "primary" or "abc123@group.calendar.google.com"'),
-    backgroundColor: z
-        .string()
-        .regex(/^#[0-9a-fA-F]{6}$/)
-        .optional()
-        .describe('Main color in hex format (e.g., "#0088aa"). Requires color_rgb_format=true.'),
-    foregroundColor: z
-        .string()
-        .regex(/^#[0-9a-fA-F]{6}$/)
-        .optional()
-        .describe('Foreground color in hex format (e.g., "#ffffff"). Requires color_rgb_format=true.'),
-    colorId: z.string().optional().describe('Color ID from the calendar colors endpoint'),
-    hidden: z.boolean().optional().describe('Whether the calendar is hidden from the list'),
-    selected: z.boolean().optional().describe('Whether the calendar content shows up in the calendar UI'),
-    summaryOverride: z.string().optional().describe('Custom summary name for this calendar'),
-    defaultReminders: z.array(ReminderSchema).optional().describe('Default reminders for events in this calendar'),
-    notificationSettings: z
-        .object({
-            notifications: z.array(NotificationSchema)
-        })
-        .optional()
-        .describe('Notification settings for this calendar'),
-    colorRgbFormat: z.boolean().optional().describe('Set to true if using background_color or foreground_color')
+const NotificationSettingsSchema = z.object({
+    notifications: z.array(NotificationSchema).describe('List of notifications set for this calendar.')
 });
 
-const OutputSchema = z.object({
+const InputSchema = z
+    .object({
+        calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar of the authenticated user.'),
+        colorRgbFormat: z
+            .boolean()
+            .optional()
+            .describe('Whether to use foregroundColor and backgroundColor to write calendar colors in RGB. If true, colorId is set automatically.'),
+        summaryOverride: z.string().optional().describe('Custom summary the user has set for this calendar.'),
+        hidden: z.boolean().optional().describe('Whether the calendar is hidden from the list.'),
+        selected: z.boolean().optional().describe('Whether the calendar content shows up in the calendar UI.'),
+        colorId: z.string().optional().describe('Index-based color ID referring to an entry in the calendar colors definition.'),
+        backgroundColor: z.string().optional().describe('Background color in hexadecimal format "#0088aa". Requires colorRgbFormat=true.'),
+        foregroundColor: z.string().optional().describe('Foreground color in hexadecimal format "#ffffff". Requires colorRgbFormat=true.'),
+        defaultReminders: z.array(DefaultReminderSchema).optional().describe('Default reminders that the authenticated user has for this calendar.'),
+        notificationSettings: NotificationSettingsSchema.optional().describe('Notifications that the authenticated user is receiving for this calendar.')
+    })
+    .describe('Input for updating a calendar list entry');
+
+const ProviderCalendarListEntrySchema = z.object({
+    kind: z.string().optional(),
+    etag: z.string().optional(),
     id: z.string(),
-    summary: z.string(),
-    summaryOverride: z.string().optional(),
-    description: z.string().optional(),
-    location: z.string().optional(),
-    timeZone: z.string().optional(),
-    colorId: z.string().optional(),
-    backgroundColor: z.string().optional(),
-    foregroundColor: z.string().optional(),
-    hidden: z.boolean(),
-    selected: z.boolean(),
+    summary: z.string().optional(),
+    description: z.string().optional().nullable(),
+    location: z.string().optional().nullable(),
+    timeZone: z.string().optional().nullable(),
+    summaryOverride: z.string().optional().nullable(),
+    colorId: z.string().optional().nullable(),
+    backgroundColor: z.string().optional().nullable(),
+    foregroundColor: z.string().optional().nullable(),
+    hidden: z.boolean().optional().nullable(),
+    selected: z.boolean().optional().nullable(),
     accessRole: z.string().optional(),
-    primary: z.boolean(),
-    defaultReminders: z.array(
-        z.object({
-            method: z.string(),
-            minutes: z.number()
-        })
-    ),
+    defaultReminders: z
+        .array(
+            z.object({
+                method: z.string(),
+                minutes: z.number()
+            })
+        )
+        .optional(),
     notificationSettings: z
         .object({
             notifications: z.array(
@@ -66,107 +65,120 @@ const OutputSchema = z.object({
                 })
             )
         })
+        .optional(),
+    primary: z.boolean().optional(),
+    deleted: z.boolean().optional(),
+    conferenceProperties: z
+        .object({
+            allowedConferenceSolutionTypes: z.array(z.string())
+        })
         .optional()
+        .nullable(),
+    autoAcceptInvitations: z.boolean().optional()
 });
 
+const OutputSchema = z
+    .object({
+        id: z.string().describe('Identifier of the calendar.'),
+        summary: z.string().optional().describe('Title of the calendar.'),
+        description: z.string().optional().describe('Description of the calendar.'),
+        location: z.string().optional().describe('Geographic location of the calendar.'),
+        timeZone: z.string().optional().describe('Time zone of the calendar.'),
+        summaryOverride: z.string().optional().describe('Custom summary set by the user.'),
+        colorId: z.string().optional().describe('Index-based color ID.'),
+        backgroundColor: z.string().optional().describe('Background color in hexadecimal format.'),
+        foregroundColor: z.string().optional().describe('Foreground color in hexadecimal format.'),
+        hidden: z.boolean().optional().describe('Whether the calendar is hidden from the list.'),
+        selected: z.boolean().optional().describe('Whether the calendar shows in the UI.'),
+        accessRole: z.string().optional().describe('Effective access role of the user on the calendar.'),
+        defaultReminders: z.array(DefaultReminderSchema).optional().describe('Default reminders for this calendar.'),
+        notificationSettings: NotificationSettingsSchema.optional().describe('Notification settings for this calendar.'),
+        primary: z.boolean().optional().describe('Whether this is the primary calendar of the authenticated user.'),
+        deleted: z.boolean().optional().describe('Whether this calendar list entry has been deleted.'),
+        conferenceProperties: z
+            .object({
+                allowedConferenceSolutionTypes: z.array(z.string()).describe('Supported conference solution types for this calendar.')
+            })
+            .optional()
+            .describe('Conferencing properties for this calendar.')
+    })
+    .describe('Updated calendar list entry');
+
+/**
+ * @tags: [write]
+ * @tagReason: Updates an existing calendar list entry on the provider.
+ * @pitfalls: backgroundColor and foregroundColor require colorRgbFormat=true to take effect; summary, description, location, and timeZone are read-only on calendar list entries; providing defaultReminders or notificationSettings.notifications replaces the entire existing arrays.
+ */
 const action = createAction({
     description: "Update a calendar list entry's settings",
-    version: '2.0.1',
-
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        interface CalendarListRequest {
-            backgroundColor?: string;
-            foregroundColor?: string;
-            colorId?: string;
-            hidden?: boolean;
-            selected?: boolean;
-            summaryOverride?: string;
-            defaultReminders?: Array<{ method: string; minutes: number }>;
-            notificationSettings?: {
-                notifications: Array<{ type: string; method: string }>;
-            };
-        }
-
-        const requestBody: CalendarListRequest = {};
-
-        if (input.backgroundColor !== undefined) {
-            requestBody.backgroundColor = input.backgroundColor;
-        }
-        if (input.foregroundColor !== undefined) {
-            requestBody.foregroundColor = input.foregroundColor;
-        }
-        if (input.colorId !== undefined) {
-            requestBody.colorId = input.colorId;
+        const body: Record<string, unknown> = {};
+        if (input.summaryOverride !== undefined) {
+            body['summaryOverride'] = input.summaryOverride;
         }
         if (input.hidden !== undefined) {
-            requestBody.hidden = input.hidden;
+            body['hidden'] = input.hidden;
         }
         if (input.selected !== undefined) {
-            requestBody.selected = input.selected;
+            body['selected'] = input.selected;
         }
-        if (input.summaryOverride !== undefined) {
-            requestBody.summaryOverride = input.summaryOverride;
+        if (input.colorId !== undefined) {
+            body['colorId'] = input.colorId;
+        }
+        if (input.backgroundColor !== undefined) {
+            body['backgroundColor'] = input.backgroundColor;
+        }
+        if (input.foregroundColor !== undefined) {
+            body['foregroundColor'] = input.foregroundColor;
         }
         if (input.defaultReminders !== undefined) {
-            requestBody.defaultReminders = input.defaultReminders.map((r) => ({
-                method: r.method,
-                minutes: r.minutes
-            }));
+            body['defaultReminders'] = input.defaultReminders;
         }
         if (input.notificationSettings !== undefined) {
-            requestBody.notificationSettings = {
-                notifications: input.notificationSettings.notifications.map((n) => ({
-                    type: n.type,
-                    method: n.method
-                }))
-            };
-        }
-
-        const params: Record<string, string | number> = {};
-        if (input.colorRgbFormat) {
-            params['colorRgbFormat'] = 'true';
+            body['notificationSettings'] = input.notificationSettings;
         }
 
         // https://developers.google.com/workspace/calendar/api/v3/reference/calendarList/update
         const response = await nango.put({
-            endpoint: `/calendar/v3/users/me/calendarList/${input.calendarId}`,
-            data: requestBody,
-            params,
-            retries: 3
+            endpoint: `/calendar/v3/users/me/calendarList/${encodeURIComponent(input.calendarId)}`,
+            ...(input.colorRgbFormat !== undefined && { params: { colorRgbFormat: String(input.colorRgbFormat) } }),
+            data: body,
+            retries: 10
         });
 
-        const data = response.data;
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Calendar list entry not found or update failed',
+                calendarId: input.calendarId
+            });
+        }
+
+        const entry = ProviderCalendarListEntrySchema.parse(response.data);
 
         return {
-            id: data.id,
-            summary: data.summary,
-            summaryOverride: data.summaryOverride ?? undefined,
-            description: data.description ?? undefined,
-            location: data.location ?? undefined,
-            timeZone: data.timeZone ?? undefined,
-            colorId: data.colorId ?? undefined,
-            backgroundColor: data.backgroundColor ?? undefined,
-            foregroundColor: data.foregroundColor ?? undefined,
-            hidden: data.hidden ?? false,
-            selected: data.selected ?? false,
-            accessRole: data.accessRole ?? undefined,
-            primary: data.primary ?? false,
-            defaultReminders: (data.defaultReminders || []).map((r: { method: string; minutes: number }) => ({
-                method: r.method,
-                minutes: r.minutes
-            })),
-            notificationSettings: data.notificationSettings
-                ? {
-                      notifications: data.notificationSettings.notifications.map((n: { type: string; method: string }) => ({
-                          type: n.type,
-                          method: n.method
-                      }))
-                  }
-                : undefined
+            id: entry.id,
+            ...(entry.summary !== undefined && { summary: entry.summary }),
+            ...(entry.description != null && { description: entry.description }),
+            ...(entry.location != null && { location: entry.location }),
+            ...(entry.timeZone != null && { timeZone: entry.timeZone }),
+            ...(entry.summaryOverride != null && { summaryOverride: entry.summaryOverride }),
+            ...(entry.colorId != null && { colorId: entry.colorId }),
+            ...(entry.backgroundColor != null && { backgroundColor: entry.backgroundColor }),
+            ...(entry.foregroundColor != null && { foregroundColor: entry.foregroundColor }),
+            ...(entry.hidden != null && { hidden: entry.hidden }),
+            ...(entry.selected != null && { selected: entry.selected }),
+            ...(entry.accessRole !== undefined && { accessRole: entry.accessRole }),
+            ...(entry.defaultReminders !== undefined && { defaultReminders: entry.defaultReminders }),
+            ...(entry.notificationSettings !== undefined && { notificationSettings: entry.notificationSettings }),
+            ...(entry.primary !== undefined && { primary: entry.primary }),
+            ...(entry.deleted !== undefined && { deleted: entry.deleted }),
+            ...(entry.conferenceProperties != null && { conferenceProperties: entry.conferenceProperties })
         };
     }
 });

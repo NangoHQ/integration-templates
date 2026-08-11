@@ -1,36 +1,30 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    calendarId: z.string().optional().describe('Calendar identifier. Use "primary" for the primary calendar. Example: "primary"')
-});
+const InputSchema = z.object({}).describe('No input required. Clears all events from the primary calendar.');
 
-const OutputSchema = z.object({
-    success: z.boolean().describe('Whether the calendar was cleared successfully'),
-    calendarId: z.string().describe('The calendar ID that was cleared')
-});
+const OutputSchema = z.object({}).describe('Empty success response indicating the calendar was cleared.');
 
+/**
+ * @tags: [write, destructive]
+ * @tagReason: Permanently deletes all events from the primary calendar via the provider clear endpoint.
+ * @pitfalls: Only works on the primary calendar and permanently deletes all events with no recovery.
+ */
 const action = createAction({
-    description: 'Clear a calendar by deleting all events',
-    version: '2.0.1',
-
+    description: 'Clear the primary calendar by deleting all events.',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar'],
 
-    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const calendarId = input.calendarId || 'primary';
-
-        // https://developers.google.com/workspace/calendar/api/v3/reference/calendars/clear
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.google.com/calendar/api/v3/reference/calendars/clear
         await nango.post({
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/clear`,
-            retries: 3
+            endpoint: '/calendar/v3/calendars/primary/clear',
+            retries: 1
         });
 
-        return {
-            success: true,
-            calendarId
-        };
+        return {};
     }
 });
 

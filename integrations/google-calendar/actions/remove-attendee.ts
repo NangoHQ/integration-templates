@@ -1,109 +1,97 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar of the currently logged in user.'),
-    eventId: z.string().describe('Event identifier.'),
-    attendeeEmail: z.string().email().describe('Email address of the attendee to remove from the event.')
-});
+const InputSchema = z
+    .object({
+        calendarId: z.string().optional().describe('Calendar identifier. Use "primary" for the default calendar.'),
+        eventId: z.string().describe('The event identifier.'),
+        attendeeEmail: z.string().describe('The email address of the attendee to remove.')
+    })
+    .describe('Input for removing an attendee from a Google Calendar event');
 
-const AttendeeSchema = z.object({
+const ProviderAttendeeSchema = z.object({
     email: z.string(),
     displayName: z.string().optional(),
-    organizer: z.boolean().optional(),
-    self: z.boolean().optional(),
-    resource: z.boolean().optional(),
-    optional: z.boolean().optional(),
-    responseStatus: z.string().optional(),
-    comment: z.string().optional(),
-    additionalGuests: z.number().optional()
+    responseStatus: z.string().optional()
 });
 
-const OutputSchema = z.object({
+const ProviderEventSchema = z.object({
     id: z.string(),
     summary: z.string().optional(),
-    attendees: z.array(AttendeeSchema),
-    removedAttendee: AttendeeSchema.optional(),
-    success: z.boolean()
+    attendees: z.array(ProviderAttendeeSchema).optional()
 });
 
-const EventResponseSchema = z.object({
-    id: z.string(),
-    summary: z.string().nullish(),
-    attendees: z.array(AttendeeSchema).optional()
-});
+const OutputSchema = z
+    .object({
+        id: z.string().describe('The event ID.'),
+        summary: z.string().optional().describe('The event title.'),
+        attendees: z
+            .array(
+                z.object({
+                    email: z.string().describe('The attendee email address.'),
+                    displayName: z.string().optional().describe('The attendee display name.'),
+                    responseStatus: z.string().optional().describe('The attendee response status.')
+                })
+            )
+            .optional()
+            .describe('The updated list of attendees.')
+    })
+    .describe('Output after removing an attendee from a Google Calendar event');
 
+/**
+ * @tags: [read, write]
+ * @tagReason: Reads the existing event before updating its attendees.
+ */
 const action = createAction({
-    description: 'Fetch an event, remove an attendee by email, and patch attendees',
-    version: '2.0.1',
-
+    description: 'Remove an attendee from a Google Calendar event by email',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar.events'],
+    scopes: ['https://www.googleapis.com/auth/calendar'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const calendarId = input.calendarId ?? 'primary';
+
         // https://developers.google.com/workspace/calendar/api/v3/reference/events/get
         const getResponse = await nango.get({
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}/events/${encodeURIComponent(input.eventId)}`,
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events/${encodeURIComponent(input.eventId)}`,
             retries: 3
         });
 
-        if (!getResponse.data) {
+        const event = ProviderEventSchema.parse(getResponse.data);
+
+        const currentAttendees = event.attendees ?? [];
+        const normalizedEmail = input.attendeeEmail.toLowerCase();
+        const filteredAttendees = currentAttendees.filter((a) => a.email.toLowerCase() !== normalizedEmail);
+
+        if (filteredAttendees.length === currentAttendees.length) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: 'Event not found',
-                calendarId: input.calendarId,
-                eventId: input.eventId
+                message: `Attendee ${input.attendeeEmail} not found on event ${input.eventId}`
             });
         }
-
-        const event = EventResponseSchema.parse(getResponse.data);
-        const currentAttendees = event.attendees || [];
-
-        // Find the attendee to remove
-        const attendeeIndex = currentAttendees.findIndex((attendee) => attendee.email === input.attendeeEmail);
-
-        if (attendeeIndex === -1) {
-            return {
-                id: event.id,
-                summary: event.summary ?? undefined,
-                attendees: currentAttendees,
-                removedAttendee: undefined,
-                success: false
-            };
-        }
-
-        const removedAttendee = currentAttendees[attendeeIndex] || undefined;
-
-        // Remove the attendee from the array
-        const updatedAttendees = currentAttendees.filter((_, index) => index !== attendeeIndex);
 
         // https://developers.google.com/workspace/calendar/api/v3/reference/events/patch
         const patchResponse = await nango.patch({
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}/events/${encodeURIComponent(input.eventId)}`,
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events/${encodeURIComponent(input.eventId)}`,
             data: {
-                attendees: updatedAttendees
+                attendees: filteredAttendees
             },
-            retries: 3
+            retries: 1
         });
 
-        if (!patchResponse.data) {
-            throw new nango.ActionError({
-                type: 'patch_failed',
-                message: 'Failed to patch event with updated attendees',
-                calendarId: input.calendarId,
-                eventId: input.eventId
-            });
-        }
-
-        const patchedEvent = EventResponseSchema.parse(patchResponse.data);
+        const updatedEvent = ProviderEventSchema.parse(patchResponse.data);
 
         return {
-            id: patchedEvent.id,
-            summary: patchedEvent.summary ?? undefined,
-            attendees: patchedEvent.attendees || [],
-            removedAttendee: removedAttendee,
-            success: true
+            id: updatedEvent.id,
+            ...(updatedEvent.summary !== undefined && { summary: updatedEvent.summary }),
+            ...(updatedEvent.attendees !== undefined && {
+                attendees: updatedEvent.attendees.map((a) => ({
+                    email: a.email,
+                    ...(a.displayName !== undefined && { displayName: a.displayName }),
+                    ...(a.responseStatus !== undefined && { responseStatus: a.responseStatus })
+                }))
+            })
         };
     }
 });

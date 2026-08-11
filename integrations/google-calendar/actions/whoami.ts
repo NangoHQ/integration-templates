@@ -1,55 +1,47 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    // No input required for whoami action
+const InputSchema = z.object({}).describe('No input required');
+
+const ProviderCalendarSchema = z.object({
+    id: z.string()
 });
 
-const OutputSchema = z.object({
-    id: z.string().describe('Google account ID'),
-    email: z.string().describe('Google account email address')
-});
+const OutputSchema = z
+    .object({
+        id: z
+            .string()
+            .describe(
+                'The user\'s Google account ID. For Google Calendar this is the primary calendar ID, which matches the user\'s email address. Example: "user@example.com"'
+            ),
+        email: z.string().describe('The user\'s Google account email address. Example: "user@example.com"')
+    })
+    .describe("The current user's Google account ID and email");
 
+/**
+ * @tags: [read]
+ * @tagReason: Reads the current user\'s primary calendar metadata from Google Calendar.
+ * @pitfalls: The returned id and email are always identical because Google Calendar does not expose a separate numeric account identifier.
+ */
 const action = createAction({
     description: "Return the current user's Google account ID and email",
-    version: '3.0.1',
-
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
+    scopes: [],
 
-    exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.google.com/calendar/api/v3/reference/calendarList/list
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            endpoint: '/calendar/v3/users/me/calendarList',
+            // https://developers.google.com/workspace/calendar/api/v3/reference/calendars/get
+            endpoint: '/calendar/v3/calendars/primary',
             retries: 3
         });
 
-        if (!response.data || !response.data.items || response.data.items.length === 0) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Unable to retrieve user information from calendar list'
-            });
-        }
-
-        // Find the primary calendar to get user info
-        const primaryCalendar = response.data.items.find((cal: any) => cal.primary === true);
-
-        if (!primaryCalendar) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'Primary calendar not found'
-            });
-        }
-
-        // The calendar ID for the primary calendar is typically the user's email
-        // The user ID can be found in the owner information
-        const userEmail = primaryCalendar.id;
-        const userId = primaryCalendar.creator?.id || primaryCalendar.owner?.id || primaryCalendar.id;
+        const calendar = ProviderCalendarSchema.parse(response.data);
 
         return {
-            id: userId,
-            email: userEmail
+            id: calendar.id,
+            email: calendar.id
         };
     }
 });

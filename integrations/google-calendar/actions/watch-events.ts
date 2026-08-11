@@ -1,52 +1,95 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    calendarId: z.string().describe('Calendar identifier. To retrieve calendar IDs call the calendarList.list method. Use "primary" for the primary calendar.'),
-    channelId: z.string().describe('A unique UUID or similar unique string that identifies this channel.'),
-    webhookUrl: z.string().url().describe('The URL where notifications will be delivered.'),
-    token: z.string().optional().describe('An opaque token for verification. Google will include this token in notification messages.'),
-    ttl: z.number().int().optional().describe('Time-to-live in seconds for the notification channel. Default is 604800 seconds (7 days).')
-});
+const InputSchema = z
+    .object({
+        calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar of the authenticated user.'),
+        channelId: z.string().describe('A UUID or similar unique string that identifies this notification channel.'),
+        address: z.string().describe('The URL where notifications are delivered for this channel.'),
+        type: z.string().optional().describe('The type of delivery mechanism. Valid values are "web_hook" or "webhook". Defaults to "web_hook".'),
+        token: z.string().optional().describe('An arbitrary string delivered to the target address with each notification.'),
+        ttl: z.string().optional().describe('Time-to-live in seconds for the notification channel. Default is 604800 seconds (7 days).')
+    })
+    .describe('Input to subscribe to event changes on a Google Calendar.');
 
-const OutputSchema = z.object({
-    kind: z.string().describe('Identifies this as a notification channel, which is "api#channel".'),
-    id: z.string().describe('The channel ID.'),
-    resourceId: z.string().describe('An opaque ID that identifies the resource being watched on this channel.'),
-    resourceUri: z.string().describe('A version-specific canonical URL for the watched resource.'),
-    token: z.string().optional().describe('The token sent in the request (if any).'),
-    expiration: z.string().optional().describe('Expiration time as a Unix timestamp (long), or omitted if no expiration.')
-});
+const OutputSchema = z
+    .object({
+        kind: z.string().describe('Identifies this as a notification channel. Value is "api#channel".'),
+        id: z.string().describe('A UUID or similar unique string that identifies this channel.'),
+        resourceId: z.string().describe('An opaque ID that identifies the resource being watched on this channel.'),
+        resourceUri: z.string().describe('A version-specific identifier for the watched resource.'),
+        token: z.string().optional().describe('An arbitrary string delivered to the target address with each notification.'),
+        expiration: z.number().optional().describe('Date and time of notification channel expiration as a Unix timestamp in milliseconds.')
+    })
+    .describe('Output of a successful calendar event watch subscription, containing channel and resource identifiers.');
 
+/**
+ * @tags: [write]
+ * @tagReason: Creates a new push notification channel at Google to watch for event changes.
+ * @pitfalls: Channels expire automatically after the TTL and must be recreated; reusing a channel ID without stopping the previous channel first will fail.
+ */
 const action = createAction({
     description: 'Subscribe to event changes on a calendar',
-    version: '1.0.1',
-
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar.readonly', 'https://www.googleapis.com/auth/calendar'],
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.google.com/workspace/calendar/api/v3/reference/events/watch
+        const body: {
+            id: string;
+            type: string;
+            address: string;
+            token?: string;
+            params?: {
+                ttl?: string;
+            };
+        } = {
+            id: input.channelId,
+            type: input.type || 'web_hook',
+            address: input.address
+        };
+
+        if (input.token !== undefined) {
+            body.token = input.token;
+        }
+
+        if (input.ttl !== undefined) {
+            body.params = { ttl: input.ttl };
+        }
+
         const response = await nango.post({
-            endpoint: `calendar/v3/calendars/${encodeURIComponent(input.calendarId)}/events/watch`,
-            data: {
-                id: input.channelId,
-                type: 'web_hook',
-                address: input.webhookUrl,
-                ...(input.token && { token: input.token }),
-                ...(input.ttl && { params: { ttl: String(input.ttl) } })
-            },
+            // https://developers.google.com/workspace/calendar/api/v3/reference/events/watch
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}/events/watch`,
+            data: body,
             retries: 3
         });
 
+        const providerResponse = z
+            .object({
+                kind: z.string(),
+                id: z.string(),
+                resourceId: z.string(),
+                resourceUri: z.string(),
+                token: z.string().optional(),
+                expiration: z.union([z.number(), z.string()]).optional()
+            })
+            .parse(response.data);
+
+        const parsedExpiration =
+            providerResponse.expiration !== undefined
+                ? typeof providerResponse.expiration === 'string'
+                    ? Number(providerResponse.expiration)
+                    : providerResponse.expiration
+                : undefined;
+
         return {
-            kind: response.data.kind,
-            id: response.data.id,
-            resourceId: response.data.resourceId,
-            resourceUri: response.data.resourceUri,
-            token: response.data.token ?? undefined,
-            expiration: response.data.expiration ? String(response.data.expiration) : undefined
+            kind: providerResponse.kind,
+            id: providerResponse.id,
+            resourceId: providerResponse.resourceId,
+            resourceUri: providerResponse.resourceUri,
+            ...(providerResponse.token !== undefined && { token: providerResponse.token }),
+            ...(parsedExpiration !== undefined && { expiration: parsedExpiration })
         };
     }
 });
