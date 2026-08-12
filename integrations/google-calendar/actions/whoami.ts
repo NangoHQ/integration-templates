@@ -28,7 +28,7 @@ const action = createAction({
     version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

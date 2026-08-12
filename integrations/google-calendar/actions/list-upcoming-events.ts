@@ -7,7 +7,7 @@ const InputSchema = z
             .string()
             .optional()
             .describe('Calendar identifier. Use "primary" for the primary calendar or a specific calendar ID. Defaults to "primary" when omitted.'),
-        maxResults: z.number().optional().describe('Maximum number of events to return per page. Defaults to 250. Must not exceed 2500.'),
+        limit: z.number().int().min(1).max(2500).optional().describe('Maximum number of events to return per page (1-2500). Default: 250'),
         cursor: z.string().optional().describe('Pagination cursor (pageToken) from the previous response. Omit for the first page.'),
         timeMin: z.string().optional().describe('Lower bound for event end time as an RFC3339 timestamp. Defaults to the current time when omitted.')
     })
@@ -26,6 +26,12 @@ const ProviderPersonSchema = z.object({
     self: z.boolean().optional()
 });
 
+const ProviderAttendeeSchema = z.object({
+    email: z.string().optional(),
+    displayName: z.string().optional(),
+    responseStatus: z.string().optional()
+});
+
 const ProviderEventSchema = z.object({
     id: z.string().optional(),
     summary: z.string().optional(),
@@ -39,6 +45,7 @@ const ProviderEventSchema = z.object({
     updated: z.string().optional(),
     creator: ProviderPersonSchema.optional(),
     organizer: ProviderPersonSchema.optional(),
+    attendees: z.array(ProviderAttendeeSchema).optional(),
     recurringEventId: z.string().optional(),
     eventType: z.string().optional()
 });
@@ -75,6 +82,16 @@ const EventSchema = z.object({
     updated: z.string().optional().describe('Last modification time of the event as an RFC3339 timestamp.'),
     creator: EventPersonSchema.optional().describe('The creator of the event.'),
     organizer: EventPersonSchema.optional().describe('The organizer of the event.'),
+    attendees: z
+        .array(
+            z.object({
+                email: z.string().optional().describe('Email address of the attendee.'),
+                displayName: z.string().optional().describe('Display name of the attendee.'),
+                responseStatus: z.string().optional().describe('Response status of the attendee.')
+            })
+        )
+        .optional()
+        .describe('Attendees of the event.'),
     recurringEventId: z.string().optional().describe('For instances of recurring events, the ID of the parent recurring event.'),
     eventType: z.string().optional().describe('Type of the event. Possible values: default, birthday, focusTime, outOfOffice, workingLocation, fromGmail.')
 });
@@ -109,7 +126,7 @@ const action = createAction({
                 timeMin: timeMin,
                 orderBy: 'startTime',
                 singleEvents: 'true',
-                ...(input.maxResults !== undefined && { maxResults: String(input.maxResults) }),
+                ...(input.limit !== undefined && { maxResults: String(input.limit) }),
                 ...(input.cursor && { pageToken: input.cursor })
             },
             retries: 3
@@ -156,6 +173,13 @@ const action = createAction({
                         ...(item.organizer.displayName !== undefined && { displayName: item.organizer.displayName }),
                         ...(item.organizer.self !== undefined && { self: item.organizer.self })
                     }
+                }),
+                ...(item.attendees !== undefined && {
+                    attendees: item.attendees.map((attendee) => ({
+                        ...(attendee.email !== undefined && { email: attendee.email }),
+                        ...(attendee.displayName !== undefined && { displayName: attendee.displayName }),
+                        ...(attendee.responseStatus !== undefined && { responseStatus: attendee.responseStatus })
+                    }))
                 }),
                 ...(item.recurringEventId !== undefined && { recurringEventId: item.recurringEventId }),
                 ...(item.eventType !== undefined && { eventType: item.eventType })

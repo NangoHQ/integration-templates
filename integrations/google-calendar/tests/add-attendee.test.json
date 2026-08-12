@@ -1,17 +1,19 @@
 {
   "input": {
     "calendarId": "primary",
-    "eventId": "g65fvocgea781hubcl4099oc9o",
-    "attendeeEmail": "new.attendee@example.com",
-    "attendeeName": "New Attendee"
+    "eventId": "gkv531kl5mvv1oh9usg5d8ei3g",
+    "email": "test-attendee@example.com",
+    "displayName": "Test Attendee",
+    "optional": true,
+    "sendUpdates": "none"
   },
   "output": {
-    "id": "g65fvocgea781hubcl4099oc9o",
-    "summary": "Test Event for Mock Recording",
+    "eventId": "gkv531kl5mvv1oh9usg5d8ei3g",
     "attendees": [
       {
-        "email": "new.attendee@example.com",
-        "displayName": "New Attendee",
+        "email": "test-attendee@example.com",
+        "displayName": "Test Attendee",
+        "optional": true,
         "responseStatus": "needsAction"
       }
     ]
@@ -19,16 +21,16 @@
   "nango": {},
   "api": {
     "get": {
-      "/calendar/v3/calendars/primary/events/g65fvocgea781hubcl4099oc9o": {
+      "/calendar/v3/calendars/primary/events/gkv531kl5mvv1oh9usg5d8ei3g": {
         "response": {
           "kind": "calendar#event",
-          "etag": "\"3546600972632478\"",
-          "id": "g65fvocgea781hubcl4099oc9o",
+          "etag": "\"3572968351215358\"",
+          "id": "gkv531kl5mvv1oh9usg5d8ei3g",
           "status": "confirmed",
-          "htmlLink": "https://www.google.com/calendar/event?eid=ZzY1ZnZvY2dlYTc4MWh1YmNsNDA5OW9jOW8gYXBpQG5hbmdvLmRldg",
-          "created": "2026-03-12T07:28:06.000Z",
-          "updated": "2026-03-12T07:28:06.316Z",
-          "summary": "Test Event for Mock Recording",
+          "htmlLink": "https://www.google.com/calendar/event?eid=Z2t2NTMxa2w1bXZ2MW9oOXVzZzVkOGVpM2cgYXBpQG5hbmdvLmRldg",
+          "created": "2026-08-11T21:36:15.000Z",
+          "updated": "2026-08-11T21:36:15.607Z",
+          "summary": "Nango Test Event - Add Attendee Prerequisite 2",
           "creator": {
             "email": "api@nango.dev",
             "self": true
@@ -38,14 +40,14 @@
             "self": true
           },
           "start": {
-            "dateTime": "2026-03-14T10:00:00-03:00",
+            "dateTime": "2026-08-11T18:41:15-03:00",
             "timeZone": "America/Sao_Paulo"
           },
           "end": {
-            "dateTime": "2026-03-14T11:00:00-03:00",
+            "dateTime": "2026-08-11T19:11:15-03:00",
             "timeZone": "America/Sao_Paulo"
           },
-          "iCalUID": "g65fvocgea781hubcl4099oc9o@google.com",
+          "iCalUID": "gkv531kl5mvv1oh9usg5d8ei3g@google.com",
           "sequence": 0,
           "reminders": {
             "useDefault": true
@@ -54,7 +56,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:28:17 GMT",
+          "date": "Tue, 11 Aug 2026 21:36:24 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -64,35 +66,35 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4878",
-          "x-ratelimit-reset": "1773300525",
-          "etag": "\"3546600972632478\"",
-          "expires": "Thu, 12 Mar 2026 07:28:17 GMT",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1946",
+          "x-ratelimit-reset": "1786484186",
+          "etag": "\"3572968351215358\"",
           "cache-control": "private, max-age=0, must-revalidate, no-transform",
+          "expires": "Tue, 11 Aug 2026 21:36:24 GMT",
           "vary": "Origin, X-Origin, Referer",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-14"
         },
-        "hash": "a067c79775a210f11befdc6199d1cd7342db774d",
+        "hash": "e80d416b9184ebc9c974ed1995bd32f3b0f1b2bf",
         "request": {}
       }
     },
     "patch": {
-      "/calendar/v3/calendars/primary/events/g65fvocgea781hubcl4099oc9o": {
+      "/calendar/v3/calendars/primary/events/gkv531kl5mvv1oh9usg5d8ei3g": {
         "response": {
           "kind": "calendar#event",
-          "etag": "\"3546600996049662\"",
-          "id": "g65fvocgea781hubcl4099oc9o",
+          "etag": "\"3572968369705886\"",
+          "id": "gkv531kl5mvv1oh9usg5d8ei3g",
           "status": "confirmed",
-          "htmlLink": "https://www.google.com/calendar/event?eid=ZzY1ZnZvY2dlYTc4MWh1YmNsNDA5OW9jOW8gYXBpQG5hbmdvLmRldg",
-          "created": "2026-03-12T07:28:06.000Z",
-          "updated": "2026-03-12T07:28:18.024Z",
-          "summary": "Test Event for Mock Recording",
+          "htmlLink": "https://www.google.com/calendar/event?eid=Z2t2NTMxa2w1bXZ2MW9oOXVzZzVkOGVpM2cgYXBpQG5hbmdvLmRldg",
+          "created": "2026-08-11T21:36:15.000Z",
+          "updated": "2026-08-11T21:36:24.852Z",
+          "summary": "Nango Test Event - Add Attendee Prerequisite 2",
           "creator": {
             "email": "api@nango.dev",
             "self": true
@@ -102,19 +104,20 @@
             "self": true
           },
           "start": {
-            "dateTime": "2026-03-14T10:00:00-03:00",
+            "dateTime": "2026-08-11T18:41:15-03:00",
             "timeZone": "America/Sao_Paulo"
           },
           "end": {
-            "dateTime": "2026-03-14T11:00:00-03:00",
+            "dateTime": "2026-08-11T19:11:15-03:00",
             "timeZone": "America/Sao_Paulo"
           },
-          "iCalUID": "g65fvocgea781hubcl4099oc9o@google.com",
+          "iCalUID": "gkv531kl5mvv1oh9usg5d8ei3g@google.com",
           "sequence": 0,
           "attendees": [
             {
-              "email": "new.attendee@example.com",
-              "displayName": "New Attendee",
+              "email": "test-attendee@example.com",
+              "displayName": "Test Attendee",
+              "optional": true,
               "responseStatus": "needsAction"
             }
           ],
@@ -125,7 +128,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:28:18 GMT",
+          "date": "Tue, 11 Aug 2026 21:36:24 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -135,28 +138,32 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4877",
-          "x-ratelimit-reset": "1773300525",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1945",
+          "x-ratelimit-reset": "1786484186",
           "pragma": "no-cache",
+          "etag": "\"3572968369705886\"",
+          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
           "vary": "Origin,X-Origin,Referer",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
-          "etag": "\"3546600996049662\"",
-          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-14"
         },
-        "hash": "6b8b2556744063b76df2a6c4208c194e2a3baf1d",
+        "hash": "0c707efb9a8d23fe745d180cd5803d706d4e9fe8",
         "request": {
+          "params": {
+            "sendUpdates": "none"
+          },
           "data": {
             "attendees": [
               {
-                "email": "new.attendee@example.com",
-                "displayName": "New Attendee"
+                "email": "test-attendee@example.com",
+                "displayName": "Test Attendee",
+                "optional": true
               }
             ]
           }

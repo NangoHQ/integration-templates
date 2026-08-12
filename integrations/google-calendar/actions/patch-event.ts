@@ -28,7 +28,7 @@ const AttendeeSchema = z
 
 const InputSchema = z
     .object({
-        calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar of the logged-in user.'),
+        calendarId: z.string().optional().describe('Calendar identifier. Use "primary" for the primary calendar of the logged-in user. Defaults to "primary".'),
         eventId: z.string().describe('Event identifier.'),
         summary: z.string().nullable().optional().describe('Title of the event. Set to null to clear.'),
         description: z.string().nullable().optional().describe('Description of the event. Can contain HTML. Set to null to clear.'),
@@ -82,6 +82,33 @@ const OutputSchema = z
     })
     .describe('Output of a partially updated Google Calendar event.');
 
+const ProviderEventSchema = z.object({
+    id: z.string(),
+    summary: z.string().nullish(),
+    description: z.string().nullish(),
+    location: z.string().nullish(),
+    start: EventTimeSchema.nullish(),
+    end: EventTimeSchema.nullish(),
+    status: z.string().nullish(),
+    htmlLink: z.string().nullish(),
+    created: z.string().nullish(),
+    updated: z.string().nullish(),
+    organizer: z
+        .object({
+            email: z.string().nullish(),
+            displayName: z.string().nullish(),
+            self: z.boolean().nullish()
+        })
+        .nullish(),
+    creator: z
+        .object({
+            email: z.string().nullish(),
+            displayName: z.string().nullish(),
+            self: z.boolean().nullish()
+        })
+        .nullish()
+});
+
 /**
  * @tags: [write]
  * @tagReason: Partially updates an existing calendar event by sending a PATCH request to the Google Calendar API.
@@ -92,9 +119,11 @@ const action = createAction({
     version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.events'],
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const calendarId = input.calendarId || 'primary';
+
         const body: Record<string, unknown> = {};
         if (input.summary !== undefined) {
             body['summary'] = input.summary;
@@ -128,81 +157,55 @@ const action = createAction({
 
         // https://developers.google.com/workspace/calendar/api/v3/reference/events/patch
         const response = await nango.patch({
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}/events/${encodeURIComponent(input.eventId)}`,
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events/${encodeURIComponent(input.eventId)}`,
             params,
             data: body,
             retries: 3
         });
 
-        const raw = response.data;
-        if (!isRecord(raw)) {
-            throw new nango.ActionError({
-                type: 'provider_error',
-                message: 'Unexpected response from Google Calendar API'
-            });
-        }
+        const providerEvent = ProviderEventSchema.parse(response.data);
 
         return {
-            id: typeof raw['id'] === 'string' ? raw['id'] : '',
-            calendarId: input.calendarId,
-            summary: typeof raw['summary'] === 'string' ? raw['summary'] : undefined,
-            description: typeof raw['description'] === 'string' ? raw['description'] : undefined,
-            location: typeof raw['location'] === 'string' ? raw['location'] : undefined,
-            start: parseEventTime(raw['start']),
-            end: parseEventTime(raw['end']),
-            status: typeof raw['status'] === 'string' ? raw['status'] : undefined,
-            htmlLink: typeof raw['htmlLink'] === 'string' ? raw['htmlLink'] : undefined,
-            created: typeof raw['created'] === 'string' ? raw['created'] : undefined,
-            updated: typeof raw['updated'] === 'string' ? raw['updated'] : undefined,
-            organizer: parsePerson(raw['organizer']),
-            creator: parsePerson(raw['creator'])
+            id: providerEvent.id,
+            calendarId,
+            ...(providerEvent.summary != null && { summary: providerEvent.summary }),
+            ...(providerEvent.description != null && { description: providerEvent.description }),
+            ...(providerEvent.location != null && { location: providerEvent.location }),
+            ...(providerEvent.start != null && {
+                start: {
+                    ...(providerEvent.start.date != null && { date: providerEvent.start.date }),
+                    ...(providerEvent.start.dateTime != null && { dateTime: providerEvent.start.dateTime }),
+                    ...(providerEvent.start.timeZone != null && { timeZone: providerEvent.start.timeZone })
+                }
+            }),
+            ...(providerEvent.end != null && {
+                end: {
+                    ...(providerEvent.end.date != null && { date: providerEvent.end.date }),
+                    ...(providerEvent.end.dateTime != null && { dateTime: providerEvent.end.dateTime }),
+                    ...(providerEvent.end.timeZone != null && { timeZone: providerEvent.end.timeZone })
+                }
+            }),
+            ...(providerEvent.status != null && { status: providerEvent.status }),
+            ...(providerEvent.htmlLink != null && { htmlLink: providerEvent.htmlLink }),
+            ...(providerEvent.created != null && { created: providerEvent.created }),
+            ...(providerEvent.updated != null && { updated: providerEvent.updated }),
+            ...(providerEvent.organizer != null && {
+                organizer: {
+                    ...(providerEvent.organizer.email != null && { email: providerEvent.organizer.email }),
+                    ...(providerEvent.organizer.displayName != null && { displayName: providerEvent.organizer.displayName }),
+                    ...(providerEvent.organizer.self != null && { self: providerEvent.organizer.self })
+                }
+            }),
+            ...(providerEvent.creator != null && {
+                creator: {
+                    ...(providerEvent.creator.email != null && { email: providerEvent.creator.email }),
+                    ...(providerEvent.creator.displayName != null && { displayName: providerEvent.creator.displayName }),
+                    ...(providerEvent.creator.self != null && { self: providerEvent.creator.self })
+                }
+            })
         };
     }
 });
-
-function parseEventTime(value: unknown): z.infer<typeof EventTimeSchema> | undefined {
-    if (!isRecord(value)) {
-        return undefined;
-    }
-    const result: { date?: string; dateTime?: string; timeZone?: string } = {};
-    if (typeof value['date'] === 'string') {
-        result.date = value['date'];
-    }
-    if (typeof value['dateTime'] === 'string') {
-        result.dateTime = value['dateTime'];
-    }
-    if (typeof value['timeZone'] === 'string') {
-        result.timeZone = value['timeZone'];
-    }
-    if (Object.keys(result).length === 0) {
-        return undefined;
-    }
-    return result;
-}
-
-function parsePerson(value: unknown): { email?: string; displayName?: string; self?: boolean } | undefined {
-    if (!isRecord(value)) {
-        return undefined;
-    }
-    const result: { email?: string; displayName?: string; self?: boolean } = {};
-    if (typeof value['email'] === 'string') {
-        result['email'] = value['email'];
-    }
-    if (typeof value['displayName'] === 'string') {
-        result['displayName'] = value['displayName'];
-    }
-    if (typeof value['self'] === 'boolean') {
-        result['self'] = value['self'];
-    }
-    if (Object.keys(result).length === 0) {
-        return undefined;
-    }
-    return result;
-}
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-    return typeof value === 'object' && value !== null;
-}
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

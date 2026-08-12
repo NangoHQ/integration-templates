@@ -13,6 +13,12 @@ const EventPersonSchema = z.object({
     self: z.boolean().optional().describe('Whether this person corresponds to the calendar owner.')
 });
 
+const EventAttendeeSchema = z.object({
+    email: z.string().optional().describe('Email address of the attendee.'),
+    displayName: z.string().optional().describe('Display name of the attendee.'),
+    responseStatus: z.string().optional().describe('Response status of the attendee.')
+});
+
 const EventSchema = z.object({
     id: z.string().describe('Opaque identifier of the event.'),
     summary: z.string().optional().describe('Title of the event.'),
@@ -25,7 +31,11 @@ const EventSchema = z.object({
     start: EventTimeSchema.optional().describe('The inclusive start time of the event.'),
     end: EventTimeSchema.optional().describe('The exclusive end time of the event.'),
     organizer: EventPersonSchema.optional().describe('Organizer of the event.'),
-    creator: EventPersonSchema.optional().describe('Creator of the event.')
+    creator: EventPersonSchema.optional().describe('Creator of the event.'),
+    attendees: z.array(EventAttendeeSchema).optional().describe('Attendees of the event.'),
+    recurringEventId: z.string().optional().describe('For an instance of a recurring event, the id of the recurring event to which this instance belongs.'),
+    transparency: z.string().optional().describe('Whether the event blocks time on the calendar. Possible values: opaque, transparent.'),
+    visibility: z.string().optional().describe('Visibility of the event. Possible values: default, public, private, confidential.')
 });
 
 const ProviderEventTimeSchema = z.object({
@@ -40,6 +50,12 @@ const ProviderEventPersonSchema = z.object({
     self: z.boolean().nullish()
 });
 
+const ProviderEventAttendeeSchema = z.object({
+    email: z.string().nullish(),
+    displayName: z.string().nullish(),
+    responseStatus: z.string().nullish()
+});
+
 const ProviderEventSchema = z.object({
     id: z.string(),
     summary: z.string().nullish(),
@@ -52,7 +68,11 @@ const ProviderEventSchema = z.object({
     start: ProviderEventTimeSchema.nullish(),
     end: ProviderEventTimeSchema.nullish(),
     organizer: ProviderEventPersonSchema.nullish(),
-    creator: ProviderEventPersonSchema.nullish()
+    creator: ProviderEventPersonSchema.nullish(),
+    attendees: z.array(ProviderEventAttendeeSchema).nullish(),
+    recurringEventId: z.string().nullish(),
+    transparency: z.string().nullish(),
+    visibility: z.string().nullish()
 });
 
 const ProviderListResponseSchema = z.object({
@@ -66,7 +86,10 @@ const InputSchema = z
         maxResults: z.number().int().min(1).max(2500).optional().describe('Maximum number of events returned on one result page. The API default is 250.'),
         timeMin: z.string().optional().describe("Lower bound (exclusive) for an event's end time as an RFC3339 timestamp."),
         timeMax: z.string().optional().describe("Upper bound (exclusive) for an event's start time as an RFC3339 timestamp."),
-        cursor: z.string().optional().describe('Pagination cursor from the previous response. Maps to the provider pageToken. Omit for the first page.')
+        cursor: z.string().optional().describe('Pagination cursor from the previous response. Maps to the provider pageToken. Omit for the first page.'),
+        q: z.string().optional().describe('Free text search terms to find matching events.'),
+        singleEvents: z.boolean().optional().describe('Whether to expand recurring events into single instances.'),
+        showDeleted: z.boolean().optional().describe('Whether to include cancelled/deleted events.')
     })
     .describe('Input for listing events from a Google Calendar.');
 
@@ -99,7 +122,10 @@ const action = createAction({
                 ...(input.maxResults !== undefined && { maxResults: String(input.maxResults) }),
                 ...(input.timeMin !== undefined && { timeMin: input.timeMin }),
                 ...(input.timeMax !== undefined && { timeMax: input.timeMax }),
-                ...(input.cursor !== undefined && { pageToken: input.cursor })
+                ...(input.cursor !== undefined && { pageToken: input.cursor }),
+                ...(input.q !== undefined && { q: input.q }),
+                ...(input.singleEvents !== undefined && { singleEvents: String(input.singleEvents) }),
+                ...(input.showDeleted !== undefined && { showDeleted: String(input.showDeleted) })
             },
             retries: 3
         });
@@ -147,7 +173,17 @@ const action = createAction({
                         ...(providerEvent.creator.displayName != null && { displayName: providerEvent.creator.displayName }),
                         ...(providerEvent.creator.self != null && { self: providerEvent.creator.self })
                     }
-                })
+                }),
+                ...(providerEvent.attendees != null && {
+                    attendees: providerEvent.attendees.map((attendee) => ({
+                        ...(attendee.email != null && { email: attendee.email }),
+                        ...(attendee.displayName != null && { displayName: attendee.displayName }),
+                        ...(attendee.responseStatus != null && { responseStatus: attendee.responseStatus })
+                    }))
+                }),
+                ...(providerEvent.recurringEventId != null && { recurringEventId: providerEvent.recurringEventId }),
+                ...(providerEvent.transparency != null && { transparency: providerEvent.transparency }),
+                ...(providerEvent.visibility != null && { visibility: providerEvent.visibility })
             };
         });
 

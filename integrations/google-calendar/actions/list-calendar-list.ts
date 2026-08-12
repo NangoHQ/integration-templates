@@ -67,7 +67,7 @@ const CalendarListItemSchema = z.object({
 
 const OutputSchema = z
     .object({
-        items: z.array(CalendarListItemSchema).describe("Calendars that are present on the user's calendar list."),
+        calendars: z.array(CalendarListItemSchema).describe("Calendars that are present on the user's calendar list."),
         nextPageToken: z.string().optional().describe('Token used to access the next page of this result. Omitted if no further results are available.')
     })
     .describe("Output for listing calendars in the user's calendar list");
@@ -100,7 +100,7 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        const items = (providerResponse.items || []).map((entry) => ({
+        const calendars = (providerResponse.items || []).map((entry) => ({
             id: entry.id,
             summary: entry.summary,
             ...(entry.description !== undefined && { description: entry.description }),
@@ -119,7 +119,7 @@ const action = createAction({
         }));
 
         return {
-            items,
+            calendars,
             ...(providerResponse.nextPageToken !== undefined && { nextPageToken: providerResponse.nextPageToken })
         };
     }

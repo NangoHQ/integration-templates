@@ -144,6 +144,7 @@ const sync = createSync({
     version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
     checkpoint: CheckpointSchema,
     models: {
         CalendarListEntry: CalendarListEntrySchema

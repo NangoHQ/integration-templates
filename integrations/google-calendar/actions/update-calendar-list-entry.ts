@@ -2,13 +2,15 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const DefaultReminderSchema = z.object({
-    method: z.string().describe('Reminder delivery method. Possible values: "email", "popup".'),
-    minutes: z.number().describe('Minutes before event start when the reminder triggers. Valid values: 0 to 40320.')
+    method: z.enum(['email', 'popup']).describe('Reminder delivery method. Possible values: "email", "popup".'),
+    minutes: z.number().int().min(0).max(40320).describe('Minutes before event start when the reminder triggers. Valid values: 0 to 40320.')
 });
 
 const NotificationSchema = z.object({
-    type: z.string().describe('Notification type. Possible values: "eventCreation", "eventChange", "eventCancellation", "eventResponse", "agenda".'),
-    method: z.string().describe('Notification delivery method. Possible value: "email".')
+    type: z
+        .enum(['eventCreation', 'eventChange', 'eventCancellation', 'eventResponse', 'agenda'])
+        .describe('Notification type. Possible values: "eventCreation", "eventChange", "eventCancellation", "eventResponse", "agenda".'),
+    method: z.enum(['email']).describe('Notification delivery method. Possible value: "email".')
 });
 
 const NotificationSettingsSchema = z.object({
@@ -26,8 +28,16 @@ const InputSchema = z
         hidden: z.boolean().optional().describe('Whether the calendar is hidden from the list.'),
         selected: z.boolean().optional().describe('Whether the calendar content shows up in the calendar UI.'),
         colorId: z.string().optional().describe('Index-based color ID referring to an entry in the calendar colors definition.'),
-        backgroundColor: z.string().optional().describe('Background color in hexadecimal format "#0088aa". Requires colorRgbFormat=true.'),
-        foregroundColor: z.string().optional().describe('Foreground color in hexadecimal format "#ffffff". Requires colorRgbFormat=true.'),
+        backgroundColor: z
+            .string()
+            .regex(/^#[0-9a-fA-F]{6}$/)
+            .optional()
+            .describe('Background color in hexadecimal format "#0088aa". Requires colorRgbFormat=true.'),
+        foregroundColor: z
+            .string()
+            .regex(/^#[0-9a-fA-F]{6}$/)
+            .optional()
+            .describe('Foreground color in hexadecimal format "#ffffff". Requires colorRgbFormat=true.'),
         defaultReminders: z.array(DefaultReminderSchema).optional().describe('Default reminders that the authenticated user has for this calendar.'),
         notificationSettings: NotificationSettingsSchema.optional().describe('Notifications that the authenticated user is receiving for this calendar.')
     })
@@ -91,8 +101,14 @@ const OutputSchema = z
         hidden: z.boolean().optional().describe('Whether the calendar is hidden from the list.'),
         selected: z.boolean().optional().describe('Whether the calendar shows in the UI.'),
         accessRole: z.string().optional().describe('Effective access role of the user on the calendar.'),
-        defaultReminders: z.array(DefaultReminderSchema).optional().describe('Default reminders for this calendar.'),
-        notificationSettings: NotificationSettingsSchema.optional().describe('Notification settings for this calendar.'),
+        defaultReminders: z
+            .array(z.object({ method: z.string(), minutes: z.number() }))
+            .optional()
+            .describe('Default reminders for this calendar.'),
+        notificationSettings: z
+            .object({ notifications: z.array(z.object({ type: z.string(), method: z.string() })) })
+            .optional()
+            .describe('Notification settings for this calendar.'),
         primary: z.boolean().optional().describe('Whether this is the primary calendar of the authenticated user.'),
         deleted: z.boolean().optional().describe('Whether this calendar list entry has been deleted.'),
         conferenceProperties: z

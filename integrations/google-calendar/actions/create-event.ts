@@ -1,14 +1,25 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const EventTimeInputSchema = z.object({
-    dateTime: z.string().optional().describe('Combined date and time value in RFC3339 format. Example: "2026-08-12T10:00:00Z"'),
-    date: z.string().optional().describe('Date in YYYY-MM-DD format for all-day events. Example: "2026-08-12"'),
-    timeZone: z.string().optional().describe('Time zone for the event time. Example: "America/New_York"')
-});
+const EventTimeInputSchema = z
+    .object({
+        dateTime: z.string().optional().describe('Combined date and time value in RFC3339 format. Example: "2026-08-12T10:00:00Z"'),
+        date: z.string().optional().describe('Date in YYYY-MM-DD format for all-day events. Example: "2026-08-12"'),
+        timeZone: z.string().optional().describe('Time zone for the event time. Example: "America/New_York"')
+    })
+    .refine(({ dateTime, date }) => (dateTime !== undefined) !== (date !== undefined), {
+        message: 'Provide exactly one of dateTime or date'
+    });
 
 const AttendeeInputSchema = z.object({
-    email: z.string().describe('Attendee email address. Example: "user@example.com"')
+    email: z.string().email().describe('Email address of the attendee. Example: "attendee@example.com"'),
+    displayName: z.string().optional().describe('Display name of the attendee'),
+    responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional().describe('Response status')
+});
+
+const ReminderOverrideInputSchema = z.object({
+    method: z.enum(['email', 'popup']).describe('Method of reminder'),
+    minutes: z.number().describe('Minutes before the event to trigger the reminder')
 });
 
 const InputSchema = z
@@ -20,6 +31,13 @@ const InputSchema = z
         start: EventTimeInputSchema.describe('Start time of the event'),
         end: EventTimeInputSchema.describe('End time of the event'),
         attendees: z.array(AttendeeInputSchema).optional().describe('List of attendees for the event'),
+        reminders: z
+            .object({
+                useDefault: z.boolean().optional().describe('Whether to use default reminders'),
+                overrides: z.array(ReminderOverrideInputSchema).optional().describe('Custom reminder overrides')
+            })
+            .optional()
+            .describe('Event reminders'),
         recurrence: z.array(z.string()).optional().describe('RRULE strings defining event recurrence. Example: ["RRULE:FREQ=DAILY;COUNT=2"]')
     })
     .describe('Input for creating a Google Calendar event');
@@ -98,6 +116,7 @@ const action = createAction({
             ...(input.description !== undefined && { description: input.description }),
             ...(input.location !== undefined && { location: input.location }),
             ...(input.attendees !== undefined && { attendees: input.attendees }),
+            ...(input.reminders !== undefined && { reminders: input.reminders }),
             ...(input.recurrence !== undefined && { recurrence: input.recurrence })
         };
 

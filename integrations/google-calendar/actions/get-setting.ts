@@ -18,6 +18,7 @@ const OutputSchema = z
     .object({
         id: z.string().describe('The ID of the user setting'),
         value: z.string().describe('The value of the user setting'),
+        kind: z.string().optional().describe('Type of the resource'),
         etag: z.string().optional().describe('ETag of the resource')
     })
     .describe('A single Google Calendar user setting');
@@ -53,6 +54,7 @@ const action = createAction({
         return {
             id: providerSetting.id,
             value: providerSetting.value,
+            ...(providerSetting.kind != null && { kind: providerSetting.kind }),
             ...(providerSetting.etag != null && { etag: providerSetting.etag })
         };
     }

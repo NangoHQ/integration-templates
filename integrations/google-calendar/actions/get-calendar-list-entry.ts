@@ -83,7 +83,7 @@ const action = createAction({
     version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar.readonly', 'https://www.googleapis.com/auth/calendar'],
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/calendar/api/v3/reference/calendarList/get

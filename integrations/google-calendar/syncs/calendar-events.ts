@@ -46,11 +46,11 @@ const EventAttachmentSchema = z
     })
     .describe('An attachment associated with a calendar event.');
 
-const CalendarEventSchema = z
+const ProviderCalendarEventSchema = z
     .object({
         kind: z.string().optional().describe('Type of the resource, typically "calendar#event".'),
         etag: z.string().optional().describe('ETag of the resource for optimistic concurrency.'),
-        id: z.string().describe('The unique identifier of the calendar event.'),
+        id: z.string().describe('The opaque identifier of the event, as returned by the Google Calendar API.'),
         status: z.string().optional().describe('Status of the event (confirmed, tentative, cancelled).'),
         htmlLink: z.string().optional().describe('An absolute URL to the event in the Google Calendar Web UI.'),
         created: z.string().optional().describe('Creation time of the event in RFC3339 format.'),
@@ -109,7 +109,13 @@ const CalendarEventSchema = z
         attachments: z.array(EventAttachmentSchema).optional().describe('File attachments for the event.'),
         eventType: z.string().optional().describe('Type of the event (default, outOfOffice, focusTime, workingLocation).')
     })
-    .describe('A full Google Calendar event object.');
+    .describe('A full Google Calendar event object, as returned by the provider.');
+
+const CalendarEventSchema = ProviderCalendarEventSchema.omit({ id: true }).extend({
+    id: z.string().describe('Unique record identifier combining the calendar ID and event ID: "<calendarId>:<eventId>".'),
+    calendarId: z.string().describe('Identifier of the calendar this event belongs to.'),
+    eventId: z.string().describe('The opaque identifier of the event, as returned by the Google Calendar API.')
+});
 
 const MetadataSchema = z
     .object({
@@ -151,17 +157,23 @@ const sync = createSync({
                 maxResults: '250'
             };
 
-            if (checkpoint !== null && checkpoint !== undefined && checkpoint['updated_after'] !== '') {
+            const isIncremental = checkpoint !== null && checkpoint !== undefined && checkpoint['updated_after'] !== '';
+
+            if (isIncremental) {
                 params['updatedMin'] = String(checkpoint['updated_after']);
+                // timeMax is intentionally NOT applied here: Google filters events.list by
+                // start time, so an event that moves outside the configured window would
+                // otherwise vanish from incremental results without ever being reported as
+                // deleted. Reconciliation against metadata.timeMax happens below instead.
             } else {
                 const defaultTimeMin = new Date();
                 defaultTimeMin.setUTCDate(defaultTimeMin.getUTCDate() - 30);
                 defaultTimeMin.setUTCHours(0, 0, 0, 0);
                 params['timeMin'] = metadata?.timeMin ?? defaultTimeMin.toISOString();
-            }
 
-            if (metadata?.timeMax) {
-                params['timeMax'] = metadata.timeMax;
+                if (metadata?.timeMax) {
+                    params['timeMax'] = metadata.timeMax;
+                }
             }
 
             if (metadata?.singleEvents !== undefined) {
@@ -183,20 +195,32 @@ const sync = createSync({
                 retries: 3
             };
 
+            const timeMaxMs = metadata?.timeMax ? new Date(metadata.timeMax).getTime() : undefined;
+
             for await (const page of nango.paginate(proxyConfig)) {
                 const upserts: z.infer<typeof CalendarEventSchema>[] = [];
                 const deletions: { id: string }[] = [];
 
                 for (const rawEvent of page) {
-                    const parsed = CalendarEventSchema.safeParse(rawEvent);
+                    const parsed = ProviderCalendarEventSchema.safeParse(rawEvent);
                     if (!parsed.success) {
                         throw new Error(`Failed to parse event: ${parsed.error.message}`);
                     }
 
-                    if (parsed.data.status === 'cancelled') {
-                        deletions.push({ id: parsed.data.id });
+                    const { id: eventId, ...rest } = parsed.data;
+                    const recordId = `${calendarId}:${eventId}`;
+
+                    const startMs = parsed.data.start?.dateTime
+                        ? new Date(parsed.data.start.dateTime).getTime()
+                        : parsed.data.start?.date
+                          ? new Date(parsed.data.start.date).getTime()
+                          : undefined;
+                    const isOutOfConfiguredWindow = timeMaxMs !== undefined && startMs !== undefined && startMs >= timeMaxMs;
+
+                    if (parsed.data.status === 'cancelled' || isOutOfConfiguredWindow) {
+                        deletions.push({ id: recordId });
                     } else {
-                        upserts.push(parsed.data);
+                        upserts.push({ ...rest, id: recordId, calendarId, eventId });
                     }
                 }
 

@@ -38,6 +38,8 @@ const ProviderCalendarSchema = z.object({
 const OutputSchema = z
     .object({
         id: z.string().describe('Identifier of the calendar.'),
+        etag: z.string().optional().describe('ETag of the resource.'),
+        kind: z.string().optional().describe('Type of the resource ("calendar#calendar").'),
         summary: z.string().optional().describe('Title of the calendar.'),
         description: z.string().optional().describe('Description of the calendar.'),
         location: z.string().optional().describe('Geographic location of the calendar as free-form text.'),
@@ -99,6 +101,8 @@ const action = createAction({
 
         return {
             id: providerCalendar.id,
+            ...(providerCalendar.etag !== undefined && { etag: providerCalendar.etag }),
+            ...(providerCalendar.kind !== undefined && { kind: providerCalendar.kind }),
             ...(providerCalendar.summary !== undefined && { summary: providerCalendar.summary }),
             ...(providerCalendar.description !== undefined && { description: providerCalendar.description }),
             ...(providerCalendar.location !== undefined && { location: providerCalendar.location }),

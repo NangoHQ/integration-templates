@@ -4,7 +4,13 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-        maxResults: z.number().optional().describe('Maximum number of entries returned on one result page. By default 100, never larger than 250.')
+        maxResults: z
+            .number()
+            .int()
+            .min(1)
+            .max(250)
+            .optional()
+            .describe('Maximum number of entries returned on one result page. By default 100, never larger than 250.')
     })
     .describe('Input for listing calendar settings');
 

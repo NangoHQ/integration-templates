@@ -8,10 +8,16 @@ const EventTimeInputSchema = z.object({
 });
 
 const AttendeeInputSchema = z.object({
+    id: z.string().optional().describe('The attendee profile ID, if known.'),
     email: z.string().optional().describe("The attendee's email address."),
     displayName: z.string().optional().describe("The attendee's display name, if available."),
+    organizer: z.boolean().optional().describe('Whether the attendee is the organizer of the event.'),
+    self: z.boolean().optional().describe('Whether this entry represents the calendar on which this copy of the event appears.'),
+    resource: z.boolean().optional().describe('Whether the attendee is a resource.'),
     optional: z.boolean().optional().describe('Whether this is an optional attendee.'),
-    responseStatus: z.string().optional().describe("The attendee's response status: needsAction, declined, tentative, or accepted.")
+    responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional().describe("The attendee's response status."),
+    comment: z.string().optional().describe("The attendee's response comment."),
+    additionalGuests: z.number().optional().describe('Number of additional guests the attendee is bringing.')
 });
 
 const ReminderOverrideInputSchema = z.object({
@@ -28,16 +34,20 @@ const InputSchema = z
     .object({
         calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar or a calendar ID from calendarList.list.'),
         eventId: z.string().describe('Event identifier.'),
-        summary: z.string().optional().describe('Title of the event.'),
-        description: z.string().optional().describe('Description of the event. Can contain HTML.'),
-        location: z.string().optional().describe('Geographic location of the event as free-form text.'),
-        start: EventTimeInputSchema.optional().describe('The inclusive start time of the event.'),
-        end: EventTimeInputSchema.optional().describe('The exclusive end time of the event.'),
-        attendees: z.array(AttendeeInputSchema).optional().describe('The attendees of the event. Specifying this overwrites the existing attendee list.'),
+        summary: z.string().nullable().optional().describe('Title of the event. Set to null to clear.'),
+        description: z.string().nullable().optional().describe('Description of the event. Can contain HTML. Set to null to clear.'),
+        location: z.string().nullable().optional().describe('Geographic location of the event as free-form text. Set to null to clear.'),
+        start: EventTimeInputSchema.nullable().optional().describe('The inclusive start time of the event. Set to null to clear.'),
+        end: EventTimeInputSchema.nullable().optional().describe('The exclusive end time of the event. Set to null to clear.'),
+        attendees: z
+            .array(AttendeeInputSchema)
+            .nullable()
+            .optional()
+            .describe('The attendees of the event. Specifying this overwrites the existing attendee list. Set to null to clear.'),
         reminders: RemindersInputSchema.optional().describe('Reminders for the authenticated user for this event.'),
         status: z.string().optional().describe('Status of the event: confirmed, tentative, or cancelled.'),
-        visibility: z.string().optional().describe('Visibility of the event: default, public, private, or confidential.'),
-        colorId: z.string().optional().describe('Color ID of the event referencing the colors endpoint.'),
+        visibility: z.string().nullable().optional().describe('Visibility of the event: default, public, private, or confidential. Set to null to clear.'),
+        colorId: z.string().nullable().optional().describe('Color ID of the event referencing the colors endpoint. Set to null to clear.'),
         sendUpdates: z.string().optional().describe('Guests to notify about the event update: all, externalOnly, or none.')
     })
     .describe('Input for updating a calendar event.');
@@ -49,12 +59,16 @@ const ProviderEventTimeSchema = z.object({
 });
 
 const ProviderAttendeeSchema = z.object({
+    id: z.string().nullish(),
     email: z.string().nullish(),
     displayName: z.string().nullish(),
+    organizer: z.boolean().nullish(),
+    self: z.boolean().nullish(),
+    resource: z.boolean().nullish(),
     optional: z.boolean().nullish(),
     responseStatus: z.string().nullish(),
-    organizer: z.boolean().nullish(),
-    self: z.boolean().nullish()
+    comment: z.string().nullish(),
+    additionalGuests: z.number().nullish()
 });
 
 const ProviderReminderOverrideSchema = z.object({
@@ -79,6 +93,7 @@ const ProviderEventSchema = z.object({
     description: z.string().nullish(),
     location: z.string().nullish(),
     status: z.string().nullish(),
+    visibility: z.string().nullish(),
     htmlLink: z.string().nullish(),
     created: z.string().nullish(),
     updated: z.string().nullish(),
@@ -99,12 +114,16 @@ const EventTimeOutputSchema = z.object({
 });
 
 const AttendeeOutputSchema = z.object({
+    id: z.string().optional().describe('The attendee profile ID, if known.'),
     email: z.string().optional().describe("The attendee's email address."),
     displayName: z.string().optional().describe("The attendee's display name."),
+    organizer: z.boolean().optional().describe('Whether the attendee is the organizer.'),
+    self: z.boolean().optional().describe('Whether this entry represents the calendar on which this copy of the event appears.'),
+    resource: z.boolean().optional().describe('Whether the attendee is a resource.'),
     optional: z.boolean().optional().describe('Whether this is an optional attendee.'),
     responseStatus: z.string().optional().describe("The attendee's response status."),
-    organizer: z.boolean().optional().describe('Whether the attendee is the organizer.'),
-    self: z.boolean().optional().describe('Whether this entry represents the calendar on which this copy of the event appears.')
+    comment: z.string().optional().describe("The attendee's response comment."),
+    additionalGuests: z.number().optional().describe('Number of additional guests the attendee is bringing.')
 });
 
 const ReminderOverrideOutputSchema = z.object({
@@ -124,6 +143,7 @@ const OutputSchema = z
         description: z.string().optional().describe('Description of the event.'),
         location: z.string().optional().describe('Geographic location of the event.'),
         status: z.string().optional().describe('Status of the event.'),
+        visibility: z.string().optional().describe('Visibility of the event: default, public, private, or confidential.'),
         htmlLink: z.string().optional().describe('Absolute link to this event in the Google Calendar Web UI.'),
         created: z.string().optional().describe('Creation time of the event as an RFC3339 timestamp.'),
         updated: z.string().optional().describe('Last modification time of the event as an RFC3339 timestamp.'),
@@ -197,6 +217,7 @@ const action = createAction({
             ...(providerEvent.description != null && { description: providerEvent.description }),
             ...(providerEvent.location != null && { location: providerEvent.location }),
             ...(providerEvent.status != null && { status: providerEvent.status }),
+            ...(providerEvent.visibility != null && { visibility: providerEvent.visibility }),
             ...(providerEvent.htmlLink != null && { htmlLink: providerEvent.htmlLink }),
             ...(providerEvent.created != null && { created: providerEvent.created }),
             ...(providerEvent.updated != null && { updated: providerEvent.updated }),
@@ -216,12 +237,16 @@ const action = createAction({
             }),
             ...(providerEvent.attendees != null && {
                 attendees: providerEvent.attendees.map((attendee) => ({
+                    ...(attendee.id != null && { id: attendee.id }),
                     ...(attendee.email != null && { email: attendee.email }),
                     ...(attendee.displayName != null && { displayName: attendee.displayName }),
+                    ...(attendee.organizer != null && { organizer: attendee.organizer }),
+                    ...(attendee.self != null && { self: attendee.self }),
+                    ...(attendee.resource != null && { resource: attendee.resource }),
                     ...(attendee.optional != null && { optional: attendee.optional }),
                     ...(attendee.responseStatus != null && { responseStatus: attendee.responseStatus }),
-                    ...(attendee.organizer != null && { organizer: attendee.organizer }),
-                    ...(attendee.self != null && { self: attendee.self })
+                    ...(attendee.comment != null && { comment: attendee.comment }),
+                    ...(attendee.additionalGuests != null && { additionalGuests: attendee.additionalGuests })
                 }))
             }),
             ...(providerEvent.reminders != null && {

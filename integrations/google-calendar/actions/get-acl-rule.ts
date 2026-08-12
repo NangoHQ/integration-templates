@@ -3,8 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        calendar_id: z.string().describe('Calendar identifier. Use "primary" for the primary calendar of the authenticated user.'),
-        rule_id: z.string().describe('ACL rule identifier.')
+        calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar of the authenticated user.'),
+        ruleId: z.string().describe('ACL rule identifier.')
     })
     .describe('Input to retrieve a single access control rule from a calendar.');
 
@@ -52,14 +52,14 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developers.google.com/workspace/calendar/api/v3/reference/acl/get
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/acl/${encodeURIComponent(input.rule_id)}`,
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}/acl/${encodeURIComponent(input.ruleId)}`,
             retries: 3
         });
 
         if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `ACL rule ${input.rule_id} not found on calendar ${input.calendar_id}`
+                message: `ACL rule ${input.ruleId} not found on calendar ${input.calendarId}`
             });
         }
 

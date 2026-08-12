@@ -1,34 +1,29 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const CalendarItemSchema = z
-    .object({
-        id: z.string().describe('Calendar or group identifier to query. Example: "primary" or "user@example.com"')
-    })
-    .describe('A calendar or group to include in the free/busy query.');
+const TimeMinSchema = z.string().describe('Start of the time range in RFC3339 format. Example: "2024-03-15T09:00:00Z"');
+const TimeMaxSchema = z.string().describe('End of the time range in RFC3339 format. Example: "2024-03-15T17:00:00Z"');
 
 const InputSchema = z
     .object({
-        timeMin: z.string().describe('Start of the query interval as an RFC3339 timestamp. Example: "2024-01-15T09:00:00Z"'),
-        timeMax: z.string().describe('End of the query interval as an RFC3339 timestamp. Example: "2024-01-15T17:00:00Z"'),
+        calendarIds: z.array(z.string()).describe('List of calendar IDs to check for free/busy information. Example: ["primary", "work@example.com"]'),
+        timeMin: TimeMinSchema,
+        timeMax: TimeMaxSchema,
         timeZone: z.string().optional().describe('Time zone used in the response. Defaults to UTC if omitted. Example: "America/New_York"'),
-        items: z.array(CalendarItemSchema).describe('Calendars and/or groups to query for free/busy information.'),
-        minimumDurationMinutes: z.number().int().min(1).describe('Minimum duration in minutes for a returned free slot.')
+        durationMinutes: z.number().min(1).describe('Minimum duration in minutes for a free slot to be returned. Example: 30')
     })
     .describe('Input for finding free time slots across calendars.');
 
-const FreeSlotSchema = z
-    .object({
-        start: z.string().describe('RFC3339 start of the free slot.'),
-        end: z.string().describe('RFC3339 end of the free slot.')
-    })
-    .describe('A contiguous time gap where all queried calendars are free.');
+const FreeSlotSchema = z.object({
+    start: z.string().describe('Start time of the free slot in RFC3339 format'),
+    end: z.string().describe('End time of the free slot in RFC3339 format'),
+    durationMinutes: z.number().describe('Duration of the free slot in minutes')
+});
 
-const OutputSchema = z
-    .object({
-        freeSlots: z.array(FreeSlotSchema).describe('Time gaps during which all queried calendars are free and that meet the minimum duration.')
-    })
-    .describe('Output containing free time slots that satisfy the minimum duration.');
+const OutputSchema = z.object({
+    freeSlots: z.array(FreeSlotSchema).describe('List of free time slots meeting the minimum duration'),
+    calendarsChecked: z.number().describe('Number of calendars checked')
+});
 
 const BusyIntervalSchema = z.object({
     start: z.string(),
@@ -45,10 +40,16 @@ const CalendarFreeBusySchema = z.object({
     errors: z.array(CalendarErrorSchema).optional()
 });
 
+const GroupFreeBusySchema = z.object({
+    calendars: z.array(z.string()).optional(),
+    errors: z.array(CalendarErrorSchema).optional()
+});
+
 const FreeBusyResponseSchema = z.object({
     timeMin: z.string(),
     timeMax: z.string(),
-    calendars: z.record(z.string(), CalendarFreeBusySchema).optional()
+    calendars: z.record(z.string(), CalendarFreeBusySchema).optional(),
+    groups: z.record(z.string(), GroupFreeBusySchema).optional()
 });
 
 /**
@@ -61,18 +62,16 @@ const action = createAction({
     version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
+    scopes: ['https://www.googleapis.com/auth/calendar.readonly', 'https://www.googleapis.com/auth/calendar.freebusy'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const requestItems = input.items.map((item) => ({ id: item.id }));
-
         // https://developers.google.com/workspace/calendar/api/v3/reference/freebusy/query
         const response = await nango.post({
             endpoint: '/calendar/v3/freeBusy',
             data: {
                 timeMin: input.timeMin,
                 timeMax: input.timeMax,
-                items: requestItems,
+                items: input.calendarIds.map((id) => ({ id })),
                 ...(input.timeZone !== undefined && { timeZone: input.timeZone })
             },
             retries: 3
@@ -80,7 +79,31 @@ const action = createAction({
 
         const freeBusy = FreeBusyResponseSchema.parse(response.data);
         const calendars = freeBusy.calendars ?? {};
-        const allBusy: Array<{ start: string; end: string }> = [];
+        const groups = freeBusy.groups ?? {};
+
+        // Propagate group-expansion errors instead of silently dropping them.
+        for (const [groupId, group] of Object.entries(groups)) {
+            if (group.errors && group.errors.length > 0) {
+                const reasons = group.errors.map((error) => error.reason);
+                throw new nango.ActionError({
+                    type: 'calendar_error',
+                    message: `Group "${groupId}" returned errors: ${reasons.join(', ')}`
+                });
+            }
+        }
+
+        // A requested calendar/group that is entirely absent from the response would
+        // otherwise be silently treated as fully free; fail instead of guessing.
+        for (const id of input.calendarIds) {
+            if (!(id in calendars) && !(id in groups)) {
+                throw new nango.ActionError({
+                    type: 'calendar_error',
+                    message: `No free/busy data returned for "${id}"`
+                });
+            }
+        }
+
+        const allBusyPeriods: Array<{ start: string; end: string }> = [];
 
         for (const [calendarId, calendarData] of Object.entries(calendars)) {
             if (calendarData.errors && calendarData.errors.length > 0) {
@@ -91,101 +114,124 @@ const action = createAction({
                 });
             }
 
-            for (const interval of calendarData.busy) {
-                allBusy.push({ start: interval.start, end: interval.end });
+            for (const period of calendarData.busy) {
+                allBusyPeriods.push({ start: period.start, end: period.end });
             }
         }
 
-        if (allBusy.length === 0) {
-            const durationMs = new Date(input.timeMax).getTime() - new Date(input.timeMin).getTime();
-            const durationMinutes = Math.floor(durationMs / 60000);
+        const calendarCount = Object.keys(calendars).length;
 
-            if (durationMinutes >= input.minimumDurationMinutes) {
-                return {
-                    freeSlots: [{ start: input.timeMin, end: input.timeMax }]
-                };
-            }
+        // Sort busy periods by start time
+        allBusyPeriods.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
 
-            return { freeSlots: [] };
-        }
+        // Merge overlapping busy periods
+        const mergedBusyPeriods: Array<{ start: string; end: string }> = [];
 
-        allBusy.sort((a, b) => {
-            const aStart = new Date(a.start).getTime();
-            const bStart = new Date(b.start).getTime();
-            return aStart - bStart;
-        });
-
-        const merged: Array<{ start: string; end: string }> = [];
-        for (const interval of allBusy) {
-            if (merged.length === 0) {
-                merged.push({ start: interval.start, end: interval.end });
+        for (const period of allBusyPeriods) {
+            if (mergedBusyPeriods.length === 0) {
+                mergedBusyPeriods.push(period);
                 continue;
             }
 
-            const last = merged[merged.length - 1];
-            if (!last) {
-                merged.push({ start: interval.start, end: interval.end });
+            const lastPeriod = mergedBusyPeriods[mergedBusyPeriods.length - 1];
+            if (!lastPeriod) {
+                mergedBusyPeriods.push(period);
                 continue;
             }
 
-            const lastEnd = new Date(last.end).getTime();
-            const currentStart = new Date(interval.start).getTime();
-            const currentEnd = new Date(interval.end).getTime();
+            const lastEnd = new Date(lastPeriod.end).getTime();
+            const currentStart = new Date(period.start).getTime();
 
             if (currentStart <= lastEnd) {
+                // Overlapping or contiguous - merge them
+                const currentEnd = new Date(period.end).getTime();
                 if (currentEnd > lastEnd) {
-                    last.end = interval.end;
+                    lastPeriod.end = period.end;
                 }
             } else {
-                merged.push({ start: interval.start, end: interval.end });
+                // No overlap - add new period
+                mergedBusyPeriods.push(period);
             }
         }
 
-        const freeSlots: Array<{ start: string; end: string }> = [];
-        const minDurationMs = input.minimumDurationMinutes * 60000;
+        // Find free slots (gaps between busy periods)
+        const freeSlots: Array<{ start: string; end: string; durationMinutes: number }> = [];
         const rangeStart = new Date(input.timeMin).getTime();
         const rangeEnd = new Date(input.timeMax).getTime();
+        const minDurationMs = input.durationMinutes * 60 * 1000;
 
-        const firstMerged = merged[0];
-        if (firstMerged) {
-            const firstBusyStart = new Date(firstMerged.start).getTime();
-            if (firstBusyStart > rangeStart) {
-                const gapMs = firstBusyStart - rangeStart;
-                if (gapMs >= minDurationMs) {
-                    freeSlots.push({ start: input.timeMin, end: firstMerged.start });
+        if (mergedBusyPeriods.length === 0) {
+            // No busy periods at all - entire range is free
+            const totalDuration = rangeEnd - rangeStart;
+            if (totalDuration >= minDurationMs) {
+                freeSlots.push({
+                    start: input.timeMin,
+                    end: input.timeMax,
+                    durationMinutes: Math.floor(totalDuration / (60 * 1000))
+                });
+            }
+        } else {
+            // Check for free time before first busy period
+            const firstBusyPeriod = mergedBusyPeriods[0];
+            if (firstBusyPeriod) {
+                const firstBusyStart = new Date(firstBusyPeriod.start).getTime();
+                if (firstBusyStart > rangeStart) {
+                    const gapDuration = firstBusyStart - rangeStart;
+                    if (gapDuration >= minDurationMs) {
+                        freeSlots.push({
+                            start: input.timeMin,
+                            end: firstBusyPeriod.start,
+                            durationMinutes: Math.floor(gapDuration / (60 * 1000))
+                        });
+                    }
+                }
+            }
+
+            // Check gaps between busy periods
+            for (let i = 0; i < mergedBusyPeriods.length - 1; i++) {
+                const currentPeriod = mergedBusyPeriods[i];
+                const nextPeriod = mergedBusyPeriods[i + 1];
+
+                if (!currentPeriod || !nextPeriod) {
+                    continue;
+                }
+
+                const currentEnd = new Date(currentPeriod.end).getTime();
+                const nextStart = new Date(nextPeriod.start).getTime();
+
+                if (nextStart > currentEnd) {
+                    const gapDuration = nextStart - currentEnd;
+                    if (gapDuration >= minDurationMs) {
+                        freeSlots.push({
+                            start: currentPeriod.end,
+                            end: nextPeriod.start,
+                            durationMinutes: Math.floor(gapDuration / (60 * 1000))
+                        });
+                    }
+                }
+            }
+
+            // Check for free time after last busy period
+            const lastBusyPeriod = mergedBusyPeriods[mergedBusyPeriods.length - 1];
+            if (lastBusyPeriod) {
+                const lastBusyEnd = new Date(lastBusyPeriod.end).getTime();
+                if (lastBusyEnd < rangeEnd) {
+                    const gapDuration = rangeEnd - lastBusyEnd;
+                    if (gapDuration >= minDurationMs) {
+                        freeSlots.push({
+                            start: lastBusyPeriod.end,
+                            end: input.timeMax,
+                            durationMinutes: Math.floor(gapDuration / (60 * 1000))
+                        });
+                    }
                 }
             }
         }
 
-        for (let i = 0; i < merged.length - 1; i++) {
-            const current = merged[i];
-            const next = merged[i + 1];
-            if (!current || !next) {
-                continue;
-            }
-
-            const currentEnd = new Date(current.end).getTime();
-            const nextStart = new Date(next.start).getTime();
-            if (nextStart > currentEnd) {
-                const gapMs = nextStart - currentEnd;
-                if (gapMs >= minDurationMs) {
-                    freeSlots.push({ start: current.end, end: next.start });
-                }
-            }
-        }
-
-        const lastMerged = merged[merged.length - 1];
-        if (lastMerged) {
-            const lastBusyEnd = new Date(lastMerged.end).getTime();
-            if (rangeEnd > lastBusyEnd) {
-                const gapMs = rangeEnd - lastBusyEnd;
-                if (gapMs >= minDurationMs) {
-                    freeSlots.push({ start: lastMerged.end, end: input.timeMax });
-                }
-            }
-        }
-
-        return { freeSlots };
+        return {
+            freeSlots,
+            calendarsChecked: calendarCount
+        };
     }
 });
 

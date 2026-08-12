@@ -8,7 +8,7 @@ const InputSchema = z
         address: z.string().describe('The URL where notifications are delivered for this channel.'),
         type: z.string().optional().describe('The type of delivery mechanism. Valid values are "web_hook" or "webhook". Defaults to "web_hook".'),
         token: z.string().optional().describe('An arbitrary string delivered to the target address with each notification.'),
-        ttl: z.string().optional().describe('Time-to-live in seconds for the notification channel. Default is 604800 seconds (7 days).')
+        ttl: z.number().int().optional().describe('Time-to-live in seconds for the notification channel. Default is 604800 seconds (7 days).')
     })
     .describe('Input to subscribe to event changes on a Google Calendar.');
 
@@ -19,7 +19,7 @@ const OutputSchema = z
         resourceId: z.string().describe('An opaque ID that identifies the resource being watched on this channel.'),
         resourceUri: z.string().describe('A version-specific identifier for the watched resource.'),
         token: z.string().optional().describe('An arbitrary string delivered to the target address with each notification.'),
-        expiration: z.number().optional().describe('Date and time of notification channel expiration as a Unix timestamp in milliseconds.')
+        expiration: z.string().optional().describe('Expiration time as a Unix timestamp (long), or omitted if no expiration.')
     })
     .describe('Output of a successful calendar event watch subscription, containing channel and resource identifiers.');
 
@@ -55,7 +55,7 @@ const action = createAction({
         }
 
         if (input.ttl !== undefined) {
-            body.params = { ttl: input.ttl };
+            body.params = { ttl: String(input.ttl) };
         }
 
         const response = await nango.post({
@@ -76,12 +76,7 @@ const action = createAction({
             })
             .parse(response.data);
 
-        const parsedExpiration =
-            providerResponse.expiration !== undefined
-                ? typeof providerResponse.expiration === 'string'
-                    ? Number(providerResponse.expiration)
-                    : providerResponse.expiration
-                : undefined;
+        const parsedExpiration = providerResponse.expiration !== undefined ? String(providerResponse.expiration) : undefined;
 
         return {
             kind: providerResponse.kind,

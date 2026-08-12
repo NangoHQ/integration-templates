@@ -13,7 +13,7 @@ const NotificationSchema = z.object({
 
 const InputSchema = z
     .object({
-        id: z.string().describe('Identifier of the calendar to add to the list. Example: "primary" or an email address.'),
+        calendarId: z.string().describe('Identifier of the calendar to add to the list. Example: "primary" or an email address.'),
         colorRgbFormat: z
             .boolean()
             .optional()
@@ -136,7 +136,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {
-            id: input.id
+            id: input.calendarId
         };
 
         if (input.backgroundColor !== undefined) {

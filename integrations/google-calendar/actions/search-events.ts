@@ -7,7 +7,7 @@ const InputSchema = z
         query: z.string().optional().describe('Free text search terms to find events matching these terms.'),
         timeMin: z.string().optional().describe("Lower bound (exclusive) for an event's end time. Must be an RFC3339 timestamp."),
         timeMax: z.string().optional().describe("Upper bound (exclusive) for an event's start time. Must be an RFC3339 timestamp."),
-        maxResults: z.number().optional().describe('Maximum number of events returned on one result page. Default is 250.'),
+        maxResults: z.number().int().min(1).max(2500).optional().describe('Maximum number of events returned on one result page. Default is 250.'),
         cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
     })
     .describe('Input for searching calendar events.');
@@ -156,12 +156,12 @@ const action = createAction({
 
         const response = await nango.get({
             // https://developers.google.com/workspace/calendar/api/v3/reference/events/list
-            endpoint: `calendar/v3/calendars/${encodeURIComponent(calendarId)}/events`,
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events`,
             params: {
                 ...(input.query !== undefined && { q: input.query }),
                 ...(input.timeMin !== undefined && { timeMin: input.timeMin }),
                 ...(input.timeMax !== undefined && { timeMax: input.timeMax }),
-                ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+                ...(input.maxResults !== undefined && { maxResults: String(input.maxResults) }),
                 ...(input.cursor !== undefined && { pageToken: input.cursor })
             },
             retries: 3

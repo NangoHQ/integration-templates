@@ -3,12 +3,15 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        calendar_id: z.string().describe('Calendar ID containing the event. Example: "primary" or "abc123@group.calendar.google.com"'),
-        event_id: z.string().describe('Event ID to delete. Example: "m1s4a7vgu68bbliv0ganj6fhio"')
+        calendarId: z.string().describe('Calendar ID containing the event. Example: "primary" or "abc123@group.calendar.google.com"'),
+        eventId: z.string().describe('Event ID to delete. Example: "m1s4a7vgu68bbliv0ganj6fhio"')
     })
     .describe('Parameters for deleting a calendar event');
 
-const OutputSchema = z.object({}).describe('Empty success response');
+const OutputSchema = z.object({
+    success: z.boolean(),
+    message: z.string()
+});
 
 /**
  * @tags: [write, destructive]
@@ -20,16 +23,19 @@ const action = createAction({
     version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.google.com/calendar/api/v3/reference/events/delete
+        // https://developers.google.com/workspace/calendar/api/v3/reference/events/delete
         await nango.delete({
-            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendar_id)}/events/${encodeURIComponent(input.event_id)}`,
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}/events/${encodeURIComponent(input.eventId)}`,
             retries: 3
         });
 
-        return {};
+        return {
+            success: true,
+            message: `Event ${input.eventId} successfully deleted from calendar ${input.calendarId}`
+        };
     }
 });
 

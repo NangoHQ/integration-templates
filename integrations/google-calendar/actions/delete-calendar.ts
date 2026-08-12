@@ -7,6 +7,11 @@ const InputSchema = z
     })
     .describe('Input for deleting a Google Calendar.');
 
+const OutputSchema = z.object({
+    success: z.boolean(),
+    calendarId: z.string()
+});
+
 /**
  * @tags: [write, destructive]
  * @tagReason: Permanently deletes a secondary calendar from Google Calendar.
@@ -16,17 +21,20 @@ const action = createAction({
     description: 'Delete a calendar',
     version: '2.0.2',
     input: InputSchema,
-    output: z.null(),
+    output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar'],
 
-    exec: async (nango, input): Promise<null> => {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/calendar/api/v3/reference/calendars/delete
         await nango.delete({
             endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}`,
-            retries: 1
+            retries: 3
         });
 
-        return null;
+        return {
+            success: true,
+            calendarId: input.calendarId
+        };
     }
 });
 

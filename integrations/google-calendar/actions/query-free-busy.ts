@@ -1,6 +1,10 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const CalendarItemSchema = z.object({
+    id: z.string().describe('The identifier of a calendar or a group')
+});
+
 const InputSchema = z
     .object({
         timeMin: z.string().describe('The start of the interval for the query in RFC3339 format. Example: "2024-01-01T00:00:00Z"'),
@@ -16,71 +20,54 @@ const InputSchema = z
             .int()
             .optional()
             .describe('Maximal number of calendars for which FreeBusy information is to be provided. Maximum value is 50.'),
-        calendarIds: z.array(z.string()).describe('List of calendar identifiers to query.')
+        items: z.array(CalendarItemSchema).describe('List of calendars and/or groups to query')
     })
     .describe('Input for querying free/busy information for one or more calendars.');
 
-const BusyBlockSchema = z
-    .object({
-        start: z.string().describe('The inclusive start of the busy period in RFC3339 format.'),
-        end: z.string().describe('The exclusive end of the busy period in RFC3339 format.')
-    })
-    .describe('A single busy time block for a calendar.');
-
-const CalendarErrorSchema = z
+const ErrorSchema = z
     .object({
         domain: z.string().describe('Error domain.'),
         reason: z.string().describe('Error reason.')
     })
     .describe('An error entry returned for a specific calendar or group.');
 
+const BusyPeriodSchema = z
+    .object({
+        start: z.string().describe('The inclusive start of the busy period in RFC3339 format.'),
+        end: z.string().describe('The exclusive end of the busy period in RFC3339 format.')
+    })
+    .describe('A single busy time block for a calendar.');
+
 const CalendarFreeBusySchema = z
     .object({
-        calendarId: z.string().describe('Calendar identifier.'),
-        busy: z.array(BusyBlockSchema).describe('List of busy time ranges for this calendar.'),
-        errors: z.array(CalendarErrorSchema).optional().describe('Optional errors if computation for this calendar failed.')
+        errors: z.array(ErrorSchema).optional().describe('Optional errors if computation for this calendar failed.'),
+        busy: z.array(BusyPeriodSchema).describe('List of busy time ranges for this calendar.')
     })
     .describe('Free/busy information for a single calendar.');
 
+const GroupSchema = z
+    .object({
+        errors: z.array(ErrorSchema).optional().describe('Optional errors if the group could not be expanded.'),
+        calendars: z.array(z.string()).describe('List of calendar identifiers that this group was expanded to.')
+    })
+    .describe('Free/busy information for a single group of calendars.');
+
 const OutputSchema = z
     .object({
+        kind: z.string().describe('Type of the resource ("calendar#freeBusy").'),
         timeMin: z.string().describe('The start of the queried interval in RFC3339 format.'),
         timeMax: z.string().describe('The end of the queried interval in RFC3339 format.'),
-        calendars: z.array(CalendarFreeBusySchema).describe('Free/busy information for each requested calendar.')
+        groups: z.record(z.string(), GroupSchema).optional().describe('Free/busy information for groups, keyed by group identifier.'),
+        calendars: z.record(z.string(), CalendarFreeBusySchema).describe('Free/busy information for each requested calendar, keyed by calendar identifier.')
     })
     .describe('Output containing free/busy blocks for the requested calendars.');
 
-const ProviderErrorSchema = z.object({
-    domain: z.string(),
-    reason: z.string()
-});
-
-const ProviderCalendarSchema = z.object({
-    errors: z.array(ProviderErrorSchema).optional(),
-    busy: z
-        .array(
-            z.object({
-                start: z.string(),
-                end: z.string()
-            })
-        )
-        .optional()
-});
-
 const ProviderResponseSchema = z.object({
-    kind: z.string().optional(),
+    kind: z.string(),
     timeMin: z.string(),
     timeMax: z.string(),
-    groups: z
-        .record(
-            z.string(),
-            z.object({
-                errors: z.array(ProviderErrorSchema).optional(),
-                calendars: z.array(z.string()).optional()
-            })
-        )
-        .optional(),
-    calendars: z.record(z.string(), ProviderCalendarSchema).optional()
+    groups: z.record(z.string(), GroupSchema).optional(),
+    calendars: z.record(z.string(), CalendarFreeBusySchema).optional()
 });
 
 /**
@@ -105,33 +92,19 @@ const action = createAction({
                 ...(input.timeZone !== undefined && { timeZone: input.timeZone }),
                 ...(input.groupExpansionMax !== undefined && { groupExpansionMax: input.groupExpansionMax }),
                 ...(input.calendarExpansionMax !== undefined && { calendarExpansionMax: input.calendarExpansionMax }),
-                items: input.calendarIds.map((id) => ({ id }))
+                items: input.items
             },
             retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        const calendars: z.infer<typeof CalendarFreeBusySchema>[] = [];
-        if (providerResponse.calendars) {
-            for (const [calendarId, cal] of Object.entries(providerResponse.calendars)) {
-                const busy = (cal.busy || []).map((block) => ({
-                    start: block.start,
-                    end: block.end
-                }));
-                const errors = cal.errors;
-                calendars.push({
-                    calendarId,
-                    busy,
-                    ...(errors !== undefined && errors.length > 0 && { errors })
-                });
-            }
-        }
-
         return {
+            kind: providerResponse.kind,
             timeMin: providerResponse.timeMin,
             timeMax: providerResponse.timeMax,
-            calendars
+            ...(providerResponse.groups !== undefined && { groups: providerResponse.groups }),
+            calendars: providerResponse.calendars ?? {}
         };
     }
 });

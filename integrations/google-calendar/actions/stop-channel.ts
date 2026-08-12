@@ -9,7 +9,9 @@ const InputSchema = z
     })
     .describe('Parameters required to stop an active push notification channel.');
 
-const OutputSchema = z.object({}).describe('Empty response confirming the channel was stopped.');
+const OutputSchema = z.object({
+    success: z.boolean()
+});
 
 /**
  * @tags: [write, destructive]
@@ -21,7 +23,7 @@ const action = createAction({
     version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
@@ -37,7 +39,7 @@ const action = createAction({
 
         await nango.post(config);
 
-        return {};
+        return { success: true };
     }
 });
 

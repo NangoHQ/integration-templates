@@ -48,6 +48,7 @@ const ProviderEventSchema = z.object({
     updated: z.string().optional(),
     start: ProviderEventTimeSchema.optional(),
     end: ProviderEventTimeSchema.optional(),
+    creator: ProviderOrganizerSchema.optional(),
     organizer: ProviderOrganizerSchema.optional(),
     attendees: z.array(ProviderAttendeeSchema).optional()
 });
@@ -78,6 +79,14 @@ const OutputSchema = z
             })
             .optional()
             .describe('End time of the event.'),
+        creator: z
+            .object({
+                email: z.string().optional().describe('Creator email address.'),
+                displayName: z.string().optional().describe('Creator display name.'),
+                self: z.boolean().optional().describe('Whether the creator corresponds to the calendar on which this copy of the event appears.')
+            })
+            .optional()
+            .describe('Creator of the event.'),
         organizer: z
             .object({
                 email: z.string().optional().describe('Organizer email address.'),
@@ -151,6 +160,13 @@ const action = createAction({
                     ...(providerEvent.end.date !== undefined && { date: providerEvent.end.date }),
                     ...(providerEvent.end.dateTime !== undefined && { dateTime: providerEvent.end.dateTime }),
                     ...(providerEvent.end.timeZone !== undefined && { timeZone: providerEvent.end.timeZone })
+                }
+            }),
+            ...(providerEvent.creator !== undefined && {
+                creator: {
+                    ...(providerEvent.creator.email !== undefined && { email: providerEvent.creator.email }),
+                    ...(providerEvent.creator.displayName !== undefined && { displayName: providerEvent.creator.displayName }),
+                    ...(providerEvent.creator.self !== undefined && { self: providerEvent.creator.self })
                 }
             }),
             ...(providerEvent.organizer !== undefined && {
